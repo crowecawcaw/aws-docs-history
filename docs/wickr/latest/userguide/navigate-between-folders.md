@@ -1,22 +1,24 @@
-This guide provides documentation for AWS Wickr. For Wickr
-Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](../enterpriseadminguide/what-is-wickr.md "../enterpriseadminguide/what-is-wickr.md").
+
+
+This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Navigate between folders in the Wickr client
+<a name="navigate-between-folders"></a>
 
 You can navigate between folders in a room in the Wickr client.
 
 To navigate between folders in a room, complete the following steps.
 
-1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2 "getting-started.md#sign-in-step2").
-2. In the navigation pane, find and choose a room or group.
-3. Choose the **Files** tab at the top of the room in
-   Wickr client.
-4. Choose the folder you want to view.
-5. On desktop, to move out of the current folder and back to the previous
-   one, select the folder link in the upper left corner.
+1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2).
 
-![Folders link.](images/wickr-file-management-folders.png)
+1. In the navigation pane, find and choose a room or group.
 
-On mobile, select the Back button.
+1. Choose the **Files** tab at the top of the room in Wickr client.
 
-![Mobile back button.](images/wickr-file-management-mobile-button.png)
+1. Choose the folder you want to view.
+
+1. On desktop, to move out of the current folder and back to the previous one, select the folder link in the upper left corner.  
+![Folders link.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-file-management-folders.png)
+
+   On mobile, select the Back button.  
+![Mobile back button.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-file-management-mobile-button.png)

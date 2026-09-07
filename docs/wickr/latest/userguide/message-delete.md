@@ -1,22 +1,22 @@
-This guide provides documentation for AWS Wickr. For Wickr
-Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](../enterpriseadminguide/what-is-wickr.md "../enterpriseadminguide/what-is-wickr.md").
+
+
+This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is the on-premises version of Wickr, see [Enterprise Administration Guide](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/what-is-wickr.html).
 
 # Delete messages and data in the Wickr client
+<a name="message-delete"></a>
 
-You can delete messages and data that you've exchanged with another Wickr
-user.
+You can delete messages and data that you've exchanged with another Wickr user.
 
 To delete messages and data, complete the following steps.
 
-1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2 "getting-started.md#sign-in-step2").
-2. In the navigation pane, find and select the name of the user whose messages
-   and data you want to delete.
-3. Select the information icon (
-   ![Information icon](images/icon-wickr-user-information.png)
-   ) in the message window to view contact details.
-4. In the **Contact Details** pane that appears, select
-   **Delete Messages and Data**.
+1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2).
 
-![The Delete Message option.](images/wickr-emoji-delete-messages.png) 5. Select **Confirm** on the pop-up window.
+1. In the navigation pane, find and select the name of the user whose messages and data you want to delete.
 
-![The Are You Sure? pop-up window.](images/wickr-emoji-delete-messages-are-you-sure.png)
+1. Select the information icon (![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
+
+1. In the **Contact Details** pane that appears, select **Delete Messages and Data**.  
+![The Delete Message option.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-delete-messages.png)
+
+1. Select **Confirm** on the pop-up window.  
+![The Are You Sure? pop-up window.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-delete-messages-are-you-sure.png)
