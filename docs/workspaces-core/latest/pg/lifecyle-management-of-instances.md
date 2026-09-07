@@ -1,58 +1,45 @@
+
+
 # WorkSpaces Core bundles management
+<a name="lifecyle-management-of-instances"></a>
 
-To perform various actions for Amazon WorkSpaces Core, use the following API operations. To help you
-create your workflow, we have provided a recommendation for each API operation. We recommend
-partners solutions use as many of these APIs as possible so that admin customers don’t need to
-access the WorkSpaces console.
-
-- Deployment and setup
-
-  - [CreateTags](../../../workspaces/latest/api/API_CreateTags.md "../../../workspaces/latest/api/API_CreateTags.md")
-  - [DescribeAccount](../../../workspaces/latest/api/API_DescribeAccount.md "../../../workspaces/latest/api/API_DescribeAccount.md")
-  - [DescribeAccountModifications](../../../workspaces/latest/api/API_DescribeAccountModifications.md "../../../workspaces/latest/api/API_DescribeAccountModifications.md")
-  - [ImportWorkspaceImage](../../../workspaces/latest/api/API_ImportWorkspaceImage.md "../../../workspaces/latest/api/API_ImportWorkspaceImage.md")
-  - [ModifyAccount](../../../workspaces/latest/api/API_ModifyAccount.md "../../../workspaces/latest/api/API_ModifyAccount.md")
-  - [ListAvailableManagementCidrRanges](../../../workspaces/latest/api/API_ListAvailableManagementCidrRanges.md "../../../workspaces/latest/api/API_ListAvailableManagementCidrRanges.md")
-  - [RegisterWorkspaceDirectory](../../../workspaces/latest/api/API_RegisterWorkspaceDirectory.md "../../../workspaces/latest/api/API_RegisterWorkspaceDirectory.md")
-
-- Operations
-
-  - [CopyWorkspaceImage](../../../workspaces/latest/api/API_CopyWorkspaceImage.md "../../../workspaces/latest/api/API_CopyWorkspaceImage.md") – Supports an
-    `UpdateWorkspaceBundle` image process and copying from one AWS Region to
-    another Region.
-  - [CreateWorkspaceImage](../../../workspaces/latest/api/API_CreateWorkspaceImage.md "../../../workspaces/latest/api/API_CreateWorkspaceImage.md") – Supports custom images and
-    workflows for day-two operations.
-  - [DescribeTags](../../../workspaces/latest/api/API_DescribeTags.md "../../../workspaces/latest/api/API_DescribeTags.md")
-  - [DescribeWorkspaceBundles](../../../workspaces/latest/api/API_DescribeWorkspaceBundles.md "../../../workspaces/latest/api/API_DescribeWorkspaceBundles.md")
-  - [DescribeWorkspaceDirectories](../../../workspaces/latest/api/API_DescribeWorkspaceDirectories.md "../../../workspaces/latest/api/API_DescribeWorkspaceDirectories.md")
-  - [DescribeWorkspaceImagePermissions](../../../workspaces/latest/api/API_DescribeWorkspaceImagePermissions.md "../../../workspaces/latest/api/API_DescribeWorkspaceImagePermissions.md")
-  - [DescribeWorkspaceImages](../../../workspaces/latest/api/API_DescribeWorkspaceImages.md "../../../workspaces/latest/api/API_DescribeWorkspaceImages.md")
-  - [DescribeWorkspaces](../../../workspaces/latest/api/API_DescribeWorkspaces.md "../../../workspaces/latest/api/API_DescribeWorkspaces.md")
-  - [DescribeWorkspaceSnapshots](../../../workspaces/latest/api/API_DescribeWorkspaceSnapshots.md "../../../workspaces/latest/api/API_DescribeWorkspaceSnapshots.md")
-  - [MigrateWorkspace](../../../workspaces/latest/api/API_MigrateWorkspace.md "../../../workspaces/latest/api/API_MigrateWorkspace.md")
-  - [ModifyWorkspaceCreationProperties](../../../workspaces/latest/api/API_ModifyWorkspaceCreationProperties.md "../../../workspaces/latest/api/API_ModifyWorkspaceCreationProperties.md")
-  - [ModifyWorkspaceProperties](../../../workspaces/latest/api/API_ModifyWorkspaceProperties.md "../../../workspaces/latest/api/API_ModifyWorkspaceProperties.md") – Supports modification of
-    the following properties:
-
-    - [ComputeTypeName](../../../workspaces/latest/api/API_WorkspaceProperties.md "../../../workspaces/latest/api/API_WorkspaceProperties.md")
-    - [RootVolumeSizeGib](../../../workspaces/latest/api/API_WorkspaceProperties.md "../../../workspaces/latest/api/API_WorkspaceProperties.md")
-    - [RunningMode](../../../workspaces/latest/api/API_WorkspaceProperties.md "../../../workspaces/latest/api/API_WorkspaceProperties.md") – BYOP must use
-      `ALWAYS_ON` or `MANUAL`.
-    - [UserVolumeSizeGib](../../../workspaces/latest/api/API_WorkspaceProperties.md "../../../workspaces/latest/api/API_WorkspaceProperties.md")
-
-  - [ModifyWorkspaceState](../../../workspaces/latest/api/API_ModifyWorkspaceState.md "../../../workspaces/latest/api/API_ModifyWorkspaceState.md")
-  - [RebootWorkspaces](../../../workspaces/latest/api/API_RebootWorkspaces.md "../../../workspaces/latest/api/API_RebootWorkspaces.md")
-  - [RebuildWorkspaces](../../../workspaces/latest/api/API_RebuildWorkspaces.md "../../../workspaces/latest/api/API_RebuildWorkspaces.md")
-  - [RestoreWorkspace](../../../workspaces/latest/api/API_RestoreWorkspace.md "../../../workspaces/latest/api/API_RestoreWorkspace.md")
-  - [StartWorkspaces](../../../workspaces/latest/api/API_StartWorkspaces.md "../../../workspaces/latest/api/API_StartWorkspaces.md")
-  - [StopWorkspaces](../../../workspaces/latest/api/API_StopWorkspaces.md "../../../workspaces/latest/api/API_StopWorkspaces.md")
-  - [UpdateWorkspaceBundle](../../../workspaces/latest/api/API_UpdateWorkspaceBundle.md "../../../workspaces/latest/api/API_UpdateWorkspaceBundle.md")
-  - [UpdateWorkspaceImagePermission](../../../workspaces/latest/api/API_UpdateWorkspaceImagePermission.md "../../../workspaces/latest/api/API_UpdateWorkspaceImagePermission.md")
-
-- Termination
-
-  - [DeleteTags](../../../workspaces/latest/api/API_DeleteTags.md "../../../workspaces/latest/api/API_DeleteTags.md")
-  - [DeleteWorkspaceBundle](../../../workspaces/latest/api/API_DeleteWorkspaceBundle.md "../../../workspaces/latest/api/API_DeleteWorkspaceBundle.md")
-  - [DeleteWorkspaceImage](../../../workspaces/latest/api/API_DeleteWorkspaceImage.md "../../../workspaces/latest/api/API_DeleteWorkspaceImage.md")
-  - [DeregisterWorkspaceDirectory](../../../workspaces/latest/api/API_DeregisterWorkspaceDirectory.md "../../../workspaces/latest/api/API_DeregisterWorkspaceDirectory.md")
-  - [TerminateWorkspaces](../../../workspaces/latest/api/API_TerminateWorkspaces.md "../../../workspaces/latest/api/API_TerminateWorkspaces.md")
+ To perform various actions for Amazon WorkSpaces Core, use the following API operations. To help you create your workflow, we have provided a recommendation for each API operation. We recommend partners solutions use as many of these APIs as possible so that admin customers don’t need to access the WorkSpaces console.
++ Deployment and setup
+  + [CreateTags](https://docs.aws.amazon.com/workspaces/latest/api/API_CreateTags.html)
+  + [DescribeAccount](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeAccount.html)
+  + [DescribeAccountModifications](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeAccountModifications.html)
+  + [ImportWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_ImportWorkspaceImage.html)
+  + [ModifyAccount](https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyAccount.html)
+  + [ListAvailableManagementCidrRanges](https://docs.aws.amazon.com/workspaces/latest/api/API_ListAvailableManagementCidrRanges.html)
+  + [RegisterWorkspaceDirectory](https://docs.aws.amazon.com/workspaces/latest/api/API_RegisterWorkspaceDirectory.html)
++ Operations
+  + [CopyWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_CopyWorkspaceImage.html) – Supports an `UpdateWorkspaceBundle` image process and copying from one AWS Region to another Region.
+  + [CreateWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceImage.html) – Supports custom images and workflows for day-two operations.
+  + [DescribeTags](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeTags.html)
+  + [DescribeWorkspaceBundles](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceBundles.html)
+  + [DescribeWorkspaceDirectories](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html)
+  + [DescribeWorkspaceImagePermissions](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html)
+  + [DescribeWorkspaceImages](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html)
+  + [DescribeWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html)
+  + [DescribeWorkspaceSnapshots](https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceSnapshots.html)
+  + [MigrateWorkspace](https://docs.aws.amazon.com/workspaces/latest/api/API_MigrateWorkspace.html)
+  + [ModifyWorkspaceCreationProperties](https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyWorkspaceCreationProperties.html)
+  + [ModifyWorkspaceProperties](https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyWorkspaceProperties.html) – Supports modification of the following properties:
+    + [ComputeTypeName](https://docs.aws.amazon.com/workspaces/latest/api/API_WorkspaceProperties.html)
+    + [RootVolumeSizeGib](https://docs.aws.amazon.com/workspaces/latest/api/API_WorkspaceProperties.html)
+    + [RunningMode](https://docs.aws.amazon.com/workspaces/latest/api/API_WorkspaceProperties.html) – BYOP must use `ALWAYS_ON` or `MANUAL`.
+    + [UserVolumeSizeGib](https://docs.aws.amazon.com/workspaces/latest/api/API_WorkspaceProperties.html)
+  + [ModifyWorkspaceState](https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyWorkspaceState.html)
+  + [RebootWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_RebootWorkspaces.html)
+  + [RebuildWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_RebuildWorkspaces.html)
+  + [RestoreWorkspace](https://docs.aws.amazon.com/workspaces/latest/api/API_RestoreWorkspace.html)
+  + [StartWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_StartWorkspaces.html)
+  + [StopWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_StopWorkspaces.html)
+  + [UpdateWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspaceBundle.html)
+  + [UpdateWorkspaceImagePermission](https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspaceImagePermission.html)
++ Termination
+  + [DeleteTags](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteTags.html)
+  + [DeleteWorkspaceBundle](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceBundle.html)
+  + [DeleteWorkspaceImage](https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceImage.html)
+  + [DeregisterWorkspaceDirectory](https://docs.aws.amazon.com/workspaces/latest/api/API_DeregisterWorkspaceDirectory.html)
+  + [TerminateWorkspaces](https://docs.aws.amazon.com/workspaces/latest/api/API_TerminateWorkspaces.html)
