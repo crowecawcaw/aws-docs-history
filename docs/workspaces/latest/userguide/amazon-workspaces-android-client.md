@@ -1,338 +1,285 @@
+
+
 # WorkSpaces Android client application
+<a name="amazon-workspaces-android-client"></a>
 
 The following information will help you get started with the WorkSpaces Android client application.
 
-###### Contents
-
-- [Requirements](#android-requirements "#android-requirements")
-- [Setup and installation](#android_setup "#android_setup")
-- [Connect to your WorkSpace](#android_connecting "#android_connecting")
-- [Gestures](#android_gestures "#android_gestures")
-- [Sidebar menu](#android_sidebar_menu "#android_sidebar_menu")
-- [Keyboard](#android_keyboard "#android_keyboard")
-- [Trackpad mode](#android_trackpad_mode "#android_trackpad_mode")
-- [Display support](#android_display_support "#android_display_support")
-- [Disconnect](#android_disconnect "#android_disconnect")
-- [Clipboard support](#android_clipboard_support "#android_clipboard_support")
-- [Release notes](#android-release-notes "#android-release-notes")
+**Topics**
++ [Requirements](#android-requirements)
++ [Setup and installation](#android_setup)
++ [Connect to your WorkSpace](#android_connecting)
++ [Gestures](#android_gestures)
++ [Sidebar menu](#android_sidebar_menu)
++ [Keyboard](#android_keyboard)
++ [Trackpad mode](#android_trackpad_mode)
++ [Display support](#android_display_support)
++ [Disconnect](#android_disconnect)
++ [Clipboard support](#android_clipboard_support)
++ [Release notes](#android-release-notes)
 
 ## Requirements
+<a name="android-requirements"></a>
 
 The Amazon WorkSpaces Android client application requires the following:
++ Amazon Kindle Fire tablets released after 2012 with Fire OS 4.0 and later.
++ Android tablets and phones with Android OS 4.4 and later. The client application works on most devices with Android version 4.4 or later, but some devices might not be compatible.
+**Note**  
+Versions of the Android client application after 2.4.15 require devices with Android OS 9 and later.  
+Versions of the Android client application after 5.0.0 require devices with Android OS 13 and later.
++ Chromebooks that support installing Android applications. Chromebooks launched in 2019 or later support installing Android applications. However, some Chromebooks launched before 2019 might not support installing Android applications.
 
-- Amazon Kindle Fire tablets released after 2012 with Fire OS 4.0 and later.
-- Android tablets and phones with Android OS 4.4 and later. The client application
-  works on most devices with Android version 4.4 or later, but some devices might
-  not be compatible.
+  We recommend using the Android client application if your Chromebook supports it. To determine whether your Chromebook is compatible with the Amazon WorkSpaces Android client application or whether it requires the Amazon WorkSpaces Chromebook client application, see the [installation steps for Chromebooks launched before 2019](#chromebook_install_before_2019).
++ Devices that support running 64-bit applications.
 
-###### Note
-
-Versions of the Android client application after 2.4.15 require devices
-with Android OS 9 and later.
-
-Versions of the Android client application after 5.0.0 require devices
-with Android OS 13 and later.
-
-- Chromebooks that support installing Android applications. Chromebooks launched in 2019 or later
-  support installing Android applications. However, some Chromebooks launched before 2019 might not
-  support installing Android applications.
-
-We recommend using the Android client application if your Chromebook supports it. To determine
-whether your Chromebook is compatible with the Amazon WorkSpaces Android client application
-or whether it requires the Amazon WorkSpaces Chromebook client application, see the
-[installation steps for Chromebooks launched before 2019](#chromebook_install_before_2019 "#chromebook_install_before_2019").
-
-- Devices that support running 64-bit applications.
-
-###### Note
-
-- The WorkSpaces Android client application is not available for the DCV.
-- If your WorkSpace is located in the Asia Pacific (Mumbai) Region, you must use version 2.4.19 or
-  later of the Amazon WorkSpaces Android client application.
+**Note**  
+The WorkSpaces Android client application is not available for the DCV.
+If your WorkSpace is located in the Asia Pacific (Mumbai) Region, you must use version 2.4.19 or later of the Amazon WorkSpaces Android client application.
 
 ## Setup and installation
+<a name="android_setup"></a>
 
 To download and install the client application, complete the following procedure.
 
-###### (For devices other than Chromebooks launched before 2019)To download and install the client application
+**(For devices other than Chromebooks launched before 2019)To download and install the client application**
 
-1. On your device, open [https://clients.amazonworkspaces.com/](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/") and choose the
-   link for your device (either **Android/Chromebook** or **Fire Tablet**).
-2. Download and install the application.
-3. Verify that the Amazon WorkSpaces client application icon appears on one of the
-   device desktops.
+1. On your device, open [https://clients.amazonworkspaces.com/](https://clients.amazonworkspaces.com/) and choose the link for your device (either **Android/Chromebook** or **Fire Tablet**).
 
-###### (For Chromebooks launched before 2019) To download and install the client application
+1. Download and install the application.
 
-1. Determine whether your Chromebook supports Android applications by checking its status on the list
-   of [Chrome OS Systems Supporting Android Apps](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps "https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps").
-2. Depending on your Chromebook's status, do one of the following:
+1. Verify that the Amazon WorkSpaces client application icon appears on one of the device desktops.
 
-   - If your Chromebook's status is marked as **Stable Channel**, do the
-     following:
+**(For Chromebooks launched before 2019) To download and install the client application**
 
-     1. Follow the instructions in [Install Android apps on your Chromebook](https://support.google.com/chromebook/answer/7021273 "https://support.google.com/chromebook/answer/7021273") to enable your Chromebook to install Android
-        applications.
+1. Determine whether your Chromebook supports Android applications by checking its status on the list of [ Chrome OS Systems Supporting Android Apps](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps).
 
-     ###### Note
+1. Depending on your Chromebook's status, do one of the following:
+   + If your Chromebook's status is marked as **Stable Channel**, do the following:
 
-     In some cases, your WorkSpaces administrator might need to enable your
-     Chromebook to install Android applications. If you are unable to install the
-     Android client application on your Chromebook, contact your WorkSpaces
-     administrator for assistance. 2. On your Chromebook, open [https://clients.amazonworkspaces.com/](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/")
-     and choose **Android/Chromebook**. 3. Download and install the application. 4. Verify that the Amazon WorkSpaces client application icon appears on one of the
-     device desktops.
+     1. Follow the instructions in [ Install Android apps on your Chromebook](https://support.google.com/chromebook/answer/7021273) to enable your Chromebook to install Android applications. 
+**Note**  
+In some cases, your WorkSpaces administrator might need to enable your Chromebook to install Android applications. If you are unable to install the Android client application on your Chromebook, contact your WorkSpaces administrator for assistance.
 
-   - If your Chromebook's status is marked as **Planned** or if your
-     Chromebook does not appear on the list, do the following:
+     1. On your Chromebook, open [https://clients.amazonworkspaces.com/](https://clients.amazonworkspaces.com/) and choose **Android/Chromebook**.
 
-     1. Determine whether your Chromebook meets the requirements of the Amazon WorkSpaces
-        Chromebook client application:
+     1. Download and install the application.
 
-        - The WorkSpaces Chromebook client application requires a Chromebook with Chrome
-          OS version 45 or later. The client application works on most Chromebooks
-          with version 45 or later, but some devices might not be compatible. If you
-          have problems with a device, you can report the problem on the
-          [WorkSpaces forum](https://forums.aws.amazon.com/forum.jspa?forumID=164 "https://forums.aws.amazon.com/forum.jspa?forumID=164").
-        - To check the version of Chrome OS on your Chromebook, go to the status
-          area, where your account picture appears. Choose **Settings**,
-          **About Chrome OS**.
+     1. Verify that the Amazon WorkSpaces client application icon appears on one of the device desktops.
+   + If your Chromebook's status is marked as **Planned** or if your Chromebook does not appear on the list, do the following:
 
-     2. If your Chromebook is running Chrome OS version 45 or later, open the link to the
-        [Amazon WorkSpaces Chromebook client application](https://chromewebstore.google.com/detail/amazon-workspaces/ipaonomeflaallpcgnhcaoonfghaojha "https://chromewebstore.google.com/detail/amazon-workspaces/ipaonomeflaallpcgnhcaoonfghaojha") on the Chrome Web Store.
-     3. Download and install the application.
-     4. Verify that the Amazon WorkSpaces client application icon appears in your Chromebook search.
+     1. Determine whether your Chromebook meets the requirements of the Amazon WorkSpaces Chromebook client application:
+        + The WorkSpaces Chromebook client application requires a Chromebook with Chrome OS version 45 or later. The client application works on most Chromebooks with version 45 or later, but some devices might not be compatible. If you have problems with a device, you can report the problem on the [WorkSpaces forum](https://forums.aws.amazon.com/forum.jspa?forumID=164).
+        + To check the version of Chrome OS on your Chromebook, go to the status area, where your account picture appears. Choose **Settings**, **About Chrome OS**.
+
+     1. If your Chromebook is running Chrome OS version 45 or later, open the link to the [ Amazon WorkSpaces Chromebook client application](https://chromewebstore.google.com/detail/amazon-workspaces/ipaonomeflaallpcgnhcaoonfghaojha) on the Chrome Web Store.
+
+     1. Download and install the application.
+
+     1. Verify that the Amazon WorkSpaces client application icon appears in your Chromebook search.
 
 ## Connect to your WorkSpace
+<a name="android_connecting"></a>
 
 To connect to your WorkSpace, complete the following procedure.
 
-###### To connect to your WorkSpace
+**To connect to your WorkSpace**
 
 1. On your device, open the Amazon WorkSpaces client application.
-2. The first time that you run the client application, you are prompted for your
-   registration code, which is contained in your welcome email. The WorkSpaces client
-   application uses the registration code and user name to identify which WorkSpace
-   to connect to. When you launch the client application later, the same
-   registration code is used. You can enter a different registration code by
-   launching the client application and tapping **Enter new registration
-   code** on the login screen.
-3. Enter your sign-in credentials and tap **Sign In**.
-   If your
-   WorkSpaces administrator has enabled multi-factor authentication for your
-   organization's WorkSpaces, you are prompted for a passcode to complete your
-   login. Your WorkSpaces administrator will provide more information about how to
-   obtain your passcode.
-4. If your WorkSpaces administrator has not disabled the "Remember Me" feature, you
-   are prompted to save your credentials securely so that you can connect to your
-   WorkSpace easily in the future. Your credentials will be securely cached up to
-   the maximum lifetime of your Kerberos ticket.
 
-After the client application connects to your WorkSpace, your WorkSpace
-desktop is displayed.
+1. The first time that you run the client application, you are prompted for your registration code, which is contained in your welcome email. The WorkSpaces client application uses the registration code and user name to identify which WorkSpace to connect to. When you launch the client application later, the same registration code is used. You can enter a different registration code by launching the client application and tapping **Enter new registration code** on the login screen.
+
+1. Enter your sign-in credentials and tap **Sign In**. If your WorkSpaces administrator has enabled multi-factor authentication for your organization's WorkSpaces, you are prompted for a passcode to complete your login. Your WorkSpaces administrator will provide more information about how to obtain your passcode.
+
+1. If your WorkSpaces administrator has not disabled the "Remember Me" feature, you are prompted to save your credentials securely so that you can connect to your WorkSpace easily in the future. Your credentials will be securely cached up to the maximum lifetime of your Kerberos ticket.
+
+   After the client application connects to your WorkSpace, your WorkSpace desktop is displayed.
 
 ## Gestures
+<a name="android_gestures"></a>
 
-The following gestures are supported for the WorkSpaces Android client
-application.
+The following gestures are supported for the WorkSpaces Android client application.
 
-Single tap
+Single tap  
 Equivalent to a single click in Windows.
 
-Double tap
+Double tap  
 Equivalent to a double-click in Windows.
 
-Two finger single tap
+Two finger single tap  
 Equivalent to a right-click in Windows.
 
-Two finger double tap
-Toggles the on-screen keyboard display. If a keyboard is
-attached to the device, a set of keyboard shortcuts is shown instead.
+Two finger double tap  
+Toggles the on-screen keyboard display. If a keyboard is attached to the device, a set of keyboard shortcuts is shown instead.
 
-Swipe from left
-Displays the sidebar menu. For more information, see
-[Sidebar menu](#android_sidebar_menu "#android_sidebar_menu").
+Swipe from left  
+Displays the sidebar menu. For more information, see [Sidebar menu](#android_sidebar_menu).
 
-Two finger scroll
+Two finger scroll  
 Scrolls vertically.
 
-Two finger pinch
+Two finger pinch  
 Zooms display in or out.
 
-Two finger pan
+Two finger pan  
 Pans the desktop when zoomed in.
 
 ## Sidebar menu
+<a name="android_sidebar_menu"></a>
 
 The sidebar menu is displayed by swiping from the left side of the screen.
 
-![Android sidebar menu](images/android-sidebar-menu.png)
+![Android sidebar menu](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-menu.png)
+
 
 The sidebar menu provides quick access to the following features:
 
-![Android sidebar trackpad](images/android-sidebar-trackpad.png)
+![Android sidebar trackpad](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-trackpad.png) **Trackpad Mode** – Turns the trackpad on or off. For more information, see [Trackpad mode](#android_trackpad_mode). 
 
-**Trackpad Mode** – Turns the trackpad on or off. For more information, see
-[Trackpad mode](#android_trackpad_mode "#android_trackpad_mode").
+![Android sidebar keyboard](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-keyboard.png) **Show Keyboard** – Toggles the display of the on-screen keyboard. If a keyboard is already attached, only a row of keyboard shortcuts is displayed. 
 
-![Android sidebar keyboard](images/android-sidebar-keyboard.png)
+![Android sidebar settings](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-settings.png) **Settings** – Displays controls to change the screen resolution or the scroll direction. 
 
-**Show Keyboard** – Toggles the display of the on-screen keyboard. If a keyboard is
-already attached, only a row of keyboard shortcuts is displayed.
+![Android sidebar connection](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-connection.png) **Connection Check** – Displays the connection status.
 
-![Android sidebar settings](images/android-sidebar-settings.png)
+![Android sidebar Windows menu](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-windows.png) **Windows Menu** – Displays the Windows Start Menu. 
 
-**Settings** – Displays controls to change the screen resolution or the scroll direction.
-
-![Android sidebar connection](images/android-sidebar-connection.png)
-
-**Connection Check** – Displays the connection status.
-
-![Android sidebar Windows menu](images/android-sidebar-windows.png)
-
-**Windows Menu** – Displays the Windows Start Menu.
-
-![Android sidebar disconnect](images/android-sidebar-disconnect.png)
-
-**Disconnect** – Disconnects the client application without logging off.
+![Android sidebar disconnect](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-disconnect.png) **Disconnect** – Disconnects the client application without logging off.
 
 ## Keyboard
+<a name="android_keyboard"></a>
 
-To toggle the display of the on-screen keyboard, double-tap with two fingers anywhere
-on the screen. Special key combinations are displayed in the top row of the
-keyboard.
+To toggle the display of the on-screen keyboard, double-tap with two fingers anywhere on the screen. Special key combinations are displayed in the top row of the keyboard.
 
 ## Trackpad mode
+<a name="android_trackpad_mode"></a>
 
-The trackpad mode is set using the [sidebar menu](#android_sidebar_menu "#android_sidebar_menu").
+The trackpad mode is set using the [sidebar menu](#android_sidebar_menu).
 
 ### Trackpad mode off
+<a name="android_trackpad_off"></a>
 
-When trackpad mode is off, the mouse cursor is placed wherever you tap your finger. In
-this mode, a single tap is equivalent to a left mouse button click and a two finger
-single tap is equivalent to a right mouse button click.
+When trackpad mode is off, the mouse cursor is placed wherever you tap your finger. In this mode, a single tap is equivalent to a left mouse button click and a two finger single tap is equivalent to a right mouse button click.
 
 ### Trackpad mode on
+<a name="android_trackpad_on"></a>
 
-When trackpad mode is on, the mouse cursor tracks the movement of your finger on the
-screen. In this mode, simulate a left mouse button click by tapping the left mouse
-button icon.
+When trackpad mode is on, the mouse cursor tracks the movement of your finger on the screen. In this mode, simulate a left mouse button click by tapping the left mouse button icon.
 
-![Left mouse button icon](images/mouse-icon-left.png)
+![Left mouse button icon](http://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-left.png)
+
 
 Simulate a right mouse button click by tapping the right mouse button icon.
 
-![Right mouse button icon](images/mouse-icon-right.png)
+![Right mouse button icon](http://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-right.png)
+
 
 ## Display support
+<a name="android_display_support"></a>
 
-The Amazon WorkSpaces Android client application supports a single monitor. Multiple monitors
-are not supported.
+The Amazon WorkSpaces Android client application supports a single monitor. Multiple monitors are not supported.
 
-The maximum supported screen resolution depends on your device's display. Although specific
-screen resolution settings are offered in the **Settings** menu, if you choose
-**Default**, WorkSpaces matches the resolution that you've set on your device.
-If your device supports a resolution higher than 2800x1752, choose **Default**
-if you want WorkSpaces to use a higher resolution.
+The maximum supported screen resolution depends on your device's display. Although specific screen resolution settings are offered in the **Settings** menu, if you choose **Default**, WorkSpaces matches the resolution that you've set on your device. If your device supports a resolution higher than 2800x1752, choose **Default** if you want WorkSpaces to use a higher resolution. 
 
-| Resolution setting                                                                      | When to use                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **2800x1752**, **2560x1440**, **1920x1080**,<br>**1600x900**, **1280x720**, **960x540** | Choose one of these settings if you want your display to use this exact<br>resolution.                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Default**                                                                             | Choose this setting to match the resolution that you've set on your<br>device, up to the maximum resolution that your device supports. If you choose<br>*_Default_<br>• and you're using a high DPI display, the screen resolution is<br>adjusted to a lower one so that text and icons are easier to read.                                                                                                                                                                                                 |
-| **High DPI Mode**                                                                       | Choose this setting for better maximum resolution of your WorkSpace on high DPI displays.<br>If you choose *_High DPI Mode_<br>• and the text and icons on your WorkSpace are<br>smaller than you'd prefer, either choose *_Default_<br>• instead, or adjust the<br>scaling settings on your WorkSpace. For more information about high DPI mode and how to<br>adjust the scaling settings on your WorkSpace, see<br>[Enabling high DPI display for WorkSpaces](high_dpi_support.md "high_dpi_support.md"). |
+
+| Resolution setting | When to use | 
+| --- | --- | 
+| 2800x1752, 2560x1440, 1920x1080, 1600x900, 1280x720, 960x540 | Choose one of these settings if you want your display to use this exact resolution. | 
+| Default | Choose this setting to match the resolution that you've set on your device, up to the maximum resolution that your device supports. If you choose Default and you're using a high DPI display, the screen resolution is adjusted to a lower one so that text and icons are easier to read.  | 
+| High DPI Mode | Choose this setting for better maximum resolution of your WorkSpace on high DPI displays. If you choose High DPI Mode and the text and icons on your WorkSpace are smaller than you'd prefer, either choose Default instead, or adjust the scaling settings on your WorkSpace. For more information about high DPI mode and how to adjust the scaling settings on your WorkSpace, see [Enabling high DPI display for WorkSpaces](high_dpi_support.md). | 
 
 ## Disconnect
+<a name="android_disconnect"></a>
 
-To disconnect the Android client, display the sidebar menu, tap the disconnect icon,
-and tap **Disconnect**. You can also log off of the WorkSpace, which
-disconnects the client.
+To disconnect the Android client, display the sidebar menu, tap the disconnect icon, and tap **Disconnect**. You can also log off of the WorkSpace, which disconnects the client.
 
 ## Clipboard support
+<a name="android_clipboard_support"></a>
 
-The clipboard supports copy and paste of text and HTML content only. The maximum
-uncompressed object size is 20 MB. For more information, see [I'm having trouble copying and pasting](client_troubleshooting.md#copy_paste "client_troubleshooting.md#copy_paste").
+The clipboard supports copy and paste of text and HTML content only. The maximum uncompressed object size is 20 MB. For more information, see [I'm having trouble copying and pasting](client_troubleshooting.md#copy_paste).
 
-###### Note
-
-When copying from a Microsoft Office app, the clipboard only contains the last
-copied item, and the item is converted into standard format. If you copy content
-larger than 890 KB from a Microsoft Office app, the app might become slow or
-unresponsive for up to 5 seconds.
+**Note**  
+When copying from a Microsoft Office app, the clipboard only contains the last copied item, and the item is converted into standard format. If you copy content larger than 890 KB from a Microsoft Office app, the app might become slow or unresponsive for up to 5 seconds. 
 
 ## Release notes
+<a name="android-release-notes"></a>
+
+### Android client application release notes
+<a name="android-client-release-notes"></a>
 
 The following table describes the changes to each release of the Android client application.
 
-| Release | Date              | Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 5.1.3   | April 9, 2026     | • Bug fixes and enhancements.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| 5.1.2   | February 5, 2026  | • Added support for connecting to your WorkSpace via IPv6.<br>• Updated the Android SDK and APIs to target Android 15.<br>• Updated the PCoIP SDK to add compatibility with Android 15.<br>• Updated the .NET Framework to .NET 9.<br>• Bug fixes and enhancements.                                                                                                                                                                                                                  |
-| 5.1.1   | April 2, 2025     | • Updated PCoIP SDK for Android.<br>• Updated the .NET SDK for Android.<br>• Bug fixes and enhancements.                                                                                                                                                                                                                                                                                                                                                                             |
-| 5.0.1   | November 6, 2024  | Bug fixes and enhancements.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| 5.0.0   | February 26, 2024 | • Added support for the Israel (Tel Aviv)<br>Region.<br>• Updated PCoIP SDK for Android.<br>• Added accessibility improvements, including screen<br>reader support and keyboard-only navigation<br>enhancement.                                                                                                                                                                                                                                                                      |
-| 4.0.6   | August 18, 2023   | • Improved client custom branding by storing assets<br>in the same AWS Regions as provisioned<br>WorkSpaces.<br>• Resolved the Spanish keyboard mapping<br>issues.                                                                                                                                                                                                                                                                                                                   |
-| 4.0.5   | May 5, 2023       | • Added connection support to WorkSpaces provisioned in<br>the AWS GovCloud (US-East) Region<br>• Added accessibility enhancements                                                                                                                                                                                                                                                                                                                                                   |
-| 4.0.4   | December 15, 2022 | Updated the .NET framework for the WorkSpaces Android<br>client                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| 4.0.3   | October 20, 2022  | Upgraded target Android API level to continue supporting<br>64-bit Android 12 and later versions                                                                                                                                                                                                                                                                                                                                                                                     |
-| 4.0.2   | August 3, 2022    | Resolved an issue that the touchpad scrolling was too<br>sensitive within WorkSpaces on Chromebooks                                                                                                                                                                                                                                                                                                                                                                                  |
-| 4.0.1   | May 12, 2022      | • Updated PCoIP SDK for the WorkSpaces Android<br>client<br>• Updated WSP SDK for the WorkSpaces Android<br>client                                                                                                                                                                                                                                                                                                                                                                   |
-| 3.0.4   | October 14, 2021  | • Resolves crashing issues related to invalid cursor<br>data<br>• Bug fixes                                                                                                                                                                                                                                                                                                                                                                                                          |
-| 3.0.2   | July 13, 2021     | Minor enhancements and fixes                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| 3.0.1   | June 30, 2021     | • Adds support for self-service WorkSpace management<br>capabilities.<br>• Adds support for certificate-based trusted<br>devices.                                                                                                                                                                                                                                                                                                                                                    |
-| 2.4.21  | May 20, 2021      | • Adds 2800x1752 and High DPI Mode in resolution<br>options<br>• Addresses a crash scenario related to cursor<br>rendering<br>• Minor enhancements and fixes<br>NoteBecause the 32-bit PCoIP SDK for Android has reached<br>the end of support, Version 2.4.21 is the final release<br>of Amazon WorkSpaces Android client, which supports both 32-bit<br>and 64-bit for Android 9 and above. Next release<br>onwards, Amazon WorkSpaces Android client will only support<br>64-bit. |
-| 2.4.20  | March 25, 2021    | • Addresses a crash issue at login<br>• Minor enhancements and fixes                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| 2.4.19  | February 22, 2021 | Enhanced support for resolution 2560x1440                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| 2.4.18  | October 19, 2020  | • Adds support for certain Chromebook models that<br>were previously not supported<br>• Fixes multiple key-mapping issues pertaining to<br>English, French, and Japanese keyboard<br>layouts<br>• Adds support for faster reconnection to WorkSpaces on<br>Chromebook devices when resuming from sleep<br>mode                                                                                                                                                                       |
-| 2.4.17  | February 24, 2020 | Minor enhancements and fixes                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| 2.4.16  | January 30, 2020  | Added support for versions above 64-bit Android 9                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| 2.4.15  | June 24, 2019     | • Adds support for mouse cursor contextual shape<br>changes<br>• This is the last version that supports versions<br>below Android 8                                                                                                                                                                                                                                                                                                                                                  |
-| 2.4.14  |                   | • Adds support for the Right alt key mapping with<br>Japanese keyboard layouts<br>• Resolves an occasional issue with blue<br>overlay                                                                                                                                                                                                                                                                                                                                                |
-| 2.4.13  |                   | Minor fixes                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| 2.4.12  |                   | • Resolves an issue that makes the login page bounce<br>on a few devices<br>• Minor fixes                                                                                                                                                                                                                                                                                                                                                                                            |
-| 2.4.11  |                   | • Resolves an issue with content being selected with<br>two-finger scrolling<br>• Minor fixes                                                                                                                                                                                                                                                                                                                                                                                        |
-| 2.4.10  |                   | Improves support for Japanese keyboard layouts                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| 2.4.9   |                   | Adds support for Samsung Galaxy Note 9                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 2.4.7   |                   | • Improves clipboard redirection<br>• Improves DeX startup                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| 2.4.6   |                   | Adds support for uniform resource identifiers (URIs),<br>which enable login orchestration                                                                                                                                                                                                                                                                                                                                                                                            |
-| 2.4.5   |                   | • Adds support for time zone redirection for more<br>Regions: America/Indianapolis<br>America/Indiana/Marengo America/Indiana/Vevay<br>America/Indiana/Indianapolis<br>• Includes text changes to the Login page user<br>interface                                                                                                                                                                                                                                                   |
-| 2.4.4   |                   | Minor improvements to session provision handling                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| 2.4.2   |                   | • Minor fixes<br>• Improves copy and paste                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| 2.4.0   |                   | • New logo<br>• Improves the user interface and stability                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| 2.3.4   |                   | • Addresses a display overlay issue on Android Oreo<br>when a mouse is connected to the device<br>• Adds support for Samsung S8/S8+ screen<br>configurations<br>• Resolves minor issues                                                                                                                                                                                                                                                                                              |
-| 2.3.3   |                   | Localization enhancements                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| 2.2.0   |                   | • Adds support for the German language<br>• Improves the Japanese user interface<br>• Improves stability                                                                                                                                                                                                                                                                                                                                                                             |
-| 2.1.0   |                   | • Adds support for the following new WorkSpace<br>states: STOPPING and STOPPED<br>• Adds support for audio in, enabling you to make<br>calls or attend web conferences<br>• Resolves minor issues and improves<br>stability                                                                                                                                                                                                                                                          |
-| 2.0.0   |                   | • Adds support for saving registration codes,<br>enabling you to switch WorkSpaces without re-entering the<br>registration codes<br>• Improves usability and stability                                                                                                                                                                                                                                                                                                               |
-| 1.0.15  |                   | • Adds advanced connection health checks, enabling<br>you to troubleshoot connection issues<br>• Improves stability                                                                                                                                                                                                                                                                                                                                                                  |
-| 1.0.11  |                   | • Improves the user interface and login<br>experience<br>• Adds support for choosing the screen<br>resolution<br>• Adds support for choosing the scrolling<br>direction                                                                                                                                                                                                                                                                                                              |
-| 1.0.10  |                   | • Improves the login experience<br>• Adds time zone synchronization between the local<br>device and the WorkSpace                                                                                                                                                                                                                                                                                                                                                                    |
-| 1.0.9   |                   | Improves the login experience                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| 1.0     |                   | Initial release                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+| Release | Date | Changes | 
+| --- | --- | --- | 
+| 5.1.3 | April 9, 2026 |  +  Bug fixes and enhancements.    | 
+| 5.1.2 | February 5, 2026 |  +  Added support for connecting to your WorkSpace via IPv6. <br />+  Updated the Android SDK and APIs to target Android 15.  <br />+  Updated the PCoIP SDK to add compatibility with Android 15.  <br />+  Updated the .NET Framework to .NET 9.  <br />+  Bug fixes and enhancements.    | 
+| 5.1.1 | April 2, 2025 |  +  Updated PCoIP SDK for Android. <br />+  Updated the .NET SDK for Android.  <br />+  Bug fixes and enhancements.    | 
+| 5.0.1 | November 6, 2024 |  Bug fixes and enhancements.  | 
+| 5.0.0 | February 26, 2024 |  +  Added support for the Israel (Tel Aviv) Region. <br />+  Updated PCoIP SDK for Android. <br />+  Added accessibility improvements, including screen reader support and keyboard-only navigation enhancement.    | 
+| 4.0.6 | August 18, 2023 |  +  Improved client custom branding by storing assets in the same AWS Regions as provisioned WorkSpaces. <br />+  Resolved the Spanish keyboard mapping issues.   | 
+| 4.0.5 | May 5, 2023 |  +  Added connection support to WorkSpaces provisioned in the AWS GovCloud (US-East) Region <br />+  Added accessibility enhancements   | 
+| 4.0.4 | December 15, 2022 | Updated the .NET framework for the WorkSpaces Android client | 
+| 4.0.3 | October 20, 2022 | Upgraded target Android API level to continue supporting 64-bit Android 12 and later versions | 
+| 4.0.2 | August 3, 2022 | Resolved an issue that the touchpad scrolling was too sensitive within WorkSpaces on Chromebooks | 
+| 4.0.1 | May 12, 2022 |  +  Updated PCoIP SDK for the WorkSpaces Android client <br />+  Updated WSP SDK for the WorkSpaces Android client   | 
+| 3.0.4 | October 14, 2021 |  +  Resolves crashing issues related to invalid cursor data <br />+  Bug fixes   | 
+| 3.0.2 | July 13, 2021 | Minor enhancements and fixes | 
+| 3.0.1 | June 30, 2021 |  +  Adds support for self-service WorkSpace management capabilities. <br />+  Adds support for certificate-based trusted devices.   | 
+| 2.4.21 | May 20, 2021 |  +  Adds 2800x1752 and High DPI Mode in resolution options <br />+  Addresses a crash scenario related to cursor rendering <br />+  Minor enhancements and fixes   Because the 32-bit PCoIP SDK for Android has reached the end of support, Version 2.4.21 is the final release of Amazon WorkSpaces Android client, which supports both 32-bit and 64-bit for Android 9 and above. Next release onwards, Amazon WorkSpaces Android client will only support 64-bit.   | 
+| 2.4.20 | March 25, 2021 |  +  Addresses a crash issue at login <br />+  Minor enhancements and fixes   | 
+| 2.4.19 | February 22, 2021 | Enhanced support for resolution 2560x1440 | 
+| 2.4.18 | October 19, 2020 |  +  Adds support for certain Chromebook models that were previously not supported  <br />+  Fixes multiple key-mapping issues pertaining to English, French, and Japanese keyboard layouts <br />+  Adds support for faster reconnection to WorkSpaces on Chromebook devices when resuming from sleep mode   | 
+| 2.4.17 | February 24, 2020 | Minor enhancements and fixes | 
+| 2.4.16 | January 30, 2020 | Added support for versions above 64-bit Android 9 | 
+| 2.4.15 | June 24, 2019 |  +  Adds support for mouse cursor contextual shape changes <br />+  This is the last version that supports versions below Android 8   | 
+| 2.4.14 |  |  +  Adds support for the Right alt key mapping with Japanese keyboard layouts <br />+  Resolves an occasional issue with blue overlay   | 
+| 2.4.13 |  | Minor fixes | 
+| 2.4.12 |  |  +  Resolves an issue that makes the login page bounce on a few devices <br />+  Minor fixes   | 
+| 2.4.11 |  |  +  Resolves an issue with content being selected with two-finger scrolling <br />+  Minor fixes   | 
+| 2.4.10 |  | Improves support for Japanese keyboard layouts | 
+| 2.4.9 |  | Adds support for Samsung Galaxy Note 9 | 
+| 2.4.7 |  |  +  Improves clipboard redirection <br />+  Improves DeX startup   | 
+| 2.4.6 |  | Adds support for uniform resource identifiers (URIs), which enable login orchestration | 
+| 2.4.5 |  |  +  Adds support for time zone redirection for more Regions: America/Indianapolis America/Indiana/Marengo America/Indiana/Vevay America/Indiana/Indianapolis <br />+  Includes text changes to the Login page user interface   | 
+| 2.4.4 |  | Minor improvements to session provision handling | 
+| 2.4.2 |  |  +  Minor fixes <br />+  Improves copy and paste   | 
+| 2.4.0 |  |  +  New logo <br />+  Improves the user interface and stability   | 
+| 2.3.4 |  |  +  Addresses a display overlay issue on Android Oreo when a mouse is connected to the device <br />+  Adds support for Samsung S8/S8\+ screen configurations <br />+  Resolves minor issues   | 
+| 2.3.3 |  | Localization enhancements | 
+| 2.2.0 |  |  +  Adds support for the German language <br />+  Improves the Japanese user interface <br />+  Improves stability   | 
+| 2.1.0 |  |  +  Adds support for the following new WorkSpace states: STOPPING and STOPPED <br />+  Adds support for audio in, enabling you to make calls or attend web conferences <br />+  Resolves minor issues and improves stability   | 
+| 2.0.0 |  |  +  Adds support for saving registration codes, enabling you to switch WorkSpaces without re-entering the registration codes <br />+  Improves usability and stability   | 
+| 1.0.15 |  |  +  Adds advanced connection health checks, enabling you to troubleshoot connection issues <br />+  Improves stability   | 
+| 1.0.11 |  |  +  Improves the user interface and login experience <br />+  Adds support for choosing the screen resolution <br />+  Adds support for choosing the scrolling direction   | 
+| 1.0.10 |  |  +  Improves the login experience <br />+  Adds time zone synchronization between the local device and the WorkSpace   | 
+| 1.0.9 |  | Improves the login experience | 
+| 1.0 |  | Initial release | 
+
+### Chromebook client application release notes
+<a name="android-chromebook-release-notes"></a>
 
 The following table describes the changes to each release of the Chromebook client application.
 
-###### Note
+**Note**  
+Version 2.4.13 is the final release of the Amazon WorkSpaces Chromebook client application. Because [ Google is phasing out support for Chrome Apps](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html), there will be no further updates to the WorkSpaces Chromebook client application, and its use is unsupported.
 
-Version 2.4.13 is the final release of the Amazon WorkSpaces Chromebook client application. Because
-[Google is phasing out support for Chrome Apps](https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html "https://blog.chromium.org/2020/01/moving-forward-from-chrome-apps.html"), there will be no further updates to the
-WorkSpaces Chromebook client application, and its use is unsupported.
 
-| Release | Date           | Changes                                                                                                                                                                                                                            |
-| ------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2.4.13  | April 24, 2019 | Fixed an issue that causes the app not to restore to<br>full-screen mode after a screen unlock                                                                                                                                     |
-| 2.4.12  |                | Minor bug fixes                                                                                                                                                                                                                    |
-| 2.4.11  |                | Minor bug fixes                                                                                                                                                                                                                    |
-| 2.4.10  |                | Improves support for Japanese keyboard layouts                                                                                                                                                                                     |
-| 2.4.8   |                | Improves support for UK keyboards                                                                                                                                                                                                  |
-| 2.4.7   |                | • Improves clipboard redirection<br>• Adds support for tap-to-click for trackpads<br>• Improves device resolution                                                                                                                  |
-| 2.4.6   |                | • Resolves an issue that causes screens to<br>freeze<br>• Resolves trackpad issues                                                                                                                                                 |
-| 2.4.5   |                | • Adds support for time zone redirection for more<br>Regions: America/Indianapolis<br>America/Indiana/Marengo America/Indiana/Vevay<br>America/Indiana/Indianapolis<br>• Includes text changes to the Login page user<br>interface |
-| 2.4.4   |                | Minor improvements to session provision handling                                                                                                                                                                                   |
-| 2.4.2   |                | Resolves a bug with Caps Lock                                                                                                                                                                                                      |
-| 2.4.0   |                | • New logo<br>• Improves the user interface and stability                                                                                                                                                                          |
-| 2.2.7   |                | Resolves minor issues                                                                                                                                                                                                              |
-| 2.2.4   |                | Localization enhancements                                                                                                                                                                                                          |
-| 2.2.1   |                | • Adds support for the German language<br>• Improves the Japanese user interface<br>• Improves stability                                                                                                                           |
-| 2.1.3   |                | • Adds support for the following new WorkSpace<br>states: STOPPING and STOPPED<br>• Adds support for audio in, enabling you to make<br>calls or attend web conferences<br>• Resolves minor bugs and improves stability             |
-| 2.0.0   |                | • Adds support for saving registration codes,<br>enabling you to switch WorkSpaces without<br>re-entering the registration codes<br>• Improves usability and stability                                                             |
-| 1.0     |                | Initial release                                                                                                                                                                                                                    |
+| Release | Date | Changes | 
+| --- | --- | --- | 
+| 2.4.13 | April 24, 2019 | Fixed an issue that causes the app not to restore to full-screen mode after a screen unlock | 
+| 2.4.12 |  | Minor bug fixes | 
+| 2.4.11 |  | Minor bug fixes | 
+| 2.4.10 |  | Improves support for Japanese keyboard layouts | 
+| 2.4.8 |  | Improves support for UK keyboards | 
+| 2.4.7 |  |  +  Improves clipboard redirection <br />+  Adds support for tap-to-click for trackpads <br />+  Improves device resolution   | 
+| 2.4.6 |  |  +  Resolves an issue that causes screens to freeze <br />+  Resolves trackpad issues   | 
+| 2.4.5 |  |  +  Adds support for time zone redirection for more Regions: America/Indianapolis America/Indiana/Marengo America/Indiana/Vevay America/Indiana/Indianapolis <br />+  Includes text changes to the Login page user interface   | 
+| 2.4.4 |  | Minor improvements to session provision handling | 
+| 2.4.2 |  | Resolves a bug with Caps Lock | 
+| 2.4.0 |  |  +  New logo <br />+  Improves the user interface and stability   | 
+| 2.2.7 |  | Resolves minor issues | 
+| 2.2.4 |  | Localization enhancements | 
+| 2.2.1 |  |  +  Adds support for the German language <br />+  Improves the Japanese user interface <br />+  Improves stability   | 
+| 2.1.3 |  |  +  Adds support for the following new WorkSpace states: STOPPING and STOPPED <br />+  Adds support for audio in, enabling you to make calls or attend web conferences <br />+  Resolves minor bugs and improves stability   | 
+| 2.0.0 |  |  +  Adds support for saving registration codes, enabling you to switch WorkSpaces without re-entering the registration codes <br />+  Improves usability and stability   | 
+| 1.0 |  | Initial release | 
