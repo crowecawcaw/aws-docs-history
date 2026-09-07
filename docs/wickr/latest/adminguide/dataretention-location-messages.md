@@ -1,8 +1,9 @@
-This guide documents the new AWS Wickr administration console, released on
-March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
-Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
+
+
+This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Location messages
+<a name="dataretention-location-messages"></a>
 
 There are two types of location messages.
 
@@ -28,8 +29,7 @@ There are two types of location messages.
 
 **Share location continuously**
 
-The following example is when a user shares their location for a period of time. The
-**edit** section shows the updated coordinates.
+The following example is when a user shares their location for a period of time. The **edit** section shows the updated coordinates.
 
 ```
 {
@@ -51,8 +51,5 @@ The following example is when a user shares their location for a period of time.
 }
 ```
 
-###### Note
-
-When **shareexpiriation** is set to "-1", the user has stopped
-sharing their location. The field name **shareexpiriation** is
-spelled as shown in the output.
+**Note**  
+When **shareexpiriation** is set to "-1", the user has stopped sharing their location. The field name **shareexpiriation** is spelled as shown in the output.

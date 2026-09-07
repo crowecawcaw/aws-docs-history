@@ -1,25 +1,23 @@
-This guide documents the new AWS Wickr administration console, released on
-March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
-Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
+
+
+This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # File transfer messages
+<a name="dataretention-file-transfer-messages"></a>
 
-The **file** JSON object contains the details of the file being
-transferred, described in the following table.
+The **file** JSON object contains the details of the file being transferred, described in the following table.
 
-| Field             | Description                                                |
-| ----------------- | ---------------------------------------------------------- |
-| filename          | The display name of the file being transferred.            |
-| guid              | A unique identifier for the transferred file.              |
-| isscreenshot      | Boolean field that identifies if the file is a screenshot. |
-| localfilename     | The path name of the file in the compliance output.        |
-| uploadedbyuser    | The display name of the user, if known.                    |
-| uploadedtimestamp | The time when the file was uploaded by the user.           |
 
-The following shows the format of a file transfer message. The
-**msgtype** for file transfer messages is 6000. The compliance
-system decrypts files that it receives and stores them in the compliance output
-location.
+| Field | Description | 
+| --- | --- | 
+| filename | The display name of the file being transferred. | 
+| guid | A unique identifier for the transferred file. | 
+| isscreenshot | Boolean field that identifies if the file is a screenshot. | 
+| localfilename | The path name of the file in the compliance output. | 
+| uploadedbyuser | The display name of the user, if known. | 
+| uploadedtimestamp | The time when the file was uploaded by the user. | 
+
+The following shows the format of a file transfer message. The **msgtype** for file transfer messages is 6000. The compliance system decrypts files that it receives and stores them in the compliance output location.
 
 ```
 {

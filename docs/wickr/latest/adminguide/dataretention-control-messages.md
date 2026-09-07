@@ -1,40 +1,31 @@
-This guide documents the new AWS Wickr administration console, released on
-March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
-Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
+
+
+This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Control messages
+<a name="dataretention-control-messages"></a>
 
-Control messages set up and configure secure rooms and group conversations. Wickr
-also requires these messages to reconstruct the list of users involved in specific
-secure rooms and group conversations.
+Control messages set up and configure secure rooms and group conversations. Wickr also requires these messages to reconstruct the list of users involved in specific secure rooms and group conversations.
 
-Like verification messages, these messages contain additional metadata to describe
-their actions. The control object can include the following:
+Like verification messages, these messages contain additional metadata to describe their actions. The control object can include the following:
++ A **bor** field. This is the burn-on-read time in seconds.
++ A **ttl** field. This is the expiration time in seconds.
++ A **description** field. This is the conversation's description.
++ A **title** field. This is the title of the conversation.
++ A **changemask** field. This is a number value created by adding the following flag values.
 
-- A **bor** field. This is the burn-on-read time in
-  seconds.
-- A **ttl** field. This is the expiration time in
-  seconds.
-- A **description** field. This is the conversation's
-  description.
-- A **title** field. This is the title of the
-  conversation.
-- A **changemask** field. This is a number value created by
-  adding the following flag values.
 
-| Setting                    | Flag value |
-| -------------------------- | ---------- |
-| Masters field (moderators) | 1          |
-| TTL (expiration)           | 2          |
-| Title field (room name)    | 4          |
-| Description                | 8          |
-| Meeting ID key             | 16         |
-| Burn on read               | 32         |
-| Saved items (file vault)   | 64         |
+| Setting | Flag value | 
+| --- | --- | 
+| Masters field (moderators) | 1 | 
+| TTL (expiration) | 2 | 
+| Title field (room name) | 4 | 
+| Description | 8 | 
+| Meeting ID key | 16 | 
+| Burn on read | 32 | 
+| Saved items (file vault) | 64 | 
 
-In the following example, the **changemask** value of 47 is equal to
-the sum of Masters (1), TTL (2), Title (4), Description (8), and Burn on read
-(32).
+In the following example, the **changemask** value of 47 is equal to the sum of Masters (1), TTL (2), Title (4), Description (8), and Burn on read (32).
 
 ```
 {

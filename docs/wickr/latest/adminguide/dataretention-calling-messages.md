@@ -1,17 +1,19 @@
-This guide documents the new AWS Wickr administration console, released on
-March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
-Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
+
+
+This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Calling messages
+<a name="dataretention-calling-messages"></a>
 
 Calls can have four status values.
 
-| Call status    | Status value |
-| -------------- | ------------ |
-| Call starting  | 0            |
-| Call completed | 1            |
-| Call missed    | 2            |
-| Call cancelled | 3            |
+
+| Call status | Status value | 
+| --- | --- | 
+| Call starting | 0 | 
+| Call completed | 1 | 
+| Call missed | 2 | 
+| Call cancelled | 3 | 
 
 **Call start**
 
@@ -43,15 +45,12 @@ The following is a call start example.
 }
 ```
 
-###### Note
-
-The **participants** array has the
-**username\_hash** of the users that were on the call.
+**Note**  
+The **participants** array has the **username\_hash** of the users that were on the call.
 
 **Invite to call**
 
-When a user is invited to an active call, it appears as a new call started. You can use
-the **invitemsgid** field to match invites to the original call.
+When a user is invited to an active call, it appears as a new call started. You can use the **invitemsgid** field to match invites to the original call.
 
 ```
 {
@@ -82,8 +81,7 @@ the **invitemsgid** field to match invites to the original call.
 
 **Call end**
 
-The following is a call end example. The **duration** field shows the
-call length in seconds.
+The following is a call end example. The **duration** field shows the call length in seconds.
 
 ```
 {

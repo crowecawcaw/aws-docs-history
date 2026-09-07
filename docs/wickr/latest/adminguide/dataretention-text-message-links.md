@@ -1,12 +1,11 @@
-This guide documents the new AWS Wickr administration console, released on
-March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
-Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
+
+
+This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Text messages with links
+<a name="dataretention-text-message-links"></a>
 
-If you send a text message that contains links, and the security group settings have
-the "Send Link Preview" option enabled, the text message contains a list of the URLs for
-those links.
+If you send a text message that contains links, and the security group settings have the "Send Link Preview" option enabled, the text message contains a list of the URLs for those links.
 
 ```
 {

@@ -1,12 +1,11 @@
-This guide documents the new AWS Wickr administration console, released on
-March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
-Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
+
+
+This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Read receipt messages
+<a name="dataretention-read-receipt-messages"></a>
 
-Read receipts confirm that a user has read messages in a conversation. The
-**message\_timestamp\_secs** field indicates which message was read,
-and the **read\_receipt\_timestamp** field shows when it was read.
+Read receipts confirm that a user has read messages in a conversation. The **message\_timestamp\_secs** field indicates which message was read, and the **read\_receipt\_timestamp** field shows when it was read.
 
 ```
 {

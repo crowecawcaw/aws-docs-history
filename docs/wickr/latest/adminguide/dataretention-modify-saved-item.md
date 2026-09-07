@@ -1,12 +1,11 @@
-This guide documents the new AWS Wickr administration console, released on
-March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
-Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
+
+
+This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Modify saved item in room
+<a name="dataretention-modify-saved-item"></a>
 
-Wickr generates this message when a file is saved, renamed, moved, or deleted in a
-room's Saved Items (File Vault). The **filevaultinfo** object describes
-the action taken.
+Wickr generates this message when a file is saved, renamed, moved, or deleted in a room's Saved Items (File Vault). The **filevaultinfo** object describes the action taken.
 
 ```
 {
@@ -45,14 +44,14 @@ the action taken.
 }
 ```
 
-The **filemgtaction** action field can have the following
-values.
+The **filemgtaction** action field can have the following values.
 
-| Action | Description                   |
-| ------ | ----------------------------- |
-| create | A new folder was created.     |
-| upload | A file was uploaded.          |
-| save   | A file was saved.             |
-| rename | A file or folder was renamed. |
-| move   | A file or folder was moved.   |
-| delete | A file or folder was deleted. |
+
+| Action | Description | 
+| --- | --- | 
+| create | A new folder was created. | 
+| upload | A file was uploaded. | 
+| save | A file was saved. | 
+| rename | A file or folder was renamed. | 
+| move | A file or folder was moved. | 
+| delete | A file or folder was deleted. | 

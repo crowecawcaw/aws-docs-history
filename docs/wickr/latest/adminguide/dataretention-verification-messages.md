@@ -1,11 +1,11 @@
-This guide documents the new AWS Wickr administration console, released on
-March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic
-Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-classic/what-is-wickr.md").
+
+
+This guide documents the new AWS Wickr administration console, released on March 13, 2025. For documentation on the classic version of the AWS Wickr administration console, see [Classic Administration Guide](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/what-is-wickr.html).
 
 # Verification messages
+<a name="dataretention-verification-messages"></a>
 
-AWS Wickr displays verification messages when a client verifies another client whose
-account might have become unverified.
+AWS Wickr displays verification messages when a client verifies another client whose account might have become unverified.
 
 ```
 {
@@ -27,10 +27,11 @@ account might have become unverified.
 
 Verification messages have an additional nested **msgtype**.
 
-| Verification message type         | msgtype value |
-| --------------------------------- | ------------- |
-| Verification request              | 1             |
-| Verification response and request | 2             |
-| Verification acceptance           | 3             |
-| Verification rejection            | 4             |
-| "Not Now" response                | 5             |
+
+| Verification message type | msgtype value | 
+| --- | --- | 
+| Verification request | 1 | 
+| Verification response and request | 2 | 
+| Verification acceptance | 3 | 
+| Verification rejection | 4 | 
+| "Not Now" response | 5 | 
