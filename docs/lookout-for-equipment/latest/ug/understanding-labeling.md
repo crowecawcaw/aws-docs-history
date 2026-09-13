@@ -11,7 +11,7 @@ By using the labels as inputs to the model, Lookout for Equipment can use additi
 
 As an example, the following image shows the time intervals of known healthy equipment behavior and the time intervals of abnormal equipment behavior (that is, the width of the bars in the image). 
 
-![Time intervals where abnormal behavior occured.](http://docs.aws.amazon.com/lookout-for-equipment/latest/ug/images/time_intervals_labeling.png)
+![Time intervals where abnormal behavior occured.](https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/images/time_intervals_labeling.png)
 
 
 In your labeling data, you define the abnormal time interval (bar width in image) from the actual failure point (for example, *Failure 1*). You provide the labeled data as a CSV file to model training. Each line of the CSV indicates the time intervals when your equipment did not function properly. For more information, see [Labeling your data](labeling-data.md).

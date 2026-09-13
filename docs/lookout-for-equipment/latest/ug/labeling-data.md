@@ -45,7 +45,7 @@ Lookout for Equipment uses all of these time windows to look for an optimal mode
    You can use the same Amazon S3 bucket or a different one. If you use the same one, it's a good practice to create a separate folder for your data labels.
 
 1. In the Lookout for Equipment console, on the **Provide data labels** page, indicate the location of your data labels.  
-![Provide data labels page with S3 location field, IAM role section, and navigation buttons.](http://docs.aws.amazon.com/lookout-for-equipment/latest/ug/images/provide-data-labels.png)
+![Provide data labels page with S3 location field, IAM role section, and navigation buttons.](https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/images/provide-data-labels.png)
 
 1. Choose your IAM role.
 

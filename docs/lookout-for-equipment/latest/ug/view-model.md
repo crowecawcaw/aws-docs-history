@@ -41,7 +41,7 @@ You can use this procedure to view model metrics in the console. To evaluate how
 
 In the following image, you can see metrics related to the performance. You can see how many times the model identified abnormal equipment behavior events incorrectly. You can also see which sensors played the largest role in the model identifying the abnormal equipment behavior events. The console displays the top 15 sensors that contributed to the model identifying an abnormal equipment behavior event.
 
-![Model performance dashboard showing detected events, labeled events, and top 15 contributing sensors.](http://docs.aws.amazon.com/lookout-for-equipment/latest/ug/images/model-performance-image-launch.png)
+![Model performance dashboard showing detected events, labeled events, and top 15 contributing sensors.](https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/images/model-performance-image-launch.png)
 
 
 ## Getting pointwise model diagnostics for a model (SDK)

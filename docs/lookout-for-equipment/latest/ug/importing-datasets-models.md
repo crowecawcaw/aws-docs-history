@@ -272,7 +272,7 @@ Finally, since there is no explicit permission on Version 1, Lookout for Equipme
 
 The table below illustrates the relationship between parent model permissions and model version permissions.
 
-![alt_text](http://docs.aws.amazon.com/lookout-for-equipment/latest/ug/images/permissions-grid.png)
+![alt_text](https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/images/permissions-grid.png)
 
 
 ## Importing a model version with accumulated inference data
