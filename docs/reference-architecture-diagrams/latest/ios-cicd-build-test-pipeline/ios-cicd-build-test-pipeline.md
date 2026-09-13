@@ -10,7 +10,7 @@ This architecture shows how to automate building and testing iOS apps by using A
 ## iOS CI/CD Build and Test Pipeline
 <a name="diagram1"></a>
 
-![Architecture diagram showing an iOS CI/CD build and test pipeline by using Amazon API Gateway, Amazon Elastic Compute Cloud Mac instances, and AWS Device Farm.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ios-cicd-build-test-pipeline/images/ios-cicd-build-test-pipeline.png)
+![Architecture diagram showing an iOS CI/CD build and test pipeline by using Amazon API Gateway, Amazon Elastic Compute Cloud Mac instances, and AWS Device Farm.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ios-cicd-build-test-pipeline/images/ios-cicd-build-test-pipeline.png)
 
 
 1. A developer initiates a build or test activity in [Amazon API Gateway](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) by pushing a code change to [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html).
