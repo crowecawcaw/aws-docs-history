@@ -24,7 +24,7 @@ Using a repository creation template gives you the ability to define the setting
 
 The following diagram shows the workflow that Amazon ECR uses when a repository creation template is used.
 
-![A display of how repository creation templates are applied to new repositories.](http://docs.aws.amazon.com/AmazonECR/latest/userguide/images/repository_creation_template_light.png)
+![A display of how repository creation templates are applied to new repositories.](https://docs.aws.amazon.com/AmazonECR/latest/userguide/images/repository_creation_template_light.png)
 
 
 The following describes each parameter in a repository creation template in detail.

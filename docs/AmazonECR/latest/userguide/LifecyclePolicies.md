@@ -12,7 +12,7 @@ A lifecycle policy consists of one or more rules that determine which images in 
 
 The following diagram shows the lifecycle policy workflow.
 
-![Diagram showing the process for evaluating and applying a lifecycle policy.](http://docs.aws.amazon.com/AmazonECR/latest/userguide/images/lifecycle-policy.png)
+![Diagram showing the process for evaluating and applying a lifecycle policy.](https://docs.aws.amazon.com/AmazonECR/latest/userguide/images/lifecycle-policy.png)
 
 
 1. Create one or more test rules.
