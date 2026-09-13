@@ -10,7 +10,7 @@ This architecture shows how to deploy a highly available and resilient Oracle Pe
 ## Oracle PeopleSoft on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to deploy a highly available and resilient Oracle PeopleSoft production environment on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/oracle-peoplesoft-on-aws/images/oracle-peoplesoft-on-aws.png)
+![Reference architecture diagram showing how to deploy a highly available and resilient Oracle PeopleSoft production environment on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/oracle-peoplesoft-on-aws/images/oracle-peoplesoft-on-aws.png)
 
 
 1.  A single Region and single Virtual Private Cloud (VPC) on-par with the on-premises data centre. 
