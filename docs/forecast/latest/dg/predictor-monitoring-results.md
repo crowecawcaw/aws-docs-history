@@ -27,7 +27,7 @@ After you generate a forecast and then import more data, you can view the result
    + The **Monitoring history** section lists the details for the different events tracked in the results.
 
     The following is an example of a graph of how the `Avg wQL` score for a predictor has changed over time. In this graph, notice that the `Avg wQL` value is increasing over time. This increase indicates that the predictor accuracy is decreasing. Use this information to determine whether you need to revalidate the model and take action.  
-![Graph showing Avg wQL increasing from 0.15 to 0.27 while baseline remains flat at 0.22.](http://docs.aws.amazon.com/forecast/latest/dg/images/predictor-drift.png)
+![Graph showing Avg wQL increasing from 0.15 to 0.27 while baseline remains flat at 0.22.](https://docs.aws.amazon.com/forecast/latest/dg/images/predictor-drift.png)
 
 ------
 #### [ SDK for Python (Boto3) ]

@@ -9,7 +9,7 @@ Amazon Forecast is a fully managed service that uses statistical and machine lea
 
 Time-series forecasting is useful in multiple fields, including retail, finance, logistics, and healthcare. You can also use Forecast to predict domain-specific metrics for your inventory, workforce, web traffic, server capacity, and finances.
 
-![Workflow showing historical and related data uploaded to Amazon Forecast for model training and output.](http://docs.aws.amazon.com/forecast/latest/dg/images/Forecast_HowitWorks.png)
+![Workflow showing historical and related data uploaded to Amazon Forecast for model training and output.](https://docs.aws.amazon.com/forecast/latest/dg/images/Forecast_HowitWorks.png)
 
 
 For more information about the technical aspects of Amazon Forecast, see [Time Series Forecasting Principles with Amazon Forecast](https://d1.awsstatic.com/whitepapers/time-series-forecasting-principles-amazon-forecast.pdf?did=wp_card&trk=wp_card).

@@ -30,7 +30,7 @@ Impact scores measure the relative impact attributes have on forecast values. Fo
 
 Impact scores also provide information on whether attributes increase or decrease forecast values. In the console, this is denoted by the two graphs. Attributes with blue bars increase forecast values, while attributes with red bars decrease forecast values.
 
-![Two bar charts showing Price and Promo increasing impact scores, StoreLocation decreasing impact score.](http://docs.aws.amazon.com/forecast/latest/dg/images/quicksightwithfilters.png)
+![Two bar charts showing Price and Promo increasing impact scores, StoreLocation decreasing impact score.](https://docs.aws.amazon.com/forecast/latest/dg/images/quicksightwithfilters.png)
 
 
 It is important to note that Impact scores measure the relative impact of attributes, not the absolute impact. Therefore, Impact scores cannot be used to determine whether particular attributes improve model accuracy. If an attribute has a low Impact score, that does not necessarily mean that it has a low impact on forecast values; it means that it has a lower impact on forecast values than other attributes used by the predictor.
@@ -259,7 +259,7 @@ Forecast enables you to export a CSV file of Impact scores to an S3 location.
 
 The export contains raw and normalized impact scores for the specified time series, as well as normalized aggregated impact scores for all specified time series and all specified time points. If you didn’t specify time points, the impact scores are already aggregated for all time points in your forecast horizon.
 
-![Table showing raw and normalized impact scores across price, promo, store location, and holiday dimensions.](http://docs.aws.amazon.com/forecast/latest/dg/images/explainability-export.png)
+![Table showing raw and normalized impact scores across price, promo, store location, and holiday dimensions.](https://docs.aws.amazon.com/forecast/latest/dg/images/explainability-export.png)
 
 
 You can export Forecast Explainability using the Amazon Forecast Software Development Kit (SDK) and the Amazon Forecast console.

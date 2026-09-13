@@ -35,4 +35,4 @@ The following tables show an example aggregation for an hourly forecast frequenc
 
 The following figure shows how Forecast transforms data to fit the default weekly time boundary.
 
-![Raw CSV data points transformed into a smooth demand time series curve with weekly boundaries.](http://docs.aws.amazon.com/forecast/latest/dg/images/data-alignment.png)
+![Raw CSV data points transformed into a smooth demand time series curve with weekly boundaries.](https://docs.aws.amazon.com/forecast/latest/dg/images/data-alignment.png)

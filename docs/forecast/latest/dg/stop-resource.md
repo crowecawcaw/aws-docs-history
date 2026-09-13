@@ -36,7 +36,7 @@ You can stop a resource job using the Forecast console or the AWS Software Devel
 
 1. Choose **Stop**.
 
-![Forecast export details showing ARN, IAM role, creation date, status, and S3 path.](http://docs.aws.amazon.com/forecast/latest/dg/images/stopresource.png)
+![Forecast export details showing ARN, IAM role, creation date, status, and S3 path.](https://docs.aws.amazon.com/forecast/latest/dg/images/stopresource.png)
 
 
 ------

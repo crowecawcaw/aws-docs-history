@@ -40,7 +40,7 @@ CNN-QR performs quantile regression with a hierarchical causal CNN serving as a 
 
 To facilitate learning time-dependent patterns, such as spikes during weekends, CNN-QR automatically creates feature time series based on time-series granularity. For example, CNN-QR creates two feature time series (day-of-month and day-of-year) at a weekly time-series frequency. The algorithm uses these derived feature time series along with the custom feature time series provided during training and inference. The following example shows a target time series, `zi,t`, and two derived time-series features: `ui,1,t` represents the hour of the day, and `ui,2,t` represents the day of the week. 
 
-![Image: CNN-QR with derived features for time frequencies.](http://docs.aws.amazon.com/forecast/latest/dg/images/cnnqr-time-frequencies.PNG)
+![Image: CNN-QR with derived features for time frequencies.](https://docs.aws.amazon.com/forecast/latest/dg/images/cnnqr-time-frequencies.PNG)
 
 
 CNN-QR automatically includes these feature time series based on the data frequency and the size of training data. The following table lists the features that can be derived for each supported basic time frequency. 
@@ -61,7 +61,7 @@ You can use a model trained on a given training set to generate predictions for 
 
 The figure below shows how this works for an element of a training dataset indexed by `i`. The training dataset consists of a target time series, `zi,t`, and two associated related time series, `xi,1,t` and `xi,2,t`. The first related time series, `xi,1,t`, is a forward-looking time series, and the second, `xi,2,t`, is a historical time series. 
 
-![Image: CNN-QR with historical and future-looking related time series](http://docs.aws.amazon.com/forecast/latest/dg/images/cnnqr-short-long-rts.png)
+![Image: CNN-QR with historical and future-looking related time series](https://docs.aws.amazon.com/forecast/latest/dg/images/cnnqr-short-long-rts.png)
 
 
 CNN-QR learns across the target time series, `zi,t`, and the related time series, `xi,1,t` and `xi,2,t`, to generate predictions in the forecast window, represented by the orange line. 

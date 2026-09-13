@@ -18,7 +18,7 @@ After completing this tutorial using the demonstration datasets, you can use the
 
 The following diagram shows the components used in this tutorial. 
 
-![Architecture diagram showing data flow from preparation through ingestion, forecasting, and evaluation stages.](http://docs.aws.amazon.com/forecast/latest/dg/images/cloudformationautomation-architecture.png)
+![Architecture diagram showing data flow from preparation through ingestion, forecasting, and evaluation stages.](https://docs.aws.amazon.com/forecast/latest/dg/images/cloudformationautomation-architecture.png)
 
 
 ## Prerequisites
@@ -49,19 +49,19 @@ To deploy the CloudFormation template using the NYC Taxi Dataset
 
 **Step 1**: Accept the defaults and choose **Next**.
 
-![Create stack wizard showing template preparation options and Amazon S3 URL field.](http://docs.aws.amazon.com/forecast/latest/dg/images/cloudformationautomation-step1.png)
+![Create stack wizard showing template preparation options and Amazon S3 URL field.](https://docs.aws.amazon.com/forecast/latest/dg/images/cloudformationautomation-step1.png)
 
 
 **Step 2**: Provide an email address for notifications and choose **Next**.
 
-![Datasets Configuration page showing email field with youremail@sample.com entered.](http://docs.aws.amazon.com/forecast/latest/dg/images/cloudformationautomation-step2.png)
+![Datasets Configuration page showing email field with youremail@sample.com entered.](https://docs.aws.amazon.com/forecast/latest/dg/images/cloudformationautomation-step2.png)
 
 
 **Step 3**: Accept defaults and choose **Next**.
 
 **Step 4**: For Capabilities, select both check boxes to allow CloudFormation to create AWS Identity and Access Management (IAM) resources and nested stacks. Choose **Create stack**.
 
-![Capabilities section with two checkboxes selected for IAM resources and CAPABILITY_AUTO_EXPAND.](http://docs.aws.amazon.com/forecast/latest/dg/images/cloudformationautomation-step4.png)
+![Capabilities section with two checkboxes selected for IAM resources and CAPABILITY_AUTO_EXPAND.](https://docs.aws.amazon.com/forecast/latest/dg/images/cloudformationautomation-step4.png)
 
 
 You have deployed an CloudFormation template in Forecast.

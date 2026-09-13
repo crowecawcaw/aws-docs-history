@@ -199,7 +199,7 @@ To compare the what-if forecasts, complete the following steps in the Forecast c
 1. On the **What-if analysis** tab of the Insights page, choose the what-if analysis that you are interested in.
 
 1. In the **Compare what-if forecasts** section, specify the item to analyze, one or more **What-if forecasts**, and at least one **Forecast type**.  
-![Interface for comparing what-if forecasts with baseline forecast, showing input fields and graph.](http://docs.aws.amazon.com/forecast/latest/dg/images/compareWhatIfForecasts.png)
+![Interface for comparing what-if forecasts with baseline forecast, showing input fields and graph.](https://docs.aws.amazon.com/forecast/latest/dg/images/compareWhatIfForecasts.png)
 
    In this example, there are two what-if forecasts, `priceCut10pct` and `priceIncrease20pct`, that are compared at the `p50`, `p10`, and `p90` forecast types for `item_105`. The graph allows you to see how these forecasts compare against the baseline time series. 
 

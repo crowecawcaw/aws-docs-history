@@ -33,7 +33,7 @@ For a step-by-step guide on using related time-series datasets, see [Incorporati
 
 Historical related time series contain data points up to the forecast horizon, and do not contain any data points within the forecast horizon. Forward-looking related time series contain data points up to *and* within the forecast horizon. 
 
-![Three time series graphs showing target, forward-looking related, and historical related data with forecast window highlighted.](http://docs.aws.amazon.com/forecast/latest/dg/images/short-long-rts.png)
+![Three time series graphs showing target, forward-looking related, and historical related data with forecast window highlighted.](https://docs.aws.amazon.com/forecast/latest/dg/images/short-long-rts.png)
 
 
 ## Related Time Series Dataset Validation
@@ -128,8 +128,8 @@ The following table shows the types of related time series each Amazon Forecast 
 
 |  | CNN-QR | DeepAR\+ | Prophet | NPTS | ARIMA | ETS | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| Historical related time series | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
-| Forward-looking related time series | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](http://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
+| Historical related time series | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
+| Forward-looking related time series | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-yes.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | ![](https://docs.aws.amazon.com/forecast/latest/dg/images/icon-no.png)  | 
 
  When using AutoML, you can provide both historical and forward-looking related time series data, and Forecast will only use those time series where applicable. 
 

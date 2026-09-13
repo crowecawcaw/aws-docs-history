@@ -16,7 +16,7 @@ Forecast supports the following filling methods:
 
 The following image provides a visual representation of different filling methods.
 
-![Timeline showing three items with front fill, middle fill, back fill, and future fill periods between global start and end dates.](http://docs.aws.amazon.com/forecast/latest/dg/images/Filling_types.PNG)
+![Timeline showing three items with front fill, middle fill, back fill, and future fill periods between global start and end dates.](https://docs.aws.amazon.com/forecast/latest/dg/images/Filling_types.PNG)
 
 
 ## Choosing Filling Logic
@@ -26,7 +26,7 @@ When choosing a filling logic, you should consider how the logic will be interpr
 
 The following time-series graphs illustrate how choosing the wrong filling value can significantly affect the accuracy of your model. Graphs A and B plot the demand for an item that is partially out-of-stock, with the black lines representing actual sales data. Missing values in A1 are filled with `0`, leading to relatively under-biased predictions (represented by the dotted lines) in A2. Similarly, missing values in B1 are filled with `NaN`, which leads to predictions that are more exact in B2.
 
-![Two time-series graphs comparing zero-filled versus NaN-filled missing values and their predictions.](http://docs.aws.amazon.com/forecast/latest/dg/images/filling_values.PNG)
+![Two time-series graphs comparing zero-filled versus NaN-filled missing values and their predictions.](https://docs.aws.amazon.com/forecast/latest/dg/images/filling_values.PNG)
 
 
 For a list of supported filling logic, see the following section.

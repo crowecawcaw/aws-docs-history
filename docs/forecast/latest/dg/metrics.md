@@ -71,7 +71,7 @@ The Weighted Quantile Loss (wQL) metric measures the accuracy of a model at a sp
 
 The loss function is calculated as follows.
 
-![Formula for weighted quantile loss with tau parameter, max functions, and summations.](http://docs.aws.amazon.com/forecast/latest/dg/images/metrics-quantile-loss.png)
+![Formula for weighted quantile loss with tau parameter, max functions, and summations.](https://docs.aws.amazon.com/forecast/latest/dg/images/metrics-quantile-loss.png)
 
 
 Where:  
@@ -88,7 +88,7 @@ By default, Forecast computes wQL at `0.1` (P10), `0.5` (P50), and `0.9` (P90).
 
 In retail, the cost of being understocked is often higher than the cost of being overstocked, and so forecasting at P75 (*τ* = 0.75) can be more informative than forecasting at the median quantile (P50). In these cases, wQL[0.75] assigns a larger penalty weight to underforecasting (0.75) and a smaller penalty weight to overforecasting (0.25). 
 
-![Probability distributions showing 50% probability at P50 and 75% probability at P75 demand levels.](http://docs.aws.amazon.com/forecast/latest/dg/images/p50-p75-prediction.jpg)
+![Probability distributions showing 50% probability at P50 and 75% probability at P75 demand levels.](https://docs.aws.amazon.com/forecast/latest/dg/images/p50-p75-prediction.jpg)
 
 
 The figure above shows the differing demand forecasts at wQL[0.50] and wQL[0.75]. The forecasted value at P75 is significantly higher than the forecasted value at P50 because the P75 forecast is expected to meet demand 75% of the time, whereas the P50 forecast is only expected to meet demand 50% of the time.
@@ -104,7 +104,7 @@ The Weighted Absolute Percentage Error (WAPE) measures the overall deviation of 
 
  When the sum of observed values for all time points and all items is approximately zero in a given backtest window, the weighted absolute percentage error expression is undefined. In these cases, Forecast outputs the unweighted absolute error sum, which is the numerator in the WAPE expression. 
 
-![WAPE formula showing sum of absolute differences between actual and predicted values divided by sum of actual values.](http://docs.aws.amazon.com/forecast/latest/dg/images/WAPE.png)
+![WAPE formula showing sum of absolute differences between actual and predicted values divided by sum of actual values.](https://docs.aws.amazon.com/forecast/latest/dg/images/WAPE.png)
 
 
 Where:  
@@ -117,7 +117,7 @@ WAPE is more robust to outliers than Root Mean Square Error (RMSE) because it us
 
 Amazon Forecast previously referred to the WAPE metric as the Mean Absolute Percentage Error (MAPE) and used the median forecast (P50) as the predicted value. Forecast now uses the mean forecast to calculate WAPE. The wQL[0.5] metric is equivalent to the WAPE[median] metric, as shown below:
 
-![Mathematical formula showing wQL[0.5] equals twice the sum of absolute differences divided by sum of absolute actual values.](http://docs.aws.amazon.com/forecast/latest/dg/images/wql-to-wape.PNG)
+![Mathematical formula showing wQL[0.5] equals twice the sum of absolute differences divided by sum of absolute actual values.](https://docs.aws.amazon.com/forecast/latest/dg/images/wql-to-wape.PNG)
 
 
 ## Root Mean Square Error (RMSE)
@@ -125,7 +125,7 @@ Amazon Forecast previously referred to the WAPE metric as the Mean Absolute Perc
 
 Root Mean Square Error (RMSE) is the square root of the average of squared errors, and is therefore more sensitive to outliers than other accuracy metrics. A lower value indicates a more accurate model.
 
-![RMSE formula showing square root of sum of squared differences between predicted and actual values.](http://docs.aws.amazon.com/forecast/latest/dg/images/metrics-rmse.png)
+![RMSE formula showing square root of sum of squared differences between predicted and actual values.](https://docs.aws.amazon.com/forecast/latest/dg/images/metrics-rmse.png)
 
 
 Where:  
@@ -144,7 +144,7 @@ Predictors created before November 11, 2020 calculated RMSE using the 0.5 quanti
 
 Mean Absolute Percentage Error (MAPE) takes the absolute value of the percentage error between observed and predicted values for each unit of time, then averages those values. A lower value indicates a more accurate model.
 
-![MAPE formula showing one over n times the sum of absolute value of A sub t minus F sub t divided by A sub t.](http://docs.aws.amazon.com/forecast/latest/dg/images/mape.png)
+![MAPE formula showing one over n times the sum of absolute value of A sub t minus F sub t divided by A sub t.](https://docs.aws.amazon.com/forecast/latest/dg/images/mape.png)
 
 
 Where:  
@@ -161,7 +161,7 @@ MAPE is useful for cases where values differ significantly between time points a
 
 Mean Absolute Scaled Error (MASE) is calculated by dividing the average error by a scaling factor. This scaling factor is dependent on the seasonality value, *m*, which is selected based on the forecast frequency. A lower value indicates a more accurate model.
 
-![MASE formula showing mean of absolute errors divided by scaled mean absolute error.](http://docs.aws.amazon.com/forecast/latest/dg/images/mase.png)
+![MASE formula showing mean of absolute errors divided by scaled mean absolute error.](https://docs.aws.amazon.com/forecast/latest/dg/images/mase.png)
 
 
 Where:  
@@ -222,7 +222,7 @@ Choose your predictor on the **Predictors** page. In the **Predictor metrics** s
 
 During the **Create predictor backtest export** stage, set the **Export name**, **IAM Role**, and **S3 predictor backtest export location** fields.
 
-![Create predictor backtest export page with fields for export name, IAM role, and S3 location.](http://docs.aws.amazon.com/forecast/latest/dg/images/console-export-screen.PNG)
+![Create predictor backtest export page with fields for export name, IAM role, and S3 location.](https://docs.aws.amazon.com/forecast/latest/dg/images/console-export-screen.PNG)
 
 
 ------
@@ -238,7 +238,7 @@ By default, Forecast uses the following values for the predictor forecast types:
 
 Quantiles can provide an upper and lower bound for forecasts. For example, using the forecast types `0.1` (P10) and `0.9` (P90) provides a range of values known as an 80% confidence interval. The observed value is expected to be lower than the P10 value 10% of the time, and the P90 value is expected to be higher than the observed value 90% of the time. By generating forecasts at p10 and P90, you can expect the true value to fall between those bounds 80% of the time. This range of values is depicted by the shaded region between P10 and P90 in the figure below.
 
-![Time series forecast showing P50 median with shaded confidence intervals for P10, P90, P1, and P99.](http://docs.aws.amazon.com/forecast/latest/dg/images/quantiles-intervals.png)
+![Time series forecast showing P50 median with shaded confidence intervals for P10, P90, P1, and P99.](https://docs.aws.amazon.com/forecast/latest/dg/images/quantiles-intervals.png)
 
 
 You can also use a quantile forecast as a point forecast when the cost of underpredicting differs from the cost of overpredicting. For example, in some retail cases the cost of being understocked is higher than the cost of being overstocked. In these cases, the forecast at 0.65 (P65) is more informative than the median (P50) or mean forecast.
@@ -265,7 +265,7 @@ During the **Train Predictor** stage, specify the custom forecast types in the *
 
  For example, to create a predictor using the `0.01`, `mean`, `0.65`, and `0.99` forecast types, enter the following values in the **Forecast types** fields shown below.
 
-![Four forecast type fields with values .01, mean, .65, and .99 entered respectively.](http://docs.aws.amazon.com/forecast/latest/dg/images/predictor-custom-quantiles.png)
+![Four forecast type fields with values .01, mean, .65, and .99 entered respectively.](https://docs.aws.amazon.com/forecast/latest/dg/images/predictor-custom-quantiles.png)
 
 
 ------
@@ -282,7 +282,7 @@ Forecast omits filled values from the backtesting process, and any item with fil
 
 The backtest window must be at least as large as the forecast horizon, and smaller than half the length of the entire target time-series dataset. You can choose from between 1 and 5 backtests.
 
-![Four backtest scenarios showing training and testing periods between start and end dates.](http://docs.aws.amazon.com/forecast/latest/dg/images/evaluation-backtests.png)
+![Four backtest scenarios showing training and testing periods between start and end dates.](https://docs.aws.amazon.com/forecast/latest/dg/images/evaluation-backtests.png)
 
 
 Generally, increasing the number of backtests produces more reliable accuracy metrics, since a larger portion of the time series is used during testing and Forecast is able to take an average of metrics across all backtests.
@@ -310,7 +310,7 @@ During the **Train Predictor** stage, set the length of the testing set during b
 
 For example, to run 2 backtests with a testing set of 10 time points, set the following values.
 
-![Number of backtest windows field set to 2 and Backtest window offset field set to 10.](http://docs.aws.amazon.com/forecast/latest/dg/images/predictor-backtest-windows.png)
+![Number of backtest windows field set to 2 and Backtest window offset field set to 10.](https://docs.aws.amazon.com/forecast/latest/dg/images/predictor-backtest-windows.png)
 
 
 ------

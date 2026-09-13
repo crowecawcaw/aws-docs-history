@@ -35,7 +35,7 @@ This exercise assumes that you have not created any dataset groups. If you previ
    + **Forecasting domain** – From the drop-down menu, choose **Custom**. For more information about how to choose a forecasting domain, see [dataset domains and types](howitworks-domains-ds-types.md).
 
    Leave the **Tags** section unchanged. Your screen should look similar to the following:  
-![Create dataset group page with Dataset group name field showing my_dsgroup and Forecasting domain set to Custom.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-create-dsgroup.png)
+![Create dataset group page with Dataset group name field showing my_dsgroup and Forecasting domain set to Custom.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-create-dsgroup.png)
 
 1. Choose **Next**.
 
@@ -53,7 +53,7 @@ This exercise assumes that you have not created any dataset groups. If you previ
       For the electricity usage input data, the columns correspond to: a timestamp, the electricity usage at the specified time (target\_value), and the ID of the customer charged for the electricity usage (string). The order of the columns and the timestamp format specified here must be consistent with the input time series data.
 
    The **Dataset details** panel should look similar to the following:  
-![Dataset details panel with schema builder showing timestamp, target_value, and item_id attributes.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-create-dataset.png)
+![Dataset details panel with schema builder showing timestamp, target_value, and item_id attributes.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-create-dataset.png)
 
 1. For **Dataset import details**, provide the following information:
    + **Dataset import name** – Enter a name for your dataset.
@@ -67,12 +67,12 @@ This exercise assumes that you have not created any dataset groups. If you previ
    + **Custom IAM role ARN** – Enter the Amazon Resource Name (ARN) of the IAM role that you created in [Create an IAM Role for Amazon Forecast (IAM Console)](aws-forecast-iam-roles.md#aws-forecast-create-iam-role-with-console).
 
    The **Dataset import details** panel should look similar to the following:  
-![Dataset import details panel with fields for import name, time zone, data location, and IAM role.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-import-data.png)
+![Dataset import details panel with fields for import name, time zone, data location, and IAM role.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-import-data.png)
 
 1. Choose **Start**. If you are returned to the Amazon Forecast home page, choose **View dataset group**.
 
 1. Click the name of the dataset group that you just created. The dataset group's **Dashboard** page is displayed. Your screen should look similar to the following:  
-![Dashboard overview showing workflow: import data, train predictor, generate forecasts, explore insights.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-importing.png)
+![Dashboard overview showing workflow: import data, train predictor, generate forecasts, explore insights.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step1-importing.png)
 
    Next to **Target time series data**, you will see the status of the import job. Wait for Amazon Forecast to finish importing your time series data. The process can take several minutes or longer. When your dataset has been imported, the status transitions to **Active** and the banner at the top of the dashboard notifies you that you have successfully imported your data.
 
@@ -88,7 +88,7 @@ This exercise assumes that you have not created any dataset groups. If you previ
 **To create a predictor**
 
 1. After your target time series dataset has finished importing, your dataset group's **Dashboard** should look similar to the following:  
-![Dashboard showing workflow from importing data through training predictor to generating forecasts and exploring insights.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-start.png)
+![Dashboard showing workflow from importing data through training predictor to generating forecasts and exploring insights.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-start.png)
 
    Under **Train a predictor**, choose **Start**. The **Train predictor** page is displayed.
 **Note**  
@@ -101,15 +101,15 @@ The `Status` of the **Target time series data** must be `Active`, which signifie
    +  **Forecast dimensions** and **Forecast quantiles** – Leave the default values for these fields. 
 
    The remaining **Input data configuration** and **Tags** sections are optional, so leave the default values. The **Predictor settings** sections should look similar to the following:  
-![Predictor settings showing forecast configuration with quantiles 0.10, 0.50, 0.90 and optimization metric options.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-predictor-details.png)
+![Predictor settings showing forecast configuration with quantiles 0.10, 0.50, 0.90 and optimization metric options.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-predictor-details.png)
 
 1. Choose **Create**. Your dataset group's **Dashboard** page is displayed. Your screen should look similar to the following:  
-![Dashboard showing workflow from importing data, training predictor, generating forecasts, to exploring insights.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-predictor-dashboard.png)
+![Dashboard showing workflow from importing data, training predictor, generating forecasts, to exploring insights.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-predictor-dashboard.png)
 
 1. To find the status of your predictor, choose **View predictors**.
 
 1. On the **Predictors** page find the status of your predictor in the **Training status** column. Your screen should look similar to the following:   
-![Predictors page showing gs_predictor with Create in progress status and estimated time remaining.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-predictor-status.png)
+![Predictors page showing gs_predictor with Create in progress status and estimated time remaining.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step2-predictor-status.png)
 
    Wait for Amazon Forecast to finish training the predictor. The process can take several minutes or longer. When your predictor has been trained, the status transitions to **Active** and a banner displays notifying you that you can start generating forecasts.
 
@@ -129,12 +129,12 @@ The `Status` of **Predictor training** must be `Active` before you can generate 
    + **Predictor** – From the drop-down menu, choose the predictor that you created in `Step 2: Train a Predictor`.
 
    The **Forecast quantiles** and **Tags** fields are optional, so leave the default value. Your screen should look similar to the following:  
-![Forecast details form with fields for forecast name, predictor selection, and forecast types.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step3-forecast-details.png)
+![Forecast details form with fields for forecast name, predictor selection, and forecast types.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step3-forecast-details.png)
 
    Click **Start**.
 
 1. The **Forecasts** page is displayed. Your screen should look similar to the following:  
-![Forecasts page showing one forecast named gs_forecast with status Create in progress.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step3-creating-forecast.png)
+![Forecasts page showing one forecast named gs_forecast with status Create in progress.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step3-creating-forecast.png)
 
    The **Status** column lists the status of your forecast.. Wait for Amazon Forecast to finish creating the forecast. The process can take several minutes or longer. When your forecast has been created, the status transitions to **Active**.
 
@@ -149,7 +149,7 @@ After the forecast has been created, you can export the complete forecast.
 
 1. On the dataset groups page, click the dataset group that you created in `Step 1: Import Training Data`.
 
-1. Click ![Three horizontal lines representing a menu or navigation icon.](http://docs.aws.amazon.com/forecast/latest/dg/images/menuNavPane.png) in the upper left corner of the screen to open the navigation pane. Under your dataset group, click **Forecasts**.
+1. Click ![Three horizontal lines representing a menu or navigation icon.](https://docs.aws.amazon.com/forecast/latest/dg/images/menuNavPane.png) in the upper left corner of the screen to open the navigation pane. Under your dataset group, click **Forecasts**.
 
 1. Choose the radio button next to the forecast that you created in `Step 3: Create a Forecast`.
 
@@ -166,11 +166,11 @@ After the forecast has been created, you can export the complete forecast.
      **s3://<name of your S3 bucket>/<folder path>/**
 
    Your screen should look similar to the following:  
-![Create forecast export page with fields for export name, IAM role, KMS key , file type, and S3 location.](http://docs.aws.amazon.com/forecast/latest/dg/images/createForecastExport.png)
+![Create forecast export page with fields for export name, IAM role, KMS key , file type, and S3 location.](https://docs.aws.amazon.com/forecast/latest/dg/images/createForecastExport.png)
 
 1. Click **Start**. The **Forecasts** page is displayed.
 
 1. Click the forecast that you created in `Step 3: Create a Forecast`. Find the **Exports** section. Your screen should look similar to the following:  
-![Exports table showing one forecast export job in progress with name, status, and location.](http://docs.aws.amazon.com/forecast/latest/dg/images/gs-step4-exporting.png)
+![Exports table showing one forecast export job in progress with name, status, and location.](https://docs.aws.amazon.com/forecast/latest/dg/images/gs-step4-exporting.png)
 
    You should see the status progress. Wait for Amazon Forecast to finish exporting the forecast. The process can take several minutes or longer. When your forecast has been exported, the status transitions to **Active** and you can find the forecast files in your S3 bucket.

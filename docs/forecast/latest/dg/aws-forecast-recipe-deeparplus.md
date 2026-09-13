@@ -20,7 +20,7 @@ For a step-by-step guide on using the DeepAR\+ algorithm, see [Getting Started w
 
 During training, DeepAR\+ uses a training dataset and an optional testing dataset. It uses the testing dataset to evaluate the trained model. In general, the training and testing datasets don't have to contain the same set of time series. You can use a model trained on a given training set to generate forecasts for the future of the time series in the training set, and for other time series. Both the training and the testing datasets consist of (preferably more than one) target time series. Optionally, they can be associated with a vector of feature time series and a vector of categorical features (for details, see [DeepAR Input/Output Interface](https://docs.aws.amazon.com/sagemaker/latest/dg/deepar.html#deepar-inputoutput) in the *SageMaker AI Developer Guide*). The following example shows how this works for an element of a training dataset indexed by `i`. The training dataset consists of a target time series, `zi,t`, and two associated feature time series, `xi,1,t` and `xi,2,t`.
 
-![Image: DeepAR+ time-series data.](http://docs.aws.amazon.com/forecast/latest/dg/images/forecast-recipe-deeparplus-ts-full-159.base.png)
+![Image: DeepAR+ time-series data.](https://docs.aws.amazon.com/forecast/latest/dg/images/forecast-recipe-deeparplus-ts-full-159.base.png)
 
 
 The target time series might contain missing values (denoted in the graphs by breaks in the time series). DeepAR\+ supports only feature time series that are known in the future. This allows you to run counterfactual "what-if" scenarios. For example, "What happens if I change the price of a product in some way?" 
@@ -29,7 +29,7 @@ Each target time series can also be associated with a number of categorical feat
 
 To facilitate learning time-dependent patterns, such as spikes during weekends, DeepAR\+ automatically creates feature time series based on time-series granularity. For example, DeepAR\+ creates two feature time series (day of the month and day of the year) at a weekly time-series frequency. It uses these derived feature time series along with the custom feature time series that you provide during training and inference. The following example shows two derived time-series features: `ui,1,t` represents the hour of the day, and `ui,2,t` the day of the week. 
 
-![Image: DeepAR+ two derived time-series.](http://docs.aws.amazon.com/forecast/latest/dg/images/forecast-recipe-deeparplus-ts-full-159.derived.png)
+![Image: DeepAR+ two derived time-series.](https://docs.aws.amazon.com/forecast/latest/dg/images/forecast-recipe-deeparplus-ts-full-159.derived.png)
 
 
 DeepAR\+ automatically includes these feature time series based on the data frequency and the size of training data. The following table lists the features that can be derived for each supported basic time frequency. 
@@ -46,12 +46,12 @@ DeepAR\+ automatically includes these feature time series based on the data freq
 
 A DeepAR\+ model is trained by randomly sampling several training examples from each of the time series in the training dataset. Each training example consists of a pair of adjacent context and prediction windows with fixed predefined lengths. The `context_length` hyperparameter controls how far in the past the network can see, and the `ForecastHorizon` parameter controls how far in the future predictions can be made. During training, Amazon Forecast ignores elements in the training dataset with time series shorter than the specified prediction length. The following example shows five samples, with a context length (highlighted in green) of 12 hours and a prediction length (highlighted in blue) of 6 hours, drawn from element `i`. For the sake of brevity, we've excluded the feature time series `xi,1,t` and `ui,2,t`.
 
-![Image: DeepAR+ sampled.](http://docs.aws.amazon.com/forecast/latest/dg/images/forecast-recipe-deeparplus-ts-full-159.sampled.png)
+![Image: DeepAR+ sampled.](https://docs.aws.amazon.com/forecast/latest/dg/images/forecast-recipe-deeparplus-ts-full-159.sampled.png)
 
 
 To capture seasonality patterns, DeepAR\+ also automatically feeds lagged (past period) values from the target time series. In our example with samples taken at an hourly frequency, for each time index `t = T`, the model exposes the `zi,t` values which occurred approximately one, two, and three days in the past (highlighted in pink).
 
-![Image: DeepAR+ lags.](http://docs.aws.amazon.com/forecast/latest/dg/images/forecast-recipe-deeparplus-ts-full-159.lags.png)
+![Image: DeepAR+ lags.](https://docs.aws.amazon.com/forecast/latest/dg/images/forecast-recipe-deeparplus-ts-full-159.lags.png)
 
 
 For inference, the trained model takes as input the target time series, which might or might not have been used during training, and forecasts a probability distribution for the next `ForecastHorizon` values. Because DeepAR\+ is trained on the entire dataset, the forecast takes into account learned patterns from similar time series.

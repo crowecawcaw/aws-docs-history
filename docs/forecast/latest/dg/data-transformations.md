@@ -9,7 +9,7 @@ A transformation function is a set of operations that select and modify the rows
 
 When you create a what-if forecast, use the **Transformation function builder** to specify the conditions and transformations that you want to apply. The image below illustrates this functionality.
 
-![Transformation function builder interface with options to modify price and stock count.](http://docs.aws.amazon.com/forecast/latest/dg/images/transformationFunctionsMod.png)
+![Transformation function builder interface with options to modify price and stock count.](https://docs.aws.amazon.com/forecast/latest/dg/images/transformationFunctionsMod.png)
 
 
 In the highlighted section, the `price` column is multiplied by 0.90 (i.e., a 10% discount) at the store in `tacoma` (i.e., Tacoma, Washington) for items that are colored `blue`. To do this, Amazon Forecast first creates a subset of the baseline related time series to contain only the rows of `store` that equal `tacoma`.

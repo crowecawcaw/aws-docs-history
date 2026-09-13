@@ -48,7 +48,7 @@ For example, to include the USA holiday calendar, use the following code.
 
 Choose a country from the **Country for Holidays** drop-down during the **Train Predictor** stage.
 
-![](http://docs.aws.amazon.com/forecast/latest/dg/images/holidays-dropdown-2.png)
+![](https://docs.aws.amazon.com/forecast/latest/dg/images/holidays-dropdown-2.png)
 
 
 ------

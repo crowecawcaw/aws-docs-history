@@ -93,7 +93,7 @@ The following are the latitudinal and longitudinal bounds for the accepted regio
 
 **Bounds**: latitude (24.6, 50.0), longitude (-126.0, -66.4).
 
-![Map showing the United States, parts of Canada and Mexico with geographic boundaries marked.](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-us-bounds.png)
+![Map showing the United States, parts of Canada and Mexico with geographic boundaries marked.](https://docs.aws.amazon.com/forecast/latest/dg/images/weather-us-bounds.png)
 
 
 ------
@@ -101,7 +101,7 @@ The following are the latitudinal and longitudinal bounds for the accepted regio
 
 **Bounds**: latitude (41.0, 75.0), longitude (-142.0, -52.0).
 
-![Map of Canada showing provinces, territories, and major cities with surrounding waters.](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-can-bounds.PNG)
+![Map of Canada showing provinces, territories, and major cities with surrounding waters.](https://docs.aws.amazon.com/forecast/latest/dg/images/weather-can-bounds.PNG)
 
 
 ------
@@ -109,7 +109,7 @@ The following are the latitudinal and longitudinal bounds for the accepted regio
 
 **Bounds**: latitude (34.8, 71.8), longitude (-12.6, 44.8).
 
-![Map of Europe showing countries, major cities, and surrounding bodies of water.](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-euro-bounds.png)
+![Map of Europe showing countries, major cities, and surrounding bodies of water.](https://docs.aws.amazon.com/forecast/latest/dg/images/weather-euro-bounds.png)
 
 
 ------
@@ -117,7 +117,7 @@ The following are the latitudinal and longitudinal bounds for the accepted regio
 
 **Bounds**: latitude (-56.6, 14.0), longitude (-82.4, -33.00).
 
-![Map of South America showing countries, major cities, and Brazilian states with coordinate boundaries.](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-sa-bounds.PNG)
+![Map of South America showing countries, major cities, and Brazilian states with coordinate boundaries.](https://docs.aws.amazon.com/forecast/latest/dg/images/weather-sa-bounds.PNG)
 
 
 ------
@@ -125,7 +125,7 @@ The following are the latitudinal and longitudinal bounds for the accepted regio
 
 **Bounds**: latitude (-47.8, 55.0), longitude (67.0, 180.60).
 
-![Map showing Asia-Pacific region including countries from India to New Zealand and Australia.](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-apac-bounds.png)
+![Map showing Asia-Pacific region including countries from India to New Zealand and Australia.](https://docs.aws.amazon.com/forecast/latest/dg/images/weather-apac-bounds.png)
 
 
 ------
@@ -133,7 +133,7 @@ The following are the latitudinal and longitudinal bounds for the accepted regio
 
 **Bounds**: latitude (6.80, 33.20), longitude (-118.80, -58.20).
 
-![Map showing Mexico, Central America, Caribbean islands, and parts of North and South America.](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-ca-bounds.png)
+![Map showing Mexico, Central America, Caribbean islands, and parts of North and South America.](https://docs.aws.amazon.com/forecast/latest/dg/images/weather-ca-bounds.png)
 
 
 ------
@@ -141,7 +141,7 @@ The following are the latitudinal and longitudinal bounds for the accepted regio
 
 **Bounds**: latitude (-35.60, 43.40), longitude (-18.80, -58.20).
 
-![Map showing North Africa, Middle East, and parts of Europe with country names and borders.](http://docs.aws.amazon.com/forecast/latest/dg/images/weather-africa-bounds.png)
+![Map showing North Africa, Middle East, and parts of Europe with country names and borders.](https://docs.aws.amazon.com/forecast/latest/dg/images/weather-africa-bounds.png)
 
 
 ------
@@ -192,7 +192,7 @@ The format of the geolocation attribute can be in the **Postal Code** or **Latit
 
 1. In the **Geolocation format** drop-down, choose your location format.
 
-![Schema builder interface showing four attributes: item_id, timestamp, target_value, and location with their respective types.](http://docs.aws.amazon.com/forecast/latest/dg/images/schema-builder-geolocation.png)
+![Schema builder interface showing four attributes: item_id, timestamp, target_value, and location with their respective types.](https://docs.aws.amazon.com/forecast/latest/dg/images/schema-builder-geolocation.png)
 
 
 You can also define your attributes in JSON format and select a location format from the **Geolocation format** drop-down.
@@ -244,7 +244,7 @@ You can automatically sync your timestamps with your geolocation attribute using
 
 1. In **Dataset import details**, choose **Sync time zone with location**.
 
-![Dataset import details form with fields for name, time zone, data location, and IAM role.](http://docs.aws.amazon.com/forecast/latest/dg/images/sync-timezone-with-geolocation.PNG)
+![Dataset import details form with fields for name, time zone, data location, and IAM role.](https://docs.aws.amazon.com/forecast/latest/dg/images/sync-timezone-with-geolocation.PNG)
 
 
 ------
@@ -354,7 +354,7 @@ You can manually set a time zone for your datasets using the Forecast console or
 
 For example, use the following to apply Los Angeles time (Pacific Standard Time) to your datasets.
 
-![Dataset import details form with America/Los_Angeles selected as the time zone.](http://docs.aws.amazon.com/forecast/latest/dg/images/select-timezone.PNG)
+![Dataset import details form with America/Los_Angeles selected as the time zone.](https://docs.aws.amazon.com/forecast/latest/dg/images/select-timezone.PNG)
 
 
 ------

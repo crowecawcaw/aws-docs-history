@@ -68,7 +68,7 @@ You can delete resources using the Amazon Forecast console or the AWS Software D
 1. In the confirmation field, type **delete**.
 
 1. Choose **Delete**.  
-![Delete DatasetGroup1 dialog box with confirmation field requiring delete to be typed.](http://docs.aws.amazon.com/forecast/latest/dg/images/resource-delete.PNG)
+![Delete DatasetGroup1 dialog box with confirmation field requiring delete to be typed.](https://docs.aws.amazon.com/forecast/latest/dg/images/resource-delete.PNG)
 
 ------
 #### [ SDK ]
@@ -116,7 +116,7 @@ Deleting a resource tree deletes the parent resource and all associated child re
 1. In the confirmation field, type **delete**.
 
 1. Choose **Delete**.  
-![Delete DatasetGroup1 dialog box with confirmation field requiring delete to be typed.](http://docs.aws.amazon.com/forecast/latest/dg/images/resource-tree-delete.PNG)
+![Delete DatasetGroup1 dialog box with confirmation field requiring delete to be typed.](https://docs.aws.amazon.com/forecast/latest/dg/images/resource-tree-delete.PNG)
 
 ------
 #### [ SDK ]
