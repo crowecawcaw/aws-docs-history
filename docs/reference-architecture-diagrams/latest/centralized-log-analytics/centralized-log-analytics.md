@@ -10,7 +10,7 @@ This architecture shows how to search, analyze, and visualize machine data by us
 ## Centralized Log Analytics
 <a name="diagram1"></a>
 
-![Architecture diagram showing centralized log analytics with .](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-log-analytics/images/centralized-log-analytics.png)
+![Architecture diagram showing centralized log analytics with .](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-log-analytics/images/centralized-log-analytics.png)
 
 
 1. Collectors such as FluentBit, Amazon Kinesis Agent, and the [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) Agent (or services such as [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)) collect log lines and store them in [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
