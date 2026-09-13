@@ -14,7 +14,7 @@ From your workstation, perform the following steps on each AWS Elemental Conduct
 1. Bring up the web interface for the primary AWS Elemental Conductor File system. From the main menu, select **Settings** > **Licenses**. The Licenses screen appears.
 
 1. Select **Choose File** and navigate to the directory where you placed the license files. Select the file name with the hostname portion matching the hostname of this node.  
-![License management interface showing options to upload or update license files.](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-installlic-shared-png.png)
+![License management interface showing options to upload or update license files.](https://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-installlic-shared-png.png)
 
 1. Back on the Licenses screen, choose **Update**. The license file will be installed. Be sure to install each license file: `conductor.lic` and `ui.lic`.
 

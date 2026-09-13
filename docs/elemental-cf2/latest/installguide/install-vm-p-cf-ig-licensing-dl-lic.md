@@ -11,18 +11,18 @@ You must perform these steps for the system that will act as the primary AWS Ele
 1. Follow the instructions in [Downloading AWS Elemental Conductor File Software](detailed-dl-cf-ig.md) to get to the **Order Detail** page on the [AWS Elemental Support Center Activations](https://console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/activations).
 
 1. Hover over the three-bar icon on the right of the screen to bring up a small menu. Choose **License(s)**.  
-![](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-licorderdetail-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-licorderdetail-shared-png.png)
 
 1. On the **License Information** page, choose **Generate**.  
-![](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-licinfo-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-licinfo-shared-png.png)
 
 1. On the **Generate Licenses** page, select **Choose File** to browse to and select your `.key` file.
 
 1. This returns you to the **Generate Licenses** page, with your `.key` file selected. Choose **Upload License Key**.  
-![](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-genlic-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-genlic-shared-png.png)
 
 1. This takes you to the **View Licenses** page, where you can download a `.tgz` file. This is a compressed, aggregated file that contains all the license files that you need for this system.  
-![](http://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-viewlic-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-cf2/latest/installguide/images/install-viewlic-shared-png.png)
 
 1. Save the `.tgz` file to a place accessible to the AWS Elemental system that will be using this license, for example, a directory on your workstation called “licenses”. Make a note of the path. 
 
