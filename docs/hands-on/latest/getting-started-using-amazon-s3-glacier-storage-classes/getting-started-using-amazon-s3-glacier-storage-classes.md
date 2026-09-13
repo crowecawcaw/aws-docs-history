@@ -38,18 +38,18 @@ Use the [S3 console](https://s3.console.aws.amazon.com/s3/home) and S3 API to ea
    + If you have not already done so, create an AWS account. [Access this support page for more information on how to create and activate a new AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/). 
    + Log into the [AWS Management Console](https://console.aws.amazon.com/) using your account information. 
    + From the AWS console services search bar, enter ‘**S3**’. Under the services search results section, select **S3**. You may notice an option for Amazon Glacier. This option is for the Glacier service prior to integration with Amazon S3. We recommend all new Amazon Glacier users use the S3 console.   
-![The AWS Management Console showing search results for 'S3', highlighting Amazon S3 (Scalable Storage in the Cloud) and Amazon Glacier (Archive Storage in the Cloud) services.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/ltjfi-console-ffde-search-results.png)
+![The AWS Management Console showing search results for 'S3', highlighting Amazon S3 (Scalable Storage in the Cloud) and Amazon Glacier (Archive Storage in the Cloud) services.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/ltjfi-console-ffde-search-results.png)
 
 1. Create an S3 bucket
 
    Choose **Buckets** from the S3 menu on the left rail and then select the **Create bucket** button.   
-![The Amazon S3 web console showing the Buckets overview, account storage snapshot, and the option to create a new bucket. The interface displays total storage, object count, and average object size, along with account navigation and Storage Lens dashboard options.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/console-buckets-overview-account-snapshot.png)
+![The Amazon S3 web console showing the Buckets overview, account storage snapshot, and the option to create a new bucket. The interface displays total storage, object count, and average object size, along with account navigation and Storage Lens dashboard options.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/console-buckets-overview-account-snapshot.png)
 
 1. Configure the bucket
    + Enter a descriptive globally unique name for your bucket. 
    + Select which AWS Region you would like your bucket created in. 
    + The default Block Public Access setting is appropriate for this workload, so leave this section as is.   
-![The AWS Management Console showing configuration of a new S3 bucket named 'glacier-accounting-archive-1001', with the AWS Region set to US East (N. Virginia) us-east-1. Part of a tutorial for using Glacier storage classes.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/configure-bucket-adc-console-configuration.png)
+![The AWS Management Console showing configuration of a new S3 bucket named 'glacier-accounting-archive-1001', with the AWS Region set to US East (N. Virginia) us-east-1. Part of a tutorial for using Glacier storage classes.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/configure-bucket-adc-console-configuration.png)
 
 1. Enable versioning
 
@@ -58,14 +58,14 @@ Use the [S3 console](https://s3.console.aws.amazon.com/s3/home) and S3 API to ea
    [Read more about bucket versioning here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html). Then, add some tags to help track costs associated with our archive data over time. 
 
    [You can find more information about S3 bucket cost allocation tagging here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html).   
-![The AWS S3 console with bucket versioning enabled and example tags (dept: accounting, archive: true) being added to an S3 bucket. Demonstrates how to configure versioning and tagging for an S3 bucket in Amazon Web Services.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/bucket-versioning-acfd-console-enabled.png)
+![The AWS S3 console with bucket versioning enabled and example tags (dept: accounting, archive: true) being added to an S3 bucket. Demonstrates how to configure versioning and tagging for an S3 bucket in Amazon Web Services.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/bucket-versioning-acfd-console-enabled.png)
 
 1. Enable default encryption
 
    Next, you have the option of enabling default ‘at-rest’ encryption for the bucket. The settings here will apply to any objects uploaded to the bucket where you have not defined at-rest encryption details during the upload process. 
 
    For this example, enable server-side encryption leveraging S3 service managed keys (SSE-S3). If your workload requirements are not satisfied by SSE-S3, you can also leverage AWS Key Management Service (KMS). [More information about Amazon S3 and AWS KMS can be found here](https://docs.aws.amazon.com/kms/latest/developerguide/services-s3.html).   
-![The default encryption settings for an S3 bucket in the AWS Management Console, with server-side encryption enabled using the Amazon S3 key (SSE-S3) option.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/encryption-default-settings-bucket-console.png)
+![The default encryption settings for an S3 bucket in the AWS Management Console, with server-side encryption enabled using the Amazon S3 key (SSE-S3) option.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/encryption-default-settings-bucket-console.png)
 
 1. Enable S3 Object Lock
 
@@ -77,7 +77,7 @@ Use the [S3 console](https://s3.console.aws.amazon.com/s3/home) and S3 API to ea
    + Choose **Enable.** 
    + Select the check box to acknowledge enabling the S3 Object Lock settings 
    + Select the **Create bucket** button.   
-![The AWS Management Console showing the advanced settings for enabling Object Lock on an S3 bucket. The 'Enable' option is selected, and a warning informs users that enabling Object Lock will permanently allow objects in the bucket to be locked, ensuring data integrity and regulatory compliance. The interface includes options, acknowledgments, and the 'Create bucket' button.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/object-lock-ebeff-console-advanced.png)
+![The AWS Management Console showing the advanced settings for enabling Object Lock on an S3 bucket. The 'Enable' option is selected, and a warning informs users that enabling Object Lock will permanently allow objects in the bucket to be locked, ensuring data integrity and regulatory compliance. The interface includes options, acknowledgments, and the 'Create bucket' button.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/object-lock-ebeff-console-advanced.png)
 
 1. Configure S3 Object Lock
 
@@ -88,7 +88,7 @@ Use the [S3 console](https://s3.console.aws.amazon.com/s3/home) and S3 API to ea
 For this exercise, use **Governance** mode for the S3 Object Lock configuration. This will allow you to permanently delete your test object using an admin user after this tutorial has completed.
 
    For more information about S3 Object Lock, read the blog featuring "[Protecting data with Amazon S3 Object Lock](https://aws.amazon.com/blogs/storage/protecting-data-with-amazon-s3-object-lock/)."   
-![A successful creation of an Amazon S3 bucket named 'glacier-accounting-archive-100101' in the AWS Management Console. The image also highlights an additional configuration notice about enabling Object Lock to protect objects from being deleted or overwritten.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/successful-acbc-dbfe-creation-bucket-named.png)
+![A successful creation of an Amazon S3 bucket named 'glacier-accounting-archive-100101' in the AWS Management Console. The image also highlights an additional configuration notice about enabling Object Lock to protect objects from being deleted or overwritten.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/successful-acbc-dbfe-creation-bucket-named.png)
 
 1. Edit the S3 Object Lock
 
@@ -97,7 +97,7 @@ For this exercise, use **Governance** mode for the S3 Object Lock configuration.
    For this example, you want to enable retention for all objects uploaded to this bucket for 5 years. Select **Enable** for the **Default retention** option, choose governance mode by selecting the **Governance** option under **Default retention** **mode** and enter **5** as the default retention period. 
 
    Lastly, select **Years** for the unit of measure and then select the **Save changes** button.   
-![The AWS Management Console showing how to enable and configure object lock settings for Amazon Glacier storage classes, including default retention mode, retention period, and governance options.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/umdn-edit-object-lock-console-how-enable.png)
+![The AWS Management Console showing how to enable and configure object lock settings for Amazon Glacier storage classes, including default retention mode, retention period, and governance options.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/umdn-edit-object-lock-console-how-enable.png)
 
 ### Step 2: Uploading data to an Amazon S3 bucket
 <a name="uploading-data-to-an-amazon-s3-bucket"></a>
@@ -111,12 +111,12 @@ Now that your bucket has been created and configured, you are ready to upload ar
    Navigate to the [S3 console](https://s3.console.aws.amazon.com/s3/home) and select the **Buckets** menu option. 
 
    From the list of available buckets, select the bucket name of the bucket you just created.   
-![The Amazon S3 console showing the Buckets section, an account snapshot, and a list of buckets including a Glacier storage class archive, used in a tutorial for uploading objects to Amazon Glacier.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/object-upload-cdeaecb-console-buckets.png)
+![The Amazon S3 console showing the Buckets section, an account snapshot, and a list of buckets including a Glacier storage class archive, used in a tutorial for uploading objects to Amazon Glacier.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/object-upload-cdeaecb-console-buckets.png)
 
 1. Start the upload
 
    Next, choose the **Objects** tab. Then from within the **Objects** section, select the **Upload** button.   
-![The Amazon S3 console showing the 'glacier-accounting-archive-100101' bucket with the Objects tab selected, highlighting the 'Upload' button for uploading an object in a Glacier storage class tutorial.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/upload-object-console-accounting-archive.png)
+![The Amazon S3 console showing the 'glacier-accounting-archive-100101' bucket with the Objects tab selected, highlighting the 'Upload' button for uploading an object in a Glacier storage class tutorial.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/upload-object-console-accounting-archive.png)
 
 1. Select the file to upload
 
@@ -127,7 +127,7 @@ Now that your bucket has been created and configured, you are ready to upload ar
    Select the appropriate file and then select **Open**. 
 
    Your file will be listed in the **Files and folders** section.   
-![The Amazon S3 web console showing the Upload interface for Glacier storage classes, with the option to add files and folders. The interface highlights the process of uploading a file named '1G_tf_1.dat' with a size of 1.0 GB using the 'Add files' button.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/files-fdca-ebeff-console-upload-interface.png)
+![The Amazon S3 web console showing the Upload interface for Glacier storage classes, with the option to add files and folders. The interface highlights the process of uploading a file named '1G_tf_1.dat' with a size of 1.0 GB using the 'Add files' button.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/files-fdca-ebeff-console-upload-interface.png)
 
 1. Select the storage class
 
@@ -140,19 +140,19 @@ If your workload requires milliseconds access and single API call access to you
    Leave the rest of the options on the default settings and select the **Upload** button.  
 **Note**  
 Objects stored in many S3 storage classes have minimum object durations associated with them. In this case, uploading the test file to Glacier Deep Archive will result in 180 days of billing even if it is deleted early. Storing 1 GB in S3 Glacier Deep Archive for 180 days with the retrieval is \~$0.03. [You can read more about S3 pricing here](https://aws.amazon.com/s3/pricing/).  
-![A table showing Amazon S3 storage classes, their use cases, availability zones, and minimum storage durations. The highlighted row describes 'Glacier Deep Archive', designed for long-lived archive data accessed less than once a year, with a minimum storage duration of 180 days.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/bnu-table-their-use-cases-availability.png)
+![A table showing Amazon S3 storage classes, their use cases, availability zones, and minimum storage durations. The highlighted row describes 'Glacier Deep Archive', designed for long-lived archive data accessed less than once a year, with a minimum storage duration of 180 days.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/bnu-table-their-use-cases-availability.png)
 
 1. Review the status
 
    A banner will be displayed providing you with details of the file’s upload status.   
-![The upload status interface for Amazon Glacier storage classes in the AWS console, displaying uploading progress, remaining file size, estimated time, and transfer rate.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/por-upload-status-interface-console.png)
+![The upload status interface for Amazon Glacier storage classes in the AWS console, displaying uploading progress, remaining file size, estimated time, and transfer rate.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/por-upload-status-interface-console.png)
 
 1. Confirm the upload completed
 
    After your file upload operations have completed, you will be presented with a summary of the operations indicating if it has completed successfully or if it has failed. 
 
    In this case, the file has uploaded successfully. Select the **Close** button.   
-![The AWS Management Console showing a successful upload to an Amazon Glacier storage class, with 1 file (1.0 GB) uploaded and no failed uploads.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/glhqo-upload-successful-ecf-bda-console.png)
+![The AWS Management Console showing a successful upload to an Amazon Glacier storage class, with 1 file (1.0 GB) uploaded and no failed uploads.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/glhqo-upload-successful-ecf-bda-console.png)
 
 ### Step 3: Restore your data
 <a name="restore-your-data"></a>
@@ -168,7 +168,7 @@ the process of restoring your data before it can be accessed, is required for da
    + Navigate to the [S3 console](https://s3.console.aws.amazon.com/s3/home) and select the **Buckets** menu option. 
    + From the list of available buckets, select the bucket name of the bucket you have created for this exercise. 
    + From the **Objects** menu, select the name of the test file you just uploaded.   
-![The Amazon S3 management console showing a bucket named 'glacier-accounting-archive-100101' with objects stored in the Glacier Deep Archive storage class. The image demonstrates how to view and initiate the restore process for archived objects using Amazon Glacier storage classes.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/initiate-restore-management-console-bucket.png)
+![The Amazon S3 management console showing a bucket named 'glacier-accounting-archive-100101' with objects stored in the Glacier Deep Archive storage class. The image demonstrates how to view and initiate the restore process for archived objects using Amazon Glacier storage classes.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/initiate-restore-management-console-bucket.png)
 
 1. Initiate the restore
 
@@ -177,7 +177,7 @@ the process of restoring your data before it can be accessed, is required for da
    You can initiate the restore process by simply selecting the **Initiate restore button** attached to the information banner, or you can choose **Initiate restore** from the **Object actions** menu. 
 **Note**  
 The restore process will create a copy of your archived data and will store that copy in the S3 Standard storage class. During the restore initiation process you will set the number of days that you wish to have your data available. During this time period, you will incur applicable storage charges for your data in both the archive storage class as well as in the active storage class.  
-![The Amazon S3 console showing an object stored in the Glacier Deep Archive storage class with an 'Initiate restore' option highlighted. This page demonstrates how to restore an archived object in AWS S3.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/initiate-restore-page-console-object.png)
+![The Amazon S3 console showing an object stored in the Glacier Deep Archive storage class with an 'Initiate restore' option highlighted. This page demonstrates how to restore an archived object in AWS S3.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/initiate-restore-page-console-object.png)
 
 1. Configure the restore
 
@@ -186,14 +186,14 @@ The restore process will create a copy of your archived data and will store that
    Next, you will have a choice between standard or bulk retrieval. Data stored in the Amazon Glacier Flexible Retrieval storage class will additionally have an option to select expedited retrieval. [More information about restore options can be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects-retrieval-options.html). 
 
    For this exercise, choose the **Standard retrieval** option. Then, select the **Initiate restore** button to continue.   
-![The Amazon S3 console showing how to configure a restore request for objects stored in Glacier Deep Archive. The interface displays options to select the number of days the restored copy is available, retrieval tier (standard or bulk), and lists specified objects with details such as name, type, storage class, and last modified date.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/configure-restore-cda-caba-console-how.png)
+![The Amazon S3 console showing how to configure a restore request for objects stored in Glacier Deep Archive. The interface displays options to select the number of days the restored copy is available, retrieval tier (standard or bulk), and lists specified objects with details such as name, type, storage class, and last modified date.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/configure-restore-cda-caba-console-how.png)
 
 1. Wait for the restore to complete
 
    A summary page will be displayed indicating if the restore request was successful or if any errors occurred. In this case, the restore request was successful. Select the **Close** button to continue. 
 
    For this standard restore from S3 Glacier Deep Archive, you will need to wait about 12 hours for the temporary object to be restored to the Amazon S3 Standard-IA storage class. S3 Event notifications support alerting when an object restore event has completed. [More information about S3 Event notifications can be found in the Amazon S3 documentation here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html).   
-![The restore status page in Amazon S3 for Glacier storage classes, indicating a successfully initiated restore with 1 object restored and no failed restore requests.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/azk-restore-status-page-indicating.png)
+![The restore status page in Amazon S3 for Glacier storage classes, indicating a successfully initiated restore with 1 object restored and no failed restore requests.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/azk-restore-status-page-indicating.png)
 
 1. Verify restore has completed
 
@@ -204,7 +204,7 @@ The restore process will create a copy of your archived data and will store that
    Here you can see that the object’s **Restore status** is listed as **Completed**. The **Restoration** **expiry date**, which is based on the number of days we defined in the restore process, is listed as well. You have successfully restored your archived object. This object will be available until the time specified in the **Restoration expiry date** section. 
 
    You can now perform actions like run S3 select queries against this file, copy the object to another bucket in your account or to another account, or download the data to your local machine.   
-![The Amazon S3 console showing a file stored in the Glacier Deep Archive storage class with restoration complete status and the restoration expiry date displayed.](http://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/restore-complete-console-file-stored-deep.png)
+![The Amazon S3 console showing a file stored in the Glacier Deep Archive storage class with restoration complete status and the restoration expiry date displayed.](https://docs.aws.amazon.com/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/images/restore-complete-console-file-stored-deep.png)
 
 ### Clean up resources
 <a name="clean-up-resources"></a>
