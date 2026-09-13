@@ -60,7 +60,7 @@ An example policy is available in the section [Configure CloudWatch logging role
 
 When you create a new server, on the **Configure additional details** page, you can specify an existing log group, or create a new one.
 
-![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
+![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
 
 
 If you choose **Create log group**, the CloudWatch console ([https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)) opens to the **Create log group** page. For details, see [ Create a log group in CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#Create-Log-Group). 
@@ -75,13 +75,13 @@ When you opt into structured JSON logging, there can be a delay, in rare cases, 
 
 If you are editing an existing server, your options depend on the state of the server.
 + The server already has a logging role enabled, but does not have Structured JSON logging enabled.  
-![Logging pane, showing an existing logging role.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-choose-role.png)
+![Logging pane, showing an existing logging role.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-choose-role.png)
 + The server does not have any logging enabled.  
-![Logging pane if the server does not have any logging enabled.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-edit-none.png)
+![Logging pane if the server does not have any logging enabled.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-edit-none.png)
 + The server already has Structured JSON logging enabled, but does not have a logging role specified.  
-![Logging pane if the server does not already have logging enabled.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-edit-add-json-02.png)
+![Logging pane if the server does not already have logging enabled.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-edit-add-json-02.png)
 + The server already has Structured JSON logging enabled, and also has a logging role specified.  
-![Logging pane if the server has structured logging enabled and also has a logging role specified.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-edit-both.png)
+![Logging pane if the server has structured logging enabled and also has a logging role specified.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-edit-both.png)
 
 ## Viewing the server configuration
 <a name="log-server-config"></a>
@@ -90,10 +90,10 @@ The details for the server configuration page depend on your scenario:
 
 Depending on your scenario, the server configuration page might look like one of the following examples:
 + No logging is enabled.  
-![Logging configuration with no logging configured.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-config-none.png)
+![Logging configuration with no logging configured.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-config-none.png)
 + Structured JSON logging is enabled.  
-![Logging configuration with structured logging configured.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-config-structured.png)
+![Logging configuration with structured logging configured.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-config-structured.png)
 + Logging role is enabled, but structured JSON logging is not enabled.  
-![Logging configuration with a logging role configured.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-config-legacy.png)
+![Logging configuration with a logging role configured.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-config-legacy.png)
 + Both types of logging (logging role and structured JSON logging) are enabled.  
-![Logging configuration with both types (logging role and structured JSON logging) of logging configured.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-config-both.png)
+![Logging configuration with both types (logging role and structured JSON logging) of logging configured.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-config-both.png)

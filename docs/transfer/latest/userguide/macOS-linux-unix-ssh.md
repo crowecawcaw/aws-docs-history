@@ -73,10 +73,10 @@ However, if you are generating a server host key, you *must* specify an empty pa
    1. Select the user for which you are adding a public key.
 
    1. In the **SSH public keys** pane, choose **Add SSH public key**.  
-![The AWS Transfer Family console, showing the user details for a selected user.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-user-add-key-01.png)
+![The AWS Transfer Family console, showing the user details for a selected user.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-user-add-key-01.png)
 
    1. Paste the text of the public key you generated into the SSH public key text box, and then choose **Add key**.  
-![The AWS Transfer Family console, showing the Add key page for adding a public key.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-user-add-key-02.png)
+![The AWS Transfer Family console, showing the Add key page for adding a public key.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-user-add-key-02.png)
 
       The new key is listed in the SSH public key pane.  
-![The AWS Transfer Family console, showing the newly added public key in the SSH public keys section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-user-add-key-03.png)
+![The AWS Transfer Family console, showing the newly added public key in the SSH public keys section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-user-add-key-03.png)

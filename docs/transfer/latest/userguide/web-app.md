@@ -19,7 +19,7 @@ The following resources are available to help you to get started with Transfer F
 + The user guide offers a detailed, step-by-step walkthrough of setting up a Transfer Family web app here:[Tutorial: Setting up a basic Transfer Family web app](web-app-tutorial.md).
 + The **AWS Getting Started Resource Center** offers a tutorial here: [Getting started with AWS Transfer Family web app](https://aws.amazon.com/getting-started/hands-on/set-up-an-aws-transfer-family-web-app/).
 + The following video provides a walkthrough for getting started with Transfer Family web apps.  
-[![AWS Videos](http://img.youtube.com/vi/Ie9M0qBGrCE/0.jpg)](http://www.youtube.com/watch?v=Ie9M0qBGrCE)
+[![AWS Videos](https://img.youtube.com/vi/Ie9M0qBGrCE/0.jpg)](https://www.youtube.com/watch?v=Ie9M0qBGrCE)
 
 ## AWS Regions for Transfer Family web apps
 <a name="webapp-regions"></a>
@@ -46,7 +46,7 @@ Transfer Family web apps support the following browsers.
 
 The following diagram illustrates the Transfer Family web app architecture.
 
-![Architecture diagram showing the AWS services that interact with Transfer Family web apps.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-architecture.png)
+![Architecture diagram showing the AWS services that interact with Transfer Family web apps.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-architecture.png)
 
 
 Based on the diagram, you can see that Transfer Family web apps interact with the following AWS services:

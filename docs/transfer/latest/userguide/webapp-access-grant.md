@@ -24,7 +24,7 @@ Have your [IAM Identity Center instance ARN](webapp-identity-center.md#identity-
 1. Choose **Create S3 Access Grants instance** and provide the following information.
    + Select **Add IAM Identity Center instance in {{your-Region}}** where {{your-Region}} is your AWS Region. Keep this box cleared if you are not using IAM Identity Center as your identity provider.
    + Paste in your IAM Identity Center instance ARN.  
-![Screen showing the Amazon S3 Create Access Grants instance dialog with example values.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-grants-instance.png)
+![Screen showing the Amazon S3 Create Access Grants instance dialog with example values.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-grants-instance.png)
 
    Choose **Next** to continue.
 
@@ -35,7 +35,7 @@ Have your [IAM Identity Center instance ARN](webapp-identity-center.md#identity-
    + For the IAM role, choose **Create new role** to have the service create a role.
 
      Alternatively, you can create the role yourself, as described in [Configure IAM roles for Transfer Family web apps](webapp-roles.md), and then enter its ARN here.   
-![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-grants-register-new.png)
+![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-grants-register-new.png)
 
    Choose **Next** to continue.
 
@@ -44,14 +44,14 @@ Have your [IAM Identity Center instance ARN](webapp-identity-center.md#identity-
    + For **Grantee type**, choose **Directory identity from IAM Identity Center**.
    + For **Directory identity type**, select **User** or **Group**, depending on which type you want to register now.
    + In **IAM Identity Center user/group ID**, paste in the ID for your user or group. This ID is available in the **IAM Identity Center** console and in your Transfer Family web app in your users and groups table.  
-![Screen showing the Amazon S3 Create Grant dialog with example values.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-access-grant-details.png)
+![Screen showing the Amazon S3 Create Grant dialog with example values.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-access-grant-details.png)
 
    Choose **Next**.
 
 1. Review the settings on the screen. If everything is correct, choose **Finish** to create the access grant. Alternatively, you can choose **Cancel** or **Previous** to make changes.  
-![Screen showing the Review and finish dialog with example values.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-access-grants-review.png)
+![Screen showing the Review and finish dialog with example values.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-access-grants-review.png)
 
-![Screen showing the new access grant in a list view.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-access-grants-finished.png)
+![Screen showing the new access grant in a list view.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-access-grants-finished.png)
 
 
 This completes the setup for your web app. The users and groups that you've configured can visit the web app at the access point, log in, and upload and download files.

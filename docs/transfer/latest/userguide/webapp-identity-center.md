@@ -27,6 +27,6 @@ If you plan to use the IAM Identity Center directory as your identity source, an
    + For details about organization instances, see [Organization instances of IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/organization-instances-identity-center.html). You can centrally manage the access of users and groups with a single organization instance.
 
 1. On the IAM Identity Center **Settings** page, note down your Instance ARN. You will need this value when you create an **Amazon S3 Access Grant** instance.  
-![Console screenshot from AWS IAM Identity Center showing the Settings page with the Instance ARN circled.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-identity-center.png)
+![Console screenshot from AWS IAM Identity Center showing the Settings page with the Instance ARN circled.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-identity-center.png)
 
 1. Create one or more users and, optionally, groups, to use with your Transfer Family web app. If you're using an IAM Identity Center directory as your identity provider, you can also add users directly from the web app itself. For more information, see [Assign or add users or groups to a Transfer Family web app](webapp-add-users.md).

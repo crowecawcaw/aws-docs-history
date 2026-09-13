@@ -188,7 +188,7 @@ Before proceeding to the next step, wait for the **Status** of the server to cha
    1. Upload the new template. CloudFormation Change Sets help you understand how template changes will affect running resources before you implement them. In this example, the Transfer server resource will be modified, and the VPCEndpoint resource will be removed. The VPC endpoint type server creates a VPC Endpoint on your behalf, replacing the original `VPCEndpoint` resource.
 
       After uploading the new template, the change set will look similar to the following:  
-![Shows Change set preview page for replacing current CloudFormation template.](http://docs.aws.amazon.com/transfer/latest/userguide/images/vpc-endpoint-update-cfn.png)
+![Shows Change set preview page for replacing current CloudFormation template.](https://docs.aws.amazon.com/transfer/latest/userguide/images/vpc-endpoint-update-cfn.png)
 
    1. Update the stack.
 

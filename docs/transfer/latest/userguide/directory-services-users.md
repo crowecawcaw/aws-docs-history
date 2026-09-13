@@ -85,7 +85,7 @@ This section describes how to use AWS Directory Service for Microsoft Active Dir
 1. Sign in to the AWS Management Console and open the Directory Service console at [https://console.aws.amazon.com/directoryservicev2/](https://console.aws.amazon.com/directoryservicev2/).
 
    Use the Directory Service console to configure one or more managed directories. For more information, see [AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html) in the * Directory Service Admin Guide*.  
-![The Directory Service console showing a list of directories and their details.](http://docs.aws.amazon.com/transfer/latest/userguide/images/directory-services-AD-list.png)
+![The Directory Service console showing a list of directories and their details.](https://docs.aws.amazon.com/transfer/latest/userguide/images/directory-services-AD-list.png)
 
 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/), and choose **Create server**.
 
@@ -94,7 +94,7 @@ This section describes how to use AWS Directory Service for Microsoft Active Dir
 If you select **FTPS**, you must provide the AWS Certificate Manager certificate. 
 
 1. For **Choose an identity provider**, choose **AWS Directory Service**.  
-![Console screenshot showing Choose identity provider section with Directory Service selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-choose-idp-directory-services.png)
+![Console screenshot showing Choose identity provider section with Directory Service selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-choose-idp-directory-services.png)
 
 1. The **Directory** list contains all the managed directories that you have configured. Choose a directory from the list, and choose **Next**.
 **Note**  
@@ -187,7 +187,7 @@ For information about how to find the SID, see [Before you start using AWS Direc
 
  In the **Accesses** section, the accesses for the server are listed. 
 
-![Console showing the Accesses section with the server accesses listed.](http://docs.aws.amazon.com/transfer/latest/userguide/images/accesses-list.png)
+![Console showing the Accesses section with the server accesses listed.](https://docs.aws.amazon.com/transfer/latest/userguide/images/accesses-list.png)
 
 
 ## Testing users
@@ -208,7 +208,7 @@ A user must be in exactly one group (an external ID) that is listed in the **Acc
 
 You see a successful identity provider test, showing that the selected user has been granted access to the server.
 
-![Console screenshot of the successful identity provider testing response.](http://docs.aws.amazon.com/transfer/latest/userguide/images/identity-provider-test-success.png)
+![Console screenshot of the successful identity provider testing response.](https://docs.aws.amazon.com/transfer/latest/userguide/images/identity-provider-test-success.png)
 
 
 If the user belongs to more than one group that has access, you receive the following response.

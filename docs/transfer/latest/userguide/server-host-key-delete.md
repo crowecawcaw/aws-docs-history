@@ -12,7 +12,7 @@ On the AWS Transfer Family console, you can delete a server host key.
 1. In the left navigation pane, choose **Servers**, and then choose a server that uses the SFTP protocol.
 
 1. On the server details page, scroll down to the **Server host keys** section.  
-![The Server host keys console section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/server-host-keys.png)
+![The Server host keys console section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/server-host-keys.png)
 
 1. In the **Server Host Keys** section, select a key, and then under **Actions**, choose **Delete**.
 

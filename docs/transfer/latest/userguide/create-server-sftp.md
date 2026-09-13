@@ -28,7 +28,7 @@ To set up a server with Directory Service as your identity provider, you need to
    + **Custom identity provider** – Choose either of the following options:
      + **Use AWS Lambda to connect your identity provider** – You can use an existing identity provider, backed by a Lambda function. You provide the name of the Lambda function. For more information, see [Using AWS Lambda to integrate your identity provider](custom-lambda-idp.md).
      + **Use Amazon API Gateway to connect your identity provider** – You can create an API Gateway method backed by a Lambda function for use as an identity provider. You provide an Amazon API Gateway URL and an invocation role. For more information, see [Using Amazon API Gateway to integrate your identity provider](authentication-api-gateway.md).  
-![The Choose an identity provider console section with Custom identity provider selected. Also has the default value selected, which is that users can authenticate using either their password or key.](http://docs.aws.amazon.com/transfer/latest/userguide/images/custom-lambda-console.png)
+![The Choose an identity provider console section with Custom identity provider selected. Also has the default value selected, which is that users can authenticate using either their password or key.](https://docs.aws.amazon.com/transfer/latest/userguide/images/custom-lambda-console.png)
 
 1. Choose **Next**.
 
@@ -61,12 +61,12 @@ FIPS-enabled endpoints are only available in North American AWS Regions. For ava
 1. In **Configure additional details**, do the following:
 
    1. For logging, specify an existing log group or create a new one (the default option). If you choose an existing log group, you must select one that is associated with your AWS account.  
-![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
+![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
 
       If you choose **Create log group**, the CloudWatch console ([https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)) opens to the **Create log group** page. For details, see [ Create a log group in CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#Create-Log-Group). 
 
    1.  (Optional) For **Managed workflows**, choose workflow IDs (and a corresponding role) that Transfer Family should assume when executing the workflow. You can choose one workflow to execute upon a complete upload, and another to execute upon a partial upload. To learn more about processing your files by using managed workflows, see [AWS Transfer Family managed workflows](transfer-workflows.md).  
-![The Managed workflows console section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
+![The Managed workflows console section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
 
    1. For **Cryptographic algorithm options**, choose a security policy that contains the cryptographic algorithms enabled for use by your server. Our latest security policy is the default: for details, see [Security policies for AWS Transfer Family servers](security-policies.md).
 
@@ -83,7 +83,7 @@ The **Server Host Key** section is used only for migrating users from an existin
    1. You can optimize performance for your Amazon S3 directories. For example, suppose that you go into your home directory, and you have 10,000 subdirectories. In other words, your Amazon S3 bucket has 10,000 folders. In this scenario, if you run the `ls` (list) command, the list operation takes between six and eight minutes. However, if you optimize your directories, this operation takes only a few seconds.
 
       When you create your server using the console, optimized directories is enabled by default. If you create your server using the API, this behavior is not enabled by default.  
-![The Optimized directories console section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/optimized-directories.png)
+![The Optimized directories console section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/optimized-directories.png)
 
    1. (Optional) Configure AWS Transfer Family servers to display customized messages such as organizational policies or terms and conditions to your end users. For **Display banner**, in the **Pre-authentication display banner** text box, enter the text message that you want to display to your users before they authenticate.
 
@@ -91,7 +91,7 @@ The **Server Host Key** section is used only for migrating users from an existin
       + **SetStat option**: enable this option to ignore the error that is generated when a client attempts to use `SETSTAT` on a file you are uploading to an Amazon S3 bucket. For additional details, see the `SetStatOption` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html).
       + **TLS session resumption**: this option is only available if you have enabled FTPS as one of the protocols for this server.
       + **Passive IP**: this option is only available if you have enabled FTPS or FTP as one of the protocols for this server.  
-![Additional options screen for Server details page.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-configure-additional-items-sftp.png)
+![Additional options screen for Server details page.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-configure-additional-items-sftp.png)
 
 1. In **Review and create**, review your choices.
    + If you want to edit any of them, choose **Edit** next to the step.

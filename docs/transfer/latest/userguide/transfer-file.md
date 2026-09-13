@@ -115,12 +115,12 @@ If the endpoint type for your Transfer Family server is VPC, identifying the end
 1. Navigate to your server's details page.
 
 1. In the **Endpoint details** pane, select the **VPC**.  
-![The Transfer Family console server details page, showing the Endpoint details for a VPC server.](http://docs.aws.amazon.com/transfer/latest/userguide/images/server-details-endpoint-vpc.png)
+![The Transfer Family console server details page, showing the Endpoint details for a VPC server.](https://docs.aws.amazon.com/transfer/latest/userguide/images/server-details-endpoint-vpc.png)
 
 1. In the Amazon VPC dashboard, select the **VPC endpoint ID**.
 
 1. In the list of **DNS names**, your server endpoint is the first one listed.  
-![The Amazon VPC console Endpoints page, showing the DNS names for a selected endpoint.](http://docs.aws.amazon.com/transfer/latest/userguide/images/server-details-endpoint-vpc-2.png)
+![The Amazon VPC console Endpoints page, showing the DNS names for a selected endpoint.](https://docs.aws.amazon.com/transfer/latest/userguide/images/server-details-endpoint-vpc-2.png)
 
 ## Avoid `setstat` errors
 <a name="avoid-set-stat"></a>
@@ -363,7 +363,7 @@ You can view post upload processing information including Amazon S3 object metad
 
 As a part of your object's metadata you see a key called `x-amz-meta-user-agent` whose value is `AWSTransfer` and `x-amz-meta-user-agent-id` whose value is `username@server-id`. The `username` is the Transfer Family user who uploaded the file and `server-id` is the server used for the upload. This information can be accessed using the [HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html) operation on the S3 object inside your Lambda function.
 
-![The Metadata screen displaying information about Amazon S3 object metadata for AWS Transfer Family.](http://docs.aws.amazon.com/transfer/latest/userguide/images/s3-object-metadata.png)
+![The Metadata screen displaying information about Amazon S3 object metadata for AWS Transfer Family.](https://docs.aws.amazon.com/transfer/latest/userguide/images/s3-object-metadata.png)
 
 
 ### Amazon S3 event notifications

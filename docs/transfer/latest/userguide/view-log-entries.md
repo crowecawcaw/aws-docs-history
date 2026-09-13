@@ -10,17 +10,17 @@
 1. Choose **View logs**. This opens Amazon CloudWatch.
 
 1. The log group for your selected server is displayed.  
-![The log group details page. In addition to the log group, it presents a list the recent log streams.](http://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-01.png)
+![The log group details page. In addition to the log group, it presents a list the recent log streams.](https://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-01.png)
 
 1. You can select a log stream to display details and individual entries for the stream.
    + If there is a listing for **ERRORS**, you can choose it to view details for the latest errors for the server.  
-![The logging for ERRORS example page. This example shows details for several authentication failures.](http://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-errors.png)
+![The logging for ERRORS example page. This example shows details for several authentication failures.](https://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-errors.png)
    + Choose any other entry to see an example log stream.  
-![An example logging screen, showing a session where a user connects, and then later disconnects, from the SFTP server.](http://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-02.png)
+![An example logging screen, showing a session where a user connects, and then later disconnects, from the SFTP server.](https://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-02.png)
    + If your server has a managed workflow associated with it, you can view logs for the workflow runs.
 **Note**  
 The format for the log stream for the workflow is `{{username}}.{{workflowId}}.{{uniqueStreamSuffix}}`. For example, **decrypt-user.w-a1111222233334444.aaaa1111bbbb2222** could be the name of a log stream for user **decrypt-user** and workflow **w-a1111222233334444**.   
-![An example logging screen, showing entries for one run through a workflow, with the StepStarted log entry expanded.](http://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-workflow.png)
+![An example logging screen, showing entries for one run through a workflow, with the StepStarted log entry expanded.](https://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-workflow.png)
 
 **Note**  
 For any expanded log entry, you can copy the entry to the clipboard by choosing **Copy**. For more details about CloudWatch logs, see [Viewing log data](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#ViewingLogData).

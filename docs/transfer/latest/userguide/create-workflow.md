@@ -67,7 +67,7 @@ If you do not already have a workflow, choose **Create a new Workflow** to creat
    1. Choose the workflow ID to use. 
 
    1. Choose an execution role. This is the role that Transfer Family assumes when executing the workflow's steps. For more information, see [IAM policies for workflows](workflow-execution-role.md). Choose **Save**.  
-![The Managed workflows screen, showing values for workflow and execution role.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
+![The Managed workflows screen, showing values for workflow and execution role.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
 
 **Note**  
 If you no longer want a workflow to be associated with the server, you can remove the association. For details, see [Remove a workflow from a Transfer Family server](transfer-workflows.md#remove-workflow-association).
@@ -113,7 +113,7 @@ You can view details about previously created workflows or to workflow execution
 1. On the **Workflows** page, choose a workflow. 
 
    The workflow details page opens.   
-![The Workflows detail screen for a Transfer Family workflow, showing the description, steps, exception handlers, and in-flight executions.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-overview.png)
+![The Workflows detail screen for a Transfer Family workflow, showing the description, steps, exception handlers, and in-flight executions.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-overview.png)
 
 ------
 #### [ CLI ]
@@ -151,4 +151,4 @@ To view the workflow details, use the `describe-workflow` CLI command, as shown 
 
 If your workflow was created as part of an AWS CloudFormation stack, you can manage the workflow using the CloudFormation console ([https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/)).
 
-![The Workflows details screen for a workflow that is part of an AWS CloudFormation stack, showing the message that you manage this workflow in CloudFormation.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-cloudformation-link.png)
+![The Workflows details screen for a workflow that is part of an AWS CloudFormation stack, showing the message that you manage this workflow in CloudFormation.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-cloudformation-link.png)

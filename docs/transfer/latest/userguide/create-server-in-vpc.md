@@ -70,7 +70,7 @@ Your VPC automatically comes with a default security group. If you don't specify
 **Note**  
 You can also use port 2223 for clients that require TCP "piggy-back" ACKs, or the ability for the final ack of the TCP 3-way handshake to also contain data.  
 Some client software may be incompatible with port 2223: for example, a client that requires the server to send the SFTP Identification String before the client does.  
-![The inbound rules for a sample security group, showing a rule for SSH on port 22 and Custom TCP on port 2222.](http://docs.aws.amazon.com/transfer/latest/userguide/images/alternate-port-rule.png)
+![The inbound rules for a sample security group, showing a rule for SSH on port 22 and Custom TCP on port 2222.](https://docs.aws.amazon.com/transfer/latest/userguide/images/alternate-port-rule.png)
 
    1. (Optional) For **FIPS Enabled**, select the **FIPS Enabled endpoint** check box to ensure the endpoint complies with Federal Information Processing Standards (FIPS).
 **Note**  
@@ -162,7 +162,7 @@ Your VPC automatically comes with a default security group. If you don't specify
 **Note**  
 You can also use port 2223 for clients that require TCP "piggy-back" ACKs, or the ability for the final ack of the TCP 3-way handshake to also contain data.  
 Some client software may be incompatible with port 2223: for example, a client that requires the server to send the SFTP Identification String before the client does.  
-![The inbound rules for a sample security group, showing a rule for SSH on port 22 and Custom TCP on port 2222.](http://docs.aws.amazon.com/transfer/latest/userguide/images/alternate-port-rule.png)
+![The inbound rules for a sample security group, showing a rule for SSH on port 22 and Custom TCP on port 2222.](https://docs.aws.amazon.com/transfer/latest/userguide/images/alternate-port-rule.png)
 
    1. (Optional) For **FIPS Enabled**, select the **FIPS Enabled endpoint** check box to ensure the endpoint complies with Federal Information Processing Standards (FIPS).
 **Note**  
@@ -194,7 +194,7 @@ By default, the `TransferSecurityPolicy-2024-01` security policy is attached to 
    1. Choose **Next**.
 
    1.  (Optional) For **Managed workflows**, choose workflow IDs (and a corresponding role) that Transfer Family should assume when executing the workflow. You can choose one workflow to execute upon a complete upload, and another to execute upon a partial upload. To learn more about processing your files by using managed workflows, see [AWS Transfer Family managed workflows](transfer-workflows.md).  
-![The Managed workflows console section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
+![The Managed workflows console section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
 
 1. In **Review and create**, review your choices. If you:
    + Want to edit any of them, choose **Edit** next to the step.

@@ -31,7 +31,7 @@ This section describes the user experience if your organization used IAM Identit
 1. In the message, choose the URL below **Your AWS access portal URL**.
 
    This takes you to the AWS sign in screen.  
-![Screen showing the AWS sign-in screen.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-signin.png)
+![Screen showing the AWS sign-in screen.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-signin.png)
 
 1. Enter your credentials and choose **Sign in**.
 
@@ -54,7 +54,7 @@ After you have authenticated and signed in, you can interact with the web app.
 
 There are four main views.
 + **Home page:** Your home page lists the S3 locations, which you can access, as well as the permissions for each. An S3 *location* is an S3 bucket or prefix, which you can define when using S3 Access Grants. This is the initial view for users that shows the root level S3 resources that your end users have access to and the permissions for each S3 location.  
-![Screen showing the home location for a web app end user.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-home.png)
+![Screen showing the home location for a web app end user.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-home.png)
 + **Location details:** This view allows users to browse files and folders in S3, and upload or download files.
 + **Location action:** After you choose an action (such as **Upload**), it opens up another view of the file location.
 + **Vertical ellipsis:** The vertical ellipsis icon opens the **Actions** menu.
@@ -64,7 +64,7 @@ There are four main views.
 
 Most of the actions are available from the **Actions** menu. For the other main action, downloading files, you use the download icon after you select a file (currently, you can only download one file at a time).
 
-![Screen showing files and their corresponding download icons.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-download.png)
+![Screen showing files and their corresponding download icons.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-download.png)
 
 
 From a folder, use the **Actions** menu to perform any of the following tasks:
@@ -77,4 +77,4 @@ From a folder, use the **Actions** menu to perform any of the following tasks:
 + Sort by page.
 + Filter by file or folder name per folder and subfolders.
 
-![Screen showing an example folder for a web app end user.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-actions.png)
+![Screen showing an example folder for a web app end user.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-actions.png)

@@ -62,7 +62,7 @@ Make sure that the text block contains only the private key and does not contain
 **Note**  
 You must enter the **PGPPassphrase** string exactly: do not add any spaces before or between characters.
       + **value** – Enter the passphrase you used when you generated your PGP key pair.  
-![The AWS Secrets Manager console, showing the keys and values that you enter to manage your PGP keys.](http://docs.aws.amazon.com/transfer/latest/userguide/images/pgp-secrets-01.png)
+![The AWS Secrets Manager console, showing the keys and values that you enter to manage your PGP keys.](https://docs.aws.amazon.com/transfer/latest/userguide/images/pgp-secrets-01.png)
 **Note**  
 You can add up to 3 sets of keys and passphrases. To add a second set, add two new rows, and enter **PGPPrivateKey2** and **PGPPassphrase2** for the keys, and paste in another private key and passphrase. To add a third set, key values must be **PGPPrivateKey3** and **PGPPassphrase3**.
 
@@ -78,4 +78,4 @@ You can add up to 3 sets of keys and passphrases. To add a second set, add two n
 
 The following screenshot shows the details for the user **marymajor** for a specific Transfer Family server. This example shows three keys and their corresponding passphrases.
 
-![The AWS Secrets Manager console, showing the secret details page with three keys and passphrases for a Transfer Family server and user.](http://docs.aws.amazon.com/transfer/latest/userguide/images/pgp-secrets-02.png)
+![The AWS Secrets Manager console, showing the secret details page with three keys and passphrases for a Transfer Family server and user.](https://docs.aws.amazon.com/transfer/latest/userguide/images/pgp-secrets-02.png)

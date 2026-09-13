@@ -12,14 +12,14 @@ After you create an SFTP connector, we recommend that you test it before you att
 1. In the left navigation pane, choose **SFTP Connectors**, and select a connector.
 
 1. From the **Actions** menu, choose **Test connection**.  
-![The Transfer Family console, showing an SFTP connector selected, and the Test connectionTest connection action highlighted.](http://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-choose.png)
+![The Transfer Family console, showing an SFTP connector selected, and the Test connectionTest connection action highlighted.](https://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-choose.png)
 
 The system returns a message, indicating whether the test passes or fails. If the test fails, the system provides an error message based on the reason the test failed.
 
-![The SFTP connector test connection panel, showing a successful test.](http://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-success.png)
+![The SFTP connector test connection panel, showing a successful test.](https://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-success.png)
 
 
-![The SFTP connector test connection panel, showing a failed test: the error message indicates that the access role for the connector is incorrect.](http://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-fail-role.png)
+![The SFTP connector test connection panel, showing a failed test: the error message indicates that the access role for the connector is incorrect.](https://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-fail-role.png)
 
 
 **Note**  

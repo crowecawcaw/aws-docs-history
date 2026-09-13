@@ -41,7 +41,7 @@ You can attach a file-processing workflow to a Transfer Family server that uses 
 For AS2, you cannot choose an identity provider because basic authentication is not supported for the AS2 protocol. Instead, you control access through virtual private cloud (VPC) security groups.
 
 1. On the **Choose an endpoint** page, do the following:  
-![Console screenshot showing the Choose an endpoint page with VPC hosted selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-choose-endpoint-vpc-internal.png)
+![Console screenshot showing the Choose an endpoint page with VPC hosted selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-choose-endpoint-vpc-internal.png)
 
    1. For **Endpoint type**, choose **VPC hosted** to host your server's endpoint. For information about setting up your VPC-hosted endpoint, see [Create a server in a virtual private cloud](create-server-in-vpc.md).
 **Note**  

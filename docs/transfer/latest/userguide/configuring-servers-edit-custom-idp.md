@@ -49,7 +49,7 @@ For Lambda function integration, provide:
 
 Example: If you're changing from AWS Directory Service to a custom Lambda identity provider, you would select your `TransferCustomAuth` function and choose **Password** as the authentication method.
 
-![For a Lambda identity provider, you can change the underlying Lambda function.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-idp-lambda.png)
+![For a Lambda identity provider, you can change the underlying Lambda function.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-idp-lambda.png)
 
 
 ### Using Amazon API Gateway
@@ -62,7 +62,7 @@ For Amazon API Gateway integration, provide:
 
 Example: If you're changing from service-managed to API Gateway, you would provide the URL `https://abcdef123.execute-api.us-east-1.amazonaws.com/prod`, specify the `TransferApiGatewayInvocationRole` IAM role, and choose **Public key** as the authentication method.
 
-![For an API Gateway identity provider, you can update the Gateway URL or the invocation role, or both.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-idp-apigateway.png)
+![For an API Gateway identity provider, you can update the Gateway URL or the invocation role, or both.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-idp-apigateway.png)
 
 
 ### Changing from Amazon API Gateway to Lambda function

@@ -44,7 +44,7 @@ To show support for AS2 Terraform templates, add a thumbs up reaction (👍) to 
 
 If you are an AWS Transfer Family customer who wants to exchange files with a partner who has an AS2-enabled server, the most complex part of the setup involves generating one public-private key pair for encryption and another for signing and exchanging the public keys with the partner.
 
-![Diagram that shows the use of public-private key pairs for encryption and signing.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-architecture-high-level.png)
+![Diagram that shows the use of public-private key pairs for encryption and signing.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-architecture-high-level.png)
 
 
 Consider the following variations for using AWS Transfer Family with AS2.

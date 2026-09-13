@@ -9,7 +9,7 @@ This tutorial illustrates how to set up an SFTP connector with both service mana
 
 An SFTP connector retrieves SFTP credentials from AWS Secrets Manager to authenticate into a remote SFTP server and establish a connection. The connector sends files to or retrieves files from the remote server, and stores the files in Amazon S3. You can choose between service managed egress (using AWS managed infrastructure) or VPC egress (routing through your VPC using Cross-VPC Resource Access). An IAM role is used to allow access to the Amazon S3 bucket and to the credentials stored in Secrets Manager. And you can log to Amazon CloudWatch.
 
-![An architecture diagram for how the SFTP connector interacts with Secrets Manager, Amazon S3, CloudWatch logs, IAM roles, and the remote SFTP server.](http://docs.aws.amazon.com/transfer/latest/userguide/images/sftp-connector-arch-diag.png)
+![An architecture diagram for how the SFTP connector interacts with Secrets Manager, Amazon S3, CloudWatch logs, IAM roles, and the remote SFTP server.](https://docs.aws.amazon.com/transfer/latest/userguide/images/sftp-connector-arch-diag.png)
 
 
 The following blog post provides a reference architecture to build an MFT workflow using SFTP connectors, including encryption of files using PGP before sending them to a remote SFTP server using SFTP connectors: [Architecting secure and compliant managed file transfers with AWS Transfer Family SFTP connectors and PGP encryption.](https://aws.amazon.com/blogs/storage/architecting-secure-and-compliant-managed-file-transfers-with-aws-transfer-family-sftp-connectors-and-pgp-encryption/)
@@ -178,7 +178,7 @@ This outputs the key in the correct format (with embedded newline characters) to
    1. Paste in the text for your private key (saved earlier) between the empty double quotes ("").
 
       Your screen should look as follows (key data is grayed out).  
-![The secret in plain text, showing the user name and private key.](http://docs.aws.amazon.com/transfer/latest/userguide/images/sftp-tutorial-secret.png)
+![The secret in plain text, showing the user name and private key.](https://docs.aws.amazon.com/transfer/latest/userguide/images/sftp-tutorial-secret.png)
 
 1. Choose **Next**.
 
@@ -275,13 +275,13 @@ You cannot change the egress type after creating the connector. Choose carefully
    + For the **Logging role**, choose a role that includes a trust policy with `transfer.amazonaws.com` in the Principal element.
 
      **Tip: **In addition to adding Transfer Family as a trusted entity, you can add the **AWSTransferLoggingAccess** AWS managed policy to the role. This policy is described in detail in [AWSTransferLoggingAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferLoggingAccess.html).   
-![The Transfer Family SFTP connector console, showing the Connector configuration settings.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-connector-example-config.png)
+![The Transfer Family SFTP connector console, showing the Connector configuration settings.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-connector-example-config.png)
 
 1. In the **SFTP Configuration** section, provide the following information:
    + For **Connector credentials**, choose the name of your Secrets Manager resource that contains SFTP credentials. For the tutorial, choose **aws/transfer/sftp-connector1**.
    + For **Trusted host keys **, paste in the public portion of the host key. You can retrieve this key by running `ssh-keyscan` for your SFTP server. For details on how to format and store the trusted host key, see the [SftpConnectorConfig](https://docs.aws.amazon.com/transfer/latest/APIReference/API_SftpConnectorConfig.html) data type documentation.
    + For **Maximum concurrent connections**, select an integer value from 1 to 5: the default value is 5.  
-![The Transfer Family SFTP connector console, showing the SFTP configuration settings.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-connector-example-sftp-config.png)
+![The Transfer Family SFTP connector console, showing the SFTP configuration settings.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-connector-example-sftp-config.png)
 
 1. After you have confirmed all of your settings, choose **Create connector** to create the SFTP connector.
 
@@ -319,14 +319,14 @@ For VPC egress type connectors, DNS resolution may take several minutes after cr
 1. In the left navigation pane, choose **SFTP Connectors**, and select a connector.
 
 1. From the **Actions** menu, choose **Test connection**.  
-![The Transfer Family console, showing an SFTP connector selected, and the Test connectionTest connection action highlighted.](http://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-choose.png)
+![The Transfer Family console, showing an SFTP connector selected, and the Test connectionTest connection action highlighted.](https://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-choose.png)
 
 The system returns a message, indicating whether the test passes or fails. If the test fails, the system provides an error message based on the reason the test failed.
 
-![The SFTP connector test connection panel, showing a successful test.](http://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-success.png)
+![The SFTP connector test connection panel, showing a successful test.](https://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-success.png)
 
 
-![The SFTP connector test connection panel, showing a failed test: the error message indicates that the access role for the connector is incorrect.](http://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-fail-role.png)
+![The SFTP connector test connection panel, showing a failed test: the error message indicates that the access role for the connector is incorrect.](https://docs.aws.amazon.com/transfer/latest/userguide/images/connector-test-fail-role.png)
 
 
 ------
@@ -405,7 +405,7 @@ aws transfer start-file-transfer --connector-id c-{{connector-id}} --send-file-p
 
 Your `sftp-server-storage-east` bucket should now look like this.
 
-![The SFTP server bucket with the newly transferred file.](http://docs.aws.amazon.com/transfer/latest/userguide/images/sftp-tutorial-bucket-2.png)
+![The SFTP server bucket with the newly transferred file.](https://docs.aws.amazon.com/transfer/latest/userguide/images/sftp-tutorial-bucket-2.png)
 
 
 If you don't see the file as expected, check your CloudWatch logs.
@@ -452,7 +452,7 @@ aws transfer start-file-transfer --connector-id c-{{connector-id}} --retrieve-fi
 
 If the transfer succeeds, your Amazon S3 bucket contains the transferred file, as shown here.
 
-![The Amazon S3 bucket with the newly transferred file.](http://docs.aws.amazon.com/transfer/latest/userguide/images/sftp-tutorial-bucket-1.png)
+![The Amazon S3 bucket with the newly transferred file.](https://docs.aws.amazon.com/transfer/latest/userguide/images/sftp-tutorial-bucket-1.png)
 
 
 If successful, the log entry looks like the following:

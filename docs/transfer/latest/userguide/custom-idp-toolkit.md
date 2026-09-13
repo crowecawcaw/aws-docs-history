@@ -15,7 +15,7 @@ With the AWS Transfer Family custom identity provider solution, you can address 
 
 The solution provides a flexible and maintainable base for various use cases. To get started, review the toolkit at [https://github.com/aws-samples/toolkit-for-aws-transfer-family](https://github.com/aws-samples/toolkit-for-aws-transfer-family), then follow the deployment instructions in the [Getting started](https://github.com/aws-samples/toolkit-for-aws-transfer-family/tree/main/solutions/custom-idp#getting-started) section.
 
-![Architecture diagram for the custom identity provider toolkit available in GitHub.](http://docs.aws.amazon.com/transfer/latest/userguide/images/custom-idp-solution-high-level-architecture.png)
+![Architecture diagram for the custom identity provider toolkit available in GitHub.](https://docs.aws.amazon.com/transfer/latest/userguide/images/custom-idp-solution-high-level-architecture.png)
 
 
 **Note**  

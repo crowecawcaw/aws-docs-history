@@ -41,8 +41,6 @@ AWS IAM Identity Center does not support VPC endpoints; all authentication reque
      + **Availability zones**: Choose the availability zones where your endpoint will be deployed.
      + **Subnets**: Select subnets within each chosen availability zone.
      + **Security groups**: Select or create security groups to control access based on source IP addresses. If not specified, the VPC's default security group is used. Manage security groups through the VPC Console. Configure your VPC security groups to allow inbound traffic from your network over HTTPS on TCP port 443. This is required for IAM Identity Center authentication and web app static content loading. 
-**Note**  
-The access endpoint cannot be customized for VPC endpoints. To add a custom URL, use the public endpoint.
 
 ## Post-creation steps
 <a name="webapp-vpce-post-creation"></a>

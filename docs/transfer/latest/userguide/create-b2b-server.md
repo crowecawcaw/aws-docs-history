@@ -12,7 +12,7 @@ While not required for all AS2-enabled servers, for outbound transfers, you need
 
 The following diagram shows the relationship between the AS2 objects involved in the inbound and outbound processes.
 
-![Diagram that shows the relationship between the AS2 objects involved in the inbound and outbound processes.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-architecture-in-out-agree-connect.png)
+![Diagram that shows the relationship between the AS2 objects involved in the inbound and outbound processes.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-architecture-in-out-agree-connect.png)
 
 
 For an end-to-end example AS2 configuration, see [Setting up an AS2 configuration](as2-example-tutorial.md).

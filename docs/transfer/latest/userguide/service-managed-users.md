@@ -180,7 +180,7 @@ For instructions on how to generate an SSH key pair, see [Generate SSH keys for 
    You can change the user's properties on this page by choosing **Edit**.
 
 1. On the **Users details** page, choose **Edit** next to **User configuration**.  
-![Image showing the screen for editing a user's configuration](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-user-details-page-user-config.png)
+![Image showing the screen for editing a user's configuration](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-user-details-page-user-config.png)
 
 1. On the **Edit configuration** page, for **Access**, choose the IAM role that you previously created that provides access to your Amazon S3 bucket.
 

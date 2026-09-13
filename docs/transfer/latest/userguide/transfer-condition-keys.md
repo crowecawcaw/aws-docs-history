@@ -11,7 +11,7 @@ Service Control Policies are IAM policies that apply to an entire AWS organizati
 + [Actions, resources, and condition keys for Transfer Family](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awstransferfamily.html)
 + [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
 + Video describing how to enforce preventive guardrails using service control policies  
-[![AWS Videos](http://img.youtube.com/vi/mEO05mmbSms/0.jpg)](http://www.youtube.com/watch?v=mEO05mmbSms)
+[![AWS Videos](https://img.youtube.com/vi/mEO05mmbSms/0.jpg)](https://www.youtube.com/watch?v=mEO05mmbSms)
 
 ## Available condition keys
 <a name="scp-condition-keys"></a>

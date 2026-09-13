@@ -41,7 +41,7 @@ The inbound process is defined as a message or file that's being transferred to 
 
 1. The decrypted file is available in a folder named `inbox/processed`.
 
-![Diagram that shows the processing sequence for inbound messages.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-architecture-inbound.png)
+![Diagram that shows the processing sequence for inbound messages.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-architecture-inbound.png)
 
 
 ## Sending and receiving AS2 messages over HTTPS
@@ -254,7 +254,7 @@ The outbound process is defined as a message or file being sent from AWS to an e
 
 1. The remote AS2 server makes the decrypted and verified file available to the partner admin.
 
-![Diagram that shows the processing sequence for outbound messages.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-architecture-outbound.png)
+![Diagram that shows the processing sequence for outbound messages.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-architecture-outbound.png)
 
 
 AS2 processing supports many of the RFC 4130 protocols, with a focus on common use cases and integration with existing AS2-enabled server implementations. For details of the supported configurations, see [AS2 configurations](create-b2b-server.md#as2-supported-configurations).

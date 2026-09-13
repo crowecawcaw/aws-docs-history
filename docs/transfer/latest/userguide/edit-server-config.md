@@ -43,13 +43,13 @@ Avoid placing Network Load Balancers (NLBs) or NAT gateways in front of AWS Tran
    + To start or stop your server, see [Put your server online or offline](#edit-online-offline).
    + To delete a server, see [Delete a server](configuring-servers.md#delete-server).
    + To edit a user's properties, see [Managing access controls](users-policies.md).  
-![The server details console page for the server, showing the Endpoint details parameter.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-top.png)![The server details console page for a server, showing the list of service-managed users.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-endpoints.png)![The server details console page for a server, showing the Agreements details.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-users.png)![The server details console page, showing the Server host keys for a server.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-agreements.png)![The server details console page, showing the Server host keys for a server.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-hostkeys.png)
+![The server details console page for the server, showing the Endpoint details parameter.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-top.png)![The server details console page for a server, showing the list of service-managed users.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-endpoints.png)![The server details console page for a server, showing the Agreements details.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-users.png)![The server details console page, showing the Server host keys for a server.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-agreements.png)![The server details console page, showing the Server host keys for a server.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-hostkeys.png)
 **Note**  
 The server host key **Description** and **Date imported** values are new as of September 2022. These values were introduced to support the multiple host keys feature. This feature required migration of any single host keys that were in use before the introduction of multiple host keys.   
 The **Date imported** value for a migrated server host key is set to the last modified date for the server. That is, the date that you see for your migrated host key corresponds to the date that you last modified the server in any way, before the server host key migration.  
 The only key that was migrated is your oldest or only server host key. Any additional keys have their actual date from when you imported them. Additionally, the migrated key has a description that makes it easy to identify it as having been migrated.  
 The migration occurred between September 2 and September 13. The actual migration date within this range depends on the Region of your server.  
-![Server details screen showing the Monitoring section..](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-additional.png)![Server details screen showing the Tags section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-monitoring.png)![Server details screen showing the Tags section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-tags.png)
+![Server details screen showing the Monitoring section..](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-additional.png)![Server details screen showing the Tags section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-monitoring.png)![Server details screen showing the Tags section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-server-details-tags.png)
 
 ## Edit the file transfer protocols
 <a name="edit-protocols"></a>
@@ -72,7 +72,7 @@ On the AWS Transfer Family console, you can edit the file transfer protocol. The
      For more information about FTPS, see [Create an FTP-enabled server](create-server-ftp.md).
 **Note**  
 If you have an existing server enabled only for SFTP, and you want to add FTPS and FTP, you must ensure that you have the right identity provider and endpoint type settings that are compatible with FTPS and FTP.  
-![List of available protocols: SFTP, FTP, FTPS, and AS2. You can select one or more.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-protocols.png)
+![List of available protocols: SFTP, FTP, FTPS, and AS2. You can select one or more.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-protocols.png)
 
    If you select **FTPS**, you must choose a certificate stored in AWS Certificate Manager (ACM) which will be used to identify your server when clients connect to it over FTPS.
 
@@ -116,7 +116,7 @@ On the AWS Transfer Family console, you can modify the server endpoint type and 
    Choosing **Amazon Route 53 DNS alias** or **Other DNS** specifies the name resolution method to associate with your server's endpoint.
 
    For example, your custom domain might be `sftp.inbox.example.com`. A custom hostname uses a DNS name that you provide and that a DNS service can resolve. You can use Route 53 as your DNS resolver, or use your own DNS service provider. To learn how AWS Transfer Family uses Route 53 to route traffic from your custom domain to the server endpoint, see [Working with custom hostnames](requirements-dns.md).  
-![The Edit endpoint configuration console page.](http://docs.aws.amazon.com/transfer/latest/userguide/images/edit-endpoint-configuration.png)
+![The Edit endpoint configuration console page.](https://docs.aws.amazon.com/transfer/latest/userguide/images/edit-endpoint-configuration.png)
 
 1. For VPC endpoints, you can change the information in the **Availability Zones** pane.
 
@@ -212,7 +212,7 @@ If you do not already have a workflow, choose **Create a new workflow** to creat
    1. Select the workflow ID to use. 
 
    1. Choose an execution role. This is the role that Transfer Family assumes when executing the workflow's steps. For more information, see [IAM policies for workflows](workflow-execution-role.md). Choose **Save**.  
-![The Managed workflows console section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
+![The Managed workflows console section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
 
 1. Choose **Save**. You are returned to the **Server details** page.
 

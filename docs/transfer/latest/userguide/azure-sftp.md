@@ -43,7 +43,7 @@ This can be through native IPSEC tunnels or using VPN appliances. In this topic,
 
 The following diagram shows the configuration needed before you begin.
 
-![Entra/Azure AD and AWS Transfer Family architecture diagram. An AWS VPC connecting to an Entra virtual network over the internet, using an AWS Directory Service connector to the Entra Domain Service.](http://docs.aws.amazon.com/transfer/latest/userguide/images/azure-architecture.png)
+![Entra/Azure AD and AWS Transfer Family architecture diagram. An AWS VPC connecting to an Entra virtual network over the internet, using an AWS Directory Service connector to the Entra Domain Service.](https://docs.aws.amazon.com/transfer/latest/userguide/images/azure-architecture.png)
 
 
 ## Step 1: Adding Entra ID Domain Services
@@ -56,7 +56,7 @@ For information about enabling Entra ID Domain Services, see [ Tutorial: Create 
 **Note**  
 When you enable Entra DS, make sure it is configured for the resource group and the Entra domain to which you are connecting your SFTP Transfer server.
 
-![Entra domain services screen showing the resource group bob.us running.](http://docs.aws.amazon.com/transfer/latest/userguide/images/azure-ad-add-instance.png)
+![Entra domain services screen showing the resource group bob.us running.](https://docs.aws.amazon.com/transfer/latest/userguide/images/azure-ad-add-instance.png)
 
 
 ## Step 2: Creating a service account
@@ -64,13 +64,13 @@ When you enable Entra DS, make sure it is configured for the resource group and 
 
  Entra must have one service account that is part of an Admin group in Entra DS. This account is used with the AWS Active Directory connector. Make sure this account is in sync with Entra DS. 
 
-![Entra screen showing a profile for a user.](http://docs.aws.amazon.com/transfer/latest/userguide/images/azure-service-acct.png)
+![Entra screen showing a profile for a user.](https://docs.aws.amazon.com/transfer/latest/userguide/images/azure-service-acct.png)
 
 
 **Tip**  
 Multi-factor authentication for Entra ID is not supported for Transfer Family servers that use the SFTP protocol. The Transfer Family server cannot provide the MFA token after a user authenticates to SFTP. Make sure to disable MFA before you attempt to connect.  
 
-![Entra multi-factor authentication details, showing the MFA status as disabled for two users.](http://docs.aws.amazon.com/transfer/latest/userguide/images/azure-ad-mfa-disable.png)
+![Entra multi-factor authentication details, showing the MFA status as disabled for two users.](https://docs.aws.amazon.com/transfer/latest/userguide/images/azure-ad-mfa-disable.png)
 
 
 ## Step 3: Setting up AWS Directory using AD Connector
@@ -99,7 +99,7 @@ After you verify the connection is active, you can continue below.
 
 Now the directory status should be **Active**, and it is ready to be used with an SFTP Transfer server.
 
-![The Directory Services screen showing one directory with a status of Active, as required.](http://docs.aws.amazon.com/transfer/latest/userguide/images/azure-connector-ready.png)
+![The Directory Services screen showing one directory with a status of Active, as required.](https://docs.aws.amazon.com/transfer/latest/userguide/images/azure-connector-ready.png)
 
 
 ## Step 4: Setting up AWS Transfer Family server
@@ -128,7 +128,7 @@ Use the following Windows PowerShell command to retrieve the SID for a group, re
 Get-ADGroup -Filter {samAccountName -like "{{YourGroupName}}*"} -Properties * | Select SamAccountName,ObjectSid
 ```
 
-![Windows PowerShell showing an Object SID being retrieved.](http://docs.aws.amazon.com/transfer/latest/userguide/images/azure-grant-access.png)
+![Windows PowerShell showing an Object SID being retrieved.](https://docs.aws.amazon.com/transfer/latest/userguide/images/azure-grant-access.png)
 
 
 **Grant access to groups**
@@ -149,10 +149,10 @@ Get-ADGroup -Filter {samAccountName -like "{{YourGroupName}}*"} -Properties * | 
 
 The details from your Transfer server should look similar to the following:
 
-![A portion of the Transfer Family server details screen, showing an example Directory ID for the Identity provider.](http://docs.aws.amazon.com/transfer/latest/userguide/images/azure-assoc-1.png)
+![A portion of the Transfer Family server details screen, showing an example Directory ID for the Identity provider.](https://docs.aws.amazon.com/transfer/latest/userguide/images/azure-assoc-1.png)
 
 
-![A portion of the Transfer Family server details screen, showing the External ID of the active directory in the Accesses portion of the screen.](http://docs.aws.amazon.com/transfer/latest/userguide/images/azure-assoc-2.png)
+![A portion of the Transfer Family server details screen, showing the External ID of the active directory in the Accesses portion of the screen.](https://docs.aws.amazon.com/transfer/latest/userguide/images/azure-assoc-2.png)
 
 
 ## Step 6: Testing users

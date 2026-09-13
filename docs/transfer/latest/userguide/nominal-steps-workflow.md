@@ -22,7 +22,7 @@ The following copy file step copies files into the `test` folder in {{amzn-s3-de
 
 If the copy file step is not the first step of your workflow, you can specify the **File location**. By specifying the file location, you can copy either the file that was used in the previous step or the original file that was uploaded. You can use this feature to make multiple copies of the original file while keeping the source file intact for file archival and records retention. For an example, see [Example tag and delete workflow](#sourcefile-workflow).
 
-![Workflow screen with Copy the file created from previous step... button selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-copy.png)
+![Workflow screen with Copy the file created from previous step... button selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-copy.png)
 
 
 ### Provide the bucket and key details
@@ -48,12 +48,12 @@ In a copy file step, you can use a variable to dynamically copy your files into 
 
 In the following example, if the user `richard-roe` uploads a file, it gets copied into the `amzn-s3-demo-destination-bucket/richard-roe/processed/` folder. If the user `mary-major` uploads a file, it gets copied into the `amzn-s3-demo-destination-bucket/mary-major/processed/` folder.
 
-![Parameter screen for a copy step, showing the bucket and the key, parameterized using UserName.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-copy-dynamic.png)
+![Parameter screen for a copy step, showing the bucket and the key, parameterized using UserName.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-copy-dynamic.png)
 
 
 Similarly, you can use `${transfer:UploadDate}` as a variable to copy files to a destination location named for the current date. In the following example, if you set the destination to `${transfer:UploadDate}/processed` on February 1, 2022, files uploaded are copied into the `amzn-s3-demo-destination-bucket/2022-02-01/processed/` folder.
 
-![Parameter screen for a copy step, showing the bucket and the key, parameterized using UploadDate.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-copy-dynamic-date.png)
+![Parameter screen for a copy step, showing the bucket and the key, parameterized using UploadDate.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-copy-dynamic-date.png)
 
 
 You can also use both of these variables together, combining their functionality. For example, you could set the **Destination key prefix** to **folder/${transfer:UserName}/${transfer:UploadDate}/**, which would created nested folders, for example `folder/marymajor/2023-01-05/`.
@@ -159,7 +159,7 @@ If concurrent writes are executed on the same file path, it may result in unexpe
 
 The following screenshot shows an example of the options that you might choose for your decrypt file step. 
 
-![The AWS Transfer Family console, showing the Configure PGP decryption parameters section with sample values.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-decrypt-details.png)
+![The AWS Transfer Family console, showing the Configure PGP decryption parameters section with sample values.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-decrypt-details.png)
 
 
 ### IAM permissions for decrypt step
@@ -209,7 +209,7 @@ To tag incoming files for further downstream processing, use a tag step. Enter t
 
 The following example tag step assigns `scan_outcome` and `clean` as the tag key and value, respectively.
 
-![Workflows screen showing the details for a tagging step.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-tag.png)
+![Workflows screen showing the details for a tagging step.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-tag.png)
 
 
 To allow a tag step to succeed, make sure the execution role for your workflow contains the following permissions.
@@ -238,7 +238,7 @@ Add `s3:GetObjectVersionTagging` for an Amazon S3 file that is versioned.
 
 To delete a processed file from a previous workflow step or to delete the originally uploaded file, use a delete file step.
 
-![Workflows screen showing the details for a delete step.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-delete.png)
+![Workflows screen showing the details for a delete step.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-delete.png)
 
 
 To allow a delete step to succeed, make sure the execution role for your workflow contains the following permissions.
@@ -287,7 +287,7 @@ The following example illustrates a workflow that tags incoming files that need 
    1. Choose **Copy file**, then choose **Next**.
 
    1. Enter a step name, then select a destination bucket and a key prefix.  
-![Workflows screen showing the details for a copy step, showing destination bucket and key prefix.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-copy-first-step.png)
+![Workflows screen showing the details for a copy step, showing destination bucket and key prefix.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-copy-first-step.png)
 
    1. Choose **Next**, then review the details for the step. 
 
@@ -304,7 +304,7 @@ The following example illustrates a workflow that tags incoming files that need 
    1. For **File location**, select **Tag the file created from previous step**.
 
    1. Enter a **Key** and **Value**.  
-![The Configuration screen for a tagging workflow step, with the Tag the file created from previous step radio button selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-tag.png)
+![The Configuration screen for a tagging workflow step, with the Tag the file created from previous step radio button selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-tag.png)
 
    1. Choose **Next**, then review the details for the step. 
 
@@ -315,7 +315,7 @@ The following example illustrates a workflow that tags incoming files that need 
    1. In the **Nominal steps** section, choose **Add step**.
 
    1. Choose **Delete file**, then choose **Next**.  
-![The Configuration screen for a delete workflow step, with the Delete the original source file radio button selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-delete.png)
+![The Configuration screen for a delete workflow step, with the Delete the original source file radio button selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-step-delete.png)
 
    1. Enter a step name.
 

@@ -39,7 +39,7 @@ To set up a server with Directory Service as your identity provider, you need to
    + **Custom identity provider** – Choose either of the following options:
      + **Use AWS Lambda to connect your identity provider** – You can use an existing identity provider, backed by a Lambda function. You provide the name of the Lambda function. For more information, see [Using AWS Lambda to integrate your identity provider](custom-lambda-idp.md).
      + **Use Amazon API Gateway to connect your identity provider** – You can create an API Gateway method backed by a Lambda function for use as an identity provider. You provide an Amazon API Gateway URL and an invocation role. For more information, see [Using Amazon API Gateway to integrate your identity provider](authentication-api-gateway.md).  
-![The Choose an identity provider console section with Custom identity provider selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/custom-lambda-console-no-sftp.png)
+![The Choose an identity provider console section with Custom identity provider selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/custom-lambda-console-no-sftp.png)
 
 1. Choose **Next**.
 
@@ -56,7 +56,7 @@ Publicly accessible endpoints are not supported.
 FIPS-enabled endpoints are only available in North American AWS Regions. For available Regions, see [AWS Transfer Family endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/transfer-service.html) in the *AWS General Reference*. For more information about FIPS, see [ Federal Information Processing Standard (FIPS) 140-2 ](https://aws.amazon.com/compliance/fips/).
 
    1. Choose **Next**.  
-![The Choose an endpoint console section with VPC hosted selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-choose-endpoint-vpc-internal.png)
+![The Choose an endpoint console section with VPC hosted selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-choose-endpoint-vpc-internal.png)
 
 1. On the **Choose domain** page, choose the AWS storage service that you want to use to store and access your data over the selected protocol:
    + Choose **Amazon S3** to store and access your files as objects over the selected protocol.
@@ -67,12 +67,12 @@ FIPS-enabled endpoints are only available in North American AWS Regions. For ava
 1. In **Configure additional details**, do the following:
 
    1. For logging, specify an existing log group or create a new one (the default option).  
-![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](http://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
+![Logging pane for Configure additional details in the Create server wizard. Choose an existing log group is selected.](https://docs.aws.amazon.com/transfer/latest/userguide/images/logging-server-choose-existing-group.png)
 
       If you choose **Create log group**, the CloudWatch console ([https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)) opens to the **Create log group** page. For details, see [ Create a log group in CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#Create-Log-Group). 
 
    1.  (Optional) For **Managed workflows**, choose workflow IDs (and a corresponding role) that Transfer Family should assume when executing the workflow. You can choose one workflow to execute upon a complete upload, and another to execute upon a partial upload. To learn more about processing your files by using managed workflows, see [AWS Transfer Family managed workflows](transfer-workflows.md).  
-![The Managed workflows console section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
+![The Managed workflows console section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-addtoserver.png)
 
    1. For **Cryptographic algorithm options**, choose a security policy that contains the cryptographic algorithms enabled for use by your server. Our latest security policy is the default: for details, see [Security policies for AWS Transfer Family servers](security-policies.md).
 
@@ -83,7 +83,7 @@ FIPS-enabled endpoints are only available in North American AWS Regions. For ava
    1. You can optimize performance for your Amazon S3 directories. For example, suppose that you go into your home directory, and you have 10,000 subdirectories. In other words, your Amazon S3 bucket has 10,000 folders. In this scenario, if you run the `ls` (list) command, the list operation takes between six and eight minutes. However, if you optimize your directories, this operation takes only a few seconds.
 
       When you create your server using the console, optimized directories is enabled by default. If you create your server using the API, this behavior is not enabled by default.  
-![The Optimized directories console section.](http://docs.aws.amazon.com/transfer/latest/userguide/images/optimized-directories.png)
+![The Optimized directories console section.](https://docs.aws.amazon.com/transfer/latest/userguide/images/optimized-directories.png)
 
    1. Choose **Next**.
 
@@ -95,7 +95,7 @@ FIPS-enabled endpoints are only available in North American AWS Regions. For ava
       + **SetStat option**: enable this option to ignore the error that is generated when a client attempts to use `SETSTAT` on a file you are uploading to an Amazon S3 bucket. For additional details, see the `SetStatOption` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic.
       + **TLS session resumption**: provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. For additional details, see the `TlsSessionResumptionMode` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic.
       + **Passive IP**: indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For additional details, see the `PassiveIp` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic.  
-![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-configure-additional-items-all.png)
+![The Additional configuration screen showing the SetStat, TLS session resumption, and Passive IP parameters.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-configure-additional-items-all.png)
 
 1. In **Review and create**, review your choices.
    + If you want to edit any of them, choose **Edit** next to the step.

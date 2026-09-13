@@ -7,7 +7,7 @@ An AWS Transfer Family SFTP connector establishes a connection with a remote SFT
 
 The following video provides a brief introduction to Transfer Family SFTP connectors.
 
-[![AWS Videos](http://img.youtube.com/vi/Gm-FMGrVpAg/0.jpg)](http://www.youtube.com/watch?v=Gm-FMGrVpAg)
+[![AWS Videos](https://img.youtube.com/vi/Gm-FMGrVpAg/0.jpg)](https://www.youtube.com/watch?v=Gm-FMGrVpAg)
 
 
 **Topics**

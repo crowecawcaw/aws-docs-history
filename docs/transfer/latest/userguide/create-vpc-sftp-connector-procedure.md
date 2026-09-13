@@ -13,7 +13,7 @@ Use VPC connectivity for SFTP connectors in these scenarios:
 + **Custom IP addresses**: Use your own NAT gateways and Elastic IP addresses, including BYOIP scenarios.
 + **Centralized security controls**: Route file transfers through your organization's central ingress/egress controls.
 
-![Architecture diagram showing VPC-based egress for SFTP connectors, illustrating how Cross-VPC Resource Access enables secure connections through your Virtual Private Cloud.](http://docs.aws.amazon.com/transfer/latest/userguide/images/vpc-egress-diagram.png)
+![Architecture diagram showing VPC-based egress for SFTP connectors, illustrating how Cross-VPC Resource Access enables secure connections through your Virtual Private Cloud.](https://docs.aws.amazon.com/transfer/latest/userguide/images/vpc-egress-diagram.png)
 
 
 ## Prerequisites for VPC\_LATTICE-enabled SFTP connectors

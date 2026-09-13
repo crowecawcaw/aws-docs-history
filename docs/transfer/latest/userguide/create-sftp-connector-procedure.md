@@ -17,7 +17,7 @@ This procedure explains how to create SFTP connectors by using the AWS Transfer 
 1. In the **Connector configuration** section, for **Egress type**, choose **Service managed**. This option uses AWS Transfer Family managed egress infrastructure. The Transfer Family service provides and manages static IP addresses for each SFTP connector.
 
 1. In the **Connector configuration** section, provide the following information:  
-![The Transfer Family SFTP connector console, showing the Connector configuration settings.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-connector-example-config.png)
+![The Transfer Family SFTP connector console, showing the Connector configuration settings.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-connector-example-config.png)
    + For the **URL**, enter the URL for a remote SFTP server. This URL must be formatted as `sftp://{{partner-SFTP-server-url}}`, for example `sftp://AnyCompany.com`.
 **Note**  
 Optionally, you can provide a port number in your URL. The format is `sftp://{{partner-SFTP-server-url}}:{{port-number}}`. The default port number (when no port is specified) is port 22.
@@ -105,7 +105,7 @@ You can also store secrets containing your SFTP credentials in another AWS accou
      ```
 
 1. In the **SFTP Configuration** section, provide the following information:  
-![The Transfer Family SFTP connector console, showing the SFTP configuration settings.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-connector-example-sftp-config.png)
+![The Transfer Family SFTP connector console, showing the SFTP configuration settings.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-connector-example-sftp-config.png)
    + For **Connector credentials**, from the dropdown list, choose the name of a secret in AWS Secrets Manager that contains the SFTP user's private key or password. You must create a secret and store it in a specific manner. For details, see [Store authentication credentials for SFTP connectors in Secrets Manager](sftp-connector-secret-procedure.md).
    + (Optional) You have an option to create your connector while leaving the `TrustedHostKeys` parameter empty. However, your connector will not be able to transfer files with the remote server until you provide this parameter in your connector’s configuration. You can enter the Trusted host key(s) at the time of creating your connector, or update your connector later by using the host key information returned by the `TestConnection` console action or API command. That is, for the **Trusted host keys** text box, you can do either of the following:
      + **Provide the Trusted Host Key(s) at the time of creating your connector.** Paste in the public portion of the host key that is used to identify the external server. You can add more than one key, by choosing **Add trusted host key** to add an additional key. You can use the `ssh-keyscan` command against the SFTP server to retrieve the necessary key. For details about the format and type of trusted host keys that Transfer Family supports, see [SFTPConnectorConfig](https://docs.aws.amazon.com/transfer/latest/APIReference/API_SftpConnectorConfig.html).
@@ -123,7 +123,7 @@ You must accept the new key as trusted, or verify the presented fingerprint with
 1. (Optional) In the **Tags** section, for **Key** and **Value**, enter one or more tags as key-value pairs.
 
 1. After you have confirmed all of your settings, choose **Create SFTP connector** to create the SFTP connector. If the connector is created successfully, a screen appears with a list of the assigned static IP addresses and a **Test connection** button. Use the button to test the configuration for your new connector.  
-![The connector creation screen that appears when an SFTP connector has been successfully created. It contains a button for testing the connection and a list of the service-managed static IP addresses of this connector.](http://docs.aws.amazon.com/transfer/latest/userguide/images/connector-success-ip.png)
+![The connector creation screen that appears when an SFTP connector has been successfully created. It contains a button for testing the connection and a list of the service-managed static IP addresses of this connector.](https://docs.aws.amazon.com/transfer/latest/userguide/images/connector-success-ip.png)
 
 The **Connectors** page appears, with the ID of your new SFTP connector added to the list. To view the details for your connectors, see [View SFTP connector details](manage-sftp-connectors.md#sftp-connectors-view-info).
 

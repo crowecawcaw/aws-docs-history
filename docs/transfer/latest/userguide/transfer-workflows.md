@@ -5,7 +5,7 @@
 
  AWS Transfer Family supports managed workflows for file processing. With managed workflows, you can kick off a workflow after a file has been transferred over SFTP, FTPS, or FTP. Using this feature, you can securely and cost effectively meet your compliance requirements for business-to-business (B2B) file exchanges by coordinating all the necessary steps required for file processing. In addition, you benefit from end-to-end auditing and visibility.
 
-![Flow diagram showing how managed workflows assist with file processing.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-diagram.png)
+![Flow diagram showing how managed workflows assist with file processing.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-diagram.png)
 
 
 By orchestrating file-processing tasks, managed workflows help you preprocess data before it is consumed by your downstream applications. Such file-processing tasks might include:
@@ -32,11 +32,11 @@ To get started, perform the following tasks:
 
   The blog post is available at [Using Amazon Cognito as an identity provider with AWS Transfer Family and Amazon S3](https://aws.amazon.com/blogs/storage/using-amazon-cognito-as-an-identity-provider-with-aws-transfer-family-and-amazon-s3/). You can view the details for the workshop [here](https://catalog.workshops.aws/transfer-family-sftp/en-US). 
 + The following video provides a brief introduction to Transfer Family managed workflows.  
-[![AWS Videos](http://img.youtube.com/vi/t-iNqCRospw/0.jpg)](http://www.youtube.com/watch?v=t-iNqCRospw)
+[![AWS Videos](https://img.youtube.com/vi/t-iNqCRospw/0.jpg)](https://www.youtube.com/watch?v=t-iNqCRospw)
 + The following workshop provides hands on labs to build fully automated and event-driven workflows involving file transfer to or from external SFTP servers to Amazon S3, and common pre- and post-processing of those files: [Event-driven MFT workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/e55c90e0-bbb0-47e1-be83-6bafa3a59a8a/en-US).
 
   This video provides a walk through of this workshop.  
-[![AWS Videos](http://img.youtube.com/vi/oojopisG4lA/0.jpg)](http://www.youtube.com/watch?v=oojopisG4lA)
+[![AWS Videos](https://img.youtube.com/vi/oojopisG4lA/0.jpg)](https://www.youtube.com/watch?v=oojopisG4lA)
 
 **Topics**
 + [Create a workflow](create-workflow.md)
@@ -64,7 +64,7 @@ The following example workflow contains two steps:
 
 To initiate the exception-handling step, the AWS Lambda function in the nominal step must respond with `Status="FAILURE"`. For more information about error handling in workflows, see [Use custom file-processing steps](custom-step-details.md).
 
-![AWS Transfer Family console, showing an example workflow with one nominal step and one exception-handling step.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflow-exception-sample.png)
+![AWS Transfer Family console, showing an example workflow with one nominal step and one exception-handling step.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflow-exception-sample.png)
 
 
 ## Remove a workflow from a Transfer Family server
@@ -93,7 +93,7 @@ If you have associated a workflow with a Transfer Family server, and you now wan
    If you don't see the dash, scroll up until you see it, as it is the first value in each menu.
 
    The screen should look like the following.  
-![The Managed workflows pane, showing all parameters cleared.](http://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-remove-from-server.png)
+![The Managed workflows pane, showing all parameters cleared.](https://docs.aws.amazon.com/transfer/latest/userguide/images/workflows-remove-from-server.png)
 
 1. Scroll down and choose **Save** to save your changes.
 

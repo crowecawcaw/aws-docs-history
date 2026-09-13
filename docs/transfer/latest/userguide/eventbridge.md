@@ -7,7 +7,7 @@ Amazon EventBridge is a serverless service that uses events to connect applicati
 
 As with many AWS services, Transfer Family generates and sends events to the EventBridge default event bus. Note that the default event bus is automatically provisioned in every AWS account. An event bus is a router that receives events and delivers them to zero or more destinations, or *targets*. You specify rules for the event bus that evaluates events as they arrive. Each rule checks whether an event matches the rule's *event pattern*. If the event matches, the event bus sends the event to one or more specified targets.
 
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](http://docs.aws.amazon.com/transfer/latest/userguide/images/eventbridge-integration-how-it-works.png)
+![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](https://docs.aws.amazon.com/transfer/latest/userguide/images/eventbridge-integration-how-it-works.png)
 
 
 **Topics**

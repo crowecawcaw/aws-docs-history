@@ -24,15 +24,15 @@
 
  The **Monitoring** section contains four, individual graphs. These graphs show the bytes in, bytes out, files in, and files out. 
 
-![The Monitoring console section showing the BytesIn, BytesOut, FilesIn, and FilesOut graphs.](http://docs.aws.amazon.com/transfer/latest/userguide/images/metrics.png)
+![The Monitoring console section showing the BytesIn, BytesOut, FilesIn, and FilesOut graphs.](https://docs.aws.amazon.com/transfer/latest/userguide/images/metrics.png)
 
 
 For servers that have the AS2 protocol enabled, there is an **AS2 Monitoring** section below the **Monitoring** information. This section contains details for the number of inbound messages, both successful and failed.
 
-![The AS2 Monitoring console section showing the InboundMessages, and InboundMessagesFailed details.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-metrics-inbound.png)
+![The AS2 Monitoring console section showing the InboundMessages, and InboundMessagesFailed details.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-metrics-inbound.png)
 
 
- To open the selected graph in its own window, choose the expand icon (![Expand icon](http://docs.aws.amazon.com/transfer/latest/userguide/images/expand.png)). You can also click a graph's vertical ellipsis icon (![Vertical ellipsis icon](http://docs.aws.amazon.com/transfer/latest/userguide/images/vertical-ellipsis.png)) to open a dropdown menu with the following items: 
+ To open the selected graph in its own window, choose the expand icon (![Expand icon](https://docs.aws.amazon.com/transfer/latest/userguide/images/expand.png)). You can also click a graph's vertical ellipsis icon (![Vertical ellipsis icon](https://docs.aws.amazon.com/transfer/latest/userguide/images/vertical-ellipsis.png)) to open a dropdown menu with the following items: 
 + **Enlarge** – Opens the selected graph in its own window.
 + **Refresh** – Reloads the graph with the most recent data.
 + **View in metrics** – Opens the corresponding metrics details in Amazon CloudWatch.

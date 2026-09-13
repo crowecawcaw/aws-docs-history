@@ -77,7 +77,7 @@ This section describes the steps you take to test post-quantum hybrid key exchan
 
 You can choose the SSH policy when you create a new SFTP server endpoint in Transfer Family, or by editing the Cryptographic algorithm options in an existing SFTP endpoint. The following snapshot shows an example of the AWS Management Console where you update the SSH policy.
 
-![Shows the post-quantum policy selected for the Cryptographic algorithm options.](http://docs.aws.amazon.com/transfer/latest/userguide/images/post-quantum-policy-choose.png)
+![Shows the post-quantum policy selected for the Cryptographic algorithm options.](https://docs.aws.amazon.com/transfer/latest/userguide/images/post-quantum-policy-choose.png)
 
 
 The SSH policy names that support post-quantum key exchange are **TransferSecurityPolicy-2025-03** and **TransferSecurityPolicy-FIPS-2025-03**. For more details on Transfer Family policies, see [Security policies for AWS Transfer Family servers](security-policies.md).

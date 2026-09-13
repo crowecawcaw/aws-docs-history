@@ -140,7 +140,7 @@ When an administrator creates a role, the role often includes broad permissions 
 
 Session policies are advanced policies that you pass as a parameter when you programmatically create a temporary session for a role or user. Session policies are useful for locking down users so that they have access only to portions of your bucket where object prefixes contain their username. The following diagram shows that the session policy's permissions are the intersection of the session policies and the resource-based policies plus the intersection of the session policies and identity-based policies.
 
-![Session policy permissions Venn diagram. Shows how effective permissions lie in the intersections of resource-based policies, identity-based polices, and session policies.](http://docs.aws.amazon.com/transfer/latest/userguide/images/EffectivePermissions-session-rbp-id.png)
+![Session policy permissions Venn diagram. Shows how effective permissions lie in the intersections of resource-based policies, identity-based polices, and session policies.](https://docs.aws.amazon.com/transfer/latest/userguide/images/EffectivePermissions-session-rbp-id.png)
 
 
 For more details, see [Session policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session) in the *IAM User Guide*.

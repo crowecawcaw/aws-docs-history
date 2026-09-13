@@ -51,9 +51,9 @@ If you're using Basic authentication for your connector, the access role require
    + To send sign-on credentials along with outbound messages, select **Enable Basic authentication**. If you don't want to send any credentials with outbound messages, keep **Enable Basic authentication** cleared.
    + If you're using authentication, choose or create a secret.
      + To create a new secret, choose **Create a new secret** and then enter a username and password. These credentials must match the user that connects to the partner's endpoint.  
-![The Create connector page in the AWS Transfer Family console, showing the Basic authentication section with Create a new secret chosen.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-create-secret.png)
+![The Create connector page in the AWS Transfer Family console, showing the Basic authentication section with Create a new secret chosen.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-create-secret.png)
      + To use an existing secret, choose **Choose an existing secret**, and then choose a secret from the dropdown menu. For the details of creating a correctly formatted secret in Secrets Manager, see [Enable Basic authentication for AS2 connectors](#as2-secret-create).  
-![The Create connector page in the AWS Transfer Family console, showing the Basic authentication section with Choose an existing secret chosen.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-select-secret.png)
+![The Create connector page in the AWS Transfer Family console, showing the Basic authentication section with Choose an existing secret chosen.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-select-secret.png)
 
 1. In the **MDN configuration** section, specify the following information:
    + **Request MDN** – You have the option to require your trading partner to send you an MDN after they have successfully received your message over AS2.
@@ -85,12 +85,12 @@ To use authentication for your connector, select **Enable Basic authentication**
 
 The following screenshot shows **Enable Basic authentication** selected, and **Create a new secret** chosen. After making these choices, you can enter a username and password for the secret. 
 
-![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Create a new secret is chosen.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-create-secret.png)
+![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Create a new secret is chosen.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-create-secret.png)
 
 
 The following screenshot shows **Enable Basic authentication** selected, and **Choose an existing secret** chosen. Your secret must be in the correct format, as described in [Enable Basic authentication for AS2 connectors](#as2-secret-create).
 
-![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Choose an existing secret is chosen.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-select-secret.png)
+![The Transfer Family console Connectors page, showing the message authentication information for your connector. In this case, Enable Basic authentication is selected, and Choose an existing secret is chosen.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-select-secret.png)
 
 
 ## Enable Basic authentication for AS2 connectors
@@ -110,7 +110,7 @@ When you're creating a connector in the console, you can create a new secret.
 
 To create a new secret, choose **Create a new secret** and then enter a username and password. These credentials must match the user that connects to the partner's endpoint.
 
-![The AWS Transfer Family console Create connector page, showing the Basic authentication section with Create a new secret chosen.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-create-secret.png)
+![The AWS Transfer Family console Create connector page, showing the Basic authentication section with Create a new secret chosen.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-create-secret.png)
 
 
 **Note**  
@@ -123,7 +123,7 @@ When you're creating a connector in the console, you can specify an existing sec
 
 To use an existing secret, choose **Choose an existing secret**, and then choose a secret from the dropdown menu. For the details of creating a correctly formatted secret in Secrets Manager, see [Create a secret in AWS Secrets Manager](#as2-secret-details-asm).
 
-![The AWS Transfer Family console Create connector page, showing the Basic authentication section with Choose an existing secret chosen.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-select-secret.png)
+![The AWS Transfer Family console Create connector page, showing the Basic authentication section with Choose an existing secret chosen.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-select-secret.png)
 
 
 ### Create a secret in AWS Secrets Manager
@@ -185,13 +185,13 @@ This is the procedure for viewing connector details.
 
 You can change the properties for the AS2 connector on the connector's details page by choosing **Edit**.
 
-![The Transfer Family console connector details page, showing the URL, access role, and logging role for the selected connector.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-connector-details_01-top.png)
+![The Transfer Family console connector details page, showing the URL, access role, and logging role for the selected connector.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-connector-details_01-top.png)
 
 
-![The Transfer Family console connector details page, showing the AS2 configuration details for the selected connector.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-connector-details_02-middle.png)
+![The Transfer Family console connector details page, showing the AS2 configuration details for the selected connector.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-connector-details_02-middle.png)
 
 
-![The Transfer Family console connector details page, showing the AS2 Basic authentication section details, tags, static IP, and AS2 monitoring information for the selected connector.](http://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-details-pane.png)
+![The Transfer Family console connector details page, showing the AS2 Basic authentication section details, tags, static IP, and AS2 monitoring information for the selected connector.](https://docs.aws.amazon.com/transfer/latest/userguide/images/as2-basic-auth-details-pane.png)
 
 
 **Note**  

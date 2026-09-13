@@ -135,7 +135,7 @@ Add the user that you previously created in IAM Identity Center.
 1. Navigate to the web app that you created earlier.
 
 1. Choose **Assign users and groups**.  
-![Screen showing the details for a selected web app.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-transfer-details.png)
+![Screen showing the details for a selected web app.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-transfer-details.png)
 
 1. To assign the user that you previously created in IAM Identity Center, select **Assign existing users and groups** and select **Next**.
 
@@ -164,7 +164,7 @@ You must have an S3 Access Grants instance before you can proceed. For details, 
 1. Provide the following information. 
    + For the **Scope**, browse for a bucket or enter the name of your bucket, and optionally a prefix. Note that the scope begins with the string **s3://**.
    + For the IAM role, choose **Create new role** to have Amazon S3 create a role. This role allows S3 Access Grants to access your specified location scope.  
-![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-grants-register-new.png)
+![Screen showing the Amazon S3 Register S3 Buckets or prefixes as locations dialog with default Scope and Create new role settings.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-grants-register-new.png)
 
    Choose **Register location** to continue.
 
@@ -190,7 +190,7 @@ Now, we navigate to the web app's URL and log in as the user that we assigned ea
 1. Navigate to your web app
 
 1. Choose the **Access endpoint** from the **Web app details** pane.  
-![Screen showing the details for the web app created during the tutorial.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-transfer-tutorial-enduser.png)
+![Screen showing the details for the web app created during the tutorial.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-transfer-tutorial-enduser.png)
 
 1. On the sign in screen, enter the user you created, **bobstiles**, then select **Next**.
 
@@ -206,7 +206,7 @@ Now, we navigate to the web app's URL and log in as the user that we assigned ea
 
 Your use should see a screen similar to the following. Note that this screenshot includes customization for the favicon and logo.
 
-![An example Transfer Family web app, with customized title, favicon, and logo.](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-enduser.png)
+![An example Transfer Family web app, with customized title, favicon, and logo.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-enduser.png)
 
 
 ## Next steps
@@ -220,14 +220,14 @@ You have successfully set up a basic Transfer Family web app with standard S3 bu
 You can integrate an external identity provider with Transfer Family web apps. This section describes how to set up Okta as your identity provider.
 
 1. In Okta, create a user, group, and application. For details on how to do this, see [Configure SAML and SCIM with Okta and IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/gs-okta.html).   
-![An example Okta application for use with the Transfer Family web app tutorial](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-okta.png)
+![An example Okta application for use with the Transfer Family web app tutorial](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-okta.png)
 
 1. Connect Okta and import user and group from Okta to AWS IAM Identity Center. Follow steps 1–4 in [Configure SAML and SCIM with Okta and IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/gs-okta.html).  
-![IAM Identity Center showing example user integrated from Okta](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-okta-ic-user.png)  
-![IAM Identity Center showing example group integrated from Okta](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-okta-ic-group.png)
+![IAM Identity Center showing example user integrated from Okta](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-okta-ic-user.png)  
+![IAM Identity Center showing example group integrated from Okta](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-okta-ic-group.png)
 
 1. Confirm that the identity source in IAM Identity Center is SAML 2.0.  
-![IAM Identity Center showing that the identity source is SAML 2.0](http://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-okta-confirm.png)
+![IAM Identity Center showing that the identity source is SAML 2.0](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-tutorial-okta-confirm.png)
 
 1. Assign your user and group, as described in [Step 4: Add a user to your Transfer Family web app](#web-tutorial-step4).
 

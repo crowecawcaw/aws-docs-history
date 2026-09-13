@@ -67,7 +67,7 @@ If you are using the custom identity provider option to enable password–based 
    1. Choose the **Transfer Custom Identity Provider basic template API** that the CloudFormation template generated. You might need to select your region to see your gateways.
 
    1. In the **Resources** pane, choose **GET**. The following screenshot shows the correct method configuration.  
-![API configuration details, showing the method configuration parameters for the Request Paths and the for the URL Query String.](http://docs.aws.amazon.com/transfer/latest/userguide/images/apig-config-method-fields.png)
+![API configuration details, showing the method configuration parameters for the Request Paths and the for the URL Query String.](https://docs.aws.amazon.com/transfer/latest/userguide/images/apig-config-method-fields.png)
 
    At this point, your API gateway is ready to be deployed.
 
@@ -76,14 +76,14 @@ If you are using the custom identity provider option to enable password–based 
    After the API Gateway method is successfully deployed, view its performance in **Stages** > **Stage details**, as shown in the following screenshot.
 **Note**  
 Copy the **Invoke URL** address that appears at the top of the screen. You might need it for the next step.  
-![Stage details with the Invoke URL highlighted.](http://docs.aws.amazon.com/transfer/latest/userguide/images/apig-config-method-invoke.png)
+![Stage details with the Invoke URL highlighted.](https://docs.aws.amazon.com/transfer/latest/userguide/images/apig-config-method-invoke.png)
 
 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/).
 
 1. A Transfer Family should have been created for you, when you created the stack. If not, configure your server using these steps.
 
    1. Choose **Create server** to open the **Create server** page. For **Choose an identity provider**, choose **Custom**, then select **Use Amazon API Gateway to connect to your identity provider**, as shown in the following screenshot.  
-![The identity provider screen with Custom Identity Provider selected, and with the API Gateway chosen for connecting to your identity provider.](http://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-choose-idp-custom.png)
+![The identity provider screen with Custom Identity Provider selected, and with the API Gateway chosen for connecting to your identity provider.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-choose-idp-custom.png)
 
    1. In the **Provide an Amazon API Gateway URL** text box, paste the **Invoke URL** address of the API Gateway endpoint that you created in step 3 of this procedure.
 
@@ -98,7 +98,7 @@ Copy the **Invoke URL** address that appears at the top of the screen. You might
 
 To create a custom identity provider for Transfer Family, your API Gateway method must implement a single method that has a resource path of `/servers/{{serverId}}/users/{{username}}/config`. The `{{serverId}}` and `{{username}}` values come from the RESTful resource path. Also, add `sourceIp` and `protocol` as **URL Query String Parameters** in the **Method Request**, as shown in the following image.
 
-![The Resources screen of the API Gateway showing the GET method details.](http://docs.aws.amazon.com/transfer/latest/userguide/images/apig-config-method-request.png)
+![The Resources screen of the API Gateway showing the GET method details.](https://docs.aws.amazon.com/transfer/latest/userguide/images/apig-config-method-request.png)
 
 
 **Note**  

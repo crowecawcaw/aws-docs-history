@@ -13,7 +13,7 @@ Before you create a Transfer Family server that uses Lambda as the identity prov
 1. Open the [AWS Transfer Family console](https://console.aws.amazon.com/transfer/).
 
 1. Choose **Create server** to open the **Create server** page. For **Choose an identity provider**, choose **Custom Identity Provider**, as shown in the following screenshot.  
-![The Choose an identity provider console section with Custom identity provider selected. Also has the default value selected, which is that users can authenticate using either their password or key.](http://docs.aws.amazon.com/transfer/latest/userguide/images/custom-lambda-console.png)
+![The Choose an identity provider console section with Custom identity provider selected. Also has the default value selected, which is that users can authenticate using either their password or key.](https://docs.aws.amazon.com/transfer/latest/userguide/images/custom-lambda-console.png)
 **Note**  
 The choice of authentication methods is only available if you enable SFTP as one of the protocols for your Transfer Family server.
 

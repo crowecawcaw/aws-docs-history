@@ -97,7 +97,7 @@ When you use the template to create an CloudFormation stack, a Transfer Family s
 1. Choose the stack that you created.
 
 1. Choose the **Resources** tab.  
-![Screen that shows the list of resources created during creation of the CloudFormation stack, with the details for the Transfer Family server highlighted.](http://docs.aws.amazon.com/transfer/latest/userguide/images/apig-find-server-id.png)
+![Screen that shows the list of resources created during creation of the CloudFormation stack, with the details for the Transfer Family server highlighted.](https://docs.aws.amazon.com/transfer/latest/userguide/images/apig-find-server-id.png)
 
    The server ARN is shown in the **Physical ID** column for the **TransferServer** row. The server ID is contained in the ARN, for example **s-11112222333344445**.
 
