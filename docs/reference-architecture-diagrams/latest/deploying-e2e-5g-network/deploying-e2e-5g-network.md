@@ -10,7 +10,7 @@ With this architecture, you can deploy an end-to-end (E2E) 5G network by using A
 ## Deploying E2E 5G network diagram
 <a name="e2e5g-diagram"></a>
 
-![Reference architecture diagram showing how to deploy an E2E 5G network by using AWS Outposts, AWS Wavelength, Amazon EKS, Amazon ECS, and AWS Direct Connect.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/deploying-e2e-5g-network/images/deploying-e2e-5g-network.png)
+![Reference architecture diagram showing how to deploy an E2E 5G network by using AWS Outposts, AWS Wavelength, Amazon EKS, Amazon ECS, and AWS Direct Connect.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/deploying-e2e-5g-network/images/deploying-e2e-5g-network.png)
 
 
 The following steps describe the network components and connectivity for this architecture:
