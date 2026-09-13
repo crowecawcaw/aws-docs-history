@@ -12,7 +12,7 @@ The PROS application manages revenue optimization for airlines. This architectur
 ## PROS revenue management platform diagram
 <a name="pros-revenue-management-diagram"></a>
 
-![Architecture for AWS Direct Connect, Amazon S3, Amazon EC2, Amazon RDS, and AWS Key Management Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/pros-revenue-management/images/pros-revenue-management-platform-on-aws-ra.png)
+![Architecture for AWS Direct Connect, Amazon S3, Amazon EC2, Amazon RDS, and AWS Key Management Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/pros-revenue-management/images/pros-revenue-management-platform-on-aws-ra.png)
 
 
 The following steps describe the architecture:
