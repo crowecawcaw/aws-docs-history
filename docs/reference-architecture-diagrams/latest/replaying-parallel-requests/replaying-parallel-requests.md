@@ -10,7 +10,7 @@ This architecture shows how to break your [monolith](https://en.wikipedia.org/wi
 ## Replaying Parallel Requests to Break a Monolith
 <a name="diagram1"></a>
 
-![Architecture diagram showing a parallel request replay strategy using Amazon API Gateway, AWS Lambda, Amazon Kinesis Data Streams, AWS Step Functions, Amazon Simple Queue Service, and Amazon Simple Notification Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/replaying-parallel-requests/images/replaying-parallel-requests.png)
+![Architecture diagram showing a parallel request replay strategy using Amazon API Gateway, AWS Lambda, Amazon Kinesis Data Streams, AWS Step Functions, Amazon Simple Queue Service, and Amazon Simple Notification Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/replaying-parallel-requests/images/replaying-parallel-requests.png)
 
 
 The following steps describe the architecture:
