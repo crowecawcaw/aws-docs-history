@@ -10,7 +10,7 @@ Detailed observability is controlled by the `EnableDetailedObservability` flag i
 
 For endpoint configurations created after June 17, 2026, `EnableDetailedObservability` defaults to `true`. No action required.
 
-![Endpoint detail page showing Observability: Enabled.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Observability_Enabled_page.png)
+![Endpoint detail page showing Observability: Enabled.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Observability_Enabled_page.png)
 
 
 ### Verify via API
@@ -69,16 +69,16 @@ aws sagemaker update-endpoint \
 1. Navigate to **SageMaker AI Console** → **Deployments and inference** → **Endpoints**.
 
 1. Click **Enable detailed observability** in the banner.  
-![Enablement banner on the endpoints list page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Observability_banner.png)
+![Enablement banner on the endpoints list page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Observability_banner.png)
 
 1. **Step 1:** Review the metrics that detailed observability provides. This includes inference framework metrics (TTFT, KV cache, queue depth), GPU health, node health, and lifecycle events. For the complete list, see [OpenTelemetry metrics reference](inference-monitoring.md). Enabling this feature also activates the SageMaker AI Insights dashboard — an auto-generated dashboard in Amazon CloudWatch that displays these metrics along with a health overview across all your endpoints.  
-![Enablement wizard Step 1: Review metrics included.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Enablement_Step1.png)
+![Enablement wizard Step 1: Review metrics included.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Enablement_Step1.png)
 
 1. **Step 2:** Enable OTel enrichment in your Amazon CloudWatch account settings. This step is required so that your metrics are queryable via PromQL in CloudWatch Query Studio and Amazon Managed Grafana. The wizard provides instructions and a direct link to the CloudWatch Settings page.  
-![Enablement wizard Step 2: OTel enrichment guidance.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Enablement_Step2.png)
+![Enablement wizard Step 2: OTel enrichment guidance.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Enablement_Step2.png)
 
 1. **Step 3:** Select the endpoints you want to enable detailed observability on and confirm. The console creates new endpoint configurations with `EnableDetailedObservability` set to `true` and applies them to your selected endpoints.  
-![Enablement wizard Step 3: Confirm enablement.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Enablement_Step3.png)
+![Enablement wizard Step 3: Confirm enablement.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Enablement_Step3.png)
 
 ## MetricsConfig API parameters
 <a name="detailed-observability-getting-started-params"></a>
@@ -155,7 +155,7 @@ OTel metric enrichment converts CloudWatch metrics into OpenTelemetry format and
 
 1. Enable **Resource tags for telemetry**.
 
-![CloudWatch Settings page with OTel metric enrichment and Resource tags for telemetry enabled.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/CW_Setting_page.png)
+![CloudWatch Settings page with OTel metric enrichment and Resource tags for telemetry enabled.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/CW_Setting_page.png)
 
 
 ### Via AWS CLI

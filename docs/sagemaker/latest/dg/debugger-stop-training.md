@@ -44,7 +44,7 @@ Make sure you use the execution role with `AmazonSageMakerFullAccess` and `AWSLa
 
 The following figure shows an example of the **Create function** page with the input fields and selections completed.
 
-![Create Function page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-lambda-create.png)
+![Create Function page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-lambda-create.png)
 
 
 ## Step 2: Configure the Lambda function
@@ -146,4 +146,4 @@ The following figure shows an example of the **Create function** page with the i
 1. Choose **Create rule** to finish.
 
 1. Go back to the Lambda function configuration page and refresh the page. Confirm that it's configured correctly in the **Designer** panel. The CloudWatch Events rule should be registered as a trigger for the Lambda function. The configuration design should look like the following example:  
-<a name="lambda-designer-example"></a>![Designer panel for the CloudWatch configuration.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-lambda-designer.png)
+<a name="lambda-designer-example"></a>![Designer panel for the CloudWatch configuration.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-lambda-designer.png)

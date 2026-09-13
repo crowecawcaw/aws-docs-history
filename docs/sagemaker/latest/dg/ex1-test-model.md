@@ -37,7 +37,7 @@ To evaluate the model and use it in production, invoke the endpoint with the tes
    plt.hist(predictions)
    plt.show()
    ```  
-![A histogram of predicted values.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-eval-predicted-values-histogram.png)
+![A histogram of predicted values.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-eval-predicted-values-histogram.png)
 
 1. The predicted values are float type. To determine `True` or `False` based on the float values, you need to set a cutoff value. As shown in the following example code, use the Scikit-learn library to return the output confusion metrics and classification report with a cutoff of 0.5.
 
@@ -50,7 +50,7 @@ To evaluate the model and use it in production, invoke the endpoint with the tes
    ```
 
    This should return the following confusion matrix:  
-![An example of confusion matrix and statistics after getting the inference of the deployed model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-evaluate-confusion-matrix.png)
+![An example of confusion matrix and statistics after getting the inference of the deployed model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-evaluate-confusion-matrix.png)
 
 1. To find the best cutoff with the given test set, compute the log loss function of the logistic regression. The log loss function is defined as the negative log-likelihood of a logistic model that returns prediction probabilities for its ground truth labels. The following example code numerically and iteratively calculates the log loss values (`-(y*log(p)+(1-y)log(1-p)`), where `y` is the true label and `p` is a probability estimate of the corresponding test sample. It returns a log loss versus cutoff graph.
 
@@ -72,7 +72,7 @@ To evaluate the model and use it in production, invoke the endpoint with the tes
    ```
 
    This should return the following log loss curve.  
-![Example following log loss curve.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-evaluate-logloss-vs-cutoff.png)
+![Example following log loss curve.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-evaluate-logloss-vs-cutoff.png)
 
 1. Find the minimum points of the error curve using the NumPy `argmin` and `min` functions:
 

@@ -49,4 +49,4 @@ This creates an input manifest in the Amazon S3 location for input datasets that
 
 The following GIF demonstrates how to use the automated data setup for image data. This example will create a file, `dataset-{{YYMMDDTHHMMSS}}.manifest` in the Amazon S3 bucket `example-groundtruth-images` where `{{YYMMDDTHHmmSS}}` indicates the year (`YY`), month (`MM`), day (`DD`) and time in hours (`HH`), minutes (`mm`) and seconds (`ss`), that the input manifest file was created. 
 
-![GIF showing how to use the automated data setup for image data.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/gifs/automated-data-setup.gif)
+![GIF showing how to use the automated data setup for image data.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/gifs/automated-data-setup.gif)

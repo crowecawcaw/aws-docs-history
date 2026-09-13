@@ -10,7 +10,7 @@ Amazon SageMaker Asynchronous Inference is a capability in SageMaker AI that que
 
 Creating an asynchronous inference endpoint is similar to creating real-time inference endpoints. You can use your existing SageMaker AI models and only need to specify the `AsyncInferenceConfig` object while creating your endpoint configuration with the `EndpointConfig` field in the `CreateEndpointConfig` API. The following diagram shows the architecture and workflow of Asynchronous Inference.
 
-![Architecture diagram of Asynchronous Inference showing how a user invokes an endpoint.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/async-architecture.png)
+![Architecture diagram of Asynchronous Inference showing how a user invokes an endpoint.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/async-architecture.png)
 
 
 To invoke the endpoint, you need to place the request payload in Amazon S3. You also need to provide a pointer to this payload as a part of the `InvokeEndpointAsync` request. Upon invocation, SageMaker AI queues the request for processing and returns an identifier and output location as a response. Upon processing, SageMaker AI places the result in the Amazon S3 location. You can optionally choose to receive success or error notifications with Amazon SNS. For more information about how to set up asynchronous notifications, see [Check prediction results](async-inference-check-predictions.md).

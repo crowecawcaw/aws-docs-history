@@ -66,7 +66,7 @@ print(orders_data.head())
 
 The following diagram illustrates the steps that data goes through before Feature Store ingests it. In this notebook, we illustrate the use case where you have data from multiple sources and want to store them independently in a Feature Store. Our example considers data from a data warehouse (customer data), and data from a real-time streaming service (order data).
 
-![Feature group creation and data ingestion in Feature Store for this example notebook.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-intro-diagram.png)
+![Feature group creation and data ingestion in Feature Store for this example notebook.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-intro-diagram.png)
 
 
 ## Step 3: Create feature groups

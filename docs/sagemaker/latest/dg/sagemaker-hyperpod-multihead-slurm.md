@@ -33,7 +33,7 @@ A compute node is an Amazon EC2 instance within a cluster that hosts the [Slurm 
 
 The following diagram illustrates how different AWS services work together to support the multiple controller (head) nodes architecture for SageMaker HyperPod Slurm clusters.
 
-![SageMaker HyperPod multi-head nodes architecture diagram.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-multihead-architecture.png)
+![SageMaker HyperPod multi-head nodes architecture diagram.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-multihead-architecture.png)
 
 
 The AWS services that work together to support the SageMaker HyperPod multiple controller (head) nodes architecture include the following.

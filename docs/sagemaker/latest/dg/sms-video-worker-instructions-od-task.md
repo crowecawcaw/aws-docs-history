@@ -10,12 +10,12 @@ When you work on a video frame object detection task, you need to select a categ
 
 After you've added a label, you may see a downward pointing arrow next to the label in the **Labels** menu. Select this arrow and then select one option for each label attribute you see to provide more information about that label.
 
-![Gif showing how a worker can use the bounding box tool for their object detection tasks.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/kitti-od-general-labeling-job.gif)
+![Gif showing how a worker can use the bounding box tool for their object detection tasks.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/kitti-od-general-labeling-job.gif)
 
 
 You may see frame attributes under the **Labels** menu. These attributes will appear on each frame in your task. Use these attribute prompts to enter additional information about each frame. 
 
-![Example frame attribute prompt.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/frame-attributes.png)
+![Example frame attribute prompt.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/frame-attributes.png)
 
 
 To edit an annotation, select the label of the annotation that you want to edit in the **Labels** menu or select the annotation in the frame. When you edit or delete an annotation, the action will only modify the annotation in a single frame. 
@@ -29,7 +29,7 @@ After you've used the predict next icon, review the location of each box in the 
 
 The following graphic demonstrates how to use the predict next tool:
 
-![Gif showing how a worker can adjust the predicted boxes in the next frame.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/kitti-video-od.gif)
+![Gif showing how a worker can adjust the predicted boxes in the next frame.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/kitti-video-od.gif)
 
 
 For all other tools, you can use the **Copy to next** and **Copy to all** tools to copy your annotations to the next or all frames respectively. 

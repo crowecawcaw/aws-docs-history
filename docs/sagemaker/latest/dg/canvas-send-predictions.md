@@ -57,8 +57,8 @@ Use the following procedure to send your predictions to Quick:
 **Note**  
 The **Send to Quick** button doesn’t activate unless you select one or more datasets.
 
-   Alternatively, you can preview your predictions by choosing the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) and then **View prediction results**. From the dataset preview, you can choose **Send to Quick**. The following screenshot shows you the **Send to Quick** button in a dataset preview.  
-![Screenshot of a dataset preview with the Send to Quick button at the bottom.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/send-to-quicksight-preview.png)
+   Alternatively, you can preview your predictions by choosing the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) and then **View prediction results**. From the dataset preview, you can choose **Send to Quick**. The following screenshot shows you the **Send to Quick** button in a dataset preview.  
+![Screenshot of a dataset preview with the Send to Quick button at the bottom.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/send-to-quicksight-preview.png)
 
 1. In the **Send to Quick** dialog box, do the following:
 
@@ -67,7 +67,7 @@ The **Send to Quick** button doesn’t activate unless you select one or more da
    1. Choose **Send**.
 
    The following screenshot shows the **Send to Quick** dialog box:  
-![The Send to Quick dialog box.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/send-to-quicksight.png)
+![The Send to Quick dialog box.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/send-to-quicksight.png)
 
 After you send your batch predictions, the **QuickSight** field for the datasets you sent shows as `Sent`. In the confirmation box that confirms your predictions were sent, you can choose **Open Quick** to open your Quick application. If you’re done using Canvas, you should [log out](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-log-out.html) of the Canvas application.
 

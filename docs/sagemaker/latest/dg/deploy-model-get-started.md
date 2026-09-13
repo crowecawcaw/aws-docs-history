@@ -35,7 +35,7 @@ For inference endpoints, the general workflow consists of the following:
 
 The following diagram shows the preceding workflow.
 
-![The workflow described in the preceding paragraph showing how to get inferences from SageMaker AI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference-workflow-flowchart.png)
+![The workflow described in the preceding paragraph showing how to get inferences from SageMaker AI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference-workflow-flowchart.png)
 
 
 You can perform these actions using the AWS console, the AWS SDKs, the SageMaker Python SDK, CloudFormation or the AWS CLI.

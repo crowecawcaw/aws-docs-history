@@ -31,7 +31,7 @@ To download the definition file of a pipeline, complete the following steps base
 
 1. Sign in to Amazon SageMaker Studio Classic. For more information, see [Launch Amazon SageMaker Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-launch.html).
 
-1. In the Studio Classic sidebar, choose the **Home** icon ( ![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the Studio Classic sidebar, choose the **Home** icon ( ![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Pipelines** from the menu.
 

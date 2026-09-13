@@ -39,7 +39,7 @@ Amazon SageMaker Studio Classic can only open notebooks listed in the Studio Cla
 
 **To open a notebook**
 
-1. In the left sidebar, choose the **File Browser** icon ( ![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) to display the file browser.
+1. In the left sidebar, choose the **File Browser** icon ( ![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) to display the file browser.
 
 1. Browse to a notebook file and double-click it to open the notebook in a new tab.
 
@@ -51,7 +51,7 @@ Amazon SageMaker Studio Classic can only open notebooks listed in the Studio Cla
 1. From the Studio Classic menu, choose **File**, choose **New**, and then choose **Notebook**.
 
 1. In the **Change environment** dialog box, use the dropdown menus to select your **Image**, **Kernel**, **Instance type**, and **Start-up script**, then choose **Select**. Your notebook launches and opens in a new Studio Classic tab.  
-![Studio Classic notebook environment setup.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-environment-setup.png)
+![Studio Classic notebook environment setup.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-environment-setup.png)
 
 ## Create a Notebook from the Launcher
 <a name="notebooks-create-launcher"></a>
@@ -63,13 +63,13 @@ Amazon SageMaker Studio Classic can only open notebooks listed in the Studio Cla
    To learn about all the available ways to open the Launcher, see [Use the Amazon SageMaker Studio Classic Launcher](studio-launcher.md)
 
 1. In the Launcher, in the **Notebooks and compute resources** section, choose **Change environment**.  
-![SageMaker Studio Classic set notebook environment.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-launcher-notebook-creation.png)
+![SageMaker Studio Classic set notebook environment.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-launcher-notebook-creation.png)
 
 1. In the **Change environment** dialog box, use the dropdown menus to select your **Image**, **Kernel**, **Instance type**, and **Start-up script**, then choose **Select**.
 
 1. In the Launcher, choose **Create notebook**. Your notebook launches and opens in a new Studio Classic tab.
 
-To view the notebook's kernel session, in the left sidebar, choose the **Running Terminals and Kernels** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/running-terminals-kernels.png)). You can stop the notebook's kernel session from this view.
+To view the notebook's kernel session, in the left sidebar, choose the **Running Terminals and Kernels** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/running-terminals-kernels.png)). You can stop the notebook's kernel session from this view.
 
 ## List of the available instance types, images, and kernels
 <a name="notebooks-instance-image-kernels"></a>

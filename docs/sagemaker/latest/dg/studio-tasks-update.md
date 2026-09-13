@@ -9,7 +9,7 @@ Studio Classic is still maintained for existing workloads but is no longer avail
 
 The following topics show how to shut down and update SageMaker Studio Classic and Studio Classic Apps.
 
-Studio Classic provides a notification icon (![Red circle icon with white exclamation mark, indicating an alert or warning.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Notification.png)) in the upper-right corner of the Studio Classic UI. This notification icon displays the number of unread notices. To read the notices, select the icon.
+Studio Classic provides a notification icon (![Red circle icon with white exclamation mark, indicating an alert or warning.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Notification.png)) in the upper-right corner of the Studio Classic UI. This notification icon displays the number of unread notices. To read the notices, select the icon.
 
 Studio Classic provides two types of notifications:
 + Upgrade – Displayed when Studio Classic or one of the Studio Classic apps have released a new version. To update Studio Classic, see [Shut Down and Update Amazon SageMaker Studio Classic](studio-tasks-update-studio.md). To update Studio Classic apps, see [Shut Down and Update Amazon SageMaker Studio Classic Apps](studio-tasks-update-apps.md).

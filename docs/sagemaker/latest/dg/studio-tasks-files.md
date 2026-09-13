@@ -14,9 +14,9 @@ Studio Classic does not support uploading folders. While you can only upload ind
 
 **To upload files to your home directory**
 
-1. In the left sidebar, choose the **File Browser** icon ( ![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)).
+1. In the left sidebar, choose the **File Browser** icon ( ![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)).
 
-1. In the file browser, choose the **Upload Files** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/File_upload_squid.png)).
+1. In the file browser, choose the **Upload Files** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/File_upload_squid.png)).
 
 1. Select the files you want to upload and then choose **Open**.
 

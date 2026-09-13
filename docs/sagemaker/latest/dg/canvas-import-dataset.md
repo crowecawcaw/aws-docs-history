@@ -74,7 +74,7 @@ Use the following procedure to import a tabular dataset into Canvas:
 You can only import data from the tiles that have an active connection. If you want to connect to a data source that is unavailable to you, contact your administrator. If you’re an administrator, see [Connect to data sources](canvas-connecting-external.md).
 
    The following screenshot shows the **Data Source** dropdown menu.  
-![Screenshot showing the Data Source dropdown menu and a search for a data source in the search bar.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/import-data-choose-source.png)
+![Screenshot showing the Data Source dropdown menu and a search for a data source in the search bar.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/import-data-choose-source.png)
 
 1. (Optional) If you’re connecting to an Amazon Redshift or Snowflake database for the first time, a dialog box appears to create a connection. Fill out the dialog box with your credentials and choose **Create connection**. If you already have a connection, choose your connection.
 
@@ -83,7 +83,7 @@ You can only import data from the tiles that have an active connection. If you w
 1. (Optional) For tabular data sources that support SQL querying (such as Amazon Redshift, Amazon Athena, or Snowflake), you can choose **Edit in SQL** to make SQL queries before importing them.
 
    The following screenshot shows the **Edit SQL** view for an Amazon Athena data source.  
-![Screenshot showing a SQL query in the Edit SQL view for Amazon Athena data.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/import-data-edit-sql.png)
+![Screenshot showing a SQL query in the Edit SQL view for Amazon Athena data.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/import-data-edit-sql.png)
 
 1. Choose **Preview dataset** to preview your data before importing it.
 
@@ -199,9 +199,9 @@ On the **Data** tab, you can see a preview of your data. If you choose **Dataset
 
 On the **Version history** tab, you can see a list of all of the versions of your dataset. A new version is made whenever you update a dataset. To learn more about updating a dataset, see [Update a dataset](canvas-update-dataset.md). The following screenshot shows the **Version history** tab in the Canvas application.
 
-![Screenshot of the Version history tab for a dataset, with a list of dataset versions.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-version-history.png)
+![Screenshot of the Version history tab for a dataset, with a list of dataset versions.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-version-history.png)
 
 
 On the **Auto updates** tab, you can enable auto updates for the dataset and set up a configuration to update your dataset on a regular schedule. To learn more about setting up auto updates for a dataset, see [Configure automatic updates for a dataset](canvas-update-dataset-auto.md). The following screenshot shows the **Auto updates** tab with auto updates turned on and a list of auto update jobs that have been performed on the dataset.
 
-![The Auto updates tab for dataset showing the auto updates turned on and a list of auto update jobs.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-auto-updates.png)
+![The Auto updates tab for dataset showing the auto updates turned on and a list of auto update jobs.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-auto-updates.png)

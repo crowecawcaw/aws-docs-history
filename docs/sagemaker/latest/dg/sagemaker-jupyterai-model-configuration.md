@@ -17,9 +17,9 @@ You can configure several LLMs and embedding models following the same instructi
 
 **To configure your chat UI**
 
-1. In JupyterLab, access the chat interface by choosing the chat icon (![Chat icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-chat-ui.png)) in the left navigation panel.
+1. In JupyterLab, access the chat interface by choosing the chat icon (![Chat icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-chat-ui.png)) in the left navigation panel.
 
-1. Choose the configuration icon (![Gear or cog icon representing settings or configuration options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-configure-models.png)) in the top right corner of the left pane. This opens the Jupyter AI configuration panel.
+1. Choose the configuration icon (![Gear or cog icon representing settings or configuration options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-configure-models.png)) in the top right corner of the left pane. This opens the Jupyter AI configuration panel.
 
 1. Fill out the fields related to your service provider.
    + **For models provided by JumpStart or Amazon Bedrock**
@@ -32,16 +32,16 @@ You can configure several LLMs and embedding models following the same instructi
 You can find the request and response format of various of JumpStart foundation models in the following [example notebooks](https://github.com/aws/amazon-sagemaker-examples/tree/main/introduction_to_amazon_algorithms/jumpstart-foundation-models). Each notebook is named after the model it demonstrates.
        + For models managed by Amazon Bedrock: Add the AWS profile storing your AWS credentials on your system (optional), and then the AWS Region in which your model is deployed in [**Region name**](sagemaker-jupyterai-use.md#sagemaker-jupyterai-region-name).
      + (Optional) Select an [embedding model](sagemaker-jupyterai-overview.md#sagemaker-jupyterai-embedding-model) to which you have access. Embedding models are used to capture additional information from local documents, enabling the text generation model to respond to questions within the context of those documents.
-     + Choose **Save Changes** and navigate to the left arrow icon (![Left-pointing arrow icon, typically used for navigation or returning to a previous page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-return-to-chat.png)) in the top left corner of the left pane. This opens the Jupyter AI chat UI. You can start interacting with your model.
+     + Choose **Save Changes** and navigate to the left arrow icon (![Left-pointing arrow icon, typically used for navigation or returning to a previous page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-return-to-chat.png)) in the top left corner of the left pane. This opens the Jupyter AI chat UI. You can start interacting with your model.
    + **For models hosted by third-party providers**
      + In the **language model** dropdown list, select your provider ID. You can find the details of each provider, including their ID, in Jupyter AI [list of model providers](https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers).
      + (Optional) Select an [embedding model](sagemaker-jupyterai-overview.md#sagemaker-jupyterai-embedding-model) to which you have access. Embedding models are used to capture additional information from local documents, enabling the text generation model to respond to questions within the context of those documents.
      + Insert your models' API keys.
-     + Choose **Save Changes** and navigate to the left arrow icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-return-to-chat.png)) in the top left corner of the left pane. This opens the Jupyter AI chat UI. You can start interacting with your model.
+     + Choose **Save Changes** and navigate to the left arrow icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-return-to-chat.png)) in the top left corner of the left pane. This opens the Jupyter AI chat UI. You can start interacting with your model.
 
 The following snapshot is an illustration of the chat UI configuration panel set to invoke a Flan-t5-small model provided by JumpStart and deployed in SageMaker AI.
 
-![Chat UI configuration panel set to invoke a Flan-t5-small model provided by JumpStart.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/jupyterai/jupyterai-chatui-configuration.png)
+![Chat UI configuration panel set to invoke a Flan-t5-small model provided by JumpStart.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/jupyterai/jupyterai-chatui-configuration.png)
 
 
 ### Pass extra model parameters and custom parameters to your request

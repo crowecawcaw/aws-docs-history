@@ -15,7 +15,7 @@ You can display the difference between the current notebook and the last checkpo
 
 The following screenshot shows the menu from a Studio Classic notebook.
 
-![The location of the relevant menu in a Studio Classic notebook.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-menu-diffs.png)
+![The location of the relevant menu in a Studio Classic notebook.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-menu-diffs.png)
 
 
 **Topics**
@@ -27,9 +27,9 @@ The following screenshot shows the menu from a Studio Classic notebook.
 
 When you create a notebook, a hidden checkpoint file that matches the notebook is created. You can view changes between the notebook and the checkpoint file or revert the notebook to match the checkpoint file.
 
-By default, a notebook is auto-saved every 120 seconds and also when you close the notebook. However, the checkpoint file isn't updated to match the notebook. To save the notebook and update the checkpoint file to match, you must choose the **Save notebook and create checkpoint** icon ( ![Save notebook and create checkpoint icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/notebook-save-and-checkpoint.png)) on the left of the notebook menu or use the `Ctrl + S` keyboard shortcut.
+By default, a notebook is auto-saved every 120 seconds and also when you close the notebook. However, the checkpoint file isn't updated to match the notebook. To save the notebook and update the checkpoint file to match, you must choose the **Save notebook and create checkpoint** icon ( ![Save notebook and create checkpoint icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/notebook-save-and-checkpoint.png)) on the left of the notebook menu or use the `Ctrl + S` keyboard shortcut.
 
-To view the changes between the notebook and the checkpoint file, choose the **Checkpoint diff** icon (![Checkpoint diff icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/notebook-checkpoint-diff.png)) in the center of the notebook menu.
+To view the changes between the notebook and the checkpoint file, choose the **Checkpoint diff** icon (![Checkpoint diff icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/notebook-checkpoint-diff.png)) in the center of the notebook menu.
 
 To revert the notebook to the checkpoint file, from the main Studio Classic menu, choose **File** then **Revert Notebook to Checkpoint**.
 
@@ -38,4 +38,4 @@ To revert the notebook to the checkpoint file, from the main Studio Classic menu
 
 If a notebook is opened from a Git repository, you can view the difference between the notebook and the last Git commit.
 
-To view the changes in the notebook from the last Git commit, choose the **Git diff** icon (![Dark button with white text displaying "git" in lowercase letters.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/notebook-git-diff.png)) in the center of the notebook menu.
+To view the changes in the notebook from the last Git commit, choose the **Git diff** icon (![Dark button with white text displaying "git" in lowercase letters.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/notebook-git-diff.png)) in the center of the notebook menu.

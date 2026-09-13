@@ -21,7 +21,7 @@ Amazon SageMaker AI always uses Docker containers when running scripts, training
 
 The following decision tree illustrates three main scenarios: **Use cases for using pre-built Docker containers with SageMaker AI**; **Use cases for extending a pre-built Docker container**; **Use case for building your own container**.
 
-![Decision tree for container use cases.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/your-algorithm-containers-flowchart-diagram.png)
+![Decision tree for container use cases.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/your-algorithm-containers-flowchart-diagram.png)
 
 
 **Topics**

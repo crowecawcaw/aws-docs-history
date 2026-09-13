@@ -111,7 +111,7 @@ A simple version of this tool would look like the following. The variable **{{ t
 
 You can copy and paste the code into the editor in the Ground Truth labeling job creation workflow to preview the tool, or try out a [demo of this code on CodePen.](https://codepen.io/MTGT/full/OqBvJw)
 
- [![View a demo of this sample template on CodePen.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pen.gif)](https://codepen.io/MTGT/full/OqBvJw) 
+ [![View a demo of this sample template on CodePen.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pen.gif)](https://codepen.io/MTGT/full/OqBvJw) 
 
 ## Input data, external assets and your task template
 <a name="sms-custom-templates-step2-template-input"></a>

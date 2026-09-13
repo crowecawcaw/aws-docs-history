@@ -7,10 +7,10 @@ We highly recommend that you shut down models that you aren’t using. The model
 
 1. On the **Generate, extract and summarize content** page, open the chat for the model that you want to shut down.
 
-1. On the chat page, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
+1. On the chat page, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
 
 1. Choose **Shut down model**.
 
 1. In the **Shut down model** confirmation box, choose **Shut down**.
 
-The model begins shutting down. If your chat compares two or more models, you can shut down an individual model from the chat page by choosing the model’s **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) and then choosing **Shut down model**.
+The model begins shutting down. If your chat compares two or more models, you can shut down an individual model from the chat page by choosing the model’s **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) and then choosing **Shut down model**.

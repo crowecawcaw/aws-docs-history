@@ -17,7 +17,7 @@ Follow these steps to complete the form:
 
 1. Choose **Find training plans**.
 
-![SageMaker AI console showing the Search training plan offerings page. The interface displays options to select the target resource for the plan (Training job or HyperPod cluster), specify instance type and count, set start and end dates, and input duration. A Find training plans button is visible at the bottom of the form.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-search-training-plan-offerings.png)
+![SageMaker AI console showing the Search training plan offerings page. The interface displays options to select the target resource for the plan (Training job or HyperPod cluster), specify instance type and count, set start and end dates, and input duration. A Find training plans button is visible at the bottom of the form.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-search-training-plan-offerings.png)
 
 
 SageMaker training plans search for offerings that match your capacity requirements. When matches are found within your specified time frame, they appear at the bottom of the page. Each training plan offering includes the following details:
@@ -33,7 +33,7 @@ Clicking the segment detail link opens a modal view with segment-specific detail
 + Start and end dates
 + Availability zone
 
-![SageMaker AI console showing the Search training plan offerings page with input fields for plan requirements and the Available plans section displaying details of three found plans with varying durations, prices, and availability status.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-available-offerings.png)
+![SageMaker AI console showing the Search training plan offerings page with input fields for plan requirements and the Available plans section displaying details of three found plans with varying durations, prices, and availability status.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-available-offerings.png)
 
 
 If no suitable plans are found or the available plans don't meet your needs, adjust your search criteria by modifying the parameters in the **Training plans requirements** form. Once you find a suitable offering, select it and choose **Next** to continue to the plan reservation page. On this page, you can name your plan, and then review and confirm your selection before finalizing your reservation.

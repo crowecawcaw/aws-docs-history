@@ -11,7 +11,7 @@ After you register your model versions to the SageMaker Model Registry, a data s
 
 The following diagram summarizes an example of registering a model version built in Canvas to the SageMaker Model Registry for integration into an MLOps workflow.
 
-![The steps registering a model version built in Canvas for integration into an MLOps workflow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-model-registration-diagram.jpg)
+![The steps registering a model version built in Canvas for integration into an MLOps workflow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-model-registration-diagram.jpg)
 
 
 You can register tabular, image, and text model versions to the SageMaker Model Registry. This includes time series forecasting models and JumpStart based [fine-tuned foundation models](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-fm-chat-fine-tune.html).
@@ -70,7 +70,7 @@ To register a model version to the SageMaker Model Registry from the Canvas appl
 
 1. After choosing your model, the **Versions** page opens, listing all of the versions of your model. You can turn on the **Show advanced metrics** toggle to view the advanced metrics, such as **Recall** and **Precision**, to compare your model versions and determine which one you’d like to register.
 
-1. From the list of model versions, for the the version that you want to register, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)). Alternatively, you can double click on the version that you need to register, and then on the version details page, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
+1. From the list of model versions, for the the version that you want to register, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)). Alternatively, you can double click on the version that you need to register, and then on the version details page, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
 
 1. In the dropdown list, choose **Add to Model Registry**. The **Add to Model Registry** dialog box opens.
 
@@ -90,4 +90,4 @@ If you want to view the details of your registered model version, for the **Mode
 
 The following screenshot shows the **Model registry details** box, along with an **Approval status** of `Approved` for this particular model version.
 
-![Screenshot of the SageMaker Model Registry details box in the Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/approved-mr.png)
+![Screenshot of the SageMaker Model Registry details box in the Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/approved-mr.png)

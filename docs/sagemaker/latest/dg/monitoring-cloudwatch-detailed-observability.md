@@ -38,7 +38,7 @@ For the complete list, see [OpenTelemetry metrics reference](inference-monitorin
 ## Architecture and data flow
 <a name="detailed-observability-architecture"></a>
 
-![Architecture diagram showing the metric collection pipeline for detailed observability.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Observability_Architecture.png)
+![Architecture diagram showing the metric collection pipeline for detailed observability.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/SageMaker Observability/Observability_Architecture.png)
 
 
 Each endpoint instance exposes metrics from multiple sources. The OTel Collector scrapes these sources, enriches the data with context labels, and exports it to your Amazon CloudWatch account.

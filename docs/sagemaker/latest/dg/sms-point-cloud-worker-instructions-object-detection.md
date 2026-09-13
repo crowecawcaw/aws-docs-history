@@ -41,7 +41,7 @@ Individual labels may have one or more label attributes. If a label has a label 
 
 You may see frame attributes under the **Labels** menu. Use these attribute prompts to enter additional information about each frame. 
 
-![Example frame attribute prompt.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/frame-attributes.png)
+![Example frame attribute prompt.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/frame-attributes.png)
 
 
 ## Navigate the UI
@@ -57,7 +57,7 @@ Once you place a cuboids in the 3D scene, a side-view will appear with three pro
 
 The following video demonstrates movements around the 3D point cloud and in the side-view. 
 
-![Gif showing movements around the 3D point cloud and the side-view.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/navigate_od_worker_ui.gif)
+![Gif showing movements around the 3D point cloud and the side-view.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/navigate_od_worker_ui.gif)
 
 
 When you are in the worker UI, you see the following menus:
@@ -71,7 +71,7 @@ When you open a task, the move scene icon is on, and you can move around the poi
 
 After you select the add cuboid icon, you can add cuboids to the 3D point cloud visualization. Once you've added a cuboid, you can adjust it in the three views (top, side, and front) and in the images (if included). 
 
-![Gif showing how a worker can annotate a 3D point cloud in the Ground Truth worker portal.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/ot_basic_tools.gif)
+![Gif showing how a worker can annotate a 3D point cloud in the Ground Truth worker portal.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/ot_basic_tools.gif)
 
 
 You must choose the move scene icon again to move to another area in the 3D point cloud or image. 
@@ -86,7 +86,7 @@ If camera images are included, you may have the following view options:
 
 The following video demonstrates how to use these view options. The **F** option is used to view the field of view of the camera (the gray area), the **C** options shows the direction the camera is facing and angle of the camera (blue lines), and the **B** option is used to view the cuboid. 
 
-![Gif showing how to use various view options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/view-options-side.gif)
+![Gif showing how to use various view options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/view-options-side.gif)
 
 
 ## Icon Guide
@@ -97,15 +97,15 @@ Use this table to learn about the icons you see in your worker task portal.
 
 | Icon | Name | Description | 
 | --- | --- | --- | 
-|  ![The Add cuboid icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/add_cuobid.png)  | add cuboid | Choose this icon to add a cuboid. Each cuboid you add is associated with the category you chose.  | 
-|  ![The Edit cuboid icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/edit_cuboid.png)  | edit cuboid | Choose this icon to edit a cuboid. After you have added a cuboid, you can edit its dimensions, location, and orientation. After a cuboid is added, it automatically switches to edit cuboid mode.  | 
-|  ![The Ruler icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/Ruler_icon.png)  | ruler | Use this icon to measure distances, in meters, in the point cloud. You may want to use this tool if your instructions ask you to annotate all objects in a given distance from the center of the cuboid or the object used to capture data.<br />When you select this icon, you can place the starting point (first marker) anywhere in the point cloud by selecting it with your mouse. The tool will automatically use interpolation to place a marker on the closest point within threshold distance to the location you select, otherwise the marker will be placed on ground. If you place a starting point by mistake, you can use the Escape key to revert marker placement. <br />After you place the first marker, you see a dotted line and a dynamic label that indicates the distance you have moved away from the first marker. Click somewhere else on the point cloud to place a second marker. When you place the second marker, the dotted line becomes solid, and the distance is set. <br />After you set a distance, you can edit it by selecting either marker. You can delete a ruler by selecting anywhere on the ruler and using the Delete key on your keyboard.  | 
-|  ![The Reset scene icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/fit_scene.png)  | reset scene | Choose this icon to reset the view of the point cloud, side panels, and if applicable, all images to their original position when the task was first opened.  | 
-|  ![The Move scene icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/move_scene.png)  | move scene | Choose this icon to move the scene. By default, this icon is chosen when you first start a task.  | 
-|  ![The Full screen icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/fullscreen.png)  | full screen  | Choose this icon to make the 3D point cloud visualization full screen, and to collapse all side panels. | 
-|  ![The Show labels icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/label-icons/show.png)  | show labels | Show labels in the 3D point cloud visualization, and if applicable, in images.  | 
-|  ![The Hide labels icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/label-icons/hide.png)  | hide labels | Hide labels in the 3D point cloud visualization, and if applicable, in images.  | 
-|  ![Trash can icon representing deletion or removal functionality.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/label-icons/delete.png)  | delete labels | Delete a label.  | 
+|  ![The Add cuboid icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/add_cuobid.png)  | add cuboid | Choose this icon to add a cuboid. Each cuboid you add is associated with the category you chose.  | 
+|  ![The Edit cuboid icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/edit_cuboid.png)  | edit cuboid | Choose this icon to edit a cuboid. After you have added a cuboid, you can edit its dimensions, location, and orientation. After a cuboid is added, it automatically switches to edit cuboid mode.  | 
+|  ![The Ruler icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/Ruler_icon.png)  | ruler | Use this icon to measure distances, in meters, in the point cloud. You may want to use this tool if your instructions ask you to annotate all objects in a given distance from the center of the cuboid or the object used to capture data.<br />When you select this icon, you can place the starting point (first marker) anywhere in the point cloud by selecting it with your mouse. The tool will automatically use interpolation to place a marker on the closest point within threshold distance to the location you select, otherwise the marker will be placed on ground. If you place a starting point by mistake, you can use the Escape key to revert marker placement. <br />After you place the first marker, you see a dotted line and a dynamic label that indicates the distance you have moved away from the first marker. Click somewhere else on the point cloud to place a second marker. When you place the second marker, the dotted line becomes solid, and the distance is set. <br />After you set a distance, you can edit it by selecting either marker. You can delete a ruler by selecting anywhere on the ruler and using the Delete key on your keyboard.  | 
+|  ![The Reset scene icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/fit_scene.png)  | reset scene | Choose this icon to reset the view of the point cloud, side panels, and if applicable, all images to their original position when the task was first opened.  | 
+|  ![The Move scene icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/move_scene.png)  | move scene | Choose this icon to move the scene. By default, this icon is chosen when you first start a task.  | 
+|  ![The Full screen icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/fullscreen.png)  | full screen  | Choose this icon to make the 3D point cloud visualization full screen, and to collapse all side panels. | 
+|  ![The Show labels icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/label-icons/show.png)  | show labels | Show labels in the 3D point cloud visualization, and if applicable, in images.  | 
+|  ![The Hide labels icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/label-icons/hide.png)  | hide labels | Hide labels in the 3D point cloud visualization, and if applicable, in images.  | 
+|  ![Trash can icon representing deletion or removal functionality.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/label-icons/delete.png)  | delete labels | Delete a label.  | 
 
 ## Shortcuts
 <a name="sms-point-cloud-worker-instructions-od-hot-keys"></a>

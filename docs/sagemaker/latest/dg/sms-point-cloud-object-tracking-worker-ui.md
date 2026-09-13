@@ -10,12 +10,12 @@ Ground Truth provides workers with a web portal and tools to complete your 3D po
 
 The following is a GIF of the 3D point cloud object tracking worker task interface and demonstrates how the worker can navigate the point cloud frames in the sequence. The annotating tools are a part of the worker task interface. They are not available for the preview interface. 
 
-![Gif showing how the worker can navigate the point cloud frames in the sequence.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_tracking/nav_frames.gif)
+![Gif showing how the worker can navigate the point cloud frames in the sequence.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_tracking/nav_frames.gif)
 
 
 Once workers add a single cuboid, that cuboid is replicated in all frames of the sequence with the same ID. Once workers adjust the cuboid in another frame, Ground Truth will interpolate the movement of that object and adjust all cuboids between the manually adjusted frames. The following GIF demonstrates this interpolation feature. In the navigation bar on the bottom-left, red-areas indicate manually adjusted frames. 
 
-![Gif showing how the location of a cuboid is inferred in in-between frames.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_tracking/label-interpolation.gif)
+![Gif showing how the location of a cuboid is inferred in in-between frames.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_tracking/label-interpolation.gif)
 
 
 If you provide camera data for sensor fusion, images are matched up with scenes in point cloud frames. These images appear in the worker portal as shown in the following GIF. 
@@ -29,7 +29,7 @@ Once a worker places a cuboids in the 3D scene, a side-view will appear with the
 
 The following video demonstrates movements around the 3D point cloud and in the side-view. 
 
-![Gif showing movements around the 3D point cloud showing a street scene.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_tracking/nav_general_UI.gif)
+![Gif showing movements around the 3D point cloud showing a street scene.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_tracking/nav_general_UI.gif)
 
 
 Additional view options and features are available. See the [worker instruction page](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-worker-instructions-object-tracking.html) for a comprehensive overview of the Worker UI. 

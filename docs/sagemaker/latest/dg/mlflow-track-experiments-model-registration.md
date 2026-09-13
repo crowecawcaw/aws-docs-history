@@ -123,7 +123,7 @@ The inference specification must follow the same schema as the `InferenceSpecifi
 
 After logging, the inference specification is stored as a `sagemaker_inference_specification.json` artifact alongside your model:
 
-![Inference specification artifact in the MLflow UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-inference-spec.png)
+![Inference specification artifact in the MLflow UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-inference-spec.png)
 
 
 #### Log evaluation metrics (optional)
@@ -147,7 +147,7 @@ sagemaker_mlflow.evaluate(model_info, data=dataset, model_type="regressor")
 
 After logging, the evaluation group is stored as an artifact alongside your model:
 
-![Evaluation group artifact in the MLflow UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-eval-group.png)
+![Evaluation group artifact in the MLflow UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-eval-group.png)
 
 
 ### Register models using the SDK
@@ -188,12 +188,12 @@ Do not use spaces in a model name. While MLflow supports model names with spaces
 
 You can register a model with the SageMaker Model Registry directly in the MLflow UI. Within the **Models** menu, choose **Create Model**. Models created this way are automatically added to the SageMaker Model Registry.
 
-![Model registry creation within the MLflow UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-register-model.png)
+![Model registry creation within the MLflow UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-register-model.png)
 
 
 After logging a model during experiment tracking, navigate to the run page in the MLflow UI. Choose the **Artifacts** pane and choose **Register model** to register the model version in both MLflow and SageMaker Model Registry.
 
-![Register a model version from the MLflow run page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-register-model-sync.png)
+![Register a model version from the MLflow run page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-register-model-sync.png)
 
 
 ### View registered models in Studio
@@ -203,32 +203,32 @@ Within Studio, choose **Models** on the left navigation pane to view your regist
 
 The Model Package version page in Studio displays training metrics and datasets that were synced from MLflow:
 
-![Model Package version overview showing training metrics in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-metrics.png)
+![Model Package version overview showing training metrics in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-metrics.png)
 
 
 The **Train** tab also shows the training dataset location and model artifact path:
 
-![Training datasets and model artifacts in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-train-dataset.png)
+![Training datasets and model artifacts in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-train-dataset.png)
 
 
 If you logged an inference specification, the **Container** section shows the container image, model data location, and supported instance types. The **Deploy** stage shows **Approved**, indicating the model is ready for deployment:
 
-![Inference specification containers and instance types in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-container.png)
+![Inference specification containers and instance types in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-container.png)
 
 
 If you logged evaluation metrics, the **Evaluate** tab displays performance metrics such as score, mean absolute error, and root mean squared error:
 
-![Evaluation metrics in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-eval-metrics.png)
+![Evaluation metrics in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-eval-metrics.png)
 
 
 The **Evaluate** tab also shows the evaluation dataset location:
 
-![Evaluation dataset in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-eval-dataset.png)
+![Evaluation dataset in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-eval-dataset.png)
 
 
 The **Lineage** tab shows the relationship between the MLflow experiment, model version, container image, and the Model Package Group:
 
-![Model lineage graph showing MLflow experiment association in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-lineage.png)
+![Model lineage graph showing MLflow experiment association in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-lineage.png)
 
 
 ### Limitations
@@ -349,7 +349,7 @@ print(desc["ModelLifeCycle"]["StageStatus"]) # "pending"
 
 In the MLflow UI, navigate to the model version page. Under **Aliases**, add an alias using the `sagemakerlifecycle-{{stage}}-{{status}}` format. The SageMaker AI Model Package lifecycle is automatically updated when the alias is saved.
 
-![Setting a lifecycle alias in the MLflow UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-lifecycle-alias.png)
+![Setting a lifecycle alias in the MLflow UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui-lifecycle-alias.png)
 
 
 ### View lifecycle stages in Studio
@@ -357,7 +357,7 @@ In the MLflow UI, navigate to the model version page. Under **Aliases**, add an 
 
 In Studio, navigate to **Models** and select a Model Package version. The lifecycle stage and status are displayed on the **Details** tab under **Model Lifecycle**.
 
-![Model lifecycle stage and status in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-lifecycle.png)
+![Model lifecycle stage and status in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-mp-lifecycle.png)
 
 
 ## Prevent updates to registered models using resource tags

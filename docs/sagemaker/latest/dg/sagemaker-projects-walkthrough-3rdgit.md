@@ -71,7 +71,7 @@ In this step, you create a SageMaker AI MLOps project by using a SageMaker AI-pr
 
 1. Sign in to Studio. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md).
 
-1. In the Studio sidebar, choose the **Home** icon ( ![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the Studio sidebar, choose the **Home** icon ( ![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Deployments** from the menu, and then select **Projects**.
 
@@ -124,7 +124,7 @@ Now you approve the new model version that was created in the previous step to i
 
 **To approve the model version**
 
-1. In the Studio Classic sidebar, choose the **Home** icon ( ![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the Studio Classic sidebar, choose the **Home** icon ( ![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Deployments** from the menu, and then select **Projects**.
 
@@ -168,7 +168,7 @@ To stop incurring charges, clean up the resources that were created in this walk
 **Note**  
 To delete the CloudFormation stack and the Amazon S3 bucket, you need to be an administrator in Studio Classic. If you are not an administrator, ask your administrator to complete those steps.
 
-1. In the Studio Classic sidebar, choose the **Home** icon ( ![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the Studio Classic sidebar, choose the **Home** icon ( ![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Deployments** from the menu, and then select **Projects**.
 

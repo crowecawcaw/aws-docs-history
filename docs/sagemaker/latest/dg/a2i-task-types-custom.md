@@ -12,7 +12,7 @@ When you use a custom task type, you create a custom human review workflow and s
 
 The following image depicts the Amazon A2I custom workflow. A custom ML model is used to generate predictions. The client application filters these predictions using user-defined criteria and determines if a human review is required. If so, these predictions are sent to Amazon A2I for human review. Amazon A2I collects the results of human review in Amazon S3, which can access by the client application. If the filter determines that no human review is needed, predictions can be fed directly to the client application. 
 
-![Use Amazon Augmented AI with Custom Task Types.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
+![Use Amazon Augmented AI with Custom Task Types.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
 
 
 Use the procedures on this page to learn how to integrate Amazon A2I into any machine learning workflow using the custom task type. 

@@ -93,7 +93,7 @@ To update your project in Studio or Studio Classic, complete the following steps
 
 1. Sign in to Studio Classic. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md).
 
-1. In the Studio Classic sidebar, choose the **Home** icon ( ![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the Studio Classic sidebar, choose the **Home** icon ( ![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Deployments** from the menu, and then select **Projects**. A list of your projects appears.
 

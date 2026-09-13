@@ -9,7 +9,7 @@ The portion of your green fleet that turns on to receive traffic is called the c
 
 The following diagram shows how canary traffic shifting manages the distribution of traffic between the blue and green fleets.
 
-![A successful two step canary traffic shift from the old fleet to the new fleet.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/deployment-guardrails-blue-green-canary.png)
+![A successful two step canary traffic shift from the old fleet to the new fleet.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/deployment-guardrails-blue-green-canary.png)
 
 
 Once SageMaker AI provisions the green fleet, SageMaker AI routes a portion of the incoming traffic (for example, 25%) to the canary. Then the baking period begins, during which your CloudWatch alarms monitor the performance of the green fleet. During this time, both the blue fleet and green fleet are partially active and receiving traffic. If any of the alarms trip during the baking period, then SageMaker AI initiates a rollback and all traffic returns to the blue fleet. If none of the alarms trip, then all of the traffic shifts to the green fleet and there is a final baking period. If the final baking period finishes without tripping any alarms, then the green fleet serves all traffic and SageMaker AI terminates the blue fleet.

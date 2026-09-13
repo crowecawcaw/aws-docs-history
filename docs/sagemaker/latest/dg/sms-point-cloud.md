@@ -15,7 +15,7 @@ Point clouds are made up of three-dimensional (3D) visual data that consists of 
 
 The following image shows a single, 3D point cloud scene rendered by Ground Truth and displayed in the semantic segmentation worker UI.
 
-![Gif showing how workers can use the 3D point cloud and 2D image together to paint objects.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_paint_sf.gif)
+![Gif showing how workers can use the 3D point cloud and 2D image together to paint objects.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_paint_sf.gif)
 
 
 ### LiDAR
@@ -35,7 +35,7 @@ Ground Truth provides a user interface (UI) and tools that workers use to label 
 
 The following demonstrates how a worker would use the Ground Truth worker portal and tools to annotate a 3D point cloud for an object detection task. For similar visual examples of other task types, see [3D Point Cloud Task types](sms-point-cloud-task-types.md).
 
-![Gif showing how a worker can annotate a 3D point cloud in the Ground Truth worker portal.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/ot_basic_tools.gif)
+![Gif showing how a worker can annotate a 3D point cloud in the Ground Truth worker portal.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/ot_basic_tools.gif)
 
 
 ### Assistive Labeling Tools for Point Cloud Annotation

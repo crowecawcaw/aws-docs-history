@@ -3,7 +3,7 @@
 # Browse data using SQL extension
 <a name="sagemaker-sql-extension-features-data-discovery"></a>
 
-To open the SQL extension user interface (UI), choose the SQL extension icon (![SQL Explorer icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-icon.png)) in the navigation pane of your JupyterLab application in Studio. The left panel data discovery view expands and displays all pre-configured data store connections to Amazon Athena, Amazon Redshift, and Snowflake.
+To open the SQL extension user interface (UI), choose the SQL extension icon (![SQL Explorer icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-icon.png)) in the navigation pane of your JupyterLab application in Studio. The left panel data discovery view expands and displays all pre-configured data store connections to Amazon Athena, Amazon Redshift, and Snowflake.
 
 From there, you can:
 + Expand a specific connection to explore its databases, schemas, tables or views, and columns.
@@ -18,7 +18,7 @@ Check the box for **Enable default Athena connection**.
 You can update the default `primary` WorkGroup if needed.
 
 To query a database, schema, or table in a JupyterLab notebook, from a given connection in the SQL extension pane:
-+ Choose the three dots icon (![SQL extension three dots icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-3dots-icon.png)) on the right side of any database, schema, or table.
++ Choose the three dots icon (![SQL extension three dots icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-3dots-icon.png)) on the right side of any database, schema, or table.
 + Select **Query in notebook** from the menu.
 
   This automatically populates a notebook cell in JupyterLab with the relevant `%%sm_sql` magic command to connect to the data source. It also adds a sample SQL statement to help you start querying right away. You can further refine the SQL query using the auto-complete and highlighting features of the extension. See [SQL editor features of the JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md) for more information on using the SQL extension SQL editor.
@@ -36,7 +36,7 @@ FROM
   SCHEMA "dev"."public"
 ```
 
-Use the *less than* symbol (![Icon to clear the SQL extension search box.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-search-clear.png)) at the top of the SQL extension pane to clear the search box or return to the list of your connections.
+Use the *less than* symbol (![Icon to clear the SQL extension search box.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-search-clear.png)) at the top of the SQL extension pane to clear the search box or return to the list of your connections.
 
 **Note**  
 The extension caches your exploration results for fast access. If the cached results are outdated or a connection is missing from your list, you can manually refresh the cache by choosing the **Refresh** button at the bottom of the SQL extension panel. For more information on connection caching, see [SQL extension connection caching](sagemaker-sql-extension-features-connection-caching.md).

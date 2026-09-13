@@ -27,7 +27,7 @@ Use the following procedure to create Studio Classic notebook with the SageMaker
 1. When the **Launcher** dialog box opens. Choose **Change environment** under **Notebooks and compute resources**.
 
 1. When, the **Change environment** dialog box opens. Choose the **Image** dropdown and choose or type **Geospatial 1.0**.  
-![A dialogue boxing showing the correct geospatial image and instance type selected.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/geospatial-environment-dialogue.png)
+![A dialogue boxing showing the correct geospatial image and instance type selected.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/geospatial-environment-dialogue.png)
 
 1. Next, choose an **Instance type** from the dropdown.
 

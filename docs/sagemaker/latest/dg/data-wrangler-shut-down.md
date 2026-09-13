@@ -9,9 +9,9 @@ To avoid losing work, save your data flow before shutting Data Wrangler down. To
 
 **To shut down the Data Wrangler instance in Studio Classic**
 
-1. In Studio Classic, select the **Running Instances and Kernels** icon (![Icon of a gear or cog symbol representing settings or configuration options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/studio_classic_dw_instances.png)).
+1. In Studio Classic, select the **Running Instances and Kernels** icon (![Icon of a gear or cog symbol representing settings or configuration options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/studio_classic_dw_instances.png)).
 
-1. Under **RUNNING APPS** is the **sagemaker-data-wrangler-1.0** app. Select the shutdown icon (![Power button icon with a circular shape and vertical line symbol.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Shutdown_light.png)) next to this app . 
+1. Under **RUNNING APPS** is the **sagemaker-data-wrangler-1.0** app. Select the shutdown icon (![Power button icon with a circular shape and vertical line symbol.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Shutdown_light.png)) next to this app . 
 
    Data Wrangler runs on an ml.m5.4xlarge instance. This instance disappears from **RUNNING INSTANCES** when you shut down the Data Wrangler app.
 

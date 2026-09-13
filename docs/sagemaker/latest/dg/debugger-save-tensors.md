@@ -21,13 +21,13 @@ The following two notebook examples show advanced use of Amazon SageMaker Debugg
 + [Interactive Tensor Analysis in SageMaker Studio Notebook with MXNet](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mnist_tensor_analysis)
 
   This notebook example shows how to visualize saved tensors using Amazon SageMaker Debugger. By visualizing the tensors, you can see how the tensor values change while training deep learning algorithms. This notebook includes a training job with a poorly configured neural network and uses Amazon SageMaker Debugger to aggregate and analyze tensors, including gradients, activation outputs, and weights. For example, the following plot shows the distribution of gradients of a convolutional layer that is suffering from a vanishing gradient problem.  
-![A graph plotting the distribution of gradients.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-vanishing-gradient.gif)
+![A graph plotting the distribution of gradients.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-vanishing-gradient.gif)
 
   This notebook also illustrates how a good initial hyperparameter setting improves the training process by generating the same tensor distribution plots. 
 + [ Visualizing and Debugging Tensors from MXNet Model Training](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mnist_tensor_plot)
 
    This notebook example shows how to save and visualize tensors from an MXNet Gluon model training job using Amazon SageMaker Debugger. It illustrates that Debugger is set to save all tensors to an Amazon S3 bucket and retrieves ReLu activation outputs for the visualization. The following figure shows a three-dimensional visualization of the ReLu activation outputs. The color scheme is set to blue to indicate values close to 0 and yellow to indicate values close to 1.   
-![A visualization of the ReLU activation outputs.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/tensorplot.gif)
+![A visualization of the ReLU activation outputs.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/tensorplot.gif)
 
   In this notebook, the `TensorPlot` class imported from `tensor_plot.py` is designed to plot convolutional neural networks (CNNs) that take two-dimensional images for inputs. The `tensor_plot.py` script provided with the notebook retrieves tensors using Debugger and visualizes the CNN. You can run this notebook on SageMaker Studio to reproduce the tensor visualization and implement your own convolutional neural network model. 
 + [Real-time Tensor Analysis in a SageMaker Notebook with MXNet](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/sagemaker-debugger/mxnet_realtime_analysis)

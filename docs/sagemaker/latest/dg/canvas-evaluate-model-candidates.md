@@ -21,21 +21,21 @@ To view the **Model leaderboard**, do the following:
 
 The **Model leaderboard** page opens, which for tabular models looks like the following screenshot.
 
-![The model leaderboard, which lists all of the model candidates that Canvas trained.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-model-leaderboard.png)
+![The model leaderboard, which lists all of the model candidates that Canvas trained.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-model-leaderboard.png)
 
 
 For time series forecasting models, you see 7 models, which include one for each of the time series forecasting algorithms supported by Canvas and one ensemble model. For more information about the algorithms, see [Advanced time series forecasting model settings](canvas-advanced-settings.md#canvas-advanced-settings-time-series).
 
 In the preceding screenshot, you can see that the first model candidate listed is marked as the **Default model**. This is the model candidate with which you can make predictions or deploy to endpoints.
 
-To view more detailed metrics information about the model candidates to compare them, you can choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) and choose **View model details**.
+To view more detailed metrics information about the model candidates to compare them, you can choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) and choose **View model details**.
 
 **Important**  
  Loading the model details for non-default model candidates may take a few minutes (typically less than 10 minutes), and SageMaker AI Hosting charges apply. For more information, see [SageMaker AI Pricing](https://aws.amazon.com/sagemaker/pricing/).
 
 The model candidate opens in the **Analyze** tab, and the metrics shown are specific to that model candidate. When you’re done reviewing the model candidate’s metrics, you can go back or exit the view to return to the **Model leaderboard**.
 
-If you’d like to set the **Default model** to a different candidate, you can choose the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) and choose **Change to default model**. Changing the default model for a model trained using HPO mode might take several minutes.
+If you’d like to set the **Default model** to a different candidate, you can choose the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) and choose **Change to default model**. Changing the default model for a model trained using HPO mode might take several minutes.
 
 **Note**  
 If your model is already deployed in production, [registered to the model registry](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-register-model.html), or has [automations](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-manage-automations.html) set up, you must delete your deployment, model registration, or automations before changing the default model.

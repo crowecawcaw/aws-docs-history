@@ -22,7 +22,7 @@ To find the **Advanced metrics** tab, do the following:
 
 In the **Advanced metrics** tab, you can find the **Performance** tab. The page looks like the following screenshot.
 
-![Screenshot of the advanced metrics tab for a categorical prediction model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-analyze-performance.png)
+![Screenshot of the advanced metrics tab for a categorical prediction model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-analyze-performance.png)
 
 
 At the top, you can see an overview of the metrics scores, including the **Optimization metric**, which is the metric that you selected (or that Canvas selected by default) to optimize when building the model.

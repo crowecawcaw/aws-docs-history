@@ -16,7 +16,7 @@ To monitor the progress of a hyperparameter tuning job and the training jobs tha
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
 1. Choose **Hyperparameter tuning jobs**.  
-![Hyperparameter tuning job console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/console-tuning-jobs.png)
+![Hyperparameter tuning job console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/console-tuning-jobs.png)
 
 1. In the list of hyperparameter tuning jobs, check the status of the hyperparameter tuning job you launched. A tuning job can be:
    + `Completed`—The hyperparameter tuning job successfully completed.

@@ -15,7 +15,7 @@ To compare model versions within a model group, complete the following steps:
 
 1. Sign in to Studio Classic. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md).
 
-1. In the left navigation pane, choose the **Home** icon ( ![Home icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the left navigation pane, choose the **Home** icon ( ![Home icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Choose **Models**, and then **Model registry**.
 

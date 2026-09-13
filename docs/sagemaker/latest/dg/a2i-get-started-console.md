@@ -17,9 +17,9 @@ To get started using Amazon A2I, complete the following prerequisites.
 + Create an Amazon S3 bucket in the same AWS Region as the workflow for your input and output data. For example, if you are using Amazon A2I with Amazon Textract in us-east-1, create your bucket in us-east-1. To create a bucket, follow the instructions in [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/create-bucket.html) in the *Amazon Simple Storage Service Console User Guide*. 
 + Do one of the following:
   + If you want to complete the tutorial using Amazon Textract, download the following image and place it in your Amazon S3 bucket.  
-![Brief employment application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/sample-document-final.png)
+![Brief employment application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/sample-document-final.png)
   + If you want to complete the tutorial using Amazon Rekognition, download the following image and place it in your Amazon S3 bucket.  
-![Woman in bikini doing yoga on beach.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/yoga_swimwear_resized.jpg)
+![Woman in bikini doing yoga on beach.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/yoga_swimwear_resized.jpg)
 
 **Note**  
 The Amazon A2I console is embedded in the SageMaker AI console. 
@@ -90,7 +90,7 @@ In this step, you create a human review workflow. Each human review workflow is 
 
    The following image shows the Amazon Textract form extraction - Conditions for invoking human review section of the Amazon A2I console. In the image, the check boxes for the two types of triggers explained in the proceeding paragraph are checked, and `Mail Address` is used as a **Key name** for the first trigger. The identification confidence threshold is defined using confidence scores for key-value pairs detect within the form and is set between 0 and 99. The qualification confidence threshold is defined using confidence scores for text contained within keys and values in a form and is set between 0 and 99. 
 
-![Amazon A2I console showing the conditions for invoking human review section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/Textract-conditions.png)
+![Amazon A2I console showing the conditions for invoking human review section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/Textract-conditions.png)
 
 
 ------
@@ -104,7 +104,7 @@ In this step, you create a human review workflow. Each human review workflow is 
 
    The following image shows how you can select the **Trigger human review for labels identified by Amazon Rekognition based on label confidence score** option and enter a **Threshold** between 0 and 98 in the Amazon A2I console.
 
-![Amazon A2I console showing the conditions for invoking human review section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/Rek-conditions.png)
+![Amazon A2I console showing the conditions for invoking human review section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/Rek-conditions.png)
 
 
 ------
@@ -130,7 +130,7 @@ Once your human review workflow is created, it appears in the table on the **Hum
 
 You must use an API operation to start a human loop. There are a variety of language-specific SDKs that you can use to interact with these API operations. To see documentation for each of these SDKs, refer to the **See Also** section in the API documentation, as shown in the following image.
 
-![Screenshot of the See Also section of the Amazon Textract API documentation.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/see-also.png)
+![Screenshot of the See Also section of the Amazon Textract API documentation.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/getting-started/see-also.png)
 
 
 For this tutorial, you use one of the following APIs:

@@ -12,7 +12,7 @@
 1.  In the navigation panel, choose **Inference**. 
 
 1.  Choose **Shadow tests** to view the page that lists all of your shadow tests. The page should look like the following screenshot, with all the tests listed under the **Shadow test** section.   
-![List of all shadow tests.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/juxtaposer/shadow-test-landing-page.png)
+![List of all shadow tests.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/juxtaposer/shadow-test-landing-page.png)
 
  You can see the status of a test in the console on the **Shadow tests** page by checking the **Status** field for the test. 
 

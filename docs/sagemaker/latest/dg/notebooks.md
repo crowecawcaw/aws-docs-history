@@ -21,7 +21,7 @@ You can change any of these resources from within the notebook.
 
 The following diagram outlines how a notebook kernel runs in relation to the KernelGateway App, User, and domain.
 
-![How a notebook kernel runs in relation to the KernelGateway App, User, and domain.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-components.png)
+![How a notebook kernel runs in relation to the KernelGateway App, User, and domain.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-components.png)
 
 
 Sample SageMaker Studio Classic notebooks are available in the [aws\_sagemaker\_studio](https://github.com/awslabs/amazon-sagemaker-examples/tree/master/aws_sagemaker_studio) folder of the [Amazon SageMaker example GitHub repository](https://github.com/awslabs/amazon-sagemaker-examples). Each notebook comes with the necessary SageMaker image that opens the notebook with the appropriate kernel.

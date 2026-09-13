@@ -10,7 +10,7 @@ This guide shows how to configure online explainability with SageMaker Clarify. 
 
 The following graphic depicts SageMaker AI architecture for hosting an endpoint that serves explainability requests. It depicts interactions between an endpoint, the model container, and the SageMaker Clarify explainer.
 
-![SageMaker AI architecture showing hosting an endpoint that serves on-demand explainability requests.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/DeveloperGuideArchitecture.png)
+![SageMaker AI architecture showing hosting an endpoint that serves on-demand explainability requests.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/DeveloperGuideArchitecture.png)
 
 
 Here's how Clarify online explainability works. The application sends a REST-style `InvokeEndpoint` request to the SageMaker AI Runtime Service. The service routes this request to a SageMaker AI endpoint to obtain predictions and explanations. Then, the service receives the response from the endpoint. Lastly, the service sends the response back to the application.

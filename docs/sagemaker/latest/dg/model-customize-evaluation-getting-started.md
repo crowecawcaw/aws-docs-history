@@ -15,12 +15,12 @@ For information on open-weight custom model training: [https://docs.aws.amazon.c
 
 SageMaker visualizes your customized model on the My Models tab:
 
-![Registered model card page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-registered-model-card.png)
+![Registered model card page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-registered-model-card.png)
 
 
 Choose View latest version, then choose Evaluate:
 
-![Model customization page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-evaluate-from-model-card.png)
+![Model customization page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-evaluate-from-model-card.png)
 
 
 ### Step 2: Submit Your Evaluation Job
@@ -30,7 +30,7 @@ Choose the Submit button and submit your evaluation job. This submits a minimal 
 
 For information on the supported evaluation job types, see [Evaluation types and Job Submission](model-customize-evaluation-types.md).
 
-![Evaluation job submission page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-benchmark-submission.png)
+![Evaluation job submission page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-benchmark-submission.png)
 
 
 ### Step 3: Track Your Evaluation Job Progress
@@ -38,7 +38,7 @@ For information on the supported evaluation job types, see [Evaluation types and
 
 Your evaluation job progress is tracked in the Evaluation steps tab:
 
-![Your evaluation job progress.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-benchmark-tracking.png)
+![Your evaluation job progress.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-benchmark-tracking.png)
 
 
 ### Step 4: View Your Evaluation Job Results
@@ -46,7 +46,7 @@ Your evaluation job progress is tracked in the Evaluation steps tab:
 
 Your evaluation job results are visualized in the Evaluation results tab:
 
-![Your evaluation job metrics.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-benchmark-results.png)
+![Your evaluation job metrics.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-benchmark-results.png)
 
 
 ### Step 5: View Your Completed Evaluations
@@ -54,7 +54,7 @@ Your evaluation job results are visualized in the Evaluation results tab:
 
 Your completed evaluation job is displayed in Evaluations of your model card:
 
-![Your completed evaluation jobs.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-benchmark-completed-model-card.png)
+![Your completed evaluation jobs.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/getting-started-benchmark-completed-model-card.png)
 
 
 ## Submit Your Evaluation Job Through SageMaker Python SDK

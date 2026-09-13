@@ -20,7 +20,7 @@ After creating your tracking server, you can launch the MLflow UI directly from 
 
 1. Choose the vertical menu icon in the right corner of the tracking server pane. Then, choose **Open MLflow**. This launches a presigned URL in a new tab in your current browser. 
 
-![The option to open a presigned URL through the MLflow Tracking Servers pane in the Studio UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-ui.png)
+![The option to open a presigned URL through the MLflow Tracking Servers pane in the Studio UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-ui.png)
 
 
 ## Launch the MLflow UI using the AWS CLI
@@ -54,4 +54,4 @@ The `--expires-in-seconds parameter` determines the length of time that your pre
 
 The window should look similar to the following. 
 
-![The MLflow UI that launches after creating and using a presigned URL.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui.png)
+![The MLflow UI that launches after creating and using a presigned URL.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-ui.png)

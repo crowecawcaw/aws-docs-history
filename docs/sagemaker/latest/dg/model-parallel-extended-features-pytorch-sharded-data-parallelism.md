@@ -403,12 +403,12 @@ When both sharded data parallelism and tensor parallelism are activated, the lib
 
 For example, assume that we want to set 32 GPUs with a tensor parallel degree of 4 (forming groups of 4 GPUs), a sharded data parallel degree of 4, ending up with a replication degree of 2. The assignment creates eight GPU groups based on the tensor parallel degree as follows: `(0,1,2,3)`, `(4,5,6,7)`, `(8,9,10,11)`, `(12,13,14,15)`, `(16,17,18,19)`, `(20,21,22,23)`, `(24,25,26,27)`, `(28,29,30,31)`. That is, four GPUs form one tensor parallel group. In this case, the reduced data parallel group for the 0th rank GPUs of the tensor parallel groups would be `(0,4,8,12,16,20,24,28)`. The reduced data parallel group is sharded based on the sharded data parallel degree of 4, resulting in two replication groups for data parallelism. GPUs `(0,4,8,12)` form one sharding group, which collectively hold a complete copy of all parameters for the 0th tensor parallel rank, and GPUs `(16,20,24,28)` form another such group. Other tensor parallel ranks also have similar sharding and replication groups.
 
-![Figure 1: Tensor parallelism groups.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/sdp_tp_group_tp.jpg)
+![Figure 1: Tensor parallelism groups.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/sdp_tp_group_tp.jpg)
 
 
 Figure 1: Tensor parallelism groups for (nodes, sharded data parallel degree, tensor parallel degree) = (4, 4, 4), where each rectangle represents a GPU with indices from 0 to 31. The GPUs form tensor parallelism groups from TPG0 to TPG7. Replication groups are ({TPG0, TPG4}, {TPG1, TPG5}, {TPG2, TPG6} and {TPG3, TPG7}); each replication group pair shares the same color but filled differently.
 
-![Figure 2: Sharded data parallelism groups.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/sdp_tp_group_sdp.jpg)
+![Figure 2: Sharded data parallelism groups.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/sdp_tp_group_sdp.jpg)
 
 
 Figure 2: Sharded data parallelism groups for (nodes, sharded data parallel degree, tensor parallel degree) = (4, 4, 4), where each rectangle represents a GPU with indices from 0 to 31. The GPUs form sharded data parallelism groups from SDPG0 to SDPG7. Replication groups are ({SDPG0, SDPG4}, {SDPG1, SDPG5}, {SDPG2, SDPG6} and {SDPG3, SDPG7}); each replication group pair shares the same color but filled differently.

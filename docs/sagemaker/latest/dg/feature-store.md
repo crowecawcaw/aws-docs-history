@@ -15,7 +15,7 @@ Among other things, with Feature Store you can:
 
 The following diagram shows how you can use Feature Store as part of your ML pipeline. Once you read in your raw data, you can use Feature Store to transform the raw data into features and ingest them into your feature group. The features can be ingested via streaming or batches to the feature group's online and offline stores. The features can then be served for data exploration, model training, and real-time or batch inference.
 
-![Where Feature Store fits in your machine learning pipeline.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-overview.png)
+![Where Feature Store fits in your machine learning pipeline.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-overview.png)
 
 
 ## How Feature Store works

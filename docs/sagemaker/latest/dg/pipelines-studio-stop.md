@@ -27,7 +27,7 @@ To stop a pipeline execution in the Amazon SageMaker Studio console, complete th
 
 1. Sign in to Amazon SageMaker Studio Classic. For more information, see [Launch Amazon SageMaker Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-launch.html).
 
-1. In the Studio Classic sidebar, choose the **Home** icon ( ![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the Studio Classic sidebar, choose the **Home** icon ( ![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Pipelines** from the menu.
 

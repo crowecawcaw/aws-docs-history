@@ -11,7 +11,7 @@ Amazon SageMaker AI takes your feedback seriously. We encourage you to provide f
 
 **To provide feedback**
 
-1. At the right of SageMaker Studio Classic, find the **Feedback** icon (![Speech bubble icon representing messaging or communication functionality.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/feedback.png)).
+1. At the right of SageMaker Studio Classic, find the **Feedback** icon (![Speech bubble icon representing messaging or communication functionality.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/feedback.png)).
 
 1. Choose a smiley emoji to let us know how satisfied you are with SageMaker Studio Classic and add any feedback you'd care to share with us.
 

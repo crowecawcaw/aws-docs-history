@@ -25,7 +25,7 @@ You can request an account and sign in to an existing account on your landing pa
 
 The following screenshot shows the Studio Lab landing page interface for requesting a user account and signing in.
 
-![The Amazon SageMaker Studio Lab landing page layout.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio-lab-landing.png)
+![The Amazon SageMaker Studio Lab landing page layout.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio-lab-landing.png)
 
 
 ## Studio Lab account
@@ -44,7 +44,7 @@ https://studiolab.sagemaker.aws/users/{{<YOUR_USER_NAME>}}
 
 The following screenshot shows a project overview in the Studio Lab user interface.
 
-![The layout of the project overview user interface.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio-lab-overview.png)
+![The layout of the project overview user interface.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio-lab-overview.png)
 
 
 ## Preview page
@@ -77,7 +77,7 @@ Your project contains all of your files and folders, including your Jupyter note
 
 The following screenshot shows a Studio Lab project with the file browser open and the Studio Lab Launcher displayed.
 
-![The layout of the project user interface.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio-lab-ui.png)
+![The layout of the project user interface.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio-lab-ui.png)
 
 
 ## Compute instance type

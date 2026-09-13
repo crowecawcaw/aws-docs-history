@@ -392,11 +392,11 @@ Data Wrangler uses the Amazon Redshift Data API with temporary credentials. To l
 1. (Optional) For **Amazon S3 output location**, specify the S3 URI to store the query results.
 
 1. (Optional) For **KMS key ID**, specify the ARN of the AWS KMS key or alias. The following image shows you where you can find either key in the AWS Management Console.  
-![The location of the AWS KMS alias ARN, alias name, and key ARN in the AWS KMS console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/kms-alias-redacted.png)
+![The location of the AWS KMS alias ARN, alias name, and key ARN in the AWS KMS console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/kms-alias-redacted.png)
 
 The following image shows all the fields from the preceding procedure.
 
-![The Add Amazon Redshift connection panel.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/redshift-connection.png)
+![The Add Amazon Redshift connection panel.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/redshift-connection.png)
 
 
 After your connection is successfully established, it appears as a data source under **Data Import**. Select this data source to query your database and import data.
@@ -1558,12 +1558,12 @@ After AWS PrivateLink is activated, retrieve the AWS PrivateLink configuration f
    Once there, choose **Create Endpoint**. 
 
 1. Select the radio button for **Find service by name**, as shown in the following screenshot.   
-![The Create Endpoint section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-radio.png)
+![The Create Endpoint section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-radio.png)
 
 1. In the **Service Name** field, paste in the value for `privatelink-vpce-id` that you retrieved in the preceding step and choose **Verify**. 
 
    If the connection is successful, a green alert saying **Service name found** appears on your screen and the **VPC** and **Subnet** options automatically expand, as shown in the following screenshot. Depending on your targeted Region, your resulting screen may show another AWS Region name.   
-![The Create Endpoint section in the console showing the connection is successful.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-service-name-found.png)
+![The Create Endpoint section in the console showing the connection is successful.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-service-name-found.png)
 
 1. Select the same VPC ID that you sent to Snowflake from the **VPC** dropdown list.
 
@@ -1582,12 +1582,12 @@ After AWS PrivateLink is activated, retrieve the AWS PrivateLink configuration f
 1. Choose **Create Security Group**. Retrieve the **Security Group ID** from the newly created security group (such as `sg-xxxxxxxxxxxxxxxxx`).
 
 1. In the **VPC Endpoint** configuration screen, remove the default security group. Paste in the security group ID in the search field and select the checkbox.  
-![The Security group section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-security-group.png)
+![The Security group section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-security-group.png)
 
 1. Select **Create Endpoint**. 
 
 1. If the endpoint creation is successful, you see a page that has a link to your VPC endpoint configuration, specified by the VPC ID. Select the link to view the configuration in full.   
-![The endpoint Details section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-success-endpoint.png)
+![The endpoint Details section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-success-endpoint.png)
 
    Retrieve the topmost record in the DNS names list. This can be differentiated from other DNS names because it only includes the Region name (such as `us-west-2`), and no Availability Zone letter notation (such as `us-west-2a`). Store this information for later use.
 
@@ -1605,10 +1605,10 @@ This section explains how to configure DNS for Snowflake endpoints in your VPC. 
    1. In the **Domain name** field, reference the value that was stored for `privatelink-account-url` in the preceding steps. In this field, your Snowflake account ID is removed from the DNS name and only uses the value starting with the Region identifier. A **Resource Record Set** is also created later for the subdomain, such as, `region.privatelink.snowflakecomputing.com`.
 
    1. Select the radio button for **Private Hosted Zone** in the **Type** section. Your Region code may not be `us-west-2`. Reference the DNS name returned to you by Snowflake.  
-![The Create hosted zone page in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-create-hosted-zone.png)
+![The Create hosted zone page in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-create-hosted-zone.png)
 
    1. In the **VPCs to associate with the hosted zone** section, select the Region in which your VPC is located and the VPC ID used in previous steps.  
-![The VPCs to associate with the hosted zone section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-vpc-hosted-zone.png)
+![The VPCs to associate with the hosted zone section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-vpc-hosted-zone.png)
 
    1. Choose **Create hosted zone**.
 
@@ -1620,12 +1620,12 @@ This section explains how to configure DNS for Snowflake endpoints in your VPC. 
      1. Under **Record type**, select **CNAME**.
 
      1. Under **Value**, enter the DNS name for the regional VPC endpoint you retrieved in the last step of the *Set up the Snowflake AWS PrivateLink Integration* section.   
-![The Quick create record section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-quick-create-record.png)
+![The Quick create record section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-quick-create-record.png)
 
      1. Choose **Create records**.
 
      1. Repeat the preceding steps for the OCSP record we notated as `privatelink-ocsp-url`, starting with `ocsp` through the 8-character Snowflake ID for the record name (such as `ocsp.xxxxxxxx`).  
-![The Quick create record section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-quick-create-ocsp.png)
+![The Quick create record section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-quick-create-ocsp.png)
 
 ##### Configure Route 53 Resolver Inbound Endpoint for your VPC
 <a name="data-wrangler-snowflake-vpc-privatelink-route53"></a>
@@ -1639,7 +1639,7 @@ This section explains how to configure Route 53 resolvers inbound endpoints for 
    + Provide a name for your security group (such as `datawranger-doc-route53-resolver-sg`) and a description.
    + Select the VPC ID used in previous steps.
    + Create rules that allow for DNS over UDP and TCP from within the VPC CIDR block.   
-![The Inbound rules section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-inbound-rules.png)
+![The Inbound rules section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-inbound-rules.png)
    + Choose **Create Security Group**. Note the **Security Group ID** because adds a rule to allow traffic to the VPC endpoint security group.
 
 1. Navigate to the [Route 53 menu](https://console.aws.amazon.com/route53) within your AWS console.
@@ -1649,15 +1649,15 @@ This section explains how to configure Route 53 resolvers inbound endpoints for 
    + Provide an endpoint name.
    + From the **VPC in the Region** dropdown list, select the VPC ID you have used in all previous steps. 
    + In the **Security group for this endpoint** dropdown list, select the security group ID from Step 2 in this section.   
-![The General settings for inbound endpoint section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-inbound-endpoint.png)
+![The General settings for inbound endpoint section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-inbound-endpoint.png)
    + In the **IP Address** section, select an Availability Zones, select a subnet, and leave the radio selector for **Use an IP address that is selected automatically** selected for each IP address.   
-![The IP Address section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-ip-address-1.png)
+![The IP Address section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-ip-address-1.png)
    + Choose **Submit**.
 
 1. Select the **Inbound endpoint** after it has been created.
 
 1. Once the inbound endpoint is created, note the two IP addresses for the resolvers.  
-![The IP Addresses section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-ip-addresses-2.png)
+![The IP Addresses section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/snowflake-ip-addresses-2.png)
 
 ##### SageMaker AI VPC Endpoints
 <a name="data-wrangler-snowflake-sagemaker-vpc-endpoints"></a>

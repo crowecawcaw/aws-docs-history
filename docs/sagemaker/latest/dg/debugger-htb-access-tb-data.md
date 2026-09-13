@@ -13,7 +13,7 @@ The visualization plugins might not appear when you first launch the TensorBoard
 **Note**  
 The TensorBoard application automatically shuts down after 1 hour of inactivity. If you want to shut the application down when you are done using it, make sure to manually shut down TensorBoard to avoid paying for the instance hosting it. For instructions on deleting the application, see [Delete unused TensorBoard applications](debugger-htb-delete-app.md).
 
-![The SageMaker AI Data Manager tab view.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-sagemaker-manager-tab.png)
+![The SageMaker AI Data Manager tab view.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-sagemaker-manager-tab.png)
 
 
 In the **SageMaker AI Data Manager** tab, you can select any training job and load TensorBoard-compatible training output data from Amazon S3. 
@@ -23,7 +23,7 @@ In the **SageMaker AI Data Manager** tab, you can select any training job and lo
 1. In the **List of training jobs** section, use the check boxes to choose training jobs from which you want to pull data and visualize for debugging.
 
 1. Choose **Add selected jobs**. The selected jobs should appear in the **Tracked training jobs** section, as shown in the following screenshot.   
-![The Tracked training jobs section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-sagemaker-manager-tab-tracked-jobs.png)
+![The Tracked training jobs section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-sagemaker-manager-tab-tracked-jobs.png)
 
 **Note**  
 The **SageMaker AI Data Manager** tab only shows training jobs configured with the `TensorBoardOutputConfig` parameter. Make sure you have configured the SageMaker AI ModelTrainer with this parameter. For more information, see [Step 2: Create a SageMaker training ModelTrainer object with the TensorBoard output configuration](debugger-htb-prepare-training-job.md#debugger-htb-prepare-training-job-2).
@@ -38,24 +38,24 @@ In the graphics tabs, you can find the list of the loaded training jobs in the l
 
 **The TIME SERIES tab view**
 
-![The TIME SERIES tab view.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-time-series.png)
+![The TIME SERIES tab view.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-time-series.png)
 
 
 **The SCALARS tab view**
 
-![The SCALARS tab view.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-scalars.png)
+![The SCALARS tab view.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-scalars.png)
 
 
 **The GRAPHS tab view**
 
-![The GRAPHS tab view.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-graphs.png)
+![The GRAPHS tab view.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-graphs.png)
 
 
 **The DISTRIBUTIONS tab view**
 
-![The DISTRIBUTIONS tab view.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-distribution.png)
+![The DISTRIBUTIONS tab view.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-distribution.png)
 
 
 **The HISTOGRAMS tab view**
 
-![The HISTOGRAMS tab view.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-histogram.png)
+![The HISTOGRAMS tab view.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-histogram.png)

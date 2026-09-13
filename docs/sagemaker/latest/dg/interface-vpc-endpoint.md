@@ -10,7 +10,7 @@ You can connect directly to the SageMaker API or to Amazon SageMaker Runtime thr
 
 The SageMaker API and SageMaker AI Runtime support [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html) (Amazon VPC) interface endpoints that are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink). Each VPC endpoint is represented by one or more [Elastic Network Interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) with private IP addresses in your VPC subnets. For example, an application inside your VPC uses AWS PrivateLink to communicate with SageMaker AI Runtime. SageMaker AI Runtime in turn communicates with the SageMaker AI endpoint. Using AWS PrivateLink allows you to invoke your SageMaker AI endpoint from within your VPC, as shown in the following diagram.
 
-![A VPC uses AWS PrivateLink to communicate with a SageMaker AI endpoint.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/security-vpc-SM.png)
+![A VPC uses AWS PrivateLink to communicate with a SageMaker AI endpoint.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/security-vpc-SM.png)
 
 
 The VPC interface endpoint connects your VPC directly to the SageMaker API or SageMaker AI Runtime using AWS PrivateLink without using an internet gateway, NAT device, VPN connection, or Direct Connect connection. The instances in your VPC do not need to connect to the public internet in order to communicate with the SageMaker API or SageMaker AI Runtime.
@@ -52,16 +52,16 @@ SageMaker AI uses your execution role to download and upload information from an
 
 If you haven't set network isolation on your training job or model, SageMaker AI can access resources using either of the following methods.
 + SageMaker training and deployed inference containers can access the internet by default. SageMaker AI containers are able to access external services and resources on the public internet as part of your training and inference workloads. SageMaker AI containers are not able to access resources inside your VPC without a VPC configuration, as shown in the following illustration.  
-![SageMaker AI cannot access resources inside your VPC without a VPC configuration.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/security-vpc-no-config.png)
+![SageMaker AI cannot access resources inside your VPC without a VPC configuration.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/security-vpc-no-config.png)
 + Use a VPC configuration to communicate with resources inside your VPC through an elastic network interface (ENI). The communication between the container and the resources in your VPC takes place securely within your VPC network, as shown in the following illustration. In this case, you manage networking access to your VPC resources and internet.  
-![SageMaker AI can access and communicate with resources inside your VPC with a VPC configuration.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/security-vpc-config.png)
+![SageMaker AI can access and communicate with resources inside your VPC with a VPC configuration.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/security-vpc-config.png)
 
 ### With network isolation
 <a name="use-resources-vpc-isolated"></a>
 
 If you employ network isolation, the SageMaker AI container can't communicate with resources inside your VPC or make any network calls, as shown in the following illustration. If you provide a VPC configuration, the download and upload operations will be run through your VPC. For more information about hosting and training with network isolation while using a VPC, see [Network Isolation](mkt-algo-model-internet-free.md#mkt-algo-model-internet-free-isolation).
 
-![SageMaker AI can access and communicate with resources inside your VPC with a VPC configuration.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/security-network-isolation-no-config.png)
+![SageMaker AI can access and communicate with resources inside your VPC with a VPC configuration.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/security-network-isolation-no-config.png)
 
 
 ## Create a VPC Endpoint Policy for SageMaker AI

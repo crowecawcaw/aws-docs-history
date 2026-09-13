@@ -18,7 +18,7 @@ To delete a deployment in Canvas, do the following:
 
 1. From the list of deployments, choose the one that you want to delete.
 
-1. At the top of the deployment details page, choose the **More options** icon (![More options icon for the output CSV file.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
+1. At the top of the deployment details page, choose the **More options** icon (![More options icon for the output CSV file.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
 
 1. Choose **Delete deployment**.
 

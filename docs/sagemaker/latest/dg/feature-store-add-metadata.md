@@ -54,7 +54,7 @@ You can use the console or the Amazon SageMaker Feature Store API to add searcha
 
 1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic Using the Amazon SageMaker AI Console](studio-launch.md#studio-launch-console).
 
-1. In the left navigation pane, choose the **Home** icon (![Home icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the left navigation pane, choose the **Home** icon (![Home icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Choose **Data**.
 

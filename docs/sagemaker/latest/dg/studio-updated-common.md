@@ -24,7 +24,7 @@ Notifications give information about important changes to Studio, updates to app
 
 1. Launch Studio following the steps in [Launch Amazon SageMaker Studio](studio-updated-launch.md). 
 
-1.  On the top navigation bar, choose the **Notifications** icon (![Logo for Notifications, a cloud service with a stylized bell icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/notification.png)). 
+1.  On the top navigation bar, choose the **Notifications** icon (![Logo for Notifications, a cloud service with a stylized bell icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/notification.png)). 
 
 1.  From the list of notifications, select the notification to get information about it. 
 
@@ -42,7 +42,7 @@ This same behavior also happens when the Studio session times out. This happens�
 
 1. Launch Studio following the steps in [Launch Amazon SageMaker Studio](studio-updated-launch.md). 
 
-1. Choose the **User options** icon (![User icon with a circular avatar placeholder and a downward-pointing arrow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/user-settings.png)). 
+1. Choose the **User options** icon (![User icon with a circular avatar placeholder and a downward-pointing arrow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/user-settings.png)). 
 
 1.  Choose **Sign out**. 
 

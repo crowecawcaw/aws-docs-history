@@ -27,4 +27,4 @@ It may take up to 25 minutes to complete tracking server creation. If the tracki
 
 1. After creating your tracking server, you can launch the MLflow UI. For more information, see [Launch the MLflow UI using a presigned URL](mlflow-launch-ui.md).
 
-![The Create MLflow Tracking Server prompt in the Studio UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-create.png)
+![The Create MLflow Tracking Server prompt in the Studio UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-create.png)

@@ -38,7 +38,7 @@ After you register your model, you can test your model with one or more datasets
 
 1. Choose the **Evaluate** tab.
 
-1. Choose the **Gear** ( ![Settings icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) icon under the **Train** tab.
+1. Choose the **Gear** ( ![Settings icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) icon under the **Train** tab.
 
 1. In the dialog box, choose **Add**.
 

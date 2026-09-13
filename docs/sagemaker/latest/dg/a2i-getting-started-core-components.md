@@ -24,7 +24,7 @@ Select a tab in the following table to see diagrams that illustrate how Amazon A
 
 This image depicts the Amazon A2I built-in workflow with Amazon Textract. On the left, the resources that are required to create an Amazon Textract human review workflow are depicted: an Amazon S3 bucket, activation conditions, a worker task template, and a work team. These resources are used to create a human review workflow, or flow definition. An arrow points right to the next step in the workflow: using Amazon Textract to configure a human loop with the human review workflow. A second arrow points right from this step to the step in which activation conditions specified in the human review workflow are met. This initiates the creation of a human loop. On the right of the image, the human loop is depicted in three steps: 1) the worker UI and tools are generated and the task is made available to workers, 2) workers review input data, and finally, 3) results are saved in Amazon S3.
 
-![Amazon A2I built-in workflow with Amazon Textract.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A21-Components_Textract@2x.png)
+![Amazon A2I built-in workflow with Amazon Textract.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A21-Components_Textract@2x.png)
 
 
 ------
@@ -32,7 +32,7 @@ This image depicts the Amazon A2I built-in workflow with Amazon Textract. On the
 
 This image depicts the Amazon A2I built-in workflow with Amazon Rekognition. On the left, the resources that are required to create an Amazon Rekognition human review workflow are depicted: an Amazon S3 bucket, activation conditions, a worker task template, and a work team. These resources are used to create a human review workflow, or flow definition. An arrow points right to the next step in the workflow: using Amazon Rekognition to configure a human loop with the human review workflow. A second arrow points right from this step to the step in which activation conditions specified in the human review workflow are met. This initiates the creation of a human loop. On the right of the image, the human loop is depicted in three steps: 1) the worker UI and tools are generated and the task is made available to workers, 2) workers review input data, and finally, 3) results are saved in Amazon S3.
 
-![Amazon A2I built-in workflow with Amazon Rekognition.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A2I-Components_Rekognition@2x.png)
+![Amazon A2I built-in workflow with Amazon Rekognition.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A2I-Components_Rekognition@2x.png)
 
 
 ------
@@ -40,7 +40,7 @@ This image depicts the Amazon A2I built-in workflow with Amazon Rekognition. On 
 
 The following image depicts the Amazon A2I custom workflow. A custom ML model is used to generate predictions. The client application filters these predictions using user-defined criteria and determines if a human review is required. If so, these predictions are sent to Amazon A2I for human review. Amazon A2I collects the results of human review in Amazon S3, which can access by the client application. If the filter determines that no human review is needed, predictions can be fed directly to the client application. 
 
-![Amazon A2I custom workflow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
+![Amazon A2I custom workflow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
 
 
 ------

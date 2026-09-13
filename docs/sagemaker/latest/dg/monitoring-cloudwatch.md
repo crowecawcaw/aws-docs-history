@@ -69,7 +69,7 @@ The following illustration shows how a SageMaker AI endpoint interacts with the 
 + Overhead latency – the time that it takes to transport a request to the model container from and transport the response back to the SageMaker Runtime Runtime API.
 + Model latency – the time that it takes the model container to process the request and return a response.
 
-![An illustration showing that total latency is the sum of network, overhead and model latencies.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/cloudwatch-latency-types.png)
+![An illustration showing that total latency is the sum of network, overhead and model latencies.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/cloudwatch-latency-types.png)
 
 
 For more information about total latency, see [Best practices for load testing Amazon SageMaker AI real-time inference endpoints](https://aws.amazon.com/blogs/machine-learning/best-practices-for-load-testing-amazon-sagemaker-real-time-inference-endpoints/). For information about how long CloudWatch metrics are retained for, see [GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html) in the *Amazon CloudWatch API Reference*.

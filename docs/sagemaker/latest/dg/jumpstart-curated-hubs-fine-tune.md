@@ -64,7 +64,7 @@ If your curated hub is shared across accounts and the hub content is owned by an
 
 1. Have a private curated hub with a model reference to a JumpStart model that you want to fine-tune. For more information about creating a private hub, see [Create a private model hub](jumpstart-curated-hubs-admin-guide-create.md). To learn how to add publicly available JumpStart models to your private hub, see [Add models to a private hub](jumpstart-curated-hubs-admin-guide-add-models.md).
 **Note**  
-The JumpStart model you choose should be fine-tunable. You can verify whether a model is fine-tunable by checking the [ Built-in Algorithms with Pre-trained Models Table](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html).
+The JumpStart model you choose should be fine-tunable. You can list the available models programmatically using the `hub.list_sagemaker_public_hub_models()` method in the SageMaker Python SDK.
 
 1. Have a training dataset that you want to use for fine-tuning the model. The dataset should be in the appropriate training format for the model that you want to fine-tune.
 
@@ -73,7 +73,7 @@ The JumpStart model you choose should be fine-tunable. You can verify whether a 
 
 The following procedure shows you how to fine-tune a model reference in your private curated hub using the SageMaker Python SDK.
 
-1. Make sure that you have the latest version (at least `3.0.0`) of the SageMaker Python SDK installed. For more information, see [ Use Version 3.x of the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/).
+1. Make sure that you have the latest version (at least `3.0.0`) of the SageMaker Python SDK installed. For more information, see [ Use Version 3.x of the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/) on the Read the Docs website.
 
    ```
    !pip install --upgrade sagemaker
@@ -84,7 +84,7 @@ The following procedure shows you how to fine-tune a model reference in your pri
    ```
    import boto3
    from sagemaker.train import ModelTrainer
-   from sagemaker.train.configs import InputData
+   from sagemaker.train.configs import Compute, InputData
    from sagemaker.core.jumpstart.configs import JumpStartConfig
    from sagemaker.core.helper.session_helper import Session
    ```
@@ -96,7 +96,7 @@ The following procedure shows you how to fine-tune a model reference in your pri
    sm_session = Session(sagemaker_client=sagemaker_client)
    ```
 
-1. Create a `ModelTrainer` using `from_jumpstart_config` and provide the JumpStart model ID, the name of your hub that contains the model reference, and your SageMaker Python SDK session. For a list of model IDs, see the [ Built-in Algorithms with Pre-trained Models Table](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html).
+1. Create a `ModelTrainer` using `from_jumpstart_config` and provide the JumpStart model ID, the name of your hub that contains the model reference, and your SageMaker Python SDK session. To list the available model IDs programmatically, use the `hub.list_sagemaker_public_hub_models()` method in the SageMaker Python SDK.
 
    Optionally, you can specify the `instance_type` and `instance_count` fields when creating the ModelTrainer. If you don't, the training job uses the default instance type and count for the model you're using.
 
@@ -106,16 +106,20 @@ The following procedure shows you how to fine-tune a model reference in your pri
    jumpstart_config = JumpStartConfig(
        model_id="meta-textgeneration-llama-3-2-1b",
        hub_name={{<your-hub-name>}},
-       # Optional: specify your desired instance type and count for the training job
-       # instance_type = "ml.g5.2xlarge"
-       # instance_count = 1
+       # For gated models, set accept_eula=True to accept the end-user license agreement.
+       # This example uses False. Change it to True to accept the EULA for gated models.
+       accept_eula=False,
    )
-   model_trainer = ModelTrainer.from_jumpstart_config(jumpstart_config=jumpstart_config)
-       # Optional: specify a custom S3 location to store the fine-tuned model artifacts
-       # output_path: "s3://{{<output-path-for-model-artifacts>}}"
+   model_trainer = ModelTrainer.from_jumpstart_config(
+       jumpstart_config=jumpstart_config,
+       # Optional: specify your desired instance type and count for the training job.
+       # compute=Compute(instance_type="ml.g5.2xlarge", instance_count=1),
+       # Optional: specify a custom S3 location to store the fine-tuned model artifacts.
+       # output_path="s3://{{<output-path-for-model-artifacts>}}",
+   )
    ```
 
-1. Create an `InputData` object. Set `channel_name` to `train` and `data_source` to the location of your fine-tuning dataset. In the following example, replace `{{<your-fine-tuning-dataset>}}` with the Amazon S3 URI of your dataset. If you have additional considerations, such as using local mode or multiple training data channels, see [ ModelTrainer.train()](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) in the SageMaker Python SDK documentation for more information.
+1. Create an `InputData` object. Set `channel_name` to `train` and `data_source` to the location of your fine-tuning dataset. In the following example, replace `{{<your-fine-tuning-dataset>}}` with the Amazon S3 URI of your dataset. If you have additional considerations, such as using local mode or multiple training data channels, see [ SageMaker Train](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) in the SageMaker Python SDK documentation on the Read the Docs website.
 
    ```
    training_input = InputData(
@@ -124,12 +128,12 @@ The following procedure shows you how to fine-tune a model reference in your pri
    )
    ```
 
-1. Call the model trainer's `train()` method and pass in your training data and your EULA acceptance (if applicable).
+1. Call the model trainer's `train()` method and pass in your training data. Declare EULA acceptance on the `JumpStartConfig` (shown in the previous step), not in the `train()` call.
 **Note**  
-The following example sets `accept_eula=False.` You should manually change the value to `True` in order to accept the EULA.
+The preceding `JumpStartConfig` example sets `accept_eula=False`. For gated models, you must change the value to `True` to accept the EULA.
 
    ```
-   model_trainer.train(input_data_config=[training_input], accept_eula=False)
+   model_trainer.train(input_data_config=[training_input])
    ```
 
 Your fine-tuning job should now begin.

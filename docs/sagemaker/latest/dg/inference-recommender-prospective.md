@@ -20,7 +20,7 @@ To view the prospective instances for your model through the console, do the fol
 
 On the details page for your model, go to the **Prospective instances to deploy model** section. The following screenshot shows this section.
 
-![Screenshot of the list of prospective instances on the model details page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inf-rec-prospective.png)
+![Screenshot of the list of prospective instances on the model details page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inf-rec-prospective.png)
 
 
 In this section, you can view the prospective instances that are optimized for cost, throughput, and latency for model deployment, along with additional information for each instance type such as the memory size, CPU and GPU count, and cost per hour.

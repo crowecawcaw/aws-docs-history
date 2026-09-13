@@ -47,4 +47,4 @@ After setting up all the required resources and uploading the scripts to the Ama
    ```
 
 1. (Optional) To check the status of your cluster, you can use the SageMaker AI console ([https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/)). From the left navigation, choose **HyperPod Clusters**, then choose **Cluster Management**. Choose a cluster name to open the cluster details page. If your cluster is created successfully, you will see the cluster status is **InService**.  
-![Image showing a HyperPod Slurm cluster with multiple controller nodes in the Amazon SageMaker AI console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-lifecycle-multihead-cluster.png)
+![Image showing a HyperPod Slurm cluster with multiple controller nodes in the Amazon SageMaker AI console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-lifecycle-multihead-cluster.png)

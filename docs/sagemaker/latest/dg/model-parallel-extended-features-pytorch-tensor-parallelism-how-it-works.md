@@ -42,7 +42,7 @@ Each line represents the set of modules stored in that `dp_rank`, and the notati
 
 When tensor parallelism is performed over data parallel ranks, a subset of the parameters, gradients, and optimizer states are partitioned across the tensor parallel devices *for the modules that are partitioned*. For the rest of the modules, the tensor parallel devices operate in a regular data parallel manner. To execute the partitioned module, a device first collects the necessary parts of *all data samples* across peer devices in the same tensor parallelism group. The device then runs the local fraction of the module on all these data samples, followed by another round of synchronization which both combines the parts of the output for each data sample and returns the combined data samples to the GPUs from which the data sample first originated. The following figure shows an example of this process over a partitioned `nn.Linear` module. 
 
-![Two figures showing two tensor parallel concepts.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/tensor-parallel-concept.png)
+![Two figures showing two tensor parallel concepts.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/tensor-parallel-concept.png)
 
 
 The first figure shows a small model with a large `nn.Linear` module with data parallelism over the two tensor parallelism ranks. The `nn.Linear` module is replicated into the two parallel ranks. 

@@ -41,4 +41,4 @@ See the following table for example notebooks that can help you learn more about
 
 For more information about each SageMaker AI Inference option in detail, you can watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/4FqHt5bmS2o/0.jpg)](http://www.youtube.com/watch?v=4FqHt5bmS2o)
+[![AWS Videos](https://img.youtube.com/vi/4FqHt5bmS2o/0.jpg)](https://www.youtube.com/watch?v=4FqHt5bmS2o)

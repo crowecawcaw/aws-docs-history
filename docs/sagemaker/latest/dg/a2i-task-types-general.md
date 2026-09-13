@@ -46,7 +46,7 @@ For an end-to-end example that demonstrates how to integrate an Amazon A2I human
 
 1. When your notebook instance is active, choose **Open JupyterLab** to the right of the notebook instance's name. It may take a few moments for JupyterLab to load. 
 
-1. Choose the add Github repository icon (![Add GitHub repository icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Git_squip_add_repo.png)) to clone a GitHub repository into your workspace. 
+1. Choose the add Github repository icon (![Add GitHub repository icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Git_squip_add_repo.png)) to clone a GitHub repository into your workspace. 
 
 1. Enter the [amazon-a2i-sample-jupyter-notebooks](https://github.com/aws-samples/amazon-a2i-sample-jupyter-notebooks) repository HTTPS URL. 
 

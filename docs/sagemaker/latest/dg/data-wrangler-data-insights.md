@@ -39,7 +39,7 @@ The following topics show the sections of the report:
 
 You can either download the report or view it online. To download the report, choose the download button at the top right corner of the screen. The following image shows the button.
 
-![Example showing the download button.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-download.png)
+![Example showing the download button.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-download.png)
 
 
 ## Summary
@@ -49,7 +49,7 @@ The insights report has a brief summary of the data that includes general inform
 
 The following is an example of a report summary.
 
-![Example report summary.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-report-summary.png)
+![Example report summary.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-report-summary.png)
 
 
 ## Target column
@@ -61,14 +61,14 @@ For classification, Data Wrangler shows a table and a histogram of the most comm
 
 The following image shows an example target column analysis for a classification problem.
 
-![Example target column analysis.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-target-column-classification.png)
+![Example target column analysis.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-target-column-classification.png)
 
 
 For regression, Data Wrangler shows a histogram of all the values in the target column. It also presents observations, or rows, with a missing, invalid, or outlier target value.
 
 The following image shows an example target column analysis for a regression problem.
 
-![Example target column analysis.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-target-column-regression.png)
+![Example target column analysis.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-target-column-regression.png)
 
 
 ## Quick model
@@ -82,12 +82,12 @@ For classification models, Data Wrangler returns both a model summary and a conf
 
 The following is an example of a classification model summary. To learn more about the information that it returns, see [Definitions](#data-wrangler-data-insights-definitions).
 
-![Example classification model summary.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-quick-model-classification-summary.png)
+![Example classification model summary.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-quick-model-classification-summary.png)
 
 
 The following is an example of a confusion matrix that the quick model returns.
 
-![Example confusion matrix.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-quick-model-classification-confusion-matrix.png)
+![Example confusion matrix.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-quick-model-classification-confusion-matrix.png)
 
 
 A confusion matrix gives you the following information:
@@ -100,7 +100,7 @@ You can use the confusion matrix to see how well the model predicts the presence
 
 The following is an example of the quick model outputs for a regression problem.
 
-![Example of the quick model outputs for a regression problem.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-quick-model-regression-summary.png)
+![Example of the quick model outputs for a regression problem.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-quick-model-regression-summary.png)
 
 
 ## Feature summary
@@ -116,10 +116,10 @@ A low score usually indicates the feature is redundant. A score of 1 implies per
 
 The following are examples of the table and the histogram that show the prediction value of each feature.
 
-![Example summary table showing the prediction value of each feature.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-feature-summary-table.png)
+![Example summary table showing the prediction value of each feature.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-feature-summary-table.png)
 
 
-![Example histogram showing the prediction value of each feature.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-feature-summary-histogram.png)
+![Example histogram showing the prediction value of each feature.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-insights/data-insights-feature-summary-histogram.png)
 
 
 ## Samples

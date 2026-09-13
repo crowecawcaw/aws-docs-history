@@ -35,12 +35,12 @@ For each flow file, you can seamlessly switch the instance type. If you switch t
 
 To switch the instance type of your flow, do the following.
 
-1. Choose the **Running Terminals and Kernels** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/running-terminals-kernels.png)).
+1. Choose the **Running Terminals and Kernels** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/running-terminals-kernels.png)).
 
 1. Navigate to the instance that you're using and choose it.
 
 1. Choose the instance type that you want to use.  
-![Example showing how to choose an instance in the data flow page of the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-instance-switching-list-instances.png)
+![Example showing how to choose an instance in the data flow page of the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-instance-switching-list-instances.png)
 
 1. Choose **Save**.
 
@@ -49,7 +49,7 @@ You are charged for all running instances. To avoid incurring additional charges
 To shut down a running instance.
 
 1. Choose the instance icon. The following image shows you where to select the **RUNNING INSTANCES** icon.  
-![The RUNNING INSTANCES tab in the Studio Classic console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/instance-switching-running-instances.png)
+![The RUNNING INSTANCES tab in the Studio Classic console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/instance-switching-running-instances.png)
 
 1. Choose **Shut down** next to the instance that you want to shut down.
 
@@ -71,7 +71,7 @@ For more information about the cost per hour for using the available instance ty
 
 When you import a dataset, the original dataset appears on the data flow and is named **Source**. If you turned on sampling when you imported your data, this dataset is named **Source - sampled**. Data Wrangler automatically infers the types of each column in your dataset and creates a new dataframe named **Data types**. You can select this frame to update the inferred data types. You see results similar to those shown in the following image after you upload a single dataset: 
 
-![Example showing Source - sampled and Data types in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/dataflow-after-import.png)
+![Example showing Source - sampled and Data types in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/dataflow-after-import.png)
 
 
 Each time you add a transform step, you create a new dataframe. When multiple transform steps (other than **Join** or **Concatenate**) are added to the same dataset, they are stacked. 
@@ -80,12 +80,12 @@ Each time you add a transform step, you create a new dataframe. When multiple tr
 
 The following diagram shows a data flow with a join between two datasets, as well as two stacks of steps. The first stack (**Steps (2)**) adds two transforms to the type inferred in the **Data types** dataset. The *downstream* stack, or the stack to the right, adds transforms to the dataset resulting from a join named **demo-join**. 
 
-![Example showing steps in the data flow page of the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-flow-steps.png)
+![Example showing steps in the data flow page of the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-flow-steps.png)
 
 
-The small, gray box in the bottom right corner of the data flow provides an overview of number of stacks and steps in the flow and the layout of the flow. The lighter box inside the gray box indicates the steps that are within the UI view. You can use this box to see sections of your data flow that fall outside of the UI view. Use the fit screen icon (![Fit screen icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/fit-screen.png)) to fit all steps and datasets into your UI view. 
+The small, gray box in the bottom right corner of the data flow provides an overview of number of stacks and steps in the flow and the layout of the flow. The lighter box inside the gray box indicates the steps that are within the UI view. You can use this box to see sections of your data flow that fall outside of the UI view. Use the fit screen icon (![Fit screen icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/fit-screen.png)) to fit all steps and datasets into your UI view. 
 
-The bottom left navigation bar includes icons that you can use to zoom in (![Plus symbol icon representing an addition or new item action.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/zoom-in.png)) and zoom out (![Zoom out icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/zoom-out.png)) of your data flow and resize the data flow to fit the screen (![Fit screen icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/fit-screen.png)). Use the lock icon (![Lock icon to lock and unlock node positions.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/lock-nodes.png)) to lock and unlock the location of each step on the screen. 
+The bottom left navigation bar includes icons that you can use to zoom in (![Plus symbol icon representing an addition or new item action.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/zoom-in.png)) and zoom out (![Zoom out icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/zoom-out.png)) of your data flow and resize the data flow to fit the screen (![Fit screen icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/fit-screen.png)). Use the lock icon (![Lock icon to lock and unlock node positions.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/lock-nodes.png)) to lock and unlock the location of each step on the screen. 
 
 
 
@@ -95,7 +95,7 @@ The bottom left navigation bar includes icons that you can use to zoom in (![Plu
 Select **\+** next to any dataset or previously added step and then select one of the following options:
 + **Edit data types** (For a **Data types** step only): If you have not added any transforms to a **Data types** step, you can select **Edit data types** to update the data types Data Wrangler inferred when importing your dataset. 
 + **Add transform**: Adds a new transform step. See [Transform Data](data-wrangler-transform.md) to learn more about the data transformations you can add. 
-+ **Add analysis**: Adds an analysis. You can use this option to analyze your data at any point in the data flow. When you add one or more analyses to a step, an analysis icon (![Bar chart icon representing data visualization or analytics functionality.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/analysis-icon.png)) appears on that step. See [Analyze and Visualize](data-wrangler-analyses.md) to learn more about the analyses you can add. 
++ **Add analysis**: Adds an analysis. You can use this option to analyze your data at any point in the data flow. When you add one or more analyses to a step, an analysis icon (![Bar chart icon representing data visualization or analytics functionality.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/updates/analysis-icon.png)) appears on that step. See [Analyze and Visualize](data-wrangler-analyses.md) to learn more about the analyses you can add. 
 + **Join**: Joins two datasets and adds the resulting dataset to the data flow. To learn more, see [Join Datasets](data-wrangler-transform.md#data-wrangler-transform-join).
 + **Concatenate**: Concatenates two datasets and adds the resulting dataset to the data flow. To learn more, see [Concatenate Datasets](data-wrangler-transform.md#data-wrangler-transform-concatenate).
 
@@ -120,7 +120,7 @@ Use the following procedure to delete a step in the Data Wrangler flow.
 1. Choose the icon next to the step.
 
 1. Choose **Delete step**.  
-![Example showing how to delete a step in the data flow page of the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/delete-step-flow-1.png)
+![Example showing how to delete a step in the data flow page of the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/delete-step-flow-1.png)
 
 ------
 #### [ Delete a step in the table view ]
@@ -136,7 +136,7 @@ You can delete an individual step for nodes in your data flow that have a single
 1. Choose the icon next to the step.
 
 1. Choose **Delete**.  
-![Example showing how to delete a step in the table view of the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/delete-step-table-0.png)
+![Example showing how to delete a step in the table view of the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/delete-step-table-0.png)
 
 ------
 
@@ -152,7 +152,7 @@ Use the following procedure to edit a step.
 To edit a step, do the following.
 
 1. Choose a step in the Data Wrangler flow to open the table view.  
-![Example step in the data flow page of the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-flow-edit-choose-step.png)
+![Example step in the data flow page of the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-flow-edit-choose-step.png)
 
 1. Choose a step in the data flow.
 
@@ -160,7 +160,7 @@ To edit a step, do the following.
 
 The following image shows an example of editing a step.
 
-![Example showing how to edit steps in the data flow page of the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-flow-table-edit-step.png)
+![Example showing how to edit steps in the data flow page of the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-flow-table-edit-step.png)
 
 
 **Note**  

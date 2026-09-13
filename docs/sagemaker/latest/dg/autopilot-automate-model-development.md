@@ -22,7 +22,7 @@ Autopilot supports building machine learning models on large datasets up to hund
 
 The following diagram outlines the tasks of this AutoML process managed by Autopilot.
 
-![Overview of Amazon SageMaker Autopilot AutoML process.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/Autopilot-process-graphic-1.png)
+![Overview of Amazon SageMaker Autopilot AutoML process.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/Autopilot-process-graphic-1.png)
 
 
 Depending on your comfort level with the machine learning process and coding experience, you can use Autopilot in different ways:

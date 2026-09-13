@@ -119,7 +119,7 @@ You can use the console to view the lineage of a feature group. The instructions
 
 1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md).
 
-1. Choose the **Home** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) on the left navigation pane.
+1. Choose the **Home** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) on the left navigation pane.
 
 1. Choose **Data**.
 
@@ -218,7 +218,7 @@ You can use the console or the Amazon SageMaker Feature Store API to view your f
 
 1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md).
 
-1. Choose the **Home** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) in the left navigation pane.
+1. Choose the **Home** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) in the left navigation pane.
 
 1. Choose **Data**.
 
@@ -275,7 +275,7 @@ You can use the console or the Amazon SageMaker Feature Store API to update a fe
 
 1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md).
 
-1. Choose the **Home** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) in the left navigation pane.
+1. Choose the **Home** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) in the left navigation pane.
 
 1. Choose **Data**.
 
@@ -326,7 +326,7 @@ You can use the console to view your pipeline executions. The instructions for u
 
 1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md).
 
-1. Choose the **Home** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) in the left navigation pane.
+1. Choose the **Home** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) in the left navigation pane.
 
 1. Choose **Data**.
 
@@ -377,7 +377,7 @@ You can use the console to view the lineage of a feature group. The instructions
 
 1. Open Studio Classic by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md).
 
-1. Choose the **Home** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) in the left navigation pane.
+1. Choose the **Home** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) in the left navigation pane.
 
 1. Choose **Data**.
 

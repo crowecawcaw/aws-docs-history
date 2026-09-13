@@ -29,7 +29,7 @@ In the report, plots and and recommendations are provided for informational purp
 
 At the beginning of the report, Debugger provides a summary of your training job. In this section, you can overview the time durations and timestamps at different training phases.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-summary.gif)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-summary.gif)
 
 
 The summary table contains the following information:
@@ -50,7 +50,7 @@ The summary table contains the following information:
 
 In this section, you can see an overview of system utilization statistics.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-system-usage.png)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-system-usage.png)
 
 
 The Debugger profiling report includes the following information:
@@ -68,7 +68,7 @@ The Debugger profiling report includes the following information:
 
 In this section, the following pie charts show the breakdown of framework operations on CPUs and GPUs.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-framework-metrics-summary.gif)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-framework-metrics-summary.gif)
 
 
 Each of the pie charts analyzes the collected framework metrics in various aspects as follows:
@@ -82,7 +82,7 @@ Each of the pie charts analyzes the collected framework metrics in various aspec
 
 This section provides information of the CPU operators in detail. The table shows the percentage of the time and the absolute cumulative time spent on the most frequently called CPU operators.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-framework-cpu-operators.gif)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-framework-cpu-operators.gif)
 
 
 ### Overview: GPU operators
@@ -90,7 +90,7 @@ This section provides information of the CPU operators in detail. The table show
 
 This section provides information of the GPU operators in detail. The table shows the percentage of the time and the absolute cumulative time spent on the most frequently called GPU operators.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-framework-gpu-operators.gif)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-framework-gpu-operators.gif)
 
 
 ## Rules summary
@@ -98,7 +98,7 @@ This section provides information of the GPU operators in detail. The table show
 
 In this section, Debugger aggregates all of the rule evaluation results, analysis, rule descriptions, and suggestions.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-rules-summary.png)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-rules-summary.png)
 
 
 ## Analyzing the training loop – step durations
@@ -106,7 +106,7 @@ In this section, Debugger aggregates all of the rule evaluation results, analysi
 
 In this section, you can find a detailed statistics of step durations on each GPU core of each node. Debugger evaluates mean, maximum, p99, p95, p50, and minimum values of step durations, and evaluate step outliers. The following histogram shows the step durations captured on different worker nodes and GPUs. You can enable or disable the histogram of each worker by choosing the legends on the right side. You can check if there is a particular GPU that's causing step duration outliers.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-framework-step-duration.gif)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-framework-step-duration.gif)
 
 
 ## GPU utilization analysis
@@ -119,7 +119,7 @@ This section shows the detailed statistics about GPU core utilization based on L
 
 This section shows the detailed statistics of total CPU utilization, individual GPU utilizations, and GPU memory footprints. The BatchSize rule determines if you need to change the batch size to better utilize the GPUs. You can check whether the batch size is too small resulting in underutilization or too large causing overutilization and out of memory issues. In the plot, the boxes show the p25 and p75 percentile ranges (filled with dark purple and bright yellow respectively) from the median (p50), and the error bars show the 5th percentile for the lower bound and 95th percentile for the upper bound.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-batch-size.png)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-batch-size.png)
 
 
 ## CPU bottlenecks
@@ -127,7 +127,7 @@ This section shows the detailed statistics of total CPU utilization, individual 
 
 In this section, you can drill down into the CPU bottlenecks that the CPUBottleneck rule detected from your training job. The rule checks if the CPU utilization is above `cpu_threshold` (90% by default) and also if the GPU utilization is below `gpu_threshold` (10% by default).
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-cpu-bottlenecks.png)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-cpu-bottlenecks.png)
 
 
 The pie charts show the following information:
@@ -147,7 +147,7 @@ In this section, you can find a summary of I/O bottlenecks. The rule evaluates t
 
 In this section, you can identify workload balancing issue across GPUs. 
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-workload-balancing.gif)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-workload-balancing.gif)
 
 
 ## GPU memory analysis
@@ -155,4 +155,4 @@ In this section, you can identify workload balancing issue across GPUs.
 
 In this section, you can analyze the GPU memory utilization collected by the GPUMemoryIncrease rule. In the plot, the boxes show the p25 and p75 percentile ranges (filled with dark purple and bright yellow respectively) from the median (p50), and the error bars show the 5th percentile for the lower bound and 95th percentile for the upper bound.
 
-![An example of Debugger profiling report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-gpu-memory-utilization.png)
+![An example of Debugger profiling report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-profiling-report-gpu-memory-utilization.png)

@@ -229,7 +229,7 @@ Use the following procedure to navigate to a feature group that you've created a
 
 1. Select the feature group that you're publishing.
 
-1. Choose the ![Three dots next to the feature group.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sm-assets-publish-icon.png) icon.
+1. Choose the ![Three dots next to the feature group.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sm-assets-publish-icon.png) icon.
 
 1. 
    + Select **Publish to asset catalog** to publish to the asset catalog.
@@ -246,7 +246,7 @@ Use the following procedure to navigate to a model group that you've created and
 
 1. Select the model group that you're publishing.
 
-1. Choose the ![Three dots next to the model group.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sm-assets-publish-icon.png) icon.
+1. Choose the ![Three dots next to the model group.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sm-assets-publish-icon.png) icon.
 
 1. 
    + Select **Publish to asset catalog** to publish to the asset catalog.

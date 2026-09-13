@@ -16,7 +16,7 @@ You can open Studio Classic Launcher in any of the following ways:
 + If the SageMaker AI file browser is open, choose the plus (**\+**) sign in the Studio Classic file browser menu.
 + In the **Quick actions** section of the **Home** tab, choose **Open Launcher**. The Launcher opens in a new tab. The **Quick actions** section is visible by default but can be toggled off. Choose **Customize Layout** to turn this section back on.
 
-![SageMaker Studio Classic launcher.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-new-launcher.png)
+![SageMaker Studio Classic launcher.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-new-launcher.png)
 
 
 The Launcher consists of the following two sections:
@@ -73,10 +73,10 @@ The following items are available:
   Opens a new tab that displays contextual help for functions in a Studio Classic notebook. To display the help, choose a function in an active notebook. To make it easier to see the help in context, drag the help tab so that it's adjacent to the notebook tab. To open the help tab from within a notebook, press `Ctrl + I`.
 
   The following screenshot shows the contextual help for the `Experiment.create` method.  
-![SageMaker Studio Classic contextual help.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-context-help.png)
+![SageMaker Studio Classic contextual help.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-context-help.png)
 + **System terminal**
 
   Opens a `bash` shell in the root folder for the user (as shown by the **Home** folder in the file browser).
 + **Text File** and **Markdown File**
 
-  Creates a file of the associated type in the folder that you have currently selected in the file browser. To view the file browser, in the left sidebar, choose the **File Browser** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)).
+  Creates a file of the associated type in the folder that you have currently selected in the file browser. To view the file browser, in the left sidebar, choose the **File Browser** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)).

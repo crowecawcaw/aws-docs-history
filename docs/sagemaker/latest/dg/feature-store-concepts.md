@@ -24,7 +24,7 @@ We list common terms used in Amazon SageMaker Feature Store, followed by example
 
 The following example diagram conceptualizes a few Feature Store concepts: 
 
- ![An example representation of a feature group using an example table as reference.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-feature-group-components.png) 
+ ![An example representation of a feature group using an example table as reference.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-feature-group-components.png) 
 
 The Feature Store contains your feature groups and a feature group contains your ML data. In the example diagram, the original feature group contains a data table that has three features (each describing a column) and two records (rows). 
 + A feature's definition describes the feature name and data type of the feature values that are associated with records. 
@@ -41,7 +41,7 @@ The online store acts as a real-time look-up of records and only keeps the most 
 
 In the following example diagram, the original online store contains a ML data table with one record. A record is ingested with the same record identifier name as the original record, and the ingested record has an earlier event time than the original record. As the updated online store only keeps the record with the latest event time, the updated online store contains the original record.
 
- ![An example showing how records are ingested in the online store.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-ingestion-online-store.png) 
+ ![An example showing how records are ingested in the online store.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-ingestion-online-store.png) 
 
 **Ingestion to the offline store example**
 
@@ -49,4 +49,4 @@ The offline store acts as a historical look-up of records and keeps all records.
 
 In the following example diagram, the original offline store contains a ML data table with one record. A record is ingested with the same record identifier name as the original record, and the ingested record has an event time earlier than the original record. As the updated offline store keeps all of the records, the updated offline store contains both records.
 
- ![An example showing how records are ingested in the offline store.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-ingestion-offline-store.png) 
+ ![An example showing how records are ingested in the offline store.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-ingestion-offline-store.png) 

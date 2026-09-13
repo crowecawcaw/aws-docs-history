@@ -265,7 +265,7 @@ The following is an example of a single line from a local SHAP values file, beau
 
 The SHAP analysis report provides a bar chart of a maximum of `10` top global SHAP values. The following chart example shows the SHAP values for the top `4` features.
 
-![Horizontal bar chart of global SHAP values calculated for target variable of the top four features.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/shap-chart.png)
+![Horizontal bar chart of global SHAP values calculated for target variable of the top four features.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/shap-chart.png)
 
 
 ## Computer vision (CV) explainability analysis
@@ -275,7 +275,7 @@ SageMaker Clarify computer vision explainability takes a dataset consisting of i
 
 The following example shows an input speed limit sign on the left and a heat map shows the magnitude of SHAP values on the right. These SHAP values were calculated by an image recognition Resnet-18 model that is trained to recognize [German traffic signs](https://benchmark.ini.rub.de/gtsrb_news.html). The German Traffic Sign Recognition Benchmark (GTSRB) dataset is provided in the paper [Man vs. computer: Benchmarking machine learning algorithms for traffic sign recognition](https://www.sciencedirect.com/science/article/abs/pii/S0893608012000457?via%3Dihub). In the example output, large positive values indicate that the super pixel has a strong positive correlation with the model prediction. Large negative values indicate that the super pixel has a strong negative correlation with the model prediction. The larger the absolute value of the SHAP value shown in the heat map, the stronger the relationship between the super pixel and model prediction.
 
-![Input image of speed limit sign and resulting heat map of SHAP values from a Resnet-18 model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/shap_speed-limit-70.png)
+![Input image of speed limit sign and resulting heat map of SHAP values from a Resnet-18 model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/shap_speed-limit-70.png)
 
 
 For more information, see the sample notebooks [Explaining Image Classification with SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/image_classification/explainability_image_classification.ipynb) and [Explaining object detection models with Amazon SageMaker Clarify](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-clarify/computer_vision/object_detection/object_detection_clarify.ipynb).
@@ -328,7 +328,7 @@ You can generate an analysis report containing a PDP chart for each feature. The
 
 The following is an example of PDP chart for the feature `Age`. In the example output, the PDP shows the number of feature values that are grouped into buckets. The number of buckets is determined by `grid_resolution`. The buckets of feature values are plotted against model predictions. In this example, the higher feature values have the same model prediction values.
 
-![Line chart showing how model predictions vary against feature_values for 10 unique grid points.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/pdp-chart.png)
+![Line chart showing how model predictions vary against feature_values for 10 unique grid points.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/pdp-chart.png)
 
 
 ## Asymmetric Shapley values

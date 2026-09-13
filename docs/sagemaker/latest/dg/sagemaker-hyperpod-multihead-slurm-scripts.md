@@ -64,7 +64,7 @@ If you are using API-driven configuration, the `provisioning_parameters.json` fi
 
 After you upload all the lifecycle scripts and the `provisioning_parameters.json` file, your Amazon S3 bucket should look like the following.
 
-![Image showing all the lifecycle scripts uploaded to the Amazon S3 bucket in the Amazon Simple Storage Service console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-lifecycle-scripts-s3.png)
+![Image showing all the lifecycle scripts uploaded to the Amazon S3 bucket in the Amazon Simple Storage Service console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-lifecycle-scripts-s3.png)
 
 
 For more information, see [Start with base lifecycle scripts provided by HyperPod](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-lifecycle-best-practices-slurm-slurm-base-config.html).

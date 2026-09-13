@@ -24,6 +24,6 @@ This returns the S3 output path for checkpoints configured while requesting the 
 1. Choose the link to the training job with checkpointing enabled to open **Job settings**.
 
 1. On the **Job settings** page of the training job, locate the **Checkpoint configuration** section.  
-![Checkpoint configuration section in the Job settings page of a training job.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/checkpoints_trainingjob.png)
+![Checkpoint configuration section in the Job settings page of a training job.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/checkpoints_trainingjob.png)
 
 1. Use the link to the S3 bucket to access the checkpoint files.

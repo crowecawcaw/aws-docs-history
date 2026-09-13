@@ -456,7 +456,7 @@ To decrypt the file and import to a Data Wrangler flow, you must add the SageMak
 
 The following screenshot shows a Studio Classic user role added as a key user. See [IAM Roles](https://console.aws.amazon.com/iam/home#/roles) to access users under the left panel to make this change.
 
-![The Key users section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/data-wrangler-kms.png)
+![The Key users section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/data-wrangler-kms.png)
 
 
 ### Amazon S3 customer managed key setup for Data Wrangler imported data storage

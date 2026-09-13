@@ -57,4 +57,4 @@ For clusters created before Jan 24, 2025, you must first update your cluster sof
    ```
 
 1. To troubleshoot your cluster creation issues, check the failure message from the cluster details page in your SageMaker AI console. You can also use CloudWatch logs to troubleshoot cluster creation issues. From the CloudWatch console, choose **Log groups**. Then, search `clusters` to see the list of log groups related to your cluster creation.  
-![Image showing Amazon SageMaker HyperPod cluster log groups in the CloudWatch console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-lifecycle-multihead-logs.png)
+![Image showing Amazon SageMaker HyperPod cluster log groups in the CloudWatch console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-lifecycle-multihead-logs.png)

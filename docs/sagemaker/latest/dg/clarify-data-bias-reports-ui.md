@@ -14,7 +14,7 @@ You specify attributes of interest, such as gender or age, and SageMaker Clarify
 
 To get started with Data Wrangler, see [Get Started with Data Wrangler](data-wrangler-getting-started.md).
 
-1. In Amazon SageMaker Studio Classic, from the **Home** (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) menu in the left panel, navigate to the **Data** node, then choose **Data Wrangler**. This opens the ** Data Wrangler landing page** in Studio Classic. 
+1. In Amazon SageMaker Studio Classic, from the **Home** (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) menu in the left panel, navigate to the **Data** node, then choose **Data Wrangler**. This opens the ** Data Wrangler landing page** in Studio Classic. 
 
 1. Choose the **\+ Import data** button to create a new flow. 
 
@@ -29,10 +29,10 @@ To get started with Data Wrangler, see [Get Started with Data Wrangler](data-wra
 1. Configure the bias report by providing a report **Name**, the column to predict and whether it is a value or threshold, the column to analyze for bias (the facet) and whether it is a value or threshold. 
 
 1. Continue configuring the bias report by choosing the bias metrics.  
-![Choose the bias metric.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify-data-wrangler-configure-bias-metrics.png)
+![Choose the bias metric.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify-data-wrangler-configure-bias-metrics.png)
 
 1. Choose **Check for bias** to generate and view the bias report. Scroll down to view all of the reports.   
-![Generate and view the bias report.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify-data-wrangler-create-bias-report.png)
+![Generate and view the bias report.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify-data-wrangler-create-bias-report.png)
 
 1. Choose the caret to the right of each bias metric description to see documentation that can help you interpret the significance of the metric values. 
 

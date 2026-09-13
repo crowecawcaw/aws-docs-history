@@ -78,7 +78,7 @@ print(f"Training data: {train_data_location}")
 ## Create a training job for instruction-based fine-tuning
 <a name="jumpstart-foundation-models-fine-tuning-domain-adaptation-train"></a>
 
-After your data is uploaded to Amazon S3, you can fine-tune and deploy your JumpStart foundation model. To fine-tune your model in Studio, see [Fine-tune a model in Studio](jumpstart-foundation-models-use-studio-updated-fine-tune.md). To fine-tune your model using the SageMaker Python SDK, see [Fine-tune publicly available foundation models with the `JumpStartEstimator` class](jumpstart-foundation-models-use-python-sdk-estimator-class.md).
+After your data is uploaded to Amazon S3, you can fine-tune and deploy your JumpStart foundation model. To fine-tune your model in Studio, see [Fine-tune a model in Studio](jumpstart-foundation-models-use-studio-updated-fine-tune.md). To fine-tune your model using the SageMaker Python SDK, see [Fine-tune publicly available foundation models with the `ModelTrainer` class](jumpstart-foundation-models-use-python-sdk-estimator-class.md).
 
 ## Example notebooks
 <a name="jumpstart-foundation-models-fine-tuning-domain-adaptation-examples"></a>

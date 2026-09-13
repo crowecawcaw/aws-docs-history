@@ -69,7 +69,7 @@ The library takes care of calculating the number of model replicas (also called 
 
 For example, if you set `"pipeline_parallel_degree": 2` and `"processes_per_host": 8` to use an ML instance with eight GPU workers such as `ml.p3.16xlarge`, the library automatically sets up the distributed model across the GPUs and four-way data parallelism. The following image illustrates how a model is distributed across the eight GPUs achieving four-way data parallelism and two-way pipeline parallelism. Each model replica, where we define it as a *pipeline parallel group* and label it as `PP_GROUP`, is partitioned across two GPUs. Each partition of the model is assigned to four GPUs, where the four partition replicas are in a *data parallel group* and labeled as `DP_GROUP`. Without tensor parallelism, the pipeline parallel group is essentially the model parallel group.
 
-![How a model is distributed across the eight GPUs achieving four-way data parallelism and two-way pipeline parallelism.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/smdmp-pipeline-parallel-only.png)
+![How a model is distributed across the eight GPUs achieving four-way data parallelism and two-way pipeline parallelism.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/smdmp-pipeline-parallel-only.png)
 
 
 To dive deep into pipeline parallelism, see [Core Features of the SageMaker Model Parallelism Library](model-parallel-core-features.md). 
@@ -81,7 +81,7 @@ To get started with running your model using pipeline parallelism, see [Run a Sa
 
 *Tensor parallelism* splits individual layers, or `nn.Modules`, across devices, to be run in parallel. The following figure shows the simplest example of how the library splits a model with four layers to achieve two-way tensor parallelism (`"tensor_parallel_degree": 2`). The layers of each model replica are bisected and distributed into two GPUs. In this example case, the model parallel configuration also includes `"pipeline_parallel_degree": 1` and `"ddp": True` (uses PyTorch DistributedDataParallel package in the background), so the degree of data parallelism becomes eight. The library manages communication across the tensor-distributed model replicas.
 
-![The simplest example of how the library splits a model with four layers to achieve two-way tensor parallelism ("tensor_parallel_degree": 2).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/smdmp-tensor-parallel-only.png)
+![The simplest example of how the library splits a model with four layers to achieve two-way tensor parallelism ("tensor_parallel_degree": 2).](https://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/smdmp-tensor-parallel-only.png)
 
 
 The usefulness of this feature is in the fact that you can select specific layers or a subset of layers to apply tensor parallelism. To dive deep into tensor parallelism and other memory-saving features for PyTorch, and to learn how to set a combination of pipeline and tensor parallelism, see [Tensor Parallelism](model-parallel-extended-features-pytorch-tensor-parallelism.md).
@@ -91,7 +91,7 @@ The usefulness of this feature is in the fact that you can select specific layer
 
 To understand how the library performs *optimizer state sharding*, consider a simple example model with four layers. The key idea in optimizing state sharding is you don't need to replicate your optimizer state in all of your GPUs. Instead, a single replica of the optimizer state is sharded across data-parallel ranks, with no redundancy across devices. For example, GPU 0 holds the optimizer state for layer one, the next GPU 1 holds the optimizer state for L2, and so on. The following animated figure shows a backward propagation with the optimizer state sharding technique. At the end of the backward propagation, there's compute and network time for the `optimizer apply` (OA) operation to update optimizer states and the `all-gather` (AG) operation to update the model parameters for the next iteration. Most importantly, the `reduce` operation can overlap with the compute on GPU 0, resulting in a more memory-efficient and faster backward propagation. In the current implementation, AG and OA operations do not overlap with `compute`. It can result in an extended computation during the AG operation, so there might be a tradeoff. 
 
-![A backward propagation with the optimizer state sharding technique.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/smdmp-optimizer-state-sharding.gif)
+![A backward propagation with the optimizer state sharding technique.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/smdmp-optimizer-state-sharding.gif)
 
 
 For more information about how to use this feature, see [Optimizer State Sharding](https://docs.aws.amazon.com/sagemaker/latest/dg/model-parallel-extended-features-pytorch-optimizer-state-sharding.html).

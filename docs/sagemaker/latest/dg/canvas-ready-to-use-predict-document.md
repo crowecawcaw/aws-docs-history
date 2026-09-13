@@ -55,7 +55,7 @@ The following information describes the results for each type of solution:
 
 The following screenshot shows the results for a single prediction using the document analysis solution.
 
-![Screenshot of the results of a single prediction with the document analysis Ready-to-use model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-ready-to-use/ai-solutions-document-analysis.png)
+![Screenshot of the results of a single prediction with the document analysis Ready-to-use model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-ready-to-use/ai-solutions-document-analysis.png)
 
 
 ## Batch predictions
@@ -75,7 +75,7 @@ To make batch predictions for Ready-to-use models that accept document data, do 
 
 1. (Optional) If your use case is Document analysis, another dialog box called **Select features to include in batch prediction** appears. You can select **Forms**, **Tables**, and **Signatures** to group the results by those features. Then, choose **Generate predictions**.
 
-After the prediction job finishes running, on the **Run predictions** page, you see an output dataset listed under **Predictions**. This dataset contains your results, and if you select the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), you can choose **View prediction results** to preview the analysis of your document data.
+After the prediction job finishes running, on the **Run predictions** page, you see an output dataset listed under **Predictions**. This dataset contains your results, and if you select the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), you can choose **View prediction results** to preview the analysis of your document data.
 
 The following information describes the results for each type of solution:
 + For expense analysis, the results are categorized into **Summary fields**, which include fields such as the total on a receipt, and **Line item fields**, which include fields such as individual items on a receipt. The identified fields are highlighted on the document image in the output.

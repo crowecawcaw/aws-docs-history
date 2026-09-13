@@ -80,7 +80,7 @@ MLflow Apps are available in the following AWS Regions:
 
 An MLflow Tracking Server has three main components: compute, backend metadata storage, and artifact storage. The compute that hosts the tracking server and the backend metadata storage are securely hosted in the SageMaker AI service account. The artifact storage lives in an Amazon S3 bucket in your own AWS account.
 
-![A diagram showing the compute and metadata store for an MLflow Tracking Server.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-diagram.png)
+![A diagram showing the compute and metadata store for an MLflow Tracking Server.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-diagram.png)
 
 
 A tracking server has an ARN. You can use this ARN to connect the MLflow SDK to your Tracking Server and start logging your training runs to MLflow.
@@ -158,6 +158,70 @@ The latest features, such as new UI elements and API functionality, are in the m
 ### AWS CloudTrail logs
 <a name="mlflow-create-tracking-server-cloudtrail"></a>
 
+With AWS CloudTrail, you can automatically log activity for SageMaker AI MLflow. The API calls that CloudTrail logs depend on whether you use an MLflow App or an MLflow Tracking Server. Choose the tab that matches your setup.
+
+------
+#### [ MLflow App ]
+
+AWS CloudTrail automatically logs the following MLflow App control plane API calls as management events:
++ CreateMlflowApp
++ DescribeMlflowApp
++ UpdateMlflowApp
++ DeleteMlflowApp
++ ListMlflowApps
++ CreatePresignedMlflowAppUrl
+
+Activity on the MLflow App data plane—the MLflow REST API calls that your clients make to track experiments, runs, and models—is logged as CloudTrail *data events*. Unlike management events, data events are not logged by default. To record them, add an advanced event selector to your trail or event data store that matches the resource type `AWS::SageMaker::MlflowApp`. For more information, see [Logging data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide*.
+
+All MLflow App data plane calls are recorded under the single event name `CallMlflowApp`, with an event source of `sagemaker.amazonaws.com`. The specific MLflow operation is not the event name. Instead, CloudTrail identifies it by the `resourcePath` and `httpMethod` in `requestParameters`. For example, a `search_experiments` call from the MLflow SDK has a `resourcePath` of `/prod/api/2.0/mlflow/experiments/search`. The leading `/prod` is the API stage prefix. The request body and response contents are not logged.
+
+The following is an example `CallMlflowApp` data event for a `search_experiments` call, with account-specific values redacted:
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:example-user",
+        "arn": "arn:aws:sts::111122223333:assumed-role/ExampleRole/example-user",
+        "accountId": "111122223333"
+    },
+    "eventTime": "2026-09-08T16:54:15Z",
+    "eventSource": "sagemaker.amazonaws.com",
+    "eventName": "CallMlflowApp",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "192.0.2.1",
+    "userAgent": "mlflow-python-client/3.13.0",
+    "requestParameters": {
+        "appAccessMode": "SDK",
+        "x-sm-mlflow-app-arn": "arn:aws:sagemaker:us-east-1:111122223333:mlflow-app/app-EXAMPLE12345",
+        "queryParameters": {},
+        "resourcePath": "/prod/api/2.0/mlflow/experiments/search",
+        "Host": "example.execute-api.us-east-1.amazonaws.com",
+        "httpMethod": "POST",
+        "X-MLflow-Client-Version": "3.13.0"
+    },
+    "responseElements": null,
+    "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::SageMaker::MlflowApp",
+            "ARN": "arn:aws:sagemaker:us-east-1:111122223333:mlflow-app/app-EXAMPLE12345"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Data"
+}
+```
+
+------
+#### [ MLflow Tracking Server ]
+
 AWS CloudTrail automatically logs activity related to your MLflow Tracking Server. The following control plane API calls are logged in CloudTrail:
 + CreateMlflowTrackingServer
 + DescribeMlflowTrackingServer
@@ -222,6 +286,8 @@ AWS CloudTrail also automatically logs activity related to your MLflow data plan
 + ListLoggedModelArtifacts
 + LogLoggedModelParams
 + LogOutputs
+
+------
 
 For more information about CloudTrail, see the *[AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)*.
 

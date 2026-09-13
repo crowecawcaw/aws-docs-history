@@ -10,7 +10,7 @@ Ground Truth provides workers with a web portal and tools to complete your 3D po
 
 The following is a GIF of the 3D point cloud semantic segmentation worker task interface. If you provide camera data for sensor fusion, images are matched with scenes in the point cloud frame. Workers can paint objects in either the 3D point cloud or the 2D image, and the paint appears in the corresponding location in the other medium. These images appear in the worker portal as shown in the following GIF. 
 
-![Gif showing how workers can use the 3D point cloud and 2D image together to paint objects.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_paint_sf.gif)
+![Gif showing how workers can use the 3D point cloud and 2D image together to paint objects.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_paint_sf.gif)
 
 
 Worker can navigate in the 3D scene using their keyboard and mouse. They can:
@@ -20,12 +20,12 @@ Worker can navigate in the 3D scene using their keyboard and mouse. They can:
 
 The following video demonstrates movements around the 3D point cloud. Workers can hide and re-expand all side views and menus. In this GIF, the side-views and menus have been collapsed. 
 
-![Gif showing how workers can move around the 3D point cloud.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_nav_worker_portal.gif)
+![Gif showing how workers can move around the 3D point cloud.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_nav_worker_portal.gif)
 
 
 The following GIF demonstrates how a worker can label multiple objects quickly, refine painted objects using the Unpaint option and then view only points that have been painted. 
 
-![Gif showing how a worker can label multiple objects.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss-view-options.gif)
+![Gif showing how a worker can label multiple objects.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss-view-options.gif)
 
 
 Additional view options and features are available. See the [worker instruction page](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-worker-instructions-semantic-segmentation.html) for a comprehensive overview of the Worker UI. 

@@ -37,7 +37,7 @@ With access set up, JupyterLab users can:
 + Run SQL statements from JupyterLab notebook cells.
 + Retrieve the results of SQL queries as pandas DataFrames for further processing, visualization, and other machine learning tasks.
 
-You can access the extension by choosing the SQL extension icon (![Icon of the SQL extension feature in JupyterLab.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-icon.png)) in the left navigation pane of your JupyterLab application in Studio. Hovering over the icon displays its *Data Discovery* tool tip.
+You can access the extension by choosing the SQL extension icon (![Icon of the SQL extension feature in JupyterLab.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-icon.png)) in the left navigation pane of your JupyterLab application in Studio. Hovering over the icon displays its *Data Discovery* tool tip.
 
 **Important**  
 The JupyterLab image in SageMaker Studio contains the SQL extension by default, starting with [SageMaker AI Distribution](https://github.com/aws/sagemaker-distribution) 1.6. The extension works with Python and SparkMagic kernels only.

@@ -76,10 +76,10 @@ A *log stream* is a sequence of log events that share the same source. Each sepa
 1. In the navigation page, choose **Logs**.
 
 1. In **Log Groups**. filter on **MyInferencePipelinesEndpoint**:   
-![The CloudWatch log groups filtered for the inference pipeline endpoint.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-log-group-filter.png)
+![The CloudWatch log groups filtered for the inference pipeline endpoint.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-log-group-filter.png)
 
 1. To see the log streams, on the CloudWatch **Log Groups** page, choose **MyInferencePipelinesEndpoint**, and then **Search Log Group**.  
-![The CloudWatch log stream for the inference pipeline.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-log-streams-2.png)
+![The CloudWatch log stream for the inference pipeline.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-log-streams-2.png)
 
 For a list of the logs that SageMaker AI publishes, see [Inference Pipeline Logs and Metrics](inference-pipeline-logs-metrics.md).
 

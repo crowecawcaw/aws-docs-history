@@ -77,7 +77,7 @@ For more information about training by using [Amazon SageMaker Python SDK](https
 
 If you choose the **Your own algorithm container in ECR** option as your algorithm source in the SageMaker AI console when you create a training job, add the metric definitions in the **Metrics** section. The following screenshot shows how it should look after you add the example metric names and the corresponding regular expressions.
 
-![Example Algorithm options form in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-metrics-using-smconsole.png)
+![Example Algorithm options form in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-metrics-using-smconsole.png)
 
 
 ## Define Metrics Using the Low-level SageMaker AI API

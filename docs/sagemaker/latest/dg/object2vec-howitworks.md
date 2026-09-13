@@ -27,7 +27,7 @@ During training, the algorithm accepts pairs of objects and their relationship l
 
 Pairs of objects are passed through independent, customizable encoders that are compatible with the input types of corresponding objects. The encoders convert each object in a pair into a fixed-length embedding vector of equal length. The pair of vectors are passed to a comparator operator, which assembles the vectors into a single vector using the value specified in the he `comparator_list` hyperparameter. The assembled vector then passes through a multilayer perceptron (MLP) layer, which produces an output that the loss function compares with the labels that you provided. This comparison evaluates the strength of the relationship between the objects in the pair as predicted by the model. The following figure shows this workflow.
 
-![Architecture of the Object2Vec Algorithm from Data Inputs to Scores.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/object2vec-training-image.png)
+![Architecture of the Object2Vec Algorithm from Data Inputs to Scores.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/object2vec-training-image.png)
 
 
 ## Step 3: Produce Inferences

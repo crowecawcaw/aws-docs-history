@@ -39,7 +39,7 @@ For a blog post that shows how to architect and build a complete machine learnin
 + Are there unequal effects across users?
 + Is the model deployed on a population for which it was not trained or evaluated?
 
-![Best practices for the process of evaluating fairness and model explainability.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify-best-practices-image.png)
+![Best practices for the process of evaluating fairness and model explainability.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify-best-practices-image.png)
 
 
 ### Guide to the SageMaker AI explanations and bias documentation
@@ -61,7 +61,7 @@ You can use SageMaker Clarify to analyze your datasets and models for explainabi
 
 The following graphic shows how a SageMaker Clarify processing job interacts with your input data and optionally, with a customer model. This interaction depends on the specific type of analysis being performed. The SageMaker Clarify processing container obtains the input dataset and configuration for analysis from an S3 bucket. For certain analysis types, including feature analysis, the SageMaker Clarify processing container must send requests to the model container. Then it retrieves the model predictions from the response that the model container sends. After that, the SageMaker Clarify processing container computes and saves analysis results to the S3 bucket.
 
-![SageMaker Clarify can analyze your data or a customer model for explainability and bias.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/clarify-processing-job.png)
+![SageMaker Clarify can analyze your data or a customer model for explainability and bias.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/clarify-processing-job.png)
 
 
 You can run a SageMaker Clarify processing job at multiple stages in the lifecycle of the machine learning workflow. SageMaker Clarify can help you compute the following analysis types:

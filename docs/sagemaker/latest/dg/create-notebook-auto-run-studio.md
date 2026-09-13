@@ -16,7 +16,7 @@ To schedule a notebook job, complete the following steps.
 
 1. Open the **Create Job** form.
 
-   In local JupyterLab environments, choose the **Create a notebook job** icon (![Notebook Jobs scheduling icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/notebook-schedule.png)) in the taskbar. If you don't see the icon, follow the instructions in [Installation guide](scheduled-notebook-installation.md) to install it.
+   In local JupyterLab environments, choose the **Create a notebook job** icon (![Notebook Jobs scheduling icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/notebook-schedule.png)) in the taskbar. If you don't see the icon, follow the instructions in [Installation guide](scheduled-notebook-installation.md) to install it.
 
    In Studio, open the form in one of two ways:
    + Using the **File Browser**
@@ -25,7 +25,7 @@ To schedule a notebook job, complete the following steps.
 
      1. Choose **Create Notebook Job**.
    + Within the Studio notebook
-     + Inside the Studio notebook you want to run as a scheduled job, choose the **Create a notebook job** icon (![Notebook Jobs scheduling icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/notebook-schedule.png)) in the Studio toolbar.
+     + Inside the Studio notebook you want to run as a scheduled job, choose the **Create a notebook job** icon (![Notebook Jobs scheduling icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/notebook-schedule.png)) in the Studio toolbar.
 
 1. Complete the popup form. The form displays the following fields:
    + **Job name**: A descriptive name you specify for your job.

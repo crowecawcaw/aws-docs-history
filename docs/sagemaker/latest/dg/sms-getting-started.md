@@ -10,7 +10,7 @@ To get started using Amazon SageMaker Ground Truth, follow the instructions in t
 
 This video shows you how to setup and use Amazon SageMaker Ground Truth. (Length: 9:37)
 
-[![AWS Videos](http://img.youtube.com/vi/_FPI6KjDlCI/0.jpg)](http://www.youtube.com/watch?v=_FPI6KjDlCI)
+[![AWS Videos](https://img.youtube.com/vi/_FPI6KjDlCI/0.jpg)](https://www.youtube.com/watch?v=_FPI6KjDlCI)
 
 
 If you want to create a custom labeling workflow, see [Custom labeling workflows](sms-custom-templates.md) for instructions.
@@ -116,7 +116,7 @@ To learn about the other workforce options you can use with Ground Truth, see [W
 
 If you add yourself to the private workforce, you will receive an email that looks similar to the following. **Amazon, Inc.** is replaced by the organization you enter in step 3 of the preceding procedure. Select the link in the email to log in using the temporary password provided. If prompted, change your password. When you successfully log in, you see the worker portal where your labeling tasks appear.
 
-![Example email invitation to work on a labeling project.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/worker_portal_invite.png)
+![Example email invitation to work on a labeling project.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/worker_portal_invite.png)
 
 
 **Tip**  

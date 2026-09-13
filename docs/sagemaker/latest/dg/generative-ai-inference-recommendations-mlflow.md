@@ -141,9 +141,9 @@ After the job reaches the `Completed` status, open the MLflow UI from the MLflow
 
 On the **Experiments** page, select the experiment that you specified in `MlflowExperimentName`.
 
-![The MLflow UI Experiments page showing a list of experiments with their names and creation times.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/inference-recommendations-mlflow-experiments.png)
+![The MLflow UI Experiments page showing a list of experiments with their names and creation times.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/inference-recommendations-mlflow-experiments.png)
 
 
 The experiment's **Runs** view shows a top-level run that contains a per-job run, which expands into child runs for each instance type, deployment configuration, and concurrency level. Select a run to view its parameters, metrics, and artifacts.
 
-![The MLflow UI Runs view showing a top-level run that expands into nested child runs for the per-job, instance type, image type, and concurrency levels.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/inference-recommendations-mlflow-runs.png)
+![The MLflow UI Runs view showing a top-level run that expands into nested child runs for the per-job, instance type, image type, and concurrency levels.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/inference-recommendations-mlflow-runs.png)

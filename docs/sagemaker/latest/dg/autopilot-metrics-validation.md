@@ -96,7 +96,7 @@ K-fold splitting is a method that separates an input training dataset into multi
 
 The following image depicts k-fold splitting with k = 4 folds. Each fold is represented as a row. The dark-toned boxes represent the parts of the data used in training. The remaining light-toned boxes indicate the validation datasets. 
 
-![K-fold splitting with 4-folds depicted as boxes: dark for data used; light for validation datasets.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-metrics-kfold-splits.png)
+![K-fold splitting with 4-folds depicted as boxes: dark for data used; light for validation datasets.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-metrics-kfold-splits.png)
 
 
 Autopilot uses k-fold cross-validation for both hyperparameter optimization (HPO) mode and ensembling mode.
@@ -131,7 +131,7 @@ The following image depicts k-fold validation with `k` = 4 folds. Each fold is r
 
 In the upper part of the image, in each fold, the first base model makes predictions on the validation dataset after training on the training datasets. At each subsequent fold, the datasets change roles. A dataset that was previously used for training is now used for validation, and this also applies in reverse. At the end of `k` folds, all of the predictions are concatenated to form a single set of predictions called an out-of-fold (OOF) prediction. This process is repeated for each `n` base models.
 
-![k-fold validation: Four rows of boxes depict 4-folds that generate a row of OOF predictions.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-metrics-kfold.PNG)
+![k-fold validation: Four rows of boxes depict 4-folds that generate a row of OOF predictions.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-metrics-kfold.PNG)
 
 
 The OOF predictions for each base model are then used as features to train a stacking model. The stacking model learns the importance weights for each base model. These weights are used to combine the OOF predictions to form the final prediction. Performance on the validation dataset determines which base or stacking model is the best, and this model is returned as the final model.

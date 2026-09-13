@@ -16,7 +16,7 @@ The model preview also provides you with the **Column Impact** scores, which can
 
 The following screenshot shows a model preview in the Canvas application.
 
-![Screenshot of the Build tab for a model in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-build/canvas-build-preview-model.png)
+![Screenshot of the Build tab for a model in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-build/canvas-build-preview-model.png)
 
 
 Amazon SageMaker Canvas automatically handles missing values in your dataset while it builds the model. It infers the missing values by using adjacent values that are present in the dataset.

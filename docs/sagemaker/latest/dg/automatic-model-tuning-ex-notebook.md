@@ -16,7 +16,7 @@ Create a Jupyter notebook that contains a pre-installed environment with the def
 1. Open a running notebook instance, by choosing **Open** next to its name. The Jupyter notebook server page appears:
 
      
-![Example Jupyter notebook server page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/notebook-dashboard.png)
+![Example Jupyter notebook server page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/notebook-dashboard.png)
 
 1. To create a notebook, choose **Files**, **New**, and **conda\_python3**. .
 

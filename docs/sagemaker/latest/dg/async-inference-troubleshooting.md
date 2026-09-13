@@ -12,7 +12,7 @@ You can use the following methods to find the instance count behind your endpoin
 + You can use the SageMaker AI [DescribeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html) API to describe the number of instances behind the endpoint at any given point in time.
 + You can get the instance count by viewing your Amazon CloudWatch metrics. View the [metrics for your endpoint instances](https://docs.aws.amazon.com/sagemaker/latest/dg/monitoring-cloudwatch.html#cloudwatch-metrics-jobs), such as `CPUUtilization` or `MemoryUtilization` and check the sample count statistic for a 1 minute period. The count should be equal to the number of active instances. The following screenshot shows the `CPUUtilization` metric graphed in the CloudWatch console, where the **Statistic** is set to `Sample count`, the **Period** is set to `1 minute`, and the resulting count is 5.
 
-![CloudWatch console showing the graph of the count of active instances for an endpoint.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/cloudwatch-sample-count.png)
+![CloudWatch console showing the graph of the count of active instances for an endpoint.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/cloudwatch-sample-count.png)
 
 
 ## Q: What are the common tunable environment variables for SageMaker AI containers?

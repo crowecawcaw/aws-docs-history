@@ -9,7 +9,7 @@ You can remove an evaluation job, created externally or with SageMaker AI, from 
 
 1. Choose the **Evaluate** tab.
 
-1. Choose the **Gear** ( ![Settings icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) icon under the **Train** tab.
+1. Choose the **Gear** ( ![Settings icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) icon under the **Train** tab.
 
 1. (Optional) To find your evaluation job from the list, enter a search term in the search box to narrow the list of choices.
 

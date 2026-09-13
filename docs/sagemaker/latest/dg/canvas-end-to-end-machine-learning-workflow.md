@@ -142,7 +142,7 @@ Use the following procedure to create a Data Quality and Insights report on an e
 
 The following is an image from the insights report:
 
-![Duplicate rows, Skewed target, and Very low quick model score are listed as the insights.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/canvas-tutorial-dqi-insights.png)
+![Duplicate rows, Skewed target, and Very low quick model score are listed as the insights.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/canvas-tutorial-dqi-insights.png)
 
 
 It shows the following issues:

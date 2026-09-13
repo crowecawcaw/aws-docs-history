@@ -6,20 +6,20 @@
 You can create a SageMaker Edge Manager packaging job using the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/). Before continuing, make sure you have satisfied the [Complete prerequisites](edge-packaging-job-prerequisites.md).
 
 1. In the SageMaker AI console, choose **Edge Inference** and then choose **Create edge packaging jobs**, as shown in the following image.  
-![Location of Create edge packaging jobs in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/pre-edge-packaging-button-edited.png)
+![Location of Create edge packaging jobs in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/pre-edge-packaging-button-edited.png)
 
 1. On the **Job properties** page, enter a name for your packaging job under **Edge packaging job name**. Note that Edge Manager packaging job names are case-sensitive. Name your model and give it a version: enter this under **Model name** and **Model version**, respectively.
 
 1. Next, select an **IAM role**. You can chose a role or let AWS create a role for you. You can optionally specify a **resource key ARN** and **job tags**.
 
 1. Choose **Next**.   
-![Example of the Job properties section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-edge-packaging-job-filled.png)
+![Example of the Job properties section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-edge-packaging-job-filled.png)
 
 1. Specify the name of the compilation job you used when compiling your model with SageMaker Neo in the **Compilation job name** field. Choose **Next**.  
-![Example of the Model source section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-edge-packaging-job-model-source-filled.png)
+![Example of the Model source section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-edge-packaging-job-model-source-filled.png)
 
 1. On the **Output configuration** page, enter the Amazon S3 bucket URI in which you want to store the output of the packaging job.  
-![Example Output configuration page in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-device-fleet-output-filled.png)
+![Example Output configuration page in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-device-fleet-output-filled.png)
 
    The **Status** column on the **Edge packaging** jobs page should read **IN PROGRESS**. Once the packaging job is complete, the status updates to **COMPLETED**.
 

@@ -265,7 +265,7 @@ You can annotate your local ML code with an @remote decorator inside your prefer
      1. Choose **Conda** from the down arrow under **New environment using**.
 
      1. In the field for **Python version** use the down arrow to select a version of Python that is 3.7 or above. You can go up to 3.10.x from the list.  
-![Python new environment selected as Conda, with the Python version selected at 3.10.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-pycharm-ide.png)
+![Python new environment selected as Conda, with the Python version selected at 3.10.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-pycharm-ide.png)
    + If you have Anaconda installed, you can set up a virtual environment using `conda`, as follows:
      + Open an Anaconda prompt terminal interface.
      + Create and activate a new `conda` environment using a Python version of 3.7 or higher, up to 3.10x. The following code example shows how to create a `conda` environment using Python version 3.10.

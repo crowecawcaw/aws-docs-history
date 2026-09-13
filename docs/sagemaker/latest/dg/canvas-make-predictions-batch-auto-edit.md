@@ -13,7 +13,7 @@ To edit your auto update configuration, do the following:
 
 1. Under **Predictions**, choose the **Configuration** tab.
 
-1. Find your configuration and choose the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
+1. Find your configuration and choose the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
 
 1. From the dropdown menu, choose **Update configuration**.
 

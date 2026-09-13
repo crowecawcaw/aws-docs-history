@@ -34,7 +34,7 @@ Studio Lab uses conda environments to encapsulate the software packages that are
 
 To view the environments in Studio Lab you can use a terminal or Jupyter notebook. The following command will be for a Studio Lab terminal. If you wish to run the corresponding commands in a Jupyter notebook, see [Manage your environment](#studio-lab-use-manage).
 
-Open the Studio Lab terminal by opening the **File Browser** panel (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)), choose the plus (**\+**) sign on the menu at the top of the file browser to open the **Launcher**, then choose **Terminal**. From the Studio Lab terminal, list the conda environments by running the following.
+Open the Studio Lab terminal by opening the **File Browser** panel (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)), choose the plus (**\+**) sign on the menu at the top of the file browser to open the **Launcher**, then choose **Terminal**. From the Studio Lab terminal, list the conda environments by running the following.
 
 ```
 conda env list
@@ -107,7 +107,7 @@ Studio Lab provides sample custom environments through the [SageMaker Studio Lab
 
 1. Clone the SageMaker Studio Lab Examples GitHub repository by following the instructions in [Use GitHub resources](studio-lab-use-external.md#studio-lab-use-external-clone-github).
 
-1. In Studio Lab choose the **File Browser** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left menu, so that the **File Browser** panel shows on the left.
+1. In Studio Lab choose the **File Browser** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left menu, so that the **File Browser** panel shows on the left.
 
 1. Navigate to the `studio-lab-examples/custom-environments` directory in the File Browser.
 

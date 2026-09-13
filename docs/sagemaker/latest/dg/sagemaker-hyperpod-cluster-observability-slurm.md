@@ -8,7 +8,7 @@ To achieve comprehensive observability into your SageMaker HyperPod cluster reso
 **Tip**  
 To find practical examples and solutions, see also the [SageMaker HyperPod workshop](https://catalog.workshops.aws/sagemaker-hyperpod).
 
-![An overview of configuring SageMaker HyperPod with Amazon Managed Service for Prometheus and Amazon Managed Grafana.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod-observability-architecture.png)
+![An overview of configuring SageMaker HyperPod with Amazon Managed Service for Prometheus and Amazon Managed Grafana.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod-observability-architecture.png)
 
 
 Figure: This architecture diagram shows an overview of configuring SageMaker HyperPod with Amazon Managed Service for Prometheus and Amazon Managed Grafana.

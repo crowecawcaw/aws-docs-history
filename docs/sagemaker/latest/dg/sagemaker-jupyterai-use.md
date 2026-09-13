@@ -27,7 +27,7 @@ Before using the `%%ai` and `%ai` commands to invoke a language model, load the 
     The following table lists the required and optional parameters when invoking models hosted by SageMaker AI or Amazon Bedrock.<a name="sagemaker-jupyterai-jumpstart-inference-params"></a>    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-jupyterai-use.html)
 
-    The following command invokes a [Llama2-7b](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html) model hosted by SageMaker AI.
+    The following command invokes a Llama 2 7B model hosted by SageMaker AI.
 
     ```
     %%ai sagemaker-endpoint:jumpstart-dft-meta-textgeneration-llama-2-7b -q {"inputs":"<prompt>","parameters":{"max_new_tokens":64,"top_p":0.9,"temperature":0.6,"return_full_text":false}} -n us-east-2 -p [0].generation -m {"endpoint_kwargs":{"CustomAttributes":"accept_eula=true"}} -f text

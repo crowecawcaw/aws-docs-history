@@ -37,7 +37,7 @@ To view the details of a pipeline run, complete the following steps based on whe
 
 1. Sign in to Amazon SageMaker Studio Classic. For more information, see [Launch Amazon SageMaker Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-launch.html).
 
-1. In the Studio Classic sidebar, choose the **Home** icon ( ![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the Studio Classic sidebar, choose the **Home** icon ( ![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Pipelines** from the menu.
 
@@ -48,13 +48,13 @@ To view the details of a pipeline run, complete the following steps based on whe
 1. In the **Executions** page, select an execution name to view details about the execution. The execution details tab opens and displays a graph of the steps in the pipeline.
 
 1. To search for a step by name, type characters that match a step name in the search field. Use the resizing icons on the lower-right side of the graph to zoom in and out of the graph, fit the graph to screen, and expand the graph to full screen. To focus on a specific part of the graph, you can select a blank area of the graph and drag the graph to center on that area.   
-![An example pipeline graph with resizing options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/yosemite/execution-graph-w-input.png)
+![An example pipeline graph with resizing options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/yosemite/execution-graph-w-input.png)
 
 1. Choose one of the pipeline steps in the graph to see details about the step. In the preceding screenshot, a training step is chosen and displays the following tabs:
    + **Input** – The training inputs. If an input source is from Amazon Simple Storage Service (Amazon S3), choose the link to view the file in the Amazon S3 console.
    + **Output** – The training outputs, such as metrics, charts, files, and evaluation outcome. The graphs are produced using the [Tracker](https://sagemaker-experiments.readthedocs.io/en/latest/tracker.html#smexperiments.tracker.Tracker.log_precision_recall) APIs.
    + **Logs** – The Amazon CloudWatch logs produced by the step.
    + **Info** – The parameters and metadata associated with the step.  
-![The pipeline step's parameters and metadata.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/yosemite/execution-graph-info.png)
+![The pipeline step's parameters and metadata.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/yosemite/execution-graph-info.png)
 
 ------

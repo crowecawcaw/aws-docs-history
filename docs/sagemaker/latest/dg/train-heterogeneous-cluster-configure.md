@@ -24,7 +24,7 @@ Follow instructions on how to configure instance groups for a heterogeneous clus
 For more information about available instance types and the maximum number of instance groups that you can configure in a heterogeneous cluster, see the [ InstanceGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InstanceGroup.html) API reference.
 
    The following code example shows how to set up two instance groups that consists of two `ml.c5.18xlarge` CPU-only instances named `instance_group_1` and one `ml.p3dn.24xlarge` GPU instance named `instance_group_2`, as shown in the following diagram.  
-![A conceptual example of how data can be assigned in SageMaker Training Job.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/HCTraining.png)
+![A conceptual example of how data can be assigned in SageMaker Training Job.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/HCTraining.png)
 
    The preceding diagram shows a conceptual example of how pre-training processes, such as data preprocessing, can be assigned to the CPU instance group and stream the preprocessed data to the GPU instance group.
 

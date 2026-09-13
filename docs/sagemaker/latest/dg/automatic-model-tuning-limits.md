@@ -39,7 +39,7 @@ When you plan hyperparameter tuning jobs, you also have to take into account the
 1. On the **Case details** panel, select **SageMaker AI Automatic Model Tuning [Hyperparameter Optimization]** for the **Limit type** 
 
 1. On the **Requests** panel for **Request 1**, select the **Region**, the resource **Limit** to increase and the **New Limit value** you are requesting. Select **Add another request** if you have additional requests for quota increases.  
-![Resource limit increase request UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hpo/hpo-quotas-service-linit-increase-request.PNG)
+![Resource limit increase request UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hpo/hpo-quotas-service-linit-increase-request.PNG)
 
 1. In the **Case description** panel, provide a description of your use case .
 

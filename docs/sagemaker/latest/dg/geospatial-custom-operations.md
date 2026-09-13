@@ -10,7 +10,7 @@ With [Amazon SageMaker Processing](processing-job.md), you can use a simplified,
 
  The underlying infrastructure for a Amazon SageMaker Processing job is fully managed by SageMaker AI. During a processing job, cluster resources are provisioned for the duration of your job, and cleaned up when a job completes.
 
-![Running a processing job.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/Processing-1.png)
+![Running a processing job.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/Processing-1.png)
 
 
 The preceding diagram shows how SageMaker AI spins up a geospatial processing job. SageMaker AI takes your geospatial workload script, copies your geospatial data from Amazon Simple Storage Service(Amazon S3), and then pulls the specified geospatial container. The underlying infrastructure for the processing job is fully managed by SageMaker AI. Cluster resources are provisioned for the duration of your job, and cleaned up when a job completes. The output of the processing job is stored in the bucket you specified. 

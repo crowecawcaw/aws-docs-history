@@ -10,7 +10,7 @@ You can access Jupyter AI capabilities through two distinct methods: using the c
 
 The chat interface connects you with Jupyternaut, a conversational agent that uses the language model of your choice. 
 
-After launching a JupyterLab application installed with Jupyter AI, you can access the chat interface by choosing the chat icon (![Chat icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-chat-ui.png)) in the left navigation panel. First-time users are prompted to configure their model. See [Configure your model provider in the chat UI](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui) for configuration instructions.
+After launching a JupyterLab application installed with Jupyter AI, you can access the chat interface by choosing the chat icon (![Chat icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/jupyterai/jupyterai-chat-ui.png)) in the left navigation panel. First-time users are prompted to configure their model. See [Configure your model provider in the chat UI](sagemaker-jupyterai-model-configuration.md#sagemaker-jupyterai-model-configuration-chatui) for configuration instructions.
 
 **Using the chat UI, you can:**
 + **Answer questions**: For instance, you can ask Jupyternaut to create a Python function that adds CSV files to an Amazon S3 bucket. Subsequently, you can refine your answer with a follow-up question, such as adding a parameter to the function to choose the path where the files are written. 

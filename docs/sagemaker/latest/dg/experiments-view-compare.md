@@ -12,12 +12,12 @@ Amazon SageMaker Studio Classic provides an experiments browser that you can use
    Select the name of the experiment to view all associated runs. You can search experiments by typing directly into the **Search** bar or filtering for experiment type. You can also choose which columns to display in your experiment or run list.
 
    It might take a moment for the list to refresh and display a new experiment or experiment run. You can click **Refresh** to update the page. Your experiment list should look similar to the following:  
-![A list of experiments in the SageMaker Experiments UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/experiments-classic/experiments-overview.png)
+![A list of experiments in the SageMaker Experiments UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/experiments-classic/experiments-overview.png)
 
 1. In the experiments list, double-click an experiment to display a list of the runs in the experiment.
 **Note**  
-Experiment runs that are automatically created by SageMaker AI jobs and containers are visible in the Experiments Studio Classic UI by default. To hide runs created by SageMaker AI jobs for a given experiment, choose the settings icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) and toggle **Show jobs**.  
-![A list of experiment runs in the SageMaker Experiments UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/experiments-classic/experiments-runs-overview.png)
+Experiment runs that are automatically created by SageMaker AI jobs and containers are visible in the Experiments Studio Classic UI by default. To hide runs created by SageMaker AI jobs for a given experiment, choose the settings icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) and toggle **Show jobs**.  
+![A list of experiment runs in the SageMaker Experiments UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/experiments-classic/experiments-runs-overview.png)
 
 1. Double-click a run to display information about a specific run.
 

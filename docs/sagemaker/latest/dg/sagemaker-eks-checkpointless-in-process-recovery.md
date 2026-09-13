@@ -77,7 +77,7 @@ A fault controller module receives notifications when failures occur during chec
 + **RCB definition APIs:** Enables users to define the re-executable code block (RCB) in their code
 + **Restart module:** Terminates the RCB, cleans up resources, and restarts the RCB
 
-![This image illustrates how a fault controller module receives notifications when failure occurs during checkpointless training.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-fault-controller-module.png)
+![This image illustrates how a fault controller module receives notifications when failure occurs during checkpointless training.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-fault-controller-module.png)
 
 
 **Concept - Model redundancy**
@@ -107,13 +107,13 @@ Model execution is divided into three phases: forward propagation, backward prop
 
 This strategy ensures completed optimizer updates are never discarded, helping reduce fault recovery time.
 
-![This image illustrates how failure is handled depending on if it occurs before or after failure.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-optimizer.png)
+![This image illustrates how failure is handled depending on if it occurs before or after failure.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-optimizer.png)
 
 
 ## Checkpointless Training Flow Diagram
 <a name="sagemaker-eks-checkpointless-training-flow"></a>
 
-![This diagram illustrates the checkpointless training flow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-training-flow.png)
+![This diagram illustrates the checkpointless training flow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-training-flow.png)
 
 
 The following steps outline the failure detection and checkpointless recovery process:

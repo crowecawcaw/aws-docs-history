@@ -16,7 +16,7 @@ When making predictions on a large dataset, you can exclude attributes that aren
 
 The following diagram shows the workflow for associating inferences with input records.
 
-![The workflow for associating inferences with input records.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/batch-transform-data-processing.png)
+![The workflow for associating inferences with input records.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/batch-transform-data-processing.png)
 
 
 To associate inferences with input data, there are three main steps:

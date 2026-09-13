@@ -11,7 +11,7 @@ Pipelines provide the following advantages over other AWS workflow offerings:
 
 **Intuitive user experience** Pipelines can be created and managed through your interface of choice: visual editor, SDK, APIs, or JSON. You can drag-and-drop the various ML steps to author your pipelines in the Amazon SageMaker Studio visual interface. The following screenshot shows the Studio visual editor for pipelines.
 
-![Screenshot of the visual drag-and-drop interface for Pipelines in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/pipelines-studio-overview.png)
+![Screenshot of the visual drag-and-drop interface for Pipelines in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/pipelines-studio-overview.png)
 
 
 If you prefer managing your ML workflows programmatically, the SageMaker Python SDK offers advanced orchestration features. For more information, see [Amazon SageMaker Pipelines](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html) in the SageMaker Python SDK documentation.

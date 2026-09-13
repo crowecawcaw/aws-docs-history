@@ -10,7 +10,7 @@ The following topic gives information about how to connect Studio Notebooks in a
 
 By default, SageMaker Studio provides a network interface that allows communication with the internet through a VPC managed by SageMaker AI. Traffic to AWS services, like Amazon S3 and CloudWatch, goes through an internet gateway. Traffic that accesses the SageMaker API and SageMaker AI runtime also goes through an internet gateway. Traffic between the domain and Amazon EFS volume goes through the VPC that you identified when you onboarded to Studio or called the [CreateDomain](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html) API. The following diagram shows the default configuration.
 
-![SageMaker Studio VPC diagram depicting direct internet access usage.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-vpc-internet.png)
+![SageMaker Studio VPC diagram depicting direct internet access usage.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-vpc-internet.png)
 
 
 ## `VPC only` communication with the internet
@@ -22,7 +22,7 @@ To stop SageMaker AI from providing internet access to your Studio notebooks, di
 
 The following diagram shows a configuration for using VPC-only mode.
 
-![SageMaker Studio VPC diagram depicting usage of VPC-only mode.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-vpc-private.png)
+![SageMaker Studio VPC diagram depicting usage of VPC-only mode.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-vpc-private.png)
 
 
 ### Requirements to use `VPC only` mode

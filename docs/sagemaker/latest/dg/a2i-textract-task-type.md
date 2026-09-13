@@ -10,7 +10,7 @@ Amazon Textract enables you to add document text detection and analysis to your 
 
 The following image depicts the Amazon A2I built-in workflow with Amazon Textract. On the left, the resources that are required to create an Amazon Textract human review workflow are depicted: and Amazon S3 bucket, activation conditions, a worker task template, and a work team. These resources are used to create a human review workflow, or flow definition. An arrow points right to the next step in the workflow: using Amazon Textract to configure a human loop with the human review workflow. A second arrow points right from this step to the step in which activation conditions specified in the human review workflow are met. This initiates the creation of a human loop. On the right of the image, the human loop is depicted in three steps: 1) the worker UI and tools are generated and the task is made available to workers,2) workers review input data, and finally, 3) results are saved in Amazon S3.
 
-![Use Amazon Augmented AI with Amazon Textract.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A21-Components_Textract@2x.png)
+![Use Amazon Augmented AI with Amazon Textract.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i/diagrams/product-page-diagram_A21-Components_Textract@2x.png)
 
 
 You can specify when Amazon Textract sends a task to a human worker for review when creating a human review workflow or flow definition by specifying *activation conditions*. 
@@ -53,7 +53,7 @@ To learn how to use the Amazon A2I API to create and start a human review, you c
 
 When they're assigned a review task in an Amazon Textract workflow, workers might see a user interface similar to the following:
 
-![Example review task in the A2I Textract worker console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i-textract-example.png)
+![Example review task in the A2I Textract worker console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/a2i-textract-example.png)
 
 
 You can customize this interface in the SageMaker AI console when you create your human review definition, or by creating and using a custom template. To learn more, see [Create and Manage Worker Task Templates](a2i-instructions-overview.md).

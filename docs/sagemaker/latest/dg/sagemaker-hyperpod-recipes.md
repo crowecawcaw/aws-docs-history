@@ -15,7 +15,7 @@ The following tables are maintained in the SageMaker HyperPod GitHub repository 
 
 For SageMaker HyperPod users, the automation of end-to-end training workflows comes from the integration of the training adapter with SageMaker HyperPod recipes. The training adapter is built on the [NVIDIA NeMo framework](https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html) and the [Neuronx Distributed Training package](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/libraries/neuronx-distributed/index.html). If you're familiar with using NeMo, the process of using the training adapter is the same. The training adapter runs the recipe on your cluster.
 
-![Diagram showing SageMaker HyperPod recipe workflow. A "Recipe" icon at the top feeds into a "HyperPod recipe launcher" box. This box connects to a larger section labeled "Cluster: Slurm, K8s, ..." containing three GPU icons with associated recipe files. The bottom of the cluster section is labeled "Train with HyperPod Training Adapter".](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-hyperpod-recipes-overview.png)
+![Diagram showing SageMaker HyperPod recipe workflow. A "Recipe" icon at the top feeds into a "HyperPod recipe launcher" box. This box connects to a larger section labeled "Cluster: Slurm, K8s, ..." containing three GPU icons with associated recipe files. The bottom of the cluster section is labeled "Train with HyperPod Training Adapter".](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-hyperpod-recipes-overview.png)
 
 
 You can also train your own model by defining your own custom recipe.

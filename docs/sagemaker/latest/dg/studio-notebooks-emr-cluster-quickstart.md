@@ -135,7 +135,7 @@ The notebook deploys two models, `Llama 2` and `all-MiniLM-L6-v2 Models`, on `ml
    1. Select your cluster then choose **Connect**. A new credential type selection modal window opens up.
 
    1. Choose **No credential** and then **Connect**.  
-![Modal showing selection of Amazon EMR credentials for JupyterLab notebooks.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-credential-selection.png)
+![Modal showing selection of Amazon EMR credentials for JupyterLab notebooks.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-credential-selection.png)
 
    1. A notebook cell automatically populates and runs. The notebook cell loads the `sagemaker_studio_analytics_extension.magics` extension, which provides functionality to connect to the Amazon EMR cluster. It then uses the `%sm_analytics` magic command to initiate the connection to your Amazon EMR cluster and the Spark application.
 **Note**  

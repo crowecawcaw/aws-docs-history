@@ -17,7 +17,7 @@
 
  To test multiple models by distributing traffic between them, specify the percentage of the traffic that gets routed to each model by specifying the weight for each production variant in the endpoint configuration. For information, see [CreateEndpointConfig](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html). The following diagram shows how this works in more detail. 
 
-![Example showing how distributing traffic between models using InvokeEndpoint works in SageMaker AI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-traffic-distribution.png)
+![Example showing how distributing traffic between models using InvokeEndpoint works in SageMaker AI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-traffic-distribution.png)
 
 
 ## Test models by invoking specific variants
@@ -25,7 +25,7 @@
 
  To test multiple models by invoking specific models for each request, specify the specific version of the model you want to invoke by providing a value for the `TargetVariant` parameter when you call [InvokeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html). SageMaker AI ensures that the request is processed by the production variant you specify. If you have already provided traffic distribution and specify a value for the `TargetVariant` parameter, the targeted routing overrides the random traffic distribution. The following diagram shows how this works in more detail. 
 
-![Example showing how invoking specific models for each request using InvokeEndpoint works in SageMaker AI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-target-variant.png)
+![Example showing how invoking specific models for each request using InvokeEndpoint works in SageMaker AI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-target-variant.png)
 
 
 ## Model A/B test example
@@ -138,7 +138,7 @@ print("Done!")
 
  SageMaker AI emits metrics such as `Latency` and `Invocations` for each variant in Amazon CloudWatch. For a complete list of metrics that SageMaker AI emits, see [Amazon SageMaker AI metrics in Amazon CloudWatch](monitoring-cloudwatch.md). Let’s query CloudWatch to get the number of invocations per variant, to show how invocations are split across variants by default: 
 
-![Example CloudWatch number of invocations per variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-variant-invocations.png)
+![Example CloudWatch number of invocations per variant.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-variant-invocations.png)
 
 
  Now let's invoke a specific version of the model by specifying `Variant1` as the `TargetVariant` in the call to `invoke_endpoint`. 
@@ -160,7 +160,7 @@ with open('test_data/test_sample_tail_input_cols.csv', 'r') as f:
 
  To confirm that all new invocations were processed by `Variant1`, we can query CloudWatch to get the number of invocations per variant. We see that for the most recent invocations (latest timestamp), all requests were processed by `Variant1`, as we had specified. There were no invocations made for `Variant2`. 
 
-![Example CloudWatch number of invocations for each variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-target1.png)
+![Example CloudWatch number of invocations for each variant.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-target1.png)
 
 
 ### Step 3: Evaluate model performance
@@ -168,12 +168,12 @@ with open('test_data/test_sample_tail_input_cols.csv', 'r') as f:
 
  To see which model version performs better, let's evaluate the accuracy, precision, recall, F1 score, and Receiver operating charactersistic/Area under the curve for each variant. First, let's look at these metrics for `Variant1`: 
 
-![Example receiver operating characteristic curve for Variant1.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-curve.png)
+![Example receiver operating characteristic curve for Variant1.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-curve.png)
 
 
 Now let's look at the metrics for `Variant2`:
 
-![Example receiver operating characteristic curve for Variant2.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model2-curve.png)
+![Example receiver operating characteristic curve for Variant2.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model2-curve.png)
 
 
  For most of our defined metrics, `Variant2` is performing better, so this is the one that we want to use in production. 
@@ -183,7 +183,7 @@ Now let's look at the metrics for `Variant2`:
 
  Now that we have determined that `Variant2` performs better than `Variant1`, we shift more traffic to it. We can continue to use `TargetVariant` to invoke a specific model variant, but a simpler approach is to update the weights assigned to each variant by calling [UpdateEndpointWeightsAndCapacities](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html). This changes the traffic distribution to your production variants without requiring updates to your endpoint. Recall from the setup section that we set variant weights to split traffic 50/50. The CloudWatch metrics for the total invocations for each variant below show us the invocation patterns for each variant: 
 
-![Example CloudWatch metrics for the total invocations for each variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-even-dist.png)
+![Example CloudWatch metrics for the total invocations for each variant.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-even-dist.png)
 
 
  Now we shift 75% of the traffic to `Variant2` by assigning new weights to each variant using `UpdateEndpointWeightsAndCapacities`. SageMaker AI now sends 75% of the inference requests to `Variant2` and remaining 25% of requests to `Variant1`. 
@@ -206,7 +206,7 @@ sm.update_endpoint_weights_and_capacities(
 
  The CloudWatch metrics for total invocations for each variant shows us higher invocations for `Variant2` than for `Variant1`: 
 
-![Example CloudWatch metrics for total invocations for each variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-75-25.png)
+![Example CloudWatch metrics for total invocations for each variant.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-75-25.png)
 
 
  We can continue to monitor our metrics, and when we're satisfied with a variant's performance, we can route 100% of the traffic to that variant. We use [`UpdateEndpointWeightsAndCapacities`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html) to update the traffic assignments for the variants. The weight for `Variant1` is set to 0 and the weight for `Variant2` is set to 1. SageMaker AI now sends 100% of all inference requests to `Variant2`. 
@@ -229,7 +229,7 @@ sm.update_endpoint_weights_and_capacities(
 
  The CloudWatch metrics for the total invocations for each variant show that all inference requests are being processed by `Variant2` and there are no inference requests processed by `Variant1`. 
 
-![Example CloudWatch metrics for the total invocations for each variant.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-best-model.png)
+![Example CloudWatch metrics for the total invocations for each variant.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-invocations-best-model.png)
 
 
  You can now safely update your endpoint and delete `Variant1` from your endpoint. You can also continue testing new models in production by adding new variants to your endpoint and following steps 2 - 4. 

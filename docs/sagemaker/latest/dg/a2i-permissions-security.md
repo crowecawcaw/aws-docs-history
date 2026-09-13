@@ -65,7 +65,7 @@ You can add a CORS policy to an S3 bucket that contains input data in the Amazon
 
 The following GIF demonstrates the instructions found in the Amazon S3 documentation to add a CORS header policy using the Amazon S3 console.
 
-![Gif on how to add a CORS header policy using the Amazon S3 console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/gifs/cors-config.gif)
+![Gif on how to add a CORS header policy using the Amazon S3 console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/gifs/cors-config.gif)
 
 
 ## Add Permissions to the IAM Role Used to Create a Flow Definition

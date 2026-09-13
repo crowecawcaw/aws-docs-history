@@ -79,20 +79,24 @@ A few models instead name a serving container, such as `lmi` or `tgi`, or use `a
 List the configurations for a model, along with their benchmark metrics, then deploy one with the SageMaker Python SDK:
 
 ```
-from sagemaker.jumpstart.model import JumpStartModel
+from sagemaker.serve import ModelBuilder
+from sagemaker.core.jumpstart.configs import JumpStartConfig
 
-model = JumpStartModel(model_id="meta-textgeneration-llama-3-1-8b-instruct")
+model_builder = ModelBuilder.from_jumpstart_config(
+    jumpstart_config=JumpStartConfig(model_id="meta-textgeneration-llama-3-1-8b-instruct")
+)
 
 # Print every configuration with its instance types and benchmark metrics.
-model.list_deployment_configs()
+model_builder.list_deployment_configs()
 
 # Select a configuration and one of the instance types it supports.
-model.set_deployment_config(
+model_builder.set_deployment_config(
     config_name="generate_lowest_cost",
     instance_type="ml.g6e.xlarge",
 )
 
-predictor = model.deploy()
+model = model_builder.build()
+endpoint = model_builder.deploy()
 ```
 
 Deploying without calling `set_deployment_config` uses the default configuration and the default instance type.

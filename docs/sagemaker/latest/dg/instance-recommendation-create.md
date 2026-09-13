@@ -118,7 +118,7 @@ aws sagemaker create-inference-recommendations-job
 
 Create an inference recommendation job in Studio Classic.
 
-1. In your Studio Classic application, choose the home icon (![Menu icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In your Studio Classic application, choose the home icon (![Menu icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. In the left sidebar of Studio Classic, choose **Models**.
 

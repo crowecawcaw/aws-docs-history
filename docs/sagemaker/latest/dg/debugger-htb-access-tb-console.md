@@ -51,4 +51,4 @@ The following procedure describes how to launch a TensorBoard application from t
 
 The following screenshot shows the location of TensorBoard in the left navigation pane of the SageMaker AI console and the SageMaker AI with TensorBoard landing page in the main pane.
 
-![The TensorBoard landing page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-landing-page.png)
+![The TensorBoard landing page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/htb-landing-page.png)

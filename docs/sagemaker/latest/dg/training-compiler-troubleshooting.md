@@ -23,7 +23,7 @@ When faced with such convergence issues, the first step is to identify if the is
 
 Therefore, any convergence issue in single-GPU training propagates to distributed training with multiple workers.
 
-![A flow chart to troubleshoot convergence issues in training jobs when using SageMaker Training Compiler.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-compiler-troubleshooting-convergence-flow.jpg)
+![A flow chart to troubleshoot convergence issues in training jobs when using SageMaker Training Compiler.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-compiler-troubleshooting-convergence-flow.jpg)
 
 
 ### Convergence issues occurring in single-GPU training

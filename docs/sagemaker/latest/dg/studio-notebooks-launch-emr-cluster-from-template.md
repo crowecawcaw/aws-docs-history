@@ -14,7 +14,7 @@ To provision a new Amazon EMR cluster from Studio or Studio Classic:
 1. Select a cluster template by choosing a template name and then choose **Next**.
 
 1. Enter the cluster's details, such as a cluster name and any specific configurable parameter set by your administrator, and then choose **Create cluster**. The creation of the cluster might take a couple of minutes.  
-![Creation form of an Amazon EMR cluster from Studio or Studio Classic.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-cluster-creation.png)
+![Creation form of an Amazon EMR cluster from Studio or Studio Classic.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-cluster-creation.png)
 
 Once the cluster is provisioned, the Studio or Studio Classic UI displays a *The cluster has been successfully created* message.
 

@@ -117,7 +117,7 @@ There are several more sections for you to fill out on the **Create deployable m
 
 The **Container definition** section looks like the following screenshot:
 
-![Screenshot of the Container definition section for creating a model in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-container-definition.png)
+![Screenshot of the Container definition section for creating a model in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-container-definition.png)
 
 
 **For the **Container definition** section, do the following:**
@@ -130,7 +130,7 @@ The **Container definition** section looks like the following screenshot:
 
 Then, fill out the **Artifacts** section, which looks like the following screenshot:
 
-![Screenshot of the Artifacts section for creating a model in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-artifacts-section.png)
+![Screenshot of the Artifacts section for creating a model in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-artifacts-section.png)
 
 
 **For the **Artifacts** section, do the following:**
@@ -155,7 +155,7 @@ Then, fill out the **Artifacts** section, which looks like the following screens
 
 The next section is **Security**, which looks like the following screenshot:
 
-![Screenshot of the Security section for creating a model in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-security-section.png)
+![Screenshot of the Security section for creating a model in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-security-section.png)
 
 
 **For the **Security** section, do the following:**
@@ -168,7 +168,7 @@ The next section is **Security**, which looks like the following screenshot:
 
 Finally, you can optionally fill out the **Advanced options** section, which looks like the following screenshot:
 
-![Screenshot of the Advanced options section for creating a model in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-advanced-options.png)
+![Screenshot of the Advanced options section for creating a model in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-advanced-options.png)
 
 
 **(Optional) For the **Advanced options** section, do the following:**
@@ -222,7 +222,7 @@ If you're deploying a JumpStart model, Studio only shows instance types that the
 1. If the model you're deploying is one of the most used JumpStart LLMs from the model hub, then the **Alternate configurations** option appears after the instance type and instance count fields.
 
    For the most popular JumpStart LLMs, AWS has pre-benchmarked instance types to optimize for either cost or performance. This data can help you decide which instance type to use for deploying your LLM. Choose **Alternate configurations** to open a dialog box that contains the pre-benchmarked data. The panel looks like the following screenshot:  
-![Screenshot of the Alternate configurations box.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-jumpstart-alternate-configurations.png)
+![Screenshot of the Alternate configurations box.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-jumpstart-alternate-configurations.png)
 
    In the **Alternate configurations** box, do the following:
 
@@ -260,7 +260,7 @@ SageMaker AI configures the IAM role, VPC, and network isolation settings with i
 
 After configuring your options, the page should look like the following screenshot.
 
-![Screenshot of the Deploy model page in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-deploy-realtime-model-2.png)
+![Screenshot of the Deploy model page in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-deploy-realtime-model-2.png)
 
 
 After configuring your deployment, choose **Deploy** to create the endpoint and deploy your model.

@@ -31,7 +31,7 @@ You can join datasets directly in your data flow. When you join two datasets, th
 
 Use the following procedure to join two datasets. You should have already imported two data sources into your data flow.
 
-1. Select the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to the left node that you want to join. The first node you select is always the left table in your join. 
+1. Select the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to the left node that you want to join. The first node you select is always the left table in your join. 
 
 1. Hover over **Combine data**, and then choose **Join**.
 
@@ -61,7 +61,7 @@ Use the following procedure to concatenate two datasets. You should have already
 
 **To concatenate two datasets:**
 
-1. Select the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to the left node that you want to concatenate. The first node you select is always the left table in your concatenate operation. 
+1. Select the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to the left node that you want to concatenate. The first node you select is always the left table in your concatenate operation. 
 
 1. Hover over **Combine data**, and then choose **Concatenate**.
 

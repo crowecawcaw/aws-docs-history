@@ -161,7 +161,17 @@ To use `ModelRunner` to evaluate a JumpStart model, create or provide an endpoin
 
    The previous code example refers to EULA, which stands for end-use-license-agreement (EULA). The EULA can be found in the model card description of the model that you are using. To use some JumpStart models, you must specify `accept_eula=true`, as shown in the `JumpStartConfig` configuration. For more information about EULA, see the **Licenses and model sources** section in [Model sources and license agreements](jumpstart-foundation-models-choose.md) .
 
-   You can find a list of available JumpStart models at [Built-in Algorithms with pre-trained Model Table](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html#built-in-algorithms-with-pre-trained-model-table).
+   You can list the available JumpStart models with the Amazon SageMaker Python SDK:
+
+   ```
+   from sagemaker.core.jumpstart.notebook_utils import list_jumpstart_models
+   
+   # List every available JumpStart model ID.
+   model_ids = list_jumpstart_models()
+   print(model_ids)
+   ```
+
+   This prints a list of model ID strings, such as `['huggingface-llm-falcon-7b', ...]`.
 
 1. Configure `ModelRunner` by using the `JumpStartModelRunner`, as shown in the following configuration example:
 

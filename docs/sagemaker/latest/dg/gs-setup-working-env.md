@@ -10,7 +10,7 @@ Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studi
 An Amazon SageMaker notebook instance is a fully-managed machine learning (ML) Amazon Elastic Compute Cloud (Amazon EC2) compute instance. An Amazon SageMaker notebook instance runs the Jupyter Notebook application. Use the notebook instance to create and manage Jupyter notebooks for preprocessing data, train ML models, and deploy ML models.
 
 **To create a SageMaker notebook instance**  
-![Animated screenshot that shows how to create a SageMaker notebook instance.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-create-instance.gif)
+![Animated screenshot that shows how to create a SageMaker notebook instance.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-create-instance.gif)
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
 
@@ -46,7 +46,7 @@ To change the ML compute instance type or the size of the Amazon EBS storage of 
 1. Choose **Actions**, choose **Stop**, and then wait until the notebook instance fully stops.
 
 1. After the notebook instance status changes to **Stopped**, choose **Actions**, and then choose **Update settings**.  
-![Animated screenshot that shows how to update SageMaker notebook instance settings.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-update-instance.gif)
+![Animated screenshot that shows how to update SageMaker notebook instance settings.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-update-instance.gif)
 
    1. For **Notebook instance type**, choose a different ML instance type.
 
@@ -65,7 +65,7 @@ For more information about updating SageMaker notebook instance settings, see [U
 
 The following tutorial video shows how to set up and use SageMaker notebook instances through the SageMaker AI console. It includes advanced options, such as SageMaker AI lifecycle configuration and importing GitHub repositories. (Length: 26:04)
 
-[![AWS Videos](http://img.youtube.com/vi/X5CLunIzj3U/0.jpg)](http://www.youtube.com/watch?v=X5CLunIzj3U)
+[![AWS Videos](https://img.youtube.com/vi/X5CLunIzj3U/0.jpg)](https://www.youtube.com/watch?v=X5CLunIzj3U)
 
 
 For complete documentation about SageMaker notebook instance, see [Use Amazon SageMaker notebook Instances](https://docs.aws.amazon.com/sagemaker/latest/dg/nbi.html).

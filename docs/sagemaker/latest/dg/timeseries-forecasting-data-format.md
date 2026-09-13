@@ -42,7 +42,7 @@ Autopilot supports the following filling methods:
 
 The following image provides a visual representation of the different filling methods.
 
-![The different filling methods for time series forecasting in Amazon SageMaker Autopilot.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-forecast-filling-methods.png)
+![The different filling methods for time series forecasting in Amazon SageMaker Autopilot.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-forecast-filling-methods.png)
 
 
 ### Choose a filling logic

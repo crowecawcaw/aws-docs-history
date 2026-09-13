@@ -46,6 +46,6 @@ Within your Code Editor environment, you can add connections to:
 
 Code Editor supports IDE extensions available in the [Open VSX Registry](https://open-vsx.org/). 
 
-To get started with extensions in your Code Editor environment, choose the **Extensions** icon (![Icon showing two overlapping squares representing multiple windows or instances.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-extensions-icon.png)) in the left navigation pane. Here, you can configure connections to AWS by installing the AWS Toolkit. For more information, see [Installing the AWS Toolkit for Visual Studio Code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/setup-toolkit.html).
+To get started with extensions in your Code Editor environment, choose the **Extensions** icon (![Icon showing two overlapping squares representing multiple windows or instances.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-extensions-icon.png)) in the left navigation pane. Here, you can configure connections to AWS by installing the AWS Toolkit. For more information, see [Installing the AWS Toolkit for Visual Studio Code](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/setup-toolkit.html).
 
 In the search bar, you can search directly for additional extensions through the [Open VSX Registry](https://open-vsx.org/), such as the AWS Toolkit, Jupyter, Python, and more.

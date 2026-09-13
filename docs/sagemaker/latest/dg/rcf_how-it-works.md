@@ -10,20 +10,20 @@ The main idea behind the RCF algorithm is to create a forest of trees where each
 ## Sample Data Randomly
 <a name="rcf-rndm-sample-data"></a>
 
-The first step in the RCF algorithm is to obtain a random sample of the training data. In particular, suppose we want a sample of size ![Equation in text-form: K](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf13.jpg) from ![Equation in text-form: N](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf14.jpg) total data points. If the training data is small enough, the entire dataset can be used, and we could randomly draw ![Equation in text-form: K](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf13.jpg) elements from this set. However, frequently the training data is too large to fit all at once, and this approach isn't feasible. Instead, we use a technique called reservoir sampling.
+The first step in the RCF algorithm is to obtain a random sample of the training data. In particular, suppose we want a sample of size ![Equation in text-form: K](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf13.jpg) from ![Equation in text-form: N](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf14.jpg) total data points. If the training data is small enough, the entire dataset can be used, and we could randomly draw ![Equation in text-form: K](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf13.jpg) elements from this set. However, frequently the training data is too large to fit all at once, and this approach isn't feasible. Instead, we use a technique called reservoir sampling.
 
-[Reservoir sampling](https://en.wikipedia.org/wiki/Reservoir_sampling) is an algorithm for efficiently drawing random samples from a dataset ![Equation in text-form: S={S_1,...,S_N}](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf3.jpg) where the elements in the dataset can only be observed one at a time or in batches. In fact, reservoir sampling works even when ![Equation in text-form: N](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf14.jpg) is not known *a priori*. If only one sample is requested, such as when ![Equation in text-form: K=1](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf15.jpg), the algorithm is like this:
+[Reservoir sampling](https://en.wikipedia.org/wiki/Reservoir_sampling) is an algorithm for efficiently drawing random samples from a dataset ![Equation in text-form: S={S_1,...,S_N}](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf3.jpg) where the elements in the dataset can only be observed one at a time or in batches. In fact, reservoir sampling works even when ![Equation in text-form: N](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf14.jpg) is not known *a priori*. If only one sample is requested, such as when ![Equation in text-form: K=1](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf15.jpg), the algorithm is like this:
 
 **Algorithm: Reservoir Sampling**
-+  Input: dataset or data stream ![Equation in text-form: S={S_1,...,S_N}](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf3.jpg) 
-+  Initialize the random sample ![Equation in text-form: X=S_1](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf4.jpg) 
-+  For each observed sample ![Equation in text-form: S_n,n=2,...,N](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf5.jpg):
-  +  Pick a uniform random number ![Equation in text-form: \xi \in [0,1]](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf6.jpg) 
-  +  If ![Equation in text-form: \xi \less 1/n](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf7.jpg) 
-    +  Set ![Equation in text-form: X=S_n](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf8.jpg) 
-+  Return ![Equation in text-form: X](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf9.jpg) 
++  Input: dataset or data stream ![Equation in text-form: S={S_1,...,S_N}](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf3.jpg) 
++  Initialize the random sample ![Equation in text-form: X=S_1](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf4.jpg) 
++  For each observed sample ![Equation in text-form: S_n,n=2,...,N](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf5.jpg):
+  +  Pick a uniform random number ![Equation in text-form: \xi \in [0,1]](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf6.jpg) 
+  +  If ![Equation in text-form: \xi \less 1/n](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf7.jpg) 
+    +  Set ![Equation in text-form: X=S_n](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf8.jpg) 
++  Return ![Equation in text-form: X](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf9.jpg) 
 
-This algorithm selects a random sample such that ![Equation in text-form: P(X=S_n)=1/N](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf10.jpg) for all ![Equation in text-form: n=1,...,N](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf11.jpg). When ![Equation in text-form: K>1](http://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf12.jpg) the algorithm is more complicated. Additionally, a distinction must be made between random sampling that is with and without replacement. RCF performs an augmented reservoir sampling without replacement on the training data based on the algorithms described in [2].
+This algorithm selects a random sample such that ![Equation in text-form: P(X=S_n)=1/N](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf10.jpg) for all ![Equation in text-form: n=1,...,N](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf11.jpg). When ![Equation in text-form: K>1](https://docs.aws.amazon.com/sagemaker/latest/dg/images/rcf12.jpg) the algorithm is more complicated. Additionally, a distinction must be made between random sampling that is with and without replacement. RCF performs an augmented reservoir sampling without replacement on the training data based on the algorithms described in [2].
 
 ## Train a RCF Model and Produce Inferences
 <a name="rcf-training-inference"></a>
@@ -32,14 +32,14 @@ The next step in RCF is to construct a random cut forest using the random sample
 
 This procedure is best illustrated with an example. Suppose a tree is given the following two-dimensional dataset. The corresponding tree is initialized to the root node:
 
-![A two-dimensional dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/RCF1.jpg)
+![A two-dimensional dataset.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/RCF1.jpg)
 
 
 Figure: A two-dimensional dataset where the majority of data lies in a cluster (blue) except for one anomalous data point (orange). The tree is initialized with a root node.
 
 The RCF algorithm organizes these data in a tree by first computing a bounding box of the data, selecting a random dimension (giving more weight to dimensions with higher "variance"), and then randomly determining the position of a hyperplane "cut" through that dimension. The two resulting subspaces define their own sub tree. In this example, the cut happens to separate a lone point from the remainder of the sample. The first level of the resulting binary tree consists of two nodes, one which will consist of the subtree of points to the left of the initial cut and the other representing the single point on the right.
 
-![A random cut partitioning the two-dimensional dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/RCF2.jpg)
+![A random cut partitioning the two-dimensional dataset.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/RCF2.jpg)
 
 
 Figure: A random cut partitioning the two-dimensional dataset. An anomalous data point is more likely to lie isolated in a bounding box at a smaller tree depth than other points. 

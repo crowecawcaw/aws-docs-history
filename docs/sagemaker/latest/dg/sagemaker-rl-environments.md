@@ -7,7 +7,7 @@ Amazon SageMaker AI RL uses environments to mimic real-world scenarios. Given th
 
 The following diagram shows an example of the interactions with a simulator for a car racing game.
 
-![An example of the interactions with a simulator for a car racing game.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-rl-flow.png)
+![An example of the interactions with a simulator for a car racing game.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-rl-flow.png)
 
 
 The simulation environment consists of an agent and a simulator. Here, a convolutional neural network (CNN) consumes images from the simulator and generates actions to control the game controller. With multiple simulations, this environment generates training data of the form `state_t`, `action`, `state_t+1`, and `reward_t+1`. Defining the reward is not trivial and impacts the RL model quality. We want to provide a few examples of reward functions, but would like to make it user-configurable. 

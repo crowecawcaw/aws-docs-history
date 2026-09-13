@@ -118,4 +118,4 @@ a storage migration ensures no data remains persisted in v1alpha1 and removes
 v1alpha1 from status.storedVersions
 ```
 
-**Resolution:** Use the upgrade option in the SageMaker AI HyperPod console. The console automatically handles the CRD migration by backing up existing resources, migrating storedVersions, upgrading the add-on, and restoring resources. To perform the migration manually through the Amazon EKS add-on interface, see [Upgrade from v1.3.x to v1.5](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15).
+**Resolution:** Use the upgrade option in the SageMaker AI HyperPod console. The console automatically handles the CRD migration by backing up existing resources, migrating storedVersions, upgrading the add-on, and restoring resources. To perform the migration manually through the Amazon EKS add-on interface, see [Upgrade from v1.3.x to v1.5 or later](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15).

@@ -15,7 +15,7 @@ The previous instance type continues to run even if no kernel sessions or apps a
 
 The following screenshot shows the menu from a Studio Classic notebook. The processor and memory of the instance type powering the notebook are displayed as **2 vCPU \+ 4 GiB**.
 
-![The location of the processor and memory of the instance type for the Studio Classic notebook.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-menu-instance.png)
+![The location of the processor and memory of the instance type for the Studio Classic notebook.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-menu-instance.png)
 
 
 **To change the instance type**

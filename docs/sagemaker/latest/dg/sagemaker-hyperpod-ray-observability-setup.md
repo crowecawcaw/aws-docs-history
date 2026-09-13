@@ -31,7 +31,7 @@ If the Observability add-on is already installed, upgrade it to version 1.0.6 or
 
 To upgrade the dashboards, open your cluster in the SageMaker AI console, choose the **Dashboard** tab, and in the **HyperPod Observability** section choose **Actions**, then **Upgrade dashboards**. Confirm the upgrade in the dialog. Upgrading overwrites the Ray Core, Ray Data, Ray Train, and Ray Serve dashboards, so copy any customizations first.
 
-![The Upgrade dashboards dialog in the SageMaker AI console, listing the Ray Core, Ray Data, Ray Train, and Ray Serve dashboards to be upgraded.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ray/observability-upgrade-grafana-dashboards.png)
+![The Upgrade dashboards dialog in the SageMaker AI console, listing the Ray Core, Ray Data, Ray Train, and Ray Serve dashboards to be upgraded.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ray/observability-upgrade-grafana-dashboards.png)
 
 
 For the general add-on setup and the console steps, see [Observability](sagemaker-hyperpod-ray-observability.md) and [Observability for Amazon SageMaker HyperPod cluster orchestrated by Amazon EKS](sagemaker-hyperpod-eks-cluster-observability.md).

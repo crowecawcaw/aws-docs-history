@@ -5,7 +5,7 @@
 
 After you enable checkpointing, SageMaker AI saves checkpoints to Amazon S3 and syncs your training job with the checkpoint S3 bucket. You can use either S3 general purpose or S3 directory buckets for your checkpoint S3 bucket. 
 
-![Architecture diagram of writing checkpoints during training.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/checkpoints_write.png)
+![Architecture diagram of writing checkpoints during training.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/checkpoints_write.png)
 
 
 The following example shows how to configure checkpoint paths when you construct a SageMaker AI training object. 

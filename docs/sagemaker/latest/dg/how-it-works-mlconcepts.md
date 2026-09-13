@@ -12,7 +12,7 @@ The following diagram shows the typical workflow for creating an ML model. It in
 + Train a model
 + Deploy the model
 
-![The three stages of ML model creation.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ml-concepts-10.png)
+![The three stages of ML model creation.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ml-concepts-10.png)
 
 
  The diagram shows how to perform the following tasks in most typical scenarios:

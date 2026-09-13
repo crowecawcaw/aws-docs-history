@@ -39,12 +39,12 @@ To open Studio Classic and check its version, see the following procedure.
 1. Choose **Studio**.
 
 1. After Studio Classic loads, select **File**, then **New**, and then **Terminal**.  
-![The Studio Classic context menu options described in step 4.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/terminal.png)
+![The Studio Classic context menu options described in step 4.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/terminal.png)
 
 1. Once you have launched Studio Classic, select **File**, then **New**, and then **Terminal**.
 
 1. Enter `cat /opt/conda/share/jupyter/lab/staging/yarn.lock | grep -A 1 "@amzn/sagemaker-ui-data-prep-plugin@"` to print the version of your Studio Classic instance. You must have Studio Classic version 1.3.0 to use Snowflake.   
-![A terminal window opened in Studio Classic with the command from step 6 copied and pasted in.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/cat-command.png)
+![A terminal window opened in Studio Classic with the command from step 6 copied and pasted in.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/cat-command.png)
 
 You can update Amazon SageMaker Studio Classic from within the AWS Management Console. For more information about updating Studio Classic, see [Amazon SageMaker Studio Classic UI Overview](studio-ui.md).
 

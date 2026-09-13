@@ -74,7 +74,7 @@ If you make batch predictions with your model after building, Canvas adds droppe
 1. (Optional) For additional features such as previewing the accuracy of your model, validating your dataset, and changing the size of the random sample that Canvas takes from your dataset, see [Preview your model](canvas-preview-model.md).
 
 1. After reviewing your data and making any changes to your dataset, choose **Quick build** or **Standard build** to begin a build for your model. The following screenshot shows the **Build** page and the **Quick build** and **Standard build** options.  
-![The Build page for a 2 category model showing the Quick build and Standard build options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/build-page-tabular-quick-standard-options.png)
+![The Build page for a 2 category model showing the Quick build and Standard build options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/build-page-tabular-quick-standard-options.png)
 
 After your model begins building, you can leave the page. When the model shows as **Ready** on the **My models** page, it’s ready for analysis and predictions.
 
@@ -108,7 +108,7 @@ To build a single-label image prediction model, use the following procedure:
 1. On this page, you can preview your images and edit the dataset. If you have any unlabeled images, choose **Edit dataset** and [Assign labels to unlabeled images](canvas-edit-image.md#canvas-edit-image-assign). You can also perform other tasks when you [Edit an image dataset](canvas-edit-image.md), such as renaming labels and adding images to the dataset.
 
 1. After reviewing your data and making any changes to your dataset, choose **Quick build** or **Standard build** to begin a build for your model. The following screenshot shows the **Build** page of an image prediction model that is ready to be built.  
-![The Build page for a single-label image prediction model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/build-page-image-model.png)
+![The Build page for a single-label image prediction model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/build-page-image-model.png)
 
 After your model begins building, you can leave the page. When the model shows as **Ready** on the **My models** page, it’s ready for analysis and predictions.
 
@@ -144,7 +144,7 @@ To build a text prediction model, use the following procedure:
 1. For the training column, select your source column of text data. This should be the column containing the text that you want to analyze.
 
 1. Choose **Quick build** or **Standard build** to begin building your model. The following screenshot shows the **Build** page of a text prediction model that is ready to be built.  
-![The Build page for a multi-category text prediction model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/build-page-text-model.png)
+![The Build page for a multi-category text prediction model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/build-page-text-model.png)
 
 After your model begins building, you can leave the page. When the model shows as **Ready** on the **My models** page, it’s ready for analysis and predictions.
 

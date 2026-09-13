@@ -13,7 +13,7 @@ To make changes to your automatic batch predictions configuration, do the follow
 
 1. Choose the **Configuration** tab.
 
-1. For your auto update configuration, choose the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
+1. For your auto update configuration, choose the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
 
 1. In the dropdown menu, choose **Update configuration**. You are taken to the **Auto updates** tab of the dataset.
 

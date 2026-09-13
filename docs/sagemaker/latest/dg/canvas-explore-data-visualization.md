@@ -30,7 +30,7 @@ You can use **Color by** to color the data points on the plot with a third featu
 
 The following image shows a scatter plot that uses **Color by** and **Group by**. In this example, each data point is colored by the `MaritalStatus` feature, and grouping by the `Department` feature results in a scatter plot for the data points of each department.
 
-![Screenshot of a scatter plot in the Data visualizer view of the Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-eda-scatter-plot.png)
+![Screenshot of a scatter plot in the Data visualizer view of the Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-eda-scatter-plot.png)
 
 
 ## Bar chart
@@ -42,7 +42,7 @@ You can use **Group by** to group the bar chart by a third feature. You can use 
 
 The following image shows a bar chart that uses **Group by** and **Stack by**. In this example, the bar chart is grouped by the `MaritalStatus` feature and stacked by the `JobLevel` feature. For each `JobRole` on the x axis, there is a separate bar for the unique categories in the `MaritalStatus` feature, and every bar is vertically stacked by the `JobLevel` feature.
 
-![Screenshot of a bar chart in the Data visualizer view of the Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-eda-bar-chart.png)
+![Screenshot of a bar chart in the Data visualizer view of the Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-eda-bar-chart.png)
 
 
 ## Box plot
@@ -54,4 +54,4 @@ You can use **Group by** to group the box plots by a third feature.
 
 The following image shows a box plot that uses **Group by**. In this example, the x and y-axes show `JobLevel` and `JobSatisfaction`, respectively, and the colored box plots are grouped by the `Department` feature.
 
-![Screenshot of a box plot in the Data visualizer view of the Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-eda-box-plot.png)
+![Screenshot of a box plot in the Data visualizer view of the Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-eda-box-plot.png)

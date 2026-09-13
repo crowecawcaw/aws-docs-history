@@ -22,7 +22,7 @@ s3://<your-provide-s3-location>/<training-job-name>/output/output/<evaluation-jo
 ------
 #### [ SageMaker Studio ]
 
-![Pass into output artifact location (AWS S3 URI).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/s3-output-path-submission-sagemaker-studio.png)
+![Pass into output artifact location (AWS S3 URI).](https://docs.aws.amazon.com/sagemaker/latest/dg/images/s3-output-path-submission-sagemaker-studio.png)
 
 
 ------
@@ -86,7 +86,7 @@ Read it directly as a `.json` from the AWS S3 location or visualized automatical
 }
 ```
 
-![Sample performance metrics for custom gen-qa benchmark visualized in SageMaker Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/gen-qa-metrics-visualization-sagemaker-studio.png)
+![Sample performance metrics for custom gen-qa benchmark visualized in SageMaker Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/gen-qa-metrics-visualization-sagemaker-studio.png)
 
 
 ## MLFlow logging
@@ -114,13 +114,13 @@ execution = evaluator.evaluate()
 
 Model level and system level metric visualization:
 
-![Sample model level error and accuracy for MMLU benchmarking task.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-metrics-mlflow.png)
+![Sample model level error and accuracy for MMLU benchmarking task.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-metrics-mlflow.png)
 
 
-![Sample built-in metrics for LLMAJ benchmarking task.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/llmaj-metrics-mlflow.png)
+![Sample built-in metrics for LLMAJ benchmarking task.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/llmaj-metrics-mlflow.png)
 
 
-![Sample system level metrics for MMLU benchmarking task.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/system-metrics-mlflow.png)
+![Sample system level metrics for MMLU benchmarking task.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/system-metrics-mlflow.png)
 
 
 ## TensorBoard
@@ -139,7 +139,7 @@ s3://<your-provide-s3-location>/<training-job-name>/output/output/<evaluation-jo
 ------
 #### [ SageMaker Studio ]
 
-![Pass into output artifact location (AWS S3 URI).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/s3-output-path-submission-sagemaker-studio.png)
+![Pass into output artifact location (AWS S3 URI).](https://docs.aws.amazon.com/sagemaker/latest/dg/images/s3-output-path-submission-sagemaker-studio.png)
 
 
 ------
@@ -160,4 +160,4 @@ execution = evaluator.evaluate()
 
 **Sample model level metrics**
 
-![SageMaker TensorBoard displaying results of a benchmarking job.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/metrics-in-tensorboard.png)
+![SageMaker TensorBoard displaying results of a benchmarking job.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/metrics-in-tensorboard.png)

@@ -6,14 +6,45 @@
 Use this section to upgrade the HyperPod task governance Amazon EKS add-on between versions. Each subsection provides version-specific procedures for upgrading your add-on while preserving your existing configuration.
 
 **Topics**
-+ [Upgrade from v1.3.x to v1.5](#hp-eks-task-governance-upgrade-v13-to-v15)
++ [Upgrade from v1.5 to v1.6](#hp-eks-task-governance-upgrade-v15-to-v16)
++ [Upgrade from v1.3.x to v1.5 or later](#hp-eks-task-governance-upgrade-v13-to-v15)
 
-## Upgrade from v1.3.x to v1.5
+## Upgrade from v1.5 to v1.6
+<a name="hp-eks-task-governance-upgrade-v15-to-v16"></a>
+
+Version v1.6.0-eksbuild.1 packages Kueue v0.19.2. You can upgrade directly from v1.5 with `aws eks update-addon`. This upgrade does not migrate custom resource definition (CRD) storage versions, so you do not need to back up or re-create any Kueue objects.
+
+To upgrade the add-on to v1.6 through the Amazon EKS add-on interface, run the following command. Replace {{region}} with your Region and {{cluster-name}} with your Amazon EKS cluster name.
+
+```
+aws eks update-addon --region {{region}} --cluster-name {{cluster-name}} \
+  --addon-name amazon-sagemaker-hyperpod-taskgovernance \
+  --addon-version v1.6.0-eksbuild.1 --resolve-conflicts OVERWRITE
+```
+
+Wait until the status is `ACTIVE`:
+
+```
+aws eks describe-addon --region {{region}} --cluster-name {{cluster-name}} \
+  --addon-name amazon-sagemaker-hyperpod-taskgovernance \
+  --query 'addon.status' --output text
+```
+
+**Topology-aware scheduling slice size validation**  
+Beginning with v1.6 (Kueue v0.19.2), task governance validates the topology-aware scheduling slice size (the number of pods grouped together for placement) when you submit a job. If you submit a job that sets the `kueue.x-k8s.io/podset-slice-size` annotation to a value less than `1`, task governance rejects the job with an error like the following:  
+
+```
+admission webhook "vjob.kb.io" denied the request:
+spec.template.metadata.annotations[kueue.x-k8s.io/podset-slice-size]: Invalid value: "0": must be greater than or equal to 1
+```
+Earlier versions did not validate this value. Before you upgrade, update any job templates that use topology-aware scheduling slices to set `kueue.x-k8s.io/podset-slice-size` to `1` or greater.
+
+## Upgrade from v1.3.x to v1.5 or later
 <a name="hp-eks-task-governance-upgrade-v13-to-v15"></a>
 
-The recommended way to upgrade from v1.3.x to v1.5 is the upgrade option in the SageMaker AI HyperPod console, which migrates the Kueue CRDs automatically. Use the manual procedure in this section only if you cannot use the console.
+The recommended way to upgrade from v1.3.x is the upgrade option in the SageMaker AI HyperPod console, which migrates the Kueue CRDs automatically. Use the manual procedure in this section only if you cannot use the console. This procedure supports v1.5 and later as the target version.
 
-A direct `aws eks update-addon` from v1.3.x to v1.5 fails because v1.3.x stores some Kueue custom resource definitions (CRDs) under the `v1alpha1` API version, which v1.5 removes:
+A direct `aws eks update-addon` from v1.3.x to v1.5 or later fails because v1.3.x stores some Kueue custom resource definitions (CRDs) under the `v1alpha1` API version, which v1.5 removes:
 
 ```
 CustomResourceDefinition.apiextensions.k8s.io "cohorts.kueue.x-k8s.io" is invalid:
@@ -70,7 +101,7 @@ Confirm that the backup directory contains a JSON file for each custom resource 
 
 1. **Delete the backed-up objects and clear the old stored version from each CRD.**
 
-   This removes the `v1alpha1` (or `v1beta1`) entry from `status.storedVersions` so the v1.5 CRDs can install. The objects are safe in your backup and are restored in a later step.
+   This removes the `v1alpha1` (or `v1beta1`) entry from `status.storedVersions` so the v1.5 or later CRDs can install. The objects are safe in your backup and are restored in a later step.
 
    ```
    for crd in admissionchecks clusterqueues cohorts localqueues multikueueclusters \
@@ -86,12 +117,14 @@ Confirm that the backup directory contains a JSON file for each custom resource 
 **About --all-namespaces and --wait=false**  
 `--all-namespaces` here selects custom resources across all namespaces to delete; it does not delete any namespace. `--wait=false` avoids blocking on finalizers. The add-on update in the next step resolves them.
 
-1. **Update the add-on to v1.5.**
+1. **Update the add-on to your target version (v1.5.0-eksbuild.1 or later).**
+
+   Replace {{target-version}} with the target add-on version, for example `v1.5.0-eksbuild.1` or `v1.6.0-eksbuild.1`.
 
    ```
    aws eks update-addon --region {{region}} --cluster-name {{cluster-name}} \
      --addon-name amazon-sagemaker-hyperpod-taskgovernance \
-     --addon-version v1.5.0-eksbuild.1 --resolve-conflicts OVERWRITE
+     --addon-version {{target-version}} --resolve-conflicts OVERWRITE
    ```
 
    Wait until the status is `ACTIVE`:
@@ -124,7 +157,7 @@ Confirm that the backup directory contains a JSON file for each custom resource 
 
 1. **Restore your objects under the new schema.**
 
-   This transforms each backed-up object to the v1.5 (`v1beta2`) schema and re-applies it.
+   This transforms each backed-up object to the v1.5 or later (`v1beta2`) schema and re-applies it.
 
    ```
    transform() {
@@ -169,7 +202,7 @@ Confirm that the backup directory contains a JSON file for each custom resource 
      --query 'addon.{version:addonVersion,status:status}'
    ```
 
-   An example output is as follows.
+   An example output is as follows (your `version` matches the {{target-version}} you set in step 4).
 
    ```
    {

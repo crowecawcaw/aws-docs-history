@@ -10,7 +10,7 @@ Building a highly accurate training dataset for your machine learning (ML) algor
 
 Ground Truth provides a worker console similar to the following for labeling tasks. When you create the labeling job with the console, you can modify the images and content that are shown. To learn how to create a labeling job using the Ground Truth console, see [Create a Labeling Job (Console)](sms-create-labeling-job-console.md).
 
-![Example worker console for labeling tasks, provided by Ground Truth.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/label-verification-example.png)
+![Example worker console for labeling tasks, provided by Ground Truth.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/label-verification-example.png)
 
 
 You can create a label verification labeling job using the SageMaker AI console or API. To learn how to create a labeling job using the Ground Truth API operation `CreateLabelingJob`, see [Create a Labeling Job (API)](sms-create-labeling-job-api.md).

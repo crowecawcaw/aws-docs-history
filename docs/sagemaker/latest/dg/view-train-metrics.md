@@ -36,4 +36,4 @@ You can monitor the metrics that a training job emits in real time by using the 
 1. Choose **TrainingJobName**.
 
 1. In the **Monitor** section, you can review the graphs of instance utilization and algorithm metrics.  
-![Example graphs in the Monitor section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/console-metrics.png)
+![Example graphs in the Monitor section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/console-metrics.png)

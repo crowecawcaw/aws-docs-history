@@ -29,7 +29,7 @@ After you’ve started preparing a model in the SageMaker Canvas application, do
 
 You should see a visualization similar to the following screenshot, which shows up to 15 columns of the dataset organized into a correlation matrix.
 
-![Screenshot of a correlation matrix in the Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-correlation-matrix-2.png)
+![Screenshot of a correlation matrix in the Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-correlation-matrix-2.png)
 
 
 After you’ve created the correlation matrix, you can customize it by doing the following:

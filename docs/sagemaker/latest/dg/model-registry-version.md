@@ -90,7 +90,7 @@ To register a model version in the Amazon SageMaker Studio console, complete the
 
 1. Sign in to Amazon SageMaker Studio Classic. For more information, see [Launch Amazon SageMaker Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-launch.html).
 
-1. In the left navigation pane, choose the **Home** icon ( ![Home icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the left navigation pane, choose the **Home** icon ( ![Home icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Choose **Models**, and then **Model registry**.
 
@@ -154,7 +154,7 @@ To be able to deploy a model created in a different account, the user must have 
 
 The following diagram captures the policies required to allow cross-account model registration. As shown, these policies need to be active during model training to properly register the model into the Model Registry account.
 
-![The policies required to register models across accounts.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_registry_cross_account.png)
+![The policies required to register models across accounts.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_registry_cross_account.png)
 
 
 Amazon ECR, Amazon S3, and AWS KMS policies are demonstrated in the following code samples. 

@@ -26,7 +26,7 @@ Before you get started, make sure you meet the following prerequisites:
 
 Runtime role authentication supports a variety of cross-account connection scenarios when your data resides outside of your Studio account. The following image shows three different ways you can assign your Amazon EMR cluster, data, and even Amazon EMR runtime execution role between your Studio and data accounts: 
 
-![Cross-account scenarios supported by runtime IAM role authentication.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio-emr-rbac-scenarios.png)
+![Cross-account scenarios supported by runtime IAM role authentication.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio-emr-rbac-scenarios.png)
 
 
 In option 1, your Amazon EMR cluster and Amazon EMR runtime execution role are in a separate data account from the Studio account. You define a separate Amazon EMR access role (also referred to as `Assumable role`) permission policy which grants permission to Studio or Studio Classic execution role to assume the Amazon EMR access role. The Amazon EMR access role then calls the Amazon EMR API `GetClusterSessionCredentials` on behalf of your Studio or Studio Classic execution role, giving you access to the cluster.

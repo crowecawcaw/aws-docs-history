@@ -7,7 +7,7 @@ Another restart overhead stems from data loading: the training cluster remains i
 
 To address this, we introduce the Memory Mapped DataLoader(MMAP) Dataloader, which caches prefetched batches in persistent memory, ensuring they remain available even after a fault-induced restart. This approach eliminates dataloader setup time and enables training to resume immediately using cached batches, while the dataloader concurrently reinitializes and fetches subsequent data in the background. The data cache resides on each rank that requires training data and maintains two types of batches: recently consumed batches that have been used for training, and prefetched batches ready for immediate use.
 
-![This image illustrates the MMAP Dataloader, caches, and consumed batches.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-mmap-dataloader.png)
+![This image illustrates the MMAP Dataloader, caches, and consumed batches.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-checkpointless-mmap-dataloader.png)
 
 
 MMAP dataloader offers two following features:

@@ -9,7 +9,7 @@ When you go through the **Import** workflow to import data in the Canvas applica
 
 The following screenshot shows the data sources toolbar in the **Import** workflow, with all of the available data sources highlighted. You can only import data from the data sources that are available to you. Contact your administrator if your desired data source isn’t available.
 
-![The Data Source dropdown menu on the Import data page in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/data-sources.png)
+![The Data Source dropdown menu on the Import data page in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/data-sources.png)
 
 
 The following sections provide information about establishing connections to external data sources and and importing data from them. Review the following section first to determine what permissions you need to import data from your data source.
@@ -89,7 +89,7 @@ When you reach the step in either workflow to choose a data source (Step 6 for c
       + **Secondary** – Canvas only reads from the cluster’s secondary instances, which prevents the read operations from interfering with the cluster’s regular read and write operations.
 
    1. Choose **Add connection**. The following image shows the dialog box with the preceding fields for an Amazon DocumentDB connection.  
-![Screenshot of the Add a new DocumentDB connection dialog box in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/add-docdb-connection.png)
+![Screenshot of the Add a new DocumentDB connection dialog box in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/add-docdb-connection.png)
 
 You should now have an Amazon DocumentDB connection, and you can use your Amazon DocumentDB data in Canvas to create either a dataset or a data flow.
 
@@ -155,17 +155,17 @@ Use the following procedure to import data from Amazon Redshift.
 
 The following image shows an example of fields specified for an Amazon Redshift connection.
 
-![Screenshot of the Add a new Redshift connection dialog box in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-redshift-add-connection.png)
+![Screenshot of the Add a new Redshift connection dialog box in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-redshift-add-connection.png)
 
 
 The following image shows the page used to join datasets in Amazon Redshift.
 
-![Screenshot of the Import page in Canvas, showing two datasets being joined.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-redshift-join.png)
+![Screenshot of the Import page in Canvas, showing two datasets being joined.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-redshift-join.png)
 
 
 The following image shows an SQL query being used to edit a join in Amazon Redshift.
 
-![Screenshot of a SQL query in the Edit SQL editor on the Import page in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-redshift-edit-sql.png)
+![Screenshot of a SQL query in the Edit SQL editor on the Import page in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-redshift-edit-sql.png)
 
 
 ## Connect to your data with JDBC connectors
@@ -272,22 +272,22 @@ Use the following procedure to import data from Snowflake to Amazon SageMaker Ca
 
 The following image shows an example of fields specified for a Snowflake connection.
 
-![Screenshot of the Add a new Snowflake connection dialog box in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-snowflake-connection.png)
+![Screenshot of the Add a new Snowflake connection dialog box in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-snowflake-connection.png)
 
 
 The following image shows the page used to add context to a connection.
 
-![Screenshot of the Import page in Canvas, showing the Context dialog box.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-connection-context.png)
+![Screenshot of the Import page in Canvas, showing the Context dialog box.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-connection-context.png)
 
 
 The following image shows the page used to join datasets in Snowflake.
 
-![Screenshot of the Import page in Canvas, showing datasets being joined.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-snowflake-join.png)
+![Screenshot of the Import page in Canvas, showing datasets being joined.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-snowflake-join.png)
 
 
 The following image shows a SQL query being used to edit a join in Snowflake.
 
-![Screenshot of a SQL query in the Edit SQL editor on the Import page in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-snowflake-edit-sql.png)
+![Screenshot of a SQL query in the Edit SQL editor on the Import page in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-snowflake-edit-sql.png)
 
 
 ### Use SaaS connectors with Canvas

@@ -26,7 +26,7 @@ You can create both CPU and GPU backed multi-model endpoints through the console
 1. For **IAM role**, choose or create an IAM role that has the `AmazonSageMakerFullAccess` IAM policy attached. 
 
 1.  In the **Container definition** section, for **Provide model artifacts and inference image options**, choose **Use multiple models**.  
-![The section of the Create model page where you can choose Use multiple models.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mme-create-model-ux-2.PNG)
+![The section of the Create model page where you can choose Use multiple models.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mme-create-model-ux-2.PNG)
 
 1. For the **Inference container image**, enter the Amazon ECR path for your desired container image.
 

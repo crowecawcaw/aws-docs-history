@@ -157,9 +157,9 @@ You can view the logs for your lifecycle configuration after it has been attache
 
     For information about adding permissions, see [Enabling logging from certain AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 
-1. From within Studio Classic, navigate to the **Running Terminals and Kernels** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/running-terminals-kernels.png)) to monitor your lifecycle configuration.
+1. From within Studio Classic, navigate to the **Running Terminals and Kernels** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/running-terminals-kernels.png)) to monitor your lifecycle configuration.
 
-1. Select an application from the list of running applications. Applications with attached lifecycle configurations have an attached indicator icon ![Code brackets symbol representing programming or markup languages.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-lcc-indicator-icon.png).
+1. Select an application from the list of running applications. Applications with attached lifecycle configurations have an attached indicator icon ![Code brackets symbol representing programming or markup languages.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-lcc-indicator-icon.png).
 
 1. Select the indicator icon for your application. This opens a new panel that lists the lifecycle configuration.
 

@@ -18,4 +18,4 @@ Training plans cannot be shared across AWS accounts or within your AWS Organizat
    + The total payment is collected during the fulfillment process.
    + Once payment is successfully processed, the plan status changes to `Scheduled` and the plan becomes available for use.
 
-![SageMaker AI console showing the "Review and purchase" page for a training plan. The page displays training plan details, segment information, price, plan name, and tags. Options to edit, cancel, go back, or create the plan are available.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-review-and-purchase-training-plan.png)
+![SageMaker AI console showing the "Review and purchase" page for a training plan. The page displays training plan details, segment information, price, plan name, and tags. Options to edit, cancel, go back, or create the plan are available.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-review-and-purchase-training-plan.png)

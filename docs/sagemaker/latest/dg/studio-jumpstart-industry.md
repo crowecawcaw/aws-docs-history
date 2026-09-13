@@ -60,7 +60,7 @@ The model notebooks are for demonstration purposes only. They should not be reli
 
 The following screenshot shows the pretrained model cards provided through the SageMaker AI JumpStart page on Studio Classic.
 
-![The pretrained model cards provided through the SageMaker AI JumpStart page on Studio Classic.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-finance-models.png)
+![The pretrained model cards provided through the SageMaker AI JumpStart page on Studio Classic.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-finance-models.png)
 
 
 **Note**  

@@ -68,4 +68,5 @@ We collect certain routine operational metrics to provide essential service avai
 + [HyperPod inference troubleshooting](sagemaker-hyperpod-model-deployment-ts.md)
 + [Model weights caching and image caching](sagemaker-hyperpod-model-deployment-model-caching.md)
 + [KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md)
++ [Inference Gateway for Amazon SageMaker HyperPod Inference](sagemaker-hyperpod-model-deployment-inference-gateway.md)
 + [Amazon SageMaker HyperPod Inference release notes](sagemaker-hyperpod-inference-release-notes.md)

@@ -11,7 +11,7 @@ Studio Classic is still maintained for existing workloads but is no longer avail
 
 To get started with Studio Classic, see [Launch Amazon SageMaker Studio Classic](studio-launch.md).
 
- ![JumpStart foundation models available in Amazon SageMaker Studio Classic.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-fm-studio.png) 
+ ![JumpStart foundation models available in Amazon SageMaker Studio Classic.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-fm-studio.png) 
 
 After opening Amazon SageMaker Studio Classic, choose **Models, notebooks, solutions** in the SageMaker JumpStart section of the navigation pane. Then, scroll down to find either the **Foundation Models: Text Generation** or **Foundation Models: Image Generation** section depending on your use case. 
 

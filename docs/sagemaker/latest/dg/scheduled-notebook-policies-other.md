@@ -7,7 +7,7 @@ You will need to set up the necessary permissions and policies to schedule noteb
 
 You will need to install two sets of permissions. The following diagram shows the permission structure for you to schedule notebook jobs in a local Jupyter environment. The IAM user needs to set up IAM permissions in order to submit jobs to SageMaker AI. Once the user submits the notebook job, the job itself assumes an IAM role that has permissions to access resources depending on the job tasks.
 
-![The IAM permissions needed by the user, and the IAM role assumed by the job in a notebook run.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/notebook-jobs-permissions.png)
+![The IAM permissions needed by the user, and the IAM role assumed by the job in a notebook run.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/notebook-jobs-permissions.png)
 
 
 The following sections help you install necessary policies and permissions for both the IAM user and the job execution role.

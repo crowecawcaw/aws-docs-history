@@ -52,7 +52,7 @@ Before you begin, make sure that you do the following:
 + Install the latest version of the SageMaker Python SDK.
 
 **Important**  
-To use the following workflow you must have [v2.198.0](https://github.com/aws/sagemaker-python-sdk/releases/tag/v2.198.0) or later of the SageMaker Python SDK installed.
+To use the following workflow you must have version 3.0.0 or later of the SageMaker Python SDK installed. For information about upgrading, see [Use Version 3.x of the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/) on the Read the Docs website.
 
 #### EULA acceptance when deploying a JumpStart model
 <a name="jumpstart-foundation-models-choose-eula-python-sdk-deploy"></a>
@@ -60,50 +60,46 @@ To use the following workflow you must have [v2.198.0](https://github.com/aws/sa
 For models that require the acceptance of an end-user license agreement, you must explicitly declare EULA acceptance when deploying your JumpStart model.
 
 ```
-from sagemaker.jumpstart.model import JumpStartModel
-model_id = {{"meta-textgeneration-llama-2-13b"}}
-my_model = JumpStartModel(model_id=model_id)
+from sagemaker.serve import ModelBuilder
+from sagemaker.core.jumpstart.configs import JumpStartConfig
 
-# Declare EULA acceptance when deploying your JumpStart model
-predictor = my_model.deploy(accept_eula={{True}})
+# Declare EULA acceptance in your JumpStart configuration
+jumpstart_config = JumpStartConfig(
+    model_id={{"meta-textgeneration-llama-2-13b"}},
+    accept_eula=True,
+)
+model_builder = ModelBuilder.from_jumpstart_config(jumpstart_config=jumpstart_config)
+model = model_builder.build()
+endpoint = model_builder.deploy()
 ```
 
-The `accept_eula` value is `None` by default and must be explicitly redefined as `True` in order to accept the end-user license agreement. For more information, see [JumpStartModel](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html#sagemaker.jumpstart.model.JumpStartModel).
+The `accept_eula` value is `False` by default. To accept the end-user license agreement, explicitly set it to `True`. For more information, see [ModelBuilder](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_serve.html#sagemaker.serve.ModelBuilder) in the SageMaker Python SDK documentation on the Read the Docs website.
 
 #### EULA acceptance when fine-tuning a JumpStart model
 <a name="jumpstart-foundation-models-choose-eula-python-sdk-fine-tune"></a>
 
-For fine-tuning models that require the acceptance of an end-user license agreement, you must explicitly declare EULA acceptance when running the `fit()` method for your JumpStart estimator. After fine-tuning a pre-trained model, the weights of the original model are changed. Therefore, when you deploy the fine-tuned model later, you do not need to accept a EULA.
+For fine-tuning models that require the acceptance of an end-user license agreement, you must explicitly declare acceptance. Set this on the `JumpStartConfig` that you use to create your `ModelTrainer`. Fine-tuning a pre-trained model changes the weights of the original model. Therefore, when you deploy the fine-tuned model later, you do not need to accept a EULA.
 
 **Note**  
-The following example sets `accept_eula=False`. You should manually change the value to `True` in order to accept the EULA.
+The following example sets `accept_eula=False`. To accept the EULA, you must change the value to `True`.
 
 ```
-from sagemaker.jumpstart.estimator import JumpStartEstimator
-model_id = {{"meta-textgeneration-llama-2-13b"}}
+from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import InputData
+from sagemaker.core.jumpstart.configs import JumpStartConfig
 
-# Declare EULA acceptance when defining your JumpStart estimator
-estimator = JumpStartEstimator(model_id=model_id)
-estimator.fit(accept_eula=False,
-{"train": training_dataset_s3_path, "validation": validation_dataset_s3_path}
+# Declare EULA acceptance in your JumpStart configuration
+jumpstart_config = JumpStartConfig(
+    model_id={{"meta-textgeneration-llama-2-13b"}},
+    accept_eula=False,
+)
+model_trainer = ModelTrainer.from_jumpstart_config(jumpstart_config=jumpstart_config)
+model_trainer.train(
+    input_data_config=[
+        InputData(channel_name="train", data_source={{training_dataset_s3_path}}),
+        InputData(channel_name="validation", data_source={{validation_dataset_s3_path}}),
+    ]
 )
 ```
 
-The `accept_eula` value is `None` by default and must be explicitly redefined as `"true"` within the `fit()` method in order to accept the end-user license agreement. For more information, see [JumpStartEstimator](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html).
-
-#### EULA acceptance SageMaker Python SDK versions earlier than 2.198.0
-<a name="jumpstart-foundation-models-choose-eula-python-sdk-previous-version"></a>
-
-**Important**  
-When using versions earlier than [2.198.0](https://github.com/aws/sagemaker-python-sdk/releases/tag/v2.198.0) of the SageMaker Python SDK, you must use the SageMaker `Predictor` class to accept a model EULA. 
-
-After deploying a JumpStart foundation model programmatically using the SageMaker Python SDK, you can run inference against your deployed endpoint with the SageMaker `[Predictor](https://sagemaker.readthedocs.io/en/stable/api/inference/predictors.html)` class. For models that require the acceptance of an end-user license agreement, you must explicitly declare EULA acceptance in your call to the `Predictor` class: 
-
-```
-predictor.predict(payload, custom_attributes="accept_eula=true")
-```
-
-The `accept_eula` value is `false` by default and must be explicitly redefined as `true` in order to accept the end-user license agreement. The predictor returns an error if you try to run inference while `accept_eula` is set to `false`. For more information on getting started with JumpStart foundation models using the SageMaker Python SDK, see [Use foundation models with the SageMaker Python SDK](jumpstart-foundation-models-use-python-sdk.md).
-
-**Important**  
-The `custom_attributes` parameter accepts key-value pairs in the format `"key1=value1;key2=value2"`. If you use the same key multiple times, the inference server uses the last value associated with the key. For example, if you pass `"accept_eula=false;accept_eula=true"` to the `custom_attributes` parameter, then the inference server associates the value `true` with the `accept_eula` key.
+The `accept_eula` value is `False` by default. To accept the end-user license agreement, explicitly set it to `True` on the `JumpStartConfig`. For more information, see [SageMaker Train](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) in the SageMaker Python SDK documentation on the Read the Docs website.

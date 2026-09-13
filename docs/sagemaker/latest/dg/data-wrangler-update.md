@@ -28,9 +28,9 @@ Alternatively, if you are using a Data Wrangler application version that is not 
 **Important**  
 This updates the Data Wrangler kernel gateway app only. You still need to shut down the JupyterServer app in your user account. To do this, follow the preceding steps.
 
-![The Update Data Wrangler section in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/data-wrangler-1click-restart.png)
+![The Update Data Wrangler section in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/data-wrangler-1click-restart.png)
 
 
 You can also choose **Remind me later**, in which case an **Update** button appears in the top-right corner of the screen.
 
-![The location of the Update in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/data-wrangler-1click-restart-update.png)
+![The location of the Update in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/data-wrangler-1click-restart-update.png)

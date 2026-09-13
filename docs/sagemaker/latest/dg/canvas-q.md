@@ -132,12 +132,12 @@ To use Amazon Q Developer to build ML models in SageMaker Canvas, do the followi
 
 When you start a new chat, Q Developer prompts you to state your problem or provide a dataset.
 
-![The greeting that Q Developer gives you upon starting a new chat.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-greeting.png)
+![The greeting that Q Developer gives you upon starting a new chat.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-greeting.png)
 
 
 After importing your data, you can ask Q Developer to provide you with summary statistics about your dataset, or you can ask questions about specific columns. For a list of the different statistics that Q Developer supports, see the preceding section [Amazon Q Developer capabilities available in Canvas](#canvas-q-capabilities). The following screenshot shows an example of asking for dataset statistics and the most frequent category in a product category column.
 
-![Chat dialog asking Q Developer to provide dataset statistics and the most frequent category statistic.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-dataset-statistics.png)
+![Chat dialog asking Q Developer to provide dataset statistics and the most frequent category statistic.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-dataset-statistics.png)
 
 
 Q Developer tracks any Canvas artifacts you import or create during the conversation, such as transformed datasets and models. You can access them from the chat or other Canvas application tabs. For example, if Q Developer fixes issues in your dataset, you can access the new, transformed dataset from the following places:
@@ -147,19 +147,19 @@ Q Developer tracks any Canvas artifacts you import or create during the conversa
 
 The following screenshot shows the original dataset and the transformed dataset in the sidebar of a chat.
 
-![The artifacts, which are a dataset and a transformed dataset, shown in the sidebar of a Q Developer chat.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-artifacts.png)
+![The artifacts, which are a dataset and a transformed dataset, shown in the sidebar of a Q Developer chat.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-artifacts.png)
 
 
 When your data is ready, ask Q Developer to help build a Canvas model. Q Developer might prompt you to confirm a few fields and review the build configuration. If you use the default build configuration, then your model is built using a quick build. If you want to customize any part of your build configuration, such as selecting the algorithms used or changing the objective metric, then your model is built with a standard build.
 
 The following screenshot shows how you can prompt Q Developer to initiate a Canvas model build with only a few prompts. This example uses the default configuration to start a quick build.
 
-![A conversation with Q Developer where the user prompted to start a Canvas model build.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-training-chat.png)
+![A conversation with Q Developer where the user prompted to start a Canvas model build.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-training-chat.png)
 
 
 After building your model, you can perform additional actions using either natural language in the chat or the artifacts sidebar menu. For example, you can view model details and metrics, make predictions, or deploy the model. The following screenshot shows the sidebar where you can choose these additional options.
 
-![A Q Developer conversation ellipsis menu expanded, showing options for viewing models details, predictions, and deployment.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-ellipsis-menu.png)
+![A Q Developer conversation ellipsis menu expanded, showing options for viewing models details, predictions, and deployment.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/amazon-q-ellipsis-menu.png)
 
 
 You can also perform any of these actions by going to the **My Models** page of Canvas and selecting your model. From your model's page, you can navigate to the **Analyze**, **Predict**, and **Deploy** tabs to view model metrics and visualizations, make predictions, and manage deployments, respectively.

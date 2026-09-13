@@ -38,7 +38,7 @@ This section shows two ways to delete a feature group in the console, depending 
 
 1. Open the Studio Classic console by following the instructions in [Launch Amazon SageMaker Studio Classic](studio-launch.md).
 
-1. In the left navigation pane, choose the **Home** icon (![Home icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the left navigation pane, choose the **Home** icon (![Home icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Choose **Data**.
 

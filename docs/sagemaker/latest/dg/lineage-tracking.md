@@ -17,7 +17,7 @@ With SageMaker AI Lineage Tracking data scientists and model builders can do the
 
 The following diagram shows an example lineage graph that Amazon SageMaker AI automatically creates in an end-to-end model training and deployment ML workflow.
 
-![An example graph of lineage entity metadata created by SageMaker AI to track your workflow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/PipelineLineageWorkflow.png)
+![An example graph of lineage entity metadata created by SageMaker AI to track your workflow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/PipelineLineageWorkflow.png)
 
 
 **Topics**

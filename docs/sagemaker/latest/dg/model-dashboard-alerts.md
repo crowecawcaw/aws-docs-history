@@ -11,7 +11,7 @@ The following image shows an example scenario of a series of Model Monitor execu
 
 Note that even if the evaluation window size has not reached the **Evaluation period** of 3, as shown in the first 2 rows of the image, the monitor still raises an alert if the number of failures meets or exceeds the **Datapoints to alert** value of 2.
 
-![A sequence of seven example monitoring executions.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/model-dashboard-alerts-window.png)
+![A sequence of seven example monitoring executions.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/model-dashboard-alerts-window.png)
 
 
 Within the monitor details page, you can view your alert history, edit existing alert criteria, and view job reports to help you debug alert failures. For instructions about how to view alert history or job reports for failed monitoring executions, see [View alert history or job reports](model-dashboard-alerts-view.md). For instructions about how to edit alert criteria, see [Edit alert criteria](model-dashboard-alerts-edit.md).

@@ -12,7 +12,7 @@ To reorder your data flow steps, do the following:
 
 1. While editing a data flow in Data Wrangler, choose the **Data** tab. A side panel called **Steps** lists your data flow steps in order.
 
-1. Hover over a transform step and choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to that step.
+1. Hover over a transform step and choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to that step.
 
 1. From the context menu, choose **Reorder**.
 

@@ -26,14 +26,14 @@ The **Overview** tab shows you the column impact for each column. **Column impac
 
 The following screenshot shows the **Accuracy** score for the model, along with the **Optimization metric**, which is the metric that you choose to optimize when building the model. In this case, the **Optimization metric** is **Accuracy**. You can specify a different optimization metric if you build a new version of your model.
 
-![Screenshot of the accuracy score and optimization metric on the Analyze tab in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-tab-2-category.png)
+![Screenshot of the accuracy score and optimization metric on the Analyze tab in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-tab-2-category.png)
 
 
 The **Scoring** tab for a categorical prediction model gives you the ability to visualize all the predictions. Line segments extend from the left of the page, indicating all the predictions the model has made. In the middle of the page, the line segments converge on a perpendicular segment to indicate the proportion of each prediction to a single category. From the predicted category, the segments branch out to the actual category. You can get a visual sense of how accurate the predictions were by following each line segment from the predicted category to the actual category.
 
 The following image gives you an example **Scoring** section for a **3\+ category prediction** model.
 
-![Screenshot of the Scoring tab for a 3+ category prediction model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-analyze/canvas-multiclass-classification.png)
+![Screenshot of the Scoring tab for a 3+ category prediction model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-analyze/canvas-multiclass-classification.png)
 
 
 You can also view the **Advanced metrics** tab for more detailed information about your model’s performance, such as the advanced metrics, error density plots, or confusion matrices. To learn more about the **Advanced metrics** tab, see [Use advanced metrics in your analyses](canvas-advanced-metrics.md).
@@ -45,14 +45,14 @@ The **Overview** tab shows you the column impact for each column. **Column impac
 
 The following screenshot shows the **RMSE** score for the model on the **Overview** tab, which in this case is the **Optimization metric**. The **Optimization metric** is the metric that you choose to optimize when building the model. You can specify a different optimization metric if you build a new version of your model.
 
-![Screenshot of the RMSE optimization metric on the Analyze tab in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-tab-2-numeric.png)
+![Screenshot of the RMSE optimization metric on the Analyze tab in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-tab-2-numeric.png)
 
 
 The **Scoring** tab for numeric prediction shows a line to indicate the model's predicted value in relation to the data used to make predictions. The values of the numeric prediction are often \+/- the RMSE (root mean squared error) value. The value that the model predicts is often within the range of the RMSE. The width of the purple band around the line indicates the RMSE range. The predicted values often fall within the range.
 
 The following image shows the **Scoring** section for numeric prediction.
 
-![Screenshot of the Scoring tab for a numeric prediction model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-analyze/canvas-analyze-regression-scoring.png)
+![Screenshot of the Scoring tab for a numeric prediction model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-analyze/canvas-analyze-regression-scoring.png)
 
 
 You can also view the **Advanced metrics** tab for more detailed information about your model’s performance, such as the advanced metrics, error density plots, or confusion matrices. To learn more about the **Advanced metrics** tab, see [Use advanced metrics in your analyses](canvas-advanced-metrics.md).
@@ -66,7 +66,7 @@ In the **Column impact** section, you can see the score for each column. **Colum
 
 The following screenshot shows the time series metrics scores for the model, along with the **Optimization metric**, which is the metric that you choose to optimize when building the model. In this case, the **Optimization metric** is **RMSE**. You can specify a different optimization metric if you build a new version of your model. These metrics scores are taken from your backtest results, which are available for download in the **Artifacts** tab.
 
-![Screenshot of the RMSE optimization metric on the Analyze tab in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-tab-2-time-series.png)
+![Screenshot of the RMSE optimization metric on the Analyze tab in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-tab-2-time-series.png)
 
 
 The **Artifacts** tab provides access to several key resources that you can use to dive deeper into your model’s performance and continue iterating upon it:
@@ -90,7 +90,7 @@ You can also view insights for individual labels or groups of labels, such as th
 
 The following screenshot shows the **Scoring** information for a single-label image prediction model.
 
-![The actual versus predicted labels on the Scoring page for a multi-category text prediction model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-image-scoring.png)
+![The actual versus predicted labels on the Scoring page for a multi-category text prediction model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-image-scoring.png)
 
 
 ## Evaluate text prediction models
@@ -104,4 +104,4 @@ In the **Model accuracy insights** section, you can see the **Most frequent cate
 
 The following screenshot shows the **Scoring** information for a multi-category text prediction model.
 
-![The actual versus predicted labels on the Scoring page for a single-label image prediction model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-text-scoring.png)
+![The actual versus predicted labels on the Scoring page for a single-label image prediction model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/analyze-text-scoring.png)

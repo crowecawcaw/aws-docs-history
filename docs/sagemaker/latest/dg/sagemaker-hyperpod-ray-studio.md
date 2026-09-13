@@ -9,7 +9,7 @@ Studio suits teams that want data scientists productive on Ray without Kubernete
 
 The following screenshot shows the **Tasks** tab with the **Actions** menu open on a Ray cluster.
 
-![The Tasks tab in SageMaker Studio with the Actions menu open on a Ray cluster.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ray/studio-tasks-tab-ray-cluster-actions.png)
+![The Tasks tab in SageMaker Studio with the Actions menu open on a Ray cluster.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ray/studio-tasks-tab-ray-cluster-actions.png)
 
 
 ## Before you begin

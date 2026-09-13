@@ -376,7 +376,7 @@ plt.show()
 
 The output of the preceding code example is a satellite image with the NDVI values overlaid on it. An NDVI value near 1 indicates lots of vegetation is present, and values near 0 indicate no vegetation is presentation.
 
-![A satellite image of northern Iowa with the NDVI overlaid on top.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ndvi-iowa.png)
+![A satellite image of northern Iowa with the NDVI overlaid on top.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ndvi-iowa.png)
 
 
 This completes the demo of using `ProcessingJob`.

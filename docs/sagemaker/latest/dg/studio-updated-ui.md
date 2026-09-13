@@ -11,7 +11,7 @@ As of November 30, 2023, the previous Amazon SageMaker Studio experience is now 
 +  **Navigation pane**– This section of the UI includes a list of the applications that are supported in Studio and options for the main workflows in Studio. 
 +  **Content pane**– The main working area that displays the current page of the Studio UI that you have open.
 
-![Amazon SageMaker Studio home page with navigation pane and content pane (main working area).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/studio-updated-ui.png)
+![Amazon SageMaker Studio home page with navigation pane and content pane (main working area).](https://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/studio-updated-ui.png)
 
 
 **Topics**
@@ -38,7 +38,7 @@ As of November 30, 2023, the previous Amazon SageMaker Studio experience is now 
 
  **User options** 
 
-Choose the user options icon (![User icon with a circular avatar placeholder and a downward-pointing arrow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/user-settings.png)) to get information about the user profile that is currently using Studio, and gives the option to sign out of Studio.  
+Choose the user options icon (![User icon with a circular avatar placeholder and a downward-pointing arrow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/user-settings.png)) to get information about the user profile that is currently using Studio, and gives the option to sign out of Studio.  
 
 ## Amazon SageMaker Studio navigation pane
 <a name="studio-updated-ui-left"></a>
@@ -47,7 +47,7 @@ Choose the user options icon (![User icon with a circular avatar placeholder and
 
  The navigation pane of the UI includes a list of the applications that are supported in Studio. It also provides options for the main workflows in Studio. 
 
- This section of the UI can be used in an expanded or collapsed state. To change whether the section is expanded or collapsed, select the **Collapse** icon (![Collapse icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/collapse-ui.png)). 
+ This section of the UI can be used in an expanded or collapsed state. To change whether the section is expanded or collapsed, select the **Collapse** icon (![Collapse icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/monarch/collapse-ui.png)). 
 
  **Applications** 
 

@@ -7,7 +7,7 @@ You can use either the Amazon SageMaker Pipelines Python SDK or the drag-and-dro
 
 The following screenshot shows the visual designer that you can use to create and manage your Amazon SageMaker Pipelines.
 
-![Screenshot of the visual drag-and-drop interface for Pipelines in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/pipelines-studio-overview.png)
+![Screenshot of the visual drag-and-drop interface for Pipelines in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/pipelines-studio-overview.png)
 
 
 After your pipeline is deployed, you can view the directed acyclic graph (DAG) for your pipeline and manage your executions using Amazon SageMaker Studio. Using SageMaker Studio, you can get information about your current and historical pipelines, compare executions, see the DAG for your executions, get metadata information, and more. To learn about how to view pipelines from Studio, see [View the details of a pipeline](pipelines-studio-list.md). 

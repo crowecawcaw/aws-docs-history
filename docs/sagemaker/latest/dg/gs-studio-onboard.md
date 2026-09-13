@@ -10,7 +10,7 @@ Amazon SageMaker AI uses domains to organize user profiles, applications, and th
 
 The following diagram provides an overview of private apps and shared spaces within each domain.
 
- ![Overview of a domain.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/domains/private-apps-shared-spaces.png) 
+ ![Overview of a domain.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/domains/private-apps-shared-spaces.png) 
 
 To have access to most Amazon SageMaker AI environments and resources, you must complete the Amazon SageMaker AI domain onboarding process using the SageMaker AI console or the AWS CLI. For a guide describing how to get started using SageMaker AI based on how you want to access SageMaker AI, and if necessary how to set up a domain, see [Guide to getting set up with Amazon SageMaker AI](gs.md).
 

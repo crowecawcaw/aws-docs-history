@@ -13,7 +13,7 @@ To delete a configuration for automatic dataset updates or automatic batch predi
 
 1. Choose the **Configuration** tab.
 
-1. Find your auto update configuration, and choose the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
+1. Find your auto update configuration, and choose the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
 
 1. Choose **Delete configuration**.
 

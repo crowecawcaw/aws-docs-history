@@ -39,4 +39,4 @@ response = client.create_endpoint(
 1. (Optional) For **Tags**, enter key-value pairs if you want to create metadata for your endpoint.
 
 1. Choose **Create endpoint**.  
-![Screenshot of the create and configure endpoint page in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-create.png)
+![Screenshot of the create and configure endpoint page in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-create.png)

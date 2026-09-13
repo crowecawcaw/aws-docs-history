@@ -11,7 +11,7 @@ This page is deprecated in favor of Amazon SageMaker AI with TensoBoard, which p
 
 Use SageMaker Debugger to create output tensor files that are compatible with TensorBoard. Load the files to visualize in TensorBoard and analyze your SageMaker training jobs. Debugger automatically generates output tensor files that are compatible with TensorBoard. For any hook configuration you customize for saving output tensors, Debugger has the flexibility to create scalar summaries, distributions, and histograms that you can import to TensorBoard. 
 
-![An architecture diagram of the Debugger output tensor saving mechanism.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-tensorboard-concept.png)
+![An architecture diagram of the Debugger output tensor saving mechanism.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-tensorboard-concept.png)
 
 
 You can enable this by passing `DebuggerHookConfig` and `TensorBoardOutputConfig` objects to an `ModelTrainer`.
@@ -116,4 +116,4 @@ The following procedure explains how to save scalars, weights, and biases as ful
 
 The following animated screenshot illustrates steps 5 through 8. It demonstrates how to download the Debugger TensorBoard TAR file and load the file in a Jupyter notebook on your local device.
 
-![Animation on how to download and load the Debugger TensorBoard file on your local machine.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-tensorboard.gif)
+![Animation on how to download and load the Debugger TensorBoard file on your local machine.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-tensorboard.gif)

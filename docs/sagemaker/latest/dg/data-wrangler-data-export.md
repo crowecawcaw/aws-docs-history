@@ -7,7 +7,7 @@ In your Data Wrangler flow, you can export some or all of the transformations th
 
 A *Data Wrangler flow* is the series of data preparation steps that you've performed on your data. In your data preparation, you perform one or more transformations to your data. Each transformation is done using a transform step. The flow has a series of nodes that represent the import of your data and the transformations that you've performed. For an example of nodes, see the following image.
 
-![Example data flow in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-0.png)
+![Example data flow in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-0.png)
 
 
 The preceding image shows a Data Wrangler flow with two nodes. The **Source - sampled** node shows the data source from which you've imported your data. The **Data types** node indicates that Data Wrangler has performed a transformation to convert the dataset into a usable format. 
@@ -44,7 +44,7 @@ You can use a destination node to export some of the transformations or all of t
 
 You can use multiple destination nodes to export different transformations or sets of transformations. The following example shows two destination nodes in a single Data Wrangler flow.
 
-![Example data flow showing two destination nodes in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-4.png)
+![Example data flow showing two destination nodes in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-4.png)
 
 
 You can use the following procedure to create destination nodes and export them to an Amazon S3 bucket.
@@ -58,10 +58,10 @@ Use the following procedure to create destination nodes.
 1. Choose the **\+** next to the nodes that represent the transformations that you want to export.
 
 1. Choose **Add destination**.  
-![Example data flow showing how to add a destination in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-add-destination-0.png)
+![Example data flow showing how to add a destination in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-add-destination-0.png)
 
 1. Choose **Amazon S3**.  
-![Example dataflow showing how to add destination in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-add-destination-S3-selected.png)
+![Example dataflow showing how to add destination in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-add-destination-S3-selected.png)
 
 1. Specify the following fields.
    + **Dataset name** – The name that you specify for the dataset that you're exporting.
@@ -85,7 +85,7 @@ Create a job from the **Data flow** page and choose the destination nodes that y
 You can choose **Create job** in the Data Wrangler flow to view the instructions for creating a processing job.
 
 1. Choose **Create job**. The following image shows the pane that appears after you select **Create job**.  
-![Example data flow create job pane in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-create-job.png)
+![Example data flow create job pane in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-create-job.png)
 
 1. For **Job name**, specify the name of the export job.
 
@@ -102,7 +102,7 @@ You can choose **Create job** in the Data Wrangler flow to view the instructions
 For image data, Data Wrangler exports the transformations that you've made to all of the images. Refitting the transformations isn't applicable to your use case.
 
 1. Choose **Configure job**. The following image shows the **Configure job** page.  
-![Example data flow configure job page in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-configure-job.png)
+![Example data flow configure job page in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-configure-job.png)
 
 1. (Optional) Configure the Data Wrangler job. You can make the following configurations:
    + **Job configuration**
@@ -128,7 +128,7 @@ Use the following procedure to generate a Jupyter notebook and run it to export 
 1. Choose **Amazon S3 (via Jupyter Notebook)**.
 
 1. Run the Jupyter notebook.  
-![Example data flow showing how to export your Data Wrangler flow in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-export-to.png)
+![Example data flow showing how to export your Data Wrangler flow in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-export-to.png)
 
 When you run the notebook, it exports your data flow (.flow file) in the same AWS Region as the Data Wrangler flow.
 
@@ -182,7 +182,7 @@ For information on using the **Export data** method in your Data Wrangler flow, 
 To use the **Export data** method:
 
 1. Choose a node in your Data Wrangler flow by opening (double-clicking on) it.  
-![Example data flow showing how to export data in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/export-s3.png)
+![Example data flow showing how to export data in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/export-s3.png)
 
 1. Configure how you want to export the data.
 
@@ -214,7 +214,7 @@ Use the following procedure to generate a Jupyter notebook and run it to export 
 
 1. Run the Jupyter notebook.
 
-![Example data flow showing how to export your Data Wrangler flow in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-export-to.png)
+![Example data flow showing how to export your Data Wrangler flow in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-export-to.png)
 
 
 You can use the Jupyter notebook that Data Wrangler produces to define a pipeline. The pipeline includes the data processing steps that are defined by your Data Wrangler flow. 
@@ -327,7 +327,7 @@ Use the following procedure to generate a Jupyter notebook and run it to export 
 
 1. Run the Jupyter notebook.
 
-![Example data flow showing how to export your Data Wrangler flow in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-export-to.png)
+![Example data flow showing how to export your Data Wrangler flow in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-export-to.png)
 
 
 You might need to configure the Python script to make it run in your pipeline. For example, if you're running a Spark environment, make sure that you are running the script from an environment that has permission to access AWS resources.
@@ -365,7 +365,7 @@ You can choose **Create job** in the Data Wrangler flow to view the instructions
 1. Choose the **\+** symbol next to the node containing the dataset that you'd like to export.
 
 1. Under **Add destination**, choose **SageMaker AI Feature Store**.  
-![Example data flow showing how to add destination in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/feature-store-destination-node-selection.png)
+![Example data flow showing how to add destination in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/feature-store-destination-node-selection.png)
 
 1. Choose (double-click) the feature group. Data Wrangler checks whether the schema of the feature group matches the schema of the data that you're using to update the feature group.
 
@@ -461,7 +461,7 @@ Create a job from the **Data flow** page and choose the destination nodes that y
 1. (Optional) For **Output KMS Key**, specify an ARN, ID, or alias of an AWS KMS key. A KMS key is a cryptographic key. You can use the key to encrypt the output data from the job. For more information about AWS KMS keys, see [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html).
 
 1. The following image shows the **Configure job** page with the **Job configuration** tab open.  
-![Example data flow create job page in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-configure-job.png)
+![Example data flow create job page in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/destination-nodes-configure-job.png)
 
    (Optional) Under **Trained parameters**. choose **Refit** if you've done the following:
    + Sampled your dataset
@@ -496,7 +496,7 @@ Use the following procedure to generate a Jupyter notebook and run it to export 
 
 1. Run the Jupyter notebook.
 
-![Example data flow showing how to export your Data Wrangler flow in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-export-to.png)
+![Example data flow showing how to export your Data Wrangler flow in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-destination-nodes-photo-export-to.png)
 
 
 Running a Jupyter notebook runs a Data Wrangler job. Running a Data Wrangler job starts a SageMaker AI processing job. The processing job ingests the flow into an online and offline feature store.

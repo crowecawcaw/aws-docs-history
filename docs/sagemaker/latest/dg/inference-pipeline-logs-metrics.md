@@ -42,12 +42,12 @@ Metrics are reported at a 1-minute intervals.
 
 For an inference pipeline endpoint, CloudWatch lists per-container latency metrics in your account as **Endpoint Container Metrics** and **Endpoint Variant Metrics** in the **SageMaker AI** namespace, as follows. The `ContainerLatency` metric appears only for inferences pipelines.
 
-![The CloudWatch dashboard for an inference pipeline.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-endpoint-metrics.png)
+![The CloudWatch dashboard for an inference pipeline.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-endpoint-metrics.png)
 
 
 For each endpoint and each container, latency metrics display names for the container, endpoint, variant, and metric.
 
-![The latency metrics for an endpoint.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-endpoint-metrics-details.png)
+![The latency metrics for an endpoint.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-endpoint-metrics-details.png)
 
 
 **Training Job, Batch Transform Job, and Endpoint Instance Metrics**

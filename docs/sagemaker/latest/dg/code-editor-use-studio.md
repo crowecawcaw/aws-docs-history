@@ -5,7 +5,7 @@
 
 To configure and access your Code Editor integrated development environment through Studio, you must create a Code Editor space. For more information about spaces in Studio, see [Amazon SageMaker Studio spaces](studio-updated-spaces.md).
 
-![The Code Editor application button and overview tile in the Studio UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-studio-home.png)
+![The Code Editor application button and overview tile in the Studio UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-studio-home.png)
 
 
 The following procedure shows how to create and run a Code Editor space.
@@ -41,4 +41,4 @@ To update space settings, you must first stop your space. If your Code Editor us
 
 1. After the status of the space is `Running`, choose **Open Code Editor** to go to your Code Editor session. 
 
-![The space detail page for a Code Editor application in the Studio UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-open.png)
+![The space detail page for a Code Editor application in the Studio UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-open.png)

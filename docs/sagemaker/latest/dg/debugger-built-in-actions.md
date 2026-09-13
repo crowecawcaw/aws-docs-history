@@ -60,7 +60,7 @@ Make sure you type the correct email address and phone number. Phone numbers mus
 
 After you subscribe to the **SMDebugRules** topic, you receive the following confirmation message in email or by phone:
 
-![A subscription confirmation email message for the Amazon SNS SMDebugRules topic.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-built-in-action-subscription-confirmation.png)
+![A subscription confirmation email message for the Amazon SNS SMDebugRules topic.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-built-in-action-subscription-confirmation.png)
 
 
 For more information about Amazon SNS, see [Mobile text messaging (SMS)](https://docs.aws.amazon.com/sns/latest/dg/sns-mobile-phone-number-as-subscriber.html) and [Email notifications](https://docs.aws.amazon.com/sns/latest/dg/sns-email-notifications.html) in the *Amazon SNS Developer Guide*.
@@ -218,12 +218,12 @@ model_trainer.train()
 
 While the training job is running, the Debugger built-in action sends notification emails and text messages whenever the rule finds issues with your training job. The following screenshot shows an example of email notification for a training job that has a stalled training job issue. 
 
-![An example email notification sent by Debugger when it detects a StalledTraining issue.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-built-in-action-email.png)
+![An example email notification sent by Debugger when it detects a StalledTraining issue.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-built-in-action-email.png)
 
 
 The following screenshot shows an example text notification that Debugger sends when the rule finds a StalledTraining issue.
 
-![An example text notification sent by Debugger when it detects a StalledTraining issue.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-built-in-action-text.png)
+![An example text notification sent by Debugger when it detects a StalledTraining issue.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-built-in-action-text.png)
 
 
 ## Considerations for using the Debugger built-in actions

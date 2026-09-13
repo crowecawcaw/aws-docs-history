@@ -219,7 +219,7 @@ To enable the default Athena connection
 
    1. Check the box for **Enable default Athena connection**.
 
-   1. In your JupyterLab application, choose the SQL extension icon (![SQL Explorer icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-icon.png)) in the left navigation pane to open the SQL extension.
+   1. In your JupyterLab application, choose the SQL extension icon (![SQL Explorer icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-icon.png)) in the left navigation pane to open the SQL extension.
 
    1.  Choose the **Refresh** button at the bottom of the data discovery panel. You should see a `default-athena-connection` in the list of connections.
 
@@ -230,7 +230,7 @@ You are ready to query your data using SQL in your JupyterLab notebooks.
 
 1. Open the connection `default-athena-connection` and then **AWSDataCatalog**.
 
-1. Navigate to your database and choose the three dots icon (![SQL extension three dots icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-3dots-icon.png)) on its right. Select **Query in notebook**.
+1. Navigate to your database and choose the three dots icon (![SQL extension three dots icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/sqlexplorer/sqlexplorer-3dots-icon.png)) on its right. Select **Query in notebook**.
 
    This automatically populates a notebook cell in JupyterLab with the relevant `%%sm_sql` magic command to connect to the data source. It also adds a sample SQL statement to help you start querying right away. 
 **Note**  

@@ -7,7 +7,140 @@ This topic covers release notes that track updates, fixes, and new features for 
 
 For information about SageMaker HyperPod Inference capabilities and deployment options, see [Deploying models on Amazon SageMaker HyperPod](sagemaker-hyperpod-model-deployment.md).
 
-## SageMaker HyperPod Inference release notes: v3.4
+## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v2.0.0-eksbuild.2 and Inference Operator v3.6
+<a name="sagemaker-hyperpod-inference-release-notes-v2-0-0-eksbuild-2"></a>
+
+**Release Date:** September 10, 2026
+
+**Summary**
+
+The `v2.0.0-eksbuild.2` release of the HyperPod Inference Amazon EKS add-on introduces the HyperPod Inference Gateway, a Kubernetes-native, LLM-aware routing layer that distributes inference traffic across model-serving pods using request-body content and GPU-aware endpoint selection. Both the Inference Operator and the Inference Gateway ship together as part of this add-on release.
+
+This is a major version update of the add-on, from `v1.6.0-eksbuild.1` to `v2.0.0-eksbuild.2`. The version update reflects the addition of the Inference Gateway, and the release remains backward compatible with the existing add-on features. If you do not need either component, you can disable it in the add-on configuration by setting `inferenceGateway.enabled` or `inferenceOperator.enabled` to `false`.
+
+**Inference Gateway**
++ **Inference Gateway** – Route inference traffic for multiple models through a single gateway endpoint using three routing layers: a Body-Based Router that reads the request `model` field, the gateway with HTTPRoute for header-based routing, and a GPU-aware Endpoint Picker. Configure the gateway with the new `InferenceGatewayConfig` CRD, including per-model schedulers, scoring weights, LoRA adapter support, and optional TLS termination. See [Inference Gateway for Amazon SageMaker HyperPod Inference](sagemaker-hyperpod-model-deployment-inference-gateway.md).
+
+**Inference Operator**
++ **Gateway integration on `InferenceEndpointConfig` and `JumpStartModel`** – Added an optional `inferenceGateway` field to both CRDs. Set `inferenceGateway.enabled` to `true` to opt a model into a shared gateway. The operator then adds a scheduler entry for that model to an `InferenceGatewayConfig`, creating the gateway if it does not already exist. Use `inferenceGateway.name` to select the gateway. Models that specify the same name in the same namespace share one gateway, and a name that is not yet in use creates a new one. When the field is empty, the operator generates a unique name so the model gets its own gateway. The operator mirrors the gateway's readiness in `status.inferenceGateway`. For more information, see [Integration with the HyperPod Inference Operator](sagemaker-hyperpod-model-deployment-inference-gateway.md#sagemaker-hyperpod-model-deployment-inference-gateway-operator-integration).
++ **Custom pod annotations on `InferenceEndpointConfig`** – Added an optional `podTemplateAnnotations` field under `spec.kubernetes`. The operator propagates these annotations to the underlying pods, so that pod-scraping integrations such as metrics autodiscovery can read them.
+
+### Upgrade to v2.0.0-eksbuild.2 or v3.6
+<a name="sagemaker-hyperpod-inference-v2-0-0-eksbuild-2-upgrade"></a>
+
+**Configuration schema changes:**
+
+The add-on configuration schema changed in this release. `inferenceGateway` is newly added and configures the HyperPod Inference Gateway. The schema also adds `inferenceOperator`, which gives you the flexibility to turn the Inference Operator on or off independently. Both components are enabled by default, with `inferenceGateway.enabled` and `inferenceOperator.enabled` set to `true`. To disable either component, set its `enabled` field to `false` in `--configuration-values`.
+
+**EKS Add-on upgrade:**
+
+If you installed the Inference Operator as an EKS Add-on, upgrade to `v2.0.0-eksbuild.2` with the following command:
+
+```
+CLUSTER=EKS_CLUSTER_NAME
+REGION=REGION
+ACCOUNT=AWS_ACCOUNT_ID
+
+aws eks update-addon \
+  --cluster-name $CLUSTER --region $REGION \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --addon-version v2.0.0-eksbuild.2 \
+  --resolve-conflicts OVERWRITE \
+  --configuration-values '{
+    "executionRoleArn": "arn:aws:iam::<ACCOUNT>:role/<EXEC_ROLE>",
+    "tlsCertificateS3Bucket": "<TLS_BUCKET>",
+    "inferenceOperator": { "enabled": true },
+    "inferenceGateway": {
+      "enabled": true,
+      "serviceAccount": { "roleArn": "arn:aws:iam::<ACCOUNT>:role/<CERT_ISSUER_ROLE>" }
+    },
+    "keda": { "enabled": true, "auth": { "aws": { "irsa": { "enabled": true, "roleArn": "arn:aws:iam::<ACCOUNT>:role/<KEDA_IRSA_ROLE>" } } } },
+    "alb": { "enabled": true, "serviceAccount": { "create": true, "roleArn": "arn:aws:iam::<ACCOUNT>:role/<ALB_IRSA_ROLE>" } },
+    "jumpstartGatedModelDownloadRoleArn": "arn:aws:iam::<ACCOUNT>:role/<JUMPSTART_ROLE>"
+  }'
+```
+
+**Helm upgrade:**
+
+The Inference Gateway is available only through the Amazon EKS add-on. If you manage the Inference Operator with Helm and want to continue using operator-only features, upgrade your Helm release with the following commands. We recommend migrating to the add-on to get the full capabilities of both the Inference Operator and the Inference Gateway.
+
+```
+helm get values -n kube-system hyperpod-inference-operator \
+> current-values.yaml
+
+cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
+charts/inference-operator
+
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.6
+
+# Verification
+kubectl get deployment hyperpod-inference-operator-controller-manager \
+  -n hyperpod-inference-system \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
+For migration from Helm to the Amazon EKS add-on, see [Helm to EKS Add-on Migration](#sagemaker-hyperpod-inference-v3-0-migration).
+
+## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v1.6.0-eksbuild.1 and Inference Operator v3.5
+<a name="sagemaker-hyperpod-inference-release-notes-20260903"></a>
+
+**Release Date:** September 3, 2026
+
+**Summary**
+
+Amazon SageMaker HyperPod Inference Operator v3.5 gives you direct control over where model weights are pre-cached. You can now attach your own node affinity rules to the weights cache instead of relying solely on the instance-type targeting the operator derives from your deployment. This release also adds two Prometheus metrics for inbound request volume, and includes a few security fixes.
+
+Amazon SageMaker HyperPod Inference Operator v3.5 is available in all AWS Regions where SageMaker HyperPod is supported.
+
+**New Features**
++ **Node Affinity for Model Weights Caching** – Constrain which nodes pre-cache model weights by using the new `nodeAffinity` field under `modelCacheConfig.weightsCache` on your `InferenceEndpointConfig` or `JumpStartModel`. The field accepts the standard Kubernetes node affinity structure, so you get `requiredDuringSchedulingIgnoredDuringExecution` and `preferredDuringSchedulingIgnoredDuringExecution` terms. Multiple `nodeSelectorTerms` give you OR semantics, which lets you target node pools, Availability Zones, or custom label sets in one deployment.
+
+  The operator applies your rules in addition to the instance-type targeting it derives from `spec.instanceType` or `spec.instanceTypes`, so weights are cached only on nodes that satisfy both. Use this to pin the weights cache to a single Availability Zone or to specific HyperPod instance groups.
++ **Inbound Request Tracking** – Two new Prometheus metrics give you visibility into inbound inference request volume, so you can measure total demand, track shed load, and plan autoscaling and capacity accordingly.
+  + `model_requests_received_total` – Counts every request at the proxy entrypoint, before any admission control decision. This includes requests that are later shed.
+  + `model_requests_shed_total` – Counts requests rejected by admission control through throttling.
+
+### Upgrade to v3.5 or v1.6.0-eksbuild.1
+<a name="sagemaker-hyperpod-inference-v3-5-upgrade"></a>
+
+**Helm upgrade:**
+
+If you already have the Inference Operator installed by using Helm, use the following commands to upgrade:
+
+```
+helm get values -n kube-system hyperpod-inference-operator \
+> current-values.yaml
+
+cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
+charts/inference-operator
+
+helm upgrade hyperpod-inference-operator . -n kube-system \
+  -f current-values.yaml --set image.tag=v3.5
+
+# Verification
+kubectl get deployment hyperpod-inference-operator-controller-manager \
+  -n hyperpod-inference-system \
+  -o jsonpath='{.spec.template.spec.containers[0].image}'
+```
+
+**EKS Add-on upgrade:**
+
+If you installed the Inference Operator as an EKS Add-on, upgrade to the latest version:
+
+```
+CLUSTER=EKS_CLUSTER_NAME
+REGION=REGION
+
+aws eks update-addon \
+  --cluster-name $CLUSTER \
+  --addon-name amazon-sagemaker-hyperpod-inference \
+  --addon-version v1.6.0-eksbuild.1 \
+  --resolve-conflicts OVERWRITE \
+  --region $REGION
+```
+
+## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v1.5.0-eksbuild.1 and Inference Operator v3.4
 <a name="sagemaker-hyperpod-inference-release-notes-20260821"></a>
 
 **Release Date:** August 21, 2026
@@ -21,7 +154,7 @@ Amazon SageMaker HyperPod Inference Operator v3.4 is available in all AWS Region
 **New Features**
 + **Configurable Container Resources** – Set resource requests and limits for the operator-managed sidecar containers. Use the new `metricsSidecarResources`, `metricsCollectorResources`, and `s3UploaderResources` fields on your `InferenceEndpointConfig` or `JumpStartModel`. These fields let you raise the reverse proxy memory for high-concurrency deployments, tune the metrics collector, and size the data capture uploader. When a field is set, the operator applies your values instead of the built-in defaults and preserves them across reconciliation. Each field fully replaces that container's resource block, so specify complete requests and limits.
 
-### Upgrade to v3.4
+### Upgrade to v3.4 or v1.5.0-eksbuild.1
 <a name="sagemaker-hyperpod-inference-v3-4-upgrade"></a>
 
 **Helm upgrade:**
@@ -60,7 +193,7 @@ aws eks update-addon \
   --region $REGION
 ```
 
-## SageMaker HyperPod Inference release notes: v3.3
+## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v1.4.0-eksbuild.1 and Inference Operator v3.3
 <a name="sagemaker-hyperpod-inference-release-notes-20260804"></a>
 
 **Release Date:** August 4, 2026
@@ -80,7 +213,7 @@ Amazon SageMaker HyperPod Inference Operator v3.3 is available in all AWS Region
 + **Intelligent Routing Endpoint Registration** – Fixed an issue where intelligent routing deployments used an unprefixed name for the Ingress path lookup. The lookup failed on every reconciliation, which prevented SageMaker AI endpoint registration from completing.
 + **KV Cache Configuration** – Fixed an issue where the operator did not honor `enableL1Cache` or `enableL2Cache` set to `false` in `kvCacheSpec`.
 
-### Upgrade to v3.3
+### Upgrade to v3.3 or v1.4.0-eksbuild.1
 <a name="sagemaker-hyperpod-inference-v3-3-upgrade"></a>
 
 **Helm upgrade:**
@@ -119,7 +252,7 @@ aws eks update-addon \
   --region $REGION
 ```
 
-## SageMaker HyperPod Inference release notes: v3.2
+## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v1.3.0-eksbuild.1 and Inference Operator v3.2
 <a name="sagemaker-hyperpod-inference-release-notes-20260612"></a>
 
 **Release Date:** June 12, 2026
@@ -143,7 +276,7 @@ Inference Operator v3.2 enables customers to deploy long-context LLMs (such as L
 + **Operator scheduling on x86 nodes** – The operator deployment now uses `nodeAffinity` to schedule onto amd64 Linux nodes only.
 + We include other minor and security fixes.
 
-### Upgrade to v3.2
+### Upgrade to v3.2 or v1.3.0-eksbuild.1
 <a name="sagemaker-hyperpod-inference-v3-2-upgrade"></a>
 
 **Helm upgrade:**
@@ -182,7 +315,7 @@ aws eks update-addon \
   --region $REGION
 ```
 
-## SageMaker HyperPod Inference release notes: v3.1.2
+## SageMaker HyperPod Inference release notes: HyperPod Inference Amazon EKS v1.2.0-eksbuild.1 and Inference Operator v3.1.2
 <a name="sagemaker-hyperpod-inference-release-notes-20260506"></a>
 
 **Release Date:** May 6, 2026
@@ -204,7 +337,7 @@ Inference Operator v3.1.2 introduces inference data capture for logging endpoint
 + **Autoscaling CRD Validation** – Fixed `prometheusTrigger.serverAddress` validation regex that incorrectly required a trailing path segment, causing 404 errors when KEDA appended `/api/v1/query` to the AMP workspace URL.
 + **Certificate Rotation** – Fixed custom certificate rotation not propagating to ALB after operator pod restart.
 
-### Upgrade to v3.1.2
+### Upgrade to v3.1.2 or v1.2.0-eksbuild.1
 <a name="sagemaker-hyperpod-inference-v3-1-2-upgrade"></a>
 
 **Helm upgrade:**
@@ -219,7 +352,7 @@ cd sagemaker-hyperpod-cli/helm_chart/HyperPodHelmChart/\
 charts/inference-operator
 
 helm upgrade hyperpod-inference-operator . -n kube-system \
-  -f current-values.yaml --set image.tag=v3.1
+  -f current-values.yaml --set image.tag=v3.1.2
     
 # Verification
 kubectl get deployment hyperpod-inference-operator-controller-manager \
@@ -281,7 +414,7 @@ aws eks update-addon \
 
 Wait for the add-on to become active before deploying models.
 
-## SageMaker HyperPod Inference release notes: v3.1
+## SageMaker HyperPod Inference release notes: Inference Operator v3.1
 <a name="sagemaker-hyperpod-inference-release-notes-20260403"></a>
 
 **Release Date:** April 3, 2026
@@ -341,7 +474,7 @@ kubectl get deployment hyperpod-inference-operator-controller-manager \
   -o jsonpath='{.spec.template.spec.containers[0].image}'
 ```
 
-## SageMaker HyperPod Inference release notes: v3.0
+## SageMaker HyperPod Inference release notes: Inference Operator v3.0
 <a name="sagemaker-hyperpod-inference-release-notes-20260223"></a>
 
 **Release Date:** February 23, 2026
@@ -509,7 +642,7 @@ Backups enable safe migration and recovery:
 
 If migration fails, the script prompts for user confirmation before initiating rollback to restore the previous state.
 
-## SageMaker HyperPod Inference release notes: v2.3
+## SageMaker HyperPod Inference release notes: Inference Operator v2.3
 <a name="sagemaker-hyperpod-inference-release-notes-20260203"></a>
 
 **What's new**

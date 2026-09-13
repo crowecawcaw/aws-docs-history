@@ -7,7 +7,7 @@ The goal of SageMaker smart sifting is to sift through your training data during
 
 The following diagram shows an overview of how the SageMaker smart sifting algorithm is designed.
 
-![Architecture diagram of how SageMaker smart sifting operates during training as data is loaded.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smartsifting-arch.png)
+![Architecture diagram of how SageMaker smart sifting operates during training as data is loaded.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smartsifting-arch.png)
 
 
 In short, SageMaker smart sifting operates during training as data is loaded. The SageMaker smart sifting algorithm runs loss calculation over the batches, and sifts non-improving data out before the forward and backward pass of each iteration. The refined data batch is then used for the forward and backward pass. 

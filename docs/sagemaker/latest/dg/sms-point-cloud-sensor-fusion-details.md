@@ -95,7 +95,7 @@ transformed_pcl = generate_transformed_pcd_from_point_cloud(points, lidar_extrin
 
 Ground Truth supports sensor fusion of point cloud data with up to 8 video camera inputs. This feature allows human labellers to view the 3D point cloud frame side-by-side with the synchronized video frame. In addition to providing more visual context for labeling, sensor fusion allows workers to adjust annotations in the 3D scene and in 2D images and the adjustment are projected into the other view. The following video demonstrates a 3D point cloud labeling job with LiDAR and camera sensor fusion. 
 
-![Gif showing a 3D point cloud labeling job with LiDAR and camera sensor fusion.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_tracking/sensor-fusion.gif)
+![Gif showing a 3D point cloud labeling job with LiDAR and camera sensor fusion.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_tracking/sensor-fusion.gif)
 
 
 For best results, when using sensor fusion, your point cloud should be in a WCS. Ground Truth uses your sensor (such as LiDAR), camera, and ego vehicle pose information to compute extrinsic and intrinsic matrices for sensor fusion. 
@@ -305,7 +305,7 @@ In order to project to and from a 3D LiDAR scene to a 2D camera image, Ground Tr
 
 Ground Truth computes rotation metrics using the heading quaternions as follows:
 
-![Equation: Ground Truth point cloud rotation metrics.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/sms-point-cloud-rotation-matrix.png)
+![Equation: Ground Truth point cloud rotation metrics.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/sms-point-cloud-rotation-matrix.png)
 
 
 Here, `[x, y, z, w]` corresponds to parameters in the `heading` JSON object, `[qx, qy, qz, qw]`. Ground Truth computes the translation column vector as `T = [poseX, poseY, poseZ]`. Then the extrinsic metrics is simply as follows:
@@ -339,14 +339,14 @@ There are two types of distortion Ground Truth can correct for: radial distortio
 
 **Formula 1:**
 
-![Formula 1: equations for x_{corrected} and y_{corrected}, to undistort radial distortion.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/sms-point-cloud-camera-distortion-1.png)
+![Formula 1: equations for x_{corrected} and y_{corrected}, to undistort radial distortion.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/sms-point-cloud-camera-distortion-1.png)
 
 
 *Tangential distortion* occurs because the lenses used to take the images are not perfectly parallel to the imaging plane. This can be corrected with Formula 2. 
 
 **Formula 2:**
 
-![Formula 2: equations for x_{corrected} and y_{corrected}, to correct for tangential distortion.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/sms-point-cloud-camera-distortion-2.png)
+![Formula 2: equations for x_{corrected} and y_{corrected}, to correct for tangential distortion.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/sms-point-cloud-camera-distortion-2.png)
 
 
 In the input manifest file, you can provide distortion coefficients and Ground Truth will undistort your images. All distortion coefficients are floats. 
@@ -357,7 +357,7 @@ If images are already undistorted, all distortion coefficients should be 0 in yo
 
 In order to correctly reconstruct the corrected image, Ground Truth does a unit conversion of the images based on focal lengths. If a common focal length is used with a given aspect ratio for both axes, such as 1, in the upper formula we will have a single focal length. The matrix containing these four parameters is referred to as the *in camera intrinsic calibration matrix*. 
 
-![The in camera intrinsic calibration matrix.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/sms-point-cloud-camera-intrinsic.png)
+![The in camera intrinsic calibration matrix.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/sms-point-cloud-camera-intrinsic.png)
 
 
 While the distortion coefficients are the same regardless of the camera resolutions used, these should be scaled with the current resolution from the calibrated resolution. 

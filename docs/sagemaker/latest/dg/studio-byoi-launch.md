@@ -14,7 +14,7 @@ After you create your custom SageMaker image and attach it to your domain or sha
 1. In Amazon SageMaker Studio Classic, open the Launcher. To open the Launcher, choose **Amazon SageMaker Studio Classic** at the top left of the Studio Classic interface or use the keyboard shortcut `Ctrl + Shift + L`.
 
    To learn about all the available ways to open the Launcher, see [Use the Amazon SageMaker Studio Classic Launcher](studio-launcher.md)  
-![SageMaker Studio Classic launcher.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-new-launcher.png)
+![SageMaker Studio Classic launcher.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-new-launcher.png)
 
 1. In the Launcher, in the **Notebooks and compute resources** section, choose **Change environment**.
 

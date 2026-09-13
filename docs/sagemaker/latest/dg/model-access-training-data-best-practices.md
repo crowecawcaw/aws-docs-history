@@ -5,7 +5,7 @@
 
 The best data source for your training job depends on workload characteristics such as the size of the dataset, the file format, the average size of files, the training duration, a sequential or random data loader read pattern, and how fast your model can consume the training data. The following best practices provide guidelines to get started with the most suitable input mode and data storage service for your use case.
 
-![Flowchart summarizing best practices of choosing the best storage as the data source and input file mode.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-training-choose-mode-and-storage.png)
+![Flowchart summarizing best practices of choosing the best storage as the data source and input file mode.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-training-choose-mode-and-storage.png)
 
 
 ## When to use Amazon EFS

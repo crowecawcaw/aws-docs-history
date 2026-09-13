@@ -317,7 +317,7 @@ You can view your instance recommendation jobs in the SageMaker AI console by do
 
 On the details page for your job, you can view the **Inference recommendations**, which are the instance types SageMaker AI recommends for your model, as shown in the following screenshot.
 
-![Screenshot of the inference recommendations list on the job details page in the SageMaker AI console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inf-rec-instant-recs.png)
+![Screenshot of the inference recommendations list on the job details page in the SageMaker AI console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inf-rec-instant-recs.png)
 
 
 In this section, you can compare the instance types by various factors such as **Model latency**, **Cost per hour**, **Cost per inference**, and **Invocations per minute**.

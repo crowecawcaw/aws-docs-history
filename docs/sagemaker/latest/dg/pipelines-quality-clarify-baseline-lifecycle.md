@@ -39,4 +39,4 @@ By setting `register_new_baseline` of your `ClarifyCheck` and `QualityCheck` ste
 
 The following diagram illustrates a model-version-centric view of the baseline evolution and lifecycle.
 
-![A model-version-centric view of the baseline evolution and lifecycle.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/Baseline-Lifecycle.png)
+![A model-version-centric view of the baseline evolution and lifecycle.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/Baseline-Lifecycle.png)

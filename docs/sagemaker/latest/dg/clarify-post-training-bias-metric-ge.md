@@ -16,7 +16,7 @@ Using this definition, a false positive receives a benefit `b` of `2`, and a fal
 
 The GE metric is computed following the [Generalized Entropy Index](https://en.wikipedia.org/wiki/Generalized_entropy_index) (GE) with the weight `alpha` set to `2`. This weight controls the sensitivity to different benefit values. A smaller `alpha` means an increased sensitivity to smaller values.
 
-![Equation defining generalized entropy index with alpha parameter set to 2.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify-post-training-bias-metric-ge.png)
+![Equation defining generalized entropy index with alpha parameter set to 2.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify-post-training-bias-metric-ge.png)
 
 
 The following variables used to calculate GE are defined as follows:

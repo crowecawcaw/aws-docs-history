@@ -25,7 +25,7 @@ The following examples demonstrate how you can use Amazon A2I to integrate a hum
 + **Use Amazon A2I with Amazon Translate** – Have humans review low-confidence translations returned from Amazon Translate.
 + **Use Amazon A2I to review tabular data** – Use Amazon A2I to integrate a human review loop into an ML application that uses tabular data.
 
-![Amazon Augmented AI - How It Works.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/amazon-augmented-ai-how-it-works.png)
+![Amazon Augmented AI - How It Works.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/amazon-augmented-ai-how-it-works.png)
 
 
 **Topics**

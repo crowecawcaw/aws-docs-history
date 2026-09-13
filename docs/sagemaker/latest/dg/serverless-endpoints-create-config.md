@@ -49,7 +49,7 @@ response = client.create_endpoint_config(
 1. For **Endpoint configuration name**, enter a name that is unique within your account in a Region.
 
 1. For **Type of endpoint**, select **Serverless**.  
-![Screenshot of the endpoint type option in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-endpoint-config.png)
+![Screenshot of the endpoint type option in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-endpoint-config.png)
 
 1. For **Production variants**, choose **Add model**.
 
@@ -58,7 +58,7 @@ response = client.create_endpoint_config(
 1. After adding your model, under **Actions**, choose **Edit**.
 
 1. For **Memory size**, choose the memory size you want in GB.  
-![Screenshot of the memory size option in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-endpoint-config-2.png)
+![Screenshot of the memory size option in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-endpoint-config-2.png)
 
 1. For **Max Concurrency**, enter your desired maximum concurrent invocations for the endpoint. The maximum value you can enter is 200 and the minimum is 1.
 

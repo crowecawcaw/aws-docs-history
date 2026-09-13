@@ -19,7 +19,7 @@ This section shows how to create a lifecycle configuration to install extensions
    ```
 
    You can retrieve the extension name from the URL of the extension in the [Open VSX Registry](https://open-vsx.org/). The extension name to use in the `sagemaker-code-editor` command should contain all text that follows `https://open-vsx.org/extension/` in the URL. Replace all instances of a slash (`/`) with a period (`.`). For example, `AmazonEMR/emr-tools` should be `AmazonEMR.emr-tools`.  
-![The Amazon EMR extension page in the Open VSX Registry.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-emr-extension.png)
+![The Amazon EMR extension page in the Open VSX Registry.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-emr-extension.png)
 
 1. After finalizing your script, create and attach your lifecycle configuration. For more information, see [Create and attach lifecycle configurations in Studio](code-editor-use-lifecycle-configurations-studio-create.md).
 

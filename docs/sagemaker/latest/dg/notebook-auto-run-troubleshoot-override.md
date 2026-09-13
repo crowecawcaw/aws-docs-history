@@ -9,7 +9,7 @@ To tag a cell in your notebook with the `parameters` tag, complete the following
 
 1. Select the cell to parameterize.
 
-1. Choose the **Property Inspector** icon (![Property Inspector icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/gears.png)) in the right sidebar.
+1. Choose the **Property Inspector** icon (![Property Inspector icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/gears.png)) in the right sidebar.
 
 1. Type **parameters** in the **Add Tag** box.
 

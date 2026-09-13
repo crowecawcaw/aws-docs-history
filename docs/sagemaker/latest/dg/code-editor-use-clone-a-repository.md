@@ -9,7 +9,7 @@ To clone a repository, go through the following steps:
 
 **To clone a repository**
 
-1. Open your Code Editor application in the browser, and choose the **Exploration** button (![Icon representing multiple documents or pages stacked on top of each other.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-exploration-icon.png)) in the left navigation pane.
+1. Open your Code Editor application in the browser, and choose the **Exploration** button (![Icon representing multiple documents or pages stacked on top of each other.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-exploration-icon.png)) in the left navigation pane.
 
 1. Choose **Clone Repository** in the **Explorer** window. Then, provide a repository URL or pick a repository source in the prompt.
 

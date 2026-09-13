@@ -12,7 +12,7 @@ To create an EMR Serverless application from Studio:
 1. Choose the **Create serverless application** button at the top right corner. This opens a **Create application** page resembling the view you would see in the [EMR Serverless console](https://console.aws.amazon.com/emrserverless) when choosing to **Use custom settings** in the **application setup options**.
 
 1. Provide the necessary details for your application, including a name and any specific configurable parameters you wish to set, then choose **Create application**.  
-![Creation form of an EMR Serverless application from Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-serverless-create-app.png)
+![Creation form of an EMR Serverless application from Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-serverless-create-app.png)
 
    All configuration settings have default values and are optional to modify. For detailed information on each available parameter, see [Configuring an application](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity.html) in the EMR Serverless user guide.
 **Note**  

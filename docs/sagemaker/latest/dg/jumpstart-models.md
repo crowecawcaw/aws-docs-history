@@ -7,7 +7,17 @@ JumpStart supports task-specific models across fifteen of the most popular probl
 
 You can search and browse models from the JumpStart landing page in Studio or Studio Classic. When you select a model, the model detail page provides information about the model, and you can train and deploy your model in a few steps. The description section describes what you can do with the model, the expected types of inputs and outputs, and the data type needed for fine-tuning your model. 
 
-You can also programmatically utilize models with the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/). For a list of all available models, see the [JumpStart Available Model Table](https://sagemaker.readthedocs.io/en/v2.132.0/doc_utils/pretrainedmodels.html).
+You can also programmatically utilize models with the [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/). To list all available models, use `list_jumpstart_models()` from the SDK:
+
+```
+from sagemaker.core.jumpstart.notebook_utils import list_jumpstart_models
+
+# List every available JumpStart model ID.
+model_ids = list_jumpstart_models()
+print(model_ids)
+```
+
+This prints a list of model ID strings, such as `['huggingface-llm-falcon-7b', ...]`.
 
 The list of problem types and links to their example Jupyter notebooks are summarized in the following table.
 

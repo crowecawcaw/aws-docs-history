@@ -15,4 +15,4 @@ The details page shows:
 
 At the bottom of the page, a link allows you to view either the training jobs or the list of SageMaker HyperPod cluster instance groups associated with this plan, depending on its target resource. 
 
-![SageMaker AI console page displaying details of a training plan. The page shows basic plan information, status, and instance details. Below are expandable sections for additional details. At the bottom, a capacity utilization section shows total, in-use, and available instances for the plan.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-view-training-plan.png)
+![SageMaker AI console page displaying details of a training plan. The page shows basic plan information, status, and instance details. Below are expandable sections for additional details. At the bottom, a capacity utilization section shows total, in-use, and available instances for the plan.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-view-training-plan.png)

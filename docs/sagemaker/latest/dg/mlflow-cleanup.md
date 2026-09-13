@@ -66,7 +66,7 @@ To delete a tracking server in Studio:
 
 1. Choose **Delete** to confirm deletion.
 
-![The deletion option on a tracking server card in the MLflow Tracking Servers pane of the Studio UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-delete.png)
+![The deletion option on a tracking server card in the MLflow Tracking Servers pane of the Studio UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/mlflow/mlflow-studio-delete.png)
 
 
 ### Delete a tracking server using the AWS CLI

@@ -15,4 +15,4 @@ SageMaker AI will attempt to repair the cluster up to `10` times. If the cluster
 
 The previously described cluster and instance repair process is depicted in the following diagram:
 
-![The cluster and instance repair process.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-cluster-repair.png)
+![The cluster and instance repair process.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-cluster-repair.png)

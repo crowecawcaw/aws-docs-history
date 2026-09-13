@@ -70,7 +70,7 @@ export SUBNET3="subnet-xxxxx"
 
 Verify you have the required quotas for the instances you will create in the SageMaker HyperPod cluster. To review your quotas, on the Service Quotas console, choose AWS services in the navigation pane, then choose SageMaker. For example, the following screenshot shows the available quota for c5 instances.
 
-![An image containing cost region information.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-cluster-quota.png)
+![An image containing cost region information.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-cluster-quota.png)
 
 
 #### Check Spot Availability
@@ -248,7 +248,7 @@ To begin, launch and configure your SageMaker HyperPod EKS cluster and verify th
 
 Screen shot of Console : 
 
-![An image containing the creation cluster flow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-create-cluster.png)
+![An image containing the creation cluster flow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-create-cluster.png)
 
 
 This setup creates the necessary configuration such as virtual private cloud (VPC), subnets, security groups, and EKS cluster, and installs operators in the cluster. You can also provide existing resources such as an EKS cluster if you want to use an existing cluster instead of creating a new one. This setup will take around 20 minutes.
@@ -274,7 +274,7 @@ To add an Spot IG to your existing HyperPod EKS cluster. Complete the following 
 
 **Screen shot of Console : **
 
-![An image containing the instance group creation flow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-instance-group.png)
+![An image containing the instance group creation flow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-instance-group.png)
 
 
 ### Using CloudFormation
@@ -691,9 +691,9 @@ When EC2 sends a Spot interruption notice, HyperPod automatically:
 
 To check your usage and billing for Spot Instances on HyperPod you can use the AWS Cost Explorer Console. Go to Billing and Cost Management > Bill
 
-![An image containing cost region information.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-cost-region.png)
+![An image containing cost region information.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-cost-region.png)
 
 
 **To explore usage and billing on Console, go to Billing and Cost Management > Cost Explorer**
 
-![An image containing cost and usage.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-cost-usage.png)
+![An image containing cost and usage.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/Screenshot-cost-usage.png)

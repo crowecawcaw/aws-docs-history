@@ -593,7 +593,7 @@ After the cluster status turns to **InService** (typically 10 to 15 minutes), co
 
    ```
    aws ssm start-session \
-       --target sagemaker-cluster:{{my-hyperpod-cluster}}_{{my-login-group}}-{{i-0abc123def456789b}} \
+       --target sagemaker-cluster:{{aa11bbbbb222}}_{{my-login-group}}-{{i-0abc123def456789b}} \
        --region {{us-west-2}}
    ```
 

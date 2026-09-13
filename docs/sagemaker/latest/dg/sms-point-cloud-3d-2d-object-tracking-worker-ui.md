@@ -8,14 +8,14 @@ Amazon SageMaker Ground Truth is no longer open to new customers. Existing custo
 
 Ground Truth provides workers with a web portal and tools to complete your 3D-2D object tracking annotation tasks. When you create the labeling job, you provide the Amazon Resource Name (ARN) for a pre-built Ground Truth UI in the `HumanTaskUiArn` parameter. To use the UI when you create a labeling job for this task type using the API, you need to provide the `HumanTaskUiArn`. You can preview and interact with the worker UI when you create a labeling job through the API. The annotating tools are a part of the worker task interface. They are not available for the preview interface. The following image demonstrates the worker task interface used for the 3D-2D point cloud object tracking annotation task.
 
-![The worker task interface used for the 3D-2D point cloud object tracking annotation task.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms-sensor-fusion.png)
+![The worker task interface used for the 3D-2D point cloud object tracking annotation task.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms-sensor-fusion.png)
 
 
 When interpolation is enabled by default. After a worker adds a single cuboid, that cuboid is replicated in all frames of the sequence with the same ID. If the worker adjusts the cuboid in another frame, Ground Truth interpolates the movement of that object and adjust all cuboids between the manually adjusted frames. Additionally, using the camera view section, a cuboid can be shown with a projection (using to B button for "toggle labels" in the camera view) that provides the worker with a reference from the camera images. The accuracy of the cuboid to image projection is based on accuracy of calibrations captured in the extrinsic and intrinsinc data.
 
 If you provide camera data for sensor fusion, images are matched up with scenes in point cloud frames. Note that the camera data should be time synchronized with the point cloud data to ensure an accurate depiction of point cloud to imagery over each frame in the sequence as shown in the following image.
 
-![The manifest file, the worker portal with point cloud data and the camera data.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/3d_2d_link_ss.png)
+![The manifest file, the worker portal with point cloud data and the camera data.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/3d_2d_link_ss.png)
 
 
 The manifest file holds the extrinsic and intrinsic data and the pose to allow the cuboid projection on the camera image to be shown by using the **P button**.

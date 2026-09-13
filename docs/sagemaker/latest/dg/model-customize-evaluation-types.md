@@ -183,7 +183,7 @@ STRONG_REJECT_SUBTASKS = [
 ------
 #### [ SageMaker Studio ]
 
-![A minimal configuration for benchmarking through SageMaker Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/benchmark-submission-sagemaker-studio.png)
+![A minimal configuration for benchmarking through SageMaker Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/benchmark-submission-sagemaker-studio.png)
 
 
 ------
@@ -228,7 +228,7 @@ You can use 2 different metric formats to define the evaluation:
 ------
 #### [ SageMaker Studio ]
 
-![A minimal configuration for LLMAJ benchmarking through SageMaker Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/llmaj-as-judge-submission-sagemaker-studio.png)
+![A minimal configuration for LLMAJ benchmarking through SageMaker Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/llmaj-as-judge-submission-sagemaker-studio.png)
 
 
 ------
@@ -289,7 +289,7 @@ For more information, see: [https://docs.aws.amazon.com/bedrock/latest/userguide
 ------
 #### [ SageMaker Studio ]
 
-![Upload the custom metric via Custom metrics > Add custom metrics.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/custom-llmaj-metrics-submission-sagemaker-studio.png)
+![Upload the custom metric via Custom metrics > Add custom metrics.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/custom-llmaj-metrics-submission-sagemaker-studio.png)
 
 
 ------
@@ -347,7 +347,7 @@ Bring your own dataset for custom scorer by registering it as a SageMaker Hub Co
 
 In Studio, upload your dataset using the dedicated Datasets page..
 
-![Registered evaluation dataset in SageMaker Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/dataset-registration-sagemaker-studio.png)
+![Registered evaluation dataset in SageMaker Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/dataset-registration-sagemaker-studio.png)
 
 
 ------
@@ -373,7 +373,7 @@ dataset.refresh()
 ------
 #### [ SageMaker Studio ]
 
-![Select from Code executions or Math answers for Built-In custom scoring.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/builtin-scorer-submission-sagemaker-studio.png)
+![Select from Code executions or Math answers for Built-In custom scoring.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/builtin-scorer-submission-sagemaker-studio.png)
 
 
 ------
@@ -410,10 +410,10 @@ Define a custom reward function. For more information, see [Custom Scorers (Brin
 ------
 #### [ SageMaker Studio ]
 
-![Navigating to SageMaker Studio > Assets > Evaluator > Create evaluator > Create reward function.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/custom-scorer-submission-sagemaker-studio.png)
+![Navigating to SageMaker Studio > Assets > Evaluator > Create evaluator > Create reward function.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/custom-scorer-submission-sagemaker-studio.png)
 
 
-![Submit the Custom Scorer evaluation job referencing the registered preset reward function in Custom Scorer > Custom metrics.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/custom-scorer-benchmark-submission-sagemaker-studio.png)
+![Submit the Custom Scorer evaluation job referencing the registered preset reward function in Custom Scorer > Custom metrics.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/custom-scorer-benchmark-submission-sagemaker-studio.png)
 
 
 ------

@@ -12,12 +12,12 @@ After you've added a label, you may see a downward pointing arrow next to the la
 
 You may see frame attributes under the **Labels** menu. These attributes will appear on each frame in your task. Use these attribute prompts to enter additional information about each frame. 
 
-![Example frame attribute prompt.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/frame-attributes.png)
+![Example frame attribute prompt.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/frame-attributes.png)
 
 
 After you've added a label, you can quickly add and edit a label category attribute value by using the downward pointing arrow next to the label in the **Labels** menu. If you select the pencil icon next to the label in the **Labels** menu, the **Edit instance** menu will appear. You can edit the label ID, label category, and label category attributes using this menu. 
 
-![Gif showing how you can edit the annotation for labels in the frame.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/kitti-ot-general.gif)
+![Gif showing how you can edit the annotation for labels in the frame.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/kitti-ot-general.gif)
 
 
 To edit an annotation, select the label of the annotation that you want to edit in the **Labels** menu or select the annotation in the frame. When you edit or delete an annotation, the action will only modify the annotation in a single frame. 
@@ -28,7 +28,7 @@ After you've used the predict next icon, review the location of each box in the 
 
 The following graphic demonstrates how to use the predict next tool:
 
-![Gif showing how you can adjust the predicted boxes for the next frame.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/kitti-ot-predict-next.gif)
+![Gif showing how you can adjust the predicted boxes for the next frame.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/kitti-ot-predict-next.gif)
 
 
 For all other tools, you can use the **Copy to next** and **Copy to all** tools to copy your annotations to the next or all frames respectively. 

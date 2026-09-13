@@ -29,7 +29,7 @@ Generating recommendations incurs no additional cost. Standard compute costs app
 
 1. Choose **Create**. Studio opens the job configuration page, which contains the **Strategy**, **Model**, and **Compute** sections that you complete in the following steps.
 
-![The Inference optimization landing page in Studio, showing the list of existing jobs and the Create button.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-landing.png)
+![The Inference optimization landing page in Studio, showing the list of existing jobs and the Create button.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-landing.png)
 
 
 ## Step 2: Configure your strategy
@@ -55,7 +55,7 @@ Prioritizes responsiveness over throughput and cost.
 **Maximize throughput**  
 Serves the maximum number of tokens per second for high-volume workloads.
 
-![The Strategy section showing the Use-case presets and Optimization goal options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-strategy.png)
+![The Strategy section showing the Use-case presets and Optimization goal options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-strategy.png)
 
 
 If you choose **Custom**, additional fields appear so that you can benchmark against your own representative data:
@@ -69,7 +69,7 @@ Enter the number of concurrent users (simultaneous requests) to simulate.
 **Output tokens**  
 Enter the mean number of output tokens per request.
 
-![The Custom use-case fields: Data (S3), Concurrency, and Output tokens.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-custom.png)
+![The Custom use-case fields: Data (S3), Concurrency, and Output tokens.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-custom.png)
 
 
 ## Step 3: Select your model
@@ -89,10 +89,10 @@ Search for an existing SageMaker AI model by name (for example, a model from a p
 **S3**  
 Bring your own model artifact. For **Name**, enter a name for the model. For **Artifact (S3)**, enter or browse to the Amazon S3 URI of your model artifact (for example, `s3://{{amzn-s3-demo-bucket}}/model.tar.gz`).
 
-![The Select model dialog box on the JumpStart tab, with tabs for JumpStart, Logged, Deployable, and S3.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-model-jumpstart.png)
+![The Select model dialog box on the JumpStart tab, with tabs for JumpStart, Logged, Deployable, and S3.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-model-jumpstart.png)
 
 
-![The Select model dialog box on the S3 tab, showing the Name and Artifact (S3) fields.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-model-s3.png)
+![The Select model dialog box on the S3 tab, showing the Name and Artifact (S3) fields.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-model-s3.png)
 
 
 ## Step 4: Select compute (optional)
@@ -109,7 +109,7 @@ Select up to three instance types for SageMaker AI to evaluate and benchmark (fo
 **Instance selection**  
 For the **Minimize cost** goal, SageMaker AI selects a recommended instance for you, so you can't select instances.
 
-![The Compute section showing the Source dropdown and selected instance types under Instance(s).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-compute.png)
+![The Compute section showing the Source dropdown and selected instance types under Instance(s).](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-compute.png)
 
 
 ## Step 5: Launch the job
@@ -130,7 +130,7 @@ Job metadata, timestamps, and output artifacts.
 
 To stop a running job, choose **Actions**, and then choose **Stop**.
 
-![A running optimization job detail page showing the Actions button, the Settings tab, and the Running status.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-running.png)
+![A running optimization job detail page showing the Actions button, the Settings tab, and the Running status.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-running.png)
 
 
 ## Step 6: Monitor and troubleshoot
@@ -150,10 +150,10 @@ If the model architecture and instance type support speculative decoding, a trai
 **Endpoint cleanup**  
 SageMaker AI automatically deletes the endpoints that the optimization job creates after the job completes.
 
-![The Endpoints page showing InService endpoints created by the inference optimization job for each selected instance type.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-endpoints.png)
+![The Endpoints page showing InService endpoints created by the inference optimization job for each selected instance type.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-endpoints.png)
 
 
-![The Training Jobs page showing In progress benchmark training jobs for each benchmark test configuration.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-training.png)
+![The Training Jobs page showing In progress benchmark training jobs for each benchmark test configuration.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-training.png)
 
 
 ## Step 7: Review recommendations and deploy
@@ -161,7 +161,7 @@ SageMaker AI automatically deletes the endpoints that the optimization job creat
 
 When the job completes, the **Overview** tab displays the ranked inference packages that SageMaker AI generated from benchmarks performed by [NVIDIA AIPerf](https://github.com/ai-dynamo/aiperf) on the GitHub website. Each package shows its optimized configuration, its performance metrics (such as Time to First Token (TTFT), inter-token latency (ITL), throughput, and cost), the recommended instance type, and a **Deploy** button.
 
-![A completed job showing the ranked, optimized inference packages with their metrics and Deploy buttons.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-results.png)
+![A completed job showing the ranked, optimized inference packages with their metrics and Deploy buttons.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/gen-ai-rec-studio-results.png)
 
 
 1. Review the ranked packages and their metrics, and choose **Deploy** on your preferred package.

@@ -21,7 +21,7 @@ To migrate your Studio Lab environment to Studio Classic, you must first onboard
 
 You can export a conda environment and add libraries or packages to the environment by following the steps in [Manage your environment](studio-lab-use-manage.md). The following example demonstrates using the `default` environment to be exported to Studio Classic. 
 
-1. Open the Studio Lab terminal by opening the **File Browser** panel (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)), choose the plus (**\+**) sign on the menu at the top of the file browser to open the **Launcher**, then choose **Terminal**. From the Studio Lab terminal, list the conda environments by running the following.
+1. Open the Studio Lab terminal by opening the **File Browser** panel (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)), choose the plus (**\+**) sign on the menu at the top of the file browser to open the **Launcher**, then choose **Terminal**. From the Studio Lab terminal, list the conda environments by running the following.
 
    ```
    conda env list
@@ -62,7 +62,7 @@ Downloading a directory from the Studio Lab GUI by right-clicking on the directo
 
 One option is to save the environment onto your local machine. To do this, use the following procedure.
 
-1. In Studio Lab, choose the **File Browser** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left menu, so that the **File Browser** panel shows on the left. 
+1. In Studio Lab, choose the **File Browser** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left menu, so that the **File Browser** panel shows on the left. 
 
 1. Navigate to your user directory by choosing the file icon beneath the file search bar. 
 
@@ -136,9 +136,9 @@ From Studio Classic, you can import files from your local machine or from a Git 
 
 If you saved the files to your local machine, you can import the files to Studio Classic using the following steps.
 
-1. Open the **File Browser** panel (![File Browser icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) at the top left of Studio Classic. 
+1. Open the **File Browser** panel (![File Browser icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) at the top left of Studio Classic. 
 
-1. Choose the **Upload Files** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/File_upload_squid.png)) on the menu at the top of the **File Browser** panel. 
+1. Choose the **Upload Files** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/File_upload_squid.png)) on the menu at the top of the **File Browser** panel. 
 
 1. Navigate to the file that you want to import, then choose **Open**. 
 
@@ -148,7 +148,7 @@ To import a directory into Studio Classic, first compress the directory on your 
 ------
 #### [ Import using a Git repository ]
 
-This example provides two options for how to clone a GitHub repository into Studio Classic. You can use the Studio Classic GUI by choosing the **Git** (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)) tab on the left side of Studio Classic. Choose **Clone a Repository**, then paste your GitHub repository URL from [Step 2: Save your Studio Lab artifacts](#studio-lab-use-migrate-step2). Another option is to use the Studio Classic terminal by using the following procedure. 
+This example provides two options for how to clone a GitHub repository into Studio Classic. You can use the Studio Classic GUI by choosing the **Git** (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)) tab on the left side of Studio Classic. Choose **Clone a Repository**, then paste your GitHub repository URL from [Step 2: Save your Studio Lab artifacts](#studio-lab-use-migrate-step2). Another option is to use the Studio Classic terminal by using the following procedure. 
 
 1. Open the Studio Classic **Launcher**. For more information on opening the **Launcher**, see [Amazon SageMaker Studio Classic Launcher](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-launcher.html). 
 

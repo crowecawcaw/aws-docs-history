@@ -22,7 +22,7 @@ Your administrator might provide you with a lifecycle configuration to customize
 
 You can also bring your own file storage system if you have an Amazon EFS volume.
 
-![The welcome page of the Code Editor application UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-home.png)
+![The welcome page of the Code Editor application UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/code-editor/code-editor-home.png)
 
 
 **Topics**

@@ -69,7 +69,7 @@ To learn how to train MoE models with SMP v2, see [Expert parallelism](model-par
 
 *Tensor parallelism* splits individual layers, or `nn.Modules`, across devices to run in parallel. The following figure shows the simplest example of how the SMP library splits a model with four layers to achieve two-way tensor parallelism (`"tensor_parallel_degree": 2`). In the following figure, the notations for model parallel group, tensor parallel group, and data parallel group are `MP_GROUP`, `TP_GROUP`, and `DP_GROUP` respectively. The layers of each model replica are bisected and distributed into two GPUs. The library manages communication across the tensor-distributed model replicas.
 
-![Simplest example of how the SMP library splits a model with four layers to achieve two-way tensor parallelism ("tensor_parallel_degree": 2).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/smp-v2-tensor-parallel.png)
+![Simplest example of how the SMP library splits a model with four layers to achieve two-way tensor parallelism ("tensor_parallel_degree": 2).](https://docs.aws.amazon.com/sagemaker/latest/dg/images/distributed/model-parallel/smp-v2-tensor-parallel.png)
 
 
 To dive deep into tensor parallelism and other memory-saving features for PyTorch, and to learn how to set a combination of the core features, see [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md).

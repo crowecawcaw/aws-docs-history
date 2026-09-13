@@ -14,7 +14,7 @@ A new page opens that shows the images in your dataset along with their labels. 
 
 The following screenshot shows the page for editing your image dataset.
 
-![Screenshot of the image dataset management page in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/dataset-management-page.png)
+![Screenshot of the image dataset management page in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/dataset-management-page.png)
 
 
 From this page, you can do the following actions.
@@ -29,7 +29,7 @@ To view an individual image, you can search for it by file name in the search ba
 
 Canvas lists the labels for your dataset in the left navigation pane. You can add new labels to the dataset by entering a label in the **Add label** text field.
 
-To rename or delete a label from your dataset, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to the label and select either **Rename** or **Delete**. If you rename the label, you can enter the new label name and choose **Confirm**. If you delete the label, the label is removed from all images in your dataset that have that label. Any images with that label are left unlabeled.
+To rename or delete a label from your dataset, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to the label and select either **Rename** or **Delete**. If you rename the label, you can enter the new label name and choose **Confirm**. If you delete the label, the label is removed from all images in your dataset that have that label. Any images with that label are left unlabeled.
 
 ## Assign labels to unlabeled images
 <a name="canvas-edit-image-assign"></a>

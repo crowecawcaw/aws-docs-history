@@ -246,7 +246,7 @@ smclient.create_hyper_parameter_tuning_job(HyperParameterTuningJobName = tuning_
 1. In the list of hyperparameter tuning jobs, choose the job that you launched.
 
 1. Choose **Training jobs**.  
-![Location of Training jobs in the .](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperparameter-training-jobs.png)
+![Location of Training jobs in the .](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperparameter-training-jobs.png)
 
 1. View the status of each training job. To see more details about a job, choose it in the list of training jobs. To view a summary of the status of all of the training jobs that the hyperparameter tuning job launched, see **Training job status counter**.
 
@@ -266,7 +266,7 @@ A hyperparameter tuning job uses the objective metric that each training job ret
 
 To view the best training job, choose **Best training job**.
 
-![Location of Best training job in the hyperparameter tuning job console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/best-training-job.png)
+![Location of Best training job in the hyperparameter tuning job console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/best-training-job.png)
 
 
 To deploy the best training job as a model that you can host at a SageMaker AI endpoint, choose **Create model**.

@@ -17,17 +17,17 @@ Fore more information on JumpStart model deployment in Studio, see [Deploy a mod
 
 After you choose a model, the model's tab opens. In the **Deploy Model** pane, choose **Deployment Configuration** to configure your model deployment. 
 
- ![The Deploy Model pane.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy.png) 
+ ![The Deploy Model pane.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy.png) 
 
 The default instance type for deploying a model depends on the model. The instance type is the hardware that the training job runs on. In the following example, the `ml.p2.xlarge` instance is the default for this particular BERT model. 
 
 You can also change the endpoint name, add `key;value` resource tags, activate or deactive the `jumpstart-` prefix for any JumpStart resources related to the model, and specify an Amazon S3 bucket for storing model artifacts used by your SageMaker AI endpoint.
 
- ![JumpStart Deploy Model pane with Deployment Configuration open to select its settings.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-config.png) 
+ ![JumpStart Deploy Model pane with Deployment Configuration open to select its settings.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-config.png) 
 
 Choose **Security Settings** to specify the AWS Identity and Access Management (IAM ) role, Amazon Virtual Private Cloud (Amazon VPC), and encryption keys for the model.
 
- ![JumpStart Deploy Model pane with Security Settings open to select its settings.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security.png) 
+ ![JumpStart Deploy Model pane with Security Settings open to select its settings.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security.png) 
 
 ## Model deployment security
 <a name="jumpstart-config-security"></a>
@@ -93,13 +93,13 @@ You can scope down the Amazon S3 permissions granted in each of the following ro
 
 If you select this option, you must select an existing IAM role from the dropdown list.
 
- ![JumpStart Security Settings IAM section with Find IAM role selected.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-findiam.png) 
+ ![JumpStart Security Settings IAM section with Find IAM role selected.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-findiam.png) 
 
 **Input IAM role**
 
 If you select this option, you must manually enter the ARN for an existing IAM role. If your Studio Classic runtime role or Amazon VPC block the `iam:list* `call, you must use this option to use an existing IAM role.
 
- ![JumpStart Security Settings IAM section with Input IAM role selected.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-inputiam.png) 
+ ![JumpStart Security Settings IAM section with Input IAM role selected.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-inputiam.png) 
 
 ### Amazon VPC
 <a name="jumpstart-config-security-vpc"></a>
@@ -131,13 +131,13 @@ If you do not select an Amazon VPC, no Amazon VPC is used.
 
 If you select this option, you must select an existing Amazon VPC from the dropdown list. After you select an Amazon VPC, you must select a subnet and security group for your Amazon VPC. For more information about subnets and security groups, see [Overview of VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html).
 
- ![JumpStart Security Settings VPC section with Find VPC selected.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-findvpc.png) 
+ ![JumpStart Security Settings VPC section with Find VPC selected.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-findvpc.png) 
 
 **Input VPC**
 
 If you select this option, you must manually select the subnet and security group that compose your Amazon VPC. If your Studio Classic runtime role or Amazon VPC blocks the `ec2:list*` call, you must use this option to select the subnet and security group.
 
- ![JumpStart Security Settings VPC section with Input VPC selected.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-inputvpc.png) 
+ ![JumpStart Security Settings VPC section with Input VPC selected.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-inputvpc.png) 
 
 ### Encryption keys
 <a name="jumpstart-config-security-encryption"></a>
@@ -152,13 +152,13 @@ If you do not select an AWS KMS key, SageMaker AI provides default encryption fo
 
 If you select this option, you must select existing AWS KMS keys from the dropdown list.
 
- ![JumpStart Security Settings encryption section with Find encryption keys selected.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-findencryption.png) 
+ ![JumpStart Security Settings encryption section with Find encryption keys selected.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-findencryption.png) 
 
 **Input encryption keys**
 
 If you select this option, you must manually enter the AWS KMS keys. If your Studio Classic execution role or Amazon VPC block the `kms:list* `call, you must use this option to select existing AWS KMS keys.
 
- ![JumpStart Security Settings encryption section with Input encryption keys selected.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-inputencryption.png) 
+ ![JumpStart Security Settings encryption section with Input encryption keys selected.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-deploy-security-inputencryption.png) 
 
 ## Configure default values for JumpStart models
 <a name="jumpstart-config-defaults"></a>

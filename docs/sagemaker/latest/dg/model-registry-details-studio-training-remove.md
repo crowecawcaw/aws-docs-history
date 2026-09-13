@@ -9,7 +9,7 @@ You can remove a training job, created externally or with SageMaker AI, from you
 
 1. Choose **Train**.
 
-1. Choose the **Gear** ( ![Settings icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) icon under the **Train** tab.
+1. Choose the **Gear** ( ![Settings icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) icon under the **Train** tab.
 
 1. Choose **Remove** next to your training job.
 

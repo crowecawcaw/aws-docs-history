@@ -9,7 +9,7 @@ When using [gradient boosting](https://en.wikipedia.org/wiki/Gradient_boosting) 
 
  Below is a brief illustration on how gradient tree boosting works.
 
-![A diagram illustrating gradient tree boosting.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/xgboost_illustration.png)
+![A diagram illustrating gradient tree boosting.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/xgboost_illustration.png)
 
 
 **For more detail on XGBoost, see:**

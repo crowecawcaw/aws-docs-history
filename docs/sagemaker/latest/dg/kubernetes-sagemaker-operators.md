@@ -26,7 +26,7 @@ The SageMaker AI Operators for Kubernetes allow you to manage jobs in SageMaker 
 
 The following diagram illustrates how ACK works.
 
-![ACK based SageMaker AI Operator for Kubernetes explained.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/k8s-orchestration/sagemaker-operators-for-kubernetes-ack-controller.png)
+![ACK based SageMaker AI Operator for Kubernetes explained.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/k8s-orchestration/sagemaker-operators-for-kubernetes-ack-controller.png)
 
 
 In this diagram, a Kubernetes user wants to run model training on SageMaker AI from within the Kubernetes cluster using the Kubernetes API. The user issues a call to `kubectl apply`, passing in a file that describes a Kubernetes custom resource describing the SageMaker training job. `kubectl apply` passes this file, called a manifest, to the Kubernetes API server running in the Kubernetes controller node (Step *1* in the workflow diagram). The Kubernetes API server receives the manifest with the SageMaker training job specification and determines whether the user has permissions to create a custom resource of kind `sageMaker.services.k8s.aws/TrainingJob`, and whether the custom resource is properly formatted (Step *2*). If the user is authorized and the custom resource is valid, the Kubernetes API server writes (Step *3*) the custom resource to its etcd data store and then responds back (Step *4*) to the user that the custom resource has been created. The SageMaker AI controller, which is running on a Kubernetes worker node within the context of a normal Kubernetes Pod, is notified (Step *5*) that a new custom resource of kind `sageMaker.services.k8s.aws/TrainingJob` has been created. The SageMaker AI controller then communicates (Step *6*) with the SageMaker API, calling the SageMaker AI `CreateTrainingJob` API to create the training job in AWS. After communicating with the SageMaker API, the SageMaker AI controller calls the Kubernetes API server to update (Step *7*) the custom resource’s status with information it received from SageMaker AI. The SageMaker AI controller therefore provides the same information to the developers that they would have received using the AWS SDK.
@@ -38,4 +38,4 @@ The operators access SageMaker AI resources on your behalf. The IAM role that th
 
 The following image explains the various authentication layers.
 
-![SageMaker AI Operator for Kubernetes various authentication layers.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/k8s-orchestration/sagemaker-operators-for-kubernetes-authentication.png)
+![SageMaker AI Operator for Kubernetes various authentication layers.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/k8s-orchestration/sagemaker-operators-for-kubernetes-authentication.png)

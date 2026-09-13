@@ -26,7 +26,7 @@ In the right pane **Prediction results**, you receive an analysis of your image 
 
 The following screenshot shows the results for a single prediction using the object detection in images solution, where the model predicts objects such as a clock tower and bus with 100% confidence.
 
-![The results of a single prediction with the object detection solution in images Ready-to-use model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-ready-to-use/ai-solutions-image-prediction.png)
+![The results of a single prediction with the object detection solution in images Ready-to-use model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-ready-to-use/ai-solutions-image-prediction.png)
 
 
 ## Batch predictions
@@ -44,4 +44,4 @@ To make batch predictions for Ready-to-use models that accept image data, do the
 
 1. From the list of available datasets, select your dataset and choose **Generate predictions** to get your predictions.
 
-After the prediction job finishes running, on the **Run predictions** page, you see an output dataset listed under **Predictions**. This dataset contains your results, and if you select the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), you can choose **View prediction results** to preview the output data. Then, you can choose **Download prediction** and download the results as a CSV or a ZIP file.
+After the prediction job finishes running, on the **Run predictions** page, you see an output dataset listed under **Predictions**. This dataset contains your results, and if you select the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), you can choose **View prediction results** to preview the output data. Then, you can choose **Download prediction** and download the results as a CSV or a ZIP file.

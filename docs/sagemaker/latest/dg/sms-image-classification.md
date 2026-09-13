@@ -18,7 +18,7 @@ You can follow the instructions [Create a Labeling Job (Console)](sms-create-lab
 
 Ground Truth provides a worker UI similar to the following for labeling tasks. When you create the labeling job with the console, you specify instructions to help workers complete the job and labels that workers can choose from. 
 
-![Example worker UI for labeling tasks, provided by Ground Truth.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/image-classification-example.png)
+![Example worker UI for labeling tasks, provided by Ground Truth.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/image-classification-example.png)
 
 
 ## Create an Image Classification Labeling Job (API)

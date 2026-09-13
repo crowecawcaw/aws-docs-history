@@ -13,4 +13,4 @@ When you open the labeling task, three buttons on the top right allow you to dec
 
   Be aware that the person that creates your labeling tasks specifies a time limit in which all tasks much be completed by. If you do not return to and complete this task within that time limit, it will expire and your work will not be submitted. Contact your administrator for more information. 
 
-![Gif showing the locations of Decline task, Release task, and Stop and resume later in the UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/reject-decline-task.gif)
+![Gif showing the locations of Decline task, Release task, and Stop and resume later in the UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/reject-decline-task.gif)

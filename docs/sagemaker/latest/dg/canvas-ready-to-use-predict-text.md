@@ -29,7 +29,7 @@ In the right pane **Prediction results**, you receive an analysis of your text i
 
 The following screenshot shows the results for a single prediction using language detection where the model is 100% confident that the passage is English.
 
-![Screenshot of the results of a single prediction with the language detection Ready-to-use model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-ready-to-use/ai-solutions-text-prediction.png)
+![Screenshot of the results of a single prediction with the language detection Ready-to-use model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-ready-to-use/ai-solutions-text-prediction.png)
 
 
 ## Batch predictions
@@ -47,4 +47,4 @@ To make batch predictions for Ready-to-use models that accept text data, do the 
 
 1. From the list of available datasets, select your dataset and choose **Generate predictions** to get your predictions.
 
-After the prediction job finishes running, on the **Run predictions** page, you see an output dataset listed under **Predictions**. This dataset contains your results, and if you select the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), you can **Preview** the output data. Then, you can choose **Download** to download the results.
+After the prediction job finishes running, on the **Run predictions** page, you see an output dataset listed under **Predictions**. This dataset contains your results, and if you select the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), you can **Preview** the output data. Then, you can choose **Download** to download the results.

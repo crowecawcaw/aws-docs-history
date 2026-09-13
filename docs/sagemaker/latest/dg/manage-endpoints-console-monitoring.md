@@ -16,7 +16,7 @@ For detailed descriptions of each metric, see [Monitor SageMaker AI with CloudWa
 
 The following screenshot shows the **Operational metrics** section for a serverless endpoint.
 
-![Screenshot of metrics graphs in the operational metrics section of the endpoint details page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hosting-operational-metrics.png)
+![Screenshot of metrics graphs in the operational metrics section of the endpoint details page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hosting-operational-metrics.png)
 
 
 

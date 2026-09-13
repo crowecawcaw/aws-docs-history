@@ -22,7 +22,7 @@ You can follow the instructions in [Create a Labeling Job (Console)](sms-create-
 
 Ground Truth provides a worker UI similar to the following for labeling tasks. When you create a labeling job in the console, you specify instructions to help workers complete the job and labels from which workers can choose. 
 
-![Gif showing how to create a video classification labeling job in the SageMaker AI console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/vid_classification.gif)
+![Gif showing how to create a video classification labeling job in the SageMaker AI console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/vid_classification.gif)
 
 
 ## Create a Video Classification Labeling Job (API)

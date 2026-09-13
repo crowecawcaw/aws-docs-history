@@ -16,7 +16,7 @@ When you shut down all resources belonging to a resource type, the following occ
 
 1. Start your Studio Lab project runtime. For more information on launching Studio Lab project runtime, see [Start your project runtime](studio-lab-manage-runtime.md#studio-lab-manage-runtime-start).
 
-1. Choose the **Running Terminals and Kernels** icon (![Square icon with a white outline of a cloud on a dark blue background.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Running_squid.png)) on the left navigation pane.
+1. Choose the **Running Terminals and Kernels** icon (![Square icon with a white outline of a cloud on a dark blue background.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Running_squid.png)) on the left navigation pane.
 
 1. Choose the **X** symbol to the right of the resource you wish to shut down. You can view the **X** symbol by hovering your cursor over a resource.
 

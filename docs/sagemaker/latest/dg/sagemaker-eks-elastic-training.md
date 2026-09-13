@@ -354,7 +354,7 @@ training_config:
 
 These configurations are mapped to corresponding [MLFlow setup](https://mlflow.org/docs/latest/ml/tracking/tracking-api/#setup--configuration). The following is a sample MLflow dashboard for an elastic training job.
 
-![The following is a sample MLflow dashboard for an elastic training job.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-elastic-sample-dashboard.png)
+![The following is a sample MLflow dashboard for an elastic training job.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-elastic-sample-dashboard.png)
 
 
 After defining the elastic recipes, we can use the launcher scripts, such as `launcher_scripts/llama/run_llmft_llama3_1_8b_instruct_seq4k_gpu_sft_lora.sh` to launch an elastic training job. This is similar to launching a static job using Hyperpod recipe.
@@ -400,7 +400,7 @@ Expected behavior:
 
 **Note:** When Kueue is not used, the training operator skips the first two steps. It immediately attempts to create the additional pods required for the new world size. If sufficient resources are not available in the cluster, these pods will remain in a **Pending** state until capacity becomes available.
 
-![The diagram illustrates the resizing and resource timeline.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-elastic-resize-timeline.png)
+![The diagram illustrates the resizing and resource timeline.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-elastic-resize-timeline.png)
 
 
 ### Preemption by high priority job
@@ -432,7 +432,7 @@ When a high-priority job needs resources, Kueue can preempt lower-priority Elast
 1. training operator cleans up pods and workloads. The operator waits for checkpoint completion, then deletes the training pods that were part of the preempted Workload. It also removes the corresponding Workload object from Kueue.
 
 1. The high-priority workload is admitted. With resources freed, Kueue admits the high-priority job, allowing it to start execution.  
-![Preemption timeline for elastic training worklaods.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-elastic-preemption-timeline.png)
+![Preemption timeline for elastic training worklaods.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/hyperpod-elastic-preemption-timeline.png)
 
 Preemption can cause the entire training job to pause, which may not be desirable for all workflows. To avoid full-job suspension while still allowing elastic scaling, customers can configure two different priority levels within the same training job by defining two `replicaSpec` sections:
 + A primary (fixed) replicaSpec with normal or high priority

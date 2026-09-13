@@ -24,7 +24,7 @@ When you open the SageMaker Profiler UI, the **Load profile** page opens up. To 
 **Tip**  
 You can load and visualize one profile at a time. To load another profile, you must first unload the previously loaded profile. To unload a profile, use the trash bin icon on the right end of the profile in the **Loaded profile** section.
 
-![A screenshot of the Load profile page in the SageMaker Profiler UI](http://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-load-data.png)
+![A screenshot of the Load profile page in the SageMaker Profiler UI](https://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-load-data.png)
 
 
 ## Dashboard
@@ -47,17 +47,17 @@ After you finish loading and selecting the training job, the UI opens the **Dash
 
 The following screenshots show the GPU and CPU active time ratio and the average GPU and CPU utilization rate with respect to time per compute node.
 
-![A screenshot of the Dashboard page in the SageMaker Profiler UI](http://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-dashboard-1.png)
+![A screenshot of the Dashboard page in the SageMaker Profiler UI](https://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-dashboard-1.png)
 
 
 The following screenshot shows an example of pie charts for comparing how many times the GPU kernels are launched and measuring the time spent on running them. In the **Time spent by all GPU kernels** and **Launch counts of all GPU kernels** panels, you can also specify an integer to the input field for *k* to adjust the number of legend to show in the plots. For example, if you specify 10, the plots show the top 10 most run and launched kernels respectively.
 
-![A screenshot of the Dashboard page in the SageMaker Profiler UI](http://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-dashboard-2.png)
+![A screenshot of the Dashboard page in the SageMaker Profiler UI](https://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-dashboard-2.png)
 
 
 The following screenshot shows an example of step time duration histogram, and pie charts for the kernel precision distribution, GPU activity distribution, and GPU memory operation distribution.
 
-![A screenshot of the Dashboard page in the SageMaker Profiler UI](http://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-dashboard-3.png)
+![A screenshot of the Dashboard page in the SageMaker Profiler UI](https://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-dashboard-3.png)
 
 
 ## Timeline interface
@@ -85,7 +85,7 @@ The following several screenshots show the **Timeline** of the profile of a trai
 
 The following is a zoomed-out view of the profile, printing a dozen of steps including an intermittent data loader between `step_232` and `step_233` for fetching the next data batch.
 
-![Timeline page in the SageMaker Profiler UI, which visualizes the profile of a sample training job.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-timeline-1.png)
+![Timeline page in the SageMaker Profiler UI, which visualizes the profile of a sample training job.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-timeline-1.png)
 
 
 For each CPU, you can track the CPU utilization and performance counters, such as `"clk_unhalted_ref.tsc"` and `"itlb_misses.miss_causes_a_walk"`, which are indicative of instructions run on the CPU.
@@ -99,14 +99,14 @@ Press the `f` key to zoom into the selected kernel.
 
 The following screenshot is a zoomed-in view into `step_233` and `step_234` from the previous screenshot. The timeline interval selected in the following screenshot is the `AllReduce` operation, an essential communication and synchronization step in distributed training, run on the GPU-0 device. In the screenshot, note that the kernel launch in the GPU-0 host connects to the kernel run in the GPU-0 device stream 1, indicated with the arrow in cyan color.
 
-![A screenshot of the Timeline page in the SageMaker Profiler UI](http://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-timeline-2.png)
+![A screenshot of the Timeline page in the SageMaker Profiler UI](https://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-timeline-2.png)
 
 
 Also two information tabs appear in the bottom pane of the UI when you select a timeline interval, as shown in the previous screenshot. The **Current Selection** tab shows the details of the selected kernel and the connected kernel launch from the host. The connection direction is always from host (CPU) to device (GPU) since each GPU kernel is always called from a CPU. The **Connections** tab shows the chosen kernel launch and run pair. You can select either of them to move it to the center of the **Timeline** view.
 
 The following screenshot zooms in further into the `AllReduce` operation launch and run pair. 
 
-![A screenshot of the Timeline page in the SageMaker Profiler UI](http://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-timeline-3.png)
+![A screenshot of the Timeline page in the SageMaker Profiler UI](https://docs.aws.amazon.com/sagemaker/latest/dg/images/profiler/sagemaker-profiler-ui-timeline-3.png)
 
 
 ## Information

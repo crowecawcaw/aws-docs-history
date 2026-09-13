@@ -5,7 +5,7 @@
 
 The prediction task for a Factorization Machines model is to estimate a function ŷ from a feature set xi to a target domain. This domain is real-valued for regression and binary for classification. The Factorization Machines model is supervised and so has a training dataset (xi,yj) available. The advantages this model presents lie in the way it uses a factorized parametrization to capture the pairwise feature interactions. It can be represented mathematically as follows: 
 
-![An image containing the equation for the Factorization Machines model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/FM1.jpg)
+![An image containing the equation for the Factorization Machines model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/FM1.jpg)
 
 
  The three terms in this equation correspond respectively to the three components of the model: 
@@ -17,17 +17,17 @@ The global bias and linear terms are the same as in a linear model. The pairwise
 
 For regression tasks, the model is trained by minimizing the squared error between the model prediction ŷn and the target value yn. This is known as the square loss:
 
-![An image containing the equation for square loss.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/FM2.jpg)
+![An image containing the equation for square loss.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/FM2.jpg)
 
 
 For a classification task, the model is trained by minimizing the cross entropy loss, also known as the log loss: 
 
-![An image containing the equation for log loss.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/FM3.jpg)
+![An image containing the equation for log loss.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/FM3.jpg)
 
 
 where: 
 
-![An image containing the logistic function of the predicted values.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/FM4.jpg)
+![An image containing the logistic function of the predicted values.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/FM4.jpg)
 
 
 For more information about loss functions for classification, see [Loss functions for classification](https://en.wikipedia.org/wiki/Loss_functions_for_classification).

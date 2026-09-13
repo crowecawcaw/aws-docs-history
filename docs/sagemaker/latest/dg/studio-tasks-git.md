@@ -15,7 +15,7 @@ The following procedure shows how to clone a GitHub repo from Studio Classic.
 
 **To clone the repo**
 
-1. In the left sidebar, choose the **Git** icon ( ![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)).
+1. In the left sidebar, choose the **Git** icon ( ![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)).
 
 1. Choose **Clone a Repository**. This opens a new window.
 

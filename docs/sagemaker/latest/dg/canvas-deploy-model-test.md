@@ -33,7 +33,7 @@ The prediction loads, along with the **Invocation result** fields which indicate
 
 The following screenshot shows a prediction performed in the Canvas application on the **Test deployment** tab.
 
-![The Canvas application showing a test prediction for a deployed model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-test-deployments.png)
+![The Canvas application showing a test prediction for a deployed model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-test-deployments.png)
 
 
 For all model types except numeric prediction and time series forecasting, the prediction returns the following fields:
@@ -61,7 +61,7 @@ To chat with a deployed JumpStart foundation model, do the following:
 
 1. Choose the **Deployments** tab.
 
-1. From the list of deployments, find the one that you want to invoke and choose its **More options** icon (![More options icon for a model deployment.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
+1. From the list of deployments, find the one that you want to invoke and choose its **More options** icon (![More options icon for a model deployment.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)).
 
 1. From the context menu, choose **Test deployment**.
 

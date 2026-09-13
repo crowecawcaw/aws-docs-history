@@ -9,7 +9,7 @@ As you use Pipelines to create workflows and orchestrate your ML training steps,
 
 Using selective execution, you can choose to run any subset of steps as long as they are connected in the directed acyclic graph (DAG) of your pipeline. The following DAG shows an example pipeline workflow:
 
-![A directed acyclic graph (DAG) of an example pipeline.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-full.png)
+![A directed acyclic graph (DAG) of an example pipeline.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-full.png)
 
 
 You can select steps `AbaloneTrain` and `AbaloneEval` in a selective execution, but you cannot select just `AbaloneTrain` and `AbaloneMSECond` steps because these steps are not connected in the DAG. For non-selected steps in the workflow, the selective execution reuses the outputs from a reference pipeline execution rather than rerunning the steps. Also, non-selected steps that are downstream from the selected steps do not run in a selective execution. 

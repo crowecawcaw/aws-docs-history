@@ -75,14 +75,14 @@ The following guidelines apply to training data:
 
 If you specify optional test channel data, the DeepAR algorithm evaluates the trained model with different accuracy metrics. The algorithm calculates the root mean square error (RMSE) over the test data as follows:
 
-![RMSE Formula: Sqrt(1/nT(Sum[i,t](y-hat(i,t)-y(i,t))^2)).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/deepar-1.png)
+![RMSE Formula: Sqrt(1/nT(Sum[i,t](y-hat(i,t)-y(i,t))^2)).](https://docs.aws.amazon.com/sagemaker/latest/dg/images/deepar-1.png)
 
 
 *y**i*,*t* is the true value of time series *i* at the time *t*. *ŷ**i*,*t* is the mean prediction. The sum is over all *n* time series in the test set and over the last Τ time points for each time series, where Τ corresponds to the forecast horizon. You specify the length of the forecast horizon by setting the `prediction_length` hyperparameter. For more information, see [DeepAR Hyperparameters](deepar_hyperparameters.md).
 
 In addition, the algorithm evaluates the accuracy of the forecast distribution using weighted quantile loss. For a quantile in the range [0, 1], the weighted quantile loss is defined as follows:
 
-![Weighted quantile loss equation.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/deepar-2.png)
+![Weighted quantile loss equation.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/deepar-2.png)
 
 
  *q**i*,*t*(τ) is the τ-quantile of the distribution that the model predicts. To specify which quantiles to calculate loss for, set the `test_quantiles` hyperparameter. In addition to these, the average of the prescribed quantile losses is reported as part of the training logs. For information, see [DeepAR Hyperparameters](deepar_hyperparameters.md). 

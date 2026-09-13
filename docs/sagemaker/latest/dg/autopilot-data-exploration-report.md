@@ -19,7 +19,7 @@ The location of the data exploration notebook can be obtained from the Autopilot
 
 When running Autopilot from SageMaker Studio Classic, you can open the data exploration report using the following steps:
 
-1. Choose the **Home** icon ![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png) from the *left navigation pane* to view the top-level **Amazon SageMaker Studio Classic** navigation menu.
+1. Choose the **Home** icon ![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png) from the *left navigation pane* to view the top-level **Amazon SageMaker Studio Classic** navigation menu.
 
 1. Select the **AutoML** card from the main working area. This opens a new **Autopilot** tab.
 
@@ -62,21 +62,21 @@ For both regression and classification problem types, not valid values such as n
 
 The following screenshot shows an Autopilot data report, which includes statistics such as the mean, median, minimum, maximum, percentage of outliers in your dataset. The screenshot also includes a histogram showing the distribution of labels in the target column. The histogram shows **Target Column Values** on the horizontal axis and **Count **on the vertical axis. A box highlights the **Outliers Percentage** section of the screenshot to indicate where this statistic appears.
 
-![Autopilot data report on the distribution of target column values.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-target-analysis.png)
+![Autopilot data report on the distribution of target column values.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-target-analysis.png)
 
 
 Multiple statistics are shown regarding target values and their distribution. If any of the outliers, not valid values, or missing percentages are greater than zero, these values are surfaced so you can investigate why your data contains unusable target values. Some unusable target values are highlighted as a low severity insight warning. 
 
 In the following screenshot, a ` symbol was added accidentally to the target column, which prevented the numeric value of the target from being parsed. A **Low severity insight: "Invalid target values"** warning appears. The warning in this example states "0.14% of the labels in the target column could not be converted to numeric values. The most common non-numeric values are: ["-3.8e-05","-9-05","-4.7e-05","-1.4999999999999999e-05","-4.3e-05"]. That usually indicates that there are problems with data collection or processing. Amazon SageMaker Autopilot ignores all observations with invalid target label."
 
-![Autopilot data report low severity warning about invalid target values.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-target-analysis-invalid-target-values.png)
+![Autopilot data report low severity warning about invalid target values.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-target-analysis-invalid-target-values.png)
 
 
 Autopilot also provides a histogram showing the distribution of labels for classification. 
 
 The following screenshot shows an example of statistics given for your target column including the number of classes, missing or not valid values. A histogram with **Target Label** on the horizontal axis and **Frequency** on the vertical axis shows the distribution of each label category.
 
-![Autopilot data report high cardinality for classification.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-target-analysis-invalid-classification.png)
+![Autopilot data report high cardinality for classification.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-target-analysis-invalid-classification.png)
 
 
 **Note**  
@@ -94,7 +94,7 @@ It is not recommended that you use prediction power as a substitute for feature 
 
 The following screenshot shows example data sample. The top row contains the prediction power of each column in your dataset. The second row contains the column data type. Subsequent rows contain the labels. The columns contain the target column followed by each feature column. Each feature column has an associated prediction power, highlighted in this screenshot, with a box. In this example, the column containing the feature `x51` has a predictive power of `0.68` for the target variable `y`. The feature `x55` is slightly less predictive with a prediction power of `0.59`.
 
-![Autopilot data report data sample prediction power.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-data-sample-prediction.png)
+![Autopilot data report data sample prediction power.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-data-sample-prediction.png)
 
 
 ## Duplicate rows
@@ -116,7 +116,7 @@ You can use the information in the correlation matrix to remove highly correlate
 
 The following screenshot shows an example of a correlation matrix between `7` features. Each feature is displayed in a matrix on both the horizontal and vertical axes. The Pearson's correlation coefficient is displayed at the intersection between two features. Each feature intersection has a color tone associated with it. The higher the correlation, the darker the tone. The darkest tones occupy the diagonal of the matrix, where each feature is correlated with itself, representing perfect correlation.
 
-![Autopilot data report data cross-correlation matrix.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-data-cross-column-statistics.png)
+![Autopilot data report data cross-correlation matrix.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-data-cross-column-statistics.png)
 
 
 ## Anomalous Rows
@@ -126,7 +126,7 @@ Amazon SageMaker Autopilot detects which rows in your dataset might be anomalous
 
 The following screenshot shows the output from an Autopilot analysis for rows containing anomalies. A column containing an anomalous score appears next to the dataset columns for each row.
 
-![Autopilot dataset with anomalous rows, showing negative anomaly scores.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-data-anomalous-rows.png)
+![Autopilot dataset with anomalous rows, showing negative anomaly scores.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-data-anomalous-rows.png)
 
 
 ## Missing values, cardinality, and descriptive statistics
@@ -138,4 +138,4 @@ Autopilot calculates several statistics on the categorical values in columns tha
 
 Autopilot calculates several standard statistics on the numerical values in columns that contain them. The following image depicts these statistics, including the mean, median, minimum and maximum values, and the percentages of numerical types and of outlier values. 
 
-![Autopilot data report statistics on columns with numerical values.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-data-descriptive-statistics.png)
+![Autopilot data report statistics on columns with numerical values.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-data-report-data-descriptive-statistics.png)

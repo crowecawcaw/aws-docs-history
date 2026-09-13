@@ -23,7 +23,7 @@ For more information about supported frameworks, edge devices, operating systems
 
 Neo consists of a compiler and a runtime. First, the Neo compilation API reads models exported from various frameworks. It converts the framework-specific functions and operations into a framework-agnostic intermediate representation. Next, it performs a series of optimizations. Then it generates binary code for the optimized operations, writes them to a shared object library, and saves the model definition and parameters into separate files. Neo also provides a runtime for each target platform that loads and executes the compiled model.
 
-![How Neo works in SageMaker AI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/neo/neo_how_it_works.png)
+![How Neo works in SageMaker AI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/neo/neo_how_it_works.png)
 
 
 You can create a Neo compilation job from either the SageMaker AI console, the AWS Command Line Interface (AWS CLI), a Python notebook, or the SageMaker AI SDK.For information on how to compile a model, see [Model Compilation with Neo](neo-job-compilation.md). With a few CLI commands, an API invocation, or a few clicks, you can convert a model for your chosen platform. You can deploy the model to a SageMaker AI endpoint or on an AWS IoT Greengrass device quickly.

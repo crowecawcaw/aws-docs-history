@@ -7,7 +7,7 @@ With all at once traffic shifting, you can quickly roll out an endpoint update u
 
 The following diagram shows how all at once traffic shifting manages the old and new fleets.
 
-![A successful 100% traffic shift from the old fleet to the new fleet.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/deployment-guardrails-blue-green-all-at-once.png)
+![A successful 100% traffic shift from the old fleet to the new fleet.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/deployment-guardrails-blue-green-all-at-once.png)
 
 
 When you use all at once traffic shifting, SageMaker AI routes 100% of the traffic to the new fleet (green fleet). Once the green fleet starts receiving traffic, the baking period begins. The baking period is a set amount of time in which pre-specified Amazon CloudWatch alarms monitor the performance of the green fleet. If no alarms trip during the baking period, SageMaker AI terminates the old fleet (blue fleet). If any alarms trip during the baking period, then an auto-rollback initiates and 100% of the traffic shifts back to the blue fleet.

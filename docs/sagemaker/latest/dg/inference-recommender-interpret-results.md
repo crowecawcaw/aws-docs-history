@@ -21,7 +21,7 @@ In some cases you might want to explore other [SageMaker AI Endpoint Invocation 
 
 The following image is an example of CloudWatch metrics and charts you can review for a single endpoint from your recommendation result. This recommendation result is from a Default job. The way to interpret the scalar values from the recommendation results is that they are based on the time point when the Invocations graph first begins to level out. For example, the `ModelLatency` value reported is at the beginning of the plateau around `03:00:31`.
 
-![Charts for CloudWatch metrics.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference-recommender-cw-metrics.png)
+![Charts for CloudWatch metrics.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference-recommender-cw-metrics.png)
 
 
 For full descriptions of the CloudWatch metrics used in the preceding charts, see [SageMaker AI Endpoint Invocation metrics](https://docs.aws.amazon.com/sagemaker/latest/dg/monitoring-cloudwatch.html#cloudwatch-metrics-endpoint-invocation).

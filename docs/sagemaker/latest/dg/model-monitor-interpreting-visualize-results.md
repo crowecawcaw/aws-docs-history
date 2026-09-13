@@ -12,19 +12,19 @@ If you are monitoring a real-time endpoint, you can also visualize the results i
 
 1. Sign in to Studio. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md).
 
-1. In the left navigation pane, choose the **Components and registries** icon (![Components and registries icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Components_registries.png)).
+1. In the left navigation pane, choose the **Components and registries** icon (![Components and registries icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Components_registries.png)).
 
 1. Choose **Endpoints** in the drop-down menu.  
-![Location of the Endpoints drop-down menu in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-endpoints.png)
+![Location of the Endpoints drop-down menu in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-endpoints.png)
 
 1. On the endpoint tab, choose the monitoring type for which you want to see job details.  
-![The location of the Model Quality tab in the MODEL MONITORING section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-model-quality.png)
+![The location of the Model Quality tab in the MODEL MONITORING section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-model-quality.png)
 
 1. Choose the name of the monitoring job run for which you want to view details from the list of monitoring jobs.  
-![The Model Quality tab of the MOLDEL MONITORING section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-job-history.png)
+![The Model Quality tab of the MOLDEL MONITORING section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-job-history.png)
 
 1. The **MONITORING JOB DETAILS** tab opens with a detailed report of the monitoring job.  
-![The MONITORING JOB DETAILS tab.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-job-details.png)
+![The MONITORING JOB DETAILS tab.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-job-details.png)
 
 You can create a chart that displays the baseline and captured metrics for a time period.
 
@@ -32,19 +32,19 @@ You can create a chart that displays the baseline and captured metrics for a tim
 
 1. Sign in to Studio. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md).
 
-1. In the left navigation pane, choose the **Components and registries** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Components_registries.png)).
+1. In the left navigation pane, choose the **Components and registries** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Components_registries.png)).
 
 1. Choose **Endpoints** in the drop-down menu.  
-![Location of the Endpoints drop-down menu in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-endpoints.png)
+![Location of the Endpoints drop-down menu in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-endpoints.png)
 
 1. On the **Endpoint** tab, choose the monitoring type you want to create a chart for. This example shows a chart for the **Model quality** monitoring type.  
-![The location of the Model Quality tab in the MODEL MONITORING section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-model-quality.png)
+![The location of the Model Quality tab in the MODEL MONITORING section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-model-quality.png)
 
 1. Choose **Add chart**.  
-![Location of Add chart in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-add-chart.png)
+![Location of Add chart in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-add-chart.png)
 
 1. On the **CHART PROPERTIES** tab, choose the time period, statistic, and metric that you want to chart. This example shows a chart for a **Timeline** of **1 week**, the **Average** **Statistic** of, and the **F1** **Metric**.  
-![Location of where to select a metric in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-chart-properties.png)
+![Location of where to select a metric in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-chart-properties.png)
 
 1. The chart that shows the baseline and current metric statistic you chose in the previous step shows up in the **Endpoint** tab.  
-![Example chart showing the baseline and current average metric chosen in the previous step.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-f1-chart.png)
+![Example chart showing the baseline and current average metric chosen in the previous step.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mm-studio-f1-chart.png)

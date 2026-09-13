@@ -7,7 +7,7 @@ Multi-model endpoints provide a scalable and cost-effective solution to deployin
 
 The following diagram shows how multi-model endpoints work compared to single-model endpoints.
 
-![Diagram that shows how multi-model versus how single-model endpoints host models.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/multi-model-endpoints-diagram.png)
+![Diagram that shows how multi-model versus how single-model endpoints host models.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/multi-model-endpoints-diagram.png)
 
 
 Multi-model endpoints are ideal for hosting a large number of models that use the same ML framework on a shared serving container. If you have a mix of frequently and infrequently accessed models, a multi-model endpoint can efficiently serve this traffic with fewer resources and higher cost savings. Your application should be tolerant of occasional cold start-related latency penalties that occur when invoking infrequently used models.

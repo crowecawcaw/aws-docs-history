@@ -23,7 +23,7 @@ You can share your Amazon SageMaker Studio Classic notebooks with your colleague
 
 The following screenshot shows the menu from a Studio Classic notebook.
 
-![The location of the Share icon in a Studio Classic notebook.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-menu-share.png)
+![The location of the Share icon in a Studio Classic notebook.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-menu-share.png)
 
 
 **To share a notebook**

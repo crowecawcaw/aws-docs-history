@@ -46,13 +46,13 @@ You can register your device using the SageMaker AI console at [https://console.
 1. In the SageMaker AI console, choose **Edge Inference** and then choose **Edge devices**.
 
 1. Choose **Register devices**.  
-![Location of Register devices in the Edge Devices section of the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/register-device-button.png)
+![Location of Register devices in the Edge Devices section of the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/register-device-button.png)
 
 1. In the **Device properties** section, enter the name of the fleet the device belongs to under the **Device fleet name** field. Choose **Next**.  
-![The Device properties section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/register-devices-empty.png)
+![The Device properties section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/register-devices-empty.png)
 
 1. In the **Device source** section, add your devices one by one. You must include a **Device Name** for each device in your fleet. You can optionally provide a description (in the **Description** field) and an Internet of Things (IoT) object name (in the **IoT name** field). Choose **Submit** once you have added all your devices.  
-![The Device source section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/register-devices-device-source.png)
+![The Device source section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/register-devices-device-source.png)
 
    The **Devices** page displays the name of the device you have added, the fleet to which it belongs, when it was registered, the last heartbeat, and the description and AWS IoT name, if you provided one.
 

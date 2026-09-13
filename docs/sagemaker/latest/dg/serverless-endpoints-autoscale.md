@@ -175,7 +175,7 @@ Authorization: AUTHPARAMS
 1.  Choose the endpoint to which you want to apply the scaling policy. A page with the settings of the endpoint will appear, with the models (production variant) listed under **Endpoint runtime settings section**. 
 
 1.  Select the production variant to which you want to apply the scaling policy, and choose **Configure auto scaling**. The **Configure variant automatic scaling** dialog box appears.   
-![Screenshot of the configure variant automatic scaling dialog box in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-variant-autoscaling.png)
+![Screenshot of the configure variant automatic scaling dialog box in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-variant-autoscaling.png)
 
 1.  Enter the minimum and maximum Provisioned Concurrency values in the **Minimum provisioned concurrency** and **Maximum provisioned concurrency** fields, respectively, in the **Variant automatic scaling** section. Minimum Provisioned Concurrency must be less than or equal to maximum Provisioned Concurrency. 
 

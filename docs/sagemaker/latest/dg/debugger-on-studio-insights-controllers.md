@@ -19,12 +19,12 @@ When you are done using the SageMaker Debugger Insights dashboard, shut down the
 
 Using the Debugger controller located at the upper-left corner of the Insights dashboard, you can refresh the dashboard, configure or update Debugger settings for monitoring system metrics, stop a training job, and download a Debugger profiling report.
 
-![SageMaker Debugger Insights Dashboard Controllers.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-studio-insights-refresh.png)
+![SageMaker Debugger Insights Dashboard Controllers.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-studio-insights-refresh.png)
 
 + If you want to manually refresh the dashboard, choose the refresh button (the round arrow at the upper-left corner) as shown in the preceding screenshot. 
 + The **Monitoring** toggle button is on by default for any SageMaker training job initiated using the SageMaker Python SDK. If not activated, you can use the toggle button to start monitoring. During monitoring, Debugger only collects resource utilization metrics to detect computational problems such as CPU bottlenecks and GPU underutilization. For a complete list of resource utilization problems that Debugger monitors, see [Debugger built-in rules for profiling hardware system resource utilization (system metrics)](debugger-built-in-profiler-rules.md#built-in-rules-monitoring).
 + The **Configure monitoring** button opens a pop-up window that you can use to set or update the data collection frequency and the S3 path to save the data.   
-![The pop-up window for configuring Debugger monitoring settings.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-studio-enable-profiling-2.png)
+![The pop-up window for configuring Debugger monitoring settings.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-studio-enable-profiling-2.png)
 
   You can specify values for the following fields.
   + **S3 bucket URI**: Specify the base S3 bucket URI.

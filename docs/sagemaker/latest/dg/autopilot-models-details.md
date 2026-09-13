@@ -10,7 +10,7 @@ Autopilot generates details about the candidate models that you can obtain. Thes
 
 To view model details after running an Autopilot job, follow these steps:
 
-1. Choose the **Home** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) from the left navigation pane to view the top-level **Amazon SageMaker Studio Classic** navigation menu.
+1. Choose the **Home** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)) from the left navigation pane to view the top-level **Amazon SageMaker Studio Classic** navigation menu.
 
 1. Select the **AutoML** card from the main working area. This opens a new **Autopilot** tab.
 

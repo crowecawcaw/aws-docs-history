@@ -23,7 +23,7 @@ The following example notebooks show how to use Debugger built-in rules when run
 
 While running the example notebooks in SageMaker Studio, you can find the training job trial created on the **Studio Experiment List** tab. For example, as shown in the following screenshot, you can find and open a **Describe Trial Component** window of your current training job. On the Debugger tab, you can check if the Debugger rules, `vanishing_gradient()` and `loss_not_decreasing()`, are monitoring the training session in parallel. For a full instruction of how to find your training job trial components in the Studio UI, see [SageMaker Studio - View Experiments, Trials, and Trial Components](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-tasks.html#studio-tasks-experiments).
 
-![An image of running a training job with Debugger built-in rules activated in SageMaker Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-built-in-rule-studio.png)
+![An image of running a training job with Debugger built-in rules activated in SageMaker Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-built-in-rule-studio.png)
 
 
 There are two ways of using the Debugger built-in rules in the SageMaker AI environment: deploy the built-in rules as it is prepared or adjust their parameters as you want. The following topics show you how to use the built-in rules with example codes.

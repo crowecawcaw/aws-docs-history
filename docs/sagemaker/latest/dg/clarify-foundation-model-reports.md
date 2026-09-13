@@ -22,7 +22,7 @@ To score this response, lets break it down based on each computed metric.
 From these calculated metrics we can conclude that yes the target output was returned in the response, but the response was overall to verbose.  
 You can also see the scores shown in the following radar plot.  
 
-![An image showing a radar plot for each return metric.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/radar-plot-example-01.png)
+![An image showing a radar plot for each return metric.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/radar-plot-example-01.png)
 
 
 **Example Accuracy for the question and answer task type**  
@@ -35,7 +35,7 @@ Prompt: Who are some influential people in the field of technology?
 ```
 The model output does not match the target output exactly, therefore both `exact_match_score` and `quasi_exact_match_score` evaluate to 0. Because the model's output contains about half of the words of the target output, hence `recall_over_words` is 0.47. The target output contains about a quarter of the words in the model output, therefore the `precision_over_words` is 0.27. Consequently, the geometric average of the two as reported in the `f1_score `is 0.34. The scores are shown in the following radar plot.  
 
-![An image showing a radar plot for each return metric.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/radar-plot-example-02.png)
+![An image showing a radar plot for each return metric.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/radar-plot-example-02.png)
 
 
 **Example Accuracy scoring for a question and answer pair is not correct**  

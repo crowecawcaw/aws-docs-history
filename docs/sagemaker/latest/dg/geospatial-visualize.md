@@ -8,7 +8,7 @@ Amazon SageMaker geospatial capabilities is no longer open to new customers. Off
 
 Using the visualization functionalities provided by Amazon SageMaker geospatial you can visualize geospatial data, the inputs to your EOJ or VEJ jobs as well as the outputs exported from your Amazon S3 bucket. The visualization tool is powered by [Foursquare Studio](https://studio.foursquare.com/home). The following image depicts the visualization tool supported by SageMaker geospatial capabilities. 
 
-![Visualization tool using SageMaker geospatial capabilities shows a map of the California coast.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/geospatial_vis.png)
+![Visualization tool using SageMaker geospatial capabilities shows a map of the California coast.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/geospatial_vis.png)
 
 
 You can use the left navigation panel to add data, layers, filters, and columns. You can also make modifications to how you interact with the map.
@@ -25,7 +25,7 @@ You can choose any data point in a layer to have an **Outline**. You can also fu
 
 The following image shows the layers panel supported by SageMaker geospatial capabilities.
 
-![The layers panel with data points on a USA map, supported by SageMaker geospatial capabilities.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/geospatial_vis_layer.png)
+![The layers panel with data points on a USA map, supported by SageMaker geospatial capabilities.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/geospatial_vis_layer.png)
 
 
 **Columns**
@@ -57,18 +57,18 @@ The output visualization of an EOJ depends on the operation you choose to create
 
 When you visualize the output for an EOJ that uses the spectral index operation, you can map the category based on the color from the legend as shown.
 
-![The legend for spectral index mapping.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/geo_spectral_index.png)
+![The legend for spectral index mapping.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/geo_spectral_index.png)
 
 
 **Cloud Masking**
 
 When you visualize the output for an EOJ that uses the cloud masking operation, you can map the category based on the color from the legend as shown.
 
-![The legend for cloud masking mapping.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/geo_cloud_masking.png)
+![The legend for cloud masking mapping.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/geo_cloud_masking.png)
 
 
 **Land Cover Segmentation**
 
 When you visualize the output for an EOJ that uses the Land Cover Segmentation operation, you can map the category based on the color from the legend as shown.
 
-![The legend for land cover segmentation mapping.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/geo_landcover_ss.png)
+![The legend for land cover segmentation mapping.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/geo_landcover_ss.png)

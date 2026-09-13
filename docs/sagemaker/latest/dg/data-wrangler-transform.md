@@ -30,24 +30,24 @@ To add a step to your data flow, do the following.
 1. Choose **Add transform**.
 
 1. Choose **Add step**.  
-![Add step located toward the top of the Transforms section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-add-step.png)
+![Add step located toward the top of the Transforms section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-add-step.png)
 
 1. Choose a transform. 
 
 1. (Optional) You can search for the transform that you want to use. Data Wrangler highlights the query in the results.  
-![Search box located toward the top of the ADD TRANSFORM section.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-search.png)
+![Search box located toward the top of the ADD TRANSFORM section.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/data-wrangler-search.png)
 
 ------
 #### [ Join View ]
 
 To join two datasets, select the first dataset in your data flow and choose **Join**. When you choose **Join**, you see results similar to those shown in the following image. Your left and right datasets are displayed in the left panel. The main panel displays your data flow, with the newly joined dataset added. 
 
-![The joined dataset flow in the data flow section of the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/join-1.png)
+![The joined dataset flow in the data flow section of the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/join-1.png)
 
 
 When you choose **Configure** to configure your join, you see results similar to those shown in the following image. Your join configuration is displayed in the left panel. You can use this panel to choose the joined dataset name, join type, and columns to join. The main panel displays three tables. The top two tables display the left and right datasets on the left and right respectively. Under this table, you can preview the joined dataset. 
 
-![The joined dataset tables in the data flow section of the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/join-2.png)
+![The joined dataset tables in the data flow section of the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/join-2.png)
 
 
 See [Join Datasets](#data-wrangler-transform-join) to learn more. 
@@ -57,12 +57,12 @@ See [Join Datasets](#data-wrangler-transform-join) to learn more.
 
 To concatenate two datasets, you select the first dataset in your data flow and choose **Concatenate**. When you select **Concatenate**, you see results similar to those shown in the following image. Your left and right datasets are displayed in the left panel. The main panel displays your data flow, with the newly concatenated dataset added. 
 
-![Example concatenated dataset flow in the data flow section in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/concat-1.png)
+![Example concatenated dataset flow in the data flow section in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/concat-1.png)
 
 
 When you choose **Configure** to configure your concatenation, you see results similar to those shown in the following image. Your concatenate configuration displays in the left panel. You can use this panel to choose the concatenated dataset's name, and choose to remove duplicates after concatenation and add columns to indicate the source dataframe. The main panel displays three tables. The top two tables display the left and right datasets on the left and right respectively. Under this table, you can preview the concatenated dataset. 
 
-![Example concatenated dataset tables in the data flow section in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/concat-2.png)
+![Example concatenated dataset tables in the data flow section in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/concat-2.png)
 
 
 See [Concatenate Datasets](#data-wrangler-transform-concatenate) to learn more.
@@ -164,7 +164,7 @@ df.rename(columns={"A column": "A_column", "B column": "B_column"})
 
 If you include print statements in the code block, the result appears when you select **Preview**. You can resize the custom code transformer panel. Resizing the panel provides more space to write code. The following image shows the resizing of the panel.
 
-![For the Python function, replace the comments under pd.Series with your code.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/resizing-panel.gif)
+![For the Python function, replace the comments under pd.Series with your code.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/resizing-panel.gif)
 
 
 The following sections provide additional context and examples for writing custom transform code.
@@ -182,7 +182,7 @@ Using the pandas mode gives better performance. The Python mode makes it easier 
 
 The following video shows an example of how to use custom code to create a transformation. It uses the [Titanic dataset](https://s3.us-west-2.amazonaws.com/amazon-sagemaker-data-wrangler-documentation-artifacts/walkthrough_titanic.csv) to create a column with the person's salutation.
 
-![For the Python function, replace the comments under pd.Series with your code.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/python-function-transform-titanic-720.gif)
+![For the Python function, replace the comments under pd.Series with your code.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/python-function-transform-titanic-720.gif)
 
 
 **PySpark**
@@ -375,10 +375,10 @@ Data Wrangler converts each category in your dataset into a set of tokens using 
 
 The following example shows how the similarity encoder creates vectors from strings.
 
-![Example on using ENCODE CATEGORICAL for a table in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/similarity-encode-example-screenshot-0.png)
+![Example on using ENCODE CATEGORICAL for a table in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/similarity-encode-example-screenshot-0.png)
 
 
-![Example vector representation of a variable found in a table in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/similarity-encode-example-screenshot-1.png)
+![Example vector representation of a variable found in a table in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/destination-nodes/similarity-encode-example-screenshot-1.png)
 
 
 The similarity encodings that Data Wrangler creates:

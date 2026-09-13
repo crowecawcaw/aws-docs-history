@@ -18,3 +18,4 @@ This troubleshooting guide uses the following terminology: **Troubleshooting ste
 + [Inference operator fails to start](sagemaker-hyperpod-model-deployment-ts-startup.md)
 + [Hugging Face Hub model deployment failures](sagemaker-hyperpod-model-deployment-ts-huggingface.md)
 + [Disaggregated Prefill and Decode (DPD) deployment issues](sagemaker-hyperpod-model-deployment-ts-dpd.md)
++ [Inference Gateway troubleshooting guide](sagemaker-hyperpod-model-deployment-ts-inference-gateway.md)

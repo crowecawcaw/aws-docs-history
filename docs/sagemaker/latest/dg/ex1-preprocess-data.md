@@ -63,7 +63,7 @@ display(X.describe())
 hist = X.hist(bins=30, sharey=True, figsize=(20, 10))
 ```
 
-![Overview of the Adult Census dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-1.png)
+![Overview of the Adult Census dataset.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-1.png)
 
 
 **Tip**  
@@ -106,21 +106,21 @@ Check if the dataset is split and structured as expected:
 train
 ```
 
-![The example training dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-train.png)
+![The example training dataset.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-train.png)
 
 
 ```
 validation
 ```
 
-![The example validation dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-validation.png)
+![The example validation dataset.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-validation.png)
 
 
 ```
 test
 ```
 
-![The example test dataset.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-test.png)
+![The example test dataset.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-2-test.png)
 
 
 ## Convert the Train and Validation Datasets to CSV Files
@@ -161,4 +161,4 @@ Run the following AWS CLI to check if the CSV files are successfully uploaded to
 
 This should return the following output:
 
-![Output of the CLI command to check the datasets in the S3 bucket.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-3.png)
+![Output of the CLI command to check the datasets in the S3 bucket.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-prepare-data-3.png)

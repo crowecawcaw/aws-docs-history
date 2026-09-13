@@ -34,13 +34,13 @@ Model repacking happens when the pipeline needs to include a custom script in th
 
 1. Sign in to Amazon SageMaker Studio Classic. For more information, see [Launch Amazon SageMaker Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-launch.html).
 
-1. In the Studio Classic sidebar, choose the **Home** icon ( ![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the Studio Classic sidebar, choose the **Home** icon ( ![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Pipelines** from the menu.
 
 1. To narrow the list of pipelines by name, enter a full or partial pipeline name in the search field.
 
-1. Select a pipeline name to view details about the pipeline. The pipeline details tab opens and displays a list of pipeline executions. You can start an execution or choose one of the other tabs for more information about the pipeline. Use the **Property Inspector** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/gears.png)) to choose which columns to display.
+1. Select a pipeline name to view details about the pipeline. The pipeline details tab opens and displays a list of pipeline executions. You can start an execution or choose one of the other tabs for more information about the pipeline. Use the **Property Inspector** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/gears.png)) to choose which columns to display.
 
 1. From the pipeline details page, choose one of the following tabs to view details about the pipeline:
    + **Executions** – Details about the executions. You can create an execution from this tab or the **Graph** tab.

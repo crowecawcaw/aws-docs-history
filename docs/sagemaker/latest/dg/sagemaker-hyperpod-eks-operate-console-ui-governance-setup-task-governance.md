@@ -20,13 +20,14 @@ HyperPod task governance EKS add-on installs [Kueue](https://github.com/kubernet
 
 | EKS HyperPod task governance add-on version | Version of Kueue that is installed as part of the add-on | 
 | --- | --- | 
+| v1.6.0-eksbuild.1 | v0.19.2 | 
 | v1.5.0-eksbuild.1 | v0.18.0 | 
 | v1.4.0-eksbuild.1 | v0.14.0 | 
 | v1.3.2-eksbuild.1 | v0.12.0 | 
 | v1.3.1-eksbuild.1 | v0.12.0 | 
 
 **Upgrading from v1.3.x to v1.5**  
-You cannot upgrade directly from v1.3.x to v1.5 because of CRD schema migration requirements. We recommend using the upgrade option in the SageMaker AI HyperPod console, which handles the migration automatically. If you cannot use the console, see [Upgrade from v1.3.x to v1.5](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15) for the manual procedure through the Amazon EKS add-on interface.
+You cannot upgrade directly from v1.3.x to v1.5 because of CRD schema migration requirements. We recommend using the upgrade option in the SageMaker AI HyperPod console, which handles the migration automatically. If you cannot use the console, see [Upgrade from v1.3.x to v1.5 or later](sagemaker-hyperpod-eks-operate-console-ui-governance-upgrade.md#hp-eks-task-governance-upgrade-v13-to-v15) for the manual procedure through the Amazon EKS add-on interface.
 
 **Note**  
 Kueue v.012.0 and higher don't include kueue-rbac-proxy as part of the installation. Previous versions might have kueue-rbac-proxy installed. For example, if you're using Kueue v0.8.1, you might have kueue-rbac-proxy v0.18.1.

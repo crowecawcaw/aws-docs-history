@@ -10,7 +10,7 @@ Custom IAM policies that allow Amazon SageMaker Studio or Amazon SageMaker Studi
 To start scripting for training and deploying your model, create a Jupyter notebook in the SageMaker notebook instance. Using the Jupyter notebook, you can run machine learning (ML) experiments for training and inference while using SageMaker AI features and the AWS infrastructure.
 
 **To create a Jupyter notebook**  
-![Animated screenshot that shows how to create a Jupyter notebook in the SageMaker AI notebook instance.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-create-notebook.gif)
+![Animated screenshot that shows how to create a Jupyter notebook in the SageMaker AI notebook instance.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/get-started-ni/gs-ni-create-notebook.gif)
 
 1. Open the notebook instance as follows:
 

@@ -151,7 +151,7 @@ In this example, the prediction value is less than the threshold value of `0.8`,
 
 Use visualization tools to help interpret the returned explanations. The following image shows how SHAP plots can be used to understand how each feature contributes to the prediction. The base value on the diagram, also called the expected value, is the mean predictions of the training dataset. Features that push the expected value higher are red, and features that push the expected value lower are blue. See [SHAP additive force layout](https://shap.readthedocs.io/en/latest/generated/shap.plots.force.html) for additional information.
 
-![Example SHAP plot, that can be used to understand how each feature contributes to the prediction.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/force-plot.png)
+![Example SHAP plot, that can be used to understand how each feature contributes to the prediction.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/force-plot.png)
 
 
 See the [full example notebook for tabular data](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/online_explainability/tabular/tabular_online_explainability_with_sagemaker_clarify.ipynb). 
@@ -290,7 +290,7 @@ If the request completes successfully, the response body will return a valid JSO
 
 Use visualization tools to help interpret the returned text attributions. The following image shows how the captum visualization utility can be used to understand how each word contributes to the prediction. The higher the color saturation, the higher the importance given to the word. In this example, a highly saturated bright red color indicates a strong negative contribution. A highly saturated green color indicates a strong positive contribution. The color white indicates that the word has a neutral contribution. See the [captum](https://github.com/pytorch/captum) library for additional information on parsing and rendering the attributions.
 
-![Captum visualization utility used to understand how each word contributes to the prediction.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/word-importance.png)
+![Captum visualization utility used to understand how each word contributes to the prediction.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/word-importance.png)
 
 
 See the [full example notebook for text](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-clarify/online_explainability/natural_language_processing/nlp_online_explainability_with_sagemaker_clarify.ipynb) data. 

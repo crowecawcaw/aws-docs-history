@@ -29,7 +29,7 @@ Ground Truth provides workers with a web portal and tools to complete your 3D po
 
 The following is a GIF of the 3D point cloud object detection worker task interface. If you provide camera data for sensor fusion in the world coordinate system, images are matched up with scenes in the point cloud frame. These images appear in the worker portal as shown in the following GIF. 
 
-![Gif showing how a worker can annotate a 3D point cloud in the Ground Truth worker portal.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/ot_basic_tools.gif)
+![Gif showing how a worker can annotate a 3D point cloud in the Ground Truth worker portal.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/ot_basic_tools.gif)
 
 
 Worker can navigate in the 3D scene using their keyboard and mouse. They can:
@@ -41,7 +41,7 @@ Once a worker places a cuboid in the 3D scene, a side-view will appear with the 
 
 The following video demonstrates movements around the 3D point cloud and in the side-view. 
 
-![Gif showing movements around the 3D point cloud and the side-view.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/navigate_od_worker_ui.gif)
+![Gif showing movements around the 3D point cloud and the side-view.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/object_detection/navigate_od_worker_ui.gif)
 
 
 Additional view options and features are available in the **View** menu in the worker UI. See the [worker instruction page](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-worker-instructions-object-detection) for a comprehensive overview of the Worker UI. 

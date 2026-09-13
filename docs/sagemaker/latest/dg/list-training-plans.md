@@ -11,4 +11,4 @@ To view your training plans:
 
    After purchasing a plan, you are directed to this list. Newly created plans appear with a `Pending` status until payment is completed. The status is typically updated within a few minutes of payment processing.
 
-![SageMaker AI console showing the list of training plans page. The page includes a table listing the training plans with details such as name, status, total instances, in-use instances, zone, start date, and end date. A button to create a new training plan is visible.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-list-training-plans.png)
+![SageMaker AI console showing the list of training plans page. The page includes a table listing the training plans with details such as name, status, total instances, in-use instances, zone, start date, and end date. A button to create a new training plan is visible.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-list-training-plans.png)

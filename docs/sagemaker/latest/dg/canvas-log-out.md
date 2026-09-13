@@ -12,7 +12,7 @@ The following sections describe how to log out of your Canvas application and ho
 
 When you log out of Canvas, your models and datasets aren't affected. Any quick or standard model builds or [large data processing jobs](canvas-export-data.md#canvas-export-data-s3) continue running even if you log out.
 
-To log out, choose the **Log out** button (![Filter icon in the SageMaker Canvas app.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/logout-icon.png)) on the left panel of the SageMaker Canvas application.
+To log out, choose the **Log out** button (![Filter icon in the SageMaker Canvas app.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/logout-icon.png)) on the left panel of the SageMaker Canvas application.
 
 You can also log out from the SageMaker Canvas application by closing your browser tab and then [deleting the application](canvas-manage-apps-delete.md) in the console.
 

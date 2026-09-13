@@ -21,4 +21,4 @@ After configuring your request, then you can either choose **Send request** (to 
 
 If you receive a response through the Studio interface, it’ll look like the following screenshot.
 
-![Screenshot of a successful inference test request on an endpoint in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/endpoint-test-inference.png)
+![Screenshot of a successful inference test request on an endpoint in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/endpoint-test-inference.png)

@@ -19,7 +19,7 @@ You can get to the list of runs associated with a pipeline from either the pipel
 
 1. To view the pipeline executions list, follow the first five steps in the *Studio Classic* tab of [View the details of a pipeline](pipelines-studio-list.md).
 
-1. On the top right of the screen, choose the **Filter** icon (![Funnel or filter icon representing data filtering or narrowing down options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-filter-icon.png)).
+1. On the top right of the screen, choose the **Filter** icon (![Funnel or filter icon representing data filtering or narrowing down options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-filter-icon.png)).
 
 1. Choose **Experiment**. If experiment integration wasn't deactivated when the pipeline was created, the experiment name is displayed in the executions list. 
 **Note**  
@@ -29,10 +29,10 @@ Experiments integration was introduced in v2.41.0 of the [Amazon SageMaker Pytho
 
 **To view the runs list from the experiments list**
 
-1. In the left sidebar of Studio Classic, choose the **Home** icon ( ![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
+1. In the left sidebar of Studio Classic, choose the **Home** icon ( ![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/house.png)).
 
 1. Select **Experiments** from the menu.
 
-1. Use search bar or **Filter** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-filter-icon.png)) to filter the list to experiments created by a pipeline.
+1. Use search bar or **Filter** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-filter-icon.png)) to filter the list to experiments created by a pipeline.
 
 1. Open an experiment name and view a list of runs created by the pipeline.

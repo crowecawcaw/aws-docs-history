@@ -9,7 +9,7 @@ TabTransformer performs well in machine learning competitions because of its rob
 
 The following diagram illustrates the TabTransformer architecture.
 
-![The architecture of TabTransformer.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/tabtransformer_illustration.png)
+![The architecture of TabTransformer.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/tabtransformer_illustration.png)
 
 
 For more information, see *[TabTransformer: Tabular Data Modeling Using Contextual Embeddings](https://arxiv.org/abs/2012.06678)*.

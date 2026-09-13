@@ -319,7 +319,7 @@ You can set up Model Monitor in the following ways:
 + **[Amazon SageMaker Studio Classic](https://docs.aws.amazon.com/sagemaker/latest/dg/studio.html)** – You can create a data or model quality monitoring schedule along with model bias and explainability schedules directly from the UI by selecting an endpoint from the list of deployed model endpoints. Schedules for other types of monitoring can be created by selecting the relevant tab in the UI.
 + **[SageMaker Model Dashboard](https://docs.aws.amazon.com/sagemaker/latest/dg/model-dashboard.html)** – You can enable monitoring on endpoints by selecting a model that has been deployed to an endpoint. In the following screenshot of the SageMaker AI console, a model named `group1` has been selected from the **Models** section of the **Model dashboard**. On this page, you can create a monitoring schedule, and you can edit, activate or deactivate existing monitoring schedules and alerts. For a step by step guide on how to view alerts and model monitor schedules, see [View Model Monitor schedules and alerts](https://docs.aws.amazon.com/sagemaker/latest/dg/model-dashboard-schedule.html).
 
-![Screenshot of the Model dashboard, showing the option to create a monitoring schedule.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-monitoring-faqs-screenshot.png)
+![Screenshot of the Model dashboard, showing the option to create a monitoring schedule.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-monitoring-faqs-screenshot.png)
 
 
 **Q: How does Model Monitor Integrate with SageMaker Model Dashboard**

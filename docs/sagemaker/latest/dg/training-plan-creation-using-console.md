@@ -13,7 +13,7 @@ To create a training plan visually using a UI:
 
 1. From there, choose the **Create training plan** button in the main content area to start the process of setting up your customized training schedule.
 
-![SageMaker AI console showing the training plans page. The interface displays information about how training plans work, including steps to request, monitor, and use a plan. The left navigation pane highlights the "Training Plans" option, and a "Create training plan" button is visible in the main content area.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-console.png)
+![SageMaker AI console showing the training plans page. The interface displays information about how training plans work, including steps to request, monitor, and use a plan. The left navigation pane highlights the "Training Plans" option, and a "Create training plan" button is visible in the main content area.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-console.png)
 
 
 Next, search for plan offerings that match your compute requirements.

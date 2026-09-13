@@ -5,7 +5,7 @@
 
 An Amazon SageMaker AI pipeline is a series of interconnected steps in directed acyclic graph (DAG) that are defined using the drag-and-drop UI or [Pipelines SDK](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_mlops.html). You can also build your pipeline using the [pipeline definition JSON schema](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/). This DAG JSON definition gives information on the requirements and relationships between each step of your pipeline. The structure of a pipeline's DAG is determined by the data dependencies between steps. These data dependencies are created when the properties of a step's output are passed as the input to another step. The following image is an example of a pipeline DAG:
 
-![An example pipeline directed acyclic graph (DAG).](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-full.png)
+![An example pipeline directed acyclic graph (DAG).](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipeline-full.png)
 
 
 **The example DAG includes the following steps:**

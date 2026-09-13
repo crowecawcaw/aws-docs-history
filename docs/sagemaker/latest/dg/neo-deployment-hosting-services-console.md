@@ -14,10 +14,10 @@ You must satisfy the [ prerequisites](https://docs.aws.amazon.com/sagemaker/late
  After you have satisfied the [ prerequisites](https://docs.aws.amazon.com/sagemaker/latest/dg/neo-deployment-hosting-services-prerequisites), use the following steps to deploy a model compiled with Neo: 
 
 1. Choose **Models**, and then choose **Create models** from the **Inference** group. On the **Create model** page, complete the **Model name**,** IAM role**, and **VPC** fields (optional), if needed.  
-![Create Neo model for inference.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/create-pipeline-model.png)
+![Create Neo model for inference.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/create-pipeline-model.png)
 
 1. To add information about the container used to deploy your model, choose **Add container** container, then choose **Next**. Complete the **Container input options**, **Location of inference code image**, and **Location of model artifacts**, and optionally, **Container host name**, and **Environmental variables** fields.  
-![Create Neo model for inference.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-container-definition.png)
+![Create Neo model for inference.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-container-definition.png)
 
 1. To deploy Neo-compiled models, choose the following:
    + **Container input options**: Choose **Provide model artifacts and inference image**.
@@ -30,16 +30,16 @@ You must satisfy the [ prerequisites](https://docs.aws.amazon.com/sagemaker/late
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/sagemaker/latest/dg/neo-deployment-hosting-services-console.html)
 
 1. Confirm that the information for the containers is accurate, and then choose **Create model**. On the **Create model landing page**, choose **Create endpoint**.   
-![Create Model landing page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-create-model-land-page.png)
+![Create Model landing page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-create-model-land-page.png)
 
 1. In **Create and configure endpoint** diagram, specify the **Endpoint name**. For **Attach endpoint configuration**, choose **Create a new endpoint configuration**.  
-![Neo console create and configure endpoint UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-config-endpoint.png)
+![Neo console create and configure endpoint UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-config-endpoint.png)
 
 1. In **New endpoint configuration** page, specify the **Endpoint configuration name**.   
-![Neo console new endpoint configuration UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-new-endpoint-config.png)
+![Neo console new endpoint configuration UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-new-endpoint-config.png)
 
 1. Choose **Edit** next to the name of the model and specify the correct **Instance type** on the **Edit Production Variant** page. It is imperative that the **Instance type** value match the one specified in your compilation job.  
-![Neo console new endpoint configuration UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-edit-production-variant.png)
+![Neo console new endpoint configuration UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/neo-deploy-console-edit-production-variant.png)
 
 1. Choose **Save**.
 

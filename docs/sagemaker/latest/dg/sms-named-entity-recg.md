@@ -20,7 +20,7 @@ You can follow the instructions [Create a Labeling Job (Console)](sms-create-lab
 
 Ground Truth provides a worker UI similar to the following for labeling tasks. When you create the labeling job with the console, you specify instructions to help workers complete the job and labels that workers can choose from. 
 
-![Gif showing how to create a named entity recognition labeling job in the SageMaker AI console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/gifs/nertool.gif)
+![Gif showing how to create a named entity recognition labeling job in the SageMaker AI console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/gifs/nertool.gif)
 
 
 ## Create a Named Entity Recognition Labeling Job (API)

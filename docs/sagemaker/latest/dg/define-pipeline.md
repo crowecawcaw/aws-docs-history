@@ -7,7 +7,7 @@ To orchestrate your workflows with Amazon SageMaker Pipelines, you must generate
 
 You can generate your JSON pipeline definition using either the SageMaker Python SDK or the visual drag-and-drop Pipeline Designer feature in Amazon SageMaker Studio. The following image is a representation of the pipeline DAG that you create in this tutorial:
 
-![Screenshot of the visual drag-and-drop interface for Pipelines in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/pipelines-studio-overview.png)
+![Screenshot of the visual drag-and-drop interface for Pipelines in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pipelines/pipelines-studio-overview.png)
 
 
 The pipeline that you define in the following sections solves a regression problem to determine the age of an abalone based on its physical measurements. For a runnable Jupyter notebook that includes the content in this tutorial, see [Orchestrating Jobs with Amazon SageMaker Model Building Pipelines](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-pipelines/tabular/abalone_build_train_deploy/sagemaker-pipelines-preprocess-train-evaluate-batch-transform.html).

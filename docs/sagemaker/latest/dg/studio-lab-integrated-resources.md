@@ -20,13 +20,13 @@ The following procedure shows how to clone the D2L Jupyter notebooks to your ins
 
 1. Start and open the Studio Lab project runtime environment by following [Start your project runtime](studio-lab-manage-runtime.md#studio-lab-manage-runtime-start).
 
-1. Once Studio Lab is open, choose the Git tab (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)) on the left sidebar. 
+1. Once Studio Lab is open, choose the Git tab (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)) on the left sidebar. 
 
 1. Choose **Clone a Repository**.
 
    If you do not see the **Clone a Repository** option, this may be because you are currently in a Git repository. Instead, use the following substeps.
 
-   1. Choose the Folder tab (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left sidebar.
+   1. Choose the Folder tab (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left sidebar.
 
    1. Beneath the file search bar, choose the folder icon to the left of the currently selected repository. When you hover over the folder icon, you will see the user directory (`/home/studio-lab-user`).
 
@@ -58,13 +58,13 @@ The following procedure shows how to clone the AWS MLU Jupyter notebooks to your
 
 1. Start and open the Studio Lab project runtime environment by following [Start your project runtime](studio-lab-manage-runtime.md#studio-lab-manage-runtime-start).
 
-1. Once Studio Lab is open, choose the Git tab (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)) on the left sidebar. 
+1. Once Studio Lab is open, choose the Git tab (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)) on the left sidebar. 
 
 1. Choose **Clone a Repository**.
 
    If you do not see the **Clone a Repository** option, this may be because you are currently in a Git repository. Instead, use the following substeps.
 
-   1. Choose the Folder tab (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left sidebar.
+   1. Choose the Folder tab (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left sidebar.
 
    1. Beneath the file search bar, choose the folder icon to the left of the currently selected repository. When you hover over the folder icon, you will see the user directory (`/home/studio-lab-user`).
 

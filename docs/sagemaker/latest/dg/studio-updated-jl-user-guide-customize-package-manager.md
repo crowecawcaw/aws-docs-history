@@ -43,12 +43,12 @@ conda deactivate
 
 The following image shows the location of the environment that you've created.
 
-![The test-env environment is displayed in the top right corner of the screen.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/juptyer-notebook-environment-location.png)
+![The test-env environment is displayed in the top right corner of the screen.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/juptyer-notebook-environment-location.png)
 
 
 To change your environment, choose it and select an option from the dropdown menu.
 
-![The checkmark and its corresponding text shows an example environment that you previously created.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jupyter-notebook-select-env.png)
+![The checkmark and its corresponding text shows an example environment that you previously created.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jupyter-notebook-select-env.png)
 
 
 Choose **Select** to select a kernel for the environment.

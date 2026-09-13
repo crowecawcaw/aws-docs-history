@@ -109,7 +109,7 @@ The instructions help you build the architecture shown in the following diagram,
 
 
 
-![The workflow of the pipeline built using the project template.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/projects/projects-templates-gitjenkins.png)
+![The workflow of the pipeline built using the project template.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/projects/projects-templates-gitjenkins.png)
 
 
 In summary, the steps guide you through the following tasks:

@@ -50,7 +50,7 @@ If you have already onboarded to a SageMaker AI domain, you can update your doma
 
 1. Choose ** Control Panel ** at the top left of the page.
 
-1. From the **domain** page, choose the **Settings** icon (![Settings icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) to edit the domain settings.
+1. From the **domain** page, choose the **Settings** icon (![Settings icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Settings_squid.png)) to edit the domain settings.
 
 1. On **General Settings** choose **Next**.
 

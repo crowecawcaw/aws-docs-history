@@ -10,12 +10,12 @@ You can create and manage the dataset and evaluator assets that you can use for 
 
 Select **Assets** in the left hand panel and the Amazon SageMaker Studio UI and then select **Datasets**.
 
-![An image containing the access to model customization.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-open-model-16.png)
+![An image containing the access to model customization.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-open-model-16.png)
 
 
 Choose **Upload Dataset** to add the dataset that you will use in your model customization jobs. By choosing the **Required data input format**, you can access a reference of dataset format to use.
 
-![An image containing the access to model customization.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-open-model-15.png)
+![An image containing the access to model customization.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-open-model-15.png)
 
 
 ## Evaluators
@@ -23,12 +23,12 @@ Choose **Upload Dataset** to add the dataset that you will use in your model cus
 
 You can also add **Reward Functions** and **Reward Prompts** for your Reinforcement Learning customization jobs.
 
-![An image containing the access to model customization.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-open-model-14.png)
+![An image containing the access to model customization.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-open-model-14.png)
 
 
 The UI also provides guidance on the format required for the reward function or reward prompt.
 
-![An image containing the access to model customization.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-open-model-13.png)
+![An image containing the access to model customization.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/screenshot-open-model-13.png)
 
 
 ## Assets for model customization using AWS SDK

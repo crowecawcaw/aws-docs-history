@@ -23,7 +23,7 @@ By understanding and configuring these roles correctly, you can ensure that Sage
 
 The following diagrams illustrate the roles and permissions required to list and connect to EMR Serverless applications from Studio when Studio and the applications are deployed in the same AWS account.
 
-![The diagram shows roles and permissions needed to list and connect EMR Serverless applications from Studio when Studio and the applications are in the same AWS account.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-serverless-permissions-setup-singleaccount.png)
+![The diagram shows roles and permissions needed to list and connect EMR Serverless applications from Studio when Studio and the applications are in the same AWS account.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-serverless-permissions-setup-singleaccount.png)
 
 
 If your Amazon EMR applications and Studio are deployed in the same AWS account, follow these steps:
@@ -176,7 +176,7 @@ Failure to complete this step will prevent you from connecting a JupyterLab note
 
 The following diagrams illustrate the roles and permissions required to list and connect to EMR Serverless applications from Studio when Studio and the applications are deployed in different AWS accounts.
 
-![The diagram shows roles and permissions needed to list and connect EMR Serverless applications from Studio when Studio and the applications are in different AWS accounts.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-serverless-permissions-setup-crossaccount.png)
+![The diagram shows roles and permissions needed to list and connect EMR Serverless applications from Studio when Studio and the applications are in different AWS accounts.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/emr/studio-notebooks-emr-serverless-permissions-setup-crossaccount.png)
 
 
 For more information about creating a role on an AWS account, see [https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) Creating an IAM role (console).

@@ -13,4 +13,4 @@ There are three main options for filtering shared models and notebooks:
 
 1. **Shared by my organization** – All models and notebooks that are shared to anyone in your organization
 
-You can also sort your models and notebooks based on the time they were last updated or by ascending or descending alphabetical order. Choose the filter icon (![Filter icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-filter-icon.png)) to further sort your selections.
+You can also sort your models and notebooks based on the time they were last updated or by ascending or descending alphabetical order. Choose the filter icon (![Filter icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-filter-icon.png)) to further sort your selections.

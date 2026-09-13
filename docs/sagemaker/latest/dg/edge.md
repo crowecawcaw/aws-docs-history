@@ -22,7 +22,7 @@ With SageMaker Edge Manager, you can optimize, run, monitor, and update machine 
 
 At a high level, there are five main components in the SageMaker Edge Manager workflow: compiling models with SageMaker Neo, packaging Neo-compiled models, deploying models to your devices, running models on the SageMaker AI inference engine (Edge Manager agent), and maintaining models on the devices.
 
-![The five main components in the SageMaker Edge Manager workflow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/smith_overview.png)
+![The five main components in the SageMaker Edge Manager workflow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/smith_overview.png)
 
 
 SageMaker Edge Manager uses SageMaker Neo to optimize your models for the target hardware in one click, then to cryptographically sign your models before deployment. Using SageMaker Edge Manager, you can sample model input and output data from edge devices and send it to the cloud for monitoring and analysis, and view a dashboard that tracks and visually reports on the operation of the deployed models within the SageMaker AI console.

@@ -15,7 +15,7 @@ State-of-the-art deep learning (DL) models consist of complex multi-layered neur
 
 SageMaker Training Compiler is a capability of SageMaker AI that makes these hard-to-implement optimizations to reduce training time on GPU instances. The compiler optimizes DL models to accelerate training by more efficiently using SageMaker AI machine learning (ML) GPU instances. SageMaker Training Compiler is available at no additional charge within SageMaker AI and can help reduce total billable time as it accelerates training.
 
-![A conceptual diagram of how SageMaker Training Compiler works with SageMaker AI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-compiler-marketing-diagram.png)
+![A conceptual diagram of how SageMaker Training Compiler works with SageMaker AI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-compiler-marketing-diagram.png)
 
 
 SageMaker Training Compiler is integrated into the AWS Deep Learning Containers (DLCs). Using the SageMaker Training Compiler–enabled AWS DLCs, you can compile and optimize training jobs on GPU instances with minimal changes to your code. Bring your deep learning models to SageMaker AI and enable SageMaker Training Compiler to accelerate the speed of your training job on SageMaker AI ML instances for accelerated computing.

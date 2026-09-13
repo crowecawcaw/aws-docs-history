@@ -37,4 +37,4 @@ To install SageMaker Notebook Jobs, complete the following steps:
 
 1. Start JupyterLab with the command: `jupyter lab`.
 
-1. Verify that the Notebook Jobs widget (![Notebook Jobs scheduling icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/notebook-schedule.png)) appears in your Jupyter notebook taskbar.
+1. Verify that the Notebook Jobs widget (![Notebook Jobs scheduling icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/notebook-schedule.png)) appears in your Jupyter notebook taskbar.

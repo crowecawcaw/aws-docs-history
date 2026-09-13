@@ -73,4 +73,4 @@ While SageMaker JumpStart provides fine-tuning capabilities, the SageMaker Hyper
 
 Use the SageMaker HyperPod recipes when you need access to the model's hyperparameters, multi-node training, and customization options for the training loop.
 
-For more information about fine-tuning your models in SageMaker JumpStart, see [Fine-tune publicly available foundation models with the `JumpStartEstimator` class](jumpstart-foundation-models-use-python-sdk-estimator-class.md)
+For more information about fine-tuning your models in SageMaker JumpStart, see [Fine-tune publicly available foundation models with the `ModelTrainer` class](jumpstart-foundation-models-use-python-sdk-estimator-class.md)

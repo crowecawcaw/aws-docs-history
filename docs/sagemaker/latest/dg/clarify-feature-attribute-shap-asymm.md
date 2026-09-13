@@ -20,7 +20,7 @@ Static covariates, dynamic covariates, or both can be omitted, depending on the 
 
 The following diagram shows a dependency structure for a typical forecasting model. The prediction at time *t\+1* depends on the three types of inputs previously mentioned.
 
-![Dependency structure for a typical forecasting model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/clarify-forecast-dependency.png)
+![Dependency structure for a typical forecasting model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/clarify/clarify-forecast-dependency.png)
 
 
 ## Method

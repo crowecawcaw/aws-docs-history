@@ -23,12 +23,12 @@ Use the following sections to learn more about these options.
 
 Use histograms to see the counts of feature values for a specific feature. You can inspect the relationships between features using the **Color by** option. For example, the following histogram charts the distribution of user ratings of the best-selling books on Amazon from 2009–2019, colored by genre. 
 
-![Example histogram chart in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/histogram.png)
+![Example histogram chart in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/histogram.png)
 
 
 You can use the **Facet by** feature to create histograms of one column, for each value in another column. For example, the following diagram shows histograms of user reviews of best-selling books on Amazon if faceted by year. 
 
-![Example histograms in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/review_by_year.png)
+![Example histograms in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/review_by_year.png)
 
 
 ## Scatter Plot
@@ -38,12 +38,12 @@ Use the **Scatter Plot** feature to inspect the relationship between features. T
 
 You can color scatter plots by an additional column. For example, the following example shows a scatter plot comparing the number of reviews against user ratings of top-selling books on Amazon between 2009 and 2019. The scatter plot is colored by book genre. 
 
-![Example scatter plot in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/scatter-plot.png)
+![Example scatter plot in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/scatter-plot.png)
 
 
 Additionally, you can facet scatter plots by features. For example, the following image shows an example of the same review versus user rating scatter plot, faceted by year. 
 
-![Example faceted scatter plot in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/scatter-plot-facet.png)
+![Example faceted scatter plot in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/scatter-plot-facet.png)
 
 
 ## Table Summary
@@ -70,7 +70,7 @@ When you create a quick model chart, you select a dataset you want evaluated, an
 
 The following image shows the user interface for the quick model feature. 
 
-![Example UI of the quick model feature in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/quick-model.png)
+![Example UI of the quick model feature in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/quick-model.png)
 
 
 ## Target Leakage
@@ -89,7 +89,7 @@ The AUC - ROC curve provides a predictive metric, computed individually for each
 
 For example, the following image shows a target leakage report for a diabetes classification problem, that is, predicting if a person has diabetes or not. An AUC - ROC curve is used to calculate the predictive ability of five features, and all are determined to be safe from target leakage.
 
-![Example target leakage report in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/target-leakage.png)
+![Example target leakage report in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/target-leakage.png)
 
 
 ## Multicollinearity
@@ -229,7 +229,7 @@ chart = bar + rule
 
 1. Choose **Save** to add your visualization.
 
-![Example on how to add your visualization in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/custom-visualization.png)
+![Example on how to add your visualization in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/custom-visualization.png)
 
 
 If you don’t know how to use the Altair visualization package in Python, you can use custom code snippets to help you get started.

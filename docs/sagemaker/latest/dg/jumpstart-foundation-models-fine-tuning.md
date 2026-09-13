@@ -100,4 +100,4 @@ Different foundation models support different hyperparameters when fine-tuning. 
 
 You can specify hyperparameter values when you fine-tune your model in Studio. For more information, see [Fine-tune a model in Studio](jumpstart-foundation-models-use-studio-updated-fine-tune.md). 
 
-You can also override default hyperparameter values when fine-tuning your model using the SageMaker Python SDK. For more information, see [Fine-tune publicly available foundation models with the `JumpStartEstimator` class](jumpstart-foundation-models-use-python-sdk-estimator-class.md).
+You can also override default hyperparameter values when fine-tuning your model using the SageMaker Python SDK. For more information, see [Fine-tune publicly available foundation models with the `ModelTrainer` class](jumpstart-foundation-models-use-python-sdk-estimator-class.md).

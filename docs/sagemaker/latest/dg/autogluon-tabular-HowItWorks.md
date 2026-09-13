@@ -11,7 +11,7 @@ The AutoGluon-Tabular algorithm performs well in machine learning competitions b
 
 Refer to the following diagram illustrating how the multi-layer stacking strategy works.
 
-![AutoGluon's multi-layer stacking strategy shown with two stacking layers.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autogluon_tabular_illustration.png)
+![AutoGluon's multi-layer stacking strategy shown with two stacking layers.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autogluon_tabular_illustration.png)
 
 
 For more information, see *[AutoGluon-Tabular: Robust and Accurate AutoML for Structured Data](https://arxiv.org/pdf/2003.06505.pdf)*.

@@ -43,12 +43,12 @@ Amazon SageMaker Model Monitor is no longer open to new customers. Existing cust
 
 Amazon SageMaker Model Monitor automatically monitors machine learning (ML) models in production and notifies you when quality issues happen. Model Monitor uses rules to detect drift in your models and alerts you when it happens. The following figure shows how this process works in the case that your model is deployed to a real-time endpoint.
 
-![The model monitoring process with Amazon SageMaker Model Monitor.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mmv2-architecture.png)
+![The model monitoring process with Amazon SageMaker Model Monitor.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mmv2-architecture.png)
 
 
 You can also use Model Monitor to monitor a batch transform job instead of a real-time endpoint. In this case, instead of receiving requests to an endpoint and tracking the predictions, Model Monitor monitors inference inputs and outputs. The following figure diagrams the process of monitoring a batch transform job.
 
-![The model monitoring process with Amazon SageMaker Model Monitor.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mmv2-architecture-batch.png)
+![The model monitoring process with Amazon SageMaker Model Monitor.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model_monitor/mmv2-architecture-batch.png)
 
 
 To enable model monitoring, take the following steps. These steps follow the path of the data through the various data collection, monitoring, and analysis processes.

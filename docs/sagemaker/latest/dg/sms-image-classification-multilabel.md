@@ -8,7 +8,7 @@ Amazon SageMaker Ground Truth is no longer open to new customers. Existing custo
 
 Use an Amazon SageMaker Ground Truth multi-label image classification labeling task when you need workers to classify multiple objects in an image. For example, the following image features a dog and a cat. You can use multi-label image classification to associate the labels "dog" and "cat" with this image. The following page gives information about creating an image classification job.
 
-![Photo by Anusha Barwa on Unsplash.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/dog-cat-photo.jpg)
+![Photo by Anusha Barwa on Unsplash.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/dog-cat-photo.jpg)
 
 
 When working on a multi-label image classification task, workers should choose all applicable labels, but must choose at least one. When creating a job using this task type, you can provide up to 50 label-categories. 
@@ -27,7 +27,7 @@ You can follow the instructions [Create a Labeling Job (Console)](sms-create-lab
 
 Ground Truth provides a worker UI similar to the following for labeling tasks. When you create a labeling job in the console, you specify instructions to help workers complete the job and labels that workers can choose from. 
 
-![Example worker UI for labeling tasks, provided by Ground Truth.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/image-classification-multilabel-example.png)
+![Example worker UI for labeling tasks, provided by Ground Truth.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/image-classification-multilabel-example.png)
 
 
 ## Create a Multi-Label Image Classification Labeling Job (API)

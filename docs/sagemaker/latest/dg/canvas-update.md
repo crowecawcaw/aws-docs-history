@@ -28,4 +28,4 @@ Use the following procedure to log in to AWS, open Amazon SageMaker AI domain, a
 
 The following image shows the user profile page and highlights the **Delete app** action from the preceding procedure.
 
-![Screenshot of the user profile page with the Delete app action highlighted.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-update-app-1.png)
+![Screenshot of the user profile page with the Delete app action highlighted.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-update-app-1.png)

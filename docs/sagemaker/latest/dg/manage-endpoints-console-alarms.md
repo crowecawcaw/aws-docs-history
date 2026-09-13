@@ -9,7 +9,7 @@ In the **Endpoint summary** section, you can view the **Alarms** field, which te
 
 To view which alarms are in the `ALARM` state, choose the **Alarms** tab. The **Alarms** tab shows you a full list of your endpoint alarms, along with details about their status and conditions. The following screenshot shows a list of alarms in this section that have been configured for an endpoint.
 
-![Screenshot of the alarms tab on the endpoint details page which shows a list of CloudWatch alarms.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hosting-alarms-tab.png)
+![Screenshot of the alarms tab on the endpoint details page which shows a list of CloudWatch alarms.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hosting-alarms-tab.png)
 
 
 An alarm’s status can be `In alarm`, `OK`, or `Insufficient data` if there isn’t enough metrics data being collected.

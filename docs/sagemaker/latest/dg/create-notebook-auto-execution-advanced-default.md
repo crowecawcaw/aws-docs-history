@@ -52,7 +52,7 @@ The following instructions show you how to preview the existing default values, 
 
      1. To update your default values, copy and paste the JSON snippet from the **System Defaults** panel to the **User Preferences** panel, and update the fields.
 
-     1. If you updated the default values, choose the **Save User Settings** icon (![Save User Settings icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Notebook_save.png)) in the top right corner. Closing the editor does not save the changes.
+     1. If you updated the default values, choose the **Save User Settings** icon (![Save User Settings icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Notebook_save.png)) in the top right corner. Closing the editor does not save the changes.
 
 **If you previously changed and now want to reset the user-defined default values, complete following steps:**
 
@@ -74,4 +74,4 @@ The following instructions show you how to preview the existing default values, 
 
      1. To restore your current default settings copy the content from the **System Defaults** panel to the **User Preferences** panel.
 
-     1. Choose the **Save User Settings** icon (![Save User Settings icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Notebook_save.png)) in the top right corner. Closing the editor does not save the changes.
+     1. Choose the **Save User Settings** icon (![Save User Settings icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/icons/Notebook_save.png)) in the top right corner. Closing the editor does not save the changes.

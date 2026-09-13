@@ -19,7 +19,7 @@ The following demos walk you through advanced use cases and visualization script
 
 *Dr. Nathalie Rauschmayr, AWS Applied Scientist \| Length: 49 minutes 26 seconds*
 
-[![AWS Videos](http://img.youtube.com/vi/Tnv6HsT1r4I/0.jpg)](http://www.youtube.com/watch?v=Tnv6HsT1r4I)
+[![AWS Videos](https://img.youtube.com/vi/Tnv6HsT1r4I/0.jpg)](https://www.youtube.com/watch?v=Tnv6HsT1r4I)
 
 
 Find out how Amazon SageMaker Experiments and Debugger can simplify the management of your training jobs. Amazon SageMaker Debugger provides transparent visibility into training jobs and saves training metrics into your Amazon S3 bucket. SageMaker Experiments enables you to call the training information as *trials* through SageMaker Studio and supports visualization of the training job. This helps you keep model quality high while reducing less important parameters based on importance rank.
@@ -43,12 +43,12 @@ The following image shows how the iterative model pruning process reduces the si
 
 The pruning process reduced the initial 50 million parameters to 18 million. It also reduced the estimated model size from 201 MB to 73 MB. 
 
-![An image containing model pruning result output visualizations.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-model-pruning-results-alexnet.gif)
+![An image containing model pruning result output visualizations.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-model-pruning-results-alexnet.gif)
 
 
 You also need to track model accuracy, and the following image shows how you can plot the model pruning process to visualize changes in model accuracy based on the number of parameters in SageMaker Studio.
 
-![An image of tensor visualization using Debugger in SageMaker Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-model-pruning-studio.png)
+![An image of tensor visualization using Debugger in SageMaker Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-model-pruning-studio.png)
 
 
 In SageMaker Studio, choose the **Experiments** tab, select a list of tensors saved by Debugger from the pruning process, and then compose a **Trial Component List** panel. Select all ten iterations and then choose **Add chart** to create a **Trial Component Chart**. After you decide on a model to deploy, choose the trial component and choose a menu to perform an action or choose **Deploy model**.
@@ -83,7 +83,7 @@ The convolutional encoder powers clustering algorithms with smaller input data s
 
 This notebook example demonstrates how to visualize the latent variables using Debugger, as shown in the following animation. It also demonstrates how the t-SNE algorithm classifies the latent variables into ten clusters and projects them into a two-dimensional space. The scatter plot color scheme on the right side of the image reflects the true values to show how well the BERT model and t-SNE algorithm organize the latent variables into the clusters.
 
-![A conceptual image of convolutional autoencoder.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-cnn-autoencoder-plot.gif)
+![A conceptual image of convolutional autoencoder.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-cnn-autoencoder-plot.gif)
 
 
 ## [Using SageMaker Debugger to monitor attentions in BERT model training](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/bert_attention_head_view/bert_attention_head_view.html)
@@ -103,7 +103,7 @@ Plotting *attention scores* and individual neurons in the query and key vectors 
 
 The following animation shows the attention scores of the first 20 input tokens for ten iterations in the training job provided in the notebook example.
 
-![An animation of the attention scores.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-attention_scores.gif)
+![An animation of the attention scores.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-attention_scores.gif)
 
 
 ## [Using SageMaker Debugger to visualize class activation maps in convolutional neural networks (CNNs)](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/cnn_class_activation_maps/cnn_class_activation_maps.html)
@@ -113,7 +113,7 @@ This notebook demonstrates how to use SageMaker Debugger to plot class activatio
 
 In this notebook, the PyTorch ResNet model is trained on [the German Traffic Sign Dataset](http://benchmark.ini.rub.de/), which contains more than 40 classes of traffic-related objects and more than 50,000 images in total.
 
-![An animation of CNN class activation maps.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-cnn-class-activation-maps.gif)
+![An animation of CNN class activation maps.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-cnn-class-activation-maps.gif)
 
 
 During the training process, SageMaker Debugger collects tensors to plot the class activation maps in real time. As shown in the animated image, the class activation map (also called as a *saliency map*) highlights regions with high activation in red color. 

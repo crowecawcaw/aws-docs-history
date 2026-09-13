@@ -19,7 +19,7 @@ After the installation has completed, verify that the CloudWatch Observability a
 **Note**  
 SageMaker HyperPod requires the CloudWatch Insight v2.0.1-eksbuild.1 or later.
 
-![Amazon CloudWatch Observability add-on showing Creating status with version v2.0.1-eksbuild.1.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod-eks-CIaddon.png)
+![Amazon CloudWatch Observability add-on showing Creating status with version v2.0.1-eksbuild.1.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod-eks-CIaddon.png)
 
 
 ## Access CloudWatch container insights logs

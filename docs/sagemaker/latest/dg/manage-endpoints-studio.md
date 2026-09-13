@@ -17,7 +17,7 @@ The **Endpoints** page opens, which lists all of your SageMaker AI Hosting endpo
 
 To see the details for a specific endpoint, choose an endpoint from the list. On the endpoint’s details page, you get an overview like the following screenshot.
 
-![Screenshot of an endpoint's main page showing a summary of the endpoint details in Studio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-endpoint-details-page.png)
+![Screenshot of an endpoint's main page showing a summary of the endpoint details in Studio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/inference/studio-endpoint-details-page.png)
 
 
 Each endpoint details page contains the following tabs of information:

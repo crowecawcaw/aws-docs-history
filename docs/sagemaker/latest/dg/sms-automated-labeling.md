@@ -53,19 +53,19 @@ The preceding steps happen in iterations. Select each tab in the following table
 ------
 #### [ Model Training ]
 
-![Example process of model training.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/auto-labeling/sagemaker-gt-annotate-data-3.png)
+![Example process of model training.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/auto-labeling/sagemaker-gt-annotate-data-3.png)
 
 
 ------
 #### [ Automated Labeling ]
 
-![Example process of automated labeling.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/auto-labeling/sagemaker-gt-annotate-data-4.png)
+![Example process of automated labeling.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/auto-labeling/sagemaker-gt-annotate-data-4.png)
 
 
 ------
 #### [ Active Learning ]
 
-![Example process of active learning.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/auto-labeling/sagemaker-gt-annotate-data-5.png)
+![Example process of active learning.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/auto-labeling/sagemaker-gt-annotate-data-5.png)
 
 
 ------

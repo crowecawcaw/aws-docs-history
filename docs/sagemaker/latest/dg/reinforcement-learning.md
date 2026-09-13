@@ -66,7 +66,7 @@ To train RL models in SageMaker AI RL, use the following components:
 
 The following diagram shows the RL components that are supported in SageMaker AI RL.
 
-![The RL components that are supported in SageMaker AI RL.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-rl-support.png)
+![The RL components that are supported in SageMaker AI RL.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-rl-support.png)
 
 
 ## Reinforcement Learning Sample Notebooks

@@ -7,7 +7,7 @@ During training, DeepAR accepts a training dataset and an optional test dataset.
 
 For example, the following is an element of a training set indexed by *i* which consists of a target time series, *Zi,t*, and two associated feature time series, *Xi,1,t* and *Xi,2,t*:
 
-![Figure 1: Target time series and associated feature time series.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ts-full-159.base.png)
+![Figure 1: Target time series and associated feature time series.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ts-full-159.base.png)
 
 
 The target time series might contain missing values, which are represented by line breaks in the time series. DeepAR supports only feature time series that are known in the future. This allows you to run "what if?" scenarios. What happens, for example, if I change the price of a product in some way? 
@@ -19,7 +19,7 @@ Each target time series can also be associated with a number of categorical feat
 
 To facilitate learning time-dependent patterns, such as spikes during weekends, DeepAR automatically creates feature time series based on the frequency of the target time series. It uses these derived feature time series with the custom feature time series that you provide during training and inference. The following figure shows two of these derived time series features: *ui,1,t* represents the hour of the day and *ui,2,t* the day of the week.
 
-![Figure 2: Derived time series.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ts-full-159.derived.png)
+![Figure 2: Derived time series.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ts-full-159.derived.png)
 
 
 The DeepAR algorithm automatically generates these feature time series. The following table lists the derived features for the supported basic time frequencies.
@@ -35,12 +35,12 @@ The DeepAR algorithm automatically generates these feature time series. The foll
 
 DeepAR trains a model by randomly sampling several training examples from each of the time series in the training dataset. Each training example consists of a pair of adjacent context and prediction windows with fixed predefined lengths. The `context_length` hyperparameter controls how far in the past the network can see, and the `prediction_length` hyperparameter controls how far in the future predictions can be made. During training, the algorithm ignores training set elements containing time series that are shorter than a specified prediction length. The following figure represents five samples with context lengths of 12 hours and prediction lengths of 6 hours drawn from element *i*. For brevity, we've omitted the feature time series *xi,1,t* and *ui,2,t*.
 
-![Figure 3: Sampled time series.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ts-full-159.sampled.png)
+![Figure 3: Sampled time series.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ts-full-159.sampled.png)
 
 
 To capture seasonality patterns, DeepAR also automatically feeds lagged values from the target time series. In the example with hourly frequency, for each time index, *t = T*, the model exposes the *zi,t* values, which occurred approximately one, two, and three days in the past.
 
-![Figure 4: Lagged time series.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ts-full-159.lags.png)
+![Figure 4: Lagged time series.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ts-full-159.lags.png)
 
 
 For inference, the trained model takes as input target time series, which might or might not have been used during training, and forecasts a probability distribution for the next `prediction_length` values. Because DeepAR is trained on the entire dataset, the forecast takes into account patterns learned from similar time series.

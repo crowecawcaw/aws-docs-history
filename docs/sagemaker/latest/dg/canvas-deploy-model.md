@@ -59,9 +59,9 @@ If you deploy a model for a specified amount of time, stay logged in to the Canv
 After your model is deployed to a SageMaker AI Hosting [real-time inference endpoint](https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints.html), you can begin making predictions by *invoking* the endpoint.
 
 There are several different ways for you to deploy a model from the Canvas application. You can access the model deployment option through any of the following methods:
-+ On the **My models** page of the Canvas application, choose the model that you want to deploy. Then, from the model’s **Versions** page, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to a model version and select **Deploy**.
++ On the **My models** page of the Canvas application, choose the model that you want to deploy. Then, from the model’s **Versions** page, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to a model version and select **Deploy**.
 + When on the details page for a model version, on the **Analyze** tab, choose the **Deploy** option.
-+ When on the details page for a model version, on the **Predict** tab, choose the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) at the top of the page and select **Deploy**.
++ When on the details page for a model version, on the **Predict** tab, choose the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) at the top of the page and select **Deploy**.
 + On the **ML Ops** page of the Canvas application, choose the **Deployments** tab and then choose **Create deployment**.
 + For JumpStart foundation models and fine-tuned foundation models, go to the **Ready-to-use models** page of the Canvas application. Choose **Generate, extract and summarize content**. Then, find the JumpStart foundation model or fine-tuned foundation model that you want to deploy. Choose the model, and on the model's chat page, choose the **Deploy** button.
 

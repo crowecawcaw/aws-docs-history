@@ -5,7 +5,7 @@
 
 Fine-tuning trains a pretrained model on a new dataset without training from scratch. This process, also known as transfer learning, can produce accurate models with smaller datasets and less training time. You can fine-tune a model if its card shows a **fine-tunable** attribute set to **Yes**. 
 
- ![JumpStart fine-tunable Image Classification - TensorFlow model.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-finetune-model.png) 
+ ![JumpStart fine-tunable Image Classification - TensorFlow model.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-finetune-model.png) 
 
 **Note**  
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For information about using the updated Studio experience, see [Amazon SageMaker Studio](studio-updated.md).  
@@ -21,7 +21,7 @@ For more information on JumpStart model fine-tuning in Studio, see [Fine-tune a 
 
 To browse the buckets available to you, choose **Find S3 bucket**. These buckets are limited by the permissions used to set up your Studio Classic account. You can also specify an Amazon S3 URI by choosing **Enter Amazon S3 bucket location**. 
 
- ![JumpStart data source settings with default dataset selected.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-dataset.png) 
+ ![JumpStart data source settings with default dataset selected.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-dataset.png) 
 
 **Tip**  
  To find out how to format the data in your bucket, choose **Learn more**. The description section for the model has detailed information about inputs and outputs.  

@@ -17,7 +17,7 @@ SageMaker Debugger provides tools to debug training jobs and resolve such proble
 
 SageMaker Debugger supports the Apache MXNet, PyTorch, TensorFlow, and XGBoost frameworks. For more information about available frameworks and versions supported by SageMaker Debugger, see [Supported frameworks and algorithms](debugger-supported-frameworks.md).
 
-![Overview of how Amazon SageMaker Debugger works.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-main.png)
+![Overview of how Amazon SageMaker Debugger works.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/debugger/debugger-main.png)
 
 
 The high-level Debugger workflow is as follows:

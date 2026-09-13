@@ -25,7 +25,7 @@ If you see one or more images in your worker portal, you can paint in the images
 
 You may see frame attributes under the **Labels** menu. Use these attribute prompts to enter additional information about the point cloud. 
 
-![Example frame attribute prompt.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/frame-attributes.png)
+![Example frame attribute prompt.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/frame-attributes.png)
 
 
 **Important**  
@@ -33,12 +33,12 @@ If you see that objects have already been painted when you open the task, adjust
 
 The following video includes an image that can be annotated. You may not see an image in your task. 
 
-![Gif showing how workers can use the 3D point cloud and 2D image together to paint objects.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_paint_sf.gif)
+![Gif showing how workers can use the 3D point cloud and 2D image together to paint objects.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_paint_sf.gif)
 
 
 After you've painted one or more objects using a label category, you can select that category from the Label Category menu on the right to only view points painted for that category. 
 
-![Gif showing how workers can move around the 3D point cloud.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss-view-options.gif)
+![Gif showing how workers can move around the 3D point cloud.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss-view-options.gif)
 
 
 ## Navigate the UI
@@ -51,7 +51,7 @@ You can navigate in the 3D scene using their keyboard and mouse. You can:
 
 The following video demonstrates movements around the 3D point cloud and in the side-view. You can hide and re-expand all side views using the full screen icon. In this GIF, the side-views and menus have been collapsed.
 
-![Gif shows how a worker can use the 3D point cloud in the point cloud view UI.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_nav_worker_portal.gif)
+![Gif shows how a worker can use the 3D point cloud in the point cloud view UI.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/gifs/semantic_seg/ss_nav_worker_portal.gif)
 
 
 When you are in the worker UI, you see the following menus:
@@ -80,12 +80,12 @@ Use this table to learn about the icons available in your worker task portal.
 
 | Icon | Name | Description | 
 | --- | --- | --- | 
-|  ![The Brush icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/brush.png)  | brush | Choose this icon to turn on the brush tool. To use with this tool, choose and move over the objects that you want to paint with your mouse. After you choose it, everything you paint be associated with the category you chose. | 
-|  ![The Polygon icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/polygon.png)  | polygon | Choose this icon to use the polygon paint tool. Use this tool to draw polygons around objects that you want to paint. After you choose it, everything you draw a polygon around will be associated with the category you have chosen. | 
-|  ![The Reset scene icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/fit_scene.png)  | reset scene | Choose this icon to reset the view of the point cloud, side panels, and if applicable, all images to their original position when the task was first opened.  | 
-|  ![The Move scene icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/move_scene.png)  | move scene | Choose this icon to move the scene. By default, this icon will be selected when you first start a task.  | 
-|  ![The Full screen icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/fullscreen.png)  | full screen  | Choose this icon to make the 3D point cloud visualization full screen, and to collapse all side panels. | 
-|  ![The Ruler icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/Ruler_icon.png)  | ruler | Use this icon to measure distances, in meters, in the point cloud. You may want to use this tool if your instructions ask you to annotate all objects in a given distance from the center of the cuboid or the object used to capture data.<br />When you select this icon, you can place the starting point (first marker) anywhere in the point cloud by selecting it with your mouse. The tool will automatically use interpolation to place a marker on the closest point within threshold distance to the location you select, otherwise the marker will be placed on ground. If you place a starting point by mistake, you can use the Escape key to revert marker placement. <br />After you place the first marker, you see a dotted line and a dynamic label that indicates the distance you have moved away from the first marker. Click somewhere else on the point cloud to place a second marker. When you place the second marker, the dotted line becomes solid, and the distance is set. <br />After you set a distance, you can edit it by selecting either marker. You can delete a ruler by selecting anywhere on the ruler and using the Delete key on your keyboard.  | 
+|  ![The Brush icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/brush.png)  | brush | Choose this icon to turn on the brush tool. To use with this tool, choose and move over the objects that you want to paint with your mouse. After you choose it, everything you paint be associated with the category you chose. | 
+|  ![The Polygon icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/polygon.png)  | polygon | Choose this icon to use the polygon paint tool. Use this tool to draw polygons around objects that you want to paint. After you choose it, everything you draw a polygon around will be associated with the category you have chosen. | 
+|  ![The Reset scene icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/fit_scene.png)  | reset scene | Choose this icon to reset the view of the point cloud, side panels, and if applicable, all images to their original position when the task was first opened.  | 
+|  ![The Move scene icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/move_scene.png)  | move scene | Choose this icon to move the scene. By default, this icon will be selected when you first start a task.  | 
+|  ![The Full screen icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/fullscreen.png)  | full screen  | Choose this icon to make the 3D point cloud visualization full screen, and to collapse all side panels. | 
+|  ![The Ruler icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/pointcloud/icons/Ruler_icon.png)  | ruler | Use this icon to measure distances, in meters, in the point cloud. You may want to use this tool if your instructions ask you to annotate all objects in a given distance from the center of the cuboid or the object used to capture data.<br />When you select this icon, you can place the starting point (first marker) anywhere in the point cloud by selecting it with your mouse. The tool will automatically use interpolation to place a marker on the closest point within threshold distance to the location you select, otherwise the marker will be placed on ground. If you place a starting point by mistake, you can use the Escape key to revert marker placement. <br />After you place the first marker, you see a dotted line and a dynamic label that indicates the distance you have moved away from the first marker. Click somewhere else on the point cloud to place a second marker. When you place the second marker, the dotted line becomes solid, and the distance is set. <br />After you set a distance, you can edit it by selecting either marker. You can delete a ruler by selecting anywhere on the ruler and using the Delete key on your keyboard.  | 
 
 ## Shortcuts
 <a name="sms-point-cloud-worker-instructions-ss-hot-keys"></a>

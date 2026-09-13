@@ -18,7 +18,7 @@ If you want to use a JumpStart model that isn’t currently active, you are prom
 
 When the models are active, you see the two models side by side in the chat. You can submit your prompt, and each model responds in the same chat, as shown in the following screenshot.
 
-![Screenshot of the Canvas interface with the output of two models shown side by side.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-chat-compare-outputs.png)
+![Screenshot of the Canvas interface with the output of two models shown side by side.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-chat-compare-outputs.png)
 
 
 When you’re done interacting, make sure to shut down any JumpStart models individually to avoid incurring further charges.

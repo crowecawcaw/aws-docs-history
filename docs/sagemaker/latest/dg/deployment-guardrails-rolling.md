@@ -32,7 +32,7 @@ If an alarm is tripped during one of the baking periods, then traffic is rolled 
 
 The following diagram shows the progression of a successful rolling deployment, as described in the previous steps.
 
-![The steps of a rolling deployment's traffic shifting successfully from the old to the new fleet.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/deployment-guardrails-rolling-diagram.png)
+![The steps of a rolling deployment's traffic shifting successfully from the old to the new fleet.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/deployment-guardrails-rolling-diagram.png)
 
 
 To create a rolling deployment, you only have to specify your desired deployment configuration. Then SageMaker AI handles provisioning new instances, terminating old instances, and shifting traffic for you. You can create and manage your deployment through the existing [UpdateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html) and [CreateEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html) SageMaker API and AWS Command Line Interface commands.

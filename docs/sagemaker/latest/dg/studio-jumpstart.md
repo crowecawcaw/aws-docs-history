@@ -22,7 +22,7 @@ In Amazon SageMaker Studio, open the Models landing page either through the **Ho
 
 For more information on getting started with Amazon SageMaker Studio, see [Amazon SageMaker Studio](studio-updated.md).
 
-![Amazon SageMaker Studio interface with access to JumpStart.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-studio-nav.png)
+![Amazon SageMaker Studio interface with access to JumpStart.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-studio-nav.png)
 
 
 ## Use JumpStart in Studio
@@ -34,7 +34,7 @@ On 3/13/2026, we delisted a few models from the JumpStart catalog across regions
 
 From the **SageMaker Models** landing page in Studio, you can explore JumpStart base models from both proprietary and publicly available model providers. You can search directly for models, filter by specific model provider, or filter based on a list of provided use cases and actions.
 
-![Amazon SageMaker Studio Models landing page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-studio-landing.png)
+![Amazon SageMaker Studio Models landing page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-studio-landing.png)
 
 
 Choose a model to see its model detail card. In the upper right-hand corner of the model detail card, choose **Fine-tune**, **Customize**, **Deploy**, or **Evaluate** to start working through the fine-tuning, deployment, or evaluation workflows, respectively. Note that not all models are available for customization, fine-tuning or evaluation. For more information on each of these options, see [Use foundation models in Studio](jumpstart-foundation-models-use-studio-updated.md).
@@ -65,9 +65,9 @@ In Amazon SageMaker Studio Classic, open the JumpStart landing page either throu
 
     The **Launched JumpStart assets** page lists your currently launched solutions, deployed model endpoints, and training jobs created with JumpStart. You can access the JumpStart landing page from this tab by clicking on the **Browse JumpStart** button at the top right of the tab.
 
-The JumpStart landing page lists available end-to-end machine learning solutions, pretrained models, and example notebooks. From any individual solution or model page, you can choose the **Browse JumpStart** button (![Browse JumpStart button.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-browse-button.png)) at the top right of the tab to return to the **SageMaker JumpStart** page.
+The JumpStart landing page lists available end-to-end machine learning solutions, pretrained models, and example notebooks. From any individual solution or model page, you can choose the **Browse JumpStart** button (![Browse JumpStart button.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-browse-button.png)) at the top right of the tab to return to the **SageMaker JumpStart** page.
 
-![SageMaker Studio Classic interface with access to JumpStart.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-assets.png)
+![SageMaker Studio Classic interface with access to JumpStart.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-assets.png)
 
 
 **Important**  
@@ -79,7 +79,7 @@ On 3/13/2026, we delisted a few models from the JumpStart catalog across regions
 
 From the **SageMaker JumpStart** landing page, you can browse for solutions, models, notebooks, and other resources.
 
-![SageMaker Studio Classic JumpStart landing page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-use.png)
+![SageMaker Studio Classic JumpStart landing page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jumpstart/jumpstart-use.png)
 
 
 You can find JumpStart resources by using the search bar, or by browsing each category. Use the tabs to filter the available solutions by categories:

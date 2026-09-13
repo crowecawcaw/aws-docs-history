@@ -54,7 +54,7 @@ To access Data Wrangler in Studio Classic, do the following.
    1. Select **New**.
 
    1. Select **Data Wrangler Flow**.  
-![Home tab of the Studio Classic console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/new-flow-file-menu.png)
+![Home tab of the Studio Classic console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/new-flow-file-menu.png)
 
 1. (Optional) Rename the new directory and the .flow file.
 
@@ -63,7 +63,7 @@ To access Data Wrangler in Studio Classic, do the following.
    **This may take a few minutes.**
 
    This messaging persists as long as the **KernelGateway** app on your **User Details** page is **Pending**. To see the status of this app, in the SageMaker AI console on the **Amazon SageMaker Studio Classic** page, select the name of the user you are using to access Studio Classic. On the **User Details** page, you see a **KernelGateway** app under **Apps**. Wait until this app status is **Ready** to start using Data Wrangler. This can take around 5 minutes the first time you launch Data Wrangler.  
-![Example showing the KernelGateway app status is Ready on the User Details page.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/gatewayKernel-ready.png)
+![Example showing the KernelGateway app status is Ready on the User Details page.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/gatewayKernel-ready.png)
 
 1. To get started, choose a data source and use it to import a dataset. See [Import](data-wrangler-import.md) to learn more. 
 
@@ -242,7 +242,7 @@ Using the **Python (Pandas)** option, use the following to quickly review the nu
 df.info()
 ```
 
-![Example review the number of entries in each column.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/inspect-missing-pandas.png)
+![Example review the number of entries in each column.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/inspect-missing-pandas.png)
 
 
 To drop rows with missing values in the *age* category, do the following: 
@@ -317,7 +317,7 @@ When you export your data flow using a **Data Wrangler job**, the process automa
 1. Back to the **Data Flow** tab, select the last step in your data flow (SQL), then choose the **\+** to open the navigation.
 
 1. Choose **Export**, and **Amazon S3 (via Jupyter Notebook)**. This opens a Jupyter Notebook.  
-![Example showing how to open the navigation in the data flow tab in the Data Wrangler console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/export-select-step.png)
+![Example showing how to open the navigation in the data flow tab in the Data Wrangler console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/mohave/export-select-step.png)
 
 1. Choose any **Python 3 (Data Science)** kernel for the **Kernel**. 
 

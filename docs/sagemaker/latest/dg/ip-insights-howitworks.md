@@ -9,7 +9,7 @@ The IP Insights algorithm uses a neural network to learn the latent vector repre
 
 During training, IP Insights automatically generates negative samples by randomly pairing entities and IP addresses. These negative samples represent data that is less likely to occur in reality. The model is trained to discriminate between positive samples that are observed in the training data and these generated negative samples. More specifically, the model is trained to minimize the *cross entropy*, also known as the *log loss*, defined as follows: 
 
-![An image containing the equation for log loss.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ip-insight-image-cross-entropy.png)
+![An image containing the equation for log loss.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ip-insight-image-cross-entropy.png)
 
 
 yn is the label that indicates whether the sample is from the real distribution governing observed data (yn=1) or from the distribution generating negative samples (yn=0). pn is the probability that the sample is from the real distribution, as predicted by the model.
@@ -18,9 +18,9 @@ Generating negative samples is an important process that is used to achieve an a
 
 Given an nth (entity, IP address pair), the IP Insights model outputs a *score*, Sn , that indicates how compatible the entity is with the IP address. This score corresponds to the log odds ratio for a given (entity, IP address) of the pair coming from a real distribution as compared to coming from a negative distribution. It is defined as follows:
 
-![An image containing the equation for the score, a log odds ratio.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ip-insight-image-log-odds.png)
+![An image containing the equation for the score, a log odds ratio.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ip-insight-image-log-odds.png)
 
 
 The score is essentially a measure of the similarity between the vector representations of the nth entity and IP address. It can be interpreted as how much more likely it would be to observe this event in reality than in a randomly generated dataset. During training, the algorithm uses this score to calculate an estimate of the probability of a sample coming from the real distribution, pn, to use in the cross entropy minimization, where:
 
-![An image showing the equation for probability that the sample is from a real distribution.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ip-insight-image-sample-probability.png)
+![An image showing the equation for probability that the sample is from a real distribution.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ip-insight-image-sample-probability.png)

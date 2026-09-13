@@ -27,7 +27,7 @@ To view your deployment details from a model version’s page, do the following:
 
 1. On the **Deployments ** section that lists all of the deployment configurations associated with that model version, find your deployment.
 
-1. Choose the **More options** icon (![More options icon for the output CSV file.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), and then select **View details** to open the details page.
+1. Choose the **More options** icon (![More options icon for the output CSV file.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), and then select **View details** to open the details page.
 
 The details page for your deployment opens, and you can view information such as the time of the most recent prediction, the endpoint’s status and configuration, and the model version that is currently deployed to the endpoint.
 
@@ -35,4 +35,4 @@ You can also view your currently active Canvas workspace instances and active en
 
 The following screenshot shows the SageMaker AI dashboard. In the **Canvas** section, you can see that one workspace instance is in service and four endpoints are active.
 
-![Screenshot of the SageMaker AI dashboard showing the active Canvas workspace instances and endpoints.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-sagemaker-dashboard.png)
+![Screenshot of the SageMaker AI dashboard showing the active Canvas workspace instances and endpoints.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-sagemaker-dashboard.png)

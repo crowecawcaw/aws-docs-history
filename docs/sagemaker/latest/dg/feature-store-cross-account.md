@@ -13,7 +13,7 @@ The distinction between discoverability and access is important to keep in mind 
 
 The following example diagram visualizes the feature group catalog resource versus a feature group resource entity. The feature group catalog contains *all* of your feature group entities and can be shared using the discoverability permission. When granted a discoverability permission, the resource consumer account can search and discover *all* feature group entities within the resource owner account. A feature group entity contains your machine learning data and can be shared using the access permission. When granted an access permission, the resource consumer account can access the feature group data, with access determined by the relevant access permission.
 
- ![Example showing how a resource owner account contains a feature group catalog, which contains feature groups.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-cross-account-resource-types.png) 
+ ![Example showing how a resource owner account contains a feature group catalog, which contains feature groups.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/feature-store/feature-store-cross-account-resource-types.png) 
 
 **Topics**
 + [Enabling cross account discoverability](feature-store-cross-account-discoverability.md)

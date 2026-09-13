@@ -17,7 +17,7 @@ To access the model notebook, do the following:
 
 1. Choose the model and version that you built.
 
-1. On the model version’s page, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) in the header.
+1. On the model version’s page, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) in the header.
 
 1. From the dropdown menu, choose **View Notebook**.
 

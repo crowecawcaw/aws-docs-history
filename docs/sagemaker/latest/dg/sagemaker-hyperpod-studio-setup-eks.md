@@ -7,7 +7,7 @@ You do most of this setup from your HyperPod cluster details page in the SageMak
 
 The following screenshot shows the **Cluster access for SageMaker domains** section on the **Configuration** tab.
 
-![The Configuration tab of a HyperPod cluster, showing the EKS orchestrator details and the Cluster access for SageMaker domains section with the Create domain, View domain, and Manage access buttons.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/studio-cluster-access-manage-access.png)
+![The Configuration tab of a HyperPod cluster, showing the EKS orchestrator details and the Cluster access for SageMaker domains section with the Create domain, View domain, and Manage access buttons.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod/studio-cluster-access-manage-access.png)
 
 
 The following instructions describe how to set up an Amazon EKS cluster in Studio.

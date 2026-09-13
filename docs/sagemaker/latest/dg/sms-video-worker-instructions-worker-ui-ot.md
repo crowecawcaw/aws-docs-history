@@ -16,7 +16,7 @@ Use the next frame and previous frame buttons to move forward or back one frame 
 
 The following video demonstrates how to navigate between video frames. 
 
-![Gif showing how to navigate between video frames.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/nav_video_ui.gif)
+![Gif showing how to navigate between video frames.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/nav_video_ui.gif)
 
 
 You can zoom in to and out of all video frames. Once you have zoomed into a video frame, you can move around in that frame using the move icon. When you set a new view in a single video frame by zooming and moving within that frame, all video frames are set to the same view. You can reset all video frames to their original view using the fit screen icon. For additional view options, see [Icons Guide](sms-video-worker-instructions-ot-icons.md). 

@@ -37,7 +37,7 @@ The Autopilot UI contains helpful dropdown menus, toggles, tooltips, and more to
   1. Check the progress of the endpoint creation process in the [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/) by navigating to the Endpoints section. That section is located in the **Inference** dropdown menu in the navigation panel. 
 
   1. After the endpoint status changes from **Creating** to **InService**, as shown below, return to Studio Classic and invoke the endpoint.  
-![SageMaker AI console: Endpoints page to create an endpoint or check endpoint status.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-check-progress.PNG)
+![SageMaker AI console: Endpoints page to create an endpoint or check endpoint status.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-check-progress.PNG)
 
 ## Deploy using SageMaker APIs
 <a name="autopilot-deploy-models-api"></a>

@@ -16,7 +16,7 @@ The auto-segmentation tool is available for segmentation tasks that are sent to 
 
 When workers are assigned a labeling job that provides the auto-segmentation tool, they are provided with detailed instructions on how to use the tool. For example, a worker might see the following in the worker console: 
 
-![Example UI with instructions on how to use the tool in the worker console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/gifs/semantic-segmentation.gif)
+![Example UI with instructions on how to use the tool in the worker console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/gifs/semantic-segmentation.gif)
 
 
 Workers can use **View full instructions** to learn how to use the tool. Workers will need to place a point on four extreme-points ( top-most, bottom-most, left-most, and right-most points ) of the object of interest, and the tool will automatically generate a mask for the object. Workers can further-refine the mask using the other tools provided, or by using the auto-segment tool on smaller portions of the object that were missed. 

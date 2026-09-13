@@ -461,4 +461,4 @@ plt.show()
 
 Using `matplotlib`, you can visualize the results with a graph. The graph shows that the surface area of Lake Mead decreased from January 2021–July 2022.
 
-![A bar graph showing the surface area of Lake Mead decreased from January 2021-July 2022.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/lake-mead-decrease.png)
+![A bar graph showing the surface area of Lake Mead decreased from January 2021-July 2022.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/lake-mead-decrease.png)

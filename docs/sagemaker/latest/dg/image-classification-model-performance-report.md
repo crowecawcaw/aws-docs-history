@@ -33,7 +33,7 @@ The first part of the model quality report contains metrics tables. These are ap
 
 The following image is an example of a metrics table generates by Autopilot for an image or text classification problem. It shows the metric name, value, and standard deviation.
 
-![Amazon SageMaker Autopilot model insights image or text classification metrics report example.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-model-insights-multiclass-metrics-report.png)
+![Amazon SageMaker Autopilot model insights image or text classification metrics report example.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-model-insights-multiclass-metrics-report.png)
 
 
 ### Graphical model performance information
@@ -68,7 +68,7 @@ The following diagram is an example of a confusion matrix for a multi-class clas
 
 In the example below, the model correctly predicted actual 354 values for label **f**, 1094 values for label **i** and 852 values for label **m**. The difference in tone indicates that the dataset is not balanced because there are many more labels for the value **i** than for **f** or **m**.
 
-![Amazon SageMaker Autopilot multiclass confusion matrix example.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-model-insights-confusion-matrix-multiclass.png)
+![Amazon SageMaker Autopilot multiclass confusion matrix example.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/autopilot/autopilot-model-insights-confusion-matrix-multiclass.png)
 
 
 The confusion matrix in the model quality report provided can accommodate a maximum of 15 labels for multiclass classification problem types. If a row corresponding to a label shows a `Nan` value, it means that the validation dataset used to check model predictions does not contain data with that label.

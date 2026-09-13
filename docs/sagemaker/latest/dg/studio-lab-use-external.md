@@ -43,11 +43,11 @@ To clone a GitHub repo to your Studio Lab project, follow these steps.
 
 1. Start your Studio Lab project runtime. For more information on launching Studio Lab project runtime, see [Start your project runtime](studio-lab-manage-runtime.md#studio-lab-manage-runtime-start). 
 
-1. In Studio Lab, choose the **File Browser** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left menu, so that the **File Browser** panel shows on the left. 
+1. In Studio Lab, choose the **File Browser** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/folder.png)) on the left menu, so that the **File Browser** panel shows on the left. 
 
 1. Navigate to your user directory by choosing the file icon beneath the file search bar. 
 
-1. Select the **Git** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)) from the left menu to open a new dropdown menu. 
+1. Select the **Git** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/git.png)) from the left menu to open a new dropdown menu. 
 
 1. Choose **Clone a Repository**. 
 

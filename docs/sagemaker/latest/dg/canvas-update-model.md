@@ -49,7 +49,7 @@ The following procedures show you how to add model versions; the procedure is di
 1. After your model opens, choose the **Analyze** tab.
 
 1. Choose **Standard build**.  
-![The Analyze tab of a Canvas model showing the standard build button.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-add-version-quick-to-standard.png)
+![The Analyze tab of a Canvas model showing the standard build button.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-add-version-quick-to-standard.png)
 
    On the model draft page that opens to the **Build** tab, you can modify your model configuration and start a build. For more information about building a model version, see [Build a model](canvas-build-model-how-to.md).
 
@@ -57,7 +57,7 @@ You should now have a new model version build in progress. For more information 
 
 After building a model version, you can return to your model details page at any time to view all of the versions or add more versions. The following image shows the **Versions** page for a model.
 
-![The model versions page for a model in Canvas.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/model-versions.png)
+![The model versions page for a model in Canvas.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/model-versions.png)
 
 
 On the **Versions** page, you can view the following information for each of your model versions:

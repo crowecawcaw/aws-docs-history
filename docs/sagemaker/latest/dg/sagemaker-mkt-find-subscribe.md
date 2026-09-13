@@ -5,7 +5,7 @@
 
 With AWS Marketplace, you can browse and search for hundreds of machine learning algorithms and models in a broad range of categories, such as computer vision, natural language processing, speech recognition, text, data, voice, image, video analysis, fraud detection, predictive analysis, and more.
 
-![The buyer workflow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/buyer-flow.png)
+![The buyer workflow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/buyer-flow.png)
 
 
 **To find algorithms on AWS Marketplace**

@@ -210,7 +210,7 @@ SageMaker Canvas provides the bias report in Data Wrangler to help uncover poten
 
 To generate a bias report in Canvas, do the following:
 
-1. In your data flow in Data Wrangler, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to a node in the flow.
+1. In your data flow in Data Wrangler, choose the **More options** icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)) next to a node in the flow.
 
 1. From the context menu, choose **Get data insights**.
 

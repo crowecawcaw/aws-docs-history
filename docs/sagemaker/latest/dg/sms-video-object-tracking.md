@@ -27,7 +27,7 @@ The UI provides workers with the following assistive labeling tools to complete 
 
 The following video shows how a worker might use the worker UI with the bounding box tool to complete your object tracking tasks.
 
-![Gif showing how a worker can use the bounding box tool with the predict next feature.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/ot_predict_next.gif)
+![Gif showing how a worker can use the bounding box tool with the predict next feature.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/ot_predict_next.gif)
 
 
 ## Create a Video Frame Object Tracking Labeling Job
@@ -42,7 +42,7 @@ This section assumes that you have reviewed the [Video frame labeling job refere
 
 You can follow the instructions in [Create a Labeling Job (Console)](sms-create-labeling-job-console.md) to learn how to create a video frame object tracking job in the SageMaker AI console. In step 10, choose **Video - Object tracking** from the **Task category** dropdown list. Select the task type you want by selecting one of the cards in **Task selection**.
 
-![Gif showing how to create a video frame object tracking job in the SageMaker AI console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/task-type-vot.gif)
+![Gif showing how to create a video frame object tracking job in the SageMaker AI console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms/video/task-type-vot.gif)
 
 
 ### Create a Labeling Job (API)

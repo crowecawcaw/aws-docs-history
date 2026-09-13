@@ -35,7 +35,7 @@ Missing values are a common occurrence in machine learning datasets. If you have
 
 To filter missing values from your previewed data, do the following.
 
-1. In the **Build** tab of the SageMaker Canvas application, choose **Filter by rows ** (![Filter icon in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/filter-icon.png)).
+1. In the **Build** tab of the SageMaker Canvas application, choose **Filter by rows ** (![Filter icon in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/filter-icon.png)).
 
 1. Choose the **Column** you want to check for missing values.
 
@@ -43,7 +43,7 @@ To filter missing values from your previewed data, do the following.
 
 SageMaker Canvas filters for rows that contain missing values in the **Column** you selected and provides a preview of the filtered rows.
 
-![Screenshot of the filter by missing values operation in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-filter-missing.png)
+![Screenshot of the filter by missing values operation in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-filter-missing.png)
 
 
 ### Filter rows by outliers
@@ -53,7 +53,7 @@ Outliers, or rare values in the distribution and range of your data, can negativ
 
 To filter for outliers in your data, do the following.
 
-1. In the **Build** tab of the SageMaker Canvas application, choose **Filter by rows ** (![Filter icon in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/filter-icon.png)).
+1. In the **Build** tab of the SageMaker Canvas application, choose **Filter by rows ** (![Filter icon in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/filter-icon.png)).
 
 1. Choose the **Column** you want to check for outliers.
 
@@ -67,7 +67,7 @@ The **Standard deviation** option detects and filters for outliers in numeric co
 
 The **Custom range** option detects and filters for outliers in numeric columns using minimum and maximum values. Use this method if you know your threshold values that delimit outliers. You can set the **Type** of the range to either **Percentile** or **Number**. If you choose **Percentile**, the **Min** and **Max** values should be the minimum and maximum of the percentile range (0-100) that you want to allow. If you choose **Number**, the **Min** and **Max** values should be the minimum and maximum numeric values that you want to filter in the data.
 
-![Screenshot of the filter by outliers operation in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-filter-outlier.png)
+![Screenshot of the filter by outliers operation in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-filter-outlier.png)
 
 
 ### Filter rows by custom values
@@ -77,7 +77,7 @@ You can filter for rows with values that meet custom conditions. For example, yo
 
 To use the custom filter functionality, do the following.
 
-1. In the **Build** tab of the SageMaker Canvas application, choose **Filter by rows** (![Filter icon in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/filter-icon.png)).
+1. In the **Build** tab of the SageMaker Canvas application, choose **Filter by rows** (![Filter icon in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/filter-icon.png)).
 
 1. Choose the **Column** you want to check.
 
@@ -101,7 +101,7 @@ For the **Operation**, you can choose one of the following options. Note that th
 
 After you set the filter operation, SageMaker Canvas updates the preview of the dataset to show you the filtered data.
 
-![Screenshot of the filter by custom values operation in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-filter-custom.png)
+![Screenshot of the filter by custom values operation in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-filter-custom.png)
 
 
 ## Functions and operators
@@ -220,7 +220,7 @@ To remove rows that contain missing values in a specified column, do the followi
 
 SageMaker Canvas drops rows that contain missing values in the **Column** you selected. After removing the rows from the dataset, SageMaker Canvas adds the transform in the **Model recipe** section. If you remove the transform from the **Model recipe** section, the rows return to your dataset.
 
-![Screenshot of the remove rows by missing values operation in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-remove-missing.png)
+![Screenshot of the remove rows by missing values operation in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-remove-missing.png)
 
 
 ### Remove rows by outliers
@@ -248,7 +248,7 @@ The **Custom numeric range** and **Custom quantile range** options detect and re
 
 After removing the rows from the dataset, SageMaker Canvas adds the transform in the **Model recipe** section. If you remove the transform from the **Model recipe** section, the rows return to your dataset.
 
-![Screenshot of the remove rows by outliers operation in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-remove-outlier.png)
+![Screenshot of the remove rows by outliers operation in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-remove-outlier.png)
 
 
 ### Remove rows by custom values
@@ -286,7 +286,7 @@ For the **Operation**, you can choose one of the following options. Note that th
 
 After removing the rows from the dataset, SageMaker Canvas adds the transform in the **Model recipe** section. If you remove the transform from the **Model recipe** section, the rows return to your dataset.
 
-![Screenshot of the remove rows by custom values operation in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-remove-custom.png)
+![Screenshot of the remove rows by custom values operation in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-remove-custom.png)
 
 
 ## Rename columns
@@ -294,13 +294,13 @@ After removing the rows from the dataset, SageMaker Canvas adds the transform in
 
 With the rename columns transform, you can rename columns in your data. When you rename a column, SageMaker Canvas changes the column name in the model input.
 
-You can rename a column in your dataset by double-clicking on the column name in the **Build** tab of the SageMaker Canvas application and entering a new name. Pressing the **Enter** key submits the change, and clicking anywhere outside the input cancels the change. You can also rename a column by clicking the **More options** icon (![](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), located at the end of the row in list view or at the end of the header cell in grid view, and choosing **Rename**.
+You can rename a column in your dataset by double-clicking on the column name in the **Build** tab of the SageMaker Canvas application and entering a new name. Pressing the **Enter** key submits the change, and clicking anywhere outside the input cancels the change. You can also rename a column by clicking the **More options** icon (![](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/more-options-icon.png)), located at the end of the row in list view or at the end of the header cell in grid view, and choosing **Rename**.
 
 Your column name can’t be longer than 32 characters or have double underscores (\_\_), and you can’t rename a column to the same name as another column. You also can’t rename a dropped column.
 
 The following screenshot shows how to rename a column by double-clicking the column name.
 
-![Screenshot of renaming a column with the double-click method in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-rename-column.png)
+![Screenshot of renaming a column with the double-click method in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-rename-column.png)
 
 
 When you rename a column, SageMaker Canvas adds the transform in the **Model recipe** section. If you remove the transform from the **Model recipe** section, the column reverts to its original name.
@@ -333,7 +333,7 @@ Use this transform if you want to replace the null or empty values in certain co
 
 After replacing the missing values in the dataset, SageMaker Canvas adds the transform in the **Model recipe** section. If you remove the transform from the **Model recipe** section, the missing values return to the dataset.
 
-![Screenshot of the replace missing values operation in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-replace-missing.png)
+![Screenshot of the replace missing values operation in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-replace-missing.png)
 
 
 ### Replace outliers
@@ -363,7 +363,7 @@ The **Custom numeric range** and **Custom quantile range** options detect outlie
 
 After replacing the values in the dataset, SageMaker Canvas adds the transform in the **Model recipe** section. If you remove the transform from the **Model recipe** section, the original values return to the dataset.
 
-![Screenshot of the replace outliers operation in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-replace-outlier.png)
+![Screenshot of the replace outliers operation in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-replace-outlier.png)
 
 
 ### Change data type
@@ -396,7 +396,7 @@ To modify data type of a column in a dataset, do the following.
 1. In the **Build** tab of the SageMaker Canvas application, go to the **Column view** or **Grid view** and select the **Data type** dropdown for the specific column.
 
 1. In the **Data type** dropdown, choose the data type to convert to. The following screenshot shows the dropdown menu.  
-![The data type conversion dropdown menu for a column, shown in the Build tab.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-prepare-data-change.png)
+![The data type conversion dropdown menu for a column, shown in the Build tab.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-prepare-data-change.png)
 
 1. For **Column**, choose or verify the column you want to change the data type for.
 
@@ -523,7 +523,7 @@ If you don’t specify estimation methods, the default values are `Forward Fill`
 
 The following screenshot shows the **Advanced** settings with the fields for downsampling and upsampling filled out.
 
-![The Canvas application, with the time series resampling side panel showing the advanced options.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-prepare-data-resampling.png)
+![The Canvas application, with the time series resampling side panel showing the advanced options.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-prepare-data-resampling.png)
 
 
 ### Use datetime extraction
@@ -549,7 +549,7 @@ To perform a datetime extraction, do the following.
 
 SageMaker Canvas creates a new column in the dataset for each of the values you extract. Except for **Year** values, SageMaker Canvas uses a 0-based encoding for the extracted values. For example, if you extract the **Month** value, January is extracted as 0, and February is extracted as 1.
 
-![Screenshot of the datetime extraction box in the SageMaker Canvas application.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-datetime-extract.png)
+![Screenshot of the datetime extraction box in the SageMaker Canvas application.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/canvas/canvas-datetime-extract.png)
 
 
 You can see the transform listed in the **Model recipe** section. If you remove the transform from the **Model recipe** section, the new columns are removed from the dataset.

@@ -38,13 +38,13 @@ SageMaker Projects can help you manage your Git repositories so that you can col
 
 Customers have the flexibility to set up their projects with the resources that best serve their use case. The example below showcases the MLOps setup for an ML workflow, including model training and deployment.
 
-![A ML workflow diagram for a pipeline that includes model training and deployment steps.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/projects/projects-ml-workflow.png)
+![A ML workflow diagram for a pipeline that includes model training and deployment steps.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/projects/projects-ml-workflow.png)
 
 
 A typical project with a SageMaker AI-provided template might include the following:
 + One or more repositories with sample code to build and deploy ML solutions. These are working examples that you can modify for your needs. You own this code and can take advantage of the version-controlled repositories for your tasks.
 + A SageMaker AI pipeline that defines steps for data preparation, training, model evaluation, and model deployment, as shown in the following diagram.  
-![A SageMaker AI pipeline with data preparation, training, model evaluation, and model deployment steps.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/projects/pipeline-in-project-simple.png)
+![A SageMaker AI pipeline with data preparation, training, model evaluation, and model deployment steps.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/projects/pipeline-in-project-simple.png)
 + A CodePipeline or Jenkins pipeline that runs your SageMaker AI pipeline every time you check in a new version of the code. For information about CodePipeline, see [What is AWS CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) For information about Jenkins, see [Jenkins User Documentation](https://www.jenkins.io/doc/).
 + A model group that contains model versions. Every time you approve the resulting model version from a SageMaker AI pipeline run, you can deploy it to a SageMaker AI endpoint.
 

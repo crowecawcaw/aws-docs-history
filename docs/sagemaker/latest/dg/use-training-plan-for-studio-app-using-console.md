@@ -15,4 +15,4 @@ To create a Studio app using training plans from the Studio UI, follow these ste
 
 1. Choose **Run space** to launch the app on the training plan capacity.
 
-![Studio UI showing the Instance dropdown list with Available Training Plans section for selecting a training plan when configuring a JupyterLab space.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-create-studio-app.png)
+![Studio UI showing the Instance dropdown list with Available Training Plans section for selecting a training plan when configuring a JupyterLab space.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-create-studio-app.png)

@@ -252,7 +252,7 @@ If you copy your inference scripts into a notebook ending in `.ipynb`and rename 
 
    From the folder `docker_test_folder`, your directory structure should contain a Dockerfile and the folder NER. The NER folder should contain the files `nginx.conf`, `predictor.py`, `serve`, and `wsgi.py` as follows:
 
-    ![The Dockerfile structure has inference scripts under the NER directory next to the Dockerfile.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/docker-file-struct-adapt-ex.png) 
+    ![The Dockerfile structure has inference scripts under the NER directory next to the Dockerfile.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/docker-file-struct-adapt-ex.png) 
 
 1. Build your own container.
 

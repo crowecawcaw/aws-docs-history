@@ -69,7 +69,7 @@ In the elements that include these regions, the `<short-instructions>` appear au
 You can not only use HTML, CSS, and JavaScript in these sections, you are encouraged to if you believe you can provide a strong set of instructions and examples that will help workers complete your tasks with better speed and accuracy. 
 
 **Example Try out a sample with JSFiddle**  
-[![GIF example of trying out a sample with JSFiddle.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/kitten3x480.gif)](https://jsfiddle.net/MTGT_Fiddle_Manager/bjc0y1vd/35/)  
+[![GIF example of trying out a sample with JSFiddle.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/kitten3x480.gif)](https://jsfiddle.net/MTGT_Fiddle_Manager/bjc0y1vd/35/)  
  Try out an [example `<crowd-classifier>` task](https://jsfiddle.net/MTGT_Fiddle_Manager/bjc0y1vd/35/). The example is rendered by JSFiddle, therefore all the template variables are replaced with hard-coded values. Click the "View full instructions" link to see a set of examples with extended CSS styling. You can fork the project to experiment with your own changes to the CSS, adding sample images, or adding extended JavaScript functionality.
 
 **Example : Final Customized Intent Detection Template**  

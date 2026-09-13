@@ -24,4 +24,4 @@ To learn more about securing network access on HyperPod, see [Setting up SageMak
 
 The high-level architecture of Amazon EKS support in HyperPod involves a 1-to-1 mapping between an EKS cluster (control plane) and a HyperPod cluster (worker nodes) within a VPC, as shown in the following diagram.
 
-![EKS control plane connected to HyperPod cluster nodes via cross-account ENIs within VPCs.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod-eks-diagram.png)
+![EKS control plane connected to HyperPod cluster nodes via cross-account ENIs within VPCs.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/hyperpod-eks-diagram.png)

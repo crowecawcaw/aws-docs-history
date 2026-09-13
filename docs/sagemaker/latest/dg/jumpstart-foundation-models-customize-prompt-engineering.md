@@ -30,6 +30,6 @@ Changing inference parameters might also affect the responses to your prompts. W
 | `top_p` | In each step of text generation, the model samples from the smallest possible set of words with a cumulative probability of `top_p`. Valid values: float, range: 0.0, 1.0. | 
 | `return_full_text` | If `True`, then the input text is part of the generated output text. Valid values: boolean, default: False. | 
 
-For more information on foundation model inference, see [Deploy publicly available foundation models with the `JumpStartModel` class](jumpstart-foundation-models-use-python-sdk-model-class.md).
+For more information on foundation model inference, see [Deploy publicly available foundation models with the `ModelBuilder` class](jumpstart-foundation-models-use-python-sdk-model-class.md).
 
 If prompt engineering is not sufficient to adapt your foundation model to specific business needs, domain-specific language, target tasks, or other requirements, you can consider fine-tuning your model on additional data or using Retrieval Augmented Generation (RAG) to augment your model architecture with enhanced context from archived knowledge sources. For more information, see [Foundation models and hyperparameters for fine-tuning](jumpstart-foundation-models-fine-tuning.md) or [Retrieval Augmented Generation](jumpstart-foundation-models-customize-rag.md).

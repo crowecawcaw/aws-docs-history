@@ -1,6 +1,6 @@
 
 
-# Fine-tune publicly available foundation models with the `JumpStartEstimator` class
+# Fine-tune publicly available foundation models with the `ModelTrainer` class
 <a name="jumpstart-foundation-models-use-python-sdk-estimator-class"></a>
 
 **Note**  
@@ -8,7 +8,7 @@ For instructions on fine-tuning foundation models in a private curated hub, see 
 
 You can fine-tune a built-in algorithm or pre-trained model in just a few lines of code using the SageMaker Python SDK.
 
-1. First, find the model ID for the model of your choice in the [Built-in Algorithms with pre-trained Model Table](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html). 
+1. First, find the model ID for the model of your choice in [Available foundation models](jumpstart-foundation-models-latest.md). 
 
 1. Using the model ID, define your training job with a JumpStart `ModelTrainer`.
 
@@ -43,23 +43,26 @@ You can fine-tune a built-in algorithm or pre-trained model in just a few lines 
    endpoint = model_builder.deploy()
    ```
 
-1. You can then run inference with the deployed model using the `predict` method.
+1. You can then run inference with the deployed model using the `invoke` method. Text-generation models like this one accept a JSON request body with an `inputs` key. Serialize the payload with `json.dumps` and set the content type to `application/json`.
 
    ```
+   import json
+   
    question = {{"What is Southern California often abbreviated as?"}}
-   response = endpoint.invoke(body=question, content_type="text/plain")
+   payload = {"inputs": question, "parameters": {"max_new_tokens": 100}}
+   response = endpoint.invoke(body=json.dumps(payload), content_type="application/json")
    print(response.body.read().decode('utf-8'))
    ```
 
 **Note**  
 This example uses the foundation model GPT-J 6B, which is suitable for a wide range of text generation use cases including question answering, named entity recognition, summarization, and more. For more information about model use cases, see [Available foundation models](jumpstart-foundation-models-latest.md).
 
-You can optionally specify model versions or instance types when creating your `JumpStartEstimator`. For more information about the `JumpStartEstimator `class and its parameters, see [JumpStartEstimator](https://sagemaker.readthedocs.io/en/stable/api/inference/model.html#sagemaker.jumpstart.estimator.JumpStartEstimator).
+You can optionally specify a model version on your `JumpStartConfig`. To choose an instance type and count, pass a `Compute` object to `ModelTrainer.from_jumpstart_config`. The `JumpStartConfig` itself does not accept instance settings. For more information about the `ModelTrainer` class and its parameters, see [SageMaker Train](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) in the SageMaker Python SDK documentation on the Read the Docs website.
 
 ## Check default instance types
 <a name="jumpstart-foundation-models-use-python-sdk-estimator-class-instance-types"></a>
 
-You can optionally include specific model versions or instance types when fine-tuning a pre-trained model using the `JumpStartEstimator` class. All JumpStart models have a default instance type. Retrieve the default training instance type using the following code:
+When fine-tuning a pre-trained model with the `ModelTrainer` class, you can optionally specify a model version on your `JumpStartConfig`. You can also choose an instance type with a `Compute` object. All JumpStart models have a default instance type. Retrieve the default training instance type using the following code:
 
 ```
 from sagemaker.core import instance_types

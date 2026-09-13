@@ -23,7 +23,7 @@ The core of SageMaker AI jobs is the containerization of ML workloads and the ca
 
 The following architecture diagram shows how SageMaker AI manages ML training jobs and provisions Amazon EC2 instances on behalf of SageMaker AI users. You as a SageMaker AI user can bring your own training dataset, saving it to Amazon S3. You can choose an ML model training from available SageMaker AI built-in algorithms, or bring your own training script with a model built with popular machine learning frameworks.
 
-![How users provide data and choose algorithms and SageMaker AI provisions compute infrastructure.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-training.png)
+![How users provide data and choose algorithms and SageMaker AI provisions compute infrastructure.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sagemaker-training.png)
 
 
 ## Full view of the SageMaker Training workflow and features
@@ -33,7 +33,7 @@ The full journey of ML training involves tasks beyond data ingestion to ML model
 
 The following flow chart shows a high-level overview of your actions (in blue boxes) and available SageMaker Training features (in light blue boxes) throughout the training phase of the ML lifecycle.
 
-![Flow chart of the recommended steps and features to use for each step of the ML training workflow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-main.png)
+![Flow chart of the recommended steps and features to use for each step of the ML training workflow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-main.png)
 
 
 The following sections walk you through each phase of training depicted in the previous flow chart and useful features offered by SageMaker AI throughout the three sub-stages of the ML training.
@@ -48,7 +48,7 @@ The following sections walk you through each phase of training depicted in the p
 
 There are a number of scenarios of setting up data resources and access you need to consider before training. Refer to the following diagram and details of each before-training stage to get a sense of what decisions you need to make.
 
-![A flow chart showing tasks before training and associated SageMaker AI features](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-before.png)
+![A flow chart showing tasks before training and associated SageMaker AI features](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-before.png)
 
 + **Prepare data:** Before training, you must have finished data cleaning and feature engineering during the data preparation stage. SageMaker AI has several labeling and feature engineering tools to help you. See [Label Data](https://docs.aws.amazon.com/sagemaker/latest/dg/data-label.html), [Prepare and Analyze Datasets](https://docs.aws.amazon.com/sagemaker/latest/dg/data-prep.html), [Process Data](https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html), and [Create, Store, and Share Features](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store.html) for more information. 
 + **Choose an algorithm or framework:** Depending on how much customization you need, there are different options for algorithms and frameworks.
@@ -71,7 +71,7 @@ There are a number of scenarios of setting up data resources and access you need
 
 During training, you need to continuously improve training stability, training speed, training efficiency while scaling compute resources, cost optimization, and, most importantly, model performance. Read on for more information about during-training stages and relevant SageMaker Training features.
 
-![A flow chart showing tasks during training and associated SageMaker AI features](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-during.png)
+![A flow chart showing tasks during training and associated SageMaker AI features](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-during.png)
 
 + **Set up infrastructure:** Choose the right instance type and infrastructure management tools for your use case. You can start from a small instance and scale up depending on your workload. For training a model on a tabular dataset, start with the smallest CPU instance of the C4 or C5 instance families. For training a large model for computer vision or natural language processing, start with the smallest GPU instance of the P2, P3, G4dn or G5 instance families. You can also mix different instance types in a cluster, or keep instances in warm pools using the following instance management tools offered by SageMaker AI. You can also use persistent cache to reduce latency and billable time on iterative training jobs over the latency reduction from warm pools alone. To learn more, see the following topics.
   + [Running training jobs on a heterogeneous cluster](train-heterogeneous-cluster.md) 
@@ -99,7 +99,7 @@ During training, you need to continuously improve training stability, training s
 
 After training, you obtain a final model artifact to use for model deployment and inference. There are additional actions involved in the after-training phase as shown in the following diagram.
 
-![A flow chart showing tasks after training and associated SageMaker AI features](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-after.png)
+![A flow chart showing tasks after training and associated SageMaker AI features](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-after.png)
 
 + **Obtain baseline model:** After you have the model artifact, you can set it as a baseline model. Consider the following post-training actions and using SageMaker AI features before moving on to model deployment to production.
 + **Examine model performance and check for bias:** Use Amazon CloudWatch Metrics and [SageMaker Clarify for post-training bias](https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-detect-post-training-bias.html) to detect any bias in incoming data and model over time against the baseline. You need to evaluate your new data and model predictions against the new data regularly or in real time. Using these features, you can receive alerts about any acute changes or anomalies, as well as gradual changes or drifts in data and model.

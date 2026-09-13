@@ -15,9 +15,9 @@ If you open the notebook instance with a JupyterLab interface, the jupyter-git e
 
 When you open a notebook instance in JupyterLab, you see the git repositories associated with it on the left menu:
 
-![Example file browser in JupyterLab.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/git-notebook.png)
+![Example file browser in JupyterLab.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/git-notebook.png)
 
 
 You can use the jupyter-git extension to manage git visually, instead of using the command line:
 
-![Example of the jupyter-git extension in JupyterLab.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/jupyterlab-git.png)
+![Example of the jupyter-git extension in JupyterLab.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/jupyterlab-git.png)

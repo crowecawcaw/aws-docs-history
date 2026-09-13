@@ -77,12 +77,12 @@ You can create a Edge Manager packaging job using the Amazon SageMaker AI consol
 1. In the SageMaker AI console, choose **Edge Manager** and then choose **Edge device fleets**.
 
 1. Choose **Create device fleet**.  
-![The locaiton of the Create device fleet in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-device-button-edited.png)
+![The locaiton of the Create device fleet in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-device-button-edited.png)
 
 1. Enter a name for the device fleet in the **Device fleet name** field. Choose **Next**.  
-![The location of the Next button in the Device fleet properties section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-device-fleet-filled.png)
+![The location of the Next button in the Device fleet properties section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-device-fleet-filled.png)
 
 1. On the **Output configuration** page, specify the Amazon S3 bucket URI where you want to store sample data from your device fleet. You can optionally add an encryption key as well by electing an existing AWS KMS key from the dropdown list or by entering a key’s ARN. Choose **Submit**.  
-![Example Output configuration page in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-device-fleet-output-filled.png)
+![Example Output configuration page in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/smith/create-device-fleet-output-filled.png)
 
 1. Choose the name of your device fleet to be redirected to the device fleet details. This page displays the name of the device fleet, ARN, description (if you provided one), date the fleet was created, last time the fleet was modified, Amazon S3 bucket URI, AWS KMS key ID (if provided), AWS IoT alias (if provided), and IAM role. If you added tags, they appear in the **Device fleet tags** section.

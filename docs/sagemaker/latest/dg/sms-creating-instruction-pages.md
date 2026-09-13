@@ -26,7 +26,7 @@ For 3D point cloud and video frame labeling jobs, you can add worker instruction
 
 Short instructions appear on the same web page that workers use to label your data object. For example, the following is the editing page for a bounding box task. The short instructions panel is on the left.
 
-![Editing short instructions for a bounding box.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/sms-instructions-10.png)
+![Editing short instructions for a bounding box.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/sms-instructions-10.png)
 
 
 Keep in mind that a worker will only spend seconds looking at the short instructions. Workers must be able to scan and understand your information quickly. In all cases it should take less time to understand the instructions than it takes to complete the task. Keep these points in mind:

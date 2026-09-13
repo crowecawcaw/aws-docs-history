@@ -16,7 +16,7 @@ Serverless Inference is generally available in 21 AWS Regions: US East (N. Virgi
 
 The following diagram shows the workflow of on-demand Serverless Inference and the benefits of using a serverless endpoint.
 
-![Diagram showing the Serverless Inference workflow.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-how-it-works.png)
+![Diagram showing the Serverless Inference workflow.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/serverless-endpoints-how-it-works.png)
 
 
 When you create an on-demand serverless endpoint, SageMaker AI provisions and manages the compute resources for you. Then, you can make inference requests to the endpoint and receive model predictions in response. SageMaker AI scales the compute resources up and down as needed to handle your request traffic, and you only pay for what you use.

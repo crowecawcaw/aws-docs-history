@@ -20,7 +20,7 @@ Jupyter notebooks contain optional metadata that you can access through the Amaz
 
 **To view the notebook metadata:**
 
-1. In the right sidebar, choose the **Property Inspector** icon (![Black square icon representing a placeholder or empty image.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/gears.png)). 
+1. In the right sidebar, choose the **Property Inspector** icon (![Black square icon representing a placeholder or empty image.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/gears.png)). 
 
 1. Open the **Advanced Tools** section.
 
@@ -63,7 +63,7 @@ Additional metadata might be included for internal use by Studio Classic and is 
 
 **To get the App metadata**
 
-1. In the center of the notebook menu, choose the **Launch Terminal** icon (![Launch Terminal icon.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/notebook-launch-terminal.png)). This opens a terminal in the SageMaker image that the notebook runs in.
+1. In the center of the notebook menu, choose the **Launch Terminal** icon (![Launch Terminal icon.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/icons/notebook-launch-terminal.png)). This opens a terminal in the SageMaker image that the notebook runs in.
 
 1. Run the following commands to display the contents of the `resource-metadata.json` file.
 

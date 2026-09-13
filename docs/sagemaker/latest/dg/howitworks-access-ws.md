@@ -11,7 +11,7 @@ To access your Amazon SageMaker notebook instances, choose one of the following 
 + Use the console.
 
   Choose **Notebook instances**. The console displays a list of notebook instances in your account. To open a notebook instance with a standard Jupyter interface, choose **Open Jupyter** for that instance. To open a notebook instance with a JupyterLab interface, choose **Open JupyterLab** for that instance.  
-![Example Notebook instances section in the console.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/ws-notebook-10.png)
+![Example Notebook instances section in the console.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/ws-notebook-10.png)
 
   The console uses your sign-in credentials to send a [  `CreatePresignedNotebookInstanceUrl`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePresignedNotebookInstanceUrl.html) API request to SageMaker AI. SageMaker AI returns the URL for your notebook instance, and the console opens the URL in another browser tab and displays the Jupyter notebook dashboard. 
 **Note**  

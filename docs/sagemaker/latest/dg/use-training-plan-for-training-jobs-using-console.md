@@ -19,7 +19,7 @@ To create a training job using a training plan's reserved capacity in the SageMa
 
 1. After selecting a training plan (or choosing to proceed without one), complete the rest of your training job configuration and choose **Create training job** to start the process.
 
-![SageMaker AI console page for creating a new training job. The page displays various configuration options including job settings, algorithm options, resource configuration, training plan selection, and stopping conditions.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-create-training-job.png)
+![SageMaker AI console page for creating a new training job. The page displays various configuration options including job settings, algorithm options, resource configuration, training plan selection, and stopping conditions.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/training-plans/tp-create-training-job.png)
 
 
 Review and launch your job. Your job starts running as soon as the training plan becomes `Active`, pending capacity.

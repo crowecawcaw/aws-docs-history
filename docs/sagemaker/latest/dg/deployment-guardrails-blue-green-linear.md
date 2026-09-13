@@ -9,7 +9,7 @@ You can choose either the number of instances or the percentage of the green fle
 
 The following diagram shows how linear traffic shifting routes traffic to the blue and green fleets.
 
-![A successful three step linear traffic shift from the old fleet to the new fleet.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/deployment-guardrails-blue-green-linear.png)
+![A successful three step linear traffic shift from the old fleet to the new fleet.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/deployment-guardrails-blue-green-linear.png)
 
 
 Once SageMaker AI provisions the new fleet, the first portion of the green fleet turns on and receives traffic. SageMaker AI deactivates the same size portion of the blue fleet, and the baking period begins. If any alarms trip, all of the endpoint traffic rolls back to the blue fleet. If the baking period finishes, then the next step begins. Another portion of the green fleet activates and receives traffic, part of the blue fleet deactivates, and another baking period begins. The same process repeats until the blue fleet is fully deactivated and the green fleet is fully active and receiving all traffic. If an alarm goes off at any point, SageMaker AI terminates the shifting process and 100% of the traffic rolls back to the blue fleet.

@@ -20,7 +20,7 @@ Preparing your model for deployment on a SageMaker AI endpoint requires multiple
 
 The following diagram illustrates the overall model creation workflow when you use `ModelBuilder`. `ModelBuilder` accepts a model or inference specification along with your schema to create a deployable model that you can test locally before deployment.
 
-![Model creation and deployment flow using ModelBuilder.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-builder-flow.png)
+![Model creation and deployment flow using ModelBuilder.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-builder-flow.png)
 
 
 `ModelBuilder` can handle any customization you want to apply. However, to deploy a framework model, the model builder expects at minimum a model, sample input and output, and the role. In the following code example, `ModelBuilder` is called with a framework model and an instance of `SchemaBuilder` with minimum arguments (to infer the corresponding functions for serializing and deserializing the endpoint input and output). No container is specified and no packaged dependencies are passed—SageMaker AI automatically infers these resources when you build your model. 
@@ -66,7 +66,7 @@ When invoking a SageMaker AI endpoint, the data is sent through HTTP payloads wi
 
 The following diagram shows the serialization and deserialization processes that occur when you invoke the endpoint.
 
-![Diagram of client to server data serialization and deserialization.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/model-builder-serialization.png)
+![Diagram of client to server data serialization and deserialization.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/model-builder-serialization.png)
 
 
 When you supply sample input and output to `SchemaBuilder`, the schema builder generates the corresponding marshalling functions for serializing and deserializing the input and output. You can further customize your serialization functions with `CustomPayloadTranslator`. But for most cases, a simple serializer such as the following would work:

@@ -11,7 +11,7 @@ With Amazon SageMaker Studio Classic notebooks, you can change the notebook's im
 
 The following screenshot shows the menu from a Studio Classic notebook. The current SageMaker AI kernel and image are displayed as **Python 3 (Data Science)**, where `Python 3` denotes the kernel and `Data Science` denotes the SageMaker AI image that contains the kernel. The color of the circle to the right indicates the kernel is idle or busy. The kernel is busy when the center and the edge of the circle are the same color.
 
-![The location of the current kernel and image in the menu bar from a Studio Classic notebook.](http://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-menu-kernel.png)
+![The location of the current kernel and image in the menu bar from a Studio Classic notebook.](https://docs.aws.amazon.com/sagemaker/latest/dg/images/studio/studio-notebook-menu-kernel.png)
 
 
 **To change a notebook's image or kernel**
