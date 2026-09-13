@@ -190,13 +190,13 @@ When a `redirect` action is taken, the action is recorded in the access logs. Fo
 **Redirect using HTTPS and port 40443**  
 The following rule sets up a permanent redirect to a URL that uses the HTTPS protocol and the specified port (40443), but retains the original hostname, path, and query parameters. This screen is equivalent to "https://\#{host}:40443/\#{path}?\#{query}".
 
-![A rule that redirects the request to a URL that uses the HTTPS protocol and the specified port (40443), but retains the original domain, path, and query parameters of the original URL.](http://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/redirect_https_port.png)
+![A rule that redirects the request to a URL that uses the HTTPS protocol and the specified port (40443), but retains the original domain, path, and query parameters of the original URL.](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/redirect_https_port.png)
 
 
 **Redirect using a modified path**  
 The following rule sets up a permanent redirect to a URL that retains the original protocol, port, hostname, and query parameters, and uses the `#{path}` keyword to create a modified path. This screen is equivalent to "\#{protocol}://\#{host}:\#{port}/new/\#{path}?\#{query}".
 
-![A rule that redirects the request to a URL that retains the original protocol, port, hostname, and query parameters, and uses the #{path} keyword to create a modified path.](http://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/redirect_path.png)
+![A rule that redirects the request to a URL that retains the original protocol, port, hostname, and query parameters, and uses the #{path} keyword to create a modified path.](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/redirect_path.png)
 
 
 ### Example redirect actions using the AWS CLI

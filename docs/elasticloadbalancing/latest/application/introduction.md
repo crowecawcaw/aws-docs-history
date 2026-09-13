@@ -18,7 +18,7 @@ Each *target group* routes requests to one or more registered targets, such as E
 
 The following diagram illustrates the basic components. Notice that each listener contains a default rule, and one listener contains another rule that routes requests to a different target group. One target is registered with two target groups.
 
-![The components of a basic Application Load Balancer](http://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/component_architecture.png)
+![The components of a basic Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/component_architecture.png)
 
 
 For more information, see the following documentation:

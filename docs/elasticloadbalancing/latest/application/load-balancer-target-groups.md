@@ -257,7 +257,7 @@ The following example demonstrates how target group health settings are applied.
   + Routing failover - 50%
 + Six targets fail in Availability Zone B
 
-![A load balancer enabled for two zones. AZ A has 10 healthy targets and AZ B has 4 healthy targets and 6 unhealthy targets.](http://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/tg-health-example.png)
+![A load balancer enabled for two zones. AZ A has 10 healthy targets and AZ B has 4 healthy targets and 6 unhealthy targets.](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/tg-health-example.png)
 
 
 **If cross-zone load balancing is off**

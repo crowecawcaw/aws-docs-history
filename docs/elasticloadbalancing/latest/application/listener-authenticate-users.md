@@ -180,7 +180,7 @@ For more information, see [Listener rules for your Application Load Balancer](li
 
 The following network diagram is a visual representation of how an Application Load Balancer uses OIDC to authenticate users.
 
-![How the Application Load Balancer authenticates users through OIDC](http://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/alb-user-auth-flow.png)
+![How the Application Load Balancer authenticates users through OIDC](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/images/alb-user-auth-flow.png)
 
 
 The numbered items below, highlight and explain elements shown in the preceding network diagram. 
