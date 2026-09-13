@@ -16,4 +16,4 @@ The Console Mobile Application requires an existing AWS account. After you sign 
 
 You can download the Console Mobile Application from the [iOS App Store](https://apps.apple.com/us/app/aws-console/id580990573), [Google Play](https://play.google.com/store/apps/details?id=com.amazon.aws.console.mobile), [Amazon Appstore](https://www.amazon.com/AWS-Mobile-LLC-Console/dp/B00ATSN730), or by scanning the following QR code:
 
-![QR code](http://docs.aws.amazon.com/consolemobileapp/latest/userguide/images/ACMA-Download-QR-Code-Image-Doc-What-is-ACMA-Page-nn.png)
+![QR code](https://docs.aws.amazon.com/consolemobileapp/latest/userguide/images/ACMA-Download-QR-Code-Image-Doc-What-is-ACMA-Page-nn.png)
