@@ -88,12 +88,12 @@ You can compare usage for different reserved node sizes by using normalized unit
 
 For example, you purchase a cache.r6gd.xlarge reserved node, and you have two running cache.r6gd.large reserved nodes in your account in the same AWS Region. In this case, the billing benefit is applied in full to both nodes.
 
-![Region containing cache.r6gd.xlarge reserved node with two cache.r6gd.large nodes.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ri1.png)
+![Region containing cache.r6gd.xlarge reserved node with two cache.r6gd.large nodes.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ri1.png)
 
 
 Alternatively, if you have one cache.r6gd.2xlarge instance running in your account in the same AWS Region, the billing benefit is applied to 50 percent of the usage of the reserved node.
 
-![Diagram showing a cache.r6gd.2xlarge instance extending beyond the boundary of a cache.r6gd.xlarge reserved node in a Region.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ri2.png)
+![Diagram showing a cache.r6gd.2xlarge instance extending beyond the boundary of a cache.r6gd.xlarge reserved node in a Region.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ri2.png)
 
 
 ## Deleting a reserved node

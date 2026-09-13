@@ -121,7 +121,7 @@ If you choose to create a global datastore with a new cluster, use the following
 **Note**  
 When you select a parameter group to set the engine configuration values, that parameter group is applied to all clusters in the global datastore. On the **Parameter Groups** page, the yes/no **Global** attribute indicates whether a parameter group is part of a global datastore.
 
-   1. For **Node type**, choose the down arrow (![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-DnArrow.png)). In the **Change node type** dialog box, choose a value for **Instance family** for the node type that you want. Then choose the node type that you want to use for this cluster, and then choose **Save**.
+   1. For **Node type**, choose the down arrow (![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-DnArrow.png)). In the **Change node type** dialog box, choose a value for **Instance family** for the node type that you want. Then choose the node type that you want to use for this cluster, and then choose **Save**.
 
       For more information, see [Choosing your node size](CacheNodes.SelectSize.md).
 
@@ -155,7 +155,7 @@ When you select a parameter group to set the engine configuration values, that p
      If you chose to specify the Availability Zones, for each cluster in each shard, choose the Availability Zone from the list.
 
    For more information, see [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md).  
-![Image: Specifying Keyspaces and Availability Zones](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-ClusterOn-Slots-AZs.png)
+![Image: Specifying Keyspaces and Availability Zones](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-ClusterOn-Slots-AZs.png)
 
    *Specifying Keyspaces and Availability Zones*
 

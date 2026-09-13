@@ -45,7 +45,7 @@ The Memcached engine is multi-threaded, so a node’s number of cores impacts th
 
 ElastiCache for Memcached clusters are comprised of from 1 to 60 nodes. The data in a Memcached cluster is partitioned across the nodes in the cluster. Your application connects with a Memcached cluster using a network address called an Endpoint. Each node in a Memcached cluster has its own endpoint which your application uses to read from or write to the specific node. In addition to the node endpoints, the Memcached cluster itself has an endpoint called the *configuration endpoint*. Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write to up to auto discovery. 
 
-![Image showing how a Memcached cluster is partitioned across the nodes in the cluster.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Cluster-Memcached.png)
+![Image showing how a Memcached cluster is partitioned across the nodes in the cluster.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Cluster-Memcached.png)
 
 
 For more information, see [Managing clusters in ElastiCache](Clusters.md).
@@ -55,7 +55,7 @@ For more information, see [Managing clusters in ElastiCache](Clusters.md).
 
 ElastiCache for Valkey and Redis OSS clusters are comprised of from 0 to 500 shards (also called node groups). The data in a Valkey or Redis OSS cluster is partitioned across the shards in the cluster. Your application connects with a Valkey or Redis OSS cluster using a network address called an Endpoint. The nodes in a Valkey or Redis OSS shard fulfill one of two roles: one read/write primary and all other nodes read-only secondaries (also called read replicas). In addition to the node endpoints, the Valkey or Redis OSS cluster itself has an endpoint called the *configuration endpoint*. Your application can use this endpoint to read from or write to the cluster, leaving the determination of which node to read from or write to up to ElastiCache for Redis OSS. 
 
-![Image comparing a Valkey or Redis OSS cluster in disabled mode vs. enabled mode.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-Redis-ClustersRGs.png)
+![Image comparing a Valkey or Redis OSS cluster in disabled mode vs. enabled mode.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-Redis-ClustersRGs.png)
 
 
 For more information, see [Managing clusters in ElastiCache](Clusters.md).

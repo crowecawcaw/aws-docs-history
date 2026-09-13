@@ -14,7 +14,7 @@ Each region is completely independent. Any ElastiCache activity you initiate (fo
 
 To create or work with a cluster in a specific region, use the corresponding regional service endpoint. For service endpoints, see [Supported Regions & endpoints](#SupportedRegions).
 
-![Image: Regions and Availability Zones](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-RegionsAndAZs.png)
+![Image: Regions and Availability Zones](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-RegionsAndAZs.png)
 
 
 *Regions and Availability Zones*

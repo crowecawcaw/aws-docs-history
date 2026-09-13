@@ -117,12 +117,12 @@ You can verify your ElastiCache for Valkey or Redis OSS clusters are running the
 
 If the console displays a list of service updates, you can select the service update and choose **Apply now**.
 
-![Service updates console screenshot 1.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/service-updates-1.png)
+![Service updates console screenshot 1.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/service-updates-1.png)
 
 
 If the console displays “No service updates found”, it means the ElastiCache for Valkey or Redis OSS cluster already has the latest service update applied.
 
-![Service updates console screenshot 2.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/service-updates-2.png)
+![Service updates console screenshot 2.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/service-updates-2.png)
 
 
 ### Stopping the service updates

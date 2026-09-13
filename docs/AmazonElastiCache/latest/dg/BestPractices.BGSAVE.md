@@ -26,7 +26,7 @@ As long as you have sufficient memory available to record all write operations w
 
 The following diagram illustrates memory use when executing a background write process.
 
-![Image: Diagram of memory use during a background write.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-bgsaveMemoryUseage.png)
+![Image: Diagram of memory use during a background write.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-bgsaveMemoryUseage.png)
 
 
 For information on the impact of doing a backup on performance, see [Performance impact of backups of node-based clusters](backups.md#backups-performance).

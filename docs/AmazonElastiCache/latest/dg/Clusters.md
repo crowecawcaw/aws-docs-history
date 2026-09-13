@@ -15,14 +15,14 @@ To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.co
 
 Typical Valkey or Redis OSS clusters look as follows.
 
-![Image: Typical Valkey and Redis OSS Clusters](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Cluster-Redis.png)
+![Image: Typical Valkey and Redis OSS Clusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Cluster-Redis.png)
 
 
 **Memcached clusters**
 
 Typical Memcached clusters look as follows. Memcached clusters contain from 1 to 60 nodes, across which you horizontally partition your data.
 
-![Image: Typical Memcached Cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Cluster-Memcached.png)
+![Image: Typical Memcached Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Cluster-Memcached.png)
 
 
 **Elasticache operations for Valkey, Memcached, and Redis OSS**

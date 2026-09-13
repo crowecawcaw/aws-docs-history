@@ -15,7 +15,7 @@ This section describes how client applications use the ElastiCache Cluster Clien
 
 From the application's point of view, connecting to the cluster configuration endpoint is no different from connecting directly to an individual cache node. The following sequence diagram shows the process of connecting to cache nodes. 
 
-![Connecting to Cache Nodes](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/autodiscovery_cluster_membership_refresh-diagram.png)
+![Connecting to Cache Nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/autodiscovery_cluster_membership_refresh-diagram.png)
 
 
 
@@ -23,9 +23,9 @@ From the application's point of view, connecting to the cluster configuration en
 
 |  |  | 
 | --- |--- |
-|  ![1](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/1.png) | The application resolves the configuration endpoint's DNS name. Because the configuration endpoint maintains CNAME entries for all of the cache nodes, the DNS name resolves to one of the nodes; the client can then connect to that node. | 
-|  ![2](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/2.png) | The client requests the configuration information for all of the other nodes. Since each node maintains configuration information for all of the nodes in the cluster, any node can pass configuration information to the client upon request. | 
-|  ![3](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/3.png) | The client receives the current list of cache node hostnames and IP addresses. It can then connect to all of the other nodes in the cluster. | 
+|  ![1](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/1.png) | The application resolves the configuration endpoint's DNS name. Because the configuration endpoint maintains CNAME entries for all of the cache nodes, the DNS name resolves to one of the nodes; the client can then connect to that node. | 
+|  ![2](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/2.png) | The client requests the configuration information for all of the other nodes. Since each node maintains configuration information for all of the nodes in the cluster, any node can pass configuration information to the client upon request. | 
+|  ![3](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/3.png) | The client receives the current list of cache node hostnames and IP addresses. It can then connect to all of the other nodes in the cluster. | 
 
 
 
@@ -37,7 +37,7 @@ The client program refreshes its list of cache node hostnames and IP addresses o
 
 When the application has connected to all of the cache nodes, ElastiCache Cluster Client determines which nodes should store individual data items, and which nodes should be queried for those data items later. The following sequence diagram shows the process of normal cluster operations.
 
-![Normal Cluster Operations](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/autodiscovery_normal_cache_usage-diagram.png)
+![Normal Cluster Operations](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/autodiscovery_normal_cache_usage-diagram.png)
 
 
 
@@ -45,10 +45,10 @@ When the application has connected to all of the cache nodes, ElastiCache Cluste
 
 |  |  | 
 | --- |--- |
-|  ![1](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/1.png) | The application issues a get request for a particular data item, identified by its key. | 
-|  ![2](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/2.png) | The client uses a hashing algorithm against the key to determine which cache node contains the data item. | 
-|  ![3](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/3.png) | The data item is requested from the appropriate node. | 
-|  ![4](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/4.png) | The data item is returned to the application. | 
+|  ![1](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/1.png) | The application issues a get request for a particular data item, identified by its key. | 
+|  ![2](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/2.png) | The client uses a hashing algorithm against the key to determine which cache node contains the data item. | 
+|  ![3](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/3.png) | The data item is requested from the appropriate node. | 
+|  ![4](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/4.png) | The data item is returned to the application. | 
 
 ## Other Operations
 <a name="AutoDiscovery.HowAutoDiscoveryWorks.OtherOps"></a>

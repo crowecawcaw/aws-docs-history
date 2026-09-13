@@ -19,7 +19,7 @@ When you create a Valkey or Redis OSS (cluster mode enabled) cluster using the E
 
 Each node in a shard has the same compute, storage and memory specifications. The ElastiCache API lets you control shard-wide attributes, such as the number of nodes, security settings, and system maintenance windows.
 
-![Image: Valkey or Redis OSS shard configurations.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-CSN-RedisShards.png)
+![Image: Valkey or Redis OSS shard configurations.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-CSN-RedisShards.png)
 
 
 *Valkey or Redis OSS shard configurations*

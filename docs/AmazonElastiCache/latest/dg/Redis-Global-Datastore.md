@@ -33,4 +33,4 @@ Using a global datastore for Valkey or Redis OSS provides the following advantag
 
 The following diagram shows how global datastores can work.
 
-![global datastore](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/Global-DataStore.png)
+![global datastore](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/Global-DataStore.png)

@@ -49,7 +49,7 @@ If 25% works for you, no changes are needed. To use a different value, follow th
       --cache-parameter-group-family {{redis7}}
    ```
 
-   You need only one custom parameter group per engine family. The percent value works the same for all node types.
+   You need only one custom parameter group per engine family.
 
 1. Set `reserved-memory-percent` to the value you want. For more information about modifying parameter groups, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md).
 

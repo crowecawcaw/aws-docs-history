@@ -28,7 +28,7 @@ For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guid
    1. In the **Network** list, choose your Amazon VPC.
 
    1. In the **Subnet** list, choose your public subnet.  
-![Interface screenshot for choosing your public subnet.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-05.png)
+![Interface screenshot for choosing your public subnet.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-05.png)
 
    When the settings are as you want them, choose **4. Add Storage**.
 
@@ -37,7 +37,7 @@ For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guid
 1. On the **Tag Instance** page, type a name for your Amazon EC2 instance, and then choose **6. Configure Security Group**.
 
 1. On the **Configure Security Group** page, choose **Select an existing security group**. For more information on security groups, see [Amazon EC2 security groups for Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html).   
-![Interface screenshot of selecting an existing security group.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-06.png)
+![Interface screenshot of selecting an existing security group.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-06.png)
 
    Choose the name of your Amazon VPC security group, and then choose **Review and Launch**.
 

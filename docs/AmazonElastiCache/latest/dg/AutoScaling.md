@@ -28,7 +28,7 @@ ElastiCache for Valkey and Redis OSS supports the following types of automatic s
 + [Target tracking scaling policies](AutoScaling-Scaling-Policies-Target.md) – Increase or decrease the number of shards/replicas that your service runs based on a target value for a specific metric. This is similar to the way that your thermostat maintains the temperature of your home. You select a temperature and the thermostat does the rest.
 + [ Scheduled scaling for your application. ](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html) – ElastiCache for Valkey and Redis OSS auto scaling can increase or decrease the number of shards/replicas that your service runs based on the date and time.
 
-![Image of auto scaling for ElastiCache for Valkey and Redis OSS](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/Auto-scaling.png)
+![Image of auto scaling for ElastiCache for Valkey and Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/Auto-scaling.png)
 
 
 The following steps summarize the ElastiCache for Valkey and Redis OSS auto scaling process as shown in the previous diagram: 

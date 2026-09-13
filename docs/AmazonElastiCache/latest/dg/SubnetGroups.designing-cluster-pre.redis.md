@@ -44,7 +44,7 @@ The following procedure shows how to create a subnet group (console).
    1. In the **VPC ID** box, choose the Amazon VPC that you created.
 
    1. In the **Availability Zone** and **Subnet ID** lists, choose the Availability Zone or [Local Zone](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Local_zones.html) and ID of your private subnet, and then choose **Add**.  
-![Image: Create Subnet VPC screen](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-03.png)
+![Image: Create Subnet VPC screen](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-03.png)
 
 1. In the confirmation message that appears, choose **Close**.
 
@@ -146,7 +146,7 @@ Your cluster is launched in a virtual private cloud (VPC) based on the Amazon VP
 **Note**  
 When you select a parameter group to set the engine configuration values, that parameter group is applied to all clusters in the global datastore. On the **Parameter Groups** page, the yes/no **Global** attribute indicates whether a parameter group is part of a global datastore.
 
-      1. For **Node type**, choose the down arrow (![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-DnArrow.png)). In the **Change node type** dialog box, choose a value for **Instance family** for the node type that you want. Then choose the node type that you want to use for this cluster, and then choose **Save**.
+      1. For **Node type**, choose the down arrow (![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-DnArrow.png)). In the **Change node type** dialog box, choose a value for **Instance family** for the node type that you want. Then choose the node type that you want to use for this cluster, and then choose **Save**.
 
          For more information, see [Choosing your node size](CacheNodes.SelectSize.md).
 
@@ -305,7 +305,7 @@ If you are planning to use [Using local zones with ElastiCache](Local_zones.md),
    1. In the **Source** box, start typing the ID of the security group. From the list select the security group you will use for your Amazon EC2 instances.
 
 1. Choose **Save** when you finish.  
-![Image: Screen for editing an inbound VPC rule](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/VPC-Rules.png)
+![Image: Screen for editing an inbound VPC rule](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/VPC-Rules.png)
 
 Once you have enabled access, you are now ready to connect to the node, as discussed in the next section.
 
@@ -350,7 +350,7 @@ For read activity, applications can also connect to any node in the cluster. Unl
    The clusters screen will appear with a list that will include any existing Valkey or Redis OSS serverless caches, Redis OSS (cluster mode disabled) clusters and Redis OSS (cluster mode enabled) clusters. Choose the cluster you created in the [Creating a Redis OSS (cluster mode disabled) cluster (Console)](#Clusters.Create.CON.Redis-gs) section.
 
 1. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the radio button).  
-![Image: Primary endpoint for a Redis OSS (cluster mode disabled) cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/Reader-Endpoint.png)
+![Image: Primary endpoint for a Redis OSS (cluster mode disabled) cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/Reader-Endpoint.png)
 
    *Primary and Reader endpoints for a Redis OSS (cluster mode disabled) cluster*
 
@@ -359,7 +359,7 @@ For read activity, applications can also connect to any node in the cluster. Unl
 1. If the Redis OSS (cluster mode disabled) cluster has replica nodes, you can find the cluster's replica node endpoints by choosing the cluster's name and then choosing the **Nodes** tab.
 
    The nodes screen appears with each node in the cluster, primary and replicas, listed with its endpoint.  
-![Image: Node endpoints for a Redis OSS (cluster mode disabled) cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Endpoints-Redis-Node.png)
+![Image: Node endpoints for a Redis OSS (cluster mode disabled) cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Endpoints-Redis-Node.png)
 
    *Node endpoints for a Redis OSS (cluster mode disabled) cluster*
 

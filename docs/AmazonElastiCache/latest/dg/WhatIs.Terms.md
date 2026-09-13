@@ -19,11 +19,11 @@ The console now uses the term *cluster* for all ElastiCache for Redis OSS cluste
 For more information on Valkey or Redis OSS replication groups, see [High availability using replication groups](Replication.md).  
 The following diagram illustrates the various topologies of ElastiCache for Redis OSS clusters from the console's perspective.  
 
-![Image: ElastiCache clusters (Console view)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Clusters-ConsoleView.png)
+![Image: ElastiCache clusters (Console view)](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Clusters-ConsoleView.png)
 
 The ElastiCache API and AWS CLI operations still distinguish single node ElastiCache for Redis OSS clusters from multi-node Valkey or Redis OSS replication groups. The following diagram illustrates the various ElastiCache for Redis OSS topologies from the ElastiCache API and AWS CLI perspective.  
 
-![Image: ElastiCache for Redis OSS cluster and Valkey or Redis OSS replication groups (API and CLI view)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Clusters-APIView.png)
+![Image: ElastiCache for Redis OSS cluster and Valkey or Redis OSS replication groups (API and CLI view)](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Clusters-APIView.png)
 
 
 **Valkey or Redis OSS Replication group vs. global datastore**  

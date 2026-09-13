@@ -10,6 +10,6 @@
 + Durability enabled clusters support up to 100 MiBps of write throughput per primary node.
 + Durability for ElastiCache is not supported for Cluster Mode Disabled (CMD) clusters.
 + Durability for ElastiCache requires Multi-AZ enabled with at least one replica per shard.
-+ Durability requires and automatically enables encryption at-rest, and requires encryption in-transit (TLS) to be enabled at cluster creation.
++ Durability requires and automatically enables encryption at-rest.
 + Online migration from self-hosted Valkey or Redis OSS to a durable cluster is not supported.
 + When durability is enabled and search indexes are configured, write commands targeting indexed keys may be throttled to maintain transactional log performance. For details, see [Search write throttling](Durability.SearchThrottling.md).

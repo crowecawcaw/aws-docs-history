@@ -39,7 +39,7 @@ ElastiCache Serverless runs Valkey, Memcached, or Redis OSS in cluster mode and 
 
 The following diagram illustrates how ElastiCache Serverless works.
 
-![A diagram of ElastiCache Serverless cache operation, from availability zones to the Customer VPC and then to the Service VPC.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ELC-serverless-works1.png)
+![A diagram of ElastiCache Serverless cache operation, from availability zones to the Customer VPC and then to the Service VPC.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ELC-serverless-works1.png)
 
 
 When you create a new serverless cache, ElastiCache creates a Virtual Private Cloud (VPC) Endpoint in the subnets of your choice in your VPC. Your application can connect to the cache through these VPC Endpoints. 
@@ -59,7 +59,7 @@ You can create a node-based ElastiCache cluster by choosing a cache node family,
 
 The following diagram illustrates how node-based ElastiCache clusters work.
 
-![A diagram of ElastiCache node-based clusters operation, from availability zones to the Customer VPC and then to ElastiCache managed cache nodes.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ELC-serverless-works2.png)
+![A diagram of ElastiCache node-based clusters operation, from availability zones to the Customer VPC and then to ElastiCache managed cache nodes.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ELC-serverless-works2.png)
 
 
 #### Durability for node-based clusters

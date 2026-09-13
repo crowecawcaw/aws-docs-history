@@ -23,7 +23,7 @@ The most common use case is when an application deployed on an EC2 instance need
 
 The following diagram illustrates this scenario.
 
-![Image: Diagram showing application and ElastiCache in same VPC](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByEC2-SameVPC.png)
+![Image: Diagram showing application and ElastiCache in same VPC](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByEC2-SameVPC.png)
 
 
 The simplest way to manage access between EC2 instances and caches in the same VPC is to do the following:
@@ -60,12 +60,12 @@ If you are planning to use [Local Zones](Local_zones.md), ensure that you have e
    1. In the **Source** box, start typing the ID of the security group. From the list select the security group you will use for your Amazon EC2 instances.
 
 1. Choose **Save** when you finish.  
-![Image: Screen for editing an inbound VPC rule](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/VPC-Rules.png)
+![Image: Screen for editing an inbound VPC rule](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/VPC-Rules.png)
 
 ## Accessing an ElastiCache Cache when it and the Amazon EC2 Instance are in Different Amazon VPCs
 <a name="elasticache-vpc-accessing-different-vpc"></a>
 
-When your cache is in a different VPC from the EC2 instance you are using to access it, there are several ways to access the cache. If the cache and EC2 instance are in different VPCs but in the same region, you can use VPC peering. If the cache and the EC2 instance are in different regions, you can create VPN connectivity between regions.
+When your cache is in a different VPC from the EC2 instance you are using to access it, there are several ways to access the cache. If the cache and EC2 instance are in different VPCs but in the same Region, you can use VPC peering. If the cache and the EC2 instance are in different Regions, you can use inter-Region VPC peering or create VPN connectivity between Regions.
 
 **Topics**
 + [In Different Amazon VPCs in the Same Region](#elasticache-vpc-accessing-different-vpc-same-region)
@@ -78,7 +78,7 @@ When your cache is in a different VPC from the EC2 instance you are using to acc
 
 The following diagram illustrates accessing a cache by an Amazon EC2 instance in a different Amazon VPC in the same region using an Amazon VPC peering connection.
 
-![Image: Diagram showing application and ElastiCache in different VPCs in the same region](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByEC2-DifferentVPC.png)
+![Image: Diagram showing application and ElastiCache in different VPCs in the same region](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByEC2-DifferentVPC.png)
 
 
 *Cache accessed by an Amazon EC2 instance in a different Amazon VPC within the same Region - VPC Peering Connection*
@@ -97,7 +97,7 @@ DNS name resolution may fail for peered VPCs, depending on the configurations ap
 1. Update your routing table. For more information, see [Updating Your Route Tables for a VPC Peering Connection](https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-routing.html)
 
    Following is what the route tables look like for the example in the preceeding diagram. Note that **pcx-a894f1c1** is the peering connection.  
-![Image: Screen shot of a VPC routing table](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/VPC-RoutingTable.png)
+![Image: Screen shot of a VPC routing table](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/VPC-RoutingTable.png)
 
    *VPC Routing Table*
 
@@ -110,7 +110,9 @@ Accessing a cache over a peering connection will incur additional data transfer 
 
 A transit gateway enables you to attach VPCs and VPN connections in the same AWS Region and route traffic between them. A transit gateway works across AWS accounts, and you can use AWS Resource Access Manager to share your transit gateway with other accounts. After you share a transit gateway with another AWS account, the account owner can attach their VPCs to your transit gateway. A user from either account can delete the attachment at any time.
 
-You can enable multicast on a transit gateway, and then create a transit gateway multicast domain that allows multicast traffic to be sent from your multicast source to multicast group members over VPC attachments that you associate with the domain.
+You can also use a transit gateway to connect a cache to an application in a different Amazon VPC. Attach the Amazon VPC that contains the cache and the Amazon VPC that contains the application to the same transit gateway. Then update the route tables of both VPCs to route traffic between them.
+
+You must also allow the application to reach the cache. Modify the security group of the cache to allow inbound TCP traffic from the security group or IP address range of the application. Use the port that the cache uses.
 
 You can also create a peering connection attachment between transit gateways in different AWS Regions. This enables you to route traffic between the transit gateways' attachments across different Regions.
 
@@ -119,12 +121,16 @@ For more information, see [Transit gateways](https://docs.aws.amazon.com/vpc/lat
 ### Accessing an ElastiCache Cache when it and the Amazon EC2 Instance are in Different Amazon VPCs in Different Regions
 <a name="elasticache-vpc-accessing-different-vpc-different-region"></a>
 
+If your cache and Amazon EC2 instance are in different Regions, you can connect them by using an inter-Region Amazon VPC peering connection. Resources in VPCs in different AWS Regions can then communicate using private IP addresses, without a gateway, VPN connection, or separate network appliance. Inter-Region Amazon VPC peering is available in all commercial AWS Regions. For more information, see the [Amazon VPC Peering Guide](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html).
+
+Alternatively, you can use a transit VPC, as described in the following section.
+
 #### Using Transit VPC
 <a name="elasticache-vpc-accessing-different-vpc-different-region-using-transit-vpc"></a>
 
 An alternative to using VPC peering, another common strategy for connecting multiple, geographically disperse VPCs and remote networks is to create a transit VPC that serves as a global network transit center. A transit VPC simplifies network management and minimizes the number of connections required to connect multiple VPCs and remote networks. This design can save time and effort and also reduce costs, as it is implemented virtually without the traditional expense of establishing a physical presence in a colocation transit hub or deploying physical network gear.
 
-![Image: Diagram showing connecting across different VPCs in different regions](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByEC2-DifferentVPC-DifferentRegion-VPN.png)
+![Image: Diagram showing connecting across different VPCs in different regions](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByEC2-DifferentVPC-DifferentRegion-VPN.png)
 
 
 *Connecting across different VPCs in different regions*
@@ -157,7 +163,7 @@ Another possible scenario is a Hybrid architecture where clients or applications
 
 The following diagram illustrates accessing an ElastiCache cache from an application running in your corporate network using VPN connections.
 
-![Image: Diagram showing connecting to ElastiCache from your data center via a VPN](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByAppInCustDataCenter-VPN.png)
+![Image: Diagram showing connecting to ElastiCache from your data center via a VPN](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByAppInCustDataCenter-VPN.png)
 
 
 *Connecting to ElastiCache from your data center via a VPN*
@@ -179,7 +185,7 @@ Accessing a cache over a VPN connection will introduce networking latencies and 
 
 The following diagram illustrates accessing an ElastiCache cache from an application running on your corporate network using Direct Connect.
 
-![Image: Diagram showing connecting to ElastiCache from your data center via Direct Connect](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByAppInCustDataCenter-DirectConnect.png)
+![Image: Diagram showing connecting to ElastiCache from your data center via Direct Connect](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-inVPC-AccessedByAppInCustDataCenter-DirectConnect.png)
 
 
 *Connecting to ElastiCache from your data center via Direct Connect*

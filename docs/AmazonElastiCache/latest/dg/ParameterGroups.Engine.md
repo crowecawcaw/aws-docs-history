@@ -414,17 +414,17 @@ For Redis OSS 2.8.23 the following additional parameter is supported.
 
 The `close-on-slave-write` parameter is introduced by Amazon ElastiCache to give you more control over how your cluster responds when a primary node and a read replica node swap roles due to promoting a read replica to primary.
 
-![Image: close-on-replica-write, everything working fine](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-close-on-slave-write-01.png)
+![Image: close-on-replica-write, everything working fine](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-close-on-slave-write-01.png)
 
 
 If the read-replica cluster is promoted to primary for any reason other than a Multi-AZ enabled replication group failing over, the client will continue trying to write to endpoint A. Because endpoint A is now the endpoint for a read-replica, these writes will fail. This is the behavior for Redis OSS before ElastiCache introducing `close-on-replica-write` and the behavior if you disable `close-on-replica-write`.
 
-![Image: close-on-slave-write, writes failing](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-close-on-slave-write-02.png)
+![Image: close-on-slave-write, writes failing](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-close-on-slave-write-02.png)
 
 
 With `close-on-replica-write` enabled, any time a client attempts to write to a read-replica, the client connection to the cluster is closed. Your application logic should detect the disconnection, check the DNS table, and reconnect to the primary endpoint, which now would be endpoint B.
 
-![Image: close-on-slave-write, writing to new primary cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-close-on-slave-write-03.png)
+![Image: close-on-slave-write, writing to new primary cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-close-on-slave-write-03.png)
 
 
 #### When you might disable close-on-replica-write

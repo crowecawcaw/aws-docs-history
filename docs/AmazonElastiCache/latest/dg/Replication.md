@@ -13,7 +13,7 @@ The node or shard limit can be increased to a maximum of 500 per cluster with El
 
 To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) and choose the limit type **Nodes per cluster per instance type**. 
 
-![Image: Valkey or Redis OSS (cluster mode disabled) cluster has one shard and 0 to 5 replica nodes](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-CSN-Redis-Replicas.png)
+![Image: Valkey or Redis OSS (cluster mode disabled) cluster has one shard and 0 to 5 replica nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-CSN-Redis-Replicas.png)
 
 
 *Valkey or Redis OSS (cluster mode disabled) cluster has one shard and 0 to 5 replica nodes*

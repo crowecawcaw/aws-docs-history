@@ -21,20 +21,20 @@ ElastiCache cache nodes deployed outside an Amazon VPC are assigned an IP addres
 
 The following diagram and table describe the Amazon VPC environment, along with ElastiCache clusters and Amazon EC2 instances that are launched in the Amazon VPC.
 
-![Diagram showing the Amazon VPC environment with ElastiCache clusters and Amazon EC2 instances.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-overview-diagram.png)
+![Diagram showing the Amazon VPC environment with ElastiCache clusters and Amazon EC2 instances.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-overview-diagram.png)
 
 
 
 |  |  | 
 | --- |--- |
-|  ![Numbered bullet point 1.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/1.png)  | The Amazon VPC is an isolated portion of the AWS Cloud that is assigned its own block of IP addresses. | 
-|  ![Numbered bullet point 2.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/2.png)  | An Internet gateway connects your Amazon VPC directly to the Internet and provides access to other AWS resources such as Amazon Simple Storage Service (Amazon S3) that are running outside your Amazon VPC. | 
-|  ![Numbered bullet point 3.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/3.png)  | An Amazon VPC subnet is a segment of the IP address range of an Amazon VPC where you can isolate AWS resources according to your security and operational needs. | 
-|  ![Numbered bullet point 4.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/4.png)  | A routing table in the Amazon VPC directs network traffic between the subnet and the Internet. The Amazon VPC has an implied router, which is symbolized in this diagram by the circle with the R. | 
-|  ![Numbered bullet point 5.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/5.png)  | An Amazon VPC security group controls inbound and outbound traffic for your ElastiCache clusters and Amazon EC2 instances. | 
-|  ![Numbered bullet point 6.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/6.png)  | You can launch an ElastiCache cluster in the subnet. The cache nodes have private IP addresses from the subnet's range of addresses. | 
-|  ![Numbered bullet point 7.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/7.png)  | You can also launch Amazon EC2 instances in the subnet. Each Amazon EC2 instance has a private IP address from the subnet's range of addresses. The Amazon EC2 instance can connect to any cache node in the same subnet. | 
-|  ![Numbered bullet point 8.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/8.png)  | For an Amazon EC2 instance in your Amazon VPC to be reachable from the Internet, you need to assign a static, public address called an Elastic IP address to the instance. | 
+|  ![Numbered bullet point 1.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/1.png)  | The Amazon VPC is an isolated portion of the AWS Cloud that is assigned its own block of IP addresses. | 
+|  ![Numbered bullet point 2.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/2.png)  | An Internet gateway connects your Amazon VPC directly to the Internet and provides access to other AWS resources such as Amazon Simple Storage Service (Amazon S3) that are running outside your Amazon VPC. | 
+|  ![Numbered bullet point 3.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/3.png)  | An Amazon VPC subnet is a segment of the IP address range of an Amazon VPC where you can isolate AWS resources according to your security and operational needs. | 
+|  ![Numbered bullet point 4.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/4.png)  | A routing table in the Amazon VPC directs network traffic between the subnet and the Internet. The Amazon VPC has an implied router, which is symbolized in this diagram by the circle with the R. | 
+|  ![Numbered bullet point 5.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/5.png)  | An Amazon VPC security group controls inbound and outbound traffic for your ElastiCache clusters and Amazon EC2 instances. | 
+|  ![Numbered bullet point 6.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/6.png)  | You can launch an ElastiCache cluster in the subnet. The cache nodes have private IP addresses from the subnet's range of addresses. | 
+|  ![Numbered bullet point 7.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/7.png)  | You can also launch Amazon EC2 instances in the subnet. Each Amazon EC2 instance has a private IP address from the subnet's range of addresses. The Amazon EC2 instance can connect to any cache node in the same subnet. | 
+|  ![Numbered bullet point 8.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/callouts/8.png)  | For an Amazon EC2 instance in your Amazon VPC to be reachable from the Internet, you need to assign a static, public address called an Elastic IP address to the instance. | 
 
 ## Prerequisites
 <a name="ElastiCacheAndVPC.Prereqs"></a>

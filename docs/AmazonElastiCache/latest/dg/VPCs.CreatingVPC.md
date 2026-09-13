@@ -29,7 +29,7 @@ Make a note of your subnet identifiers, and which are public and private. You wi
    1. Choose **Create Security Group**.
 
    1. Type a name and a description for your security group in the corresponding boxes. In the **VPC** box, choose the identifier for your Amazon VPC.  
-![Image: Create Security Group screen](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-02.png)
+![Image: Create Security Group screen](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/vpc-02.png)
 
    1. When the settings are as you want them, choose **Yes, Create**.
 

@@ -24,7 +24,7 @@ To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.co
 
 A Valkey or Redis OSS (cluster mode disabled) cluster has a single shard, inside of which is a collection of nodes; one primary read/write node and up to five secondary, read-only replica nodes. Each read replica maintains a copy of the data from the cluster's primary node. Asynchronous replication mechanisms are used to keep the read replicas synchronized with the primary. Applications can read from any node in the cluster. Applications can write only to the primary node. Read replicas improve read throughput and guard against data loss in cases of a node failure.
 
-![Image: Valkey or Redis OSS (cluster mode disabled) cluster with a single shard and replica nodes](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-CSN-Redis-Replicas.png)
+![Image: Valkey or Redis OSS (cluster mode disabled) cluster with a single shard and replica nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-CSN-Redis-Replicas.png)
 
 
 *Valkey or Redis OSS (cluster mode disabled) cluster with a single shard and replica nodes*
@@ -57,7 +57,7 @@ To request a limit increase, see [AWS Service Limits](https://docs.aws.amazon.co
 
 Applications use the Valkey or Redis OSS (cluster mode enabled) cluster's *configuration endpoint* to connect with the nodes in the cluster. For more information, see [Finding connection endpoints in ElastiCache](Endpoints.md).
 
-![Image: Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards and replica nodes](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-CSN-RedisClusters.png)
+![Image: Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards and replica nodes](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCacheClusters-CSN-RedisClusters.png)
 
 
 *Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards and replica nodes*

@@ -13,7 +13,7 @@ To understand the potential data loss with asynchronous writes, consider the con
 
 When configuring your client to send traffic to an asynchronous durable cluster, ensure that the client automatically retries with exponential backoff any write commands that are rejected with the cluster down error message. For guidance on configuring your clients to handle this and other transient errors, see [Best practices: Valkey/Redis OSS clients and Amazon ElastiCache](https://aws.amazon.com/blogs/database/best-practices-valkey-redis-oss-clients-and-amazon-elasticache/).
 
-![Diagram showing how the asynchronous durability buffer works across five states: writes enter the buffer, the transactional log persists them, and if the buffer exceeds 10 seconds, new writes are rejected until the log catches up.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/durability-async-buffer.png)
+![Diagram showing how the asynchronous durability buffer works across five states: writes enter the buffer, the transactional log persists them, and if the buffer exceeds 10 seconds, new writes are rejected until the log catches up.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/durability-async-buffer.png)
 
 
 ## Choosing a durability option

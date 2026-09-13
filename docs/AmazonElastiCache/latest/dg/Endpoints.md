@@ -97,7 +97,7 @@ For read activity, applications can also connect to any node in the cluster. Unl
    The clusters screen will appear with a list of Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled) clusters.
 
 1. To find the cluster's Primary and/or Reader endpoints, choose the cluster's name (not the button to its left).  
-![Image: Primary endpoint for a Valkey or Redis OSS (cluster mode disabled) cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/Reader-Endpoint.png)
+![Image: Primary endpoint for a Valkey or Redis OSS (cluster mode disabled) cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/Reader-Endpoint.png)
 
    *Primary and Reader endpoints for a Valkey or Redis OSS (cluster mode disabled) cluster*
 
@@ -106,7 +106,7 @@ For read activity, applications can also connect to any node in the cluster. Unl
 1. If the Valkey or Redis OSS (cluster mode disabled) cluster has replica nodes, you can find the cluster's replica node endpoints by choosing the cluster's name and then choosing the **Nodes** tab.
 
    The nodes screen appears with each node in the cluster, primary and replicas, listed with its endpoint.  
-![Image: Node endpoints for a Valkey or Redis OSS (cluster mode disabled) cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Endpoints-Redis-Node.png)
+![Image: Node endpoints for a Valkey or Redis OSS (cluster mode disabled) cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Endpoints-Redis-Node.png)
 
    *Node endpoints for a Valkey or Redis OSS (cluster mode disabled) cluster*
 

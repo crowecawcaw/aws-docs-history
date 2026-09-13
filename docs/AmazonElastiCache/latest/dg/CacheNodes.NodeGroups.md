@@ -7,7 +7,7 @@ A shard (in the API and CLI, a node group) is a hierarchical arrangement of node
 
 The following diagram illustrates the differences between a Valkey or Redis OSS (cluster mode disabled) cluster and a Valkey or Redis OSS (cluster mode enabled) cluster.
 
-![Image: Valkey or Redis OSS (cluster mode disabled) & Valkey or Redis OSS (cluster mode enabled) shards (API/CLI: node groups)](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-NodeGroups.png)
+![Image: Valkey or Redis OSS (cluster mode disabled) & Valkey or Redis OSS (cluster mode enabled) shards (API/CLI: node groups)](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-NodeGroups.png)
 
 
 Valkey or Redis OSS (cluster mode enabled) clusters support replication via shards. The API operation [DescribeReplicationGroups](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html) (CLI: [describe-replication-groups](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-replication-groups.html)) lists the node groups with the member nodes, the node's role within the node group, and also other information.

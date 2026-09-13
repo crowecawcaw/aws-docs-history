@@ -319,7 +319,7 @@ Use the following procedure to test automatic failover with the console.
 1. From the list of clusters, choose the box to the left of the cluster you want to test. This cluster must have at least one read replica node.
 
 1. In the **Details** area, confirm that this cluster is Multi-AZ enabled. If the cluster isn't Multi-AZ enabled, either choose a different cluster or modify this cluster to enable Multi-AZ. For more information, see [Using the ElastiCache AWS Management Console](Clusters.Modify.md#Clusters.Modify.CON).  
-![Image: Details area of a Multi-AZ enabled cluster](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-AutoFailover-MultiAZ-Enabled.png)
+![Image: Details area of a Multi-AZ enabled cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-AutoFailover-MultiAZ-Enabled.png)
 
 1. For Valkey or Redis OSS (cluster mode disabled), choose the cluster's name.
 

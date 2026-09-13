@@ -323,7 +323,7 @@ For a detailed list of available commands, see [Supported Valkey and Redis OSS c
 
 ElastiCache for Valkey or Redis OSS filters array objects directly.
 
-For data like `[0,1,2,3,4,5,6]` and a path query like `$[?(@<4)]`, or data like `{"my_key":[0,1,2,3,4,5,6]}` and a path query like `$.my_key[?(@<4)]`, ElastiCache would return [1,2,3] in both circumstances. 
+For data like `[0,1,2,3,4,5,6]` and a path query like `$[?(@<4)]`, or data like `{"my_key":[0,1,2,3,4,5,6]}` and a path query like `$.my_key[?(@<4)]`, ElastiCache would return [0,1,2,3] in both circumstances. 
 
 ### Array indexing behavior
 <a name="json-direct-array-indexing"></a>
@@ -335,4 +335,4 @@ To ensure predictable behavior for customers, ElastiCache does not round array i
 ### Strict syntax evaluation
 <a name="json-strict-syntax-evaluation"></a>
 
-MemoryDB does not allow JSON paths with invalid syntax, even if a subset of the path contains a valid path. This is to maintain correct behavior for our customers.
+ElastiCache does not allow JSON paths with invalid syntax, even if a subset of the path contains a valid path. This is to maintain correct behavior for our customers.

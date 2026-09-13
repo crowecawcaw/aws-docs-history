@@ -5,7 +5,7 @@
 
 With Valkey and Redis OSS, you have the ability to create one of two distinct types of clusters (API/CLI: replication groups). A Valkey or Redis OSS (cluster mode disabled) cluster always has a single shard (API/CLI: node group) with up to 5 read replica nodes. A Valkey or Redis OSS (cluster mode enabled) cluster has up to 500 shards with 1 to 5 read replica nodes in each.
 
-![Image: Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) clusters](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-NodeGroups.png)
+![Image: Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) clusters](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-NodeGroups.png)
 
 
 *Valkey or Redis OSS (cluster mode disabled), and Valkey or Redis OSS (cluster mode enabled) clusters*

@@ -13,7 +13,7 @@ Amazon ElastiCache with Valkey and Redis OSS provides encryption features for da
 
 ElastiCache supports authenticating users using IAM and the Valkey and Redis OSS AUTH command, and authorizing user operations using Role-Based Access Control (RBAC).
 
-![Image: ElastiCache for Valkey and Redis OSS Security Diagram](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Redis-Secure-Compliant.png)
+![Image: ElastiCache for Valkey and Redis OSS Security Diagram](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-Redis-Secure-Compliant.png)
 
 
 *ElastiCache for Valkey and Redis OSS Security Diagram*
