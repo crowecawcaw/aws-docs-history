@@ -10,7 +10,7 @@ This reference architecture diagram shows how to add SMS support to your contact
 ## Enable Two-Way SMS in Amazon Connect
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to enable two-way SMS in Amazon Connect by using Amazon Pinpoint, AWS Lambda, Amazon DynamoDB, and Amazon Simple Notification Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/enable-two-way-sms-amazon-connect/images/enable-two-way-sms-amazon-connect.png)
+![Reference architecture diagram showing how to enable two-way SMS in Amazon Connect by using Amazon Pinpoint, AWS Lambda, Amazon DynamoDB, and Amazon Simple Notification Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/enable-two-way-sms-amazon-connect/images/enable-two-way-sms-amazon-connect.png)
 
 
 1. Customer sends a text message to the Amazon Pinpoint phone number.
