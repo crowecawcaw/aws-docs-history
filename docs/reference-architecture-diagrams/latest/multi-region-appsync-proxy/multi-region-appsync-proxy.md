@@ -10,7 +10,7 @@ This architecture shows how to reduce latency for end users while increasing ava
 ## Multi-Region Custom-Domain AppSync Proxy API
 <a name="diagram1"></a>
 
-![Architecture diagram showing a multi-Region GraphQL API using Amazon AppSync, Amazon API Gateway, Amazon DynamoDB Global Tables, and Amazon Route 53.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-region-appsync-proxy/images/multi-region-appsync-proxy.png)
+![Architecture diagram showing a multi-Region GraphQL API using Amazon AppSync, Amazon API Gateway, Amazon DynamoDB Global Tables, and Amazon Route 53.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-region-appsync-proxy/images/multi-region-appsync-proxy.png)
 
 
 The following steps describe the architecture:
