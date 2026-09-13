@@ -340,7 +340,7 @@ Follow these steps to configure the automation:
    + **BucketName (Required):**
 
      The Amazon S3 bucket to upload the validation results to. Make sure that the bucket is configured with server-side encryption (SSE) and the bucket policy does not grant unnecessary read/write permissions to parties that do not need to access the logs. Also make sure that the Amazon EC2 Windows instance has necessary access to the Amazon S3 bucket.  
-![Input parameters form with fields for instance ID, IAM role, S3 bucket, secrets ARN, and FSx configuration.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-fsxwindows-adconfig_input_parameters1.png)
+![Input parameters form with fields for instance ID, IAM role, S3 bucket, secrets ARN, and FSx configuration.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-fsxwindows-adconfig_input_parameters1.png)
 
 1. To validate self-managed AD configuration for a new Amazon FSx creation, enter the following parameters:
    + **AutomationAssumeRole (Optional):**
@@ -370,7 +370,7 @@ Follow these steps to configure the automation:
    + **FSxOrganizationalUnit (Conditional):**
 
      The Organizational Unit (OU) within which you want to join your file system. Provide the distinguished path name of the OU. Example: `OU=org,DC=example,DC=com`.  
-![Configuration parameters for Amazon FSx including domain name, subnet IDs, and admin groups.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-fsxwindows-adconfig_input_parameters2.png)
+![Configuration parameters for Amazon FSx including domain name, subnet IDs, and admin groups.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-fsxwindows-adconfig_input_parameters2.png)
 
 1. Select **Execute.**
 
@@ -418,7 +418,7 @@ Follow these steps to configure the automation:
      Deletes the CloudFormation stack.
 
 1. After completed, review the Outputs section for the results of the execution:  
-![Outputs section showing validation script results with one InvalidCredentials error.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-fsxwindows-adconfig_outputs.png)
+![Outputs section showing validation script results with one InvalidCredentials error.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-fsxwindows-adconfig_outputs.png)
 
    The runbook will upload the results of the validation script execution to the Amazon S3 bucket. 
 

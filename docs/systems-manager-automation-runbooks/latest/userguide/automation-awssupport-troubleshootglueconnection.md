@@ -244,7 +244,7 @@ Follow these steps to configure the automation:
    +  **DatasourceSecurityGroups (Optional)** 
 
       If the original datasource is not available, use this parameter to provide the security groups it used so that the connectivity tests are still performed. **Must** be used with `DatasourceSubnets`. Example: `sg-1,sg-2`.   
-![Input parameters form with fields for AutomationAssumeRole, TestConnectionRole, ConnectionName, and other configuration options.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshootglueconnection_input_parameters.png)
+![Input parameters form with fields for AutomationAssumeRole, TestConnectionRole, ConnectionName, and other configuration options.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshootglueconnection_input_parameters.png)
 
 1. Select Execute.
 
@@ -316,7 +316,7 @@ Follow these steps to configure the automation:
    +  **Automation Errors** 
 
       In this section, you will find scenarios describing issues that happened during the automation, that may have limited the number of tests the automation could perform. The description of the scenario will inform which step has failed.   
-![AWS Glue connection troubleshooting automation results showing DNS, IAM , and security issues.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshootglueconnection_outputs.png)
+![AWS Glue connection troubleshooting automation results showing DNS, IAM , and security issues.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshootglueconnection_outputs.png)
 
  **References** 
 

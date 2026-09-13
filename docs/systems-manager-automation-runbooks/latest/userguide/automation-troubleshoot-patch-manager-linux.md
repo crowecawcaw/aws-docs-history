@@ -60,7 +60,7 @@ Follow these steps to configure the automation:
    + **RunCommandId (Optional):**
 
      Enter the Failed Run Command ID of the `AWS-RunPatchBaseline` document. If you don't provide a Command ID, the runbook will look for the latest failed patch command within the last 30 days on the selected instance.  
-![Input parameters section showing InstanceId field, AutomationAssumeRole dropdown, and RunCommandId field.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-patch-manager-linux_input_parameters.png)
+![Input parameters section showing InstanceId field, AutomationAssumeRole dropdown, and RunCommandId field.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-patch-manager-linux_input_parameters.png)
 
 1. Select Execute.
 
@@ -93,7 +93,7 @@ Follow these steps to configure the automation:
      Generates a final report of the runbook execution that includes the identified problem and suggested solution.
 
 1. After completed, review the Outputs section for the detailed results of the execution:  
-![Troubleshooting results showing S3 download error with network connectivity solutions.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-patch-manager-linux_outputs.png)
+![Troubleshooting results showing S3 download error with network connectivity solutions.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-patch-manager-linux_outputs.png)
 
  **References** 
 

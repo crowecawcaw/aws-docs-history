@@ -103,7 +103,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
    + **JobId (Required):**
 
      The ID of the AWS Batch Job that is stuck in the `RUNNABLE` status.  
-![Input parameters form with AutomationAssumeRole and JobId fields for AWS Batch job configuration.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-aws-batch-job_input_paramters.png)
+![Input parameters form with AutomationAssumeRole and JobId fields for AWS Batch job configuration.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-aws-batch-job_input_paramters.png)
 
 1. Select **Execute**.
 
@@ -144,7 +144,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 1. After completing, the URI for the assessment report HTML file is provided:
 
    **S3 Console link and Amazon S3 URI for the Report on successful execution of the runbook**  
-![Execution result summary showing errors in compute environment setup and job queue.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-aws-batch-job_outputs.png)
+![Execution result summary showing errors in compute environment setup and job queue.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-aws-batch-job_outputs.png)
 
  **References** 
 

@@ -57,7 +57,7 @@ Follow these steps to configure the automation:
    + **ServiceName (Required):**
 
      The name of the service for which the replication agent is installed. Allowed values: `AWS MGN` or `AWS DRS`  
-![Input parameters form with fields for AutomationAssumeRole, BucketName, S3ObjectKey, and ServiceName.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-troublshoot-linux-mngdrs-agent-logs_input_parameters.png)
+![Input parameters form with fields for AutomationAssumeRole, BucketName, S3ObjectKey, and ServiceName.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-troublshoot-linux-mngdrs-agent-logs_input_parameters.png)
 
 1. Select Execute.
 
@@ -75,7 +75,7 @@ Follow these steps to configure the automation:
       Creates the output from the previous checks including information about the errors found and troubleshooting recommendations.
 
 1. After completed, review the Outputs section for the detailed results of the execution:  
-![Output showing validation success, kernel package error, and troubleshooting steps for installation.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-troublshoot-linux-mngdrs-agent-logs_outputs.png)
+![Output showing validation success, kernel package error, and troubleshooting steps for installation.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-troublshoot-linux-mngdrs-agent-logs_outputs.png)
 
  **References** 
 

@@ -100,7 +100,7 @@ Follow these steps to configure the automation:
    + **End time (Required):**
 
      The end time to view the data in CloudWatch. The time must be in the format `yyyy-mm-ddThh:mm:ss` and in UTC.  
-![Input parameters section showing fields for AutomationAssumeRole, ResourceId, StartTime, and EndTime.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-calculate-ebs-performance-metrics_input_parameters.png)
+![Input parameters section showing fields for AutomationAssumeRole, ResourceId, StartTime, and EndTime.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-calculate-ebs-performance-metrics_input_parameters.png)
 
 1. Select Execute.
 
@@ -115,13 +115,13 @@ Follow these steps to configure the automation:
      Calculates Amazon EBS performance and displays a graph based on your Resource ID. If you provide an Amazon EBS Volume ID for the parameter Resource ID, this runbook creates a CloudWatch dashboard with estimated average IOPS and estimated average throughput for the Amazon EBS volume. If you provide an Amazon EC2 Instance ID for the parameter Resource ID, this runbook creates a CloudWatch dashboard with Average Total IOPS and Average Total Throughput for Amazon EC2 instance and with Estimated average IOPS and estimated average throughput for all Amazon EBS volumes attached to the Amazon EC2 instance.
 
 1. After completed, review the Outputs section for the detailed results of the execution:  
-![Outputs section showing CloudWatch Dashboard URL and success message for dashboard creation.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-calculate-ebs-performance-metrics_outputs.png)
+![Outputs section showing CloudWatch Dashboard URL and success message for dashboard creation.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-calculate-ebs-performance-metrics_outputs.png)
 
    Example CloudWatch Dashboard For Resource ID as Amazon EC2 instance  
-![CloudWatch dashboard showing EBS performance metrics for EC2 instance with IOPS and throughput graphs.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-calculate-ebs-performance-metrics_dashboard_ec2_instance.png)
+![CloudWatch dashboard showing EBS performance metrics for EC2 instance with IOPS and throughput graphs.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-calculate-ebs-performance-metrics_dashboard_ec2_instance.png)
 
    Example CloudWatch Dashboard For Resource ID as Amazon EBS volume id  
-![CloudWatch dashboard showing EBS volume IOPS and throughput metrics with baseline thresholds.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-calculate-ebs-performance-metrics_dashboard_ebs_volume.png)
+![CloudWatch dashboard showing EBS volume IOPS and throughput metrics with baseline thresholds.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-calculate-ebs-performance-metrics_dashboard_ebs_volume.png)
 
  **References** 
 

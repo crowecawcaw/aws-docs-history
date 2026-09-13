@@ -93,7 +93,7 @@ Follow these steps to configure the automation:
    + **Acknowledgement (Required):**
 
      Read the complete details of the actions performed by this automation runbook and if you agree, type `Yes, I understand and acknowledge`.  
-![Input parameters form with fields for InstanceId, AutomationAssumeRole, CaptureProcessDump, and other configuration options.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-performance_input_parameters.png)
+![Input parameters form with fields for InstanceId, AutomationAssumeRole, CaptureProcessDump, and other configuration options.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-performance_input_parameters.png)
 
 1. Select Execute.
 
@@ -149,13 +149,13 @@ Follow these steps to configure the automation:
 1. After completed, review the Outputs section for the detailed results of the execution:
 
    Execution where the target instance has all required prerequisites.  
-![Outputs section showing successful performance log capture and EC2Rescue tool execution results.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-performance_outputs_all_prerequisites_met.png)
+![Outputs section showing successful performance log capture and EC2Rescue tool execution results.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-performance_outputs_all_prerequisites_met.png)
 
    Execution where the target instance is on Linux platform and the execution failed. You would select the step ID to see the failure details.  
-![Execution status showing 2 steps: CheckConcurrency succeeded, AssertInstanceIsWindows failed.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-performance_outputs_failed_linux_instance.png)
+![Execution status showing 2 steps: CheckConcurrency succeeded, AssertInstanceIsWindows failed.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-performance_outputs_failed_linux_instance.png)
 
    The failure details of step `AssertInstanceIsWindows`.  
-![Failure message showing Linux value returned instead of expected Windows value.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-performance_outputs_assert_windows_fail.png)
+![Failure message showing Linux value returned instead of expected Windows value.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-performance_outputs_assert_windows_fail.png)
 
  **References** 
 

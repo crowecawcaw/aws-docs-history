@@ -216,7 +216,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
    + **S3BucketPrefix (Optional):**
 
      Any prefix for the path inside Amazon S3 for storing the results.  
-![Input parameters form showing IAM role, S3 bucket, bucket owner, and resource type fields.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/premsupport-ddos-resiliency-assessment_input_parameters.png)
+![Input parameters form showing IAM role, S3 bucket, bucket owner, and resource type fields.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/premsupport-ddos-resiliency-assessment_input_parameters.png)
 
 1. Select **Execute**.
 
@@ -257,7 +257,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
 1. After completed, the URI for the assessment report HTML file is provided in the Amazon S3 bucket:
 
    **S3 Console link and Amazon S3 URI for the Report on successful execution of the runbook**  
-![Execution status showing overall success with 9 steps executed, 9 succeeded, 0 failed.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/premsupport-ddos-resiliency-assessment_outputs.png)
+![Execution status showing overall success with 9 steps executed, 9 succeeded, 0 failed.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/premsupport-ddos-resiliency-assessment_outputs.png)
 
  **References** 
 

@@ -150,7 +150,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
    + **DBUserName (Optional):**
 
      Enter the database user mapped to an IAM role/user for IAM-Based authentication within the database. The default option `*` is used to evaluate; nothing is provided in this field.  
-![Input parameters section showing EC2 instance picker, RDS configuration fields, and authentication options.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-rds-iam-authentication_input_parameters.png)
+![Input parameters section showing EC2 instance picker, RDS configuration fields, and authentication options.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-rds-iam-authentication_input_parameters.png)
 
 1. Select **Execute**.
 
@@ -189,7 +189,7 @@ The `AutomationAssumeRole` parameter requires the following actions to use the r
    + **Next Steps:**
 
      Lists the commands and steps to refer to and perform, to connect to the Amazon RDS Instance using the IAM credentials.  
-![Troubleshooting results showing IAM permissions verified, IAM authentication enabled, and no source EC2 instance provided.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-rds-iam-authentication_outputs.png)
+![Troubleshooting results showing IAM permissions verified, IAM authentication enabled, and no source EC2 instance provided.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-rds-iam-authentication_outputs.png)
 
  **References** 
 

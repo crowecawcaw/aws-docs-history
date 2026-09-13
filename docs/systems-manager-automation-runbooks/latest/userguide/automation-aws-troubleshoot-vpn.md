@@ -135,7 +135,7 @@ Follow these steps to configure the automation:
      Time in hours to look back to query for error.
 
    **Note:** Configure a StartTimeinEpoch, EndTimeinEpoch, or LookBackPeriod to fix the time range for log analysis. Give a two-digit number in hours to check for errors in the past from the automation start time. Or, if the error is in the past within a specific time range, include StartTimeinEpoch and EndTimeinEpoch, instead of LookBackPeriod.  
-![Input parameters form for AWS Site-to-Site VPN connection validation and log analysis.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-vpn_input_parameters.png)
+![Input parameters form for AWS Site-to-Site VPN connection validation and log analysis.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-vpn_input_parameters.png)
 
 1. Select **Execute.**
 
@@ -162,7 +162,7 @@ Follow these steps to configure the automation:
      Makes a logs insight API call in your included CloudWatch log group and searches for the error related to IKEv1/IKEv2 along with a related suggested resolution.
 
 1. After completed, review the Outputs section for the detailed results of the execution.  
-![Output section showing parameter validation results and error messages for VPN tunnels.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-vpn_outputs.png)
+![Output section showing parameter validation results and error messages for VPN tunnels.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-vpn_outputs.png)
 
  **References** 
 

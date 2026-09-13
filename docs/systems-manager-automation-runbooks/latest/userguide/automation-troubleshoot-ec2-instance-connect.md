@@ -85,7 +85,7 @@ Follow these steps to configure the automation:
    + **SourceIpCIDR (Optional):**
 
      The source CIDR that includes the IP address of the device (such as your local computer) you will log from using Amazon EC2 Instance Connect. Example: 172.31.48.6/32. If no value is provided with public or private access mode, the runbook will not evaluate if the Amazon EC2 instance security group and network ACL rules allow SSH traffic. It will display SSH-related rules instead.  
-![Input parameters form for EC2 Instance Connect troubleshooting with various fields.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-ec2-instance-connect_input_parameters.png)
+![Input parameters form for EC2 Instance Connect troubleshooting with various fields.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-ec2-instance-connect_input_parameters.png)
 
 1. Select Execute.
 
@@ -138,10 +138,10 @@ Follow these steps to configure the automation:
 1. After completed, review the **Outputs** section for the detailed results of the execution:
 
    Execution where the target instance has all required prerequisites:  
-![EC2 Instance Connect prerequisites check results showing successful validations for various configurations.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-ec2-instance-connect_outputs_all_requirements_found.png)
+![EC2 Instance Connect prerequisites check results showing successful validations for various configurations.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-ec2-instance-connect_outputs_all_requirements_found.png)
 
    Execution where the AMI of the target instance is not supported:  
-![Error message indicating EC2 Instance Connect does not support the specified AMI version.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-ec2-instance-connect_outputs_all_requirements_not_found.png)
+![Error message indicating EC2 Instance Connect does not support the specified AMI version.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-ec2-instance-connect_outputs_all_requirements_not_found.png)
 
  **References** 
 

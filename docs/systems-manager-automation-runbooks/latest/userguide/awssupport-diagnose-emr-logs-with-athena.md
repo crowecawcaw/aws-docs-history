@@ -195,7 +195,7 @@ Follow these steps to configure the automation:
    + **SearchKeywords (Optional):**
 
       The list of keywords to search in the logs, separated by commas. The keywords cannot contain single or double quotes.  
-![Input parameters form with fields for automation role, S3 location, approvers, and cluster settings.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-diagnose-emr-logs-with-athena_input_parameters.png)
+![Input parameters form with fields for automation role, S3 location, approvers, and cluster settings.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-diagnose-emr-logs-with-athena_input_parameters.png)
 
 1. Select **Execute.**
 
@@ -242,7 +242,7 @@ Follow these steps to configure the automation:
    + List of all errors and frequently occurred exceptions found in the Amazon EMR cluster logs, along with the corresponding log locations (Amazon S3 prefix).
    + Summary of unique known exceptions matched in the Amazon EMR logs, along with recommended resolutions and KC articles to help in troubleshooting.
    + Details on where specific errors and exceptions appear in the Amazon S3 log paths, to support further diagnosis.  
-![Outputs section showing three query links with descriptions for Athena log analysis.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-diagnose-emr-logs-with-athena_outputs.png)
+![Outputs section showing three query links with descriptions for Athena log analysis.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-diagnose-emr-logs-with-athena_outputs.png)
 
  **References** 
 

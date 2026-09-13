@@ -75,7 +75,7 @@ Follow these steps to configure the automation:
    + **RetainVpcReachabilityAnalysis (Optional):**
 
      Only relevant if `RunVpcReachabilityAnalyzer` is `true`. Specify `true` to retain the network insight path and related analyses created by `Reachability Analyzer`. By default, those resources are deleted after successful analysis. If you choose to retain the analysis, the child runbook does not delete the analysis and you can visualize it in the Amazon VPC console. The console link will be available in the child automation output. The default value `false`.  
-![Input parameters section showing InstanceId, AutomationAssumeRole, RunVpcReachabilityAnalyzer, and RetainVpcReachabilityAnalysis fields.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-update_input_parameters.png)
+![Input parameters section showing InstanceId, AutomationAssumeRole, RunVpcReachabilityAnalyzer, and RetainVpcReachabilityAnalysis fields.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-update_input_parameters.png)
 
 1. Select Execute.
 
@@ -132,7 +132,7 @@ Follow these steps to configure the automation:
      Generates a complete report of all steps.
 
 1. After completed, review the Outputs section for the detailed results of the execution:  
-![Final report results showing all prerequisite and configuration checks passed with green checkmarks.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-update_outputs.png)
+![Final report results showing all prerequisite and configuration checks passed with green checkmarks.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-windows-update_outputs.png)
 
  **References** 
 

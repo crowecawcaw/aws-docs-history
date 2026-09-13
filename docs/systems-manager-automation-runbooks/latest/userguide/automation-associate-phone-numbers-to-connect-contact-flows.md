@@ -249,12 +249,12 @@ Follow these steps to configure the automation:
 
 Output of execution with a small number of phone numbers and contact flows
 
-![Output showing 7 phone numbers processed with Contact Flow, 0 errors, 0 time constraint issues.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-associate-phone-numbers-to-connect-contact-flows_outputs_small.png)
+![Output showing 7 phone numbers processed with Contact Flow, 0 errors, 0 time constraint issues.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-associate-phone-numbers-to-connect-contact-flows_outputs_small.png)
 
 
 Output of execution with a large number of phone numbers and contact flows and phone numbers that weren't associated due to error or time constraint
 
-![Output showing phone number mapping results with error and unprocessed resource file locations.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-associate-phone-numbers-to-connect-contact-flows_outputs_many.png)
+![Output showing phone number mapping results with error and unprocessed resource file locations.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-associate-phone-numbers-to-connect-contact-flows_outputs_many.png)
 
 
  **References** 

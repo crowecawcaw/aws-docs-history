@@ -104,7 +104,7 @@ Follow these steps to configure the automation:
    + **S3BucketOwnerRoleArn (Optional):**
 
      The ARN of the IAM role with permissions to get the Amazon S3 bucket and account block public access settings, bucket encryption configuration, bucket ACLs, bucket policy status, and upload objects to the bucket. If this parameter is not specified, the runbook uses the `AutomationAssumeRole` (if specified) or user that starts this runbook (if `AutomationAssumeRole` is not specified). See the required permissions section in the runbook description.  
-![Input parameters form for AWS Systems Manager Automation with fields for roles, IDs, and S3 settings.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-collect-amazon-connect-contact-flow-log_input_parameters.png)
+![Input parameters form for AWS Systems Manager Automation with fields for roles, IDs, and S3 settings.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-collect-amazon-connect-contact-flow-log_input_parameters.png)
 
 1. Select Execute.
 
@@ -137,7 +137,7 @@ Follow these steps to configure the automation:
    + **GenerateReport.OutputPayload**
 
      Output that tells you the runbook successfully retrieved contact flow logs for the specified contact. This report also contains Amazon S3 console URL and an example AWS CLI command so that you can download the log file.  
-![Output showing successful retrieval of Contact Flow log with S3 Console URL and AWS CLI command.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-collect-amazon-connect-contact-flow-log_outputs.png)
+![Output showing successful retrieval of Contact Flow log with S3 Console URL and AWS CLI command.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/automation-collect-amazon-connect-contact-flow-log_outputs.png)
 
  **References** 
 

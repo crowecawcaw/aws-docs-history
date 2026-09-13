@@ -163,7 +163,7 @@ Follow these steps to configure the automation:
    + **CustomerManagedKmsKeyArn (Optional):**
 
      The custom AWS KMS key Amazon Resource Name (ARN) for encrypting the new Amazon S3 bucket that will create if the bucket specified does not exist in the account.  
-![Input parameters for S3BucketName, CustomerManagedKmsKeyArn, and AutomationAssumeRole fields.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-analyze-ebs-resource-usage_input_parameters.png)
+![Input parameters for S3BucketName, CustomerManagedKmsKeyArn, and AutomationAssumeRole fields.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-analyze-ebs-resource-usage_input_parameters.png)
 
 1. Select **Execute.**
 
@@ -187,7 +187,7 @@ Follow these steps to configure the automation:
      Looks for the Amazon EBS snapshots of the Amazon EBS volumes that are deleted already, generates the report with the name format `<region>-snapshot.csv`, and uploads it to Amazon S3 bucket.
 
 1. After completed, review the Outputs section for the detailed results of the execution.  
-![Outputs section showing volume details, AMI file upload confirmation, and snapshot details.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-analyze-ebs-resource-usage_outputs.png)
+![Outputs section showing volume details, AMI file upload confirmation, and snapshot details.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-analyze-ebs-resource-usage_outputs.png)
 
  **References** 
 

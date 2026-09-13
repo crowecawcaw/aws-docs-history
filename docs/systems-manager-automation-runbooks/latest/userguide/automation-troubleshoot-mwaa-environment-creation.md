@@ -224,7 +224,7 @@ Follow these steps to configure the automation:
    + **Checking the Amazon MWAA environment CloudWatch logs groups errors:**
 
      Parses the existing CloudWatch log groups of the Amazon MWAA environment to locate errors.  
-![MMAA environment troubleshooting report showing successful configuration checks and connectivity tests.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-mwaa-environment-creation_outputs.png)
+![MMAA environment troubleshooting report showing successful configuration checks and connectivity tests.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-mwaa-environment-creation_outputs.png)
 
 Systems Manager Automation
 + [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootMWAAEnvironmentCreation/description)

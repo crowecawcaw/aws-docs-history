@@ -85,7 +85,7 @@ You can view the content for runbooks in the Systems Manager console.
 
    -or-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon (![Horizontal black and white striped pattern forming a simple geometric design.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/menu-icon-small.png)) to open the navigation pane, and then choose **Documents** in the navigation pane.
+   If the AWS Systems Manager home page opens first, choose the menu icon (![Horizontal black and white striped pattern forming a simple geometric design.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/menu-icon-small.png)) to open the navigation pane, and then choose **Documents** in the navigation pane.
 
 1. In the **Categories** section, choose **Automation documents**.
 

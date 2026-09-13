@@ -142,8 +142,8 @@ Follow these steps to configure the automation:
      The number of data samples to collect from the Amazon OpenSearch Service domain. By default, 5 data sample are collected. You can collect up to 10 samples and the Lambda function will be invoked for each sample collection.
 
 1. If you have enabled [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) on an OpenSearch Service cluster, make sure that the `LambdaExecutionRole` role arn is mapped to a role with at least `cluster_monitor` permission.  
-![Permissions tab showing Cluster permissions section with cluster_monitor permission selected.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-high-cpu_cluster_permissions.png)  
-![Backend roles section showing a Lambda execution role ARN with Remove button and Map option.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-high-cpu_backend_roles.png)
+![Permissions tab showing Cluster permissions section with cluster_monitor permission selected.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-high-cpu_cluster_permissions.png)  
+![Backend roles section showing a Lambda execution role ARN with Remove button and Map option.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-high-cpu_backend_roles.png)
 
 1. Select Execute.
 
@@ -185,7 +185,7 @@ Follow these steps to configure the automation:
    + **finalStatus.FinalOutput:**
 
      Provides the CloudWatch log group where the diagnostic data is stored.  
-![Outputs section showing finalStatus.FinalOutput with hot thread data collection completion message and CloudWatch log group reference.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-high-cpu_outputs.png)
+![Outputs section showing finalStatus.FinalOutput with hot thread data collection completion message and CloudWatch log group reference.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-high-cpu_outputs.png)
 
  **References** 
 

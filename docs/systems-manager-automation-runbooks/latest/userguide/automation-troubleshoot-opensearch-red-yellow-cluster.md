@@ -132,11 +132,11 @@ Follow these steps to configure the automation:
    + **UtilizationThreshold (Optional):**
 
      The utilization threshold percentage used to compare the CPUUtilization and JVMMemoryPressure metrics. Default value is 80.  
-![Input parameters form with fields for AutomationAssumeRole, LambdaExecutionRole, DomainName, and UtilizationThreshold.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-red-yellow-cluster_input_paramters.png)
+![Input parameters form with fields for AutomationAssumeRole, LambdaExecutionRole, DomainName, and UtilizationThreshold.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-red-yellow-cluster_input_paramters.png)
 
 1. If you have enabled [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) on an OpenSearch Service cluster, make sure that the `LambdaExecutionRole` role arn is mapped to a role with at least `cluster_monitor` permission.  
-![Permissions tab showing Cluster permissions section with cluster_monitor permission selected.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-red-yellow-cluster_permissions.png)  
-![Backend roles field showing an AWS IAM role ARN with Remove button and Map button.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-red-yellow-cluster_backend_roles.png)
+![Permissions tab showing Cluster permissions section with cluster_monitor permission selected.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-red-yellow-cluster_permissions.png)  
+![Backend roles field showing an AWS IAM role ARN with Remove button and Map button.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-opensearch-red-yellow-cluster_backend_roles.png)
 
 1. Select Execute.
 

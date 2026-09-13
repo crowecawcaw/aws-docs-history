@@ -168,7 +168,7 @@ Follow these steps to configure the automation:
    + **S3BucketName (Required):**
 
      The name of the Amazon S3 bucket configured with event notification(s).  
-![AWSSupport-TroubleshootS3EventNotification runbook execution input parameters.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-s3-event-notifications_input_parameters.png)
+![AWSSupport-TroubleshootS3EventNotification runbook execution input parameters.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-s3-event-notifications_input_parameters.png)
 
 1. Select Execute.
 
@@ -213,7 +213,7 @@ Follow these steps to configure the automation:
    + **AWS Lambda Event Notifications**
 
      If there are AWS Lambda destination notifications configured with the Amazon S3 bucket, a list of the Lambda functions is displayed alongside the results of the checks. The report includes Lambda resource check and Lambda access policy check.  
-![AWSSupport-TroubleshootS3EventNotification runbook sample execution output.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-s3-event-notifications_outputs.png)
+![AWSSupport-TroubleshootS3EventNotification runbook sample execution output.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-troubleshoot-s3-event-notifications_outputs.png)
 
  **References** 
 

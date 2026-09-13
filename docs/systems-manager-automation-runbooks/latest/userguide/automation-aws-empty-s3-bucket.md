@@ -96,7 +96,7 @@ Follow these steps to configure the automation:
    + **Acknowledgement:**
 
      Please read the complete details of the actions performed by this automation runbook and provide consent `Yes, I understand and acknowledge` if you acknowledge the steps.  
-![Image containing sample input parameters for AWSSupport-EmptyS3Bucket document.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-empty-s3-bucket_input_parameters.png)
+![Image containing sample input parameters for AWSSupport-EmptyS3Bucket document.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-empty-s3-bucket_input_parameters.png)
 
 1. Select Execute.
 
@@ -135,11 +135,11 @@ Follow these steps to configure the automation:
      Restores the enabled versioning state of the specified Amazon S3 bucket.
 
 1. After completed, review the Outputs section for the detailed results of the execution:  
-![Image containing the output of the AWSSupport-EmptyS3Bucket document's execution showing successful execution and configured lifecycle policy.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-empty-s3-bucket_outputs.png)
+![Image containing the output of the AWSSupport-EmptyS3Bucket document's execution showing successful execution and configured lifecycle policy.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-empty-s3-bucket_outputs.png)
    + **Successful execution**
 
      This workflow updates the bucket's lifecycle rule. Objects will be deleted according to the `Delete-All-AWSSupport-EmptyS3-Bucket` lifecycle policy.  
-![Image containing configured Delete-All-AWSSupport-EmptyS3-Bucket lifecycle policy.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-empty-s3-bucket_outputs_lifecycle_policy.png)
+![Image containing configured Delete-All-AWSSupport-EmptyS3-Bucket lifecycle policy.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-empty-s3-bucket_outputs_lifecycle_policy.png)
    + **Failure execution**
 
      Partial deletion will not be performed. If execution fails, the lifecycle and other bucket settings are rolled back.

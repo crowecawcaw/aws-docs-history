@@ -87,7 +87,7 @@ Sample policy:
    + **DBInstanceIdentifier (Required):**
 
      Enter the Amazon Relational Database Service Instance Identifier.  
-![Input parameters form with AutomationAssumeRole and DBInstanceIdentifier fields.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-rds-network-configuration_input_parameters.png)
+![Input parameters form with AutomationAssumeRole and DBInstanceIdentifier fields.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-rds-network-configuration_input_parameters.png)
 
 1. Select **Execute**.
 
@@ -116,10 +116,10 @@ Sample policy:
 1. When the automation is complete, review the **Outputs** section for the detailed results:
 
    Amazon RDS instance with valid network configuration:  
-![Report showing successful AWS RDS network configuration checks with all items passed.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-rds-network-configuration_outputs_valid_network.png)
+![Report showing successful AWS RDS network configuration checks with all items passed.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-rds-network-configuration_outputs_valid_network.png)
 
    Amazon RDS instance with incorrect network configuration (VPC attribute enableDnsHostnames is set to false):  
-![Network configuration report showing issues and troubleshooting results for an RDS instance.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-rds-network-configuration_outputs_invalid_network.png)
+![Network configuration report showing issues and troubleshooting results for an RDS instance.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-validate-rds-network-configuration_outputs_invalid_network.png)
 
  **References** 
 

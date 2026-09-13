@@ -66,7 +66,7 @@ Follow these steps to configure the automation:
    + **QueryEndTime (Optional)**
 
       The end time of the time range for the event analyasis. The valid time format is ISO8601 (e.g. `yyyy-MM-ddTHH:mm:ss`, `1970-01-01T00:00:00`). The default date time is the current time.  
-![Input parameters section on the management console which shows textboxes for the above five parameters.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-analyze-ses-message-sending-status_input_parameters.png)
+![Input parameters section on the management console which shows textboxes for the above five parameters.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-analyze-ses-message-sending-status_input_parameters.png)
 
 1. Select Execute.
 
@@ -87,7 +87,7 @@ Follow these steps to configure the automation:
    + **Output of analysis on an undelivered email message because of a bounce**
 
      Output of an automation execution for an email message that didn't reach the destination mailbox because of a bounce.  
-![Example of automation execution output of a message ID that received a bounce from the destination email server.](http://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-analyze-ses-message-sending-status_outputs.png)
+![Example of automation execution output of a message ID that received a bounce from the destination email server.](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/images/awssupport-analyze-ses-message-sending-status_outputs.png)
 
  **References** 
 
