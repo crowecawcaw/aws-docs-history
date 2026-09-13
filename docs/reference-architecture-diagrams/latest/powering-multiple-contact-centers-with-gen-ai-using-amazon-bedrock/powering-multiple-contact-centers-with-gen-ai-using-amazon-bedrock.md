@@ -10,7 +10,7 @@ Many contact center operators have a hybrid setup of using multiple vendors, whe
 ## Powering Multiple Contact Centers with GenAI Using Amazon Bedrock Diagram
 <a name="powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock"></a>
 
-![Reference architecture diagram showing how to consolidate support to a single AI/ML stack for multiple contact center instances, powering multiple contact centers by a single large language model.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock/images/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock.png)
+![Reference architecture diagram showing how to consolidate support to a single AI/ML stack for multiple contact center instances, powering multiple contact centers by a single large language model.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock/images/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock.png)
 
 
 1.  Call ingestion from a Genesys cloud contact center is achieved using an AudioHook websocket; call processing is handled using **Amazon Transcribe**. 
