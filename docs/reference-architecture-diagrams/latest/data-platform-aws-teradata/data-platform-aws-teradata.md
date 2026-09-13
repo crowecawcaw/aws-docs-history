@@ -10,7 +10,7 @@ Teradata VantageCloud Enterprise is part of the Teradata VantageCloud offering, 
 ## Modern Data Platform Using AWS and Teradata
 <a name="diagram1"></a>
 
-![Architecture diagram showing a modern data platform using AWS and Teradata with Amazon S3, AWS Glue, Amazon EMR, and SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-platform-aws-teradata/images/data-platform-aws-teradata.png)
+![Architecture diagram showing a modern data platform using AWS and Teradata with Amazon S3, AWS Glue, Amazon EMR, and SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-platform-aws-teradata/images/data-platform-aws-teradata.png)
 
 
 The following steps describe the architecture:
