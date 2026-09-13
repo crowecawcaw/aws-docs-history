@@ -10,7 +10,7 @@ This diagram demonstrates how to extract, process, and store electro-optical sat
 ## Electro-Optical Imagery on AWS Diagram 1
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to process electro-optical imagery on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/electro-optical-imagery/images/electro-optical-imagery-1.png)
+![Reference architecture diagram showing how to process electro-optical imagery on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electro-optical-imagery/images/electro-optical-imagery-1.png)
 
 
 1. Demodulate and decode: Extract baseband waveform from modulated carrier; remove forward error correction.
@@ -42,7 +42,7 @@ This diagram demonstrates how to extract, process, and store electro-optical sat
 ## Electro-Optical Imagery on AWS Diagram 2: Classified Processing
 <a name="diagram2"></a>
 
-![Reference architecture diagram showing how to process electro-optical imagery on AWS (classified processing).](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/electro-optical-imagery/images/electro-optical-imagery-2.png)
+![Reference architecture diagram showing how to process electro-optical imagery on AWS (classified processing).](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electro-optical-imagery/images/electro-optical-imagery-2.png)
 
 
 1. Demodulate and decode: Extract baseband waveform from modulated carrier; remove forward error correction.
