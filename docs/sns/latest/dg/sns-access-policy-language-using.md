@@ -5,7 +5,7 @@
 
 The following figure and table describe the general process of how access control works with the access policy language. 
 
-![The six-step process of how access control works with the access policy language in AWS. It starts with writing a policy for your resource, adding it to the system, and then proceeds through the stages of a requester making a request, the AWS service evaluating the applicable policies, and finally, the service either granting or denying the request based on the evaluation.](http://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Basic_Flow.gif)
+![The six-step process of how access control works with the access policy language in AWS. It starts with writing a policy for your resource, adding it to the system, and then proceeds through the stages of a requester making a request, the AWS service evaluating the applicable policies, and finally, the service either granting or denying the request based on the evaluation.](https://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Basic_Flow.gif)
 
 
 

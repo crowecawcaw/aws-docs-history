@@ -14,7 +14,7 @@ The general steps are as follows:
 
 The following diagram depicts the private network that you create in your AWS account as you complete these steps:
 
-![The architecture of the private network that you create with these steps.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-architecture.png)
+![The architecture of the private network that you create with these steps.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-architecture.png)
 
 
 This network consists of a VPC that contains an Amazon EC2 instance. The instance connects to Amazon SNS through an *interface VPC endpoint*. This type of endpoint connects to services that are powered by AWS PrivateLink. With this connection established, you can log in to the Amazon EC2 instance and publish messages to the Amazon SNS topic, even though the network is disconnected from the public internet. The topic fans out the messages that it receives to two subscribing AWS Lambda functions. These functions log the messages that they receive in Amazon CloudWatch Logs.
@@ -51,7 +51,7 @@ A *key pair* is used to log in to an Amazon EC2 instance. It consists of a publi
 1. Choose **Create Key Pair**.
 
 1. In the **Create Key Pair** window, for **Key pair name**, type **VPCE-Tutorial-KeyPair**. Then, choose **Create**.  
-![The Create Key Pair window with the text "VPCE-Tutorial-KeyPair" in the Key pair name field.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-key-pair.png)
+![The Create Key Pair window with the text "VPCE-Tutorial-KeyPair" in the Key pair name field.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-key-pair.png)
 
 1. The private key file is automatically downloaded by your browser. Save it in a safe place. Amazon EC2 gives the file an extension of `.pem`. 
 
@@ -101,7 +101,7 @@ The stack for this process includes the following resources:
    1. For **KeyName**, choose **VPCE-Tutorial-KeyPair**.
 
    1. For **SSHLocation**, keep the default value of **0.0.0.0/0**.  
-![The Specify Details page displaying populated value fields for Stack name, KeyName, and SSHLocation.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-stack-name.png)
+![The Specify Details page displaying populated value fields for Stack name, KeyName, and SSHLocation.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-stack-name.png)
 
    1. Choose **Next**.
 
@@ -114,7 +114,7 @@ The stack for this process includes the following resources:
 1. Choose **Create**.
 
    The CloudFormation console opens the **Stacks** page. The VPCE-Tutorial-Stack has a status of **CREATE\_IN\_PROGRESS**. In a few minutes, after the creation process completes, the status changes to **CREATE\_COMPLETE**.  
-![The CloudFormation stack with a status of CREATE_COMPLETE.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-stack-create-complete.png)
+![The CloudFormation stack with a status of CREATE_COMPLETE.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-stack-create-complete.png)
 **Tip**  
 Choose the **Refresh** button to see the latest stack status.
 
@@ -134,7 +134,7 @@ At this point, the publish attempt fails. In a later step, after you create a VP
 1. In the list of instances, select **VPCE-Tutorial-EC2Instance**.
 
 1. Copy the hostname that's provided in the **Public DNS** column.  
-![Details about the Amazon EC2 instance launched by CloudFormation.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-instance-details.png)
+![Details about the Amazon EC2 instance launched by CloudFormation.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-instance-details.png)
 
 1. Open a terminal. From the directory that contains the key pair, connect to the instance using the following command, where {{instance-hostname}} is the hostname that you copied from the Amazon EC2 console:
 
@@ -190,23 +190,23 @@ The instance still lacks access to other AWS services and endpoints on the inter
    The service names vary based on the chosen region. For example, if you chose US East (N. Virginia), the service name is **com.amazonaws.{{us-east-1}}.sns**.
 
 1. For **VPC**, choose the VPC that has the name **VPCE-Tutorial-VPC**.  
-![The VPC menu on the Create Endpoint page.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-vpc.png)
+![The VPC menu on the Create Endpoint page.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-vpc.png)
 
 1. For **Subnets**, choose the subnet that has *VPCE-Tutorial-Subnet* in the subnet ID.  
-![The subnets on the Create Endpoints page.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-subnet.png)
+![The subnets on the Create Endpoints page.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-subnet.png)
 
 1. For **Enable Private DNS Name**, select **Enable for this endpoint**.
 
 1. For **Security group**, choose **Select security group**, and choose **VPCE-Tutorial-SecurityGroup**.  
-![The security groups on the Create Endpoints page.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-security-group.png)
+![The security groups on the Create Endpoints page.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-security-group.png)
 
 1. Choose **Create endpoint**. The Amazon VPC console confirms that a VPC endpoint was created.  
-![The confirmation message displayed after you create an endpoint.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-confirmation.png)
+![The confirmation message displayed after you create an endpoint.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-confirmation.png)
 
 1. Choose **Close**. 
 
    The Amazon VPC console opens the **Endpoints** page. The new endpoint has a status of **pending**. In a few minutes, after the creation process completes, the status changes to **available**.  
-![The VPC endpoint with a status of available.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-status-available.png)
+![The VPC endpoint with a status of available.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-create-endpoint-status-available.png)
 
 ## Step 5: Publish a message to your Amazon SNS topic
 <a name="sns-vpc-publish"></a>
@@ -248,7 +248,7 @@ When the Amazon SNS topic receives a message, it fans out the message by sending
 1. Check the **Invocation count** graph. This graph shows the number of times that the Lambda function has been run.
 
    The invocation count matches the number of times you published a message to the topic.  
-![The Invocation count graph in the Lambda console.](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-lambda-invocation-count.png)
+![The Invocation count graph in the Lambda console.](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-lambda-invocation-count.png)
 
 **To verify that the CloudWatch logs were updated**
 
@@ -263,7 +263,7 @@ When the Amazon SNS topic receives a message, it fans out the message by sending
    1. Choose the log stream.
 
    1. Check that the log includes the entry `From SNS: Hello`.  
-![The CloudWatch log includes the entry "From SNS: Hello".](http://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-cloudwatch-log.png)
+![The CloudWatch log includes the entry "From SNS: Hello".](https://docs.aws.amazon.com/sns/latest/dg/images/vpce-tutorial-cloudwatch-log.png)
 
    1. Choose **Log Groups** at the top of the console to return the **Log Groups** page. Then, repeat the preceding steps for the /aws/lambda/VPCE-Tutorial-Lambda-2/ log group.
 

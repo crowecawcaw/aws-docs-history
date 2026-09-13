@@ -5,7 +5,7 @@
 
 The following scenario describes an event-driven, serverless e-commerce application that uses AWS Event Fork Pipelines. You can use this [example e-commerce application](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:077246666028:applications~fork-example-ecommerce-checkout-api) in the AWS Serverless Application Repository and then deploy it in your AWS account using the AWS Lambda console, where you can test it and examine its source code in GitHub.
 
-![The architecture of a serverless e-commerce application that integrates AWS services. It depicts the flow from ecommerce users placing orders via an API Gateway to different processing pipelines including order storage, search analytics, and replay, showcasing how events are managed and analyzed through Amazon SNS, Lambda, Amazon SQS, DynamoDB, and Kibana.](http://docs.aws.amazon.com/sns/latest/dg/images/sns-fork-example-use-case.png)
+![The architecture of a serverless e-commerce application that integrates AWS services. It depicts the flow from ecommerce users placing orders via an API Gateway to different processing pipelines including order storage, search analytics, and replay, showcasing how events are managed and analyzed through Amazon SNS, Lambda, Amazon SQS, DynamoDB, and Kibana.](https://docs.aws.amazon.com/sns/latest/dg/images/sns-fork-example-use-case.png)
 
 
 This e-commerce application takes orders from buyers through a RESTful API hosted by API Gateway and backed by the AWS Lambda function `CheckoutApiBackendFunction`. This function publishes all received orders to an Amazon SNS topic named `CheckoutEventsTopic` which, in turn, fans out the orders to four different pipelines.

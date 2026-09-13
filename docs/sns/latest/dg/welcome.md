@@ -22,7 +22,7 @@ Subscribers to an SNS topic can receive messages through different endpoints, de
 
 SNS supports both Application-to-Application (A2A) and Application-to-Person (A2P) messaging, giving flexibility to send messages between different applications or directly to mobile phones, email addresses, and more.
 
-![Amazon SNS delivers messages from publishers to subscribers across both application-to-application (A2A) and application-to-person (A2P) endpoints. It shows A2A endpoints like Lambda functions, Amazon SQS queues, HTTP/S endpoints, and Data Firehose, along with A2P endpoints including SMS, mobile push notifications, and email, highlighting the flexibility of Amazon SNS for asynchronous, event-driven communication.](http://docs.aws.amazon.com/sns/latest/dg/images/sns-delivery-protocols.png)
+![Amazon SNS delivers messages from publishers to subscribers across both application-to-application (A2A) and application-to-person (A2P) endpoints. It shows A2A endpoints like Lambda functions, Amazon SQS queues, HTTP/S endpoints, and Data Firehose, along with A2P endpoints including SMS, mobile push notifications, and email, highlighting the flexibility of Amazon SNS for asynchronous, event-driven communication.](https://docs.aws.amazon.com/sns/latest/dg/images/sns-delivery-protocols.png)
 
 
 ## Accessing Amazon SNS
@@ -45,7 +45,7 @@ The *Fanout* scenario is when a message published to an SNS topic is replicated 
 
 For example, you can develop an application that publishes a message to an SNS topic whenever an order is placed for a product. Then, SQS queues that are subscribed to the SNS topic receive identical notifications for the new order. An Amazon Elastic Compute Cloud (Amazon EC2) server instance attached to one of the SQS queues can handle the processing or fulfillment of the order. And you can attach another Amazon EC2 server instance to a data warehouse for analysis of all orders received.
 
-![A fanout scenario in Amazon SNS, where a single message from a publisher is sent to an Amazon SNS topic and then replicated to multiple endpoints, such as Amazon SQS queues. Each Amazon SQS queue forwards the message to an Amazon EC2 instance—one handling order processing and another performing data analysis, demonstrating parallel, asynchronous message delivery for event-driven applications.](http://docs.aws.amazon.com/sns/latest/dg/images/sns-fanout.png)
+![A fanout scenario in Amazon SNS, where a single message from a publisher is sent to an Amazon SNS topic and then replicated to multiple endpoints, such as Amazon SQS queues. Each Amazon SQS queue forwards the message to an Amazon EC2 instance—one handling order processing and another performing data analysis, demonstrating parallel, asynchronous message delivery for event-driven applications.](https://docs.aws.amazon.com/sns/latest/dg/images/sns-fanout.png)
 
 
 You can also use fanout to replicate data sent to your production environment with your test environment. Expanding upon the previous example, you can subscribe another SQS queue to the same SNS topic for new incoming orders. Then, by attaching this new SQS queue to your test environment, you can continue to improve and test your application using data received from your production environment.

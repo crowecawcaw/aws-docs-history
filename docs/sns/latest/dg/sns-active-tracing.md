@@ -116,7 +116,7 @@ You can use the Amazon SNS console to verify if active tracing is enabled for yo
 
 1. If you have enabled active tracing and you don't see that the resource policy has been added, choose **Create policy** to add the additional required permissions.
 
-![Screen shot displaying the details of an Amazon SNS topic named "SampleTopic" in the AWS Management Console. It indicates that AWS X-Ray active tracing is enabled for this topic, but a resource policy allowing Amazon SNS to send trace data is missing. A "Create policy" button is provided to resolve this issue.](http://docs.aws.amazon.com/sns/latest/dg/images/xray.png)
+![Screen shot displaying the details of an Amazon SNS topic named "SampleTopic" in the AWS Management Console. It indicates that AWS X-Ray active tracing is enabled for this topic, but a resource policy allowing Amazon SNS to send trace data is missing. A "Create policy" button is provided to resolve this issue.](https://docs.aws.amazon.com/sns/latest/dg/images/xray.png)
 
 
 ## Testing active tracing
@@ -132,4 +132,4 @@ You can use the Amazon SNS console to verify if active tracing is enabled for yo
 
 1. Use the [X-Ray service map](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-sns.html) to view the end-to-end traces and service maps for the topic.
 
-![Displays an AWS X-Ray service map that shows the tracing of a request flowing from a client to an Amazon SNS topic named "xray-topic." From there, the message is distributed to various downstream services, including an Amazon SQS queue, a Lambda function, a Kinesis firehose, and a remote service. Each connection displays metrics such as latency in milliseconds (ms) and the rate of transactions per minute (t/min), helping to analyze the performance and identify any latency issues in the message delivery process.](http://docs.aws.amazon.com/sns/latest/dg/images/xray-troubleshooting.png)
+![Displays an AWS X-Ray service map that shows the tracing of a request flowing from a client to an Amazon SNS topic named "xray-topic." From there, the message is distributed to various downstream services, including an Amazon SQS queue, a Lambda function, a Kinesis firehose, and a remote service. Each connection displays metrics such as latency in milliseconds (ms) and the rate of transactions per minute (t/min), helping to analyze the performance and identify any latency issues in the message delivery process.](https://docs.aws.amazon.com/sns/latest/dg/images/xray-troubleshooting.png)

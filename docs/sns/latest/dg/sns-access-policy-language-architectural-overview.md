@@ -5,7 +5,7 @@
 
 The following figure and table describe the main components that interact to provide access control for your resources.
 
-![The flow of access control within an AWS service. It shows how you, as the resource owner, manage your resources (such as Amazon SQS queues) through policies. These policies are evaluated by the AWS service's access policy language evaluation code to determine whether incoming requests from requesters should be granted or denied access to the resources. The diagram includes numbered elements that correspond to the resource owner, resources, policies, incoming requests, and evaluation logic.](http://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Arch_Overview.gif)
+![The flow of access control within an AWS service. It shows how you, as the resource owner, manage your resources (such as Amazon SQS queues) through policies. These policies are evaluated by the AWS service's access policy language evaluation code to determine whether incoming requests from requesters should be granted or denied access to the resources. The diagram includes numbered elements that correspond to the resource owner, resources, policies, incoming requests, and evaluation logic.](https://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Arch_Overview.gif)
 
 
 

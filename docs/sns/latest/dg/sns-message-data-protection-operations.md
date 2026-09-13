@@ -178,7 +178,7 @@ In the following example, `callerPrincipal` is used to identify the source of th
 
 When an audit operation has specified the `FindingsDestination` or the `NoFindingsDestination` property, the topic owners also receive CloudWatch `MessagesWithFindings` and `MessagesWithNoFindings` metrics.
 
-![Example of an audit displaying data over a specified period of time.](http://docs.aws.amazon.com/sns/latest/dg/images/audit-operations-metrics.png)
+![Example of an audit displaying data over a specified period of time.](https://docs.aws.amazon.com/sns/latest/dg/images/audit-operations-metrics.png)
 
 
 ## De-identify operation

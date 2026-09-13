@@ -11,7 +11,7 @@ The goal at evaluation time is to decide whether a grant request should be allow
 
 The following flow chart and discussion describe in more detail how the decision is made.
 
-![Illustrates the decision-making process used by AWS to determine whether a request to access a resource should be allowed or denied. It begins with a default deny, checks for any explicit deny in the applicable policies, then looks for any allow instructions, and finally, if no allow is found, the request is denied by default.](http://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Evaluation_Flow.gif)
+![Illustrates the decision-making process used by AWS to determine whether a request to access a resource should be allowed or denied. It begins with a default deny, checks for any explicit deny in the applicable policies, then looks for any allow instructions, and finally, if no allow is found, the request is denied by default.](https://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Evaluation_Flow.gif)
 
 
 
@@ -32,21 +32,21 @@ A policy also results in a default deny if a condition in a statement isn't met.
 
 For example, let's say you want to prevent requests coming in from Antarctica. You write a policy (called Policy A1) that allows a request only if it doesn't come from Antarctica. The following diagram illustrates the policy.
 
-![Illustrates a policy (Policy A1) that allows a request if it does not come from Antarctica. It shows the condition that the request must not originate from Antarctica for the "Allow" effect to apply; otherwise, the default action is to deny the request.](http://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Allow_Override_1.gif)
+![Illustrates a policy (Policy A1) that allows a request if it does not come from Antarctica. It shows the condition that the request must not originate from Antarctica for the "Allow" effect to apply; otherwise, the default action is to deny the request.](https://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Allow_Override_1.gif)
 
 
 If someone sends a request from the U.S., the condition is met (the request is not from Antarctica). Therefore, the request is allowed. But, if someone sends a request from Antarctica, the condition isn't met, and the policy's result is therefore a default deny. 
 
 You could turn the result into an explicit deny by rewriting the policy (named Policy A2) as in the following diagram. Here, the policy explicitly denies a request if it comes from Antarctica.
 
-![Illustrates a policy (Policy A2) that explicitly denies a request if it comes from Antarctica. It shows that when the condition is met (the request originates from Antarctica), the policy results in an explicit denial, meaning the request is always denied under these circumstances.](http://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Allow_Override_2.gif)
+![Illustrates a policy (Policy A2) that explicitly denies a request if it comes from Antarctica. It shows that when the condition is met (the request originates from Antarctica), the policy results in an explicit denial, meaning the request is always denied under these circumstances.](https://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Allow_Override_2.gif)
 
 
 If someone sends a request from Antarctica, the condition is met, and the policy's result is therefore an explicit deny.
 
 The distinction between a default deny and an explicit deny is important because a default deny can be overridden by an allow, but an explicit deny can't. For example, let's say there's another policy that allows requests if they arrive on June 1, 2010. How does this policy affect the overall outcome when coupled with the policy restricting access from Antarctica? We'll compare the overall outcome when coupling the date-based policy (we'll call Policy B) with the preceding policies A1 and A2. Scenario 1 couples Policy A1 with Policy B, and Scenario 2 couples Policy A2 with Policy B. The following figure and discussion show the results when a request comes in from Antarctica on June 1, 2010.
 
-![Compares two scenarios where a policy restricts access based on the request's origin (Antarctica) and the request date (June 1, 2010). In Scenario 1, the combination of policies results in a default deny being overridden by an allow, permitting the request. In Scenario 2, an explicit deny from one policy overrides an allow from another, resulting in the request being denied.](http://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Allow_Override.gif)
+![Compares two scenarios where a policy restricts access based on the request's origin (Antarctica) and the request date (June 1, 2010). In Scenario 1, the combination of policies results in a default deny being overridden by an allow, permitting the request. In Scenario 2, an explicit deny from one policy overrides an allow from another, resulting in the request being denied.](https://docs.aws.amazon.com/sns/latest/dg/images/AccessPolicyLanguage_Allow_Override.gif)
 
 
 In Scenario 1, Policy A1 returns a default deny, as described earlier in this section. Policy B returns an allow because the policy (by definition) allows requests that come in on June 1, 2010. The allow from Policy B overrides the default deny from Policy A1, and the request is therefore allowed.

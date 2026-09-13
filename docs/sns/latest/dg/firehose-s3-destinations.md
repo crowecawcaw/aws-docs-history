@@ -5,7 +5,7 @@
 
 This topic explains how delivery streams publish data to Amazon Simple Storage Service (Amazon S3).
 
-![The integration and workflow of Amazon services for message handling. It shows how a publisher sends messages to an Amazon SNS topic, which then fans out messages to multiple Amazon SQS queues and an Data Firehose delivery stream. From there, messages can be processed by Lambda functions or stored persistently in an Amazon S3 bucket.](http://docs.aws.amazon.com/sns/latest/dg/images/firehose-architecture-s3.png)
+![The integration and workflow of Amazon services for message handling. It shows how a publisher sends messages to an Amazon SNS topic, which then fans out messages to multiple Amazon SQS queues and an Data Firehose delivery stream. From there, messages can be processed by Lambda functions or stored persistently in an Amazon S3 bucket.](https://docs.aws.amazon.com/sns/latest/dg/images/firehose-architecture-s3.png)
 
 
 **Topics**

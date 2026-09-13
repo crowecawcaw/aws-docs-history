@@ -46,7 +46,7 @@ Amazon SNS applies jittering to delivery retries. For more information, see the 
 
 The following diagram shows the phases of a delivery policy.
 
-![An x y axis diagram displaying Time as the x value and Initial Delivery Attempt as the y value. The delivery policy begins with the Immediate Retry Phase on the y axis, followed on the x axis by the Pre-Backoff Phase, the Backoff Phase, and the Post-Backoff Phase.](http://docs.aws.amazon.com/sns/latest/dg/images/sns-delivery-policy-phases.png)
+![An x y axis diagram displaying Time as the x value and Initial Delivery Attempt as the y value. The delivery policy begins with the Immediate Retry Phase on the y axis, followed on the x axis by the Pre-Backoff Phase, the Backoff Phase, and the Post-Backoff Phase.](https://docs.aws.amazon.com/sns/latest/dg/images/sns-delivery-policy-phases.png)
 
 
 Each delivery policy is comprised of four phases.
@@ -146,4 +146,4 @@ The following diagram illustrates how different retry backoff functions affect t
 + The **vertical axis** shows the delay (in seconds) for each retry attempt.
 + The **horizontal axis** represents the retry sequence, ranging from the first to the tenth attempt.
 
-![The diagram shows how retry delays progress over 10 attempts based on four backoff functions: exponential, arithmetic, linear, and geometric. Each colored line represents a function's delay pattern: Exponential: Increases rapidly, reaching the maximum delay the quickest, Linear: Increases steadily with each retry, Arithmetic and Geometric: Show moderate increases, steeper than linear but less rapid than exponential. All lines start near the minimum delay of 5 seconds and approach the maximum delay of 260 seconds by the tenth retry.](http://docs.aws.amazon.com/sns/latest/dg/images/backoff-graph.png)
+![The diagram shows how retry delays progress over 10 attempts based on four backoff functions: exponential, arithmetic, linear, and geometric. Each colored line represents a function's delay pattern: Exponential: Increases rapidly, reaching the maximum delay the quickest, Linear: Increases steadily with each retry, Arithmetic and Geometric: Show moderate increases, steeper than linear but less rapid than exponential. All lines start near the minimum delay of 5 seconds and approach the maximum delay of 260 seconds by the tenth retry.](https://docs.aws.amazon.com/sns/latest/dg/images/backoff-graph.png)

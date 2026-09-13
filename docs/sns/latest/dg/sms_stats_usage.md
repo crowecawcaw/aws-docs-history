@@ -57,10 +57,10 @@ To subscribe to daily usage reports, you must create an Amazon S3 bucket with th
 1. On the navigation panel, choose **Text messaging (SMS)**.
 
 1. On the **Text messaging (SMS)** page, in the **Text messaging preferences** section, choose **Edit**.  
-![Text messaging preferences section in the Amazon SNS console](http://docs.aws.amazon.com/sns/latest/dg/images/daily-usage-report1.png)
+![Text messaging preferences section in the Amazon SNS console](https://docs.aws.amazon.com/sns/latest/dg/images/daily-usage-report1.png)
 
 1. On the **Edit text messaging preferences** page, in the **Details** section, specify the **Amazon S3 bucket name for usage reports**.  
-![Details section of the Edit text messaging preferences page in the Amazon SNS console](http://docs.aws.amazon.com/sns/latest/dg/images/daily-usage-report2.png)
+![Details section of the Edit text messaging preferences page in the Amazon SNS console](https://docs.aws.amazon.com/sns/latest/dg/images/daily-usage-report2.png)
 
 1. Choose **Save changes**.
 
