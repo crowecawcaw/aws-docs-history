@@ -23,10 +23,10 @@ Complete the following prerequisites before migrating to Amazon MQ for RabbitMQ:
 To export the definitions from a self-managed RabbitMQ cluster and import them into Amazon MQ for RabbitMQ, do the following:
 
 1.  Go to the RabbitMQ console of your existing self-managed cluster by signing on to any of the brokers. Choose the overview tab, then select `Export Definitions` to produce a link to export the definition.   
-![Nodes table showing file descriptors, socket descriptors, Erlang processes, memory, and disk space metrics with Download broker definitions button highlighted.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/migrating-step-1.jpg)
+![Nodes table showing file descriptors, socket descriptors, Erlang processes, memory, and disk space metrics with Download broker definitions button highlighted.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/migrating-step-1.jpg)
 
 1.  Next, login to the Amazon MQ RabbitMQ console. Navigate to the existing broker you would like to apply the configurations to. Click on the overview tab, then click import definitions to upload the configuration file that you exported in the previous step.   
-![Import definitions section with file chooser and Upload broker definitions button.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/migrating-step-2.jpg)
+![Import definitions section with file chooser and Upload broker definitions button.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/migrating-step-2.jpg)
 
 1.  Once the configuration file is imported, you can view all the queues and exchange definitions that were defined in the self-managed broker. 
 

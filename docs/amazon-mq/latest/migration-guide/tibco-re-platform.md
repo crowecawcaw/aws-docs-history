@@ -15,7 +15,7 @@
    </networkConnectors>
    ```
 
-    After the reboot of **AMQ\_ORANGE**, there should be a Network Bridge created between both brokers as illustrated below: ![Network Bridges table showing AMQ_APPLE broker with remote address and connection details.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/tibco-replatform-fig-1.PNG) 
+    After the reboot of **AMQ\_ORANGE**, there should be a Network Bridge created between both brokers as illustrated below: ![Network Bridges table showing AMQ_APPLE broker with remote address and connection details.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/tibco-replatform-fig-1.PNG) 
 **Note**  
 Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more information about using CloudFormation to set up Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.html).
 

@@ -10,7 +10,7 @@
 
  The below diagram shows a typical architecture of IBM MQ connections between two IBM MQ queue managers in a High Availability cluster as seen in many enterprise applications. IBM MQ queue manager **QM\_ORANGE** is deployed in the *us-east-1* region and **QM\_APPLE** is deployed in the *us-east-2* region. 
 
- ![Message flow between two queue managers showing queues, transmit and receive channels across availability zones.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-mq-architecture-fig-1.PNG) 
+ ![Message flow between two queue managers showing queues, transmit and receive channels across availability zones.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-mq-architecture-fig-1.PNG) 
 
  For application *App 1* to communicate with *App 2*: 
 
@@ -23,7 +23,7 @@
 ## Option Two: IBM MQ HA/DR topology running on-premises
 <a name="option-two-ibm-mq-hadr-topology-running-on-prem"></a>
 
- ![IBM MQ architecture showing queue managers, multi-instance setup, MQ cluster , and server cluster with SAN storage.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-mq-architecture-fig-2.PNG) 
+ ![IBM MQ architecture showing queue managers, multi-instance setup, MQ cluster , and server cluster with SAN storage.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-mq-architecture-fig-2.PNG) 
 
  In the above diagram, the **MQ Cluster** is comprised of two separate queue managers and all messages are routed via cluster channels and queueing. If one queue manager fails, messages are then re-routed to another queue manager.
 

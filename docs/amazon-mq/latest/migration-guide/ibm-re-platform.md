@@ -15,7 +15,7 @@
    </networkConnectors>
    ```
 
-    After the reboot of **AMQ\_ORANGE**, there should be a Network Bridge created between both brokers as illustrated below: ![ActiveMQ Network Bridges table showing broker AMQ_APPLE with remote address and message statistics.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-replatform-fig-1.PNG) ![ActiveMQ Network Bridges page showing remote broker AMQ_ORANGE with address and message statistics.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-replatform-fig-2.PNG) 
+    After the reboot of **AMQ\_ORANGE**, there should be a Network Bridge created between both brokers as illustrated below: ![ActiveMQ Network Bridges table showing broker AMQ_APPLE with remote address and message statistics.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-replatform-fig-1.PNG) ![ActiveMQ Network Bridges page showing remote broker AMQ_ORANGE with address and message statistics.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-replatform-fig-2.PNG) 
 **Note**  
 Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more information about using CloudFormation to set up Amazon MQ brokers, see the Amazon MQ [CloudFormation Template Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/AWS_AmazonMQ.html).
 
@@ -89,4 +89,4 @@ Steps 1 and 2 can be replicated using a AWS CloudFormation template. For more in
    </broker>
    ```
 
-1.  Create local queue `Q1` on **AMQ\_ORANGE** and `Q2` on **AMQ\_APPLE** as shown in the following: ![ActiveMQ console showing Queues page with one queue named Q1 having zero pending messages.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-replatform-fig-3.PNG) ![ActiveMQ Queues page showing queue Q2 with zero pending messages, consumers, and enqueued messages.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-replatform-fig-4.PNG) 
+1.  Create local queue `Q1` on **AMQ\_ORANGE** and `Q2` on **AMQ\_APPLE** as shown in the following: ![ActiveMQ console showing Queues page with one queue named Q1 having zero pending messages.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-replatform-fig-3.PNG) ![ActiveMQ Queues page showing queue Q2 with zero pending messages, consumers, and enqueued messages.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/ibm-replatform-fig-4.PNG) 

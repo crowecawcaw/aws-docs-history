@@ -12,7 +12,7 @@
 
  The following diagram illustrates Amazon MQ configured across two regions with a linear connection between two active/standby brokers: 
 
- ![Two Amazon MQ brokers in different regions connected via network connector with queues and apps.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/tibco-amazon-mq-architecture-fig-1.PNG) 
+ ![Two Amazon MQ brokers in different regions connected via network connector with queues and apps.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/tibco-amazon-mq-architecture-fig-1.PNG) 
 
  For *App 1* to communicate with *App 2*: 
 

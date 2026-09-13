@@ -18,18 +18,18 @@ The following diagrams illustrate the scenario of migrating from an on-premises 
 
 | On-Premises Message Broker | Migration to Amazon MQ with Standard (Unordered) Queues | 
 | --- | --- | 
-|  ![Diagram showing producers connecting to on-premises message broker, which connects to consumers.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/amazon-mq-migration-on-premises-multiple-producers.png)  |  ![Architecture diagram showing message flow from producers through on-premises broker to AWS and consumers.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/amazon-mq-migration-unordered-queues-no-interruption.png)  | 
+|  ![Diagram showing producers connecting to on-premises message broker, which connects to consumers.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/amazon-mq-migration-on-premises-multiple-producers.png)  |  ![Architecture diagram showing message flow from producers through on-premises broker to AWS and consumers.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/amazon-mq-migration-unordered-queues-no-interruption.png)  | 
 
 ### To migrate to Amazon MQ without service interruption
 <a name="migrate-without-service-interruption"></a>
 
-![Red circle with the number 1 inside, typically used as a numerical indicator.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-1-red.png)[Create and configure an Amazon MQ broker](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/getting-started-activemq) and note your broker's endpoint, for example:
+![Red circle with the number 1 inside, typically used as a numerical indicator.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-1-red.png)[Create and configure an Amazon MQ broker](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/getting-started-activemq) and note your broker's endpoint, for example:
 
 ```
 ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617
 ```
 
-![Red circle with the number 2 inside, indicating a numerical step or count.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-2-red.png) For either of the following cases, use the [Failover Transport](https://activemq.apache.org/failover-transport-reference.html) to allow your consumers to randomly connect to your on-premises broker's endpoint or your Amazon MQ broker's endpoint. For example:
+![Red circle with the number 2 inside, indicating a numerical step or count.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-2-red.png) For either of the following cases, use the [Failover Transport](https://activemq.apache.org/failover-transport-reference.html) to allow your consumers to randomly connect to your on-premises broker's endpoint or your Amazon MQ broker's endpoint. For example:
 
 ```
 failover:(ssl://on-premises-broker.example.com:61617,ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617)?randomize=true
@@ -41,14 +41,14 @@ Do one of the following:
 **Note**  
 If you scale up your consumer fleet during the migration process, it is a best practice to scale it down afterward.
 
-![Red circle with white number 3 inside, indicating a numerical label or step.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-3-red.png) One by one, stop each existing producer, point the producer to your Amazon MQ broker's endpoint, and then restart the producer.
+![Red circle with white number 3 inside, indicating a numerical label or step.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-3-red.png) One by one, stop each existing producer, point the producer to your Amazon MQ broker's endpoint, and then restart the producer.
 
-![Red circle with the number 4 inside, likely representing a numerical icon or badge.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-4-red.png) Wait for your consumers to drain the destinations on your on-premises broker.
+![Red circle with the number 4 inside, likely representing a numerical icon or badge.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-4-red.png) Wait for your consumers to drain the destinations on your on-premises broker.
 
-![Red circle with the number 5 inside.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-5-red.png) Change your consumers' Failover transport to include only your Amazon MQ broker's endpoint. For example:
+![Red circle with the number 5 inside.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-5-red.png) Change your consumers' Failover transport to include only your Amazon MQ broker's endpoint. For example:
 
 ```
 failover:(ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61617)
 ```
 
-![Red circle with the number 6 inside.](http://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-6-red.png) Stop your on-premises broker.
+![Red circle with the number 6 inside.](https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/images/number-6-red.png) Stop your on-premises broker.
