@@ -10,7 +10,7 @@ This architecture diagram helps you learn how to transfer life sciences data fil
 ## Life Sciences Data Collection, Storage, and Processing Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to transfer life sciences data files to the cloud and provide data access.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/life-sciences-data-collection-storage-processing/images/life-sciences-data-collection-storage-processing.png)
+![Reference architecture diagram showing how you can use AWS services to transfer life sciences data files to the cloud and provide data access.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/life-sciences-data-collection-storage-processing/images/life-sciences-data-collection-storage-processing.png)
 
 
 1. A lab technician runs an experiment and results are written to a folder on an on-premises file server. An AWS DataSync task is set up to sync the data from local storage to a bucket in Amazon Simple Storage Service (Amazon S3).
