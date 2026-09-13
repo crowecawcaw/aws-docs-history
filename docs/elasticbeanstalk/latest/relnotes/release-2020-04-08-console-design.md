@@ -14,10 +14,10 @@ Today we're introducing some significant design changes in the Elastic Beanstalk
 
 In addition, you'll see a new visual design with cleaner looking panes, lists, forms and tables.
 
-![All applications page of the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/images/2020-03-17-console.all-applications.png)
+![All applications page of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/images/2020-03-17-console.all-applications.png)
 
 
-![Environment page of the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/images/2020-03-17-console.environment.png)
+![Environment page of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/images/2020-03-17-console.environment.png)
 
 
 You can complete the same tasks as before using this new design. There's no change in the console's functionality.

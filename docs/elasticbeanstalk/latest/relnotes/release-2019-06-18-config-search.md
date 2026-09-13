@@ -14,7 +14,7 @@ The environment configuration page in the Elastic Beanstalk console has several 
 
 Starting with today's release, the Elastic Beanstalk console adds an alternative **Table View**, which shows all configuration options in a table, grouped by category. You can search for an option by its name or value by entering search terms into a search box. As you type, the list gets shorter and shows only options that match your search terms.
 
-![Table view of the configuration overview page of the Elastic Beanstalk console, showing an option search](http://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/images/2019-06-13-config-search.cfg-table-search.png)
+![Table view of the configuration overview page of the Elastic Beanstalk console, showing an option search](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/images/2019-06-13-config-search.cfg-table-search.png)
 
 
 For more information about configuring environment options, see [AWS Elastic Beanstalk Environment Configuration](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/customize-containers.html) in the *AWS Elastic Beanstalk Developer Guide*.

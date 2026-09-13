@@ -19,4 +19,4 @@ Elastic Beanstalk added support for the following languages:
 
 To change the console language, open the language selection menu at the bottom bar, and then select the desired language.
 
-![Elastic Beanstalk console language selection menu](http://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/images/2018-10-30-console-language-menu.png)
+![Elastic Beanstalk console language selection menu](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/images/2018-10-30-console-language-menu.png)
