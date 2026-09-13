@@ -5,7 +5,7 @@
 
  Welcome to Amazon Connect Decisions. The homepage is your central hub for supply chain decision intelligence. This guide walks you through each section of the homepage so you can quickly orient yourself and start taking action. The homepage is comprised of four key sections: Section 1: Metrics, Section 2: Top topics for today, Section 3: Natural Language Interface (NLI) / Decisions Teammate, and Section 4: Navigation bar. 
 
-![](http://docs.aws.amazon.com/connect-decisions/latest/userguide/images/understanding-your-homepage-overview.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/understanding-your-homepage-overview.png)
 
 
 ## Key metrics

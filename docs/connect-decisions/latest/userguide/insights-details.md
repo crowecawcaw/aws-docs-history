@@ -32,10 +32,10 @@ At the top of the page:
 
 **Last updated timestamp**: Shows when the insight was last modified (for example, "Last updated April 16, 2025 03:07 UTC")
 
-![](http://docs.aws.amazon.com/connect-decisions/latest/userguide/images/insights-details-header.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/insights-details-header.png)
 
 
-![](http://docs.aws.amazon.com/connect-decisions/latest/userguide/images/insights-details-page-sections.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/insights-details-page-sections.png)
 
 
 ## Insight Overview

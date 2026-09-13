@@ -19,7 +19,7 @@ The homepage provides quick access to insights through status summary cards disp
 
 When you navigate from a homepage card, the Insights page opens with relevant filters already applied.
 
-![](http://docs.aws.amazon.com/connect-decisions/latest/userguide/images/filtering-and-sorting-insights-page-layout.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/filtering-and-sorting-insights-page-layout.png)
 
 
 ## Understanding the Insights Page Layout
