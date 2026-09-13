@@ -97,7 +97,7 @@ If you use a CodePipeline service role that was created before July 2018, you mu
    1. On the **Step 6: Add deploy stage** page, choose **Skip deploy stage**, and then accept the warning message by choosing **Skip** again.
 
    1. On **Step 7: Review**, choose **Create pipeline**. You should see a diagram that shows the source and build stages.  
-![View your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-view-pipeline-S3.png)
+![View your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-view-pipeline-S3.png)
 
 1. Add a Device Farm test action to your pipeline as follows:
 

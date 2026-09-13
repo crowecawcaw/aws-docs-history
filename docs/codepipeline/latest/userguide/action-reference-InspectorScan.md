@@ -62,7 +62,7 @@ The number of medium severity vulnerabilities found in your source beyond which 
 **LowThreshold **  
 The number of low severity vulnerabilities found in your source beyond which CodePipeline should fail the action. 
 
-![Add an InspectorScan action to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/inspectorscan-edit.png)
+![Add an InspectorScan action to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/inspectorscan-edit.png)
 
 
 ## Input artifacts

@@ -86,7 +86,7 @@ If the provided URL has already been used to set up a GitHub Enterprise Server f
       Make sure to choose the security group for the infrastructure where your GitHub Enterprise Server instance is installed or a security group with access to your installed GitHub Enterprise Server instance through VPN or Direct Connect.
 
    1. If you have a private VPC configured, and you have configured your GitHub Enterprise Server instance to perform TLS validation using a non-public certificate authority, in **TLS certificate**, enter your certificate ID. The TLS Certificate value should be the public key of the certificate.  
-![Console screenshot showing create GitHub Enterprise Server connection page for VPC options.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/connections-create-ghes-screen-vpc.png)
+![Console screenshot showing create GitHub Enterprise Server connection page for VPC options.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/connections-create-ghes-screen-vpc.png)
 
 1. Choose **Connect to GitHub Enterprise Server**. The created connection is shown with a **Pending** status. A host resource is created for the connection with the server information you provided. For the host name, the URL is used.
 

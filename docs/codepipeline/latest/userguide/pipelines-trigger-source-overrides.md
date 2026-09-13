@@ -34,7 +34,7 @@ For the `S3_OBJECT_VERSION_ID` and `S3_OBJECT_KEY` types of source revisions, ei
 1. In **Name**, choose the name of the pipeline you want to start. 
 
 1. On the pipeline details page, choose **Release change**. Choosing **Release change** opens the **Release change** window. For **Source revision override**, choose the arrow to expand the field. In **Source**, enter the source revision ID. For example, if your pipeline has a CodeCommit source, choose the commit ID from the field that you want to use.  
-![An example of the overrides screen in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/overrides.png)
+![An example of the overrides screen in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/overrides.png)
 
 ## Start a pipeline with a source revision override (CLI)
 <a name="pipelines-trigger-source-overrides-cli"></a>

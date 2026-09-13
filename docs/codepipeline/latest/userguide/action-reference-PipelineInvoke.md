@@ -54,12 +54,12 @@ The mapping uses a string format as shown in the following example:
 
 The following image shows an example of the action added to a pipeline in the console. 
 
-![A pipeline with an S3 source and a build stage that includes the pipeline invoke action](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-pipeline-invoke-run.png)
+![A pipeline with an S3 source and a build stage that includes the pipeline invoke action](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-pipeline-invoke-run.png)
 
 
 The following image shows an example of the **Edit** page for the action. In the following example, the pipeline named `s3-pipeline-test` has a pipeline invoke action configured as shown for the console. The action will start the `s3-pipeline-test` pipeline when the pipeline named `my-s3-pipeline` completes an execution. The example shows that source revision override for the S3\_OBJECT\_VERSION\_ID source override with specified revision value of `zq8mjNYEexample`.
 
-![The Edit action page for a new pipeline with the pipeline invoke action](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-pipeline-invoke-edit.png)
+![The Edit action page for a new pipeline with the pipeline invoke action](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-pipeline-invoke-edit.png)
 
 
 ## Input artifacts

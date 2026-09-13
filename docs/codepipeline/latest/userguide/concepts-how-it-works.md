@@ -77,7 +77,7 @@ When you choose to stop and wait, the selected execution continues until in-prog
 1. The execution stops when the stopping process is complete. If the build action is completed successfully, its status is **Succeeded**, and the pipeline execution shows a status of **Stopped**. Subsequent actions do not start. The **Retry** button is enabled. 
 
    In the history view, the execution status is **Stopped** after the in-progress action is completed.  
-![Image showing the history view where the execution status is Stopped after the in-progress action is completed](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stop-exec-wait-hist-1.png)
+![Image showing the history view where the execution status is Stopped after the in-progress action is completed](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stop-exec-wait-hist-1.png)
 
 **Option 2: Stop and abandon**
 
@@ -88,7 +88,7 @@ When you choose to stop and abandon, the selected execution does not wait for in
 1. After the pipeline execution stops, the build action shows a status of **Abandoned**, and the pipeline execution shows a status of **Stopped**. Subsequent actions do not start. The **Retry** button is enabled.
 
 1. In the history view, the execution status is **Stopped**.  
-![Image showing the history view where the execution status is Stopped](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stop-exec-abandon-hist-1.png)
+![Image showing the history view where the execution status is Stopped](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stop-exec-abandon-hist-1.png)
 
 **Use cases for stopping a pipeline execution**
 
@@ -107,7 +107,7 @@ The default mode for processing executions is SUPERSEDED mode. An execution cons
 
 Because each stage can process only one execution at a time, the stage is locked while in progress. When the execution completes a stage, it transitions to the next stage in the pipeline.
 
-![Image showing the stages locked while in progress](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/Promotion.png)
+![Image showing the stages locked while in progress](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/Promotion.png)
 
 
 **Rule 2: Subsequent executions wait for the stage to be unlocked**
@@ -117,14 +117,14 @@ While a stage is locked, waiting executions are held in front of the locked stag
 **Note**  
 Before you stop an execution, we recommend that you disable the transition in front of the stage. This way, when the stage is unlocked due to the stopped execution, the stage does not accept a subsequent pipeline execution.
 
-![Image showing how the waiting execution waits between stages when Stage 2 is locked](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/Waiting.png)
+![Image showing how the waiting execution waits between stages when Stage 2 is locked](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/Waiting.png)
 
 
 **Rule 3: Waiting executions are superseded by more recent executions**
 
 Executions are only superseded in between stages. A locked stage holds one execution at the front of the stage awaiting the stage to complete. A more recent execution overtakes a waiting execution and continues to the next stage as soon as the stage is unlocked. The superseded execution does not continue. In this example, Execution 2 has been superseded by Execution 3 while awaiting the locked stage. Execution 3 enters the stage next.
 
-![Image showing how the waiting execution is superseded by execution 3](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/Batching.png)
+![Image showing how the waiting execution is superseded by execution 3](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/Batching.png)
 
 
 For more information about considerations for viewing and switching between execution modes, see [Set or change the pipeline execution mode](execution-modes.md). For more information about quotas with execution modes, see [Quotas in AWS CodePipeline](limits.md).
@@ -138,7 +138,7 @@ Waiting executions gather at the entry points to locked stages in the order that
 
 The following diagram shows how stages in a QUEUED mode pipeline process executions. For example, while the Source stage processes execution 5, the executions for 6 and 7 form Queue \#1 and wait at the stage entry point. The next execution in the queue will be processed after the stage unlocks. 
 
-![A diagram showing executions in a pipeline set for QUEUED mode.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/Queued-Execution-Mode.png)
+![A diagram showing executions in a pipeline set for QUEUED mode.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/Queued-Execution-Mode.png)
 
 
 For more information about considerations for viewing and switching between execution modes, see [Set or change the pipeline execution mode](execution-modes.md). For more information about quotas with execution modes, see [Quotas in AWS CodePipeline](limits.md).
@@ -175,7 +175,7 @@ When deciding how a code change should flow through your pipeline, it is best to
 
 As an example, a test action after a deployment action in the same stage is guaranteed to test the same change that was deployed. In this example, a change is deployed to a Test environment and then tested, and then the latest change from the test environment is deployed to a Production environment. In the recommended example, the Test environment and the Prod environment are separate stages. 
 
-![Image showing two types of grouping for actions in stages, with the recommended option being on the left](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/structure-example-recommended-notrecommended.png)
+![Image showing two types of grouping for actions in stages, with the recommended option being on the left](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/structure-example-recommended-notrecommended.png)
 
 
 ### How Inbound Executions Work

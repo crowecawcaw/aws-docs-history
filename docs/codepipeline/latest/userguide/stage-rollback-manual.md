@@ -19,18 +19,18 @@ You can use the console to manually roll back a stage to a target pipeline execu
    The names and status of all pipelines associated with your AWS account are displayed. 
 
 1. In **Name**, choose the name of the pipeline with the stage to roll back.  
-![An example diagram of a pipeline with two stages in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-stage-first.png)
+![An example diagram of a pipeline with two stages in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-stage-first.png)
 
 1. On the stage, choose **Start rollback**. The **Roll back to** page displays.
 
 1. Choose the target execution to which you want to roll back the stage.
 **Note**  
 The list of target pipeline executions available will be all executions in the current pipeline version beginning on February 1, 2024.  
-![An example of choosing the target execution ID in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-stage-dialog.png)
+![An example of choosing the target execution ID in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-stage-dialog.png)
 
 The following diagram shows an example of the rolled back stage with the new execution ID.
 
-![An example diagram of a pipeline with a rolled back stage in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-rolled-back.png)
+![An example diagram of a pipeline with a rolled back stage in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-rolled-back.png)
 
 
 ## Roll back a stage manually (CLI)

@@ -189,7 +189,7 @@ After you create your pipeline and specify Git tags, you can tag commits in your
    ```
    git push origin release-1
    ```  
-![Use the terminal to run the command to tag a commit.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/git-tags-pipeline.png)
+![Use the terminal to run the command to tag a commit.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/git-tags-pipeline.png)
 
 ## Step 4: Release change and view logs
 <a name="tutorials-github-tags-view"></a>

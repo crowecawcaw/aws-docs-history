@@ -10,7 +10,7 @@ You can view the status and target execution ID for a rollback execution.
 
 You can use the console to view the status and target pipeline execution ID for a rollback execution.
 
-![An example status page showing the target pipeline execution ID field in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-view-status-console.png)
+![An example status page showing the target pipeline execution ID field in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-view-status-console.png)
 
 
 ## View rollback details with `get-pipeline-execution` (CLI)

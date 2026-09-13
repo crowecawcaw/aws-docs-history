@@ -7,7 +7,7 @@
 
 The following diagram shows an example release process using CodePipeline.
 
-![An example release process using CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/PipelineFlow.png)
+![An example release process using CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/PipelineFlow.png)
 
 
 In this example, when developers commit changes to a source repository, CodePipeline automatically detects the changes. Those changes are built, and if any tests are configured, those tests are run. After the tests are complete, the built code is deployed to staging servers for testing. From the staging server, CodePipeline runs more tests, such as integration or load tests. Upon the successful completion of those tests, and after a manual approval action that was added to the pipeline is approved, CodePipeline deploys the tested and approved code to production instances.

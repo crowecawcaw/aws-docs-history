@@ -257,7 +257,7 @@ Most source and build stage output artifacts are zipped. All pipeline source pro
 Applying a canned ACL overwrites any existing ACL applied to the object.
 
        (Optional) In **Cache control**, specify the cache control parameters for requests to download objects from the bucket. For a list of valid values, see the [`Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) header field for HTTP operations. To enter multiple values in **Cache control**, use a comma between each value. You can add a space after each comma (optional), as shown in this example.  
-![Image showing the Cache control field in the console with the following entry: public, max-age=0, no-transform](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/cache_control_values.png)
+![Image showing the Cache control field in the console with the following entry: public, max-age=0, no-transform](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/cache_control_values.png)
 
        The preceding example entry is displayed in the CLI as follows:
 
@@ -511,9 +511,9 @@ Choose a template to create a pipeline with a deployment stage, automation, or a
    + Choose **Automation** if you plan to create an automated pipeline. View the options for automation, such as scheduling a python build.
 
 1.   
-![Image showing the choose template option with CloudFormation deployment selectedin the wizard](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-static-choose-template-depl.png)  
-![Image showing the choose source page in the wizard](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-static-choose-template-CI.png)  
-![Image showing the choose template option with automation selected in the wizard](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-static-choose-template-auto.png)
+![Image showing the choose template option with CloudFormation deployment selectedin the wizard](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-static-choose-template-depl.png)  
+![Image showing the choose source page in the wizard](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-static-choose-template-CI.png)  
+![Image showing the choose template option with automation selected in the wizard](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-static-choose-template-auto.png)
 
 **Step 3: Choose source**
 + On the **Step 3: Choose source** page, in **Source provider**, choose the provider for the repository where your source code is stored, specify its required options, and then choose **Next step**.
@@ -542,7 +542,7 @@ The object and file type must be compatible with the deployment system you plan 
 **Step 4: Configure template**
 
 For this example, the deployment to CloudFormation was selected. In this step, add configuration for your template.  
-![Image showing the configure template page in the wizard](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-static-conf-template.png)
+![Image showing the configure template page in the wizard](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-static-conf-template.png)
 
 1. In **Step 4: Configure template**, in **Stack name**, enter a name for your pipeline.
 

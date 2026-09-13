@@ -5,7 +5,7 @@
 
 Now that you've created your first pipeline in [Tutorial: Create a simple pipeline (S3 bucket)](tutorials-simple-s3.md) or [Tutorial: Create a simple pipeline (CodeCommit repository)](tutorials-simple-codecommit.md), you can start creating more complex pipelines. This tutorial will walk you through the creation of a four-stage pipeline that uses a GitHub repository for your source, a Jenkins build server to build the project, and a CodeDeploy application to deploy the built code to a staging server. The following diagram shows the initial three-stage pipeline.
 
-![A diagram showing the source stage with the source action, a build stage with the Jenkins action, and a deploy stage with the deploy action.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/flow-codepipeline-codecommit-jenkins.png)
+![A diagram showing the source stage with the source action, a build stage with the Jenkins action, and a deploy stage with the deploy action.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/flow-codepipeline-codecommit-jenkins.png)
 
 
 After the pipeline is created, you will edit it to add a stage with a test action to test the code, also using Jenkins. 

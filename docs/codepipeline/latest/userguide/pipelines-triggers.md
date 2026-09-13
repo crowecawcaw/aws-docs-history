@@ -176,7 +176,7 @@ For the following example,
 + On the `feature-branch` branch, closing a pull request will trigger the pipeline because `feature-branch` is included for the pull request event type and the event type CLOSED matches.
 The following image shows the configuration.  
 
-![An example trigger configuration with a push filter type and a pull request filter type](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-trigger-filters-pushpluspullrequest.png)
+![An example trigger configuration with a push filter type and a pull request filter type](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-trigger-filters-pushpluspullrequest.png)
 
 The following is the example JSON for the configuration.  
 
@@ -238,7 +238,7 @@ For the following example:
    
 The following example of the Edit page shows the two Push filter types and their configuration for includes and excludes.   
 
-![An example trigger configuration with a push filter type that includes the release-1 tag and a push filter type the includes the main* branch and excludes the feature* branches](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-trigger-filters-pushtags-pushbranches.png)
+![An example trigger configuration with a push filter type that includes the release-1 tag and a push filter type the includes the main* branch and excludes the feature* branches](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-trigger-filters-pushtags-pushbranches.png)
 
 
 The following is the example JSON for the configuration.
@@ -312,8 +312,8 @@ The following is the example JSON for the action configuration showing the `Bran
 ```
 The following example action output shows the default branch main was used when the pipeline was manually started.  
 
-![An example action output page for a manually started pipeline](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-source-action-manual.png)
+![An example action output page for a manually started pipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-source-action-manual.png)
 
 The following example action output shows the pull request and branch that was used for the trigger when filtered by pull request.  
 
-![An example action output page for a pipeline started with a trigger pull request filter type](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-source-action-pr.png)
+![An example action output page for a pipeline started with a trigger pull request filter type](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/example-source-action-pr.png)

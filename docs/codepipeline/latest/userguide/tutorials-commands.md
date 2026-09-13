@@ -112,7 +112,7 @@ Running the Commands action will incur separate charges in AWS CodeBuild.
    ```
 
    Choose **Next**.  
-![The Step 4: Add build stage page for a new pipeline with the Commands action](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-wizard-screen.png)
+![The Step 4: Add build stage page for a new pipeline with the Commands action](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-wizard-screen.png)
 
 1. In **Step 5: Add test stage**, choose **Skip test stage**, and then accept the warning message by choosing **Skip** again. 
 
@@ -127,7 +127,7 @@ Running the Commands action will incur separate charges in AWS CodeBuild.
 1. As a final step for creating your action, add an environment variable to the action that will result in an output variable for the action. On the Commands action, choose **Edit**. On the **Edit** screen, specify a variable namespace for your action by entering `compute` in the **Variable namespace** field.
 
    Add the CodeBuild output variable `AWS_Default_Region`, and then choose **Add variable**.  
-![The Edit page for the Commands action](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-output-edit-var.png)
+![The Edit page for the Commands action](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-output-edit-var.png)
 
 ## Step 3: Run your pipeline and verify build commands
 <a name="tutorials-commands-update"></a>
@@ -141,7 +141,7 @@ Release a change to run your pipeline. Verify that the build commands ran by vie
 1. To view the output variables for the action, choose **History**, and then choose **Timeline**. 
 
    View the output variable that was added to the action. The output for the Commands action shows the output variable resolved to the action Region.  
-![The output for the Commands action showing the output variable resolved to the action Region](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-output-variable.png)
+![The output for the Commands action showing the output variable resolved to the action Region](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-output-variable.png)
 
 1. To view the logs for the action, choose **View details ** on the successful Commands action. View the logs for the Commands action.  
-![Example logs for the Commands action](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-output-logs.png)
+![Example logs for the Commands action](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-output-logs.png)

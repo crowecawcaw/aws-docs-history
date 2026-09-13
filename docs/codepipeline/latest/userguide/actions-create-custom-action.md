@@ -15,7 +15,7 @@ When you create a custom action, you must also create a job worker that will pol
 
 The following diagram shows a high-level view of a pipeline that includes a custom build action:
 
-![A high-level view of a pipeline that includes a custom build action.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/PipelineCustomActionCS.png)
+![A high-level view of a pipeline that includes a custom build action.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/PipelineCustomActionCS.png)
 
 
 When a pipeline includes a custom action as part of a stage, the pipeline will create a job request. A custom job worker detects that request and performs that job (in this example, a custom process using third-party build software). When the action is complete, the job worker returns either a success result or a failure result. If a success result is received, the pipeline will provide the revision and its artifacts to the next action. If a failure is returned, the pipeline will not provide the revision to the next action in the pipeline.
@@ -75,11 +75,11 @@ These instructions assume that you have already completed the steps in [Getting 
    + `executionUrlTemplate`: the dynamic link that will be updated with information about the current or most recent run of the action. When your custom job worker updates the status of a job (for example, success, failure, or in progress), it will also provide an `externalExecutionId` that will be used to complete the link. This link can be used to provide details about the run of an action. 
 
    For example, when you view the action in the pipeline, you see the following two links:  
-![Links in the CodePipeline console lead to more information about the run of a pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-calinksexplained.png)
+![Links in the CodePipeline console lead to more information about the run of a pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-calinksexplained.png)
 
-   ![1](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/number-1.png) This static link appears after you add your custom action and points to the address in `entityUrlTemplate`, which you specify when you create your custom action.
+   ![1](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/number-1.png) This static link appears after you add your custom action and points to the address in `entityUrlTemplate`, which you specify when you create your custom action.
 
-   ![2](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/number-2.png) This dynamic link is updated after every run of the action and points to the address in `executionUrlTemplate`, which you specify when you create your custom action.
+   ![2](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/number-2.png) This dynamic link is updated after every run of the action and points to the address in `executionUrlTemplate`, which you specify when you create your custom action.
 
    For more information about these link types, as well as `RevisionURLTemplate` and `ThirdPartyURL`, see [ActionTypeSettings](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_ActionTypeSettings.html) and [CreateCustomActionType](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_CreateCustomActionType.html) in the [CodePipeline API Reference](https://docs.aws.amazon.com/codepipeline/latest/APIReference/). For more information about action structure requirements and how to create an action, see [CodePipeline pipeline structure reference](reference-pipeline-structure.md).
 
@@ -230,7 +230,7 @@ Consider using the `AWSCodePipelineCustomActionAccess` managed policy.
 
 After you've chosen your permissions management strategy, you should consider how your job worker will interact with CodePipeline. The following high-level diagram shows the workflow of a custom action and job worker for a build process.
 
-![The workflow of a custom action and job worker for a build process.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/PipelineCustomAgent.png)
+![The workflow of a custom action and job worker for a build process.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/PipelineCustomAgent.png)
 
 
 1. Your job worker polls CodePipeline for jobs using `PollForJobs`.

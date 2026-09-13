@@ -309,7 +309,7 @@ In this tutorial, you are deploying code that requires no build service, so you 
 1. In **Step 7: Review**, review the information, and then choose **Create pipeline**.
 
 1. The pipeline starts running after it is created. It downloads the code from your CodeCommit repository and creates a CodeDeploy deployment to your EC2 instance. You can view progress and success and failure messages as the CodePipeline sample deploys the webpage to the Amazon EC2 instance in the CodeDeploy deployment.  
-![A view of a pipeline starting to run in the CodePipeline console.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-firstpipeline-codecommit-pol.png)
+![A view of a pipeline starting to run in the CodePipeline console.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-firstpipeline-codecommit-pol.png)
 
 Congratulations\! You just created a simple pipeline in CodePipeline. 
 

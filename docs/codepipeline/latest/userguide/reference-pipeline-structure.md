@@ -25,12 +25,12 @@ For more information, see the [PipelineDeclaration](https://docs.aws.amazon.com/
 
 The following example pipeline console view shows the pipeline named new-github, stages named `Source`, `manual`, and `Build`, and actions from GitHub (via GitHub App), manual approval, and CodeBuild action providers.
 
-![An example of the pipeline view in the CodePipeline console.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipeline-console-view.png)
+![An example of the pipeline view in the CodePipeline console.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipeline-console-view.png)
 
 
 The pipeline editing mode, when viewed in the console diagram, allows you to edit source overrides, triggers, and actions as shown in the following example.
 
-![An example of the pipeline editing mode in the CodePipeline console.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipeline-console-view-edit.png)
+![An example of the pipeline editing mode in the CodePipeline console.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipeline-console-view-edit.png)
 
 
 **Topics**

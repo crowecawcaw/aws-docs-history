@@ -23,7 +23,7 @@ You can roll back a stage to a specified previous successful execution. For more
 1. On the **Edit** page, for the action you want to edit, choose **Edit stage**.
 
 1. Choose **Automated stage configuration:**, and then choose **Configure automatic rollback on stage failure**. Save the changes to your pipeline.  
-![An example edit screen to configure a rolled back stage in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-configure.png)
+![An example edit screen to configure a rolled back stage in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-configure.png)
 
 ## Configure a stage for automatic rollback (CLI)
 <a name="stage-rollback-auto-cli"></a>

@@ -167,7 +167,7 @@ Use the CodePipeline wizard to create your pipeline stages and connect your sour
    Choose **Next**.
 
 1. On the **Step 4: Add build stage** page, choose **Other build providers**, and then choose **ECRBuildAndPublish**.  
-![Add an Amazon ECR build action to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ecrbuild-wizard.png)
+![Add an Amazon ECR build action to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ecrbuild-wizard.png)
 
    1. For **ECR repository name**, choose your image repository.
 
@@ -206,13 +206,13 @@ Use the CodePipeline wizard to create your pipeline stages and connect your sour
    1. To submit your changes and start a pipeline build, choose **Release change**, and then choose **Release**.
 
 1. After the pipeline runs, view the pipeline structure and status.  
-![A console diagram showing a successful pipeline run with the Amazon ECR build action and the Amazon ECS deploy action added to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ecrbuild-ecsaction.png)
+![A console diagram showing a successful pipeline run with the Amazon ECR build action and the Amazon ECS deploy action added to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ecrbuild-ecsaction.png)
 
 1. After the pipeline runs successfully, choose **View details** to view the logs on the action to view the managed compute action output.  
-![View logs for the Amazon ECR build action in your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ecrbuild-logs.png)
+![View logs for the Amazon ECR build action in your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ecrbuild-logs.png)
 
 1. Troubleshoot any failed actions. For example, the ECS deploy action can fail if the imagedefinitions.json file is not in the source repository. The following is an example of the error message that displays when the imagedefinitions.json file is missing.   
-![View logs for the Amazon ECR build action in your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ecrbuild-ecsdebug.png)
+![View logs for the Amazon ECR build action in your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ecrbuild-ecsdebug.png)
 
 ## Step 4: Test Your Pipeline
 <a name="tutorials-ecr-build-publish-test"></a>

@@ -149,7 +149,7 @@ Copy the URL for your product before you navigate away from the page. Once you n
 1. In **Step 7: Review**, review your pipeline settings, and then choose **Create**.
 
 1. After your pipeline runs successfully, on the deployment stage, choose **Details**. This opens your product in Service Catalog.  
-![View your pipeline's Service Catalog deploy stage](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/deploy-servicecatalog-pipeline.png)
+![View your pipeline's Service Catalog deploy stage](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/deploy-servicecatalog-pipeline.png)
 
 1. Under your product information, choose your version name to open the product template. View the template deployment.
 
@@ -305,7 +305,7 @@ Copy the URL for your product before you navigate away from the page. Once you n
 1. In **Review**, review your pipeline settings, and then choose **Create**.
 
 1. After your pipeline runs successfully, on your deployment stage, choose **Details** to open your product in Service Catalog.  
-![View your pipeline's Service Catalog deploy stage](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/deploy-servicecatalog-pipeline.png)
+![View your pipeline's Service Catalog deploy stage](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/deploy-servicecatalog-pipeline.png)
 
 1. Under your product information, choose your version name to open the product template. View the template deployment.
 

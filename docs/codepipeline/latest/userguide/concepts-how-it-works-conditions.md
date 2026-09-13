@@ -22,17 +22,17 @@ Conditions are used for specific types of expressions and each has specific opti
 
 The following diagram shows an example flow for the Entry condition type in CodePipeline. Conditions answer the question, What should happen if the condition is not met, meaning any rule fails? In the following flow, an Entry condition is configured with a LambdaInvoke rule and a `CloudWatchAlarm` rule. If the rule fails, then the configured result, such as Fail, is engaged.
 
-![An example of the Entry condition type with two rules configured, a LambdaInvoke rule and a CloudWatchAlarm rule.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/conditions-overview-entry.png)
+![An example of the Entry condition type with two rules configured, a LambdaInvoke rule and a CloudWatchAlarm rule.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/conditions-overview-entry.png)
 
 
 The following diagram shows an example flow for the On Failure condition type in CodePipeline. Conditions answer the question, What should happen if the condition is met, meaning the rules all succeed their checks? In the following flow, an On Failure condition is configured with a LambdaInvoke rule and a `CloudWatchAlarm` rule. If the rule succeeds, then the configured result, such as Fail, is engaged.
 
-![An example of the On Failure condition type with two rules configured, a LambdaInvoke rule and a CloudWatchAlarm rule.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/conditions-overview-onfailure.png)
+![An example of the On Failure condition type with two rules configured, a LambdaInvoke rule and a CloudWatchAlarm rule.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/conditions-overview-onfailure.png)
 
 
 The following diagram shows an example flow for the On Success condition type in CodePipeline. Conditions answer the question, What should happen if the condition is met, meaning the rules all succeed their checks? In the following flow, an On Success condition is configured with a `LambdaInvoke` rule and a `CloudWatchAlarm` rule. If the rule succeeds, then the configured result, such as Fail, is engaged.
 
-![An example of the On Success condition type with two rules configured, a LambdaInvoke rule and a CloudWatchAlarm rule.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/conditions-overview-onsuccess.png)
+![An example of the On Success condition type with two rules configured, a LambdaInvoke rule and a CloudWatchAlarm rule.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/conditions-overview-onsuccess.png)
 
 
 

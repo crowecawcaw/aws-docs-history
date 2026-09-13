@@ -52,7 +52,7 @@ You can also configure a stage for retry automatically on failure as detailed in
 1. Locate the stage with the failed action, and then choose one of the following:
    + To retry all actions in the stage, choose **Retry stage**.
    + To retry only failed actions in the stage, choose **Retry failed actions**.   
-![An example pipeline with a CodeCommit source stage and a failed CodeDeploy deploy stage](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/retry-failed-stage.png)
+![An example pipeline with a CodeCommit source stage and a failed CodeDeploy deploy stage](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/retry-failed-stage.png)
 
    If all retried actions in the stage are completed successfully, the pipeline continues to run.
 
@@ -183,13 +183,13 @@ You can use the console to configure a stage for automatic retry.
    + To specify that the mode will only retry failed actions in the stage, choose **Retry failed actions**.
 
    Save the changes to your pipeline.  
-![An example edit screen to configure automatic retry on stage failure in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/retry-configure.png)
+![An example edit screen to configure automatic retry on stage failure in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/retry-configure.png)
 
 1. After your pipeline runs, if the stage failure occurs, the automatic retry attempt will be made. The following examples show a build stage that has been retried automatically.  
-![An example pipeline with a failed stage that has been retried once.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-auto-retry-example.png)
+![An example pipeline with a failed stage that has been retried once.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-auto-retry-example.png)
 
 1. To view details about the retry attempt, choose . The window displays.  
-![An example of the retry stage metadata window showing there has been one attempt.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/retry-stage-metadata.png)
+![An example of the retry stage metadata window showing there has been one attempt.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/retry-stage-metadata.png)
 
 ### Configure a stage for automatic retry (CLI)
 <a name="stage-retry-auto-cli"></a>

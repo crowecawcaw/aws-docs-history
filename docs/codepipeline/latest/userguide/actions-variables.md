@@ -51,7 +51,7 @@ You can enter variable syntax in any action configuration field in the wizard.
 1. Choose **Create**.
 
 1. After the pipeline is created, you can view the namespace that was created by the wizard. On the pipeline, choose the icon for the stage you want to view the namespace for. In this example, the source action's auto-generated namespace, `SourceVariables`, is displayed.   
-![Example: Action Info Screen](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-popup-namespace.png)
+![Example: Action Info Screen](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-popup-namespace.png)
 
 **To edit the namespace for an existing action**
 
@@ -172,13 +172,13 @@ You can use the console to view variables for an action.
 1. Choose **View history**.
 
 1. After the pipeline runs successfully, you can view the variables produced by the source action. Choose **View history**. Choose **Source** in the action list for the pipeline execution to view the action execution details for the CodeCommit action. On the action detail screen, view the variables under **Output variables**.  
-![Example: Source output variables](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-output.png)
+![Example: Source output variables](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-output.png)
 
 1. After the pipeline runs successfully, you can view the variables consumed by the build action. Choose **View history**. In the action list for the pipeline execution, choose **Build** to view the action execution details for the CodeBuild action. On the action detail page, view the variables under **Action configuration**. The auto-generated namespace is displayed.  
-![Example: Action Configuration Variables](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-actionconfig-codebuild.png)
+![Example: Action Configuration Variables](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-actionconfig-codebuild.png)
 
    By default, **Action configuration** displays the variable syntax. You can choose **Show resolved configuration** to toggle the list to display the values that were produced during the action execution.  
-![Example: Resolved Action Configuration Variables](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-actionconfig-codebuild-resolved.png)
+![Example: Resolved Action Configuration Variables](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-actionconfig-codebuild-resolved.png)
 
 ### View variables (CLI)
 <a name="actions-variables-view-cli"></a>
@@ -295,4 +295,4 @@ This example shows you how to add output variable syntax from a GitHub source ac
 
        For more information, see [View variables (console)](#actions-variables-view-console).
    + **CodeBuild console:** Choose your build project and choose the link for your build run. Under **Environment variables**, your resolved output variable is the value for the CodeBuild environment variable. In this example, the environment variable **Name** is `BranchName` and the **Value** is the resolved `BranchName` output variable from the GitHub source action. In this example, the resolved value is `main`.  
-![Screen shot showing the resolved variable in the console](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/variable-codebuild-resolved.png)
+![Screen shot showing the resolved variable in the console](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/variable-codebuild-resolved.png)

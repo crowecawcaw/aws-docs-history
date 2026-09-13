@@ -27,7 +27,7 @@ Create or identify a topic in Amazon SNS. CodePipeline will use CloudWatch Event
 1. Choose **Create topic**. 
 
 1. In the **Create new topic** dialog box, for **Topic name**, type a name for the topic (for example, **PipelineNotificationTopic**).   
-![Create the notification topic using Amazon SNS.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/tutorial-SNS-topic.png)
+![Create the notification topic using Amazon SNS.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/tutorial-SNS-topic.png)
 
 1. Choose **Create topic**.
 

@@ -73,7 +73,7 @@ Follow the next five sub-steps for creating a cluster with a private endpoint.
 1. On the VPC details page, choose the **Resource map** tab.
 
 1. View the diagram and make a note of your private subnets. The subnets display with labels to indicate public or private status, and each subnet is mapped to a route table.  
-![A console diagram showing subnets and the resource map for a VPC.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/eks-deploy-subnets.png)
+![A console diagram showing subnets and the resource map for a VPC.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/eks-deploy-subnets.png)
 
    Note that a private cluster will have all private subnets.
 
@@ -335,7 +335,7 @@ Use the CodePipeline wizard to create your pipeline stages and connect your sour
 1. On the **Step 4: Add build stage** page, choose **Skip**.
 
 1. On the **Step 5: Add deploy stage** page, choose **Amazon EKS**.  
-![Deploy configuration form with Helm selected, showing fields for release name, chart location, and other options.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/eks-action-example.png)
+![Deploy configuration form with Helm selected, showing fields for release name, chart location, and other options.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/eks-action-example.png)
 
    1. Under **Deploy configuration type**, choose **Helm**.
 
@@ -344,6 +344,6 @@ Use the CodePipeline wizard to create your pipeline stages and connect your sour
    1. Choose **Next**.
 
 1. On the **Step 6: Review** page, review your pipeline configuration and choose **Create pipeline** to create the pipeline.  
-![A console diagram showing a successful pipeline run with the deploy action added to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/eks-deploy-pipeline.png)
+![A console diagram showing a successful pipeline run with the deploy action added to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/eks-deploy-pipeline.png)
 
 1. After the pipeline runs successfully, choose **View details** to view the logs on the action to view the action output.

@@ -171,8 +171,8 @@ In this step, you edit the stage to add an On Entry condition for the variable c
    In **Rule provider**, choose **VariableCheck**.
 
 1. In **Variable**, enter the variable or variables that you want to check. In **Value**, enter the string value to check against the resolved variable. In the following example screens, a rule is created for an "equals" check, and another rule is created for a "contains" check.  
-![The rule creation page for the "equals" variable check](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/varcheck-tut-create-rule-equals.png)  
-![The rule creation page for the "contains" variable check](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/varcheck-tut-create-rule-contains.png)
+![The rule creation page for the "equals" variable check](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/varcheck-tut-create-rule-equals.png)  
+![The rule creation page for the "contains" variable check](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/varcheck-tut-create-rule-contains.png)
 
 1. Choose **Save**. 
 
@@ -184,7 +184,7 @@ In this step, you edit the stage to add an On Entry condition for the variable c
 In this step, you view the resolved values and results of the variable check rule.
 
 1. View the resolved run after the rule check is successful as shown in the following example.  
-![The successful run](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/varcheck-tut-run-succeeded.png)
+![The successful run](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/varcheck-tut-run-succeeded.png)
 
 1. View the variable information on the **Timeline** tab.   
-![The history page showing the Timeline tab with variables succeeded](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/varcheck-tut-history.png)
+![The history page showing the Timeline tab with variables succeeded](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/varcheck-tut-history.png)

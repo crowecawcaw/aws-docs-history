@@ -63,14 +63,14 @@ You can create connections to a Bitbucket Cloud repository. Installed Bitbucket 
 **To create a connection to Bitbucket Cloud**
 
 1. On the **Connect to Bitbucket** settings page, enter your connection name and choose **Connect to Bitbucket**.  
-![Console screenshot showing the Connect to Bitbucket button.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-connection-bitbucket.png)
+![Console screenshot showing the Connect to Bitbucket button.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-connection-bitbucket.png)
 
    The **Bitbucket apps** field appears.
 
 1. Under **Bitbucket apps**, choose an app installation or choose **Install a new app** to create one.
 **Note**  
 You only install the app once for each Bitbucket Cloud workspace or account. If you have already installed the Bitbucket app, choose it and move to step 4.  
-![Console screenshot showing the Connect to Bitbucket Cloud dialog box, with the install new app button.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/newreview-source-wizard-bitbucket.png)
+![Console screenshot showing the Connect to Bitbucket Cloud dialog box, with the install new app button.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/newreview-source-wizard-bitbucket.png)
 
 1. If the login page for Bitbucket Cloud displays, log in with your credentials and then choose to continue.
 
@@ -81,7 +81,7 @@ You only install the app once for each Bitbucket Cloud workspace or account. If 
    Choose **Grant access**.
 
 1. In **Bitbucket apps**, the connection ID for your new installation is displayed. Choose **Connect**. The created connection displays in the connections list.  
-![Console screenshot showing request for access.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-connection-bitbucket-app-ID.png)
+![Console screenshot showing request for access.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-connection-bitbucket-app-ID.png)
 
 ### Step 3: Save your Bitbucket Cloud source action
 <a name="connections-bitbucket-console-save"></a>

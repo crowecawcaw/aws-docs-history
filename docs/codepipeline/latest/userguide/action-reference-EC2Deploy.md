@@ -80,12 +80,12 @@ The script to be run after the action Deploy phase.
 
 The following image shows an example of the **Edit** page for the action where **Use action configurations** is chosen.
 
-![The Edit action page for a new pipeline with the EC2Deploy action specifying using the action configuration](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-action.png)
+![The Edit action page for a new pipeline with the EC2Deploy action specifying using the action configuration](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-action.png)
 
 
 The following image shows an example of the **Edit** page for the action where **Use a DeploySpec file** is chosen.
 
-![The Edit action page for a new pipeline with the EC2Deploy action option to use a spec file](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-action-spec.png)
+![The Edit action page for a new pipeline with the EC2Deploy action option to use a spec file](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-action-spec.png)
 
 
 ## Input artifacts

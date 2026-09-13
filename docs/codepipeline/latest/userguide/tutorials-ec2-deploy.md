@@ -176,7 +176,7 @@ Use the CodePipeline wizard to create your pipeline stages and connect your sour
 1. On the **Step 4: Add build stage** page, choose **Skip**.
 
 1. On the **Step 5: Add deploy stage** page, choose **EC2**.  
-![Add an EC2 deploy action to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-action.png)
+![Add an EC2 deploy action to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-action.png)
 
    1. For **Target directory**, enter the directory on the instance that you want to deploy to, such as `/home/ec2-user/testhelloworld`.
 **Note**  
@@ -187,11 +187,11 @@ Specify the deployment directory that you want the action to use on the instance
    1. Choose **Next**.
 
 1. On the **Step 6: Review** page, review your pipeline configuration and choose **Create pipeline** to create the pipeline.  
-![A console diagram showing a successful pipeline run with the deploy action added to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-pipeline.png)
+![A console diagram showing a successful pipeline run with the deploy action added to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-pipeline.png)
 
 1. After the pipeline runs successfully, choose **View details** to view the logs on the action to view the managed compute action output.  
-![View logs for the Amazon EC2 deploy action in your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-logs.png)  
-![View the second page of logs for the Amazon EC2 deploy action in your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-logs2.png)
+![View logs for the Amazon EC2 deploy action in your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-logs.png)  
+![View the second page of logs for the Amazon EC2 deploy action in your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ec2deploy-logs2.png)
 
 ## Step 5: Test Your Pipeline
 <a name="tutorials-ec2-deploy-test"></a>

@@ -332,7 +332,7 @@ You can use the CodePipeline console to add a new stage that uses the new deploy
 1. On the pipeline details page, choose **Edit**. 
 
 1. On the **Edit** page, choose **\+ Add stage** to add a stage immediately after the Deploy stage.   
-![Image showing the + Add stage button on the edit screen](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/edit-pipeline-console-pol.png)
+![Image showing the + Add stage button on the edit screen](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/edit-pipeline-console-pol.png)
 
 1. In **Add stage**, in **Stage name**, enter **Production**. Choose **Add stage**.
 
@@ -502,7 +502,7 @@ You can enable or disable the transition between stages in a pipeline. Disabling
 1. In **Disable transition**, enter a reason for disabling the transition between the stages, and then choose **Disable**.
 
    The arrow between stages displays an icon and color change, and the **Enable transition** button.  
-![Image showing the entered reason for disabling the transition as "Disabling transition while I troubleshoot the failure"](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-disabled-transition-pol.png)
+![Image showing the entered reason for disabling the transition as "Disabling transition while I troubleshoot the failure"](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-disabled-transition-pol.png)
 
 1. Upload your sample again to the S3 bucket. Because the bucket is versioned, this change starts the pipeline. 
 

@@ -220,7 +220,7 @@ Each time an action is executed as part of a pipeline execution, the variables i
 
 
 
-![Example: Variables for multiple actions](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-workflow-example.png)
+![Example: Variables for multiple actions](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/variables-workflow-example.png)
 
 
 ## Rules for variables

@@ -560,7 +560,7 @@ View your pipeline and add an Amazon ECR source action to your pipeline.
 1. In **Action name**, enter a name (for example, **Image**).
 
 1. In **Action provider**, choose **Amazon ECR**.  
-![Add an Amazon ECR source action to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/ECR-source-action.png)
+![Add an Amazon ECR source action to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/ECR-source-action.png)
 
 1. In **Repository name**, choose the name of your Amazon ECR repository.
 

@@ -20,7 +20,7 @@ You can use the console to view the status and target execution ID for a rollbac
 
 1. Choose **History**. The list of executions shows the label **Rollback**.
 
-![An example execution history page showing the Rollback label in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-view-list-console.png)
+![An example execution history page showing the Rollback label in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/rollback-view-list-console.png)
 
 
 Choose the execution ID for which you want to view details.

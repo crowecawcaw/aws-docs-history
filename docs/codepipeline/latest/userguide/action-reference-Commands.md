@@ -118,7 +118,7 @@ Required: No
 You can provide files that you want to export as output artifacts for the action.  
 The supported format for files is the same as for CodeBuild file patterns. For example, enter `**/` for all files. For more information, see [Build specification reference for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.artifacts.files) in the *CodeBuild User Guide*.  
 
-![The Edit action page for a new pipeline with the Commands action](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-edit-screen.png)
+![The Edit action page for a new pipeline with the Commands action](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/commands-edit-screen.png)
 
 
 **VpcId**  

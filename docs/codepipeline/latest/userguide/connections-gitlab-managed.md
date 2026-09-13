@@ -88,7 +88,7 @@ If the provided URL has already been used to set up a host for a connection, you
 Only an administrator can create and use the PAT.
 
    Choose **Continue**.  
-![Console screenshot showing GitLab self-managed personal access token entry for the new host](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/connections-create-glsm-pat.png)
+![Console screenshot showing GitLab self-managed personal access token entry for the new host](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/connections-create-glsm-pat.png)
 
 1. The connection page shows the created connection in an **Available** status.
 

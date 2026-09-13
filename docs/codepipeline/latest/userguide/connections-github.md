@@ -58,7 +58,7 @@ In these steps, you can select specific repositories under **Repository Access**
 
 After you choose to create the connection, the **Connect to GitHub** page appears.
 
-![Console screenshot showing the initial GitHub connection page.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/github-conn.png)
+![Console screenshot showing the initial GitHub connection page.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/github-conn.png)
 
 
 **To create a connection to GitHub**
@@ -66,7 +66,7 @@ After you choose to create the connection, the **Connect to GitHub** page appear
 1. Under **GitHub connection settings**, your connection name appears in **Connection name**. Choose **Connect to GitHub**. The access request page appears.
 
 1. Choose **Authorize AWS Connector for GitHub**. The connection page displays and shows the **GitHub Apps** field.  
-![Console screenshot showing the initial GitHub connection page with the GitHub Apps field.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/github-conn-access-app.png)
+![Console screenshot showing the initial GitHub connection page with the GitHub Apps field.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/github-conn-access-app.png)
 
 1. Under **GitHub Apps**, choose an app installation or choose **Install a new app** to create one.
 

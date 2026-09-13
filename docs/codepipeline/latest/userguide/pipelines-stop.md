@@ -40,7 +40,7 @@ Before you stop an execution, we recommend that you disable the transition in fr
 1. On the **Stop execution** page, under **Select execution**, choose the execution you want to stop.
 **Note**  
 The execution is displayed only if it is still in progress. Executions that are already complete are not displayed.  
-![Image showing that the following option is selected in the console: Stop and wait](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stop-execution.png)
+![Image showing that the following option is selected in the console: Stop and wait](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stop-execution.png)
 
 1. Under **Select an action to apply to execution**, choose one of the following:
    + To make sure the execution does not stop until all in-progress actions are complete, choose **Stop and wait**.

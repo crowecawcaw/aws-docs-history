@@ -134,7 +134,7 @@ In this section, you create a pipeline with the following actions:
 The deployment fails if you do not select **Extract file before deploy**. This is because the AWS CodeCommit action in your pipeline zips source artifacts and your file is a ZIP file.
 
       When **Extract file before deploy** is selected, **Deployment path** is displayed. Enter the name of the path you want to use. This creates a folder structure in Amazon S3 to which the files are extracted. For this tutorial, leave this field blank.  
-![The Step 6: Add deploy stage page for an S3 deploy action with an AWS CodeCommit source](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/tutorial-s3deploy-stage-codecommit.png)
+![The Step 6: Add deploy stage page for an S3 deploy action with an AWS CodeCommit source](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/tutorial-s3deploy-stage-codecommit.png)
 
    1. (Optional) In **Canned ACL**, you can apply a set of predefined grants, known as a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl), to the uploaded artifacts. 
 
@@ -300,7 +300,7 @@ In this section, you create a pipeline with the following actions:
       When **Extract file before deploy** is cleared, **S3 object key** is displayed. Enter the name of the path you want to use: `js-application/{datetime}.zip`.
 
       This creates a `js-application` folder in Amazon S3 to which the files are extracted. In this folder, the `{datetime}` variable creates a timestamp on each output file when your pipeline runs.  
-![The Step 5: Deploy page for an Amazon S3 deploy action with an Amazon S3 source](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/tutorial-s3deploy-stage-s3source.png)
+![The Step 5: Deploy page for an Amazon S3 deploy action with an Amazon S3 source](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/tutorial-s3deploy-stage-s3source.png)
 
    1. (Optional) In **Canned ACL**, you can apply a set of predefined grants, known as a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl), to the uploaded artifacts. 
 
@@ -331,4 +331,4 @@ In this section, you create a pipeline with the following actions:
 
 Make a change to your source files and then upload them to your source bucket. This triggers your pipeline to run. View your target bucket and verify that the deployed output files are available in the `js-application` folder as shown:
 
-![Sample ZIP download](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/tutorial-s3deploy-pipeline-appzip.png)
+![Sample ZIP download](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/tutorial-s3deploy-pipeline-appzip.png)

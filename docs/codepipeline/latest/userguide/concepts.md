@@ -38,7 +38,7 @@ A stage is a logical unit you can use to isolate an environment and to limit the
 
 A *transition* is the point where a pipeline execution moves to the next stage in the pipeline. You can disable a stage's inbound transition to prevent executions from entering that stage, and then you can enable the transition to allow executions to continue. When more than one execution arrives at a disabled transition, only the latest execution continues to the next stage when the transition is enabled. This means that newer executions continue to supersede waiting executions while the transition is disabled, and then after the transition is enabled, the execution that continues is the superseding execution.
 
-![A pipeline contains stages, which contain actions, which are separated by transitions that can be disabled and enabled.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipeline-elements-workflow.png)
+![A pipeline contains stages, which contain actions, which are separated by transitions that can be disabled and enabled.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipeline-elements-workflow.png)
 
 
 ### Actions

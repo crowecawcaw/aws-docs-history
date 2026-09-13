@@ -187,7 +187,7 @@ In this section, you create a pipeline with the following actions:
    1. In **Client secret**, enter the secret you chose when you registered.
 
    1. In **Refresh token**, enter the token you generated in step 3.  
-![The Step 6: Deploy page for an Alexa Skills Kit action](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/alexa-deploy.png)
+![The Step 6: Deploy page for an Alexa Skills Kit action](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/alexa-deploy.png)
 
    1. Choose **Next**.
 

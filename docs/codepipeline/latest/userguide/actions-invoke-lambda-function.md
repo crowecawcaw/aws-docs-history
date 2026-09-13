@@ -285,7 +285,7 @@ Now that you've successfully created a Lambda function and added it as an action
 + Modify the Lambda function to check for a different text string.
 + [Explore Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/use-cases.html) and create and add your own Lambda functions to pipelines.
 
-![An AWS Lambda action running through a pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-lambda-action-add-2-inprog-pol.png)
+![An AWS Lambda action running through a pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-lambda-action-add-2-inprog-pol.png)
 
 
 After you have finished experimenting with the Lambda function, consider removing it from your pipeline, deleting it from AWS Lambda, and deleting the role from IAM to avoid possible charges. For more information, see [Edit a pipeline in CodePipeline](pipelines-edit.md), [Delete a pipeline in CodePipeline](pipelines-delete.md), and [Deleting Roles or Instance Profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_delete.html).

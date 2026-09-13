@@ -58,7 +58,7 @@ Use these steps to use the CodePipeline console to add a connections action for 
 **To create a connection to Azure DevOps**
 
 1. To create a connection to an Azure DevOps repository, under **Select a provider**, choose **Azure DevOps**. In **Connection name**, enter the name for the connection that you want to create. Choose **Connect to Azure DevOps**, and proceed to Step 2.  
-![Console screenshot showing connection option selected for Azure DevOps.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-connection-azure.png)
+![Console screenshot showing connection option selected for Azure DevOps.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/create-connection-azure.png)
 
 1. On the **Connect to Azure DevOps** settings page, your connection name displays.
 

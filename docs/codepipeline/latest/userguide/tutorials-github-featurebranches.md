@@ -64,7 +64,7 @@ This is not the source bucket for your source code. This is the artifact store f
       Under **Event type**, choose **Pull request**. Select all of the events under pull request so that the event occurs for created, updated, or closed pull requests.
 
       Under **Branches**, in the **Include** field, enter `main*`.  
-![Image showing the Include branches option selected with a value of main* for a trigger with an event type of Pull request](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/pullreq-example-triggers-edit.png)
+![Image showing the Include branches option selected with a value of main* for a trigger with an event type of Pull request](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/pullreq-example-triggers-edit.png)
 **Important**  
 Pipelines that start with this trigger type will be configured for WebhookV2 events and will not use the Webhook event (change detection on all push events) to start the pipeline.
 
@@ -90,7 +90,7 @@ In this section, you create and merge a pull request. This starts your pipeline,
 1. In GitHub.com, create a pull request by making a change to the README.md on a feature branch and raising a pull request to the `main` branch. Commit the change with a message like `Update README.md for PR`.
 
 1. The pipeline starts with the source revision showing the **Source** message for the pull request as **Update README.md for PR**.  
-![Image showing the source message for the Pull request with the following text: Update README.md for PR](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/pullreq-example.png)
+![Image showing the source message for the Pull request with the following text: Update README.md for PR](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/pullreq-example.png)
 
 1. Choose **History**. In the pipeline execution history, view the CREATED and MERGED pull request status events that started the pipeline executions.  
-![Image showing the pipeline execution history that shows the CREATED and MERGED pull request status events that started the pipeline executions](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/pullreq-example-history.png)
+![Image showing the pipeline execution history that shows the CREATED and MERGED pull request status events that started the pipeline executions](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/pullreq-example-history.png)

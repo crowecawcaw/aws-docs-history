@@ -109,7 +109,7 @@ Use the CodePipeline wizard to create your pipeline stages and connect your sour
 1. On the **Step 5: Add test stage** page, choose **Skip**.
 
 1. On the **Step 6: Add deploy stage** page, choose **Lambda**.  
-![Add a Lambda deploy action to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/lambdadeploy-edit-screen.png)
+![Add a Lambda deploy action to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/lambdadeploy-edit-screen.png)
 
    1. Add your function name and alias. 
 
@@ -118,7 +118,7 @@ Use the CodePipeline wizard to create your pipeline stages and connect your sour
    1. Choose **Next**.
 
 1. On the **Step 7: Review** page, review your pipeline configuration and choose **Create pipeline** to create the pipeline.  
-![A console diagram showing a successful pipeline run with the Lambda deploy action added to your pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/lambdadeploy-pipeline-screen.png)
+![A console diagram showing a successful pipeline run with the Lambda deploy action added to your pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/lambdadeploy-pipeline-screen.png)
 
 ## Step 4: Test Your Pipeline
 <a name="tutorials-lambda-deploy-test"></a>

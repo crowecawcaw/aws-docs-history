@@ -134,7 +134,7 @@ In the following example, the variable check rule finds that the value is not a 
    1. In **Rule name**, enter a name for your rule. For this example, enter `MyAlarmRule`.
 
    1. In **Rule provider**, choose the preconfigured rule provider to add to your condition. For this example, choose **VariableCheck**, and then complete the following steps.  
-![An example release process using CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-cond-fail-skip.png)
+![An example release process using CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-cond-fail-skip.png)
 
    1. In **Region**, choose the Region for your condition or leave the default.
 
@@ -143,10 +143,10 @@ In the following example, the variable check rule finds that the value is not a 
    1. When you are done editing the stage, choose **Done**. On the pipeline edit page, choose **Save**.
 
 1. After the run, view the result.  
-![An example release process using CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-skipped.png)
+![An example release process using CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-skipped.png)
 
 1. To review details, choose **Review**. The detail in the following example shows that the configured result for the condition is **Skip**, which cannot be overridden. The rule status is **Failed** due to the condition not being met.  
-![An example condition details page showing the Skip result condition in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/condition-exec-details.png)
+![An example condition details page showing the Skip result condition in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/condition-exec-details.png)
 
 ### Creating Entry conditions (CLI)
 <a name="stage-conditions-entry-cli"></a>
@@ -328,7 +328,7 @@ You can configure onFailure conditions for a stage so that if the entry conditio
 1. On the **Edit** page, for the action you want to edit, choose **Edit stage**.
 
 1. At the bottom of the stage, under **Automated stage configuration:**, choose **Enable automatic retry on stage failure**. In **Retry mode**, choose either **Retry failed stage** or **Retry failed actions**.  
-![Configuring retry mode for a stage in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-retry-mode.png)
+![Configuring retry mode for a stage in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-retry-mode.png)
 
 1. Choose to add an onFailure condition and then choose **Add rule** and enter a rule for the condition.
 
@@ -505,7 +505,7 @@ You can configure On Success conditions for a stage, along with the rules and re
    1. (Optional) In **TimeZone**, enter the time zone for the deployment window.
 
 1. After the run, view the result.  
-![An example condition in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-condition-onsuccess-deplwin-example-message.png)
+![An example condition in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-condition-onsuccess-deplwin-example-message.png)
 
 ### Creating On Success conditions (CLI)
 <a name="stage-conditions-onsuccess-cli"></a>
@@ -649,10 +649,10 @@ You can override stage conditions that have been configured for your pipeline. I
 **To override a stage condition**
 
 1. In this example, the pipeline stage is running with a condition. The **Override** button is enabled.  
-![An example condition in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-condition-override-depl.png)
+![An example condition in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-condition-override-depl.png)
 
 1. Next to the condition that you want to override, choose **Override**.  
-![An example condition in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-condition-override-depl-overridden.png)
+![An example condition in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-condition-override-depl-overridden.png)
 
 1. To review details, choose **Review**. The detail in the following example shows that the configured result for the condition is Fail, which has been overridden. The rule status is Abandoned due to the override.  
-![An example condition details page showing the overridden condition in CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-condition-onsuccess-deplwin-example-message-review.png)
+![An example condition details page showing the overridden condition in CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/stage-condition-onsuccess-deplwin-example-message-review.png)

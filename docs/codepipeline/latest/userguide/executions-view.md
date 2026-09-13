@@ -35,7 +35,7 @@ You can use the console to view the history of executions in a pipeline, includi
 1. Choose **View history**.
 **Note**  
 For a pipeline in PARALLEL execution mode, the main pipeline view does not show the pipeline structure or in-progress executions. For a pipeline in PARALLEL execution mode, you access the pipeline structure by choosing the ID for the execution you want to view from the execution history page. Choose **History** in the left navigation, choose the execution ID for the parallel execution, and then view the pipeline on the **Visualization** tab.  
-![The console view of the pipelines listing shows the name, status, type, and most recent executions for each pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-exec-history.png)
+![The console view of the pipelines listing shows the name, status, type, and most recent executions for each pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-exec-history.png)
 
 1. View the status, source revisions, change details, and triggers related to each execution for your pipeline. Pipeline executions that have been rolled back will show the execution type **Rollback** on the details screen in the console. For the failed execution that triggered the automatic rollback, the failed execution ID is shown.
 
@@ -99,7 +99,7 @@ If you do not see an inbound execution, then there are no pending executions at 
 
 1. Choose the name of the pipeline for which you want to view the inbound execution, Do one of the following: 
    + Choose **View**. In the pipeline diagram, in the **Inbound execution ID** field in front of your disabled transition, you can view the inbound execution ID.   
-![Information about a revision can be viewed on the execution history page](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/inbound-console.png)
+![Information about a revision can be viewed on the execution history page](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/inbound-console.png)
 
      Choose **View summary** to see execution details, such as the execution ID, source trigger, and the name of the next stage.
    + Choose the pipeline and choose **View history**.
@@ -119,10 +119,10 @@ You can view details about source artifacts (output artifact that originated in 
 1. Choose the name of the pipeline for which you want to view source revision details. Do one of the following: 
    + Choose **View history**. In **Source revisions**, the source change for each execution is listed.
    + Locate an action for which you want to view source revision details, and then find the revision information at the bottom of its stage:   
-![Information about a revision can be viewed at the bottom of a stage in the CodePipeline console.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-changes-console-3.png)
+![Information about a revision can be viewed at the bottom of a stage in the CodePipeline console.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-changes-console-3.png)
 
      Choose **View current revisions** to view source information. With the exception of artifacts stored in Amazon S3 buckets, identifiers such as commit IDs in this information detail view are linked to source information pages for the artifacts.   
-![View source revisions.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-changes-console-4.png)
+![View source revisions.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-changes-console-4.png)
 
 ## View action executions (console)
 <a name="pipelines-action-executions-console"></a>

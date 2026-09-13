@@ -112,7 +112,7 @@ If your source repository is an Amazon S3 bucket, remember to zip the JSON file.
 Because the Amazon ECR source action creates this file, pipelines with an Amazon ECR source action do not need to manually provide an `imageDetail.json` file.   
 For a tutorial about creating a pipeline that includes an Amazon ECR source stage, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](tutorials-ecs-ecr-codedeploy.md).
 
-![Diagram showing the imageDetail.json file contained in the artifact bucket](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/imageDetail_file_diagram.png)
+![Diagram showing the imageDetail.json file contained in the artifact bucket](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/imageDetail_file_diagram.png)
 
 
 The `imageDetail.json` file provides the image URI. It must be constructed with the following key-value pair.

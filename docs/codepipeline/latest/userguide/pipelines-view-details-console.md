@@ -19,10 +19,10 @@ After an hour, the detailed view of a pipeline stops refreshing automatically in
 The **Logs** tab is available for CodeBuild and CloudFormation actions.
 
 1. To see the action summary for an action in a stage of a pipeline, choose **View details** on the action, and then choose the **Summary** tab.  
-![The Summary tab shows information for the action summary.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/details-summary-tab.png)
+![The Summary tab shows information for the action summary.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/details-summary-tab.png)
 
 1. To see the action logs for an action with logs, choose **View details** on the action, and then choose the **Logs** tab.  
-![The Logs tab shows information for the action logs.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/details-logs-tab.png)
+![The Logs tab shows information for the action logs.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/details-logs-tab.png)
 
 1. To see the configuration details for an action, choose the **Configuration** tab.  
-![The Configuration tab shows information for the action configuration.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/details-configuration-tab.png)
+![The Configuration tab shows information for the action configuration.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/details-configuration-tab.png)

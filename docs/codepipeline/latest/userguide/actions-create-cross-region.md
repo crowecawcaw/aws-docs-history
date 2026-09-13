@@ -330,7 +330,7 @@ Be sure to include `file://` before the file name. It is required in this comman
 The **update-pipeline** command stops the pipeline. If a revision is being run through the pipeline when you run the **update-pipeline** command, that run is stopped. You must manually start the pipeline to run that revision through the updated pipeline. Use the **`start-pipeline-execution`** command to manually start your pipeline.
 
 1. After you update your pipeline, the cross-region action is displayed in the console.  
-![A high-level view of a pipeline that includes a cross-region action.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/cross-region-icon.png)
+![A high-level view of a pipeline that includes a cross-region action.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/cross-region-icon.png)
 
 ## Add a cross-region action to a pipeline (CloudFormation)
 <a name="actions-create-cross-region-cfn"></a>

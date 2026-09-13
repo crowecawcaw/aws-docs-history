@@ -71,7 +71,7 @@ A comma-separated list of alarm names configured for the Lambda deployment. A ma
 
 The following image shows an example of the Edit page for the action.
 
-![The Edit action page for a new pipeline with the Lambda deploy action](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/lambdadeploy-edit-screen.png)
+![The Edit action page for a new pipeline with the Lambda deploy action](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/lambdadeploy-edit-screen.png)
 
 
 ## Input artifacts

@@ -25,12 +25,12 @@ For SUPERSEDED and QUEUED modes, use the pipeline view to see in-progress execut
 
 The following shows the view for SUPERSEDED mode in CodePipeline.
 
-![An example release process using CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-mode-superseded.png)
+![An example release process using CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-mode-superseded.png)
 
 
 The following shows the view for QUEUED mode in CodePipeline.
 
-![An example release process using CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-mode-queued.png)
+![An example release process using CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-mode-queued.png)
 
 
 The following shows the view for PARALLEL mode in CodePipeline.
@@ -38,7 +38,7 @@ The following shows the view for PARALLEL mode in CodePipeline.
 **Important**  
 For pipelines in PARALLEL mode, stage rollback is not available. Similarly, failure conditions with a rollback result type cannot be added to a PARALLEL mode pipeline.
 
-![An example release process using CodePipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-mode-parallel.png)
+![An example release process using CodePipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/view-mode-parallel.png)
 
 
 

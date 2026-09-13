@@ -17,17 +17,17 @@ After an hour, the detailed view of a pipeline stops refreshing automatically in
    The name, type, status, version, creation date, and date when last modified of all pipelines associated with your AWS account are displayed, along with the most recently started execution time.
 
 1. The status for the five most recent executions is shown.  
-![The console view of the pipelines listing shows the name, status, type, and most recent executions for each pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipelines-view-list.png)
+![The console view of the pipelines listing shows the name, status, type, and most recent executions for each pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipelines-view-list.png)
 
    Choose **View details** next to a specific row to display a details dialog box listing the most recent executions.  
-![The Most recent executions dialog box shows the five most recent executions for a pipeline.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipelines-view-list-details.png)
+![The Most recent executions dialog box shows the five most recent executions for a pipeline.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/pipelines-view-list-details.png)
 
    To view details about the most recent executions for the pipeline, choose **View history**. For past executions, you can view revision details associated with source artifacts, such as execution IDs, status, start and end times, duration, and commit IDs and messages.
 **Note**  
 For a pipeline in PARALLEL execution mode, the main pipeline view does not show the pipeline structure or in-progress executions. For a pipeline in PARALLEL execution mode, you access the pipeline structure by choosing the ID for the execution you want to view from the execution history page. Choose **History** in the left navigation, choose the execution ID for the parallel execution, and then view the pipeline on the **Visualization** tab.
 
 1. To see details for a single pipeline, in **Name**, choose the pipeline. A detailed view of the pipeline, including the state of each action in each stage and the state of the transitions, is displayed.  
-![The console view of the pipeline indicates the state of each action in each stage and the state of the transitions.](http://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-view-pipeline-pol.png)
+![The console view of the pipeline indicates the state of each action in each stage and the state of the transitions.](https://docs.aws.amazon.com/codepipeline/latest/userguide/images/codepipeline-view-pipeline-pol.png)
 
    The graphical view displays the following information for each stage:
    + The stage name.
