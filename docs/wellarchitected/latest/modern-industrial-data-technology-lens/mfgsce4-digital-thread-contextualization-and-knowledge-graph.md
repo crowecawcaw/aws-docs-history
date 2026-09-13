@@ -15,7 +15,7 @@
 
  Contextualization is the process of adding relevant context to data, which can help derive meaningful insights. By contextualizing data, manufacturers can better understand the context and conditions surrounding specific events or data points, which better informs their decision-making. 
 
-![ADD ALTERNATE TEXT HERE for people using assistive technology.](http://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image6.png)
+![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image6.png)
 
 
  A well-architected manufacturing digital thread with contextualization and knowledge graph capabilities should support the following characteristics: 
@@ -37,7 +37,7 @@
 
  Finally, large language models are integrated with the knowledge graph and unstructured data, creating advanced queries and accessing natural language capabilities. 
 
-![ADD ALTERNATE TEXT HERE for people using assistive technology.](http://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image7.png)
+![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image7.png)
 
 
  The solution aims to accelerate innovation by seamlessly connecting data from various systems and generate insights through the manufacturing digital thread framework. This framework establishes an intelligent structure where data is interconnected, empowering manufacturing stakeholders in their decision-making processes. 
@@ -47,7 +47,7 @@
 
  The manufacturing digital thread solution architecture is implemented through the strategic integration of Amazon Neptune graph database, Amazon OpenSearch Service, and Amazon Bedrock, a fully managed generative AI service. The components are further enhanced by various AWS services, creating a comprehensive solution for the digital thread. 
 
-![ADD ALTERNATE TEXT HERE for people using assistive technology.](http://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image8.png)
+![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image8.png)
 
 
 1.  Identify key stakeholders in the manufacturing organization and understand the business needs. 

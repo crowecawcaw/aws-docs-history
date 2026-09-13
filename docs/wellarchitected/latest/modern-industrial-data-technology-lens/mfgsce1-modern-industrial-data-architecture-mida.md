@@ -50,7 +50,7 @@
 
  The MIDA provides the foundation for manufacturers to build data capabilities while maintaining operational excellence and security. Its flexible, scalable design supports both current needs and future innovation in manufacturing analytics and automation. 
 
-![ADD ALTERNATE TEXT HERE for people using assistive technology.](http://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image1.png)
+![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image1.png)
 
 
 1.  Identify information related to industrial activities from on-premises equipment. 

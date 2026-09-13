@@ -13,7 +13,7 @@
   +  Managing security, risk, and compliance through automation to help your organization improve compliance while supporting business objectives. 
 +  **Security concepts to handle customer information:** Manufacturing data protection requires fine-grained access controls at both data source and asset levels within AWS. All data must be encrypted at rest and in transit while following the principle of least privilege for role-based access. A multi-account strategy isolates different manufacturing environments, implementing both preventive and detective controls. Secure connectivity between manufacturing facilities and AWS is maintained through AWS Direct Connect with a Transit Account architecture for centralized security management. 
 
-![ADD ALTERNATE TEXT HERE for people using assistive technology.](http://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image10.emf)
+![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image10.emf)
 
 
  Security in the manufacturing industry is composed of the following best practice areas. 

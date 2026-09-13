@@ -156,7 +156,7 @@
 ## Automated quality inspection architecture
 <a name="automated-quality-inspection-architecture"></a>
 
-![ADD ALTERNATE TEXT HERE for people using assistive technology.](http://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image9.png)
+![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image9.png)
 
 
 1.  Automatically upload training images from the manufacturing line camera to [Amazon Simple Storage Service (Amazon S3)](https://aws.amazon.com/s3/). 

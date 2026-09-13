@@ -24,7 +24,7 @@
 
  To implement an industrial data catalog, we must ingest and catalog data from diverse OT and IT sources. AWS offers scalable ingestion services to collect factory data into a central data lake, where it can be cataloged. The following diagram illustrates a reference architecture for an Industry 4.0 data environment on AWS, highlighting how data flows from edge devices to the cloud data lake and into the AWS AWS Glue Data Catalog: 
 
-![ADD ALTERNATE TEXT HERE for people using assistive technology.](http://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image2.png)
+![ADD ALTERNATE TEXT HERE for people using assistive technology.](https://docs.aws.amazon.com/wellarchitected/latest/modern-industrial-data-technology-lens/images/image2.png)
 
 
  Data ingestion from the factory floor can be achieved using multiple services, depending on data type and latency requirements: 
