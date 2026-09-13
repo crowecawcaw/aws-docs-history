@@ -31,4 +31,4 @@ The structure of the response should be in the following format:
 
 This will then allow you select a key and value you would like to determine the endpoints path. 
 
-![An example of a custom multivariate split.](http://docs.aws.amazon.com/pinpoint/latest/developerguide/images/journeys-yes-no-split-activity-format.png)
+![An example of a custom multivariate split.](https://docs.aws.amazon.com/pinpoint/latest/developerguide/images/journeys-yes-no-split-activity-format.png)
