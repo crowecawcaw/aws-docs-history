@@ -12,7 +12,7 @@ Restaurant companies face barriers to delivering high levels of customer service
 ## Customer engagement AI/ML for restaurants diagram
 <a name="cerest-diagram"></a>
 
-![How to personalize customer interactions for restaurants by using Connect Customer, Amazon Lex, and Amazon Comprehend.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/customer-engagement-ai-ml-restaurants/images/customer-engagement-ai-ml-restaurants-ra.png)
+![How to personalize customer interactions for restaurants by using Connect Customer, Amazon Lex, and Amazon Comprehend.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/customer-engagement-ai-ml-restaurants/images/customer-engagement-ai-ml-restaurants-ra.png)
 
 
 The following steps describe the architecture:
