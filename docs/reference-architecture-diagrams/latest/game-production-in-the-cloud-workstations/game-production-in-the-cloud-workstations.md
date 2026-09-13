@@ -10,7 +10,7 @@ This architecture, which is agnostic of game engine and software, walks through 
 ## Game Production in the Cloud - Workstations Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing game production in the cloud using streaming workstations](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/game-production-in-the-cloud-workstations/images/game-production-in-the-cloud-workstations.png)
+![Reference architecture diagram showing game production in the cloud using streaming workstations](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/game-production-in-the-cloud-workstations/images/game-production-in-the-cloud-workstations.png)
 
 
 1. NICE DCV is a streaming protocol that supports 4K, 60 FPS streaming. Developers using a browser connect using TCP connections, whereas desktop clients can use QUIC UDP over port 8443 for increased performance.
