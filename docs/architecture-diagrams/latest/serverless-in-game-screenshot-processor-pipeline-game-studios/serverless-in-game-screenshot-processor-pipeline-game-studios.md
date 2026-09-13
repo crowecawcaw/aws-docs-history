@@ -10,7 +10,7 @@ This architecture helps you build a serverless image processing pipeline for you
 ## Serverless In-Game Screenshot Processor Pipeline for Game Studios
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to build a serverless image processing pipeline for your games that receives players’ in-game screenshots, checks them for profanity, performs transformation, and stores them in the cloud.](http://docs.aws.amazon.com/architecture-diagrams/latest/serverless-in-game-screenshot-processor-pipeline-game-studios/images/serverless-in-game-studios.png)
+![Reference architecture diagram showing how you can use AWS services to build a serverless image processing pipeline for your games that receives players’ in-game screenshots, checks them for profanity, performs transformation, and stores them in the cloud.](https://docs.aws.amazon.com/architecture-diagrams/latest/serverless-in-game-screenshot-processor-pipeline-game-studios/images/serverless-in-game-studios.png)
 
 
 1. Players take screenshots in-game, which invokes an API to upload those screenshots. The game client needs to send player metadata to the application program interface (API). 
@@ -47,7 +47,7 @@ To customize this reference architecture diagram based on your business needs, [
 ## Create a free AWS account
 <a name="create-a-free-aws-account"></a>
 
-[![Sign up for a free AWS account](http://docs.aws.amazon.com/architecture-diagrams/latest/serverless-in-game-screenshot-processor-pipeline-game-studios/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
+[![Sign up for a free AWS account](https://docs.aws.amazon.com/architecture-diagrams/latest/serverless-in-game-screenshot-processor-pipeline-game-studios/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
 
 Sign up for an AWS account. New accounts include 12 months of [AWS Free Tier](https://aws.amazon.com/free/) access, including the use of Amazon EC2, Amazon S3, and Amazon DynamoDB.
 
