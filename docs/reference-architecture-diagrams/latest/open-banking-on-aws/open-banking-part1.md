@@ -10,7 +10,7 @@ With this architecture, you can connect on-premises core banking systems to AWS 
 ## Open Banking networking and security diagram
 <a name="ob-p1-diagram"></a>
 
-![Reference architecture diagram showing Open Banking networking and security by using AWS Direct Connect, AWS Transit Gateway, Amazon API Gateway, and AWS WAF.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/open-banking-on-aws/images/open-banking-part1.png)
+![Reference architecture diagram showing Open Banking networking and security by using AWS Direct Connect, AWS Transit Gateway, Amazon API Gateway, and AWS WAF.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/open-banking-on-aws/images/open-banking-part1.png)
 
 
 The following steps describe the networking and security components for this architecture:

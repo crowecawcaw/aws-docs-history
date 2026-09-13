@@ -10,7 +10,7 @@ With this architecture, you can open APIs for authorized third parties and imple
 ## Open Banking overview diagram
 <a name="ob-overview-diagram"></a>
 
-![Reference architecture diagram showing the Open Banking ecosystem overview with consumer, third party, Trust Service Provider, and bank components.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/open-banking-on-aws/images/open-banking-overview.png)
+![Reference architecture diagram showing the Open Banking ecosystem overview with consumer, third party, Trust Service Provider, and bank components.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/open-banking-on-aws/images/open-banking-overview.png)
 
 
 The following steps describe the Open Banking ecosystem participants:

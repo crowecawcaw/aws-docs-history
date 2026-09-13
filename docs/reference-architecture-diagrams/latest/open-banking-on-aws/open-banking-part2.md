@@ -10,7 +10,7 @@ With this architecture, you can implement Open Banking API microservices, manage
 ## Open Banking services and operations diagram
 <a name="ob-p2-diagram"></a>
 
-![Reference architecture diagram showing Open Banking microservices, identity, and security by using Amazon ECS, AWS Fargate, DynamoDB, and Amazon GuardDuty.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/open-banking-on-aws/images/open-banking-part2.png)
+![Reference architecture diagram showing Open Banking microservices, identity, and security by using Amazon ECS, AWS Fargate, DynamoDB, and Amazon GuardDuty.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/open-banking-on-aws/images/open-banking-part2.png)
 
 
 The following steps describe the services and operational components for this architecture:
