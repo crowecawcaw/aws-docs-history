@@ -7,7 +7,7 @@ A VPC Lattice target group is a collection of targets, or compute resources, tha
 
 Each *target group* is used to route requests to one or more registered targets. When you create a listener rule, you specify a target group and conditions. When a rule condition is met, traffic is forwarded to the corresponding target group. You can create different target groups for different types of requests. For example, create one target group for general requests and other target groups for requests that include specific rule conditions, such as a path or header value.
 
-![A service with a listener, listener rules, and two target groups.](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service.png)
+![A service with a listener, listener rules, and two target groups.](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service.png)
 
 
 You define health check settings for your service on a per target group basis. Each target group uses the default health check settings, unless you override them when you create the target group or modify them later on. After you specify a target group in a rule for a listener, the service continually monitors the health of all targets registered with the target group. The service routes requests to the registered targets that are healthy.

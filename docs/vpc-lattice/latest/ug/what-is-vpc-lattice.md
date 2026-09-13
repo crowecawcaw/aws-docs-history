@@ -25,7 +25,7 @@ To use Amazon VPC Lattice, you should be familiar with its key components.
 **Service**  
 An independently deployable unit of software that delivers a specific task or function. A service can run on EC2 instances or ECS/EKS/Fargate containers, or as Lambda functions, within an account or a virtual private cloud (VPC). A VPC Lattice service has the following components: target groups, listeners, and rules.  
 
-![A service with a listener and two target groups.](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service.png)
+![A service with a listener and two target groups.](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service.png)
   
 Target group  
 A collection of resources, also known as targets, that run your application or service. These are similar to the target groups provided by Elastic Load Balancing, but they are not interchangeable. The supported target types include EC2 instances, IP addresses, Lambda functions, Application Load Balancers, Amazon ECS tasks, and Kubernetes Pods.  
@@ -47,7 +47,7 @@ A resource configuration is a logical object that represents either a single res
 A logical boundary for a collection of services and resource configurations. A client can be in a VPC that is associated with the service network. Clients and services that are associated with the same service network can communicate with each other if they are authorized to do so.  
 In the following figure, the clients can communicate with both services, because the VPC and services are associated with the same service network.   
 
-![A service network with servers and clients.](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service-network.png)
+![A service network with servers and clients.](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service-network.png)
 
 
 **Service directory**  
@@ -64,17 +64,17 @@ A role determines who is responsible for the setup and flow of information withi
 
 **Service network owner** – The service network owner is usually the network administrator or the cloud administrator in an organization. Service network owners create, share, and provision the service network. They also manage who can access the service network or services within VPC Lattice. The service network owner can define coarse-grained access settings for the services associated with the service network. These controls are used to manage communication between clients and services using authentication and authorization policies. The service network owner can also associate a service or resource configuration with a single or multiple service networks, if the service or resource configuration is shared with the service network owner's account. 
 
-![Service network owner's role and responsibility](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service-network-owner.png)
+![Service network owner's role and responsibility](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service-network-owner.png)
 
 
 **Service owner ** – The service owner is usually a software developer in an organization. Service owners create services within VPC Lattice, define routing rules, and also associate services with the service network. They can also define fine-grained access settings, which can restrict access to only authenticated and authorized services and clients. 
 
-![Service owner's role and responsibility](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service-owner.png)
+![Service owner's role and responsibility](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service-owner.png)
 
 
 **Resource owner ** – The resource owner is usually a software developer in an organization and serves as an admin for a resource such as a database. The resource owner creates a resource configuration for the resource, defines access-settings for the resource configuration, and associates the resource configuration with service networks.
 
-![Resource owner's role and responsibility](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/resource-owner.png)
+![Resource owner's role and responsibility](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/resource-owner.png)
 
 
 ## Features

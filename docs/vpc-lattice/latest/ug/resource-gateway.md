@@ -9,7 +9,7 @@ A VPC must have a resource gateway if you plan on making resources inside the VP
 
 The following diagram shows how a client accesses a resource through the resource gateway:
 
-![Client accessing resource through the resource gateway.](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/resource-gateway-to-resource.png)
+![Client accessing resource through the resource gateway.](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/resource-gateway-to-resource.png)
 
 
 **Topics**

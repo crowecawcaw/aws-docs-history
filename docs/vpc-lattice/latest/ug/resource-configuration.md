@@ -34,7 +34,7 @@ A resource configuration can be of several types. The different types help repre
 
 The following image shows a single, child, and group resource configuration:
 
-![Single, child, and group resource configurations.](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/resource-config-types.png)
+![Single, child, and group resource configurations.](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/resource-config-types.png)
 
 
 ## Protocol

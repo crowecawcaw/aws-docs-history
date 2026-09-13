@@ -15,7 +15,7 @@ The following summary describes communication between components within VPC Latt
 
 The following flow diagram uses an example scenario to explain the flow of information and direction of communication between the components within VPC Lattice. There are two services associated with a service network. Both services and all VPCs were created in the same account as the service network. Both services are configured to allow traffic from the service network.
 
-![VPC Service Network flow](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/how-it-works.png)
+![VPC Service Network flow](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/how-it-works.png)
 
 
 Service 1 is a billing application running on a group of instances registered with target group 1 in VPC 1. Service 2 is a payment application running on a group of instances registered with target group 2 in VPC 2. VPC 3 is in the same account, and it has clients but no services. Resource 1 is a database that has customer data in VPC 4.

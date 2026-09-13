@@ -509,4 +509,4 @@ Authorization includes:
 
 The diagram shows the authorization workflow. When a request is made, the relevant policies allow or deny the request access to a given service.
 
-![Authorization workflow](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/authpolicy.png)
+![Authorization workflow](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/authpolicy.png)

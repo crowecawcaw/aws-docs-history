@@ -5,7 +5,7 @@
 
 A service within VPC Lattice is an independently deployable unit of software that delivers a specific task or function. A service can run on instances, containers, or as serverless functions within an account or a virtual private cloud (VPC). A service has a listener that uses rules, called listener rules, that you can configure to help route traffic to your targets. The supported target types include EC2 instances, IP addresses, Lambda functions, Application Load Balancers, Amazon ECS tasks, and Kubernetes Pods. For more information, see [Target groups in VPC Lattice](target-groups.md). You can associate a service with multiple service networks. The following diagram shows the key components of a typical service within VPC Lattice.
 
-![A service with a listener, listener rules, and two target groups.](http://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service.png)
+![A service with a listener, listener rules, and two target groups.](https://docs.aws.amazon.com/vpc-lattice/latest/ug/images/service.png)
 
 
 You can create a service by giving it a name and description. However, to control and monitor traffic to your service, it is important that you include access settings and monitoring details. To send traffic from your service to your targets you must set up a listener and configure rules. To allow traffic to flow from the service network to your service, you must associate your service with the service network.
