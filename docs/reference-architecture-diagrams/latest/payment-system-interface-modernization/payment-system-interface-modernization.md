@@ -10,7 +10,7 @@ This architecture shows you how to build a microservices-based payment system to
 ## Payment System Interface Modernization on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing you how to build a microservices-based payment system to handle scale and optimized performance with improved container-based deployment, and using API and event-based models for handling different channels in payment.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/payment-system-interface-modernization/images/payment-system-interface-moderization.png)
+![Reference architecture diagram showing you how to build a microservices-based payment system to handle scale and optimized performance with improved container-based deployment, and using API and event-based models for handling different channels in payment.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/payment-system-interface-modernization/images/payment-system-interface-moderization.png)
 
 
 1. Users initiate transactions to payment interface system using mobile apps integrated with the payment system, or through bank-provided apps.
