@@ -34,7 +34,7 @@ After the user is added, they'll receive an email invitation to set up their IAM
 
 You can also learn about working with IAM Identity Center and AWS Transform in this video:
 
-[![AWS Videos](http://img.youtube.com/vi/NesMt5cgT0s/0.jpg)](http://www.youtube.com/watch?v=NesMt5cgT0s)
+[![AWS Videos](https://img.youtube.com/vi/NesMt5cgT0s/0.jpg)](https://www.youtube.com/watch?v=NesMt5cgT0s)
 
 
 ## Adding users to AWS Transform

@@ -21,6 +21,8 @@ View details about updates to AWS managed policies for AWS Transform since March
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy) – Updated policy | Added permissions to add and remove CloudFormation stack tags during stack create and update operations. | September 11, 2026 | 
+| [AWSTransformApplicationECSDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy) – Updated policy | Added permissions to add and remove CloudFormation stack tags during stack create and update operations. | September 11, 2026 | 
 | [AWSTransformLandingZoneAgentPolicy](#security-iam-awsmanpol-AWSTransformLandingZoneAgentPolicy) – New policy | Added a new AWS managed policy that grants the permissions needed to set up AWS landing zones, including account provisioning, organizational governance, and AWS Control Tower configuration. | September 3, 2026 | 
 | [AWSTransformNetworkMigrationAgentPolicy](#security-iam-awsmanpol-AWSTransformNetworkMigrationAgentPolicy) – New policy | Added a new AWS managed policy that grants the permissions needed to deploy and configure network infrastructure, including VPCs, transit gateways, and route tables, for network migration. | September 3, 2026 | 
 | [AWSTransformServerMigrationAgentPolicy](#security-iam-awsmanpol-AWSTransformServerMigrationAgentPolicy) – New policy | Added a new AWS managed policy that grants the permissions needed to perform server migration operations, including replication, testing, and cutover, using AWS Transform MGN. | September 3, 2026 | 
@@ -77,7 +79,7 @@ This policy enables AWS Transform to deploy transformed .NET applications by cre
 **Description** 
 
 This policy includes the following permissions:
-+ **CloudFormation** – Allows creating, updating, deleting, and describing CloudFormation stacks with names that start with AWSTransform. Stack operations are restricted to resources tagged with CreatedBy: AWSTransform and limited to the same AWS account.
++ **CloudFormation** – Allows creating, updating, deleting, and describing CloudFormation stacks with names that start with AWSTransform, and adding or removing stack tags as part of stack create and update operations. Stack operations are restricted to resources tagged with CreatedBy: AWSTransform and limited to the same AWS account.
 + **Amazon EC2** – Allows describing VPCs, subnets, security groups, images, instances, route tables, and internet gateways. Permits running, starting, stopping, terminating, and modifying EC2 instances, but only when called through CloudFormation. Tag creation is restricted to specific allowed tag keys and only during CloudFormation operations.
 + **AWS Identity and Access Management (IAM)** – Allows getting and passing specific IAM roles for AWSTransform deployment instances. Includes permissions to inspect role policies and attachments. Access is restricted to the same AWS account.
 + **Amazon EC2 Systems Manager (SSM)** – Allows retrieving Amazon Linux AMI parameters from the AWS-managed parameter store and sending commands to AWSTransform-tagged instances.
@@ -98,7 +100,7 @@ This policy enables AWS Transform to deploy transformed applications to Amazon E
 **Description** 
 
 This policy includes the following permissions:
-+ **CloudFormation** – Allows creating, updating, deleting, and describing CloudFormation stacks with names that start with AWSTransform. Stack operations are restricted to resources tagged with CreatedBy: AWSTransform and limited to the same AWS account.
++ **CloudFormation** – Allows creating, updating, deleting, and describing CloudFormation stacks with names that start with AWSTransform, and adding or removing stack tags as part of stack create and update operations. Stack operations are restricted to resources tagged with CreatedBy: AWSTransform and limited to the same AWS account.
 + **Amazon ECS** – Allows creating, updating, and deleting ECS clusters, services, and task definitions. Permits running tasks, listing tasks, and describing task status. All operations are restricted to resources with names starting with AWSTransform and tagged with CreatedBy: AWSTransform.
 + **AWS Identity and Access Management (IAM)** – Allows getting and passing specific IAM roles for ECS tasks (AWSTransform-Deploy-ECS-Task-Role and AWSTransform-Deploy-ECS-Execution-Role). Includes permissions to inspect role policies and create the ECS service-linked role when needed.
 + **Amazon CloudWatch Logs** – Allows creating, deleting, and managing log groups with names starting with /aws/ecs/AWSTransform. Permits retrieving log events for troubleshooting deployed applications.

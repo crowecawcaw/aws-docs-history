@@ -134,7 +134,7 @@ Security groups are attached to ENIs, not subnets. Even when AWS Transform ENIs 
 
 The following diagram shows the recommended architecture.
 
-![Architecture diagram showing the customer VPC with Neptune subnet, application subnet, AWS PrivateLink connections, and AWS service integrations for the mainframe reimagine connector.](http://docs.aws.amazon.com/transform/latest/userguide/images/2026-06-Neptune-Infra.png)
+![Architecture diagram showing the customer VPC with Neptune subnet, application subnet, AWS PrivateLink connections, and AWS service integrations for the mainframe reimagine connector.](https://docs.aws.amazon.com/transform/latest/userguide/images/2026-06-Neptune-Infra.png)
 
 
 ### S3 connector

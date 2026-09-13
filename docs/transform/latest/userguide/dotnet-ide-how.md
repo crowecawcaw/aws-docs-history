@@ -34,10 +34,8 @@ The transformation includes the following updates to your application:
 ## Reviewing transformation report and accepting changes
 <a name="reviewing-summary-accepting-changes"></a>
 
-After the transformation is complete, AWS Transform provides a transformation report with information about the proposed updates it made to your application, including the number of files changed, packages updated, and APIs changed. It flags any unsuccessful transformations, including affected files or portions of files and the errors encountered during an attempted build. You can also view a build summary with build logs to learn more about what changes were made. 
+After the transformation is complete, AWS Transform provides a [transformation report](dotnet-report.md) with information about the proposed updates it made to your application, including the number of files changed, packages updated, and APIs changed. It flags any unsuccessful transformations, including affected files or portions of files and the errors encountered during an attempted build. You can also view a build summary with build logs to learn more about what changes were made. 
 
-The transformation report also provides a Linux porting status, which indicates whether or not additional user input is needed to make the application Linux compatible. If any of the items in a code group require input from you, you download a Linux readiness report that contains Windows-specific considerations that AWS Transform could not address at build time. If input is needed for any code groups or files, review the report for details about what type of change still needs to be made and, if applicable, for recommendations for how to update your code. These changes must be made manually before your application can be run on Linux. 
-
-You can review the proposed changes AWS Transform made in a diff view before accepting them as in-place updates to your files. After updating your files and addressing any items in the Linux readiness report, your application is ready to run on cross-platform .NET.
+You can review the proposed changes AWS Transform made in a diff view before accepting them as in-place updates to your files. After updating your files, your application is ready to run on cross-platform .NET.
 
 You can download a *Next Steps* markdown file with prompts for continued transformation with AWS Transform or an AI code companion. To download the file, choose the **Download Next Steps** button at the top right of the report.

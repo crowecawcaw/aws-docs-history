@@ -25,4 +25,4 @@ AWS Transform supports migrating Windows and Linux servers of supported operatin
 
 AWS Transform orchestrates the entire migration lifecycle from a single interface. The following diagram displays an overview of the architecture.
 
-![AWS Transform VMware architecture](http://docs.aws.amazon.com/transform/latest/userguide/images/atx-vm-architecture_v2.png)
+![AWS Transform VMware architecture](https://docs.aws.amazon.com/transform/latest/userguide/images/atx-vm-architecture_v2.png)

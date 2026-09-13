@@ -18,13 +18,14 @@ AWS Transform performs four key tasks to port .NET applications to Linux:
 + Upgrades .NET and language versions – Upgrades older .NET C\# code to current .NET and language versions.
 + Migrates from .NET Framework to cross-platform .NET – Migrates projects and packages from Windows dependent .NET Framework to cross-platform .NET compatible with Linux.
 + Rewrites code for Linux compatibility – Refactors and rewrites deprecated and inefficient code components.
-+ Generates a Linux compatibility readiness report – For open-ended tasks where user intervention is needed to make the code build and run on Linux, AWS Transform provides a detailed report of actions needed to configure your application after transformation.
++ Generates Linux compatibility recommendations – Assesses Linux readiness and provides next-step tasks for addressing issues.
 
 For more information about how AWS Transform performs .NET transformations, see [How AWS Transform modernizes .NET applications](dotnet-ide-how.md).
 
 To modernize your .NET code using AWS Transform from Visual Studio IDE, refer to the following:
 + [Modernizing .NET using AWS Transform in Visual Studio](dotnet-ide-vs.md)
 + [How AWS Transform modernizes .NET applications](dotnet-ide-how.md)
++ [Unit tests](dotnet-unit-tests.md)
 + [Troubleshooting issues with .NET transformations in the IDE](dotnet-ide-troubleshoot.md)
 
 **Quotas**  

@@ -14,7 +14,7 @@ To check the outputs, choose the **Output** tab in Visual Studio. In the **Show 
 
 The following screenshot shows an example of the outputs AWS Transform generates during a transformation.
 
-![Screen shot of the AWS Transform Code Job Plan, showing the output from the Amazon Q Language Client.](http://docs.aws.amazon.com/transform/latest/userguide/images/code-transform-troubleshoot4.png)
+![Screen shot of the AWS Transform Code Job Plan, showing the output from the Amazon Q Language Client.](https://docs.aws.amazon.com/transform/latest/userguide/images/code-transform-troubleshoot4.png)
 
 
 ## Why are some projects not selected for transformation?

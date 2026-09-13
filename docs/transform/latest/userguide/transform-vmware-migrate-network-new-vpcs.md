@@ -231,7 +231,7 @@ AWS Transform detects existing VPCs only (not subnets or other resources). Detec
 These operations apply to workload VPCs only. For appliance VPCs in the Hub and Spoke topology (Inspection, Inbound, Outbound), only Change IP address is supported.  
 You can't undo Delete, Merge, and Split operations. Review your configuration carefully before you apply these changes.
 
-The following operations are available for VPCs:
+You can perform the following operations on VPCs:
 + **Delete:** Permanently remove a VPC from the configuration. Use this for obsolete network segments that should not migrate to AWS.
 + **Exclude:** Temporarily remove a VPC from the migration for phased migration strategies. Excluded VPCs are not deployed but can be re-included later.
 + **Include:** Add a previously excluded VPC back into the migration.
@@ -263,7 +263,7 @@ The following operations are available for VPCs:
   + Each CIDR must be between /16 and /28.
   + Every subnet must fit in exactly one of the two CIDRs. If any subnet does not fit, the operation is rejected.
 
-The following operations are available for subnets:
+You can perform the following operations on subnets:
 + **Change IP address:** Change the base IP address of a subnet CIDR while keeping the same prefix length.
 + **Delete:** Permanently remove a subnet from the configuration without affecting the parent VPC.
 + **Resize:** Change the prefix length of a subnet CIDR to expand or reduce the IP address range.
@@ -272,6 +272,14 @@ The following operations are available for subnets:
   + The new CIDR must be between /16 and /28.
   + The new CIDR must not overlap with other subnets in the same VPC.
   + The new CIDR must be within the parent VPC CIDR.
+
+You can perform the following operations on security groups:
++ **Create:** Add a new security group or a new rule to an existing security group.
++ **Configure:** Edit the settings of a security group or one of its rules, such as the name, description, protocol, port range, or direction.
++ **Delete:** Permanently remove a security group or one of its rules from the configuration.
++ **Associate a CIDR with a rule:** Set or update the CIDR range that a security group rule allows traffic to or from.
++ **Associate a source VM with a rule:** Set or update the source virtual machine (VM) for a security group rule by its universally unique identifier (UUID). The rule then follows that workload instead of a fixed IP address.
++ **Enable referencing for a rule:** Turn on security group referencing for a specific rule. The rule then allows traffic from another security group instead of a CIDR range.
 
 After each operation, AWS Transform re-evaluates security group referencing, which might convert CIDR-based rules to security group references or vice versa. Review your security group rules after you make changes to verify they meet your requirements.
 
