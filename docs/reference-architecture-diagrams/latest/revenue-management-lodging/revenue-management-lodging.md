@@ -10,7 +10,7 @@ With this architecture, you can migrate an on-premises revenue management system
 ## Revenue management diagram
 <a name="revmgmt-diagram"></a>
 
-![How to migrate revenue management to AWS by using Amazon Forecast, Amazon SageMaker AI, and Amazon Elastic Compute Cloud Spot Instances.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/revenue-management-lodging/images/revenue-management-lodging.png)
+![How to migrate revenue management to AWS by using Amazon Forecast, Amazon SageMaker AI, and Amazon Elastic Compute Cloud Spot Instances.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/revenue-management-lodging/images/revenue-management-lodging.png)
 
 
 The following steps describe the architecture:
