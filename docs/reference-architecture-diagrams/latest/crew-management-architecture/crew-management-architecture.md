@@ -12,7 +12,7 @@ This architecture extends the [Architecture for Airline Crew Management Systems]
 ## Crew management architecture diagram
 <a name="crew-arch-diagram"></a>
 
-![Architecture for crew management using Amazon Elastic Kubernetes Service, Amazon Aurora, and AWS CloudFormation.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/crew-management-architecture/images/architecture_of_crew_management_ra.png)
+![Architecture for crew management using Amazon Elastic Kubernetes Service, Amazon Aurora, and AWS CloudFormation.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/crew-management-architecture/images/architecture_of_crew_management_ra.png)
 
 
 The following steps describe the architecture:
