@@ -174,7 +174,7 @@ If your screen resolution in WorkSpaces is low and objects look blurry, you need
 Your WorkSpace should now be extended across your displays. Whichever display you have designated as your primary display is also the primary display in WorkSpaces when you enter full screen mode.
 
 **Note**  
-To use full screen mode on only some of the displays in a multiple monitor setup, press and hold the Option key and then click the green maximize button ![Maximize button in the top-left corner of the WorkSpaces window](http://docs.aws.amazon.com/workspaces/latest/userguide/images/mac-maximize-button.png) in the top-left corner of the WorkSpaces window. This button expands the WorkSpaces client window to full size on a screen without extending the WorkSpace to the other displays. To return to the previous window size, press and hold the Option key and click the maximize button again.
+To use full screen mode on only some of the displays in a multiple monitor setup, press and hold the Option key and then click the green maximize button ![Maximize button in the top-left corner of the WorkSpaces window](https://docs.aws.amazon.com/workspaces/latest/userguide/images/mac-maximize-button.png) in the top-left corner of the WorkSpaces window. This button expands the WorkSpaces client window to full size on a screen without extending the WorkSpace to the other displays. To return to the previous window size, press and hold the Option key and click the maximize button again.
 
 ## Proxy servers
 <a name="osx_proxy_server"></a>

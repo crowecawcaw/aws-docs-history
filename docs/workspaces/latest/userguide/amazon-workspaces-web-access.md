@@ -78,7 +78,7 @@ Cameras will appear only if your administrator has enabled webcam support for yo
 
 Toggle the webcam button in the client toolbar as shown below to enable or disable your webcam during your session. The webcam button appears on the toolbar only if webcam support is enabled and at least one webcam is connected to your local device.
 
-![The webcam button in the WorkSpaces Web Access client.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-webcam-button.png)
+![The webcam button in the WorkSpaces Web Access client.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-webcam-button.png)
 
 
 The following table shows different webcam states:
@@ -86,16 +86,16 @@ The following table shows different webcam states:
 
 | Icon | Description | 
 | --- | --- | 
-|  ![The webcam is disabled.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-webcam-disabled.png)  | The webcam is disabled. Toggle the button to enable the webcam. If you didn't previously select the webcam to use, the default webcam is used. | 
-|  ![The webcam is enabled.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-webcam-enabled.png)  | The webcam is enabled, but it's not in use. Toggle the button to disable the webcam. | 
-|  ![The webcam is in use.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-webcam-inuse.png)  | The webcam is in use by a remote application in the WorkSpaces session. Toggle the button to disable the webcam. | 
+|  ![The webcam is disabled.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-webcam-disabled.png)  | The webcam is disabled. Toggle the button to enable the webcam. If you didn't previously select the webcam to use, the default webcam is used. | 
+|  ![The webcam is enabled.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-webcam-enabled.png)  | The webcam is enabled, but it's not in use. Toggle the button to disable the webcam. | 
+|  ![The webcam is in use.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-webcam-inuse.png)  | The webcam is in use by a remote application in the WorkSpaces session. Toggle the button to disable the webcam. | 
 
 ### Using multiple screens
 <a name="web-client-multiple-screens"></a>
 
 To use multiple screens, choose the multiscreen button in the client as shown in the following example. Multiple screens are supported with up to two monitors.
 
-![The multiscreen button in the WorkSpaces Web Access client.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-multiscreen-button.png)
+![The multiscreen button in the WorkSpaces Web Access client.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/webaccess-multiscreen-button.png)
 
 
 ## Supported features and gestures on Android tablets and iPads

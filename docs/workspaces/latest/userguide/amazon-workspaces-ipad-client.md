@@ -96,33 +96,33 @@ Pans the desktop when zoomed in.
 
 The radial menu is displayed by swiping from the left side of the screen. 
 
-![iPad radial menu with the buttons for settings, connection status, disconnect/connect, direct mouse mode, help, keyboard, Windows start menu, and offset mouse mode.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial.png)
+![iPad radial menu with the buttons for settings, connection status, disconnect/connect, direct mouse mode, help, keyboard, Windows start menu, and offset mouse mode.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial.png)
 
 
 The radial menu provides quick access to the following features:
 
-![iPad radial menu button for settings.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-settings.png) **Settings** – Displays controls to change the screen resolution, change the scroll direction, or connect or disconnect the [Swiftpoint GT, ProPoint, or PadPoint mouse](#ipad_gt_mouse).
+![iPad radial menu button for settings.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-settings.png) **Settings** – Displays controls to change the screen resolution, change the scroll direction, or connect or disconnect the [Swiftpoint GT, ProPoint, or PadPoint mouse](#ipad_gt_mouse).
 
-![iPad radial menu button for connection status.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-connection-status.png) **Connection Status** – Displays the connection status of the WorkSpace. 
+![iPad radial menu button for connection status.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-connection-status.png) **Connection Status** – Displays the connection status of the WorkSpace. 
 
-![iPad radial menu button for radial power.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-power.png) **Disconnect** – Disconnects the client application without logging off. 
+![iPad radial menu button for radial power.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-power.png) **Disconnect** – Disconnects the client application without logging off. 
 
-![iPad radial menu button for direct mouse mode.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-direct-mouse.png) **Direct Mouse Mode** – Sets the input to direct mouse mode. For more information, see [Mouse modes](#ipad_mouse_modes). 
+![iPad radial menu button for direct mouse mode.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-direct-mouse.png) **Direct Mouse Mode** – Sets the input to direct mouse mode. For more information, see [Mouse modes](#ipad_mouse_modes). 
 
-![iPad radial menu button for help.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-help.png) **Help** – Displays the command and gesture tutorial. 
+![iPad radial menu button for help.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-help.png) **Help** – Displays the command and gesture tutorial. 
 
-![iPad radial menu button for keyboard.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-keyboard.png) **Keyboard** – Toggles the display of the on-screen keyboard. 
+![iPad radial menu button for keyboard.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-keyboard.png) **Keyboard** – Toggles the display of the on-screen keyboard. 
 
-![iPad radial menu button for Windows start menu.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-windows.png) **Windows Start Menu** – Displays the Windows Start Menu. 
+![iPad radial menu button for Windows start menu.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-windows.png) **Windows Start Menu** – Displays the Windows Start Menu. 
 
-![iPad radial menu button for mouse mode.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-offset-mouse.png) **Offset Mouse Mode** – Sets the input to offset mouse mode. For more information, see [Mouse modes](#ipad_mouse_modes). 
+![iPad radial menu button for mouse mode.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-radial-offset-mouse.png) **Offset Mouse Mode** – Sets the input to offset mouse mode. For more information, see [Mouse modes](#ipad_mouse_modes). 
 
 ## Keyboard and command shortcuts
 <a name="ipad_keyboard"></a>
 
 To toggle the display of the on-screen keyboard, double-tap with two fingers anywhere on the screen. Special key combinations (command shortcuts) that are frequently used in Windows, such as Ctrl\+Alt\+Del, Alt\+Tab, Ctrl\+A, Ctrl\+C, Ctrl\+V, Ctrl\+X, and so on, are displayed in the top row of the on-screen keyboard.
 
-If you have a full-size physical keyboard attached to your iPad, you can use Control\+Option\+Delete ![Forward delete key on iPad keyboard](http://docs.aws.amazon.com/workspaces/latest/userguide/images/mac-forward-delete.png) to send Ctrl\+Alt\+Del to your Windows WorkSpace. (Be sure to use the forward Delete key, not the backspace Delete key.)
+If you have a full-size physical keyboard attached to your iPad, you can use Control\+Option\+Delete ![Forward delete key on iPad keyboard](https://docs.aws.amazon.com/workspaces/latest/userguide/images/mac-forward-delete.png) to send Ctrl\+Alt\+Del to your Windows WorkSpace. (Be sure to use the forward Delete key, not the backspace Delete key.)
 
 ## Mouse modes
 <a name="ipad_mouse_modes"></a>
@@ -139,12 +139,12 @@ In direct mouse mode, the mouse cursor is placed wherever you tap your finger. I
 
 In offset mouse mode, the mouse cursor tracks the movement of your finger on the screen. In this mode, simulate a left mouse button click by tapping the left mouse button icon.
 
-![Left mouse button icon](http://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-left.png)
+![Left mouse button icon](https://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-left.png)
 
 
 Simulate a right mouse button click by tapping the right mouse button icon.
 
-![Right mouse button icon](http://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-right.png)
+![Right mouse button icon](https://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-right.png)
 
 
 ## Swiftpoint GT, ProPoint, or PadPoint mouse

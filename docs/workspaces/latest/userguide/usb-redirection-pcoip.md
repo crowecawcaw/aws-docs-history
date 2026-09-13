@@ -100,7 +100,7 @@ Follow these steps to do a clean re-installation or upgrade of the drivers.
 
 1. For upgrades only, you must download the latest client and install it. You can choose to install USB drivers during the client installation.
 
-1. After you log into your WorkSpace, select the **Devices** icon ![Devices icon](http://docs.aws.amazon.com/workspaces/latest/userguide/images/devices-icon.png), and reinstall the USB driver. Alternatively, you can invoke the following PowerShell script (using administrator privileges).
+1. After you log into your WorkSpace, select the **Devices** icon ![Devices icon](https://docs.aws.amazon.com/workspaces/latest/userguide/images/devices-icon.png), and reinstall the USB driver. Alternatively, you can invoke the following PowerShell script (using administrator privileges).
 
    ```
    [Amazon WorkSpaces directory]\pcoipusb\install-pcoip-usb-driver.ps1

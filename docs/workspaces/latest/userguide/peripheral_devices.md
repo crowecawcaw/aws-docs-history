@@ -87,10 +87,10 @@ PCoIP Windows WorkSpaces support USB redirection for YubiKey U2F authentication 
 
 ### To redirect YubiKey to a WorkSpace for U2F authentication
 <a name="redirect-yubikey-to-workspace-u2f"></a>
-+ To use the YubiKey on your PCoIP WorkSpace, select the **Devices** icon ![Devices icon on upper-right corner of the WorkSpace](http://docs.aws.amazon.com/workspaces/latest/userguide/images/devices-icon.png) in the upper-right corner, and then select **Use this device on my remote WorkSpace**. Choose **Save**.  
-![Selection to use on remote WorkSpace](http://docs.aws.amazon.com/workspaces/latest/userguide/images/device_selection_2.png)
-+ To use the YubiKey on your local computer instead of on your WorkSpace, select the ![Devices icon on upper-right corner of the WorkSpace](http://docs.aws.amazon.com/workspaces/latest/userguide/images/devices-icon.png) in the upper-right corner, and then select **Use on my local machine**. Choose **Save**.  
-![Selection to use on local machine](http://docs.aws.amazon.com/workspaces/latest/userguide/images/device_selection_1.png)
++ To use the YubiKey on your PCoIP WorkSpace, select the **Devices** icon ![Devices icon on upper-right corner of the WorkSpace](https://docs.aws.amazon.com/workspaces/latest/userguide/images/devices-icon.png) in the upper-right corner, and then select **Use this device on my remote WorkSpace**. Choose **Save**.  
+![Selection to use on remote WorkSpace](https://docs.aws.amazon.com/workspaces/latest/userguide/images/device_selection_2.png)
++ To use the YubiKey on your local computer instead of on your WorkSpace, select the ![Devices icon on upper-right corner of the WorkSpace](https://docs.aws.amazon.com/workspaces/latest/userguide/images/devices-icon.png) in the upper-right corner, and then select **Use on my local machine**. Choose **Save**.  
+![Selection to use on local machine](https://docs.aws.amazon.com/workspaces/latest/userguide/images/device_selection_1.png)
 
 ## WebAuthn authenticators
 <a name="webauthn-authenticators"></a>

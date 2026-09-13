@@ -128,22 +128,22 @@ Pans the desktop when zoomed in.
 
 The sidebar menu is displayed by swiping from the left side of the screen.
 
-![Android sidebar menu](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-menu.png)
+![Android sidebar menu](https://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-menu.png)
 
 
 The sidebar menu provides quick access to the following features:
 
-![Android sidebar trackpad](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-trackpad.png) **Trackpad Mode** – Turns the trackpad on or off. For more information, see [Trackpad mode](#android_trackpad_mode). 
+![Android sidebar trackpad](https://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-trackpad.png) **Trackpad Mode** – Turns the trackpad on or off. For more information, see [Trackpad mode](#android_trackpad_mode). 
 
-![Android sidebar keyboard](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-keyboard.png) **Show Keyboard** – Toggles the display of the on-screen keyboard. If a keyboard is already attached, only a row of keyboard shortcuts is displayed. 
+![Android sidebar keyboard](https://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-keyboard.png) **Show Keyboard** – Toggles the display of the on-screen keyboard. If a keyboard is already attached, only a row of keyboard shortcuts is displayed. 
 
-![Android sidebar settings](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-settings.png) **Settings** – Displays controls to change the screen resolution or the scroll direction. 
+![Android sidebar settings](https://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-settings.png) **Settings** – Displays controls to change the screen resolution or the scroll direction. 
 
-![Android sidebar connection](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-connection.png) **Connection Check** – Displays the connection status.
+![Android sidebar connection](https://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-connection.png) **Connection Check** – Displays the connection status.
 
-![Android sidebar Windows menu](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-windows.png) **Windows Menu** – Displays the Windows Start Menu. 
+![Android sidebar Windows menu](https://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-windows.png) **Windows Menu** – Displays the Windows Start Menu. 
 
-![Android sidebar disconnect](http://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-disconnect.png) **Disconnect** – Disconnects the client application without logging off.
+![Android sidebar disconnect](https://docs.aws.amazon.com/workspaces/latest/userguide/images/android-sidebar-disconnect.png) **Disconnect** – Disconnects the client application without logging off.
 
 ## Keyboard
 <a name="android_keyboard"></a>
@@ -165,12 +165,12 @@ When trackpad mode is off, the mouse cursor is placed wherever you tap your fing
 
 When trackpad mode is on, the mouse cursor tracks the movement of your finger on the screen. In this mode, simulate a left mouse button click by tapping the left mouse button icon.
 
-![Left mouse button icon](http://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-left.png)
+![Left mouse button icon](https://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-left.png)
 
 
 Simulate a right mouse button click by tapping the right mouse button icon.
 
-![Right mouse button icon](http://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-right.png)
+![Right mouse button icon](https://docs.aws.amazon.com/workspaces/latest/userguide/images/mouse-icon-right.png)
 
 
 ## Display support

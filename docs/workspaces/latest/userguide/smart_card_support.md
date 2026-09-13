@@ -93,7 +93,7 @@ You can use a smart card within a Linux WorkSpace, on Chrome or Firefox, to auth
 
 Your WorkSpaces administrator might have already enabled Firefox to work with smart cards. If your smart card doesn't work in Firefox, use the following procedure to enable it.
 
-1. Open Firefox. Choose the menu button ![Firefox menu button on your browser](http://docs.aws.amazon.com/workspaces/latest/userguide/images/firefox-menu-button.png) in the upper-right corner, and then choose **Preferences**.
+1. Open Firefox. Choose the menu button ![Firefox menu button on your browser](https://docs.aws.amazon.com/workspaces/latest/userguide/images/firefox-menu-button.png) in the upper-right corner, and then choose **Preferences**.
 
 1. On the **about:preferences** page, in the left navigation pane, choose **Privacy & Security**.
 

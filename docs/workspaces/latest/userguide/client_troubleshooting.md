@@ -181,7 +181,7 @@ If you're using the Android, iPad, macOS, Linux, or Windows client application f
 1. Unplug your headset, and then plug it back in. Verify that it works on your local computer or tablet. For a USB headset, make sure that it shows up as a playback device locally on your computer or tablet:
    + For Windows, check the devices listed in the **Control Panel** under **Hardware and Sound** > **Sound**. In the **Sound** dialog box, choose the **Playback** tab.
    + For macOS, choose the **Apple menu** > **System Preferences** > **Sound** > **Output**.
-   + For iPad, open the **Control Center** and tap the **AirPlay** ![Airplay button on the control center page](http://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-airplay-icon.png) button. 
+   + For iPad, open the **Control Center** and tap the **AirPlay** ![Airplay button on the control center page](https://docs.aws.amazon.com/workspaces/latest/userguide/images/ipad-airplay-icon.png) button. 
    + For Chromebook, open the system tray, and then choose the headphone icon next to the volume slider. Select the devices that you want to use for audio input and output.
 
 1. Reconnect to your WorkSpace.
@@ -271,7 +271,7 @@ The WorkSpaces client installer for Windows allows users to install the client j
 
 When the WorkSpaces client for Windows is launched, it detects if there is an update and displays a dialog asking the user if they would like to update the application as shown in the following example.
 
-![The WorkSpaces client installer for Windows.](http://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-client-windows-install-update.png)
+![The WorkSpaces client installer for Windows.](https://docs.aws.amazon.com/workspaces/latest/userguide/images/wsp-client-windows-install-update.png)
 
 
 Users might continue to see this prompt even after they have updated to the version shown on the prompt. This is caused by having multiple versions of the WorkSpaces client installed on the same computer. For example, a user might have installed the WorkSpaces client just for themselves, and then later installed a newer version of the client for all users on the same Windows machine. The user will continue to see the update prompt if they continue to open the older version of the client after performing the update.
