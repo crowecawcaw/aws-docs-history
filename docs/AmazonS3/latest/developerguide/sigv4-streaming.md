@@ -42,7 +42,7 @@ The following diagram illustrates the process of calculating the seed signature.
 
  
 
-![The process of calculating the seed signature.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/sigV4-auth-header-chunked-seed-signature.png)
+![The process of calculating the seed signature.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/sigV4-auth-header-chunked-seed-signature.png)
 
 
 The following table describes the functions that are shown in the diagram. You need to implement code for these functions.
@@ -84,7 +84,7 @@ Where:
   
 
      
-![The process of calculating the seed signature showing various components of the string to sign.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/sigV4-auth-header-chunk-signature.png)
+![The process of calculating the seed signature showing various components of the string to sign.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/sigV4-auth-header-chunk-signature.png)
 
 
 

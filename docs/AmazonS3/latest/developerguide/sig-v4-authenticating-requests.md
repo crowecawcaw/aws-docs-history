@@ -55,7 +55,7 @@ In AWS Signature Version 4, you don't use your secret access key to sign the req
 
 The following diagram illustrates the general process of computing a signature.
 
-![Three-step process showing StringToSign creation, signing key derivation, and signature computation using HMAC-SHA256.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/signing-overview.png)
+![Three-step process showing StringToSign creation, signing key derivation, and signature computation using HMAC-SHA256.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/signing-overview.png)
 
 
 The string to sign depends on the request type. For example, when you use the HTTP Authorization header or the query parameters for authentication, you use a varying combination of request elements to create the string to sign. For an HTTP POST request, the POST policy in the request is the string you sign. For more information about computing string to sign, follow links provided at the end of this section.

@@ -62,7 +62,7 @@ The following diagram illustrates the signature calculation process.
 
  
 
-![AWS Signature Version 4 signing process with canonical request, string to sign, and signature generation steps.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/sigV4-using-query-params.png)
+![AWS Signature Version 4 signing process with canonical request, string to sign, and signature generation steps.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/sigV4-using-query-params.png)
 
 
 

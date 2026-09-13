@@ -28,7 +28,7 @@ For more information about enabling or disabling an AWS Region, see [AWS Regions
 
 DNS routing routes requests to appropriate Amazon S3 facilities. The following figure and procedure show an example of DNS routing.
 
-![Steps that occur when a DNS server routes requests from the client to facility B.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/DNS_virthost.png)
+![Steps that occur when a DNS server routes requests from the client to facility B.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/DNS_virthost.png)
 
 
 **DNS routing request steps**
@@ -55,7 +55,7 @@ Don't reuse an endpoint provided by a previous redirect response. It might appea
 
 The following figure and procedure shows an example of a temporary redirect.
 
-![Steps that occur when a client sends a request to B and is redirected to C.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/DNS_virthost_redirect.png)
+![Steps that occur when a client sends a request to B and is redirected to C.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/DNS_virthost_redirect.png)
 
 
 **Temporary request redirection steps**

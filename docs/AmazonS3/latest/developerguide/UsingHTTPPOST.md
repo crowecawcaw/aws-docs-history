@@ -11,7 +11,7 @@ Amazon S3 now supports Signature Version 4, a protocol for authenticating inboun
 
 The following figure shows an upload using Amazon S3 POST.
 
-![An upload using Amazon S3 POST.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3_post.png)
+![An upload using Amazon S3 POST.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3_post.png)
 
 
 

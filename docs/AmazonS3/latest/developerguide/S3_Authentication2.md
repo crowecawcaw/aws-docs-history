@@ -17,7 +17,7 @@ When accessing Amazon S3 using REST, you must provide the following items in you
 
 Following are the general steps for authenticating requests to Amazon S3. It is assumed you have the necessary security credentials, access key ID and secret access key. 
 
-![General steps you perform for authenticating requests to Amazon S3.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/HMACAuthProcess_You.png)
+![General steps you perform for authenticating requests to Amazon S3.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/HMACAuthProcess_You.png)
 
 
 
@@ -27,7 +27,7 @@ Following are the general steps for authenticating requests to Amazon S3. It is 
 | 2 | Calculate the signature using your secret access key. | 
 | 3 | Send the request to Amazon S3. Include your access key ID and the signature in your request. Amazon S3 performs the next three steps. | 
 
-![General steps AWS performs for authenticating requests to Amazon S3.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/HMACAuthProcess_AWS.png)
+![General steps AWS performs for authenticating requests to Amazon S3.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/HMACAuthProcess_AWS.png)
 
 
 

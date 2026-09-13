@@ -48,13 +48,13 @@ All `integer` values within messages are in network byte order, or big-endian or
 
 The following diagram shows the components that make up a message and a header. Note that there are multiple headers per message.
 
-![An example message structure showing total byte-length, header byte-length, prelude crc, header, payload, and message crc.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-frame-overview.png)
+![An example message structure showing total byte-length, header byte-length, prelude crc, header, payload, and message crc.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-frame-overview.png)
 
 
 **Note**  
 For Amazon S3 Select, the header value type is always 7 (type=String). For this type, the header value consists of two components, a 2-byte big-endian integer length, and a UTF-8 string that is of that byte-length. The following diagram shows the components that make up Amazon S3 Select headers.
 
-![Headers structure showing header name byte-length, header name string, header value type, value byte-length and value string.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-headers-overview.png)
+![Headers structure showing header name byte-length, header name string, header value type, value byte-length and value string.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-headers-overview.png)
 
 
 Payload byte-length calculations (these two calculations are equivalent):
@@ -113,7 +113,7 @@ For sample code and unit tests that use this protocol, see [AWS C Event Stream](
 
 Records messages contain three headers, as follows:
 
-![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-record.png)
+![An example message structure including the headers for this record type.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-record.png)
 
 
 ##### Payload specification
@@ -129,7 +129,7 @@ Records message payloads can contain a single record, partial records, or multip
 
 Continuation messages contain two headers, as follows:
 
-![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-cont.png)
+![An example message structure including the headers for this record type.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-cont.png)
 
 
 ##### Payload specification
@@ -145,7 +145,7 @@ Continuation messages have no payload.
 
 Progress messages contain three headers, as follows:
 
-![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-progress.png)
+![An example message structure including the headers for this record type.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-progress.png)
 
 
 ##### Payload specification
@@ -179,7 +179,7 @@ Example:
 
 Stats messages contain three headers, as follows:
 
-![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-stats.png)
+![An example message structure including the headers for this record type.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-stats.png)
 
 
 ##### Payload specification
@@ -213,7 +213,7 @@ Example:
 
 End messages contain two headers, as follows:
 
-![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-end.png)
+![An example message structure including the headers for this record type.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-end.png)
 
 
 ##### Payload specification
@@ -229,7 +229,7 @@ End messages have no payload.
 
 Request-level error messages contain three headers, as follows:
 
-![An example message structure including the headers for this record type.](http://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-error.png)
+![An example message structure including the headers for this record type.](https://docs.aws.amazon.com/AmazonS3/latest/developerguide/images/s3select-frame-diagram-error.png)
 
 
 For a list of possible error codes and error messages, see the [List of SELECT Object Content Error Codes](ErrorResponses.md#SelectObjectContentErrorCodeList).
