@@ -10,7 +10,7 @@ This architecture uses [Gateway Load Balancer](https://docs.aws.amazon.com/elast
 ## Gateway Load Balancer East/West Inspection architecture
 <a name="diagram1"></a>
 
-![Architecture diagram showing Gateway Load Balancer with AWS Transit Gateway for East/West traffic inspection between VPCs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/gwlb-east-west-inspection/images/gwlb-east-west-inspection.png)
+![Architecture diagram showing Gateway Load Balancer with AWS Transit Gateway for East/West traffic inspection between VPCs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/gwlb-east-west-inspection/images/gwlb-east-west-inspection.png)
 
 
 The following steps describe the data flow in this architecture:

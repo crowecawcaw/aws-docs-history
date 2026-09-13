@@ -10,7 +10,7 @@ This architecture uses [Gateway Load Balancer](https://docs.aws.amazon.com/elast
 ## Gateway Load Balancer North/South Inspection architecture
 <a name="ns-diagram1"></a>
 
-![Architecture diagram showing Gateway Load Balancer for North/South traffic inspection between VPC resources and the internet.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/gwlb-east-west-inspection/images/gwlb-north-south-inspection.png)
+![Architecture diagram showing Gateway Load Balancer for North/South traffic inspection between VPC resources and the internet.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/gwlb-east-west-inspection/images/gwlb-north-south-inspection.png)
 
 
 The following steps describe the outbound data flow in this architecture:
