@@ -41,7 +41,7 @@ In this module, you will:
    ```
 
 1. Create a new dart file inside the folder **lib/common/ui** and name it the **the\_navigation\_drawer.dart**.  
-![lib screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-navigation-drawer-file.png)
+![lib screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-navigation-drawer-file.png)
 
 1. Open **the\_navigation\_drawer.dart** file and update it with the following code to create the options to navigate to the trip’s route and the past trip's route.
 
@@ -462,7 +462,7 @@ VSCode will show an error in the **trips\_list\_gridview.dart** file about a mis
 <a name="add-the-pasttripslist-page-to-the-app"></a>
 
 1. Create a new dart file inside the **lib/feature/trip/controller** folder and name it **past\_trips\_list\_controller.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trips-list.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trips-list.png)
 
 1. Open the **past\_trips\_list\_controller.dart** file and update it with the following code. The UI will use the controller to get the user’s past trips using the **tripsRepository.getPastTrips() **function.
 **Note**  
@@ -499,10 +499,10 @@ VSCode will show errors due to the missing **past\_trips\_list\_controller.g.dar
    ```
 
    This will generate the **past\_trips\_list\_controller.g.dart** file in the** lib/feature/trip/controller **folder.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trips-list-controller.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trips-list-controller.png)
 
 1. Create a new folder in the **lib/features/trip/ui** folder, name it **past\_trips**, and then create the file **past\_trips\_list.dart** inside it.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trips-list-dart.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trips-list-dart.png)
 
 1. Open the **past\_trips\_list.dart** file and update it with the following code to create a **GridView** for displaying the past trips.
 
@@ -605,7 +605,7 @@ VSCode will show errors due to the missing **past\_trips\_list\_controller.g.dar
 <a name="add-the-pasttrips-details-page-to-the-app"></a>
 
 1. Create a new folder inside the **lib/features/trip/ui** folder, name it **past\_trip\_page**, and  then create the file **selected\_past\_trip\_card.dart** inside it.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trip-page.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trip-page.png)
 
 1. Open the **selected\_past\_trip\_card.dart** file and update it with the following code. Here we check if there is an image for the past trip and display it in a card widget. We use the placeholder image from the app assets if there is no image.
 
@@ -676,7 +676,7 @@ VSCode will show errors due to the missing **past\_trips\_list\_controller.g.dar
    ```
 
 1. Create a new dart file inside the **lib/features/trip/ui/past\_trip\_page** folder and call it **past\_trip\_details.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trip-page-2.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trip-page-2.png)
 
 1. Open the **past\_trip\_details.dart** file and update it with the following code to create the **PastTripDetails**, which will use the **SelectedPastTripCard** you created above to display the data.
 
@@ -747,7 +747,7 @@ VSCode will show errors due to the missing **past\_trips\_list\_controller.g.dar
    ```
 
 1. Create a new dart file inside the **lib/features/trip/ui/past\_trip\_page** folder and name it **past\_trip\_page.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trip-page-3.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m2-flutter-part-2-past-trip-page-3.png)
 
 1. Open the **past\_trip\_page.dart** file and update it with the following code to create the **PastTripPage**, which will get the past trip details using the **tripId**. The **PastTripPage** will grey out and use the **PastTripDetails** you created above to display the data.
 
@@ -874,7 +874,7 @@ VSCode will show errors due to the missing **past\_trips\_list\_controller.g.dar
    ```
 
 1. Run the app in an emulator or simulator and create a trip. Set its start and end date in the past. The following is an example using an iPhone simulator.  
-![Amplify screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-past-trips.gif)
+![Amplify screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-past-trips.gif)
 
 ## Conclusion
 <a name="conclusion"></a>

@@ -67,26 +67,26 @@ In this module, you will:
    ```
 
    The Amplify CLI will generate the dart files in the **lib/models** folder.  
-![Current wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-models-folder.png)
+![Current wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-models-folder.png)
 
 1. Run the command **amplify push** to create the resources in the cloud.  
-![Current wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-amplify-push-2.png)
+![Current wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-amplify-push-2.png)
 
 1. Press **Enter**. The Amplify CLI will deploy the resources and display a confirmation, as shown in the screenshot.  
-![apiamplifytripsplanner wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-confirmation-screenshot-3.png)
+![apiamplifytripsplanner wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-confirmation-screenshot-3.png)
 
 ### Step 2: Create the folders for the Activity
 <a name="create-the-folders-for-the-activity"></a>
 
 1. Create a new folder inside **lib/features **and name it **activity**.  
-![lib wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-folder.png)
+![lib wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-folder.png)
 
 1. Create the following new folders inside the **activity** folder:
    + **service:** The layer to connect with the Amplify backend.
    + **data:** This will be the repository layer that abstracts away the networking code, specifically **service** .
    + **controller:** This is the domain layer to connect the UI with the repository.
    + **ui:** Here, we will create the widgets and the pages that the app will present to the user.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-folder-contents.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-folder-contents.png)
 
 1. Open the **lib/common/navigation/router/routes.dart** file. Update it to add the enum values for the activity feature. The **routes.dart** file should look like this:
 
@@ -107,7 +107,7 @@ In this module, you will:
 <a name="implement-the-crud-operations-and-flow-for-the-activity-feature"></a>
 
 1. Create a new dart file inside the **lib/features/activity/service** folder and call it **activities\_api\_service.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-api-service.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-api-service.png)
 
 1. Open the **activities\_api\_service.dart** file and update it with the following code snippet to create the **ActivitiesAPIService**, which contains the following functions:
    + **getActivitiesForTrip:** Queries the Amplify API for the activities of a specific trip and returns a list of the activities.
@@ -214,7 +214,7 @@ In this module, you will:
    ```
 
 1. Create a new dart file in the **lib/features/activity/data** folder and name it  **activities\_repository.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-repository.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-repository.png)
 
 1. Open the **activities\_repository.dart** file and update it with the following code:
 
@@ -261,7 +261,7 @@ In this module, you will:
 <a name="implement-the-activities-listing-ui"></a>
 
 1. Create a new dart file inside the **lib/features/activity/controller** folder and name it **activities\_list\_controller.dart.**  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-list-controller.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-list-controller.png)
 
 1. Open the **activities\_list\_controller.dart** file and update it with the following code. The UI will use the controller to get the activities for a trip, add a new activity, and delete an activity.
 **Note**  
@@ -344,10 +344,10 @@ VSCode will show errors due to the missing **activities\_list\_controller.g.dart
    ```
 
    This will generate the **activities\_list.g.dart** file inside the **lib/feature/activity/controller** folder.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-list-controller-g.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-list-controller-g.png)
 
 1. Create a new dart file in the **lib/features/activity/ui** folder and name it **activity\_category\_icon.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-category-icon.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-category-icon.png)
 
 1. Open the **activity\_category\_icon.dart** file and update it with the following code. This will allow the app to display an icon representing the activity’s category.
 
@@ -404,7 +404,7 @@ VSCode will show errors due to the missing **activities\_list\_controller.g.dart
    ```
 
 1. Create a new folder inside the **lib/features/activity/ui folder**, name it **activities\_list**, and then create the file **activities\_timeline.dart** inside it.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-timeline.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-timeline.png)
 
 1. Open the **activities\_timeline.dart** file and update it with the following code. This will display a timeline of the trip’s activities.
 
@@ -493,7 +493,7 @@ VSCode will show errors due to the missing **activities\_list\_controller.g.dart
    ```
 
 1. Create the file **activities\_list.dart** inside the **lib/features/activity/ui/activities\_list** folder.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-list-contents.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activities-list-contents.png)
 
 1. Open the **activities\_list.dart** file and update it with the following code to use the **ActivitiesTimeline** widget you created previously to display a timeline of the trip’s activities.
 
@@ -544,7 +544,7 @@ VSCode will show errors due to the missing **activities\_list\_controller.g.dart
 <a name="implement-the-ui-for-adding-activities"></a>
 
 1. Create a new folder inside the **lib/features/activity/ui** folder, name it **add\_activity**, and then create the file** add\_activity\_form.dart** inside it.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-add-activity-form.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-add-activity-form.png)
 
 1. Open the **add\_activity\_form.dart** file and update it with the following code. This will allow us to present a form to the user to submit the required details to create a new activity for the selected trip.
 
@@ -728,7 +728,7 @@ VSCode will show errors due to the missing **activities\_list\_controller.g.dart
    ```
 
 1. Create a new file inside the **lib/features/activity/ui/add\_activity** folder and name it **add\_activity\_page.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-add-activity-page.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-add-activity-page.png)
 
 1. Open the **add\_activity\_page.dart** file and update it with the following code to use the **AddActivityForm** you created above to create a new activity for the selected trip.
 
@@ -781,7 +781,7 @@ VSCode will show errors due to the missing **activities\_list\_controller.g.dart
    ```
 
 1. Create a new file in the **lib/features/trip/ui/trip\_page** folder and name it **trip\_page\_floating\_button.dart**.  
-![activity interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-trip-page-floating-button.png)
+![activity interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-trip-page-floating-button.png)
 
 1. Open the **lib/features/trip/ui/trip\_page/trip\_page\_floating\_button.dart** file and update it to a **floatingActionButton** to open the **AddActivityForm**.
 
@@ -1073,7 +1073,7 @@ VSCode will show errors due to the missing **activities\_list\_controller.g.dart
 <a name="implement-the-ui-for-the-activity-details-page"></a>
 
 1. Create a new dart file inside the folder **lib/features/activity/controller** and name it **activity\_controller.dart.**  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-controller.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-controller.png)
 
 1. Open the **activity\_controller.dart** file and update it with the following code. The UI will use this controller for editing and deleting an activity using its ID. The UI will also use the controller for uploading a file for the activity.
 **Note**  
@@ -1144,10 +1144,10 @@ VSCode will show errors due to the missing **activity\_controller.g.dart** file
    ```
 
    This will generate the **activity\_controller.g.dart** file inside the **lib/feature/activity/controller** folder.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-controller-g.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-controller-g.png)
 
 1. Create a new folder inside the **lib/features/activity/ui** folder, name it **activity\_page**, and then create the file **delete\_activity\_dialog.dart** inside it.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-delete-activity-dialog.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-delete-activity-dialog.png)
 
 1. Open the **delete\_activity\_dialog.dart** file and update it with the following code. This will display a dialog for the user to confirm deleting the selected activity.
 
@@ -1184,7 +1184,7 @@ VSCode will show errors due to the missing **activity\_controller.g.dart** file
    ```
 
 1. Create a new dart file inside the folder **lib/features/activity/ui/activity\_page** and name it **activity\_page\_appbar\_icon.dart**.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-page-appbar-icon.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-page-appbar-icon.png)
 
 1. Open the **activity\_page\_appbar\_icon.dart **file and update it with the following code to create an **IconButton** to navigate back to the activity’s trip page.
 
@@ -1232,7 +1232,7 @@ VSCode will show errors due to the missing **activity\_controller.g.dart** file
    ```
 
 1. Create a new dart file inside the folder** lib/features/activity/ui/activity\_page** and name it **activity\_listview.dart**.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-listview.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-listview.png)
 
 1. Open the **activity\_listview.dart** file and update it with the following code to display the activity details and enable the user to upload and open a file for the activity.
 
@@ -1498,7 +1498,7 @@ VSCode will show errors due to the missing **activity\_controller.g.dart** file
    ```
 
 1. Create a new dart file inside the folder **lib/features/activity/ui/activity\_page** and name it **activity\_page.dart**.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-page.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-activity-page.png)
 
 1. Open the **activity\_page.dart** file and update it with the following code to create the **ActivityPage** which will use the **ActivityListView** you created above to display the activity’s details.
 
@@ -1636,7 +1636,7 @@ VSCode will show errors due to the missing **activity\_controller.g.dart** file
 <a name="implement-the-ui-for-editing-an-activity"></a>
 
 1. Create a new folder inside the **lib/features/activity/ui** folder, name it **edit\_activity**, and then create the file **edit\_activity\_page.dart** inside it.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-edit-activity-page.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m3-flutter-part-2-edit-activity-page.png)
 
 1. Open the **edit\_activity\_page.dart** file and update it with the following code. This will allow us to present a form to the user to update the details of the selected activity.
 
@@ -1969,7 +1969,7 @@ VSCode will show errors due to the missing **activity\_controller.g.dart** file
 1. Run the app in an emulator or simulator and create a trip, then add a few activities to it. The following is an example using an iPhone simulator.
 **Note**  
 Due to the changes in the data schema, you need to erase the app and its contents from the emulator or simulator.  
-![Amplify Trips Planner animation](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-activities.gif)
+![Amplify Trips Planner animation](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-activities.gif)
 
 ## Conclusion
 <a name="conclusion"></a>

@@ -39,7 +39,7 @@ In this module, you will:
    cd amplify_trips_planner
    code . -r
    ```  
-![EXPLORER interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-open-flutter-app.png)
+![EXPLORER interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-open-flutter-app.png)
 
 ### Step 2: Add the app dependencies
 <a name="add-the-app-dependencies"></a>
@@ -128,10 +128,10 @@ In this module, you will:
    ```
 
    Press **Enter. **The Amplify CLI will initialize the backend and connect the project to the cloud. Once complete, you will get a confirmation, as shown in the screenshot.  
-![Deployment wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-confirmation-screenshot.png)
+![Deployment wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-confirmation-screenshot.png)
 
    The Amplify CLI will add a new file **team-provider-info.json** to the **amplify** folder, which contains the Amplify backend details. It will also add a new dart file **amplifyconfiguration.dart** to the **lib/** folder. The app will use this file to know how to reach your provisioned backend resources at runtime.  
-![amplify portrait](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-team-provider-info.png)
+![amplify portrait](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-team-provider-info.png)
 
 1. In the previous how-to guide, you added the following categories to the app:
    + **Amplify Auth:** allows users to sign up, sign in, and manage their account
@@ -139,10 +139,10 @@ In this module, you will:
    + **Amplify Storage:** allows users to upload and view images in their app
 
    Run the command **amplify push** to create the resources of the above categories in the cloud.  
-![Current wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-amplify-push.png)
+![Current wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-amplify-push.png)
 
 1. Press **Enter**. The Amplify CLI will deploy the resources and display a confirmation, as shown in the screenshot.  
-![S3AuthPrivatePolicy wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-confirmation-screenshot-2.png)
+![S3AuthPrivatePolicy wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m1-flutter-part-2-confirmation-screenshot-2.png)
 
 1. Run the app in an emulator or simulator and try the following:
    + Create a new account
@@ -152,7 +152,7 @@ In this module, you will:
    + Delete the trip
 
    The following is an example using an iPhone simulator.  
-![Sign screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-clone-app.gif)
+![Sign screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-clone-app.gif)
 
 ## Conclusion
 <a name="conclusion"></a>

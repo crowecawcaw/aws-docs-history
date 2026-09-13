@@ -113,19 +113,19 @@ In this module, you will:
    ```
 
    The Amplify CLI will generate the dart files in the **lib/models** folder.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-lib-models-folder.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-lib-models-folder.png)
 
 1. Run the command **amplify push** to create the resources in the cloud.  
-![Current wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-amplify-push-3.png)
+![Current wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-amplify-push-3.png)
 
 1. Press **Enter**. The Amplify CLI will deploy the resources and display a confirmation, as shown in the screenshot.  
-![Trip wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-confirmation-screenshot-4.png)
+![Trip wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-confirmation-screenshot-4.png)
 
 ### Step 2: Create the Auth service
 <a name="create-the-auth-service"></a>
 
 1. Create a new dart file inside the folder **lib/common/services** and name it **auth\_service.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-auth-service.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-auth-service.png)
 
 1. Open **auth\_service.dart** file and update it with the following code to create the **AuthService**. The service will use Amplify to sign the user out.
 
@@ -237,7 +237,7 @@ In this module, you will:
    ```
 
 1. Go through the configuration and select **Yes** for configuring Lambda triggers and then enable a **Post Confirmation** trigger:  
-![Please screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-post-confirmation.png)
+![Please screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-post-confirmation.png)
 
    ```
    Please note that certain attributes may not be overwritten if you choose to use defaults settings.
@@ -268,10 +268,10 @@ In this module, you will:
    ```
 
    The Amplify CLI will add a new folder for the function which will include the **Post Confirmation** trigger where you will write the function to create the user’s profile  
-![amplify interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-post-confirmation-folder.png)
+![amplify interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-post-confirmation-folder.png)
 
 1. **Open the **package.json** file in the **src\*\* folder, which is inside the function’s folder.  
-![backend interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-package-json.png)
+![backend interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-package-json.png)
 
 1. Update the **package.json** file as shown in the following to install the required dependencies.
 
@@ -310,7 +310,7 @@ In this module, you will:
    ```
 
 1. Open the **custom.js** file inside the function **src** folder.  
-![amplify interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-custom-js.png)
+![amplify interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-custom-js.png)
 
 1. Update the **custom.js** file as shown in the following to run a GraphQL mutation and pass the required variables as arguments to create a profile record.
 
@@ -408,7 +408,7 @@ In this module, you will:
    ```
 
 1. Select the function you created above and update the Resource access permissions to allow the function to access the API for Query, Mutation, and Subscription  
-![Select screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-modal-4-9.png)
+![Select screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-modal-4-9.png)
 
    ```
    ? Select the Lambda function you want to update amplifytripsplannere57d0b5cPostConfi
@@ -444,23 +444,23 @@ In this module, you will:
    ```
 
 1. Run the command **amplify push** to create the resources in the cloud.  
-![Current wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-amplify-push-4.png)
+![Current wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-amplify-push-4.png)
 
 1. Press **Enter**. The Amplify CLI will deploy the resources and display a confirmation, as shown in the screenshot.  
-![storages3b101c2c7 wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-confirmation-screenshot-5.png)
+![storages3b101c2c7 wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-confirmation-screenshot-5.png)
 
 ### Step 4: Create the folders for the Profile
 <a name="create-the-folders-for-the-profile"></a>
 
 1. Create a new folder inside **lib/features**, and name it **profile**.  
-![lib screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-lib-features-profile.png)
+![lib screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-lib-features-profile.png)
 
 1. Create the following new folders inside the **profile** folder:
    + **service:** The layer to connect with the Amplify backend.
    + **data:** This will be the repository layer that abstracts away the networking code, specifically **service** .
    + **controller:** This is an abstract layer to connect the UI with the repository.
    + **ui:** Here, we will create the widgets and the pages that the app will present to the user.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-folder.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-folder.png)
 
 1. Open the file **lib/common/navigation/router/routes.dart**. Update it to add the enum values for the profile feature. The file **routes.dart** should look like the following:
 
@@ -479,7 +479,7 @@ In this module, you will:
    ```
 
 1. Create a new dart file inside the **lib/features/profile/service** folder and call it **profile\_api\_service.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-api-service.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-api-service.png)
 
 1. Open the **profile\_api\_service.dart** file and update it with the following code snippet to create **ProfileAPIService**, which contains the following functions:
    + **getProfile:** Queries the Amplify API for the user’s profile and returns its details.
@@ -527,7 +527,7 @@ In this module, you will:
    ```
 
 1. Create a new dart file inside the **lib/features/profile/data** folder and call it **profile\_repository.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-repository.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-repository.png)
 
 1. Open the **profile\_repository.dart** file and update it with the following code:
 
@@ -559,7 +559,7 @@ In this module, you will:
 <a name="implement-the-ui-for-displaying-and-updating-the-profile"></a>
 
 1. Create a new dart file inside the folder **lib/features/profile/controller** and name it **profile\_controller.dart**/  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-controller.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-controller.png)
 
 1. Open the **profile\_controller.dart** file and update it with the following code. The UI will use the controller to edit the details of the profile.
 **Note**  
@@ -600,10 +600,10 @@ VSCode will show errors due to the missing **profile\_controller.g.dart** file.
    ```
    dart run build_runner build -d
    ```  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-controller-g.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-controller-g.png)
 
 1. Create a new folder inside the **lib/features/profile/ui** folder, name it **profile\_page**, and then create the file **edit\_profile\_bottomsheet.dart** inside it.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-edit-profile-bottomsheet.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-edit-profile-bottomsheet.png)
 
 1. Open the **edit\_profile\_bottomsheet.dart** file and update it with the following code. This will allow us to present a form to the user to submit the required details to update the user’s profile.
 
@@ -707,7 +707,7 @@ VSCode will show errors due to the missing **profile\_controller.g.dart** file.
    ```
 
 1. Create a new dart file inside the folder **lib/features/profile/ui/profile\_page** and name it **profile\_listview.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-listview.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-listview.png)
 
 1. Open the **profile\_listview.dart** file and update it with the following code. This will display the user’s profile details.
 
@@ -842,7 +842,7 @@ VSCode will show errors due to the missing **profile\_controller.g.dart** file.
    ```
 
 1. Create a new dart file inside the folder **lib/features/profile/ui/profile\_page** and name it **profile\_page.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-page.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/m4-flutter-part-2-profile-page.png)
 
 1. Open the **profile\_page.dart ** file and update it with the following code to use the**ProfileListView** you created above to display the user’s profile details.
 
@@ -1075,7 +1075,7 @@ VSCode will show errors due to the missing **profile\_controller.g.dart** file.
 **Note**  
 Due to the changes in the data schema, you need to erase the app and its contents from the emulator or simulator.
 If you encounter an error on the settings page, it could be because the VTL resolvers were not updated properly. To resolve the issue, add an empty line to the **schema.graphql** file and run the **amplify push** command.  
-![Amplify Trip Planner animation](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-activities.gif)
+![Amplify Trip Planner animation](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-activities.gif)
 
 ## Conclusion
 <a name="conclusion"></a>
