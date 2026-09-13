@@ -27,7 +27,7 @@ To view all AWS DMS events for the past 7 days in the DMS Console:
 1. Enter a search term to filter your results. 
 
    The following example shows a list of events filtered by the characters **replication-task**.  
-![View DMS events](http://docs.aws.amazon.com/dms/latest/userguide/images/AWS_dms_view_events.png)
+![View DMS events](https://docs.aws.amazon.com/dms/latest/userguide/images/AWS_dms_view_events.png)
 
 ## AWS CLI
 <a name="CHAP_Monitoring.View.dms.events.cli"></a>

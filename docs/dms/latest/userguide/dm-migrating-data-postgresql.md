@@ -31,7 +31,7 @@ SELECT pg_drop_replication_slot('migration_subscriber_{ARN}');
 
 The following diagram shows the process of using homogeneous data migrations in AWS DMS to migrate a PostgreSQL database to RDS for PostgreSQL or Aurora PostgreSQL.
 
-![An architecture diagram of the PostgreSQL data migration with DMS Homogeneous Data Migrations.](http://docs.aws.amazon.com/dms/latest/userguide/images/data-migrations-postgresql.png)
+![An architecture diagram of the PostgreSQL data migration with DMS Homogeneous Data Migrations.](https://docs.aws.amazon.com/dms/latest/userguide/images/data-migrations-postgresql.png)
 
 
 ## Best practices for using a PostgreSQL database as a source for homogeneous data migrations

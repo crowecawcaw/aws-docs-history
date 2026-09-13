@@ -16,4 +16,4 @@ For any new or renamed collection, you need to create a new data migration task 
 
 The following diagram shows the process of using homogeneous data migrations in AWS DMS to migrate a MongoDB database to Amazon DocumentDB.
 
-![An architecture diagram of the MongoDB data migration with DMS Homogeneous Data Migrations.](http://docs.aws.amazon.com/dms/latest/userguide/images/data-migrations-mongodb.png)
+![An architecture diagram of the MongoDB data migration with DMS Homogeneous Data Migrations.](https://docs.aws.amazon.com/dms/latest/userguide/images/data-migrations-mongodb.png)

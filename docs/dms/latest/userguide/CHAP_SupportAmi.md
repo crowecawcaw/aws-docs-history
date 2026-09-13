@@ -91,7 +91,7 @@ After you have created an Amazon EC2 instance and connected to it, do the follow
    ```
 
    This command displays the status of your tasks.  
-![Diagnostic tool showing task list.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-diagami1.png)
+![Diagnostic tool showing task list.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-diagami1.png)
 
 1. Display task endpoints and settings. Replace {{<DMS-Task-ARN>}} with your task Amazon Resource Name (ARN).
 
@@ -100,7 +100,7 @@ After you have created an Amazon EC2 instance and connected to it, do the follow
    ```
 
    This command displays the endpoints and settings of your task.  
-![Diagnostic tool showing endpoint list for task.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-diagami2.png)
+![Diagnostic tool showing endpoint list for task.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-diagami2.png)
 
 1. Run diagnostic tests. Replace {{<DMS-Task-ARN>}} with your task ARN.
 
@@ -109,7 +109,7 @@ After you have created an Amazon EC2 instance and connected to it, do the follow
    ```
 
    This command displays diagnostic data about your replication instance's VPC, network packet transmission, network latency, and network Maximum Transmission Unit (MTU) size.  
-![Diagnostic tool showing network data.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-diagami3.png)
+![Diagnostic tool showing network data.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-diagami3.png)
 
 ## Next Steps
 <a name="CHAP_SupportAmi_NextSteps"></a>

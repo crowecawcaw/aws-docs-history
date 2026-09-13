@@ -162,7 +162,7 @@ AWS DMS currently supports `map-record-to-record` and `map-record-to-document` a
 
 One way to understand the difference between the `rule-action` parameters `map-record-to-record` and `map-record-to-document` is to see the two parameters in action. For this example, assume that you are starting with a relational database table row with the following structure and data:
 
-![sample database for example](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dynamodb1.png)
+![sample database for example](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dynamodb1.png)
 
 
 To migrate this information to DynamoDB, you create rules to map the data into a DynamoDB table item. Note the columns listed for the `exclude-columns` parameter. These columns are not directly mapped over to the target. Instead, attribute mapping is used to combine the data into new items, such as where *FirstName* and *LastName* are grouped together to become *CustomerName* on the DynamoDB target. *NickName* and *income* are not excluded.
@@ -245,12 +245,12 @@ To migrate this information to DynamoDB, you create rules to map the data into a
 
 By using the `rule-action` parameter *map-record-to-record*, the data for *NickName* and *income* are mapped to items of the same name in the DynamoDB target. 
 
-![Get started with AWS DMS](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dynamodb2.png)
+![Get started with AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dynamodb2.png)
 
 
 However, suppose that you use the same rules but change the `rule-action` parameter to *map-record-to-document*. In this case, the columns not listed in the `exclude-columns` parameter, *NickName* and *income*, are mapped to a *\_doc* item.
 
-![Get started with AWS DMS](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dynamodb3.png)
+![Get started with AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dynamodb3.png)
 
 
 ### Using custom condition expressions with object mapping
@@ -285,7 +285,7 @@ The structure for the rule is as follows:
 
 The following sample highlights the sections used for condition expression.
 
-![Get started with AWS DMS](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-conditional1.png)
+![Get started with AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-conditional1.png)
 
 
 ### Using attribute mapping with object mapping

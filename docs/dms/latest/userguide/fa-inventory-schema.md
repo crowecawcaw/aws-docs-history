@@ -22,7 +22,7 @@ You can view a list of database schemas discovered on servers within your networ
 
 1. You can export inventory information to a `.csv` file for further review.
 
-![Schema Inventory.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dmsstudio-inv-schema.png)
+![Schema Inventory.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dmsstudio-inv-schema.png)
 
 
 To identify schemas to migrate and determine the migration target, you can use AWS Schema Conversion Tool (AWS SCT) or DMS Schema Conversion. For more information, see [Using a new project wizard in AWS SCT](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_UserInterface.html#CHAP_UserInterface.Wizard).

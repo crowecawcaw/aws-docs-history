@@ -136,7 +136,7 @@ The following limitations apply when using a Babelfish database as a target for 
    }
   ```
 + For tables with identity or computed columns, where the target tables use mixed case names like Categories, you must create a transformation rule action that converts the table names to lowercase for your DMS task. The following example shows how to create the transformation rule action, **Make lowercase** using the AWS DMS console. For more information, see [Transformation rules and actions](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Transformations.md).  
-![Babelfish transformation rule](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-babelfish-transform-1.png)
+![Babelfish transformation rule](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-babelfish-transform-1.png)
 + Prior to Babelfish version 2.2.0, DMS limited the number of columns that you could replicate to a Babelfish target endpoint to twenty (20) columns. With Babelfish 2.2.0 the limit increased to 100 columns. But with Babelfish versions 2.4.0 and higher, the number of columns that you can replicate increases again. You can run the following code sample against your SQL Server database to determine which tables are too long.
 
   ```

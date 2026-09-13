@@ -25,4 +25,4 @@ For more information about homogeneous data migrations in AWS DMS, read the step
 
 The following video introduces the homogeneous data migrations user interface and helps you get familiar with this feature.
 
-[![AWS Videos](http://img.youtube.com/vi/HOJfrR6lcuU/0.jpg)](http://www.youtube.com/watch?v=HOJfrR6lcuU)
+[![AWS Videos](https://img.youtube.com/vi/HOJfrR6lcuU/0.jpg)](https://www.youtube.com/watch?v=HOJfrR6lcuU)

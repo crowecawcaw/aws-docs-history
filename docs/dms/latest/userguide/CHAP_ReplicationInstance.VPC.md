@@ -37,7 +37,7 @@ The simplest network for database migration is for the source endpoint, the repl
 
 The following illustration shows a configuration where a database on an Amazon EC2 instance connects to the replication instance and data is migrated to an Amazon RDS DB instance.
 
-![AWS Database Migration Service All in one VPC example](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioAllVPC.png)
+![AWS Database Migration Service All in one VPC example](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioAllVPC.png)
 
 
 The VPC security group used in this configuration must allow ingress on the database port from the replication instance. You can do this in a couple of ways. You can ensure that the security group used by the replication instance has ingress to the endpoints. Or you can allow the VPC CIDR range, NAT GW Elastic IP, or private IP address of the replication instance if you are using one. But we do not recommend you use the private IP address of the replication instance, because it can break your replication if the replication IP address changes.
@@ -51,7 +51,7 @@ A VPC peering connection is a networking connection between two VPCs that enable
 
 The following illustration shows an example configuration using VPC peering. Here, the source database on an Amazon EC2 instance in a VPC connects by VPC peering to a VPC. This VPC contains the replication instance and the target database on an Amazon RDS DB instance.
 
-![AWS Database Migration Service replication instance](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioVPCPeer.png)
+![AWS Database Migration Service replication instance](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioVPCPeer.png)
 
 
 To implement VPC peering, follow the instructions in [Work with VPC peering connections](https://docs.aws.amazon.com/vpc/latest/peering/working-with-vpc-peering.html) located in the *Amazon Virtual Private Cloud, VPC Peering* documentation. Be sure the route table of one VPC contains the CIDR block of the other. For example, if VPC A is using destination 10.0.0.0/16 and VPC B is using destination172.31.0.0, the route table of VPC A should contain 172.31.0.0, and route table of VPC B must contain 10.0.0.0/16. For more detailed information, see [Update your route tables for VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html) in the *Amazon Virtual Private Cloud, VPC Peering* documentation. 
@@ -83,7 +83,7 @@ Remote networks can connect to a VPC using several options such as AWS Direct Co
 
 The following illustration shows a configuration where the source endpoint is an on-premises database in a corporate data center. It is connected by using Direct Connect or a VPN to a VPC that contains the replication instance and a target database on an Amazon RDS DB instance.
 
-![AWS Database Migration Service replication instance](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioDirect.png)
+![AWS Database Migration Service replication instance](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioDirect.png)
 
 
 In this configuration, the VPC security group must include a routing rule that sends traffic destined for a VPC CIDR range or specific IP address to a host. This host must be able to bridge traffic from the VPC into the on-premises VPN. In this case, the NAT host includes its own security group settings. These settings must allow traffic from the replication instance's VPC CIDR range, or private IP address, or security group into the NAT instance. But we do not recommend you use the private IP address of the replication instance, because it can break your replication if the replication IP address changes.
@@ -93,7 +93,7 @@ In this configuration, the VPC security group must include a routing rule that s
 
 If you don't use a VPN or Direct Connect to connect to AWS resources, you can use the internet to migrate your database. In this case, you can migrate to either an Amazon EC2 instance or an Amazon RDS DB instance. This configuration involves a public replication instance in a VPC with an internet gateway that contains the target endpoint and the replication instance.
 
-![AWS Database Migration Service replication instance](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioInternet.png)
+![AWS Database Migration Service replication instance](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioInternet.png)
 
 
 To add an internet gateway to your VPC, see [Attaching an internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#Add_IGW_Attach_Gateway) in the *Amazon VPC User Guide*.
@@ -114,7 +114,7 @@ ClassicLink enables you to link an EC2-Classic DB instance to a VPC in your acco
 
 Because the replication instance in the VPC can't directly access the source DB instance on the EC2-Classic platform using ClassicLink, you use a proxy server. The proxy server connects the source DB instance to the VPC containing the replication instance and target DB instance. The proxy server uses ClassicLink to connect to the VPC. Port forwarding on the proxy server allows communication between the source DB instance and the target DB instance in the VPC. 
 
-![AWS Database Migration Service using ClassicLink](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioClassicLink.png)
+![AWS Database Migration Service using ClassicLink](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-scenarioClassicLink.png)
 
 
 #### Using ClassicLink with AWS Database Migration Service
@@ -266,7 +266,7 @@ Your target endpoint is an AWS service such as:
 
 VPC endpoints provide secure connections between your AWS resources, connecting VPC resources to AWS services without requiring internet access. Your applications in private subnets can access AWS services while staying within the AWS network, improving security and reducing latency. Please refer to the image below:
 
-![Connecting to AWS services using VPC endpoints](http://docs.aws.amazon.com/dms/latest/userguide/images/aws_dms_vpc_endpoints.jpg)
+![Connecting to AWS services using VPC endpoints](https://docs.aws.amazon.com/dms/latest/userguide/images/aws_dms_vpc_endpoints.jpg)
 
 
 For more information, see [Configuring VPC endpoints as AWS DMS source and target endpoints](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_VPC_Endpoints.html) and [Configuring AWS DMS secrets manager VPC Endpoint](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Advanced.Endpoints.secretsmanager.html).

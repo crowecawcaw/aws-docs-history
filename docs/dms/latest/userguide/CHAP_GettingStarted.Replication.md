@@ -12,7 +12,7 @@ To start work with AWS DMS, create a replication instance.
 
 A *replication instance* performs the actual data migration between source and target endpoints. Your instance needs enough storage and processing power to perform the tasks that migrate data from your source database to your target database. How large this replication instance should be depends on the amount of data to migrate and the tasks your instance needs to do. For more information about replication instances, see [Working with an AWS DMS replication instance](CHAP_ReplicationInstance.md).
 
-![Create replication instance](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-replication-30a.png)
+![Create replication instance](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-replication-30a.png)
 
 
 **To create a replication instance using the console**
@@ -66,7 +66,7 @@ AWS DMS creates a replication instance to perform your migration.
 
 While your replication instance is being created, you can specify the source and target data store endpoints for the Amazon RDS databases you created previously. You create each endpoint separately.
 
-![Create endpoint](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-endpoint-30a.png)
+![Create endpoint](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-endpoint-30a.png)
 
 
 **To specify a source endpoint and database endpoint using the AWS DMS console**
@@ -104,7 +104,7 @@ When you're finished providing all information for your endpoints, AWS DMS creat
 
 In this step, you create a task to migrate data between the databases you created. 
 
-![Create migration task](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-task-20a.png)
+![Create migration task](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-task-20a.png)
 
 
 **To create a migration task and start your database migration**
@@ -127,7 +127,7 @@ In this step, you create a task to migrate data between the databases you create
    + **Schema name**: **dms\_sample**
 
 1. Choose the **Migration task startup configuration** tab. Select **Start with premigration assessments (recommended)** to run assessments before starting the task. Alternatively, you can choose **Start automatically on create** to begin migration immediately, or **Run assessments only** to evaluate without starting the task.  
-![Create migration task](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-task-21.png)
+![Create migration task](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-task-21.png)
 
 1. Choose **Create task**.
 

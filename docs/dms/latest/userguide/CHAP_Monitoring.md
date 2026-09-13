@@ -104,7 +104,7 @@ In addition to using the DMS  console, you can *output *a description of curren
 
 The AWS DMS console updates information regarding the state of your tables during migration. The following table shows the possible state values:
 
-![AWS Database Migration Service replication instance](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-TableState.png)
+![AWS Database Migration Service replication instance](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-TableState.png)
 
 
 
@@ -128,17 +128,17 @@ The AWS DMS console shows basic CloudWatch statistics for each task, including t
 
 To view and modify the CloudWatch task log settings, choose **Modify task logging**. For more information, see [Logging task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.Logging.md).
 
-![AWS DMS monitoring](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-monitoring1.png)
+![AWS DMS monitoring](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-monitoring1.png)
 
 
 The AWS DMS console shows performance statistics for each table, including the number of inserts, deletions, and updates, when you select the **Table statistics** tab.
 
-![AWS DMS monitoring](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-monitoring3.png)
+![AWS DMS monitoring](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-monitoring3.png)
 
 
 In addition, if you select a replication instance from the **Replication Instance** page, you can view performance metrics for the instance by choosing the **CloudWatch metrics** tab.
 
-![AWS DMS monitoring](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-monitoring4.png)
+![AWS DMS monitoring](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-monitoring4.png)
 
 
 ## AWS Database Migration Service metrics

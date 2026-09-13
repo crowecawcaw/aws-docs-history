@@ -23,10 +23,10 @@ The following procedure shows how to set up selection rules, based on a table ca
 1. Choose **Create Task**.
 
 1. In the **Task configuration** section, enter the task information, including **Task identifier**, **Replication instance**, **Source database endpoint**, **Target database endpoint**, and **Migration type**.   
-![Schema and table selection](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-task-20.png)
+![Schema and table selection](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-task-20.png)
 
 1. In the **Table mapping** section, enter the schema name and table name. You can use "%" as a wildcard value when specifying the schema name or the table name. For information about other wildcards you can use, see [Wildcards in table mapping](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Wildcards.md). Specify the action to be taken, to include or exclude data defined by the filter.   
-![Schema and table selection](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-selecttransfrm.png)
+![Schema and table selection](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-selecttransfrm.png)
 
 1. Specify filter information using the **Add column filter** and the **Add condition **links.
 
@@ -35,15 +35,15 @@ The following procedure shows how to set up selection rules, based on a table ca
    1. Choose **Add condition ** to add additional conditions.
 
     The following example shows a filter for the **Customers** table that includes **AgencyIDs** between **01** and **85**.  
-![Schema and table selection](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-filter.png)
+![Schema and table selection](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-filter.png)
 
 1. When you have created the selections you want, choose **Add new selection rule**.
 
 1. After you have created at least one selection rule, you can add a transformation to the task. Choose **add transformation rule**.  
-![transformation rule](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-transform1.png)
+![transformation rule](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-transform1.png)
 
 1. Choose the target that you want to transform, and enter the additional information requested. The following example shows a transformation that deletes the **AgencyStatus** column from the **Customer** table.  
-![transformation rule](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-transform2.png)
+![transformation rule](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Tasks-transform2.png)
 
 1. Choose **Add transformation rule**.
 

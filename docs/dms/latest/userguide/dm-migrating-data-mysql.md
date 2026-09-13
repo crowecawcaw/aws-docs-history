@@ -24,4 +24,4 @@ This query returns a binlog file name and the position. For the native start poi
 
 The following diagram shows the process of using homogeneous data migrations in AWS DMS to migrate a MySQL database to RDS for MySQL or Aurora MySQL.
 
-![An architecture diagram of the MySQL data migration with DMS Homogeneous Data Migrations.](http://docs.aws.amazon.com/dms/latest/userguide/images/data-migrations-mysql.png)
+![An architecture diagram of the MySQL data migration with DMS Homogeneous Data Migrations.](https://docs.aws.amazon.com/dms/latest/userguide/images/data-migrations-mysql.png)

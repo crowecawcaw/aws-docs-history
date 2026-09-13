@@ -249,7 +249,7 @@ You can migrate your documents in parallel by specifying the ranges for each seg
 
 The image following shows a MongoDB collection that has seven items, and `_id` as the primary key.
 
-![MongoDB collection with seven items.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-docdb-collection.png)
+![MongoDB collection with seven items.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-docdb-collection.png)
 
 
 To split the collection into three specific segments for AWS DMS to migrate in parallel, you can add table mapping rules to your migration task. This approach is shown in the following JSON example.

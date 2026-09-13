@@ -411,7 +411,7 @@ Then you can take remedial steps based upon the results.
    ```
 
 1. Examine the output displayed for relevant read performance information. For example, the following shows output that can result from selecting option number 2, **Read using LogMiner**.  
-![read performance utility output](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-oracle-read-perf-util.png)
+![read performance utility output](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-oracle-read-perf-util.png)
 
 1. To exit the utility, enter **0** (zero).
 

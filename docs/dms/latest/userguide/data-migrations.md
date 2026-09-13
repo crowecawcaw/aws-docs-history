@@ -15,7 +15,7 @@ For the list of supported target databases, see [Targets for DMS homogeneous dat
 
 The following diagram illustrates how homogeneous data migrations work.
 
-![An architecture diagram of the DMS Homogeneous Data Migrations feature.](http://docs.aws.amazon.com/dms/latest/userguide/images/dms-data-migrations-diagram.png)
+![An architecture diagram of the DMS Homogeneous Data Migrations feature.](https://docs.aws.amazon.com/dms/latest/userguide/images/dms-data-migrations-diagram.png)
 
 
 The following sections provide information about using homogeneous data migrations.

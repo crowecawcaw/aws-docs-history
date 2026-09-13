@@ -28,4 +28,4 @@ After you determine the migration target for each source database, you can use D
 
 The following video introduces the DMS Fleet Advisor user interface and helps you get familiar with this service.
 
-[![AWS Videos](http://img.youtube.com/vi/2UmTXVIlDLw/0.jpg)](http://www.youtube.com/watch?v=2UmTXVIlDLw)
+[![AWS Videos](https://img.youtube.com/vi/2UmTXVIlDLw/0.jpg)](https://www.youtube.com/watch?v=2UmTXVIlDLw)

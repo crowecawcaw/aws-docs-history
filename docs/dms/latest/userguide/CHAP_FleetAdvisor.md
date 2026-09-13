@@ -18,7 +18,7 @@ For the list of databases that DMS Fleet Advisor uses to generate target recomme
 
 The following diagram illustrates the AWS DMS Fleet Advisor Target Recommendations process.
 
-![DMS Fleet Advisor target recommendations architecture diagram.](http://docs.aws.amazon.com/dms/latest/userguide/images/dms-fleet-advisor-diagram.png)
+![DMS Fleet Advisor target recommendations architecture diagram.](https://docs.aws.amazon.com/dms/latest/userguide/images/dms-fleet-advisor-diagram.png)
 
 
 Use the following topics to better understand how to use AWS DMS Fleet Advisor.

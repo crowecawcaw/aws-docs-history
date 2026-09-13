@@ -64,12 +64,12 @@ The **Schema conversion** page allows you to edit converted SQL code in your dat
 **To edit, apply changes to, and save your converted SQL code**
 
 1. In the **Schema conversion** page, open the tree view in the **Source data providers** pane to display a code object.  
-![Schema conversion: Source data providers tree view](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-sc-editsql-1.png)
+![Schema conversion: Source data providers tree view](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-sc-editsql-1.png)
 
 1. From the **Source data providers** pane, choose **Actions**, **Convert**. Confirm the action.
 
 1. When the conversion completes, to view the converted SQL, expand the center pane if needed. To edit the converted SQL, choose the edit icon in the **Target SQL** pane.  
-![Schema conversion: Edit target SQL](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-sc-editsql-2.png)
+![Schema conversion: Edit target SQL](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-sc-editsql-2.png)
 
 1. After you edit the target SQL, confirm your changes by choosing the check icon at the top of the page. Confirm the action.
 

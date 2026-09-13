@@ -250,7 +250,7 @@ Auto-segmentation has the limitation following. The migration for each segment f
 
 The following example shows an Amazon DocumentDB collection that has seven items, and `_id` as the primary key.
 
-![Amazon DocumentDB collection with seven items.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-docdb-collection.png)
+![Amazon DocumentDB collection with seven items.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-docdb-collection.png)
 
 
 To split the collection into three segments and migrate in parallel, you can add table mapping rules to your migration task as shown in the following JSON example.

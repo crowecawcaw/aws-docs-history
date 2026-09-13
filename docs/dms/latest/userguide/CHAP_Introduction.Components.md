@@ -19,7 +19,7 @@ At a high level, DMS Schema Conversion operates with the following three compone
 At a high level, an AWS DMS replication instance is simply a managed Amazon Elastic Compute Cloud (Amazon EC2) instance that hosts one or more replication tasks.   
 The figure following shows an example replication instance running several associated replication tasks.  
 
-![Get started with AWS DMS](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-intro-rep-instance1.png)
+![Get started with AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-intro-rep-instance1.png)
 
 A single replication instance can host one or more replication tasks, depending on the characteristics of your migration and the capacity of the replication server. AWS DMS provides a variety of replication instances so you can choose the optimal configuration for your use case. For more information about the various classes of replication instances, see [Choosing the right AWS DMS replication instance for your migration](CHAP_ReplicationInstance.Types.md).   
 AWS DMS creates the replication instance on an Amazon EC2 instance. Some of the smaller instance classes are sufficient for testing the service or for small migrations. If your migration involves a large number of tables, or if you intend to run multiple concurrent replication tasks, you should consider using one of the larger instances. We recommend this approach because AWS DMS can consume a significant amount of memory and CPU.   
@@ -69,7 +69,7 @@ When you create a replication task, you specify the following task settings:
 You use the task to migrate data from the source endpoint to the target endpoint, and the task processing is done on the replication instance. You specify what tables and schemas to migrate and any special processing, such as logging requirements, control table data, and error handling.  
 Conceptually, an AWS DMS replication task performs two distinct functions as shown in the diagram following.  
 
-![Get started with AWS DMS](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-intro-rep-task1.png)
+![Get started with AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-intro-rep-task1.png)
 
 The full load process is straight-forward to understand. Data is extracted from the source in a bulk extract manner and loaded directly into the target. You can specify the number of tables to extract and load in parallel on the AWS DMS console under **Advanced Settings**.  
 For more information about AWS DMS tasks, see [Working with AWS DMS tasks](CHAP_Tasks.md).

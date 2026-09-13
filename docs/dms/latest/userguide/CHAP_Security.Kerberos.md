@@ -10,7 +10,7 @@ Starting with DMS v3.5.3, you can configure your Oracle or SQL Server source end
 
 The following diagram provides a high level overview of the AWS DMS Kerberos authentication workflow. 
 
-![Kerberos Authentication Architecture](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-kerberos-architecture.jpg)
+![Kerberos Authentication Architecture](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-kerberos-architecture.jpg)
 
 
 ## Limitations on using Kerberos authentication with AWS DMS

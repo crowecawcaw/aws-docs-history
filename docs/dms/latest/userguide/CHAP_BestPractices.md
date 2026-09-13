@@ -148,7 +148,7 @@ You can configure domains hosted within your on-premises DNS infrastructure as c
 
 The following diagram shows the Route 53 Resolver architecture.
 
-![Route 53 Resolver Architecture](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-resolver-howitworks.png)
+![Route 53 Resolver Architecture](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-resolver-howitworks.png)
 
 
 For more information about Route 53 DNS Resolver, see [Getting started with Route 53 Resolver](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-getting-started.html) in the *Amazon Route 53 Developer Guide*.

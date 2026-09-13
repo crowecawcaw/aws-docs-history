@@ -21,7 +21,7 @@ DMS disables Internet Gateway access for IPv6 endpoints of private dual-stack mo
 
 You can use the AWS DMS Console to create or modify a replication instance, and specify dual-stack mode in the **Network type** section. The following image shows the **Network type** section in the console.
 
-![AWS Database Migration Service Network Type](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-network-type.png)
+![AWS Database Migration Service Network Type](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-network-type.png)
 
 
 **References**

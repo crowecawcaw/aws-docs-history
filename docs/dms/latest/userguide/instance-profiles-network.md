@@ -32,7 +32,7 @@ The simplest network configuration for DMS Schema Conversion is a single VPC con
 
 The following illustration shows a configuration where a source database connects to DMS Schema Conversion and the schema is converted to a target database, all within the same VPC.
 
-![Source database, DMS Schema Conversion, and target database in a single VPC communicating through the same subnet.](http://docs.aws.amazon.com/dms/latest/userguide/images/sc_network_one_vpc.png)
+![Source database, DMS Schema Conversion, and target database in a single VPC communicating through the same subnet.](https://docs.aws.amazon.com/dms/latest/userguide/images/sc_network_one_vpc.png)
 
 
 The security groups on your databases must allow ingress on the database port from the DMS Schema Conversion security group. Do not use a specific ENI IP address for allowlisting, because the ENI IP address can change at any time.
@@ -59,7 +59,7 @@ A *VPC peering connection* is a networking connection between two VPCs that acti
 
 The following illustration shows a configuration using VPC peering. Here, the source database in one VPC connects by VPC peering to another VPC that contains DMS Schema Conversion and the target database.
 
-![Source database in VPC A connected by VPC peering to DMS Schema Conversion and target database in VPC B.](http://docs.aws.amazon.com/dms/latest/userguide/images/sc_network_multiple_vpcs.png)
+![Source database in VPC A connected by VPC peering to DMS Schema Conversion and target database in VPC B.](https://docs.aws.amazon.com/dms/latest/userguide/images/sc_network_multiple_vpcs.png)
 
 
 To implement VPC peering, follow the instructions in [Work with VPC peering connections](https://docs.aws.amazon.com/vpc/latest/peering/working-with-vpc-peering.html) in the *Amazon VPC User Guide*. Make sure that the route table of one VPC contains the CIDR block of the other. For example, suppose that VPC A is using destination 10.0.0.0/16 and VPC B is using destination 172.31.0.0/16. In this case, the route table of VPC A should contain 172.31.0.0/16, and the route table of VPC B must contain 10.0.0.0/16. For more detailed information, see [Update your route tables for VPC peering connection](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-routing.html) in the *Amazon VPC Peering Guide*.
@@ -100,7 +100,7 @@ Remote networks can connect to a VPC using several options, such as Direct Conne
 
 The following illustration shows a configuration where the source endpoint is an on-premises database in a corporate data center. It is connected by using Direct Connect or a VPN to a VPC that contains DMS Schema Conversion and the target database.
 
-![On-premises source database connected through Direct Connect or VPN to a VPC containing DMS Schema Conversion and the target database.](http://docs.aws.amazon.com/dms/latest/userguide/images/sc_network_vpn.png)
+![On-premises source database connected through Direct Connect or VPN to a VPC containing DMS Schema Conversion and the target database.](https://docs.aws.amazon.com/dms/latest/userguide/images/sc_network_vpn.png)
 
 
 In this configuration, set up the following network components:
@@ -117,7 +117,7 @@ If you don't use a VPN or Direct Connect to connect to AWS resources, you can us
 
 The following illustration shows a configuration where DMS Schema Conversion in a VPC connects to an on-premises source database through the internet using a NAT gateway.
 
-![On-premises source database connected through the internet and a NAT gateway to DMS Schema Conversion in a private subnet.](http://docs.aws.amazon.com/dms/latest/userguide/images/sc_network_igw.png)
+![On-premises source database connected through the internet and a NAT gateway to DMS Schema Conversion in a private subnet.](https://docs.aws.amazon.com/dms/latest/userguide/images/sc_network_igw.png)
 
 
 To enable connectivity from your VPC to a publicly accessible source database, configure the VPC with private subnets that connect to the internet through a NAT gateway. The NAT gateway provides a consistent public IP address that you can add to your source database's firewall allowlist, allowing resources in the private subnet to connect to the source database through the internet.

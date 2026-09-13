@@ -26,7 +26,7 @@ For information about the common conversion settings, the tree view settings, an
 1. Choose **Migration projects**. The **Migration projects** page opens.
 
 1. Choose your migration project, and on the **Overview** tab copy migration project id from the **ARN** field.  
-![This an image showing how to get the ARN ID from the AWS DMS console.](http://docs.aws.amazon.com/dms/latest/userguide/images/dms-schema-conversion-log.png)
+![This an image showing how to get the ARN ID from the AWS DMS console.](https://docs.aws.amazon.com/dms/latest/userguide/images/dms-schema-conversion-log.png)
 
 1. Open **CloudWatch** service.
 

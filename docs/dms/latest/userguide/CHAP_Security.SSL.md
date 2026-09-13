@@ -65,7 +65,7 @@ Following are limitations on using SSL with AWS DMS:
 
 You can use the DMS console to view and manage your SSL certificates. You can also import your certificates using the DMS console.
 
-![AWS Database Migration Service SSL certificate management](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-certificatemgr.png)
+![AWS Database Migration Service SSL certificate management](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-certificatemgr.png)
 
 
 ## Enabling SSL for a MySQL-compatible, PostgreSQL, or SQL Server endpoint
@@ -109,7 +109,7 @@ You can also upload a certificate using the AWS DMS console when you create or m
 1. Choose a value for **SSL mode**.
 
    If you choose **verify-ca** or **verify-full** mode, specify the certificate that you want to use for **CA certificate**, as shown following.   
-![AWS Database Migration Service SSL certificate management](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-certificate2.png)
+![AWS Database Migration Service SSL certificate management](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-certificate2.png)
 
    
 

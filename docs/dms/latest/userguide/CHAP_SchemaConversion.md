@@ -52,7 +52,7 @@ Brings together a source data provider, a target data provider, and an instance 
 
 The following diagram shows how these resources fit together. Each of your source and target databases is represented by a data provider. The migration project uses both data providers and the instance profile, and it's where DMS Schema Conversion converts your schema.
 
-![Source and target databases each connect through a data provider to a migration project, where the schema is converted.](http://docs.aws.amazon.com/dms/latest/userguide/images/dms-schema-conversion-diagram.png)
+![Source and target databases each connect through a data provider to a migration project, where the schema is converted.](https://docs.aws.amazon.com/dms/latest/userguide/images/dms-schema-conversion-diagram.png)
 
 
 ## Key capabilities

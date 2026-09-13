@@ -7,7 +7,7 @@ To manage the resources needed to perform a replication, AWS DMS Serverless has 
 
 The following diagram shows the state transitions for an AWS DMS Serverless replication.
 
-![AWS DMS Serverless replication states](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-replicationstate_updated.png)
+![AWS DMS Serverless replication states](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-replicationstate_updated.png)
 
 + The first state after you start the replication is **Initializing**. In this state, all the required parameters are initialized.
 + The states immediately following include ** Preparing Metadata Resources**, **Testing Connection**, and **Fetching Metadata**. In these states, AWS DMS Serverless connects to your source database to obtain the information needed to predict the capacity needed. 

@@ -198,7 +198,7 @@ Beginning with the release of AWS DMS 3.4.5 and with later versions, we recommen
    1. Under **Event source**, for **Source type**, choose a source type. The only options are **replication-instance** and **replication-task**.
 
    1. Depending on the source type you selected, choose the event categories and sources you want to receive event notifications for.  
-![Console create event subscription](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-event-sub-consolev2.png)
+![Console create event subscription](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-create-event-sub-consolev2.png)
 
    1. Select **Create event subscription**.
 

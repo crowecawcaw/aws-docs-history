@@ -10,7 +10,7 @@ To check the feasibility of potential database migrations, you can work with inv
 
 You can access database and schema inventories on the console. To do so, choose **Inventory** on the console.
 
-![The Inventory tab of the DMS console.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-console-nav-22.png)
+![The Inventory tab of the DMS console.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-console-nav-22.png)
 
 
 DMS Fleet Advisor analyzes your database schemas to determine the similarity of different schemas. This analysis doesn't compare the actual code for objects. DMS Fleet Advisor compares only the names of schema objects, such as functions and procedures, to identify similar objects in different database schemas.

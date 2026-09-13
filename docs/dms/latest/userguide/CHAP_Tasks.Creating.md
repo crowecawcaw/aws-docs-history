@@ -28,7 +28,7 @@ The following procedure assumes that you have already specified replication inst
 1. On the navigation pane, choose **Database migration tasks**, and then choose **Create task**.
 
 1. On the **Create database migration task** page, in the **Task configuration** section, specify the task options. The following table describes the settings.  
-![Create task](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-gs-wizard4.png)    
+![Create task](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-gs-wizard4.png)    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.Creating.html)
 
 1. In the **Task Settings** section, specify values for editing your task, target table preparation mode, stop task, LOB settings, validation, and logging.    

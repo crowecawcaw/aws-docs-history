@@ -7,7 +7,7 @@ When you create an AWS DMS replication instance, AWS DMS creates it on an Amazon
 
 In a Multi-AZ deployment, AWS DMS automatically provisions and maintains a synchronous standby replica of the replication instance in a different Availability Zone. The primary replication instance is synchronously replicated across Availability Zones to a standby replica. This approach provides data redundancy, eliminates I/O freezes, and minimizes latency spikes.
 
-![AWS Database Migration Service replication instance](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-conceptual2.png)
+![AWS Database Migration Service replication instance](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-conceptual2.png)
 
 
 AWS DMS uses a replication instance to connect to your source data store, read the source data, and format the data for consumption by the target data store. A replication instance also loads the data into the target data store. Most of this processing happens in memory. However, large transactions might require some buffering on disk. Cached transactions and log files are also written to disk.

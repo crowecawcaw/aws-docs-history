@@ -11,7 +11,7 @@ For more information about DMS Schema Conversion, read the step-by-step migratio
 
 The following video introduces the DMS Schema Conversion user interface and helps you get familiar with the core components of this service.
 
-[![AWS Videos](http://img.youtube.com/vi/ki3r92Cfqwk/0.jpg)](http://www.youtube.com/watch?v=ki3r92Cfqwk)
+[![AWS Videos](https://img.youtube.com/vi/ki3r92Cfqwk/0.jpg)](https://www.youtube.com/watch?v=ki3r92Cfqwk)
 
 
 **Topics**

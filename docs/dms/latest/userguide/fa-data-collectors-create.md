@@ -19,7 +19,7 @@ Before you create a data collector, use the IAM console to create a service-link
 1. In the navigation pane, choose **Data collectors** under **Discover**. The **Data collectors** page opens.
 
 1. Choose **Create data collector**. The **Create data collector** page opens.  
-![Create data collector page.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-fa-create-collector-22.png)
+![Create data collector page.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-fa-create-collector-22.png)
 
 1. For **Name** in the **General configuration** section, enter a name of your data collector.
 

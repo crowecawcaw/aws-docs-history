@@ -48,7 +48,7 @@ On the DMS data collector home page, you can find information for preparing and 
 + Connectivity to your installed database drivers.
 + Credentials of an LDAP server to perform initial discovery.
 
-![AWS DMS data collector home page.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-fa-collector-home-22.png)
+![AWS DMS data collector home page.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-fa-collector-home-22.png)
 
 
 DMS data collector uses an LDAP directory to gather information about the machines and database servers in your network. *Lightweight Directory Access Protocol (LDAP)* is an open standard application protocol. It's used for accessing and maintaining distributed directory information services over an IP network. You can add an existing LDAP server to your project for data collector that you can use for discovering information about the infrastructure of your systems. To do so, choose the **\+Server** option, then specify a fully qualified domain name (FQDN) and the credentials for your domain controller. After adding the server, validate the connection check. To get started with the discovery process, see [Discovering OS and database servers to monitor in AWS DMS](fa-discovery.md).

@@ -30,7 +30,7 @@ DMS applies the `TargetTablePrepMode` setting before reloading the table. If you
 1. Choose the running task that has the table you want to reload. 
 
 1. Choose the **Table Statistics** tab.  
-![AWS DMS monitoring](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-reloading1.png)
+![AWS DMS monitoring](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-reloading1.png)
 
 1. Choose the table you want to reload. If the task is no longer running, you can't reload the table.
 

@@ -14,7 +14,7 @@ At a basic level, AWS DMS is a server in the AWS Cloud that runs replication sof
 
 The following diagram illustrates the AWS DMS replication process.
 
-![Getting started with AWS DMS](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Welcome.png)
+![Getting started with AWS DMS](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-Welcome.png)
 
 
 **References**

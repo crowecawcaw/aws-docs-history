@@ -17,7 +17,7 @@ To view a list of all databases on all the discovered servers within your networ
 1. Choose the **Databases** tab. 
 
    A list of discovered databases appears.  
-![Database inventory.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dmsstudio-inv-db.png)
+![Database inventory.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dmsstudio-inv-db.png)
 
 1. Choose **Analyze inventories** to determine schema properties, such as similarity and complexity. The amount of time the process takes depends on the number of objects to analyze, but it won't take more than one hour. Results from the analysis are found on the **Schemas** tab located on the **Inventory** page. 
 

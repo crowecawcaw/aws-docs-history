@@ -802,7 +802,7 @@ After you do so, use the following procedure to use RDS for Oracle Standby as a 
    ```
 
    For example, the preceding code displays a list of directories like the following.  
-![Table showing directory names and paths for archive and online log directories.](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-rds-server-level-directories.png)
+![Table showing directory names and paths for archive and online log directories.](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-rds-server-level-directories.png)
 
 1. Grant the `Read` privilege on the preceding directories to the Oracle user account that is used to access the Oracle Standby.
 

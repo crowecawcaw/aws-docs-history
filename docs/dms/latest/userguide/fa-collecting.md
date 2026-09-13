@@ -33,7 +33,7 @@ On the **Data collection** page, you can see the collection status for each obje
 + **Summary by query type** – Shows status for type of collector query, such as SQL, Secure Shell (SSH), or Windows Management Instrumentation (WMI) calls.
 + **Summary by issue** – Shows all unique issues that occurred, with issue names and the number of times that each issue occurs.
 
-![Data collection page](http://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dmsstudio-summary2.png)
+![Data collection page](https://docs.aws.amazon.com/dms/latest/userguide/images/datarep-dmsstudio-summary2.png)
 
 
 To export the collection results, choose **Export to CSV**.
