@@ -9,7 +9,7 @@ AWS Infrastructure Composer features an integration with the Amazon Virtual Priv
 
 The following image shows is an example of an application with a Lambda function configured with a VPC.
 
-![An application with the VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_06.png)
+![An application with the VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_06.png)
 
 
 To learn more about Amazon VPC, see [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) in the *Amazon VPC User Guide*.

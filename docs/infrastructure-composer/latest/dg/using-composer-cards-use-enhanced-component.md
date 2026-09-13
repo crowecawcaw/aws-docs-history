@@ -21,4 +21,4 @@ The **Resource properties** panel streamlines configuration and adds guiderails 
 1. For Infrastructure Composer from the AWS Management Console, select **Template** to show your application code. Configure directly from here.
 
    The following image shows how this can be done:  
-![Selecting the Template View and modifying the infrastructure code from there.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_11.gif)
+![Selecting the Template View and modifying the infrastructure code from there.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_11.gif)

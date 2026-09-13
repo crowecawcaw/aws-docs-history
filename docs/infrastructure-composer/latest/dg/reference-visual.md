@@ -14,7 +14,7 @@ This section provides a visual overview of the AWS Infrastructure Composer conso
 
 The following image is of the home page in the Infrastructure Composer console:
 
-![The Infrastructure Composer home page.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_01.png)
+![The Infrastructure Composer home page.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_01.png)
 
 
 1. **Documentation** – Go to Infrastructure Composer documentation.
@@ -34,7 +34,7 @@ The following image is of the home page in the Infrastructure Composer console:
 
 The following image is of Infrastructure Composer's visual designer and visual canvas:
 
-![Infrastructure Composer's visual designer and visual canvas.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_02.png)
+![Infrastructure Composer's visual designer and visual canvas.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_02.png)
 
 
 1. **Resource palette** – Displays cards that you can design with.

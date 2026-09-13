@@ -10,7 +10,7 @@ AWS Infrastructure Composer features an integration with [AWS Step Functions Wo
 
 The following image is of a Step Functions State machine card
 
-![A Step Functions State machine card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_01.png)
+![A Step Functions State machine card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_01.png)
 
 
 With Step Functions Workflow Studio in Infrastructure Composer, you can use the benefits of two powerful visual designers in a single place. As you design your workflow and application, Infrastructure Composer creates your infrastructure as code (IaC) to guide you towards deployment.
@@ -53,7 +53,7 @@ To get started, you can create new workflows or import existing workflows.
 <a name="using-composer-services-sf-gs-create"></a>
 
 1. From the **Resources** palette, drag a **Step Functions State machine** enhanced component card onto the canvas.  
-![A Step Functions state machine card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_02.png)
+![A Step Functions state machine card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_02.png)
 
    When you drag a **Step Functions State machine** card onto the canvas, Infrastructure Composer creates the following:
    + An `[ AWS::Serverless::StateMachine](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html)` resource that defines your state machine. By default, Infrastructure Composer creates a standard workflow. To create an express workflow, change the `Type` value in your template from `STANDARD` to `EXPRESS`.
@@ -116,20 +116,20 @@ When you create tasks in Workflow Studio, specify a definition substitution for 
 **To specify a definition substitution in Workflow Studio**
 
 1. Open the **Configuration** tab of the task and locate the **API Parameters** field.  
-![The Configuration tab of a task in Workflow Studio.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_05.png)
+![The Configuration tab of a task in Workflow Studio.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_05.png)
 
 1. If the **API Parameters** field has a drop down option, choose **Enter a CloudFormation substitution**. Then, provide a unique name.
 
    For tasks that connect to the same resource, specify the same definition substitution for each task. To use an existing definition substitution, choose **Select a CloudFormation substitution** and select the substitution to use.
 
 1. If the **API Parameters** field contains a JSON object, modify the entry that specifies the resource name to use a definition substitution. In the following example, we change `"MyDynamoDBTable"` to `"${RecordTransaction}"`.  
-![The Configuration tab of a task in Workflow Studio.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_06.png)
+![The Configuration tab of a task in Workflow Studio.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_06.png)
 
 1. Select **Save** and **Return to Infrastructure Composer**.
 
 The tasks from your workflow will visualize on the **Step Functions State machine** card.
 
-![A Step Functions State machine card with tasks visualized.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_03.png)
+![A Step Functions State machine card with tasks visualized.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_03.png)
 
 
 ### Connect resources to workflow tasks
@@ -143,7 +143,7 @@ When creating a connection, the AWS service of the task and card must match. For
 
 To create a connection, click and drag the port of a task to the left port of an enhanced component card.
 
-![A Step Functions State machine card with a task connected to a Lambda function resource card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_04.png)
+![A Step Functions State machine card with a task connected to a Lambda function resource card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_sf_04.png)
 
 
 Infrastructure Composer will automatically update your `DefinitionSubstitution` value to define your connection. The following is an example:

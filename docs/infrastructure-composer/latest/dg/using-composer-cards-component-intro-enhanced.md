@@ -33,7 +33,7 @@ This table displays our enhanced components with links to the AWS CloudFormation
 
 The following is an example of an **S3 Bucket** enhanced component:
 
-![An S3 Bucket enhanced component card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_cards_07.png)
+![An S3 Bucket enhanced component card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_cards_07.png)
 
 
 When you drag an **S3 Bucket** component card onto the canvas and view your template, you will see the following two CloudFormation resources added to your template:

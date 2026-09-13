@@ -98,11 +98,11 @@ This example uses the AWS SAM CLI to create an application that references an e
 1. Next, load your application in Infrastructure Composer from the console. From the Infrastructure Composer **home** page, select **Load a CloudFormation template**.
 
 1. Select our `demo` project folder and allow the prompt to view files. Select our `template.yaml` file and select **Create**. When prompted, select **Save changes**.  
-![The Infrastructure Composer Open project folder window with our project folder selected and the Create ready to be selected.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_15.png)
+![The Infrastructure Composer Open project folder window with our project folder selected and the Create ready to be selected.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_15.png)
 
 Infrastructure Composer automatically detects the external state machine definition file and loads it. Select our **StockTradingStateMachine** resource and choose **Details** to show the **Resource properties** panel. Here, you can see that Infrastructure Composer has automatically connected to our external state machine definition file.
 
-![The Infrastructure Composer canvas view with the API Gateway resource properties panel displayed, showing the configuration of the external reference file.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_03.png)
+![The Infrastructure Composer canvas view with the API Gateway resource properties panel displayed, showing the configuration of the external reference file.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_03.png)
 
 
 Any changes made to the state machine definition file will be automatically reflected in Infrastructure Composer.

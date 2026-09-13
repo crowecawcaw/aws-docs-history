@@ -7,7 +7,7 @@ To integrate Infrastructure Composer with Amazon VPC, you must first identify re
 
 Infrastructure Composer visualizes resources in a VPC using a **VPC** tag. This tag is applied to cards on the canvas. The following is an example of a Lambda function with a VPC tag:
 
-![A VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_01.png)
+![A VPC tag visualizing a Lambda function in Infrastructure Composer that is configured with a VPC.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_01.png)
 
 
 VPC tags are applied to cards on the canvas when you do the following:
@@ -31,7 +31,7 @@ The `Parameters` section of an AWS CloudFormation template can be used to store 
 
 For the **Parameter** type, you can provide a parameter name. In the following example, we provide a `PrivateSubnet1` parameter name value:
 
-![A PrivateSubnet1 value being provided for the Parameter type of a subnet ID field.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_07.png)
+![A PrivateSubnet1 value being provided for the Parameter type of a subnet ID field.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_07.png)
 
 
 When you provide a parameter name, Infrastructure Composer defines it in the `Parameters` section of your template. Then, Infrastructure Composer references the parameter in your Lambda function resource. The following is an example:
@@ -102,7 +102,7 @@ Resources:
 
 The following is an example of this resource value being provided by logical ID for the Lambda function:
 
-![A PrivateSubnet1Parameter value being provided for the SSM type of a subnet ID field.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_08.png)
+![A PrivateSubnet1Parameter value being provided for the SSM type of a subnet ID field.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_08.png)
 
 
 Infrastructure Composer creates the infrastructure code to configure your Lambda function with the SSM parameter:
@@ -155,7 +155,7 @@ Resources:
 
 For security groups and subnets, you can use multiple types together. The following is an example that configures three security groups for a Lambda function by providing values of different types:
 
-![Three different value types being used to provide identifiers for the security group ID field of a Lambda function.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_09.png)
+![Three different value types being used to provide identifiers for the security group ID field of a Lambda function.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_09.png)
 
 
 Infrastructure Composer references all three values under the `SecurityGroupIds` property:

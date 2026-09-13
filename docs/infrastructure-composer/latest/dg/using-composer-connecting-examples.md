@@ -10,7 +10,7 @@ Use the examples in this section to understand how cards can be connected in Inf
 
 In this example, an **Amazon S3 bucket** card is connected to a **Lambda function** card. When an item is placed in the Amazon S3 bucket, the function is invoked. The function can then be used to process the item or trigger other events in your application.
 
-![A connection from the right port of a Amazon S3 bucket resource to the left port of a Lambda function resource.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_05.png)
+![A connection from the right port of a Amazon S3 bucket resource to the left port of a Lambda function resource.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_05.png)
 
 
 This interaction requires that an event be defined for the function. Here is what Infrastructure Composer provisions:
@@ -44,7 +44,7 @@ Resources:
 
 In this example, a **Lambda function** card invokes an **Amazon S3 bucket** card. The Lambda function can be used to perform CRUD operations on items in the Amazon S3 bucket.
 
-![A connection from the right port of an Lambda function resource to the left port of a Amazon S3 bucket resource.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_06.png)
+![A connection from the right port of an Lambda function resource to the left port of a Amazon S3 bucket resource.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_06.png)
 
 
 This interaction requires the following, which is provisioned by Infrastructure Composer:

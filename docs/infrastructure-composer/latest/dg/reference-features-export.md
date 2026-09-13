@@ -17,7 +17,7 @@ The **export canvas** feature exports your application’s canvas as an image to
 
 You can access the **export canvas** feature from the **Menu**.
 
-![Infrastructure Composer's Menu with Export canvas selected.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_13.png)
+![Infrastructure Composer's Menu with Export canvas selected.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_13.png)
 
 
 ## Exporting canvas
@@ -27,9 +27,9 @@ When you export your canvas, Infrastructure Composer displays a status message.
 
 If the export is successful, you will see the following message:
 
-![Infrastructure Composer's Menu with Export canvas selected.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_14.png)
+![Infrastructure Composer's Menu with Export canvas selected.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_14.png)
 
 
 If the export was unsuccessful, you will see an error message. If you receive an error, try exporting again.
 
-![Infrastructure Composer's Menu with Export canvas selected.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_15.png)
+![Infrastructure Composer's Menu with Export canvas selected.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_15.png)

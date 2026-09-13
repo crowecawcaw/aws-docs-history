@@ -15,12 +15,12 @@ In AWS Infrastructure Composer, a connection between two cards is visually displ
 
 How you connect cards together varies depending on the card type. Each enhanced card has at least one connector port. To connect them, you simply select one connector port and drag it to the port of another card, and Infrastructure Composer will connect the two resources or display a message stating this configuration isn’t supported. 
 
-![An API Gateway card connected to a Lambda function.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_con_01.png)
+![An API Gateway card connected to a Lambda function.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_con_01.png)
 
 
 As seen above, lines between enhanced component cards are solid. Conversely, standard IaC resource cards (also referred to as standard component cards) do not have connector ports. For these cards, you must specify these event-driven relationships in your application's template, and Infrastructure Composer will automatically detect their connections and visualize them with a dotted line between your cards.
 
-![An image of a standard component card connected to an enhanced component card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_con_04.png)
+![An image of a standard component card connected to an enhanced component card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_con_04.png)
 
 
 To learn more, see the sections below.
@@ -32,7 +32,7 @@ In Infrastructure Composer, a connection between two enhanced component cards is
 
 To connect two cards, click on a port from one card and drag it onto a port on another card.
 
-![Selecting a port from one resource card and connecting it to another resource card on the Infrastructure Composer canvas.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_08.gif)
+![Selecting a port from one resource card and connecting it to another resource card on the Infrastructure Composer canvas.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_08.gif)
 
 
 **Note**  

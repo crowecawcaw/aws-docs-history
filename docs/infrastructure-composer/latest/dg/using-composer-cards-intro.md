@@ -14,7 +14,7 @@ Depending on the card, a *Standard IaC resource* card may be labeled a **Standar
 
 While some types of cards are available from the **Resources** palette, cards can also appear on the canvas when you import an existing CloudFormation or AWS Serverless Application Model (AWS SAM) template into Infrastructure Composer. The following image is an example of an imported application that contains various card types:
 
-![An imported application template displayed on the Infrastructure Composer canvas, showing various card types.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_cards_11.png)
+![An imported application template displayed on the Infrastructure Composer canvas, showing various card types.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_cards_11.png)
 
 
 **Topics**

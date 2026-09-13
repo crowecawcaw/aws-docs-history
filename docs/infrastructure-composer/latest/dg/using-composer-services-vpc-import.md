@@ -24,7 +24,7 @@ Parameters:
 
 When configuring an external VPC for a new Lambda function on the canvas, these parameters will be available from a dropdown list. The following is an example:
 
-![A dropdown list of values being offered for the Parameter type of the Subnet ID field for a Lambda function card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_10.png)
+![A dropdown list of values being offered for the Parameter type of the Subnet ID field for a Lambda function card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_10.png)
 
 
 ## Limitations when importing list parameter types
@@ -47,7 +47,7 @@ Parameters:
 
 In Infrastructure Composer, if you select the `VPCSecurityGroups` value as a security group identifier for a Lambda function, you will see the following message:
 
-![A list parameter type named VPCSecurityGroups being provided for the Parameter type of the security group ID field of a Lambda function card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_11.png)
+![A list parameter type named VPCSecurityGroups being provided for the Parameter type of the security group ID field of a Lambda function card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_11.png)
 
 
 This limitation occurs because the `SecurityGroupIds` and `SubnetIds` properties of an `AWS::Lambda::Function VpcConfig` object both accept only a list of string values. Since a single list parameter type contains a list of strings, it can be the only object provided when specified.

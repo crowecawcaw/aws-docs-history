@@ -54,13 +54,13 @@ To get started with your CRUD serverless application, create a new project in In
 
 As shown in the following image, Infrastructure Composer opens the visual canvas and loads a starting (blank) application template.
 
-![Infrastructure Composer with a blank visual canvas.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_01.png)
+![Infrastructure Composer with a blank visual canvas.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_01.png)
 
 
 **To activate local sync**
 
 1. From the Infrastructure Composer **menu**, select **Save** > **Activate local sync**.  
-![An Infrastructure Composer menu with Activate local sync selected.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_09.png)
+![An Infrastructure Composer menu with Activate local sync selected.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_09.png)
 
 1. For **Project location**, press **Select folder** and choose a directory. This is where Infrastructure Composer will save and sync your template files and folders as you design. 
 
@@ -87,7 +87,7 @@ From the **Resources** palette, under the **Enhanced components** section, do th
 
 1. Drag a **Lambda Function** card onto the canvas. Repeat until you've added five **Lambda Function** cards to the canvas.
 
-![An Infrastructure Composer canvas view with one API Gateway and five Lambda Function cards.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_02.png)
+![An Infrastructure Composer canvas view with one API Gateway and five Lambda Function cards.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_02.png)
 
 
 ## Step 3: Configure your API Gateway REST API
@@ -113,7 +113,7 @@ For each of the following routes, use the HTTP method and path values specified 
 
 1. Choose **Save**.
 
-![The Infrastructure Composer visual canvas with an API Gateway resource with five routes. The Resource properties panel shows selections for Method, Path, and Add route.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_03.png)
+![The Infrastructure Composer visual canvas with an API Gateway resource with five routes. The Resource properties panel shows selections for Method, Path, and Add route.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_03.png)
 
 
 ## Step 4: Configure your Lambda functions
@@ -131,7 +131,7 @@ Name each of the five Lambda functions as specified in the [resource properties 
 
 1. Repeat the previous steps until you've named all five functions.
 
-![The Infrastructure Composer visual canvas with five named Lambda Function resource cards.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_04.png)
+![The Infrastructure Composer visual canvas with five named Lambda Function resource cards.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_04.png)
 
 
 ## Step 5: Connect your cards
@@ -145,7 +145,7 @@ Connect each route on your **API Gateway** card to its related **Lambda Function
 
 1. Repeat the previous step until you've connected all five routes on the **API Gateway** card to corresponding **Lambda Function** cards.
 
-![The Infrastructure Composer visual canvas with the REST API connected to five Lambda functions.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_05.png)
+![The Infrastructure Composer visual canvas with the REST API connected to five Lambda functions.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_05.png)
 
 
 ## Step 6: Organize the canvas
@@ -175,7 +175,7 @@ On the canvas, above the main view area, choose **Arrange**.
 
 Infrastructure Composer arranges and aligns all cards on the visual canvas, including your new group (**API**), as shown here:
 
-![The Infrastructure Composer visual canvas arranged with all Lambda functions grouped together.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_06.png)
+![The Infrastructure Composer visual canvas arranged with all Lambda functions grouped together.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_06.png)
 
 
 ## Step 7: Add and connect a DynamoDB table
@@ -193,7 +193,7 @@ Now, add a DynamoDB table to your application architecture and connect it to you
 
 1. (Optional) To reorganize and realign the cards on the canvas, choose **Arrange**.
 
-![The Infrastructure Composer visual canvas with a DynamoDB table connected to the group API.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_07.png)
+![The Infrastructure Composer visual canvas with a DynamoDB table connected to the group API.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_07.png)
 
 
 ## Step 8: Review your AWS CloudFormation template
@@ -208,7 +208,7 @@ In the template, Infrastructure Composer has defined the following:
 + An `AWS::DynamoDB::Table` resource, which specifies your DynamoDB table and its properties.
 + The `Metadata` section, which contains information about your resource group (**API**). For more information about this section, see [Metadata](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html) in the *AWS CloudFormation User Guide*.
 
-![The Infrastructure Composer template view showing the application's template code.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_08.png)
+![The Infrastructure Composer template view showing the application's template code.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t2_08.png)
 
 
 ## Step 9: Integrate into your development workflows

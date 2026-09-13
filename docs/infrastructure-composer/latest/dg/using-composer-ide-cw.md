@@ -9,7 +9,7 @@ Amazon Q is a general purpose, machine learning-powered code generator. To learn
 
 For **standard resource** and **standard component** cards, you can use Amazon Q to generate infrastructure code suggestions for your resources.
 
-![Amazon Q generating a code suggestion in Infrastructure Composer](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ide_cw_01.gif)
+![Amazon Q generating a code suggestion in Infrastructure Composer](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ide_cw_01.gif)
 
 
 **Standard resource** and **standard component** cards can represent an CloudFormation resource or a collection of CloudFormation resources. To learn more, see [Configure and modify cards in Infrastructure Composer](using-composer-cards.md).

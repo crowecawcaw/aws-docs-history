@@ -20,7 +20,7 @@ You can access Infrastructure Composer in any of the following ways:
 
 The following is an example of accessing Infrastructure Composer from the Infrastructure Composer button:
 
-![Infrastructure Composer being accessed through the AWS Toolkit for Visual Studio Code.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_intro_07.gif)
+![Infrastructure Composer being accessed through the AWS Toolkit for Visual Studio Code.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_intro_07.gif)
 
 
 For more information on accessing Infrastructure Composer, see [ Accessing AWS Infrastructure Composer from the Toolkit](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/appcomposer-overview.html#appcomposer-overview-access).

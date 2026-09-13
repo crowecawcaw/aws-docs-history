@@ -12,7 +12,7 @@ To get a general idea of how AWS Infrastructure Composer works, take the tour th
 1. On the **Home** page, choose **Open demo**.
 
 1. In the upper-right corner, in the **Take a quick tour of Composer** window, choose **Start**.  
-![On the Infrastructure Composer visual canvas, the Take a quick tour of Composer window.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t0_01.png)
+![On the Infrastructure Composer visual canvas, the Take a quick tour of Composer window.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t0_01.png)
 
 1. In the **Composer tour** window, do the following:
    + To move to the next step, choose **Next**.

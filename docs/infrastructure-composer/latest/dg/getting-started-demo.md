@@ -32,7 +32,7 @@ The demo application is a basic create, read, delete, and update (CRUD) serverle
 
 The following image is of the demo:
 
-![The Infrastructure Composer visual canvas, showing a basic CRUD serverless application.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_09.png)
+![The Infrastructure Composer visual canvas, showing a basic CRUD serverless application.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_09.png)
 
 
 ## Step 2: Explore the visual canvas of Infrastructure Composer
@@ -43,18 +43,18 @@ Learn the features of the visual canvas to build out your Infrastructure Compose
 **To explore the features of the visual canvas**
 
 1. When you open a new or existing application project, Infrastructure Composer loads the canvas view, as indicated above the main view area.  
-![The Canvas and Template view buttons at the top of the Infrastructure Composer main view area.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_02.png)
+![The Canvas and Template view buttons at the top of the Infrastructure Composer main view area.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_02.png)
 
    To show your application's infrastructure code in the main view area, choose **Template**. For example, here is the AWS Serverless Application Model (AWS SAM) template view of the Infrastructure Composer demo project.  
-![Screenshot of Infrastructure Composer template view showing the demo project's template code.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_03.png)
+![Screenshot of Infrastructure Composer template view showing the demo project's template code.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_03.png)
 
 1. To show the canvas view of your application again, choose **Canvas**.
 
 1. To show your application's resources organized in a tree view, choose **List**.  
-![On the Infrastructure Composer visual canvas, the List tab is selected and shows a tree view of your application.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_05.png)
+![On the Infrastructure Composer visual canvas, the List tab is selected and shows a tree view of your application.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_05.png)
 
 1. To show the resource palette, choose **Resources**. This palette features cards that you can use to expand your application architecture. You can search for cards or scroll through the list.  
-![The resource palette is selected and shows featured resources that you can use in your application architecture.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_10.png)
+![The resource palette is selected and shows featured resources that you can use in your application architecture.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_10.png)
 
 1. To move around the visual canvas, use basic gestures. For more information, see [Place cards on the canvas](reference-navigation.md).
 
@@ -66,12 +66,12 @@ In this step, you will expand your application architecture by adding a Lambda f
 **To add a Lambda function to your DynamoDB table**
 
 1. From the resource palette (**Resources**), drag the **Lambda Function** enhanced component card onto the canvas, to the right of the **DynamoDB Table** card.  
-![The demo is in canvas view with a Lambda function next to the DynamoDB table.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_07.png)
+![The demo is in canvas view with a Lambda function next to the DynamoDB table.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_07.png)
 
 1. Connect the DynamoDB table to the Lambda function. To connect them, click the right port of the **DynamoDB Table** card and drag it onto the left port of the **Lambda Function** card.
 
 1. Choose **Arrange** to organize the cards in the canvas view.  
-![The demo is in canvas view with a Lambda function connected to the DynamoDB table.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_08.png)
+![The demo is in canvas view with a Lambda function connected to the DynamoDB table.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_08.png)
 
 1. Configure your Lambda function. To configure it, do either of the following:
    + In the canvas view, modify the function's properties on the **Resource properties** panel. To open the panel, double-click the **Lambda Function** card. Or, select the card, and then choose **Details**. For more information about the configurable Lambda function properties listed in the **Resource properties** panel, see the [AWS Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/index.html).

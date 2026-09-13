@@ -5,7 +5,7 @@
 
 Infrastructure Composer's visual designer in the AWS Toolkit for Visual Studio Code includes a visual canvas, which includes components that are numbered in the following image and listed below. 
 
-![Infrastructure Composer's visual designer, including components of its visual canvas which are numerically itemized.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ide_visual_02.png)
+![Infrastructure Composer's visual designer, including components of its visual canvas which are numerically itemized.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ide_visual_02.png)
 
 
 1. **Resource palette** – Displays cards that you can design with.

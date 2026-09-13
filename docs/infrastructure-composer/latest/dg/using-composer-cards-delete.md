@@ -10,7 +10,7 @@ This section provides instructions for deleting cards in AWS Infrastructure Comp
 
 To delete an enhanced component card, select a card you have place on the visual canvas. From the **Card actions** menu, select **Delete**.
 
-![An enhanced component card with its Card actions menu displayed and the Delete option shown.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac-enhanced-delete.png)
+![An enhanced component card with its Card actions menu displayed and the Delete option shown.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac-enhanced-delete.png)
 
 
 ## Standard component cards

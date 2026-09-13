@@ -5,7 +5,7 @@
 
 When you import an existing template with parameters defined, you can also create new parameters. Instead of selecting an existing parameter from the dropdown list, provide a new type and value. The following is an example that creates a new parameter named `MySecurityGroup`:
 
-![The MySecurityGroup value being provided for the Parameter type of the security group ID field of a Lambda function card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_12.png)
+![The MySecurityGroup value being provided for the Parameter type of the security group ID field of a Lambda function card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_vpc_12.png)
 
 
 For all new values that you provide in the **Resource properties** panel for the Lambda function, Infrastructure Composer defines them in a list under the `SecurityGroupIds` or `SubnetIds` properties of a Lambda function. The following is an example:

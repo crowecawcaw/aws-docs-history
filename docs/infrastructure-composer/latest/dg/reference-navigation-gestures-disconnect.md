@@ -10,7 +10,7 @@ In Infrastructure Composer, you connect and disconnect AWS resources using *enha
 
 To disconnect enhanced component cards, select the line and choose **Disconnect**.
 
-![An API Gateway card being disconnected from a Lambda function.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_con_03.png)
+![An API Gateway card being disconnected from a Lambda function.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_con_03.png)
 
 
 Infrastructure Composer will automatically modify your template to remove the event-driven relationship from your application.

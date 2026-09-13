@@ -7,7 +7,7 @@ Now that you have completed [Set up for deploying with the AWS SAM CLI and Infr
 
 This example shows you how to build and deploy the Infrastructure Composer demo application. The demo application has the following resources:
 
-![The Infrastructure Composer demo, showing a basic CRUD serverless application.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_04.png)
+![The Infrastructure Composer demo, showing a basic CRUD serverless application.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_t1_04.png)
 
 
 **Note**  

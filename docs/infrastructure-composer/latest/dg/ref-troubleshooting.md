@@ -16,7 +16,7 @@ The topics in this section provide guidance on troubleshooting error messages wh
 
 *Example error*:
 
-!["Can't open this folder" error message displayed in Infrastructure Composer](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_ts_01.png)
+!["Can't open this folder" error message displayed in Infrastructure Composer](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_ts_01.png)
 
 
 **Possible cause: Infrastructure Composer is unable to access a sensitive directory using **local sync** mode.**  
@@ -39,7 +39,7 @@ Move your externally referenced file to a subdirectory of the directory that you
 
 When attempting to activate **local sync**, you see the following error:
 
-!["The provided folder contains an existing template.yaml" error message in Infrastructure Composer](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ls_01.png)
+!["The provided folder contains an existing template.yaml" error message in Infrastructure Composer](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ls_01.png)
 
 
 **Possible cause: Your selected folder already contains a template.yaml file.**  

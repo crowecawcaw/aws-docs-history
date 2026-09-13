@@ -17,7 +17,7 @@ You can use your local IDE to view changes and modify your templates. Changes th
 
 You can use local tools such as the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) to build, test, deploy your application, and more. The following example shows how you can drag and drop resources onto Infrastructure Composer's visual canvas which, in turn, creates markup in your AWS SAM template in your local IDE.
 
-![Using Infrastructure Composer with a local IDE to sync changes.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_other_ide_01.gif)
+![Using Infrastructure Composer with a local IDE to sync changes.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_other_ide_01.gif)
 
 
 ## Integrate Infrastructure Composer with your local IDE
@@ -34,7 +34,7 @@ The **Activate local sync** option is not available in every browser. It is avai
 1. Use Infrastructure Composer with your local IDE. Updates made in Infrastructure Composer will automatically sync with your local machine. Here are some examples of what you can do:
 
    1. Use your version control system of choice to track updates being performed by Infrastructure Composer.  
-![Making a change in Infrastructure Composer and viewing the git diff in your local IDE.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_other_ide_02.gif)
+![Making a change in Infrastructure Composer and viewing the git diff in your local IDE.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_other_ide_02.gif)
 
    1. Use the AWS SAM CLI locally to build, test, deploy your application, and more. To learn more, see [Deploy your Infrastructure Composer serverless application to the AWS Cloud](other-services-cfn.md).  
-![Using sam build and sam deploy in your local IDE.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_other_ide_03.gif)
+![Using sam build and sam deploy in your local IDE.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_other_ide_03.gif)

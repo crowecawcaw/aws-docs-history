@@ -9,19 +9,19 @@ First, create a new project from the Infrastructure Composer **home** page.
 
 Next, activate **local sync** by selecting **Activate local sync** from the **Menu**. Create a new folder named `demo`, allow the prompt to view files, and select **Activate**. When prompted, select **Save changes**.
 
-![The Infrastructure Composer Activate local sync window with a demo project folder selected and the Activate button is ready to be selected.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_11.png)
+![The Infrastructure Composer Activate local sync window with a demo project folder selected and the Activate button is ready to be selected.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_11.png)
 
 
 Next, drag an Amazon API Gateway card onto the canvas. Select **Details** to bring up the **Resource properties** panel.
 
-![An API Gateway resource on the canvas with the Resource properties panel open.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_12.png)
+![An API Gateway resource on the canvas with the Resource properties panel open.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_12.png)
 
 
 From the **Resource properties** panel, configure the following and **save**.
 + Select the **Use external file for api definition** option.
 + Input `./api-spec.yaml` as the **relative path to external file**
 
-![A window showing the checkbox marked under Use external file for api definition and a relative path to an external file defined.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_13.png)
+![A window showing the checkbox marked under Use external file for api definition and a relative path to an external file defined.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_13.png)
 
 
 This creates the following directory on our local machine:
@@ -64,4 +64,4 @@ paths:
 
 In the Infrastructure Composer **Template** view, you can see that Infrastructure Composer has automatically updated your template to reference the external file.
 
-![The Infrastructure Composer template view showing your infrastructure code configured to reference the external file.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_07.png)
+![The Infrastructure Composer template view showing your infrastructure code configured to reference the external file.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ex_07.png)

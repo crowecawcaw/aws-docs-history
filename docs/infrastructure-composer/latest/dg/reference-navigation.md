@@ -7,7 +7,7 @@ This section describes how you select and drag Infrastructure Composer [cards](u
 
 To add a card to your application, drag it from the resource palette and drop it onto the visual canvas.
 
-![Selecting a resource from the resource palette and dragging it onto the Infrastructure Composer canvas.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_05.gif)
+![Selecting a resource from the resource palette and dragging it onto the Infrastructure Composer canvas.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_05.gif)
 
 
 You can choose from two types of cards: [Enhanced component cards](using-composer-cards-component-intro-enhanced.md) and [Standard IaC resource cards](using-composer-cards-resource-intro.md).

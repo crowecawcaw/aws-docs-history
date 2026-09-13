@@ -14,7 +14,7 @@ The **Change Inspector** is a visual tool within Infrastructure Composer that sh
 
 The following example demonstrates how change inspector works:
 
-![Dragging two cards onto the visual canvas, connecting them, and then expanding the resulting message to open Change Inspector.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ci_01.gif)
+![Dragging two cards onto the visual canvas, connecting them, and then expanding the resulting message to open Change Inspector.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ci_01.gif)
 
 
 ## Benefits of the Change Inspector
@@ -28,10 +28,10 @@ The **Change Inspector** is a great way to view the template code that Infrastru
 **To use the Change Inspector**
 
 1. Expand a message to bring up the **Change Inspector**.  
-![opening up Change Inspector from the bottom of the screen.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ci_01.gif)
+![opening up Change Inspector from the bottom of the screen.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ci_01.gif)
 
 1. View the code that has been automatically composed for you.  
-![Showing the infrastructure code that has been automatically updated by Infrastructure Composer.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ci_03.png)
+![Showing the infrastructure code that has been automatically updated by Infrastructure Composer.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ci_03.png)
 
    1. Code highlighted **green** indicate newly added code.
 
@@ -40,7 +40,7 @@ The **Change Inspector** is a great way to view the template code that Infrastru
    1. **Line numbers** indicate the location within your template.
 
 1. When multiple sections of your template have been updated, the **Change Inspector** organizes them. Select the **Previous** and **Next** buttons to view all changes.  
-![Selecting Next to view mutliple changes.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ci_04.gif)
+![Selecting Next to view mutliple changes.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_ci_04.gif)
 
 **Note**  
 For Infrastructure Composer from the console, you can view code changes in the context of your entire template, by using the **Template View**. You can also sync Infrastructure Composer with a local IDE and view your entire template on your local machine. To learn more, see [Connect the Infrastructure Composer console with your local IDE](other-services-ide.md).

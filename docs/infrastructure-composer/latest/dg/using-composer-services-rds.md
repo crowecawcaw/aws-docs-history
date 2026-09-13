@@ -11,7 +11,7 @@ The **RDS Database (External)** enhanced component card represents Amazon RDS re
 
 The **RDS Database (External)** enhanced component card is available from the **Resources** palette.
 
-![An Amazon RDS database (external) enhanced component card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_rds_01.png)
+![An Amazon RDS database (external) enhanced component card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_rds_01.png)
 
 
 To use this card, drag it onto the Infrastructure Composer canvas, configure it, and connect it to other resources.
@@ -37,7 +37,7 @@ From the **Resources** palette, drag an **RDS Database (external)** enhanced com
 
 Select the card and choose **Details** or double-click on the card to bring up the **Resource properties** panel. The card's resource properties panel will appear:
 
-![The resource properties panel of an RDS Database (external) enhanced component card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_rds_03.png)
+![The resource properties panel of an RDS Database (external) enhanced component card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_rds_03.png)
 
 
 You can configure the following here:
@@ -65,7 +65,7 @@ From the **Resources** palette, drag a **Lambda Function** enhanced component ca
 
 Connect the left port of the **Lambda Function** card to the right port of the **RDS Database (external)** card.
 
-![A Lambda Function card connected to an RDS Database (external) enhanced component card.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_rds_02.png)
+![A Lambda Function card connected to an RDS Database (external) enhanced component card.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_use_rds_02.png)
 
 
 Infrastructure Composer will provision your template to facilitate this connection.

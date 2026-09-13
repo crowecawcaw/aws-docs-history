@@ -31,7 +31,7 @@ You can activate **local sync** for a new project, or load an existing project w
 
 **Local sync** mode is deactivated by default. You can activate **Local sync** mode through the Infrastructure Composer **menu**.
 
-![Infrastructure Composer's Menu with Activate local sync selected.](http://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_16.png)
+![Infrastructure Composer's Menu with Activate local sync selected.](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/images/aac_ref_16.png)
 
 
 For instructions on activating **local sync** and existing loading projects, see the following topics:.
