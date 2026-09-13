@@ -44,7 +44,7 @@ import [com.amazonaws.xray.entities.Subsegment](https://docs.aws.amazon.com/xray
 
 Because the request is now resolved before the call to Amazon SNS, the application creates a separate subsegment for the thread. This prevents the X-Ray SDK from closing the segment before it records the response from Amazon SNS. If no subsegment is open when Scorekeep resolved the request, the response from Amazon SNS could be lost.
 
-![Trace overview with asynchronous thread subsegment.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-workerthread.png)
+![Trace overview with asynchronous thread subsegment.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-workerthread.png)
 
 
 See [Passing segment context between threads in a multithreaded application](xray-sdk-java-multithreading.md) for more information about multithreading.

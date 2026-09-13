@@ -23,11 +23,11 @@ See [Configuring Databases with Elastic Beanstalk](https://docs.aws.amazon.com/e
 
 The X-Ray demo page in the `xray` branch includes a demo that uses the instrumented data source to generate traces that show information about the SQL queries that it generates. Navigate to the `/#/xray` path in the running application or choose **Powered by AWS X-Ray** in the navigation bar to see the demo page.
 
-![AWS X-Ray integration demo page showing game session tracing and SQL query tracing options.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-demo.png)
+![AWS X-Ray integration demo page showing game session tracing and SQL query tracing options.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-demo.png)
 
 
 Choose **Trace SQL queries** to simulate game sessions and store the results in the attached database. Then, choose **View traces in AWS X-Ray** to see a filtered list of traces that hit the API's `/api/history` route.
 
 Choose one of the traces from the list to see the timeline, including the SQL query.
 
-![Timeline view of a trace showing method, response, duration, and age for a GET request.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-trace-sql.png)
+![Timeline view of a trace showing method, response, duration, and age for a GET request.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-trace-sql.png)

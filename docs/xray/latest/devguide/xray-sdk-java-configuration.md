@@ -27,7 +27,7 @@ Use `plugins` to record information about the service hosting your application.
 + Amazon ECS – `ECSPlugin` adds the container ID.
 + Amazon EKS – `EKSPlugin` adds the container ID, cluster name, pod ID, and the CloudWatch Logs Group.
 
-![Segment resource data with Amazon EC2 and Elastic Beanstalk plugins.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-segment-resources.png)
+![Segment resource data with Amazon EC2 and Elastic Beanstalk plugins.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-segment-resources.png)
 
 
 To use a plugin, call `withPlugin` on your `AWSXRayRecorderBuilder`.

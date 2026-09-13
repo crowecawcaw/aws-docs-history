@@ -439,7 +439,7 @@ end
 
 The following is an example trace map of an instrumented Lambda function written in Ruby.
 
-![Trace map in CloudWatch console for Ruby.](http://docs.aws.amazon.com/xray/latest/devguide/images/deprecation_ruby.png)
+![Trace map in CloudWatch console for Ruby.](https://docs.aws.amazon.com/xray/latest/devguide/images/deprecation_ruby.png)
 
 
 You can also use Lambda layers to configure OpenTelemetry for your Lambda. For more information, see [OpenTelemetry AWS-Lambda Instrumentation ](https://github.com/open-telemetry/opentelemetry-ruby-contrib/tree/main/instrumentation/aws_lambda#usage).

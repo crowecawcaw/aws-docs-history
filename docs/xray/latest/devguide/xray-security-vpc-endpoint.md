@@ -21,15 +21,15 @@ To start using X-Ray with your VPC, create an interface VPC endpoint for X-Ray.
 1. Navigate to **Endpoints** within the navigation pane and choose **Create Endpoint**.
 
 1. Search for and select the name of the AWS X-Ray service: `com.amazonaws.{{region}}.xray`.  
-![Select service.](http://docs.aws.amazon.com/xray/latest/devguide/images/xray-vpc-select-service.png)
+![Select service.](https://docs.aws.amazon.com/xray/latest/devguide/images/xray-vpc-select-service.png)
 
 1. Select the VPC you want and then select a subnet in your VPC to use the interface endpoint. An endpoint network interface is created in the selected subnet. You can specify more than one subnet in different Availability Zones (as supported by the service) to help ensure that your interface endpoint is resilient to Availability Zone failures. If you do so, an interface network interface is created in each subnet that you specify.  
-![Select VPC and subnet.](http://docs.aws.amazon.com/xray/latest/devguide/images/xray-vpc-select-vpc.png)
+![Select VPC and subnet.](https://docs.aws.amazon.com/xray/latest/devguide/images/xray-vpc-select-vpc.png)
 
 1. (Optional) Private DNS is enabled by default for the endpoint, so that you can make requests to X-Ray using its default DNS hostname. You can choose to disable it. 
 
 1. Specify the security groups to associate with the endpoint network interface.  
-![Select security groups.](http://docs.aws.amazon.com/xray/latest/devguide/images/xray-vpc-select-secgroup.png)
+![Select security groups.](https://docs.aws.amazon.com/xray/latest/devguide/images/xray-vpc-select-secgroup.png)
 
 1. (Optional) Specify custom policy to control permissions to access the X-Ray service. By default, full access is allowed.
 

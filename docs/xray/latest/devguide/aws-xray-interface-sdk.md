@@ -35,7 +35,7 @@ To use the ADOT SDK, do the following:
 
 After the ADOT collector receives your data, it sends it to the backend that you specify in the ADOT configuration. ADOT can send data to multiple backends, including to vendors outside of AWS, as shown in the following diagram:
 
-![You can customize the ADOT Collector when you instrument your application and configure the collector.](http://docs.aws.amazon.com/xray/latest/devguide/images/adot-sdk.png)
+![You can customize the ADOT Collector when you instrument your application and configure the collector.](https://docs.aws.amazon.com/xray/latest/devguide/images/adot-sdk.png)
 
 
 AWS regularly updates ADOT to add functionality and align with the [OpenTelemetry](https://opentelemetry.io/docs/) framework. Updates and future plans for developing ADOT are part of a [roadmap](https://github.com/orgs/aws-observability/projects/4) that is available to the public. ADOT supports several programming languages which include the following:
@@ -64,7 +64,7 @@ To use the X-Ray SDK, do the following:
 
 After the collector or agent receives your data, it sends it to an AWS backend that you specify in the agent configuration. The X-Ray SDK can only send data to an AWS backend as shown in the following diagram:
 
-![Use the X-Ray SDK with either the CloudWatch agent or the X-Ray daemon.](http://docs.aws.amazon.com/xray/latest/devguide/images/xray-sdk.png)
+![Use the X-Ray SDK with either the CloudWatch agent or the X-Ray daemon.](https://docs.aws.amazon.com/xray/latest/devguide/images/xray-sdk.png)
 
 
 If you are using Java, you can use the X-Ray SDK to automatically instrument your application. To get started using the X-Ray SDK, see the libraries associated with the following programming languages:

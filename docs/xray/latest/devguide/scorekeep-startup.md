@@ -10,7 +10,7 @@ The X-Ray SDK for Java automatically creates segments for incoming requests. As 
 
 Startup code runs outside of the standard request/response flow of a web application, so you need to create segments manually to instrument it. Scorekeep shows the instrumentation of startup code in its `WebConfig` files. Scorekeep calls an SQL database and Amazon SNS during startup.
 
-![Diagram showing clients connecting to Scorekeep-init, which connects to SQL database and SNS.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-init.png)
+![Diagram showing clients connecting to Scorekeep-init, which connects to SQL database and SNS.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-init.png)
 
 
 The default `WebConfig` class creates an Amazon SNS subscription for notifications. To provide a segment for the X-Ray SDK to write to when the Amazon SNS client is used, Scorekeep calls `beginSegment` and `endSegment` on the global recorder.

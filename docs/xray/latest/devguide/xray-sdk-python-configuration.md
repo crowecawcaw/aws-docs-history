@@ -26,7 +26,7 @@ Use `plugins` to record information about the service hosting your application.
 + Elastic Beanstalk – `ElasticBeanstalkPlugin` adds the environment name, version label, and deployment ID.
 + Amazon ECS – `ECSPlugin` adds the container ID.
 
-![Segment resource data with Amazon EC2 and Elastic Beanstalk plugins.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-segment-resources-python09.png)
+![Segment resource data with Amazon EC2 and Elastic Beanstalk plugins.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-segment-resources-python09.png)
 
 
 To use a plugin, call `configure` on the `xray_recorder`.

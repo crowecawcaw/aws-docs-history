@@ -539,4 +539,4 @@ public class ListBucketsHandler
 
 When invoking this Lambda, you will see the following trace in the Trace Map in the CloudWatch console:
 
-![Trace map in CloudWatch console for .Net](http://docs.aws.amazon.com/xray/latest/devguide/images/deprecation_dotnet.png)
+![Trace map in CloudWatch console for .Net](https://docs.aws.amazon.com/xray/latest/devguide/images/deprecation_dotnet.png)

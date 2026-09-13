@@ -92,9 +92,9 @@ module.factory('SessionService', function($resource, api, XRay) {
 
 The resulting trace map includes a node for the web app client.
 
-![Trace map with node for the Scorekeep client.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-client.png)
+![Trace map with node for the Scorekeep client.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-client.png)
 
 
 Traces that include segments from the web app show the URL that the user sees in the browser (paths starting with `/#/`). Without client instrumentation, you only get the URL of the API resource that the web app calls (paths starting with `/api/`).
 
-![Trace list with traces showing the request URL from the client's segment.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-traces-client.png)
+![Trace list with traces showing the request URL from the client's segment.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-traces-client.png)

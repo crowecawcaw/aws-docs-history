@@ -31,7 +31,7 @@ Next, use the X-Ray SDK for Python to instrument downstream calls by [patching y
 **Supported Libraries**
 + `[botocore](https://pypi.python.org/pypi/botocore)`, `[boto3](https://pypi.python.org/pypi/boto3)` – Instrument AWS SDK for Python (Boto) clients.
 + `[pynamodb](https://pypi.python.org/pypi/pynamodb/)` – Instrument PynamoDB's version of the Amazon DynamoDB client.
-+ `[aiobotocore](https://pypi.python.org/pypi/aiobotocore)`, `[aioboto3](https://pypi.python.org/pypi/aioboto3)` – Instrument [asyncio](https://docs.python.org/3/library/asyncio.html)-integrated versions of SDK for Python clients.
++ `[aiobotocore](https://pypi.python.org/pypi/aiobotocore)`, `[aioboto3](https://pypi.python.org/pypi/aioboto3)` – Instrument [asyncio](https://docs.python.org/3/library/asyncio.html)-integrated versions of SDK for Python (Boto3) clients.
 + `[requests](https://pypi.python.org/pypi/requests)`, `[aiohttp](https://pypi.python.org/pypi/aiohttp)` – Instrument high-level HTTP clients.
 + `[httplib](https://docs.python.org/2/library/httplib.html)`, [`http.client`](https://docs.python.org/3/library/http.client.html) – Instrument low-level HTTP clients and the higher level libraries that use them.
 + `[sqlite3](https://docs.python.org/3/library/sqlite3.html)` – Instrument SQLite clients.

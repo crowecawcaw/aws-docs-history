@@ -23,7 +23,7 @@ To use X-Ray, take the following steps:
 
 The following diagram shows how to get started using X-Ray:
 
-![X-Ray displays detailed information about application requests including status, duration and HTTP response code.](http://docs.aws.amazon.com/xray/latest/devguide/images/xray-get-started.png)
+![X-Ray displays detailed information about application requests including status, duration and HTTP response code.](https://docs.aws.amazon.com/xray/latest/devguide/images/xray-get-started.png)
 
 
 For an example of the data and maps that are available in the console, launch a [sample application](xray-scorekeep.md) that is already instrumented to generate trace data. In a few minutes, you can generate traffic, send segments to X-Ray, and view a trace and service map.

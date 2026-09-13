@@ -28,7 +28,7 @@ X-Ray traces are billed to the AWS account where they're received. If a [sampled
 
 Cross-account traces are displayed in the monitoring account. Each source account displays only local traces for that specific account. The following sections assume that you're signed in to the monitoring account and have opened the Amazon CloudWatch console. On both the trace map and traces pages, a monitoring account badge is displayed in the upper-right corner.
 
-![Monitoring account badge](http://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-monitoring-account.png)
+![Monitoring account badge](https://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-monitoring-account.png)
 
 
 ### Trace map
@@ -36,17 +36,17 @@ Cross-account traces are displayed in the monitoring account. Each source accoun
 
 In the CloudWatch console, choose **Trace Map** under **X-Ray traces** from the left navigation pane. By default, the trace map displays nodes for all source accounts that send traces to the monitoring account, and nodes for the monitoring account itself. On the trace map, choose **Filters** from the upper left to filter the trace map using the **Accounts** drop-down. After an account filter is applied, service nodes from accounts that don't match the current filter are grayed out.
 
-![Filtered trace map](http://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-servicemap-account-filter.png)
+![Filtered trace map](https://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-servicemap-account-filter.png)
 
 
  When you choose a service node, the node details pane includes the service's account ID and label. 
 
-![Node detail pane](http://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-servicemap-node-detail.png)
+![Node detail pane](https://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-servicemap-node-detail.png)
 
 
 In the upper-right corner of the trace map, choose **List view** to see a list of service nodes. The list of service nodes includes services from the monitoring account and all configured source accounts. Filter the list of nodes by **Account label** or **Account id** by choosing them from the **Nodes** filter.
 
-![Filtered service list](http://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-servicelist-account-filter.png)
+![Filtered service list](https://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-servicelist-account-filter.png)
 
 
 ### Traces
@@ -60,12 +60,12 @@ The **Traces** page supports querying by account ID. To get started, [enter a qu
 service(id(account.id:"{{X}}")) OR service(id(account.id:"{{Y}}"))
 ```
 
-![Query traces by account](http://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-traces-query-by-account.png)
+![Query traces by account](https://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-traces-query-by-account.png)
 
 
 Refine your query by **Account**. Select one or more accounts from the list, and choose **Add to query**. 
 
-![Refine trace query by account](http://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-traces-refine-by-account.png)
+![Refine trace query by account](https://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-traces-refine-by-account.png)
 
 
 ### Trace details
@@ -75,4 +75,4 @@ View details for a trace by choosing it from the **Traces** list at the bottom o
 
 The **Segments timeline** section displays the account details for each segment in the timeline.
 
-![Segments timeline](http://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-traces-segment-timeline.png)
+![Segments timeline](https://docs.aws.amazon.com/xray/latest/devguide/images/crossaccount-traces-segment-timeline.png)

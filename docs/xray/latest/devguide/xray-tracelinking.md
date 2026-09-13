@@ -13,12 +13,12 @@ Each trace segment can be linked to up to 20 traces, while a trace can include a
 
 Use the **Trace Map** page within the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/) to view a trace map with traces from message producers that are linked to traces from Lambda consumers. These links are displayed with a dashed-line edge that connects the Amazon SQS node and downstream Lambda consumer nodes. 
 
-![Edge between Amazon SQS and Lambda nodes.](http://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-servicemap-linkededge.png)
+![Edge between Amazon SQS and Lambda nodes.](https://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-servicemap-linkededge.png)
 
 
 Select a dashed-line edge to display a *received event age* histogram, which maps the spread of event age when it's received by consumers. The age is calculated each time an event is received. 
 
-![Edge with received event age histogram.](http://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-linkededgedetails-cw.png)
+![Edge with received event age histogram.](https://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-linkededgedetails-cw.png)
 
 
 ## View linked trace details
@@ -31,16 +31,16 @@ Select a dashed-line edge to display a *received event age* histogram, which map
 1. Choose **View traces** from the node details pane to display a list of traces. You can also navigate directly to the **Traces** page within the CloudWatch console. 
 
 1. Choose a specific trace from the list to open the trace details page. The trace details page displays a message when the selected trace is part of a linked set of traces.   
-![Linked trace details](http://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-header.png)
+![Linked trace details](https://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-header.png)
 
 The trace details map displays the current trace, along with upstream and downstream linked traces, each of which are contained within a box that indicates the bounds of each trace. If the currently selected trace is linked to multiple upstream or downstream traces, the nodes within the upstream or downstream linked traces are stacked, and a **Select trace** button is displayed. 
 
-![Multiple linked upstream traces](http://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-tracemap.png)
+![Multiple linked upstream traces](https://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-tracemap.png)
 
 
 Beneath the trace details map, a timeline of trace segments displays, including upstream and downstream linked traces. If there are multiple upstream or downstream linked traces, their segment details can't be displayed. To view segment details for a single trace within a set of linked traces, [select a single trace](#xray-tracelinking-filterbatch) as described below. 
 
-![Segments timeline showing linked traces](http://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-timeline.png)
+![Segments timeline showing linked traces](https://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-timeline.png)
 
 
 ## Select a single trace within a set of linked traces
@@ -49,9 +49,9 @@ Beneath the trace details map, a timeline of trace segments displays, including 
 **Filter a linked set of traces to a single trace, to see segment details in the timeline.**
 
 1. Choose **Select trace** underneath the linked traces on the trace details map. A list of traces displays.  
-![Linked trace list](http://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-tracelist.png)
+![Linked trace list](https://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-tracelist.png)
 
 1. Select the radio button next to a trace to view it within the trace details map. 
 
 1. Choose **Cancel trace selection** to view the entire set of linked traces.   
-![Single linked trace](http://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-filteredbatch.png)
+![Single linked trace](https://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-tracedetails-filteredbatch.png)

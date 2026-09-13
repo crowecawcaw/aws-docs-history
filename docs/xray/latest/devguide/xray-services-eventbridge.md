@@ -12,7 +12,7 @@ For more information, see [EventBridge X-Ray Integration](https://docs.aws.amazo
 
 The X-Ray [trace map](xray-console-servicemap.md) displays an EventBridge event node that connects source and target services, as in the following example:
 
-![X-Ray displays an EventBridge event node that connects source and target services](http://docs.aws.amazon.com/xray/latest/devguide/images/service-map-eventbridge.png)
+![X-Ray displays an EventBridge event node that connects source and target services](https://docs.aws.amazon.com/xray/latest/devguide/images/service-map-eventbridge.png)
 
 
 ## Propagate the trace context to event targets

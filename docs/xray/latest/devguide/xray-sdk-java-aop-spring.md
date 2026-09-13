@@ -171,4 +171,4 @@ public class MyServiceImpl implements MyService {
 
 If you've configured your application correctly, you should see the complete call stack of the application, from the controller down through the service calls, as shown in the following screen shot of the console.
 
-![The complete call stack.](http://docs.aws.amazon.com/xray/latest/devguide/images/aop-spring-console.png)
+![The complete call stack.](https://docs.aws.amazon.com/xray/latest/devguide/images/aop-spring-console.png)

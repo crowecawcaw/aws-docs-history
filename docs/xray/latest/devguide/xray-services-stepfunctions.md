@@ -28,7 +28,7 @@ AWS X-Ray integrates with AWS Step Functions to trace and analyze requests for S
 1. Choose **Enable X-Ray tracing**.
 
 1. (Optional) Auto-generate a new role for your state machine to include X-Ray permissions by choosing **Create new role** from the Permissions window.  
-![Permissions section with options to create a new role, choose existing, or enter ARN.](http://docs.aws.amazon.com/xray/latest/devguide/images/stepfunctions-permissions.png)
+![Permissions section with options to create a new role, choose existing, or enter ARN.](https://docs.aws.amazon.com/xray/latest/devguide/images/stepfunctions-permissions.png)
 
 1. Choose **Save**.
 

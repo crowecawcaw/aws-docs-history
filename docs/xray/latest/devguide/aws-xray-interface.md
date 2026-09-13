@@ -14,7 +14,7 @@ AWS X-Ray can provide insights into how your application works and how well it i
 
 The following diagram helps you choose how to interact with X-Ray:
 
-![X-Ray displays detailed information about application requests.](http://docs.aws.amazon.com/xray/latest/devguide/images/xray-choose-interface.png)
+![X-Ray displays detailed information about application requests.](https://docs.aws.amazon.com/xray/latest/devguide/images/xray-choose-interface.png)
 
 
 **Topics**

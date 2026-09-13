@@ -11,7 +11,7 @@ If you use the [X-Ray API](https://docs.aws.amazon.com/xray/latest/api/Welcome.h
 
 The following diagram shows guidance to choose how to interact with the X-Ray API:
 
-![X-Ray displays detailed information about application requests.](http://docs.aws.amazon.com/xray/latest/devguide/images/api-vs-cli.png)
+![X-Ray displays detailed information about application requests.](https://docs.aws.amazon.com/xray/latest/devguide/images/api-vs-cli.png)
 
 
 Use the X-Ray API to send trace data to directly to X-Ray. The X-Ray API supports all functions available in the X-Ray SDK including the following common actions:

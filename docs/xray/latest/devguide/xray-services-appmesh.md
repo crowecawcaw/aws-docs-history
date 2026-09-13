@@ -10,7 +10,7 @@ AWS X-Ray integrates with [AWS App Mesh](https://docs.aws.amazon.com/app-mesh/la
 
 Use the following instructions to learn how to enable X-Ray tracing through App Mesh.
 
-![A trace map that shows traces between clients and App Mesh services.](http://docs.aws.amazon.com/xray/latest/devguide/images/appmesh-traceContents.png)
+![A trace map that shows traces between clients and App Mesh services.](https://docs.aws.amazon.com/xray/latest/devguide/images/appmesh-traceContents.png)
 
 
 To configure the Envoy proxy to send data to X-Ray, set the `ENABLE_ENVOY_XRAY_TRACING` [environment variable](https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html#envoy-config) in its container definition.

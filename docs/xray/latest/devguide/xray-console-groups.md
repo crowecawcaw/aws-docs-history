@@ -7,7 +7,7 @@ Groups are a collection of traces that are defined by a filter expression. You c
 
 You can create groups of traces for trace maps, traces, or analytics. When you create a group, the group becomes available as a filter on the group dropdown menu on all three pages: **Trace Map**, **Traces**, and **Analytics**.
 
-![Group menu](http://docs.aws.amazon.com/xray/latest/devguide/images/group-menu.png)
+![Group menu](https://docs.aws.amazon.com/xray/latest/devguide/images/group-menu.png)
 
 
 Groups are identified by their name or an Amazon Resource Name (ARN), and contain a filter expression. The service compares incoming traces to the expression and stores them accordingly. For more information about how to build a filter expression, see [Using filter expressions](xray-console-filters.md).
@@ -53,10 +53,10 @@ You can now configure X-Ray groups from within the Amazon CloudWatch console. Yo
    ```
 
 1. In **Insights**, enable or disable insights access for the group. For more information about insights, see [Using X-Ray insights](xray-console-insights.md).  
-![Insights check boxes on Group page](http://docs.aws.amazon.com/xray/latest/devguide/images/group-insights-cw.png)
+![Insights check boxes on Group page](https://docs.aws.amazon.com/xray/latest/devguide/images/group-insights-cw.png)
 
 1. In **Tags**, choose **Add new tag** to enter a tag key, and optionally, a tag value. Continue to add additional tags as desired. Tag keys must be unique. To delete a tag, choose **Remove** underneath each tag. For more information about tags, see [Tagging X-Ray sampling rules and groups](xray-tagging.md).  
-![Tag fields on Group page](http://docs.aws.amazon.com/xray/latest/devguide/images/group-tags-cw.png)
+![Tag fields on Group page](https://docs.aws.amazon.com/xray/latest/devguide/images/group-tags-cw.png)
 
 1. Choose **Create group**.
 
@@ -76,10 +76,10 @@ You can now configure X-Ray groups from within the Amazon CloudWatch console. Yo
    ```
 
 1. In **Insights**, enable or disable insights access for the group. For more information about insights, see [Using X-Ray insights](xray-console-insights.md).  
-![Insights check boxes on Group page](http://docs.aws.amazon.com/xray/latest/devguide/images/group-insights.png)
+![Insights check boxes on Group page](https://docs.aws.amazon.com/xray/latest/devguide/images/group-insights.png)
 
 1. In **Tags**, enter a tag key, and optionally, a tag value. As you add a tag, a new line appears for you to enter another tag. Tag keys must be unique. To delete a tag, choose **X** at the end of the tag's row. For more information about tags, see [Tagging X-Ray sampling rules and groups](xray-tagging.md).  
-![Tag fields on Group page](http://docs.aws.amazon.com/xray/latest/devguide/images/group-tags.png)
+![Tag fields on Group page](https://docs.aws.amazon.com/xray/latest/devguide/images/group-tags.png)
 
 1. Choose **Create group**.
 
@@ -134,10 +134,10 @@ You can now configure X-Ray groups from within the Amazon CloudWatch console. Yo
    ```
 
 1. In **Insights**, enable or disable insights access for the group. For more information about insights, see [Using X-Ray insights](xray-console-insights.md).  
-![Insights check boxes on Group page](http://docs.aws.amazon.com/xray/latest/devguide/images/group-insights-cw.png)
+![Insights check boxes on Group page](https://docs.aws.amazon.com/xray/latest/devguide/images/group-insights-cw.png)
 
 1. In **Tags**, choose **Add new tag** to enter a tag key, and optionally, a tag value. Continue to add additional tags as desired. Tag keys must be unique. To delete a tag, choose **Remove** underneath each tag. For more information about tags, see [Tagging X-Ray sampling rules and groups](xray-tagging.md).  
-![Tag fields on Group page](http://docs.aws.amazon.com/xray/latest/devguide/images/group-tags-cw.png)
+![Tag fields on Group page](https://docs.aws.amazon.com/xray/latest/devguide/images/group-tags-cw.png)
 
 1. When you're finished updating the group, choose **Update group**.
 
@@ -162,10 +162,10 @@ You can now configure X-Ray groups from within the Amazon CloudWatch console. Yo
    ```
 
 1. In **Insights**, enable or disable insights and insights notifications for the group. For more information about insights, see [Using X-Ray insights](xray-console-insights.md).  
-![Insights check boxes on Group page](http://docs.aws.amazon.com/xray/latest/devguide/images/group-insights.png)
+![Insights check boxes on Group page](https://docs.aws.amazon.com/xray/latest/devguide/images/group-insights.png)
 
 1. In **Tags**, edit tag keys and values. Tag keys must be unique. Tag values are optional; you can delete values, if you want. To delete a tag, choose **X** at the end of the tag's row. For more information about tags, see [Tagging X-Ray sampling rules and groups](xray-tagging.md).  
-![Tag fields on Group page](http://docs.aws.amazon.com/xray/latest/devguide/images/group-tags.png)
+![Tag fields on Group page](https://docs.aws.amazon.com/xray/latest/devguide/images/group-tags.png)
 
 1. When you're finished updating the group, choose **Update group**.
 

@@ -7,7 +7,7 @@ AWS X-Ray integrates with Amazon Simple Queue Service (Amazon SQS) to trace mess
 
 AWS X-Ray supports tracing event-driven applications using Amazon SQS and AWS Lambda. Use the CloudWatch console to see a connected view of each request as it's queued with Amazon SQS and processed by a downstream Lambda function. Traces from upstream message producers are automatically linked to traces from downstream Lambda consumer nodes, creating an end-to-end view of the application. For more information, see [tracing event-driven applications](xray-tracelinking.md). 
 
-![Trace map from Lambda through the Amazon SQS queue.](http://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-servicemap-linkededge.png)
+![Trace map from Lambda through the Amazon SQS queue.](https://docs.aws.amazon.com/xray/latest/devguide/images/console-batch-servicemap-linkededge.png)
 
 
 Amazon SQS supports the following tracing header instrumentation:

@@ -560,4 +560,4 @@ func main() {
 
 When invoking Lambda, you will see the following trace in the `Trace Map` in the CloudWatch console:
 
-![Trace map in CloudWatch console for Golang.](http://docs.aws.amazon.com/xray/latest/devguide/images/deprecation_golang.png)
+![Trace map in CloudWatch console for Golang.](https://docs.aws.amazon.com/xray/latest/devguide/images/deprecation_golang.png)

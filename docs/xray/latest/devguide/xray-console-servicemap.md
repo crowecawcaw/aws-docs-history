@@ -22,12 +22,12 @@ The trace map displays a connected view of traces across event-driven applicatio
 **To view the trace map in the CloudWatch console**
 
 1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/). Choose **Trace Map** under the **X-Ray Traces** section in the left navigation pane.   
-![CloudWatch console trace map page](http://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-cw.png)
+![CloudWatch console trace map page](https://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-cw.png)
 
 1. Choose a service node to view requests for that node, or an edge between two nodes to view requests that traveled that connection.
 
 1.  Additional information is displayed below the trace map, including tabs for metrics, alerts, and response time distribution. On the **Metrics** tab, select a range within each graph to drill down to view more detail, or choose **Faults** or **Errors** options to filter traces. On the **Response time distribution** tab, select a range within the graph to filter traces by response time.   
-![Metrics tab showing latency, requests, and faults graphs for an ElasticBeanstalk environment.](http://docs.aws.amazon.com/xray/latest/devguide/images/console-cw-servicemap-node-detail.png)
+![Metrics tab showing latency, requests, and faults graphs for an ElasticBeanstalk environment.](https://docs.aws.amazon.com/xray/latest/devguide/images/console-cw-servicemap-node-detail.png)
 
 1. View traces by choosing **View traces**, or if a filter has been applied, choose **View filtered traces**.
 
@@ -46,12 +46,12 @@ If your trace map is large, use the on-screen controls or mouse to zoom in and o
 **To view the Service map**
 
 1. Open the [X-Ray console](https://console.aws.amazon.com/xray/home#). The service map is displayed by default. You can also choose **Service Map** from the left navigation pane.   
-![X-Ray console service map page](http://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-xray.png)
+![X-Ray console service map page](https://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-xray.png)
 
 1. Choose a service node to view requests for that node, or an edge between two nodes to view requests that traveled that connection.
 
 1. Use the response distribution [histogram](xray-console-histograms.md) to filter traces by duration, and select status codes for which you want to view traces. Then choose **View traces** to open the trace list with the filter expression applied.  
-![Response distribution histogram showing latency peaks around 5ms and 35ms for Scorekeep service.](http://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-nodedetail-xray.png)
+![Response distribution histogram showing latency peaks around 5ms and 35ms for Scorekeep service.](https://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-nodedetail-xray.png)
 
 The service map indicates the health of each node by coloring it based on the ratio of successful calls to errors and faults:
 + **Green** for successful calls
@@ -76,7 +76,7 @@ Using a [filter expression](xray-console-filters.md), you can define criteria by
 
 Choose a group name from the group filter on the top-left of the trace map.
 
-![Filter by X-Ray group field showing TestGroup, with add button and Select a node field.](http://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-groups-cw.png)
+![Filter by X-Ray group field showing TestGroup, with add button and Select a node field.](https://docs.aws.amazon.com/xray/latest/devguide/images/console-servicemap-groups-cw.png)
 
 
 ------
@@ -84,7 +84,7 @@ Choose a group name from the group filter on the top-left of the trace map.
 
 Choose a group name from the drop-down menu to the left of the search bar.
 
-![Drop-down menu showing Default, TestGroup, Create group, and Learn more options.](http://docs.aws.amazon.com/xray/latest/devguide/images/group-select-console.png)
+![Drop-down menu showing Default, TestGroup, Create group, and Learn more options.](https://docs.aws.amazon.com/xray/latest/devguide/images/group-select-console.png)
 
 
 ------

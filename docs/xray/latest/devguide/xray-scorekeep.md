@@ -10,12 +10,12 @@ The AWS X-Ray [eb-java-scorekeep](https://github.com/awslabs/eb-java-scorekeep/t
 
 See the [Scorekeep tutorial](scorekeep-tutorial.md) to start installing and using an instrumented sample application, using the AWS Management Console or the AWS CLI.
 
-![Scorekeep uses the AWS X-Ray SDK to instrument incoming HTTP calls, DynamoDB SDK clients, and HTTP clients](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-flow.png)
+![Scorekeep uses the AWS X-Ray SDK to instrument incoming HTTP calls, DynamoDB SDK clients, and HTTP clients](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-flow.png)
 
 
 The sample includes a front-end web app, the API that it calls, and the DynamoDB tables that it uses to store data. Basic instrumentation with [filters](xray-sdk-java-filters.md), [plugins](xray-sdk-java-configuration.md), and [instrumented AWS SDK clients](xray-sdk-java-awssdkclients.md) is shown in the project's `xray-gettingstarted` branch. This is the branch that you deploy in the [getting started tutorial](scorekeep-tutorial.md). Because this branch only includes the basics, you can diff it against the `master` branch to quickly understand the basics.
 
-![Service map showing Client connecting to Scorekeep container, which connects to DynamoDB tables and SNS.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-gettingstarted-servicemap-before-ECS.png)
+![Service map showing Client connecting to Scorekeep container, which connects to DynamoDB tables and SNS.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-gettingstarted-servicemap-before-ECS.png)
 
 
 The sample application shows basic instrumentation in these files:

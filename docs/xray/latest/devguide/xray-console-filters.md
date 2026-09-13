@@ -29,7 +29,7 @@ If there are still more results available than the console can show, the console
 
 To get the freshest results first, the console starts scanning at the end of the time range and works backward. If there are a large number of traces, but few results, the console splits the time range into chunks and scans them in parallel. The progress bar shows the parts of the time range that have been scanned.
 
-![Progress bar showing scan completion at 52% with 49 matching traces found across time range.](http://docs.aws.amazon.com/xray/latest/devguide/images/console-tracescan-parallel.png)
+![Progress bar showing scan completion at 52% with 49 matching traces found across time range.](https://docs.aws.amazon.com/xray/latest/devguide/images/console-tracescan-parallel.png)
 
 
 ## Using filter expressions with groups

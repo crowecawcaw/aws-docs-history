@@ -131,7 +131,7 @@ Once the ADOT SDK detects an anomaly span, it attempts to emit as many spans fro
 
 We recommend onboarding [Transaction Search](https://docs.aws.amazon.com/xray/latest/devguide/xray-transactionsearch.html) to view and query partial traces. The following example shows a Service page in [Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html) console. ServiceC is configured with anomaly span capture, and it is part of a call chain where sampling boost applies. This configurations generates both complete and partial traces. You can use the `aws.trace.flag.sampled` attribute to distinguish between trace types.
 
-![Anomaly spans capture](http://docs.aws.amazon.com/xray/latest/devguide/images/adaptive-sampling.png)
+![Anomaly spans capture](https://docs.aws.amazon.com/xray/latest/devguide/images/adaptive-sampling.png)
 
 
 Anomaly spans capture can only be enabled or customized through the [Local SDK configuration](#local-sdk-configuration).

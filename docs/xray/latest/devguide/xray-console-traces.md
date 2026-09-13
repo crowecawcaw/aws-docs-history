@@ -43,7 +43,7 @@ When you query traces that are created with a W3C-format trace ID, the console d
 1. To display the **Trace details** page for a single trace, select a trace ID from the list.
 
    The following image shows a **Trace map** containing service nodes associated with the trace and edges between the nodes representing the path taken by segments that compose the trace. A **Trace summary** follows the **Trace Map**. The summary contains information about a sample `GET` operation, its **Response Code**, the **Duration** that the trace took to run, and the **Age** of the request. The **Segments Timeline** follows the **Trace Summary** that shows the duration of trace segments and subsegments.  
-![A trace map, summary and segments timeline details information about service nodes and the segments in the trace.](http://docs.aws.amazon.com/xray/latest/devguide/images/xray-trace-details-cw.png)
+![A trace map, summary and segments timeline details information about service nodes and the segments in the trace.](https://docs.aws.amazon.com/xray/latest/devguide/images/xray-trace-details-cw.png)
 
    If you have an event-driven application that uses Amazon SQS and Lambda, you can see a connected view of traces for each request in the **Trace map**. In the map, traces from message producers are linked to traces from AWS Lambda consumers and are displayed as a dashed-line edge. For more information about event-driven applications, see [Tracing event-driven applications](xray-tracelinking.md).
 
@@ -57,7 +57,7 @@ When you query traces that are created with a W3C-format trace ID, the console d
 1. Open the [Traces](https://console.aws.amazon.com/xray/home#/traces) page in the X-Ray console. The **Trace overview** panel shows a list of traces that are grouped by common features including **Error root causes**, **ResourceARN**, and **InstanceId**.
 
 1. To select a common feature to view a grouped set of traces, expand the down arrow next to **Group by**. The following illustration shows a trace overview of traces that are grouped by URL for the [AWS X-Ray sample application](xray-scorekeep.md), and a list of associated traces.  
-![Example trace overview grouped by URL, followed by a trace list with details including ID, Method, and Response.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-traces.png)
+![Example trace overview grouped by URL, followed by a trace list with details including ID, Method, and Response.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-traces.png)
 
 1. Choose the **ID** of a trace to view it under the **Trace list**. You can also choose **Service map** in the navigation pane to view traces for a specific service node. Then you can view traces that are associated with that node.
 
@@ -67,7 +67,7 @@ When you query traces that are created with a W3C-format trace ID, the console d
    + How many requests were made to the node in the trace map.
 
    The following illustration shows an example **Trace Map** associated with a `GET` request made to a sample application. The arrows show the path that each segment took to complete the request. The service nodes show the number of requests made during the `GET` request.  
-![Trace map followed by a timeline with segments, their duration, origin, and end with respect to each other.](http://docs.aws.amazon.com/xray/latest/devguide/images/xray-trace-details.png)
+![Trace map followed by a timeline with segments, their duration, origin, and end with respect to each other.](https://docs.aws.amazon.com/xray/latest/devguide/images/xray-trace-details.png)
 
    For more information about the **Timeline** tab, see the following **Exploring the trace timeline** section.
 
@@ -143,7 +143,7 @@ For custom subsegments, the **Overview** tab shows the name of the subsegment, w
 
 The following image shows the **Overview** tab for a custom subsegment. The overview contains the subsegment ID, parent ID, Name, start and end times, duration, status and errors or faults.
 
-![Overview information about a subsegment including ID, parent ID, Name, times, errors, and faults.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-customsubsegment-overview.png)
+![Overview information about a subsegment including ID, parent ID, Name, times, errors, and faults.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-customsubsegment-overview.png)
 
 
 The **Metadata** tab for a custom subsegment contains information in JSON format about resources used by that subsegment.

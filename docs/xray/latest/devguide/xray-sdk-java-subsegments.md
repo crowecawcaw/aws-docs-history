@@ -36,7 +36,7 @@ import [com.amazonaws.xray.AWSXRay](https://docs.aws.amazon.com/xray-sdk-for-jav
 
 In this example, the code within the subsegment loads the game's session from DynamoDB with a method on the session model, and uses the AWS SDK for Java's DynamoDB mapper to save the game. Wrapping this code in a subsegment makes the calls DynamoDB children of the `Save Game` subsegment in the trace view in the console.
 
-![Timeline showing Scorekeep and DynamoDB operations with durations and status checks.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-timeline-subsegments.png)
+![Timeline showing Scorekeep and DynamoDB operations with durations and status checks.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-PUTrules-timeline-subsegments.png)
 
 
 If the code in your subsegment throws checked exceptions, wrap it in a `try` block and call `AWSXRay.endSubsegment()` in a `finally` block to ensure that the subsegment is always closed. If a subsegment is not closed, the parent segment cannot be completed and won't be sent to X-Ray.

@@ -634,4 +634,4 @@ public class ListBucketsLambda extends TracingRequestHandler<String, String> {
 
 When invoking the Lambda function, you will see the following trace under *Trace Map* in the CloudWatch console.
 
-![Trace map in CloudWatch console.](http://docs.aws.amazon.com/xray/latest/devguide/images/SDKDeprecation_Java.png)
+![Trace map in CloudWatch console.](https://docs.aws.amazon.com/xray/latest/devguide/images/SDKDeprecation_Java.png)

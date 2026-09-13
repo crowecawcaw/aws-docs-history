@@ -23,10 +23,10 @@ python bin/xray_success.py "$SEGMENT"
 
 [`xray_start.py`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/bin/xray_start.py), [`xray_error.py`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/bin/xray_error.py) and [`xray_success.py`](https://github.com/awslabs/eb-java-scorekeep/tree/xray/bin/xray_success.py) are simple Python scripts that construct segment objects, convert them to JSON documents, and send them to the daemon over UDP. If the Gradle build fails, you can find the error message by clicking on the **scorekeep-build** node in the X-Ray console trace map.
 
-![Scorekeep-build node showing average duration of 14.8 seconds and 0.07 transactions per minute.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-builderror.png)
+![Scorekeep-build node showing average duration of 14.8 seconds and 0.07 transactions per minute.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-builderror.png)
 
 
-![Trace details showing a 14.6 second duration request with timeline visualization.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-timeline-builderror.png)
+![Trace details showing a 14.6 second duration request with timeline visualization.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-timeline-builderror.png)
 
 
-![Exceptions tab showing build failure with error about missing ElasticBeanstalkPlugin symbol.](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-exception-builderror.png)
+![Exceptions tab showing build failure with error about missing ElasticBeanstalkPlugin symbol.](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-exception-builderror.png)

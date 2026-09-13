@@ -12,7 +12,7 @@ Latency is the amount of time between when a request starts and when it complete
 
 This histogram shows a service that completes most requests in less than 300 ms. A small percentage of requests take up to 2 seconds, and a few outliers take more time.
 
-![Latency histogram with duration on the x-axis and percentage of requests for each duration on the y-axis](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-histogram.png)
+![Latency histogram with duration on the x-axis and percentage of requests for each duration on the y-axis](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-histogram.png)
 
 
 ## Interpreting service details
@@ -26,12 +26,12 @@ To interpret the **Service details** panel histogram, you can look for values th
 
 To view traces filtered by latency, select a range on the histogram. Click where you want to start the selection and drag from left to right to highlight a range of latencies to include in the trace filter.
 
-![Select a range to view traces by clicking where to start and dragging left to right to create the range for the trace filter](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-servicedetails-selection.png)
+![Select a range to view traces by clicking where to start and dragging left to right to create the range for the trace filter](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-servicedetails-selection.png)
 
 
 After selecting a range, you can choose **Zoom** to view just that portion of the histogram and refine your selection.
 
-![Choose zoom to view the selected range in the histogram](http://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-servicedetails-zoom.png)
+![Choose zoom to view the selected range in the histogram](https://docs.aws.amazon.com/xray/latest/devguide/images/scorekeep-servicemap-servicedetails-zoom.png)
 
 
 Once you have the focus set to the area you're interested in, choose **View traces**.

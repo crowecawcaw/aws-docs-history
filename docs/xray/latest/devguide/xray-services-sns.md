@@ -59,7 +59,7 @@ To use these examples, replace {{`partition`}}, {{`region`}}, {{`account-id`}}, 
 
 Use the X-Ray console to view a trace map and trace details that display a connected view of Amazon SNS publishers and subscribers. When Amazon SNS active tracing is turned on for a topic, the X-Ray trace map and trace details map displays connected nodes for Amazon SNS publishers, the Amazon SNS topic, and downstream subscribers: 
 
-![Trace map with Amazon SNS publisher and subscriber](http://docs.aws.amazon.com/xray/latest/devguide/images/services-sns-activetracing-map.png)
+![Trace map with Amazon SNS publisher and subscriber](https://docs.aws.amazon.com/xray/latest/devguide/images/services-sns-activetracing-map.png)
 
 
 After choosing a trace that spans an Amazon SNS publisher and subscriber, the X-Ray trace details page displays a trace details map and segment timeline. 
@@ -67,7 +67,7 @@ After choosing a trace that spans an Amazon SNS publisher and subscriber, the X-
 **Example timeline with Amazon SNS publisher and subscriber**  
 This example shows a timeline that includes an Amazon SNS publisher that sends a message to an Amazon SNS topic, which is processed by an Amazon SQS subscriber.   
 
-![Segment timeline for Amazon SNS publisher and subscriber](http://docs.aws.amazon.com/xray/latest/devguide/images/services-sns-activetracing-timeline.png)
+![Segment timeline for Amazon SNS publisher and subscriber](https://docs.aws.amazon.com/xray/latest/devguide/images/services-sns-activetracing-timeline.png)
 
 
 The example timeline above provides details about the Amazon SNS message flow: 
@@ -79,4 +79,4 @@ The example timeline above provides details about the Amazon SNS message flow:
 **Example timeline with batched Amazon SNS messages**  
 If multiple Amazon SNS messages are batched within a single trace, the segment timeline displays segments that represent each message that's processed.   
 
-![Segment timeline for Amazon SNS batched messages](http://docs.aws.amazon.com/xray/latest/devguide/images/services-sns-activetracing-batch-timeline.png)
+![Segment timeline for Amazon SNS batched messages](https://docs.aws.amazon.com/xray/latest/devguide/images/services-sns-activetracing-batch-timeline.png)
