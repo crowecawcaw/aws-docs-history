@@ -5,7 +5,7 @@
 
 When you create a Classic Load Balancer, you can make it an internal load balancer or an internet-facing load balancer. An internet-facing load balancer has a publicly resolvable DNS name, so it can route requests from clients over the internet to the EC2 instances that are registered with the load balancer.
 
-![An internet-facing load balancer routes traffic from the internet to your EC2 instances.](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/images/internet_facing_load_balancer.png)
+![An internet-facing load balancer routes traffic from the internet to your EC2 instances.](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/images/internet_facing_load_balancer.png)
 
 
 The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can only route requests from clients with access to the VPC for the load balancer. For more information, see [Internal Classic Load Balancers](elb-internal-load-balancers.md).

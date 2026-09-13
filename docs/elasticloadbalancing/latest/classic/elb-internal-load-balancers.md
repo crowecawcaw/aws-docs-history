@@ -11,7 +11,7 @@ The nodes of an internal load balancer have only private IP addresses. The DNS n
 
 If your application has multiple tiers, for example web servers that must be connected to the internet and database servers that are only connected to the web servers, you can design an architecture that uses both internal and internet-facing load balancers. Create an internet-facing load balancer and register the web servers with it. Create an internal load balancer and register the database servers with it. The web servers receive requests from the internet-facing load balancer and send requests for the database servers to the internal load balancer. The database servers receive requests from the internal load balancer.
 
-![An internal load balancer routes traffic to your EC2 instances in private subnets.](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/images/internal_load_balancer.png)
+![An internal load balancer routes traffic to your EC2 instances in private subnets.](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/images/internal_load_balancer.png)
 
 
 **Topics**

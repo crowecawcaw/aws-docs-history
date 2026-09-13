@@ -19,7 +19,7 @@ A *listener* checks for connection requests from clients, using the protocol and
 
 You can configure *health checks*, which are used to monitor the health of the registered instances so that the load balancer only sends requests to the healthy instances.
 
-![A load balancer routes traffic from clients to your EC2 instances.](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/images/load_balancer.png)
+![A load balancer routes traffic from clients to your EC2 instances.](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/images/load_balancer.png)
 
 
 To ensure that your registered instances are able to handle the request load in each Availability Zone, it is important to keep approximately the same number of instances in each Availability Zone registered with the load balancer. For example, if you have ten instances in Availability Zone us-west-2a and two instances in us-west-2b, the requests are distributed evenly between the two Availability Zones. As a result, the two instances in us-west-2b serve the same amount of traffic as the ten instances in us-west-2a. Instead, you should have six instances in each Availability Zone.
