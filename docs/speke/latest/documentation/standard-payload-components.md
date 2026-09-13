@@ -7,7 +7,7 @@ In any SPEKE request, the encryptor can request responses for one or more DRM sy
 
 The following example shows a DRM system list with a single DRM system specification:
 
-![RequestIntroSimple](http://docs.aws.amazon.com/speke/latest/documentation/images/RequestIntroSimple.png)
+![RequestIntroSimple](https://docs.aws.amazon.com/speke/latest/documentation/images/RequestIntroSimple.png)
 
 
 The following table lists the main components of each `<cpix:DRMSystem>`.
@@ -24,11 +24,11 @@ The following table lists the main components of each `<cpix:DRMSystem>`.
 
 The following example shows part of a sample request from the encryptor to the DRM key provider, with the main components highlighted. The first request is for a standard key, while the second request is for a PSSH response:
 
-![RequestIntro1](http://docs.aws.amazon.com/speke/latest/documentation/images/RequestIntro1.png)
+![RequestIntro1](https://docs.aws.amazon.com/speke/latest/documentation/images/RequestIntro1.png)
 
 
 \_Example Responses for Standard Key and for PSSH \_
 
 The following example shows the corresponding response from the DRM key provider to the encryptor:
 
-![ResponseIntro1](http://docs.aws.amazon.com/speke/latest/documentation/images/ResponseIntro1.png)
+![ResponseIntro1](https://docs.aws.amazon.com/speke/latest/documentation/images/ResponseIntro1.png)
