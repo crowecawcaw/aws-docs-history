@@ -10,7 +10,7 @@ This reference architecture diagram shows how retailers can simplify and transfo
 ## Retail Customer Service Contact Center Using Amazon Connect
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing a retail customer service contact center by using Amazon Connect, AWS Lambda, Amazon DynamoDB, Amazon Kinesis Data Streams, and Amazon Simple Storage Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/retail-customer-service-contact-center/images/retail-customer-service-contact-center.png)
+![Reference architecture diagram showing a retail customer service contact center by using Amazon Connect, AWS Lambda, Amazon DynamoDB, Amazon Kinesis Data Streams, and Amazon Simple Storage Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/retail-customer-service-contact-center/images/retail-customer-service-contact-center.png)
 
 
 1. Customers contact a retailer's customer service number. Amazon Connect automatically answers with a natural interactive voice response (IVR) and retrieves customer information for personalized greetings.
