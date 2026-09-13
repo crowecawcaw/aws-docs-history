@@ -16,7 +16,7 @@ Building serverless microservices on AWS enables you to not only take advantage 
 ## Reference architecture
 <a name="restful-ref-arch"></a>
 
-![Reference architecture diagram for RESTful microservices](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/reference-architecture-for-restful-microservices.png)
+![Reference architecture diagram for RESTful microservices](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/reference-architecture-for-restful-microservices.png)
 
 
  

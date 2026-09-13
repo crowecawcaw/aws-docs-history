@@ -11,7 +11,7 @@ If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources,
 
  The example diagrams below show two different patterns of Lambda functions accessing the Amazon SNS service. In the first diagram, there are two NAT Gateways in two AZs for high availability and an Internet Gateway. In the second diagram, there are interface endpoints in two AZs. The second pattern is more cost effective than the first one because interface endpoints are more cost effective than using NAT and Internet Gateways combined. 
 
-![Diagram showing a Lambda function accessing Amazon SNS via NAT and Internet Gateways](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/lambda-function-accessing-amazon-sns-via-nat-and-internet-gateways.png)
+![Diagram showing a Lambda function accessing Amazon SNS via NAT and Internet Gateways](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/lambda-function-accessing-amazon-sns-via-nat-and-internet-gateways.png)
 
 
-![Diagram showing a Lambda function accessing Amazon SNS via interface endpoints](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/lambda-function-accessing-amazon-sns-via-interface-endpoints.png)
+![Diagram showing a Lambda function accessing Amazon SNS via interface endpoints](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/lambda-function-accessing-amazon-sns-via-interface-endpoints.png)

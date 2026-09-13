@@ -9,7 +9,7 @@
 
  Active tracing with AWS X-Ray should be enabled to provide distributed tracing capabilities as well as to enable visual service maps for faster troubleshooting. X-Ray helps you identify performance degradation and quickly understand anomalies, including latency distributions.
 
-![Diagram showing AWS X-Ray Service Map visualizing a workload using AWS Lambda, Amazon DynamoDB and Amazon EventBridge](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-x-ray-service-map-visualizing-workload.png)
+![Diagram showing AWS X-Ray Service Map visualizing a workload using AWS Lambda, Amazon DynamoDB and Amazon EventBridge](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-x-ray-service-map-visualizing-workload.png)
 
 
 Service Maps are helpful to understand integration points that need attention and resiliency practices. For integration calls, retries, backoffs, and possibly circuit breakers are necessary to prevent faults from propagating to downstream services. 
@@ -22,4 +22,4 @@ Service Maps are helpful to understand integration points that need attention an
 
 Combined, subsegments and annotations can help you quickly identify performance statistics on specific operations and business transactions. Examples are a database query duration, or the durations of a supporting function which parses an image.
 
-![Screen shot showing AWS X-Ray Trace with subsegments beginning with ##](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-x-ray-trace-with-subsegements.png)
+![Screen shot showing AWS X-Ray Trace with subsegments beginning with ##](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-x-ray-trace-with-subsegements.png)

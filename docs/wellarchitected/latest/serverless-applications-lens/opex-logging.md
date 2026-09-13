@@ -7,7 +7,7 @@
 
 JSON is a ubiquitous format which is often used as an output format and supported across logging services. CloudWatch Logs Insights automatically discovers values in JSON which makes querying and filtering simple. Judicious event logging from your application provides the ability to answer arbitrary questions about the state of your workload such as user behavior, state of your system and anomalous events, among other things. CloudWatch Logs Insights also facilitates finding Lambda performance data from default log events.
 
-![Two screenshots showing a CloudWatch Logs Insights query to find statistics on cold starts, and the subsequent result.](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/cloudwatch-logs-insights-query-cold-start-statistics.png)
+![Two screenshots showing a CloudWatch Logs Insights query to find statistics on cold starts, and the subsequent result.](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/cloudwatch-logs-insights-query-cold-start-statistics.png)
 
 
 Consistently logging of correlation IDs and passing them to downstream systems allows tracing and tracking of individual requests or invocations. As your system grows and more logging is ingested, consider using appropriate logging levels and a sampling mechanism to log a small percentage of logs in DEBUG mode. Log level configuration should be passed to downstream systems for consistent tracing in a microservice architecture. 

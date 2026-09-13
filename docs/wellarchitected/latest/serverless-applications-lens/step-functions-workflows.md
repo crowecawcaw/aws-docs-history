@@ -11,15 +11,15 @@ When you are creating a workflow with AWS Step Functions you will be given two o
 
  See diagrams below that describe each scenario:
 
-![Diagram showing a job poller](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/job-poller.png)
+![Diagram showing a job poller](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/job-poller.png)
 
 
-![Diagram showing a wait for callback](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/wait-for-callback.png)
+![Diagram showing a wait for callback](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/wait-for-callback.png)
 
 
 For example, pausing the workflow until a callback is received from an external service.
 
-![Diagram showing using the .sync Service Integration and waiting for a Fargate task completion](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/Using-the-.sync-service-integration-waiting-for-fargate-task-completion.png)
+![Diagram showing using the .sync Service Integration and waiting for a Fargate task completion](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/Using-the-.sync-service-integration-waiting-for-fargate-task-completion.png)
 
 
  Express Workflows are ideal for high-volume, event-processing workloads such as IoT data ingestion, streaming data processing and transformation, and mobile application backends. Express Workflows can support an execution start rate of over 100K executions per second. They can run for up to five minutes. Express Workflows can run either synchronously or asynchronously and employ an at-most-once or at-least-once workflow execution model, respectively. This means that there is a possibility that an execution might be run more than once. 
@@ -28,7 +28,7 @@ For example, pausing the workflow until a callback is received from an external 
 
 Good examples of using Express Workflows is orchestrating idempotent actions, such as transforming input data and storing with `PUT` in Amazon DynamoDB. Express Workflow executions are billed by the number of executions, the duration of execution, and the memory consumed. There are also cases where combining a Standard and an Express Workflow might offer a good combination of cost optimization and functionality. An example of a combining Standard and Express workflows is shown in the diagram below. More specifically, in the diagram below, the **Approve Order Request** state might be implemented by integrating with a service like Amazon SQS, and the workflow can be paused while waiting for a manual approval. This type of state would be good fit for a Standard Workflow. Whereas for the **Workflow to Update Backend Systems** state implementation you can start an execution of an Express Workflow to handle backend updates. Express Workflows can be fast and cost-effective for steps where checkpointing is not required. 
 
-![Diagram showing Express and Standard Workflows combined](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/express-and-standard-workflows-combined.png)
+![Diagram showing Express and Standard Workflows combined](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/express-and-standard-workflows-combined.png)
 
 
  In summary, deciding between Express and Standard Workflows largely depends your use case. Consider using Express Workflows for a high throughput system, as Express Workflows will probably be more cost-efficient compared to Standard Workflows for the same level of throughput. In order to be able to determine which type of workflow is best for you, consider the differences in execution semantics between Standard and Express Workflows on top of cost.

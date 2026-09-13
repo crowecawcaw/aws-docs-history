@@ -9,14 +9,14 @@ As covered in the performance pillar, optimizing your serverless application can
 
  An example where the use of managed service features can improve the value per execution is retrieving and filtering objects from Amazon S3, since fetching large objects from Amazon S3 requires higher memory for Lambda functions.
 
-![Diagram showing Lambda function retrieving full S3 object](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/lambda-function-retrieving-full-s3-object.png)
+![Diagram showing Lambda function retrieving full S3 object](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/lambda-function-retrieving-full-s3-object.png)
 
 
  The previous diagram shows that when retrieving large objects from Amazon S3, we might increase the memory consumption of the Lambda, increase the execution (so the function can transform, iterate, or collect required data) and, in some cases, only part of this information is needed. 
 
  This is represented with three columns in red (data not required) and one column in green (data required). Using Athena SQL queries to gather granular information needed for your execution reduces the retrieval time and object size upon which to perform transformations. 
 
-![Diagram showing Lambda with Athena object retrieval](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/lambda-with-athena-object-retrieval.png)
+![Diagram showing Lambda with Athena object retrieval](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/lambda-with-athena-object-retrieval.png)
 
 
 The next diagram shows that by querying Athena to get the specific data, we reduce the size of the object retrieved and, as an extra benefit, we can reuse that content since Athena saves its query results in an S3 bucket and invokes the Lambda invocation as the results land in Amazon S3 asynchronously.

@@ -27,7 +27,7 @@ New objects kick off a Lambda function that is automatically executed. This func
 
  As you may have different transformations for different data types, we recommend granularly splitting the transformations into different Lambda functions for optimal performance. With this approach, you have the flexibility to run data transformation in parallel and gain speed as well as cost. 
 
-![Diagram of Asynchronous data ingestion](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-data-ingestion.png)
+![Diagram of Asynchronous data ingestion](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-data-ingestion.png)
 
 
 Firehose offers native [data transformations](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) that can be used as an alternative to Lambda, where no additional logic is necessary for transforming records in Apache Log or System logs to CSV, JSON, JSON to Parquet, or ORC.
@@ -55,12 +55,12 @@ For long and complex workflows similar to this, you can integrate API Gateway or
 
 For legacy systems, you can use the execution ID to poll Step Functions for the business workflow status via another REST API. With WebSockets, whether you’re using REST or GraphQL, you can receive business workflow status in real-time by providing updates in every step of the workflow. 
 
-![Diagram of asynchronous workflow with Step Functions state machines](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-workflow-with-step-functions-state-machines.png)
+![Diagram of asynchronous workflow with Step Functions state machines](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-workflow-with-step-functions-state-machines.png)
 
 
 Another common scenario is integrating API Gateway directly with Amazon SQS or Kinesis as a scaling layer. A Lambda function would only be necessary if additional business information or a custom request ID format is expected from the caller. 
 
-![Diagram of asynchronous workflow using a queue as a scaling layer](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-workflow-using-queue-as-scaling-layer.png)
+![Diagram of asynchronous workflow using a queue as a scaling layer](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-workflow-using-queue-as-scaling-layer.png)
 
 
  In this second example, Amazon SQS serves multiple purposes:
@@ -75,17 +75,17 @@ With WebSockets, AWS AppSync provides this capability out of the box with GraphQ
 
 With AWS AppSync, as status updates change in DynamoDB, clients can automatically subscribe and receive updates as they occur and it’s the perfect pattern for when data drives the user interface. With AWS AppSync you power your application with the right data, from one or more data sources with a single network request using GraphQL. GraphQL works at the application layer and provides a type system for defining schemas. These schemas serve as specifications to define how operations should be performed on the data and how the data should be structured when retrieved. 
 
-![Diagram of Asynchronous updates via WebSockets with AWS AppSync and GraphQL](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-updates-via-websockets-with-aws-appsync-and-graphql.png)
+![Diagram of Asynchronous updates via WebSockets with AWS AppSync and GraphQL](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-updates-via-websockets-with-aws-appsync-and-graphql.png)
 
 
 Web Hooks can be implemented with Amazon SNS Topic HTTP subscriptions. Consumers can host an HTTP endpoint that Amazon SNS will call back through a POST method upon an event (for example, a data file arriving in Amazon S3). This pattern is ideal when the clients are configurable, such as another microservice, which could host an endpoint. Alternatively, [Step Functions supports callbacks](https://docs.aws.amazon.com/step-functions/latest/dg/callback-task-sample-sqs.html) where a state machine will block until it receives a response for a given task. 
 
-![Diagram of asynchronous notification via Webhook with Amazon SNS](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-notification-via-webhook-with-sns.png)
+![Diagram of asynchronous notification via Webhook with Amazon SNS](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/asynchronous-notification-via-webhook-with-sns.png)
 
 
 Lastly, polling could be costly from both a cost- and resource-perspective due to multiple clients constantly polling an API for status. If polling is the only option due to environment constraints, it’s a best practice to establish SLAs with the clients to limit the number of empty polls.
 
-![Diagram of Client polling for updates on transaction recently made](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/client-polling-for-updates-on-transaction-recently-made.png)
+![Diagram of Client polling for updates on transaction recently made](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/client-polling-for-updates-on-transaction-recently-made.png)
 
 
 For example, if a large data warehouse query takes an average of two minutes for a response, the client should poll the API after two minutes with exponential backoff if the data is not available. There are two common patterns to ensure that clients aren’t polling more frequently than expected: Throttling and Timestamp, for when is safe to poll again.

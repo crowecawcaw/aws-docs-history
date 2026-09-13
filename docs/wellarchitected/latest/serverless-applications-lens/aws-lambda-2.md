@@ -15,11 +15,11 @@ Serverless applications may begin modeling monolithic applications, represented 
 
 Take advantage of Amazon API Gateway native routing functionality instead of using the routing of web frameworks, which are well suited for web servers. Web frameworks inside the Lambda function increases the size of the deployment package. 
 
-![Amazon API Gateway simplified routing architecture](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-api-gateway-simplified-routing-architecture.png)
+![Amazon API Gateway simplified routing architecture](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-api-gateway-simplified-routing-architecture.png)
 
 
  After a Lambda function has executed, AWS Lambda maintains the execution context for some arbitrary time in anticipation of another Lambda function invocation. That allows you to use the global scope for one-off expensive operations, for example establishing a database connection or any initialization logic. In subsequent invocations, you can verify whether it’s still valid and reuse the existing connection.
 
 Consider connection pooling with [Amazon RDS Proxy](https://aws.amazon.com/rds/proxy/) for your Lambda functions that interact using SQL calls with your database instance. Amazon RDS Proxy handles the connection pooling necessary for scaling simultaneous connections created by concurrent AWS Lambda functions. This allows for reuse of existing connections, rather than creating new connections for every function invocation. 
 
-![Diagram of Amazon API Gateway with Amazon RDS Proxy](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-rds-proxy-scaling-connections-from-serverless-application.png)
+![Diagram of Amazon API Gateway with Amazon RDS Proxy](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-rds-proxy-scaling-connections-from-serverless-application.png)

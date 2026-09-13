@@ -28,7 +28,7 @@ The growing demand from mobile users means that applications need a rich set of 
 ## Reference architecture
 <a name="mobile-backend-ref-arch"></a>
 
-![Reference architecture diagram for a mobile backend](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/reference-architecture-for-mobile-backend.png)
+![Reference architecture diagram for a mobile backend](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/reference-architecture-for-mobile-backend.png)
 
 
  

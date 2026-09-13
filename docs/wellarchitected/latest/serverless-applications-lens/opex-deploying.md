@@ -11,11 +11,11 @@
 
  Create separate stages or environments using CI/CD pipelines (for example, Gamma, Dev, and Prod). A CI/CD pipeline can create the following resources in a beta AWS account: `OrderAPIBeta`, `OrderServiceBeta`, `OrderStateMachineBeta`, `OrderBucketBeta`, and `OrderTableBeta`. Similar, yet separate, resources can be created across different environments which might reside in separate AWS accounts.
 
-![Diagram showing a CI/CD pipeline for multiple accounts](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/ci-cd-pipeline-for-multiple-accounts.png)
+![Diagram showing a CI/CD pipeline for multiple accounts](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/ci-cd-pipeline-for-multiple-accounts.png)
 
 
 When deploying to production, favor safe deployments over all-at-once systems as new changes will gradually shift over time towards the end user in a canary or linear deployment. Use CodeDeploy hooks (`BeforeAllowTraffic`, `AfterAllowTraffic`) and alarms to gain more control over deployment validation, rollback, and any customization you may need for your application. 
 
  You can also combine the use of synthetic traffic, custom metrics, and alerts as part of a rollout deployment. These help you proactively detect errors with new changes that otherwise would have impacted your customer experience.
 
-![Diagram showing AWS CodeDeploy Lambda deployment and hooks](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-codedeploy-lambda-deployment-and-hooks.png)
+![Diagram showing AWS CodeDeploy Lambda deployment and hooks](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-codedeploy-lambda-deployment-and-hooks.png)

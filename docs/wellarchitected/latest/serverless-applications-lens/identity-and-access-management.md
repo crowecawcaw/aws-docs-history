@@ -21,7 +21,7 @@ It is important to understand if, and how, any of these mechanisms are implement
 
  The following diagram illustrates using AWS\_IAM authorization in this context:
 
-![Diagram showing AWS_IAM authorization](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-iam-authorization.png)
+![Diagram showing AWS_IAM authorization](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/aws-iam-authorization.png)
 
 
  To add granularity into your IAM authorization you can implement tag-based access control, which allows for better API-level control on the resources and actions. 
@@ -30,14 +30,14 @@ It is important to understand if, and how, any of these mechanisms are implement
 
  A Lambda authorizer can send additional information derived from a bearer token or request context values to your backend service. For example, the authorizer can return a map containing user IDs, user names, and scope. By using Lambda authorizers, your backend does not need to map authorization tokens to user-centric data, allowing you to limit the exposure of such information to just the authorization function.
 
-![Diagram showing API Gateway Lambda authorizer](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/api-gateway-lambda-authorizer.png)
+![Diagram showing API Gateway Lambda authorizer](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/api-gateway-lambda-authorizer.png)
 
 
  If you don’t have an IdP, you can leverage Amazon Cognito user pools to either provide built-in user management or integrate with external identity providers, such as Facebook, Twitter, Google\+, and Amazon. 
 
  This is commonly seen in the mobile backend scenario, where users authenticate by using existing accounts in social media platforms to register or sign in with their email address or username. This approach also provides granular authorization through [OAuth Scopes](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-enable-cognito-user-pool.html).
 
-![Diagram showing Amazon Cognito user pools](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-cognito-user-pools.png)
+![Diagram showing Amazon Cognito user pools](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-cognito-user-pools.png)
 
 
  ** 
@@ -55,12 +55,12 @@ API Gateway API Keys is not a security mechanism and should not be used for auth
 
 With resource policies, you can restrict common scenarios, such as only allowing requests coming from known clients with a specific IP range or from another AWS account. If you plan to restrict requests coming from private IP addresses, it’s recommended to use API Gateway private endpoints instead. 
 
-![Diagram showing Amazon API Gateway Resource Policy based on IP CIDR](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-api-gateway-resource-policy-IP-CIDR.png)
+![Diagram showing Amazon API Gateway Resource Policy based on IP CIDR](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/amazon-api-gateway-resource-policy-IP-CIDR.png)
 
 
 With private endpoints, API Gateway will restrict access to services and resources inside your VPC, or those connected through Direct Connect to your own data centers. To control access to the VPC Endpoint you can add VPC endpoint policies so that you can grant or deny the access to a particular APIs for the traffic going in your internal network. Combining private endpoints, endpoint policies, and resource policies, an API can be limited to specific resource invocations within a specific private IP range from a specific VPC endpoint. This combination is mostly used on internal microservices where they may be in the same account, or another account. If you are using API Gateway as a main endpoint to your backend HTTP(s) services you can enable client-side SSL certificates so that the backend services can authenticate and verify requests from API Gateway. When it comes to large deployments and multiple AWS accounts, organizations can use cross-account Lambda authorizers in API Gateway to reduce maintenance and centralize security practices. For example, API Gateway has the ability to use Amazon Cognito user pools in a separate account. Lambda authorizers can also be created and managed in a separate account and then re-used across multiple APIs managed by API Gateway. Both scenarios are common for deployments with multiple microservices that need to standardize authorization practices across APIs.
 
-![Diagram showing API Gateway cross-account authorizers](http://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/api-gateway-cross-account-authorizers.png)
+![Diagram showing API Gateway cross-account authorizers](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/images/api-gateway-cross-account-authorizers.png)
 
 
  For cases like Internet of Things (IoT) or application-to-application authentication, you can configure a mutual TLS (mTLS) authentication. In this scenario, the client should present its certificate to verify its identity when accessing API Gateway endpoint. You can also combine mTLS with Lambda authorizers for a more granular authorization mechanism. 
