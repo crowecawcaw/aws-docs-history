@@ -7,12 +7,12 @@
 
  During an Amazon ECS deployment, CodeDeploy uses a load balancer that is configured with two target groups and one production traffic listener. The following diagram shows how the load balancer, production listener, target groups, and your Amazon ECS application are related before the deployment starts. This tutorial uses an Application Load Balancer. You can also use a Network Load Balancer. 
 
-![The Application Load Balancer or Network Load Balancer, one production listener, two target groups, one task set, and one Amazon ECS service.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-with-no-test-listener-step-1.png)
+![The Application Load Balancer or Network Load Balancer, one production listener, two target groups, one task set, and one Amazon ECS service.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-with-no-test-listener-step-1.png)
 
 
  After a successful deployment, the production traffic listener serves traffic to your new replacement task set and the original task set is terminated. The following diagram shows how your resources are related after a successful deployment. For more information, see [What happens during an Amazon ECS deployment](deployment-steps-ecs.md#deployment-steps-what-happens). 
 
-![The Application Load Balancer or Network Load Balancer, one production listener, two target groups, and one replacement task set.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-with-no-test-listener-step-5.png)
+![The Application Load Balancer or Network Load Balancer, one production listener, two target groups, and one replacement task set.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-with-no-test-listener-step-5.png)
 
 
 For information about how to use the AWS CLI to deploy an application into Amazon ECS, see [ Tutorial: Creating a service using a blue/green deployment](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-blue-green.html). For information about how to use CodePipeline to detect and automatically deploy changes to an Amazon ECS service with CodeDeploy, see [Tutorial: Create a pipeline with an Amazon ECR source and ECS-to-CodeDeploy deployment](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html). 

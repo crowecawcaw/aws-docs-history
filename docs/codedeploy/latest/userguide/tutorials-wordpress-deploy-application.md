@@ -182,7 +182,7 @@ http://ec2-01-234-567-890.compute-1.amazonaws.com/WordPress
 
 When you view the site in your browser, you should see a WordPress welcome page that looks similar to the following:
 
-![WordPress welcome page](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/WordPress-Welcome-Page-013118.png)
+![WordPress welcome page](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/WordPress-Welcome-Page-013118.png)
 
 
  If your Amazon EC2 instance does not have an HTTP inbound rule added to its security group, then the WordPress welcome page does not appear. If you see a message that says the remote server is not responding, make sure the security group for your Amazon EC2 instance has the inbound rule. For more information, see [Add an inbound rule that allows HTTP traffic to your Amazon Linux or RHEL Amazon EC2 instance](tutorials-wordpress-launch-instance.md#tutorials-wordpress-launch-instance-add-inbound-rule). 

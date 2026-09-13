@@ -45,10 +45,10 @@ You can monitor blue/green deployments through CloudFormation and CodeDeploy. Fo
 Sign in with the same user that you set up in [Getting started with CodeDeploy](getting-started-codedeploy.md).
 
 1. In **Deployments**, the deployment that was triggered by the CloudFormation stack update appears. Choose the deployment to view the **Deployment history**.  
-![Console screenshot showing the Deployments section and deployment history.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/cfn-cd-bg-deplhist.png)
+![Console screenshot showing the Deployments section and deployment history.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/cfn-cd-bg-deplhist.png)
 
 1. Choose the deployment to view the traffic shifting status. Note that the application and deployment group are not created.  
-![Console screenshot showing the deployment details with deployment status completed.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/cfn-cd-bg-deplstatus.png)
+![Console screenshot showing the deployment details with deployment status completed.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/cfn-cd-bg-deplstatus.png)
 
 1. The following apply for rolling back or stopping the deployment:
    + The successful deployment appears in CodeDeploy and shows that the deployment was initiated by CloudFormation.

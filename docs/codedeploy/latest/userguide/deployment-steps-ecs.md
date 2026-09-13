@@ -66,7 +66,7 @@ A *listener* is used by your load balancer to direct traffic to your target grou
 
 The following diagram shows the primary steps in the deployment of updated Amazon ECS services.
 
-![How CodeDeploy deploys an application as a task set into Amazon ECS.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/deployment-process-ecs.png)
+![How CodeDeploy deploys an application as a task set into Amazon ECS.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/deployment-process-ecs.png)
 
 
 These steps include:
@@ -93,7 +93,7 @@ Before an Amazon ECS deployment with a test listener starts, you must configure 
 
  The following diagram shows the relationship between these components when an Amazon ECS deployment is ready to start. 
 
-![The relationship between the load balancer, listeners, target groups, and task set when an Amazon ECS deployment is ready to start.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-1.png)
+![The relationship between the load balancer, listeners, target groups, and task set when an Amazon ECS deployment is ready to start.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-1.png)
 
 
 When the deployment starts, the deployment lifecycle events start to execute one at a time. Some lifecycle events are hooks that only execute Lambda functions specified in the AppSpec file. The deployment lifecycle events in the following table are listed in the order they execute. For more information, see [AppSpec 'hooks' section for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#appspec-hooks-ecs).
@@ -130,7 +130,7 @@ Lambda functions in a hook are optional.
    1.  The second target group is associated with the replacement task set. 
 
     This diagram shows deployment components with the new replacement task set. The containerized application is inside this task set. The task set is composed of three tasks. (An application can have any number of tasks.) The second target group is now associated with the replacement task set.   
-![The deployment components with the new replacement task set. The containerized application is inside this task set. The task set is composed of three tasks. The second target group is now associated with the replacement task set.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-2.png)
+![The deployment components with the new replacement task set. The containerized application is inside this task set. The task set is composed of three tasks. The second target group is now associated with the replacement task set.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-2.png)
 
 1. <a name="ecs-after-install"></a>
 
@@ -139,7 +139,7 @@ Lambda functions in a hook are optional.
 1. <a name="ecs-allow-test-traffic"></a>
 
    The `AllowTestTraffic` event is invoked. During this lifecycle event, the test listener routes traffic to the updated containerized application.  
-![The test listener routes traffic to the updated containerized application.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-3.png)
+![The test listener routes traffic to the updated containerized application.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-3.png)
 
 1. <a name="ecs-after-allow-test-traffic"></a>
 
@@ -159,7 +159,7 @@ Lambda functions in a hook are optional.
 1. <a name="ecs-allow-traffic"></a>
 
    The `AllowTraffic` event is invoked. Production traffic is rerouted from the original task set to the replacement task set. The following diagram shows the replacement task set receiving production traffic.   
-![The replacement task set receives production traffic.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-4.png)
+![The replacement task set receives production traffic.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-4.png)
 
 1. <a name="ecs-after-allow-traffic"></a>
 
@@ -168,7 +168,7 @@ Lambda functions in a hook are optional.
 1. 
 
    After all events succeed, the deployment status is set to `Succeeded` and the original task set is removed.   
-![All events succeeding.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-6.png)
+![All events succeeding.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-6.png)
 
 ## Uploading your application revision
 <a name="deployment-steps-uploading-your-app-ecs"></a>

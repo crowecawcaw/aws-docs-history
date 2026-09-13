@@ -44,7 +44,7 @@
 1.  In **Deployment group history**, choose the deployment that is in progress. 
 
    The **Traffic shifting** progress bar and the percentages in the **Original** and **Replacement** boxes on this page display its progress.   
-![The traffic shifting progress section of the CodeDeploy console.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lambda-tutorial-codedeploy-console-20-percent-deployed.png)
+![The traffic shifting progress section of the CodeDeploy console.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lambda-tutorial-codedeploy-console-20-percent-deployed.png)
 
 **(Optional) to view traffic during a deployment (Lambda console)**
 
@@ -56,4 +56,4 @@
 
 The weights next to your original function version (version 1) and your updated function version (version 2) show how much traffic is served to each version at the time this AWS Lambda console page was loaded. The page does not update the weights over time. If you refresh the page once a minute, the weight for version 1 decreases by 10 percent and the weight for version 2 increases by 10 percent until the weight for version 2 is 100. 
 
-![The aliases section of the CodeDeploy console.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lambda-tutorial-lambda-console-20-percent-deployed.png)
+![The aliases section of the CodeDeploy console.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lambda-tutorial-lambda-console-20-percent-deployed.png)

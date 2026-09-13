@@ -19,7 +19,7 @@ This topic provides information about the components and workflow of CodeDeploy 
 
 The following diagram shows the primary steps in the deployment of new and updated AWS Lambda functions.
 
-![How CodeDeploy deploys a new or updated AWS Lambda function.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/deployment-process-lambda.png)
+![How CodeDeploy deploys a new or updated AWS Lambda function.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/deployment-process-lambda.png)
 
 
 These steps include:

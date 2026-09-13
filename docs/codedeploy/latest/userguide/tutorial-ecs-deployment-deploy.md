@@ -42,7 +42,7 @@
 1. Choose **Reroute traffic immediately**.
 
 1. For **Original revision termination**, choose 0 days, 0 hours, and 5 minutes. This lets you see your deployment complete faster than if you use the default (1 hour).  
-![The environment configuration section of the CodeDeploy console.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/ecs-demo-create-acd-dg.png)
+![The environment configuration section of the CodeDeploy console.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/ecs-demo-create-acd-dg.png)
 
 1. Choose **Create deployment group**.
 
@@ -61,4 +61,4 @@
 1. Choose **Create deployment**.
 
 1.  In **Deployment status**, you can monitor your deployment. After 100% of production traffic is routed to the replacement task set and before the five-minute wait time expires, you can choose **Terminate original task set** to immediately terminate the original task set. If you do not choose **Terminate original task set**, the original task set terminates after the five-minute wait time you specified expires.  
-![The deployment status section of the CodeDeploy console.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/ecs-tutorial-deployment-status-without-test-listener.png)
+![The deployment status section of the CodeDeploy console.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/ecs-tutorial-deployment-status-without-test-listener.png)

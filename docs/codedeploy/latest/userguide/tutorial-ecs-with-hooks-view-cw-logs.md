@@ -8,11 +8,11 @@
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
 1.  From the navigation pane, choose **Logs**. You should see one new log group for the Lambda hook function you specified in your AppSpec file.   
-![The new log group in the CloudWatch console.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/ecs-demo-cw-logs.png)
+![The new log group in the CloudWatch console.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/ecs-demo-cw-logs.png)
 
 1.  Choose the new log group. This should be **/aws/lambda/AfterAllowTestTrafficHook**. 
 
 1.  Choose the log stream. If you see more than one log stream, choose the one with the most recent date and time under **Last Event Time**. 
 
 1.  Expand the log stream events to confirm your Lambda hook function wrote success messages to the log. The following shows the `AfterAllowTraffic` Lambda hook function was successful.   
-![The log stream events showing the AfterAllowTraffic hook.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/ecs-demo-cw-log-events.png)
+![The log stream events showing the AfterAllowTraffic hook.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/ecs-demo-cw-log-events.png)

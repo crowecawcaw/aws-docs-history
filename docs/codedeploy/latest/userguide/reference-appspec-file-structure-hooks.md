@@ -36,7 +36,7 @@ For more information, see [What happens during an Amazon ECS deployment](deploym
 
 In an Amazon ECS deployment, event hooks run in the following order:
 
-![The order of event hooks in an Amazon ECS deployment.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-ecs.png)
+![The order of event hooks in an Amazon ECS deployment.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-ecs.png)
 
 
 **Note**  
@@ -152,7 +152,7 @@ An AWS Lambda hook is one Lambda function specified with a string on a new line 
 
 In a serverless Lambda function version deployment, event hooks run in the following order:
 
-![The order of event hooks in a Lambda deployment.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-lambda.png)
+![The order of event hooks in a Lambda deployment.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-lambda.png)
 
 
 **Note**  
@@ -324,7 +324,7 @@ During an Auto Scaling launch deployment, CodeDeploy runs event hooks in the fol
 
 For more information about Auto Scaling launch deployments, see [How Amazon EC2 Auto Scaling works with CodeDeploy](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors).
 
-![The order of event hooks during an Auto Scaling launch deployment.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-scale-out.png)
+![The order of event hooks during an Auto Scaling launch deployment.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-scale-out.png)
 
 
 **Note**  
@@ -336,7 +336,7 @@ During an Auto Scaling termination deployment, CodeDeploy runs event hooks in th
 
 For more information about Auto Scaling termination deployments, see [Enabling termination deployments during Auto Scaling scale-in events](integrations-aws-auto-scaling.md#integrations-aws-auto-scaling-behaviors-hook-enable).
 
-![The order of event hooks during an Auto Scaling termination deployment.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-scale-in.png)
+![The order of event hooks during an Auto Scaling termination deployment.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-scale-in.png)
 
 
 **Note**  
@@ -349,7 +349,7 @@ In an in-place deployment, including the rollback of an in-place deployment, eve
 **Note**  
 For in-place deployments, the six hooks related to blocking and allowing traffic apply only if you specify a Classic Load Balancer, Application Load Balancer, or Network Load Balancer from Elastic Load Balancing in the deployment group.
 
-![The order of event hooks during the rollback of an in-place deployment.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-in-place.png)
+![The order of event hooks during the rollback of an in-place deployment.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-in-place.png)
 
 
 **Note**  
@@ -359,7 +359,7 @@ The **Start**, **DownloadBundle**, **Install**, and **End** events in the deploy
 
 In a blue/green deployment, event hooks are run in the following order:
 
-![The order of event hooks in a blue/green deployment.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-blue-green.png)
+![The order of event hooks in a blue/green deployment.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lifecycle-event-order-blue-green.png)
 
 
 **Note**  

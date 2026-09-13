@@ -21,7 +21,7 @@ In this step, you view the results of your deployment. If your deployment succee
 1.  From the navigation pane, choose the `my-date-time-app-myDateTimeFunction` function. In the console, its name contains an identifier, so it looks like `my-date-time-app-myDateTimeFunction-123456ABCDEF`. 
 
 1.  Choose **Qualifiers**, and then choose **Aliases**. After the deployment is complete (approximately 10 minutes), for the `live` alias, you should see **Version: 2**.  
-![The aliases section of the CodeDeploy console.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lambda-tutorial-function-version.png)
+![The aliases section of the CodeDeploy console.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lambda-tutorial-function-version.png)
 
 1.  In **Function code**, view the source code for your function. Your changes should appear. 
 
@@ -57,4 +57,4 @@ In this step, you view the results of your deployment. If your deployment succee
 1.  Choose the log stream. You should see only one. 
 
 1.  Expand the events to see their details.   
-![The log stream of a CodeDeployHook log group.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/lambda-tutorial-cloudwatch.png)
+![The log stream of a CodeDeployHook log group.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/lambda-tutorial-cloudwatch.png)

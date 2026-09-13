@@ -21,7 +21,7 @@ This topic provides information about the components and workflow of CodeDeploy 
 
 The following diagram shows the components in a CodeDeploy deployment on an EC2/On-Premises compute platform. 
 
-![The components in a CodeDeploy deployment on an EC2/On-Premises compute platform.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/deployment-components-workflow.png)
+![The components in a CodeDeploy deployment on an EC2/On-Premises compute platform.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/deployment-components-workflow.png)
 
 
 ## Deployment workflow on an EC2/on-premises compute platform
@@ -29,7 +29,7 @@ The following diagram shows the components in a CodeDeploy deployment on an EC2/
 
 The following diagram shows the major steps in the deployment of application revisions:
 
-![The major steps in the deployment of application revisions.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/deployment-process.png)
+![The major steps in the deployment of application revisions.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/deployment-process.png)
 
 
 These steps include:

@@ -9,12 +9,12 @@
 
  During an Amazon ECS deployment with validation tests, CodeDeploy uses a load balancer that is configured with two target groups: one production traffic listener and one test traffic listener. The following diagram shows how the load balancer, production and test listeners, target groups, and your Amazon ECS application are related before the deployment starts. This tutorial uses an Application Load Balancer. You can also use a Network Load Balancer. 
 
-![The connections between the Application Load Balancer or Network Load Balancer, listeners, target groups, task set, and Amazon ECS service.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-1.png)
+![The connections between the Application Load Balancer or Network Load Balancer, listeners, target groups, task set, and Amazon ECS service.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-1.png)
 
 
  During an Amazon ECS deployment, there are five lifecycle hooks for testing. This tutorial implements one test during the third lifecycle deployment hook, `AfterAllowTestTraffic`. For more information, see [List of lifecycle event hooks for an Amazon ECS deployment](reference-appspec-file-structure-hooks.md#reference-appspec-file-structure-hooks-list-ecs). After a successful deployment, the production traffic listener serves traffic to your new replacment task set and the original task set is terminated. The following diagram shows how your resources are related after a successful deployment. For more information, see [What happens during an Amazon ECS deployment](deployment-steps-ecs.md#deployment-steps-what-happens). 
 
-![The connections between the Application Load Balancer or Network Load Balancer, listeners, target groups, and replacement task set after a deployment.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-6.png)
+![The connections between the Application Load Balancer or Network Load Balancer, listeners, target groups, and replacement task set after a deployment.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/codedeploy-ecs-deployment-step-6.png)
 
 
 **Note**  

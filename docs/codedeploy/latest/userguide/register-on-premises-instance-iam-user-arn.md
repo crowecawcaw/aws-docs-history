@@ -403,7 +403,7 @@ Sign in with the same user that you set up in [Getting started with CodeDeploy](
 
 1. In the list of on-premises instances, choose the arrow next to the on-premises instance you want to tag.
 
-1. In the list of tags, select or enter the desired tag key and tag value. After you enter the tag key and tag value, another row appears. You can repeat this for up to 10 tags. To remove a tag, choose the delete icon (![The delete icon.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/delete-triggers-x.png)).
+1. In the list of tags, select or enter the desired tag key and tag value. After you enter the tag key and tag value, another row appears. You can repeat this for up to 10 tags. To remove a tag, choose the delete icon (![The delete icon.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/delete-triggers-x.png)).
 
 1. After you have added tags, choose **Update Tags**.
 

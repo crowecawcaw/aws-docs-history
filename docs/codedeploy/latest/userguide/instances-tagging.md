@@ -38,7 +38,7 @@ Each instance that is tagged with `Name=AppVersion-ABC` is part of the deploymen
 
 CodeDeploy console setup view: 
 
-![The CodeDeploy console showing one tag group with one tag.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/TaggingExample1-polaris.png)
+![The CodeDeploy console showing one tag group with one tag.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/TaggingExample1-polaris.png)
 
 
 JSON structure:
@@ -75,7 +75,7 @@ An instance that is tagged with any of these three tags is part of the deploymen
 
 CodeDeploy console setup view: 
 
-![The CodeDeploy console showing one tag group with three tags.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/TaggingExample2-polaris.png)
+![The CodeDeploy console showing one tag group with three tags.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/TaggingExample2-polaris.png)
 
 
 JSON structure:
@@ -134,7 +134,7 @@ You might have instances in many Regions and of various instance types tagged wi
 
 CodeDeploy console setup view: 
 
-![The CodeDeploy console showing three tag groups with one tag in each.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/TaggingExample3-polaris.png)
+![The CodeDeploy console showing three tag groups with one tag in each.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/TaggingExample3-polaris.png)
 
 
 JSON structure:
@@ -211,7 +211,7 @@ Instances with the following tag groups would *not* be included in the deploymen
 
 CodeDeploy console setup view: 
 
-![The CodeDeploy console showing three tag groups with multiple tags in each.](http://docs.aws.amazon.com/codedeploy/latest/userguide/images/TaggingExample4-polaris.png)
+![The CodeDeploy console showing three tag groups with multiple tags in each.](https://docs.aws.amazon.com/codedeploy/latest/userguide/images/TaggingExample4-polaris.png)
 
 
 JSON structure:
