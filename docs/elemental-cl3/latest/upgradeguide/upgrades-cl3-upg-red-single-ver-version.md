@@ -22,7 +22,7 @@ The software installer that you use for the nodes varies depending on if you hav
 + CPU and GPU icons: the software is *GPU-accelerated*.
 + CPU icon only: the software is *CPU-only*.
 
-![Dashboard showing status indicator, CPU usage, GPUs usage, and memory usage meters.](http://docs.aws.amazon.com/elemental-cl3/latest/upgradeguide/images/upg-type-shared-png.png)
+![Dashboard showing status indicator, CPU usage, GPUs usage, and memory usage meters.](https://docs.aws.amazon.com/elemental-cl3/latest/upgradeguide/images/upg-type-shared-png.png)
 
 
 ## Save the latest database backup
