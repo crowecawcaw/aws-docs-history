@@ -10,7 +10,7 @@ This architecture demonstrates how to build near real-time IOT analytics with ma
 ## Near Real-Time IoT Analytics with AWS and IBM CP4D Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to build near real-time IOT analytics with machine learning by using IBM Cloud Pak for DATA (CP4D) running on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/iot-analytics-with-aws-ibm-cp4d/images/iot-analytics-with-aws-ibm-cp4d.png)
+![Reference architecture diagram showing how to build near real-time IOT analytics with machine learning by using IBM Cloud Pak for DATA (CP4D) running on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/iot-analytics-with-aws-ibm-cp4d/images/iot-analytics-with-aws-ibm-cp4d.png)
 
 
 1. Data from multiple sources across the manufacturing plant and edge devices is ingested from all the assets to **AWS IoT Core**. 
