@@ -10,7 +10,7 @@ With this architecture, you can distribute your 5G Core between on-premises data
 ## Deploying 5G Core on AWS diagram
 <a name="5gcore-diagram"></a>
 
-![Reference architecture diagram showing how to distribute 5G Core between on-premises and AWS Regions by using AWS Outposts, Amazon EKS, and AWS Direct Connect.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/deploying-5g-core/images/deploying-5g-core.png)
+![Reference architecture diagram showing how to distribute 5G Core between on-premises and AWS Regions by using AWS Outposts, Amazon EKS, and AWS Direct Connect.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/deploying-5g-core/images/deploying-5g-core.png)
 
 
 The following steps describe the network topology and data flow for this architecture:
