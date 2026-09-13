@@ -38,6 +38,9 @@ These are the video, audio, and subtitles codecs that MediaPackage supports for 
 | HLS |  +  Video: TS <br />+  Audio: TS, AAC, AC3, or EC3   |  +  H.264 (AVC) <br />+  H.265 (HEVC) with HDR-10 or Dolby Vision Profile 8.1 support   |  +  AAC <br />+  Dolby Digital <br />+  Dolby Digital Plus   |  + WebVTT<br />+ CEA-608 and CEA-708 closed captions | 
 | CMAF | CMAF |  +  H.264 (AVC) <br />+  H.265 (HEVC) with HDR-10 or Dolby Vision Profile 8.1 support <br />+  AV1   |  +  AAC <br />+  Dolby Digital <br />+  Dolby Digital Plus   |  +  TTML <br />+  CEA-608 and CEA-708 closed captions   | 
 
+**Dynamic Multiview channels**  
+MediaPackage also supports a third channel type, **Dynamic Multiview**, which takes no input of its own. A multiview channel composites several source channels — each of which uses CMAF ingest — into a single tiled stream. For more information, see [Dynamic Multiview](dynamic-multiview.md).
+
 ## Supported output codecs
 <a name="suported-outputs-codecs-live"></a>
 
@@ -50,5 +53,6 @@ The AV1 video codec is supported only with CMAF endpoint types. If you configure
 | Endpoint type | Manifest format | Media container | Video codecs | Audio codecs | Subtitles/captions format | 
 | --- | --- | --- | --- | --- | --- | 
 | TS | HLS |  +  Video: TS <br />+  Audio: TS or AAC   |  +  H.264 (AVC) <br />+  H.265 (HEVC) with HDR-10 or Dolby Vision Profile 8.1 support   |  +  AAC <br />+  Dolby Digital <br />+  Dolby Digital Plus   |  +  WebVTT   | 
+| ISM | MSS (Smooth Streaming) | fragmented MP4 (PIFF/ISMV) |  +  H.264 (AVC) <br />+  H.265 (HEVC)   |  +  AAC <br />+  Dolby Digital <br />+  Dolby Digital Plus   | TTML | 
 | CMAF | HLS | CMAF |  +  H.264 (AVC) <br />+  H.265 (HEVC) with HDR-10 or Dolby Vision Profile 8.1 support <br />+  AV1   |  +  AAC <br />+  Dolby Digital <br />+  Dolby Digital Plus   |  +  WebVTT <br />+  CEA-608 and CEA-708 closed captions   | 
 | CMAF | DASH | CMAF |  +  H.264 (AVC) <br />+  H.265 (HEVC) with HDR-10 or Dolby Vision Profile 8.1 support <br />+  AV1   |  +  AAC <br />+  Dolby Digital <br />+  Dolby Digital Plus   |  +  TTML <br />+  CEA-608 and CEA-708 closed captions   | 

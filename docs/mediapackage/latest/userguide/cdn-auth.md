@@ -29,7 +29,7 @@ If the values match, MediaPackage serves the content along with an HTTP `200 OK`
 
 The following image shows successful CDN authorization using Amazon CloudFront.
 
-![This diagram illustrates the CDN authorization workflow: 1. A playback device requests content from Amazon CloudFront 2. CloudFront includes the X-MediaPackageV2-CDNIdentifier header in its request to MediaPackage 3. MediaPackage retrieves the secret value from AWS Secrets Manager (requires IAM permissions) 4. MediaPackage compares the header value with the stored secret 5. When values match, MediaPackage returns HTTP 200 OK with video content 6. CloudFront delivers the content to the playback device When values don't match, MediaPackage returns HTTP 403 Unauthorized.](http://docs.aws.amazon.com/mediapackage/latest/userguide/images/cdn_auth.png)
+![This diagram illustrates the CDN authorization workflow: 1. A playback device requests content from Amazon CloudFront 2. CloudFront includes the X-MediaPackageV2-CDNIdentifier header in its request to MediaPackage 3. MediaPackage retrieves the secret value from AWS Secrets Manager (requires IAM permissions) 4. MediaPackage compares the header value with the stored secret 5. When values match, MediaPackage returns HTTP 200 OK with video content 6. CloudFront delivers the content to the playback device When values don't match, MediaPackage returns HTTP 403 Unauthorized.](https://docs.aws.amazon.com/mediapackage/latest/userguide/images/cdn_auth.png)
 
 
 Complete the following procedures to configure CDN authorization with MediaPackage.

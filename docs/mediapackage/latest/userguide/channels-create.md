@@ -24,6 +24,7 @@ You can use the MediaPackage console, MediaPackage API, or AWS CLI to create a c
    + **CMAF** requires your live encoder to follow the[ DASH-IF Live Media Ingest Protocol version 1.2](https://dashif.org/guidelines/others/#dash-if-technical-specification-live-media-ingest), producing and ingesting CMAF streams using Interface-1 (CMAF Ingest, described in section 6).
 
      MediaPackage CMAF Ingest has currently been tested with MediaLive and the AWS Elemental Live encoder. A detailed specification of the MediaPackage encoder requirements for CMAF ingest is available upon request to live-encoder manufacturers who would want to validate interoperability of their solution with MediaPackage CMAF Ingest.
+   + **Dynamic Multiview** creates a channel that composites several source channels into a single tiled stream, server-side. A multiview channel receives no ingest of its own; the source channels it combines must use CMAF ingest. For more information, see [Dynamic Multiview](dynamic-multiview.md).
 **Important**  
 Once you will have created your channel, you will not be able to change its input type. Certain features, like cross-region failover support, are available only on channels using CMAF ingest - and more upcoming features will also be available only with CMAF ingest. We advise you to leverage CMAF Ingest if you can.
 

@@ -23,4 +23,4 @@ Throughout the content input and output processes, MediaPackage detects and miti
 
 The following illustration shows the overall process.
 
-![MediaPackage workflow from encoder to MediaPackage packaging content to downstream device.](http://docs.aws.amazon.com/mediapackage/latest/userguide/images/bbl flow2-empv2.png)
+![MediaPackage workflow from encoder to MediaPackage packaging content to downstream device.](https://docs.aws.amazon.com/mediapackage/latest/userguide/images/bbl flow2-empv2.png)

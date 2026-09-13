@@ -7,6 +7,9 @@ These steps shows how to create an origin endpoint (endpoint) on a channel to de
 
 You can use the MediaPackage console, MediaPackage API, or AWS CLI to create an origin endpoint. When you're creating an origin endpoint, don't put sensitive identifying information like customer account numbers into free-form fields such as the name or description field. MediaPackage doesn’t require that you supply any customer data. This includes when you work with MediaPackage using the MediaPackage console, MediaPackage API, AWS CLI, or AWS SDKs. Any data that you enter into MediaPackage might get picked up for inclusion in diagnostic logs or Amazon CloudWatch Events.
 
+**Dynamic Multiview restrictions**  
+If this endpoint is on a Dynamic Multiview channel, additional restrictions apply to its manifests, playback features, and supported output formats. For example, low-latency HLS, Microsoft Smooth Streaming, harvest jobs and live-to-VOD, and time-shifted playback aren't supported on multiview endpoints. For the full list, see [Constraints](dynamic-multiview.md#dynamic-multiview-constraints) in [Dynamic Multiview](dynamic-multiview.md).
+
 **To create an endpoint**
 
 1. Access the channel that the endpoint will be associated with, as described in [Viewing channel details in AWS Elemental MediaPackage](channels-view.md).
@@ -59,6 +62,10 @@ Triggering such forced 404 responses is an optional behavior that should be used
    + **Hyphen** – Uses a hyphen (`-`) character as the separator in URIs.
 
    This setting applies to all manifest types on the endpoint.
+
+1. For **Stream name output mode**, choose how MediaPackage names streams in egress manifests. This setting is only available for channels that use HLS input type. You can't change this setting after you create the endpoint. Choose from the following options:
+   + **Index** – Uses numeric indices for stream names (for example, 1, 2, 3). This is the default setting.
+   + **Passthrough name** – Uses the stream names from the input manifest. For muxed input, MediaPackage automatically disambiguates audio and subtitle renditions by appending the track type and language to the stream name.
 
 ## Segment settings fields
 <a name="endpoints-segment"></a>
