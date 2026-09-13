@@ -10,7 +10,7 @@ Instead of creating a new session template, you can choose to duplicate an exist
 1. Click on the **Actions** button.
 
 1. Select **Duplicate** from the drop-down menu. This will take you to the **Configure template details** page.  
-![Actions dropdown menu expanded showing Assign users and groups, Duplicate, Edit, and Delete options.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-actions-duplicate.png)
+![Actions dropdown menu expanded showing Assign users and groups, Duplicate, Edit, and Delete options.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-actions-duplicate.png)
 
 1. Change any of the information in the **Configure template details** page.
 

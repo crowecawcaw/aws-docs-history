@@ -32,7 +32,7 @@ The Access Console provides end users a way to connect, manage, and launch their
 
 The following system architecture diagram shows the high-level components of the Amazon DCV Access Console and how they work with each other.
 
-![Amazon DCV Access Console components and how they work with each other.](http://docs.aws.amazon.com/dcv/latest/access-console/images/access-console-diagram.png)
+![Amazon DCV Access Console components and how they work with each other.](https://docs.aws.amazon.com/dcv/latest/access-console/images/access-console-diagram.png)
 
 
 Handler  

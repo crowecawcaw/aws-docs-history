@@ -16,7 +16,7 @@ You can configure the visible fields in the top navigation bar by selecting the 
 
 By default, sessions that have been closed are hidden with a filter. You can remove the filter to see previously closed sessions.
 
-![Sessions table filtered to exclude deleted sessions, showing three available sessions.](http://docs.aws.amazon.com/dcv/latest/access-console/images/console-dashboard.png)
+![Sessions table filtered to exclude deleted sessions, showing three available sessions.](https://docs.aws.amazon.com/dcv/latest/access-console/images/console-dashboard.png)
 
 
 ## Session details
@@ -24,7 +24,7 @@ By default, sessions that have been closed are hidden with a filter. You can rem
 
 This includes the session parameters themselves. For more information, see [DescribeSessions](https://docs.aws.amazon.com/dcv/latest/sm-dev/DescribeSessions.html). The details also include the Amazon DCV server information that the session is placed on. For more information, see [DescribeServers](https://docs.aws.amazon.com/dcv/latest/sm-dev/DescribeServers.html).
 
-![Session details panel showing configuration including CPU, GPU, memory, hostname, and status.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-details.png)
+![Session details panel showing configuration including CPU, GPU, memory, hostname, and status.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-details.png)
 
 
 

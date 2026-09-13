@@ -15,6 +15,6 @@ Closing a session can't be undone. All locally saved work will be lost. Closing 
 1. Click the **Actions** button in the session window.
 
 1. Select **Close** from the menu.  
-![Actions menu expanded with Close option highlighted.](http://docs.aws.amazon.com/dcv/latest/access-console/images/close-session.png)
+![Actions menu expanded with Close option highlighted.](https://docs.aws.amazon.com/dcv/latest/access-console/images/close-session.png)
 
 1. Select **Close** from the window that appears.

@@ -10,7 +10,7 @@ On the **User groups** page, you can view the user groups you created or importe
 ## User group details
 <a name="user-group-details"></a>
 
-![User groups management interface showing two groups with user details for Group 1.](http://docs.aws.amazon.com/dcv/latest/access-console/images/user-groups-details.png)
+![User groups management interface showing two groups with user details for Group 1.](https://docs.aws.amazon.com/dcv/latest/access-console/images/user-groups-details.png)
 
 
 

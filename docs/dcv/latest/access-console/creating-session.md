@@ -10,7 +10,7 @@ To create a new session, you must select a template already provided by the admi
 1. Select **Sessions** under the **Session management** tab.
 
 1. Select the **Create session** button.  
-![Sessions page showing three available sessions with Create session button highlighted.](http://docs.aws.amazon.com/dcv/latest/access-console/images/console-dashboard-create-button.png)
+![Sessions page showing three available sessions with Create session button highlighted.](https://docs.aws.amazon.com/dcv/latest/access-console/images/console-dashboard-create-button.png)
 
 1. In **Display name**, enter a user friendly name for your session.
 **Note**  
@@ -19,8 +19,8 @@ To create a new session, you must select a template already provided by the admi
 1. Select a **Session template**.
 
 1. Select the **Create session** button.  
-![Create session page with display name field, session template selector showing Test 2, Test 2 - copy, and Test options.](http://docs.aws.amazon.com/dcv/latest/access-console/images/create-seesion-1.png)
+![Create session page with display name field, session template selector showing Test 2, Test 2 - copy, and Test options.](https://docs.aws.amazon.com/dcv/latest/access-console/images/create-seesion-1.png)
 
 The newly created session will appear in the Sessions dashboard. It may take a few minutes to create the session. In that time, you won't be able to connect to or close the session.
 
-![Sessions dashboard showing three available sessions with names, status, and owner columns.](http://docs.aws.amazon.com/dcv/latest/access-console/images/create-seesion-2.png)
+![Sessions dashboard showing three available sessions with names, status, and owner columns.](https://docs.aws.amazon.com/dcv/latest/access-console/images/create-seesion-2.png)

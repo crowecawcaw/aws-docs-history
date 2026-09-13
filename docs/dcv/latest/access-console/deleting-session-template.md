@@ -13,6 +13,6 @@ Deleting a session can't be undone. Active sessions that were created with a del
 1. Click on the **Actions** button.
 
 1. Select **Delete** from the drop-down menu.  
-![Session templates interface showing options to manage and create templates.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-delete.png)
+![Session templates interface showing options to manage and create templates.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-delete.png)
 
 1. Click on the **Delete** button in the window that appears.

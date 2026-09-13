@@ -14,7 +14,7 @@ Before your users can connect to the Access Console, you must configure either P
 
 On the bottom part of the screen, the details for the selected user is displayed. This graphic shows which details are displayed.
 
-![User details panel showing Name, User ID, Role, Last time active, Date Created, Date Modified, and Imported fields.](http://docs.aws.amazon.com/dcv/latest/access-console/images/user-details.png)
+![User details panel showing Name, User ID, Role, Last time active, Date Created, Date Modified, and Imported fields.](https://docs.aws.amazon.com/dcv/latest/access-console/images/user-details.png)
 
 
 
@@ -33,7 +33,7 @@ On the bottom part of the screen, the details for the selected user is displayed
 
 These are the active sessions that the user has created. Its parameters are listed below.
 
-![Sessions table showing Name, Level of access, and Status columns with no sessions available.](http://docs.aws.amazon.com/dcv/latest/access-console/images/user-sessions.png)
+![Sessions table showing Name, Level of access, and Status columns with no sessions available.](https://docs.aws.amazon.com/dcv/latest/access-console/images/user-sessions.png)
 
 
 
@@ -48,7 +48,7 @@ These are the active sessions that the user has created. Its parameters are list
 
 These are the session templates that are available for the user. Its parameters are listed below.
 
-![Session templates table showing Name, Description , and OS columns with no templates available.](http://docs.aws.amazon.com/dcv/latest/access-console/images/user-session-templates.png)
+![Session templates table showing Name, Description , and OS columns with no templates available.](https://docs.aws.amazon.com/dcv/latest/access-console/images/user-session-templates.png)
 
 
 

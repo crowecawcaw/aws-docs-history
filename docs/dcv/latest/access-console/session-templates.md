@@ -11,7 +11,7 @@ On the **Session templates** page, you can view session templates that you creat
 
 You can configure the visible fields in the top navigation bar by selecting the gear icon. To view more details in a split panel view, use the picker to select a template, and then select the caret (^) icon at the bottom-right corner of the page.
 
-![Session templates interface showing three templates with Linux and Windows options.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-template.png)
+![Session templates interface showing three templates with Linux and Windows options.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-template.png)
 
 
 ## Session template details
@@ -19,7 +19,7 @@ You can configure the visible fields in the top navigation bar by selecting the 
 
 For more information see [Creating a session](creating-session.md).
 
-![Details page showing template information, system specs, and additional requirements for a Linux instance.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-details.png)
+![Details page showing template information, system specs, and additional requirements for a Linux instance.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-details.png)
 
 
 

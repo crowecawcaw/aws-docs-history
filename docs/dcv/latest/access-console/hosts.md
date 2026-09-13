@@ -9,7 +9,7 @@ Before your users can connect to a Amazon DCV session, you must have hosts avail
 
 You can configure the visible fields in the top navigation bar by selecting the gear icon. To view more details in a split panel view, select a session and then click the caret (**^**) icon at the bottom-right corner of the page.
 
-![Hosts table showing 12 servers with operating system, hostname, memory, CPU, and availability columns.](http://docs.aws.amazon.com/dcv/latest/access-console/images/hosts.png)
+![Hosts table showing 12 servers with operating system, hostname, memory, CPU, and availability columns.](https://docs.aws.amazon.com/dcv/latest/access-console/images/hosts.png)
 
 
 ## Host information
@@ -20,7 +20,7 @@ For more information about the requirements and details of the Amazon DCV server
 ### Host Details
 <a name="host-os"></a>
 
-![Host Details panel showing Windows 10 system information, memory usage of 1.4 GB, and swap details.](http://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-operating-sys.png)
+![Host Details panel showing Windows 10 system information, memory usage of 1.4 GB, and swap details.](https://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-operating-sys.png)
 
 
 
@@ -42,7 +42,7 @@ For more information about the requirements and details of the Amazon DCV server
 ### AWS information
 <a name="host-aws-information"></a>
 
-![AWS instance details showing region us-west-2, t2.large instance type, instance ID, and AMI ID.](http://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-aws.png)
+![AWS instance details showing region us-west-2, t2.large instance type, instance ID, and AMI ID.](https://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-aws.png)
 
 
 
@@ -55,7 +55,7 @@ For more information about the requirements and details of the Amazon DCV server
 ### Amazon DCV server
 <a name="host-dcv-server"></a>
 
-![DCV server details showing name, ID, IP address, version, and session counts.](http://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-dcv-server.png)
+![DCV server details showing name, ID, IP address, version, and session counts.](https://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-dcv-server.png)
 
 
 
@@ -71,7 +71,7 @@ For more information about the requirements and details of the Amazon DCV server
 ### CPU
 <a name="host-cpu"></a>
 
-![CPU information panel showing Intel Xeon E5-2686 v4 processor details and load averages at 0.00%.](http://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-cpu.png)
+![CPU information panel showing Intel Xeon E5-2686 v4 processor details and load averages at 0.00%.](https://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-cpu.png)
 
 
 
@@ -89,7 +89,7 @@ For more information about the requirements and details of the Amazon DCV server
 ### GPU
 <a name="host-gpu"></a>
 
-![GPU table showing Vendor and Model columns with No GPUs found message displayed.](http://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-gpu.png)
+![GPU table showing Vendor and Model columns with No GPUs found message displayed.](https://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-gpu.png)
 
 
 
@@ -101,7 +101,7 @@ For more information about the requirements and details of the Amazon DCV server
 ### Server endpoints
 <a name="host-server-endpoints"></a>
 
-![Server endpoints table showing IP 0.0.0.0 with HTTP and QUIC protocols on ports 8443 and 9443.](http://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-server-endpoints.png)
+![Server endpoints table showing IP 0.0.0.0 with HTTP and QUIC protocols on ports 8443 and 9443.](https://docs.aws.amazon.com/dcv/latest/access-console/images/hosts-server-endpoints.png)
 
 
 

@@ -12,10 +12,10 @@ You may assign a session template to users or groups either during the original 
 1. Click on the **Actions** button.
 
 1. Select **Assign users and groups** from the menu.  
-![Session templates interface showing three templates with options to manage and create.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-actions-assign.png)
+![Session templates interface showing three templates with options to manage and create.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-actions-assign.png)
 
 1. Enter the name of the user in the **User** field or the name of the user group in the **Group** field.  
-![User interface for assigning users and groups to a template, with search fields and add buttons.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-template-assign.png)
+![User interface for assigning users and groups to a template, with search fields and add buttons.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-template-assign.png)
 
 1. Click on either the **Add new user** or **Add new group** button.
 

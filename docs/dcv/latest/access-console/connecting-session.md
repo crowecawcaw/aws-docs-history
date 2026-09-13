@@ -6,7 +6,7 @@
 You can connect to a session after it has been created. You can connect to a session from either the DCV web client, or a native Windows or macOS client application.
 
 1. Select the **Actions** button in the session window that you want to view.  
-![Sessions interface showing available virtual desktop sessions with Actions, Connect, and Create session buttons.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-action.png)
+![Sessions interface showing available virtual desktop sessions with Actions, Connect, and Create session buttons.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-action.png)
 
 1. Select **Connect using** from the menu.
 

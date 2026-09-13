@@ -13,7 +13,7 @@ Editing an existing template could affect users already assigned to it. Any chan
 1. Click on the **Actions** button.
 
 1. Select **Edit** from the drop-down menu. This will take you to the **Configure template details** page.  
-![Session templates interface showing list of templates with options to edit or delete.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-actions-edit.png)
+![Session templates interface showing list of templates with options to edit or delete.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-templates-actions-edit.png)
 
 1. Change any of the information in the **Configure template details** page.
 

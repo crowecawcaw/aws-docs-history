@@ -8,7 +8,7 @@ A session template is required to create sessions within the console. The sessio
 1. Go to the **Session templates** page.
 
 1. Select the **Create template** button.  
-![Session templates interface showing three templates with Linux and Windows options.](http://docs.aws.amazon.com/dcv/latest/access-console/images/session-template.png)
+![Session templates interface showing three templates with Linux and Windows options.](https://docs.aws.amazon.com/dcv/latest/access-console/images/session-template.png)
 
 1. Enter the information in the **Configure template details** page.
 
