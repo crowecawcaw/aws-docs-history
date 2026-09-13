@@ -12,7 +12,7 @@ Airlines that run AMOS on-premises often face challenges with hardware refresh c
 ## AMOS implementation diagram
 <a name="amos-implementation-diagram"></a>
 
-![Architecture for Amazon Elastic Compute Cloud deployment of AMOS with multi-AZ failover.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amos-implementation/images/aws-reference-architecture-migration-airlines-amos-ra.png)
+![Architecture for Amazon Elastic Compute Cloud deployment of AMOS with multi-AZ failover.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amos-implementation/images/aws-reference-architecture-migration-airlines-amos-ra.png)
 
 
 The following steps describe the architecture:
