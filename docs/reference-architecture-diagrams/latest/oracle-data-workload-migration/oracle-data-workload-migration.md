@@ -10,7 +10,7 @@ With this architecture, you can migrate Oracle and non-Oracle workloads from on-
 ## Oracle Data Workload Migration to AWS Cloud
 <a name="odwm-diagram"></a>
 
-![Architecture diagram for Oracle data workload migration to AWS with Amazon Aurora, AWS Database Migration Service, AWS Glue, and Amazon S3.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/oracle-data-workload-migration/images/oracle-data-workload-migration-to-aws-ra.png)
+![Architecture diagram for Oracle data workload migration to AWS with Amazon Aurora, AWS Database Migration Service, AWS Glue, and Amazon S3.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/oracle-data-workload-migration/images/oracle-data-workload-migration-to-aws-ra.png)
 
 
 The following steps describe the architecture:
