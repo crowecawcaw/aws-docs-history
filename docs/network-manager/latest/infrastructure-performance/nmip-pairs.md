@@ -42,7 +42,7 @@ Choose between two Regions, two Availability Zones, or connections within an Ava
       All metrics use the same connecting logic. Combinations of **and**/**or** logic are not supported. If you change the connecting logic between two metrics, all other metrics will use the same connecting logic.
 
    1. The following example shows a filter for a single Source Region, `us-east-1` ***and*** a single Destination Region, `eu-central-1`. The results return one combination:  
-![Infrastructure Performance filter for a single source and a single destination .](http://docs.aws.amazon.com/network-manager/latest/infrastructure-performance/images/nmip-metric-filter.png)
+![Infrastructure Performance filter for a single source and a single destination .](https://docs.aws.amazon.com/network-manager/latest/infrastructure-performance/images/nmip-metric-filter.png)
 
 1. Choose a time range, and then choose **Apply**. You can choose a **Relative range** or an **Absolute range**.
 
@@ -94,7 +94,7 @@ In the following example, network performance is checked for two pairs of Region
 **Note**  
 This example is provided for illustrative purposes only and does not represent the actual network health status between these Regions during this time.
 
-![The Health status timeline for two pairs of Regions, one pair showing degraded latency.](http://docs.aws.amazon.com/network-manager/latest/infrastructure-performance/images/nmip-degraded.png)
+![The Health status timeline for two pairs of Regions, one pair showing degraded latency.](https://docs.aws.amazon.com/network-manager/latest/infrastructure-performance/images/nmip-degraded.png)
 
 
 ## Network latency
@@ -105,4 +105,4 @@ The Network latency section shows the actual network performance speed between t
 **Note**  
 This example is provided for illustrative purposes only and does not represent the actual network latency between these Regions during this time.
 
-![Network latency status, showing the actual network performance for two sets of Region pairs.](http://docs.aws.amazon.com/network-manager/latest/infrastructure-performance/images/nmip-latency-all.png)
+![Network latency status, showing the actual network performance for two sets of Region pairs.](https://docs.aws.amazon.com/network-manager/latest/infrastructure-performance/images/nmip-latency-all.png)
