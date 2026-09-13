@@ -15,7 +15,7 @@
 ## Reference architecture
 <a name="reference-architecture-3"></a>
 
-![Reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario4.png)
+![Reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario4.png)
 
 
 1.  **Amazon FSx for Windows File Server:** This managed service offers a Windows file system experience in AWS. Configure it to join your Active Directory for authentication and access control. Implement appropriate file share permissions and NTFS ACLs. Use AWS DataSync for efficient data migration from on-premises systems. 

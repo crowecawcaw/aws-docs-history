@@ -12,7 +12,7 @@
 ## Reference architecture
 <a name="reference-architecture-5"></a>
 
-![Reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario6.png)
+![Reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario6.png)
 
 
 1.  Multi-AZ deployment of Windows Servers using Amazon EC2: 

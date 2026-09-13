@@ -15,7 +15,7 @@
 ## Reference architecture
 <a name="reference-architecture"></a>
 
-![Reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario1.png)
+![Reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario1.png)
 
 
 1.  **Self-Managed SQL Server on EC2:** This approach transfers SQL Server workloads from on-premises servers to self-managed EC2 instances using native SQL Server tools or full server replication methods. It's ideal for organizations needing detailed control or preserving complex configurations. Migration options include database-level methods (for example, backup and restore, log shipping) or server-level replication using tools like AWS Application Migration Service. 

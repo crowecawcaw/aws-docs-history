@@ -14,7 +14,7 @@
 ## Reference architecture
 <a name="reference-architecture-2"></a>
 
-![Reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario3.png)
+![Reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario3.png)
 
 
 1.  Self-managed Active Directory on EC2 is a common approach for organizations needing full control over their AD infrastructure. This brings authentication and authorization closer to AWS workloads, addressing network and security requirements effectively. 

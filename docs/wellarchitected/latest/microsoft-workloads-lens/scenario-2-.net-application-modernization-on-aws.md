@@ -16,7 +16,7 @@
 ## Reference architecture
 <a name="reference-architecture-1"></a>
 
-![Reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario2.png)
+![Reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario2.png)
 
 
  This .NET hosting decision guide helps customers choose the best AWS service for their applications based on their specific requirements, whether they need full control, simplified management, or zero infrastructure overhead. This flowchart considers factors such as development team expertise, operational preferences, and application characteristics to recommend the most suitable hosting option on AWS: 

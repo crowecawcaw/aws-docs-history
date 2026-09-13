@@ -16,7 +16,7 @@
 ## Reference architecture
 <a name="reference-architecture-4"></a>
 
-![Reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario5.png)
+![Reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/microsoft-workloads-lens/images/scenario5.png)
 
 
 1.  AWS Application Migration Service (MGN) facilitates block-level migration to Amazon EC2. It allows synchronization and transition of servers to EC2, regardless of their original location (on-premises or elsewhere). 
