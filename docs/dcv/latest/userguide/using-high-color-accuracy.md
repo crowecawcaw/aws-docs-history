@@ -21,7 +21,7 @@ As long as you are using a Amazon DCV Server and a Amazon DCV Client both having
 1. Choose the **Settings** icon.
 
 1. Select **Streaming Mode** from the drop-down menu.  
-![Settings button located in the top-left corner of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/windows-yuv444.png)
+![Settings button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/windows-yuv444.png)
 
 1. Check the High color accuracy (YUV 4:4:4) checkbox in the **Streaming Mode** window.
 
@@ -38,7 +38,7 @@ As long as you are using a Amazon DCV Server and a Amazon DCV Client both having
 1. Check one or both of the following checkboxes:
    + High color accuracy (YUV 4:4:4)
    + High pixel density  
-![Preferences dialog box with high color accuracy.](http://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-display-high-accu.png)
+![Preferences dialog box with high color accuracy.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-display-high-accu.png)
 
 1. Close the **Preferences** window.
 
@@ -51,7 +51,7 @@ As long as you are using a Amazon DCV Server and a Amazon DCV Client both having
 1. Select the **Display** tab in the **Preferences** window.
 
 1. Check the checkbox for **High color accuracy (YUV 4:4:4)**.  
-![Preferences dialog box with high color accuracy.](http://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-display-high-accu.png)
+![Preferences dialog box with high color accuracy.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-display-high-accu.png)
 
 1. Close the **Preferences** window.
 
@@ -63,9 +63,9 @@ In order to use high color accuracy on Web browser client you need a Amazon DCV 
 The steps for enabling the high color accuracy are the same across all supported web browsers.
 
 1. In the client, choose **Session**, **Preferences**.  
-![Session is located inside the menu in the top-right of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
+![Session is located inside the menu in the top-right of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
 
 1. Under the **Display** tab, if the high color accuracy feature is available, the corresponding toggle will be visible and allows to specify whether to enable or disable the YUV chroma subsampling set to 4:4:4:  
-![Display is the second tab from the left inside the Preferences modal.](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-yuv444.png)
+![Display is the second tab from the left inside the Preferences modal.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-yuv444.png)
 
 1. Save and close the **Preferences** modal.

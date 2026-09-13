@@ -36,7 +36,7 @@ This functionality is available on the Windows client, web browser client, Linux
 
 1. Select your preferred resolution from the **Display Resolution** menu.
 
-![Display resolution options including Adapt Automatically, 2560x1386, 1920x1080, 1280x720, 1024x768, and 800x600.](http://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-display-resolution.png)
+![Display resolution options including Adapt Automatically, 2560x1386, 1920x1080, 1280x720, 1024x768, and 800x600.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-display-resolution.png)
 
 
 **Changing display resolution on Linux clients**
@@ -49,4 +49,4 @@ This functionality is available on the Windows client, web browser client, Linux
 
 1. Select your preferred resolution from the **Display Resolution** menu.
 
-![Display resolution options with Adapt Automatically selected, showing resolutions from 1848x1006 to 800x600.](http://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-display-resolution.png)
+![Display resolution options with Adapt Automatically selected, showing resolutions from 1848x1006 to 800x600.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-display-resolution.png)

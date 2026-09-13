@@ -20,7 +20,7 @@ Administrator privileges are required to edit the permissions file.
 **To collaborate on Amazon DCV sessions for Windows or Linux based servers:**
 
 1. Choose the **Collaborators** icon on the Amazon DCV client located in the DCV toolbar.  
-![Collaborators icon on the DCV client](http://docs.aws.amazon.com/dcv/latest/userguide/images/collaboration.png)
+![Collaborators icon on the DCV client](https://docs.aws.amazon.com/dcv/latest/userguide/images/collaboration.png)
 
    A **Collaborators Window** will open showing all of the connected Amazon DCV sessions available.
 
@@ -29,19 +29,19 @@ Administrator privileges are required to edit the permissions file.
 1. Choose **Disconnect**, to remove one or all client connections, except yours, from the DCV session.
 
    This option is only available for session owners.  
-![Collaborating user sessions](http://docs.aws.amazon.com/dcv/latest/userguide/images/collaboration-users.png)
+![Collaborating user sessions](https://docs.aws.amazon.com/dcv/latest/userguide/images/collaboration-users.png)
 
 1. Choose **Disconnect** to remove an user from an active session.
 
 **To collaborate on Amazon DCV sessions for macOS:**
 
 1. Go to **View** on the top toolbar.  
-![View menu dropdown showing Full Screen options, Collaborators, and Notifications items.](http://docs.aws.amazon.com/dcv/latest/userguide/images/mac-view-collaborators.png)
+![View menu dropdown showing Full Screen options, Collaborators, and Notifications items.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-view-collaborators.png)
 
 1. Choose **Collaborators** from the drop-down menu.
 
    A **Collaborators Window** will open showing all of the connected Amazon DCV sessions available.  
-![Collaborating user sessions](http://docs.aws.amazon.com/dcv/latest/userguide/images/mac-collaborators.png)
+![Collaborating user sessions](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-collaborators.png)
 
 1. Select the session to join.
 

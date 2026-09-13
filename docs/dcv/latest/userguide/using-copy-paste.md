@@ -24,7 +24,7 @@ You can use the web browser client to copy and paste text and images between you
 **To copy text from the session in Mozilla Firefox or Apple Safari and paste on your local computer**
 
 1. In the web browser client, highlight the text to copy and choose **Clipboard**, **Copy to Local Device**.  
-![Clipboard button located in the top-left corner of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-clipboard.png)
+![Clipboard button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-clipboard.png)
 
    The text is now placed in your computer's clipboard.
 

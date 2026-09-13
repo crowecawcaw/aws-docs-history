@@ -12,6 +12,6 @@ You must be authorized to use this feature. If you aren't authorized, the functi
 1. Launch the client, and connect to the Amazon DCV session.
 
 1. In the client, choose **Session**, **Save a Screenshot**.  
-![Save a screenshot option that's located on the native client toolbar.](http://docs.aws.amazon.com/dcv/latest/userguide/images/screenshot.png)
+![Save a screenshot option that's located on the native client toolbar.](https://docs.aws.amazon.com/dcv/latest/userguide/images/screenshot.png)
 
 1. Choose a location and the name for the screenshot file.

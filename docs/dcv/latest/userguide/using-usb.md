@@ -27,12 +27,12 @@ For information on this or any additional configuration that may be required on 
 1. Go to your DCV client session.
 
 1. Choose the **Settings** icon located in the upper left of the window.  
-![Settings icon highlighted in toolbar with other control icons.](http://docs.aws.amazon.com/dcv/latest/userguide/images/dcv-settings-icon.jpg)
+![Settings icon highlighted in toolbar with other control icons.](https://docs.aws.amazon.com/dcv/latest/userguide/images/dcv-settings-icon.jpg)
 
 1. Select **Removable Devices...** from the dropdown menu.  
-![Removable Devices option highlighted in dropdown menu.](http://docs.aws.amazon.com/dcv/latest/userguide/images/dcv-settings-dropdown.jpg)
+![Removable Devices option highlighted in dropdown menu.](https://docs.aws.amazon.com/dcv/latest/userguide/images/dcv-settings-dropdown.jpg)
 
 1. Move the slider next to the USB device in the list.  
-![Removable Devices dialog with toggle slider next to Yubikey 4 OTP plus U2F device.](http://docs.aws.amazon.com/dcv/latest/userguide/images/dcv-settings-removable-devices.png)
+![Removable Devices dialog with toggle slider next to Yubikey 4 OTP plus U2F device.](https://docs.aws.amazon.com/dcv/latest/userguide/images/dcv-settings-removable-devices.png)
 
 Your USB device is ready to use now.

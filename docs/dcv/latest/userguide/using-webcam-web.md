@@ -12,10 +12,10 @@ The steps for selecting the camera to use are the same across all supported web 
 1. Launch the client and connect to the Amazon DCV session.
 
 1. In the client, choose **Session**, **Preferences**.  
-![Webcam menu option](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
+![Webcam menu option](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
 
 1. Under the **Camera** tab, select the camera to use.  
-![Webcam menu option](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-camera-select.png)
+![Webcam menu option](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-camera-select.png)
 
 1. Close the **Preferences** modal.
 
@@ -36,9 +36,9 @@ You must first enable it. Use the webcam icon on the toolbar to enable or disabl
 
 | Toolbar icon | Description | 
 | --- | --- | 
-|  ![Webcam disabled](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-camera-disabled.png)  | Your webcam is disabled in the session. Other clients can enable a webcam for use in the session.<br />Click the icon to enable your webcam in the session. If you didn't previously select the webcam to use, the default webcam is used. | 
-|  ![Webcam enabled](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-camera-enabled.png)  | Your webcam is enabled in the session, but it isn't in use. While your webcam is enabled, no other clients that are connected to the session can use a webcam.<br />Click the icon to disable your webcam in the session. | 
-|  ![Webcam streaming](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-camera-streaming.png)  | Your webcam is in use by a remote application in the Amazon DCV session. No other clients can enable a webcam while your webcam is in use.<br />Click the icon to disable your webcam in the session. | 
+|  ![Webcam disabled](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-camera-disabled.png)  | Your webcam is disabled in the session. Other clients can enable a webcam for use in the session.<br />Click the icon to enable your webcam in the session. If you didn't previously select the webcam to use, the default webcam is used. | 
+|  ![Webcam enabled](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-camera-enabled.png)  | Your webcam is enabled in the session, but it isn't in use. While your webcam is enabled, no other clients that are connected to the session can use a webcam.<br />Click the icon to disable your webcam in the session. | 
+|  ![Webcam streaming](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-camera-streaming.png)  | Your webcam is in use by a remote application in the Amazon DCV session. No other clients can enable a webcam while your webcam is in use.<br />Click the icon to disable your webcam in the session. | 
 
 ## Troubleshooting
 <a name="troubleshoot"></a>

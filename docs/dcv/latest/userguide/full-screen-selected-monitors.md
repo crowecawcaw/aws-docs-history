@@ -13,12 +13,12 @@ Selected monitors must be set adjacent, or sharing a side with each other, in yo
 The blue boxes are DCV enabled monitors.  
 The gray boxes are other monitors.
 
-![Diagram showing transformation of rectangles from gray to blue, merging into larger shapes.](http://docs.aws.amazon.com/dcv/latest/userguide/images/multi-monitors-yes.png)
+![Diagram showing transformation of rectangles from gray to blue, merging into larger shapes.](https://docs.aws.amazon.com/dcv/latest/userguide/images/multi-monitors-yes.png)
 
 
 *Examples of nonadjacent monitor placement.*
 
-![Two blue rectangles separated by a gray rectangle, with a red X to the right.](http://docs.aws.amazon.com/dcv/latest/userguide/images/multi-monitors-no.png)
+![Two blue rectangles separated by a gray rectangle, with a red X to the right.](https://docs.aws.amazon.com/dcv/latest/userguide/images/multi-monitors-no.png)
 
 
 If your monitors are not set adjacent in your Windows display configuration, you will need to exit DCV and change your Display settings on your local machine.
@@ -29,12 +29,12 @@ If your monitors are not set adjacent in your Windows display configuration, you
   1. Select the **Full Screen** icon.
 **Note**  
 The **Full Screen** drop-down menu will appear.  
-![Display options menu showing Across single monitor, Across selected monitors, and Across all monitors.](http://docs.aws.amazon.com/dcv/latest/userguide/images/Full_screen_selected_windows.png)
+![Display options menu showing Across single monitor, Across selected monitors, and Across all monitors.](https://docs.aws.amazon.com/dcv/latest/userguide/images/Full_screen_selected_windows.png)
 
   1. Select **Across selected monitors** from the drop down menu.
 **Note**  
 The **Across selected monitors** window will appear displaying your current monitor layout.  
-![Monitor arrangement diagram showing internal display 1 at bottom, monitor 2 at left, and monitors 3 and 4 at top right.](http://docs.aws.amazon.com/dcv/latest/userguide/images/Windows_client_mulitple_monitors.png)
+![Monitor arrangement diagram showing internal display 1 at bottom, monitor 2 at left, and monitors 3 and 4 at top right.](https://docs.aws.amazon.com/dcv/latest/userguide/images/Windows_client_mulitple_monitors.png)
 
   1. Select which monitors you want DCV to be displayed full screen.
 
@@ -46,12 +46,12 @@ The **Across selected monitors** window will appear displaying your current moni
   1. Select **View**.
 **Note**  
 The **View** drop-down menu will appear.  
-![View menu with Full Screen Selected Monitors option highlighted.](http://docs.aws.amazon.com/dcv/latest/userguide/images/mac-monitor-menu.png)
+![View menu with Full Screen Selected Monitors option highlighted.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-monitor-menu.png)
 
   1. Select **Full Screen Selected Monitors** from the drop down menu.
 **Note**  
 The **Full Screen Selected Monitors** window will appear displaying your current monitor layout.  
-![Monitor configuration interface showing four displays with monitor 4 selected.](http://docs.aws.amazon.com/dcv/latest/userguide/images/mac-multi-screen1.png)
+![Monitor configuration interface showing four displays with monitor 4 selected.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-multi-screen1.png)
 
   1. Select which monitors you want DCV to be displayed full screen.
 
@@ -63,12 +63,12 @@ The **Full Screen Selected Monitors** window will appear displaying your current
   1. Select **Full Screen** icon.
 **Note**  
 The **Full Screen** drop-down menu will appear.  
-![Dropdown menu with Across selected monitors option highlighted in red.](http://docs.aws.amazon.com/dcv/latest/userguide/images/linux-monitor-menu.png)
+![Dropdown menu with Across selected monitors option highlighted in red.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-monitor-menu.png)
 
   1. Select **Across selected monitors** from the drop down menu.
 **Note**  
 The **Across selected monitors** window will appear displaying your current monitor layout.  
-![Dialog showing three monitors where monitors 1 and 2 are selected with blue outlines.](http://docs.aws.amazon.com/dcv/latest/userguide/images/linux1.png)
+![Dialog showing three monitors where monitors 1 and 2 are selected with blue outlines.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux1.png)
 
   1. Select which monitors you want DCV to be displayed full screen.
 

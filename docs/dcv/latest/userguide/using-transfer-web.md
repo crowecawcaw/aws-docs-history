@@ -13,7 +13,7 @@ In the web browser client the file is downloaded to your default Downloads folde
 **To download a file from the session storage to your computer**
 
 1. In the client, choose **Storage**.  
-![Storage button located in the top-left corner of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-storage.png)
+![Storage button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-storage.png)
 
 1. In the **File Storage** window, either select the file to download, or select a table row corresponding to the file to download and click on the **Actions** button and the **Download** option from there. You can also just click on the name of the file to download it.
 

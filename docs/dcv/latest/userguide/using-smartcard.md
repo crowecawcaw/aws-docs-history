@@ -28,7 +28,7 @@ Smart card access in a Amazon DCV session operates at the PC/SC interface level.
 1. Select **Removable Devices** from the drop-down list.
 
 1. Enable the **Smart Card** toggle.  
-![Settings button located in the top-left corner of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/smartcard.png)
+![Settings button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/smartcard.png)
 
 **Connecting to a macOS client**
 
@@ -39,7 +39,7 @@ Smart card access in a Amazon DCV session operates at the PC/SC interface level.
 1. Select the **General** tab in the **Preferences** window.
 
 1. Check the **Redirect smartcard devices** checkbox.  
-![Settings button located in the top-left corner of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-general-smartcard.png)
+![Settings button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-general-smartcard.png)
 
 **Connecting to a Linux client**
 
@@ -50,7 +50,7 @@ Smart card access in a Amazon DCV session operates at the PC/SC interface level.
 1. Select the **General** tab in the **Preferences** window.
 
 1. Check the **Redirect smartcard devices** checkbox.  
-![Settings button located in the top-left corner of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-general-smartcard.png)
+![Settings button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-general-smartcard.png)
 
 ## Using a smart card on Linux servers
 <a name="using-smart-card-linux"></a>

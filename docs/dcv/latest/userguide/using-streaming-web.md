@@ -6,12 +6,12 @@
 The steps for managing the streaming modes are the same across all supported web browsers.
 
 1. In the client, choose **Session**, **Preferences**.  
-![Session is located inside the menu in the top-right of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
+![Session is located inside the menu in the top-right of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
 
 1. Under the **Display** tab, choose one of the following options from the **Streaming options** section:
    + **Best responsiveness**
    + **Best quality**  
-![Display is the second tab from the left inside the Preferences modal.](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-display.png)
+![Display is the second tab from the left inside the Preferences modal.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-display.png)
 
 1. (Optional) For information about network performance, choose **Display Streaming Metrics**. For more information, see [Streaming metrics](#using-streaming-metrics-web).
 
@@ -33,16 +33,16 @@ Metrics are displayed for the current Amazon DCV session connection.
 To view the streaming metrics:
 
 1. In the client, choose **Session**, **Preferences**.  
-![Session is located inside the menu in the top-right of the interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
+![Session is located inside the menu in the top-right of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
 
 1. Under the **Display** tab, enable the toggle to show ** Streaming metrics in the toolbar**.
 
 1. Close the **Preferences** modal.
 
 1. The streaming metrics are then displayed in the center of the client toolbar.  
-![Streaming metrics in the center of the client toolbar.](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-toolbar-streaming-metrics.png)
+![Streaming metrics in the center of the client toolbar.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-toolbar-streaming-metrics.png)
 
 1. Click on the streaming metrics to see more detailed streaming data like in the following example.  
-![Streaming metrics data example](http://docs.aws.amazon.com/dcv/latest/userguide/images/web-streaming-metrics-data.png)
+![Streaming metrics data example](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-streaming-metrics-data.png)
 
 1. (Optional) Close the **Metrics** modal.

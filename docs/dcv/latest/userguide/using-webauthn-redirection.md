@@ -15,7 +15,7 @@ WebAuthn redirection is supported only on Windows, Linux, and macOS clients. It 
 
 The extension opens a user interface used to monitor and control the Webauthn Redirection feature.
 
-![Webauthn user interface.](http://docs.aws.amazon.com/dcv/latest/userguide/images/webauthn-redirect-active.png)
+![Webauthn user interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/webauthn-redirect-active.png)
 
 + **Extension Icon:** Located in the main body of user interface, this icon displays the feature's current state.
 
