@@ -24,4 +24,4 @@ Publication date: **November 22, 2021** ([Document history](document-history.md)
 +  Aligned offerings and delivery kits from [AWS Professional Services](https://aws.amazon.com/professional-services/). 
 +  Turnkey complementary solutions and consulting services from [Built on Control Tower - AWS Partners](https://aws.amazon.com/controltower/partners/). 
 
-![Diagram showing how the Well-Architected Framework pillars and the eight management and governance functions interoperate to provide a migration ready, scale ready, innovation ready, optimized, and efficient AWS environment.](http://docs.aws.amazon.com/wellarchitected/latest/management-and-governance-guide/images/how-to-prepare-aws-environments.png)
+![Diagram showing how the Well-Architected Framework pillars and the eight management and governance functions interoperate to provide a migration ready, scale ready, innovation ready, optimized, and efficient AWS environment.](https://docs.aws.amazon.com/wellarchitected/latest/management-and-governance-guide/images/how-to-prepare-aws-environments.png)

@@ -22,4 +22,4 @@ Customer use case examples for this guide include those that are just getting st
 
  Evolving interoperability of the management and governance functions give you greater operational efficiency as you continue migrating, building, or modernizing your workloads. This phase typically includes the addition of full sourcing and distribution functions for your infrastructure templates or software solutions. Proactively using financial insights spanning across your workloads, accounts, and environments also position you for accelerating innovation activities. 
 
-![Diagram showing example paths for adopting the best practices described in the M&G Guide.](http://docs.aws.amazon.com/wellarchitected/latest/management-and-governance-guide/images/mglens-eight-functions.png)
+![Diagram showing example paths for adopting the best practices described in the M&G Guide.](https://docs.aws.amazon.com/wellarchitected/latest/management-and-governance-guide/images/mglens-eight-functions.png)
