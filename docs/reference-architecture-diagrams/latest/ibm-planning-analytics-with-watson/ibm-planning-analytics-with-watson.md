@@ -10,7 +10,7 @@ Increase service availability by deploying IBM TM1 Server on AWS. IBM Planning A
 ## IBM Planning Analytics with Watson on AWS Diagram
 <a name="diagram1"></a>
 
-![Increase service availability by deploying IBM TM1 Server on AWS. IBM Planning Analytics is an integrated planning solution that uses artificial intelligence (AI) to automate planning, budgeting, and forecasting activities, and build intelligent workflows.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ibm-planning-analytics-with-watson/images/ibm-planning-analytics-with-watson.png)
+![Increase service availability by deploying IBM TM1 Server on AWS. IBM Planning Analytics is an integrated planning solution that uses artificial intelligence (AI) to automate planning, budgeting, and forecasting activities, and build intelligent workflows.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ibm-planning-analytics-with-watson/images/ibm-planning-analytics-with-watson.png)
 
 
 1. Corporate users access IBM Planning Analytics through a private, secure network connection from their corporate office to AWS. 
