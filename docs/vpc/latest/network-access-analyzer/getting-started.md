@@ -66,12 +66,12 @@ After your analysis is complete, you can review the results.
 **To review your findings**
 
 1. Choose the **Latest analysis** tab. If the analysis produces any findings, **Last analysis result** is **Findings detected**, as shown in the following figure. Otherwise, **Last analysis result** is **No findings detected**.  
-![Network Access Scope analysis result](http://docs.aws.amazon.com/vpc/latest/network-access-analyzer/images/analysis-result.png)
+![Network Access Scope analysis result](https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/images/analysis-result.png)
 
 1. If there are findings detected, the **Findings** pane has the potential network paths identified by the Network Access Scope. You can add filters based on the resources present in the findings. For example, you can filter by resource type.
 
 1. Select a finding to view its details. This information helps you understand the network configurations that produced the finding. For example, you can see the network ACL that applies to traffic that is destined for the internet.  
-![Network Access Scope analysis findings details](http://docs.aws.amazon.com/vpc/latest/network-access-analyzer/images/findings.png)
+![Network Access Scope analysis findings details](https://docs.aws.amazon.com/vpc/latest/network-access-analyzer/images/findings.png)
 
 ## Step 3: Delete a Network Access Scope (Optional)
 <a name="delete-scope"></a>
