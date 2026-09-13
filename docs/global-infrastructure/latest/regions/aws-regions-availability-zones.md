@@ -22,7 +22,7 @@ Most AWS services support regional resources. A regional resource is specific to
 
 The following diagram illustrates multiple Regions in the AWS Cloud.
 
-![Multiple Regions in the AWS cloud.](http://docs.aws.amazon.com/global-infrastructure/latest/regions/images/regions.png)
+![Multiple Regions in the AWS cloud.](https://docs.aws.amazon.com/global-infrastructure/latest/regions/images/regions.png)
 
 
 For more information, see [Regions](aws-regions.md).
@@ -38,7 +38,7 @@ Some AWS services support zonal resources. A zonal resource is specific to the A
 
 The following diagram illustrates multiple Availability Zones in an AWS Region.
 
-![A Region three Availability Zones.](http://docs.aws.amazon.com/global-infrastructure/latest/regions/images/availability-zones.png)
+![A Region three Availability Zones.](https://docs.aws.amazon.com/global-infrastructure/latest/regions/images/availability-zones.png)
 
 
 For more information, see [Availability Zones](aws-availability-zones.md).

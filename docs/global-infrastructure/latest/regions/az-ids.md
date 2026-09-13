@@ -11,7 +11,7 @@ To view the AZ IDs for your account, check the **Service health** panel on the [
 
 The following diagram illustrates two accounts with different mappings of Availability Zone code to AZ ID.
 
-![Two accounts with different mappings of Availability Zone code to AZ ID.](http://docs.aws.amazon.com/global-infrastructure/latest/regions/images/availability-zone-mapping.png)
+![Two accounts with different mappings of Availability Zone code to AZ ID.](https://docs.aws.amazon.com/global-infrastructure/latest/regions/images/availability-zone-mapping.png)
 
 
 ## Regions with independently mapped Availability Zones
