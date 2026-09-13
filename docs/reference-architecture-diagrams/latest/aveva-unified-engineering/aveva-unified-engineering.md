@@ -10,7 +10,7 @@ With this architecture, you can deploy AVEVA Unified Engineering, a suite of Win
 ## AVEVA Unified Engineering architecture diagram
 <a name="aveva-diagram"></a>
 
-![Reference architecture diagram for deploying AVEVA Unified Engineering on AWS with Amazon WorkSpaces and multi-AZ architecture.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aveva-unified-engineering/images/aveva-unified-engineering-deployment-ra.png)
+![Reference architecture diagram for deploying AVEVA Unified Engineering on AWS with Amazon WorkSpaces and multi-AZ architecture.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aveva-unified-engineering/images/aveva-unified-engineering-deployment-ra.png)
 
 
 The following steps describe the architecture:
