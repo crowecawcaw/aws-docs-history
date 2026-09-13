@@ -9,7 +9,7 @@ You can use the sample application to learn about AWS Panorama application struc
 
 The following diagram shows the major components of the application running on an AWS Panorama Appliance. The application code uses the AWS Panorama Application SDK to get images and interact with the model, which it doesn't have direct access to. The application outputs video to a connected display but does not send image data outside of your local network.
 
-![AWS Panorama sample application architecture.](http://docs.aws.amazon.com/panorama/latest/dev/images/sample-app.png)
+![AWS Panorama sample application architecture.](https://docs.aws.amazon.com/panorama/latest/dev/images/sample-app.png)
 
 
 In this example, the application uses the AWS Panorama Application SDK to get frames of video from a camera, preprocess the video data, and send the data to a computer vision model that detects objects. The application displays the result on an HDMI display connected to the appliance.

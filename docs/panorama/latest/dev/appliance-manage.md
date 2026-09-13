@@ -31,7 +31,7 @@ You view and deploy software updates for the appliance in the AWS Panorama conso
 1. Choose **Settings**
 
 1. Under **System software**, choose **Install software update**.  
-![Software upgrade for the AWS Panorama Appliance.](http://docs.aws.amazon.com/panorama/latest/dev/images/setup-upgrade.png)
+![Software upgrade for the AWS Panorama Appliance.](https://docs.aws.amazon.com/panorama/latest/dev/images/setup-upgrade.png)
 
 1. Choose a new version and then choose **Install**.
 

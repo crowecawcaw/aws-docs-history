@@ -76,7 +76,7 @@ For details about the framework versions and file formats supported by SageMaker
 The repository for this guide provides a sample application that demonstrates this workflow for a Keras model in TensorFlow `SavedModel` format. It uses TensorFlow 2 and can run locally in a virtual environment or in a Docker container. The sample app also includes templates and scripts for building the model on an Amazon EC2 instance.
 + [Custom model sample application](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/custom-model)
 
-![Custom model sample application](http://docs.aws.amazon.com/panorama/latest/dev/images/sample-custom-model.png)
+![Custom model sample application](https://docs.aws.amazon.com/panorama/latest/dev/images/sample-custom-model.png)
 
 
 AWS Panorama uses SageMaker AI Neo to compile models for use on the AWS Panorama Appliance. For each framework, use the [format that's supported by SageMaker AI Neo](https://docs.aws.amazon.com/sagemaker/latest/dg/neo-compilation-preparing-model.html), and package the model in a `.tar.gz` archive.

@@ -15,7 +15,7 @@ An application can connect to any camera stream that is routable from the local 
 1. Open the AWS Panorama console [Data sources page](https://console.aws.amazon.com/panorama/home#data-sources).
 
 1. Choose **Add data source**.  
-![Add streams to an AWS Panorama appliance on the console.](http://docs.aws.amazon.com/panorama/latest/dev/images/setup-addstream.png)
+![Add streams to an AWS Panorama appliance on the console.](https://docs.aws.amazon.com/panorama/latest/dev/images/setup-addstream.png)
 
 1. Configure the following settings.
    + **Name** – A name for the camera stream.

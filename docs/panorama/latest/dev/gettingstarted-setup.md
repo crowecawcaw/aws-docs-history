@@ -24,7 +24,7 @@ To follow this tutorial, you need an AWS Panorama Appliance or compatible device
 
 Use the tools and instructions provided by your camera's manufacturer to identify the camera's IP address and stream path. You can use a video player such as [VLC](https://www.videolan.org/) to verify the stream URL, by opening it as a network media source:
 
-![Viewing a stream in VLC.](http://docs.aws.amazon.com/panorama/latest/dev/images/vlc-stream.png)
+![Viewing a stream in VLC.](https://docs.aws.amazon.com/panorama/latest/dev/images/vlc-stream.png)
 
 
 The AWS Panorama console uses other AWS services to assemble application components, manage permissions, and verify settings. To register an appliance and deploy the sample application, you need the following permissions:
@@ -54,7 +54,7 @@ The provisioning certificate that you generate in this procedure is only valid f
 1. Choose **Begin setup**.
 
 1. Enter a name and description for the device resource that represents the appliance in AWS Panorama. Choose **Next**  
-![Configuring a name.](http://docs.aws.amazon.com/panorama/latest/dev/images/setup-name.png)
+![Configuring a name.](https://docs.aws.amazon.com/panorama/latest/dev/images/setup-name.png)
 
 1. If you need to manually assign an IP address, NTP server, or DNS settings, choose **Advanced network settings**. Otherwise, choose **Next**.
 
@@ -67,7 +67,7 @@ The provisioning certificate that you generate in this procedure is only valid f
    When you connect the USB drive, the appliance copies the configuration archive and network configuration file to itself and connects to the AWS Cloud. The appliance's status light turns from green to blue while it completes the connection, and then back to green.
 
 1. To continue, choose **Next**.  
-![AWS Panorama Appliance registration is complete.](http://docs.aws.amazon.com/panorama/latest/dev/images/setup-poweron.png)
+![AWS Panorama Appliance registration is complete.](https://docs.aws.amazon.com/panorama/latest/dev/images/setup-poweron.png)
 
 1. Choose **Done**.
 
@@ -85,7 +85,7 @@ The AWS Panorama Appliance has several software components, including a Linux op
 1. Choose **Settings**
 
 1. Under **System software**, choose **Install software update**.  
-![Software upgrade for the AWS Panorama Appliance.](http://docs.aws.amazon.com/panorama/latest/dev/images/setup-upgrade.png)
+![Software upgrade for the AWS Panorama Appliance.](https://docs.aws.amazon.com/panorama/latest/dev/images/setup-upgrade.png)
 
 1. Choose a new version and then choose **Install**.
 
@@ -104,7 +104,7 @@ Next, register a camera stream with the AWS Panorama console.
 1. Open the AWS Panorama console [Data sources page](https://console.aws.amazon.com/panorama/home#data-sources).
 
 1. Choose **Add data source**.  
-![Add streams to an AWS Panorama appliance on the console.](http://docs.aws.amazon.com/panorama/latest/dev/images/setup-addstream.png)
+![Add streams to an AWS Panorama appliance on the console.](https://docs.aws.amazon.com/panorama/latest/dev/images/setup-addstream.png)
 
 1. Configure the following settings.
    + **Name** – A name for the camera stream.

@@ -7,7 +7,7 @@ End of support notice: On May 31, 2026, AWS will end support for AWS Panorama. A
 
 The AWS Panorama Appliance has two LED lights above the power button that indicate the device status and network connectivity.
 
-![AWS Panorama Appliance with status and network LEDs.](http://docs.aws.amazon.com/panorama/latest/dev/images/appliance-leds.png)
+![AWS Panorama Appliance with status and network LEDs.](https://docs.aws.amazon.com/panorama/latest/dev/images/appliance-leds.png)
 
 
 ## Status light

@@ -197,7 +197,7 @@ To view the application's video output, connect the appliance to a monitor with 
 
 The sample model has 1000 classes including many animals, food, and common objects. Try pointing your camera at a keyboard or coffee mug.
 
-![A coffee mug with detection text.](http://docs.aws.amazon.com/panorama/latest/dev/images/mug.jpg)
+![A coffee mug with detection text.](https://docs.aws.amazon.com/panorama/latest/dev/images/mug.jpg)
 
 
 For simplicity, the sample application uses a lightweight classification model. The model outputs a single array with a probability for each of its classes. Real-world applications more frequently use object detection models that have multidimensional output. For sample applications with more complex models, see [Sample applications, scripts, and templates](panorama-samples.md).

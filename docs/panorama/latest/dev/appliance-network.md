@@ -19,7 +19,7 @@ The AWS Panorama Appliance requires connectivity to both the AWS cloud and your 
 
 The appliance has two Ethernet ports. If you route all traffic to and from the device through a single router, you can use the second port for redundancy in case the physical connection to the first port is broken. Configure your router to allow the appliance to connect only to camera streams and the internet, and to block camera streams from otherwise leaving your internal network.
 
-![Connecting to your local network (centralized).](http://docs.aws.amazon.com/panorama/latest/dev/images/networking-single.png)
+![Connecting to your local network (centralized).](https://docs.aws.amazon.com/panorama/latest/dev/images/networking-single.png)
 
 
 For details on the ports and endpoints that the appliance needs access to, see [Configuring service access](#security-infrastructure-internet) and [Configuring local network access](#security-infrastructure-local).
@@ -31,7 +31,7 @@ For an extra layer of security, you can place the appliance in an internet-conne
 
 The following example shows the appliance connecting to a different subnet on each port. The router places the `eth0` interface on a subnet that routes to the camera network, and `eth1` on a subnet that routes to the internet.
 
-![Connecting to your local network (dual connections).](http://docs.aws.amazon.com/panorama/latest/dev/images/networking-dual.png)
+![Connecting to your local network (dual connections).](https://docs.aws.amazon.com/panorama/latest/dev/images/networking-dual.png)
 
 
 You can confirm the IP address and MAC address of each port in the AWS Panorama console.
