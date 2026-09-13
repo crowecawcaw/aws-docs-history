@@ -28,12 +28,12 @@ The following diagram shows a Regional file system with mount targets created in
 
 You can create only one mount target per Availability Zone. If an Availability Zone has multiple subnets, as shown in one of the zones in the illustration, you create a mount target in only one of the subnets. As long as you have one mount target in an Availability Zone, the EC2 instances launched in any of its subnets can share the same mount target.
 
-![Regional file system with mount targets in three Availability Zones within a VPC on EC2 instances.](http://docs.aws.amazon.com/efs/latest/ug/images/efs-ec2-how-it-works-Regional_china-world.png)
+![Regional file system with mount targets in three Availability Zones within a VPC on EC2 instances.](https://docs.aws.amazon.com/efs/latest/ug/images/efs-ec2-how-it-works-Regional_china-world.png)
 
 
 The following diagram shows a One Zone file system, with a single mount target created in the same Availability Zone as the file system. Accessing the file system by using the EC2 instance in the `us-west2c` Availability Zone incurs data access charges because it is located in a different Availability Zone than the mount target.
 
-![One Zone file system with a single mount target created in the same Availability Zone.](http://docs.aws.amazon.com/efs/latest/ug/images/efs-ec2-how-it-works-OneZone.png)
+![One Zone file system with a single mount target created in the same Availability Zone.](https://docs.aws.amazon.com/efs/latest/ug/images/efs-ec2-how-it-works-OneZone.png)
 
 
 The mount target security group acts as a virtual firewall that controls the traffic. For example, it determines which clients can access the file system. This section explains the following:

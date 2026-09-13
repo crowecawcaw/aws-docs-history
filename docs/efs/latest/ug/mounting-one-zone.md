@@ -79,7 +79,7 @@ For more information about how to edit the `/etc/fstab` file, and the values use
 
 When you use a One Zone file system with Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, or AWS Lambda, you need to configure the service to use the same Availability Zone that the EFS file system is located in, illustrated as follows, and described in the following sections.
 
-![AWS compute instances connecting to an EFS One Zone file system.](http://docs.aws.amazon.com/efs/latest/ug/images/efs-mount-onezone.png)
+![AWS compute instances connecting to an EFS One Zone file system.](https://docs.aws.amazon.com/efs/latest/ug/images/efs-mount-onezone.png)
 
 
 ### Connecting from Amazon Elastic Container Service

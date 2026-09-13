@@ -39,7 +39,7 @@ This section explains how Amazon EFS Regional and One Zone file systems are moun
 
 The following illustration shows multiple EC2 instances accessing an Amazon EFS file system that is configured for multiple Availability Zones in an AWS Region.
 
-![Regional file system with mount targets in three Availability Zones within a VPC on EC2 instances.](http://docs.aws.amazon.com/efs/latest/ug/images/efs-ec2-how-it-works-Regional_china-world.png)
+![Regional file system with mount targets in three Availability Zones within a VPC on EC2 instances.](https://docs.aws.amazon.com/efs/latest/ug/images/efs-ec2-how-it-works-Regional_china-world.png)
 
 
 In this illustration, the virtual private cloud (VPC) has three Availability Zones. Because the file system is Regional, a mount target was created in each Availability Zone. We recommend that you access the file system from a mount target within the same Availability Zone for performance and cost reasons. One of the Availability Zones has two subnets. However, a mount target is created in only one of the subnets. For more information, see [Mounting EFS file systems using the EFS mount helper](efs-mount-helper.md).
@@ -49,7 +49,7 @@ In this illustration, the virtual private cloud (VPC) has three Availability Zon
 
 The following illustration shows multiple EC2 instances accessing a One Zone file system from different Availability Zones in a single AWS Region.
 
-![One Zone file system with a single mount target created in the same Availability Zone.](http://docs.aws.amazon.com/efs/latest/ug/images/efs-ec2-how-it-works-OneZone.png)
+![One Zone file system with a single mount target created in the same Availability Zone.](https://docs.aws.amazon.com/efs/latest/ug/images/efs-ec2-how-it-works-OneZone.png)
 
 
 In this illustration, the VPC has two Availability Zones, each with one subnet. Because the file system type is One Zone, it can only have a single mount target. For better performance and cost, we recommend that you access the file system from a mount target in the same Availability Zone as the EC2 instance that you're mounting it on.
@@ -69,7 +69,7 @@ There is no additional cost for on-premises access to your Amazon EFS file syste
 
 The following illustration shows an example of how to access an Amazon EFS file system from on-premises (the on-premises servers have the file systems mounted).
 
-![Mount an EFS file system on an on-premises client when using Direct Connect.](http://docs.aws.amazon.com/efs/latest/ug/images/efs-directconnect-how-it-works.png)
+![Mount an EFS file system on an on-premises client when using Direct Connect.](https://docs.aws.amazon.com/efs/latest/ug/images/efs-directconnect-how-it-works.png)
 
 
 You can use any mount target in your VPC if you can reach that mount target's subnet by using an Direct Connect connection between your on-premises server and VPC. To access Amazon EFS from an on-premises server, add a rule to your mount target security group to allow inbound traffic to the NFS port (2049) from your on-premises server. For more information, including detailed procedures, see [Prerequisites](mounting-fs-mount-helper-direct.md#efs-onpremises).
