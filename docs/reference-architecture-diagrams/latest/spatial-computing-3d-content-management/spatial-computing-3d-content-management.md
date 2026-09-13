@@ -10,7 +10,7 @@ With this architecture, you can create a single source of truth for 3D assets. A
 ## Spatial computing 3D content management diagram
 <a name="sc3d-diagram"></a>
 
-![Reference architecture diagram showing how to create a single source of truth for 3D assets by using Amazon S3, DynamoDB, Lambda, Step Functions, AWS AppSync, API Gateway, Amazon Cognito, and Amazon EC2.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/spatial-computing-3d-content-management/images/sc-3d-cms-aws-reference-architecture-mws-ra.png)
+![Reference architecture diagram showing how to create a single source of truth for 3D assets by using Amazon S3, DynamoDB, Lambda, Step Functions, AWS AppSync, API Gateway, Amazon Cognito, and Amazon EC2.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/spatial-computing-3d-content-management/images/sc-3d-cms-aws-reference-architecture-mws-ra.png)
 
 
 The following steps describe the architecture:
