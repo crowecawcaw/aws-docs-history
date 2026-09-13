@@ -10,7 +10,7 @@ This architecture shows you how computer vision wafer inspection accelerates def
 ## Wafer Inspection with Machine Learning Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how computer vision wafer inspection accelerates defect detection and reduces human error in detecting (ring/scratch and so on), improving fab productivity.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/wafer-inspection-with-machine-learning-architecture/images/wafer-inspection-with-machine-learning-architecture.png)
+![Reference architecture diagram showing how computer vision wafer inspection accelerates defect detection and reduces human error in detecting (ring/scratch and so on), improving fab productivity.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/wafer-inspection-with-machine-learning-architecture/images/wafer-inspection-with-machine-learning-architecture.png)
 
 
 1. Users upload images from wafer inspection to an **Amazon Simple Storage Service** (Amazon S3) bucket through a web user interface (UI) using transfer acceleration. 
