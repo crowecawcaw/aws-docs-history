@@ -29,14 +29,14 @@ You can configure channels that are part of [Slack Connect](https://slack.com/co
    1. To search for the app, enter **AWS Support App**.
 
    1. Choose **Add** next to the **AWS Support App**.   
-![Add the AWS Support App.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/invite-apps-to-channel-from-slack.png)
+![Add the AWS Support App.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/invite-apps-to-channel-from-slack.png)
 
 1. Sign in to the [**Support Center Console**](https://console.aws.amazon.com/support/app) and choose **Slack configuration**.
 
 1. Choose **Add channel**.
 
 1. On the **Add channel** page, under **Workspace**, choose the workspace name that you previously authorized. You can choose the refresh icon if the workspace name doesn't appear in the list.  
-![Slack workspace where you add your channel for the AWS Support App.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/add-slack-workspace-from-support-center.png)
+![Slack workspace where you add your channel for the AWS Support App.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/add-slack-workspace-from-support-center.png)
 
 1. Under **Slack channel**, for **Channel type**, choose one of the following:
    + **Public** – Under **Public channel**, choose the Slack channel that you invited the AWS Support App to (step 2). If your channel doesn't appear in the list, choose the refresh icon and try again.
@@ -47,10 +47,10 @@ To find the channel ID, open the context (right-click) menu for the channel name
 1. Under **Channel configuration name**, enter a name that easily identifies your Slack channel configuration for the AWS Support App. This name appears only in your AWS account and doesn't appear in Slack. You can rename your channel configuration later.
 
    Your Slack channel type might look like the following example.  
-![Public and private Slack channels for your Slack channel configuration.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/public-private-channel-options.png)
+![Public and private Slack channels for your Slack channel configuration.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/public-private-channel-options.png)
 
 1. Under **Permissions**, for **IAM role for the AWS Support App in Slack**, choose a role that you created for the AWS Support App. Only roles that have the AWS Support App as a trusted entity appear in the list.   
-![Choose the IAM role for a Slack channel.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/add-iam-role-permissions-from-support-center.png)
+![Choose the IAM role for a Slack channel.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/add-iam-role-permissions-from-support-center.png)
 **Note**  
 If you haven't created a role or don't see your role in the list, see [Managing access to the AWS Support App](support-app-permissions.md).
 
@@ -65,7 +65,7 @@ If you haven't created a role or don't see your role in the list, see [Managing 
    + **Resolved cases**
 
    The following channel receives case notifications for all case updates in Slack.  
-![Set up a Slack channel in the AWS Support App.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/add-notifications-from-support-center.png)
+![Set up a Slack channel in the AWS Support App.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/add-notifications-from-support-center.png)
 
 1. Review your configuration and choose **Add channel**. Your channel appears in the **Slack configuration** page.
 

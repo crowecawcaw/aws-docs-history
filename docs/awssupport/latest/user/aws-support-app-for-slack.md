@@ -11,7 +11,7 @@ Sign in to the AWS Management Console.
 In the navigation bar, choose your account name (top right) to open the account menu.
 Choose **Turn off multi-session support**.
 
-![Account menu in the AWS Management Console showing the Turn off multi-session support option.](http://docs.aws.amazon.com/awssupport/latest/user/images/disable-multi-session-support.png)
+![Account menu in the AWS Management Console showing the Turn off multi-session support option.](https://docs.aws.amazon.com/awssupport/latest/user/images/disable-multi-session-support.png)
 
 
 Use the AWS Support App to do the following:

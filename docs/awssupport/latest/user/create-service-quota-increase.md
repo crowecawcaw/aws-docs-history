@@ -13,7 +13,7 @@ At this time, Service Quotas doesn't support service quotas for all AWS services
 
 1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 **Tip**  
-In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](http://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
+In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](https://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
 
 1. On the **Support interactions** page, enter details about this service limit increase. When prompted, choose **Create a case**. Many of the Support case fields will be pre-populated with the text that you entered during your interaction. You can edit these fields as needed. For additional details on creating a support interaction, see [Create a support interaction](create-support-interaction.md).
 

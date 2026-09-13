@@ -16,4 +16,4 @@ When you create, update, or resolve support cases for your account in the Slack 
 **Example : Support case**  
 In the following screenshot, Jane Doe reopened a support case in Slack. This correspondence appears for the support case in the Support Center Console.
 
-![Case correspondence in Support Center Console for a support case from Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/aws-support-console-reopened-resolved-case.png)
+![Case correspondence in Support Center Console for a support case from Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/aws-support-console-reopened-resolved-case.png)

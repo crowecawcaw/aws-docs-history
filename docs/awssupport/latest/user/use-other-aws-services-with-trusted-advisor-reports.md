@@ -80,7 +80,7 @@ After you upload your report to Amazon S3, upload the following YAML template to
    The stack takes about 5 minutes to create.
 
 1. After the stack creates successfully, the **Resources** tab appears like the following example.  
-![Screenshot of example resources created by CloudFormation for Trusted Advisor reports.](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-cloud-formation-resources.png)
+![Screenshot of example resources created by CloudFormation for Trusted Advisor reports.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-cloud-formation-resources.png)
 
 ## Query the data in Amazon Athena
 <a name="setting-up-athena"></a>
@@ -100,7 +100,7 @@ If you're new to Athena, you must specify a query result location before you can
 1. Choose **Saved Queries** and in search field, enter **Show sample**.
 
 1. Choose the query that appears, such as **Show sample entries of TA report**.   
-![Screenshot of an example saved query in the Athena console.](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-athena.png)
+![Screenshot of an example saved query in the Athena console.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-athena.png)
 
    The query should look like the following.
 
@@ -113,7 +113,7 @@ If you're new to Athena, you must specify a query result location before you can
 **Example : Athena query**  
 The following example shows 10 sample entries from the report.  
 
-![Screenshot of the example query in the Athena console.](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-query-results.png)
+![Screenshot of the example query in the Athena console.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-query-results.png)
 
 For more information, see [Running SQL Queries Using Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/querying-athena-tables.html) in the *Amazon Athena User Guide*.
 
@@ -132,13 +132,13 @@ You must use the US East (N. Virginia) Region.
 1. Choose **New analysis**, **New dataset**, and then choose **Athena**.
 
 1. In the **New Athena data source** dialog box, enter a data source name such as **AthenaTA**, and then choose **Create data source**.  
-![Screenshot of a new data source in the Amazon Quick console.](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-athena-data-source.png)
+![Screenshot of a new data source in the Amazon Quick console.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-athena-data-source.png)
 
 1. In the **Choose your table** dialog box, choose the **athenatacfn** table, choose **folder1**, and then choose **Select**.  
-![Screenshot of choosing your Athena table in the Quick console.](http://docs.aws.amazon.com/awssupport/latest/user/images/quicksight-choose-athena-table.png)
+![Screenshot of choosing your Athena table in the Quick console.](https://docs.aws.amazon.com/awssupport/latest/user/images/quicksight-choose-athena-table.png)
 
 1. In the **Finish data set creation** dialog box, choose **Directly query your data**, and then choose **Visualize**.  
-![Screenshot of creating a data set in the Quick console.](http://docs.aws.amazon.com/awssupport/latest/user/images/quick-sight-visualize-data.png)
+![Screenshot of creating a data set in the Quick console.](https://docs.aws.amazon.com/awssupport/latest/user/images/quick-sight-visualize-data.png)
 
 You can now create a dashboard in Quick. For more information, see [Working with Dashboards](https://docs.aws.amazon.com/quicksight/latest/user/working-with-dashboards.html) in the *Amazon Quick User Guide*.
 
@@ -150,7 +150,7 @@ The following example dashboard shows information about the Trusted Advisor chec
 + Check statuses
 + Number of entries in the report for each account
 
-![Screenshot of visualizing report data in Amazon Quick.](http://docs.aws.amazon.com/awssupport/latest/user/images/quick-sight-visualize-data-example-2.png)
+![Screenshot of visualizing report data in Amazon Quick.](https://docs.aws.amazon.com/awssupport/latest/user/images/quick-sight-visualize-data-example-2.png)
 
 
 **Note**  

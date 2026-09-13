@@ -18,7 +18,7 @@ After you authorize your Slack workspace and add your Slack channel, you can cre
    1. For **Subject**, enter a title for the support case.
 
    1. For **Description**, describe the support case. Provide details, such as how you're using an AWS service and what troubleshooting steps you tried.  
-![A dialog box to create an AWS Support case in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/create-support-case-step-1-multiple-accounts-example.png)
+![A dialog box to create an AWS Support case in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/create-support-case-step-1-multiple-accounts-example.png)
 
 1. Choose **Next**.
 
@@ -35,7 +35,7 @@ After you authorize your Slack workspace and add your Slack channel, you can cre
    1. Review your case details and choose **Next**.
 
       The following example shows a technical support case for Alexa Services.  
-![An example showing how to create a support case in the AWS Support App.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/create-support-case-in-slack-step-2.png)
+![An example showing how to create a support case in the AWS Support App.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/create-support-case-in-slack-step-2.png)
 
 1. For **Contact language**, choose your preferred language for your support case.
 **Note**  
@@ -44,7 +44,7 @@ Japanese language support isn't available for live chat in Slack for account and
 1. For **Contact method**, choose **Email and Slack notifications** or **Live chat in Slack**.
 
    The following example shows how to choose a live chat in Slack.  
-![Dialog box that shows how to add additional contacts who should be notified about the AWS Support case.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/create-support-case-in-slack-step-3.png)
+![Dialog box that shows how to add additional contacts who should be notified about the AWS Support case.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/create-support-case-in-slack-step-3.png)
 
    1. If you choose **Live chat in Slack**, choose **New private channel** or **Current channel** as your **Live chat channel preference**. **New private channel** will create a separate private channel for you to chat with the AWS Support agent, and **Current channel** will use a thread in the current channel for you to chat with the AWS Support agent. 
 
@@ -66,7 +66,7 @@ The **Current channel** option is only available if the chat is requested from a
 
      1. Navigate to and choose your file.
 
-     1. In the **Upload a file** dialog box, enter `@awssupport`, and press the send message![Green square button with a right-pointing arrow icon.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/enter-icon.png) icon. 
+     1. In the **Upload a file** dialog box, enter `@awssupport`, and press the send message![Green square button with a right-pointing arrow icon.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/enter-icon.png) icon. 
 **Notes**  
 You can attach up to three files. Each file can be up to 5 MB.
 If you attach a file to your support case, you must submit your case within 1 hour. If you don't, you must add the files again.
@@ -75,7 +75,7 @@ If you attach a file to your support case, you must submit your case within 1 ho
 1. Review your case details, and then choose **Create case**.
 
    The following example shows a technical support case for Alexa Services.  
-![Example support case summary in the Slack channel.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/general-case-information-live-chat.png)
+![Example support case summary in the Slack channel.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/general-case-information-live-chat.png)
 
    After you create a support case, it might take a few minutes for your case details to appear. 
 

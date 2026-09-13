@@ -15,7 +15,7 @@ To filter your search results, you can use the following options:
 **Example : Search for cases in Slack**  
 The following example shows how to search by **Filter options** for a single account by specifying the date range, case status, and contact language.  
 
-![Example search query for support cases in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/search-case.png)
+![Example search query for support cases in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/search-case.png)
 
 
 **To search for a support case in Slack**
@@ -41,7 +41,7 @@ The following example shows how to search by **Filter options** for a single acc
 
 The following example returns three support cases from one AWS account.
 
-![Search results for resolved support cases in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/search-case-results.png)
+![Search results for resolved support cases in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/search-case-results.png)
 
 
 After you receive your search results, you can do the following:
@@ -59,4 +59,4 @@ After you receive your search results, you can do the following:
 **Example : Resolved support case**  
 The following example shows a resolved support case for an account and billing issue after choosing **See details**.  
 
-![A resolved account and billing support case result in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/search-case-results-see-details.png)
+![A resolved account and billing support case result in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/search-case-results-see-details.png)

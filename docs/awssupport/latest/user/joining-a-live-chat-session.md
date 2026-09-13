@@ -18,7 +18,7 @@ Live chat channels and threads also receive notifications when a correspondence 
 The AWS Support App adds a pinned message to the live chat channel that contains details about your support case. From the pinned message, you can end the chat or resolve the case. You can find all pinned messages in this channel under the channel name.
 
 1. When the support agent joins the channel, you can chat about your support case. Until a support agent joins the channel, the agent won't see messages in that chat and the messages don't appear in your case correspondence.  
-![Screenshot of how to create a live chat in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/pending-open-case-in-channel.png)
+![Screenshot of how to create a live chat in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/pending-open-case-in-channel.png)
 
 1. (Optional) Add other members to the chat channel. By default, chat channels are private.
 
@@ -32,7 +32,7 @@ If you edit or delete a message, the agent still sees the original message. You 
 **Example : Live chat session**  
 
    The following is an example of a live chat session with a support agent to fix a connectivity issue for two Amazon Elastic Compute Cloud (Amazon EC2) instances.  
-![Chat window with a live support agent in the Slack channel.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/live-chat-slack-channel.png)
+![Chat window with a live support agent in the Slack channel.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/live-chat-slack-channel.png)
 
 1. (Optional) To stop the live chat, choose **End chat**. The support agent leaves the channel and the AWS Support App stops recording the live chat. You can find the chat history attached to the case correspondence for this support case.
 
@@ -40,11 +40,11 @@ If you edit or delete a message, the agent still sees the original message. You 
 **Example : End a live chat**  
 
    The following pinned message shows the case details about an Amazon EC2 instance. You can find the pinned messages under the Slack channel name.  
-![End a chat or resolve a support case in the Slack channel.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/resolve-end-chat-slack-channel.png)  
+![End a chat or resolve a support case in the Slack channel.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/resolve-end-chat-slack-channel.png)  
 **Example : Correspondence notification in chat channel**  
 
    The following is an example of a live chat channel receiving a notification when the another collaborator adds an update after the chat has ended.  
-![Reply to support case in the Slack chat channel.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/correspondence-chat-slack-channel.png)
+![Reply to support case in the Slack chat channel.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/correspondence-chat-slack-channel.png)
 
    The notification will indicate the chat status (requested, in progress, or ended) and whether the correspondence was added by an agent or by another collaborator. The Support App will also attempt to link back to the original Slack thread or channel where this chat was requested. You can [ reply to this case](https://docs.aws.amazon.com/awssupport/latest/user/replying-to-support-cases-in-slack.html) from that channel, or any other channel with access to this case. 
 
@@ -55,7 +55,7 @@ If you edit or delete a message, the agent still sees the original message. You 
 1. When the support agent joins the thread, you can chat about your support case. Until a support agent joins the thread, the agent won't see messages in that thread, and the messages won't appear in your case correspondence when the chat ends.
 **Note**  
 Messages sent to this channel outside of the chat thread are never seen by Support, even while a chat is active.   
-![AWS Support chat interface showing a case about Alexa services with status updates.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/request-thread-chat.png)
+![AWS Support chat interface showing a case about Alexa services with status updates.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/request-thread-chat.png)
 
 1. (Optional) Tag other channel members to notify them on the chat thread.
 
@@ -64,4 +64,4 @@ Messages sent to this channel outside of the chat thread are never seen by Suppo
 1. (Optional) To stop the live chat, choose End chat from the initial message for this thread. The support agent leaves the thread and the AWS Support App stops recording the live chat. You can find the chat history attached to the case correspondence for this support case.
 
 1. If the issue is resolved, you can choose Resolve case from the initial message for this thread.  
-![AWS Support chat interface showing a new case about Alexa services with no agent joined yet.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/thread-chat-parent-message.png)
+![AWS Support chat interface showing a new case about Alexa services with no agent joined yet.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/thread-chat-parent-message.png)

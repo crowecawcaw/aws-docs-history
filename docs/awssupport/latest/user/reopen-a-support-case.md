@@ -16,7 +16,7 @@ After you resolve a support case, you can reopen the case from Slack.
 1. In the **Reopen case** dialog box, enter a brief description of the issue in the **Message** field.
 
 1. Choose **Next**.  
-![Dialog box that you use to reopen a support case in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/reopen-case.png)
+![Dialog box that you use to reopen a support case in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/reopen-case.png)
 
 1. (Optional) Enter additional contacts.
 

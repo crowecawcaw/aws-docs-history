@@ -55,7 +55,7 @@ When creating your support case, make sure that you choose the correct severity 
 
 Use the following matrix to help you identify the correct severity.
 
-![Enterprise Support support case severity matrix](http://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-support-sev-matrix.png)
+![Enterprise Support support case severity matrix](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-support-sev-matrix.png)
 
 
 For Critical or Urgent cases, make sure that you leave contact details so that we can reach out to you, if needed.
@@ -73,7 +73,7 @@ The quickest way to get help is to use the **Chat** or **Phone** contact method.
 
 The following graphic displays the target AWS Support response times for different case severity levels.
 
-![Enterprise Support support target response times](http://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-support-response-times.png)
+![Enterprise Support support target response times](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-support-response-times.png)
 
 
 ### Enterprise Support case best practices

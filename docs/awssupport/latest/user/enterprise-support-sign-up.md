@@ -24,21 +24,21 @@ Self-service subscription is available to AWS customers who meet all of the foll
 **To sign up for AWS Enterprise Support**
 
 1. Open the [AWS Support console](https://console.aws.amazon.com/support/home) and choose **Manage Support Plan** under **AWS Support Plans** in the left navigation pane.  
-![Support Center console with the Manage Support Plan option under AWS Support Plans in the left navigation pane.](http://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-support-center.png)
+![Support Center console with the Manage Support Plan option under AWS Support Plans in the left navigation pane.](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-support-center.png)
 
 1. On the **Manage Support Plan** page, find the **Enterprise Support** column and choose **Get started**.  
-![Manage Support Plan page showing plan columns for Basic Support, Business Support+, Enterprise Support, and Unified Operations with Get started buttons.](http://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-manage-plan.png)
+![Manage Support Plan page showing plan columns for Basic Support, Business Support+, Enterprise Support, and Unified Operations with Get started buttons.](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-manage-plan.png)
 
 1. Review the Enterprise Support benefits and pricing, then choose **Next** to check your account's eligibility.  
-![Review upgrade page showing Enterprise Support plan benefits and a Next button to check eligibility.](http://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-review-benefits.png)
+![Review upgrade page showing Enterprise Support plan benefits and a Next button to check eligibility.](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-review-benefits.png)
 
 1. If your account is eligible, you proceed to the confirmation page. If validation fails, the page lists each reason. See [Troubleshooting](#enterprise-sign-up-troubleshooting) to resolve eligibility failures.
 
 1. On the confirmation page, review what to expect and the subscription terms, select the checkbox to accept the terms, and then choose **Submit request**.  
-![Confirmation page showing subscription terms, the acceptance checkbox, and the Submit request button.](http://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-confirm.png)
+![Confirmation page showing subscription terms, the acceptance checkbox, and the Submit request button.](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-confirm.png)
 
 1. After the activation request completes, the console displays the Enterprise Support plan page with a banner confirming that your enrollment is complete. You also receive a subscription confirmation email.  
-![Enterprise Support plan page with a welcome banner confirming enrollment is complete and showing available features.](http://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-complete.png)
+![Enterprise Support plan page with a welcome banner confirming enrollment is complete and showing available features.](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-complete.png)
 
 ## Understanding post-enrollment steps
 <a name="enterprise-sign-up-post-subscription"></a>

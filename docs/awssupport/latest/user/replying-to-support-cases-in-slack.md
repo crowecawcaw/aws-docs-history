@@ -17,10 +17,10 @@ You cannot add correspondences to cases from chat channels created by the AWS Su
 
 1. At the bottom of the case details, choose **Reply**.
 
-   ![Three buttons: Share to channel, Reply (circled in red), and Resolve case.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/reply-button-slack.png)
+   ![Three buttons: Share to channel, Reply (circled in red), and Resolve case.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/reply-button-slack.png)
 
 1. In the **Reply to case** dialog box, enter a brief description of the issue in the **Message** field. Then choose **Next**.  
-![Dialog box to reply to a support case in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/reply-to-support-case.png)
+![Dialog box to reply to a support case in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/reply-to-support-case.png)
 
 1. Choose your contact method. The available contact methods depend on your case type and support plan.
 
@@ -34,4 +34,4 @@ You cannot add correspondences to cases from chat channels created by the AWS Su
 
 **Example : Reply to a case in Slack**  
 
-![Details to review a support case in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/review-reply-support-case-in-slack.png)
+![Details to review a support case in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/review-reply-support-case-in-slack.png)

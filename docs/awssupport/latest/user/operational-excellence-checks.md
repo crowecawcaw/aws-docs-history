@@ -36,6 +36,7 @@ You can use the following checks for the operational excellence category.
 + [AWS Systems Manager State Manager Association in Non-compliant Status](#ec2-managedinstance-association-compliance-status-check)
 + [CloudTrail trails are not configured with Amazon CloudWatch Logs](#cloudtrail-cloudwatch-logs-enabled)
 + [Elastic Load Balancing Deletion Protection Not Enabled for Load Balancers](#elb-deletion-protection-enabled)
++ [NitroV4 Amazon EC2 instances running outdated ENA driver](#nitro-v4-outdated-ena-driver)
 + [RDS DB Cluster Deletion Protection Check](#rds-db-cluster-deletion-protection)
 + [RDS DB Instance Automatic Minor Version Upgrade Check](#rds-automatic-minor-version-upgrade-enabled)
 
@@ -1036,6 +1037,38 @@ For more information, see [Application Load Balancer Deletion protection](https:
 + Resource
 + AWS Config Rule
 + Input Parameters
++ Last Updated Time
+
+## NitroV4 Amazon EC2 instances running outdated ENA driver
+<a name="nitro-v4-outdated-ena-driver"></a>
+
+**Description**  
+Checks for Amazon Elastic Compute Cloud (Amazon EC2) instances running on Nitro system version 4 using outdated Elastic Network Adapter (ENA) drivers. To take advantage of the Nitro performance improvements using the accelerated path, you must update your ENA driver to a version compatible with NitroV4, as outlined in the [Amazon EC2 Instance Types guide](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html#nitro-requirements). To make this change directly, update your driver, or you can update your operating system to a version that is configured with a compatible driver.  
+For Nitro system version 5 and later based instances, the minimum driver versions in the [Amazon EC2 Instance Types guide](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html#nitro-requirements) are required. AWS recommends upgrading to the latest ENA driver version to benefit from performance improvements, bug fixes, and security enhancements. Starting with Nitro system version 5 or later, outdated ENA drivers fail to bind to instances after launch, which prevents network communication.  
+Results for this check are automatically refreshed several times daily, and refresh requests are not allowed. It might take a few hours for changes to appear.
+
+**Check ID**  
+`c17gc3v72d`
+
+**Alert Criteria**  
+Yellow: Amazon EC2 instances on Nitro system version 4 are using ENA driver versions older than Linux 2.2.9 or Windows 2.2.3.
+
+**Recommended Action**  
+Update to [newer ENA drivers](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html#nitro-requirements) (Linux 2.2.9\+, Windows 2.2.3\+, DPDK ENA PMD v2.2.0\+) to access accelerated path features that are unavailable in older versions. DPDK users can either move to DPDK 20.11\+ (which includes DPDK ENA PMD v2.2.0\+) or apply DPDK ENA PMD backports directly from [GitHub](https://github.com/amzn/amzn-drivers/tree/master/userspace/dpdk/backports) without changing their DPDK release.  
+For existing instances, perform this update when it's convenient to reboot your instance. Update your operating system or ENA driver to the latest supported version for your operating system, and then reboot your instance. For Linux instances, update to ENA driver version 2.2.9 or later. For Windows instances, update to version 2.2.3 or later.  
+For new instance launches, build and use updated AMIs with the latest ENA drivers preinstalled using Amazon EC2 Image Builder.
+
+**Additional Resources**  
++ [ENA driver performance on Nitro-based instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ena-nitro-perf.html#ena-nitro-perf-overall-design)
++ [Monitoring network performance for ENA](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-network-performance-ena.html)
++ [Amazon EC2 Image Builder for automated AMI creation](https://docs.aws.amazon.com/imagebuilder/latest/userguide/what-is-image-builder.html)
++ [Installing and upgrading the ENA driver on Linux and Windows](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena.html#ena-linux)
+
+**Report columns**  
++ Status
++ Region
++ Instance ID
++ Interface ID
 + Last Updated Time
 
 ## RDS DB Cluster Deletion Protection Check

@@ -30,10 +30,10 @@ If you can't allow Slack to access your workspace, make sure that you have permi
 1. (Optional) By default, your AWS account ID number appears as the account name in your Slack channel. To change this value, under **Account name**, choose **Edit**, enter your account name, and then choose **Save**. 
 **Tip**  
 Use a name that you and your team can easily recognize. The AWS Support App uses this name to identify your account in the Slack channel. You can update this name at any time.  
-![Screenshot of how to edit an account name so that it appears in the AWS Support App for Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/edit-account-name.png)
+![Screenshot of how to edit an account name so that it appears in the AWS Support App for Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/edit-account-name.png)
 
    Your workspace and account name appear on the **Slack configuration** page.  
-![Slack workspace added to the AWS Support App configuration page.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/one-workplace-added-to-support-app.png)
+![Slack workspace added to the AWS Support App configuration page.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/one-workplace-added-to-support-app.png)
 
 ## Authorize multiple accounts
 <a name="authorize-multiple-accounts"></a>

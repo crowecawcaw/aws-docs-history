@@ -82,12 +82,12 @@ To change the severity of a support case, complete the following steps:
 
 1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 **Tip**  
-In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](http://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
+In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](https://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
 
 1. Select the case that you want to change the severity level for.
 
 1. In **Case details**, choose the pencil icon next to the **Severity** field, as shown in the following example.  
-![The Case details section with the Severity field and pencil icon highlighted.](http://docs.aws.amazon.com/awssupport/latest/user/images/case-details-change-severity.png)
+![The Case details section with the Severity field and pencil icon highlighted.](https://docs.aws.amazon.com/awssupport/latest/user/images/case-details-change-severity.png)
 
 1. For **Severity**, choose the new severity level from the following options:
    + General guidance
@@ -103,7 +103,7 @@ In the AWS Management Console, you can also choose the question mark icon (![Que
 1. Do one of the following:
    + If you're lowering the support case severity, or if you're raising it from **General guidance** to **System impaired** or **Production system impaired**, choose **Update**.
    + If you're raising the severity to **Production system down** or **Business-critical system down**, use one of the options in the **Contact methods** section to engage with AWS Support, and then choose **Update**. The following example shows the options available in the **Contact methods** section.  
-![The Change case severity screen showing the Contact methods section with the following options: Web, Chat, and Phone.](http://docs.aws.amazon.com/awssupport/latest/user/images/change-case-severity-contact-methods.png)
+![The Change case severity screen showing the Contact methods section with the following options: Web, Chat, and Phone.](https://docs.aws.amazon.com/awssupport/latest/user/images/change-case-severity-contact-methods.png)
 
 **Note**  
 If you upgrade your support case severity to **Production system down** or **Business-critical system down**, you must wait 60 minutes before you can change the severity again.

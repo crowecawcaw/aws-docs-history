@@ -14,4 +14,4 @@ If you don't need your support case anymore, or you fixed the issue, you can res
 1. Choose **Resolve case**.
 
 1. In the **Resolve case** dialog box, choose **Resolve case**. You can reopen a case in the Slack channel or from the Support Center Console.  
-![Dialog box to resolve support cases in Slack.](http://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/resolve-case.png)
+![Dialog box to resolve support cases in Slack.](https://docs.aws.amazon.com/awssupport/latest/user/images/supportapp/resolve-case.png)

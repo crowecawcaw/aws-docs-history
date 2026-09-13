@@ -5,7 +5,7 @@
 
 The following example is a support case for a billing and account issue.
 
-![Interface to create support cases in the AWS Support Center Console.](http://docs.aws.amazon.com/awssupport/latest/user/images/support-center-create-support-billing-case.png)
+![Interface to create support cases in the AWS Support Center Console.](https://docs.aws.amazon.com/awssupport/latest/user/images/support-center-create-support-billing-case.png)
 
 
 1. **Create case** – Choose the type of case to create. In this example, the case type is **Account and billing**.
@@ -24,7 +24,7 @@ Based on your category choice, you might be prompted for more information.
 
 After you specify the case type and classification, you can specify the description and how you want to be contacted.
 
-![Add more information about a billing issue in the AWS Support Center Console.](http://docs.aws.amazon.com/awssupport/latest/user/images/support-center-additional-information.png)
+![Add more information about a billing issue in the AWS Support Center Console.](https://docs.aws.amazon.com/awssupport/latest/user/images/support-center-additional-information.png)
 
 
 1. **Subject** – Enter a title that briefly describes your issue.
@@ -37,7 +37,7 @@ After you specify the case type and classification, you can specify the descript
 
 After you add your case details, you can choose how you want to be contacted.
 
-![Add more information about a billing issue in the AWS Support Center Console.](http://docs.aws.amazon.com/awssupport/latest/user/images/support-center-choose-contact-method-basic-plan-with-language.png)
+![Add more information about a billing issue in the AWS Support Center Console.](https://docs.aws.amazon.com/awssupport/latest/user/images/support-center-choose-contact-method-basic-plan-with-language.png)
 
 
 1. **Preferred contact language** – Choose your preferred language. Currently you can choose Chinese, English, Japanese, or Korean. The customized contact options in your preferred language will be shown by your support plan. 

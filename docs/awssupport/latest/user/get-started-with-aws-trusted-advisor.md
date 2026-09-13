@@ -51,7 +51,7 @@ You must have AWS Identity and Access Management (IAM) permissions to access the
 **Example : Trusted Advisor Recommendations**  
 The following example shows a summary of the check results for an AWS account.  
 
-![The Trusted Advisor Recommendations page in the Trusted Advisor console with check summaries.](http://docs.aws.amazon.com/awssupport/latest/user/images/ta_recs_updated.png)
+![The Trusted Advisor Recommendations page in the Trusted Advisor console with check summaries.](https://docs.aws.amazon.com/awssupport/latest/user/images/ta_recs_updated.png)
 
 
 ## View check categories
@@ -77,14 +77,14 @@ You can view the check descriptions and results for the following check categori
    + **No problems detected (green)** – Trusted Advisor doesn't detect an issue for the check.
    + **Excluded items (gray)** – The number of checks that have excluded items, such as resources that you want a check to ignore.
 
-1. For each check, choose the refresh icon (![Circular arrow icon representing a refresh or reload action.](http://docs.aws.amazon.com/awssupport/latest/user/images/refresh.png)) to refresh this check.
+1. For each check, choose the refresh icon (![Circular arrow icon representing a refresh or reload action.](https://docs.aws.amazon.com/awssupport/latest/user/images/refresh.png)) to refresh this check.
 
-1. Choose the download icon (![Icon representing the action to download content, showing an arrow pointing downwards.](http://docs.aws.amazon.com/awssupport/latest/user/images/download.png)) to create an .xls file that includes the results for this check.
+1. Choose the download icon (![Icon representing the action to download content, showing an arrow pointing downwards.](https://docs.aws.amazon.com/awssupport/latest/user/images/download.png)) to create an .xls file that includes the results for this check.
 
 **Example : Cost optimization category**  
 The following example shows 10 (green) checks that don't have any issues.  
 
-![The cost optimization category page in the Trusted Advisor console that shows potential monthly savings, and checks that need action, investigation, or no issues detected.](http://docs.aws.amazon.com/awssupport/latest/user/images/ta_cost_opt_example.png)
+![The cost optimization category page in the Trusted Advisor console that shows potential monthly savings, and checks that need action, investigation, or no issues detected.](https://docs.aws.amazon.com/awssupport/latest/user/images/ta_cost_opt_example.png)
 
 
 ## View specific checks
@@ -116,12 +116,12 @@ Expand a check to view the full check description, your affected resources, any 
 
    1. To view all included items, choose **Included items**.
 
-1. Choose the settings icon (![Circular icon with a gear symbol inside, representing settings or configuration.](http://docs.aws.amazon.com/awssupport/latest/user/images/settings.png)). In the **Preferences** dialog box, you can specify the number of items or the properties to display, and then choose **Confirm**.
+1. Choose the settings icon (![Circular icon with a gear symbol inside, representing settings or configuration.](https://docs.aws.amazon.com/awssupport/latest/user/images/settings.png)). In the **Preferences** dialog box, you can specify the number of items or the properties to display, and then choose **Confirm**.
 
 **Example : Cost optimization check**  
 The following **Low Utilization Amazon EC2 Instances ** check lists the affected instances in the account. This check identifies 38 Amazon EC2 instances that have low usage and recommends that you stop or terminate the resources.  
 
-![The Low Utilization Amazon EC2 Instances check in the Trusted Advisor console.](http://docs.aws.amazon.com/awssupport/latest/user/images/cost_opt_check_example2.png)
+![The Low Utilization Amazon EC2 Instances check in the Trusted Advisor console.](https://docs.aws.amazon.com/awssupport/latest/user/images/cost_opt_check_example2.png)
 
 
 ## Filter your checks
@@ -173,11 +173,11 @@ You can refresh checks to get the latest results for your account. If you have a
 1. On the ** Trusted Advisor Recommendations** or a check category page, choose **Refresh all checks**.
 
 You can also refresh specific checks in the following ways:
-+ Choose the refresh icon (![](http://docs.aws.amazon.com/awssupport/latest/user/images/refresh.png)) for an individual check.
++ Choose the refresh icon (![](https://docs.aws.amazon.com/awssupport/latest/user/images/refresh.png)) for an individual check.
 + Use the [RefreshTrustedAdvisorCheck](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html) API operation.
 
 **Notes**  
-Trusted Advisor automatically refreshes some checks several times a day, such as the **AWS Well-Architected high risk issues for reliability** check. It might take a few hours for changes to appear in your account. For these automatically refreshed checks, you can't choose the refresh icon (![](http://docs.aws.amazon.com/awssupport/latest/user/images/refresh.png)) to manually refresh your results.
+Trusted Advisor automatically refreshes some checks several times a day, such as the **AWS Well-Architected high risk issues for reliability** check. It might take a few hours for changes to appear in your account. For these automatically refreshed checks, you can't choose the refresh icon (![](https://docs.aws.amazon.com/awssupport/latest/user/images/refresh.png)) to manually refresh your results.
 If you enabled AWS Security Hub CSPM for your account, you can't use the Trusted Advisor console to refresh Security Hub CSPM controls. For more information, see [Refresh your Security Hub CSPM findings](security-hub-controls-with-trusted-advisor.md#refreshing-security-hub-findings).
 
 ## Download check results
@@ -189,7 +189,7 @@ You can download check results to get an overview of Trusted Advisor in your acc
 
 1. Navigate to the AWS Trusted Advisor console at [https://console.aws.amazon.com/trustedadvisor](https://console.aws.amazon.com/trustedadvisor/).
    + To download all check results, in the **Trusted Advisor Recommendations** or a check category page, choose **Download all checks**.
-   + To download a check result for a specific check, choose the check name, and then choose the download icon (![](http://docs.aws.amazon.com/awssupport/latest/user/images/download.png)).
+   + To download a check result for a specific check, choose the check name, and then choose the download icon (![](https://docs.aws.amazon.com/awssupport/latest/user/images/download.png)).
 
 1. Save or open the .xls file. The file contains the same summary information from the Trusted Advisor console, such as the check name, description, status, affected resources, and so on.
 

@@ -39,7 +39,7 @@ For a list of metric and dimension names, see [Trusted Advisor metrics and dimen
 1. In the results table, select the check box for the metric. 
 
    In the following example, the check name is **IAM Access Key Rotation** and the metric name is **YellowResources**.  
-![Screenshot of the IAM Password Policy check name for Trusted Advisor in the CloudWatch console.](http://docs.aws.amazon.com/awssupport/latest/user/images/trusted_advisor_metrics_cloudwatch_iam_access_key_rotation.png)
+![Screenshot of the IAM Password Policy check name for Trusted Advisor in the CloudWatch console.](https://docs.aws.amazon.com/awssupport/latest/user/images/trusted_advisor_metrics_cloudwatch_iam_access_key_rotation.png)
 
 1. Choose **Select metric**.
 
@@ -59,7 +59,7 @@ Trusted Advisor doesn’t send metrics for **GreenResources**, which are resourc
 1. On the **Configure actions** page, for **Alarm state trigger**, choose **In alarm**.
 
 1. For **Select an SNS topic**, choose an existing Amazon Simple Notification Service (Amazon SNS) topic or create one.  
-![Screenshot of the notification settings for an alarm to monitor a Trusted Advisor metric in the CloudWatch console.](http://docs.aws.amazon.com/awssupport/latest/user/images/trusted_advisor_metrics_cloudwatch_SNS_topic.png)
+![Screenshot of the notification settings for an alarm to monitor a Trusted Advisor metric in the CloudWatch console.](https://docs.aws.amazon.com/awssupport/latest/user/images/trusted_advisor_metrics_cloudwatch_SNS_topic.png)
 
 1. Choose **Next**.
 
@@ -142,7 +142,7 @@ You can sign in to the CloudWatch console and view the available metrics for Tru
    1. To filter by metric, choose the metric name, and then choose **Add to search**.
 
    The following example shows the results for the **Security Groups - Specific Ports Unrestricted** check. The check identifies 13 resources that are yellow. Trusted Advisor recommends that you investigate checks that are yellow.  
-![A graph that includes two resource metrics for the Security Groups - Specific Ports Unrestricted check in the CloudWatch console.](http://docs.aws.amazon.com/awssupport/latest/user/images/trusted_advisor_metrics_cloudwatch_unrestricted_access_check_names.png)
+![A graph that includes two resource metrics for the Security Groups - Specific Ports Unrestricted check in the CloudWatch console.](https://docs.aws.amazon.com/awssupport/latest/user/images/trusted_advisor_metrics_cloudwatch_unrestricted_access_check_names.png)
 
 1. (Optional) To add this graph to a CloudWatch dashboard, choose **Actions**, and then choose **Add to dashboard**.
 

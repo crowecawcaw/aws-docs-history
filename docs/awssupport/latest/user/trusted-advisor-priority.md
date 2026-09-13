@@ -111,7 +111,7 @@ Member accounts don't have access to aggregated recommendations.
 **Example : Trusted Advisor Priority recommendations**  
 The following example shows 15 recommendations that are pending a response and 27 recommendations that are in progress under the **Action needed** section. The following image shows two of the recommendations that are pending response in the **Active prioritized recommendation** tab.  
 
-![Recommendation summary on the Trusted Advisor Priority console page.](http://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-summary-4.png)
+![Recommendation summary on the Trusted Advisor Priority console page.](https://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-summary-4.png)
 
 
 ## Acknowledge a recommendation
@@ -142,7 +142,7 @@ The following example shows 15 recommendations that are pending a response and 2
 **Example : Manual recommendation from Trusted Advisor Priority**  
 The following image shows the **Low Utilization EC2 Instances** recommendation that is pending a response.  
 
-![A recommendation on the Trusted Advisor Priority console page that is pending a response.](http://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-example-3.png)
+![A recommendation on the Trusted Advisor Priority console page that is pending a response.](https://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-example-3.png)
 
 
 **To acknowledge a recommendation for all accounts in your AWS organization**
@@ -177,7 +177,7 @@ Member accounts don't have access to aggregated recommendations.
 **Example : Manual recommendation from Trusted Advisor Priority**  
 The following image shows the **Low Utilization Amazon EC2 Instances** recommendation that's pending a response. One affected account has acknowledged the recommendation. Another account is pending a response, making the recommendation status **Pending response**.  
 
-![A recommendation on the Trusted Advisor Priority console page that is pending a response.](http://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-all-example.png)
+![A recommendation on the Trusted Advisor Priority console page that is pending a response.](https://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-all-example.png)
 
 
 ## Dismiss a recommendation
@@ -229,7 +229,7 @@ You can choose the recommendation name and choose **View note** to find the reas
 **Example : Dismiss a recommendation from Trusted Advisor Priority**  
 The following example shows how you can dismiss a recommendation.  
 
-![Dialog box with dropdown lists to dismiss a recommendation in Trusted Advisor Priority.](http://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-dismiss-1.png)
+![Dialog box with dropdown lists to dismiss a recommendation in Trusted Advisor Priority.](https://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-dismiss-1.png)
 
 
 ## Resolve a recommendation
@@ -269,7 +269,7 @@ Member accounts don't have access to aggregated recommendations.
 **Example : Manual recommendation from Trusted Advisor Priority**  
 The following example shows a resolved **Low Utilization Amazon EC2 Instances** recommendation.   
 
-![A resolved recommendation on the Trusted Advisor Priority console page.](http://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-example3.png)
+![A resolved recommendation on the Trusted Advisor Priority console page.](https://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-example3.png)
 
 
 ## Reopen a recommendation
@@ -318,7 +318,7 @@ You can choose the recommendation name and choose **View note** to find the reas
 **Example : Reopen a recommendation from Trusted Advisor Priority**  
 The following example shows a recommendation that you want to reopen.  
 
-![Dialog box to reopen a recommendation in Trusted Advisor Priority.](http://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-reopen-2.png)
+![Dialog box to reopen a recommendation in Trusted Advisor Priority.](https://docs.aws.amazon.com/awssupport/latest/user/images/ta-priority-recommendation-reopen-2.png)
 
 
 ## Download recommendation details

@@ -70,7 +70,7 @@ If you have accounts in your organization that have a Developer or Basic support
 
 You can also refresh specific checks in the following ways:
 + Use the [RefreshTrustedAdvisorCheck](https://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html) API operation.
-+ Choose the refresh icon (![Circular arrow icon representing a refresh or reload action.](http://docs.aws.amazon.com/awssupport/latest/user/images/refresh.png)) for an individual check.
++ Choose the refresh icon (![Circular arrow icon representing a refresh or reload action.](https://docs.aws.amazon.com/awssupport/latest/user/images/refresh.png)) for an individual check.
 
 ## Create organizational view reports
 <a name="create-organizational-view-reports"></a>
@@ -112,11 +112,11 @@ The following example creates a JSON report for the following:
 + Three AWS Regions
 + All **Security** and **Performance** checks
 
-![Screenshot of how to create an organizational view report in Trusted Advisor.](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-create-report-filters.png)
+![Screenshot of how to create an organizational view report in Trusted Advisor.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-create-report-filters.png)
 
 In the following example, the report includes the **support-team** organizational unit and one AWS account that are part of the organization.
 
-![Screenshot of the AWS organization filter options for organizational units (OUs).](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-units-reports-example.png)
+![Screenshot of the AWS organization filter options for organizational units (OUs).](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-units-reports-example.png)
 
 
 **Notes**  
@@ -141,7 +141,7 @@ After the report is ready, you can view the report summary from the Trusted Advi
 
 **Example : Report summary for an organization**  
 
-![Screenshot of an example report summary for Trusted Advisor.](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-summary-report-console-2.png)
+![Screenshot of an example report summary for Trusted Advisor.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-summary-report-console-2.png)
 
 
 ## Download an organizational view report
@@ -161,7 +161,7 @@ After your report is ready, download it from the Trusted Advisor console. The re
    The **Organizational View** page displays the available reports to download.
 
 1. Select a report, choose **Download report**, and then save the file. You can only download one report at a time.  
-![Screenshot of example reports to download for Trusted Advisor.](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-summary-reports-2.png)
+![Screenshot of example reports to download for Trusted Advisor.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-summary-reports-2.png)
 
 1. Unzip the file.
 
@@ -278,7 +278,7 @@ The `resources.csv` file includes information about resources in the organizatio
 + The Trusted Advisor check category
 + The account ID of the parent organizational unit (OU) or root
 
-![Screenshot of an example CSV resources report for Trusted Advisor.](http://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-summary-report-csv.png)
+![Screenshot of an example CSV resources report for Trusted Advisor.](https://docs.aws.amazon.com/awssupport/latest/user/images/organizational-view-summary-report-csv.png)
 
 
 The resources file only contains entries if a check result exists at the resource level. You might not see checks in the report for the following reasons:
@@ -309,7 +309,7 @@ After you disable this feature, the following happens:
 1. In the navigation pane, choose **Preferences**.
 
 1. Under **Organizational View**, choose **Disable organizational view**.  
-![Screenshot of how to disable Trusted Advisor organizational view.](http://docs.aws.amazon.com/awssupport/latest/user/images/disable-organizational-view.png)
+![Screenshot of how to disable Trusted Advisor organizational view.](https://docs.aws.amazon.com/awssupport/latest/user/images/disable-organizational-view.png)
 
 After you disable organizational view, Trusted Advisor no longer aggregates checks from other AWS accounts in your organization. However, the `AWSServiceRoleForTrustedAdvisorReporting` service-linked role remains on the organization's management account until you delete it through the IAM console, IAM API, or AWS Command Line Interface (AWS CLI). For more information, see [Deleting a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*.
 

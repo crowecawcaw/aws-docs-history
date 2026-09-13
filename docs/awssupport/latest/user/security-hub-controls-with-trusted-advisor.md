@@ -62,7 +62,7 @@ The organizational view feature supports this integration with Security Hub CSPM
 **Example : Security Hub CSPM control for IAM user access key should not exist**  
 The following is an example finding for a Security Hub CSPM control in the Trusted Advisor console.  
 
-![Screenshot a Security Hub CSPM control for an IAM root access issue.](http://docs.aws.amazon.com/awssupport/latest/user/images/security-hub-control-example.png)
+![Screenshot a Security Hub CSPM control for an IAM root access issue.](https://docs.aws.amazon.com/awssupport/latest/user/images/security-hub-control-example.png)
 
 
 ## Refresh your Security Hub CSPM findings

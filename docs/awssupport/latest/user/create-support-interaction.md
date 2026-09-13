@@ -15,7 +15,7 @@ If you can't sign in to the Support Center Console and create a support case, yo
 
 1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 **Tip**  
-In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](http://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
+In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](https://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
 
 1. You have several options for starting your support interaction:
    + Enter details about the issues that you need assistance with. This is how you begin a new support interaction. Enter detailed information about your issue and any troubleshooting steps that you have already taken.

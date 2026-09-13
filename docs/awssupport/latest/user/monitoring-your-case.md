@@ -31,7 +31,7 @@ If you have a AWS Business Support\+, AWS Enterprise Support, or AWS Unified Ope
 
 1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 **Tip**  
-In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](http://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
+In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](https://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
 
 1. Under **Open support cases**, choose the **Subject** of the support case.
 
@@ -55,7 +55,7 @@ When you're satisfied with the response or your problem is solved, you can resol
 
 1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 **Tip**  
-In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](http://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
+In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](https://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
 
 1. Under **Open support cases**, choose the **Subject** of the support case that you want to resolve.
 
@@ -71,7 +71,7 @@ If AWS Support resolved your case for you, you can use the feedback link to prov
 **Example : Feedback links**  
 The following screenshot shows the feedback links in the correspondence of a case in Support Center.  
 
-![Screenshot of how to submit case feedback information in Support Center.](http://docs.aws.amazon.com/awssupport/latest/user/images/support-feedback-link.png)
+![Screenshot of how to submit case feedback information in Support Center.](https://docs.aws.amazon.com/awssupport/latest/user/images/support-feedback-link.png)
 
 
 ## Reopening a resolved case
@@ -87,7 +87,7 @@ If you reopen an existing case that has different information than your current 
 
 1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 **Tip**  
-In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](http://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
+In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](https://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
 
 1. Choose **View all cases** and then choose the **Subject** or the **Case ID** of the support case that you want to reopen.
 
@@ -115,14 +115,14 @@ After 14 days of inactivity, you can't reopen a resolved case. If you have a sim
 
 1. Sign in to the [AWS Support Center Console](https://console.aws.amazon.com/support).
 **Tip**  
-In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](http://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
+In the AWS Management Console, you can also choose the question mark icon (![Question mark icon representing help or information.](https://docs.aws.amazon.com/awssupport/latest/user/images/questionmark.png)) and then choose **Support Center**.
 
 1. Choose **View all cases** and then choose the **Subject** or the **Case ID** of the support case that you want to reopen.
 
 1. Choose **Reopen case**.
 
 1. In the dialog box, choose **Create related case**. The previous case information will be automatically added to your related case. If you have a different issue, choose **Create new case**.  
-![Screenshot of how to create a new case or a related case in Support Center.](http://docs.aws.amazon.com/awssupport/latest/user/images/open-related-case-support-center.png)
+![Screenshot of how to create a new case or a related case in Support Center.](https://docs.aws.amazon.com/awssupport/latest/user/images/open-related-case-support-center.png)
 
 1. Follow the same steps to create your case. See [Creating a support case](case-management-legacy.md#creating-a-support-case-legacy).
 **Note**  
@@ -131,7 +131,7 @@ In the AWS Management Console, you can also choose the question mark icon (![Que
 1. Review your case details and choose **Submit**. 
 
    After you create your case, the previous case appears in the **Related cases** section, such as in the following example.  
-![Screenshot of a related case in Support Center.](http://docs.aws.amazon.com/awssupport/latest/user/images/related-cases-in-support-center.png)
+![Screenshot of a related case in Support Center.](https://docs.aws.amazon.com/awssupport/latest/user/images/related-cases-in-support-center.png)
 
 ## Case history
 <a name="case-history"></a>
