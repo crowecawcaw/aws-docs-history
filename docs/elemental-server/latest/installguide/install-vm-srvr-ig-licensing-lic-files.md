@@ -14,7 +14,7 @@ From your workstation, perform the following steps for each newly installed AWS 
 1. Bring up the web interface for the AWS Elemental Server system. From the main menu, select **Settings** > **Licenses**. The Licenses screen appears.
 
 1. Select **Choose File** and navigate to the directory where you placed the license files. Select the file name with the hostname portion matching the hostname of this node.  
-![Settings page showing Standalone License section with no license uploaded and instructions for assistance.](http://docs.aws.amazon.com/elemental-server/latest/installguide/images/install-installlic-shared-png.png)
+![Settings page showing Standalone License section with no license uploaded and instructions for assistance.](https://docs.aws.amazon.com/elemental-server/latest/installguide/images/install-installlic-shared-png.png)
 
 1. Back on the Licenses screen, choose **Update**. The license file is installed. 
 
