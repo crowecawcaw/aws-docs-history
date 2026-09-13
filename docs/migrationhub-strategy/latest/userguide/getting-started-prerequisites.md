@@ -39,7 +39,7 @@ The following are the prerequisites for using Migration Hub Strategy Recommendat
 **Note**  
  To verify that the Migration Hub import completed successfully, in the Migration Hub console navigation pane, under **Discover**, choose **Servers**. All the imported servers should be listed.   
 
-![This is an image of the Migration Hub console Servers list page.](http://docs.aws.amazon.com/migrationhub-strategy/latest/userguide/images/optimus-ads-server-list.png)
+![This is an image of the Migration Hub console Servers list page.](https://docs.aws.amazon.com/migrationhub-strategy/latest/userguide/images/optimus-ads-server-list.png)
 
 
 ## Next
