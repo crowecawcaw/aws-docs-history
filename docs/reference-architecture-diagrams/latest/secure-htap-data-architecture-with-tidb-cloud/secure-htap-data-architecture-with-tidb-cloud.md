@@ -10,7 +10,7 @@ This reference architecture outlines a modern hybrid transactional/analytical pr
 ## Secure HTAP Data Architecture Using TiDB Cloud Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing a modern HTAP data stack on AWS using TiDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/secure-htap-data-architecture-with-tidb-cloud/images/secure-htap-data-architecture-with-tidb-cloud.png)
+![Reference architecture diagram showing a modern HTAP data stack on AWS using TiDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/secure-htap-data-architecture-with-tidb-cloud/images/secure-htap-data-architecture-with-tidb-cloud.png)
 
 
 1. Create RESTful microservices using **Amazon API Gateway** or **AWS AppSync** and **AWS Lambda**. It can use TiDB Cloud as the online transactional processing (OLTP) database. **Lambda** receives all requests and sends them to the TiDB Server using an **Amazon Virtual Private Cloud** (Amazon VPC) endpoint. 
