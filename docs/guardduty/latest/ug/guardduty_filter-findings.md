@@ -27,14 +27,14 @@ Finding filters can be created and tested through the GuardDuty console. You can
 1. In the left navigation pane, choose **Findings**.
 
 1. On the **Findings** page, select the *Filter findings* bar next to **Saved rules** menu. This will display an expanded list of **Property filters**.  
-![Selecting property filters to filter findings in the GuardDuty console.](http://docs.aws.amazon.com/guardduty/latest/ug/images/guardduty-findings-page-console.png)
+![Selecting property filters to filter findings in the GuardDuty console.](https://docs.aws.amazon.com/guardduty/latest/ug/images/guardduty-findings-page-console.png)
 
 1. From the expanded list of filters, select an attribute based on which you want to filter the findings table.
 
    For example, to view findings for which the potentially impacted resource is an **S3Bucket**, choose **Resource type**. 
 
 1. For **Operators**, choose one that will help you filter the findings to get the desired result. To continue the example from the previous step, choose **Resource type =**. This will display a list of resource types in GuardDuty.   
-![Selecting the equals or does not equals operator to filter findings in GuardDuty console.](http://docs.aws.amazon.com/guardduty/latest/ug/images/guardduty-findings-page-filters-operator-console.png)
+![Selecting the equals or does not equals operator to filter findings in GuardDuty console.](https://docs.aws.amazon.com/guardduty/latest/ug/images/guardduty-findings-page-filters-operator-console.png)
 
    If your use case requires excluding specific findings, you can choose **Does not equal** or **\!=** operator.
 
@@ -53,7 +53,7 @@ Finding filters can be created and tested through the GuardDuty console. You can
    To apply this filter combination again in the future, you can save the specified attributes and their values as a filter set.
 
    1. After you have created a filter criteria with one or more property filters, select the *arrow* in the **Clear filters** menu.  
-![Saving a filter set in GuardDuty console to be able to filter the findings again.](http://docs.aws.amazon.com/guardduty/latest/ug/images/guardduty-findings-page-filters-console.png)
+![Saving a filter set in GuardDuty console to be able to filter the findings again.](https://docs.aws.amazon.com/guardduty/latest/ug/images/guardduty-findings-page-filters-console.png)
 
    1. Enter the filter set **Name**. The name must be 3-64 characters. Valid characters are a-z, A-Z, 0-9, period (.), hyphen (-), and underscore (\_).
 

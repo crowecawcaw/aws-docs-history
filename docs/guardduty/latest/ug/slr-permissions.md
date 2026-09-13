@@ -14,6 +14,7 @@ The permission policies help GuardDuty perform the following tasks:
 + Use Amazon EKS actions to manage and retrieve information about the EKS clusters and manage [Amazon EKS add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html) on EKS clusters. The EKS actions also retrieve the information about the tags associated to GuardDuty.
 + Use IAM to create the [Service-linked role permissions for Malware Protection for EC2](slr-permissions-malware-protection.md) after Malware Protection for EC2 has been enabled.
 + Use Amazon ECS actions to manage and retrieve information about the Amazon ECS clusters, retrieve information about tasks and task definitions, and manage the Amazon ECS account setting with `guarddutyActivate`. The actions pertaining to Amazon ECS also retrieve the information about the tags associated with GuardDuty.
++ Use Amazon VPC Lattice actions to enable connectivity for the Runtime Monitoring agent.
 
 The role is configured with the following [AWS managed policy](https://docs.aws.amazon.com/guardduty/latest/ug/security-iam-awsmanpol), named `AmazonGuardDutyServiceRolePolicy`.
 

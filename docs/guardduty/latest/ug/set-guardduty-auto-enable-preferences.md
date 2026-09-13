@@ -22,7 +22,7 @@ Choose a preferred access method to update the auto-enable preferences for the o
    The **Accounts** page provides configuration options to the GuardDuty administrator account to **Auto-enable** GuardDuty and the optional protection plans on behalf of the member accounts that belong to the organization.
 
 1. To update the existing auto-enable settings, choose **Edit**.  
-![Selecting Edit to update auto-enable preferences on behalf of the member accounts in the organization.](http://docs.aws.amazon.com/guardduty/latest/ug/images/accounts-auto-enable-1-console.png)
+![Selecting Edit to update auto-enable preferences on behalf of the member accounts in the organization.](https://docs.aws.amazon.com/guardduty/latest/ug/images/accounts-auto-enable-1-console.png)
 
    This support is available to configure GuardDuty and all of the supported optional protection plans in your AWS Region. You can select one of the following configuration options for GuardDuty on behalf of your member accounts:
    + **Enable for all accounts (`ALL`)** – Select to enable the corresponding option for all the accounts in an organization. This includes new accounts that join the organization and those accounts that may have been suspended or removed from the organization. This also includes the delegated GuardDuty administrator account.

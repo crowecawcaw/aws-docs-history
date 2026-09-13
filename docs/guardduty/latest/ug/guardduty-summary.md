@@ -42,7 +42,7 @@ This section provides the following data:
 
 For the time ranges **Last 7 days** and **Last 30 days**, the **Overview** pane may show the percentage difference in the findings generated week over week (WoW) or month over month (MoM), respectively. If no findings were generated in the week or the month before, then with no data to compare, the percentage difference may not be available. 
 
-![Overview section in the GuardDuty Summary dashboard.](http://docs.aws.amazon.com/guardduty/latest/ug/images/attack-sequence-summary-overview-console.png)
+![Overview section in the GuardDuty Summary dashboard.](https://docs.aws.amazon.com/guardduty/latest/ug/images/attack-sequence-summary-overview-console.png)
 
 
 If you're a GuardDuty administrator account, all of these fields provide the summarized data across all the member accounts in your organization.
@@ -56,7 +56,7 @@ By default, you can view all the findings. To view only attack sequence findings
 
 In this list, you can select any finding to view its details.
 
-![Findings widget in the GuardDuty Summary dashboard.](http://docs.aws.amazon.com/guardduty/latest/ug/images/attack-sequence-summary-finding-widget-console.png)
+![Findings widget in the GuardDuty Summary dashboard.](https://docs.aws.amazon.com/guardduty/latest/ug/images/attack-sequence-summary-finding-widget-console.png)
 
 
 ## Most common finding types
@@ -114,4 +114,4 @@ This section displays statistics for the member accounts in your organization. I
 **How to use this widget**
 + **Configuration**: If a protection plan is not configured, choose **Configure** under the **Actions** column.
 + **Viewing enabled accounts**: Hover over the bar in the **Enabled accounts** column to view how many accounts have enabled each protection plan. To further view account details, select the green bar, and choose **View accounts**.  
-![View status of protection plans enablement for member accounts, in GuardDuty Summary dashboard.](http://docs.aws.amazon.com/guardduty/latest/ug/images/guardduty-summary-protection-plans-console.png)
+![View status of protection plans enablement for member accounts, in GuardDuty Summary dashboard.](https://docs.aws.amazon.com/guardduty/latest/ug/images/guardduty-summary-protection-plans-console.png)

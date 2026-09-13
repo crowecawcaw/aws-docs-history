@@ -12,7 +12,7 @@ Amazon GuardDuty is a threat detection service that continuously monitors, analy
 
 The following video provides an overview of how GuardDuty helps you detect threats in your AWS environment.
 
-[![AWS Videos](http://img.youtube.com/vi/ng14ToMXnTA/0.jpg)](http://www.youtube.com/watch?v=ng14ToMXnTA)
+[![AWS Videos](https://img.youtube.com/vi/ng14ToMXnTA/0.jpg)](https://www.youtube.com/watch?v=ng14ToMXnTA)
 
 
 **Topics**

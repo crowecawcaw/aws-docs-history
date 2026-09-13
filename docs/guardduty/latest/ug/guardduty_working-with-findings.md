@@ -15,7 +15,7 @@ If you are using a GuardDuty administrator account, you can view the generated f
 
    GuardDuty displays the findings in a tabular format. By default, this table is sorted in decreasing order based on the **Last seen** column value, displaying the most recent findings at the top.
 
-   Findings with a sword icon (![Sword icon that represents attack sequence finding in GuardDuty console.](http://docs.aws.amazon.com/guardduty/latest/ug/images/attack-sequences-icon.PNG)) represent an attack sequence finding.
+   Findings with a sword icon (![Sword icon that represents attack sequence finding in GuardDuty console.](https://docs.aws.amazon.com/guardduty/latest/ug/images/attack-sequences-icon.PNG)) represent an attack sequence finding.
 
 1. To view details associated with a finding, select its **Title**. This will open the finding details side panel. For an attack sequence finding, this side panel includes a *summarized version* of the attack sequence, and to expand this view, choose **View details**.
 

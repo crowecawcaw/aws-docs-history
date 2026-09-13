@@ -32,7 +32,7 @@ Because of the nature of the associated threat scenarios, GuardDuty considers al
 
 The following video provides a demonstration of how you can use Extended Threat Detection.
 
-[![AWS Videos](http://img.youtube.com/vi/xLqGwoSaoPw/0.jpg)](http://www.youtube.com/watch?v=xLqGwoSaoPw)
+[![AWS Videos](https://img.youtube.com/vi/xLqGwoSaoPw/0.jpg)](https://www.youtube.com/watch?v=xLqGwoSaoPw)
 
 
 ## How it works

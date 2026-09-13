@@ -36,7 +36,7 @@ For a new GuardDuty account, some of the available protection types that are sup
 
 The following video explains how an administrator account can get started with GuardDuty and enable it in multiple member accounts.
 
-[![AWS Videos](http://img.youtube.com/vi/0vIzHOQvjYU/0.jpg)](http://www.youtube.com/watch?v=0vIzHOQvjYU)
+[![AWS Videos](https://img.youtube.com/vi/0vIzHOQvjYU/0.jpg)](https://www.youtube.com/watch?v=0vIzHOQvjYU)
 
 
 ## Step 1: Enable Amazon GuardDuty

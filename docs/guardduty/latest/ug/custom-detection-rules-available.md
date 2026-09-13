@@ -17,12 +17,12 @@ Each rule defines specific conditions that determine when it fires. You can insp
 
 The following image shows the Custom Detection Rules catalog.
 
-![Custom Detection Rules catalog listing available rules with columns for name, severity, and status, and property filter controls above the table.](http://docs.aws.amazon.com/guardduty/latest/ug/images/custom-detection-rules-rule-catalog.png)
+![Custom Detection Rules catalog listing available rules with columns for name, severity, and status, and property filter controls above the table.](https://docs.aws.amazon.com/guardduty/latest/ug/images/custom-detection-rules-rule-catalog.png)
 
 
 The following image shows the rule details panel with the detection logic.
 
-![Rule details split panel with the Details tab selected, showing the rule's SQL-based detection logic expression.](http://docs.aws.amazon.com/guardduty/latest/ug/images/custom-detection-rules-rule.png)
+![Rule details split panel with the Details tab selected, showing the rule's SQL-based detection logic expression.](https://docs.aws.amazon.com/guardduty/latest/ug/images/custom-detection-rules-rule.png)
 
 
 ## Functions used in detection logic
