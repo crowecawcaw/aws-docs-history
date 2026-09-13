@@ -10,7 +10,7 @@ With this architecture, you can create a Predictive Maintenance (PdM) machine le
 ## Predictive maintenance ML model architecture diagram
 <a name="pdm-diagram"></a>
 
-![Reference architecture diagram for creating a predictive maintenance ML model by using AWS IoT SiteWise and AWS IoT Analytics on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-iot-predictive-maintenance-ml/images/aws-industrial-PdM-ML-storage-RA.png)
+![Reference architecture diagram for creating a predictive maintenance ML model by using AWS IoT SiteWise and AWS IoT Analytics on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-iot-predictive-maintenance-ml/images/aws-industrial-PdM-ML-storage-RA.png)
 
 
 The following steps describe the architecture:
