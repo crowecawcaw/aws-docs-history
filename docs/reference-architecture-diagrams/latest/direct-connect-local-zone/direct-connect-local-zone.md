@@ -10,7 +10,7 @@ This architecture shows traffic flows from an on-premises data center to an AWS 
 ## AWS Direct Connect traffic flow with AWS Local Zone architecture
 <a name="diagram1"></a>
 
-![Architecture diagram showing AWS Direct Connect traffic flow to an AWS Local Zone using Direct Connect gateways, VGW, and Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/direct-connect-local-zone/images/direct-connect-local-zone.png)
+![Architecture diagram showing AWS Direct Connect traffic flow to an AWS Local Zone using Direct Connect gateways, VGW, and Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/direct-connect-local-zone/images/direct-connect-local-zone.png)
 
 
 The following steps describe this architecture:
