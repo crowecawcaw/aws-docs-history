@@ -26,7 +26,7 @@
 
  Amazon WorkSpaces Applications delivers a service which accommodates the application delivery models and the associated advantages which are mentioned in the preceding section. The following diagram illustrates a typical deployment of the WorkSpaces Applications service. 
 
-![Architecture diagram showing AppStream 2.0 VPC with Fleet and Image Builder connecting to Customer VPCs across two Availability Zones with optional Active Directory and Amazon S3 storage.](http://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image3.png)
+![Architecture diagram showing AppStream 2.0 VPC with Fleet and Image Builder connecting to Customer VPCs across two Availability Zones with optional Active Directory and Amazon S3 storage.](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image3.png)
 
 
  Prior to subscribing to the WorkSpaces Applications service, the customer must create their own AWS landing zone and VPC, which will typically deploy subnets across multiple resilient Availability Zones. It is from these subnets that the application machine instances will communicate with external services. 

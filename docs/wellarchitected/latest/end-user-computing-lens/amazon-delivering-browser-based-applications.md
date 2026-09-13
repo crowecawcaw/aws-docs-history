@@ -7,10 +7,10 @@
 
  It can be challenging to deliver web-based applications securely, efficiently, and at a low cost. Amazon WorkSpaces Secure Browser provides this capability in the form of a low cost, fully managed, Linux-based service designed to facilitate secure browser access to customers' internal websites and software as a service (SaaS) applications from existing web browsers. This is achieved without the administrative burden of appliances, managing infrastructure, specialized client software, or VPN connections. 
 
-![Depiction of how Amazon WorkSpaces operates.](http://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image4.jpeg)
+![Depiction of how Amazon WorkSpaces operates.](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image4.jpeg)
 
 
-![Reference architecture for Amazon WorkSpaces Secure Browser service](http://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image5.jpeg)
+![Reference architecture for Amazon WorkSpaces Secure Browser service](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image5.jpeg)
 
 
  Amazon WorkSpaces Secure Browser is underpinned by a non-persistent system delivering a Chromium-based browser to users each time they authenticate and access the service. This verifies that each user is using an updated browser that is secure and has access to the resources that the user needs to fulfill their role. At the end of a user's session, they disconnect from the browser, and their browser session is terminated, avoiding sharing of data that may be cached within their browser. 

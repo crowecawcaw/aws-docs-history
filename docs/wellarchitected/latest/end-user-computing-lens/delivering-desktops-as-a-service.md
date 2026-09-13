@@ -7,7 +7,7 @@
 
  With DaaS, applications can be pre-installed in your golden image or pushed to the virtual desktop using a desktop management suite. Users may also have access to a software center to install pre-packed applications in a self-service fashion. Application layering and application containerization can alternatively be used to run applications without the need for installation (for example, from a simple network share). DaaS can be combined with application virtualization to decouple applications with special hardware requirements from a virtual desktop with more common hardware specifications. 
 
-![](http://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image1.png)
+![](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image1.png)
 
 
 ## Common Amazon WorkSpaces Service deployment scenarios
@@ -36,7 +36,7 @@
 
  Standing up and maintaining an on-premises desktop virtualization environment can be challenging and requires knowledge and skilled staff in several different areas. A fully managed service like Amazon WorkSpaces takes a lot of this complexity away, leaving you with a significantly reduced number of tasks your IT staff has to deal with. The freed-up resources can be assigned to other projects where they can contribute more directly to your business goals. 
 
-![Solution stack table describing advantages of Amazon WorkSpaces and WorkSpaces Applications.](http://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image2.png)
+![Solution stack table describing advantages of Amazon WorkSpaces and WorkSpaces Applications.](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image2.png)
 
 
 ### Scenario 4: Increased availability

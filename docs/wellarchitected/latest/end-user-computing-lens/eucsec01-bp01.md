@@ -14,4 +14,4 @@
 
  Based on the risk profile, implement different security controls to mitigate residual risks within the groups of users. A matrix can be used to assess the risks associated with users. For example, in a scenario where four groups of internal and external users will be accessing the EUC services, a 2x2 matrix can be created that captures the type of users on one axis (for example, internal or external) and the risk profile of the group of users on the other (for example, high or low risk). By populating the matrix with the different groups, you can determine the appropriate risk posture and apply the appropriate level of security controls for the user group, such as enforcing multi-factor authentication. An example matrix is shown in the following figure for groups of internal and external users that will access a computing service. 
 
-![Matrix depicting risk and user profile interactions.](http://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image6.png)
+![Matrix depicting risk and user profile interactions.](https://docs.aws.amazon.com/wellarchitected/latest/end-user-computing-lens/images/image6.png)
