@@ -60,7 +60,7 @@ The `partitioned_by` clause is used in queries to group and analyze data at a gr
 Assuming you are monitoring clickstream data of your website and have 5 channels of traffic namely `direct`, `Social Media`, `Organic Search`, `Other`, and `Referral`. When exporting the data, you can choose to partition the data using the column `Channel`. Within your data folder, `s3://bucketname/results`, you will have five folders each with their respective channel name, for instance, `s3://bucketname/results/channel=Social Media/.` Within this folder you will find the data of all the customers that landed on your website through the `Social Media` channel. Similarly, you will have other folders for the remaining channels.
 Exported data partitioned by Channel column  
 
-![S3 bucket showing five folders organized by channel: Direct, Organic search, Other, Referral, and Social media.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/unload-results.png)
+![S3 bucket showing five folders organized by channel: Direct, Organic search, Other, Referral, and Social media.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/unload-results.png)
 
 
 FORMAT  

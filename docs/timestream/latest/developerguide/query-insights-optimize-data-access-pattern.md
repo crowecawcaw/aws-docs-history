@@ -16,7 +16,7 @@ You can optimize the data access patterns in Amazon Timestream using the Timestr
 
 Amazon Timestream uses a highly scalable partitioning scheme where each Timestream table can have hundreds, thousands, or even millions of independent partitions. A highly available partition tracking and indexing service manages the partitioning, minimizing the impact of failures and making the system more resilient.
 
-![Timestream partitioning scheme](http://docs.aws.amazon.com/timestream/latest/developerguide/images/QueryInsights/ts-partitioning-scheme.png)
+![Timestream partitioning scheme](https://docs.aws.amazon.com/timestream/latest/developerguide/images/QueryInsights/ts-partitioning-scheme.png)
 
 
 ## Data organization
@@ -50,7 +50,7 @@ On the contrary, if the `QuerySpatialCoverage` metric returned a value of 0.8, i
 
 The following image shows poor spatial pruning.
 
-![Result provided by the QuerySpatialCoverage metric that shows poor spatial pruning.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/QueryInsights/QuerySpatialCoverageMetricResult.png)
+![Result provided by the QuerySpatialCoverage metric that shows poor spatial pruning.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/QueryInsights/QuerySpatialCoverageMetricResult.png)
 
 
 To improve spatial pruning efficiency, you can do one or both of the following:
@@ -77,7 +77,7 @@ On the contrary, if the `QueryTemporalCoverage` metric returned a value of 1 yea
 
 The following image shows poor temporal pruning.
 
-![Result provided by the QueryTemporalCoverage metric that shows poor temporal pruning.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/QueryInsights/QueryTemporalCoverageMetricResult.png)
+![Result provided by the QueryTemporalCoverage metric that shows poor temporal pruning.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/QueryInsights/QueryTemporalCoverageMetricResult.png)
 
 
 To improve temporal pruning, we recommend that you do one or all of the following:

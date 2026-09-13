@@ -13,7 +13,7 @@ Amazon Timestream for Live Analytics has been designed from the ground up to col
 + [Query architecture](#architecture.queries)
 + [Cellular architecture](#cells)
 
-![Architecture diagram showing ingestion, storage, and query layers for timestream data flow.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/ts-architecture.png)
+![Architecture diagram showing ingestion, storage, and query layers for timestream data flow.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/ts-architecture.png)
 
 
 ## Write architecture
@@ -46,7 +46,7 @@ Timestream for Live Analytics queries are expressed in a SQL grammar that has ex
 
  To ensure that Timestream for Live Analytics can offer virtually infinite scale for your applications, while simultaneously ensuring 99.99% availability, the system is also designed using a cellular architecture. Rather than scaling the system as a whole, Timestream for Live Analytics segments into multiple smaller copies of itself, referred to as *cells*. This allows cells to be tested at full scale, and prevents a system problem in one cell from affecting activity in any other cells in a given region. While Timestream for Live Analytics is designed to support multiple cells per region, consider the following fictitious scenario, in which there are 2 cells in a region.
 
-![Two-cell architecture with ingestion, storage, and query layers, showing write and query endpoints.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/ts-cellular-architecture.png)
+![Two-cell architecture with ingestion, storage, and query layers, showing write and query endpoints.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/ts-cellular-architecture.png)
 
 
  In the scenario depicted above, the data ingestion and query requests are first processed by the discovery endpoint for data ingestion and query, respectively. Then, the discovery endpoint identifies the cell containing the customer data, and directs the request to the appropriate ingestion or query endpoint for that cell. When using the SDKs, these endpoint management tasks are transparently handled for you. 

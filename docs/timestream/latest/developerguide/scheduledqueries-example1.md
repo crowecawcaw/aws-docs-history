@@ -9,7 +9,7 @@ Assume you are computing the fleet-wide statistics such as host counts in the fl
 
 Computing these aggregates, where you are computing distinct instance names over hundreds of gigabytes of data can result in query latency of tens of seconds, in addition to the cost of scanning the data.
 
-![Instance counts by microservice: apollo 150k, athena 50k, demeter 50k, hercules 100k, zeus 150k.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex1_img1.png)
+![Instance counts by microservice: apollo 150k, athena 50k, demeter 50k, hercules 100k, zeus 150k.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex1_img1.png)
 
 
 **Original dashboard query**
@@ -103,7 +103,7 @@ GROUP BY microservice_name, hour
 
 You will now see how to create your aggregate view dashboard using the derived table from the scheduled query you created. From the dashboard snapshot, you will also be able to validate that the aggregates computed from the derived table and the base table also match. Once you create the dashboards using the derived tables, you will notice the significantly faster load time and lower costs of using the derived tables compared to computing these aggregates from the raw data. Below is a snapshot of the dashboard using pre-computed data, and the query used to render this panel using pre-computed data stored in the table "derived"."host\_count\_pt1h". Note that the structure of the query is very similar to the query that was used in the dashboard on raw data, except that is it using the derived table which already computes the distinct counts which this query is aggregating. 
 
-![Instance counts by microservice: apollo 150k, athena 50k, demeter 50k, hercules 100k, zeus 150k.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex1_img2.png)
+![Instance counts by microservice: apollo 150k, athena 50k, demeter 50k, hercules 100k, zeus 150k.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex1_img2.png)
 
 
 ```

@@ -33,4 +33,4 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
 
  A **database** contains 0 or more **tables**. Each **table** contains 0 or more **time series**. Each **time series** consists of a sequence of **records** over a given time interval at a specified **granularity**. Each **time series** can be described using its meta-data or **dimensions**, its data or **measures**, and its **timestamps**. 
 
-![Database hierarchy showing tables containing series with dimensions, timestamps, and measure values.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/concepts_simple.png)
+![Database hierarchy showing tables containing series with dimensions, timestamps, and measure values.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/concepts_simple.png)

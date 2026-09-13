@@ -35,7 +35,7 @@ A read replica instance is a read-only copy of a writer DB instance. You can red
 
 The following diagram shows a primary DB instance replicating to a read replica in a different Availability Zone. Clients have read/write access to the primary DB instance and read-only access to the replica.
 
-![A primary DB instance in Avaiability Zone A asynchronously replicates to a read replica instance in Availability Zone C.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/rr_azs_diagram.png)
+![A primary DB instance in Avaiability Zone A asynchronously replicates to a read replica instance in Availability Zone C.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/rr_azs_diagram.png)
 
 
 ## Parameter groups for read replica clusters

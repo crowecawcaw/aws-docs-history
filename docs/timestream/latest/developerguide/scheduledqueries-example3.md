@@ -16,7 +16,7 @@ The first panel computes the instances whose avg CPU utilization is a threshold 
 
 The query for the panel demonstrates the flexibility of Timestream for LiveAnalytics's SQL support to perform complex analytical tasks with common table expressions, window functions, joins, and so on. 
 
-![Table showing CPU utilization metrics for demeter and apollo microservices across regions.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img1.png)
+![Table showing CPU utilization metrics for demeter and apollo microservices across regions.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img1.png)
 
 
 *Query*:
@@ -67,10 +67,10 @@ This dashboard uses a variable to pick microservice to drill down into, and the 
 
 As you see below, the first panel plots the percentage of hosts in a deployment (a region, cell, and silo for a microservice) over time, and the corresponding query which is used to plot the dashboard. This plot itself identifies a specific deployment having higher percentage of hosts with high CPU.
 
-![Navigation bar showing microservice, demeter dropdown, topk, and 2 labels.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img2.png)
+![Navigation bar showing microservice, demeter dropdown, topk, and 2 labels.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img2.png)
 
 
-![Line graph showing percentage of hosts with high CPU utilization across multiple deployments over 24 hours.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img3.png)
+![Line graph showing percentage of hosts with high CPU utilization across multiple deployments over 24 hours.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img3.png)
 
 
 *Query*:
@@ -228,7 +228,7 @@ Later on, you will see how the three panels use these aggregates written to tabl
 
 For the high utilization hosts, you will see how the different panels use the data from deployment\_cpu\_stats\_per\_hr to compute different aggregates necessary for the panels. For instance, this panels provides region-level information, so it reports aggregates grouped by region and microservice, without filtering any region or microservice. 
 
-![Table showing microservice utilization by region with host counts and percentages.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img4.png)
+![Table showing microservice utilization by region with host counts and percentages.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img4.png)
 
 
 ```
@@ -266,7 +266,7 @@ ORDER BY percent_high_utilization_hosts desc, rank asc
 
 This next example again uses the deployment\_cpu\_stats\_per\_hr derived table, but now applies a filter for a specific microservice (demeter in this example, since it reported high utilization hosts in the aggregate dashboard). This panel tracks the percentage of high CPU utilization hosts over time.
 
-![Line chart showing percentage of hosts with high CPU utilization remaining constant at 21, 22, and 24 percent across all time periods.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img5.png)
+![Line chart showing percentage of hosts with high CPU utilization remaining constant at 21, 22, and 24 percent across all time periods.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex3_img5.png)
 
 
 ```

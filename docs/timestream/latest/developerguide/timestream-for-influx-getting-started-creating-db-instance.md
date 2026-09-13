@@ -14,7 +14,7 @@ There's no charge for creating an AWS account. However, by completing this tutor
 
 The following diagram shows the configuration when accessibility is public.
 
-![Network diagram showing internet gateway, ENI in public subnet with security group, and Timestream-InfluxDB database within VPC.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/public.png)
+![Network diagram showing internet gateway, ENI in public subnet with security group, and Timestream-InfluxDB database within VPC.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/public.png)
 
 
 **Warning**  
@@ -34,7 +34,7 @@ Localhost is unable to validate the certificate because localhost is not part of
 
 The following diagram shows the configuration when accessibility is private:
 
-![Network architecture with internet gateway, public and private subnets, route tables, and security groups for private access.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/private.png)
+![Network architecture with internet gateway, public and private subnets, route tables, and security groups for private access.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/private.png)
 
 
 ## Prerequisites
@@ -83,7 +83,7 @@ In this example, you will create a DB instance running the InfluxDB database eng
 1. In the navigation pane, choose **InfluxDB Databases**.
 
 1. Choose **Create InfluxDB database**.  
-![Empty InfluxDB databases page with no databases created and Create InfluxDB database button.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/CreateInfluxDatabase.png)
+![Empty InfluxDB databases page with no databases created and Create InfluxDB database button.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/CreateInfluxDatabase.png)
 
 1. In the **Deployment settings** section, select **Cluster with read replicas**. Choose **View subscription options** to start a subscription for the read replica add-on. For more information, see [Read replica licensing through AWS Marketplace](timestream-for-influx-rr-licensing.md).
 
@@ -94,7 +94,7 @@ In this example, you will create a DB instance running the InfluxDB database eng
 You won't be able to view the user password again. You won't be able to access your instance and obtain an operator token without your password. If you don't record it, you might have to change it. See [Creating a new operator token for your InfluxDB instance](timestream-for-influx-getting-started-operator-token.md).  
 If you need to change the user password after the DB instance is available, you can modify the DB instance to do so. For more information about modifying a DB instance, see [Updating DB instances](timestream-for-influx-managing-modifying-db.md).  
 
-![Create InfluxDB database page showing deployment settings and database credentials fields.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/CreateInfluxDatabaseDetails.png)
+![Create InfluxDB database page showing deployment settings and database credentials fields.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/CreateInfluxDatabaseDetails.png)
 
 
 1. In the **Instance configuration** section, select the **db.influx.large** DB instance class.
@@ -102,7 +102,7 @@ If you need to change the user password after the DB instance is available, you 
 1. In the **Storage configuration** section, select **Influx IO Included (3K)** for **Storage type**.
 
 1. In the **Connectivity configuration** section, select **IPv4** for the **Network type**. Make sure your InfluxDB instance is in the same subnet as your newly created EC2 instance. Under **Public access**, select **Not publicly accessible** to make your DB instance private.  
-![Connectivity configuration section showing Network type, VPC, Subnets, Security groups, Public access, and Database port settings.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/ConnectivityConfiguration.png)
+![Connectivity configuration section showing Network type, VPC, Subnets, Security groups, Public access, and Database port settings.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/ConnectivityConfiguration.png)
 
 1. In the **Failover settings** and **Parameter group settings** sections, keep the default values.
 
@@ -128,7 +128,7 @@ A bastion host is a special-purpose server that acts as a secure entry point to 
 For publicly accessible Timestream for InfluxDB DB instances, you can access the InfluxDB UI via the **InfluxDB UI** button on the instance details page in the console. Note that this button will be disabled for instances that are not publicly accessible.  
 If you have a public DB instance, connect to the InfluxDB UI via the console and proceed to [Step 4: Send Telegraf data to your InfluxDB instance](#timestream-for-influx-getting-started-creating-db-instance-step4).
 
-![Summary interface showing details of a private InfluxDB database. The InfluxDB UI button is disabled.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/InfluxDB-database-summary.png)
+![Summary interface showing details of a private InfluxDB database. The InfluxDB UI button is disabled.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/InfluxDB-database-summary.png)
 
 
 Follow these steps to create and configure your bastion host: 
@@ -169,7 +169,7 @@ You can now start sending telemetry data to your InfluxDB DB instance using the 
 1. For this test, choose **Generate API Token**. Select **All Access API Token** from the dropdown list.
 **Note**  
 For production scenarios, we recommend creating tokens with specific access to the required buckets that are built for specific Telegraf needs.  
-![Generate All Access API Token dialog with warning, description field, and CANCEL and SAVE buttons.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/AllAccessAPIToken.png)
+![Generate All Access API Token dialog with warning, description field, and CANCEL and SAVE buttons.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/AllAccessAPIToken.png)
 
 1. Your token will appear on the screen.
 **Important**  

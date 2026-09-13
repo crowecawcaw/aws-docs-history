@@ -13,10 +13,10 @@ In this example, you will see how you can use aggregate dashboard to identify an
 
 The dashboard below provides drill down into more granular and server-level statistics within a given deployment. To help you drill down into the different parts of your fleet, this dashboard uses variables such as region, cell, silo, microservice, and availability\_zone. It then shows some aggregate statistics for that deployment.
 
-![Dashboard showing deployment statistics with filters for region, cell, silo, and other parameters.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex2_img1.png)
+![Dashboard showing deployment statistics with filters for region, cell, silo, and other parameters.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex2_img1.png)
 
 
-![CPU distribution graph showing consistent patterns for avg, p90, p95, and p99 values over 24 hours.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex2_img2.png)
+![CPU distribution graph showing consistent patterns for avg, p90, p95, and p99 values over 24 hours.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex2_img2.png)
 
 
 In the query below, you can see that the values chosen in the drop down of the variables are used as predicates in the `WHERE` clause of the query, which allows you to only focus on the data for the deployment. And then the panel plots the aggregated CPU metrics for instances in that deployment. You can use the raw data to perform this drill down with interactive query latency to derive deeper insights.
@@ -75,10 +75,10 @@ ORDER BY i.instance_avg_metric DESC
 
 In the preceding query, the variable is dynamically recalculated depending on the values chosen for the other variables. Once the variable is populated for a deployment, you can pick individual instances from the list to further visualize the metrics from that instance. You can pick the different instances from the drop down of the instance names as seen from the snapshot below.
 
-![List of AWS instance hostnames in eu-west-1 region with different silo identifiers.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex2_img3.png)
+![List of AWS instance hostnames in eu-west-1 region with different silo identifiers.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex2_img3.png)
 
 
-![Instance statistics dashboard showing CPU at 95%, memory at 100%, 1826 GC pause events, and disk IO metrics.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex2_img4.png)
+![Instance statistics dashboard showing CPU at 95%, memory at 100%, 1826 GC pause events, and disk IO metrics.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/sched_query_ex2_img4.png)
 
 
 Preceding panels show the statistics for the instance that is selected and below are the queries used to fetch these statistics.

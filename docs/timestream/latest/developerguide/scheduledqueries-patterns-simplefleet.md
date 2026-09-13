@@ -24,7 +24,7 @@ This first example walks you through some of the basic concepts when working wit
 
 In this example, you are tracking the number of metrics emitted by the servers within a given region in every minute. The graph below is an example plotting this time series for the region us-east-1.
 
-![Time series graph showing numDataPoints metrics fluctuating between 1 and 6 million from 23:00 to 10:00.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/schedquery_aggrfromsourcetable.png)
+![Time series graph showing numDataPoints metrics fluctuating between 1 and 6 million from 23:00 to 10:00.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/schedquery_aggrfromsourcetable.png)
 
 
 Below is an example query to compute this aggregate from the raw data. It filters the rows for the region us-east-1 and then computes the per minute sum by accounting for the 20 metrics (if measure\_name is metrics) or 5 events (if measure\_name is events). In this example, the graph illustration shows that the number of metrics emitted vary between 1.5 Million to 6 Million per minute. When plotting this time series for several hours (past 12 hours in this figure), this query over the raw data analyzes hundreds of millions of rows.
@@ -127,7 +127,7 @@ GROUP BY bin(time, 1m)
 ORDER BY 1 desc
 ```
 
-![Time series graph showing numDatapoints metric fluctuating between 1 and 6 million from 23:00 to 10:00.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/schedquery_aggrfromderived.png)
+![Time series graph showing numDatapoints metric fluctuating between 1 and 6 million from 23:00 to 10:00.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/schedquery_aggrfromderived.png)
 
 
 The previous figure plots the aggregate computed from the aggregate table. Comparing this panel with the panel computed from the raw source data, you will notice that they match up exactly, albeit these aggregates are delayed by a few minute, controlled by the refresh interval you configured for the scheduled computation plus the time to execute it.
@@ -172,7 +172,7 @@ ORDER BY 1 desc
 
 Below is the dashboard panel with this unified merged view. As you can see, the dashboard looks almost identical to the view computed from the derived table, except for that it will have the most up-to-date aggregate at the rightmost tip.
 
-![Time series graph showing numDatapoints metric with green bars fluctuating between 1 and 6 million from 23:00 to 10:00.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/schedquery_aggrcombsourceandderived.png)
+![Time series graph showing numDatapoints metric with green bars fluctuating between 1 and 6 million from 23:00 to 10:00.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/schedquery_aggrcombsourceandderived.png)
 
 
 ## Aggregate from frequently refreshed scheduled computation
@@ -236,7 +236,7 @@ ORDER BY 1 desc
 
 Since the derived table has more recent aggregates, you can now directly query the derived table per\_minute\_aggs\_pt1m to get fresher aggregates, as can be seen from the previous query and the dashboard snapshot below.
 
-![Time series graph showing numDatapoints metric with frequent spikes between 1-6 million from 23:00 to 10:00.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/schedquery_aggregatefromrequently.png)
+![Time series graph showing numDatapoints metric with frequent spikes between 1-6 million from 23:00 to 10:00.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/schedquery_aggregatefromrequently.png)
 
 
 Note that refreshing the scheduled computation at a faster schedule (say 1 minute compared to 5 minutes) will increase the maintenance costs for the scheduled computation. The notification message for every computation's execution provides statistics for how much data was scanned and how much was written to the derived table. Similarly, if you use the merged view to union the derived table, you query costs on the merged view and the dashboard load latency will be higher compared to only querying the derived table. Therefore, the approach you pick will depend on how frequently your dashboards are refreshed and the maintenance costs for the scheduled queries. If you have tens of users refreshing the dashboards once every minute or so, having a more frequent refresh of your derived table will likely result in overall lower costs.

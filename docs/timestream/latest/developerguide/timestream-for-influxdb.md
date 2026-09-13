@@ -131,7 +131,7 @@ Amazon Timestream for InfluxDB enables you to place resources, such as DB instan
 
 Amazon operates state-of-the-art, highly-available data centers. Although rare, failures can occur that affect the availability of DB instances that are in the same location. If you host all your DB instances in one location that is affected by such a failure, none of your DB instances will be available.
 
-![Region containing three availability zones, with Amazon Timestream for InfluxDB in zone C.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/AvailabilityZone.png)
+![Region containing three availability zones, with Amazon Timestream for InfluxDB in zone C.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/AvailabilityZone.png)
 
 
 It is important to remember that each AWS Region is completely independent. Any Amazon Timestream for InfluxDB activity you initiate (for example, creating database instances or listing available database instances) runs only in your current default AWS Region. The default AWS Region can be changed in the console, or by setting the `AWS_DEFAULT_REGION` environment variable. Or it can be overridden by using the `--region` parameter with the AWS Command Line Interface (AWS CLI). For more information, see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html), specifically the sections about environment variables and command line options. 

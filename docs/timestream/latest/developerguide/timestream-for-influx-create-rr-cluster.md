@@ -56,14 +56,14 @@ To create a read replica DB cluster using the console:
 1. In **Deployment settings**, choose **Cluster with read replicas**.
 
    Once you select that option, a message will appear indicating you need to activate your subscription via the AWS Marketplace widget. Click on **View subscription options**. Note that it can take 1–2 minutes for the subscription to become active.  
-![The Create InfluxDB database interface that shows the different deployment settings available for the new database. The cluster with read replicas option is selected.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/deployment_settings_rr.jpg)  
-![The Deployment settings interface showing a message that the subscription is in progress.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/subscription_in_progress.jpg)
+![The Create InfluxDB database interface that shows the different deployment settings available for the new database. The cluster with read replicas option is selected.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/deployment_settings_rr.jpg)  
+![The Deployment settings interface showing a message that the subscription is in progress.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/subscription_in_progress.jpg)
 
 1. Once the subscription is active, click **View subscription**.  
-![The Deployment settings interface showing a message that the subscription is now active.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/subscription_success_message.jpg)
+![The Deployment settings interface showing a message that the subscription is now active.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/subscription_success_message.jpg)
 
 1. A window will appear presenting information on the cost per vCPU per instance hour for each Region. This follows the same compute pricing model where you are charged for the number of hours your instance is active based on the instance type you have selected. You will only need to subscribe to the add-on once, and that will allow you to create instances in all Regions where Timestream for InfluxDB is available.  
-![Subscription options form showing pricing details on the cost per vCPU per instance hour for each Region.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/purchase_subscription.png)
+![Subscription options form showing pricing details on the cost per vCPU per instance hour for each Region.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/purchase_subscription.png)
 **Important**  
 To subscribe to the offer, you will need to have either AWSMarketplaceManageSubscriptions or AWSMarketplaceFullAccess permissions. For more information about these permissions, check [Controlling access to AWS Marketplace subscriptions](https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-iam-users-groups-policies.html).
 
@@ -86,7 +86,7 @@ To subscribe to the offer, you will need to have either AWSMarketplaceManageSubs
 1. In the **InfluxDB databases** list, choose the name of your new InfluxDB cluster to show its details. The DB cluster will have a status of **Creating** until it is ready to use.
 
 1. When the status changes to **Available**, you can connect to the DB cluster. Depending on the DB instance class and the amount of storage, it can take up to 20 minutes before the new instance is available.  
-![DB cluster summary page showing two instances with the status "Available".](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/cluster_details_page.png)
+![DB cluster summary page showing two instances with the status "Available".](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/cluster_details_page.png)
 
 1. Once created, you can click on your DB cluster identifier to retrieve information about your newly created cluster. The endpoint showing an instance mode of **PRIMARY** is the one you will need to use for writes and engine administration.
 

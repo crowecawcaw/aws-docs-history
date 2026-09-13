@@ -40,13 +40,13 @@ You can create an Amazon CloudWatch alarm that sends an Amazon SNS message when 
 1. On the **Specify metric and conditions** page, choose **Select metric**.
 
 1. In the search box, enter the name of your DB cluster, select **Timestream/InfluxDB**, **By DbCluster**, and then select your cluster.  
-![The Select metric page showing an empty CloudWatch graph and two Timestream for InfluxDB sort options to choose from.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/select_metric_page.png)
+![The Select metric page showing an empty CloudWatch graph and two Timestream for InfluxDB sort options to choose from.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/select_metric_page.png)
 
 1. The following image shows the **Select metric** page with a read replica cluster named `inframonitoringcluster` selected. Choose the metric you want to create an alarm for, in this case `ReplicaLag`. Click **Select metric**.  
-![The Select metric page showing an empty CloudWatch graph and seven CloudWatch metrics to choose from.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/select_metric_cluster_selected.png)
+![The Select metric page showing an empty CloudWatch graph and seven CloudWatch metrics to choose from.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/select_metric_cluster_selected.png)
 
 1. On the **Specify metric and conditions** page, customize the following fields:  
-![The Specify metric and conditions page showing settings selected for the inframonitoringcluster cluster.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/replica_lag_metrics_conditions.png)
+![The Specify metric and conditions page showing settings selected for the inframonitoringcluster cluster.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/replica_lag_metrics_conditions.png)
 
    1. Select a period of time for your calculations in the **Period** section.
 
@@ -59,7 +59,7 @@ You can create an Amazon CloudWatch alarm that sends an Amazon SNS message when 
    1. Choose **Next**.
 
 1. On the **Configure actions** page, in the **Notification** section, customize the following settings:  
-![The Configure actions page showing a list of six different actions. The Notification section is completed.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/configure_actions.png)
+![The Configure actions page showing a list of six different actions. The Notification section is completed.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/configure_actions.png)
 
    1. For **Alarm state trigger**, select **In alarm**.
 
@@ -70,7 +70,7 @@ You can create an Amazon CloudWatch alarm that sends an Amazon SNS message when 
    1. Choose **Create topic**. Scroll down and choose **Next**.
 
 1. On the **Add name and description** page, enter an **Alarm name** and **Alarm description**. Choose **Next**.  
-![The Add name and description page showing fields for alarm name and alarm description.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/add_name_desc.png)
+![The Add name and description page showing fields for alarm name and alarm description.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/add_name_desc.png)
 
 1. Review your alarm settings on the **Preview and create** page, and then choose **Create alarm**.
 

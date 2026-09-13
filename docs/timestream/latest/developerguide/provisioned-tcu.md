@@ -56,27 +56,27 @@ In the Query Compute Settings, you can verify that the compute mode is set to "P
 
 To modify the query compute settings, click the "Modify" button. For instance, if you want to increase the provisioned TCUs from 32 to 64, simply enter your desired target value (64) in the "Target Query TCU" field. Additionally, you can specify an Amazon Simple Notification Service (SNS) topic to receive a notification when the provisioning process is complete.
 
-![Image of console view of modifying settings for provisioned TCUs.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/modify-prov-tcu-settings.png)
+![Image of console view of modifying settings for provisioned TCUs.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/modify-prov-tcu-settings.png)
 
 
 After confirming your desired configuration by selecting "Save settings", you will see that the current request status is updated to "Pending". The "Target Query TCU" field will now reflect the desired number of compute units, which is 64 in this case, indicating that the provisioning process has been initiated and is awaiting completion.
 
-![Image of console view of saving settings for provisioned TCUs.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/query-compute-save-settings.png)
+![Image of console view of saving settings for provisioned TCUs.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/query-compute-save-settings.png)
 
 
 Once provisioned, the "Active Query TCU" field will be updated to reflect the new provisioned capacity of 64 Timestream Compute Units, indicating that the provisioning process is complete and the additional resources are now available for use in your account.
 
-![Image of console view of new updated settings for provisioned TCUs.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/query-compute-updated-settings.png)
+![Image of console view of new updated settings for provisioned TCUs.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/query-compute-updated-settings.png)
 
 
 To reduce the number of provisioned Timestream Compute Units (TCUs) in your account, follow the same steps as before and enter your desired target value. For example, if you want to decrease the provisioned TCUs to 16, simply set the "Target Query TCU" field to 16. Please note that you can only decrease the number of provisioned TCUs after a minimum of 1 hour has passed since the last provisioning request. This means that if you provisioned or modified your TCUs within the last hour, you will need to wait until the 1-hour window has elapsed before you can decrement the TCUs.
 
-![Image of console view of reducing the number of provisioned TCUs.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/query-modify-reduce-tcu-settings.png)
+![Image of console view of reducing the number of provisioned TCUs.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/query-modify-reduce-tcu-settings.png)
 
 
 After requesting a decrease in provisioned Timestream Compute Units (TCUs), the service will decrement the TCUs when it determines it is safe to do so, which may take up to a few minutes. During this time, the "Target Query TCU" field will continue to display the desired target value, in this case, 16 TCUs, indicating the pending change. Once the decrement is complete, the "Active Query TCU" field will be updated to reflect the new provisioned capacity of 16 TCUs.
 
-![Image of console view of updated reduced number of provisioned TCUs.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/query-modify-updated-reduce-tcu-settings.png)
+![Image of console view of updated reduced number of provisioned TCUs.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/query-modify-updated-reduce-tcu-settings.png)
 
 
 Once the request is successfully completed, the "Active Query TCU" field will be updated to reflect the new provisioned capacity of 16 Timestream Compute Units (TCUs). If you no longer anticipate any query workload, you can further decrement the provisioned TCUs to 0, effectively releasing all provisioned resources and stopping any associated charges.

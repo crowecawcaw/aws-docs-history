@@ -125,7 +125,7 @@ For measures, the value `TargetMultiMeasureAttributeName` will become a column i
 }
 ```
 
-![Visual builder table showing seven column mappings with source names, target names, attribute types, and data types.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/column-mapping.jpg)
+![Visual builder table showing seven column mappings with source names, target names, attribute types, and data types.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/column-mapping.jpg)
 
 
 ## Data model mappings with `MixedMeasureMappings` example

@@ -60,13 +60,13 @@ To use the InfluxDB add-on license with AWS Marketplace, you need to have an act
 We recommend that you subscribe to InfluxDB in AWS Marketplace *before* you start creating a DB instance.
 
 1. Navigate to the [AWS Marketplace](https://console.aws.amazon.com/marketplace) and search for InfluxData.  
-![Timestream for InfluxDB read replicas add-on appearing in AWS Marketplace search.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/search_mkt_influxdb.png)
+![Timestream for InfluxDB read replicas add-on appearing in AWS Marketplace search.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/search_mkt_influxdb.png)
 
 1. Select **Timestream for InfluxDB Read Replicas (Add-On)**.
 
 1. Select **View purchase options**.
 
 1. Review the End User License Agreement and choose **Subscribe**.  
-![Offer and pricing details for Timestream for InfluxDB read replicas add-on.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/addon_details.png)
+![Offer and pricing details for Timestream for InfluxDB read replicas add-on.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/kronos/addon_details.png)
 
 1. You can now create your Timestream for InfluxDB read replica cluster using the Timestream Management Console, CLI, or API.

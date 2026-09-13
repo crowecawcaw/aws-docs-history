@@ -17,7 +17,7 @@ You can use EventBridge Pipes to send data from a Kinesis stream to a Amazon Tim
 
 Pipes are intended for point-to-point integrations between supported sources and targets, with support for advanced transformations and enrichment. Pipes reduce the need for specialized knowledge and integration code when developing event-driven architectures. To set up a pipe, you choose the source, add optional filtering, define optional enrichment, and choose the target for the event data.
 
-![A source sends events to an EventBridge pipe, which filters and routes matching events to the target.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/pipes-overview_shared_architecture.png)
+![A source sends events to an EventBridge pipe, which filters and routes matching events to the target.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/pipes-overview_shared_architecture.png)
 
 
 This integration enables you to leverage the power of Timestream's time-series data analysis capabilities, while simplifying your data ingestion pipeline.

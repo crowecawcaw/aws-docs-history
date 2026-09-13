@@ -22,10 +22,10 @@ After meeting the prerequisites:
 **Example run**  
 
 1. Open a terminal app of your choice and make sure the required prerequisites are properly installed:  
-![Script prerequisites.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/script-pre-reqs.png)
+![Script prerequisites.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/script-pre-reqs.png)
 
 1. Navigate to the migration script:  
-![Script location](http://docs.aws.amazon.com/timestream/latest/developerguide/images/script-navigate.png)
+![Script location](https://docs.aws.amazon.com/timestream/latest/developerguide/images/script-navigate.png)
 
 1. Prepare the following information:
 
@@ -52,7 +52,7 @@ After meeting the prerequisites:
       ```
 
    1. Execute the script:  
-![Script execution](http://docs.aws.amazon.com/timestream/latest/developerguide/images/script-execution.png)
+![Script execution](https://docs.aws.amazon.com/timestream/latest/developerguide/images/script-execution.png)
 
    1. Wait for the script to finish executing.
 

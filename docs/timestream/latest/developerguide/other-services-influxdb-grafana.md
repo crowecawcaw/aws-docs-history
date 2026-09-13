@@ -47,7 +47,7 @@ For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon
    +  In **Default Bucket**: The default [bucket](https://docs.influxdata.com/influxdb/v2/admin/buckets/) to use in Flux queries. 
    +  In **Min time interval**: The Grafana minimum time interval. The default is 10 seconds. 
    +  In **Max series**: The maximum number of series or tables Grafana will process. The default is 1,000.   
-![Settings form for configuring an InfluxDB connection using Flux as the query language.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/grafana-flux-config.png)
+![Settings form for configuring an InfluxDB connection using Flux as the query language.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/grafana-flux-config.png)
 
 1.  Click **Save & test**. Grafana attempts to connect to the InfluxDB 2.7 data source and returns the results of the test. 
 
@@ -91,7 +91,7 @@ To configure Grafana to use InfluxQL when you have manually migrated from Influx
    +  In **Database**: The database name [mapped to your InfluxDB 2.7 bucket](https://docs.influxdata.com/influxdb/v2/tools/grafana/?t=InfluxQL#view-and-create-influxdb-dbrp-mappings). 
    +  In **User** and **Password**: The username and password associated with your [InfluxDB 1.x compatibility authorization](https://docs.influxdata.com/influxdb/v2/tools/grafana/?t=InfluxQL#view-and-create-influxdb-v1-authorizations). 
    +  In **HTTP Method**: Select **GET**.   
-![Settings form for configuring an InfluxDB connection using InfluxQL as the query language.](http://docs.aws.amazon.com/timestream/latest/developerguide/images/grafana-influxql-config.png)
+![Settings form for configuring an InfluxDB connection using InfluxQL as the query language.](https://docs.aws.amazon.com/timestream/latest/developerguide/images/grafana-influxql-config.png)
 
 1.  Click **Save & test**. Grafana attempts to connect to the InfluxDB 2.7 data source and returns the results of the test. 
 
