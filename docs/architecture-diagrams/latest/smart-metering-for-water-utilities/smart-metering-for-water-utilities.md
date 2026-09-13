@@ -10,7 +10,7 @@ This architecture shows how AWS IoT Core for [LoRaWAN](https://lora-alliance.org
 ## Smart Metering for Water Utilities
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how AWS IoT Core for LoRaWAN can be used to reliably collect water meter readings from multiple metering devices. Transfer the data to the cloud, detect water leakage in the grid, and gain deeper insights on water consumption, while monitoring and managing the fleet of meters.](http://docs.aws.amazon.com/architecture-diagrams/latest/smart-metering-for-water-utilities/images/smart-metering-water-utilities.png)
+![Reference architecture diagram showing how AWS IoT Core for LoRaWAN can be used to reliably collect water meter readings from multiple metering devices. Transfer the data to the cloud, detect water leakage in the grid, and gain deeper insights on water consumption, while monitoring and managing the fleet of meters.](https://docs.aws.amazon.com/architecture-diagrams/latest/smart-metering-for-water-utilities/images/smart-metering-water-utilities.png)
 
 
 1. The purpose-built devices in the meter box use **FreeRTOS **as their operating system (OS). The meter collects water consumption, the valve interrupts water flow, both devices communicate via BLE with the hub, which uses the LoRaWAN protocol to send telemetry to the cloud. The hub runs in Class B mode, which enables it to receive commands from the gateway in defined timeframes. 
@@ -39,7 +39,7 @@ To customize this reference architecture diagram based on your business needs, [
 ## Create a free AWS account
 <a name="create-a-free-aws-account"></a>
 
-[![Sign up for a free AWS account](http://docs.aws.amazon.com/architecture-diagrams/latest/smart-metering-for-water-utilities/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
+[![Sign up for a free AWS account](https://docs.aws.amazon.com/architecture-diagrams/latest/smart-metering-for-water-utilities/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
 
 Sign up for an AWS account. New accounts include 12 months of [AWS Free Tier](https://aws.amazon.com/free/) access, including the use of Amazon EC2, Amazon S3, and Amazon DynamoDB.
 
