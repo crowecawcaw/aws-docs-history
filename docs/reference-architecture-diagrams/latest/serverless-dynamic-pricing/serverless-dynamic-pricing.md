@@ -10,7 +10,7 @@ This architecture shows a serverless strategy for dynamic pricing. For bookings 
 ## Serverless Strategy for Dynamic Pricing
 <a name="diagram1"></a>
 
-![Architecture diagram showing a serverless dynamic pricing solution using Amazon API Gateway, AWS Lambda, Amazon DynamoDB, Amazon Kinesis, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-dynamic-pricing/images/serverless-dynamic-pricing.png)
+![Architecture diagram showing a serverless dynamic pricing solution using Amazon API Gateway, AWS Lambda, Amazon DynamoDB, Amazon Kinesis, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-dynamic-pricing/images/serverless-dynamic-pricing.png)
 
 
 The following steps describe the architecture:
