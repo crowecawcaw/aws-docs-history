@@ -14,7 +14,7 @@ This architecture uses the [Airlines Data Platform](../airlines-data-platform/ai
 ## Airline data platform with MDM diagram
 <a name="airlines-data-platform-mdm-diagram"></a>
 
-![Architecture for airline MDM using AWS Glue ML transforms, Amazon S3, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/airlines-data-platform-mdm/images/svoc_data_platform_mdm_ra.png)
+![Architecture for airline MDM using AWS Glue ML transforms, Amazon S3, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/airlines-data-platform-mdm/images/svoc_data_platform_mdm_ra.png)
 
 
 The following steps describe the architecture:
