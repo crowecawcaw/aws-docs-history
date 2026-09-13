@@ -48,7 +48,7 @@ The Now Platform supports OAuth 2.0 - Authorization Grant type for public client
 1. Register your OAuth application. This requires the following three steps. For more information on completing these steps, see the [Register your application with ServiceNow](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0725643) on the *ServiceNow website*.
 
    1. Register the app and make sure the **Auth Scope** has access to the **Table API**, with a **REST API PATH** of **now/table**, and an **HTTP Method** of **GET** as shown in the following example.  
-![OAuth app configuration in ServiceNow.](http://docs.aws.amazon.com/appfabric/latest/adminguide/images/servicenow-oauth-config.png)
+![OAuth app configuration in ServiceNow.](https://docs.aws.amazon.com/appfabric/latest/adminguide/images/servicenow-oauth-config.png)
 
    1. Generate an authorization code.
 

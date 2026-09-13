@@ -15,7 +15,7 @@ This section describes common errors and troubleshooting for AppFabric for produ
 
 App developers that use AppFabric for productivity to enrich their app experiences will go through a verification process prior to launching their features to end users. All applications start as unverified and change to verified only when the verification process is complete. This means that the `starterUserEmails` you used when creating an AppClient will see this message.
 
-![Warning message for an unverified application in AWS AppFabric, requesting data access.](http://docs.aws.amazon.com/appfabric/latest/adminguide/images/fabric-24.png)
+![Warning message for an unverified application in AWS AppFabric, requesting data access.](https://docs.aws.amazon.com/appfabric/latest/adminguide/images/fabric-24.png)
 
 
 ## `CreateAppClient` errors
