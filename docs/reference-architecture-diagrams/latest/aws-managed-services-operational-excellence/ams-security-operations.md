@@ -7,7 +7,7 @@ Use this reference architecture to understand how AWS Managed Services (AMS) acc
 
 This reference architecture was validated by the AWS Managed Services team for technical accuracy on September 20, 2022.
 
-![Reference architecture diagram showing how AWS Managed Services accelerates security and compliance by using , , AWS CloudTrail, and AWS Security Hub.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-managed-services-operational-excellence/images/aws-managed-services-operational-excellence-3.png)
+![Reference architecture diagram showing how AWS Managed Services accelerates security and compliance by using , , AWS CloudTrail, and AWS Security Hub.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-managed-services-operational-excellence/images/aws-managed-services-operational-excellence-3.png)
 
 
 The following steps describe the architecture:

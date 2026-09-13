@@ -7,7 +7,7 @@ Use this reference architecture to understand how AWS Managed Services (AMS) pro
 
 This reference architecture was validated by the AWS Managed Services team for technical accuracy on September 20, 2022.
 
-![Reference architecture diagram showing how AWS Managed Services provides 24x7 helpdesk with ITSM integration, incident management, and dedicated operations support.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-managed-services-operational-excellence/images/aws-managed-services-operational-excellence-1.png)
+![Reference architecture diagram showing how AWS Managed Services provides 24x7 helpdesk with ITSM integration, incident management, and dedicated operations support.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-managed-services-operational-excellence/images/aws-managed-services-operational-excellence-1.png)
 
 
 The following steps describe the architecture:

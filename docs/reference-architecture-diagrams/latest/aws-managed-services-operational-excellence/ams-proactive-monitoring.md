@@ -7,7 +7,7 @@ Use this reference architecture to understand how AWS Managed Services (AMS) imp
 
 This reference architecture was validated by the AWS Managed Services team for technical accuracy on September 20, 2022.
 
-![Reference architecture diagram showing how AWS Managed Services provides proactive monitoring by using Amazon CloudWatch, , and .](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-managed-services-operational-excellence/images/aws-managed-services-operational-excellence-2.png)
+![Reference architecture diagram showing how AWS Managed Services provides proactive monitoring by using Amazon CloudWatch, , and .](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-managed-services-operational-excellence/images/aws-managed-services-operational-excellence-2.png)
 
 
 The following steps describe the architecture:
