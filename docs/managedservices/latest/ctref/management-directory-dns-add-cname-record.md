@@ -37,7 +37,7 @@ To create a CNAME record in AWS, see [How do I create alias records for services
 
 The following shows this change type in the AMS console.
 
-![Add DNS CNAME Record interface showing ID ct-2murl5xzbxoxf and Version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCnameRecordAddCT.png)
+![Add DNS CNAME Record interface showing ID ct-2murl5xzbxoxf and Version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCnameRecordAddCT.png)
 
 
 How it works:

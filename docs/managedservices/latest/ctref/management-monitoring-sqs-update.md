@@ -34,7 +34,7 @@ Use to modify the properties of an existing Amazon Simple Queue Service instance
 
 Screenshot of this change type in the AMS console:
 
-![Properties panel for an Amazon Simple Queue Service instance, showing ID, version, and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSqsUpdateCT.png)
+![Properties panel for an Amazon Simple Queue Service instance, showing ID, version, and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSqsUpdateCT.png)
 
 
 How it works:

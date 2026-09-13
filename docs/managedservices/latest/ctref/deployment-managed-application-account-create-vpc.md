@@ -34,7 +34,7 @@ Create a VPC with up to 10 private subnets and up to 5 optional public subnets p
 
 Screenshot of this change type in the AMS console:
 
-![](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzAppAcctCreateVpcCT.png)
+![](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzAppAcctCreateVpcCT.png)
 
 
 How it works:

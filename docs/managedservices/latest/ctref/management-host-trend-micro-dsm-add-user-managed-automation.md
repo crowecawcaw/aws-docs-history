@@ -34,7 +34,7 @@ Add a new DSM console user to the Trend Micro console for your account. Once the
 
 The following shows this change type in the AMS console.
 
-![Add user interface for Trend Micro DSM console with ID, execution mode, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmUserAddCT.png)
+![Add user interface for Trend Micro DSM console with ID, execution mode, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmUserAddCT.png)
 
 
 How it works:

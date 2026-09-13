@@ -32,7 +32,7 @@ Copy an Elastic Block Store (EBS) snapshot in your AMS account.
 #### Copying EBS Snapshots with the Console
 <a name="ebs-snpsht-copy-con"></a>
 
-![EBS snapshot details showing ID and version 2.0 in the Copy EBS Snapshot interface.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtCopyCT.png)
+![EBS snapshot details showing ID and version 2.0 in the Copy EBS Snapshot interface.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtCopyCT.png)
 
 
 How it works:

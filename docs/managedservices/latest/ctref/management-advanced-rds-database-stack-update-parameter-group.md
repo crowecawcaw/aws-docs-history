@@ -34,7 +34,7 @@ Change the RDS parameter group. The RDS instance or cluster can be standalone or
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Update Parameter Group of DB instance or cluster change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbParameterGroupUpdateCT.png)
+![Screenshot of the Update Parameter Group of DB instance or cluster change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbParameterGroupUpdateCT.png)
 
 
 How it works:

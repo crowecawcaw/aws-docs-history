@@ -34,7 +34,7 @@ Use to create a Redshift cluster subnet group.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-0q43l40hxrzum, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftCreateClusterSGCT.png)
+![Change type details showing ID ct-0q43l40hxrzum, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftCreateClusterSGCT.png)
 
 
 How it works:

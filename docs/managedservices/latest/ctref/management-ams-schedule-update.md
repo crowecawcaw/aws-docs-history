@@ -34,7 +34,7 @@ Update an existing schedule to be used in AMS Resource Scheduler.
 
 The following shows this change type in the AMS console.
 
-![Form to update an existing schedule in AMS Resource Scheduler, showing ID and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedScheduleUpdateCT.png)
+![Form to update an existing schedule in AMS Resource Scheduler, showing ID and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedScheduleUpdateCT.png)
 
 
 How it works:

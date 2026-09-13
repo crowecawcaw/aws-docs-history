@@ -34,7 +34,7 @@ Use to create an Amazon Elastic Compute Cloud (EC2) instance.
 
 The following shows this change type in the AMS console.
 
-![Create EC2 stack page showing ID ct-14027q0sjyt1h, Automated execution mode, and version 4.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2CreateCT.png)
+![Create EC2 stack page showing ID ct-14027q0sjyt1h, Automated execution mode, and version 4.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2CreateCT.png)
 
 
 How it works:

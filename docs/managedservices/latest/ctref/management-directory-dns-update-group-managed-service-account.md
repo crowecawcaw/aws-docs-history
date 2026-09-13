@@ -34,7 +34,7 @@ Update an existing Active Directory (AD) Group Managed Service Account (gMSA). F
 
 The following shows this change type in the AMS console.
 
-![Update Group Managed Service Account change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirServUpdateGrpMngdServiceAccountCT.png)
+![Update Group Managed Service Account change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirServUpdateGrpMngdServiceAccountCT.png)
 
 
 How it works:

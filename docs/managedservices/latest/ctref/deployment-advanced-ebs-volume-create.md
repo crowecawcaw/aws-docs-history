@@ -32,7 +32,7 @@ Creates up to five EBS volumes, and attaches them to an existing EC2 instance th
 #### Creating EBS Volumes with the Console
 <a name="ebs-create-con"></a>
 
-![Automation document details showing ID ct-16xg8qguovg2w and version 1.0 only version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsCreateFromBackupCT.png)
+![Automation document details showing ID ct-16xg8qguovg2w and version 1.0 only version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsCreateFromBackupCT.png)
 
 
 How it works:

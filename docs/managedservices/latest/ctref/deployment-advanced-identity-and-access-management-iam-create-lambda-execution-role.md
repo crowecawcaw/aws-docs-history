@@ -32,7 +32,7 @@ Create an Lambda execution role to use with Lambda Function. Each ARN specified 
 #### Creating IAM Lambda execution roles with the console
 <a name="iam-lambda-ex-role-create-con"></a>
 
-![Create Lambda Execution Role interface with ID, execution mode, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamLambdaExeRoleCreateCT.png)
+![Create Lambda Execution Role interface with ID, execution mode, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamLambdaExeRoleCreateCT.png)
 
 
 How it works:

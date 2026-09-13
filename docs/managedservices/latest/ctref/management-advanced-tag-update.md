@@ -34,7 +34,7 @@ Update tags on existing, tagged resources: Autoscaling, EC2, Elastic Load Balanc
 
 Screenshot of this change type in the AMS console:
 
-![Update Resource Tags change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagUpdateCT.png)
+![Update Resource Tags change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagUpdateCT.png)
 
 
 How it works:

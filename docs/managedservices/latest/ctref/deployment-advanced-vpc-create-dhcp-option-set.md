@@ -34,7 +34,7 @@ Create a Dynamic Host Configuration Protocol (DHCP) option set for resources in 
 
 The following shows this change type in the AMS console.
 
-![Create DHCP option set interface showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateDHCPOptionSetCT.png)
+![Create DHCP option set interface showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateDHCPOptionSetCT.png)
 
 
 How it works:

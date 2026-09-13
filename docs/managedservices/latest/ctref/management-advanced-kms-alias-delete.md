@@ -34,7 +34,7 @@ Delete an alias of an AWS Key Management Service (KMS) customer master key (CMK)
 
 Screenshot of this change type in the AMS console:
 
-![Delete KMS Alias change type showing description, ID ct-04gzyy008v1bg, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsAliasDeleteCT.png)
+![Delete KMS Alias change type showing description, ID ct-04gzyy008v1bg, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsAliasDeleteCT.png)
 
 
 How it works:

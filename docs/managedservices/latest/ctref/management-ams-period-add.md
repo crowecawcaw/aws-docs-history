@@ -34,7 +34,7 @@ Add a new period to use with AMS Resource Scheduler. Periods are used in schedul
 
 The following shows this change type in the AMS console.
 
-![Add Resource Scheduler Period page showing description, ID ct-1976sir132k22, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedPeriodAddCT.png)
+![Add Resource Scheduler Period page showing description, ID ct-1976sir132k22, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedPeriodAddCT.png)
 
 
 How it works:

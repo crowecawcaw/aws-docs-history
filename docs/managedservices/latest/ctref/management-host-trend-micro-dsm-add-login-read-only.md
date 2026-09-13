@@ -34,7 +34,7 @@ Request a read-only login to the Trend Micro console for your account. For multi
 
 The following shows this change type in the AMS console.
 
-![Add DSM Read-Only Login change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmLoginAddCT.png)
+![Add DSM Read-Only Login change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmLoginAddCT.png)
 
 
 How it works:

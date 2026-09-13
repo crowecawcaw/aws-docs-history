@@ -34,7 +34,7 @@ Replace the instance volumes from an existing backup image of the instance. To r
 
 The following shows this change type in the AMS console.
 
-![Change type details showing ID, automated execution mode, and version 3.0 with description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2RestoreVolsCT.png)
+![Change type details showing ID, automated execution mode, and version 3.0 with description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2RestoreVolsCT.png)
 
 
 How it works:

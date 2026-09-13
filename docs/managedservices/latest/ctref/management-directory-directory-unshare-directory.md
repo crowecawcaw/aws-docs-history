@@ -34,7 +34,7 @@ Stops the directory sharing between the directory owner and consumer accounts. R
 
 The following shows this change type in the AMS console.
 
-![Unshare Directory change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservUnshareDirectoryCT.png)
+![Unshare Directory change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservUnshareDirectoryCT.png)
 
 
 How it works:

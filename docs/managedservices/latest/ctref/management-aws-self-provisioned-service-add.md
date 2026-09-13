@@ -34,7 +34,7 @@ Add a specific, allowed, AWS service to your AMS account. This CT validates prer
 
 The following shows this change type in the AMS console.
 
-![Add Self-Provisioned AWS Service change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsSelfServeAddAutoCT.png)
+![Add Self-Provisioned AWS Service change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsSelfServeAddAutoCT.png)
 
 
 How it works:

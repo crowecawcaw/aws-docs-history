@@ -34,7 +34,7 @@ Create a security group with limited scope. For complex security groups, use the
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating a security group with limited scope, including ID and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupCreateCT.png)
+![Change type details for creating a security group with limited scope, including ID and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupCreateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Resume a paused Amazon Redshift cluster.
 
 Screenshot of this change type in the AMS console:
 
-![Resume Redshift Cluster change type showing description, ID ct-39c5qiasbe4he, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftResumeClusterCT.png)
+![Resume Redshift Cluster change type showing description, ID ct-39c5qiasbe4he, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftResumeClusterCT.png)
 
 
 How it works:

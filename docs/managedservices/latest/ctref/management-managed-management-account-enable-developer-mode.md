@@ -34,7 +34,7 @@ Enable Developer Mode for an existing application account. Note that, in Develop
 
 Screenshot of this change type in the AMS console:
 
-![Enable Developer Mode change type showing description, ID ct-1opjmhuddw194, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzMastAcctEnableDevModeCT.png)
+![Enable Developer Mode change type showing description, ID ct-1opjmhuddw194, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzMastAcctEnableDevModeCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Associate one or more secondary private IP addresses to the specified network in
 
 The following shows this change type in the AMS console.
 
-![Console interface showing details for associating private IP addresses to an EC2 instance.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2AssociateIpRrCT.png)
+![Console interface showing details for associating private IP addresses to an EC2 instance.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2AssociateIpRrCT.png)
 
 
 How it works:

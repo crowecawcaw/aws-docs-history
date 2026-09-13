@@ -34,7 +34,7 @@ Enable monitoring on non-root volumes of an EC2 instance.
 
 The following shows this change type in the AMS console.
 
-![Enable Non-Root Volumes Monitoring change type showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCwEnableNonRootVolMonCT.png)
+![Enable Non-Root Volumes Monitoring change type showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCwEnableNonRootVolMonCT.png)
 
 
 How it works:

@@ -36,7 +36,7 @@ AMS DMS can use Amazon Managed Streaming for Apache Kafka as a target endpoint.
 
 Screenshot of this change type in the AMS console:
 
-![AMS Advanced console, create RFC section, change type details box for ct-1mrqxscu15apz: Create AWS Database Migration Service target endpoint for Amazon MSK.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateTargetEpKafkaCT.png)
+![AMS Advanced console, create RFC section, change type details box for ct-1mrqxscu15apz: Create AWS Database Migration Service target endpoint for Amazon MSK.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateTargetEpKafkaCT.png)
 
 
 How it works:

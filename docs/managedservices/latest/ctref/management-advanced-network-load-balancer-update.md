@@ -34,7 +34,7 @@ Update the properties of an existing Network Load Balancer.
 
 Screenshot of this change type in the AMS console:
 
-![Update Network Load Balancer page showing ID ct-0wglhholzo0uw and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiNlbUpdateCT.png)
+![Update Network Load Balancer page showing ID ct-0wglhholzo0uw and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiNlbUpdateCT.png)
 
 
 How it works:

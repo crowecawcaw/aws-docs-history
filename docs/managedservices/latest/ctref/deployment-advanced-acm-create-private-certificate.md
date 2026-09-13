@@ -34,7 +34,7 @@ Create a private AWS Certificate Manager (ACM) certificate with email or DNS val
 
 Screenshot of this change type in the AMS console:
 
-![Create Public ACM Certificate change type showing ID, execution mode as Automated, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAcmCreatePrivateCT.png)
+![Create Public ACM Certificate change type showing ID, execution mode as Automated, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAcmCreatePrivateCT.png)
 
 
 How it works:

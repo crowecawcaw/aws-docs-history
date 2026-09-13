@@ -34,7 +34,7 @@ Change the time zone of an EC2 instance. To reboot the EC2 instance after changi
 
 The following shows this change type in the AMS console.
 
-![Change Timezone interface showing ID, execution mode, version, and description for EC2 instance.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2ChangeTimezoneCT.png)
+![Change Timezone interface showing ID, execution mode, version, and description for EC2 instance.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2ChangeTimezoneCT.png)
 
 
 How it works:

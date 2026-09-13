@@ -34,7 +34,7 @@ Grants full control to the Cluster object on the Listener object to bring the SQ
 
 The following shows this change type in the AMS console.
 
-![Update Cluster Permissions change type showing ID cc-03ytgoevfebjr and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservClusterPermsUpdateCT.png)
+![Update Cluster Permissions change type showing ID cc-03ytgoevfebjr and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservClusterPermsUpdateCT.png)
 
 
 How it works:

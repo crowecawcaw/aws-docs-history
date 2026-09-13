@@ -34,7 +34,7 @@ Create a Relational Database Service (RDS) database (DB) subnet group to be used
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating an RDS DB subnet group, including description and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateDbSubnetGroupCT.png)
+![Change type details for creating an RDS DB subnet group, including description and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateDbSubnetGroupCT.png)
 
 
 How it works:

@@ -32,7 +32,7 @@ Share an Elastic Block Store (EBS) snapshot with another AMS account. If the des
 #### Sharing EBS Snapshots with the Console
 <a name="ebs-snpsht-share-con"></a>
 
-![EBS snapshot sharing details with ID, version, and cross-region sharing instructions.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtShareCT.png)
+![EBS snapshot sharing details with ID, version, and cross-region sharing instructions.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtShareCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Change S3 bucket versioning setting through direct API calls. The S3 bucket can 
 
 Screenshot of this change type in the AMS console:
 
-![Change S3 Bucket Versioning Setting page showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3UpdateVersioningCT.png)
+![Change S3 Bucket Versioning Setting page showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3UpdateVersioningCT.png)
 
 
 How it works:

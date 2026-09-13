@@ -34,7 +34,7 @@ Describe existing periods used in AMS Resource Scheduler.
 
 The following shows this change type in the AMS console.
 
-![Describe Resource Scheduler Periods change type showing ID and version information.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedPeriodDescribeCT.png)
+![Describe Resource Scheduler Periods change type showing ID and version information.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedPeriodDescribeCT.png)
 
 
 How it works:

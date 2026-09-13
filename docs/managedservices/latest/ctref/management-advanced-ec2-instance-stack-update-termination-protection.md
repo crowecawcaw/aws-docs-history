@@ -34,7 +34,7 @@ Update existing defined termination protection for EC2 instances.
 
 The following shows this change type in the AMS console.
 
-![Update Termination Protection interface showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2ProTermUpdateCT.png)
+![Update Termination Protection interface showing description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2ProTermUpdateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create an AWS Relational Database Service (RDS) Aurora stack from AWS Backup.
 
 Screenshot of this change type in the AMS console:
 
-![Create RDS Aurora Stack From Backup change type showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateAuroraFromBackupCT.png)
+![Create RDS Aurora Stack From Backup change type showing description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateAuroraFromBackupCT.png)
 
 
 How it works:

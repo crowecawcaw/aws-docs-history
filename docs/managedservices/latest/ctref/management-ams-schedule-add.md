@@ -34,7 +34,7 @@ Add a new schedule to be used in AMS Resource Scheduler. Schedules employ define
 
 The following shows this change type in the AMS console.
 
-![Add Resource Scheduler Schedule page showing ID ct-2bxelbn765ive and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedScheduleAddCT.png)
+![Add Resource Scheduler Schedule page showing ID ct-2bxelbn765ive and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedScheduleAddCT.png)
 
 
 How it works:

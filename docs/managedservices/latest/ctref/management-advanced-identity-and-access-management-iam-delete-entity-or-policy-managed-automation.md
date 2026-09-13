@@ -32,7 +32,7 @@ Delete Identity and Access Management (IAM) users, roles or policies.
 #### Deleting IAM Resources with the console
 <a name="iam-resource-delete-con"></a>
 
-![Change type: Delete IAM Resource with description, ID, version, and execution mode details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamResourceDeleteCT.png)
+![Change type: Delete IAM Resource with description, ID, version, and execution mode details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamResourceDeleteCT.png)
 
 
 How it works:

@@ -32,7 +32,7 @@ Archive Elastic Block Store (EBS) snapshots. The maximum number of EBS snapshots
 #### Archiving EBS Snapshots with the Console
 <a name="ebs-snpsht-archive-con"></a>
 
-![Archive EBS Snapshots page showing snapshot ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtArchiveCT.png)
+![Archive EBS Snapshots page showing snapshot ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtArchiveCT.png)
 
 
 How it works:

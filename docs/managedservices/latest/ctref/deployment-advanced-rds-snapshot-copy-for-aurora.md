@@ -34,7 +34,7 @@ Create a copy of an Amazon Relational Database Service (Amazon RDS) DB Cluster s
 
 Screenshot of this change type in the AMS console:
 
-![Details of an Amazon RDS DB Cluster snapshot copy operation, including ID and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbCopyAuroraSnapshotCT.png)
+![Details of an Amazon RDS DB Cluster snapshot copy operation, including ID and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbCopyAuroraSnapshotCT.png)
 
 
 How it works:

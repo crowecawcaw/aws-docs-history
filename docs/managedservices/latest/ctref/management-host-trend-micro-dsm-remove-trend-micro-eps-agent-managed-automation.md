@@ -34,7 +34,7 @@ For Bring Your Own EPS (BYOEPS) only. Remove the Trend Micro EPS agent installed
 
 The following shows this change type in the AMS console.
 
-![AMS Advanced console, create RFC section, change type details box for ct-2iz9nvw8zlhst: Remove Trend Micro EPS agent (managed automation).](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmDsmRemoveAgentCT.png)
+![AMS Advanced console, create RFC section, change type details box for ct-2iz9nvw8zlhst: Remove Trend Micro EPS agent (managed automation).](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmDsmRemoveAgentCT.png)
 
 
 How it works:

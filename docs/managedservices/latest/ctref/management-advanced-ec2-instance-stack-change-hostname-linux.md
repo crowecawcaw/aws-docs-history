@@ -34,7 +34,7 @@ Change the hostname of an EC2 Linux instance. If no hostname is provided, then t
 
 The following shows this change type in the AMS console.
 
-![Change Linux Hostname interface showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2HostnameChangeLinuxCT.png)
+![Change Linux Hostname interface showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2HostnameChangeLinuxCT.png)
 
 
 How it works:

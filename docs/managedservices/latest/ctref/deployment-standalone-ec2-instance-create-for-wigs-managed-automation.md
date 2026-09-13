@@ -34,7 +34,7 @@ Create an Amazon Elastic Compute Cloud (EC2) instance for use with Workload Inge
 
 The following shows this change type in the AMS console.
 
-![Create EC2 for WIGS change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2CreatePreIngestRrCT.png)
+![Create EC2 for WIGS change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2CreatePreIngestRrCT.png)
 
 
 How it works:

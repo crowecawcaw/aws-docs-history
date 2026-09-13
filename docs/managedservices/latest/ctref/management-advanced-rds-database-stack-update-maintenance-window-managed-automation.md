@@ -34,7 +34,7 @@ Update an existing RDS maintenance window, which is a weekly time range (in UTC)
 
 Screenshot of this change type in the AMS console:
 
-![Update RDS Maintenance Window change type showing ID, execution mode as Manual, and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsWindowUpdateRrCT.png)
+![Update RDS Maintenance Window change type showing ID, execution mode as Manual, and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsWindowUpdateRrCT.png)
 
 
 How it works:

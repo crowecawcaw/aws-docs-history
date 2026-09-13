@@ -34,7 +34,7 @@ Remove the specified TGW static route from the specified transit gateway (TGW) r
 
 Screenshot of this change type in the AMS console:
 
-![Remove TGW Static Route change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzNetAcctTgwRouteRemoveCT.png)
+![Remove TGW Static Route change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzNetAcctTgwRouteRemoveCT.png)
 
 
 How it works:

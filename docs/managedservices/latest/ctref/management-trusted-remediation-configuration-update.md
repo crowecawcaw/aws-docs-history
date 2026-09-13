@@ -34,7 +34,7 @@ Request a Trusted Remediator configuration update. Use this change type in the T
 
 Screenshot of this change type in the AMS console:
 
-![Update Trusted Remediator configuration change type showing ID, execution mode, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTrRemConfigUpdateCT.png)
+![Update Trusted Remediator configuration change type showing ID, execution mode, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTrRemConfigUpdateCT.png)
 
 
 How it works:

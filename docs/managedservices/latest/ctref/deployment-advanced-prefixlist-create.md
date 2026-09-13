@@ -34,7 +34,7 @@ Create a new AWS managed prefix list. A prefix list is a set of one or more CIDR
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Create managed prefix list change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcPrefixListCreateCT.png)
+![Screenshot of the Create managed prefix list change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcPrefixListCreateCT.png)
 
 
 How it works:

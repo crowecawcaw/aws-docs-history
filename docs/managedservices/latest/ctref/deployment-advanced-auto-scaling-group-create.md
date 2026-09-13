@@ -32,7 +32,7 @@ Use to create an Auto Scaling group, the launch configuration to use to create n
 #### Creating an Auto Scaling group with the console
 <a name="asg-create-con"></a>
 
-![Change type details showing Auto Scaling group creation with ID, version 3.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAsgCreateCT.png)
+![Change type details showing Auto Scaling group creation with ID, version 3.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAsgCreateCT.png)
 
 
 How it works:

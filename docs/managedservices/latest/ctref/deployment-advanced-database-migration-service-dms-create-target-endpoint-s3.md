@@ -34,7 +34,7 @@ Use to create a Database Migration Service (DMS) target endpoint for S3.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 1.0, and automated execution mode for creating DMS target endpoint for S3.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateTargetEpS3CT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for creating DMS target endpoint for S3.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateTargetEpS3CT.png)
 
 
 How it works:

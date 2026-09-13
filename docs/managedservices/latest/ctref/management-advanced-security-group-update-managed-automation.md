@@ -34,7 +34,7 @@ Update the inbound and the outbound rules of a security group, and optionally as
 
 Screenshot of this change type in the AMS console:
 
-![Security group update interface showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupUpdateRrCT.png)
+![Security group update interface showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupUpdateRrCT.png)
 
 
 How it works:

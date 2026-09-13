@@ -34,7 +34,7 @@ Update admin access for one or more users for one or more stacks. The maximum ac
 
 The following shows this change type in the AMS console.
 
-![Grant stack admin access change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAccessAdminUpdateCT.png)
+![Grant stack admin access change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAccessAdminUpdateCT.png)
 
 
 How it works:

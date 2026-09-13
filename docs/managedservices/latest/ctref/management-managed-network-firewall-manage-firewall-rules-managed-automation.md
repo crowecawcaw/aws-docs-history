@@ -34,7 +34,7 @@ Manages AWS Network Firewall egress rules by converting simple parameters (sourc
 
 Screenshot of this change type in the AMS console:
 
-![Manage Network Firewall Rules change type showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManageNetworkFirewallRulesCT.png)
+![Manage Network Firewall Rules change type showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManageNetworkFirewallRulesCT.png)
 
 
 How it works:

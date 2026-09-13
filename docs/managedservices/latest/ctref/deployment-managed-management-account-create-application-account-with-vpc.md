@@ -34,7 +34,7 @@ Create a managed AWS landing zone application account and a VPC with up to 10 pr
 
 Screenshot of this change type in the AMS console:
 
-![Create Application Account With VPC change type showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMastAcctCreateAppAcctVpcCT.png)
+![Create Application Account With VPC change type showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMastAcctCreateAppAcctVpcCT.png)
 
 
 How it works:
@@ -208,7 +208,7 @@ This change type has been automated and you can now configure the VPC to have up
 
 To learn more about AMS multi-account landing zone, see [AWS Managed Services (AMS) Now Offers Managed Landing Zones](https://aws.amazon.com/about-aws/whats-new/2019/10/aws-managed-services-now-offers-managed-landing-zones/).
 
-[![AWS Videos](http://img.youtube.com/vi/zjojREBQq20/0.jpg)](http://www.youtube.com/watch?v=zjojREBQq20)
+[![AWS Videos](https://img.youtube.com/vi/zjojREBQq20/0.jpg)](https://www.youtube.com/watch?v=zjojREBQq20)
 
 
 ## Execution Input Parameters

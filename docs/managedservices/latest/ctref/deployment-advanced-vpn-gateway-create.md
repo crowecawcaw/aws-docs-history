@@ -34,7 +34,7 @@ Create a virtual private network (VPN) gateway (the endpoint on the VPC side of 
 
 The following shows this change type in the AMS console.
 
-![VPNGateway details showing description, ID, and version for creating and associating with a VPC.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpnGatewayCreateCT.png)
+![VPNGateway details showing description, ID, and version for creating and associating with a VPC.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpnGatewayCreateCT.png)
 
 
 How it works:

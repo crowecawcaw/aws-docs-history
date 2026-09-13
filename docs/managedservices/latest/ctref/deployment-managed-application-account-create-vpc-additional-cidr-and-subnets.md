@@ -34,7 +34,7 @@ Create an additional VPC CIDR, or subnets, or both, for an existing application 
 
 Screenshot of this change type in the AMS console:
 
-![Create Application Account CIDRs interface showing description, ID ct-2ha68tpd7nr3y, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzAppAcctCreateVpcCidrSubnetsCT.png)
+![Create Application Account CIDRs interface showing description, ID ct-2ha68tpd7nr3y, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzAppAcctCreateVpcCidrSubnetsCT.png)
 
 
 How it works:

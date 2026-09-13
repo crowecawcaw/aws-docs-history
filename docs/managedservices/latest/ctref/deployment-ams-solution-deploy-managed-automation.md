@@ -34,7 +34,7 @@ Deploy an AMS pattern to the current account. Patterns provide tools, architectu
 
 Screenshot of this change type in the AMS console:
 
-![Deploy AMS Patterns section showing ID, execution mode as Manual, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmsPatternDeployRrCT.png)
+![Deploy AMS Patterns section showing ID, execution mode as Manual, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmsPatternDeployRrCT.png)
 
 
 How it works:

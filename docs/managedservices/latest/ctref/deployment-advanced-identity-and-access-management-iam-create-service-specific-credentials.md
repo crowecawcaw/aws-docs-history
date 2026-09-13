@@ -32,7 +32,7 @@ Generate a set of credentials consisting of a user name and password, to use to 
 #### Creating IAM service specific credentials with the console
 <a name="iam-serv-specific-creds-create-con"></a>
 
-![Create Service Specific Credentials interface showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamServSpecificCredsCreateCT.png)
+![Create Service Specific Credentials interface showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamServSpecificCredsCreateCT.png)
 
 
 How it works:

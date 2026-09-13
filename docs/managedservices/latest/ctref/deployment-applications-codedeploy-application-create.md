@@ -32,7 +32,7 @@ Use to create an AWS CodeDeploy application resource with the specified name.
 #### Creating a CodeDeploy application with the console
 <a name="cd-app-create-con"></a>
 
-![Change type details showing ID, version 1.0, and automated execution mode for CodeDeploy application.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCDAppCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for CodeDeploy application.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCDAppCreateCT.png)
 
 
 How it works:

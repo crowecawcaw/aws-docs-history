@@ -34,7 +34,7 @@ Authorize multiple egress rules for the specified security group (SG). You must 
 
 Screenshot of this change type in the AMS console:
 
-![Authorize Multiple Egress Rules change type showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupEgressAuthorizeCT.png)
+![Authorize Multiple Egress Rules change type showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupEgressAuthorizeCT.png)
 
 
 How it works:

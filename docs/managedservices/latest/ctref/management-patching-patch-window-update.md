@@ -34,7 +34,7 @@ Modify patch maintenance window settings created using version 1 of change type 
 
 Screenshot of this change type in the AMS console:
 
-![Update Maintenance Window page showing ID, execution mode as Automated, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchWindowUpdateCT.png)
+![Update Maintenance Window page showing ID, execution mode as Automated, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchWindowUpdateCT.png)
 
 
 How it works:

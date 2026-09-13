@@ -34,7 +34,7 @@ Create an SNS topic and up to five subscriptions.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing Create SNS topic with ID, version 1.0, and Automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSnsTopSubCreateCT.png)
+![Change type details showing Create SNS topic with ID, version 1.0, and Automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSnsTopSubCreateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Add a new lifecycle configuration, or replace an existing one for an Amazon S3 b
 
 Screenshot of this change type in the AMS console:
 
-![Manage lifecycle configuration details showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3ManageLifecycleCT.png)
+![Manage lifecycle configuration details showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3ManageLifecycleCT.png)
 
 
 How it works:

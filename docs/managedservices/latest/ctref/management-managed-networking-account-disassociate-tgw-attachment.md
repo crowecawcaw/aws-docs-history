@@ -34,7 +34,7 @@ Disassociate transit gateway (TGW) attachment from the transit gateway (TGW) rou
 
 Screenshot of this change type in the AMS console:
 
-![Console interface showing Disassociate Transit Gateway Attachment change type details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctDisasscTgwAttachCT.png)
+![Console interface showing Disassociate Transit Gateway Attachment change type details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctDisasscTgwAttachCT.png)
 
 
 How it works:

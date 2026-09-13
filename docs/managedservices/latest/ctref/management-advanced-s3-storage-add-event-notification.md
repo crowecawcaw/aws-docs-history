@@ -34,7 +34,7 @@ Add an event notification to the specified S3 bucket through direct API calls. T
 
 The following is a screenshot of this change type in the AMS console:
 
-![Example this change type in the console.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3AddNotificationCT.png)
+![Example this change type in the console.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3AddNotificationCT.png)
 
 
 How it works:

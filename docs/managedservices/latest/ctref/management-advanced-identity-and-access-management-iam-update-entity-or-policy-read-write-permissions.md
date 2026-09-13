@@ -32,7 +32,7 @@ Update Identity and Access Management (IAM) role or policy with read-write permi
 #### Updating IAM entity or policy with the console
 <a name="iam-entity-update-con"></a>
 
-![Update Entity or Policy change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEntityUpdateCT.png)
+![Update Entity or Policy change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEntityUpdateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Add RDP or SSH bastion ingress Classless Inter-Domain Routing (CIDR) allow lists
 
 The following shows this change type in the AMS console.
 
-![Form for adding CIDR ingress with ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiBastionCidrIngressAddCT.png)
+![Form for adding CIDR ingress with ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiBastionCidrIngressAddCT.png)
 
 
 How it works:

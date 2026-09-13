@@ -34,7 +34,7 @@ Use to create a Database Migration Service (DMS) source endpoint for MongoDB.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 1.0, and automated execution mode for MongoDB DMS endpoint.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateSourceEpMongoCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for MongoDB DMS endpoint.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateSourceEpMongoCT.png)
 
 
 How it works:

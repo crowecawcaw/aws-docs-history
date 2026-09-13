@@ -34,7 +34,7 @@ Pause an Amazon Redshift cluster. If a recent snapshot is not available, a tempo
 
 Screenshot of this change type in the AMS console:
 
-![Pause Redshift Cluster change type showing description, ID ct-1n323w7eu27u9, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftPauseClusterCT.png)
+![Pause Redshift Cluster change type showing description, ID ct-1n323w7eu27u9, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftPauseClusterCT.png)
 
 
 How it works:

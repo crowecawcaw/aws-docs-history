@@ -32,7 +32,7 @@ Reset the password for the specified service-specific credential.
 #### Resetting IAM service specific credentials with the console
 <a name="iam-serv-specific-creds-reset-con"></a>
 
-![Reset Service Specific Credentials details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamServSpecificCredsResetCT.png)
+![Reset Service Specific Credentials details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamServSpecificCredsResetCT.png)
 
 
 How it works:

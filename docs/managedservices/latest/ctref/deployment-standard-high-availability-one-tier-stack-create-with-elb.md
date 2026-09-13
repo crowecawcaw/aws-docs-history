@@ -32,7 +32,7 @@ Create a stack with an Auto Scaling Group, and an Elastic Load Balancer (ELB) wi
 #### Creating a high availability one-tier stack with an ELB with the console
 <a name="ha-1-tier-create-with-elb-con"></a>
 
-![Change type details for creating an HA One-Tier Stack with ELB, including description and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHa1tCreateWithElbCT.png)
+![Change type details for creating an HA One-Tier Stack with ELB, including description and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHa1tCreateWithElbCT.png)
 
 
 How it works:

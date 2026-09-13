@@ -34,7 +34,7 @@ Update the properties of an existing AWS Application Load Balancer (ALB) that wa
 
 The following shows this change type in the AMS console.
 
-![Update Application Load Balancer page showing description, ID ct-1a1zzgi2nb83d, and version 3.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAlbUpdateCT.png)
+![Update Application Load Balancer page showing description, ID ct-1a1zzgi2nb83d, and version 3.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAlbUpdateCT.png)
 
 
 How it works:

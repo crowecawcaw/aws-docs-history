@@ -34,7 +34,7 @@ Create an Amazon Machine Image (AMI) based on an existing standalone EC2 instanc
 
 The following shows this change type in the AMS console.
 
-![Change type details for creating an Amazon Machine Image (AMI) from an EC2 instance.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiCreateCT.png)
+![Change type details for creating an Amazon Machine Image (AMI) from an EC2 instance.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiCreateCT.png)
 
 
 **Important**  

@@ -34,7 +34,7 @@ Modify the properties of an existing Amazon ELB Classic Load Balancer created us
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version, execution mode, and description for ELB stack update.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbUpdateCT.png)
+![Change type details showing ID, version, execution mode, and description for ELB stack update.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbUpdateCT.png)
 
 
 How it works:

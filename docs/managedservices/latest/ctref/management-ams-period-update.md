@@ -34,7 +34,7 @@ Update an existing period used in AMS Resource Scheduler.
 
 The following shows this change type in the AMS console.
 
-![Update Resource Scheduler Period page showing ID ct-2pkdckieh62ps and Version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedPeriodUpdateCT.png)
+![Update Resource Scheduler Period page showing ID ct-2pkdckieh62ps and Version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedPeriodUpdateCT.png)
 
 
 How it works:

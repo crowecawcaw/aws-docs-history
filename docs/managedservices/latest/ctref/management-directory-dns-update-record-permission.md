@@ -34,7 +34,7 @@ Grant permissions to the computer object to update DNS records after failover. F
 
 The following shows this change type in the AMS console.
 
-![Update DNS Record Permission interface showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservRecordPermUpdateCT.png)
+![Update DNS Record Permission interface showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservRecordPermUpdateCT.png)
 
 
 How it works:

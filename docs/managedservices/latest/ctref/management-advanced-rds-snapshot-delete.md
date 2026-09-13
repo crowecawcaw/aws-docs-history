@@ -34,7 +34,7 @@ Delete DB instance or cluster snapshots. This document only supports deletion of
 
 Screenshot of this change type in the AMS console:
 
-![Delete RDS Snapshots change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbSnapshotDeleteCT.png)
+![Delete RDS Snapshots change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbSnapshotDeleteCT.png)
 
 
 How it works:

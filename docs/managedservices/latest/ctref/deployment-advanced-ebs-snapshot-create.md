@@ -32,7 +32,7 @@ Create an Elastic Block Store (EBS) snapshot from an EBS volume. The volume must
 #### Creating EBS Snapshots with the Console
 <a name="ebs-snpsht-create-con"></a>
 
-![Create EBS Snapshot dialog showing description, ID ct-3mlsibqhuqrf1, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtCreateCT.png)
+![Create EBS Snapshot dialog showing description, ID ct-3mlsibqhuqrf1, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtCreateCT.png)
 
 
 How it works:

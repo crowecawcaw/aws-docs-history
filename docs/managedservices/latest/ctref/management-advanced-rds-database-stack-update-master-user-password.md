@@ -34,7 +34,7 @@ Update the MasterUserPassword property of an Amazon Relational Database Service 
 
 Screenshot of this change type in the AMS console:
 
-![Screenshot of the Update RDS master user password change type in the AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackUpdateMPCT.png)
+![Screenshot of the Update RDS master user password change type in the AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackUpdateMPCT.png)
 
 
 How it works:

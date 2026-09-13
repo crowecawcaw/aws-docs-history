@@ -34,7 +34,7 @@ Update the policy for a VPC endpoint. After you update the policy, it takes a fe
 
 The following shows this change type in the AMS console.
 
-![Update VPC Endpoint Policy change type details showing ID, execution mode, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcEndpointUpdatePolicyCT.png)
+![Update VPC Endpoint Policy change type details showing ID, execution mode, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcEndpointUpdatePolicyCT.png)
 
 
 How it works:

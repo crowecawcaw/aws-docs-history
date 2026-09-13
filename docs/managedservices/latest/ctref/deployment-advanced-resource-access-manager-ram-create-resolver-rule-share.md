@@ -34,7 +34,7 @@ Create a resource share through Resource Access Manager(RAM) to share up to 20 R
 
 The following shows this change type in the AMS console.
 
-![Create resolver rule share interface showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateResolverRuleShareCT.png)
+![Create resolver rule share interface showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateResolverRuleShareCT.png)
 
 
 How it works:

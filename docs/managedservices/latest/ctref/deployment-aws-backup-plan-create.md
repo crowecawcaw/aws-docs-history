@@ -34,7 +34,7 @@ Create an AWS Backup plan, a policy expression that defines when and how you wan
 
 The following shows this change type in the AMS console.
 
-![AWS Backup plan creation interface showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanCreateCT.png)
+![AWS Backup plan creation interface showing description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanCreateCT.png)
 
 
 How it works:

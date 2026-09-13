@@ -34,7 +34,7 @@ Use to create an Amazon ElastiCache cluster (one or more cache nodes) that uses 
 
 The following shows this change type in the AMS console.
 
-![Change type details showing ID, version 1.0, and automated execution mode for ElastiCache stack.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCacheMemCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for ElastiCache stack.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCacheMemCreateCT.png)
 
 
 How it works:

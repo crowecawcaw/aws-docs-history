@@ -34,7 +34,7 @@ Associate transit gateway (TGW) attachment to the transit gateway (TGW) route ta
 
 Screenshot of this change type in the AMS console:
 
-![Associate Transit Gateway Attachment page showing ID ct-3nmhh0qr338q6 and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctAsscTgwAttachCT.png)
+![Associate Transit Gateway Attachment page showing ID ct-3nmhh0qr338q6 and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctAsscTgwAttachCT.png)
 
 
 How it works:

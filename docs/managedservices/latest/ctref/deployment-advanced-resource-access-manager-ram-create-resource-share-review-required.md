@@ -34,7 +34,7 @@ Create a resource share through Resource Access Manager (RAM) to share supported
 
 The following shows this change type in the AMS console.
 
-![Create Resource Share page showing ID, execution mode as Manual, version 1.0, and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateResourceShareCT.png)
+![Create Resource Share page showing ID, execution mode as Manual, version 1.0, and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateResourceShareCT.png)
 
 
 How it works:

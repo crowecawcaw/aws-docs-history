@@ -32,7 +32,7 @@ Create an IAM identity provider using the SAML metadata document file that you s
 #### Creating IAM SAML IDPs with the console
 <a name="iam-saml-idp-create-con"></a>
 
-![Create SAML Identity Provider page showing ID ct-3hox8uwjgze1f and Version 1.0 only version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamSamlIdpCreateCT.png)
+![Create SAML Identity Provider page showing ID ct-3hox8uwjgze1f and Version 1.0 only version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamSamlIdpCreateCT.png)
 
 
 How it works:

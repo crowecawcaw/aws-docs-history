@@ -34,7 +34,7 @@ Use to modify the properties of an EC2 instance created using CT id ct-14027q0sj
 
 The following shows this change type in the AMS console.
 
-![Change type details for updating EC2 stack, including description, ID, version, and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2UpdateCT.png)
+![Change type details for updating EC2 stack, including description, ID, version, and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2UpdateCT.png)
 
 
 How it works:

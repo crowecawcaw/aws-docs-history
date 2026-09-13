@@ -34,7 +34,7 @@ Update an existing AWS account alias. Note that an AWS account can have only one
 
 The following shows this change type in the AMS console.
 
-![Update AWS Account Alias page showing description, ID ct-3skaisgnq0pf8, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamAcctAliasUpdateCT.png)
+![Update AWS Account Alias page showing description, ID ct-3skaisgnq0pf8, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamAcctAliasUpdateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Use to reboot an EC2 instance.
 
 The following shows this change type in the AMS console.
 
-![Change type details for rebooting an EC2 instance, including ID and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2RebootCT.png)
+![Change type details for rebooting an EC2 instance, including ID and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2RebootCT.png)
 
 
 How it works:

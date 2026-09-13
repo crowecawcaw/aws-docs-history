@@ -34,7 +34,7 @@ Create a custom RDS parameter group and optionally attach it to an existing RDS 
 
 The following shows this change type in the AMS console.
 
-![Create Custom RDS Parameter Group change type showing manual execution mode and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRDSCreateParamCT.png)
+![Create Custom RDS Parameter Group change type showing manual execution mode and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRDSCreateParamCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create an Amazon S3 bucket for cloud storage.
 
 Screenshot of this change type in the AMS console:
 
-![Create S3 bucket change type showing ID, execution mode as Automated, and version 5.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3CreateCT.png)
+![Create S3 bucket change type showing ID, execution mode as Automated, and version 5.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3CreateCT.png)
 
 
 How it works:

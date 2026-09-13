@@ -32,7 +32,7 @@ Update the MaxSessionDuration property of an AWS Identity and Access Management 
 #### Updating an IAM Max Session Duration with the console
 <a name="iam-max-sess-update-con"></a>
 
-![Document details showing ID, execution mode as Automated, and version 1.0 for IAM role update.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamMaxSessionUpdateCT.png)
+![Document details showing ID, execution mode as Automated, and version 1.0 for IAM role update.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamMaxSessionUpdateCT.png)
 
 
 How it works:

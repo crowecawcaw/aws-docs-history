@@ -34,7 +34,7 @@ Create a snapshot of an Amazon Relational Database Service (RDS) database (DB) i
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-393q3yaq9ewlm, version 1.0, and execution mode Automated.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbSnpshtCreateCT.png)
+![Change type details showing ID ct-393q3yaq9ewlm, version 1.0, and execution mode Automated.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbSnpshtCreateCT.png)
 
 
 How it works:

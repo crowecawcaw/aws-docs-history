@@ -34,7 +34,7 @@ An option group specifies features (options), and their settings, that you then 
 
 Screenshot of this change type in the AMS console:
 
-![AMS Advanced console, create RFC section, change type details box for ct-10yi1sd9nst1c: Create Amazon RDS option group (managed automation).](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsCreateOptionGroupCT.png)
+![AMS Advanced console, create RFC section, change type details box for ct-10yi1sd9nst1c: Create Amazon RDS option group (managed automation).](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsCreateOptionGroupCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create an Amazon Elastic Compute Cloud (EC2) instance with up to five additional
 
 The following shows this change type in the AMS console.
 
-![Create EC2 Stack With Additional Volumes change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2CreateAddlVolCT.png)
+![Create EC2 Stack With Additional Volumes change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2CreateAddlVolCT.png)
 
 
 How it works:

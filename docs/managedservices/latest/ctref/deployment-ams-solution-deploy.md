@@ -34,7 +34,7 @@ Deploy the AMS Resource Scheduler solution in the account. The AMS Resource Sche
 
 The following shows this change type in the AMS console.
 
-![Deploy AMS Resource Scheduler change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedSolutionDeployCT.png)
+![Deploy AMS Resource Scheduler change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedSolutionDeployCT.png)
 
 
 How it works:

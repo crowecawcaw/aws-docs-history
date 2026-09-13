@@ -34,7 +34,7 @@ Delete an existing stack and its resources from your account. The effects of del
 
 Screenshot of this change type in the AMS console:
 
-![Change type Delete stack details showing ID, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStackDeleteCT.png)
+![Change type Delete stack details showing ID, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStackDeleteCT.png)
 
 
 How it works:

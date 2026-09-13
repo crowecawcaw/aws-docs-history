@@ -34,7 +34,7 @@ Accept a directory sharing request sent from the directory owner account. This i
 
 The following shows this change type in the AMS console.
 
-![Accept Directory Sharing Request form with description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservAcceptShareCT.png)
+![Accept Directory Sharing Request form with description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservAcceptShareCT.png)
 
 
 How it works:

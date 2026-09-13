@@ -34,7 +34,7 @@ Use to create a custom AMI with an encrypted EBS snapshot, which protects data a
 
 The following shows this change type in the AMS console.
 
-![Change type Encrypt AMI details showing ID, version 2.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiEncryptCT.png)
+![Change type Encrypt AMI details showing ID, version 2.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiEncryptCT.png)
 
 
 How it works:

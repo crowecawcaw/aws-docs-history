@@ -34,7 +34,7 @@ Start an AWS Backup service backup job to create a one-time snapshot of the spec
 
 The following shows this change type in the AMS console.
 
-![Start Backup Job interface with description, ID, and version details for AWS Backup service.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupJobStartCT.png)
+![Start Backup Job interface with description, ID, and version details for AWS Backup service.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupJobStartCT.png)
 
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

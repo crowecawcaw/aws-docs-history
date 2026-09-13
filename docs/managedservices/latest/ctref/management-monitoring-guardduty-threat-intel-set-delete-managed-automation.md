@@ -34,7 +34,7 @@ Use to delete an Amazon GuardDuty ThreatIntelSet instance which is a list of kno
 
 The following shows this change type in the AMS console.
 
-![Delete GuardDuty ThreatIntelSet interface showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyThreatIntelSetDeleteRrCT.png)
+![Delete GuardDuty ThreatIntelSet interface showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyThreatIntelSetDeleteRrCT.png)
 
 
 How it works:

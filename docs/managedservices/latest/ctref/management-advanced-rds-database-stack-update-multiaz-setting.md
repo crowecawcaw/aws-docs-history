@@ -34,7 +34,7 @@ Change the DB instance MultiAZ value through direct API calls. The MultiAZ setti
 
 Screenshot of this change type in the AMS console:
 
-![Change RDS MultiAZ Setting page showing ID, execution mode, version, classification, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsUpdateMultiAzCT.png)
+![Change RDS MultiAZ Setting page showing ID, execution mode, version, classification, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsUpdateMultiAzCT.png)
 
 
 How it works:

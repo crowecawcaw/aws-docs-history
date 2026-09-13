@@ -32,7 +32,7 @@ Delete Identity and Access Management (IAM) role or policy created with change t
 #### Deleting IAM entity or policy with the console
 <a name="iam-entity-delete-con"></a>
 
-![Delete Entity or Policy change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEntityDeleteCT.png)
+![Delete Entity or Policy change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEntityDeleteCT.png)
 
 
 How it works:

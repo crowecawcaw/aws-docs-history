@@ -34,7 +34,7 @@ Disable the Transit Gateway (TGW) attachment from propagating routes to the TGW 
 
 Screenshot of this change type in the AMS console:
 
-![Disable TGW Propagation change type showing ID ct-2pxyajek47am2 and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctTgwPropDisableCT.png)
+![Disable TGW Propagation change type showing ID ct-2pxyajek47am2 and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctTgwPropDisableCT.png)
 
 
 How it works:

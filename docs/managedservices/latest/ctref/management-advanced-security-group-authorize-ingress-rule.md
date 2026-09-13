@@ -34,7 +34,7 @@ Authorize multiple ingress rules for the specified security group (SG). You must
 
 The following is a screenshot of this change type in the AMS console:
 
-![Authorize Multiple Ingress Rules change type showing ID, execution mode, version, and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupIngressAuthorizeCT.png)
+![Authorize Multiple Ingress Rules change type showing ID, execution mode, version, and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupIngressAuthorizeCT.png)
 
 
 How it works:

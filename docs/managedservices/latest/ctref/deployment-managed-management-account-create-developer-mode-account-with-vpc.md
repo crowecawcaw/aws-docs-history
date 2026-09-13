@@ -34,7 +34,7 @@ Create a managed AWS landing zone developer mode account and a VPC with up to 10
 
 Screenshot of this change type in the AMS console:
 
-![AWS console interface showing details for creating a developer mode account with VPC.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMgmtAcctCreateDevModeAcctCT.png)
+![AWS console interface showing details for creating a developer mode account with VPC.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMgmtAcctCreateDevModeAcctCT.png)
 
 
 How it works:

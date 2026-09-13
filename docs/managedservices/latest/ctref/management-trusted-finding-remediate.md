@@ -34,7 +34,7 @@ Run the SSM automation document associated with an OpsItem to remediate a Truste
 
 Screenshot of this change type in the AMS console:
 
-![Remediate Trusted Remediator finding change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTrRemFindingRemediateCT.png)
+![Remediate Trusted Remediator finding change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTrRemFindingRemediateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Update EC2 instances' detailed monitoring setting through direct API calls. The 
 
 Screenshot of this change type in the AMS console:
 
-![Update Detailed Monitoring page showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2UpdateDetailedMonCT.png)
+![Update Detailed Monitoring page showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2UpdateDetailedMonCT.png)
 
 
 How it works:

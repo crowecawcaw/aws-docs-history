@@ -34,7 +34,7 @@ Use to override maximum stack access time for all stacks in this account for sin
 
 Screenshot of this change type in the AMS console:
 
-![Override Stack Access Duration change type details showing manual execution mode and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStackAccessOverrideCT.png)
+![Override Stack Access Duration change type details showing manual execution mode and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStackAccessOverrideCT.png)
 
 
 How it works:

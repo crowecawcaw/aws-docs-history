@@ -34,7 +34,7 @@ Delete an existing period used in AMS Resource Scheduler.
 
 The following shows this change type in the AMS console.
 
-![Delete Resource Scheduler Period page showing ID ct-042luqo63j4mx and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedPeriodDeleteCT.png)
+![Delete Resource Scheduler Period page showing ID ct-042luqo63j4mx and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedPeriodDeleteCT.png)
 
 
 How it works:

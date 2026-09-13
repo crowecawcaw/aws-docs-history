@@ -34,7 +34,7 @@ Enable Developer Mode (Dev Mode). Dev mode provides you with elevated permission
 
 The following shows this change type in the AMS console.
 
-![Developer Mode configuration panel showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManAcctDevModeEnableRrCT.png)
+![Developer Mode configuration panel showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManAcctDevModeEnableRrCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Update an existing AWS CloudFormation (CFN) StackSets stack to deploy, or to upd
 
 Screenshot of this change type in the AMS console:
 
-![Update StackSets Stack interface showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzStckstsStckUpdateCT.png)
+![Update StackSets Stack interface showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzStckstsStckUpdateCT.png)
 
 
 How it works:

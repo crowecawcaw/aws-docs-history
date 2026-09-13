@@ -34,7 +34,7 @@ Create an Amazon DynamoDB stack from backup.
 
 Screenshot of this change type, in the AMS console:
 
-![DynamoDB stack creation interface showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDynamoDbCreateFromBackupCT.png)
+![DynamoDB stack creation interface showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDynamoDbCreateFromBackupCT.png)
 
 
 How it works:

@@ -32,7 +32,7 @@ Deploy a revision of an existing AWS CodeDeploy application, which are source fi
 #### Deploying a CodeDeploy application with the console
 <a name="cd-app-deploy-con"></a>
 
-![Deploy CodeDeploy Application change type showing ID, version 2.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCDAppDeployCT.png)
+![Deploy CodeDeploy Application change type showing ID, version 2.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCDAppDeployCT.png)
 
 
 How it works:

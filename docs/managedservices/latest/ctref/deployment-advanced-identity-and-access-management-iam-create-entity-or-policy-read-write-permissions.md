@@ -32,7 +32,7 @@ Create Identity and Access Management (IAM) role or policy with read-write permi
 #### Creating IAM entity or policy with the console
 <a name="iam-entity-create-con"></a>
 
-![IAM role or policy creation interface with ID, execution mode, and description details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEntityCreateCT.png)
+![IAM role or policy creation interface with ID, execution mode, and description details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEntityCreateCT.png)
 
 
 How it works:

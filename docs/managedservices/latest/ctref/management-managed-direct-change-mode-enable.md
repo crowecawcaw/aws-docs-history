@@ -34,7 +34,7 @@ Enable Direct Change mode (DCM). DCM grants native AWS access to provision and u
 
 Screenshot of this change type in the AMS console:
 
-![Console interface showing details for enabling Direct Change mode in AWS Management.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManAcctDirChangeModeEnableCT.png)
+![Console interface showing details for enabling Direct Change mode in AWS Management.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManAcctDirChangeModeEnableCT.png)
 
 
 How it works:

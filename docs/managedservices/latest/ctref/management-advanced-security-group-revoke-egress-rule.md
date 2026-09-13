@@ -34,7 +34,7 @@ Revoke the egress rule for the specified security group (SG). You must specify t
 
 Screenshot of this change type in the AMS console:
 
-![Revoke Egress Rule page showing ID ct-111fhplhx9axe and version 1.0 only version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupEgressRevokeCT.png)
+![Revoke Egress Rule page showing ID ct-111fhplhx9axe and version 1.0 only version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupEgressRevokeCT.png)
 
 
 How it works:

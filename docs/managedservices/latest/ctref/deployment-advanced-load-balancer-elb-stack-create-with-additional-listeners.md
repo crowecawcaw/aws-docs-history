@@ -34,7 +34,7 @@ Create an Elastic ("Classic") load balancer (ELB).
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing Create Load Balancer with ID ct-0ary07xiajwx4, version 1.0, automated execution.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbCreateAddlListenersCT.png)
+![Change type details showing Create Load Balancer with ID ct-0ary07xiajwx4, version 1.0, automated execution.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbCreateAddlListenersCT.png)
 
 
 How it works:

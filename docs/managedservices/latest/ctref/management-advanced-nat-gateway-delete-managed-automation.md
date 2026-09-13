@@ -34,7 +34,7 @@ This operation requires manual review and approval before its completed successf
 #### Deleting NAT gateway (Managed Automation)
 <a name="ex-nat-gateway-delete-rr-con"></a>
 
-![Delete NAT gateway request details showing manual execution mode and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/ex-nat-gateway-delete-rr.png)
+![Delete NAT gateway request details showing manual execution mode and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/ex-nat-gateway-delete-rr.png)
 
 
 How it works:

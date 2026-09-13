@@ -34,7 +34,7 @@ Receive S3 object replicas in the destination bucket.
 
 The following shows this change type in the AMS console.
 
-![Receive Replication Replica change type showing description, ID ct-00zr0b0ozlcn3, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3ReceiveReplicaCT.png)
+![Receive Replication Replica change type showing description, ID ct-00zr0b0ozlcn3, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3ReceiveReplicaCT.png)
 
 
 How it works:

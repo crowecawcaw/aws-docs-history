@@ -34,7 +34,7 @@ Replace the certificate of an existing Elastic (Classic) Load Balancer (ELB) lis
 
 Screenshot of this change type in the AMS console:
 
-![Replace ELB Listener Certificate change type showing ID ct-0aqx5t0pgfzbg and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbReplaceListenerCertCT.png)
+![Replace ELB Listener Certificate change type showing ID ct-0aqx5t0pgfzbg and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbReplaceListenerCertCT.png)
 
 
 How it works:

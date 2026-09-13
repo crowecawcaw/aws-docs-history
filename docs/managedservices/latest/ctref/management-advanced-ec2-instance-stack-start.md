@@ -34,7 +34,7 @@ Start up to 50 stopped EC2 instances.
 
 The following shows this change type in the AMS console.
 
-![Start EC2 Instances change type showing description, ID, and version fields in the console.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2StartCT.png)
+![Start EC2 Instances change type showing description, ID, and version fields in the console.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2StartCT.png)
 
 
 How it works:

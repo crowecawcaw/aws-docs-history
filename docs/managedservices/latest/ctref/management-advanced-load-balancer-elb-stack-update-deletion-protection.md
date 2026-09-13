@@ -34,7 +34,7 @@ Update the deletion protection setting for Elastic Load Balancers (Application, 
 
 Screenshot of this change type in the AMS console:
 
-![Update ELB Deletion Protection change type showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbUpdateDeletionProtectionCT.png)
+![Update ELB Deletion Protection change type showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbUpdateDeletionProtectionCT.png)
 
 
 How it works:

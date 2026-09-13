@@ -34,7 +34,7 @@ Remove resources from a CloudFormation stack using a change set. If you set Allo
 
 Screenshot of this change type in the AMS console:
 
-![Remove Stack Resources change type details showing ID, execution mode, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRemoveStackResourcesCT.png)
+![Remove Stack Resources change type details showing ID, execution mode, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRemoveStackResourcesCT.png)
 
 
 How it works:

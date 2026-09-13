@@ -34,7 +34,7 @@ Use to create an Amazon GuardDuty IPSet instance which is a list of trusted IP a
 
 The following shows this change type in the AMS console.
 
-![Create GuardDuty IPSet interface showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyIpSetCreateRrCT.png)
+![Create GuardDuty IPSet interface showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyIpSetCreateRrCT.png)
 
 
 How it works:

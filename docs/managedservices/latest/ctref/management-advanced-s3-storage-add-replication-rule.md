@@ -34,7 +34,7 @@ Add an S3 replication rule to the specified S3 bucket.
 
 The following shows this change type in the AMS console.
 
-![Add Replication Rule change type showing description, ID ct-31eb7rrxb7qju, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3AddReplicationRuleCT.png)
+![Add Replication Rule change type showing description, ID ct-31eb7rrxb7qju, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3AddReplicationRuleCT.png)
 
 
 How it works:

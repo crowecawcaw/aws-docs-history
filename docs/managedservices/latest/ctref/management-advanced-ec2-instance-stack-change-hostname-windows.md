@@ -34,7 +34,7 @@ Change the hostname of an EC2 Windows instance. Note that the instance will be r
 
 The following shows this change type in the AMS console.
 
-![Change Windows Hostname interface showing description, ID ct-0h3p576mj4rqm, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2HostnameChangeWinCT.png)
+![Change Windows Hostname interface showing description, ID ct-0h3p576mj4rqm, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2HostnameChangeWinCT.png)
 
 
 How it works:

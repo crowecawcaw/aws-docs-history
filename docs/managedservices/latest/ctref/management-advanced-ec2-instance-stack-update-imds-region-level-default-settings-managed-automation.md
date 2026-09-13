@@ -34,7 +34,7 @@ Modify the default version for the instance metadata service (IMDS) at the accou
 
 The following shows this change type in the AMS console.
 
-![Update IMDS Region-Level Default Settings change type details in the AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2ImdsRegionUpdateCT.png)
+![Update IMDS Region-Level Default Settings change type details in the AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2ImdsRegionUpdateCT.png)
 
 
 How it works:

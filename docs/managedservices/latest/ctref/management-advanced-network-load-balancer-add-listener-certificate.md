@@ -34,7 +34,7 @@ Add a certificate to the specified Network Load Balancer (NLB) listener. Use the
 
 The following shows this change type in the AMS console.
 
-![Add NLB Listener Certificate change type showing ID ct-35p977vul06df and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiNlbAddListenerCertCT.png)
+![Add NLB Listener Certificate change type showing ID ct-35p977vul06df and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiNlbAddListenerCertCT.png)
 
 
 How it works:

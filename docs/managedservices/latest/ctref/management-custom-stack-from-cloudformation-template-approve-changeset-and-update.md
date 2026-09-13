@@ -32,7 +32,7 @@ Approve and execute an existing ChangeSet to update a CloudFormation stack. This
 #### Approving and updating a CloudFormation ingest stack using the console
 <a name="cfn-ingest-approve-update-con"></a>
 
-![ChangeSet details showing ID ct-1404e21baa2ox, Automated execution mode, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnStackApproveAndUpdateCT.png)
+![ChangeSet details showing ID ct-1404e21baa2ox, Automated execution mode, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnStackApproveAndUpdateCT.png)
 
 
 **To approve and update a CloudFormation ingest stack using the console**

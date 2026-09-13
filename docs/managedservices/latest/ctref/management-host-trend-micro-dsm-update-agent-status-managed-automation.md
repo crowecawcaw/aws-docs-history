@@ -34,7 +34,7 @@ Start, stop, deactivate, or reactivate Trend Micro agent.
 
 The following shows this change type in the AMS console.
 
-![Update Trend Micro DSM agent status interface with ID, execution mode, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmDsmUpdateAgentStatusCT.png)
+![Update Trend Micro DSM agent status interface with ID, execution mode, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmDsmUpdateAgentStatusCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create a public AWS Certificate Manager (ACM) certificate with email or DNS vali
 
 Screenshot of this change type in the AMS console:
 
-![Create Public ACM Certificate page showing ID ct-3ll9hnadql9s1 and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAcmCreatePublicCT.png)
+![Create Public ACM Certificate page showing ID ct-3ll9hnadql9s1 and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAcmCreatePublicCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Run on-demand SSM patching on specified instances; either a list of instances or
 
 Screenshot of this change type in the AMS console:
 
-![On Demand Patching change type showing description, ID, and version fields in AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchOndemandCT.png)
+![On Demand Patching change type showing description, ID, and version fields in AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchOndemandCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create a new Active Directory (AD) Group Managed Service Account (gMSA). For mul
 
 The following shows this change type in the AMS console.
 
-![Form to create a new Active Directory Group Managed Service Account with description and ID fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservGroupManServAcctCreateCT.png)
+![Form to create a new Active Directory Group Managed Service Account with description and ID fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservGroupManServAcctCreateCT.png)
 
 
 How it works:

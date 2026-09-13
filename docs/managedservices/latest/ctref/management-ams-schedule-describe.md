@@ -34,7 +34,7 @@ Describe (generate a detailed list) of existing schedules used in AMS Resource S
 
 The following shows this change type in the AMS console.
 
-![Form for describing Resource Scheduler Schedules with ID and Version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedScheduleDescribeCT.png)
+![Form for describing Resource Scheduler Schedules with ID and Version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedScheduleDescribeCT.png)
 
 
 How it works:

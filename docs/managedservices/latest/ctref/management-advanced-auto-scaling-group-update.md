@@ -34,7 +34,7 @@ Update an Auto Scaling Group and associated launch configuration created with CT
 
 The following shows this change type in the AMS console.
 
-![Change type details showing Auto Scaling Group update with ID, version 3.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAsgUpdateCT.png)
+![Change type details showing Auto Scaling Group update with ID, version 3.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAsgUpdateCT.png)
 
 
 How it works:

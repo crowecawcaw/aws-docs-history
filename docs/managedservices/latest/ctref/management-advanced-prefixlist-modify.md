@@ -34,7 +34,7 @@ Modify an existing AWS customer-managed prefix list by adding or removing CIDR e
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Modify managed prefix list change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcPrefixListModifyCT.png)
+![Screenshot of the Modify managed prefix list change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcPrefixListModifyCT.png)
 
 
 How it works:

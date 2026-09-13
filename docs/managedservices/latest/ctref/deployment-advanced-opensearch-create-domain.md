@@ -34,7 +34,7 @@ Create an Amazon OpenSearch Service domain. An OpenSearch domain encapsulates Op
 
 Screenshot of this change type in the AMS console:
 
-![Create an Amazon OpenSearch Service Domain change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateOpenSearchDomainCT.png)
+![Create an Amazon OpenSearch Service Domain change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateOpenSearchDomainCT.png)
 
 
 How it works:

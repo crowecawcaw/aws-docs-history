@@ -34,7 +34,7 @@ Disassociate a security group from the specified AWS resources and optionally de
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for deleting or disassociating a security group from AWS resources.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupDeleteRrCT.png)
+![Change type details for deleting or disassociating a security group from AWS resources.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupDeleteRrCT.png)
 
 
 How it works:

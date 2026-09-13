@@ -32,7 +32,7 @@ Deactivates AWS IAM Access key ID for the specified user and conditionally delet
 #### Deleting or deactivating access key with the console
 <a name="iam-key-deactivate-con"></a>
 
-![Delete or Deactivate Access Key interface showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamKeyDeactivateCT.png)
+![Delete or Deactivate Access Key interface showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamKeyDeactivateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ ACM Certificate with additional SANs
 
 The following shows this change type in the AMS console.
 
-![Change type details for ACM Certificate with additional SANs, including ID and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAcmCreateCT.png)
+![Change type details for ACM Certificate with additional SANs, including ID and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAcmCreateCT.png)
 
 
 How it works:

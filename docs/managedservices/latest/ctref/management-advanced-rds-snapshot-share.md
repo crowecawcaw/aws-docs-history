@@ -34,7 +34,7 @@ Share a snapshot of an Amazon Relational Database Service (RDS) database (DB) in
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for sharing an RDS DB snapshot, including ID and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbSnpshtShareCT.png)
+![Change type details for sharing an RDS DB snapshot, including ID and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbSnpshtShareCT.png)
 
 
 How it works:

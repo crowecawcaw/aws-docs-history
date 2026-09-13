@@ -34,7 +34,7 @@ Create a custom service control policy (SCP) to manage permissions across AWS or
 
 Screenshot of this change type in the AMS console:
 
-![Form for creating a custom SCP with ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMastAcctCreateScpCT.png)
+![Form for creating a custom SCP with ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMastAcctCreateScpCT.png)
 
 
 How it works:

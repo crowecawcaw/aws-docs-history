@@ -34,7 +34,7 @@ Use to delete a CloudFormation stack that's in the DELETE\_FAILED state. This is
 
 Screenshot of this change type in the AMS console:
 
-![Delete Failed Stack change type showing manual execution mode and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStackDeleteFailedStackMaCT.png)
+![Delete Failed Stack change type showing manual execution mode and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStackDeleteFailedStackMaCT.png)
 
 
 How it works:

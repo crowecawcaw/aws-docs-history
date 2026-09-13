@@ -34,7 +34,7 @@ Update the Enhanced Monitoring property of an Amazon Relational Database Service
 
 The following shows this change type in the AMS console.
 
-![Update Enhanced Monitoring change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbUpdateEnhancedMonitoring.png)
+![Update Enhanced Monitoring change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbUpdateEnhancedMonitoring.png)
 
 
 How it works:

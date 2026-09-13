@@ -34,7 +34,7 @@ Create an Amazon Relational Database Service (RDS) DB instance from an RDS snaps
 
 Screenshot of this change type in the AMS console:
 
-![Create RDS Instance From Snapshot change type showing ID, execution mode, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateFrmSnpshtCT.png)
+![Create RDS Instance From Snapshot change type showing ID, execution mode, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateFrmSnpshtCT.png)
 
 
 How it works:

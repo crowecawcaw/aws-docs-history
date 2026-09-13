@@ -34,7 +34,7 @@ Associate a VPC with a Route 53 resolver rule, this causes the resolver to forwa
 
 The following shows this change type in the AMS console.
 
-![Run RFC details page showing Associate VPC With Resolver Rule change type configuration.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/gui-vpc-associate-resolver-rule.png)
+![Run RFC details page showing Associate VPC With Resolver Rule change type configuration.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/gui-vpc-associate-resolver-rule.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Creation of GuardDuty Suppression Rules.
 
 The following shows this change type in the AMS console.
 
-![GuardDuty Suppression Rules creation details showing ID, manual execution mode, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutySuppRulesCreateMaCT.png)
+![GuardDuty Suppression Rules creation details showing ID, manual execution mode, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutySuppRulesCreateMaCT.png)
 
 
 How it works:

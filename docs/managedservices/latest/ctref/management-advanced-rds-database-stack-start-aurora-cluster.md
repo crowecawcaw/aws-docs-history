@@ -34,7 +34,7 @@ Start an Aurora DB cluster, which is a provisioned capacity type and does not ha
 
 Screenshot of this change type in the AMS console:
 
-![Start Aurora DB Cluster change type showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbStartAuroraClusterCT.png)
+![Start Aurora DB Cluster change type showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbStartAuroraClusterCT.png)
 
 
 How it works:

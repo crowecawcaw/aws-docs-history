@@ -34,7 +34,7 @@ Replace an existing Site-to-Site VPN tunnel, optionally applying maintenance.
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Replace Site-to-Site VPN tunnel change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpnS2sTunnelReplaceCT.png)
+![Screenshot of the Replace Site-to-Site VPN tunnel change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpnS2sTunnelReplaceCT.png)
 
 
 How it works:

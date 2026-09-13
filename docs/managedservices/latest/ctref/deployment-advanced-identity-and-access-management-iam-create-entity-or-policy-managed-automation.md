@@ -32,7 +32,7 @@ Create Identity and Access Management (IAM) user, role, or policy.
 #### Creating IAM resources (Managed Automation) with the console
 <a name="iam-resource-create-rr-con"></a>
 
-![Change type details showing Create IAM Resource with ID, version 1.0, and manual execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamResourceCreateRrCT.png)
+![Change type details showing Create IAM Resource with ID, version 1.0, and manual execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamResourceCreateRrCT.png)
 
 
 How it works:

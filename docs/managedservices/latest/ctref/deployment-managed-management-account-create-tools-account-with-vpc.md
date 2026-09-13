@@ -34,7 +34,7 @@ Create a managed AWS landing zone tools account and a VPC with a private subnet,
 
 Screenshot of this change type in the AMS console:
 
-![Create Tools Account With VPC change type showing description, ID ct-2j7q1hgf26x5c, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMastAcctCreateToolsAcctVpcCT.png)
+![Create Tools Account With VPC change type showing description, ID ct-2j7q1hgf26x5c, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMastAcctCreateToolsAcctVpcCT.png)
 
 
 How it works:

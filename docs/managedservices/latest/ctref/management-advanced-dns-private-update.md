@@ -34,7 +34,7 @@ Update an existing Route 53 DNS Hosted Zone with the supplied resource record se
 
 Screenshot of this change type in the AMS console:
 
-![Configure Private DNS Record change type with description, ID, version, and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDnsPriUpdateCT.png)
+![Configure Private DNS Record change type with description, ID, version, and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDnsPriUpdateCT.png)
 
 
 How it works:

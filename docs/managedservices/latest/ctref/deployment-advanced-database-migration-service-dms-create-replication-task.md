@@ -34,7 +34,7 @@ Use to create a Database Migration Service (DMS) replication task.
 
 Screenshot of this change type in the AMS console:
 
-![Create DMS replication task change type showing description, ID, version, and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateRepTaskCT.png)
+![Create DMS replication task change type showing description, ID, version, and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateRepTaskCT.png)
 
 
 How it works:

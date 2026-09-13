@@ -34,7 +34,7 @@ Create multiple custom AWS organizational units (OU) under the following paths, 
 
 Screenshot of this change type in the AMS console:
 
-![Create Custom OUs interface showing ID ct-1ksyoxreh35tu and version 2.0 with Modify version button.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMgmtAcctCreateOuCT.png)
+![Create Custom OUs interface showing ID ct-1ksyoxreh35tu and version 2.0 with Modify version button.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMgmtAcctCreateOuCT.png)
 
 
 How it works:

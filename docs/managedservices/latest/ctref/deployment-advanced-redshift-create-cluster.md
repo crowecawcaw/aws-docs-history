@@ -34,7 +34,7 @@ Create an Amazon Redshift cluster that is a fully managed data warehouse that co
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version, execution mode, and description for creating a Redshift cluster.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftCreateClusterCT.png)
+![Change type details showing ID, version, execution mode, and description for creating a Redshift cluster.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftCreateClusterCT.png)
 
 
 How it works:

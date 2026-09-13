@@ -32,7 +32,7 @@ Delete Elastic Block Store (EBS) volumes in an available state. Volumes that are
 #### Deleting EBS Volumes with the Console
 <a name="ebs-vol-delete-con"></a>
 
-![Delete EBS Volumes page showing description, ID ct-3e3h8u0sp5z80, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsVolDeleteCT.png)
+![Delete EBS Volumes page showing description, ID ct-3e3h8u0sp5z80, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsVolDeleteCT.png)
 
 
 How it works:

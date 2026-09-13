@@ -34,7 +34,7 @@ Create a static route on transit gateway (TGW) route table. Use this change type
 
 Screenshot of this change type in the AMS console:
 
-![Interface for adding a static route to Transit Gateway Route Table, showing description and ID.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctAddStaticRouteCT.png)
+![Interface for adding a static route to Transit Gateway Route Table, showing description and ID.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctAddStaticRouteCT.png)
 
 
 How it works:

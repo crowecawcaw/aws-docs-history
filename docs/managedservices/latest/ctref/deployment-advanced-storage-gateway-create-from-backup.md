@@ -34,7 +34,7 @@ Start an AWS Backup service restore job to restore a Storage Gateway volume snap
 
 Screenshot of this change type, in the AMS console:
 
-![AWS Backup service restore job interface for Storage Gateway volume snapshot restoration.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStoreGatewayCreateFromBackupCT.png)
+![AWS Backup service restore job interface for Storage Gateway volume snapshot restoration.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStoreGatewayCreateFromBackupCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create an AWS Application Load Balancer (ALB), with additional listeners.
 
 The following shows this change type in the AMS console.
 
-![Create Application Load Balancer interface showing ID ct-111r1yayblnw4 and version 3.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAlbCreateCT.png)
+![Create Application Load Balancer interface showing ID ct-111r1yayblnw4 and version 3.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAlbCreateCT.png)
 
 
 How it works:

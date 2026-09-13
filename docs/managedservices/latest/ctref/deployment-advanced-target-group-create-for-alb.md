@@ -34,7 +34,7 @@ Use to create a target group for an Application Load Balancer.
 
 The following shows this change type in the AMS console.
 
-![Change type details showing ID ct-1r19m51jejlk, version 2.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupAlbCreateCT.png)
+![Change type details showing ID ct-1r19m51jejlk, version 2.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupAlbCreateCT.png)
 
 
 How it works:

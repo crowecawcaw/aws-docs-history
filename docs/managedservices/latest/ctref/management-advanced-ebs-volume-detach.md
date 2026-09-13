@@ -32,7 +32,7 @@ Detach an EBS volume from an EC2 instance. For Linux instances, use this change 
 #### Detaching EBS Volumes with the Console
 <a name="ebs-vol-detach-con"></a>
 
-![Detach EBS Volume automation details showing ID ct-2d55p1d7z6w3d and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsVolDetachCT.png)
+![Detach EBS Volume automation details showing ID ct-2d55p1d7z6w3d and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsVolDetachCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Delete the virtual private cloud (VPC) in a managed landing zone application acc
 
 Screenshot of this change type in the AMS console:
 
-![Delete Application Account VPC change type details showing ID ct-2paw0y79kvr3l and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzAppAcctDeleteVpcCT.png)
+![Delete Application Account VPC change type details showing ID ct-2paw0y79kvr3l and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzAppAcctDeleteVpcCT.png)
 
 
 How it works:

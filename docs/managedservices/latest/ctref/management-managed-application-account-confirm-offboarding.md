@@ -37,7 +37,7 @@ After confirming your intent to offboard the application account, you have 48 ho
 
 Screenshot of this change type in the AMS console:
 
-![Confirm Account Offboarding change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzAppAcctConfirmOffBCT.png)
+![Confirm Account Offboarding change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzAppAcctConfirmOffBCT.png)
 
 
 How it works:

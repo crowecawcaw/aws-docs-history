@@ -34,7 +34,7 @@ Create an AWS Elastic File System (EFS) stack from backup.
 
 Screenshot of this change type, in the AMS console:
 
-![AWS console interface showing details for creating an EFS stack from backup.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEfsCreateFromBackupCT.png)
+![AWS console interface showing details for creating an EFS stack from backup.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEfsCreateFromBackupCT.png)
 
 
 How it works:

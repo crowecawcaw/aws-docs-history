@@ -34,7 +34,7 @@ Use to create a Elastic File System (EFS) stack
 
 The following shows this change type in the AMS console.
 
-![](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEfsCreateFromBackupCT.png)
+![](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEfsCreateFromBackupCT.png)
 
 
 How it works:

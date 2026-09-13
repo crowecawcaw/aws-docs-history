@@ -34,7 +34,7 @@ Create an AWS account alias. Note that an AWS account can have only one alias. T
 
 The following shows this change type in the AMS console.
 
-![Create AWS Account Alias change type showing ID ct-36x3u7v2oklwd and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamAcctAliasCreateCT.png)
+![Create AWS Account Alias change type showing ID ct-36x3u7v2oklwd and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamAcctAliasCreateCT.png)
 
 
 How it works:

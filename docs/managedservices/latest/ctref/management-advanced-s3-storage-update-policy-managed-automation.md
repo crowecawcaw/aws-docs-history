@@ -34,7 +34,7 @@ Update an S3 bucket policy.
 
 Screenshot of this change type in the AMS console:
 
-![Update policy details for an S3 bucket, showing ID, execution mode, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3UpdatePolicyRrCT.png)
+![Update policy details for an S3 bucket, showing ID, execution mode, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3UpdatePolicyRrCT.png)
 
 
 How it works:

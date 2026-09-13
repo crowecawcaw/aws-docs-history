@@ -34,7 +34,7 @@ Update the DeletionProtection setting for the specified RDS instance or cluster.
 
 Screenshot of this change type in the AMS console:
 
-![Change DeletionProtection setting for RDS instance or cluster page showing ID, execution mode, version, classification, and description fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackUpdateDelProCT.png)
+![Change DeletionProtection setting for RDS instance or cluster page showing ID, execution mode, version, classification, and description fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackUpdateDelProCT.png)
 
 
 How it works:

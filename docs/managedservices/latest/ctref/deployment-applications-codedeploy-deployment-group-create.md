@@ -32,7 +32,7 @@ Use to create an AWS CodeDeploy application deployment group, an entity that des
 #### Creating a CodeDeploy deployment group with the console
 <a name="cd-dep-group-create-con"></a>
 
-![Change type details showing ID, version 1.0, and automated execution mode for deployment group.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCDDepGroupCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for deployment group.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCDDepGroupCreateCT.png)
 
 
 How it works:

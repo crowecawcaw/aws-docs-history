@@ -34,7 +34,7 @@ Allow cross-account access to a KMS key by adding a statement to the key policy 
 
 The following shows this change type in the AMS console.
 
-![Share KMS Key change type details showing manual execution mode and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiShareKmsKeyCT.png)
+![Share KMS Key change type details showing manual execution mode and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiShareKmsKeyCT.png)
 
 
 How it works:

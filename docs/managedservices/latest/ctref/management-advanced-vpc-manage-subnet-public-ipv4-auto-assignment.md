@@ -34,7 +34,7 @@ Allow or disallow the automatic assignment of public IPv4 addresses for specifie
 
 The following shows this change type in the AMS console.
 
-![Manage subnet public IPv4 auto assignment change type details in the AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcManageSubnetAddressCT.png)
+![Manage subnet public IPv4 auto assignment change type details in the AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcManageSubnetAddressCT.png)
 
 
 How it works:

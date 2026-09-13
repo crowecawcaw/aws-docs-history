@@ -32,7 +32,7 @@ Use to create an instance profile.
 #### Creating IAM instance profiles (Managed Automation) with the console
 <a name="app-iam-instance-profile-create-rr-con"></a>
 
-![Form to create an IAM instance profile with ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAppIamInstanceProfileCreateRrCT.png)
+![Form to create an IAM instance profile with ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAppIamInstanceProfileCreateRrCT.png)
 
 
 How it works:

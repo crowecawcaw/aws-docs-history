@@ -32,7 +32,7 @@ Delete an existing AWS account alias. Note that if you delete the account alias,
 #### Deleting IAM account alias with the console
 <a name="iam-account-alias-delete-con"></a>
 
-![Delete AWS Account Alias page showing description, ID ct-2rfzmkm6ugjgh, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamAcctAliasDeleteCT.png)
+![Delete AWS Account Alias page showing description, ID ct-2rfzmkm6ugjgh, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamAcctAliasDeleteCT.png)
 
 
 How it works:

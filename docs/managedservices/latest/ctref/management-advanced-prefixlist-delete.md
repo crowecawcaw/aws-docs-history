@@ -34,7 +34,7 @@ Delete an existing AWS customer-managed prefix list. The prefix list must not be
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete managed prefix list change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcPrefixListDeleteCT.png)
+![Screenshot of the Delete managed prefix list change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcPrefixListDeleteCT.png)
 
 
 How it works:

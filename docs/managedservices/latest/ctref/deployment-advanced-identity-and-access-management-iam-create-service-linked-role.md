@@ -32,7 +32,7 @@ Create an IAM service-linked role linked to an AWS service that you specify.
 #### Creating IAM service-linked roles with the console
 <a name="iam-service-role-create-con"></a>
 
-![Form for creating a service-linked IAM role with ID, execution mode, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamServiceRoleCreateCT.png)
+![Form for creating a service-linked IAM role with ID, execution mode, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamServiceRoleCreateCT.png)
 
 
 How it works:

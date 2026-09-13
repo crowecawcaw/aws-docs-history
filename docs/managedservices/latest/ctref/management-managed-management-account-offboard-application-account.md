@@ -40,7 +40,7 @@ Before submitting this change type to initiate application account offboarding, 
 
 Screenshot of this change type in the AMS console:
 
-![Offboard Application Account page showing ID, execution mode as Automated, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzAppAcctRunOffBCT.png)
+![Offboard Application Account page showing ID, execution mode as Automated, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzAppAcctRunOffBCT.png)
 
 
 How it works:

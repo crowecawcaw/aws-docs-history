@@ -34,7 +34,7 @@ Bulk add tags to existing, supported resources: Autoscaling, EC2, Elastic Load B
 
 Screenshot of this change type in the AMS console:
 
-![Bulk Update Resource Tags change type showing description, ID ct-3047c34zuvswh, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagBulkUpdateCT.png)
+![Bulk Update Resource Tags change type showing description, ID ct-3047c34zuvswh, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagBulkUpdateCT.png)
 
 
 How it works:

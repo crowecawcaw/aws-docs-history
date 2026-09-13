@@ -34,7 +34,7 @@ Update an existing backup plan rule with copy actions like cross region destinat
 
 The following shows this change type in the AMS console.
 
-![Enable Cross Region Copy change type showing description, ID ct-0fqo03yizfnw6, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanEnableXRegionCopyCT.png)
+![Enable Cross Region Copy change type showing description, ID ct-0fqo03yizfnw6, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanEnableXRegionCopyCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create AWS CloudFormation (CFN) StackSets stacks and deploy the stack instances.
 
 Screenshot of this change type in the AMS console:
 
-![Details of a StackSets stack creation change type, including ID, execution mode, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzStckstsStckCreateCT.png)
+![Details of a StackSets stack creation change type, including ID, execution mode, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzStckstsStckCreateCT.png)
 
 
 How it works:

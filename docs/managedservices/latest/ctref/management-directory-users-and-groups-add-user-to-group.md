@@ -34,7 +34,7 @@ Add an Active Directory (AD) user to an AD group in the AMS managed AD. For mult
 
 The following shows this change type in the AMS console.
 
-![Add AD User To AD Group change type showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservAddUserToGroupCT.png)
+![Add AD User To AD Group change type showing description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservAddUserToGroupCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Use to create an Amazon ElastiCache cluster (one or more cache nodes) that uses 
 
 The following shows this change type in the AMS console.
 
-![Details of an ElastiCache Redis stack creation, including description, ID, version, and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCacheRedisCreateCT.png)
+![Details of an ElastiCache Redis stack creation, including description, ID, version, and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCacheRedisCreateCT.png)
 
 
 How it works:

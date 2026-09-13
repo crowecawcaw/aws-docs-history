@@ -34,7 +34,7 @@ Use to request a manual update to a resource.
 
 Screenshot of this change type in the AMS console:
 
-![Change type Update other with ID, version 1.0, and execution mode set to Manual.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiOtherUpdate.png)
+![Change type Update other with ID, version 1.0, and execution mode set to Manual.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiOtherUpdate.png)
 
 
 How it works:

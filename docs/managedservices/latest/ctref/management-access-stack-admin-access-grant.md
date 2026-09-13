@@ -34,7 +34,7 @@ Request admin access for one or more users for one or more stacks. The maximum a
 
 The following shows this change type in the AMS console.
 
-![Grant Stack Admin access change type showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAccessAdminGrantCT.png)
+![Grant Stack Admin access change type showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAccessAdminGrantCT.png)
 
 
 How it works:

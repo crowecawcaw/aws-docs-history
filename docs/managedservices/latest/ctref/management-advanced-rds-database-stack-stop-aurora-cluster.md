@@ -34,7 +34,7 @@ Stop an Aurora DB cluster, which is a provisioned capacity type and does not hav
 
 Screenshot of this change type in the AMS console:
 
-![Stop Aurora DB Cluster change type showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbStopAuroraClusterCT.png)
+![Stop Aurora DB Cluster change type showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbStopAuroraClusterCT.png)
 
 
 How it works:

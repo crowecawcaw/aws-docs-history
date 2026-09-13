@@ -32,7 +32,7 @@ Modify the properties of an existing Elastic Block Store (EBS) volume stack crea
 #### Updating EBS Volumes with the Console
 <a name="ebs-update-con"></a>
 
-![Update EBS volumes interface showing description, ID, and version for modifying volume properties.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsUpdateCT.png)
+![Update EBS volumes interface showing description, ID, and version for modifying volume properties.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsUpdateCT.png)
 
 
 How it works:

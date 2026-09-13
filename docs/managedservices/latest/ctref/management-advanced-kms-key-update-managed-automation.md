@@ -34,7 +34,7 @@ Request an update of a KMS Key.
 
 Screenshot of this change type in the AMS console:
 
-![Update KMS Key interface showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsKeyUpdateRrCT.png)
+![Update KMS Key interface showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsKeyUpdateRrCT.png)
 
 
 How it works:

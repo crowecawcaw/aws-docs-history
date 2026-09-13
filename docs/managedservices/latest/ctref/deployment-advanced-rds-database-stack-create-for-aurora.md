@@ -34,7 +34,7 @@ Create an AWS Relational Database Service (RDS) Aurora stack using either multi-
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-2jvzjwunqhrhy, version 1.0, and execution mode Automated.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateAuroraCT.png)
+![Change type details showing ID ct-2jvzjwunqhrhy, version 1.0, and execution mode Automated.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateAuroraCT.png)
 
 
 How it works:

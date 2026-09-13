@@ -34,7 +34,7 @@ Use to delete an S3 bucket policy.
 
 Screenshot of this change type in the AMS console:
 
-![Delete policy change type with description, ID, version, and manual execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3DeletePolicyRrCT.png)
+![Delete policy change type with description, ID, version, and manual execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3DeletePolicyRrCT.png)
 
 
 How it works:

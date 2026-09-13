@@ -34,7 +34,7 @@ Generates a report identifying Log4j2 occurrences on the specified EC2 instances
 
 The following shows this change type in the AMS console.
 
-![](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2GatherLog4jInfo-2CT.png)
+![](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2GatherLog4jInfo-2CT.png)
 
 
 How it works:

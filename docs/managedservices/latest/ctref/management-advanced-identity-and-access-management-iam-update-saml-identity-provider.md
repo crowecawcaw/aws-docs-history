@@ -32,7 +32,7 @@ Update IAM identity provider using the SAML metadata document file that you stor
 #### Updating IAM SAML identity providers with the Console
 <a name="iam-saml-idp-update-con"></a>
 
-![Update SAML Identity Provider page showing ID ct-379uwo67vbvng and Version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamSamlIdpUpdateCT.png)
+![Update SAML Identity Provider page showing ID ct-379uwo67vbvng and Version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamSamlIdpUpdateCT.png)
 
 
 How it works:

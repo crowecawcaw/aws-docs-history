@@ -34,7 +34,7 @@ Stop an Amazon Relational Database Service (RDS) database (DB) instance. After s
 
 Screenshot of this change type in the AMS console:
 
-![AMS Advanced console, create RFC section, change type details box for ct-2r2bffv9u6q4m: RDS Database Stack | Stop DB Instance.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbStopCT.png)
+![AMS Advanced console, create RFC section, change type details box for ct-2r2bffv9u6q4m: RDS Database Stack | Stop DB Instance.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbStopCT.png)
 
 
 How it works:

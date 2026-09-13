@@ -34,7 +34,7 @@ Create AD DNS conditional forwarder with up to five DNS servers associated with 
 
 The following shows this change type in the AMS console.
 
-![AMS Advanced console, create RFC section, change type details box for ct-3nba0wtdugnan: Create DNS conditional forwarders.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCondForwardCreateCT.png)
+![AMS Advanced console, create RFC section, change type details box for ct-3nba0wtdugnan: Create DNS conditional forwarders.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCondForwardCreateCT.png)
 
 
 How it works:

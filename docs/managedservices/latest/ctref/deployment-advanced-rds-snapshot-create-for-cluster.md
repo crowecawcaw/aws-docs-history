@@ -34,7 +34,7 @@ Create a snapshot of Amazon Aurora or Multi-AZ DB (Amazon RDS) cluster in availa
 
 Screenshot of this change type in the AMS console:
 
-![Create RDS DB cluster Snapshot interface showing ID, execution mode, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbClusterSnpshtCreateCT.png)
+![Create RDS DB cluster Snapshot interface showing ID, execution mode, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbClusterSnpshtCreateCT.png)
 
 
 How it works:

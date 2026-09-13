@@ -34,7 +34,7 @@ Add an Active Directory (AD) group in the trusted domain to an AD group in the A
 
 The following shows this change type in the AMS console.
 
-![Form showing details for adding an AD group to another AD group in AMS managed AD.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservAddGroupToGroupCT.png)
+![Form showing details for adding an AD group to another AD group in AMS managed AD.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservAddGroupToGroupCT.png)
 
 
 How it works:

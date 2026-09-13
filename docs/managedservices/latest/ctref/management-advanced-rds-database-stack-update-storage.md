@@ -34,7 +34,7 @@ Change the RDS instance storage type, capacity or IOPS through direct API calls.
 
 Screenshot of this change type in the AMS console:
 
-![Update RDS Storage change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsUpdateStorageCT.png)
+![Update RDS Storage change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsUpdateStorageCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Restore an RDS DB instance to a point in time.
 
 Screenshot of this change type in the AMS console:
 
-![Restore RDS DB Instance To Point In Time change type showing ID ct-2uimt36z7j6vn and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbRestoreCT.png)
+![Restore RDS DB Instance To Point In Time change type showing ID ct-2uimt36z7j6vn and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbRestoreCT.png)
 
 
 How it works:

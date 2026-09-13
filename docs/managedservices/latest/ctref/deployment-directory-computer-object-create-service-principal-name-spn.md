@@ -34,7 +34,7 @@ Create service principal names (SPNs) for provided group managed service account
 
 The following shows this change type in the AMS console.
 
-![Create service principal names change type showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCompObjectSpnCreateCT.png)
+![Create service principal names change type showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCompObjectSpnCreateCT.png)
 
 
 How it works:

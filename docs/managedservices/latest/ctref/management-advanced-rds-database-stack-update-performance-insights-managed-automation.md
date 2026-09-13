@@ -34,7 +34,7 @@ Update Performance Insights for a DB instance or Multi-AZ DB cluster. Amazon RDS
 
 Screenshot of this change type in the AMS console:
 
-![Update Performance Insights panel showing execution mode, version, and description for RDS database tuning.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsInsightsUpdateRrCT.png)
+![Update Performance Insights panel showing execution mode, version, and description for RDS database tuning.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsInsightsUpdateRrCT.png)
 
 
 How it works:

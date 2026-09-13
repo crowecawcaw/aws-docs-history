@@ -34,7 +34,7 @@ Use to update an Amazon GuardDuty IPSet instance which is a list of trusted IP a
 
 The following shows this change type in the AMS console.
 
-![GuardDuty IPSet update interface showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyIpSetUpdateRrCT.png)
+![GuardDuty IPSet update interface showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyIpSetUpdateRrCT.png)
 
 
 How it works:

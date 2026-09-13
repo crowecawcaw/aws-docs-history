@@ -34,7 +34,7 @@ Remove one or more Certificates attached to the ELB Listener. If a drift is intr
 
 The following shows this change type in the AMS console.
 
-![Remove ALB Listener Certificates change type showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAlbRemoveListenerCertCT.png)
+![Remove ALB Listener Certificates change type showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAlbRemoveListenerCertCT.png)
 
 
 How it works:

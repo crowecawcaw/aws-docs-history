@@ -34,7 +34,7 @@ Update AD DNS conditional forwarder for a remote domain. For multi-account landi
 
 The following shows this change type in the AMS console.
 
-![Update AD DNS Conditional Forwarder change type showing ID and version 1.0 details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCondForwardUpdateCT.png)
+![Update AD DNS Conditional Forwarder change type showing ID and version 1.0 details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCondForwardUpdateCT.png)
 
 
 How it works:

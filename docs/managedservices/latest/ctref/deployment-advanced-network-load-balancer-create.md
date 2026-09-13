@@ -34,7 +34,7 @@ Use to create a Network Load Balancer.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 1.0, and automated execution mode for creating a Network Load Balancer.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiNlbCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for creating a Network Load Balancer.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiNlbCreateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Delete tags from existing, tagged resources: Autoscaling, EC2, Elastic Load Bala
 
 Screenshot of this change type in the AMS console:
 
-![Delete Resource Tags change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagDeleteCT.png)
+![Delete Resource Tags change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagDeleteCT.png)
 
 
 How it works:

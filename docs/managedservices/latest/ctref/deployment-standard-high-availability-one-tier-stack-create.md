@@ -32,7 +32,7 @@ Use to create an Application Load Balancer and an Auto Scaling Group.
 #### Creating a high availability one-tier stack with the console
 <a name="ha-1-tier-create-con"></a>
 
-![Change type details showing ID, version 2.0, and automated execution mode for creating high availability stack.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHa1tCreateCT.png)
+![Change type details showing ID, version 2.0, and automated execution mode for creating high availability stack.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHa1tCreateCT.png)
 
 
 How it works:

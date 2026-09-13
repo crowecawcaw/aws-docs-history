@@ -32,7 +32,7 @@ Create a new AWS secret access key and corresponding AWS access key ID for the s
 #### Creating access key with the console
 <a name="iam-key-create-con"></a>
 
-![Create Access Key runbook details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamKeyCreateCT.png)
+![Create Access Key runbook details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamKeyCreateCT.png)
 
 
 How it works:

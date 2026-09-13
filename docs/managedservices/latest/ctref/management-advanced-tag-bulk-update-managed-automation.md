@@ -34,7 +34,7 @@ Bulk add tags to existing, supported resources except those in AMS infrastructur
 
 Screenshot of this change type in the AMS console:
 
-![Bulk Update Resource Tags interface showing ID, execution mode, version, and description details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagBulkUpdateRrCT.png)
+![Bulk Update Resource Tags interface showing ID, execution mode, version, and description details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagBulkUpdateRrCT.png)
 
 
 How it works:

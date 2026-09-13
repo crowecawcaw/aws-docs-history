@@ -34,7 +34,7 @@ Modify the instance metadata options for existing instances. If the metadata opt
 
 The following shows this change type in the AMS console.
 
-![Update IMDS version change type details showing ID, execution mode as Manual, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2UpdateIMDSVersionCT.png)
+![Update IMDS version change type details showing ID, execution mode as Manual, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2UpdateIMDSVersionCT.png)
 
 
 How it works:

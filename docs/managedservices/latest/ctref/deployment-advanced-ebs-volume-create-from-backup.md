@@ -34,7 +34,7 @@ Create an AWS Elastic Block Store (EBS) stack from backup.
 
 Screenshot of this change type, in the AMS console:
 
-![](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsCreateFromBackupCT.png)
+![](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsCreateFromBackupCT.png)
 
 
 How it works:

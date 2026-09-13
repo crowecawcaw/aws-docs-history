@@ -34,7 +34,7 @@ Disable AMS Resource Scheduler in the account. This will prevent resources from 
 
 The following shows this change type in the AMS console.
 
-![Disable AMS Resource Scheduler change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedStateDisableCT.png)
+![Disable AMS Resource Scheduler change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedStateDisableCT.png)
 
 
 How it works:

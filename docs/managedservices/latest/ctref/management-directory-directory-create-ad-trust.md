@@ -34,7 +34,7 @@ Create a one-way trust between On-Prem Domain and (AWS) Managed Active Directory
 
 The following shows this change type in the AMS console.
 
-![Create Active Directory Trust change type showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCreateTrustCT.png)
+![Create Active Directory Trust change type showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCreateTrustCT.png)
 
 
 How it works:

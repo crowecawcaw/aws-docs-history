@@ -34,7 +34,7 @@ Use to update properties of an existing Target Group for an Application Load Bal
 
 Screenshot of this change type in the AMS console:
 
-![Form to update properties of an existing Target Group for an Application Load Balancer.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupAlbUpdateCT.png)
+![Form to update properties of an existing Target Group for an Application Load Balancer.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupAlbUpdateCT.png)
 
 
 How it works:

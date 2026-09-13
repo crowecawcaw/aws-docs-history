@@ -34,7 +34,7 @@ Delete tags from existing, supported resources except those in AMS infrastructur
 
 Screenshot of this change type in the AMS console:
 
-![Delete Resource Tags interface showing details for a manual change type in AWS.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagDeleteRrCT.png)
+![Delete Resource Tags interface showing details for a manual change type in AWS.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagDeleteRrCT.png)
 
 
 How it works:

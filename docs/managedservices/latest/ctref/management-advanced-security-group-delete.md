@@ -34,7 +34,7 @@ Delete up to 20 security groups. Note: Only security groups with no dependencies
 
 Screenshot of this change type in the AMS console:
 
-![Delete Security Groups change type details showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupDeleteCT.png)
+![Delete Security Groups change type details showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupDeleteCT.png)
 
 
 How it works:

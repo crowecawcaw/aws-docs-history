@@ -34,7 +34,7 @@ Create a Redshift cluster with the same configration as the source snapshot.
 
 Screenshot of this change type in the AMS console:
 
-![Create Redshift Cluster From Snapshot change type details showing ID and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftCreateClusterFromSnapshotCT.png)
+![Create Redshift Cluster From Snapshot change type details showing ID and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRedshiftCreateClusterFromSnapshotCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Delete the specified listener rule for Application Load Balancers. Default rules
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete ELB listener rule change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiLoadBalancerDeleteElbListenerRuleCT.png)
+![Screenshot of the Delete ELB listener rule change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiLoadBalancerDeleteElbListenerRuleCT.png)
 
 
 How it works:

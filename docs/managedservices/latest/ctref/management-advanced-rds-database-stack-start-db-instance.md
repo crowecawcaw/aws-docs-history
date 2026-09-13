@@ -34,7 +34,7 @@ Start an Amazon Relational Database Service (RDS) database (DB) instance.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for starting an Amazon RDS database instance, including ID and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbStartCT.png)
+![Change type details for starting an Amazon RDS database instance, including ID and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbStartCT.png)
 
 
 How it works:

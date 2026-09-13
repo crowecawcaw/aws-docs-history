@@ -34,7 +34,7 @@ Use when you need extra help or communications about the snapshots to delete.
 #### Deleting EBS snapshots with the Console (Managed Automation)
 <a name="ebs-snpsht-delete-rr-con"></a>
 
-![Delete EBS Snapshot interface showing manual execution mode and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtDeleteRrCT.png)
+![Delete EBS Snapshot interface showing manual execution mode and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtDeleteRrCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Update the EBS volume DeleteOnTermination property of the specified EC2 instance
 
 Screenshot of this change type in the AMS console:
 
-![Update DeleteOnTermination change type details for EC2 instance EBS volumes in AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2TerminationOptionUpdateRrCT.png)
+![Update DeleteOnTermination change type details for EC2 instance EBS volumes in AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2TerminationOptionUpdateRrCT.png)
 
 
 How it works:

@@ -32,7 +32,7 @@ Delete Elastic Block Store (EBS) snapshots. Because deleted snapshots cannot be 
 #### Deleting EBS snapshots with the Console
 <a name="ebs-snpsht-delete-con"></a>
 
-![Delete EBS Snapshots page showing ID, execution mode, version, classification, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtDeleteCT.png)
+![Delete EBS Snapshots page showing ID, execution mode, version, classification, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsSnpshtDeleteCT.png)
 
 
 How it works:

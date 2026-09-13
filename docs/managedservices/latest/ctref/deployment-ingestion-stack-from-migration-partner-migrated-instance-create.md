@@ -34,7 +34,7 @@ Migrate a running non-AMS instance into an AMS stack, in a given AMS-managed VPC
 
 Screenshot of this change type in the AMS console:
 
-![Migrate Instance to AMS Stack change type showing ID, execution mode, version, classification, and description fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIngestStackFromPartMigStackCreateCT.png)
+![Migrate Instance to AMS Stack change type showing ID, execution mode, version, classification, and description fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIngestStackFromPartMigStackCreateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Use to delete an Amazon GuardDuty IPSet instance which is a list of trusted IP a
 
 The following shows this change type in the AMS console.
 
-![Delete GuardDuty IPSet interface showing description, ID, and version for an instance.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyIpSetDeleteRrCT.png)
+![Delete GuardDuty IPSet interface showing description, ID, and version for an instance.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyIpSetDeleteRrCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create a listener rule for the specific listener. Application Load Balancer list
 
 Screenshot of this change type in the AMS console:
 
-![AMS Advanced console, create RFC section, change type details box for ct-18weo4vv83ynk: Create ELB Listener Rule.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiLoadBalancerCreateELBListenerRule.png)
+![AMS Advanced console, create RFC section, change type details box for ct-18weo4vv83ynk: Create ELB Listener Rule.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiLoadBalancerCreateELBListenerRule.png)
 
 
 How it works:

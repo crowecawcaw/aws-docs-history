@@ -34,7 +34,7 @@ Delete AD DNS conditional forwarder for a remote domain. For multi-account landi
 
 The following shows this change type in the AMS console.
 
-![Delete AD DNS Conditional Forwarder change type details showing ID and version information.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCondForwardDeleteCT.png)
+![Delete AD DNS Conditional Forwarder change type details showing ID and version information.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCondForwardDeleteCT.png)
 
 
 How it works:

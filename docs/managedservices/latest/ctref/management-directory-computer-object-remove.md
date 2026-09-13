@@ -34,7 +34,7 @@ Remove a stale computer object from Microsoft Active Directory (AD) and the corr
 
 The following shows this change type in the AMS console.
 
-![Remove Computer Object change type showing ID ct-3d0lfrb8eckuu and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCompObjectRemoveCT.png)
+![Remove Computer Object change type showing ID ct-3d0lfrb8eckuu and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCompObjectRemoveCT.png)
 
 
 How it works:

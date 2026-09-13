@@ -32,7 +32,7 @@ Request a ContinueUpdateRollback operation for the specified CloudFormation stac
 #### Continue rollback a CloudFormation ingest stack failed update using the console
 <a name="cfn-ingest-update-con"></a>
 
-![AMS Advanced console, create RFC section, change type details box for ct-32r1igwrwag4i: Continue rollback on custom CloudFormation stack.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCustomStackContinueRollback.png)
+![AMS Advanced console, create RFC section, change type details box for ct-32r1igwrwag4i: Continue rollback on custom CloudFormation stack.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCustomStackContinueRollback.png)
 
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -34,7 +34,7 @@ Use to stop all running EC2 instances in the specified stack.
 
 The following shows this change type in the AMS console.
 
-![Description of EC2 instance stopping functionality, with ID and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2StopCT.png)
+![Description of EC2 instance stopping functionality, with ID and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2StopCT.png)
 
 
 How it works:

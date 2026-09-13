@@ -34,7 +34,7 @@ Add tags to existing, supported resources except those in AMS infrastructure sta
 
 Screenshot of this change type in the AMS console:
 
-![Console interface for creating resource tags, showing details like execution mode and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagCreateRrCT.png)
+![Console interface for creating resource tags, showing details like execution mode and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagCreateRrCT.png)
 
 
 How it works:

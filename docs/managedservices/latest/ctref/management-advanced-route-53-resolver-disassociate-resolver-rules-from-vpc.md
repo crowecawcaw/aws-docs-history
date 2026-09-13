@@ -34,7 +34,7 @@ Removes the associations between specified resolver rules (upto 20) and a specif
 
 The following shows this change type in the AMS console.
 
-![Console page showing disassociate resolver rules from VPC change type with ID, execution mode, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcDisassociateResolverRule.png)
+![Console page showing disassociate resolver rules from VPC change type with ID, execution mode, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcDisassociateResolverRule.png)
 
 
 How it works:

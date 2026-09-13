@@ -34,7 +34,7 @@ Delete an AWS Certificate Manager (ACM) certificate that is currently not in use
 
 The following shows this change type in the AMS console.
 
-![Delete an ACM Certificate interface showing ID, execution mode, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAcmDeleteCT.png)
+![Delete an ACM Certificate interface showing ID, execution mode, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAcmDeleteCT.png)
 
 
 How it works:

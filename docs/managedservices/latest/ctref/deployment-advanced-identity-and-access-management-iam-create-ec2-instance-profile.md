@@ -32,7 +32,7 @@ Create an IAM instance profile to use with EC2 instances. Each ARN specified in 
 #### Creating IAM EC2 profiles with the console
 <a name="iam-ec2-profile-create-con"></a>
 
-![Create EC2 Instance Profile interface showing ID, execution mode, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEc2ProfileCreateCT.png)
+![Create EC2 Instance Profile interface showing ID, execution mode, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEc2ProfileCreateCT.png)
 
 
 How it works:

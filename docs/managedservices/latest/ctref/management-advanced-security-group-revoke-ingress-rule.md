@@ -34,7 +34,7 @@ Revoke the ingress rule for the specified security group (SG). You must specify 
 
 Screenshot of this change type in the AMS console:
 
-![Revoke Ingress Rule change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupIngressRevokeCT.png)
+![Revoke Ingress Rule change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupIngressRevokeCT.png)
 
 
 How it works:

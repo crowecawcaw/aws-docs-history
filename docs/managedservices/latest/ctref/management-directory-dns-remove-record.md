@@ -34,7 +34,7 @@ Remove the specified DNS resource record name, either an A or CNAME, or pointer 
 
 The following shows this change type in the AMS console.
 
-![Remove DNS Record section showing ID ct-1icrtx8ydvdwe and Version 1.0 only version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservRecordRemoveCT.png)
+![Remove DNS Record section showing ID ct-1icrtx8ydvdwe and Version 1.0 only version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservRecordRemoveCT.png)
 
 
 How it works:

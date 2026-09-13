@@ -34,7 +34,7 @@ Subscribe an email address to the Direct-Customer-Alerts SNS topic.
 
 Screenshot of this change type in the AMS console:
 
-![Subscribe to DirectCustomerAlerts page showing description, ID ct-3rcl9u1k017wu, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSnsSubscribeAlertsCT.png)
+![Subscribe to DirectCustomerAlerts page showing description, ID ct-3rcl9u1k017wu, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSnsSubscribeAlertsCT.png)
 
 
 How it works:

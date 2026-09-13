@@ -34,7 +34,7 @@ Use to request manual creation of a resource.
 
 Screenshot of this change type in the AMS console:
 
-![Change type Create other interface showing description, ID, version, and execution mode fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiOtherCreate.png)
+![Change type Create other interface showing description, ID, version, and execution mode fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiOtherCreate.png)
 
 
 How it works:

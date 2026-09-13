@@ -34,7 +34,7 @@ Create a new Route 53 DNS resource record set and a new public hosted zone for a
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-0vzsr2nyraedl, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDnsPubCreateCT.png)
+![Change type details showing ID ct-0vzsr2nyraedl, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDnsPubCreateCT.png)
 
 
 How it works:

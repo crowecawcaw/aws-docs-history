@@ -34,7 +34,7 @@ Enable or disable an existing AWS Systems Manager (SSM) patch window. If the win
 
 The following shows this change type in the AMS console.
 
-![Set Patch Window Status page showing description, ID ct-3vfxkiudtovm9, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchWindowSetStatusCT.png)
+![Set Patch Window Status page showing description, ID ct-3vfxkiudtovm9, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchWindowSetStatusCT.png)
 
 
 How it works:

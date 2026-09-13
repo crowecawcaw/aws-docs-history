@@ -34,7 +34,7 @@ Deregister one or multiple Amazon Machine Images (AMI)s and optionally delete al
 
 The following shows this change type in the AMS console.
 
-![](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiDeregisterCT.png)
+![](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiDeregisterCT.png)
 
 
 How it works:

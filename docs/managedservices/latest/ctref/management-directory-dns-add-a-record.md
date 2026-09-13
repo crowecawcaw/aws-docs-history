@@ -34,7 +34,7 @@ Add a new static DNS A record in AWS Managed Microsoft Active Directory (AD). Fo
 
 The following shows this change type in the AMS console.
 
-![](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservArecordAddCT.png)
+![](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservArecordAddCT.png)
 
 
 How it works:

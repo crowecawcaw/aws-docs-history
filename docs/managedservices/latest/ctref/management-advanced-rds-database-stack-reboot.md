@@ -34,7 +34,7 @@ Use to reboot an RDS DB instance.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-0bpxsrtu16igp, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackRebootCT.png)
+![Change type details showing ID ct-0bpxsrtu16igp, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackRebootCT.png)
 
 
 How it works:

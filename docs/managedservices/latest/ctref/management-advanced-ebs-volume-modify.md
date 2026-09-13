@@ -34,7 +34,7 @@ Modify EBS Volumes that are not attached to an EC2 instance in an Auto Scaling g
 
 Screenshot of this change type, in the AMS console:
 
-![Modify EBS Volume page showing description, ID ct-1wle0ai4en6km, and version 1.0 only version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsModifyCT.png)
+![Modify EBS Volume page showing description, ID ct-1wle0ai4en6km, and version 1.0 only version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsModifyCT.png)
 
 
 How it works:

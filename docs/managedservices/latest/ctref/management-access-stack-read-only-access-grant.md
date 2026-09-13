@@ -34,7 +34,7 @@ Request Read-Only access for one or more users for one or more stacks. The maxim
 
 The following shows this change type in the AMS console.
 
-![Grant Stack Read-Only access change type showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAccessReadOnlyGrantCT.png)
+![Grant Stack Read-Only access change type showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAccessReadOnlyGrantCT.png)
 
 
 How it works:

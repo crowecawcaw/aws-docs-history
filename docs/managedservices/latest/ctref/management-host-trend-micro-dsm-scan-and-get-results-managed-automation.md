@@ -34,7 +34,7 @@ Request a Trend Micro on-demand scan on all, or specified, Amazon Elastic Comput
 
 The following shows this change type in the AMS console.
 
-![AMS Advanced console, create RFC section, change type details box for ct-08sgdn5zowyyl: Trend Micro scan (managed automation).](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmScanCT.png)
+![AMS Advanced console, create RFC section, change type details box for ct-08sgdn5zowyyl: Trend Micro scan (managed automation).](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmScanCT.png)
 
 
 How it works:

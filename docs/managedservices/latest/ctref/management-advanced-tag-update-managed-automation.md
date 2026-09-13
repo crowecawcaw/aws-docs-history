@@ -34,7 +34,7 @@ Add tags to, update tags on, or remove tags from, existing, supported, resources
 
 Screenshot of this change type in the AMS console:
 
-![Update Resource Tags interface showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagUpdateRrCT.png)
+![Update Resource Tags interface showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTagUpdateRrCT.png)
 
 
 How it works:

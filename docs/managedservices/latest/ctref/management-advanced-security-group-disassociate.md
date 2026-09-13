@@ -34,7 +34,7 @@ Disassociate a security group from up to 50 AWS resources.
 
 Screenshot of this change type in the AMS console:
 
-![Disassociate Security Group change type details showing ID, execution mode, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupDisassociateCT.png)
+![Disassociate Security Group change type details showing ID, execution mode, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupDisassociateCT.png)
 
 
 How it works:

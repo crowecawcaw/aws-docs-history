@@ -34,7 +34,7 @@ Update the instance size for an RDP or SSH customer bastion in an AMS account.
 
 The following shows this change type in the AMS console.
 
-![Update Instance Size interface showing ID, execution mode, version, and description details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiBastionInstSizeUpdateCT.png)
+![Update Instance Size interface showing ID, execution mode, version, and description details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiBastionInstSizeUpdateCT.png)
 
 
 How it works:

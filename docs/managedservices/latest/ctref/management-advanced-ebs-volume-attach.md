@@ -32,7 +32,7 @@ Attach an EBS volume to an EC2 instance. This change type provides an option tha
 #### Attaching EBS Volumes with the Console
 <a name="ebs-vol-attach-con"></a>
 
-![Attach EBS Volume page showing ID ct-34jldf2qihaic with version 1.0 only version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsVolAttachCT.png)
+![Attach EBS Volume page showing ID ct-34jldf2qihaic with version 1.0 only version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsVolAttachCT.png)
 
 
 How it works:

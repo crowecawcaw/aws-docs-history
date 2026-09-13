@@ -34,7 +34,7 @@ Create a KMS key encrypted copy of an Amazon Relational Database Service (Amazon
 
 Screenshot of this change type in the AMS console:
 
-![Copy RDS DB Snapshot change type showing description, ID ct-1c0jrxd3su5oe, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbSnpshtCopyCT.png)
+![Copy RDS DB Snapshot change type showing description, ID ct-1c0jrxd3su5oe, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsDbSnpshtCopyCT.png)
 
 
 How it works:

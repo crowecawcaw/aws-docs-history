@@ -34,7 +34,7 @@ Encrypt Elastic Block Store (EBS) volumes attached to an EC2 instance. Note: If 
 
 The following shows this change type in the AMS console.
 
-![AMS Advanced console, create RFC section, change type details box for ct-0hahohe17csnc: Encrypt Amazon EC2 instance volumes.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2EncryptVolumesCT.png)
+![AMS Advanced console, create RFC section, change type details box for ct-0hahohe17csnc: Encrypt Amazon EC2 instance volumes.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2EncryptVolumesCT.png)
 
 
 How it works:

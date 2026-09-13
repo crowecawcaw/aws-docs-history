@@ -32,7 +32,7 @@ Delete a SAML identity provider (IdP). The given IdP must not be referenced in a
 #### Deleting IAM SAML IDPs with the console
 <a name="iam-saml-idp-delete-con"></a>
 
-![Delete SAML Identity Provider page showing description, ID ct-01zl37gmuk4q2, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamSamlIdpDeleteCT.png)
+![Delete SAML Identity Provider page showing description, ID ct-01zl37gmuk4q2, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamSamlIdpDeleteCT.png)
 
 
 How it works:

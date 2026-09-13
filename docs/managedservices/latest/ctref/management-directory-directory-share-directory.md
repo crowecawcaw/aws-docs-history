@@ -34,7 +34,7 @@ Share a specified directory in your AWS account (directory owner) with another A
 
 The following shows this change type in the AMS console.
 
-![Share Directory details page showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservShareDirectoryCT.png)
+![Share Directory details page showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservShareDirectoryCT.png)
 
 
 How it works:

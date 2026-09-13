@@ -34,7 +34,7 @@ Stop an AWS Backup service running, or scheduled, backup job.
 
 The following shows this change type in the AMS console.
 
-![Stop Backup Job change type showing description, ID ct-1895yr1p87noq, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupJobStopCT.png)
+![Stop Backup Job change type showing description, ID ct-1895yr1p87noq, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupJobStopCT.png)
 
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.

@@ -34,7 +34,7 @@ Remove a certificate from the specified Network Load Balancer (NLB) listener. Us
 
 The following shows this change type in the AMS console.
 
-![Remove NLB Listener Certificate panel with description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiNlbRemoveListenerCertCT.png)
+![Remove NLB Listener Certificate panel with description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiNlbRemoveListenerCertCT.png)
 
 
 How it works:

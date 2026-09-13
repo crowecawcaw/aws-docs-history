@@ -34,7 +34,7 @@ Create an AWS Systems Manager (SSM) patch window for patching to take place on i
 
 Screenshot of this change type in the AMS console:
 
-![Create SSM Patch Window page showing description, ID ct-0el2j07lirxs7, and Version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchWindowCT.png)
+![Create SSM Patch Window page showing description, ID ct-0el2j07lirxs7, and Version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchWindowCT.png)
 
 
 How it works:

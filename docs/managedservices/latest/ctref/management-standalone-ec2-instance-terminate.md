@@ -34,7 +34,7 @@ Terminate up to fifty EC2 instances. The automation checks that none of the inst
 
 The following shows this change type in the AMS console.
 
-![Terminate EC2 Instances change type details showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2TerminateStandaloneInstancesCT.png)
+![Terminate EC2 Instances change type details showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2TerminateStandaloneInstancesCT.png)
 
 
 How it works:

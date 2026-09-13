@@ -34,7 +34,7 @@ Resize an existing EC2 instance in your account. The state of the instance can b
 
 The following shows this change type in the AMS console.
 
-![EC2 instance resize details showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2ResizeInstanceCT.png)
+![EC2 instance resize details showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2ResizeInstanceCT.png)
 
 
 How it works:

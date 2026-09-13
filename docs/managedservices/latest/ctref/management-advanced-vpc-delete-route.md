@@ -34,7 +34,7 @@ Delete a route in a route table within a VPC.
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete VPC route change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcRouteDeleteCT.png)
+![Screenshot of the Delete VPC route change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcRouteDeleteCT.png)
 
 
 How it works:

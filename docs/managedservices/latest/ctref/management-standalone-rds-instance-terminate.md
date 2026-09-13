@@ -34,7 +34,7 @@ Terminate a standalone DB instance or cluster. The automation checks that the DB
 
 The following shows this change type in the AMS console.
 
-![Terminate Standalone DB Instance Or Cluster interface with ID, execution mode, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsTerminateStandaloneCT.png)
+![Terminate Standalone DB Instance Or Cluster interface with ID, execution mode, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsTerminateStandaloneCT.png)
 
 
 How it works:

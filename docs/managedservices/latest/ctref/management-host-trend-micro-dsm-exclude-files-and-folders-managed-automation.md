@@ -34,7 +34,7 @@ Specify files and folders for Trend Micro DSM to ignore (exclude) when scanning;
 
 The following shows this change type in the AMS console.
 
-![Trend Micro DSM configuration panel for excluding files and folders from scanning.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmExcludeFilesFOldersCT.png)
+![Trend Micro DSM configuration panel for excluding files and folders from scanning.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHostSecTmExcludeFilesFOldersCT.png)
 
 
 How it works:

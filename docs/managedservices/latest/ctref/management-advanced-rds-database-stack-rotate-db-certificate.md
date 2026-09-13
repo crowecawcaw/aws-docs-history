@@ -34,7 +34,7 @@ Rotate the DB certificate on an Amazon Relational Database Service (RDS) databas
 
 Screenshot of this change type in the AMS console:
 
-![Description and details for rotating an RDS DB certificate, including ID and version information.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackRotateDbCertCT.png)
+![Description and details for rotating an RDS DB certificate, including ID and version information.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackRotateDbCertCT.png)
 
 
 How it works:

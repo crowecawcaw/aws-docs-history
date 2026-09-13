@@ -34,7 +34,7 @@ Use to create an Amazon GuardDuty ThreatIntelSet instance, which is a list of kn
 
 The following shows this change type in the AMS console.
 
-![GuardDuty ThreatIntelSet creation interface showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyThreatIntelSetCreateRrCT.png)
+![GuardDuty ThreatIntelSet creation interface showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyThreatIntelSetCreateRrCT.png)
 
 
 How it works:

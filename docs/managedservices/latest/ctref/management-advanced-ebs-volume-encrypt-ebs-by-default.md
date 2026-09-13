@@ -34,7 +34,7 @@ Set Amazon Elastic Block Store (EBS) to enforce the encryption. After you enable
 
 The following shows this change type in the AMS console.
 
-![Encrypt EBS By Default change type showing ID ct-0vevjppj9eta4 with version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsEncryptEbsByDefaultCT.png)
+![Encrypt EBS By Default change type showing ID ct-0vevjppj9eta4 with version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEbsEncryptEbsByDefaultCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create an interface VPC endpoint, which allows you to connect to services powere
 
 The following shows this change type in the AMS console.
 
-![Create VPC Endpoint Interface change type showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcEndpointCreateCT.png)
+![Create VPC Endpoint Interface change type showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcEndpointCreateCT.png)
 
 
 How it works:

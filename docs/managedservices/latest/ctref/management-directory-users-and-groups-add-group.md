@@ -34,7 +34,7 @@ Create an Active Directory (AD) group in the AMS managed AD. For multi-account l
 
 The following shows this change type in the AMS console.
 
-![Add AD Group change type showing description, ID ct-3eutt7grkict4, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservAddGroupCT.png)
+![Add AD Group change type showing description, ID ct-3eutt7grkict4, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservAddGroupCT.png)
 
 
 How it works:

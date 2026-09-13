@@ -34,7 +34,7 @@ Enable detailed monitoring for the specified EC2 instance. Detailed monitoring i
 
 The following shows this change type in the AMS console.
 
-![Interface showing Enable Detailed Monitoring option for EC2 instance with execution details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2EnableDetailMonitoringRr.png)
+![Interface showing Enable Detailed Monitoring option for EC2 instance with execution details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2EnableDetailMonitoringRr.png)
 
 
 How it works:

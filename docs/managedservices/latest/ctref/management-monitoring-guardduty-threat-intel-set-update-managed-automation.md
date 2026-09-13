@@ -34,7 +34,7 @@ Use to update an Amazon GuardDuty ThreatIntelSet instance which is a list of tru
 
 THh following shows this change type in the AMS console.
 
-![GuardDuty ThreatIntelSet update interface showing description, ID, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyThreatIntelSetUpdateRrCT.png)
+![GuardDuty ThreatIntelSet update interface showing description, ID, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiGuardDutyThreatIntelSetUpdateRrCT.png)
 
 
 How it works:

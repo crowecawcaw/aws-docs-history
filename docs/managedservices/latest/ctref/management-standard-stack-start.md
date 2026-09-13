@@ -34,7 +34,7 @@ Use to start all stopped EC2 instances in the specified stack.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing Start stack with ID, version 1.0, and Automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStackStartCT.png)
+![Change type details showing Start stack with ID, version 1.0, and Automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiStackStartCT.png)
 
 
 How it works:

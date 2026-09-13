@@ -34,7 +34,7 @@ Share an AMI with multiple AMS accounts or Organizational Units (OUs).
 
 The following shows this change type in the AMS console.
 
-![Share AMI change type details showing ID, execution mode, version, and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiShareCT.png)
+![Share AMI change type details showing ID, execution mode, version, and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiShareCT.png)
 
 
 How it works:

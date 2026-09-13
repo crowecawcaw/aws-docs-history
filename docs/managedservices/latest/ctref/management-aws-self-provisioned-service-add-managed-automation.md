@@ -34,7 +34,7 @@ Add a specific, allowed, AWS service to your AMS account. AMS adds the necessary
 
 The following shows this change type in the AMS console.
 
-![Form for adding a self-provisioned AWS service with ID, execution mode, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsSelfServeAddRRCT.png)
+![Form for adding a self-provisioned AWS service with ID, execution mode, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsSelfServeAddRRCT.png)
 
 
 How it works:

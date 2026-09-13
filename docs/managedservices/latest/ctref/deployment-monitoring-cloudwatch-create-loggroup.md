@@ -32,7 +32,7 @@ Creates a CloudWatch LogGroup with optional subscription filter, up to 5 log str
 #### Creating a CloudWatch LogGroup with the console
 <a name="cw-log-group-create-con"></a>
 
-![Change type details showing CloudWatch LogGroup creation with ID, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCwCreateLGCT.png)
+![Change type details showing CloudWatch LogGroup creation with ID, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCwCreateLGCT.png)
 
 
 How it works:

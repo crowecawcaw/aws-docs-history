@@ -34,7 +34,7 @@ Associate security groups with an AWS resource.
 
 Screenshot of this change type in the AMS console:
 
-![Associate Security Group change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupAssociateCT.png)
+![Associate Security Group change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupAssociateCT.png)
 
 
 How it works:

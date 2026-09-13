@@ -34,7 +34,7 @@ Modify the properties of an existing Amazon Simple Notification Service (SNS) to
 
 Screenshot of this change type in the AMS console:
 
-![Update SNS Topic change type details including ID, execution mode, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSnsUpdateCT.png)
+![Update SNS Topic change type details including ID, execution mode, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSnsUpdateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Stop up to 50 running EC2 instances. If you specify an EC2 instance that is part
 
 The following shows this change type in the AMS console.
 
-![Description of EC2 instance stopping functionality, with ID and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2StopCT.png)
+![Description of EC2 instance stopping functionality, with ID and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2StopCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Request a KMS key by describing key permissions or submitting a key policy docum
 
 Screenshot of this change type in the AMS console:
 
-![Create KMS Key interface showing ID, execution mode, version, and description fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsKeyCreateRrCT.png)
+![Create KMS Key interface showing ID, execution mode, version, and description fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsKeyCreateRrCT.png)
 
 
 How it works:

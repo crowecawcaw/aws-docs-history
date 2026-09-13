@@ -34,7 +34,7 @@ Create a Database Migration Service (DMS) replication instance on an Amazon EC2 
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-27apldkhqr0ol, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateRepInstanceCT.png)
+![Change type details showing ID ct-27apldkhqr0ol, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsCreateRepInstanceCT.png)
 
 
 How it works:

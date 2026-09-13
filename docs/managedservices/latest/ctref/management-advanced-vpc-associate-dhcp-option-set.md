@@ -34,7 +34,7 @@ This automation document associates a DHCP Option Set with an AWS VPC after vali
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Associate DHCP option set change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcAssociateDhcpOptionSetCT.png)
+![Screenshot of the Associate DHCP option set change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcAssociateDhcpOptionSetCT.png)
 
 
 How it works:

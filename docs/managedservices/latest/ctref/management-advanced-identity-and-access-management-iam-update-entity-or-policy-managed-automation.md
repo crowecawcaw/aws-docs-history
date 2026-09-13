@@ -32,7 +32,7 @@ Update Identity and Access Management (IAM) user, role, or policy.
 #### Updating IAM Resources with the Console
 <a name="iam-resource-update-con"></a>
 
-![Update IAM Resource change type with description, ID, version, and execution mode details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamResourceUpdateCT.png)
+![Update IAM Resource change type with description, ID, version, and execution mode details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamResourceUpdateCT.png)
 
 
 How it works:

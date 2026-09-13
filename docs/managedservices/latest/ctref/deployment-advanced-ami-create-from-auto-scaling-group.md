@@ -34,7 +34,7 @@ Create an Amazon Machine Image (AMI) from an EC2 Instance in an Auto Scaling gro
 
 The following shows this change type in the AMS console.
 
-![Create AMI From Auto Scaling Group change type with ID ct-3e3prksxmdhw8 and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiCreateFromAsgCT.png)
+![Create AMI From Auto Scaling Group change type with ID ct-3e3prksxmdhw8 and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiCreateFromAsgCT.png)
 
 
 How it works:

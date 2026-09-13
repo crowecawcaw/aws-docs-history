@@ -34,7 +34,7 @@ Create a security group, and optionally associate it with AWS resources.
 
 Screenshot of this change type in the AMS console:
 
-![Create Security Group change type showing manual execution mode and version 2.0 details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupCreateRrCT.png)
+![Create Security Group change type showing manual execution mode and version 2.0 details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupCreateRrCT.png)
 
 
 How it works:

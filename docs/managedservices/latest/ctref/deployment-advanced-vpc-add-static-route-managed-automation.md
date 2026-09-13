@@ -34,7 +34,7 @@ Create a static route on your route table inside a VPC.
 
 The following shows this change type in the AMS console.
 
-![Add Static Route change type details showing ID, execution mode as Manual, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcStaticRouteAddRrCT.png)
+![Add Static Route change type details showing ID, execution mode as Manual, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiVpcStaticRouteAddRrCT.png)
 
 
 How it works:

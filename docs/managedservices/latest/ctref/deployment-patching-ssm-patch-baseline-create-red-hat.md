@@ -34,7 +34,7 @@ Create an AWS Systems Manager (SSM) patch baseline to define which patches are a
 
 Screenshot of this change type in the AMS console:
 
-![SSM patch baseline creation interface for RHEL OS with description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchBaseRhelCT.png)
+![SSM patch baseline creation interface for RHEL OS with description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchBaseRhelCT.png)
 
 
 How it works:

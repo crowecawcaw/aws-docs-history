@@ -34,7 +34,7 @@ Modify the retention period for Amazon CloudWatch log groups. This change perfor
 
 The following shows this change type in the AMS console.
 
-![Modify log retention period change type details showing ID, execution mode, version, and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiModifyLogRetentionPeriodCT.png)
+![Modify log retention period change type details showing ID, execution mode, version, and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiModifyLogRetentionPeriodCT.png)
 
 
 How it works:

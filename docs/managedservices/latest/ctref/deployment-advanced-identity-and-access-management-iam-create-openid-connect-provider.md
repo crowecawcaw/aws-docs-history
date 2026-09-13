@@ -32,7 +32,7 @@ Create an IAM OpenID Connect provider for the Amazon Elastic Kubernetes Service 
 #### Creating an IAM OpenID Connect provider with the console
 <a name="iam-open-id-create-con"></a>
 
-![Stack details showing ID, execution mode as Automated, version 1.0, and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamOpenIdCreateCT.png)
+![Stack details showing ID, execution mode as Automated, version 1.0, and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamOpenIdCreateCT.png)
 
 
 How it works:

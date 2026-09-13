@@ -34,7 +34,7 @@ Update the AMS Resource Scheduler solution in the account.
 
 The following shows this change type in the AMS console.
 
-![Update AMS Resource Scheduler page showing ID, execution mode as Automated, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedSolutionUpdateCT.png)
+![Update AMS Resource Scheduler page showing ID, execution mode as Automated, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedSolutionUpdateCT.png)
 
 
 How it works:

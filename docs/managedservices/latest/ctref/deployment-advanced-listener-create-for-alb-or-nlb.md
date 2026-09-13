@@ -34,7 +34,7 @@ Create a listener for an Application Load Balancer (ALB) or Network Load Balance
 
 Screenshot of this change type in the AMS console:
 
-![](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiListenerAlbNlbCreateCT.png)
+![](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiListenerAlbNlbCreateCT.png)
 
 
 How it works:

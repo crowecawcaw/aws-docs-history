@@ -34,7 +34,7 @@ Update the list of customer-defined denied actions for Automated IAM Provisionin
 
 Screenshot of this change type in the AMS console:
 
-![Form for updating custom deny list in Automated IAM Provisioning, showing ID and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiUpdateCustomDenyListCT.png)
+![Form for updating custom deny list in Automated IAM Provisioning, showing ID and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiUpdateCustomDenyListCT.png)
 
 
 How it works:

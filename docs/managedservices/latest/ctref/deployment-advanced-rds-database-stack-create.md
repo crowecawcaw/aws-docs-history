@@ -34,7 +34,7 @@ Create an Amazon Relational Database Service (RDS) DB instance. To provision an 
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 2.0, and automated execution mode for RDS database.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateCT.png)
+![Change type details showing ID, version 2.0, and automated execution mode for RDS database.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateCT.png)
 
 
 How it works:

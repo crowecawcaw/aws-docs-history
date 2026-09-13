@@ -32,7 +32,7 @@ Update the template and/or parameters of a CFN stack. To only update the paramet
 #### Updating a CloudFormation ingest stack using the console
 <a name="cfn-ingest-update-con"></a>
 
-![Update CloudFormation Stack page showing description, ID ct-361tlo1k7339x, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnStackUpdateCT-v2.png)
+![Update CloudFormation Stack page showing description, ID ct-361tlo1k7339x, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnStackUpdateCT-v2.png)
 
 
 **To update a CloudFormation Ingest Stack using the console**

@@ -34,7 +34,7 @@ Detach instances or private IPv4 addresses from a target group. If the instances
 
 Screenshot of this change type in the AMS console:
 
-![Detach Instance or Private Ipv4 From Target Group change type details in AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupDetachInstanceCT.png)
+![Detach Instance or Private Ipv4 From Target Group change type details in AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupDetachInstanceCT.png)
 
 
 How it works:

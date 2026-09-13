@@ -34,7 +34,7 @@ Enable AMS Resource Scheduler in the account where it was previously disabled. T
 
 The following shows this change type in the AMS console.
 
-![AMS Resource Scheduler configuration panel showing ID, execution mode, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedStateEnableCT.png)
+![AMS Resource Scheduler configuration panel showing ID, execution mode, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedStateEnableCT.png)
 
 
 How it works:

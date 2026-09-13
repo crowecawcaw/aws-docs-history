@@ -34,7 +34,7 @@ Remove the Service Principal Name (SPN) associated with a specified hostname or 
 
 The following shows this change type in the AMS console.
 
-![Remove Service Principal Name change type showing ID ct-1078jhyxq32dp and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCompObjectRemoveSpnCT.png)
+![Remove Service Principal Name change type showing ID ct-1078jhyxq32dp and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservCompObjectRemoveSpnCT.png)
 
 
 How it works:

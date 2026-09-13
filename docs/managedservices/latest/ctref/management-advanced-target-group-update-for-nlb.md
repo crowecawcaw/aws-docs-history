@@ -34,7 +34,7 @@ Use to update properties of an existing Target Group for a Network Load Balancer
 
 Screenshot of this change type in the AMS console:
 
-![Update target group for NLB change type showing ID ct-1x66wvkjw2zp5 and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupNlbUpdateCT.png)
+![Update target group for NLB change type showing ID ct-1x66wvkjw2zp5 and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupNlbUpdateCT.png)
 
 
 How it works:

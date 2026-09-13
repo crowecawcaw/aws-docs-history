@@ -34,7 +34,7 @@ Copy an Amazon Machine Image (AMI) in your AMS account.
 
 The following shows this change type in the AMS console.
 
-![Copy AMI change type showing ID ct-046aizcwg5idf with version 1.0 only version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiCopyCT.png)
+![Copy AMI change type showing ID ct-046aizcwg5idf with version 1.0 only version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAmiCopyCT.png)
 
 
 How it works:

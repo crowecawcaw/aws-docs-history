@@ -34,7 +34,7 @@ Delete one or more recovery points (snapshots) from the specified vault. Use thi
 
 The following shows this change type in the AMS console.
 
-![Delete Recovery Points change type showing ID ct-1r1vbr8ahr156 and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupRecoveryPointDeleteCT.png)
+![Delete Recovery Points change type showing ID ct-1r1vbr8ahr156 and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupRecoveryPointDeleteCT.png)
 
 
 How it works:

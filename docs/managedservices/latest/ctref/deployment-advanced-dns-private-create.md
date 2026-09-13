@@ -34,7 +34,7 @@ Create a new Route 53 DNS resource record sets and a new private hosted zone for
 
 The following shows this change type in the AMS console.
 
-![Change type details for creating a private DNS record, including description and execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDnsPriCreateCT.png)
+![Change type details for creating a private DNS record, including description and execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDnsPriCreateCT.png)
 
 
 How it works:

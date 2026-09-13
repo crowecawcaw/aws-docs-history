@@ -34,7 +34,7 @@ Create an AWS Systems Manager (SSM) patch baseline to define which patches are a
 
 Screenshot of this change type in the AMS console:
 
-![Create SSM Patch Baseline page showing description, ID ct-0kbey7hb00atp, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchBaseWinCT.png)
+![Create SSM Patch Baseline page showing description, ID ct-0kbey7hb00atp, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiPatchBaseWinCT.png)
 
 
 How it works:

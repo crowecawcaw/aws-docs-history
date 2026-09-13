@@ -34,7 +34,7 @@ Create an alias for an AWS Key Management Service (KMS) customer master key (CMK
 
 Screenshot of this change type in the AMS console:
 
-![Create KMS Alias interface showing description, ID ct-2svg4k2fqi4ak, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsAliasCreateCT.png)
+![Create KMS Alias interface showing description, ID ct-2svg4k2fqi4ak, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsAliasCreateCT.png)
 
 
 How it works:

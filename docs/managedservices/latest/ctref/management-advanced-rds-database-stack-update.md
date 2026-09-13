@@ -34,7 +34,7 @@ Modify the properties of an Amazon Relational Database Service (RDS) DB instance
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for updating an Amazon RDS database stack, including ID and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackUpdateCT.png)
+![Change type details for updating an Amazon RDS database stack, including ID and version.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackUpdateCT.png)
 
 
 How it works:

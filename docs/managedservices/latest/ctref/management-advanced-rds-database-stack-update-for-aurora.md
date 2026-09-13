@@ -34,7 +34,7 @@ Modify the properties of an existing AWS Relational Database Service (RDS) Auror
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 1.0, and automated execution mode for RDS Aurora stack update.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackAuroraUpdate2CT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for RDS Aurora stack update.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackAuroraUpdate2CT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Create an S3 bucket policy. The existing bucket policy (if any) is replaced with
 
 Screenshot of this change type in the AMS console:
 
-![Create policy section showing ID, execution mode as Manual, version 1.0, and S3 bucket policy description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3CreatePolicyCT.png)
+![Create policy section showing ID, execution mode as Manual, version 1.0, and S3 bucket policy description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3CreatePolicyCT.png)
 
 
 How it works:

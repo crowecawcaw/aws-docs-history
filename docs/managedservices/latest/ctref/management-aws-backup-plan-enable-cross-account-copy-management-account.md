@@ -34,7 +34,7 @@ Enable and configure cross-account backup and monitoring in a management account
 
 The following shows this change type in the AMS console.
 
-![Enable Cross Account Copy change type showing description, ID ct-2yja7ihh30ply, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanEnableXAcctCopyCT.png)
+![Enable Cross Account Copy change type showing description, ID ct-2yja7ihh30ply, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanEnableXAcctCopyCT.png)
 
 
 How it works:

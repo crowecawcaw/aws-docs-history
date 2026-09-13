@@ -34,7 +34,7 @@ Update the number of RDP and SSH Bastion instances. Optionally update the sessio
 
 The following shows this change type in the AMS console.
 
-![Update instance or session counts interface showing ID, execution mode, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiBastionInstSesCountsUpdateCT.png)
+![Update instance or session counts interface showing ID, execution mode, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiBastionInstSesCountsUpdateCT.png)
 
 
 How it works:

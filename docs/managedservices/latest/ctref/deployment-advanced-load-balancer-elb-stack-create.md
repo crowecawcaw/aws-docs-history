@@ -34,7 +34,7 @@ Use to create an Amazon ELB Classic Load Balancer. Use alternate change types to
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing Create load balancer stack with ID, version 2.0, and Automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbCreateCT.png)
+![Change type details showing Create load balancer stack with ID, version 2.0, and Automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiElbCreateCT.png)
 
 
 How it works:

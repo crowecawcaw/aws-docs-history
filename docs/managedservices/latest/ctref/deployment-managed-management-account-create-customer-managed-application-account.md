@@ -34,7 +34,7 @@ Create a customer-managed application account in a multi-account AWS landing zon
 
 Screenshot of this change type in the AMS console:
 
-![Description and details for creating a customer-managed application account in AWS.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMgmtAcctCreateCustManAppAcctCT.png)
+![Description and details for creating a customer-managed application account in AWS.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzMgmtAcctCreateCustManAppAcctCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Move an account under an AWS organizational unit (OU) to a different OU.
 
 Screenshot of this change type in the AMS console:
 
-![Move Account To OU change type showing ID ct-1vq0f289r36ay and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzMvAcctToOuCT.png)
+![Move Account To OU change type showing ID ct-1vq0f289r36ay and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzMvAcctToOuCT.png)
 
 
 How it works:

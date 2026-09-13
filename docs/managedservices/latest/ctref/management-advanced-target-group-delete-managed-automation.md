@@ -34,7 +34,7 @@ Delete target groups that are not attached to any load balancer. Before deleting
 
 Screenshot of this change type in the AMS console:
 
-![Delete Target Group page showing execution mode, version, classification path, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTargetGroupDeleteCT.png)
+![Delete Target Group page showing execution mode, version, classification path, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTargetGroupDeleteCT.png)
 
 
 **Note**  

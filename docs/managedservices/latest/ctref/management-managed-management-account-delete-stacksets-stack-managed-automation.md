@@ -34,7 +34,7 @@ Delete AWS CloudFormation (CFN) StackSets-created stacks and instances.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for deleting StackSets stack, including ID, execution mode, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzStckstsStckDeleteCT.png)
+![Change type details for deleting StackSets stack, including ID, execution mode, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzStckstsStckDeleteCT.png)
 
 
 How it works:

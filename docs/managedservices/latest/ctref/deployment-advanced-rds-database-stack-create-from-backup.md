@@ -34,7 +34,7 @@ Create an Amazon Relational Database Service (RDS) from a backup. When you resto
 
 Screenshot of this change type, in the AMS console:
 
-![Console interface for creating an Amazon RDS instance from a backup, showing description and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateFromBackupCT.png)
+![Console interface for creating an Amazon RDS instance from a backup, showing description and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateFromBackupCT.png)
 
 
 How it works:

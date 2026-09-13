@@ -34,7 +34,7 @@ Stop a Database Migration Service (DMS) replication task. The specified task mus
 
 Screenshot of this change type in the AMS console:
 
-![Stop DMS Replication Task page showing task ID ct-1vd3y4ygbqmfk with version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsStopRepTaskCT.png)
+![Stop DMS Replication Task page showing task ID ct-1vd3y4ygbqmfk with version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDmsStopRepTaskCT.png)
 
 
 How it works:

@@ -32,7 +32,7 @@ Create an AWS CodeDeploy application deployment group specifically for an EC2 in
 #### Creating a CodeDeploy deployment group for EC2 with the console
 <a name="cd-dep-group-ec2-create-con"></a>
 
-![Change type details showing CodeDeploy deployment group creation with EC2 instance targeting.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCDDepGroupCreate4Ec2CT.png)
+![Change type details showing CodeDeploy deployment group creation with EC2 instance targeting.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCDDepGroupCreate4Ec2CT.png)
 
 
 How it works:

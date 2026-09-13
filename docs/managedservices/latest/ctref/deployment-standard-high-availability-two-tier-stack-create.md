@@ -32,7 +32,7 @@ Creates a stack consisting of an Auto Scaling group, an RDS DB instance, and a l
 #### Creating a high availability two-tier stack with the console
 <a name="ha-2-tier-create-con"></a>
 
-![Change type details showing ID ct-06mjngx5flwto, version 3.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHa2tCreateCT.png)
+![Change type details showing ID ct-06mjngx5flwto, version 3.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiHa2tCreateCT.png)
 
 
 How it works:

@@ -34,7 +34,7 @@ Remove an Active Directory (AD) user from an AD group in the AMS managed AD. For
 
 The following shows this change type in the AMS console.
 
-![Remove AD User From AD Group change type showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservRemoveUserFromGroupCT.png)
+![Remove AD User From AD Group change type showing description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDirservRemoveUserFromGroupCT.png)
 
 
 How it works:

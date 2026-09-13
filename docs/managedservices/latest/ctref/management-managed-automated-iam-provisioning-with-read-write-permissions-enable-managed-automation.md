@@ -32,7 +32,7 @@ Enable Automated IAM provisioning with read-write permissions in the account use
 #### Creating IAM entity or policy with the console
 <a name="iam-entity-create-con"></a>
 
-![IAM role or policy creation interface with ID, execution mode, and description details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEntityCreateCT.png)
+![IAM role or policy creation interface with ID, execution mode, and description details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamEntityCreateCT.png)
 
 
 How it works:

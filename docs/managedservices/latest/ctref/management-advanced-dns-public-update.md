@@ -34,7 +34,7 @@ Update an existing Route 53 DNS Hosted Zone with the supplied resource record se
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-1hzofpphabs3i, version 1.0, and Automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDnsPubUpdateCT.png)
+![Change type details showing ID ct-1hzofpphabs3i, version 1.0, and Automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiDnsPubUpdateCT.png)
 
 
 How it works:

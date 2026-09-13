@@ -34,7 +34,7 @@ Update an existing backup plan. Please note that any changes that you make to a 
 
 The following shows this change type in the AMS console.
 
-![Update AWS Backup Plan change type showing manual execution mode and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanUpdateRrCT.png)
+![Update AWS Backup Plan change type showing manual execution mode and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanUpdateRrCT.png)
 
 
 How it works:

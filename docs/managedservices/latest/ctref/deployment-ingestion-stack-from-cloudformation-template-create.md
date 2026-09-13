@@ -32,7 +32,7 @@ Create a stack by pointing to a customized CloudFormation (CFN) template in an S
 #### Creating a CloudFormation ingest stack using the console
 <a name="cfn-ingest-create-con"></a>
 
-![Create Stack From CloudFormation Template dialog showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnIngestCT.png)
+![Create Stack From CloudFormation Template dialog showing description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnIngestCT.png)
 
 
 **To create a CloudFormation ingest stack using the console**

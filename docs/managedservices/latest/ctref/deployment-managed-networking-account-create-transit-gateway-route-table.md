@@ -34,7 +34,7 @@ Create a transit gateway (TGW) route table. Use this change type for multi-accou
 
 Screenshot of this change type in the AMS console:
 
-![Create Application Account Route Table change type details showing manual execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzNetAcctCreateAppAcctRouteTableRrCT.png)
+![Create Application Account Route Table change type details showing manual execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiMalzNetAcctCreateAppAcctRouteTableRrCT.png)
 
 
 How it works:

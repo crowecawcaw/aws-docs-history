@@ -34,7 +34,7 @@ Change the DB instance type through direct API calls. The RDS instance can be st
 
 Screenshot of this change type in the AMS console:
 
-![Update Instance Type page showing ID, execution mode, version, classification path, and description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsUpdateInstanceTypeCT.png)
+![Update Instance Type page showing ID, execution mode, version, classification path, and description.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsUpdateInstanceTypeCT.png)
 
 
 How it works:

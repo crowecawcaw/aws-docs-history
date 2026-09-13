@@ -34,7 +34,7 @@ Delete an existing schedule used in AMS Resource Scheduler.
 
 The following shows this change type in the AMS console.
 
-![Delete Resource Scheduler Schedule interface showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedScheduleDeleteCT.png)
+![Delete Resource Scheduler Schedule interface showing description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiResSchedScheduleDeleteCT.png)
 
 
 How it works:

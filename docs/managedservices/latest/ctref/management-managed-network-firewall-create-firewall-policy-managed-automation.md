@@ -34,7 +34,7 @@ Create a network firewall policy with specified configuration and rule group ref
 
 Screenshot of this change type in the AMS console:
 
-![Create Network Firewall Policy change type showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateNetworkFirewallPolicyCT.png)
+![Create Network Firewall Policy change type showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCreateNetworkFirewallPolicyCT.png)
 
 
 How it works:

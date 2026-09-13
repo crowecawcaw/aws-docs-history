@@ -34,7 +34,7 @@ Modify the properties of an S3 bucket created using change type ID ct-1a68ck03fn
 
 Screenshot of this change type in the AMS console:
 
-![Update S3 Bucket change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3UpdateCT.png)
+![Update S3 Bucket change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3UpdateCT.png)
 
 
 How it works:

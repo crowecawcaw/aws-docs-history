@@ -34,7 +34,7 @@ Create an access point and associate it with the specified S3 bucket.
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating an S3 access point, including ID, execution mode, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3AccessPointCreateCT.png)
+![Change type details for creating an S3 access point, including ID, execution mode, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiS3AccessPointCreateCT.png)
 
 
 How it works:

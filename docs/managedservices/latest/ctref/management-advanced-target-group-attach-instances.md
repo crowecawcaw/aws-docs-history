@@ -34,7 +34,7 @@ Attach instance or instances to the target group (ALB and NLB).
 
 Screenshot of this change type in the AMS console:
 
-![Console interface for attaching target instances to ALB and NLB groups without service interruption.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupAttachInstanceCT.png)
+![Console interface for attaching target instances to ALB and NLB groups without service interruption.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupAttachInstanceCT.png)
 
 
 How it works:

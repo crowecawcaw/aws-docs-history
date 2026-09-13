@@ -34,7 +34,7 @@ Update existing defined termination protection for stacks.
 
 The following shows this change type in the AMS console.
 
-![Update Termination Protection change type showing ID ct-2uzbqr7x7mekd and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnProTermUpdateCT.png)
+![Update Termination Protection change type showing ID ct-2uzbqr7x7mekd and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnProTermUpdateCT.png)
 
 
 How it works:

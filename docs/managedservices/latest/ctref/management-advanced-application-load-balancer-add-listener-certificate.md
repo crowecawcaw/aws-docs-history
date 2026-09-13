@@ -34,7 +34,7 @@ Add a certificate to the specified Application Load Balancer (ALB) listener. Use
 
 The following shows this change type in the AMS console.
 
-![Application Load Balancer (ALB) listener certificate addition interface with description and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAlbAddListenerCertCT.png)
+![Application Load Balancer (ALB) listener certificate addition interface with description and version details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAlbAddListenerCertCT.png)
 
 
 How it works:

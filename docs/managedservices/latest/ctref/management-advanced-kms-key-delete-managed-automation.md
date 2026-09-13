@@ -34,7 +34,7 @@ Delete an AWS Key Management Service (KMS) Key from an AMS account. By default, 
 
 Screenshot of this change type in the AMS console:
 
-![Delete KMS key interface showing ID, execution mode, version, and description details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsKeyDeleteRrCT.png)
+![Delete KMS key interface showing ID, execution mode, version, and description details.](https://docs.aws.amazon.com/managedservices/latest/ctref/images/guiKmsKeyDeleteRrCT.png)
 
 
 How it works:
