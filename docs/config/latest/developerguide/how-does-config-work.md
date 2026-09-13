@@ -7,7 +7,7 @@ AWS Config provides a detailed view of the configuration of AWS resources in you
 
 An AWS *resource* is an entity you can work with in AWS, such as an Amazon Elastic Compute Cloud (EC2) instance, an Amazon Elastic Block Store (EBS) volume, a security group, or an Amazon Virtual Private Cloud (VPC). For a complete list of AWS resources supported by AWS Config, see [Supported Resource Types for AWS Config](resource-config-reference.md).
 
-![The image depicts a high-level overview of how AWS Config works. It illustrates the flow of information from various AWS resources to AWS Config, which then stores configuration data in an Amazon S3 bucket. The process involves the configuration recorder, AWS Config rules, and the delivery channel. The goal is to track and manage resource configurations within an AWS environment.](http://docs.aws.amazon.com/config/latest/developerguide/images/how-AWSconfig-works-2.png)
+![The image depicts a high-level overview of how AWS Config works. It illustrates the flow of information from various AWS resources to AWS Config, which then stores configuration data in an Amazon S3 bucket. The process involves the configuration recorder, AWS Config rules, and the delivery channel. The goal is to track and manage resource configurations within an AWS environment.](https://docs.aws.amazon.com/config/latest/developerguide/images/how-AWSconfig-works-2.png)
 
 
 ## Resource Discovery

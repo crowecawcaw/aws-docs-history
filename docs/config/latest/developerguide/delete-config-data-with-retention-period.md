@@ -14,7 +14,7 @@ To understand the behavior of retention period, let's take a look at the timelin
 
 In the following timeline, AWS Config records `ConfigurationItems` at the following dates. For the purpose of this timeline, today is represented as May 24, 2018.
 
-![The image depicts a timeline for AWS Config data retention periods. The timeline shows key points related to configuration items (CIs) recorded on specific dates. There are two dashed boxes representing rention periods: 356 days and 30 days.](http://docs.aws.amazon.com/config/latest/developerguide/images/retention-period-timeline.png)
+![The image depicts a timeline for AWS Config data retention periods. The timeline shows key points related to configuration items (CIs) recorded on specific dates. There are two dashed boxes representing rention periods: 356 days and 30 days.](https://docs.aws.amazon.com/config/latest/developerguide/images/retention-period-timeline.png)
 
 
 The following table explains which `ConfigurationItems` are displayed on the AWS Config timeline based on selected retention period.
@@ -41,4 +41,4 @@ To set a custom data retention period for configuration items select the checkbo
 
 The following image displays where you can set the data retention period in **Data Governance**. You can access **Data Governance** on the **Edit Settings** page from the AWS Config console by choosing **Settings** in the left navigation bar, and then choosing **Edit**.
 
-![The image is a screenshot of the AWS Config console Edit settings page. It includes information related to data governance: the data retention period and the IAM role for AWS Config.](http://docs.aws.amazon.com/config/latest/developerguide/images/retention-period-console.png)
+![The image is a screenshot of the AWS Config console Edit settings page. It includes information related to data governance: the data retention period and the IAM role for AWS Config.](https://docs.aws.amazon.com/config/latest/developerguide/images/retention-period-console.png)

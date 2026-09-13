@@ -10,7 +10,7 @@ An aggregator is an AWS Config resource type that collects AWS Config configurat
 
 Use an aggregator to view the resource configuration and compliance data recorded in AWS Config. The following image displays how an aggregator collects AWS Config data from multiple accounts and Regions.
 
-![The image depicts the AWS Config data aggregation proces. It invovles collecting data from multiple source accounts and AWS Regions, aggregating resource configuration information and compliance data, and presenting an aggregated view to help with management.](http://docs.aws.amazon.com/config/latest/developerguide/images/Aggregate_Data_Landing_Page_Diagram.png)
+![The image depicts the AWS Config data aggregation proces. It invovles collecting data from multiple source accounts and AWS Regions, aggregating resource configuration information and compliance data, and presenting an aggregated view to help with management.](https://docs.aws.amazon.com/config/latest/developerguide/images/Aggregate_Data_Landing_Page_Diagram.png)
 
 
 ## Use Cases
