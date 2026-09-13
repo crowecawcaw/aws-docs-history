@@ -29,7 +29,7 @@ Review the Hub SDK components and processes you need to control devices through 
 
 The following diagram demonstrates the end-to-end device control flow by describing how an end user turns on a Zigbee smart plug.
 
-![The Hub SDK end-to-end flow for device control with a Zigbee smart plug.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-sdk-v2-controlflow.png)
+![The Hub SDK end-to-end flow for device control with a Zigbee smart plug.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-sdk-v2-controlflow.png)
 
 
 ## Hub SDK components for device control

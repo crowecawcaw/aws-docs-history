@@ -10,7 +10,7 @@ Deactivation of provided user access tokens is required when a customer deletes 
 
 The image below illustrates the delinking an end user account from the system
 
-![User deactivation workflow](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/user-deactivate-workflow.png)
+![User deactivation workflow](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/user-deactivate-workflow.png)
 
 
 **User deactivation workflow**

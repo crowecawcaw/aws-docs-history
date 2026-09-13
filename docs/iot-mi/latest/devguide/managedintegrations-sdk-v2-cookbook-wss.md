@@ -104,7 +104,7 @@ A customer purchases a smart home camera. After unboxing, they scan the device b
 
 The following diagram shows the WSS architecture with cloud services, provisioner hub, and provisionee device components:
 
-![WSS architecture diagram showing cloud services (Provisioning Service, LPWSS, AWS IoT Core), hub device with WiFi Provisioner Plugin (SoftAP Manager, SOCKS5 Proxy, TLS Server, Credentials Manager), and end device with WSS module (WiFi Scanner, SOCKS5/TLS Clients, Secure Storage)](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/wifi-simple-setup-architecture.png)
+![WSS architecture diagram showing cloud services (Provisioning Service, LPWSS, AWS IoT Core), hub device with WiFi Provisioner Plugin (SoftAP Manager, SOCKS5 Proxy, TLS Server, Credentials Manager), and end device with WSS module (WiFi Scanner, SOCKS5/TLS Clients, Secure Storage)](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/wifi-simple-setup-architecture.png)
 
 
 ### Key components
@@ -123,7 +123,7 @@ The following diagram shows the WSS architecture with cloud services, provisione
 
 The following diagram shows the complete WiFi Simple Setup workflow from barcode scanning through device activation:
 
-![The complete WiFi Simple Setup workflow diagram](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/wifi-simple-setup-flow.png)
+![The complete WiFi Simple Setup workflow diagram](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/wifi-simple-setup-flow.png)
 
 
 ### Workflow phases

@@ -29,4 +29,4 @@ In case of failures, managed integrations for AWS IoT Device Management appends 
 
 The following diagram shows the relationship between key components of account linking:
 
-![C2C connector account linking workflow with OAuth Authorization](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/account-linking-workflow.png)
+![C2C connector account linking workflow with OAuth Authorization](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/account-linking-workflow.png)

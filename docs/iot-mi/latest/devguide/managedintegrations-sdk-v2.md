@@ -8,4 +8,4 @@ Use the topics in this section to learn how to onboard and control IoT hub devic
 ## Hub SDK architecture
 <a name="managedintegrations-sdk-v2-architecture"></a>
 
-![The hub SDK architecture and components.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-hub-sdk-architecture.png)
+![The hub SDK architecture and components.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-hub-sdk-architecture.png)

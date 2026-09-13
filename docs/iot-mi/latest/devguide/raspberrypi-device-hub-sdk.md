@@ -42,7 +42,7 @@ Flash the Managed Integrations image to your SD card using these steps:
 1. Select **Choose storage** → Select your SD Card Reader.
 
 1. Verify your configuration matches the following screen:  
-![Raspberry Pi Imager configuration screen showing device, OS, and storage selections](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-imager-config.png)
+![Raspberry Pi Imager configuration screen showing device, OS, and storage selections](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-imager-config.png)
 
 1. Click **Next**.
 
@@ -73,7 +73,7 @@ Flash the Managed Integrations image to your SD card using these steps:
 1. Wait for the writing process to complete.
 
 1. Verify successful completion with the following screen:  
-![Raspberry Pi Imager success screen showing completed write operation](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-write-success.png)
+![Raspberry Pi Imager success screen showing completed write operation](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-write-success.png)
 
 1. Click **Continue**.
 

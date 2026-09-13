@@ -59,7 +59,7 @@ Review the sequence of operations that occur when you onboard devices using the 
 
 The end user powers on the IoT device and scans its QR code using the device manufacturer application. The device is then enrolled onto the Managed Integrations cloud and connects to the IoT hub.
 
-![The Hub SDK architecture and components for the simple setup onboarding flow.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/new-simple-setup-june-2025.png)
+![The Hub SDK architecture and components for the simple setup onboarding flow.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/new-simple-setup-june-2025.png)
 
 
 ### Zero-touch setup (ZTS)
@@ -69,7 +69,7 @@ Zero-touch setup (ZTS) streamlines device onboarding by pre-associating the devi
 
 When the end user receives and powers on the device, it automatically enrolls in the managed integrations cloud and connects to the IoT hub without requiring any additional setup actions.
 
-![The Hub SDK architecture and components for the zero-touch setup onboarding flow.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/ZeroTouchSetup.png)
+![The Hub SDK architecture and components for the zero-touch setup onboarding flow.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/ZeroTouchSetup.png)
 
 
 ### User guided setup (UGS)
@@ -77,7 +77,7 @@ When the end user receives and powers on the device, it automatically enrolls in
 
 The end user powers on the device and follows interactive steps to onboard it to Managed Integrations. This might include pressing a button on the IoT hub, using a device manufacturer app, or pressing buttons on both the hub and device. You can use this method if Simple setup fails.
 
-![The Hub SDK architecture and components for user guided setup onboarding flow.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/updated-ugs-flow-June25.png)
+![The Hub SDK architecture and components for user guided setup onboarding flow.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/updated-ugs-flow-June25.png)
 
 
 ### WiFi Simple Setup (WSS)
@@ -89,4 +89,4 @@ If WSS is unavailable or fails (for example, no provisioner available or connect
 
 The following diagram shows the WiFi Simple Setup flow:
 
-![Diagram showing the Hub SDK architecture and components for the WiFi Simple Setup onboarding flow, including barcode scanning, temporary network discovery, and automatic WiFi credential provisioning.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/wifi-simple-setup-flow.png)
+![Diagram showing the Hub SDK architecture and components for the WiFi Simple Setup onboarding flow, including barcode scanning, temporary network discovery, and automatic WiFi credential provisioning.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/wifi-simple-setup-flow.png)

@@ -9,7 +9,7 @@ Device discovery is an asynchronous process where Managed Integrations for AWS I
 
 The following diagram illustrates the device discovery workflow between the end user and Managed Integrations for AWS IoT Device Management:
 
-![AWS.DiscoverDevices workflow](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/device-discovery-workflow.png)
+![AWS.DiscoverDevices workflow](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/device-discovery-workflow.png)
 
 
 1. **Customer initiates device discovery** - The customer initiates the device discovery process on behalf of the end user.

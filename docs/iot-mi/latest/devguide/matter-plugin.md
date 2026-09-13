@@ -17,7 +17,7 @@
 
 Matter Plugin is a reference implementation built using the [Custom protocol plugin](custom-protocol-plugin.md) feature of the Managed integrations Hub SDK. It enables your hub to control Matter devices both locally on the same network, following the Matter specification, and remotely through Managed integrations.
 
-![Architecture diagram showing Matter Plugin integration with Managed integrations Hub SDK](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iotmi-matter-plugin.png)
+![Architecture diagram showing Matter Plugin integration with Managed integrations Hub SDK](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iotmi-matter-plugin.png)
 
 
 The Matter Plugin is included in the Hub SDK. It communicates with Matter devices, implements Matter Controller functionalities, and exposes a remote control path via Managed integrations.

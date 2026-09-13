@@ -34,4 +34,4 @@ Manages device-to-cloud communication using:
 
 The following diagram describes the hub onboarding subsystem architecture and its components. If you're not using AWS IoT Greengrass, you can disregard that component of the diagram.
 
-![Hub onboarding subsystem architecture.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-hub-onboarding-subsystem.png)
+![Hub onboarding subsystem architecture.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-hub-onboarding-subsystem.png)

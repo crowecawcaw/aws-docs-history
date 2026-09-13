@@ -17,7 +17,7 @@ The middleware performs the following functions.
 
 The block diagram below represents the architecture of the Zigbee middleware. The architecture of middlewares of other protocols like Z-Wave is also similar. 
 
-![The protocol-specific middleware architecture and its components.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-smarthome-sdk-v2-middleware-architecture.png)
+![The protocol-specific middleware architecture and its components.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-smarthome-sdk-v2-middleware-architecture.png)
 
 
 The protocol-specific middleware has three main components.
@@ -30,9 +30,9 @@ The protocol-specific middleware has three main components.
 
 Here is an example of the command flow through the Zigbee middleware.
 
-![The protocol-specific middleware architecture and its components.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-smarthome-sdk-v2-middleware-zigbee.png)
+![The protocol-specific middleware architecture and its components.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-smarthome-sdk-v2-middleware-zigbee.png)
 
 
 Here is an example of the command flow through the Z-Wave middleware.
 
-![The protocol-specific middleware architecture and its components.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-smarthome-sdk-v2-middleware-zwave.png)
+![The protocol-specific middleware architecture and its components.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-smarthome-sdk-v2-middleware-zwave.png)

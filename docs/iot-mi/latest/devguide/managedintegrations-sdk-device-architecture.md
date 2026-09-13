@@ -5,7 +5,7 @@
 
 This section describes the End device SDK architecture and how its components interact with your low level C-Functions. The following diagram illustrates the core components and their relationships in the SDK framework.
 
-![The End device SDK architecture and how it connects your end devices to the Managed Integrations cloud.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-device-sdk-architecture.png)
+![The End device SDK architecture and how it connects your end devices to the Managed Integrations cloud.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-device-sdk-architecture.png)
 End device SDK components
 
 The End device SDK architecture contains these components for Managed Integrations feature integration:

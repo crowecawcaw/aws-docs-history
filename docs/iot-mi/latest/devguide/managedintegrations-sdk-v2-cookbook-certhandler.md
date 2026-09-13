@@ -96,7 +96,7 @@ Declare `secure_storage_cert_handler_interface.hpp` as public.
 ### Project structure
 <a name="managedintegrations-sdk-v2-cookbook-proj"></a>
 
-![Managed integrations certificate handler project structure.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-cert-handler-projstruct.png)
+![Managed integrations certificate handler project structure.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-cert-handler-projstruct.png)
 
 
 ### Inherit the interface

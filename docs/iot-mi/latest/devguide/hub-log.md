@@ -73,4 +73,4 @@ If set to false, uploaded files are renamed to: `/var/log/awsiotmi/ManagedIntegr
 
  See example of a CloudWatch Logs file below: 
 
-![An example of a cloudwatch log for UploadLog](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iotmanagedintegrations-sdk-cloudwatch-log.png)
+![An example of a cloudwatch log for UploadLog](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iotmanagedintegrations-sdk-cloudwatch-log.png)

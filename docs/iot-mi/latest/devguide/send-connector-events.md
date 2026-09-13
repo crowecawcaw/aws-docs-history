@@ -10,7 +10,7 @@ While the `SendConnectorEvent` API is used to asynchronously respond to `AWS.Sen
 
 The following section uses a smart camera installed at a home as an example to further explain the working flow of these events:
 
-![Device event workflow](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/device-events-workflow.png)
+![Device event workflow](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/device-events-workflow.png)
 
 
 **Device event workflow**

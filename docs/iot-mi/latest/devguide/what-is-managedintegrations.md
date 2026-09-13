@@ -30,7 +30,7 @@ If you are a first-time user of managed integrations, we recommend that you begi
 
 The following image provides a high-level overview of Managed Integrations
 
-![Overall managed integrations workflow.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/Overall_managedintegrations_Workflow.png)
+![Overall managed integrations workflow.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/Overall_managedintegrations_Workflow.png)
 
 
 ## Managed Integrations terminology

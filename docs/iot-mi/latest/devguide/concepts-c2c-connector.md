@@ -55,7 +55,7 @@ A C2C connector is a set of metadata created within managed integrations for AWS
 
 The following diagram depicts a C2C connector's role when sending a command from the mobile application to a cloud-connected device. The C2C connector acts as a translation layer between managed integrations for AWS IoT Device Management and a third-party cloud platform.
 
-![Connector workflow](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/app-to-oem-device-workflow.png)
+![Connector workflow](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/app-to-oem-device-workflow.png)
 
 
 ## Guidelines for using a C2C (cloud-to-cloud) connector

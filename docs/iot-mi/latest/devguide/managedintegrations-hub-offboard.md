@@ -23,7 +23,7 @@ Customers typically initiate hub offboarding when:
 
 The process ensures a clean, secure transition between hub configurations, allowing seamless device management and account flexibility.
 
-![Hub offboarding diagram](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-hub-sdk-offboarding-architecture.png)
+![Hub offboarding diagram](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-hub-sdk-offboarding-architecture.png)
 
 
 ## Prerequisites

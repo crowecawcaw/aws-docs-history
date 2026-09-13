@@ -20,4 +20,4 @@ For existing customers, smoothly onboard your new custom protocol while also kee
 
 The following diagram illustrates the custom protocol plugin architecture. 
 
-![The hub SDK architecture and components.](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/PubDataModelCPArc.drawio.png)
+![The hub SDK architecture and components.](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/PubDataModelCPArc.drawio.png)

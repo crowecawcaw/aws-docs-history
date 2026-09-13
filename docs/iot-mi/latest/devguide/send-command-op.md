@@ -9,7 +9,7 @@ Command execution is an asynchronous process where Managed Integrations for AWS 
 
 The following diagram illustrates the command execution flow with an example where the end user tries to turn on the lights of their house:
 
-![Device command execution workflow](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/send-command-workflow.png)
+![Device command execution workflow](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/send-command-workflow.png)
 
 
 1. **End user sends command** - An end user sends a command to turn on a light using the AWS customer's application.

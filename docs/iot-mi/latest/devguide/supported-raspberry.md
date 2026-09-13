@@ -41,15 +41,15 @@ As a prerequisite, you must set up the Sonoff Zigbee USB dongle before setting u
 1. Select **Upload your own firmware**.
 
 1. Find the location of [Zigbee Dongle Firmware Build 7.4.1.0](https://github.com/darkxst/silabs-firmware-builder/blob/main/firmware_builds/zbdonglee/ncp-uart-hw-v7.4.1.0-zbdonglee-115200.gbl) download and select it.  
-![Upload firmware](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-firmware-upload.png)
+![Upload firmware](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-firmware-upload.png)
 
 1. Click **Install**.
 
 1. Wait for firmware to install.  
-![Ready to install](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-installation-success.png)
+![Ready to install](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-installation-success.png)
 
 1. Choose **Continue** when installation is complete.  
-![Installation success](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-ready-to-use.png)
+![Installation success](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/raspberry-pi-ready-to-use.png)
 
 The dongle is now ready for use.
 

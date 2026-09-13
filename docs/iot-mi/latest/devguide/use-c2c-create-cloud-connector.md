@@ -45,7 +45,7 @@ The following procedure lists the steps to use the C2C connector.
    ```
 
    **Creation flow:**  
-![Cloud connector creation phase](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-createcloudconnector.png)
+![Cloud connector creation phase](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-createcloudconnector.png)
 **Note**  
  Use the [GetCloudConnector](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_GetCloudConnector.html), [UpdateCloudConnector](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_UpdateCloudConnector.html), [DeleteCloudConnector](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_DeleteCloudConnector.html), and [ListCloudConnectors](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_ListCloudConnectors.html) APIs as needed for this procedure. 
 
@@ -148,7 +148,7 @@ The following procedure lists the steps to use the C2C connector.
    Currently, ConnectorDestination also supports OAuth and GeneralAuthorization together in our ConnectorDestination.
 
    **Cloud destination creation flow:**  
-![CreateConnectorDestination API invoke phase](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-createconnectordestination.png)
+![CreateConnectorDestination API invoke phase](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-createconnectordestination.png)
 **Note**  
  Use the [GetConnectorDestination](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_GetConnectorDestination.html), [UpdateConnectorDestination](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_UpdateConnectorDestination.html), [DeleteConnectorDestination](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_DeleteConnectorDestination.html), and [ListConnectorDestinations](https://docs.aws.amazon.com/iot-mi/latest/APIReference/API_ListConnectorDestinations.html) APIs as needed for this procedure. 
 
@@ -433,7 +433,7 @@ For GeneralAuthorization, the connector retrieves the authorization material (AP
    ```
 
    **Send command to the third-party device flow:**  
-![Send command to third-party device](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-send-to-device.png)
+![Send command to third-party device](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-send-to-device.png)
 
 1. **Connector sends events to managed integrations**
 
@@ -523,7 +523,7 @@ For GeneralAuthorization: When using GeneralAuthorization, for each Secrets ARN 
    ```
 
    **Send event flow:**  
-![Send events flow](http://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-send-events.png)
+![Send events flow](https://docs.aws.amazon.com/iot-mi/latest/devguide/images/iot-managedintegrations-send-events.png)
 
 1. **Update connector status to "Listed" to make it visible to other managed integrations customers**
 
