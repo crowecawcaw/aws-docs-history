@@ -10,7 +10,7 @@ With this architecture, you can build a modular interoperability platform to ing
 ## Healthcare interoperability stack diagram
 <a name="interop-diagram"></a>
 
-![Reference architecture diagram showing how to build a healthcare interoperability platform by using EventBridge, Step Functions, AWS HealthLake, Amazon Textract, and Amazon SQS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/healthcare-interoperability-stack/images/healthcare-interoperability-stack.png)
+![Reference architecture diagram showing how to build a healthcare interoperability platform by using EventBridge, Step Functions, AWS HealthLake, Amazon Textract, and Amazon SQS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/healthcare-interoperability-stack/images/healthcare-interoperability-stack.png)
 
 
 The following steps describe the data flow and processing pipeline for this architecture:
