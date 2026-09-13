@@ -22,7 +22,7 @@ The [6 Rs migration strategy](https://aws.amazon.com/blogs/enterprise-strategy/6
 
 The decision tree diagram helps you visualize the end-to-end process, starting from application discovery and moving through each 6 R strategy.
 
-![Image of a decision tree diagram to help you visualize the end-to-end process, starting from application discovery and moving through each 6 R strategy.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-6rs.png)
+![Image of a decision tree diagram to help you visualize the end-to-end process, starting from application discovery and moving through each 6 R strategy.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-6rs.png)
 
 
 The two strategies that are specifically applicable for SAP HANA migrations to AWS are rehosting and replatforming. Rehosting is applicable when you want to move your SAP HANA system as is to AWS. This type of migration involves minimal change and can be seen as a natural fit for customers who are already running some sort of SAP HANA system. Replatforming is applicable when you want to migrate from an *anyDB* source database (such as IBM DB2, Oracle Database, or SQL Server) to an SAP HANA database.

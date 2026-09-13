@@ -14,7 +14,7 @@ When you resume the instance, it will automatically start with the same IP addre
 
  **Figure 1: EC2 Scheduler** 
 
-![EC2 Scheduler](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-ec2-scheduler.jpg)
+![EC2 Scheduler](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-ec2-scheduler.jpg)
 
 
 ## Tagging SAP Resources on AWS
@@ -163,7 +163,7 @@ During the deployment process, AWS CloudFormation creates an IAM role that allow
 
  **Figure 2: IAM role example** 
 
-![IAM role example](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-iam-example.png)
+![IAM role example](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-iam-example.png)
 
 
 To ensure security that applies the principle of least privilege, permissions for this role are limited only to actions that are required for backup and recovery.
@@ -200,7 +200,7 @@ You can use SAP HANA Studio, SQL commands, or the DBA Cockpit to start or schedu
 
  **Figure 3: SAP HANA file system layout** 
 
-![SAP HANA file system layout](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-fs-layout.jpg)
+![SAP HANA file system layout](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-fs-layout.jpg)
 
 
 The SAP HANA global.ini configuration file has been customized for database backups to go directly to `/backup/data/<SID>`, while automatic log archival files go to `/backup/log/<SID>`.
@@ -243,7 +243,7 @@ Here are the steps you can take for a typical backup task:
    1. Specify the backup destination (`/backup/data/<SID>`) and the backup prefix.
 
        **Figure 4: SAP HANA backup example**   
-![SAP HANA backup example](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-backup-example.jpg)
+![SAP HANA backup example](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-backup-example.jpg)
 
    1. Choose **Next** and then **Finish**. A confirmation message will appear when the backup is complete.
 
@@ -256,7 +256,7 @@ Here are the steps you can take for a typical backup task:
 1. Use the AWS Management Console to verify that the files have been pushed to Amazon S3. You can also use the [aws s3 ls](https://docs.aws.amazon.com/cli/latest/reference/s3/ls.html) command shown previously in the [AWS Command Line Interface section](#hana-ops-cli).
 
     **Figure 5: Amazon S3 bucket contents after backup**   
-![Amazon S3 bucket contents after backup](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-bucket-contents.jpg)
+![Amazon S3 bucket contents after backup](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-bucket-contents.jpg)
 **Tip**  
 The `aws s3 sync` command will only upload new files that don’t exist in Amazon S3. Use a periodically scheduled `cron` job to sync, and then delete files that have been uploaded. See [SAP Note 1651055](https://me.sap.com/notes/1651055) for scheduling periodic backup jobs in Linux, and extend the supplied scripts with `aws s3 sync` commands.
 
@@ -338,7 +338,7 @@ For this command to execute successfully, you will have to enable `<sid>adm logi
    1. Choose **Constant** under **Configure Parameters**, and type the `run` command.
 
        **Figure 6: Creating Amazon CloudWatch Events rules**   
-![Creating Amazon CloudWatch Events rules](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-create-rule.png)
+![Creating Amazon CloudWatch Events rules](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-create-rule.png)
 
 ## Restoring SAP HANA Backups and Snapshots
 <a name="hana-ops-restoring-backups-snapshots"></a>
@@ -363,7 +363,7 @@ To restore your SAP HANA database from a backup, perform the following steps:
 1. Recover the SAP HANA database by using the Recovery Wizard as outlined in the [SAP HANA Administration Guide](https://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf). Specify **File** as the destination type and enter the correct backup prefix.
 
     **Figure 7: Restore example**   
-![Restore example](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-restore-example.jpg)
+![Restore example](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-restore-example.jpg)
 
 1. When the recovery is complete, you can resume normal operations and clean up backup files from the ` /backup/<SID>/\*` directories.
 
@@ -410,4 +410,4 @@ Choose the AMI that you want to restore, expand **Actions**, and then choose **L
 
  **Figure 8: Restoring an AMI snapshot** 
 
-![Restoring an AMI snapshot](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-restore-ami-snapshot.jpg)
+![Restoring an AMI snapshot](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-restore-ami-snapshot.jpg)

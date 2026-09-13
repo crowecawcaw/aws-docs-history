@@ -37,7 +37,7 @@ A Shared Services account is used in this document. The AWS SSM automation docum
 
 The automation account can be a production account running SAP workloads or a dedicated account for only running SSM automation documents. A Shared Services account for automation reduces the administrative overhead by maintaining the automation document and its dependencies in the same account.
 
-![Diagram of an automation account connected to the child accounts that host Amazon EC2 instances running SAP HANA workloads.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/automated-patching-architecture.jpg)
+![Diagram of an automation account connected to the child accounts that host Amazon EC2 instances running SAP HANA workloads.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/automated-patching-architecture.jpg)
 
 
 ## Prerequisites
@@ -50,7 +50,7 @@ The automation account can be a production account running SAP workloads or a de
 
 You can find the code for the SSM automation document on [AWS Samples](https://github.com/aws-samples) GitHub repository. For more information, see [sap-hana-patch-sample.yml](https://github.com/aws-samples/sap-automated-hana-patching/blob/main/sap-hana-patch-sample.yml). The following diagram illustrates the steps run by the SSM automation document.
 
-![Diagram of the steps run by the SSM automation document.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ssm-automation-steps.jpg)
+![Diagram of the steps run by the SSM automation document.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ssm-automation-steps.jpg)
 
 
 ## AWS services
@@ -125,7 +125,7 @@ The following policy is an example Amazon S3 bucket policy that grants access to
 
 If the SAP HANA database software is stored in an Amazon S3 bucket, it is downloaded to the local Linux directory on Amazon EC2. It is recommended to have at least 30 GB of free space when downloading the SAP HANA software media files from Amazon S3 bucket to a local Linux directory. The directory path must be specified in the input parameters of the SSM automation document, as shown in the following image.
 
-![Diagram of a scale-out environment for SAP HANA workloads using FSx for ONTAP.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ssm-automation-document.jpg)
+![Diagram of a scale-out environment for SAP HANA workloads using FSx for ONTAP.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ssm-automation-document.jpg)
 
 
 The files must be present in the specified directory on Amazon EC2 instance. The files must be unzipped, and stored in the following structure, based on the AWS SSM automation document code.

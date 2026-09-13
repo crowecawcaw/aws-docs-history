@@ -12,7 +12,7 @@ The following figure shows the network access flow of ASCS or SAP HANA overlay I
 
  **Figure 6: SAP High Availability with Overlay IP and Elastic Load Balancer** 
 
-![SAP High Availability with Overlay IP and Elastic Load Balancer](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image6.png)
+![SAP High Availability with Overlay IP and Elastic Load Balancer](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image6.png)
 
 
  *Pricing for Network Load Balancers*:

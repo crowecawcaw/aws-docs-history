@@ -696,7 +696,7 @@ $ /usr/sap/<SID>/SYS/global/hdb/opt/hdbbackint -v
 
 For instance, running the preceding command on a system with `<SID>` as `HDB` returns the AWS Backint agent version as 1.05 as displayed in the image below.
 
-![Image of the Backint agent version as 1.05.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/get-currently-installed-backint-example.png)
+![Image of the Backint agent version as 1.05.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/get-currently-installed-backint-example.png)
 
 
 ```

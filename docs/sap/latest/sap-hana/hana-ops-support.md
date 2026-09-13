@@ -24,7 +24,7 @@ When setting up a direct support connection to SAP from AWS, consider the follow
 **Tip**  
 For added security, shut down the EC2 instance that hosts the SAProuter service when it is not needed for support purposes
 
-![Support connectivity with SAProuter](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-saprouter.jpg)
+![Support connectivity with SAProuter](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-saprouter.jpg)
 
 
  **Figure 13: Support connectivity with SAProuter on AWS ** 
@@ -42,7 +42,7 @@ You can extend this connectivity as follows:
 
 1. Ensure that the proper firewall ports are open on your gateway to allow traffic to pass over TCP port 3299.
 
-![Support connectivity with SAProuter on premises](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-saprouter-onprem.jpg)
+![Support connectivity with SAProuter on premises](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-saprouter-onprem.jpg)
 
 
  **Figure 14: Support connectivity with SAProuter on premises** 

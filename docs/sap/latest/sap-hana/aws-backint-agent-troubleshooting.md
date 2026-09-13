@@ -183,14 +183,14 @@ or
 
  **Problem: When you set the `S3ShortenBackupDestinationEnabled = ‘true’` parameter in the `aws-backint-agent-config.yaml`, a ‘No data backups found’ error is displayed when processing a database recovery.** 
 
-![Image showing a '`No data backups found’ error displayed when processing a database recovery in S3S.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/s3-shorten-true-troubleshoot-backint.jpg)
+![Image showing a '`No data backups found’ error displayed when processing a database recovery in S3S.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/s3-shorten-true-troubleshoot-backint.jpg)
 
 +  **Root Cause**: AWS Backint agent searches for the logs and data backups only in the Amazon S3 path that’s provided in the configuration file. Because the `S3ShortenBackupDestinationEnabled` parameter changes the Amazon S3 folder, it cannot find the backup.
 +  **Resolution**: You can either change the `S3ShortenBackupDestinationEnabled` parameter to `false` and run the restore, or you can move the previous backups and the SAP HANA backup catalog to the new S3 location. For more details, see [Configure AWS Backint agent to use shorter Amazon S3 paths](aws-backint-agent-s3-installing-configuring.md#configure-aws-backint-agent-to-use-shorter-amazon-s3-paths).
 
  **Problem: When processing a database recovery, a 'No data backups found' error is displayed and the agent log shows, 'The operation is not valid for the objects' access tier'.** 
 
-![Image showing a 'No data backups found' error and the agent log message 'The operation is not valid for the objects' access tier'.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/s3-intelligent-tiering-troubleshoot-backint.png)
+![Image showing a 'No data backups found' error and the agent log message 'The operation is not valid for the objects' access tier'.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/s3-intelligent-tiering-troubleshoot-backint.png)
 
 +  **Root Cause**: With the **S3StorageClass = "INTELLIGENT\_TIERING" ** parameter set in the `aws-backint-agent-config.yaml`, the objects have moved to archival storage tiers. AWS Backint agent does not support recovery from archival tiers.
 +  **Resolution**: You must first [restore the archived S3 objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/restoring-objects.html) to move them in the access tier. This can take from a few minutes to 12 hours, depending on the archival tier and restore option that is selected. After the S3 restore is complete, you can initiate recovery for the HANA database.

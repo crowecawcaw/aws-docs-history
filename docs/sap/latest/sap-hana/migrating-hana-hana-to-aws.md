@@ -22,13 +22,13 @@ This migration scenario involves provisioning your SAP HANA system on AWS, backi
 
 For details on how to migrate SAP HANA systems to AWS using AWS Migration Hub Orchestrator, see [Migrate SAP NetWeaver based applications and SAP HANA databases to AWS](https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/migrate-sap.html).
 
-![Diagram of Option 1: Migration Hub Orchestrator](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-mho.png)
+![Diagram of Option 1: Migration Hub Orchestrator](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-mho.png)
 
 
 ## Option 2: SAP HANA Backup and Restore
 <a name="migrating-hana-backup-restore-steps"></a>
 
-![Diagram of Option 2: SAP HANA Backup and Restore](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-backup-restore.png)
+![Diagram of Option 2: SAP HANA Backup and Restore](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-backup-restore.png)
 
 
 1. Provision your SAP HANA system and landscape on AWS. (The [AWS Launch Wizard for SAP](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap.html) can help expedite and automate this process for you.)
@@ -44,7 +44,7 @@ For details on how to migrate SAP HANA systems to AWS using AWS Migration Hub Or
 ## Option 3: SAP HANA Classical Migration
 <a name="migrating-hana-classical-steps"></a>
 
-![Diagram of Option 3: SAP HANA Classical Migration](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-classical.png)
+![Diagram of Option 3: SAP HANA Classical Migration](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-classical.png)
 
 
 1. Provision your SAP HANA system and landscape on AWS. (The [AWS Launch Wizard for SAP](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap.html) can help expedite and automate this process for you.)
@@ -60,7 +60,7 @@ For details on how to migrate SAP HANA systems to AWS using AWS Migration Hub Or
 ## Option 4: SAP HANA HSR
 <a name="migrating-hana-hsr-steps"></a>
 
-![Diagram of Option 4: SAP HANA HSR](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hsr.png)
+![Diagram of Option 4: SAP HANA HSR](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hsr.png)
 
 
 1. Provision your SAP HANA system and landscape on AWS. ([AWS Launch Wizard for SAP](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap.html) can help expedite and automate this process for you.) To save costs, you might choose to stand up a smaller EC2 instance type.
@@ -76,7 +76,7 @@ For details on how to migrate SAP HANA systems to AWS using AWS Migration Hub Or
 ## Option 5: SAP HANA HSR (with Initialization via Backup and Restore)
 <a name="migrating-hana-hsr-with-backup-restore-steps"></a>
 
-![Diagram of Option 5: SAP HANA HSR (with Initialization via Backup and Restore)](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hsr-plus.png)
+![Diagram of Option 5: SAP HANA HSR (with Initialization via Backup and Restore)](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hsr-plus.png)
 
 
 1. Provision your SAP HANA system and landscape on AWS. ([AWS Launch Wizard for SAP](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap.html) can help expedite and automate this process for you.) To save costs, you might choose to stand up a smaller EC2 instance type.
@@ -106,4 +106,4 @@ For more information, see SAP Blog - [Two Major News with SUM 2.0 SP 17](https:/
 
 The following image displays this option.
 
-![Diagram of Option 6: SAP HANA (on-premises) to SAP HANA](http://docs.aws.amazon.com/sap/latest/sap-hana/images/option6-hanatohana.png)
+![Diagram of Option 6: SAP HANA (on-premises) to SAP HANA](https://docs.aws.amazon.com/sap/latest/sap-hana/images/option6-hanatohana.png)

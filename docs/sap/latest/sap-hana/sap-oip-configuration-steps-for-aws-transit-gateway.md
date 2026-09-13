@@ -15,7 +15,7 @@ This section includes high-level steps necessary to understand overlay IP addres
     **Note:** For attachment, select only the subnet where the SAP instances are running with cluster and overlay IP configured. In the following figure, the private subnet of the SAP instance is selected for the Transit Gateway attachment.
 
     **Figure 2: Attaching Transit Gateway to private subnet**   
-![Attaching Transit Gateway to private subnet](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image2.png)
+![Attaching Transit Gateway to private subnet](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image2.png)
 
 1. Do one of the following, depending on your connection:
    +  **VPN connection**. Attach a VPN to this Transit Gateway. For detailed steps, see [Transit Gateway VPN Attachments](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpn-attachments.html).
@@ -49,17 +49,17 @@ When you create a Transit Gateway attachment to a VPC, the propagation route is 
 1. To route traffic from AWS Transit Gateway to the overlay IP address, create static routes in the **Transit Gateway route tables** to route overlay IP addresses to the VPC of production SAP system where the overlay IP addresses are configured. In Figure 3, the third entry shows that the static route created for the overlay IP range is attached. The target for this route is the SAP Production VPC.
 
     **Figure 3: Transit Gateway route table: Overlay IP static route with VPC of production SAP system target**   
-![Transit Gateway route table: Overlay IP static route with VPC of production SAP system target](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image3.png)
+![Transit Gateway route table: Overlay IP static route with VPC of production SAP system target](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image3.png)
 
 1. To route the outgoing traffic from VPCs where SAP instances are running to private IP addresses of another VPC where SAP instances are running attached to same Transit Gateway, create entries in the **route tables associated with these VPC subnets**. The target of these routes is AWS Transit Gateway. In the following VPC of production SAP system route table example, the non-production SAP VPC (third entry) and corporate network (fourth entry) are routed to the Transit Gateway.
 
     **Figure 4: VPC of production SAP system route table: VPC of production SAP system and corporate network routed to AWS Transit Gateway**   
-![VPC of production SAP system route table: VPC of production SAP system and corporate network routed to Transit Gateway](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image4.png)
+![VPC of production SAP system route table: VPC of production SAP system and corporate network routed to Transit Gateway](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image4.png)
 
 1. In the VPC of the non-production SAP system, to route the outgoing traffic from the overlay IP address, create entries in the route tables with Transit Gateway as the target. In the following VPC of non-production SAP system route table example, the destination is the overlay IP range and the target is Transit Gateway.
 
     **Figure 5: VPC of non-production SAP system route table: Outgoing traffic from overlay IP address routed to Transit Gateway**   
-![VPC of non-production SAP system route table: Outgoing traffic from overlay IP address routed to Transit Gateway](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image5.png)
+![VPC of non-production SAP system route table: Outgoing traffic from overlay IP address routed to Transit Gateway](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image5.png)
 
 1. Configure routing from corporate devices to Amazon VPC IP addresses.
 

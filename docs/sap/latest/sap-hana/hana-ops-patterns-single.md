@@ -26,7 +26,7 @@ You need to consider the cost of licensing for third-party cluster solutions. If
 
 Your SAP HANA instance backups can be stored in Amazon S3 buckets using AWS Backint Agent for SAP HANA. Amazon S3 objects are automatically stored across multiple devices spanning a minimum of three Availability Zones across a Region. To protect against logical data loss, you can use the Same-Region Replication feature of Amazon S3. For more information, see [Setting up replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-how-setup.html).
 
-![Diagram of Pattern 1: Single Region with two Availability Zones for production.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern1.png)
+![Diagram of Pattern 1: Single Region with two Availability Zones for production.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern1.png)
 
 
 ## Pattern 2: Single Region with two Availability Zones for production and production sized non-production in a third Availability Zone
@@ -38,7 +38,7 @@ This architectural pattern is cost-optimized. It aids disaster recovery in the u
 
 In comparison to pattern 1, pattern 2 further enhances the application availability. There is no restoration or recovery from backups required to invoke a disaster recovery. The additional cost of the third instance is justified as the idle capacity is being utilized for non-production workloads.
 
-![Diagram of Pattern 2: Single Region with two Availability Zones for production and production sized non-production in a third Availability Zone.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern2.png)
+![Diagram of Pattern 2: Single Region with two Availability Zones for production and production sized non-production in a third Availability Zone.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern2.png)
 
 
 ## Pattern 3: Single Region with one Availability Zone for production and another Availability Zone for non-production
@@ -48,7 +48,7 @@ In this pattern, SAP HANA instance is deployed in a two-tier SAP HANA System Rep
 
 The secondary instance is an MCOS installation and co-hosts a non-production SAP HANA workload. For more information, see {https---launchpad-support-sap-com---notes-1681092}[SAP Note Multiple SAP HANA DBMSs (SIDs) on one SAP HANA system]. This is a cost-optimized solution without high availability. In the event of a failure on the primary instance, the non-production SAP HANA workload is stopped and a takeover is performed on the secondary instance. Considering the time taken in recovering services on the secondary instance, this type of pattern is suitable for SAP HANA workloads that can have a higher recovery time objective and are functioning as disaster recovery systems.
 
-![Diagram of Pattern 3: Single Region with one Availability Zone for production and another Availability Zone for non-production.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern3.png)
+![Diagram of Pattern 3: Single Region with one Availability Zone for production and another Availability Zone for non-production.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern3.png)
 
 
 ## Pattern 4: Single Region with one Availability Zone for production
@@ -56,4 +56,4 @@ The secondary instance is an MCOS installation and co-hosts a non-production SAP
 
 In this pattern, SAP HANA instance is deployed as a standalone installation with no target systems to replicate data. This is the most basic and cost-efficient deployment option. However, this is the least resilient of all the architectures and is not recommended for business-critical SAP HANA workloads. The options available to restore business operations during a failure scenario are by Amazon EC2 auto recovery, in the event of an instance failure or by restoration and recovery from most recent and valid backups, in the event of a significant issue impacting the Availability Zone. The non-production SAP HANA workloads have no dependency on the production SAP HANA instance. They are free to be deployed in an Availability Zone within the Region and can be appropriately sized for its workload.
 
-![Diagram of Pattern 4: Single Region with one Availability Zone for production](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern4.png)
+![Diagram of Pattern 4: Single Region with one Availability Zone for production](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern4.png)

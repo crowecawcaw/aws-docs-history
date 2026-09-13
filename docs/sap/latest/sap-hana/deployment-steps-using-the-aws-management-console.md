@@ -30,7 +30,7 @@ This topic explains how to assign EBS Volumes when launching an Amazon EC2 Insta
 1. In Section **Configure Storage** 
    + Choose **Advanced** to see extended details, and **Add new volume** to provision volumes for SAP binaries, and SAP HANA data, log, shared and optionally backup. Ensure that you follow the guidance for size, IOPS and Throughput in [Calculate Requirements](hana-storage-config-ebs.md) or [Storage Reference](hana-storage-config-reference-layout.md).
    + If you are planning to deploy scale-out workloads, you can optionally include EFS or FSX **filesystems** for SAP HANA shared and backup volumes.  
-![Image of EC2 console showing the storage configuration](http://docs.aws.amazon.com/sap/latest/sap-hana/images/std-sap-hana-storage-configuration.png)
+![Image of EC2 console showing the storage configuration](https://docs.aws.amazon.com/sap/latest/sap-hana/images/std-sap-hana-storage-configuration.png)
 
       **Figure 1: SAP HANA Storage Configuration with the console** 
 

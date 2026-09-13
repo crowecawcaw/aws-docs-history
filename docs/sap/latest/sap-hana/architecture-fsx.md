@@ -16,7 +16,7 @@ The following architecture diagrams show different options for SAP HANA workload
 
 The following architecture diagram shows a scale-up environment for SAP HANA workloads using FSx for ONTAP.
 
-![Diagram of a scale-up environment for SAP HANA workloads using FSx for ONTAP.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/scaleup.png)
+![Diagram of a scale-up environment for SAP HANA workloads using FSx for ONTAP.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/scaleup.png)
 
 
 ## Scale-out environment
@@ -24,7 +24,7 @@ The following architecture diagram shows a scale-up environment for SAP HANA wor
 
 The following architecture diagram shows a scale-out environment for SAP HANA workloads using FSx for ONTAP.
 
-![Diagram of a scale-out environment for SAP HANA workloads using FSx for ONTAP.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/scaleout.png)
+![Diagram of a scale-out environment for SAP HANA workloads using FSx for ONTAP.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/scaleout.png)
 
 
 ## Single Availability Zone deployment
@@ -32,7 +32,7 @@ The following architecture diagram shows a scale-out environment for SAP HANA wo
 
 The following architecture diagram shows a single Availability Zone deployment for SAP HANA workloads using FSx for ONTAP.
 
-![Diagram of a single Availability Zone deployment for SAP HANA workloads using FSx for ONTAP.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/fsx-single-az.png)
+![Diagram of a single Availability Zone deployment for SAP HANA workloads using FSx for ONTAP.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/fsx-single-az.png)
 
 
 ## Multi-Availability Zone deployment
@@ -40,4 +40,4 @@ The following architecture diagram shows a single Availability Zone deployment f
 
 The following architecture diagram shows a multi-Availability Zone deployment for SAP HANA workloads using FSx for ONTAP.
 
-![Diagram of a multi-Availability Zone deployment for SAP HANA workloads using FSx for ONTAP.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/fsx-multi-az.png)
+![Diagram of a multi-Availability Zone deployment for SAP HANA workloads using FSx for ONTAP.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/fsx-multi-az.png)

@@ -25,12 +25,12 @@ SAP HANA dynamic tiering is an optional add-on to the SAP HANA database to manag
 
  **Figure 1: SAP HANA dynamic tiering on AWS (single-AZ)** 
 
-![SAP HANA dynamic tiering (single-AZ)](http://docs.aws.amazon.com/sap/latest/sap-hana/images/tiering-single-az.png)
+![SAP HANA dynamic tiering (single-AZ)](https://docs.aws.amazon.com/sap/latest/sap-hana/images/tiering-single-az.png)
 
 
  **Figure 2: SAP HANA dynamic tiering on AWS (multi-AZ)** 
 
-![SAP HANA dynamic tiering (multi-AZ)](http://docs.aws.amazon.com/sap/latest/sap-hana/images/tiering-multi-az.png)
+![SAP HANA dynamic tiering (multi-AZ)](https://docs.aws.amazon.com/sap/latest/sap-hana/images/tiering-multi-az.png)
 
 
 ## SAP HANA Extension Node
@@ -42,7 +42,7 @@ The total amount of data that can be stored on the SAP HANA extension node range
 
  **Figure 3: SAP HANA extension node on AWS ** 
 
-![SAP HANA extension node](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_hana_extension_node.png)
+![SAP HANA extension node](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_hana_extension_node.png)
 
 
 ## Data Aging

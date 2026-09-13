@@ -73,7 +73,7 @@ You can then use the AWS Launch Wizard for SAP to rapidly provision SAP HANA ins
 
 The SUM DMO tool can convert data from *anyDB* to SAP HANA or SAP ASE, with OS migrations, release/enhancement pack upgrades, and Unicode conversions occurring at the same time. Results are written to flat files, which are transferred to the target SAP HANA system on AWS. The second phase of DMO with System Move imports the flat files and builds the migrated SAP application with the extracted data, code, and configuration. Here’s a conceptual flow of the major steps involved:
 
-![Diagram of the SUM DMO tool.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-dmo-sm.png)
+![Diagram of the SUM DMO tool.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-dmo-sm.png)
 
 
 ## SAP HANA Classical Migration
@@ -101,7 +101,7 @@ For more information, see the following SAP resources.
 +  [SAP Note 3296427 - Database Migration Option (DMO) of SUM 2.0 SP17](https://me.sap.com/notes/3296427https://me.sap.com/notes/3296427) (requires SAP portal access)
 +  [SAP Documentation - DMO Move to SAP S/4HANA (on Hyperscaler)](https://help.sap.com/docs/SLTOOLSET/7d57e56e12104cc68bce7646cd9f4cbf/c17f45ffa4004ca4837913a745b3a081.html) 
 
-![Diagram of DMO Move to SAP S/4HANA (single step) – DMOVE2S4.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/DMOVE2S4.png)
+![Diagram of DMO Move to SAP S/4HANA (single step) – DMOVE2S4.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/DMOVE2S4.png)
 
 
 ## Backup/Restore Tools
@@ -109,6 +109,6 @@ For more information, see the following SAP resources.
 
 Backup and restore options are tried-and-true mechanisms for saving data on a source system and restoring it to another destination. AWS has various storage options available to help facilitate data transfer to AWS. Some of those are explained in this section. We recommend that you discuss which option would work best for your specific workload with your systems integrator (SI) partner or with an AWS solutions architect.
 + Storage Gateway: This is a virtual appliance installed in your on-premises data center that helps you replicate files, block storage, or tape libraries by integrating with AWS storage services such as Amazon S3 and by using standard protocols like Network File system (NFS) or Internet Small Computer System Interface (iSCSI). Storage Gateway offers file-based, volume-based, and tape-based storage solutions. For SAP systems, we will focus on file replication using a file gateway and block storage replication using a volume gateway. For scenarios where multiple backups or logs need to be continuously copied to AWS, you can copy these files to the locally mounted storage and they will be replicated to AWS.  
-![Diagram of Storage Gateway.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-storage-gateway.png)
+![Diagram of Storage Gateway.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-storage-gateway.png)
 + Amazon EFS file transfer: AWS provides options to copy data from an on-premises environment to AWS by using Amazon Elastic File System (Amazon EFS). Amazon EFS is a fully managed service, and you pay only for the storage that you use. You can mount an Amazon EFS file share on your on-premises server, as long as you have AWS Direct Connect set up between your corporate data center and AWS.  
-![Diagram of Amazon EFS file transfer.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-efs.png)
+![Diagram of Amazon EFS file transfer.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-efs.png)

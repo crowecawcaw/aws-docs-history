@@ -50,7 +50,7 @@ In the following sections, we show X1 instance as the source instance type for m
 
 If your existing EC2 instance is running with host or dedicated tenancy, you can follow the steps in this section to migrate it to `u-\*tb1.metal ` EC2 High Memory instance. With this option, all your instance properties, including IP addresses, hostnames, and EBS volumes, remain the same after migration.
 
-![Diagram of Option 1: Resizing an Existing EC2 Instance with Host or Dedicated Tenancy](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-resize.png)
+![Diagram of Option 1: Resizing an Existing EC2 Instance with Host or Dedicated Tenancy](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-resize.png)
 
 
 1. Verify that your source system is running on a supported operating system version. If not, you might have to upgrade your operating system before resizing to an EC2 High Memory instance.
@@ -97,7 +97,7 @@ If your existing EC2 instance is running with default tenancy, you have multiple
 
 In this option, if you are using `u7i*`, `u-6tb1.56xlarge` or `u-*tb1.112xlarge` instance types, you can simply resize your instance through AWS Management Console or AWS CLI.
 
-![Diagram of Option 2(a): Resizing an existing EC2 instance](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-ec2.png)
+![Diagram of Option 2(a): Resizing an existing EC2 instance](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-ec2.png)
 
 
 1. Verify that your source system is running on a supported operating system version. If it isn’t, you might have to upgrade your operating system before resizing to an EC2 High Memory instance.
@@ -131,7 +131,7 @@ If necessary, complete any SAP HANA-specific post-migration activities.
 
 In this option, you launch a new EC2 High Memory instance based on the AMI that you created from your source system for the migration.
 
-![Diagram of Option 2(b): Migrating Using an AMI](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-ami.png)
+![Diagram of Option 2(b): Migrating Using an AMI](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-ami.png)
 
 
 1. Verify that your source system is running on a supported operating system version. If it isn’t, you might have to upgrade your operating system before resizing to an EC2 High Memory instance.
@@ -179,9 +179,9 @@ In this option, you launch a new EC2 High Memory instance, install and configure
 
 1. Migrate the data from your existing SAP HANA instance by using SAP HANA HSR or SAP HANA backup and restore tools.
    + If you plan to use SAP HANA HSR for data migration, configure HSR to move data from your source system to your target system. For details, see the [SAP HANA Administration Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html) from SAP.  
-![Diagram of Option 2(c): Migrating Using SAP HANA HSR or SAP HANA backup and restore](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-tools.png)
+![Diagram of Option 2(c): Migrating Using SAP HANA HSR or SAP HANA backup and restore](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-tools.png)
    + If you plan to use the SAP HANA backup and restore feature to migrate your data, back up your source SAP HANA system. When backup is complete, move the backup data to your target system and perform a restore in your target system. If you back up your source SAP HANA system directly to Amazon S3 using AWS Backint Agent for SAP HANA, you can directly restore it in the target system from Amazon S3. For details, see the [AWS Backint Agent for SAP HANA](https://docs.aws.amazon.com/sap/latest/sap-hana/aws-backint-agent-sap-hana.html) in the AWS documentation.  
-![Diagram of the SAP HANA backup and restore feature.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-s3.png)
+![Diagram of the SAP HANA backup and restore feature.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-hana-hm-s3.png)
 
 1. Stop your source system, complete any additional post-migration steps, like updating DNS and checking the connectivity between your SAP application servers and the new SAP HANA instance.
 
@@ -196,7 +196,7 @@ In this option, you launch a new EC2 High Memory instance, install and configure
 
 If your existing Amazon EC2 High Memory metal instance (`u*-tb1.metal`) is running with host tenancy, you can easily migrate it to virtualized high memory instance `(u-tb.56xlarge` or `u-tb.112xlarge)`. Stop your instance to change the tenancy and instance type, and then resize it to the desired target virtualized High Memory instance size. This architecture of this option is as shown in the following image.
 
-![Diagram of Option 3: Migrating from Amazon EC2 High Memory metal instance with Virtualized High Memory Host Tenancy.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-option-3.png)
+![Diagram of Option 3: Migrating from Amazon EC2 High Memory metal instance with Virtualized High Memory Host Tenancy.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/migrating-option-3.png)
 
 
 1. Verify that your source system is running on a supported operating system version. If not, you might have to upgrade your operating system before resizing to an EC2 High Memory instance.

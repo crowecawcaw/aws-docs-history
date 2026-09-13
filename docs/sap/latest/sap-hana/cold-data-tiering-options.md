@@ -16,7 +16,7 @@ SAP Data Hub is now released as managed service on SAP Cloud Platform with the n
 
  **Figure 4: SAP Data Hub on Amazon EKS for cold tier** 
 
-![SAP Data Hub on Amazon EKS for cold tier](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_data_hub_eks_cold_tier.png)
+![SAP Data Hub on Amazon EKS for cold tier](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_data_hub_eks_cold_tier.png)
 
 
 ## DLM with SAP HANA Spark Controller
@@ -26,7 +26,7 @@ SAP HANA Spark controller enables SAP HANA to access the data in Hadoop through 
 
  **Figure 5: SAP HANA with Amazon EMR for cold tier** 
 
-![SAP HANA with Amazon EMR for cold tier](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_hana_emr_cold_tier.png)
+![SAP HANA with Amazon EMR for cold tier](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_hana_emr_cold_tier.png)
 
 
 ## Cold Tier Options for SAP BW
@@ -41,7 +41,7 @@ With this option, you can use SAP BW [Near Line Storage](https://help.sap.com/vi
 
  **Figure 6: SAP BW NLS with SAP IQ for cold tier** 
 
-![SAP BW NLS with SAP IQ for cold tier](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_bw_nls_sap_iq_cold_tier.png)
+![SAP BW NLS with SAP IQ for cold tier](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_bw_nls_sap_iq_cold_tier.png)
 
 
 ## SAP BW NLS with Hadoop
@@ -51,7 +51,7 @@ With this option, you can use SAP BW NLS with [Apache Hadoop](https://hadoop.apa
 
  **Figure 7: SAP BW NLS with Hadoop for cold tier** 
 
-![SAP BW NLS with Hadoop for cold tier](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_bw_nls_hadoop_cold_tier.png)
+![SAP BW NLS with Hadoop for cold tier](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_bw_nls_hadoop_cold_tier.png)
 
 
 ## SAP BW/4HANA DTO with Data Hub
@@ -61,7 +61,7 @@ This option is similar to SAP Data Hub with SAP HANA. You can use DTO with SAP D
 
  **Figure 8: SAP Data Hub on Amazon EKS with BW4/HANA** 
 
-![SAP Data Hub on Amazon EKS with BW4/HANA](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_data_hub_eks_bw4_hana.png)
+![SAP Data Hub on Amazon EKS with BW4/HANA](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_data_hub_eks_bw4_hana.png)
 
 
 ## Cold Tier Options for SAP S/4HANA or Suite on HANA
@@ -76,7 +76,7 @@ With this option, you can use ILM with SAP IQ. Similar to the SAP BW NLS with SA
 
  **Figure 9: SAP ILM with SAP IQ for cold tier** 
 
-![SAP ILM with SAP IQ for cold tier](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_ilm_sap_iq_cold_tier.png)
+![SAP ILM with SAP IQ for cold tier](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_ilm_sap_iq_cold_tier.png)
 
 
 ## SAP Archiving
@@ -86,11 +86,11 @@ With this option, you can use ILM or your standard data archiving process. You c
 
  **Figure 10: SAP archiving with Amazon EFS for cold tier** 
 
-![SAP archiving with Amazon EFS for cold tier](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_archiving_efs.png)
+![SAP archiving with Amazon EFS for cold tier](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_archiving_efs.png)
 
 
 For archiving, another option is to use the [Amazon Elastic Block Store (Amazon EBS) sc1](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) volume type as the underlying storage type for your archive file system. Amazon EBS sc1 volumes are inexpensive block storage and are designed for less frequently accessed workloads like data archiving. To increase durability and availability of your archived data, we recommend that you copy the data to Amazon S3 for backup and Amazon S3 Glacier for long term retention.
 
  **Figure 11: SAP archiving with Amazon EBS for cold tier** 
 
-![SAP archiving with Amazon EBS for cold tier](http://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_archiving_ebs.png)
+![SAP archiving with Amazon EBS for cold tier](https://docs.aws.amazon.com/sap/latest/sap-hana/images/sap_archiving_ebs.png)

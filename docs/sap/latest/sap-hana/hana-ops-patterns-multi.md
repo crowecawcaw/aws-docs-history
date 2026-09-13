@@ -31,7 +31,7 @@ This architecture provides you with the advantage of implementing your SAP HANA 
 
 Your recovery time objective depends on the time it takes to build the system in the secondary Region and restore operations from backup files. The amount of time will vary depending on the size of the database. Also, the time required to get the compute capacity for restore procedures may be more in the absence of a reserved instance capacity. This pattern is suitable when you need the lowest possible recovery time and point objectives within a region and high recovery point and time objectives for disaster recovery outside the primary Region.
 
-![Diagram of Pattern 5: Primary Region with two Availability Zones for production and secondary Region with a replica of backups/AMIs.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern5.png)
+![Diagram of Pattern 5: Primary Region with two Availability Zones for production and secondary Region with a replica of backups/AMIs.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern5.png)
 
 
 ## Pattern 6: Primary Region with two Availability Zones for production and secondary Region with compute and storage capacity deployed in a single Availability Zone
@@ -47,12 +47,12 @@ This pattern can be deployed in a multi-tier as well as multi-target replication
 
 The following diagram shows a multi-target replication where the primary SAP HANA instance is replicated on both Availability Zones within the same Region and also in the secondary Region.
 
-![Diagram of Pattern 6: Primary Region with two Availability Zones for production and secondary Region with compute and storage capacity deployed in a single Availability Zone.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern6.1.png)
+![Diagram of Pattern 6: Primary Region with two Availability Zones for production and secondary Region with compute and storage capacity deployed in a single Availability Zone.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern6.1.png)
 
 
 The following diagram shows a multi-tier replication where the replication is configured in a chained fashion.
 
-![Diagram of a multi-tier replication where the replication is configured in a chained fashion.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern6.2.png)
+![Diagram of a multi-tier replication where the replication is configured in a chained fashion.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern6.2.png)
 
 
 ## Pattern 7: Primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed, and data replication across two Availability Zones
@@ -66,7 +66,7 @@ This pattern is highly suitable for you if you operate active/active (read-only)
 
 With this pattern, the redundant compute and storage capacity deployed across two Availability Zones in two Regions and the cross-Region communication add to the total cost of ownership.
 
-![Diagram of Pattern 7: Primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed, and data replication across two Availability Zones.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern7.png)
+![Diagram of Pattern 7: Primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed, and data replication across two Availability Zones.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern7.png)
 
 
 ## Pattern 8: Primary Region with one Availability Zone for production and a secondary Region with a replica of backups/AMIs
@@ -78,7 +78,7 @@ With this pattern, your SAP HANA instance is not highly available. In the event 
 
 For disaster recovery that is outside the primary Region, recovery point objective is constrained by how often you store your SAP HANA backup files in your Amazon S3 bucket and the time it takes to replicate your Amazon S3 bucket to the target Region. Your recovery time objective depends on the time it takes to build the system in the secondary Region and restore operations from backup files. The amount of time will vary depending on the size of the database. This pattern is suitable for non-production or non-critical production systems that can tolerate a downtime required to restore normal operations.
 
-![Diagram of Pattern 8: Primary Region with one Availability Zone for production and a secondary Region with a replica of backups/AMIs.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern8.png)
+![Diagram of Pattern 8: Primary Region with one Availability Zone for production and a secondary Region with a replica of backups/AMIs.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/pattern8.png)
 
 
 ## Summary

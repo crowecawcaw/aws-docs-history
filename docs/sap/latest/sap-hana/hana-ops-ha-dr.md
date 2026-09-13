@@ -37,7 +37,7 @@ When the CloudWatch alarm detects this failure, recover action is initiated. A r
 
 We recommend configuring your Amazon EC2 instances, except instances in a third-party cluster solution, and dedicated hosts with automatic recovery to protect against hardware failure. The following diagram illustrates Amazon EC2 recovery options.
 
-![Image showing recovery options for SAP HANA databases running on Amazon EC2.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ec2automaticrecovery.png)
+![Image showing recovery options for SAP HANA databases running on Amazon EC2.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ec2automaticrecovery.png)
 
 
 ## SAP HANA service auto-restart
@@ -78,7 +78,7 @@ Although SAP HANA is an in-memory database, it persists all changes in persisten
 1. Restore your SAP HANA database from Amazon S3 with AWS Backint agent. For more information, see [Back up and restore your SAP HANA system with AWS Backint Agent for SAP HANA](https://docs.aws.amazon.com/sap/latest/sap-hana/aws-backint-agent-backup-restore.html).
 
 1. Redirect your client traffic to the new SAP HANA system on Amazon EC2 when it is operational.  
-![Backup and restore using Backint Agent for SAP HANA](http://docs.aws.amazon.com/sap/latest/sap-hana/images/backinthanahadr.png)
+![Backup and restore using Backint Agent for SAP HANA](https://docs.aws.amazon.com/sap/latest/sap-hana/images/backinthanahadr.png)
 
 In this scenario, you avoid the cost of a standby node. Using AWS multi-Availability Zone infrastructure and backup/restore with AWS Backint Agent for SAP HANA, you can quickly resume operations and significantly reduce downtime costs.
 
@@ -147,7 +147,7 @@ The pacemaker cluster uses a virtual IP address to connect to the master SAP HAN
 +  **Cross-AZ SAP HANA database high availability setup**: Deploy SAP HANA with high availability configured across two Availability Zones.
 +  **Cross-AZ SAP NetWeaver system setup**: Deploy Amazon EC2 instances for ASCS/ERS and SAP HANA databases across two Availability Zones, and spread the deployment of application servers across them.
 +  **SUSE/RHEL cluster setup**: For SAP HANA and NetWeaver on HANA high availability deployments, Launch Wizard for SAP configures SUSE/RHEL clustering when you provide SAP software and specify the deployment of SAP database or application software. Clustering is enabled between the ASCS and ERS nodes for SAP HANA databases across two Availability Zones. See the following diagram.  
-![Example high availability configuration for SAP HANA across two Availability Zones.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/lwsaphanahadr.png)
+![Example high availability configuration for SAP HANA across two Availability Zones.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/lwsaphanahadr.png)
 **Note**  
 We strongly recommend that you validate the setup of your environment before using the high availability cluster for deployment. Run tests before deploying an application on your SAP HANA instance set up by Launch Wizard. The tests can ensure that failover and fail-back operations are working properly.
 

@@ -17,7 +17,7 @@ In a traditional, bare-metal setup, these different network zones are set up by 
 
 Many newer Amazon EC2 instance types such as the X1 use an optimized configuration stack and provide additional, dedicated capacity for Amazon EBS I/O. These are called [EBS-optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html). This optimization provides the best performance for your EBS volumes by minimizing contention between Amazon EBS I/O and other traffic from your instance.
 
-![EBS-optimized instances](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-ebs-optimized.jpg)
+![EBS-optimized instances](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-ebs-optimized.jpg)
 
 
  **Figure 9: EBS-optimized instances** 
@@ -29,7 +29,7 @@ An elastic network interface is a virtual network interface that you can attach 
 
 For more information about network interfaces, see the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html). In the following example, two network interfaces are attached to each SAP HANA node as well as in a separate communication channel for storage.
 
-![Network interfaces attached to SAP HANA nodes](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-network-interfaces.jpg)
+![Network interfaces attached to SAP HANA nodes](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-network-interfaces.jpg)
 
 
  **Figure 10: Network interfaces attached to SAP HANA nodes** 
@@ -39,7 +39,7 @@ For more information about network interfaces, see the [AWS documentation](https
 
 A security group acts as a virtual firewall that controls the traffic for one or more instances. When you launch an instance, you associate one or more security groups with the instance. You add rules to each security group that allow traffic to or from its associated instances. You can modify the rules for a security group at any time. The new rules are automatically applied to all instances that are associated with the security group. To learn more about security groups, see the [AWS documentation](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html). In the following example, ENI-1 of each instance shown is a member of the same security group that controls inbound and outbound network traffic for the client network.
 
-![Network interfaces and security groups](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-security-groups.jpg)
+![Network interfaces and security groups](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-security-groups.jpg)
 
 
  **Figure 11: Network interfaces and security groups** 
@@ -49,7 +49,7 @@ A security group acts as a virtual firewall that controls the traffic for one or
 
 You can configure additional network interfaces and security groups to further isolate inter-node communication as well as SAP HSR network traffic. In Figure 10, ENI-2 is has its own security group (not shown) to secure client traffic from inter-node communication. ENI-3 is configured to secure SAP HSR traffic to another Availability Zone within the same Region. In this example, the target SAP HANA cluster would be configured with additional network interfaces similar to the source environment, and ENI-3 would share a common security group.
 
-![Further isolation with additional ENIs and security groups](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-isolation.jpg)
+![Further isolation with additional ENIs and security groups](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hana-ops-isolation.jpg)
 
 
  **Figure 12: Further isolation with additional ENIs and security groups** 

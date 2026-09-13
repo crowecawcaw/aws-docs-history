@@ -113,7 +113,7 @@ This setup allows the static Network Load Balancer DNS to forward the traffic to
 1. In the **Load Balancers** section of the EC2 console, make a note of the Network Load Balancer DNS name for the sap-ha-nlb.
 
     **Figure 7: sap-ha-nlb DNS name**   
-![sap-ha-nlb DNS name](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image7.png)
+![sap-ha-nlb DNS name](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image7.png)
 
 1. Start SAP Logon.
 
@@ -124,7 +124,7 @@ This setup allows the static Network Load Balancer DNS to forward the traffic to
 1. For **Message Server**, type the Network Load Balancer DNS name, and choose **OK**.
 
     **Figure 8: Configuring System Connection Parameters for SAP GUI**   
-![Configuring System Connection Parameters for SAP GUI](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image8.png)
+![Configuring System Connection Parameters for SAP GUI](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image8.png)
 
 ## Step 5. Connect using SAP HANA Studio
 <a name="sap-oip-step-5.-connect-using-sap-hana-studio."></a>
@@ -132,9 +132,9 @@ This setup allows the static Network Load Balancer DNS to forward the traffic to
 1. In the **Load Balancers** section of the EC2 console, make a note of the Network Load Balancer DNS name for the JBDC/SQL and SAPStartSrv/HTTP ports.
 
     **Figure 9: DNS name of ports**   
-![DNS name of ports](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image9.png)
+![DNS name of ports](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image9.png)
 
 1. In the Host Name parameter of SAP HANA Studio, use the Network Load Balancer DNS name and provide additional credentials to connect to the SAP HANA system.
 
     **Figure 10: Updated Host Name in SAP HANA Studio**   
-![Updated Host Name in SAP HANA Studio](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image10.png)
+![Updated Host Name in SAP HANA Studio](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image10.png)

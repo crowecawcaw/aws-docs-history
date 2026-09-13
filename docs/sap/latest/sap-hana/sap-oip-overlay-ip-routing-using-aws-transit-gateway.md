@@ -14,7 +14,7 @@ With Transit Gateway, you use route table rules which allow the overlay IP addre
 
  **Figure 1: Overlay IP address setup with AWS Transit Gateway** 
 
-![Overlay IP address setup with Transit Gateway](http://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image1.png)
+![Overlay IP address setup with Transit Gateway](https://docs.aws.amazon.com/sap/latest/sap-hana/images/ha-overlay-ip-image1.png)
 
 
  *Pricing for the AWS Transit Gateway*:

@@ -71,7 +71,7 @@ You must properly size the secondary time travel memory instance for replication
 
 The following diagram shows the SAP HANA secondary time travel configuration scenario.
 
-![Diagram of the SAP HANA secondary time travel configuration scenario.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-secondary-time-travel.png)
+![Diagram of the SAP HANA secondary time travel configuration scenario.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-secondary-time-travel.png)
 
 
 ### SAP HANA replication scenarios in AWS
@@ -90,7 +90,7 @@ SAP HANA database systems that are critical to business continuity require a nea
 
 You can set up a third-party cluster solution along with SAP HANA system replication to detect failure and automate failover. For more information, see [Pacemaker cluster](https://docs.aws.amazon.com/sap/latest/sap-hana/hana-ops-ha-dr.html#pacemaker-hana-hadr). The following diagram shows a performance optimized deployment.
 
-![Diagram of a performance optimized deployment.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-performance-optimized.png)
+![Diagram of a performance optimized deployment.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-performance-optimized.png)
 
 
 #### Cost optimized
@@ -109,7 +109,7 @@ The size of your SAP HANA database impacts the time taken to load the column tab
 
 The following diagram shows the deployment of a smaller secondary SAP HANA system in a different Availability Zones within the same AWS Region.
 
-![Diagram of the deployment of a smaller secondary SAP HANA system in a different Availability Zones within the same Region.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-smaller-secondary.png)
+![Diagram of the deployment of a smaller secondary SAP HANA system in a different Availability Zones within the same Region.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-smaller-secondary.png)
 
 
 This deployment is also possible across multiple AWS Regions. We recommend using the asynchronous mode while replicating across Regions. Note that when you resize the secondary system before a takeover, there is no reserved capacity. The requirement of a production sized instance is subject to the current availability in your Availability Zone.
@@ -122,7 +122,7 @@ You must set the `global_allocation_limit` for all instances running on the site
 
 The following diagram shows a shared secondary deployment on AWS.
 
-![Diagram of a shared secondary deployment.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-shared-secondary.png)
+![Diagram of a shared secondary deployment.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-shared-secondary.png)
 
 
  **Sizing considerations for cost optimized deployments** 
@@ -142,7 +142,7 @@ This configuration scenario is suitable if you are looking for both, high availa
 
 In this scenario, there can be a mix of performance and cost deployment options. The primary and secondary system can be deployed in a high availability setup using a pacemaker cluster. The tertiary or disaster recovery system can be a cost optimized deployment. An active non-production instance can run on the same node, as a multiple components one installation model. This setup is shown in the following diagram.
 
-![Diagram of an active non-production instance run on the same node](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-multi-tier.png)
+![Diagram of an active non-production instance run on the same node](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-multi-tier.png)
 
 
 ### SAP HANA multi-target replication
@@ -152,7 +152,7 @@ In SAP HANA multi-tier scenario, replication happens sequentially, from primary 
 
 The following diagram shows a multi-tier target replication configuration on AWS.
 
-![Diagram of a multi-tier target replication configuration.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-multi-target.png)
+![Diagram of a multi-tier target replication configuration.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-multi-target.png)
 
 
  **Replication mode** 
@@ -192,7 +192,7 @@ You must set the IP address of the secondary system in the host name for a netwo
 
 A vendor proprietary solution is required to modify DNS records. With AWS, you can use Amazon Route 53 to automate the modification of DNS records with AWS CLI or AWS API. For more information, see [Configuring Amazon Route 53 as your DNS service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring.html).
 
-![Diagram showing Amazon Route 53 automating the modification of DNS records.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-dns.png)
+![Diagram showing Amazon Route 53 automating the modification of DNS records.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-dns.png)
 
 
 #### IP redirection
@@ -211,7 +211,7 @@ Amazon VPC setup includes assigning subnets to your primary and secondary nodes 
 
 With Transit Gateway, you use route table rules which allow the overlay IP address to communicate to the SAP instance without having to configure any additional components, like a Network Load Balancer or Route 53. You can connect to the overlay IP from another VPC, another subnet (not sharing the same route table where overlay IP address is maintained), over a VPN connection, or via an AWS Direct Connect connection from a corporate network. For more information, see [What is a Transit Gateway?](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html) 
 
-![Diagram showing using a Transit Gateway and route table rules to allow the overlay IP address to communicate to the SAP instance.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ip-gateway.png)
+![Diagram showing using a Transit Gateway and route table rules to allow the overlay IP address to communicate to the SAP instance.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ip-gateway.png)
 
 
 ##### Network Load Balancer
@@ -219,7 +219,7 @@ With Transit Gateway, you use route table rules which allow the overlay IP addre
 
 If you do not use Amazon Route 53 or AWS Transit Gateway, you can use Network Load Balancer for accessing the overlay IP address externally. The Network Load Balancer functions at the fourth layer of the Open Systems Interconnection (OSI) model. It can handle millions of requests per second. After the load balancer receives a connection request, it selects a target from the Network Load Balancer target group to route network connection request to a destination address which can be an overlay IP address. For more information, see [What is a Network Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) 
 
-![Diagram showing using a Network Load Balancer for accessing the overlay IP address externally.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ip-nlb.png)
+![Diagram showing using a Network Load Balancer for accessing the overlay IP address externally.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ip-nlb.png)
 
 
 ### Client redirection for Active/Active high availability scenario
@@ -241,7 +241,7 @@ With Transit Gateway, you use an overlay IP address on your secondary system to 
 
 In this scenario, you use two DNS records for SAP HANA read/write primary instance and SAP HANA read only secondary instance. In case of failover, the modification of DNS records can be automated or manual.
 
-![Diagram showing the Active/Active scenario with DNS.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ha-dns.png)
+![Diagram showing the Active/Active scenario with DNS.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ha-dns.png)
 
 
 #### Active/Active scenario with AWS Transit Gateway
@@ -249,7 +249,7 @@ In this scenario, you use two DNS records for SAP HANA read/write primary instan
 
 In this scenario, two overlay IP addresses for SAP HANA read/write primary instance and SAP HANA read only secondary instance. In case of failover, the route table is adjusted in its Availability Zone, and Transit Gateway reroutes the connections to these IP addresses. This applies to both overlay IP addresses.
 
-![Diagram showing the Active/Active scenario with Transit Gateway.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ha-ip.png)
+![Diagram showing the Active/Active scenario with Transit Gateway.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ha-ip.png)
 
 
 #### Active/Active scenario with Network Load Balancer
@@ -257,4 +257,4 @@ In this scenario, two overlay IP addresses for SAP HANA read/write primary insta
 
 In this scenario, two overlay IP addresses for SAP HANA read/write primary instance and SAP HANA read only secondary instance. In case of failover, the route table is adjusted in its Availability Zone, and Network Load Balancer for the read/write or read only endpoint points to the overlay IP address in its Availability Zone. This applies to both overlay IP addresses.
 
-![Diagram showing the Active/Active scenario with Network Load Balancer.](http://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ha-gateway.png)
+![Diagram showing the Active/Active scenario with Network Load Balancer.](https://docs.aws.amazon.com/sap/latest/sap-hana/images/hsr-redirect-ha-gateway.png)
