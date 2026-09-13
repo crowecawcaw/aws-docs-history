@@ -9,7 +9,7 @@ You can specify motion graphic overlay **Start time** and **Playback** settings 
 
 In the following image, the motion graphic overlay setting is three minutes long. The motion graphic playback is set to repeat until the end of the output.
 
-![Motion graphic overlay setting at three minutes with playback set to repeat until the end of output.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/MotionOverlayStartDuration.png)
+![Motion graphic overlay setting at three minutes with playback set to repeat until the end of output.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/MotionOverlayStartDuration.png)
 
 
 **Start time settings for motion overlays**  

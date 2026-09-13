@@ -7,14 +7,14 @@ AWS Elemental MediaConvert can pad video tracks with black video frames so that 
 
 Input media files might have audio and video tracks with different durations. In the following horizontal bar graph, the audio track starts before the video track and ends after it.
 
-![Horizontal bar graph where audio track extends before and after the video track.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/pad-video-example-1.png)
+![Horizontal bar graph where audio track extends before and after the video track.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/pad-video-example-1.png)
 
 
 You can use **Pad video** to lengthen the video track. In the **Input** pane, under **Video selector**, choose **Video correction** and set **Pad video** to `Black`. Depending on your input, this generates black video frames at the beginning, end, or both the beginning and end, of your video. 
 
 In the following horizontal bar graph, black frames fill in the beginning and end of the video to match the length of the audio.
 
-![Horizontal bar graph with black frames filling the beginning and end of the video track.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/pad-video-example-2.png)
+![Horizontal bar graph with black frames filling the beginning and end of the video track.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/pad-video-example-2.png)
 
 
 ## Pad video FAQ

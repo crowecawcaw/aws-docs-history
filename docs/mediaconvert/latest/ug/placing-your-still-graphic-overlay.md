@@ -5,7 +5,7 @@
 
 Whether your still image overlay is in input or output, set up the **Start time** and **Duration**. The following image shows how to specify settings so that an overlay starts two minutes into the video and remains on the video for two minutes. In the default settings, the overlay begins at the first frame of the input or output. The overlay remains on the video for the duration of the input or output.
 
-![Image overlay start time at two minutes into the video and remaining on the video for two minutes.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/PlacingOverlay.png)
+![Image overlay start time at two minutes into the video and remaining on the video for two minutes.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/PlacingOverlay.png)
 
 
 **Start time**  
@@ -27,4 +27,4 @@ For simplest setup, specify **Start time** counting from 00:00:00:00 as the firs
 **Duration**  
 Specify the length of time, in milliseconds, for the overlay duration to remain. This duration includes fade-in time, but not fade-out time, as the following image shows.
 
-![Overlay fade-in time when the overlay is at full opacity, and the time when the overlay is fading out.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/OverlayFadeinFadeoutDuration.png)
+![Overlay fade-in time when the overlay is at full opacity, and the time when the overlay is fading out.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/OverlayFadeinFadeoutDuration.png)

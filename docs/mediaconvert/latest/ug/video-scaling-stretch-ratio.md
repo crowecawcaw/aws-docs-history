@@ -14,7 +14,7 @@ If your input resolution has a different aspect ratio than your output resolutio
 
 The following key graphic shows input and output image width, height, cropping, and padding. In this key graphic, input dimensions (on the top and left) are in blue and output dimensions (on the right and bottom) are in red. 
 
-![Aspect Ratio Key](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/key.png)
+![Aspect Ratio Key](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/key.png)
 
 
 The following table shows example image scaling behavior when your input and output resolutions differ. For details about to read the images, reference the previous key graphic.
@@ -22,7 +22,7 @@ The following table shows example image scaling behavior when your input and out
 
 |  Condition  |  Input  |  Output  | 
 | --- | --- | --- | 
-| Input width less than output width<br />Input height less than output height |  ![Blue user icon with dimensions labeled: 200x200 inner square, 300x400 outer rectangle.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/input1-thumb.png)  |  ![Blue 3D object resembling a chess pawn piece with dimensions labeled around it.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/stretch1-thumb.png)  | 
-| Input width less than output width<br />Input height greater than output height |  ![Blue pawn-shaped figure on a checkered background with red measurement lines.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/input2-thumb.png)  |  ![Diagram showing dimensions of a blue cylindrical object on a checkered background.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/stretch2-thumb.png)  | 
-| Input width greater than output width<br />Input height less than output height |  ![Blue user icon centered within a rectangular frame with dimensions labeled.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/input3-thumb.png)  |  ![Bounding box diagram showing dimensions of 500, 400, 200, and 300 pixels around an object.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/stretch3-thumb.png)  | 
-| Input width greater than output width<br />Input height greater than output height |  ![Blue silhouette icon of a person within a red square frame on a grid background.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/input4-thumb.png)  |  ![Blue 3D figure resembling a snowman or stacked spheres centered in a square frame.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/stretch4-thumb.png)  | 
+| Input width less than output width<br />Input height less than output height |  ![Blue user icon with dimensions labeled: 200x200 inner square, 300x400 outer rectangle.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/input1-thumb.png)  |  ![Blue 3D object resembling a chess pawn piece with dimensions labeled around it.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/stretch1-thumb.png)  | 
+| Input width less than output width<br />Input height greater than output height |  ![Blue pawn-shaped figure on a checkered background with red measurement lines.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/input2-thumb.png)  |  ![Diagram showing dimensions of a blue cylindrical object on a checkered background.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/stretch2-thumb.png)  | 
+| Input width greater than output width<br />Input height less than output height |  ![Blue user icon centered within a rectangular frame with dimensions labeled.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/input3-thumb.png)  |  ![Bounding box diagram showing dimensions of 500, 400, 200, and 300 pixels around an object.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/stretch3-thumb.png)  | 
+| Input width greater than output width<br />Input height greater than output height |  ![Blue silhouette icon of a person within a red square frame on a grid background.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/input4-thumb.png)  |  ![Blue 3D figure resembling a snowman or stacked spheres centered in a square frame.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/stretch4-thumb.png)  | 

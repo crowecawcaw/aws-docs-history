@@ -3,7 +3,7 @@
 # Per-frame metric reports in AWS Elemental MediaConvert
 <a name="per-frame-metrics"></a>
 
-![Diagram showing per-frame metrics workflow in MediaConvert](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/mediaconvert_per_frame_metrics_diagram.png)
+![Diagram showing per-frame metrics workflow in MediaConvert](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/mediaconvert_per_frame_metrics_diagram.png)
 
 
 Per-frame metric reports provide detailed video quality analysis for your MediaConvert outputs. With these reports, you can analyze your output video quality on a frame-by-frame basis by using industry-standard quality metrics.

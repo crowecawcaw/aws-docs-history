@@ -17,4 +17,4 @@ This bucket is different from the one that you set up for the media asset output
 **Note**  
 The roles and access you set up for this data sharing is different from the IAM permissions you set up to allow MediaConvert to access your input and output Amazon S3 buckets. For information about that setup, see [Setting up IAM permissions](iam-role.md), which is a sub-topic of the Getting started chapter of this guide.
 
-![The video is rotated so that the top of the pre-rotation image is parallel to the right edge of the post-rotation video frame. Black vertical bars on the right and left accommodate the difference between the aspect ratio of the original video and the rotated video.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/NielsenWatermarking.png)
+![The video is rotated so that the top of the pre-rotation image is parallel to the right edge of the post-rotation video frame. Black vertical bars on the right and left accommodate the difference between the aspect ratio of the original video and the rotated video.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/NielsenWatermarking.png)

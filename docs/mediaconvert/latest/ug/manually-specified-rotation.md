@@ -8,7 +8,7 @@ When you specify the rotation for your input, AWS Elemental MediaConvert rotates
 **Note**  
 AWS Elemental MediaConvert doesn't pass through rotation metadata. Regardless of how you set **Rotate**, job outputs don't have rotation metadata.
 
-![The video is rotated so that the top of the pre-rotation image is parallel to the right edge of the post-rotation video frame. Black vertical bars on the right and left accommodate the difference between the aspect ratio of the original video and the rotated video.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/auto-rotate-example.jpg)
+![The video is rotated so that the top of the pre-rotation image is parallel to the right edge of the post-rotation video frame. Black vertical bars on the right and left accommodate the difference between the aspect ratio of the original video and the rotated video.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/auto-rotate-example.jpg)
 
 
 **To specify the rotation of your video**

@@ -48,4 +48,4 @@ The best value for an output depends on how the output will be viewed. In genera
 
 The following graph shows how changing the quality level affects the bitrate that the encoder uses for different parts of the video. While the lines for both level 7 and level 9 spike and drop in the same places, the encoder uses more bits total when the quality is set higher.
 
-![Both lines vary over time. The line that shows QVBR level 7 is shifted below the line for QVBR level 9.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/RateCtlModeChart2.png)
+![Both lines vary over time. The line that shows QVBR level 7 is shifted below the line for QVBR level 9.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/RateCtlModeChart2.png)

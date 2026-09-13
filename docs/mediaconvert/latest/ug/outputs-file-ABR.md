@@ -16,14 +16,14 @@ In an ABR output group, each output is usually one element of the media. That is
 
 The following illustration shows the relationship between outputs in an ABR output group and the files that MediaConvert creates. Each orange box corresponds to an output within the output group. In this example, there are three resolutions of video, audio in two languages, and captions in two languages. The package contains segmented audio, video, and captions files, plus manifest files that tell the player which files to download and when to play them.
 
-![Each rendition in an ABR stack with its own output in the output group.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/ABRsegSeparately.png)
+![Each rendition in an ABR stack with its own output in the output group.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/ABRsegSeparately.png)
 
 
 A single job can generate zero to many  standalone files and zero to many streaming packages. To create more than one standalone file, add a single file output group to your job and add multiple outputs to that output group. To create more than one streaming package, add multiple **CMAF**, **AppleHLS**, **DASH ISO**, or **Microsoft Smooth Streaming** output groups to your job.
 
 The following illustration shows a MediaConvert job that generates two standalone .mp4 files, two Apple HLS packages, and a CMAF package. A single file output group with two outputs results in two standalone files. A single Apple HLS output group with seven outputs results in a single viewable package with seven ABR slices. 
 
-![MediaConvert job generating two standalone .mp4 files, two Apple HLS packages, and a CMAF package.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/jobSetupToOutput.png)
+![MediaConvert job generating two standalone .mp4 files, two Apple HLS packages, and a CMAF package.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/jobSetupToOutput.png)
 
 
 For information about setting up output groups and outputs within your job, see [Tutorial: Configuring job settings](setting-up-a-job.md).

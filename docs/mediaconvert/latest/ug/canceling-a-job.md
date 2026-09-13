@@ -12,7 +12,7 @@ To cancel a job using the MediaConvert console
 
 1. Open the [Jobs](https://console.aws.amazon.com/mediaconvert/home#/jobs/list) page in the MediaConvert console.
 
-1. Select the **Job ID** of the job that you want to cancel by choosing the option (![Empty circle outline representing a placeholder or selection option.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/circle-icon.png)) next to it.
+1. Select the **Job ID** of the job that you want to cancel by choosing the option (![Empty circle outline representing a placeholder or selection option.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/circle-icon.png)) next to it.
 
 1. Choose **Cancel job**.
 

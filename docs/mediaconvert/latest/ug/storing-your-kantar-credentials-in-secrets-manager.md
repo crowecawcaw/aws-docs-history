@@ -12,7 +12,7 @@ Follow the tutorial linked in the introduction to this procedure, with the follo
 1. Make sure that you use the same AWS Region for Secrets Manager that you use for your MediaConvert job.
 
 1. In the **Specify key/value pairs to be stored in the secret** section, set up two key-value pairs. One holds your Kantar login name and the other holds your password.  
-![This screenshot shows two key-value pairs. The key for the first is "login" and the value is your Kantar login name. The key for the second is "password" and the value is your Kantar password.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/kantar-secret-ASM.png)
+![This screenshot shows two key-value pairs. The key for the first is "login" and the value is your Kantar login name. The key for the second is "password" and the value is your Kantar password.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/kantar-secret-ASM.png)
 
    1. Type **login** in the left field and then type your Kantar login name in the right field.
 

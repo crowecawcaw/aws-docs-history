@@ -10,7 +10,7 @@ The following diagram shows how input and output overlays appear in the video fi
 **Note**  
 In this diagram, all overlays are specified for the entire duration of the input or output. You can instead specify a shorter overlay duration within that time.
 
-![Input and output overlays for a job’s video files, set for the duration of the input or output.](http://docs.aws.amazon.com/mediaconvert/latest/ug/images/ImageInserter.png)
+![Input and output overlays for a job’s video files, set for the duration of the input or output.](https://docs.aws.amazon.com/mediaconvert/latest/ug/images/ImageInserter.png)
 
 
 ## Input overlays
