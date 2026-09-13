@@ -16,7 +16,7 @@ This section contains architecture examples related to synchronizing Amazon Pinp
 
 If your application or service uses the [UpdateEndpoint](https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html#UpdateEndpoint) API to create individual endpoints in your Amazon Pinpoint account, you can simultaneously call the API in each of your target Regions. Your call to each Region contains exactly the same data. This solution is suitable for situations in which you are adding new endpoints to Amazon Pinpoint as the endpoints contact information is being captured, instead of loading endpoints from an existing database or system in bulk. This approach works for both [active-active](architectures.md#architectures-activeactive) and [warm standby](architectures.md#architectures-warmstandby) architectures, and is illustrated in the following image:
 
-![Shows endpoints updated in the active and failover region](http://docs.aws.amazon.com/pinpoint/latest/archguide/images/customerdata-endpoints-individual.png)
+![Shows endpoints updated in the active and failover region](https://docs.aws.amazon.com/pinpoint/latest/archguide/images/customerdata-endpoints-individual.png)
 
 
 The benefit of this architecture is that the Recovery Point Objective (RPO) is near zero. A disadvantage is that you have to make twice as many API calls at ingestion time, which could increase latency when creating or updating endpoints.
@@ -28,14 +28,14 @@ A common way that you can manage endpoints is to export customer data from a dat
 
 You can do these imports in parallel by writing the source files to Amazon S3 buckets in each of your target Regions. You can then use Lambda functions and Step Functions workflows to import that data in each Region automatically. This architecture works for both [active-active](architectures.md#architectures-activeactive) and [warm standby](architectures.md#architectures-warmstandby) architectures. The parallel import architecture is illustrated in the following diagram:
 
-![Shows parallel imports for multiple regions using S3 buckets.](http://docs.aws.amazon.com/pinpoint/latest/archguide/images/customerdata-endpoints-bulk.png)
+![Shows parallel imports for multiple regions using S3 buckets.](https://docs.aws.amazon.com/pinpoint/latest/archguide/images/customerdata-endpoints-bulk.png)
 
 
 The benefit of this architecture is that the RPO is near zero. A disadvantage is that you have to make twice as many API calls at ingestion time, which could increase latency when creating or updating endpoints.
 
 If you use a warm standby architecture, you could alternatively use a recurring *Export Job*. The Export Job exports segment members into an Amazon S3 bucket in the warm standby Region. You can then use Lambda functions and Step Functions workflows to create Import Jobs in the warm standby Region. This architecture is illustrated in the following diagram:
 
-![Shows the workflow for exporting from the primary region to warm standby region.](http://docs.aws.amazon.com/pinpoint/latest/archguide/images/customerdata-endpoints-bulk-1.png)
+![Shows the workflow for exporting from the primary region to warm standby region.](https://docs.aws.amazon.com/pinpoint/latest/archguide/images/customerdata-endpoints-bulk-1.png)
 
 
 A disadvantage of this architecture is that the RPO is increased. However, you can control the RPO by changing how often Export Jobs is performed.

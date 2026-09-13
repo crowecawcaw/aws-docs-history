@@ -12,7 +12,7 @@ When you use Amazon Pinpoint to send email or SMS messages, it generates event r
 
 Amazon Pinpoint can send events to a Amazon Kinesis Data Firehose stream. The Firehose stream can then send that data to numerous destinations, including Amazon S3 buckets and Amazon Redshift clusters. Many of these destinations support the automatic replication of data across AWS Regions. For example, Amazon S3 includes a feature called Cross-Region Replication (CRR). The following diagram shows an example of an Amazon Pinpoint architecture that uses Amazon S3 CRR:
 
-![Showing the cross region replication workflow using Amazon S3 buckets.](http://docs.aws.amazon.com/pinpoint/latest/archguide/images/customerdata-events.png)
+![Showing the cross region replication workflow using Amazon S3 buckets.](https://docs.aws.amazon.com/pinpoint/latest/archguide/images/customerdata-events.png)
 
 
 For more information about CRR, see [Replicating objects overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html) in the *Amazon S3 User Guide*.

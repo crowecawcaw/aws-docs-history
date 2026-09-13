@@ -35,7 +35,7 @@ Consider the following factors when implementing an active-active architecture w
 
 The following diagram shows an active-active architecture for Amazon Pinpoint:
 
-![An active-active architecture with cross region replication](http://docs.aws.amazon.com/pinpoint/latest/archguide/images/architectures-activeactive.png)
+![An active-active architecture with cross region replication](https://docs.aws.amazon.com/pinpoint/latest/archguide/images/architectures-activeactive.png)
 
 
  An active-active architecture involves three main parts:
@@ -83,7 +83,7 @@ Consider the following factors when implementing a warm standby architecture wit
 
 The following diagram shows a warm standby architecture for Amazon Pinpoint:
 
-![Warm standby architecture with an active region and warm backup region.](http://docs.aws.amazon.com/pinpoint/latest/archguide/images/architectures-warmstandby.png)
+![Warm standby architecture with an active region and warm backup region.](https://docs.aws.amazon.com/pinpoint/latest/archguide/images/architectures-warmstandby.png)
 
 
 A warm standby architecture involves three main steps:
