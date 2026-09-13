@@ -37,7 +37,7 @@ A new EventBridge resource that can be created by customers and matched to event
 
 In this process there are two roles, the AWS customer and the partner’s customer. In many cases these roles are be played by the same person, but in some cases there may be separate administrators responsible for managing a company’s AWS account and their SaaS application. The following diagram shows how events are sent.
 
-![image1](http://docs.aws.amazon.com/eventbridge/latest/onboarding/images/image1.jpg)
+![image1](https://docs.aws.amazon.com/eventbridge/latest/onboarding/images/image1.jpg)
 
 
 The flow for this diagram is as follows.
@@ -110,7 +110,7 @@ Event sources can be in one of the following states. From the partner side, this
 
 The following diagram shows the relationship between these states.
 
-![image2](http://docs.aws.amazon.com/eventbridge/latest/onboarding/images/image2.jpg)
+![image2](https://docs.aws.amazon.com/eventbridge/latest/onboarding/images/image2.jpg)
 
 
 From the AWS customer side, event sources can be in one of the following states.
@@ -137,7 +137,7 @@ From the AWS customer side, event sources can be in one of the following states.
 
 The following diagram shows the relationship between these states.
 
-![image3](http://docs.aws.amazon.com/eventbridge/latest/onboarding/images/image3.jpg)
+![image3](https://docs.aws.amazon.com/eventbridge/latest/onboarding/images/image3.jpg)
 
 
 ## Event source expiration

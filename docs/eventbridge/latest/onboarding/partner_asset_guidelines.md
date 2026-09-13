@@ -10,7 +10,7 @@ EventBridge partners need to adhere to the guidelines described in this topic wh
 
 All logo assets need to be vector graphic files with transparent background and in SVG format.
 
-![LogoGuidelines](http://docs.aws.amazon.com/eventbridge/latest/onboarding/images/LogoGuidelines.JPG)
+![LogoGuidelines](https://docs.aws.amazon.com/eventbridge/latest/onboarding/images/LogoGuidelines.JPG)
 
 
 ## Diagram guidelines
@@ -22,4 +22,4 @@ All logo assets need to be vector graphic files with transparent background and 
 
 1. Do not include the title in the diagram. You can provide the title separately.
 
-![DiagramGuidelines](http://docs.aws.amazon.com/eventbridge/latest/onboarding/images/DiagramGuidelines.JPG)
+![DiagramGuidelines](https://docs.aws.amazon.com/eventbridge/latest/onboarding/images/DiagramGuidelines.JPG)
