@@ -54,7 +54,7 @@ The following diagram shows an end-to-end data flow for delivery to streaming ta
 
 Delivery to general purpose Amazon S3 buckets follows a similar flow, with two differences. A producer writes records to a Kinesis data stream, and Amazon Kinesis Data Streams delivers them to your S3 bucket. Records are delivered in their original source format with no conversion, so AWS Glue Schema Registry is not required and no table metadata is registered in the AWS Glue Data Catalog. Amazon Kinesis Data Streams buffers and batches records into optimally sized objects and writes them using the S3 key structure you define through the output key template. The delivered objects are then available for downstream batch processing and analytics.
 
-![Architecture diagram showing card-transaction records serialized through AWS Glue Schema Registry into a Kinesis data stream, delivered to Apache Iceberg tables on Amazon S3 Tables with metadata registered in the AWS Glue Data Catalog, and consumed by analytics and AI engines including Amazon Athena, Amazon Redshift, and Amazon EMR.](http://docs.aws.amazon.com/streams/latest/dev/images/data-delivery-architecture.png)
+![Architecture diagram showing card-transaction records serialized through AWS Glue Schema Registry into a Kinesis data stream, delivered to Apache Iceberg tables on Amazon S3 Tables with metadata registered in the AWS Glue Data Catalog, and consumed by analytics and AI engines including Amazon Athena, Amazon Redshift, and Amazon EMR.](https://docs.aws.amazon.com/streams/latest/dev/images/data-delivery-architecture.png)
 
 
 ## Key capabilities

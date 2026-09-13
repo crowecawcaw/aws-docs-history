@@ -14,7 +14,7 @@ When encrypting your data streams and sharing access to other principals, you mu
 
 If you have enabled server-side encryption for a data stream with AWS managed KMS key and want to share access via a resource policy, you must switch to using customer-managed key (CMK), as shown following: 
 
-![Encryption settings with Use customer-managed CMK selected and dropdown to choose CMK.](http://docs.aws.amazon.com/streams/latest/dev/images/cmk2.png)
+![Encryption settings with Use customer-managed CMK selected and dropdown to choose CMK.](https://docs.aws.amazon.com/streams/latest/dev/images/cmk2.png)
 
 
 In addition, you must allow your sharing principal entities to have access to your CMK, using KMS cross account sharing capabilities. Make sure to also make the change in the IAM policies for the sharing principal entities. For more information, see [Allowing users in other accounts to use a KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).

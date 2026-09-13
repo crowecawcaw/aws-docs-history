@@ -10,7 +10,7 @@ With On-demand Advantage mode, you can register up to 50 consumers per stream to
 
 The following diagram shows the enhanced fan-out architecture. If you use version 2.0 or later of the Amazon Kinesis Client Library (KCL) to build a consumer, the KCL sets up the consumer to use enhanced fan-out to receive data from all the shards of the stream. If you use the API to build a consumer that uses enhanced fan-out, then you can subscribe to individual shards.
 
-![Workflow diagram showing enhanced fan-out architecture with two shards and two consumers. Each of the two consumers is using enhanced fan-out to receive data from both shards of the stream.](http://docs.aws.amazon.com/streams/latest/dev/images/enhanced_fan-out.png)
+![Workflow diagram showing enhanced fan-out architecture with two shards and two consumers. Each of the two consumers is using enhanced fan-out to receive data from both shards of the stream.](https://docs.aws.amazon.com/streams/latest/dev/images/enhanced_fan-out.png)
 
 
 The diagram shows the following: 

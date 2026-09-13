@@ -14,7 +14,7 @@ Before you get started with Amazon Kinesis Data Streams, learn about its archite
 
 The following diagram illustrates the high-level architecture of Kinesis Data Streams. The *producers* continually push data to Kinesis Data Streams, and the *consumers* process the data in real time. Consumers (such as a custom application running on Amazon EC2 or an Amazon Data Firehose delivery stream) can store their results using an AWS service such as Amazon DynamoDB, Amazon Redshift, or Amazon S3. 
 
-![Kinesis Data Streams high-level architecture diagram](http://docs.aws.amazon.com/streams/latest/dev/images/architecture.png)
+![Kinesis Data Streams high-level architecture diagram](https://docs.aws.amazon.com/streams/latest/dev/images/architecture.png)
 
 
 ## Become familiar with the terminology of Kinesis Data Streams
