@@ -10,7 +10,7 @@ With this architecture, you can use machine learning (ML) on patient health data
 ## Patient outcome prediction diagram
 <a name="pop-diagram"></a>
 
-![Reference architecture diagram showing how to predict patient outcomes by using AWS HealthLake, SageMaker AI, Amazon Macie, AWS Glue, and CloudFront.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/patient-outcome-prediction/images/patient-outcome-prediction.png)
+![Reference architecture diagram showing how to predict patient outcomes by using AWS HealthLake, SageMaker AI, Amazon Macie, AWS Glue, and CloudFront.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/patient-outcome-prediction/images/patient-outcome-prediction.png)
 
 
 The following steps describe the data flow and prediction pipeline for this architecture:
