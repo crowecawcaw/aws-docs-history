@@ -29,67 +29,86 @@ If you share a dashboard that has metric widgets with alarm annotations, the peo
 
 To be able to share dashboards using any of the following methods and to see which dashboards have already been shared, you must be signed on as a user or with an IAM role that has certain permissions.
 
-To be able to share dashboards, your user or IAM role must include the permissions included in the following policy statement:
+To share dashboards, your IAM user or role must have the permissions in the following policy statement:
 
 ```
 {
-    "Effect": "Allow",
-    "Action": [
-        "iam:CreateRole",
-        "iam:CreatePolicy",
-        "iam:AttachRolePolicy",
-        "iam:PassRole"
-    ],
-    "Resource": [
-        "arn:aws:iam::*:role/service-role/CWDBSharing*",
-        "arn:aws:iam::*:policy/*"
-    ]
-},
-{
-    "Effect": "Allow",
-    "Action": [
-        "cognito-idp:*",
-        "cognito-identity:*",
-    ],
-    "Resource": [
-        "*"
-    ]
-},
-{
-    "Effect": "Allow",
-    "Action": [
-        "cloudwatch:GetDashboard",
-    ],
-    "Resource": [
-        "*"
-        // or the ARNs of dashboards that you want to share
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:CreatePolicy",
+                "iam:AttachRolePolicy",
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:role/service-role/CWDBSharing*",
+                "arn:aws:iam::*:policy/*"
+            ]
+        },
+        {
+            "Sid": "RequiredCognitoPermissionsForDashboardSharing",
+            "Effect": "Allow",
+            "Action": [
+                "cognito-idp:*",
+                "cognito-identity:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:GetDashboard"
+            ],
+            "Resource": [
+                "arn:aws:cloudwatch::{{account-id}}:dashboard/{{dashboard-name}}"
+            ]
+        }
     ]
 }
 ```
+
+In the last statement, you can specify `*` instead of a dashboard ARN to grant access to all dashboards in the account.
+
+**Note**  
+The CloudWatch dashboard sharing feature requires the `cognito-idp:*` and `cognito-identity:*` permissions with `Resource` set to `*`. You cannot scope these permissions to specific actions or resources because the dashboard sharing process automatically creates Amazon Cognito resources, and creation actions cannot target resources that do not yet exist.
 
 To be able to see which dashboards are shared, but not be able to share dashboards, a user or an IAM role can include a policy statement similar to the following:
 
 ```
 {
-    "Effect": "Allow",
-    "Action": [
-        "cognito-idp:*",
-        "cognito-identity:*"
-    ],
-    "Resource": [
-        "*"
-    ]
-},
-{
-    "Effect": "Allow",
-    "Action": [
-        "cloudwatch:ListDashboards",
-    ],
-    "Resource": [
-        "*" 
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "RequiredCognitoPermissionsForDashboardSharing",
+            "Effect": "Allow",
+            "Action": [
+                "cognito-idp:*",
+                "cognito-identity:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:ListDashboards"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
     ]
 }
 ```
+
+**Note**  
+The CloudWatch dashboard sharing feature requires the `cognito-idp:*` and `cognito-identity:*` permissions with `Resource` set to `*`. You cannot scope these permissions to specific actions or resources because the dashboard sharing process automatically creates Amazon Cognito resources, and creation actions cannot target resources that do not yet exist. The `cloudwatch:ListDashboards` action does not support resource-level permissions, so its `Resource` must also be `*`.
 
 ## Permissions that are granted to people who you share the dashboard with
 <a name="share-cloudwatch-dashboard-iamrole"></a>
@@ -120,7 +139,7 @@ When you share a dashboard, by default the composite alarm widgets on the dashbo
 ```
 
 **Warning**  
-The preceding policy statement give access to all alarms in the account. To reduce the scope of `cloudwatch:DescribeAlarms`, you must use a `Deny` statement. You can add a `Deny` statement to the policy and specify the ARNs of the alarms that you want to lock down. That deny statement should look similar to the following:  
+The preceding policy statement gives access to all alarms in the account. To reduce the scope of `cloudwatch:DescribeAlarms`, you must use a `Deny` statement. You can add a `Deny` statement to the policy and specify the ARNs of the alarms that you want to lock down. That deny statement should look similar to the following:  
 
 ```
 {
@@ -212,7 +231,7 @@ If you want these people to be able to see CloudWatch Logs widgets, you must add
 
 1. Choose **Save Changes**.
 
-If your IAM policy for dashboard sharing already includes those five permissions with `*` as the resource, we strongly recommend that you change the policy and specify only the ARNs of the log groups that you want shared. For example, if your `Resource` section for these permissions was the following:
+If your IAM policy for dashboard sharing already includes the preceding permissions with `*` as the resource, we strongly recommend that you change the policy and specify only the ARNs of the log groups that you want shared. For example, if your `Resource` section for these permissions was the following:
 
 ```
 "Resource": "*"

@@ -9,6 +9,7 @@
 + [Supported AWS Regions](#CloudWatch-PromQL-Regions)
 + [IAM permissions for PromQL](#CloudWatch-PromQL-IAM)
 + [PromQL querying](CloudWatch-PromQL-Querying.md)
++ [Grafana integration](CloudWatch-PromQL-Grafana.md)
 + [Running PromQL queries in Query Studio](CloudWatch-PromQL-QueryStudio.md)
 + [Using PromQL in alarms](CloudWatch-PromQL-Alarms.md)
 + [Prometheus-compatible APIs](CloudWatch-PromQL-APIs.md)

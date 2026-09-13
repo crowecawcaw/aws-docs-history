@@ -44,7 +44,7 @@ Below are the key advantages of the solution:
 
 The following image is an example of the dashboard for this solution.
 
-![Example dashboard for NVIDIA GPU solution.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/NVIDIADashboard.png)
+![Example dashboard for NVIDIA GPU solution.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/NVIDIADashboard.png)
 
 
 ### Costs

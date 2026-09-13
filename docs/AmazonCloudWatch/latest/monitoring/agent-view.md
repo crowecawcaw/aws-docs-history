@@ -18,7 +18,7 @@ The following Agent metrics are supported:
 
 Choose **View details** to see the Agent metrics in graphs.
 
-![Agents view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_AgentCoreGraphs.png)
+![Agents view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_AgentCoreGraphs.png)
 
 
 **Runtime metrics**
@@ -34,7 +34,7 @@ AgentCore Runtime supports these metrics
 
 View metric changes over time in the default dashboard. Expand **View details** to display metric graphs.
 
-![Runtime view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_Runtime.png)
+![Runtime view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_Runtime.png)
 
 
 **Agents**
@@ -43,12 +43,12 @@ Agents are components that collect and send monitoring data from your applicatio
 
 You can use **Filter agents** to find a specific agent that you want to deep dive or you can also use the column names to sort the agents to find the required agent. Select the gear icon to show or hide additional columns.
 
-![Runtime agents view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_agents.png)
+![Runtime agents view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_agents.png)
 
 
 You can view the details of the Agent by expanding the agent name.
 
-![Runtime agents overview.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_agentsdetails_new.png)
+![Runtime agents overview.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_agentsdetails_new.png)
 
 
 **Agent details- Overview**

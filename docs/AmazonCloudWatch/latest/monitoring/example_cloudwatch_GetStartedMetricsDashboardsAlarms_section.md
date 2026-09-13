@@ -362,7 +362,7 @@ public class CloudWatchScenario
                 {
                     MetricName = customMetricName,
                     Value = metricValue,
-                    TimestampUtc = utcNowMinus15.AddMinutes(i)
+                    Timestamp = utcNowMinus15.AddMinutes(i)
                 }
             );
         }
@@ -578,19 +578,19 @@ public class CloudWatchScenario
             {
                 MetricName = customMetricName,
                 Value = 101,
-                TimestampUtc = nowUtc.AddMinutes(-2)
+                Timestamp = nowUtc.AddMinutes(-2)
             },
             new MetricDatum
             {
                 MetricName = customMetricName,
                 Value = 101,
-                TimestampUtc = nowUtc.AddMinutes(-1)
+                Timestamp = nowUtc.AddMinutes(-1)
             },
             new MetricDatum
             {
                 MetricName = customMetricName,
                 Value = 101,
-                TimestampUtc = nowUtc
+                Timestamp = nowUtc
             }
         };
         var valuesString = string.Join(',', customData.Select(d => d.Value));
@@ -856,8 +856,8 @@ public class CloudWatchWrapper
                 MetricName = metricName,
                 Dimensions = dimensions,
                 Statistics = statistics,
-                StartTimeUtc = DateTime.UtcNow.AddDays(-days),
-                EndTimeUtc = DateTime.UtcNow,
+                StartTime = DateTime.UtcNow.AddDays(-days),
+                EndTime = DateTime.UtcNow,
                 Period = period
             });
 
@@ -1013,8 +1013,8 @@ public class CloudWatchWrapper
         var paginatedMetricData = _amazonCloudWatch.Paginators.GetMetricData(
             new GetMetricDataRequest()
             {
-                StartTimeUtc = startTimeUtc,
-                EndTimeUtc = endDateUtc.Value,
+                StartTime = startTimeUtc,
+                EndTime = endDateUtc.Value,
                 LabelOptions = new LabelOptions { Timezone = timeZoneString },
                 ScanBy = useDescendingTime ? ScanBy.TimestampDescending : ScanBy.TimestampAscending,
                 MaxDatapoints = maxDataPoints,
@@ -1143,9 +1143,9 @@ public class CloudWatchWrapper
             new DescribeAlarmHistoryRequest()
             {
                 AlarmName = alarmName,
-                EndDateUtc = DateTime.UtcNow,
+                EndDate = DateTime.UtcNow,
                 HistoryItemType = HistoryItemType.StateUpdate,
-                StartDateUtc = DateTime.UtcNow.AddDays(-historyDays)
+                StartDate = DateTime.UtcNow.AddDays(-historyDays)
             });
 
         await foreach (var data in paginatedAlarmHistory.AlarmHistoryItems)

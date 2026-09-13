@@ -40,10 +40,10 @@ To analyze execution plans, use the following procedure.
 1. Choose the **Top SQL** tab. The **Plans Count** column shows the number of plans collected for each digest query.
 
 1. (Optional) If the **Plans Count** column doesn't appear, choose the **Settings** icon on the **Top SQL** table to customize the visibility and order of columns.  
-![Settings for the plan details table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights2.png)
+![Settings for the plan details table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights2.png)
 
 1. Choose a digest query to expand it into its component statements.  
-![Expand a query into its component statements.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_did-dbload-expand.png)
+![Expand a query into its component statements.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_did-dbload-expand.png)
 
 1. Scroll down and view the SQL text. Then, choose the **Plans** tab.
 
@@ -52,7 +52,7 @@ To analyze execution plans, use the following procedure.
 1. To compare plans from the same digest query, choose two **Plans** from the **Plans for digest query** list.
 
    You can view either one or two plans for a query at a time. In the following example screenshot, both plans are for Aurora PostgreSQL.   
-![Compare plans.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_did-plans.png)
+![Compare plans.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_did-plans.png)
 
 1. You can also view how each plan contributes to DBLoad over time by choosing **Plans** in the **Slice by** drop-down in the DBLoad chart.  
-![Top SQL table showing load by plans with query statements, execution metrics, and plan counts.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights_OverTime.png)
+![Top SQL table showing load by plans with query statements, execution metrics, and plan counts.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights_OverTime.png)

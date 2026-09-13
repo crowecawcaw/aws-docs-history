@@ -108,10 +108,10 @@ aws lambda put-runtime-management-config \
 1. Choose the **Versions** tab, choose the version number link that corresponds to your ARN, and choose the **Code** tab.
 
 1. Scroll down to **Runtime settings**, expand **Runtime management configuration**, and copy the the **Runtime version ARN** .  
-![Runtime settings section showing where the Runtime version ARN appears.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/SyntheticsManual1.png)
+![Runtime settings section showing where the Runtime version ARN appears.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/SyntheticsManual1.png)
 
 1. Choose **Edit runtime management configuration**, choose ** Manual**, paste the runtime version ARN that you copied earlier into the **Runtime version ARN** field. Then choose **Save**.  
-![Runtime management configuration screen showing where to paste the Runtime version ARN.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/SyntheticsManual2.png)
+![Runtime management configuration screen showing where to paste the Runtime version ARN.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/SyntheticsManual2.png)
 
 ## My canary is blocked by AWS WAF
 <a name="Canary_Blocked_WAF"></a>

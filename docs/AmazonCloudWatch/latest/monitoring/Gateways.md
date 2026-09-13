@@ -10,14 +10,14 @@ Monitor how your agents discover and interact with external tools and services t
 + Observe data transformation accuracy when converting between different API formats
 + Track error rates and retry patterns for external service integrations
 
-![Gateways view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Gateways.png)
+![Gateways view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Gateways.png)
 
 
 Expand the **View details** section to view the gateway metrics in graphs.
 
-![Gateways metrics view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Gateway_metrics.png)
+![Gateways metrics view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Gateway_metrics.png)
 
 
 Under **Gateways**, choose a gateway **Name** to view the dashboard. You can also sort the list of gateways by click the column headers in the table.
 
-![Gateways details view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Gateways_tile.png)
+![Gateways details view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Gateways_tile.png)

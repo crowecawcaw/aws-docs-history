@@ -63,7 +63,7 @@ You can't combine resource group-based monitoring with account-based monitoring 
    1. On the **Review detected components** page, under **Review components for monitoring**, the table lists the detected components and their associated detected workloads.
 **Note**  
 For components that support multiple customized workloads, you can monitor up to five workloads for each component. These workloads will be monitored separately from the component.  
-![The detected components section of the CloudWatch Application Insights console: overview of detected components and associated workloads.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-review-component.png)
+![The detected components section of the CloudWatch Application Insights console: overview of detected components and associated workloads.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-review-component.png)
 
       Under **Associated workloads**, there are several possible messages that appear if a workload is not listed.
       + **Couldn't detect workloads** – An issue occurred when trying to detect workloads. Make sure that you have completed the [Prerequisites to configure an application for monitoring](appinsights-prereqs.md). If you need to add workloads, choose **Edit component**.
@@ -71,17 +71,17 @@ For components that support multiple customized workloads, you can monitor up to
       + **Not applicable** – The component doesn't support customized workloads and will be monitored with default metrics, alarms, and logs. You can't add workloads to these components.
 
    1. To edit a component, select a component, and then choose **Edit component**. A side panel opens with workloads detected on the component. In this panel, you can edit the component details and add new workloads.  
-![The review detected components section of the CloudWatch Application Insights console: associated workloads can be edited.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-edit-component.png)
+![The review detected components section of the CloudWatch Application Insights console: associated workloads can be edited.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-edit-component.png)
       + To edit the workload type or name, use the dropdown list.  
-![The Edit component section of the CloudWatch Application Insights console: dropdown list of workload type.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-edit-name-type.png)
+![The Edit component section of the CloudWatch Application Insights console: dropdown list of workload type.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-edit-name-type.png)
       + To add a workload to the component, choose **Add new workload**.  
-![The edit component section of the CloudWatch Application Insights console: lower left button to add a new workload.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-add-workload.png)
+![The edit component section of the CloudWatch Application Insights console: lower left button to add a new workload.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-add-workload.png)
         + If **Add new workload** doesn't appear, this component doesn't support multiple workloads.
         + If the **Associated workloads** heading doesn't appear, this component doesn't support customized workloads.
       + To remove a workload, choose **Remove** next to the workload that you want to remove from monitoring.  
-![The edit component section of the CloudWatch Application Insights console: remove a workload.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-remove-workload.png)
+![The edit component section of the CloudWatch Application Insights console: remove a workload.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-remove-workload.png)
       + To disable monitoring for the entire component, clear the **Monitoring** check box.  
-![The edit component section of the CloudWatch Application Insights check box to disable monitoring.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-disable-monitoring.png)
+![The edit component section of the CloudWatch Application Insights check box to disable monitoring.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-disable-monitoring.png)
       + When you are done editing the component, choose **Save changes** in the lower right corner. Any changes to workloads for a component are visible on the **Review components for monitoring** table under **Associated workloads**.
 
    1. On the **Review detected components** page, choose **Next**.

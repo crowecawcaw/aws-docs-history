@@ -91,7 +91,7 @@ You can send telemetry from workload accounts to a central monitoring account by
 
 **To create the cross-account role in the monitoring account**
 
-1. In the central monitoring account, create an IAM role with a trust policy that allows the workload account to assume it. Replace {{workload-account-id}} with the AWS account ID of the workload account.
+1. In the central monitoring account, create an IAM role with a trust policy that allows the workload account to assume it. Replace the example account ID (`111122223333`) with the AWS account ID of the workload account.
 
    ```
    {
@@ -100,7 +100,7 @@ You can send telemetry from workload accounts to a central monitoring account by
        {
          "Effect": "Allow",
          "Principal": {
-           "AWS": "arn:aws:iam::{{workload-account-id}}:root"
+           "AWS": "arn:aws:iam::{{111122223333}}:root"
          },
          "Action": "sts:AssumeRole"
        }

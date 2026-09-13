@@ -31,7 +31,7 @@ For each Amazon Bedrock API call, Application Signals generates detailed perform
 
 Additionally, correlated trace spans at the same level help provide a comprehensive view of request execution and dependencies.
 
-![Performance metrics using Application Signals.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample.png)
+![Performance metrics using Application Signals.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample.png)
 
 
 ## OpenTelemetry GenAI attributes support
@@ -47,12 +47,12 @@ Application Signals generates the following generative AI attributes for Amazon 
 + gen\_ai.usage.output\_tokens
 + gen\_ai.response.finish\_reasons
 
-![Generative AI attributes using Application Signals.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample_1.png)
+![Generative AI attributes using Application Signals.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample_1.png)
 
 
 For example, you can use the analytic capability from Transaction Search to compare the token usage and cost across different LLM models for the same prompt, enabling cost-efficient model selection.
 
-![Generative AI attributes using Application Signals.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample_2.png)
+![Generative AI attributes using Application Signals.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/AppSignalsAIExample_2.png)
 
 
 For more information, see [Improve Amazon Bedrock Observability with CloudWatch Application Signals](https://aws.amazon.com/blogs/mt/improve-amazon-bedrock-observability-with-amazon-cloudwatch-appsignals/).

@@ -9,7 +9,7 @@ Instead of relying on simulated test cases, evaluations capture real user sessio
 
 The Evaluations dashboard lists all of the evaluations that have been enabled and configured for the selected agent. For more information about configuring evaluations for an agent, see [ AgentCore evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html). You can expand each evaluation to view the sessions, traces, and spans that were evaluated. 
 
-![Evaluations.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_overview.png)
+![Evaluations.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_overview.png)
 
 
 **Topics**
@@ -27,7 +27,7 @@ For each evaluation, the dashboard includes the following sections:
 
 Provides metrics for the overall evaluation configuration. An evaluator defines how to assess a specific aspect of an AI agent's performance. To view more details about an evaluator, choose its name in the **Evaluator** column. To view a bar chart and analyze trends for an evaluator, choose the value in the **Count** column.
 
-![Evaluation configuration metrics.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_01.png)
+![Evaluation configuration metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_01.png)
 
 
 ------
@@ -35,7 +35,7 @@ Provides metrics for the overall evaluation configuration. An evaluator defines 
 
 Provides evaluation results for evaluators at the session level. A session represents a logical grouping of related interactions from a single user or workflow. A session can contain one or more traces. You can choose a session to filter down to the list of traces within that session in the **Trace evaluations** section.
 
-![Session evaluations.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_02.png)
+![Session evaluations.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_02.png)
 
 
 ------
@@ -43,7 +43,7 @@ Provides evaluation results for evaluators at the session level. A session repre
 
 Provides evaluation results for evaluators at the trace level. A trace is a complete record of a single agent execution or request. A trace can contain one or more spans. Choose a trace to view the trace details along with all the evaluators that were run on that trace.
 
-![Trace evaluations.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_03.png)
+![Trace evaluations.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_03.png)
 
 
 ------
@@ -51,7 +51,7 @@ Provides evaluation results for evaluators at the trace level. A trace is a comp
 
 Provides evaluation results for evaluators at the span level. A span represents the individual operations performed during that execution. Choose a span to view the span details along with all the operations performed during that span.
 
-![Span evaluations.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_04.png)
+![Span evaluations.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_04.png)
 
 
 ------
@@ -61,7 +61,7 @@ Provides evaluation results for evaluators at the span level. A span represents 
 
 The Evaluations dashboard also includes a bar graph for each evaluator. The graphs show the trends for each evaluator over time, and enable you to set alarms for specific metric values. To set an alarm, click a bar in the graph, and then choose **Alarm** (bell) icon. For more information, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md).
 
-![Evaluations graphs.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_graphs.png)
+![Evaluations graphs.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/evals_graphs.png)
 
 
 ## Work with evaluation results

@@ -104,7 +104,7 @@ After you create an alarm, you can adjust the anomaly detection model. You can e
 1. Choose **View**, **In metrics**.
 
 1. In the **Details** column, choose the **ANOMALY\_DETECTION\_BAND** keyword, and then choose **Edit anomaly detection model** in the popup.  
-![The Graphed Metrics tab with the ANOMALY_DETECTION_BAND popup menu displayed.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Edit.PNG)
+![The Graphed Metrics tab with the ANOMALY_DETECTION_BAND popup menu displayed.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Edit.PNG)
 
 1. To exclude a time period from being used to produce the model, choose the calendar icon by **End date**. Then, select or enter the days and times to exclude from training and choose **Apply**.
 
@@ -141,5 +141,5 @@ Using anomaly detection for an alarm accrues charges. As a best practice, if you
 1.  Choose **Graphed metrics**. 
 
 1. In the **Graphed metrics** tab, in the **Details** column, choose the **ANOMALY\_DETECTION\_BAND** keyword, and then choose **Delete anomaly detection model** in the popup.  
-![The Graphed Metrics tab with the ANOMALY_DETECTION_BAND popup menu displayed.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Edit.PNG)
+![The Graphed Metrics tab with the ANOMALY_DETECTION_BAND popup menu displayed.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Edit.PNG)
    +  (Optional) If you're using the original interface, choose **Edit model**. You're directed to a new screen. On the new screen, choose **Delete model**, and then choose **Delete**. 

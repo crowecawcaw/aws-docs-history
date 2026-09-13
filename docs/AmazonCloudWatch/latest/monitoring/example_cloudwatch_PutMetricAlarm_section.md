@@ -8,14 +8,69 @@ The following code examples show how to use `PutMetricAlarm`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
 +  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
 +  [Get started with alarms](example_cloudwatch_Scenario_GettingStarted_section.md) 
-+  [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
++  [Manage custom metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 +  [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md) 
++  [Send OpenTelemetry metrics and alarm on them with PromQL](example_cloudwatch_Scenario_OTelMetrics_section.md) 
 
 ------
 #### [ .NET ]
 
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
+Create an alarm that evaluates a PromQL query against OpenTelemetry metrics.  
+
+```
+    /// <summary>
+    /// Create an alarm that evaluates a PromQL query.
+    ///
+    /// A PromQL alarm differs from a classic metric alarm in a few ways. The query can
+    /// match many series at once, and each matching series is tracked separately as a
+    /// contributor. Instead of counting breaching periods, you specify durations: a
+    /// contributor moves to ALARM after it breaches continuously for the pending period,
+    /// and back to OK after it stops breaching for the recovery period. A PromQL alarm
+    /// starts in the OK state rather than INSUFFICIENT_DATA.
+    ///
+    /// EvaluationCriteria is a union and is mutually exclusive with the classic
+    /// MetricName and Metrics properties. When you use it you must also set
+    /// EvaluationInterval, and you must not set Period, Statistic, Threshold,
+    /// ComparisonOperator, EvaluationPeriods, DatapointsToAlarm, or TreatMissingData.
+    /// </summary>
+    /// <param name="alarmName">The name of the alarm, unique within the Region.</param>
+    /// <param name="query">The PromQL query to evaluate, such as
+    /// avg(cpu_utilization_percent) &gt; 80. The comparison belongs in the query itself;
+    /// there is no separate threshold property.</param>
+    /// <param name="evaluationInterval">How often, in seconds, to run the query. Valid
+    /// values are 10, 20, 30, and any multiple of 60, up to 3600.</param>
+    /// <param name="pendingPeriod">How long, in seconds, a contributor must breach
+    /// continuously before it moves to ALARM.</param>
+    /// <param name="recoveryPeriod">How long, in seconds, a contributor must stop
+    /// breaching before it moves back to OK.</param>
+    /// <returns>True if successful.</returns>
+    public async Task<bool> PutPromQLMetricAlarm(string alarmName, string query,
+        int evaluationInterval = 60, int pendingPeriod = 300, int recoveryPeriod = 120)
+    {
+        var response = await _amazonCloudWatch.PutMetricAlarmAsync(
+            new PutMetricAlarmRequest
+            {
+                AlarmName = alarmName,
+                AlarmDescription = "A PromQL alarm created by the AWS SDK for .NET example.",
+                EvaluationCriteria = new EvaluationCriteria
+                {
+                    PromQLCriteria = new AlarmPromQLCriteria
+                    {
+                        Query = query,
+                        PendingPeriod = pendingPeriod,
+                        RecoveryPeriod = recoveryPeriod
+                    }
+                },
+                EvaluationInterval = evaluationInterval
+            });
+
+        _logger.LogInformation($"Created PromQL alarm {alarmName} for query {query}.");
+        return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+    }
+```
+Create an alarm that evaluates a single CloudWatch metric.  
 
 ```
     /// <summary>
@@ -84,7 +139,51 @@ Action examples are code excerpts from larger programs and must be run in contex
 
 **SDK for C\+\+**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cloudwatch#code-examples). 
-Include the required files.  
+Include the required files for a PromQL alarm.  
+
+```
+#include <aws/core/Aws.h>
+#include <aws/monitoring/CloudWatchClient.h>
+#include <aws/monitoring/model/AlarmPromQLCriteria.h>
+#include <aws/monitoring/model/EvaluationCriteria.h>
+#include <aws/monitoring/model/PutMetricAlarmRequest.h>
+#include <iostream>
+```
+Create an alarm that evaluates a PromQL query against OpenTelemetry metrics.  
+
+```
+        Aws::Client::ClientConfiguration clientConfig;
+        // Optional: Set to the AWS Region (overrides config file).
+        // clientConfig.region = "us-east-1";
+        Aws::CloudWatch::CloudWatchClient cw(clientConfig);
+
+        Aws::CloudWatch::Model::AlarmPromQLCriteria promQLCriteria;
+        promQLCriteria.SetQuery(query);
+        // A contributor moves to ALARM after breaching continuously for 300 seconds,
+        // and back to OK after 120 seconds without breaching.
+        promQLCriteria.SetPendingPeriod(300);
+        promQLCriteria.SetRecoveryPeriod(120);
+
+        Aws::CloudWatch::Model::EvaluationCriteria evaluationCriteria;
+        evaluationCriteria.SetPromQLCriteria(promQLCriteria);
+
+        Aws::CloudWatch::Model::PutMetricAlarmRequest request;
+        request.SetAlarmName(alarm_name);
+        request.SetAlarmDescription("A PromQL alarm created by the AWS SDK for C++.");
+        request.SetEvaluationCriteria(evaluationCriteria);
+        // Valid values are 10, 20, 30, and any multiple of 60, up to 3600.
+        request.SetEvaluationInterval(30);
+
+        auto outcome = cw.PutMetricAlarm(request);
+        if (!outcome.IsSuccess()) {
+            std::cerr << "Failed to create PromQL alarm: "
+                      << outcome.GetError().GetMessage() << std::endl;
+        } else {
+            std::cout << "Successfully created PromQL alarm " << alarm_name
+                      << " for query " << query << std::endl;
+        }
+```
+Include the required files for a metric alarm.  
 
 ```
 #include <aws/core/Aws.h>
@@ -154,6 +253,67 @@ aws cloudwatch put-metric-alarm --alarm-name {{"Default_Test_Alarm3"}} --alarm-d
 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
+Create an alarm that evaluates a PromQL query against OpenTelemetry metrics.  
+
+```
+    /**
+     * Creates an alarm that evaluates a PromQL query.
+     *
+     * <p>A PromQL alarm differs from a classic metric alarm in a few ways. The query
+     * can match many series at once, and each matching series is tracked separately as
+     * a contributor. Instead of counting breaching periods, you specify durations: a
+     * contributor moves to ALARM after it breaches continuously for the pending period,
+     * and back to OK after it stops breaching for the recovery period. A PromQL alarm
+     * starts in the OK state rather than INSUFFICIENT_DATA.
+     *
+     * <p>{@link EvaluationCriteria} is a union and is mutually exclusive with the
+     * classic {@code metricName} and {@code metrics} parameters. When you use it you
+     * must also set {@code evaluationInterval}, and you must not set {@code period},
+     * {@code statistic}, {@code threshold}, {@code comparisonOperator},
+     * {@code evaluationPeriods}, {@code datapointsToAlarm}, or
+     * {@code treatMissingData}.
+     *
+     * @param cw                 the CloudWatch client
+     * @param alarmName          the name of the alarm, unique within the Region
+     * @param query              the PromQL query to evaluate, such as
+     *                           {@code avg(cpu_utilization_percent) > 80}. The
+     *                           comparison belongs in the query itself; there is no
+     *                           separate threshold parameter.
+     * @param evaluationInterval how often, in seconds, to run the query. Valid values
+     *                           are 10, 20, 30, and any multiple of 60, up to 3600.
+     * @param pendingPeriod      how long, in seconds, a contributor must breach
+     *                           continuously before it moves to ALARM
+     * @param recoveryPeriod     how long, in seconds, a contributor must stop breaching
+     *                           before it moves back to OK
+     */
+    public static void putPromQLMetricAlarm(CloudWatchClient cw, String alarmName, String query,
+            int evaluationInterval, int pendingPeriod, int recoveryPeriod) {
+        try {
+            AlarmPromQLCriteria promQLCriteria = AlarmPromQLCriteria.builder()
+                    .query(query)
+                    .pendingPeriod(pendingPeriod)
+                    .recoveryPeriod(recoveryPeriod)
+                    .build();
+
+            PutMetricAlarmRequest request = PutMetricAlarmRequest.builder()
+                    .alarmName(alarmName)
+                    .alarmDescription("PromQL alarm created by the AWS SDK for Java 2.x example.")
+                    .evaluationCriteria(EvaluationCriteria.builder()
+                            .promQLCriteria(promQLCriteria)
+                            .build())
+                    .evaluationInterval(evaluationInterval)
+                    .build();
+
+            cw.putMetricAlarm(request);
+            System.out.printf("Created PromQL alarm %s for query %s.%n", alarmName, query);
+
+        } catch (CloudWatchException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
+Create an alarm that evaluates a single CloudWatch metric.  
 
 ```
     /**
@@ -219,7 +379,54 @@ aws cloudwatch put-metric-alarm --alarm-name {{"Default_Test_Alarm3"}} --alarm-d
 
 **SDK for JavaScript (v3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cloudwatch#code-examples). 
-Import the SDK and client modules and call the API.  
+Create an alarm that evaluates a PromQL query against OpenTelemetry metrics.  
+
+```
+import { PutMetricAlarmCommand } from "@aws-sdk/client-cloudwatch";
+import { client } from "../libs/client.js";
+
+// Create an alarm that evaluates a PromQL query over OpenTelemetry metrics.
+//
+// A PromQL alarm differs from a classic metric alarm in a few ways. The query can match
+// many series at once, and each matching series is tracked separately as a contributor
+// (see describe-alarm-contributors.js). Instead of counting breaching periods, you
+// specify durations: a contributor moves to ALARM after it breaches continuously for
+// PendingPeriod seconds, and back to OK after it stops breaching for RecoveryPeriod
+// seconds. A PromQL alarm starts in OK rather than INSUFFICIENT_DATA.
+//
+// EvaluationCriteria is a union and is mutually exclusive with the classic MetricName
+// and Metrics parameters. When you use it you must also set EvaluationInterval, and you
+// must not set Period, Statistic, Threshold, ComparisonOperator, EvaluationPeriods,
+// DatapointsToAlarm, or TreatMissingData.
+const run = async () => {
+  const command = new PutMetricAlarmCommand({
+    AlarmName: process.env.CLOUDWATCH_ALARM_NAME, // Set CLOUDWATCH_ALARM_NAME to the name of the alarm to create.
+    AlarmDescription: "Average CPU over 80% per host for the checkout service.",
+    EvaluationCriteria: {
+      PromQLCriteria: {
+        // The comparison belongs in the query itself. There is no separate Threshold.
+        Query:
+          'avg by (host_name) (cpu_utilization_percent{service_name="checkout"}) > 80',
+        PendingPeriod: 300,
+        RecoveryPeriod: 120,
+      },
+    },
+    // How often to run the query, in seconds. Valid values are 10, 20, 30, and any
+    // multiple of 60, up to 3600.
+    EvaluationInterval: 30,
+    ActionsEnabled: false,
+  });
+
+  try {
+    return await client.send(command);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export default run();
+```
+Create an alarm that evaluates a single CloudWatch metric.  
 
 ```
 import { PutMetricAlarmCommand } from "@aws-sdk/client-cloudwatch";
@@ -314,6 +521,47 @@ cw.putMetricAlarm(params, function (err, data) {
 
 **SDK for Kotlin**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/cloudwatch#code-examples). 
+Create an alarm that evaluates a PromQL query against OpenTelemetry metrics.  
+
+```
+suspend fun putPromQlMetricAlarm(
+    alarmNameVal: String,
+    queryVal: String,
+    evaluationIntervalVal: Int = 60,
+    pendingPeriodVal: Int = 300,
+    recoveryPeriodVal: Int = 120,
+) {
+    // The comparison belongs in the query itself. A PromQL alarm has no separate
+    // threshold, comparison operator, statistic, period, or evaluation periods.
+    //
+    // Note that the Kotlin SDK spells this AlarmPromQlCriteria, with a lowercase l in
+    // "Ql". Every other AWS SDK spells it PromQL, so don't be thrown by the difference
+    // when comparing this example against the other language versions.
+    val promQlCriteria =
+        AlarmPromQlCriteria {
+            query = queryVal
+            pendingPeriod = pendingPeriodVal
+            recoveryPeriod = recoveryPeriodVal
+        }
+
+    // EvaluationCriteria is a union and is mutually exclusive with the classic
+    // metricName and metrics parameters. When you use it, you must also set
+    // evaluationInterval.
+    val request =
+        PutMetricAlarmRequest {
+            alarmName = alarmNameVal
+            alarmDescription = "A PromQL alarm created by the Kotlin SDK"
+            evaluationCriteria = EvaluationCriteria.PromQlCriteria(promQlCriteria)
+            evaluationInterval = evaluationIntervalVal
+        }
+
+    CloudWatchClient.fromEnvironment { region = "us-east-1" }.use { cwClient ->
+        cwClient.putMetricAlarm(request)
+        println("Successfully created PromQL alarm $alarmNameVal for query $queryVal")
+    }
+}
+```
+Create an alarm that evaluates a single CloudWatch metric.  
 
 ```
 suspend fun putMetricAlarm(
@@ -355,6 +603,95 @@ suspend fun putMetricAlarm(
 
 **SDK for Python (Boto3)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/cloudwatch#code-examples). 
+Create an alarm that evaluates a PromQL query against OpenTelemetry metrics.  
+
+```
+class CloudWatchOTelWrapper:
+    """Encapsulates the OpenTelemetry-oriented Amazon CloudWatch operations."""
+
+    def __init__(self, cloudwatch_client):
+        """
+        :param cloudwatch_client: A Boto3 CloudWatch client. The OpenTelemetry
+                                  operations are only available on the client
+                                  interface, not on the higher-level
+                                  ``boto3.resource("cloudwatch")`` interface.
+        """
+        self.cloudwatch_client = cloudwatch_client
+
+    @classmethod
+    def from_client(cls):
+        """
+        Creates a wrapper backed by a default CloudWatch client.
+
+        :return: A CloudWatchOTelWrapper.
+        """
+        return cls(boto3.client("cloudwatch"))
+
+
+    def create_promql_alarm(
+        self,
+        alarm_name,
+        query,
+        evaluation_interval,
+        pending_period=300,
+        recovery_period=120,
+        description=None,
+        alarm_actions=None,
+    ):
+        """
+        Creates an alarm that evaluates a PromQL query.
+
+        A PromQL alarm differs from a classic metric alarm in a few ways. The query can
+        match many series at once, and each matching series is tracked separately as a
+        *contributor*. Instead of counting breaching periods, you specify durations: a
+        contributor moves to ALARM after it breaches continuously for the pending
+        period, and back to OK after it stops breaching for the recovery period. A
+        PromQL alarm starts in the OK state rather than INSUFFICIENT_DATA.
+
+        The PromQL evaluation parameters live in the EvaluationCriteria union, which is
+        mutually exclusive with the classic MetricName and Metrics parameters. When you
+        use EvaluationCriteria you must also set EvaluationInterval, and you must not
+        set Period, Statistic, Threshold, ComparisonOperator, EvaluationPeriods,
+        DatapointsToAlarm, or TreatMissingData.
+
+        :param alarm_name: The name of the alarm. Must be unique within the Region.
+        :param query: The PromQL query to evaluate, such as
+                      'avg(cpu_utilization_percent) > 80'. The comparison belongs in
+                      the query itself; there is no separate threshold parameter.
+        :param evaluation_interval: How often, in seconds, to run the query. Valid
+                                    values are 10, 20, 30, and any multiple of 60, up
+                                    to 3600.
+        :param pending_period: How long, in seconds, a contributor must breach
+                               continuously before it moves to ALARM.
+        :param recovery_period: How long, in seconds, a contributor must stop breaching
+                                before it moves back to OK.
+        :param description: The description of the alarm.
+        :param alarm_actions: A list of ARNs to notify when the alarm fires, such as an
+                              Amazon SNS topic.
+        """
+        promql_criteria = {
+            "Query": query,
+            "PendingPeriod": pending_period,
+            "RecoveryPeriod": recovery_period,
+        }
+        kwargs = {
+            "AlarmName": alarm_name,
+            "EvaluationCriteria": {"PromQLCriteria": promql_criteria},
+            "EvaluationInterval": evaluation_interval,
+        }
+        if description is not None:
+            kwargs["AlarmDescription"] = description
+        if alarm_actions is not None:
+            kwargs["AlarmActions"] = alarm_actions
+
+        try:
+            self.cloudwatch_client.put_metric_alarm(**kwargs)
+            logger.info("Created PromQL alarm %s for query %s.", alarm_name, query)
+        except ClientError:
+            logger.exception("Couldn't create PromQL alarm %s.", alarm_name)
+            raise
+```
+Create an alarm that evaluates a single CloudWatch metric.  
 
 ```
 class CloudWatchWrapper:
@@ -429,6 +766,63 @@ class CloudWatchWrapper:
 
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
+Create an alarm that evaluates a PromQL query against OpenTelemetry metrics.  
+
+```
+# Creates or updates an alarm that evaluates a PromQL query.
+#
+# A PromQL alarm differs from a classic metric alarm in a few ways. The query can match
+# many series at once, and each matching series is tracked separately as a contributor.
+# Instead of counting breaching periods, you specify durations: a contributor moves to
+# ALARM after it breaches continuously for the pending period, and back to OK after it
+# stops breaching for the recovery period. A PromQL alarm starts in the OK state rather
+# than INSUFFICIENT_DATA.
+#
+# The +evaluation_criteria+ union is mutually exclusive with the classic +metric_name+
+# and +metrics+ parameters. When you use it you must also set +evaluation_interval+, and
+# you must not set +period+, +statistic+, +threshold+, +comparison_operator+,
+# +evaluation_periods+, +datapoints_to_alarm+, or +treat_missing_data+.
+#
+# @param cloudwatch_client [Aws::CloudWatch::Client] An initialized CloudWatch client.
+# @param alarm_name [String] The name of the alarm, unique within the Region.
+# @param criteria [Hash] The PromQL criteria, mirroring the +prom_ql_criteria+ shape:
+#   * +:query+ [String] The PromQL query to evaluate, such as
+#     'avg(cpu_utilization_percent) > 80'. The comparison belongs in the query itself;
+#     there is no separate threshold parameter.
+#   * +:pending_period+ [Integer] How long, in seconds, a contributor must breach
+#     continuously before it moves to ALARM.
+#   * +:recovery_period+ [Integer] How long, in seconds, a contributor must stop
+#     breaching before it moves back to OK.
+# @param evaluation_interval [Integer] How often, in seconds, to run the query. Valid
+#   values are 10, 20, 30, and any multiple of 60, up to 3600.
+# @param alarm_description [String] A description of the alarm.
+# @return [Boolean] true if the alarm was created or updated; otherwise, false.
+def promql_alarm_created_or_updated?(
+  cloudwatch_client,
+  alarm_name,
+  criteria,
+  evaluation_interval,
+  alarm_description
+)
+  cloudwatch_client.put_metric_alarm(
+    alarm_name: alarm_name,
+    alarm_description: alarm_description,
+    evaluation_criteria: {
+      prom_ql_criteria: {
+        query: criteria[:query],
+        pending_period: criteria[:pending_period],
+        recovery_period: criteria[:recovery_period]
+      }
+    },
+    evaluation_interval: evaluation_interval
+  )
+  true
+rescue StandardError => e
+  puts "Error creating PromQL alarm: #{e.message}"
+  false
+end
+```
+Create an alarm that evaluates a single CloudWatch metric.  
 
 ```
 # Creates or updates an alarm in Amazon CloudWatch.

@@ -40,7 +40,7 @@ You can also get a bulk download of infrastructure-as-code alarm definitions for
      1. Select the checkbox for the metric and choose the **Graphed metrics** tab.
 
      1. Choose the alarm icon.  
-![Create an alarm from a graphed metric.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metric_graph_alarm.png)
+![Create an alarm from a graphed metric.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metric_graph_alarm.png)
 
         The alarm creation wizard appears, with the metric name, statistic, and period filled in based on the alarm recommendation. If the recommendation includes a specific threshold value, that value is also pre-filled.
 

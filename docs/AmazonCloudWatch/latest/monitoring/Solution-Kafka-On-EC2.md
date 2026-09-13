@@ -45,7 +45,7 @@ Below are the key advantages of the solution:
 
 The following image is an example of the dashboard for this solution.
 
-![Kafka monitoring dashboard showing cluster metrics, producer group performance, and consumer group statistics.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/KafkaDashboard.png)
+![Kafka monitoring dashboard showing cluster metrics, producer group performance, and consumer group statistics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/KafkaDashboard.png)
 
 
 ## Costs

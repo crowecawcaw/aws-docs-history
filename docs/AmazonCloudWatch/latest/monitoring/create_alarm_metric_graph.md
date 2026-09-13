@@ -16,7 +16,7 @@ You can graph a metric and then create an alarm from the metric on the graph, wh
 1. The **Browse** tab displays all metrics for that dimension in that namespace. To graph a metric, select the check box next to the metric.
 
 1. To create an alarm for the metric, choose the **Graphed metrics** tab. For **Actions**, choose the alarm icon.  
-![Create an alarm from a graphed metric.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metric_graph_alarm.png)
+![Create an alarm from a graphed metric.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metric_graph_alarm.png)
 
 1. Under **Conditions**, choose **Static** or **Anomaly detection** to specify whether to use a static threshold or anomaly detection model for the alarm.
 

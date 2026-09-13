@@ -70,8 +70,8 @@ It is not necessary to enable Application Signals to use CloudWatch Synthetics, 
 + **Dynamic service grouping and filtering** – Group and filter services with Application Signals' dynamic grouping capabilities. Automatically aggregate metrics and SLIs of services within groups, allowing you to start from a group view and dive deep into specific problematic areas. Application Signals provides two default groupings: "Environment" grouping that organizes by service environment, and "Related services" grouping that groups services based on their dependencies. For example, in Related services grouping, if Service A calls Service B, which calls Service C, they're grouped under Service A. Beyond default groupings, create custom groups by selecting services that align with your organizational needs, such as Business unit or Team.
 
   Create custom groupings using AWS tags or OpenTelemetry attributes that align with your team structure, business domains, or operational requirements. Custom groupings enable you to organize services according to your specific monitoring and troubleshooting workflows. For more information, see [Configuring custom groups](ServiceMap.md#Application-Map-Configure-Custom-Groups).   
-![CloudWatch application map with grouping by related services.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/application-map.png)  
-![CloudWatch services list page with filtering.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/services-page.png)
+![CloudWatch application map with grouping by related services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/application-map.png)  
+![CloudWatch services list page with filtering.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/services-page.png)
 + **Change Events** – Track change events across your application with Application Signals' automatic processing of CloudTrail events. Monitor configuration and deployment events for services and their dependencies, providing immediate context for operational analysis and troubleshooting. Change event detection is enabled alongside service discovery enablement through the CloudWatch Console or StartDiscovery API. For Amazon EKS services, deployment detection requires that the Amazon EKS services are instrumented with the Application Signals instrumentation SDK.
 
    Change events are supported for the following resources: 
@@ -82,9 +82,9 @@ It is not necessary to enable Application Signals to use CloudWatch Synthetics, 
   + ELB Load balancer and Target Group
   + Lambda Function
   + BedrockAgentCore Runtime and RuntimeEndpoint  
-![CloudWatch application map with deployment filtering and change events in group drawer.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/application-map-with-drawer.png)  
-![CloudWatch application overview with change events table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/application-overview.png)
+![CloudWatch application map with deployment filtering and change events in group drawer.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/application-map-with-drawer.png)  
+![CloudWatch application overview with change events table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/application-overview.png)
 + **Automated audit findings** – Discover critical insights through Application Signals' automated audit findings. The service analyzes your applications to report significant observations and potential problems, simplifying root cause analysis. These automated findings consolidate relevant traces, eliminating the need to navigate through multiple clicks. The audit system helps teams quickly identify issues and their underlying causes, enabling faster problem resolution.
 
   Application Signals employs advanced analytics to detect patterns, highlight resource inefficiencies, and suggest optimization opportunities. Findings are prioritized based on severity and potential business impact, enabling teams to focus on the most critical issues first. Get actionable recommendations for improving service reliability and performance without manual analysis.  
-![CloudWatch service overview with audit findings.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-overview.png)
+![CloudWatch service overview with audit findings.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-overview.png)

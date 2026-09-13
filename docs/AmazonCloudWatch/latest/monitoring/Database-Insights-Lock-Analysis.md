@@ -5,9 +5,9 @@
 
 To troubleshoot performance issues caused by locks, you can analyze lock trees for Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL databases with CloudWatch Database Insights using the following.
 + **Sliced by** dropdown – Choose the **Blocking object**, **Blocking session**, or **Blocking SQL** dimensions in the **Database load** chart to view how distinct top blockers contribute to DB Load over time. With the DB load chart, you can analyze if top blockers are constant or change often. Then, you can troubleshoot the blockers.  
-![The Top SQL table with Blocking Session selected in the Sliced by dropdown.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights_TopSQLBlocking.png)
+![The Top SQL table with Blocking Session selected in the Sliced by dropdown.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights_TopSQLBlocking.png)
 + **Lock analysis** tab – Choose **DB Load Analysis**, then choose the **Lock analysis** tab to view information about lock contention in your database.  
-![The Lock trees table in the Database load dashboard.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights_LoadLockAnalysis.png)
+![The Lock trees table in the Database load dashboard.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/DBInsights_LoadLockAnalysis.png)
 
 **Note**  
 CloudWatch Database Insights supports lock analysis for all Aurora PostgreSQL versions. To analyze lock trees, you must have Database Insights Advance Mode enabled. For information on how to turn on Advanced mode, see [Turning on the Advanced mode of Database Insights for Amazon Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.TurningOnAdvanced.html) and [Turning on the Advanced mode of Database Insights for Amazon Relational Database Service](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DatabaseInsights.TurningOnAdvanced.html)
@@ -42,12 +42,12 @@ To analyze lock trees, use the following procedure.
    To view lock data for a DB instance, choose a period of 1 day or less.
 
 1. Choose a snapshot window. By default, Database Insights chooses the snapshot window with the most blocked sessions.  
-![Lock analysis table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_lock-analysis.png)
+![Lock analysis table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_lock-analysis.png)
 
 1. To view lock data for a snapshot, choose the time Database Insights took the snapshot.
 
 1. To expand a lock tree, choose the arrow next to the session ID.  
-![Lock tree expanded.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_lock-analysis-expand.png)
+![Lock tree expanded.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_lock-analysis-expand.png)
 
 ## Lock snapshot data
 <a name="Database-Insights-Lock-Analysis-snapshot-data"></a>

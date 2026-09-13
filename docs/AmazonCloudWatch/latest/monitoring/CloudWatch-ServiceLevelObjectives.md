@@ -59,7 +59,7 @@ When you view information about an SLO, you see its current health status and it
 
 The following figure illustrates the attainment and error budget concepts for a goal with a 30-day interval, 1-minute periods, and a 99% attainment goal. 30 days includes 43,200 1-minute periods. 99% of 43,200 is 42,768, so 42,768 minutes during the month must be healthy for the SLO to be met. So far in the current interval, 130 of the 1-minute periods were unhealthy.
 
-![Bar chart showing total periods in an SLO interval with attainment and error budget numbers.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/SLO-budget.png)
+![Bar chart showing total periods in an SLO interval with attainment and error budget numbers.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/SLO-budget.png)
 
 
 ### Determine success within each period

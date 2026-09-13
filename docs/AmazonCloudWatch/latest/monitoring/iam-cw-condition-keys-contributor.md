@@ -103,7 +103,7 @@ The following policy denies creation of rules that target log groups with `/prod
 
 ```
 {
-    "Version": "		 	 	 ",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "DenyProductionLogGroupsByARN",

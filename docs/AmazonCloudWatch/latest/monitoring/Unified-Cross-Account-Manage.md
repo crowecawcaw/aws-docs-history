@@ -63,7 +63,7 @@ To manage a source account, you must have certain permissions. For more informat
 
 1. The **Define a label to identify your source account** section is pre-filled with the label choice from the monitoring account, if there is one. Optionally, choose **Edit** to change it.
 **Note**  
-In the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions, the only supported option is to use custom labels, and the `$AccountName`, `$AcccountEmail`, and `$AcccountEmailNoDomain` variables all resolve as {{account-id}} instead of the specified variable.
+In the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions, the only supported option is to use custom labels, and the `$AccountName`, `$AccountEmail`, and `$AccountEmailNoDomain` variables all resolve as {{account-id}} instead of the specified variable.
 
 1. Choose **Link**.
 

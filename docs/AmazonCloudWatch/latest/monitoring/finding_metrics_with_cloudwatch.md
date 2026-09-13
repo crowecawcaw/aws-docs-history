@@ -37,6 +37,6 @@ Metrics that have not had any new data points in the past two weeks do not appea
    1. To view help for a metric, select the metric name and choose **What is this?**.
 
    The selected metrics appear on the graph.  
-![View the resulting metrics for a search term.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metrics_search_results.png)
+![View the resulting metrics for a search term.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metrics_search_results.png)
 
 1. (Optional) Select one of the buttons in the search bar to edit that part of the search term.

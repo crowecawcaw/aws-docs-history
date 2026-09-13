@@ -35,14 +35,14 @@ The IAM principal that calls `CreateTelemetryPipeline` needs `iam:PassRole` perm
             "Sid": "PassRoleForPipelineSource",
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::{{your-account-id}}:role/{{your-source-role}}",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{your-source-role}}",
             "Condition": {
                 "StringEquals": {
                     "iam:PassedToService": [
                         "{{service-principal}}"
                     ],
                     "iam:AssociatedResourceARN": [
-                        "arn:aws:observabilityadmin:{{your-region}}:{{your-account-id}}:telemetry-pipeline/*"
+                        "arn:aws:observabilityadmin:{{us-east-1}}:{{111122223333}}:telemetry-pipeline/*"
                     ]
                 }
             }
@@ -107,7 +107,7 @@ When you use `cloudwatch_metrics` as a source, you need permissions for pipeline
                 "cloudwatch:PutPipelineRule",
                 "cloudwatch:DeletePipelineRule"
             ],
-            "Resource": "arn:aws:cloudwatch:{{your-region}}:{{your-account-id}}:dataset/default"
+            "Resource": "arn:aws:cloudwatch:{{us-east-1}}:{{111122223333}}:dataset/default"
         }
     ]
 }
@@ -136,18 +136,18 @@ The following policy allows the role to retrieve your stored API credentials.
     "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
-            "Sid": "secrets-manager-access",
+            "Sid": "secretsmanageraccess",
             "Effect": "Allow",
             "Action": [
                 "secretsmanager:GetSecretValue"
             ],
-            "Resource": "arn:aws:secretsmanager:{{your-region}}:{{your-account-id}}:secret:{{your-secret-name}}*"
+            "Resource": "arn:aws:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:{{your-secret-name}}*"
         },
         {
-            "Sid": "kms-access",
+            "Sid": "kmsaccess",
             "Effect": "Allow",
             "Action": "kms:Decrypt",
-            "Resource": "arn:aws:kms:{{your-region}}:{{your-account-id}}:key/{{your-key-id}}"
+            "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{your-key-id}}"
         }
     ]
 }
@@ -211,7 +211,7 @@ The following example shows all the IAM policies needed to create a third-party 
             "Action": [
                 "secretsmanager:GetSecretValue"
             ],
-            "Resource": "arn:aws:secretsmanager:{{your-region}}:{{your-account-id}}:secret:{{your-secret-name}}*"
+            "Resource": "arn:aws:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:{{your-secret-name}}*"
         }
     ]
 }
@@ -256,7 +256,7 @@ The following policy allows the role to read objects from S3 and consume SQS not
     "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
-            "Sid": "s3-access",
+            "Sid": "s3access",
             "Effect": "Allow",
             "Action": [
                 "s3:GetObject"
@@ -264,20 +264,20 @@ The following policy allows the role to read objects from S3 and consume SQS not
             "Resource": "arn:aws:s3:::{{your-bucket-name}}/*"
         },
         {
-            "Sid": "sqs-access",
+            "Sid": "sqsaccess",
             "Effect": "Allow",
             "Action": [
                 "sqs:ReceiveMessage",
                 "sqs:DeleteMessage",
                 "sqs:ChangeMessageVisibility"
             ],
-            "Resource": "arn:aws:sqs:{{your-region}}:{{your-account-id}}:{{your-queue-name}}"
+            "Resource": "arn:aws:sqs:{{us-east-1}}:{{111122223333}}:{{your-queue-name}}"
         },
         {
-            "Sid": "kms-access",
+            "Sid": "kmsaccess",
             "Effect": "Allow",
             "Action": "kms:Decrypt",
-            "Resource": "arn:aws:kms:{{your-region}}:{{your-account-id}}:key/{{your-key-id}}"
+            "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{your-key-id}}"
         }
     ]
 }
@@ -351,7 +351,7 @@ The following example shows all the IAM policies needed to create an S3 delivery
                 "sqs:DeleteMessage",
                 "sqs:ChangeMessageVisibility"
             ],
-            "Resource": "arn:aws:sqs:{{your-region}}:{{your-account-id}}:{{your-queue-name}}"
+            "Resource": "arn:aws:sqs:{{us-east-1}}:{{111122223333}}:{{your-queue-name}}"
         }
     ]
 }
@@ -403,14 +403,14 @@ The following policy allows the role to process logs from your specified log gro
     "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
-            "Sid": "logs-processing-access",
+            "Sid": "logsprocessingaccess",
             "Effect": "Allow",
             "Action": [
                 "logs:processWithPipeline"
             ],
             "Resource": [
-                "arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-01}}",
-                "arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-02}}"
+                "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-01}}",
+                "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-02}}"
             ]
         }
     ]
@@ -429,10 +429,10 @@ You can scope down this permission by using the `logs:data_source_name` and `log
             "Sid": "AllowProcessWithPipelineScopedDown",
             "Effect": "Allow",
             "Action": "logs:ProcessWithPipeline",
-            "Resource": "arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}",
+            "Resource": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}",
             "Condition": {
                 "StringEquals": {
-                    "aws:ResourceAccount": "{{your-account-id}}",
+                    "aws:ResourceAccount": "{{111122223333}}",
                     "logs:data_source_name": "{{your-source-name}}",
                     "logs:data_source_type": "{{your-source-type}}"
                 }
@@ -506,7 +506,7 @@ The following example shows all the IAM policies needed to create a CloudWatch L
                 "logs:processWithPipeline"
             ],
             "Resource": [
-                "arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group}}"
+                "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group}}"
             ]
         }
     ]
@@ -556,7 +556,7 @@ You have less than 5 minutes after receiving the pipeline ARN to create this res
 
 ```
 {
-    "policyName": "resourceArn=arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}:*",
+    "policyName": "resourceArn=arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*",
     "policyDocument": {
         "Version": "2012-10-17",		 	 	 
         "Statement": [
@@ -571,7 +571,7 @@ You have less than 5 minutes after receiving the pipeline ARN to create this res
                 ],
                 "Condition": {
                     "StringEquals": {
-                        "aws:SourceArn": "arn:aws:observabilityadmin:{{your-region}}:{{your-account-id}}:telemetry-pipeline/{{your-pipeline-id}}"
+                        "aws:SourceArn": "arn:aws:observabilityadmin:{{us-east-1}}:{{111122223333}}:telemetry-pipeline/{{your-pipeline-id}}"
                     }
                 }
             }
@@ -589,15 +589,15 @@ Use the AWS CLI to create or update CloudWatch Logs resource policies for CloudW
 
 ```
 aws logs describe-resource-policies \
-    --resource-arn arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}:*
+    --resource-arn arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*
 ```
 
 **To create a new policy**
 
 ```
 aws logs put-resource-policy \
-    --region {{your-region}} \
-    --policy-name "resourceArn=arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}:*" \
+    --region {{us-east-1}} \
+    --policy-name "resourceArn=arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*" \
     --policy-document file://policy.json
 ```
 
@@ -609,7 +609,7 @@ If a resource policy already exists, add the new statement to the existing `Stat
 
    ```
    aws logs describe-resource-policies \
-       --resource-arn arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}:*
+       --resource-arn arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*
    ```
 
 1. Add the new statement to the existing `Statement` array:
@@ -638,7 +638,7 @@ If a resource policy already exists, add the new statement to the existing `Stat
                ],
                "Condition": {
                    "StringEquals": {
-                       "aws:SourceArn": "arn:aws:observabilityadmin:{{your-region}}:{{your-account-id}}:telemetry-pipeline/{{your-pipeline-id}}"
+                       "aws:SourceArn": "arn:aws:observabilityadmin:{{us-east-1}}:{{111122223333}}:telemetry-pipeline/{{your-pipeline-id}}"
                    }
                }
            }
@@ -650,8 +650,8 @@ If a resource policy already exists, add the new statement to the existing `Stat
 
    ```
    aws logs put-resource-policy \
-       --region {{your-region}} \
-       --policy-name "resourceArn=arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}:*" \
+       --region {{us-east-1}} \
+       --policy-name "resourceArn=arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*" \
        --policy-document file://existing-policy.json
    ```
 
@@ -659,12 +659,12 @@ Confirm the policy was created or updated successfully:
 
 ```
 aws logs describe-resource-policies \
-    --resource-arn arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:{{your-log-group-name}}:*
+    --resource-arn arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*
 ```
 
-Replace the following placeholders:
-+ {{your-region}} – Your AWS Region (for example, us-east-1)
-+ {{your-account-id}} – Your 12-digit AWS account ID
+Replace the following values in the policy:
++ The AWS Region (shown as `us-east-1`) – Replace with your own Region
++ The 12-digit AWS account ID (shown as `111122223333`) – Replace with your own account ID
 + {{your-log-group-name}} – Your CloudWatch Logs log group name
 + {{your-pipeline-id}} – Your telemetry pipeline ID (returned by `CreateTelemetryPipeline`)
 
@@ -730,10 +730,10 @@ Restricts role assumption to requests originating from a specific resource ARN (
             "Action": "sts:AssumeRole",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "{{your-account-id}}"
+                    "aws:SourceAccount": "{{111122223333}}"
                 },
                 "ArnLike": {
-                    "aws:SourceArn": "arn:aws:logs:{{your-region}}:{{your-account-id}}:log-group:*"
+                    "aws:SourceArn": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:*"
                 }
             }
         }

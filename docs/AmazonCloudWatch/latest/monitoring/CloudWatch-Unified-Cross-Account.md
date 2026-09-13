@@ -19,7 +19,7 @@ A *sink* is a resource that represents an attachment point in a monitoring accou
 
 For a video demonstration of setting up CloudWatch cross-account observability, see the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/lUaDO9dqISc/0.jpg)](http://www.youtube.com/watch?v=lUaDO9dqISc)
+[![AWS Videos](https://img.youtube.com/vi/lUaDO9dqISc/0.jpg)](https://www.youtube.com/watch?v=lUaDO9dqISc)
 
 
 The next topic explains how to set up CloudWatch cross-account observability in both monitoring accounts and source accounts. For information about the cross-account cross-Region CloudWatch dashboard, see [Cross-account cross-Region CloudWatch console](Cross-Account-Cross-Region.md).

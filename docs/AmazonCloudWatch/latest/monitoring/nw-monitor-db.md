@@ -34,17 +34,17 @@ The **Overview** dashboard in Network Synthetic Monitor displays a graphical rep
 + **Network health indicator** — This represents the the NHI values over a specified period. NHI indicates whether a network issue is due to problems with the AWS network. NHI is displayed as **Healthy** (no issue with the AWS network) or **Degraded** (there is an issue with the AWS network).
 
   In the following example, you can see that from 15:00 UTC until 15:05 UTC, there was a network issue that was due to an AWS network issue (**Degraded**). After 15:05, the network issue with the AWS network ended, so the value returned to **Healthy**. You can hover over any section of the graph to see additional details.  
-![AWS network health indicator showing both a healthy and degraded state.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/nwm_network_health.png)
+![AWS network health indicator showing both a healthy and degraded state.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/nwm_network_health.png)
 **Note**  
 The NHI indicates that an issue is due to the AWS network. It does not describe the overall health of the AWS network nor the health of Network Synthetic Monitor probes.
 + **Packet loss** — This graph displays a line that shows the percentage of packet loss for each probe in a monitor. The legend at the bottom of the page displays each of the probes in the monitor, color-coded for uniqueness. You can hover over a probe in the chart to see the source subnet, the destination IP address, and the percentage of packet loss.
 
   In the following example, a packet loss alarm was created for a probe from a subnet to IP address 127.0.0.1. The alarm was triggered when the packet loss threshold was exceeded for the probe. If you hover over the graph, you can see the probe source and destination, and that there was a 30.97% packet loss for this probe on November 21 at 02:41:30.  
-![Packet loss showing an example probe with a 30.97% packet loss.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/nwm_packet_loss.png)
+![Packet loss showing an example probe with a 30.97% packet loss.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/nwm_packet_loss.png)
 + **Round-trip time** — This graph displays a line that shows the round-trip time for each probe. The legend at the bottom of the page displays each of the probes in the monitor, color-coded for uniqueness. You can hover over a probe in the chart to see the source subnet, the destination IP address, and the round-trip time.
 
   The following example shows that on Tuesday, Nov 21, at 21:45:30, the round-trip time for a probe from a subnet to IP address 127.0.0.1 was 0.075 seconds.  
-![Example showing the round-trip time for a probe.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/nwm_rtt.png)
+![Example showing the round-trip time for a probe.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/nwm_rtt.png)
 
 ## Monitor details
 <a name="nw-monitor-health-details"></a>

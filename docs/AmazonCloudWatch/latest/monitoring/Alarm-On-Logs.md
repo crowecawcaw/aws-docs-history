@@ -59,7 +59,7 @@ The following example shows the permissions policy. Scope the `Resource` to the 
                 "logs:GetQueryResults",
                 "logs:DescribeLogGroups"
             ],
-            "Resource": "arn:aws:logs:{{region}}:{{account-id}}:log-group:{{your-log-group}}:*"
+            "Resource": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group}}:*"
         }
     ]
 }
@@ -98,7 +98,7 @@ The following example shows the permissions policy for the log lines role. The `
             "Action": [
                 "logs:GetQueryResults"
             ],
-            "Resource": "arn:aws:logs:{{region}}:{{account-id}}:log-group:{{your-log-group}}:*"
+            "Resource": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group}}:*"
         }
     ]
 }
@@ -190,11 +190,11 @@ aws cloudwatch put-log-alarm \
     --query-results-to-evaluate 5 \
     --query-results-to-alarm 3 \
     --treat-missing-data missing \
-    --alarm-actions "arn:aws:sns:{{region}}:{{account-id}}:{{topic-name}}" \
+    --alarm-actions "arn:aws:sns:{{us-east-1}}:{{111122223333}}:{{topic-name}}" \
     --scheduled-query-configuration '{
         "QueryString": "fields @timestamp, @message | filter @message like /ERROR/",
         "LogGroupIdentifiers": ["/aws/lambda/my-function"],
-        "ScheduledQueryRoleARN": "arn:aws:iam::{{account-id}}:role/ScheduledQueryRole",
+        "ScheduledQueryRoleARN": "arn:aws:iam::{{111122223333}}:role/ScheduledQueryRole",
         "AggregationExpression": "count(*)",
         "ScheduleConfiguration": {
             "ScheduleExpression": "rate(10 minutes)",
@@ -202,7 +202,7 @@ aws cloudwatch put-log-alarm \
         }
     }' \
     --action-log-line-count 5 \
-    --action-log-line-role-arn "arn:aws:iam::{{account-id}}:role/LogLineRole"
+    --action-log-line-role-arn "arn:aws:iam::{{111122223333}}:role/LogLineRole"
 ```
 
 The following table describes the key parameters for the `put-log-alarm` command.

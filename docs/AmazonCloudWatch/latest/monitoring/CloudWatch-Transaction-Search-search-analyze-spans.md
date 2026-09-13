@@ -20,12 +20,12 @@
 
  This visual editor suggests a list of attributes in the span. These attributes include attributes added through auto-instrumentation and custom attributes added through custom instrumentation. 
 
-![Filter spans by attributes.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/filter3.png)
+![Filter spans by attributes.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/filter3.png)
 
 
  Select a span key, and enter a value to refine span results. You can filter spans using various operations, such as "Equals," "Does Not Equal," and more. 
 
-![Filter spans with operators.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/filter4.png)
+![Filter spans with operators.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/filter4.png)
 
 
 ### Query formats
@@ -48,12 +48,12 @@
 **Example scenario**  
  In the visual editor, filter on all transaction spans with a particular customer issue. Before you run your query, choose **List** from the **Visualize as** dropdown. 
 
-![Locate spans with List.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/list1.png)
+![Locate spans with List.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/list1.png)
 
 
  The results show a list of spans where you can choose a trace ID to get the end-to-end journey for the transaction and determine the root cause of the issue. 
 
-![List results.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/list2.png)
+![List results.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/list2.png)
 
 
 #### Timeseries
@@ -69,22 +69,22 @@
 **Example scenario**  
  In the visual editor, filter on the service and API you want to analyze. 
 
-![Filtering on a service.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries1.png)
+![Filtering on a service.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries1.png)
 
 
  Before you run your query, choose **Time series** from the **Visualize as** dropdown. Choose **P99** for the duration statistic from the **Show span as** dropdown. 
 
-![Filtering.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries2.png)
+![Filtering.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries2.png)
 
 
  The results show a latency trend for the service, with the x-axis of the graph being time and y-axis being p99 duration. 
 
-![Locate spans with time series.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries3.png)
+![Locate spans with time series.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries3.png)
 
 
  You can choose a point on the chart to view correlated spans and span events. 
 
-![Time series results.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries4.png)
+![Time series results.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/timeseries4.png)
 
 
 #### Group analysis
@@ -102,17 +102,17 @@
 **Example scenario**  
  In the visual editor, you filter on the service experiencing issues. 
 
-![Filter by service issue.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis1.png)
+![Filter by service issue.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis1.png)
 
 
  Before you run your query, choose **Group Analysis** from the **Visualize as** dropdown. Group your query results by `account.id`, and limit the number of results to 10.. 
 
-![Locate spans by group analysis.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis2.png)
+![Locate spans by group analysis.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis2.png)
 
 
  The results show the top 10 customers who experienced the most number of errors. 
 
-![Group analysis results.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis3.png)
+![Group analysis results.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/groupanalysis3.png)
 
 
 ## CloudWatch Logs Insights

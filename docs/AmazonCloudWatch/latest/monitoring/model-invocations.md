@@ -29,7 +29,7 @@ To enable model invocation logging in Amazon Bedrock, follow these steps.
 
    You can view the pre-configured dashboards automatically when you start using Amazon Bedrock invocations. After enabling `Model Invocation logging`, you can view the default dashboards and access the invocation table below them.
 
-![generative AI observability.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI.png)
+![generative AI observability.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI.png)
 
 + **Invocation count** – Number of successful requests to the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html), [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html), [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html), and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) API operations
 + **Invocation latency** – Latency of the invocations
@@ -52,7 +52,7 @@ To use the model invocation dashboard, follow these steps.
 
 1. Under **Invocations**, choose **Request ID** to view the details of the request. You can view the model invocation input and output details on the right-pane.
 
-![Model Invocation - Request ID view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_Model_Invocation.png)
+![Model Invocation - Request ID view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_Model_Invocation.png)
 
 
 On the **Request ID** page, under **Actions** drop-down, choose **View in Logs Insights** to view the logs in CloudWatch. For more information, see [Analyzing log data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).

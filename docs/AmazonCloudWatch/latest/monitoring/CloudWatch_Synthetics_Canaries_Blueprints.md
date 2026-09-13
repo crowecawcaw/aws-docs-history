@@ -149,7 +149,7 @@ When you use a blueprint to create this type of canary, you specify the actions 
 
 For example, the following blueprint uses Node.js. It clicks the **firstButton** on the specified URL, verifies that the expected selector with the expected text appears, inputs the name `Test_Customer` into the **Name** field, clicks the **Login** button, and then verifies that the login is successful by checking for the **Welcome** text on the next page.
 
-![The create canary page in the console, with fields filled in for the GUI Workflow blueprint.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/canary_create_gui_workflow.PNG)
+![The create canary page in the console, with fields filled in for the GUI Workflow blueprint.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/canary_create_gui_workflow.PNG)
 
 
 GUI workflow canaries that use the following runtimes also provide a summary of the steps executed for each canary run. You can use the screenshots and error message associated with each step to find the root cause of failure.

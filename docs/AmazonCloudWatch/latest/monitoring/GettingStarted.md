@@ -9,7 +9,7 @@ Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](http
 
 The CloudWatch overview home page appears.
 
-![CloudWatch overview home page showing alarm states and metrics graph widgets.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/CW-default-dashboard-update.png)
+![CloudWatch overview home page showing alarm states and metrics graph widgets.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/CW-default-dashboard-update.png)
 
 
 The overview displays the following items, refreshed automatically.

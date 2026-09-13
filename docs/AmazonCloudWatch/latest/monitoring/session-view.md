@@ -5,7 +5,7 @@
 
 The **Sessions** view shows the list of all the sessions associated with all agents in your account. Choose **Filters** or sort by columns to find a specific session. Choose a session under **Session ID** to view the session details.
 
-![Session view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_sessions.png)
+![Session view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_sessions.png)
 
 
 You can view the Session summary metrics and the list of traces belonging to that session. Session metrics include:

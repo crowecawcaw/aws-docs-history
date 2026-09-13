@@ -31,7 +31,7 @@ To add new telemetry, navigate to that service's console and add the telemetry t
 
 1. In the **Monitor** section, find the metric.
 
-1. Open the vertical ellipsis context menu ![CloudWatch overview home page showing alarm states and metrics graph widgets.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/vmore.png) for the metric, choose **Investigate**, **Add to investigation** Then, in the **Investigate** pane, select the name of the investigation.
+1. Open the vertical ellipsis context menu ![CloudWatch overview home page showing alarm states and metrics graph widgets.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/vmore.png) for the metric, choose **Investigate**, **Add to investigation** Then, in the **Investigate** pane, select the name of the investigation.
 
 ## Source account status shows "Pending link to monitoring account"
 <a name="Investigations-Troubleshooting-cross-account"></a>

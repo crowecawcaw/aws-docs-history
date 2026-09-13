@@ -26,6 +26,8 @@ Metrics collected by the CloudWatch agent are billed as custom metrics. For more
 
 The CloudWatch agent is open-source under the MIT license, and is [ hosted on GitHub](https://github.com/aws/amazon-cloudwatch-agent/). If you would like to build, customize or contribute to the CloudWatch agent, see the GitHub repository for the latest instructions. If you think you've found a potential security issue, do not post it on GitHub or any public forum. Instead, follow the instructions at [ Vulnerability Reporting](https://aws.amazon.com/security/vulnerability-reporting/) or [ email AWS security directly](mailto:aws-security@amazon.com).
 
+To forward application metrics, traces, and logs through the CloudWatch agent using the OpenTelemetry Protocol (OTLP), without running a separate collector, see [Example: send application metrics through the agent without a separate collector](CloudWatch-OTLPCloudWatchAgent.md#CloudWatch-OTLPCloudWatchAgent-Example).
+
 You can download and install the CloudWatch agent manually using the command line, or you can integrate it with AWS Systems Manager. The general flow of installing the CloudWatch agent is as follows:
 
 1. Create IAM roles or users that enable the agent to collect metrics from the server and optionally to integrate with AWS Systems Manager.

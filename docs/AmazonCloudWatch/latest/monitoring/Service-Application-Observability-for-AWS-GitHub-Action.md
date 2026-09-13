@@ -187,10 +187,10 @@ After the workflow is configured, mention `@awsapm` in any GitHub issue to trigg
 1. Investigate performance issues and post and fix:
 
    `@awsapm, can you help me investigate availability issues in my appointment service?`  
-![GitHub issue showing investigation results for appointment service availability problems with error analysis.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/github-availability-issue-investigate.png)
+![GitHub issue showing investigation results for appointment service availability problems with error analysis.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/github-availability-issue-investigate.png)
 
    `@awsapm, can you post a fix?`  
-![GitHub issue thread showing investigation results with summary of fix implementation and status updates.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/github-availability-issue-pr-fix.png)
+![GitHub issue thread showing investigation results with summary of fix implementation and status updates.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/github-availability-issue-pr-fix.png)
 
 1. Enable instrumentation:
 

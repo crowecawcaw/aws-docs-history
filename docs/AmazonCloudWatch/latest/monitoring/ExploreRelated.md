@@ -35,7 +35,7 @@ For example, if you are looking at the telemetry for a load balancer in the **Ex
 ## How to access the Explore related pane
 <a name="access-related-telemetry"></a>
 
-Within the CloudWatch console, there are multiple ways to access telemetry related to your current view. For example, if you are looking at a graph on a dashboard, and you want to view telemetry related to that graph or an aspect of the graph, you can choose to explore related data directly from that graph. From many places in the console, you can choose an **Explore related** menu item, or select a compass icon (![Compass icon representing navigation or direction in a user interface.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/compass-icon.png)) to show the **Explore related** pane.
+Within the CloudWatch console, there are multiple ways to access telemetry related to your current view. For example, if you are looking at a graph on a dashboard, and you want to view telemetry related to that graph or an aspect of the graph, you can choose to explore related data directly from that graph. From many places in the console, you can choose an **Explore related** menu item, or select a compass icon (![Compass icon representing navigation or direction in a user interface.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/compass-icon.png)) to show the **Explore related** pane.
 
 You can access the exploring experience from entry points throughout the CloudWatch console (and other AWS consoles), including:
 + **Metrics navigation** – When you choose **Metrics** then **Classic metrics** from the CloudWatch console left hand menu, the tile for any supported service or metric source will show the compass icon that brings up related telemetry in the bottom right corner.
@@ -53,7 +53,7 @@ When you select any of the entry points to the **Explore related** pane, it appe
 
 The following image shows the **Explore related** pane focused on a single Amazon EC2 instance, and the associated entities.
 
-![The Explore related pane, with a single Amazon EC2 instance in focus, and its associated entities.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/compass-explore-main.png)
+![The Explore related pane, with a single Amazon EC2 instance in focus, and its associated entities.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/compass-explore-main.png)
 
 
 The top of the **Explore related** pane is a visual *topology map* (map) of the current entity and other related entities. The currently selected entity sets the focus for the pane. There are two ways to select an entity.

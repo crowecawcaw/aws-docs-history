@@ -32,14 +32,14 @@ Because composite alarms allow you to get an aggregated view of your health acro
 
  When you specify a suppressor alarm, you set the parameters `WaitPeriod` and `ExtensionPeriod`. These parameters prevent composite alarms from taking actions unexpectedly while suppressor alarms change states. Use `WaitPeriod` to compensate for any delays that can occur when a suppressor alarm changes from `OK` to `ALARM`. For example, if a suppressor alarm changes from `OK` to `ALARM` within 60 seconds, set `WaitPeriod` to 60 seconds. 
 
-![Actions suppression within WaitPeriod.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example1border.png)
+![Actions suppression within WaitPeriod.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example1border.png)
 
 
  In the image, the composite alarm changes from `OK` to `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t8. This gives the suppressor alarm time to change states from `OK` to `ALARM` at t4 before it suppresses the composite alarm's actions when the `WaitPeriod` expires at t8. 
 
  Use `ExtensionPeriod` to compensate for any delays that can occur when a composite alarm changes to `OK` following a suppressor alarm changing to `OK`. For example, if a composite alarm changes to `OK` within 60 seconds of a suppressor alarm changing to `OK`, set `ExtensionPeriod` to 60 seconds. 
 
-![Actions suppression within ExtensionPeriod.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example2border.png)
+![Actions suppression within ExtensionPeriod.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example2border.png)
 
 
  In the image, the suppressor alarm changes from `ALARM` to `OK` at t2. An `ExtensionPeriod` starts at t2 and ends at t8. This gives the composite alarm time to change from `ALARM` to `OK` before the `ExtensionPeriod` expires at t8. 
@@ -56,42 +56,42 @@ Because composite alarms allow you to get an aggregated view of your health acro
 
  ** Example 1: Actions are not suppressed after `WaitPeriod` ** 
 
-![first example of action suppression.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example3border.png)
+![first example of action suppression.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example3border.png)
 
 
  In the image, the composite alarm changes states from `OK` to `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4, so it can prevent the composite alarm from taking actions. After the `WaitPeriod` expires at t4, the composite alarm takes its actions because the suppressor alarm is still in `OK`. 
 
  ** Example 2: Actions are suppressed by alarm before `WaitPeriod` expires ** 
 
-![second example of action suppression.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example4border.png)
+![second example of action suppression.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example4border.png)
 
 
  In the image, the composite alarm changes states from `OK` to `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4. This gives the suppressor alarm time to change states from `OK` to `ALARM` at t3. Because the suppressor alarm changes states from `OK` to `ALARM` at t3, the `WaitPeriod` that started at t2 is discarded, and the suppressor alarm now stops the composite alarm from taking actions. 
 
  ** Example 3: State transition when actions are suppressed by `WaitPeriod` ** 
 
-![third example of action suppression.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example5border.png)
+![third example of action suppression.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example5border.png)
 
 
  In the image, the composite alarm changes states from `OK` to `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4. This gives the suppressor alarm time to change states. The composite alarm changes back to `OK` at t3, so the `WaitPeriod` that started at t2 is discarded. A new `WaitPeriod` starts at t3 and ends at t5. After the new `WaitPeriod` expires at t5, the composite alarm takes its actions. 
 
  ** Example 4: State transition when actions are suppressed by alarm ** 
 
-![fourth example of action suppression.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/cwasexamplefourborder.png)
+![fourth example of action suppression.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/cwasexamplefourborder.png)
 
 
  In the image, the composite alarm changes states from `OK` to `ALARM` at t2. The suppressor alarm is already in `ALARM`. The suppressor alarm stops the composite alarm from taking actions. 
 
  ** Example 5: Actions are not suppressed after `ExtensionPeriod` ** 
 
-![fifth example of action suppression.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example7border.png)
+![fifth example of action suppression.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/example7border.png)
 
 
  In the image, the composite alarm changes states from `OK` to `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4. This gives the suppressor alarm time to change states from `OK` to `ALARM` at t3 before it suppresses the composite alarm's actions until t6. Because the suppressor alarm changes states from `OK` to `ALARM` at t3, the `WaitPeriod` that started at t2 is discarded. At t6, the suppressor alarm changes to `OK`. An `ExtensionPeriod` starts at t6 and ends at t9. After the `ExtensionPeriod` expires, the composite alarm takes its actions. 
 
  ** Example 6: State transition when actions are suppressed by `ExtensionPeriod` ** 
 
-![sixth example of action suppression.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/cwasexamplesixrborder.png)
+![sixth example of action suppression.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/cwasexamplesixrborder.png)
 
 
  In the image, the composite alarm changes states from `OK` to `ALARM` at t2. A `WaitPeriod` starts at t2 and ends at t4. This gives the suppressor alarm time to change states from `OK` to `ALARM` at t3 before it suppresses the composite alarm's actions until t6. Because the suppressor alarm changes states from `OK` to `ALARM` at t3, the `WaitPeriod` that started at t2 is discarded. At t6, the suppressor alarm changes back to `OK`. An `ExtensionPeriod` starts at t6 and ends at t9. When the composite alarm changes back to `OK` at t7, the `ExtensionPeriod` is discarded, and a new `WaitPeriod` starts at t7 and ends at t9. 

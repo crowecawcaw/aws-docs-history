@@ -103,7 +103,7 @@ Use the following steps to set up monitoring for your SAP NetWeaver application 
    1. To edit the workload type and name, choose **Edit component**.
 **Note**  
 Components that contain a detected NetWeaver Distributed or NetWeaver High Availability workload support only one workload on a component.  
-![The review detected components section of the CloudWatch Application Insights console: list of components that can be edited.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-netweaver.png)
+![The review detected components section of the CloudWatch Application Insights console: list of components that can be edited.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-netweaver.png)
 
 1. Choose **Next**.
 
@@ -160,37 +160,37 @@ Your SAP NetWeaver application experiences database connectivity issues.
 **Cause**  
 You can identify the connectivity issue by going to the CloudWatch Application Insights console and checking the SAP NetWeaver Application Insights problem dashboard. Select the link under **Problem summary** to see the specific issue.
 
-![Detected problems dashboard for CloudWatch Application Insights with details in the Problem summary column.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-1.png)
+![Detected problems dashboard for CloudWatch Application Insights with details in the Problem summary column.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-1.png)
 
 
 In the following example, under **Problem summary**, SAP: Availability is the issue.
 
-![Problem summary page for CloudWatch Application Insights under the Problem summary section.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-2.png)
+![Problem summary page for CloudWatch Application Insights under the Problem summary section.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-2.png)
 
 
 Immediately following the **Problem summary**, the **Insight** section provides more context about the error and where you can get more information about the causes of the issue.
 
-![Problem insight for CloudWatch Application Insights with additional information about the cause of the error.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-3.png)
+![Problem insight for CloudWatch Application Insights with additional information about the cause of the error.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-3.png)
 
 
 On the same problem dashboard, you can view related logs and metrics that problem detection has grouped together to help you isolate the cause of the error. The `sap_alerts_Availability` metric tracks the availability of the SAP NetWeaver system over time. You can use historical tracking to correlate when the metric initiated an error state or breached the alarm threshold. In the following example, there is an availability issue with the SAP NetWeaver system. The example shows two alarms because there are two SAP application server instances and an alarm was created for each instance.
 
-![SAP Availability metric for CloudWatch Application Insights with additional information about the history of when the error occurred.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-4.png)
+![SAP Availability metric for CloudWatch Application Insights with additional information about the history of when the error occurred.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-4.png)
 
 
 For more information about each alarm, hover over the `sap_alerts_Availability` metric name.
 
-![SAP Availability metric for CloudWatch Application Insights with additional details about the error.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-5.png)
+![SAP Availability metric for CloudWatch Application Insights with additional details about the error.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-5.png)
 
 
 In the following example, the `sap_alerts_Database` metric shows that the database layer has an issue or a failure. This alarm indicates that SAP NetWeaver had issues connecting to or communicating with its database. 
 
-![SAP Database metric for CloudWatch Application Insights with additional history about when the error occurred.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-6.png)
+![SAP Database metric for CloudWatch Application Insights with additional history about when the error occurred.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-6.png)
 
 
 Since the database is a key resource for SAP NetWeaver, you may get many related alarms when the database has an issue or failure. In the following example, the `sap_alerts_FrontendResponseTime` and `sap_alerts_LongRunners` metrics are initiated because the database is not available.
 
-![Additional SAP Database metrics for CloudWatch Application Insights created because of a database failure.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-7.png)
+![Additional SAP Database metrics for CloudWatch Application Insights created because of a database failure.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-7.png)
 
 
 **Resolution**  
@@ -198,7 +198,7 @@ Application Insights monitors the detected problem hourly. If there are no new r
 
 In the following example, the SAP Availability issue is resolved.
 
-![CloudWatch Application Insights problem dashboard with SAP Availability issue resolved.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-resolved.png)
+![CloudWatch Application Insights problem dashboard with SAP Availability issue resolved.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-database-connectivity-resolved.png)
 
 
 ### SAP NetWeaver application availability issues
@@ -210,32 +210,32 @@ Your SAP NetWeaver High Availability Enqueue replication stopped working.
 **Cause**  
 You can identify the connectivity issue by going to the CloudWatch Application Insights console and checking the SAP NetWeaver Application Insights problem dashboard. Select the link under **Problem summary** to see the specific issue.
 
-![Problem dashboard in CloudWatch Application Insights with more information under Problem summary.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-problem-dashboard.png)
+![Problem dashboard in CloudWatch Application Insights with more information under Problem summary.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-problem-dashboard.png)
 
 
 In the following example, under **Problem summary**, High Availability Enqueue Replication is the issue.
 
-![Problem summary in CloudWatch Application Insights with SAP Availability: Enqueue replication error listed.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-1.png)
+![Problem summary in CloudWatch Application Insights with SAP Availability: Enqueue replication error listed.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-1.png)
 
 
 Immediately following the **Problem summary**, the **Insight** section provides more context about the error and where you can get more information about the causes of the issue.
 
-![Problem insight for CloudWatch Application Insights with additional information about the cause of the error.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-2.png)
+![Problem insight for CloudWatch Application Insights with additional information about the cause of the error.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-2.png)
 
 
 The following example shows the problem dashboard where you view logs and metrics which are grouped to help you isolate the causes of the error. The `sap_enqueue_server_replication_state` metric tracks the value over time. You can use historical tracking to correlate when the metric initiated an error state or breached the alarm threshold.
 
-![Enqueue server replication state metric on the problem dashboard with additional information about when the error occurred.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-3.png)
+![Enqueue server replication state metric on the problem dashboard with additional information about when the error occurred.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-3.png)
 
 
 In the following example, the `ha_cluster_pacemaker_fail_count` metric shows that the high availability pacemaker cluster experienced a resource failure. The specific pacemaker resources that had a fail count greater than or equal to one are identified in the component dashboard.
 
-![Application availability metric for CloudWatch Application Insights for pacemaker resource with fail count greater than or equal to one.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-4.png)
+![Application availability metric for CloudWatch Application Insights for pacemaker resource with fail count greater than or equal to one.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-4.png)
 
 
 The following example shows the `sap_alerts_Shortdumps` metric, which indicates that the SAP application performance was reduced when the problem was detected.
 
-![Application availability alert Shortdumps metric for CloudWatch Application Insights.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-5.png)
+![Application availability alert Shortdumps metric for CloudWatch Application Insights.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-5.png)
 
 
 #### Logs
@@ -243,12 +243,12 @@ The following example shows the `sap_alerts_Shortdumps` metric, which indicates 
 
 The log entries are helpful to get a better understanding of issues that occurred at the SAP NetWeaver layer when the problem was detected. The log group widget in the problem dashboard shows the specific time of the issue.
 
-![Log entries for CloudWatch Application Insights showing the exact time issues occurred.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-7.png)
+![Log entries for CloudWatch Application Insights showing the exact time issues occurred.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-7.png)
 
 
 To see detailed information about the logs, select the three vertical dots in the upper-right corner, and select **View in CloudWatch Logs Insights**.
 
-![CloudWatch Application Insights details with View in CloudWatch Logs Insights.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-8.png)
+![CloudWatch Application Insights details with View in CloudWatch Logs Insights.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-8.png)
 
 
 Use the following steps to get more information about the metrics and alarms displayed in the problem dashboard.
@@ -262,7 +262,7 @@ Use the following steps to get more information about the metrics and alarms dis
 1. Select the **Components** tab. Then, select the SAP NetWeaver component about which you want to get more information.
 
    The following example shows the **HA Metrics** section with the `ha_cluster_pacemaker_fail_count` metric that was displayed in the problem dashboard.  
-![HA Metrics for CloudWatch Application Insights showing the pacemaker resources fail count.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-9.png)
+![HA Metrics for CloudWatch Application Insights showing the pacemaker resources fail count.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-9.png)
 
 **Resolution**  
 Application Insights monitors the detected problem hourly. If there are no new related log entries in your SAP NetWeaver log files, the older log entries will be treated as resolved. You must fix any error conditions related to this problem.
@@ -271,7 +271,7 @@ For the `sap_alerts_Shortdumps` alarm, you must resolve the alert in the SAP Net
 
 When all of the CloudWatch log errors and alarms are resolved, Application Insights stops detecting errors and the problem is automatically resolved within an hour. We recommend that you resolve all log error conditions and alarms so that you have the latest problems on the problem dashboard. In the following example, the SAP Netweaver High Availability Enqueue Replication problem is resolved.
 
-![Problem dashboard for CloudWatch Application Insights showing the SAP Availability: Enqueue Replication problem with a Status of Resolved.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-problem-resolved.png)
+![Problem dashboard for CloudWatch Application Insights showing the SAP Availability: Enqueue Replication problem with a Status of Resolved.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-nw-app-availability-problem-resolved.png)
 
 
 ## Troubleshooting Application Insights for SAP NetWeaver

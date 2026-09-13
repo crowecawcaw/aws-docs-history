@@ -27,12 +27,12 @@ Summary page fields are consistent across **Agent view**, **Sessions view**, and
 + P95 span latency – The 95-percentile latency of across all invocation of this particular span. Note that a span can be used across many agents
 + Trace details – Meta data about the trace such as start time, end time, and Trace ID
 
-![Span view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_span.png)
+![Span view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_span.png)
 
 
 Choose **Timeline** to view the duration of each span and to understand the span that took the longest and contributed to a slow response.
 
-![Trajectory view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_agenttrajectory.png)
+![Trajectory view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/GenAI_agenttrajectory.png)
 
 
 To analyze span relationships and subsequent calls choose **Trajectory** to understand the interconnected relationship of the spans and subsequent calls from these spans.

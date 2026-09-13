@@ -38,7 +38,7 @@ If the number of evaluation periods multiplied by the length of each evaluation 
 
 In the following figure, the alarm threshold for a metric alarm is set to 3 units. Both **Evaluation Period** and **Datapoints to Alarm** are 3. That is, when all existing data points in the most recent 3 consecutive periods are above the threshold, the alarm goes to `ALARM` state. In the figure, this happens in the third through fifth time periods. At period six, the value dips below the threshold, so one of the periods being evaluated is not breaching, and the alarm state changes back to `OK`. During the ninth time period, the threshold is breached again, but for only 1 period. Consequently, the alarm state remains `OK`.
 
-![Alarm threshold trigger alarm.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/alarm_graph.png)
+![Alarm threshold trigger alarm.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/alarm_graph.png)
 
 
 When you configure **Evaluation Periods** and **Datapoints to Alarm** as different values, you're setting an "M out of N" alarm. **Datapoints to Alarm** is ("M") and **Evaluation Periods** is ("N").The evaluation interval is the number of evaluation periods multiplied by the period length. For example, if you configure 4 out of 5 data points with a period of 1 minute, the evaluation interval is 5 minutes. If you configure 3 out of 3 data points with a period of 10 minutes, the evaluation interval is 30 minutes.

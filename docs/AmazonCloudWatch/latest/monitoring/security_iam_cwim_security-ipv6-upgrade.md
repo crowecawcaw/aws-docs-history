@@ -111,9 +111,9 @@ For example, this policy allows IPv4 address ranges `192.0.2.0.*` and `203.0.113
         "Resource": "*",
         "Condition": {
             "NotIpAddress": {
-                "*aws:SourceIp*": [
-                    "*192.0.2.0/24*",
-                    "*203.0.113.0/24*"
+                "aws:SourceIp": [
+                    "192.0.2.0/24",
+                    "203.0.113.0/24"
                 ]
             },
             "Bool": {

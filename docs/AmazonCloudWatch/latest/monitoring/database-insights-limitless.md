@@ -44,7 +44,7 @@ For Aurora PostgreSQL Limitless Databases, logs are automatically published to C
 
 In this view, you can see your Limitless shard groups alongside other databases that make up your database fleets. The Fleet Health Dashboard provides an opinionated view of health and DBLoad utilization for your Limitless shard groups, similar to how it presents information for other databases in the fleet. 
 
-![Database Insights Fleet Health Dashboard showing instance grid, load utilization, and top queries.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_fhd.png)
+![Database Insights Fleet Health Dashboard showing instance grid, load utilization, and top queries.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_fhd.png)
 
 
  When viewing Aurora Limitless databases in the Fleet Health Dashboard: 
@@ -59,7 +59,7 @@ In this view, you can see your Limitless shard groups alongside other databases 
 
 This fleet-level view allows you to monitor and compare the performance of your Aurora Limitless shard groups with other databases in your fleet, providing a comprehensive overview of your entire database fleet.
 
-![Database Insights dashboard listing database instances with engine type and load utilization.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_fhd-limitless-list-view.png)
+![Database Insights dashboard listing database instances with engine type and load utilization.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_fhd-limitless-list-view.png)
 
 
 ## Monitoring Aurora PostgreSQL Limitless Databases in the Instance Dashboard
@@ -74,7 +74,7 @@ You can also "slice" the `DBLoad` metric into dimensions, which are subcategorie
 + **Wait events** – Cause SQL statements to wait for specific events to happen before they can continue running. Wait events indicate where work is impeded.
 + **Top SQL** – Shows which queries contribute the most to DB load.
 
-![Database Insights dashboard showing performance metrics and top instances by load utilization.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_limitless-top-instances.png)
+![Database Insights dashboard showing performance metrics and top instances by load utilization.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_limitless-top-instances.png)
 
 
 ## Analyze DB load for Aurora PostgreSQL Limitless Databases with Database Insights
@@ -84,7 +84,7 @@ With Database Insights, you can track metrics at the shard group level and at th
 
 The Absolute view shows the number of Average active sessions (AAS) and the estimated vCPU. The Relative view shows the ratio of AAS to the estimated vCPU.
 
-![Database Insights dashboard showing database load distribution across instances.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_limitless-doughnut.png)
+![Database Insights dashboard showing database load distribution across instances.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/dbi_limitless-doughnut.png)
 
 
 ### Analyzing relative DB load using the Database Insights dashboard

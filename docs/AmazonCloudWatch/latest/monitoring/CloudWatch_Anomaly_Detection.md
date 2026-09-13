@@ -23,23 +23,23 @@ In a graph with anomaly detection, the expected range of values is shown as a gr
 
 Anomaly detection algorithms account for the seasonality and trend changes of metrics. The seasonality changes could be hourly, daily, or weekly, as shown in the following examples.
 
-![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph2.PNG)
+![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph2.PNG)
 
 
-![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph5.png)
+![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph5.png)
 
 
-![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph6.png)
+![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph6.png)
 
 
 The longer-range trends could be downward or upward.
 
-![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph3.PNG)
+![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph3.PNG)
 
 
 Anomaly detection also works well with metrics with flat patterns.
 
-![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph7.png)
+![The metrics console showing anomaly detection enabled for the CPUUtilization metric.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Anomaly_Detection_Graph7.png)
 
 
 ## How CloudWatch anomaly detection works

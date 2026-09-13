@@ -7,7 +7,7 @@ The following code examples show how to use `DescribeAlarmsForMetric`.
 
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
 +  [Learn the basics](example_cloudwatch_GetStartedMetricsDashboardsAlarms_section.md) 
-+  [Manage metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
++  [Manage custom metrics and alarms](example_cloudwatch_Usage_MetricsAlarms_section.md) 
 
 ------
 #### [ .NET ]

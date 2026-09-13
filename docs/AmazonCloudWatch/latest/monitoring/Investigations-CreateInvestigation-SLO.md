@@ -15,7 +15,7 @@ You can start an investigation from a CloudWatch Application Signals Service Lev
 
 1. Select a metric, then choose **Investigate** from the **Action** menu.
 
-   Alternatively, in the visualization of the metric you want to investigate, next to the more ![Vertical ellipsis used to display more options.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/vmore.png) menu, select the AI ![Icon used to represent a feature that uses artificial intelligence .](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/cw-ai-icon.png) icon to start an investigation.
+   Alternatively, in the visualization of the metric you want to investigate, next to the more ![Vertical ellipsis used to display more options.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/vmore.png) menu, select the AI ![Icon used to represent a feature that uses artificial intelligence .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/cw-ai-icon.png) icon to start an investigation.
 **Note**  
 If you have not configured operational investigations in your account, the AI icon opens the **Operation troubleshooting** pane. Select **Get started** to configure an investigation group and then continue.
 

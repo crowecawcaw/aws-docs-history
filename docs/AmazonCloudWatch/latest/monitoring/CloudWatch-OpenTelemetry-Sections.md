@@ -12,7 +12,7 @@ CloudWatch supports OpenTelemetry metrics, allowing you to send custom OTel metr
 
 For application performance monitoring, CloudWatch [Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Intro.html) provides a unified, application-centric view of your services and dependencies. Application Signals uses OTLP traces to help you monitor application health, triage issues, and identify the impact on end users. With Transaction Search, you can explore OTLP spans interactively, find transactions using attributes such as customer identifiers or order numbers, correlate transactions to business events such as failed payments, and trace interactions between application components to establish root cause.
 
-![OpenTelemetry overview.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/OpenTelemetry.png)
+![OpenTelemetry overview.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/OpenTelemetry.png)
 
 
 **Topics**

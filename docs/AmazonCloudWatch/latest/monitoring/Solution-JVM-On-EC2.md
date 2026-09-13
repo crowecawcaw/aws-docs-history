@@ -43,7 +43,7 @@ Below are the key advantages of the solution:
 
 The following image is an example of the dashboard for this solution.
 
-![Example of JVM dashboard.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/JvmDashboard.png)
+![Example of JVM dashboard.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/JvmDashboard.png)
 
 
 ## Costs

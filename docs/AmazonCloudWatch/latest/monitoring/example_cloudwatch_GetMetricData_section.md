@@ -40,8 +40,8 @@ Action examples are code excerpts from larger programs and must be run in contex
         var paginatedMetricData = _amazonCloudWatch.Paginators.GetMetricData(
             new GetMetricDataRequest()
             {
-                StartTimeUtc = startTimeUtc,
-                EndTimeUtc = endDateUtc.Value,
+                StartTime = startTimeUtc,
+                EndTime = endDateUtc.Value,
                 LabelOptions = new LabelOptions { Timezone = timeZoneString },
                 ScanBy = useDescendingTime ? ScanBy.TimestampDescending : ScanBy.TimestampAscending,
                 MaxDatapoints = maxDataPoints,

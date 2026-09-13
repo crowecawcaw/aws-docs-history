@@ -5,7 +5,7 @@
 
  Transaction Search is an interactive analytics experience you can use to get complete visibility of your application transaction spans. Spans are the fundamental units of operation in a distributed trace and represent specific actions or tasks in an application or system. Every span records details about a particular segment of the transaction. These details include start and end times, duration, and associated metadata, which can include business attributes like customer IDs and order IDs. Spans are arranged in a parent-child hierarchy. This hierarchy forms a complete trace, mapping the flow of a transaction across different components or services. 
 
-![View of the visual editor for spans.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/transactionsearch1.png)
+![View of the visual editor for spans.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/transactionsearch1.png)
 
 
 **Topics**
@@ -48,7 +48,7 @@
 
  When you enable Transaction Search, you unlock multiple capabilities, including features in Application Signals and CloudWatch Logs. 
 
-![Overview of how Transaction Search works with other services.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/howitworks.png)
+![Overview of how Transaction Search works with other services.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/howitworks.png)
 
 
  If you send traces to X-Ray, you can [get started by enabling Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search-getting-started.html) in the console or with the API. If you don't send traces to X-Ray, you can use the [CloudWatch Application Signals](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable.html) that provides pre-packaged OpenTelemetry setup with AWS Distro fro OpenTelemetry (ADOT), CloudWatch Agent, or use OpenTelemetry directly.

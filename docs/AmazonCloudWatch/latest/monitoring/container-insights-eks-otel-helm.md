@@ -64,7 +64,7 @@ Create an IAM role that allows the CloudWatch agent to send data to CloudWatch. 
      --output text
    ```
 
-1. Create the IAM role with a trust policy for IRSA. Replace {{account-id}} with your AWS account ID and {{oidc-id}} with the OIDC provider ID from the preceding step (the portion after `https://oidc.eks.region.amazonaws.com/id/`).
+1. Create the IAM role with a trust policy for IRSA. Replace the example account ID (`111122223333`) with your AWS account ID, and replace {{oidc-id}} with the OIDC provider ID from the preceding step (the portion after `https://oidc.eks.region.amazonaws.com/id/`).
 
    ```
    aws iam create-role \
@@ -74,12 +74,12 @@ Create an IAM role that allows the CloudWatch agent to send data to CloudWatch. 
        "Statement": [{
          "Effect": "Allow",
          "Principal": {
-           "Federated": "arn:aws:iam::{{account-id}}:oidc-provider/oidc.eks.{{region}}.amazonaws.com/id/{{oidc-id}}"
+           "Federated": "arn:aws:iam::{{111122223333}}:oidc-provider/oidc.eks.{{us-east-1}}.amazonaws.com/id/{{oidc-id}}"
          },
          "Action": "sts:AssumeRoleWithWebIdentity",
          "Condition": {
            "StringEquals": {
-             "oidc.eks.{{region}}.amazonaws.com/id/{{oidc-id}}:sub": "system:serviceaccount:amazon-cloudwatch:cloudwatch-agent"
+             "oidc.eks.{{us-east-1}}.amazonaws.com/id/{{oidc-id}}:sub": "system:serviceaccount:amazon-cloudwatch:cloudwatch-agent"
            }
          }
        }]
@@ -100,7 +100,7 @@ Create an IAM role that allows the CloudWatch agent to send data to CloudWatch. 
 Install the Amazon CloudWatch Observability Helm chart with OTel Container Insights enabled.
 
 **To install the Helm chart**
-+ Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster, {{region}} with your AWS Region, and {{account-id}} with your AWS account ID.
++ Run the following command. Replace {{cluster-name}} with the name of your Amazon EKS cluster, the example AWS Region (`us-east-1`) with your own Region, and the example account ID (`111122223333`) with your AWS account ID.
 
   ```
   helm install amazon-cloudwatch-observability \
@@ -108,9 +108,9 @@ Install the Amazon CloudWatch Observability Helm chart with OTel Container Insig
     --namespace amazon-cloudwatch \
     --create-namespace \
     --set clusterName={{cluster-name}} \
-    --set region={{region}} \
+    --set region={{us-east-1}} \
     --set agent.serviceAccount.name=cloudwatch-agent \
-    --set "agent.serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn=arn:aws:iam::{{account-id}}:role/EKS-CW-Observability-Role" \
+    --set "agent.serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn=arn:aws:iam::{{111122223333}}:role/EKS-CW-Observability-Role" \
     --set otelContainerInsights.enabled=true
   ```
 **Important**  
@@ -214,7 +214,7 @@ You can use cert-manager to automate certificate issuance and renewal. This appr
    kubectl get pods -n cert-manager
    ```
 
-1. Install the Helm chart with cert-manager enabled. Replace {{cluster-name}} with the name of your Amazon EKS cluster, {{region}} with your AWS Region, and {{account-id}} with your AWS account ID.
+1. Install the Helm chart with cert-manager enabled. Replace {{cluster-name}} with the name of your Amazon EKS cluster, the example AWS Region (`us-east-1`) with your own Region, and the example account ID (`111122223333`) with your AWS account ID.
 
    ```
    helm install amazon-cloudwatch-observability \
@@ -222,9 +222,9 @@ You can use cert-manager to automate certificate issuance and renewal. This appr
      --namespace amazon-cloudwatch \
      --create-namespace \
      --set clusterName={{cluster-name}} \
-     --set region={{region}} \
+     --set region={{us-east-1}} \
      --set agent.serviceAccount.name=cloudwatch-agent \
-     --set "agent.serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn=arn:aws:iam::{{account-id}}:role/EKS-CW-Observability-Role" \
+     --set "agent.serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn=arn:aws:iam::{{111122223333}}:role/EKS-CW-Observability-Role" \
      --set otelContainerInsights.enabled=true \
      --set admissionWebhooks.certManager.enabled=true
    ```
@@ -247,16 +247,16 @@ Upgrade the Helm chart to apply new configuration values or to update to a newer
    helm repo update
    ```
 
-1. Run the upgrade command with your desired values. Replace {{cluster-name}} with the name of your Amazon EKS cluster, {{region}} with your AWS Region, and {{account-id}} with your AWS account ID.
+1. Run the upgrade command with your desired values. Replace {{cluster-name}} with the name of your Amazon EKS cluster, the example AWS Region (`us-east-1`) with your own Region, and the example account ID (`111122223333`) with your AWS account ID.
 
    ```
    helm upgrade amazon-cloudwatch-observability \
      aws-observability/amazon-cloudwatch-observability \
      --namespace amazon-cloudwatch \
      --set clusterName={{cluster-name}} \
-     --set region={{region}} \
+     --set region={{us-east-1}} \
      --set agent.serviceAccount.name=cloudwatch-agent \
-     --set "agent.serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn=arn:aws:iam::{{account-id}}:role/EKS-CW-Observability-Role" \
+     --set "agent.serviceAccount.annotations.eks\\.amazonaws\\.com/role-arn=arn:aws:iam::{{111122223333}}:role/EKS-CW-Observability-Role" \
      --set otelContainerInsights.enabled=true
    ```
 

@@ -28,9 +28,9 @@ Action examples are code excerpts from larger programs and must be run in contex
             new DescribeAlarmHistoryRequest()
             {
                 AlarmName = alarmName,
-                EndDateUtc = DateTime.UtcNow,
+                EndDate = DateTime.UtcNow,
                 HistoryItemType = HistoryItemType.StateUpdate,
-                StartDateUtc = DateTime.UtcNow.AddDays(-historyDays)
+                StartDate = DateTime.UtcNow.AddDays(-historyDays)
             });
 
         await foreach (var data in paginatedAlarmHistory.AlarmHistoryItems)

@@ -7,7 +7,7 @@ The **Overview** tab provides insights derived from sampled spans after transact
 
 The **Gateway metrics** section lists all of the agents associated with the selected gateway, and it provides information about the number of sessions, traces and errors for each associated agent.
 
-![Gateway metrics.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/overview_metrics.png)
+![Gateway metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/overview_metrics.png)
 
 
 Additionally, the **Overview** tab includes the following interactive charts.
@@ -37,7 +37,7 @@ The **Invocation and latency** chart provides information about the average late
 
 The **Policy decisions over time** chart provides information about the number of decisions that resulted in `allow` and `deny` authorization actions. To view decisions for a specific policy, select the policy in the drop-down.
 
-![Policy decisions over time chart.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/05_policydecisions.png)
+![Policy decisions over time chart.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/05_policydecisions.png)
 
 
 ------
@@ -45,7 +45,7 @@ The **Policy decisions over time** chart provides information about the number o
 
 The **Policy decisions: Per policy distribution** chart lists all of the policy engines associated with the selected gateway, and shows the policy, number of allows and denies, and enforcement mode for each policy engine. You can choose a policy engine or policy in the list to view more details about it in the Amazon Bedrock AgentCore console.
 
-![Policy decisions: Per policy distribution.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/06_policydistribution.png)
+![Policy decisions: Per policy distribution.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/06_policydistribution.png)
 
 
 ------

@@ -5,7 +5,7 @@
 
  In the CloudWatch console, you can use the mini-map zoom feature to focus on sections of line graphs and stacked area graphs without changing between zoomed-in and zoomed-out views. For example, you can use the mini-map zoom feature to focus on a peak in a line graph, so that you can compare the spike against other metrics in your dashboard from the same timeline. The procedures in this section describe how to use the zoom feature. 
 
-![A screenshot of the zoom feature that shows comparisons.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/widget_zoom.png)
+![A screenshot of the zoom feature that shows comparisons.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/widget_zoom.png)
 
 
  In the preceding image, the zoom feature focuses on a spike in a line graph that's related to the input bytes processing rate while also showing other line graphs in the dashboard that focus on sections from the same timeline. 

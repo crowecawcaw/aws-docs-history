@@ -45,7 +45,7 @@ Below are the key advantages of the solution:
 
 The following image is an example of the dashboard for this solution.
 
-![Example of EC2 Health dashboard.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/EC2HealthDashboard.png)
+![Example of EC2 Health dashboard.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/EC2HealthDashboard.png)
 
 
 ## Costs

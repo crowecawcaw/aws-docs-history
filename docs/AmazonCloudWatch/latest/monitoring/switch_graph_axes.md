@@ -18,9 +18,9 @@ You can switch between two different y-axes for your graph. This is useful if th
 1. The **Browse** tab displays all metrics for that dimension in that namespace. To graph a metric, select the check box next to the metric.
 
 1. On the **Graph options** tab, specify the **Min** and **Max** values for **Left Y Axis**. The value of **Min** can't be greater than the value of **Max**.  
-![Set custom bounds for the y-axis.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metric_graph_custom_bounds.png)
+![Set custom bounds for the y-axis.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metric_graph_custom_bounds.png)
 
 1. To create a second y-axis, specify the **Min** and **Max** values for **Right Y Axis**.
 
 1. To switch between the two y-axes, choose the **Graphed metrics** tab. For **Y Axis**, choose **Left Y Axis** or **Right Y Axis**.  
-![Switch between the y-axes for a graph.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metric_graph_switch_axis.png)
+![Switch between the y-axes for a graph.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metric_graph_switch_axis.png)

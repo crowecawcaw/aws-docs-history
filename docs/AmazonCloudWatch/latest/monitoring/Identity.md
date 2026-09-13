@@ -5,7 +5,7 @@
 
 Track identity and access management operations to help keep agent behavior secure and compliant. For more information on Amazon Bedrock Identity, see [Create agent and tool identities with AgentCore Identity ](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html). Identity observability includes monitoring for different authentication methods:
 
-![Identity metrics view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Identity.png)
+![Identity metrics view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Identity.png)
 
 + **Identities** – Access detailed trace information for identity operations
 + **Traces** – Apply advanced filters to analyze specific trace patterns
@@ -19,12 +19,12 @@ Under **Identities**, you will see the following:
 
 Choose **View details** to see the Identity metrics in graphs.
 
-![Identity details view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Identity_details.png)
+![Identity details view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Identity_details.png)
 
 
 Under **Outbound Auths**, choose a outbound auth **Name** to view the dashboard.
 
-![Identity auth view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Identity_auth_view.png)
+![Identity auth view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Identity_auth_view.png)
 
 
 On the **OAuth client details** page, you will see the following tabs:
@@ -32,4 +32,4 @@ On the **OAuth client details** page, you will see the following tabs:
   + **Token fetches** – Total number of authentication token requests made by agents, including both machine-to-machine and on-behalf-of-user authentication flows. This metric tracks overall authentication activity and helps with capacity planning for identity services
   + **Token fetch error rate** – Percentage of failed token requests out of total authentication attempts. Monitor this metric to identify authentication issues, expired credentials, or permission problems. Trends over time help detect degrading authentication performance
 + **Traces** – Displays detailed trace information for identity and authentication operations, including OAuth flows, workload identity token requests, and third-party service integrations. Use traces to troubleshoot authentication failures, analyze token fetch latency, and monitor security compliance across agent interactions  
-![Identity trace summary.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Entity_trace_summary.png)
+![Identity trace summary.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Entity_trace_summary.png)

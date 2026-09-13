@@ -11,7 +11,7 @@ You can start an investigation from several AWS consoles, including (but not lim
 
 1. If the top of the page has an **Investigate** button, choose it and then choose **Start new investigation**.
 
-   Otherwise, choose the vertical ellipsis menu icon ![Depicts the appearance of the vertical ellipsis icon on the console.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/vmore.png) for the metric, and choose **Investigate**, **Start a new investigation**.
+   Otherwise, choose the vertical ellipsis menu icon ![Depicts the appearance of the vertical ellipsis icon on the console.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/vmore.png) for the metric, and choose **Investigate**, **Start a new investigation**.
 
 1. In the **Investigation** pane, enter a name for the investigation in **New investigation title**, and optionally enter notes about the selected metric or alarm. 
 

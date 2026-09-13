@@ -33,19 +33,19 @@ Under **Services**, the **Overview** tab displays a summary of the following:
 
 The following illustration shows an overview of your services:
 
-![Service overview widgets.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-detail-widgets.png)
+![Service overview widgets.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-detail-widgets.png)
 
 
 The **Overview** tab also displays a graph of dependencies with the highest latency across all services. Use the **p99**, **p90** and **p50** latency metrics to quickly assess which dependencies are contributing to your total service latency, as follows:
 
-![Service operations latency graph.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-detail-latency.png)
+![Service operations latency graph.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-detail-latency.png)
 
 
 For example, the previous graph shows that 99% of the requests made to the **customer-service** dependency were completed in approximately 4,950 milliseconds. The other dependencies took less time.
 
 Graphs displaying the top four service operations by latency show the volume of requests, availability, fault rate, and error rate for those services, as shown in the following image:
 
-![Service operations volume, availability, fault rate, and error rate graphs.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-detail-operations-graphs.png)
+![Service operations volume, availability, fault rate, and error rate graphs.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-detail-operations-graphs.png)
 
 
 The **Service details** section displays the details of the service including the **Account ID** and **Account label**.
@@ -55,14 +55,14 @@ The **Service details** section displays the details of the service including th
 
 When you instrument your application, [Application Signals](CloudWatch-Application-Monitoring-Sections.md) discovers all of the service operations that your application calls. Use the **Service operations** tab to see a table that contains the service operations and a set of metrics that measure the performance of a selected operation. These metrics include SLI status, number of dependencies, latency, volume, faults, errors, and availability, as shown in the following image:
 
-![Service operations table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operations-table.png)
+![Service operations table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operations-table.png)
 
 
 Filter the table to make it easier to find a service operation by choosing one or more properties from the filter text box. As you choose each property, you are guided through filter criteria and will see the complete filter below the filter text box. Choose **Clear filters** at any time to remove the table filter. 
 
 Choose the SLI status for an operation to display a popup containing a link to any unhealthy SLI, and a link to see all SLOs for the operation, as shown in the following table:
 
-![Service operation SLI status.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operation-unhealthy-slo.png)
+![Service operation SLI status.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operation-unhealthy-slo.png)
 
 
 The service operations table lists the SLI status, the number of healthy or unhealthy SLIs, and the total number of SLOs for each operation.
@@ -92,7 +92,7 @@ Application Signals correlates service operation metrics with AWS X-Ray traces, 
 
 The following image shows the tooltip that appears after hovering over a point in the graph, and the diagnostic pane which appears after choosing on a point. The tooltip contains information about the associated data point in the **Faults and Errors** graph. The pane contains **Correlated traces**, **Top contributors**, and **Application logs** associated with the selected point.
 
-![Correlated traces for faults and errors.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-detail-correlated-traces.png)
+![Correlated traces for faults and errors.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-detail-correlated-traces.png)
 
 
 #### Correlated traces
@@ -107,7 +107,7 @@ View the top contributors to find main input sources to a metric. Group contribu
 
 The **Top contributors** tab gives metrics for **Call volume**, **Availability**, **Avg latency**, **Errors**, and **Faults** for each group. The following example image shows top contributors to a suite of metrics for an application deployed on an Amazon EKS platform:
 
-![Service operation top contributors.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operations-top-contributors.png)
+![Service operation top contributors.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operations-top-contributors.png)
 
 
 The top contributors contains the following metrics:
@@ -139,7 +139,7 @@ Use information about the top contributors for applications deployed using custo
 
 View and modify the automatic query that generated metrics for your top contributors in [Log Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html). View infrastructure performance metrics by specific groups such as pods or nodes in [Container Insights](ContainerInsights.md). You can sort clusters, nodes or workloads by resource consumption and quickly identify anomalies or and mitigate risks pro-actively before end user experience is impacted. An image showing how to select these options follows:
 
-![Top contributors table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operations-top-contributors-insights.png)
+![Top contributors table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operations-top-contributors-insights.png)
 
 
 In **Container Insights**, you can view metrics for your Amazon EKS or Amazon ECS container that are specific to the grouping of your top contributors. For example, if you grouped by pod for an EKS container to generate top contributors, container insights will show metrics and statistics filtered for your pod.
@@ -173,7 +173,7 @@ To run the query, select **Run query in Logs Insights** to either run the automa
 
 The following image shows the sample query that is automatically generated based on the selected point in the service operations graph:
 
-![Application logs table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operations-application-logs.png)
+![Application logs table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-operations-application-logs.png)
 
 
 In the preceding image, CloudWatch has automatically detected the log group that is associated with your selected point, and included it in a generated query.
@@ -187,14 +187,14 @@ At the top of the page, choose an operation from the down arrow list to view its
 
 Filter the table to make it easier to find what you're looking for, by choosing one or more properties from the filter text box. As you choose each property, you are guided through filter criteria and will see the complete filter below the filter text box. Choose **Clear filters** at any time to remove the table filter. Select **Group by Dependency** at the top right of the table to group dependencies by service and operation name. When grouping is turned on, expand or collapse a group of dependencies with the **\+** icon next to the dependency name. 
 
-![Dependencies table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-dependencies-table.png)
+![Dependencies table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-dependencies-table.png)
 
 
 The **Dependency** column displays the dependency service name, while the **Remote Operation** column displays the service operation name. The **SLI status** column displays the number of healthy or unhealthy SLIs along with the total number of SLIs for each dependency. When calling AWS services, the **Target** column displays the AWS resource, such as DynamoDB table or Amazon SNS queue.
 
 To select a dependency, select the option next to a dependency in the **Dependencies** table. This shows a set of graphs that display detailed metrics for call volume, availability, faults, and errors. Hover over a point in a graph to see a popup containing more information. Select a point in a graph to open a diagnostic pane that shows correlated traces for the selected point in the graph. Choose a trace ID from the **Correlated traces** table to open the [X-Ray Trace details](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-traces.html) page for the selected trace.
 
-![Dependency graphs and correlated traces.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-dependency-graph-traces.jpg)
+![Dependency graphs and correlated traces.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-dependency-graph-traces.jpg)
 
 
 ## View your Synthetics canaries
@@ -204,12 +204,12 @@ Choose the **Synthetics Canaries** tab to display the **Synthetics Canaries** ta
 
 Use the filter text box in the synthetics canaries table to find the canary that you are interested in. Each filter that you create appears below the filter text box. Choose **Clear filters** at any time to remove the table filter. 
 
-![Synthetics canaries table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-canaries-table.png)
+![Synthetics canaries table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-canaries-table.png)
 
 
 Select the radio button next to the name of the canary to see a set of tabs containing graphs detailed metrics including success percentage, errors and duration. Hover over a point in a graph to see a popup containing more information. Select a point in a graph to open a diagnostic pane that shows canary runs that correlate to the selected point. Select a canary run and choose the **Run time** to see artifacts for your selected canary run including logs, HTTP Archive (HAR) files, screenshots, and suggested steps to help you troubleshoot problems. Choose **Larn more** to open the [CloudWatch Synthetics Canaries](CloudWatch_Synthetics_Canaries.md) page next to **Canary runs**.
 
-![Synthetics canary graphs and runs.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-canary-graphs-runs.jpg)
+![Synthetics canary graphs and runs.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-canary-graphs-runs.jpg)
 
 
 ## View your client pages
@@ -221,12 +221,12 @@ To display your client pages in the table, you must [configure your CloudWatch R
 
 Use the filter text box to find the client page or application monitor that you are interested in below the filter text box. Choose **Clear filters** to remove the table filter. Select **Group by Client** to group client pages by client. When grouped, choose the **\+** icon next to a client name to expand the row and see all pages for that client.
 
-![Client pages table.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-client-pages-table.png)
+![Client pages table.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-client-pages-table.png)
 
 
 To select a client page, select the option next to a client page in the **Client pages** table. You will see a set of graphs that display detailed metrics. Hover over a point in a graph to see a popup containing more information. Select a point in a graph to open a diagnostic pane that shows correlated performance navigation events for the selected point in the graph. Choose an event ID from the list of navigation events to open the [CloudWatch RUM Page view](CloudWatch-RUM-view-data.md) for the chosen event.
 
-![CloudWatch RUM client page requests.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-client-page-graphs-events.jpg)
+![CloudWatch RUM client page requests.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/service-client-page-graphs-events.jpg)
 
 
 **Note**  
@@ -245,7 +245,7 @@ The metrics table shows three types of metrics:
 
 You can access the Related metrics tab from Service Overview, Service Operations, Dependencies, Synthetics canaries, or RUM tabs.
 
-![View related metrics.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Custom_metrics.png)
+![View related metrics.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Custom_metrics.png)
 
 + The left navigation panel starts with all operations and dependencies unselected
 + The graph initially shows the Fault metric from the operation with the highest fault rate

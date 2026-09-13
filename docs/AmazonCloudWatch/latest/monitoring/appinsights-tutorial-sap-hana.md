@@ -169,10 +169,10 @@ Use the following steps to set up monitoring for your SAP HANA database
    1. To add workloads to a component that contains a detected SAP HANA single node workload, select the component, then choose **Edit component**.
 **Note**  
 Components that contain a detected SAP HANA multi node or HANA High Availability workload support only one workload on a component.  
-![The review components for monitoring page of the CloudWatch Application Insights console: select component to edit.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-hana-review.png)
+![The review components for monitoring page of the CloudWatch Application Insights console: select component to edit.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-hana-review.png)
 
    1. To add a new workload, choose **Add new workload**.  
-![The edit component section of the CloudWatch Application Insights console: choose lower left button to add workload.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-hana-edit.png)
+![The edit component section of the CloudWatch Application Insights console: choose lower left button to add workload.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-multiapp-hana-edit.png)
 
    1. When you are finished editing workloads, choose **Save changes**.
 
@@ -226,17 +226,17 @@ Your SAP application that is backed by an SAP HANA database malfunctions because
 **Resolution**  
 You can identify the application layer that is causing the problem by checking the dynamically created dashboard, which shows the related metrics and log file snippets. In the following example, the problem may be because of a large data load in the SAP HANA system.
 
-![Memory allocation exceeded.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-memory-allocation-1.png)
+![Memory allocation exceeded.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-memory-allocation-1.png)
 
 
 The used memory allocation exceeds the threshold of 80 percent of the total memory allocation limit.
 
-![Log group showing out of memory.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-memory-allocation-2.png)
+![Log group showing out of memory.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-memory-allocation-2.png)
 
 
 The log group shows the scheme `BNR-DATA` and table `IMDBMASTER_30003` ran out of memory. In addition, the log group shows the exact time of the issue, current global location limit, shared memory, code size, and OOM reservation allocation size.
 
-![Log group text.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-memory-allocation-3.png)
+![Log group text.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-memory-allocation-3.png)
 
 
 ### Disk full event
@@ -248,12 +248,12 @@ Your SAP application that is backed by an SAP HANA database stops responding, wh
 **Resolution**  
 You can identify the database layer that is causing the problem by checking the dynamically created dashboard, which shows the related metrics and log file snippets. In the following example, the problem may be that the administrator failed to enable automatic log backup, which caused the sap/hana/log directory to fill up.
 
-![Log group showing out of memory.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-disk-full-1.png)
+![Log group showing out of memory.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-disk-full-1.png)
 
 
 The log group widget in the problem dashboard shows the `DISKFULL` event.
 
-![Log group showing out of memory.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-disk-full-2.png)
+![Log group showing out of memory.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-disk-full-2.png)
 
 
 ### SAP HANA backup stopped running
@@ -267,7 +267,7 @@ You can identify the database layer that is causing the problem by checking the 
 
 The log group widget in the problem dashboard shows the `ACCESS DENIED` event. This includes additional information, such as the S3 bucket, the S3 bucket folder, and the S3 bucket Region.
 
-![Log group showing out of memory.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-backup-stopped-2.png)
+![Log group showing out of memory.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-backup-stopped-2.png)
 
 
 ## Anomaly detection for SAP HANA
@@ -277,7 +277,7 @@ For specific SAP HANA metrics, such as the number of thread count, CloudWatch ap
 
 Anomaly detection algorithms account for the seasonality and trend changes of metrics. The seasonality changes can be hourly, daily, or weekly, as shown in the following examples of the SAP HANA CPU usage.
 
-![Log group showing out of memory.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-anomaly-detection.png)
+![Log group showing out of memory.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/appinsights-anomaly-detection.png)
 
 
 After you create a model, CloudWatch anomaly detection continuously evaluates the model and makes adjustments to it to make sure that is it as accurate as possible. This includes retraining the model to adjust if the metric values evolve over time or experience sudden changes. It also includes predictors to improve the models for metrics that are seasonal, spiky, or sparse.

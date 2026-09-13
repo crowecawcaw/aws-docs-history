@@ -19,12 +19,12 @@ You can use the code interpreter tool for the following:
 + Observe error rates and debugging information for failed executions
 + Track security sandbox isolation and compliance metrics
 
-![Code interpreter tool view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Code_interpreter.png)
+![Code interpreter tool view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Code_interpreter.png)
 
 + **Tools** – You can monitor fetch operations and API calls made through the browser tool. Choose a tool under **Name** to view the dashboard.
 
   Choose **View details** to view the resource details.  
-![Code interpreter tool details.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Built-in-tools-details.png)
+![Code interpreter tool details.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Built-in-tools-details.png)
   + **Started sessions** – Total number of code interpreter sessions initiated by agents. Each session represents a sandboxed environment where agents can execute code, analyze data, and generate outputs. Monitor this metric to track code interpreter usage and capacity planning
   + **Connections** – Number of active connections to code interpreter runtime environments. This includes both successful connections and connection attempts, helping track resource utilization and concurrent usage patterns
   + **Connection errors** – Count of failed connections to code interpreter environments due to system issues, resource constraints, or configuration problems. High connection error rates may indicate infrastructure issues requiring investigation
@@ -32,15 +32,15 @@ You can use the code interpreter tool for the following:
   + **CPU hours billed** – Total computational time consumed by code interpreter sessions, measured in CPU hours. This metric helps track resource costs and optimize code execution efficiency across agent workloads
   + **Memory hours billed** – Total memory consumption by code interpreter sessions over time, measured in memory hours. Use this metric for cost tracking and to identify memory-intensive code execution patterns that may need optimization
 + **Tool sessions** – View all the connected sessions where the tool was used.  
-![Tool sessions view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Tool-sessions.png)
+![Tool sessions view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Tool-sessions.png)
 
   Choose a **Session ID** under **Total sessions** to view the session dashboard.
 + **Traces** – View the sample traces for agents with observability enabled.  
-![Traces view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Traces-view.png)
+![Traces view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Traces-view.png)
 
   Choose a **Trace ID** under **Traces** to view the trace details.
 
-![Trace summary view.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Trace-summary.png)
+![Trace summary view.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/Trace-summary.png)
 
 
 ## Browser use tool

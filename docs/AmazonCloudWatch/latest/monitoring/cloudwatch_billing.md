@@ -34,7 +34,7 @@ The following procedure describes how to use Cost Explorer to visualize and anal
 
 The following image shows an example of the costs that CloudWatch features generated over six months. 
 
-![A screenshot of the AWS Cost Explorer interface, showing Usage Type costs in a bar graph format.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/ce.png)
+![A screenshot of the AWS Cost Explorer interface, showing Usage Type costs in a bar graph format.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/ce.png)
 
 
 To see which CloudWatch features generated the most costs, look at the values for `UsageType`. For example, `EU-CW:GMD-Metrics` represents the costs that CloudWatch bulk API requests generated. 
@@ -747,7 +747,7 @@ To analyze costs, use AWS Cost Explorer Service or AWS Cost and Usage Reports wi
 
 Select **CloudWatch** for the **Service** filter and select **Resource** for the **Dimension**. When you select **Resource** as the dimension in Cost Explorer Service you can see only the past 14 days of usage.
 
-![Cost Explorer interface with CloudWatch selected for Service and Resource selected for Dimension.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/celogs.png)
+![Cost Explorer interface with CloudWatch selected for Service and Resource selected for Dimension.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/celogs.png)
 
 
 **Using Amazon Athena query to track logs that generate costs**

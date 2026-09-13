@@ -42,7 +42,7 @@ This occurs because tag timestamps are stored with second-level resolution, whil
 
 The following example shows how this affects query results. A metric has two tag values: `env=beta` (from 00:00 to 01:30) and `env=gamma` (from 01:30 to 03:00). Each tag covers 90 minutes of data with a SUM of 270.
 
-![Two CloudWatch metric graphs comparing tag-based query results with 1-minute and 3-hour periods.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metrics-insights-tag-alignment.png)
+![Two CloudWatch metric graphs comparing tag-based query results with 1-minute and 3-hour periods.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/metrics-insights-tag-alignment.png)
 
 
 

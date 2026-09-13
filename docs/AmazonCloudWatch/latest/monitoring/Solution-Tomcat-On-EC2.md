@@ -43,7 +43,7 @@ Below are the key advantages of the solution:
 
 The following image is an example of the dashboard for this solution.
 
-![Example dashboard for Apache Tomcat solution.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/TomcatDashboard.png)
+![Example dashboard for Apache Tomcat solution.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/TomcatDashboard.png)
 
 
 ## Costs
