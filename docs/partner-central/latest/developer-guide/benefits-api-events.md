@@ -69,18 +69,18 @@ You can use the AWS SDKs to create and manage EventBridge rules programmatically
 The following example uses the AWS SDK for Python (Boto3):
 
 ```
+# Requires the AWS SDK for Python (Boto3)
 import boto3
 
 client = boto3.client('events', region_name='us-east-1')
 
 response = client.put_rule(
     Name='MyBenefitApplicationCreatedRule',
-    EventPattern=
-    '{
-        "source": ["aws.partnercentral-benefits"], 
-        "detail-type": ["Benefit Application Created"], 
+    EventPattern='''{
+        "source": ["aws.partnercentral-benefits"],
+        "detail-type": ["Benefit Application Created"],
         "detail": {"catalog": ["AWS"]}
-    }',
+    }''',
     State='ENABLED'
 )
 print('Rule ARN:', response['RuleArn'])
