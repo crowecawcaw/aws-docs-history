@@ -58,12 +58,12 @@ In this step, you will create a private repository in Amazon ECR and push the co
 1. Open Visual Studio Code
 
    On your local machine, **navigate** to the Visual Studio Code application, and open the **nginx-web-app** folder.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/navigation-interface.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/navigation-interface.png)
 
 1. Create an HTML file
 
    In the **Explorer** section, select the **\+New file** icon, and enter **index.html** for the file name.   
-![File explorer showing a new file named 'index.html' being created in the 'NGINX-WEB-APP' folder, with the new file icon highlighted.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/file-explorer-new-named-index-being.png)
+![File explorer showing a new file named 'index.html' being created in the 'NGINX-WEB-APP' folder, with the new file icon highlighted.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/file-explorer-new-named-index-being.png)
 
 1. Add HTML content
 
@@ -93,7 +93,7 @@ In this step, you will create a private repository in Amazon ECR and push the co
    </body>
    </html>
    ```  
-![A Visual Studio Code editor showing an open "index.html" file with basic HTML structure and inline CSS for a sample web app, including a welcome message for AWS App Runner.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/vscidelong-editor-open-index-file-basic.png)
+![A Visual Studio Code editor showing an open "index.html" file with basic HTML structure and inline CSS for a sample web app, including a welcome message for AWS App Runner.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/vscidelong-editor-open-index-file-basic.png)
 
 1. Create Dockerfile
 
@@ -104,7 +104,7 @@ In this step, you will create a private repository in Amazon ECR and push the co
    WORKDIR /usr/share/nginx/html
    COPY index.html index.html
    ```  
-![Visual Studio Code interface showing a Dockerfile with three lines of code: specifying the Nginx image, setting the working directory, and copying an index.html file.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/vscidelong-interface-dockerfile-three.png)
+![Visual Studio Code interface showing a Dockerfile with three lines of code: specifying the Nginx image, setting the working directory, and copying an index.html file.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/vscidelong-interface-dockerfile-three.png)
 
 1. Build a container
 
@@ -113,7 +113,7 @@ In this step, you will create a private repository in Amazon ECR and push the co
    ```
    docker build -t nginx-web-app .
    ```  
-![Terminal output showing the process of building a Docker image named "nginx-web-app" with detailed steps and layer information.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/terminal-output-process-building-docker.png)
+![Terminal output showing the process of building a Docker image named "nginx-web-app" with detailed steps and layer information.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/terminal-output-process-building-docker.png)
 
 ### Step 2: Create an AWS App Runner Service
 <a name="create-an-aws-app-runner-service"></a>
@@ -125,22 +125,22 @@ In this module, you will create an AWS App Runner service using the container im
    **Sign in** to the AWS Management console in a new browser window, and **open** the Amazon Elastic Container Registry at [https://console.aws.amazon.com/ecr/home](https://console.aws.amazon.com/ecr/home). 
 
    For **Create a repository**, choose **Create**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/resource-creation-interface.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/resource-creation-interface.png)
 
 1. Configure repository settings
 
    On the **Create repository** page, for **Repository name** enter **nginx-web-app**, leave the default selections, and select **Create repository**.   
-![AWS console interface for creating a repository, showing settings for visibility, repository name, tag immutability, image scan, and encryption, with "Create repository" button highlighted in orange.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/console-interface-creating-repository.png)
+![AWS console interface for creating a repository, showing settings for visibility, repository name, tag immutability, image scan, and encryption, with "Create repository" button highlighted in orange.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/console-interface-creating-repository.png)
 
 1. View push commands
 
    Once the repository has been created, select the **radio button** for the repository, and then select **View push commands**.   
-![Amazon ECR interface showing a successfully created private repository named 'nginx-web-app' with options like 'View push commands,' 'Delete,' and 'Actions.'.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/ecr-interface-successfully-created-private.png)
+![Amazon ECR interface showing a successfully created private repository named 'nginx-web-app' with options like 'View push commands,' 'Delete,' and 'Actions.'.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/ecr-interface-successfully-created-private.png)
 
 1. Push your image
 
    **Follow** all the steps in the pop-up window, to **authenticate** and **push** the image to the repository.   
-![Amazon ECR instructions for pushing a Docker image, showing steps for authentication, building, tagging, and pushing the image using AWS CLI and Docker commands.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/ecr-instructions-pushing-docker-image.png)
+![Amazon ECR instructions for pushing a Docker image, showing steps for authentication, building, tagging, and pushing the image using AWS CLI and Docker commands.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/ecr-instructions-pushing-docker-image.png)
 
 ### Step 3: Create a container image
 <a name="clean-up-resources"></a>
@@ -150,47 +150,47 @@ In this step, you will create a container image of a sample web app.
 1. Create an App Runner service
 
    In the Source and deployment section, leave the default selections for Repository type and Provider. For Container image URI, select Browse.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/resource-creation-interface-1.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/resource-creation-interface-1.png)
 
 1. Configure the source
 
    In the **Source and deployment** section, leave the default selections for **Repository type** and **Provider**. For **Container image URI**, select **Browse**.   
-![App Runner source and deployment settings with options for repository type, provider, and container image URI, highlighting the 'Browse' button.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/source-deployment-settings-options.png)
+![App Runner source and deployment settings with options for repository type, provider, and container image URI, highlighting the 'Browse' button.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/source-deployment-settings-options.png)
 
 1. Select the container image
 
    In the pop-up window, for **Image repository**, select **nginx-web-app**, and choose **Continue**.   
-![Amazon ECR container image selection screen showing 'nginx-web-app' as the image repository and 'latest' as the image tag, with 'Continue' and 'Cancel' buttons.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/ecr-container-image-selection-screen-nginx.png)
+![Amazon ECR container image selection screen showing 'nginx-web-app' as the image repository and 'latest' as the image tag, with 'Continue' and 'Cancel' buttons.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/ecr-container-image-selection-screen-nginx.png)
 
 1. Set up ECR access
 
    In the **Deployment settings** section, for **ECR access role**, select **Create new service role**, and choose **Next**.   
-![Deployment settings screen with 'Manual' deployment trigger and 'Create new service role' selected, showing a service role name field pre-filled with 'AppRunnerECRAccessRole' and a highlighted 'Next' button.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/deployment-settings-screen-trigger-new.png)
+![Deployment settings screen with 'Manual' deployment trigger and 'Create new service role' selected, showing a service role name field pre-filled with 'AppRunnerECRAccessRole' and a highlighted 'Next' button.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/deployment-settings-screen-trigger-new.png)
 
 1. Configure service settings
 
    On the **Configure service** page, for **Service name** enter **nginx-web-app-service**, and change the **Port** to **80**. Leave the rest as default, and select **Next**.   
-![Configuration screen for an AWS service with settings for service name, virtual CPU, memory, and port, showing 'nginx-web-app-service' as the service name and port 80 selected.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/configuration-screen-service-settings-name.png)
+![Configuration screen for an AWS service with settings for service name, virtual CPU, memory, and port, showing 'nginx-web-app-service' as the service name and port 80 selected.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/configuration-screen-service-settings-name.png)
 
 1. Review and deploy
 
    On the **Review and create** page, review all inputs, and choose **Create & deploy**.   
-![AWS App Runner interface showing "Review and create" steps for deploying a service, with configuration details and a highlighted "Create & deploy" button.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/arlong-interface-steps-deploying-service.png)
+![AWS App Runner interface showing "Review and create" steps for deploying a service, with configuration details and a highlighted "Create & deploy" button.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/arlong-interface-steps-deploying-service.png)
 
 1. Monitor deployment
 
    It will take several minutes for the service to be deployed. You can **view** the event logs for progress.   
-![AWS App Runner interface showing the deployment status "Operation in progress" for an nginx-web-app-service, with event logs detailing deployment steps.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/arlong-interface-deployment-status.png)
+![AWS App Runner interface showing the deployment status "Operation in progress" for an nginx-web-app-service, with event logs detailing deployment steps.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/arlong-interface-deployment-status.png)
 
 1. Access the application
 
    Once the status updates to **Running**, choose the default domain name URL to view the web app.   
-![Service overview for 'nginx-web-app-service' showing status as 'Running' with a default domain URL highlighted.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/service-overview-nginx-status-running.png)
+![Service overview for 'nginx-web-app-service' showing status as 'Running' with a default domain URL highlighted.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/service-overview-nginx-status-running.png)
 
 1. Verify the deployment
 
    The Welcome page and confirmation message should look like the image on the right.   
-![Browser window displaying a welcome page for AWS App Runner with a message confirming successful nginx web server installation.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/browser-window-displaying-welcome-page.png)
+![Browser window displaying a welcome page for AWS App Runner with a message confirming successful nginx web server installation.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/browser-window-displaying-welcome-page.png)
 
 ### Clean up resources
 <a name="create-a-container-image"></a>
@@ -200,17 +200,17 @@ In this step, you will go through the steps to delete all the resources you crea
 1. Delete the App Runner service
 
    In the AWS App Runner console, navigate to the **nginx-web-app-service**, choose **Actions**, and select **Delete**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/resource-creation-interface-2.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/resource-creation-interface-2.png)
 
 1. Confirm the deletion
 
    Follow the prompts in the pop-up window to **confirm** deletion of the service.   
-![Confirmation dialog for deleting "nginx-web-app-service," requiring the user to type "delete" in a field and click the orange "Delete" button.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/confirmation-dialog-deleting-nginx-service.png)
+![Confirmation dialog for deleting "nginx-web-app-service," requiring the user to type "delete" in a field and click the orange "Delete" button.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/confirmation-dialog-deleting-nginx-service.png)
 
 1. Delete the ECR repository
 
    In the Amazon ECR console, select the radio button next to the **nginx-web-app repository**, and choose **Delete**.   
-![A private repositories interface showing a repository named "nginx-web-app" with details like URI, creation date, tag immutability, scan frequency, and encryption type. The "Delete" button is highlighted in red.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/private-repositories-interface-repository.png)
+![A private repositories interface showing a repository named "nginx-web-app" with details like URI, creation date, tag immutability, scan frequency, and encryption type. The "Delete" button is highlighted in red.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-apprunner/images/private-repositories-interface-repository.png)
 
 ## Congratulations
 <a name="congratulations"></a>
