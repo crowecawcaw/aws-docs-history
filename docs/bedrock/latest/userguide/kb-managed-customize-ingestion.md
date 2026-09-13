@@ -8,13 +8,15 @@ You can customize vector ingestion when connecting a data source in the AWS Mana
 Select a topic to learn how to include configurations for customizing ingestion when connecting to a data source:
 
 **Topics**
-+ [Use smart parsing](#kb-managed-customize-parsing)
++ [Choose a parsing strategy](#kb-managed-customize-parsing)
 + [Choose a chunking strategy](#kb-managed-customize-chunking)
 
-## Use smart parsing
+## Choose a parsing strategy
 <a name="kb-managed-customize-parsing"></a>
 
-Managed knowledge bases use smart parsing by default. Smart parsing is a service-managed parsing strategy that automatically selects the best parsing approach for your content. You do not need to configure a parsing model or provide additional settings.
+Managed knowledge bases support two parsing strategies:
++ **`SMART_PARSING`** (default) – A service-managed parsing strategy that automatically selects the best parsing approach for your content. You do not need to configure a parsing model or provide additional settings.
++ **`MULTI_MODAL_EMBEDDINGS`** – Sends your files directly to a native multimodal embedding model instead of parsing them into text. Use this strategy only when your knowledge base uses a native multimodal embedding model, in which case it is the only strategy that is supported. For more information, see [Native multimodal processing](kb-managed-native-multimodal.md).
 
 To use smart parsing, you can either omit the `parsingConfiguration` field from the `vectorIngestionConfiguration`, or explicitly specify it as follows:
 
@@ -27,12 +29,15 @@ To use smart parsing, you can either omit the `parsingConfiguration` field from 
 ```
 
 **Note**  
-Managed knowledge bases only support the `SMART_PARSING` strategy. Other parsing strategies such as `BEDROCK_FOUNDATION_MODEL` and `BEDROCK_DATA_AUTOMATION` are not supported.
+Other parsing strategies, such as `BEDROCK_FOUNDATION_MODEL` and `BEDROCK_DATA_AUTOMATION`, are not supported for managed knowledge bases.
 
 ## Choose a chunking strategy
 <a name="kb-managed-customize-chunking"></a>
 
 You can customize how the documents in your data are chunked for storage and retrieval. To learn about options for chunking data in Amazon Bedrock Knowledge Bases, see [How content chunking works for knowledge bases](kb-chunking.md).
+
+**Note**  
+Chunking strategies apply to text. If your knowledge base uses a native multimodal embedding model, files are sent directly to the embedding model instead of being parsed into text, so these chunking strategies don't apply. You control how audio and video files are divided into segments instead. For more information, see [Native multimodal processing](kb-managed-native-multimodal.md).
 
 **Warning**  
 You can't change the chunking strategy after connecting to the data source.
@@ -52,7 +57,7 @@ If you omit this configuration or specify the default chunking strategy, the ser
 Expand the section that corresponds to the chunking strategy that you want to use:
 
 ### No chunking
-<a name="w2aac32c12c25c13c19c11c15b1"></a>
+<a name="w2aac32c12c25c13c19c11c17b1"></a>
 
 To treat each document in your data source as a single source chunk, specify `NONE` in the `chunkingStrategy` field of the `ChunkingConfiguration`, as in the following format:
 
@@ -63,7 +68,7 @@ To treat each document in your data source as a single source chunk, specify `NO
 ```
 
 ### Fixed-size chunking
-<a name="w2aac32c12c25c13c19c11c15b3"></a>
+<a name="w2aac32c12c25c13c19c11c17b3"></a>
 
 To divide each document in your data source into chunks of approximately the same size, specify `FIXED_SIZE` in the `chunkingStrategy` field of the `ChunkingConfiguration` and include a [FixedSizeChunkingConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_FixedSizeChunkingConfiguration.html) in the `fixedSizeChunkingConfiguration` field, as in the following format:
 

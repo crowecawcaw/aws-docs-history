@@ -25,7 +25,7 @@ To learn how to enable user input in Amazon Bedrock, choose the tab for your pre
 1. Go to **Additional settings** and expand the section.
 
 1. For **User input**, select **Enabled**.  
-![Agent user input configuration for requesting additional information.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-user-input.png)
+![Agent user input configuration for requesting additional information.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-user-input.png)
 
 1. Make sure to first **Save** and then **Prepare** to apply the changes you have made to the agent before testing it.
 

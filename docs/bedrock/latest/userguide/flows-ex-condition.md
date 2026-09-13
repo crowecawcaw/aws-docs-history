@@ -5,7 +5,7 @@
 
 The following image shows a flow with one condition node returns one of three possible values based on the condition that is fulfilled:
 
-![Example of using a condition node with two conditions.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/flows/flows-condition.png)
+![Example of using a condition node with two conditions.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/flows/flows-condition.png)
 
 
 **To build and test this flow in the console:**

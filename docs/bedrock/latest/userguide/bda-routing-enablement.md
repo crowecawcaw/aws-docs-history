@@ -13,7 +13,7 @@ When you create a project, you might have a use case in mind that doesn't includ
 **Disabling modalities with the BDA Console**  
 When using the BDA console, modality enablement is handled by a checklist, where you can simply select or deselect each modality while editing or creating your Project. These options are located under the Advanced settings tab. At least one Modality must be selected for a project.
 
-![Modality enablement section with checkboxes for Document, Image, Video, and Audio modalities.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/modalityenableconsole.png)
+![Modality enablement section with checkboxes for Document, Image, Video, and Audio modalities.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/modalityenableconsole.png)
 
 
 **Disabling modalities with the BDA API**  
@@ -61,7 +61,7 @@ While in the Advanced settings tab when creating or editing a blueprint, you can
 **Note**  
 Settings for JPEG files apply to both ".jpeg" and ".jpg" files. Settings for MP4 settings apply to both ".mp4" ".m4v" files.
 
-![Console drop-down menus for file type and modality destination, selected as PNG and Document.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/manualrouting.png)
+![Console drop-down menus for file type and modality destination, selected as PNG and Document.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/manualrouting.png)
 
 
 **Routing with the BDA API**  

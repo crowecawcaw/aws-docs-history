@@ -45,12 +45,12 @@ Within one project, you can apply:
 
 The following section goes over an example of a blueprint prompt for an audio blueprint. For this use case, we want to create a blueprint to extract information from a conversation between a customer and a customer service representative. The screenshot below shows the prompt window on the console.
 
-![Amazon Bedrock Data Automation audio blueprint prompt configuration.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/audio-bpa-prompt.png)
+![Amazon Bedrock Data Automation audio blueprint prompt configuration.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/audio-bpa-prompt.png)
 
 
 At the bottom of the screenshot you can see the AI generated prompt based on the input in the box. We can see how the fields we mention get processed. Next, we can look at the blueprint created from the prompt.
 
-![Blueprint interface showing four fields including customer issue, customer name, resolution status, and vehicle information with nested make, model, and year fields.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/audio-bpa-example.png)
+![Blueprint interface showing four fields including customer issue, customer name, resolution status, and vehicle information with nested make, model, and year fields.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/audio-bpa-example.png)
 
 
 Here we can look at the information we'll expect to process from the conversation. If you're satisfied with the fields, you can begin processing an audio file immediately. If you want to edit your blueprint, you'll need to create a duplicate as opposed to editing directly. You can also adjust your prompt for other outcomes.
@@ -115,7 +115,7 @@ The following image shows "Add fields" module in the Amazon Bedrock console with
 + Instruction: What is the primary product or service being advertised, e.g., Clothing, Electronics, Food & Beverage, etc.? 
 + Extractions type: Inferred.
 
-![Amazon Bedrock UI showing drop down menus and text field to specify image fields.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bda-console-add-fields-new.png)
+![Amazon Bedrock UI showing drop down menus and text field to specify image fields.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bda-console-add-fields-new.png)
 
 
 Here is an example of what that same field definition looks like in a JSON schema, for the API:

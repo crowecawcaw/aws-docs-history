@@ -25,7 +25,7 @@ The following table summarizes the key differences between Bedrock Managed and C
 | Managed Reranking | Comes with built-in managed semantic reranker optimized for accuracy and performance at no extra cost | None | 
 | Customized Reranking | Choose your reranker models from Bedrock | Choose your reranker models from Bedrock | 
 | Connectors | 7 native connectors (S3, SharePoint, Confluence, Web Crawler, Google Drive, OneDrive, Custom) | S3 and Custom | 
-| Data parsing | Built-in parser for multi-modal file types | Choose among Default for text, Foundation Model, and Bedrock Data Automation | 
+| Data parsing | Built-in parser for multimodal file types | Choose among Default for text, Foundation Model, and Bedrock Data Automation | 
 | Chunking | Choose among built-in (default) or fixed-size | Choose among built-in (default) or fixed-size | 
 | AgentCore Gateway integration | Supported | Not supported | 
 | Infrastructure management | None required | You provision and maintain your vector DB, with direct access to it | 
@@ -43,5 +43,6 @@ The following table summarizes the key differences between Bedrock Managed and C
 + [Resource policies for managed knowledge bases](kb-managed-cross-account.md)
 + [Amazon Quick integration with managed knowledge bases](kb-managed-byo-fmkb.md)
 + [Connect to your knowledge base through AgentCore Gateway](kb-gateway-target.md)
++ [Native multimodal processing](kb-managed-native-multimodal.md)
 + [Supported AWS Regions](kb-managed-regions.md)
 + [Service quotas for managed knowledge bases](kb-managed-quotas.md)

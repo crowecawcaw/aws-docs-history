@@ -46,4 +46,4 @@ aws bedrock-data-automation get-data-automation-library-entity \
 
 1. Choose the desired entity from the list
 
-![Translation management interface showing two phrases, ibuprofen and paracetamol, with language set to English.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-get-entity-details-console.png)
+![Translation management interface showing two phrases, ibuprofen and paracetamol, with language set to English.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-get-entity-details-console.png)

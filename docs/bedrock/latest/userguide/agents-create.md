@@ -63,7 +63,7 @@ To learn how to create an agent, choose the tab for your preferred method, and t
       By default, models optimized for agents are shown. To see all models supported by Amazon Bedrock Agents, clear **Bedrock Agents optimized**.
 **Tip**  
 To use cross-Region inference with your agent, specify an inference profile ID in the `foundationModel` field when using the API. For more information, see [Route model inference requests across AWS Regions with cross-Region inference](cross-region-inference.md).  
-![Foundation models available for agents, with optimization status for the agent framework.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-optimized-model-selection.png)
+![Foundation models available for agents, with optimization status for the agent framework.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-optimized-model-selection.png)
 
    1. In **Instructions for the Agent**, enter details to tell the agent what it should do and how it should interact with users. The instructions replace the $instructions$ placeholder in the [orchestration prompt template](prompt-placeholders.md#placeholders-orchestration). Following is an example of instructions:
 

@@ -26,7 +26,7 @@ Human evaluators indicate their preference between the two responses from the mo
 
 Make sure you define the important points of the 5 point scale in your instructions, so your evaluators know how to rate responses based on your expectations.
 
-![This is my image.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/likert-compare.png)
+![This is my image.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/likert-compare.png)
 
 
 **JSON output**  
@@ -37,7 +37,7 @@ The first child-key under `evaluationResults` is where the selected rating metho
 
 Choice buttons allow a human evaluator to indicate their one preferred response over another response. Evaluators indicate their preference between two responses according to your instructions with radio buttons. The results in the final report will be shown as a percentage of responses that workers preferred for each model. Be sure to explain your evaluation method clearly in the instructions.
 
-![This is my image.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/radiobuttons.png)
+![This is my image.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/radiobuttons.png)
 
 
 **JSON output**  
@@ -48,7 +48,7 @@ The first child-key under `evaluationResults` is where the selected rating metho
 
 Ordinal rank allows a human evaluator to rank their preferred responses to a prompt in order starting at 1 according to your instructions. The results in the final report will be shown as a histogram of the rankings from the evaluators over the whole dataset. Be sure to define what a rank of 1 means in your instructions. This data type is called Preference Rank.
 
-![This is my image.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/ordinal-rank.png)
+![This is my image.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/ordinal-rank.png)
 
 
 **JSON output**  
@@ -59,7 +59,7 @@ The first child-key under `evaluationResults` is where the selected rating metho
 
 Thumbs up/down allows a human evaluator to rate each response from a model as acceptable/unacceptable according to your instructions. The results in the final report will be shown as a percentage of the total number of ratings by evaluators that received a thumbs up rating for each model. You may use this rating method for a model evaluation job that contains one or more models. If you use this in an evaluation that contains two models, a thumbs up/down will be presented to your work team for each model response and the final report will show the aggregated results for each model individually. Be sure to define what is acceptable (that is, what is a thumbs up rating) in your instructions.
 
-![This is my image.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/thumb-up.png)
+![This is my image.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/thumb-up.png)
 
 
 **JSON output**  
@@ -70,7 +70,7 @@ The first child-key under `evaluationResults` is where the selected rating metho
 
 Allows a human evaluator to indicate how strongly they approved of the model's response based on your instructions on a 5 point Likert scale. The results in the final report will be shown as a histogram of the 5 point ratings from the evaluators over your whole dataset. You may use this for an evaluation containing one or more models. If you select this rating method in an evaluation that contains more than one model, a 5 point Likert scale will be presented to your work team for each model response and the final report will show the aggregated results for each model individually. Be sure to define the important points on the 5 point scale in your instructions so your evaluators know how to rate the responses according to your expectations.
 
-![This is my image.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/model-eval-likert2-final.png)
+![This is my image.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/model-evaluation/model-eval-likert2-final.png)
 
 
 **JSON output**  

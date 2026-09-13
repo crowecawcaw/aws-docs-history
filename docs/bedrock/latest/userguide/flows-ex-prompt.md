@@ -5,7 +5,7 @@
 
 The following image shows a flow consisting of a single prompt, defined inline in the node. The prompt generates a playlist of songs from a JSON object input that includes the genre and the number of songs to include in the playlist. 
 
-![Example of using a prompt node with two variables.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/flows/flows-prompt.png)
+![Example of using a prompt node with two variables.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/flows/flows-prompt.png)
 
 
 **To build and test this flow in the console**

@@ -54,7 +54,7 @@ To allow the Amazon Bedrock service principal to access the Lambda function, [at
 
      1. To edit a field in a parameter, select the field and edit it as necessary.
 
-     1. To delete a parameter, choose the delete icon (![Trash can icon representing a delete action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)) in the row containing the parameter.
+     1. To delete a parameter, choose the delete icon (![Trash can icon representing a delete action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)) in the row containing the parameter.
 
      If you prefer to define the function by using a JSON object, choose **JSON editor** instead of **Table**. The JSON object format is as follows (each key in the `parameters` object is a parameter name that you provide):
 

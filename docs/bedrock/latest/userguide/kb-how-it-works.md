@@ -13,7 +13,7 @@ The following diagrams illustrate schematically how RAG is carried out. Knowledg
 
 To enable effective retrieval from unstructured private data (data that doesn't exist in a structured data store), a common practice is to convert the data into text and split it into manageable pieces. The pieces or chunks are then converted to embeddings and written to a vector index, while maintaining a mapping to the original document. These embeddings are used to determine semantic similarity between queries and text from the data sources. The following image illustrates pre-processing of data for the vector database.
 
-![Pre-processing data for retrieval-augmented generation.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/rag-preprocess.png)
+![Pre-processing data for retrieval-augmented generation.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/rag-preprocess.png)
 
 
 Vector embeddings are a series of numbers that represent each chunk of text. A model converts each text chunk into series of numbers, known as vectors, so that the texts can be mathematically compared. These vectors can either be floating-point numbers (float32) or binary numbers. Most embeddings models supported by Amazon Bedrock use floating-point vectors by default. However, some models support binary vectors. If you choose a binary embedding model, you must also choose a model and vector store that supports binary vectors.
@@ -34,7 +34,7 @@ The following example shows a piece of text in three representations:
 
 At runtime, an embedding model is used to convert the user's query to a vector. The vector index is then queried to find chunks that are semantically similar to the user's query by comparing document vectors to the user query vector. In the final step, the user prompt is augmented with the additional context from the chunks that are retrieved from the vector index. The prompt alongside the additional context is then sent to the model to generate a response for the user. The following image illustrates how RAG operates at runtime to augment responses to user queries.
 
-![Retrieval-augmented generation at runtime.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/rag-runtime.png)
+![Retrieval-augmented generation at runtime.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/rag-runtime.png)
 
 
 To learn more about how to turn your data into a knowledge base, how to query your knowledge base after you've set it up, and customizations that you can apply to the data source during ingestion, see the following topics:

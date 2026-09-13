@@ -9,8 +9,8 @@ This topic describes how to ingest documents directly into a knowledge base. Res
 
 | Data source type | Document defined in-line | Document in Amazon S3 location | 
 | --- | --- | --- | 
-| Amazon S3 | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png)No | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
-| Custom | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
+| Amazon S3 | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png)No | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
+| Custom | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
 
 Expand the section that corresponds your use case:
 

@@ -29,4 +29,4 @@ Another example is with address blocks that could appear as a single field
 
 You can define these fields as completely individual fields, or create a Custom Type. Custom Types are re that you can reuse for different fields. In the example below, we create a custom type “NameInfo” that we use for “EmployeeName” and “ManagerName”.
 
-![Console showing how to add custom type details. It also shows the sub-properties added to the custom type.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdacustomtype.png)
+![Console showing how to add custom type details. It also shows the sub-properties added to the custom type.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdacustomtype.png)

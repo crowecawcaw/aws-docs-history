@@ -69,7 +69,6 @@ DeepSeek
 Mistral AI
 Meta
 Qwen
-OpenAI
 You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model after access has already been granted](#model-access-prevent-usage).
 
 Select a section to see IAM policy examples for a specific use case:

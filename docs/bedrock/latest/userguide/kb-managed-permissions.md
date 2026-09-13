@@ -10,10 +10,12 @@ A policy cannot be shared between multiple roles when the service role is used.
 + Trust relationship
 + Access to the Amazon Bedrock base models
 + Access to the data source for where you store your data
++ (If you configure a multimodal storage destination) Access to your multimodal storage bucket
 
 **Topics**
 + [Trust relationship](#kb-managed-permissions-trust)
 + [Permissions to access Amazon Bedrock models](#kb-managed-permissions-access-models)
++ [Permissions for your multimodal storage destination](#kb-managed-permissions-multimodal-storage)
 + [Permissions to access your data sources](#kb-managed-permissions-access-ds)
 
 ## Trust relationship
@@ -92,6 +94,79 @@ Attach the following policy to provide permissions for the role to use Amazon Be
 ```
 
 ------
+
+If you use the TwelveLabs Marengo Embed 3.0 embedding model, the knowledge base invokes the model both synchronously and asynchronously, so the role needs permissions for both. Attach the following statements, replacing {{${Region}}} and {{${AccountId}}} with the AWS Region and account ID for your knowledge base, and {{${InferenceProfileId}}} with the ID of the inference profile that you use. The `foundation-model` ARN uses `*` for the Region instead of a specific Region. This is required because a cross-region inference profile can route the model invocation to the underlying foundation model in any of its member AWS Regions.
+
+```
+{
+    "Version": "2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "BedrockInvokeModelStatement",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:*::foundation-model/twelvelabs.marengo-embed-3-0-v1:0",
+                "arn:aws:bedrock:{{${Region}}}:{{${AccountId}}}:inference-profile/{{${InferenceProfileId}}}",
+                "arn:aws:bedrock:{{${Region}}}:{{${AccountId}}}:async-invoke/*"
+            ]
+        },
+        {
+            "Sid": "BedrockGetAsyncInvokeStatement",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:GetAsyncInvoke"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{${Region}}}:{{${AccountId}}}:async-invoke/*"
+            ]
+        }
+    ]
+}
+```
+
+**Note**  
+The preceding policy includes an [inference profile](inference-profiles-support.md) ARN because in some AWS Regions you must specify an inference profile for the TwelveLabs Marengo Embed 3.0 model when you create the knowledge base. In those Regions, the knowledge base uses both the inference profile and the on-demand model, so the role needs access to both. If you don't use an inference profile, you can omit the inference profile ARN from the `Resource` list.  
+To determine whether the Region that you use requires an inference profile, see [Native multimodal processing](kb-managed-native-multimodal.md).
+
+## Permissions for your multimodal storage destination
+<a name="kb-managed-permissions-multimodal-storage"></a>
+
+The multimodal storage destination is the Amazon S3 bucket that is used for processing and ingesting multimodal content into your knowledge base. Amazon Bedrock Knowledge Bases creates an `aws/` prefix folder within your bucket for easy access.
+
+Attach the following policy to provide permissions for the role to read, write, and delete this content. Replace {{amzn-s3-demo-bucket}} with the name of your multimodal storage bucket.
+
+```
+{
+    "Version": "2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "S3MultimodalStorageListStatement",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::{{amzn-s3-demo-bucket}}"
+            ]
+        },
+        {
+            "Sid": "S3MultimodalStorageObjectStatement",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*"
+            ]
+        }
+    ]
+}
+```
 
 ## Permissions to access your data sources
 <a name="kb-managed-permissions-access-ds"></a>

@@ -12,7 +12,6 @@ DeepSeek
 Mistral AI
 Meta
 Qwen
-OpenAI
 You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model after access has already been granted](model-access.md#model-access-prevent-usage).
 
 Please refer to [models at a glance](model-cards.md) to see product IDs for individual models. The following table shows product IDs for models not available on that page:

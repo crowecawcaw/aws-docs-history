@@ -217,6 +217,62 @@ For SAML authentication, provide the SAML identity provider's login page URL and
 **Note**  
 To find an XPath in your browser, open the context (right-click) menu for the form element on the login page and choose **Inspect**. In the developer tools, open the context (right-click) menu for the highlighted HTML, then choose **Copy**, and then choose **Copy XPath**.
 
+## Crawling behavior and sync configuration
+<a name="kb-managed-webcrawler-crawling-behavior"></a>
+
+The Web Crawler follows these crawling practices:
++ **Incremental sync model**: The first sync performs a full crawl. Subsequent syncs capture only added, updated, and deleted content.
++ **Automatic retry**: The crawler includes built-in retry logic for failed requests.
++ **Duplicate handling**: The crawler automatically detects and deduplicates URLs.
++ **Crawler identification**: The Web Crawler identifies itself with the user-agent string `amazon-bedrock-knowledgebase-on-behalf-of-<hash>` in request headers. You can target this user-agent in your `robots.txt` file to allow or disallow the crawler specifically. For more information, see [Robots.txt compliance](#kb-managed-webcrawler-robots-txt).
+
+## Robots.txt compliance
+<a name="kb-managed-webcrawler-robots-txt"></a>
+
+The Web Crawler respects the robots.txt protocol and honors user-agent and allow or disallow directives. Use these directives to control how the crawler accesses your site.
+
+### How robots.txt checking works
+<a name="kb-managed-webcrawler-robots-txt-how"></a>
++ **Host-level checking**: The Web Crawler reads robots.txt files at the host level (for example, `example.com/robots.txt`).
++ **Multiple host support**: For domains with multiple hosts, the Web Crawler honors robots rules for each host separately.
++ **Fallback behavior**: If the Web Crawler can't fetch robots.txt because of blocking, parsing errors, or timeouts, it behaves as if robots.txt doesn't exist. In this case, the Web Crawler crawls the site.
+
+### Supported robots.txt fields
+<a name="kb-managed-webcrawler-robots-txt-fields"></a>
+
+The Web Crawler recognizes the following robots.txt fields. Field names are case-insensitive; values are case-sensitive.
+
+`user-agent`  
+Identifies which crawler the rules apply to.
+
+`allow`  
+A URL path that the Web Crawler can crawl.
+
+`disallow`  
+A URL path that the Web Crawler can't crawl.
+
+`crawl-delay`  
+The time, in seconds, to wait between requests to your website.
+
+## Meta tag support
+<a name="kb-managed-webcrawler-meta-tags"></a>
+
+The Web Crawler supports page-level robots meta tags that you can use to control how your data is used. You can specify page-level settings by including a meta tag on HTML pages or in an HTTP header.
+
+### Supported meta tags
+<a name="kb-managed-webcrawler-meta-tags-supported"></a>
+
+`noindex`  
+Do not index the page. If you don't specify this rule, the page might be indexed and eligible to be retrieved from your knowledge base.
+
+`nofollow`  
+Do not follow the links on this page. If you don't specify this rule, the Web Crawler might use the links on the page to discover linked pages.
+
+You can combine multiple values by using a comma (for example, `noindex, nofollow`).
+
+**Note**  
+To detect meta tags, the Web Crawler must access your page. Don't block the page in `robots.txt`, because that prevents the crawler from recrawling the page to read its meta tags.
+
 ## Troubleshooting
 <a name="kb-managed-ds-webcrawler-troubleshooting"></a>
 

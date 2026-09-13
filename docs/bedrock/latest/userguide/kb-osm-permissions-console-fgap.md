@@ -44,13 +44,13 @@ After you have enabled fine-grained access control and configured Amazon Bedrock
    + `indices:data/write/bulk*`
    + `indices:admin/mapping/put`
    + `indices:data/read/mget*`  
-![Action groups to create in OpenSearch Dashboards for cluster and index permissions.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/kb-test-os-action-groups.png)
+![Action groups to create in OpenSearch Dashboards for cluster and index permissions.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/kb-test-os-action-groups.png)
 
 1. Choose **Create** to create the OpenSearch role.
 
 The following shows a sample OpenSearch role with the permissions added.
 
-![A sample OpenSearch role in OpenSearch Dashboards with the permissions added.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/kb-test-os-dashboards-permissions.png)
+![A sample OpenSearch role in OpenSearch Dashboards with the permissions added.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/kb-test-os-dashboards-permissions.png)
 
 
 **To create a role mapping to your Knowledge Base service role**

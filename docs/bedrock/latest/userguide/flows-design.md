@@ -47,7 +47,7 @@ During the process of building your flow, you might need to delete a node or rem
 
 1. Select a node you want to delete.
 
-1. In the **Flow builder** pane, choose the delete icon (![Trash can icon representing a delete action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)).
+1. In the **Flow builder** pane, choose the delete icon (![Trash can icon representing a delete action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)).
 **Note**  
 If you use a service role that Amazon Bedrock automatically created for you, the role will update with the proper permissions as you add nodes. If you delete nodes, however, the relevant permissions won't be deleted. We recommend that you delete the permissions that you no longer need by following the steps at [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html).
 

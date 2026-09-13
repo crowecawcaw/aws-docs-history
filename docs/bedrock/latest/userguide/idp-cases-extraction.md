@@ -25,7 +25,7 @@ Here's an example of a field definition with all the parameters:
 ------
 #### [ Console ]
 
-![Console showing field configuration with Type set to String and Extraction type set to Explicit.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdaadd.png)
+![Console showing field configuration with Type set to String and Extraction type set to Explicit.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdaadd.png)
 
 
 ------
@@ -67,7 +67,7 @@ In this example, "OtherExpenses" is defined as an array of strings, allowing BDA
 ------
 #### [ Console ]
 
-![Console showing field configuration with Type set to Array of String and Extraction type set to Explicit.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdaarray.png)
+![Console showing field configuration with Type set to Array of String and Extraction type set to Explicit.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdaarray.png)
 
 
 ------
@@ -94,7 +94,7 @@ In this example, "SERVICES\_TABLE" is defined as a Table type, with column field
 ------
 #### [ Console ]
 
-![Console showing field configuration with Type set to Table, Extraction type set to Explicit, and column-specific fields.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdatable.png)
+![Console showing field configuration with Type set to Table, Extraction type set to Explicit, and column-specific fields.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdatable.png)
 
 
 ------

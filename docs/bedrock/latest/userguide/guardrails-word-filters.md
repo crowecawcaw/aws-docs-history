@@ -54,13 +54,13 @@ You can configure word policies for your guardrail by using the AWS Management C
    1. Edit the words and phrases for the guardrail to block in the **View and edit words and phrases** section. You have the following options:
       + If you uploaded a word list from a local file or Amazon S3 object, this section will populate with your word list. To filter for items with errors, select **Show errors**.
       + To add an item to the word list, select **Add word or phrase**. Enter a word or a phrase of up to three words in the box and press **Enter** or select the checkmark icon to confirm the item.
-      + To edit an item, select the edit icon (![Edit icon represented by a pencil symbol.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/edit.png)) next to the item.
-      + To delete an item from the word list, select the trash can icon (![Trash can icon representing a delete action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)) or, if you're editing an item, select the delete icon (![Close or cancel icon represented by an "X" symbol.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/close.png)) next to the item.
+      + To edit an item, select the edit icon (![Edit icon represented by a pencil symbol.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/edit.png)) next to the item.
+      + To delete an item from the word list, select the trash can icon (![Trash can icon representing a delete action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)) or, if you're editing an item, select the delete icon (![Close or cancel icon represented by an "X" symbol.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/close.png)) next to the item.
       + To delete items that contain errors, select **Delete all** and then select **Delete all rows with error**.
       + To delete all items, select **Delete all** and then select **Delete all rows**.
       + To search for an item, enter an expression in the search bar.
       + To show only items with errors, select the dropdown menu labeled **Show all** and select **Show errors only**.
-      + To configure the size of each page in the table or the column display in the table, select the settings icon (![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/settings.png)). Set your preferences and then select **Confirm**.
+      + To configure the size of each page in the table or the column display in the table, select the settings icon (![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/settings.png)). Set your preferences and then select **Confirm**.
       + By default, this section displays the **Table** editor. To switch to a text editor in which you can enter a word or phrase in each line, select **Text editor**. The **Text editor** provides the following features:
         + You can copy a word list from another text editor and paste it into this editor.
         + A red X icon appears next to items containing errors and a list of errors appears at the following the editor.

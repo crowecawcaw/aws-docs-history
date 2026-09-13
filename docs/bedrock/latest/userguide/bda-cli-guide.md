@@ -12,7 +12,7 @@ To begin working with BDA, first create a project using the `create-data-automat
 
 Consider this sample passport that we'll process:
 
-![Sample US passport showing personal information fields including name, date of birth, and passport number.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/passport2.png)
+![Sample US passport showing personal information fields including name, date of birth, and passport number.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/passport2.png)
 
 
 When creating a project, you must define your configuration settings for the type of file you intend to process. The following command represents a minimal working example for creating an image processing project:

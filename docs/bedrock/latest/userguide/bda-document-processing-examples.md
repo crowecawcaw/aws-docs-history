@@ -12,7 +12,7 @@ Choose the tab for your preferred method, and then follow the steps:
 
 **Extracting data from a W2**
 
-![Sample W2 form with standard fields, demonstrating layout and data fields that will be extracted.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/W2.png)
+![Sample W2 form with standard fields, demonstrating layout and data fields that will be extracted.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/W2.png)
 
 
 When processing a W2 form, an example schema would be the following:
@@ -108,7 +108,7 @@ An example of the expected output is:
 
 **Travel advertisement example**
 
-![Sample image, demonstrating how users can extract information from advertisements.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/TravelAdvertisement.jpg)
+![Sample image, demonstrating how users can extract information from advertisements.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/TravelAdvertisement.jpg)
 
 
 An example schema for travel advertisements would be the following:

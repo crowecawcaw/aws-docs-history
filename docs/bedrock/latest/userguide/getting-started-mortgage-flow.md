@@ -10,7 +10,7 @@ For this tutorial, we will use the {{us-east-1}} Region. You can use any Region 
 
 This flow isn't meant for deployment purposes, but rather to use as a tutorial to understand Amazon Bedrock resources. The following image is the visual representation of the flow in the AWS Management Console:
 
-![Mortgage processing flow.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/cloudformation/mortgage-processing-flow.png)
+![Mortgage processing flow.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/cloudformation/mortgage-processing-flow.png)
 
 
 The flow combines an Amazon Bedrock [agent](agents.md), [prompts](prompt-management.md), and a [Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) to create a mortgage processing flow that intakes customer financial information and processes whether the customer qualifies for a loan. An Amazon Bedrock [knowledge base](knowledge-base.md) and [guardrail](guardrails.md) are also attached to the flow's agent to augment responses and to provide safeguards. For more detailed information about the components of the flow, see [Details about the mortgage processing flow](getting-started-mortgage-flow-details.md).

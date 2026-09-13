@@ -29,7 +29,7 @@ An agent consists of the following components:
 
 At build-time, all these components are gathered to construct base prompts for the agent to perform orchestration until the user request is completed. With advanced prompts, you can modify these base prompts with additional logic and few-shot examples to improve accuracy for each step of agent invocation. The base prompt templates contain instructions, action descriptions, knowledge base descriptions, and conversation history, all of which you can customize to modify the agent to meet your needs. You then *prepare* your agent, which packages all the components of the agents, including security configurations. Preparing the agent brings it into a state where it can be tested in runtime. The following image shows how build-time API operations construct your agent.
 
-![How build-time APIs construct your agent with action groups and knowledge bases.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-buildtime.png)
+![How build-time APIs construct your agent with action groups and knowledge bases.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-buildtime.png)
 
 
 An action group consists of an OpenAPI schema and a Lambda function to define what API operations an agent can call and how the agent should handle the requests and responses. The agent synthesizes information from the base prompt templates, instructions provided to it, and any attached action groups and knowledge bases to generate prompts with the model that it uses. The prompts are added to the agent's prompt store.
@@ -63,7 +63,7 @@ When you invoke your agent, you can turn on a **trace** at runtime. With the tra
 
 As the user session with the agent continues through more `InvokeAgent` requests, the conversation history is preserved. The conversation history continually augments the orchestration base prompt template with context, helping improve the agent's accuracy and performance. The following diagram shows the agent's process during runtime:
 
-![How your agent processes user input at runtime through orchestration and action execution.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-runtime.png)
+![How your agent processes user input at runtime through orchestration and action execution.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-runtime.png)
 
 
 After receiving user input, the agent fetches augmented prompts from the prompt store and conversation history from the sessions store. If the preprocessing step is enabled, the agent invokes the FM with the preprocessing prompt to validate the user input. In the orchestration step, the agent invokes the FM with the orchestration prompt and parses the response. It then determines action groups and queries knowledge bases as necessary and generates an observation that might trigger a new orchestration prompt. The orchestration stage loops until the observation returns a final response to the user.

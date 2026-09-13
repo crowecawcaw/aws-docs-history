@@ -8,7 +8,7 @@ As part of providing the Service, Amazon Bedrock may use automated abuse detecti
 Amazon Bedrock uses a zero operator access (ZOA) data security model. This means no operators of the service can access model input or output. Also, Amazon Bedrock uses a zero data retention (ZDR) data security model. This means that by default, Amazon Bedrock does not store model inputs or outputs.
 
 However, for specific abuse detection purposes related to the following models, we may be required to store inputs and outputs:
-+ For OpenAI GPT-5.4, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna, Daybreak Red: GPT-5.6 Cyber, and Daybreak Blue: GPT-5.6 Sol, classifier-flagged traffic will be retained for up to 30 days for automated offline abuse detection. Eligible customers may request full ZDR through their AWS account team.
++ For OpenAI GPT-6 Astra, GPT-5.4, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna, Daybreak Red: GPT-5.6 Cyber, and Daybreak Blue: GPT-5.6 Sol, classifier-flagged traffic will be retained for up to 30 days for automated offline abuse detection. Eligible customers may request full ZDR through their AWS account team.
 + For Anthropic Claude Fable 5 and Claude Fable 5.1, all traffic will be retained for up to 30 days for automated offline abuse detection. Classifier-flagged traffic will be subject to potential human review performed by AWS.
   + Customers that are eligible for the Enterprise Frontier Safeguards program will receive ZDR through December 31, 2026. After ZDR ends, all traffic will be retained for up to 30 days for automated offline abuse detection. The Enterprise Frontier Safeguards program plans to enable customer-managed encryption keys and bring your own bucket for storage for automated offline abuse detection.
 

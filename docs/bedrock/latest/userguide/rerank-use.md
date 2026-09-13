@@ -10,7 +10,7 @@ You can use a reranker model directly or while retrieving results during knowled
 
 You can't use a reranker model directly in the AWS Management Console, but you can use a reranker model when querying your knowledge base by doing the following:
 
-1. When you query a knowledge base, open up the **Configurations** pane by choosing the ![Icon showing three horizontal sliders at different positions for adjusting settings.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/configurations.png) icon.
+1. When you query a knowledge base, open up the **Configurations** pane by choosing the ![Icon showing three horizontal sliders at different positions for adjusting settings.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/configurations.png) icon.
 
 1. Expand the **Reranking** section.
 

@@ -12,7 +12,7 @@ After you [fulfill the prerequisites](share-model-prereq.md), you can share a mo
 
 1. From the left navigation pane, choose **Custom models** under **Tune**.
 
-1. Select the button next to the model that you want to share. Then, choose the three dots (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/vertical-ellipsis.png)) and select **Share**.
+1. Select the button next to the model that you want to share. Then, choose the three dots (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/vertical-ellipsis.png)) and select **Share**.
 
 1. In the **Model sharing details** section, do the following:
 

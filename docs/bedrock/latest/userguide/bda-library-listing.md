@@ -35,4 +35,4 @@ aws bedrock-data-automation list-data-automation-libraries \
 
 1. Navigate to "Manage libraries" page in BDA Console. This page will list libraries associated in this account.
 
-![Libraries table showing healthcare-vocabulary library with Active status and Custom vocabulary entity type.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-list-console.png)
+![Libraries table showing healthcare-vocabulary library with Active status and Custom vocabulary entity type.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-list-console.png)

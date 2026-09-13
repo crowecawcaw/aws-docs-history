@@ -33,7 +33,7 @@ To learn how to query your knowledge base, choose the tab for your preferred met
 
 1. To choose a model to use for response generation, choose **Select model**. Then select **Apply**. 
 
-1. (Optional) Select the configurations icon (![Icon showing three horizontal sliders at different positions for adjusting settings.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/configurations.png)) to open up **Configurations**. For information about configurations, see [Configure and customize queries and response generation](kb-test-config.md).
+1. (Optional) Select the configurations icon (![Icon showing three horizontal sliders at different positions for adjusting settings.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/configurations.png)) to open up **Configurations**. For information about configurations, see [Configure and customize queries and response generation](kb-test-config.md).
 
 1. Enter a query in the text box in the chat window and select **Run** to return responses from the knowledge base.
 
@@ -41,15 +41,15 @@ To learn how to query your knowledge base, choose the tab for your preferred met
 
 1. To see details about the returned chunks, select **Show source details**.
    + To see the configurations that you set for query, expand **Query configurations**.
-   + To view details about a source chunk, expand it by choosing the right arrow (![Right-pointing filled caret icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/caret-right-filled.png)) next to it. You can see the following information:
-     + The raw text from the source chunk. To copy this text, choose the copy icon (![Copy icon represented by two overlapping documents.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/copy.png)). If you used Amazon S3 to store your data, choose the external link icon (![Icon of a square with an arrow pointing outward from its top-right corner.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/external.png)) to navigate to the S3 object containing the file.
+   + To view details about a source chunk, expand it by choosing the right arrow (![Right-pointing filled caret icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/caret-right-filled.png)) next to it. You can see the following information:
+     + The raw text from the source chunk. To copy this text, choose the copy icon (![Copy icon represented by two overlapping documents.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/copy.png)). If you used Amazon S3 to store your data, choose the external link icon (![Icon of a square with an arrow pointing outward from its top-right corner.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/external.png)) to navigate to the S3 object containing the file.
      + The metadata associated with the source chunk, if you used Amazon S3 to store your data. The attribute/field keys and values are defined in the `.metadata.json` file that's associated with the source document. For more information, see the **Metadata and filtering** section in [Configure and customize queries and response generation](kb-test-config.md).
 
 **Chat options**
 + To use a different model for response generation, Select **Change model**. If you change the model, the text in the chat window will be completely cleared.
 + Switch to retrieving source chunks directly by clearing **Generate responses**. If you change the setting, the text in the chat window will be completely cleared.
-+ To clear the chat window, select the broom icon (![Broom icon representing cleaning or clearing functionality.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/broom.png)).
-+ To copy all the output in the chat window, select the copy icon (![Copy icon represented by two overlapping documents.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/copy.png)).
++ To clear the chat window, select the broom icon (![Broom icon representing cleaning or clearing functionality.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/broom.png)).
++ To copy all the output in the chat window, select the copy icon (![Copy icon represented by two overlapping documents.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/copy.png)).
 
 ------
 #### [ API ]

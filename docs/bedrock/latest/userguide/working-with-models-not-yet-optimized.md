@@ -26,7 +26,7 @@ You can view the list of models that are not yet optimized for Agents in the Ama
 1. In the **Select model** section, choose the pencil icon.
 
 1. By default, models optimized for agents are shown. To view all models supported by Amazon Bedrock Agents, clear **Bedrock Agents optimized**.  
-![View all foundation models supported by Amazon Bedrock Agents.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-optimized-model-selection.png)
+![View all foundation models supported by Amazon Bedrock Agents.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-optimized-model-selection.png)
 
 ## Examples for using models not yet optimized for Amazon Bedrock Agents
 <a name="using-models-not-yet-optimized-examples"></a>

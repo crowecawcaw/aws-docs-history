@@ -50,7 +50,7 @@ You must attach permissions for your agent so that it can access the Lambda func
 
 1. To test the updated settings, choose **Prepare** in the **Test** window.
 
-![Setting up advanced prompts in the console.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/advanced-prompts.png)
+![Setting up advanced prompts in the console.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/advanced-prompts.png)
 
 
 ------

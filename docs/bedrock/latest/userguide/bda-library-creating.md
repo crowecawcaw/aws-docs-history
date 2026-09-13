@@ -33,7 +33,7 @@ aws bedrock-data-automation create-data-automation-library \
 
 1. Choose "Create library"
 
-![Create library dialog with fields for library name, description, KMS key , and tags.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-create-console.png)
+![Create library dialog with fields for library name, description, KMS key , and tags.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-create-console.png)
 
 
 ## Important Notes

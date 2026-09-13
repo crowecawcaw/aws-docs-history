@@ -175,12 +175,12 @@ You can configure sensitive information policies for your guardrail by using the
       + To add all PII types, select the dropdown arrow next to **Add PII type**. Then select the guardrail behavior to apply to them.
 **Warning**  
 If you specify a behavior, any existing behavior that you configured for PII types will be overwritten.
-      + To delete a PII type, select the trash can icon (![Trash can icon representing a delete action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)).
+      + To delete a PII type, select the trash can icon (![Trash can icon representing a delete action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)).
       + To delete rows that contain errors, select **Delete all** and then select **Delete all rows with error**
       + To delete all PII types, select **Delete all** and then select **Delete all rows**
       + To search for a row, enter an expression in the search bar.
       + To show only rows with errors, select the dropdown menu labeled **Show all** and select **Show errors only**.
-      + To configure the size of each page in the table or the column display in the table, select the settings icon (![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/settings.png)). Set your preferences and then select **Confirm**.
+      + To configure the size of each page in the table or the column display in the table, select the settings icon (![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/settings.png)). Set your preferences and then select **Confirm**.
 
    1. In the **Regex patterns** section, use regular expressions to define patterns for the guardrail to filter. You have the following options:
       + To add a pattern, select **Add regex pattern**. Configure the following fields:    
@@ -189,7 +189,7 @@ If you specify a behavior, any existing behavior that you configured for PII typ
       + To delete a pattern or patterns, select the checkboxes for the patterns to delete. Select **Delete** and then select **Delete selected**.
       + To delete all the patterns, select **Delete** and then select **Delete all**.
       + To search for a pattern, enter an expression in the search bar.
-      + To configure the size of each page in the table or the column display in the table, select the settings icon (![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/settings.png)). Set your preferences and then select **Confirm**.
+      + To configure the size of each page in the table or the column display in the table, select the settings icon (![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/settings.png)). Set your preferences and then select **Confirm**.
 
    1. When you finish configuring sensitive information filters, select **Next** or **Skip to review and create**.
 

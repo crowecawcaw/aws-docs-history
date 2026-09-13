@@ -49,4 +49,4 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 
 1. Choose "Save updates"
 
-![Custom terminology editor showing phrase ibuprofen updated to display as paracetamol.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-update-cv-console.png)
+![Custom terminology editor showing phrase ibuprofen updated to display as paracetamol.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-update-cv-console.png)

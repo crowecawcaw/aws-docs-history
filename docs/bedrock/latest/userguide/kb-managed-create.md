@@ -26,6 +26,7 @@ To learn how to create a managed knowledge base, choose the tab for your preferr
    + Choose an embedding model type:
      + **Managed** (default): A service-managed embedding model is used. No model selection or configuration is required.
      + **Custom**: Select a Bedrock embedding model. Choose the model to open the model selector, which shows available providers (Amazon, Cohere) and models.
+     + **Custom multimodal embedding model**: Select a multimodal embedding model. Currently, only TwelveLabs Marengo Embed 3.0 is supported. This model natively processes image, audio, and video files. When you choose this model, you must also provide a **Multimodal storage destination** – the Amazon S3 bucket that is used for processing and ingesting your multimodal content. Amazon Bedrock Knowledge Bases creates an `aws/` prefix folder within your bucket for easy access. For more information, see [Native multimodal processing](kb-managed-native-multimodal.md).
    + Configure IAM permissions: choose **Create and use a new service role** (recommended) or select an existing role.
    + Configure AWS KMS encryption for the managed vector store (AWS managed key by default, or select a custom KMS key).
 
@@ -111,6 +112,66 @@ kb-config.json
 **Note**  
 When `embeddingModelType` is omitted, it defaults to `MANAGED`. When using `MANAGED`, you must not specify `embeddingModelArn` or `embeddingModelConfiguration`. When using `CUSTOM`, both fields are required.
 
+With a custom multimodal embedding model (TwelveLabs Marengo Embed 3.0):
+
+A multimodal embedding model uses the same `CUSTOM` `embeddingModelType` as a text embedding model. The difference is that `bedrockEmbeddingModelConfiguration` accepts an additional `modelConfiguration` field, in which you pass model-specific settings, and that you must specify a `supplementalDataStorageConfiguration` for your multimodal storage destination.
+
+```
+aws bedrock-agent create-knowledge-base \
+ --name "{{my-multimodal-embed-kb}}" \
+ --role-arn "{{arn:aws:iam::123456789012:role/BedrockKBRole}}" \
+ --description "{{My managed knowledge base with multimodal embedding}}" \
+ --knowledge-base-configuration file://kb-config.json
+
+kb-config.json
+{
+    "type": "MANAGED",
+    "managedKnowledgeBaseConfiguration": {
+        "embeddingModelType": "CUSTOM",
+        "embeddingModelArn": "{{arn:aws:bedrock:us-east-1::foundation-model/twelvelabs.marengo-embed-3-0-v1:0}}",
+        "embeddingModelConfiguration": {
+            "bedrockEmbeddingModelConfiguration": {
+                "embeddingDataType": "FLOAT",
+                "modelConfiguration": {
+                    "version": "1",
+                    "audio": {
+                        "segmentation": {
+                            "method": "dynamic",
+                            "dynamic": {
+                                "minDurationSec": 4
+                            }
+                        }
+                    },
+                    "video": {
+                        "segmentation": {
+                            "method": "fixed",
+                            "fixed": {
+                                "durationSec": 6
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "supplementalDataStorageConfiguration": {
+            "storageLocations": [
+                {
+                    "s3Location": {
+                        "uri": "{{s3://amzn-s3-demo-bucket}}"
+                    },
+                    "type": "S3"
+                }
+            ]
+        }
+    }
+}
+```
+
+The `modelConfiguration` field is a JSON object whose contents are specific to the embedding model that you choose. The `version` field is required and must be set to `1`. For each of the `audio` and `video` modalities, you can set a `segmentation` `method` of either `dynamic`, which takes a `minDurationSec` value, or `fixed`, which takes a `durationSec` value. For the settings that TwelveLabs Marengo Embed 3.0 accepts, see [TwelveLabs Marengo Embed 3.0](model-parameters-marengo-3.md).
+
+**Note**  
+You must provide a `supplementalDataStorageConfiguration` when you use the TwelveLabs Marengo Embed 3.0 model.
+
 **Step 2: Create a data source**
 
 ```
@@ -151,7 +212,7 @@ bedrock-s3-managed-connector-configuration.json
 ## Embedding model options
 <a name="kb-managed-embedding-models"></a>
 
-Managed knowledge bases support two embedding model types:
+Managed knowledge bases support the following embedding model types:
 + **Managed embedding** (default) – A service-managed embedding model is used automatically. You don't need to select a model, configure dimensions, or manage Bedrock service limits for embedding. The service handles model selection, hosting, and scaling transparently.
 + **Custom embedding** – You provide your own Bedrock embedding model ARN. When using a custom embedding model, you must specify the model dimensions (1024) and float32 embedding data type. The following Bedrock embedding models are supported:
   + Amazon Titan Text Embeddings V2
@@ -159,6 +220,7 @@ Managed knowledge bases support two embedding model types:
   + Cohere Embed Multilingual v3
   + Cohere Embed v4
   + Amazon Nova Multimodal Embeddings
++ **Custom multimodal embedding** – You provide the ARN of a multimodal embedding model, which natively processes image, audio, and video files in addition to text. Currently, TwelveLabs Marengo Embed 3.0 (`twelvelabs.marengo-embed-3-0-v1:0`) is the only supported multimodal embedding model. This option requires a multimodal storage destination.
 
 **Note**  
 You cannot change the embedding model type after creating the knowledge base. To switch between managed and custom embedding, you must create a new knowledge base.

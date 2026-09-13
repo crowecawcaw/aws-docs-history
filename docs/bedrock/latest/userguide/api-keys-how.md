@@ -5,7 +5,7 @@
 
 The following image compares the default process to get credentials to the use of the Amazon Bedrock API key:
 
-![Default API setup process compared to API setup process using Amazon Bedrock API key.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/setup/setup-api.png)
+![Default API setup process compared to API setup process using Amazon Bedrock API key.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/setup/setup-api.png)
 
 
 The leftmost flow in the diagram shows the default process of creating an identity in either AWS IAM Identity Center or IAM. With this process, you attach IAM policies to that identity to provide permissions to perform API operations and then generate general AWS credentials for that identity. You can then use the credentials to make API calls in AWS.

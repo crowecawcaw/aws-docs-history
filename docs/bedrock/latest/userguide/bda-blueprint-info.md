@@ -20,12 +20,12 @@ When using Blueprints you might find yourself using Prompts, either in fields or
 
 Lets take an example of an ID document such as a passport and walk through a blueprint for this document.
 
-![Sample passport with standard fields, demonstrating layout and data fields that will be extracted.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/passport2.png)
+![Sample passport with standard fields, demonstrating layout and data fields that will be extracted.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/passport2.png)
 
 
 Here is an example blueprint for this ID document that we created on the console.
 
-![Table layout of passport field definitions, with various categories, showing an example blueprint.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdapassport.png)
+![Table layout of passport field definitions, with various categories, showing an example blueprint.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/bdapassport.png)
 
 
 At its core, a blueprint is a data structure that contains fields, which in turn contain the information extracted by BDA custom output. There are two types of fields—explicit and implicit—located in the extraction table. Explicit extractions are used for clearly stated information that can be seen in the document. Implicit extractions are used for information that need to be transformed from how they appear in the document. For example, you can remove the dashes from a social security number, converting from 111-22-3333 to 111223333. Fields contain certain basic components:

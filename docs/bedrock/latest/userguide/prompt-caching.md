@@ -499,12 +499,12 @@ Follow the instructions in [Generate responses in the console using playgrounds]
 
 After your combined input and model responses reach the minimum required number of tokens for a checkpoint (which varies by model), Amazon Bedrock automatically creates the first cache checkpoint for you. As you continue chatting, each subsequent reach of the minimum number of tokens creates a new checkpoint, up to the maximum number of checkpoints allowed for the model. You can view your cache checkpoints at any time by choosing **View cache checkpoints** next to the **Prompt caching** toggle, as shown in the following screenshot.
 
-![UI toggle for prompt caching in an Amazon Bedrock text playground.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/prompt-caching/bedrock-prompt-caching-ui-toggle.png)
+![UI toggle for prompt caching in an Amazon Bedrock text playground.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/prompt-caching/bedrock-prompt-caching-ui-toggle.png)
 
 
-You can view how many tokens are being read from and written to the cache due to each interaction with the model by viewing the **Caching metrics** pop-up (![The metrics icon shown in model responses when prompt caching is enabled.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/prompt-caching/bedrock-prompt-caching-metrics-icon.png)) in the playground responses.
+You can view how many tokens are being read from and written to the cache due to each interaction with the model by viewing the **Caching metrics** pop-up (![The metrics icon shown in model responses when prompt caching is enabled.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/prompt-caching/bedrock-prompt-caching-metrics-icon.png)) in the playground responses.
 
-![Caching metrics box that shows the number of tokens read from and written to the cache.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/prompt-caching/bedrock-prompt-caching-metrics.png)
+![Caching metrics box that shows the number of tokens read from and written to the cache.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/prompt-caching/bedrock-prompt-caching-metrics.png)
 
 
 If you turn off the prompt caching toggle while in the middle of a conversation, you can continue chatting with the model.

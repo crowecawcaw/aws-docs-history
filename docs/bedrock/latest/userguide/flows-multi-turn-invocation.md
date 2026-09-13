@@ -142,7 +142,7 @@ The following is an example `FlowCompletionEvent` JSON object.
 
 The following sequence diagram shows the steps in a multi-turn flow.
 
-![Flow steps for a multi-turn conversation.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/flows/flows-multi-turn-steps.png)
+![Flow steps for a multi-turn conversation.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/flows/flows-multi-turn-steps.png)
 
 
 ## Creating and running an example flow
@@ -159,7 +159,7 @@ In this example, you create a flow that uses an agent to create playlists for a 
 1. Create the flow by following the instructions at [Create and design a flow in Amazon Bedrock](flows-create.md). Make sure the flow has an input node, an agents node, and an output node. 
 
 1. Link the agent node to the agent that you created in step 1. The flow should look like the following image.  
-![Flow multi-turn conversation.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/flows/flows-multi-turn.png)
+![Flow multi-turn conversation.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/flows/flows-multi-turn.png)
 
 1. Run the flow in the Amazon Bedrock console. For testing you can trace the steps that the flow makes. For more information, see [Test a flow in Amazon Bedrock](flows-test.md).
 

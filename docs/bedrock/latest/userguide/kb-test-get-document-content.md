@@ -197,3 +197,69 @@ with open('document.pdf', 'wb') as f:
 ```
 
 Both the resource policy (on the KB owner side) and the IAM policy (on the caller side) must be in place. Access is denied if either is missing.
+
+## Retrieve responses for native multimodal knowledge bases
+<a name="kb-get-doc-content-native-multimodal"></a>
+
+When your knowledge base uses a native multimodal embedding model, the [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) response returns metadata that you can use to locate the matching image, or the specific segment of an audio or video file. For more information about native multimodal processing, see [Native multimodal processing](kb-managed-native-multimodal.md).
+
+**Note**  
+We recommend that you fetch multimodal content by calling `GetDocumentContent` with the `documentId` returned in the `Retrieve` response, as shown in the preceding examples. The `content` field in the `Retrieve` response provides an additional way to access the image, audio, or video information.
+
+### Multimodal metadata fields
+<a name="kb-get-doc-content-native-multimodal-metadata"></a>
+
+Results from a native multimodal knowledge base include the following metadata fields:
++ `_file_type` – The modality of the source content that the chunk was generated from. The value is `AUDIO`, `VIDEO`, or `IMAGE`. You can filter on this field to return results from only a specific modality. For more information about filtering, see [Manual metadata filtering](kb-managed-test-config.md#kb-managed-test-config-filters).
++ `_media_start_time_ms` and `_media_end_time_ms` – For audio and video chunks, the start and end times, in milliseconds, of the segment of the file that the chunk represents.
+
+### Image results
+<a name="kb-get-doc-content-native-multimodal-images"></a>
+
+For image results, the [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) response returns the image in the `byteContent` field as a base64-encoded data URI, with a `type` of `IMAGE`:
+
+```
+"retrievalResults": [
+    {
+        "content": {
+            "byteContent": "data:image/png;base64,{{<base64-encoded-bytes>}}",
+            "type": "IMAGE"
+        }
+    }
+]
+```
+
+### Audio and video results
+<a name="kb-get-doc-content-native-multimodal-av"></a>
+
+For audio and video results, the [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) response returns an Amazon S3 URI that you can use to fetch the file. The `type` is `AUDIO` or `VIDEO`, and the URI is in the corresponding `audio` or `video` object.
+
+The following example shows an audio result:
+
+```
+"retrievalResults": [
+    {
+        "content": {
+            "audio": {
+                "s3Uri": "s3://{{amzn-s3-demo-bucket}}/{{path/to/audio.mp3}}"
+            },
+            "type": "AUDIO"
+        }
+    }
+]
+```
+
+The following example shows a video result:
+
+```
+"retrievalResults": [
+    {
+        "content": {
+            "type": "VIDEO",
+            "video": {
+                "s3Uri": "s3://{{amzn-s3-demo-bucket}}/{{path/to/video.mp4}}"
+            }
+        }
+    }
+]
+```

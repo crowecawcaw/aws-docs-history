@@ -110,23 +110,23 @@ Follow the console steps at [Query a knowledge base and retrieve data](kb-test-r
 You must surround strings with quotation marks.
 
   For example, you can filter for results from source documents that contain a `genre` metadata attribute whose value is `"entertainment"` by adding the following filter: **genre = "entertainment"**.  
-![Add one filter.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-one.png)
+![Add one filter.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-one.png)
 + To add another filter, enter another filtering expression in the box and press **Enter**. You can add up to 5 filters in the group.  
-![Add another filter.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-more.png)
+![Add another filter.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-more.png)
 + By default, the query will return results that fulfill all the filtering expressions you provide. To return results that fulfill at least one of the filtering expressions, choose the **and** dropdown menu between any two filtering operations and select **or**.  
-![Change the logical operation between filters.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-logical.png)
+![Change the logical operation between filters.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-logical.png)
 + To combine different logical operators, select **\+ Add Group** to add a filter group. Enter filtering expressions in the new group. You can add up to 5 filter groups.  
-![Add a filter group to combine different logical operators.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-group.png)
+![Add a filter group to combine different logical operators.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-group.png)
 + To change the logical operator used between all the filtering groups, choose the **AND** dropdown menu between any two filter groups and select **OR**.  
-![Change the logical operation between filter groups.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-group-logical.png)
+![Change the logical operation between filter groups.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-group-logical.png)
 + To edit a filter, select it, modify the filtering operation, and choose **Apply**.  
-![Edit a filter.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-edit.png)
-+ To remove a filter group, choose the trash can icon (![Trash can icon representing a delete action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)) next to the group. To remove a filter, choose the delete icon (![Close or cancel icon represented by an "X" symbol.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/close.png)) next to the filter.  
-![Delete a filter or filter group.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-delete.png)
+![Edit a filter.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-edit.png)
++ To remove a filter group, choose the trash can icon (![Trash can icon representing a delete action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/trash.png)) next to the group. To remove a filter, choose the delete icon (![Close or cancel icon represented by an "X" symbol.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/close.png)) next to the filter.  
+![Delete a filter or filter group.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-delete.png)
 
 The following image shows an example filter configuration that returns all documents written after **2018** whose genre is **"entertainment"**, in addition to documents whose genre is **"cooking"** or **"sports"** and whose author starts with **"C"**.
 
-![Example filter configuration.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-example.png)
+![Example filter configuration.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/kb/filter-example.png)
 
 
 ------

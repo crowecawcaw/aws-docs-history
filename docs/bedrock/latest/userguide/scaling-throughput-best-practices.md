@@ -9,72 +9,68 @@ This topic explains how throughput limits and scheduling work across Amazon Bedr
 <a name="scaling-endpoints"></a>
 
 Amazon Bedrock supports two endpoints for inference:
-+ `bedrock-mantle.{region}.api.aws` — Supports Chat Completions and Responses (from OpenAI), and Messages (from Anthropic).
-+ `bedrock-runtime.{region}.amazonaws.com` — Supports Bedrock-native APIs (Invoke and Converse), Chat Completions, and Messages APIs.
++ `bedrock-mantle.{region}.api.aws` — Supports the OpenAI-compatible Chat Completions and Responses APIs, and the Anthropic Messages API.
++ `bedrock-runtime.{region}.amazonaws.com` — Supports the Bedrock-native InvokeModel and Converse APIs, the OpenAI-compatible Chat Completions and Responses APIs, and the Anthropic Messages API.
 
-For more information about these endpoints and how to choose between them, see [Endpoints supported by Amazon Bedrock](endpoints.md).
+For most new applications, start with `bedrock-runtime`. Use `bedrock-mantle` when you need capabilities that are available only on that endpoint, such as server-side tools, background inference, Projects, Workspaces, or a model that is available only on `bedrock-mantle`. You can use both endpoints in the same application. For a complete comparison, see [Endpoints supported by Amazon Bedrock](endpoints.md).
 
 ### Why the two endpoints behave differently
 <a name="scaling-endpoint-differences"></a>
 
-In many traditional multi-tenant services, the architecture is designed around per-account quotas to manage fair-share access to shared resources. This is the approach used with [`bedrock-runtime`](endpoints.md).
+Both endpoint surfaces use the same underlying inference engine, but their quota accounting and capacity options differ. [`bedrock-runtime`](endpoints.md) uses per-model token quotas and, for some models, requests-per-minute (RPM) quotas. [`bedrock-mantle`](endpoints.md) does not enforce RPM quotas and uses separate input-token and output-token quotas for models that have published quotas. Other models on `bedrock-mantle` might not have per-account quotas exposed in Service Quotas, but their throughput is still governed by internal service capacity.
 
-With [`bedrock-mantle`](endpoints.md), a different approach is used. This endpoint is architected with advanced scheduling and work-queueing mechanisms that deliver fair-share distribution while supporting higher initial throughput limits. This design also allows `bedrock-mantle` to host a broad set of models and deliver the full breadth of capabilities available across the model catalog. In most cases, requests are served immediately. In some cases, a request may be briefly queued while in-flight workloads complete and throughput becomes available. The sections below explain how to handle these scenarios.
+A quota is an upper bound, not a guarantee that every on-demand request will be served immediately. During periods of high demand, requests can be queued or receive transient capacity errors. Design your application to bound concurrency, queue work, and retry transient errors without creating a retry surge.
 
 ## `bedrock-mantle` endpoint: throughput and quotas
 <a name="scaling-mantle-quotas"></a>
 
-The throughput and quota behavior on the `bedrock-mantle` endpoint differs for Anthropic Claude versus other models, as shown in the following table.
+The `bedrock-mantle` endpoint has the following quota behavior:
++ Models with published quotas have separate per-model, per-Region input-tokens-per-minute and output-tokens-per-minute quotas.
++ The endpoint does not enforce RPM quotas. Two workloads with the same RPM can consume very different amounts of capacity, so plan and rate-limit by tokens and concurrency instead of RPM alone.
++ When a request is admitted, the input-token check includes the input tokens plus the requested `max_tokens` value. After the response completes, the unused part of that reservation is replenished. Set `max_tokens` no higher than your application needs.
++ Models without published TPM quotas do not currently have per-account TPM quotas exposed in Service Quotas. This does not mean that throughput is unlimited; internal service capacity and transient rate limiting still apply.
++ Batch inference and Provisioned Throughput are available only through `bedrock-runtime`. Service-tier and model support varies by model.
 
-
-|   | Claude 4.7\+ | All other models | 
-| --- | --- | --- | 
-| Input TPM | 10M \* | No per-customer or per-model TPM limit | 
-| Output TPM | 2M | No per-customer or per-model TPM limit | 
-| On-demand tiers | Standard | Standard, Priority, Flex (some exceptions) — see the model detail pages for availability | 
-| Batch | No | Yes for supported models — see the model detail pages for availability | 
-| Reserved capacity | None | None | 
-
-\* Your input TPM limit depends on your usage history with Amazon Bedrock. Check the [Quotas](https://console.aws.amazon.com/bedrock/home#/model-quotas) page in the Amazon Bedrock console for your actual allocation.
+Default values and your account's allocations can vary by model, Region, and usage history. For current values, quota evaluation details, and the AWS Support process for requesting an increase, see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md). See the applicable [Models at a glance](model-cards.md) for model-specific endpoint, service-tier, and feature support.
 
 ## `bedrock-runtime` endpoint: throughput and quotas
 <a name="scaling-runtime-quotas"></a>
 
-The following table summarizes the throughput and quotas for `bedrock-runtime`.
+The `bedrock-runtime` endpoint has the following quota behavior:
++ Per-model, per-Region token quotas count input and output tokens together. Output tokens consume quota according to a model-specific burndown rate.
++ Some models also have RPM quotas, while other models are governed only by token quotas. Check the quotas that apply to the exact model and inference profile that you use.
++ Per-minute and per-day token quotas are shared across the inference APIs that call the same model on this endpoint. Allocations for `bedrock-runtime` and `bedrock-mantle` are independent.
++ Custom inference profiles, batch inference, and Provisioned Throughput have separate quotas and are available only through `bedrock-runtime`.
 
-
-|   | Claude 4.7\+ | All other models | 
-| --- | --- | --- | 
-| Input TPM | 15M \* | Varies \* | 
-| Output TPM | Combined with Input TPM. Burndown applies. | None. Burndown applies. | 
-| RPM | Not enforced — governed by TPM | Varies by model — see the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home) | 
-| On-demand tiers | Standard | Standard, Priority, Flex (some exceptions) — see the model detail pages for availability | 
-| Batch | No | Yes for supported models — see the model detail pages for availability | 
-| Reserved capacity | None | Reserved Tier/Provisioned Capacity | 
-
-\* Quotas for these models vary based on usage. Check the [Quotas](https://console.aws.amazon.com/bedrock/home#/model-quotas) page in the Amazon Bedrock console for your allocations.
+For current quota values, token-burndown details, and the quota-increase process, see [Quotas for the bedrock-runtime endpoint](quotas-runtime.md). See the applicable [Models at a glance](model-cards.md) for model-specific endpoint, service-tier, and feature support.
 
 ## Understanding HTTP error responses
 <a name="scaling-http-errors"></a>
 
 HTTP 429  
-A 429 response means your request was throttled. Reduce your request submission rate. On `bedrock-runtime`, if the model has an RPM quota and you need a higher allocation, request an increase through the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home) or contact your AWS account team.
+A 429 response means that the request was not admitted. Inspect the API-specific error type rather than relying on the HTTP status alone. A `ThrottlingException` or rate-limit error generally means that the request exceeded an account quota or a service rate limit. Some runtime operations also use HTTP 429 for `ModelNotReadyException`. On `bedrock-mantle`, check input and output TPM usage and the request's `max_tokens` value; the endpoint does not have an RPM quota. On `bedrock-runtime`, check combined token quotas and RPM, if the model has an RPM quota.
 
 HTTP 503  
-A 503 response means that there is increased demand for Amazon Bedrock in this Region. You should reduce your request rate and then either retry with exponential backoff or spread traffic across Regions.
+A 503 response means that the service is temporarily unable to handle the request because of high demand or a capacity constraint. It does not indicate that you exceeded an account quota. Retry transient responses with exponential backoff and jitter. If the response persists, stop increasing traffic, reduce concurrency, and consider a different Region or cross-Region inference when supported.
+
+HTTP 529 (`overloaded_error`)  
+Some model APIs return 529 when the model is temporarily unable to process the request because of high demand or insufficient serving capacity. Treat it as a transient capacity error. If the response includes a `Retry-After` header, wait for at least that duration before retrying, and add jitter so that clients do not retry simultaneously.
+
+For API-specific causes and resolution steps, see [Troubleshooting Amazon Bedrock API Error Codes](troubleshooting-api-error-codes.md).
 
 ## Recommended error handling
 <a name="scaling-error-handling"></a>
 
-### Transient errors (occasional 503 responses)
+### Transient errors
 <a name="scaling-transient-errors"></a>
 
-Implement exponential backoff with random jitter:
+Retry only errors that are safe to retry, such as transient throttling and capacity errors. If the service returns a `Retry-After` header, honor it. Otherwise, implement exponential backoff with random jitter:
 + Start with a short delay (for example, 1 second).
-+ Double the delay after each failed attempt.
-+ Limit retries to 6 attempts.
++ Increase the delay after each retry and cap the maximum delay to fit your application's latency budget.
++ Add random jitter and avoid synchronized retries across workers.
++ Use a bounded retry budget that fits your application's latency objective. For example, limit the operation to six total attempts: the initial request and up to five retries.
 
-Most AWS SDKs and popular HTTP libraries provide built-in support for this pattern.
+Most AWS SDKs and popular HTTP libraries provide built-in support for this pattern. Retry-setting names differ: botocore's `total_max_attempts` includes the initial request, while the OpenAI and Anthropic SDKs' `max_retries` counts only retries. The following examples therefore use different numeric values to provide the same example six-attempt budget.
 
 **Example Retry configuration for `bedrock-runtime` (AWS SDK / boto3)**  
 
@@ -94,8 +90,7 @@ from openai import OpenAI
 client = OpenAI(
     api_key=api_key,
     base_url=f"https://bedrock-mantle.{region}.api.aws/v1",
-    max_retries=6,
-    timeout=60.0,
+    max_retries=5,
 )
 ```
 
@@ -106,61 +101,66 @@ import anthropic
 
 client = anthropic.Anthropic(
     api_key=api_key,
-    base_url=f"https://bedrock-mantle.{region}.api.aws",
-    max_retries=6,
-    timeout=60.0,
+    base_url=f"https://bedrock-mantle.{region}.api.aws/anthropic",
+    max_retries=5,
 )
 ```
 
-### Sustained errors (persistent 503 responses)
+Configure connection and read timeouts separately from retries, based on the model and operation's documented maximum inference duration. A timeout that is shorter than a valid long-running inference request can cause avoidable retries and duplicate work.
+
+### Sustained capacity errors
 <a name="scaling-sustained-errors"></a>
 
-If you receive sustained 503 errors, retrying alone will not resolve the issue. Your request rate exceeds available throughput. Take the following steps:
-+ Reduce the rate at which your application submits new requests.
-+ Implement client-side rate limiting or request queuing.
-+ Shed lower-priority requests until throughput recovers.
+If you receive persistent 503 or 529 errors, retries alone can amplify load. The service might be experiencing a temporary capacity constraint, or the workload might exceed the capacity currently available for the model and Region. Take the following steps:
++ Stop the ramp and return to the last stable request rate and concurrency level.
++ Use bounded client-side concurrency, rate limiting, and request queues.
++ Defer or shed lower-priority requests until capacity recovers.
++ For `bedrock-runtime`, use cross-Region inference when the model supports it. For predictable, sustained workloads, evaluate [Provisioned Throughput](prov-throughput.md).
++ If the problem continues, check the AWS Health Dashboard and contact AWS Support with request IDs and UTC timestamps.
 
 ## Ramping up throughput
 <a name="scaling-ramp-up"></a>
 
-When consuming on-demand throughput on the [`bedrock-mantle`](endpoints.md) endpoint, available throughput scales over time. Not all requests within your quota are guaranteed to succeed during periods of high demand, so ramping gradually is important.
+On-demand capacity can vary by model, Region, and time. Not all requests within a quota are guaranteed to succeed during periods of high demand, so ramp gradually when launching a workload, changing models or Regions, or making a large traffic increase. This is especially important for `bedrock-mantle` models that do not have a published per-account quota.
 
 ### Recommended ramp-up procedure
 <a name="scaling-ramp-procedure"></a>
 
-1. Start at your target request volume, for example 500 RPM.
+1. Estimate the target token rate and concurrency for each endpoint, model, and Region. For `bedrock-mantle`, track input and output tokens separately and include the requested `max_tokens` value in the input-token admission estimate.
 
-1. If you receive 503 responses, reduce your rate, for example by 50%.
+1. Begin at a known stable baseline below the target. If you do not have a baseline, start with a small representative load instead of sending the full target volume.
 
-1. Continue reducing by that rate until you reach a steady state where requests are succeeding consistently.
+1. Hold each level long enough to observe request success, 429/503/529 errors, latency percentiles, token consumption, concurrency, and queue depth.
 
-1. Hold at that steady state for a short duration, say 15 minutes.
+1. Increase one controlled step at a time. Change only one major load dimension at a time so that you can identify the cause of a regression.
 
-1. Increase throughput again, for example 50%, and hold for another 15 minutes.
+1. If throttling, capacity errors, or latency rise beyond your threshold, pause the ramp, honor any `Retry-After` header, and return to the last stable level.
 
-1. Repeat until you reach your target volume.
+1. Continue until you reach the target, and repeat the validation for every model and Region that will receive production traffic.
 
-For example, if your target is 2,000 RPM but you receive 503 errors, reduce to 1,000 RPM. If errors persist, reduce to 500 RPM. Once requests succeed consistently at 500 RPM, hold for 15 minutes, then scale to 750, then 1,125, and so on.
+Choose the step size and observation period from your workload's latency and traffic pattern. Do not use RPM as the only control signal: request token sizes and response lengths can change capacity consumption substantially even when RPM stays constant.
 
-Ramp rates are not adjustable. To request higher TPM quotas, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home) or contact your AWS account team.
+For `bedrock-mantle` quota increases, follow [Requesting a quota increase](quotas-mantle.md#quotas-mantle-increase). For `bedrock-runtime`, follow [Requesting a quota increase](quotas-runtime.md#quotas-runtime-increase).
 
 ## Additional best practices
 <a name="scaling-additional-best-practices"></a>
 + Use feature flags to gradually transition traffic between models rather than switching all traffic at once.
 + Spread large workloads across multiple minutes and consider time-of-day patterns to avoid peak usage periods.
-+ Start testing with small batches and scale gradually. Avoid sending thousands of test requests simultaneously.
-+ For large offline data processing, use the [Batch API](batch-inference.md) or [Flex Tier](service-tiers-inference.md) if your application can process responses asynchronously.
++ Test with representative distributions of input size, output size, latency, and concurrency. Avoid sending a sudden burst of test requests.
++ Use token-aware client-side rate limiting, bounded concurrency, and bounded queues. An RPM-only limiter does not protect against changes in request size.
++ For asynchronous, high-volume offline jobs, use [batch inference](batch-inference.md) on `bedrock-runtime`.
++ For supported models and non-time-sensitive requests that can tolerate variable latency, consider the [Flex service tier](service-tiers-inference.md).
 
 ## Regional availability and cross-Region inference
 <a name="scaling-regional-availability"></a>
 
-On-demand throughput is allocated at the Regional level and varies across Regions. If your workload targets a single Region, you may encounter 503 responses during periods of high demand. To maximize availability and if you are using [`bedrock-runtime`](endpoints.md), use [Global cross-Region inference](global-cross-region-inference.md).
+On-demand capacity is Regional and can vary across Regions. If your workload targets a single Region, it can encounter capacity errors during periods of high demand. With [`bedrock-runtime`](endpoints.md), use [Global cross-Region inference](global-cross-region-inference.md) when the model and your data-residency requirements support it. If you implement your own Regional failover, verify model availability in every target Region and apply bounded retries so that failover does not create a traffic surge.
 
 ## Getting help
 <a name="scaling-getting-help"></a>
-+ **Throughput planning** — Contact your AWS account team for throughput forecasting. Plan for 2x to 3x peak throughput during scaling events.
-+ **Performance optimization** — Monitor token usage efficiency, optimize prompts to reduce token consumption, and select models based on your use case requirements.
-+ **Support escalation** — When opening an AWS Support case for throughput issues, include the following: specific error codes, request IDs, traffic patterns (RPM/TPM), and your scaling timeline.
++ **Throughput planning** — Estimate peak input and output tokens, response latency, concurrency, and queueing tolerance for each model and Region. Include workload-specific headroom, and contact your AWS account team for large or business-critical launches.
++ **Performance optimization** — Monitor prompt size, generated tokens, `max_tokens`, latency percentiles, and cache usage when supported. Optimize prompts and output limits to avoid reserving or consuming unnecessary tokens.
++ **Support escalation** — When opening an AWS Support case, include the endpoint, Region, model or inference profile ID, HTTP status and API error type, request IDs, UTC timestamps, token rate, request rate, concurrency, and your scaling timeline.
 
 ## Summary of recommendations
 <a name="scaling-summary"></a>
@@ -168,8 +168,8 @@ On-demand throughput is allocated at the Regional level and varies across Region
 
 | Scenario | Recommendation | 
 | --- | --- | 
-| General workloads | Use the [`bedrock-mantle` endpoint](endpoints.md) whenever possible. | 
-| Occasional 503 errors | Retry with exponential backoff and jitter. | 
-| Sustained 503 errors | Reduce request submission rate. Implement client-side rate limiting. | 
-| 429 errors | Reduce request rate. On bedrock-runtime, if the model has an RPM quota, request an increase through [Service Quotas](https://console.aws.amazon.com/servicequotas/home). | 
-| Large offline processing | Use [Batch API](batch-inference.md) or [Flex Tier](service-tiers-inference.md). | 
+| General workloads | Start with bedrock-runtime. Use bedrock-mantle for capabilities or models that require it. See [Endpoints supported by Amazon Bedrock](endpoints.md). | 
+| Transient 429, 503, or 529 errors | Inspect the API error type. For retryable errors, honor Retry-After and retry with exponential backoff and jitter within a bounded retry budget. | 
+| Sustained capacity errors | Stop ramping, return to the last stable level, bound concurrency and queues, defer lower-priority work, and use cross-Region inference where supported. | 
+| Quota planning | Use separate input and output TPM for bedrock-mantle. Use combined token quotas, token burndown, and RPM where applicable for bedrock-runtime. | 
+| Large offline processing | Use [batch inference](batch-inference.md) for asynchronous jobs. Use the [Flex service tier](service-tiers-inference.md) for supported, non-time-sensitive requests that can tolerate variable latency. | 

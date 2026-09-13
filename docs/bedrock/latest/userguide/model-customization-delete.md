@@ -17,7 +17,7 @@ If you're deleting a distilled model, you must first delete any Provisioned Thro
 
 1. From the **Models** section, select a custom model.
 
-1. Choose the options icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/vertical-ellipsis.png)) and select **Delete**.
+1. Choose the options icon (![Vertical ellipsis icon representing a menu or more options.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/vertical-ellipsis.png)) and select **Delete**.
 
 1. Follow the instructions to confirm deletion. Your custom model is then deleted.
 

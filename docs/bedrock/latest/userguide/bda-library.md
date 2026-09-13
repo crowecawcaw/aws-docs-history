@@ -62,7 +62,7 @@ The link between a library and a BDA project. When you associate a library with 
 
 1. Select **Manage libraries**.
 
-![Libraries page showing medical-vocabulary library with active status and custom vocabulary entity type.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-console-navigate-manage-libraries.png)
+![Libraries page showing medical-vocabulary library with active status and custom vocabulary entity type.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-console-navigate-manage-libraries.png)
 
 
 ## Regional availability

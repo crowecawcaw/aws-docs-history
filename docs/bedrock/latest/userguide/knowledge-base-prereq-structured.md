@@ -42,9 +42,9 @@ Depending on the Amazon Redshift query engine that you choose, you can configure
 
 | Authentication method | Amazon Redshift Provisioned | Amazon Redshift Serverless | 
 | --- | --- | --- | 
-| IAM | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
-| Database username | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png)No | 
-| AWS Secrets Manager | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
+| IAM | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
+| Database username | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png)No | 
+| AWS Secrets Manager | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
 
 Amazon Bedrock Knowledge Bases uses a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) to connect knowledge bases to structured data stores, retrieve data from these data stores, and generate SQL queries based on user queries and the structure of the data stores.
 
@@ -280,9 +280,9 @@ The following table summarizes the authentication methods available for the quer
 
 | Authentication method | Amazon Redshift | AWS Glue Data Catalog (AWS Lake Formation) | 
 | --- | --- | --- | 
-| IAM | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
-| Database username | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png)No | 
-| AWS Secrets Manager | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png)No | 
+| IAM | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | 
+| Database username | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png)No | 
+| AWS Secrets Manager | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png)Yes | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png)No | 
 
 To learn how to set up permissions for your Amazon Bedrock Knowledge Bases service role to access your data store and generate queries based on it, expand the section that corresponds to the service that your data store is in:
 
