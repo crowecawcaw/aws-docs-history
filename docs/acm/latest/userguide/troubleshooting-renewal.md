@@ -36,10 +36,10 @@ You must insert the correct CNAME records into your DNS database. Consult your d
 
 You can find the CNAME records for your domains by expanding your certificate and its domain entries in the ACM console. Refer to the figures below for details. You can also retrieve CNAME records by using the [DescribeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html) operation in the ACM API or the [describe-certificate](https://docs.aws.amazon.com/cli/latest/reference/acm/describe-certificate.html) command in the ACM CLI. For more information, see [AWS Certificate Manager DNS validation](dns-validation.md).
 
-![Select the target certificate from the console.](http://docs.aws.amazon.com/acm/latest/userguide/images/Dns-renewal-1.png)
+![Select the target certificate from the console.](https://docs.aws.amazon.com/acm/latest/userguide/images/Dns-renewal-1.png)
 
 
-![Expand the certificate window to find the certificate's CNAME information.](http://docs.aws.amazon.com/acm/latest/userguide/images/Dns-renewal-2.png)
+![Expand the certificate window to find the certificate's CNAME information.](https://docs.aws.amazon.com/acm/latest/userguide/images/Dns-renewal-2.png)
 
 
 If the problem persists, contact the [Support Center](https://console.aws.amazon.com/support).

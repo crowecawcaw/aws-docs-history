@@ -25,7 +25,7 @@ Publicly issued certificates require [domain validation](https://docs.aws.amazon
 
 You can use ACM certificates with Kubernetes in a few ways:
 
-![ELB connects to Ingress, which routes to Service distributing traffic across Pod1, Pod2, and Pod3.](http://docs.aws.amazon.com/acm/latest/userguide/images/kubernetes-acm.png)
+![ELB connects to Ingress, which routes to Service distributing traffic across Pod1, Pod2, and Pod3.](https://docs.aws.amazon.com/acm/latest/userguide/images/kubernetes-acm.png)
 
 
 1. *Load balancer termination (without export)*: Issue certificates through ACK and use them to terminate TLS at an AWS load balancer. The certificate remains in ACM and is automatically discovered by the [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.1/guide/ingress/cert_discovery/). This approach does not require exporting the certificate.
