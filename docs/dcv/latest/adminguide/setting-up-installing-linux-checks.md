@@ -111,6 +111,6 @@ dpkg-sig --verify nice-dcv-server_2025.0.20103-1_amd64.deb
 This will return a message that includes the term `GOODSIG` to confirm that the signature is verified. The following example shows a signature confirmation message. In place of {{Example Key}}, the key will be displayed.
 
 ```
-Processing nice-dcv-server_2017.0.0-1_amd64.deb...
+Processing nice-dcv-server_2025.0.20103-1_amd64.deb...
 GOODSIG _gpgbuilder {{Example Key}}
 ```

@@ -11,7 +11,7 @@ Amazon DCV supports the following multi-channel audio configurations:
 + Surround 5.1 (six channels)
 + Surround 7.1 (eight channels)—Windows Amazon DCV servers only
 
-![Supported audio configurations](http://docs.aws.amazon.com/dcv/latest/adminguide/images/audio.png)
+![Supported audio configurations](https://docs.aws.amazon.com/dcv/latest/adminguide/images/audio.png)
 
 
 If the client requests a lower number of audio channels than the number of channels provided by the server, the server downmixes the number of channels. This is to match the number of channels requested by the client. For example, assume that the client requests surround sound 5.1 while the server supports up to surround sound 7.1. The server downmixes the audio to 5.1.

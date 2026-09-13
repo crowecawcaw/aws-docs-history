@@ -21,15 +21,15 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
 
 **To install the Amazon DCV server on Amazon Linux 2**
 
-1. Launch and connect to the server that you intend to install the Amazon DCV server.
+1. Launch and connect to the server where you intend to install the Amazon DCV server.
 
-1. The Amazon DCV server packages are digitally signed with a secure GPG signature. To allow the package manager to verify the package signature, you must import the NICE GPG key. To do so, open a terminal window and import the Amazon DCV GPG key.
+1. The Amazon DCV server packages are digitally signed with a secure GPG signature. To allow the package manager to verify the package signature, you must import the Amazon DCV GPG key. To do so, open a terminal window and import the Amazon DCV GPG key.
 
    ```
    $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
+1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
    + 64-bit x86
 
      ```
@@ -77,7 +77,7 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
      $ sudo yum install nice-dcv-server-2025.0.20103-1.el7.aarch64.rpm
      ```
 
-1. (Optional) To use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
+1. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
    + 64-bit x86
 
      ```
@@ -89,7 +89,7 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
      $ sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el7.aarch64.rpm
      ```
 
-1. (Optional) To use virtual sessions, install the `nice-xdcv` package.
+1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
@@ -122,7 +122,7 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
      $ sudo yum install nice-dcv-simple-external-authenticator-2025.0.282-1.el7.aarch64.rpm
      ```
 
-1. (Optional) To support specialized USB devices using USB remotization, install the DCV USB drivers. 
+1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
 
    To install the DCV USB drivers, you must have Dynamic Kernel Module Support (DKMS) installed on your server. Use the following commands to install DKMS.
 
@@ -144,7 +144,7 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    $ sudo dcvusbdriverinstaller
    ```
 
-1. (Optional) If you plan to support microphone redirection, verify that the `pulseaudio-utils` package is installed on your system. Use the following command to install it.
+1. (Optional) If you plan to support the microphone redirection, verify that the `pulseaudio-utils` package is installed on your system. Use the following command to install it.
 
    ```
    $ sudo yum install pulseaudio-utils
@@ -168,7 +168,7 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
+1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
    + 64-bit x86
 
      ```
@@ -228,7 +228,7 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
      $ sudo dnf install nice-dcv-web-viewer-2025.0.20103-1.amzn2023.aarch64.rpm
      ```
 
-1. (Optional) To use virtual sessions, install the `nice-xdcv` package.
+1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
@@ -282,14 +282,14 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    ```
 
 ------
-#### [ RHEL, CentOS, and Rocky Linux 8.5 ]
+#### [ RHEL, CentOS, and Rocky Linux 8 ]
 
-The Amazon DCV server is available for RHEL, CentOS servers based on the 64-bit x86 and 64-bit ARM architectures, and Rocky Linux 8.5 or later.
+The Amazon DCV server is available for RHEL, CentOS, and Rocky Linux 8 servers based on the 64-bit x86 and 64-bit ARM architectures.
 
 **Important**  
 The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers based on the 64-bit ARM architecture.
 
-**To install the Amazon DCV server on RHEL,CentOS, and or Rocky Linux 8.5**
+**To install the Amazon DCV server on RHEL, CentOS, and Rocky Linux 8**
 
 1. Launch and connect to the server where you intend to install the Amazon DCV server.
 
@@ -299,7 +299,7 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
+1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
    + 64-bit x86
 
      ```
@@ -359,7 +359,7 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
      $ sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el8.aarch64.rpm
      ```
 
-1. (Optional) To use virtual sessions, install the `nice-xdcv` package.
+1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
@@ -423,12 +423,12 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
 ------
 #### [ RHEL, CentOS, and Rocky Linux 9 ]
 
-The Amazon DCV server is available for RHEL, CentOS servers based on the 64-bit x86 and 64-bit ARM architectures, and Rocky Linux 9 or later.
+The Amazon DCV server is available for RHEL, CentOS, and Rocky Linux 9 servers based on the 64-bit x86 and 64-bit ARM architectures.
 
 **Important**  
 The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers based on the 64-bit ARM architecture.
 
-**To install the Amazon DCV server on RHEL,CentOS, and or Rocky Linux 9**
+**To install the Amazon DCV server on RHEL, CentOS, and Rocky Linux 9**
 
 1. Launch and connect to the server where you intend to install the Amazon DCV server.
 
@@ -438,7 +438,7 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
+1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
    + 64-bit x86
 
      ```
@@ -498,7 +498,7 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
      $ sudo yum install nice-dcv-web-viewer-2025.0.20103-1.el9.aarch64.rpm
      ```
 
-1. (Optional) To use virtual sessions, install the `nice-xdcv` package.
+1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
    + 64-bit x86
 
      ```
@@ -560,99 +560,99 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
    ```
 
 ------
-#### [ SLES 12.x/15.x ]
+#### [ SLES 12/15 ]
 
-The Amazon DCV server is available for SUSE Linux Enterprise Server (SLES) 12.x/15.x servers based on the 64-bit x86 architecture only.
+The Amazon DCV server is available for SUSE Linux Enterprise Server (SLES) 12/15 servers based on the 64-bit x86 architecture only.
 
-**To install the Amazon DCV server on SLES 12.x/15.x**
+**To install the Amazon DCV server on SLES 12/15**
 
 1. Launch and connect to the server where you intend to install the Amazon DCV server.
 
-1. The Amazon DCV server packages are digitally signed with a secure GPG signature. To allow the package manager to verify the package signature, you must import the Amazon DCV GPG key. To do so, open a terminal window and import the NICE GPG key.
+1. The Amazon DCV server packages are digitally signed with a secure GPG signature. To allow the package manager to verify the package signature, you must import the Amazon DCV GPG key. To do so, open a terminal window and import the Amazon DCV GPG key.
 
    ```
    $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
-   + SLES 12.x
+1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
+   + SLES 12
 
      ```
      $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-sles12-x86_64.tgz
      ```
-   + SLES 15.x
+   + SLES 15
 
      ```
      $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Servers/nice-dcv-2025.0-20103-sles15-x86_64.tgz
      ```
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.  
-SLES 12.x  
+SLES 12  
 
      ```
      $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-sles12-x86_64.tgz
      ```
-SLES 15.x  
+SLES 15  
 
      ```
      $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-sles15-x86_64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory.
-   + SLES 12.x
+   + SLES 12
 
      ```
      $ tar -xvzf nice-dcv-2025.0-20103-sles12-x86_64.tgz && cd nice-dcv-2025.0-20103-sles12-x86_64
      ```
-   + SLES 15.x
+   + SLES 15
 
      ```
      $ tar -xvzf nice-dcv-2025.0-20103-sles15-x86_64.tgz && cd nice-dcv-2025.0-20103-sles15-x86_64
      ```
 
 1. Install the Amazon DCV server.
-   + SLES 12.x
+   + SLES 12
 
      ```
      $ sudo zypper install nice-dcv-server-2025.0.20103-1.sles12.x86_64.rpm
      ```
-   + SLES 15.x
+   + SLES 15
 
      ```
      $ sudo zypper install nice-dcv-server-2025.0.20103-1.sles15.x86_64.rpm
      ```
 
 1. (Optional) If you plan to use the web client with Amazon DCV version 2021.2 and later, install the `nice-dcv-web-viewer` package.
-   + SLES 12.x
+   + SLES 12
 
      ```
      $ sudo zypper install nice-dcv-web-viewer-2025.0.20103-1.sles12.x86_64.rpm
      ```
-   + SLES 15.x
+   + SLES 15
 
      ```
      $ sudo zypper install nice-dcv-web-viewer-2025.0.20103-1.sles15.x86_64.rpm
      ```
 
-1. (Optional) To use virtual sessions, install the `nice-xdcv` package.
-   + SLES 12.x
+1. (Optional) If you plan to use virtual sessions, install the `nice-xdcv` package.
+   + SLES 12
 
      ```
      $ sudo zypper install nice-xdcv-2025.0.688-1.sles12.x86_64.rpm
      ```
-   + SLES 15.x
+   + SLES 15
 
      ```
      $ sudo zypper install nice-xdcv-2025.0.688-1.sles15.x86_64.rpm
      ```
 
 1. (Optional) If you plan to use GPU sharing, install the `nice-dcv-gl` package. 
-   + SLES 12.x
+   + SLES 12
 
      ```
      $ sudo zypper install nice-dcv-gl-2025.0.1112-1.sles12.x86_64.rpm
      ```
-   + SLES 15.x
+   + SLES 15
 
      ```
      $ sudo zypper install nice-dcv-gl-2025.0.1112-1.sles15.x86_64.rpm
@@ -661,12 +661,12 @@ SLES 15.x
 You can optionally install the `nice-dcv-gltest` package. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware-based OpenGL. 
 
 1. (Optional) If you plan to use Amazon DCV with Amazon DCV EnginFrame, install the `nice-dcv-simple-external-authenticator` package. 
-   + SLES 12.x
+   + SLES 12
 
      ```
      $ sudo zypper install nice-dcv-simple-external-authenticator-2025.0.282-1.sles12.x86_64.rpm
      ```
-   + SLES 15.x
+   + SLES 15
 
      ```
      $ sudo zypper install nice-dcv-simple-external-authenticator-2025.0.282-1.sles15.x86_64.rpm
@@ -675,9 +675,7 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
 1. (Optional) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers. 
 
    To install the DCV USB drivers, you must have Dynamic Kernel Module Support (DKMS) installed on your server. Use the following commands to install DKMS.
-
-   Run the following command to install DKMS:
-   + SLES 12.x
+   + SLES 12
 
      ```
      $ sudo zypper install http://download.opensuse.org/repositories/home:/Ximi1970:/Dkms:/Staging/SLE_12_SP4/noarch/dkms-2.5-11.1.noarch.rpm
@@ -714,7 +712,7 @@ If you're using SLES 15 SP1 or SP2, replace {{15}} in the command above with eit
      $ sudo reboot
      ```
 
-   After you have installed DKMS, run the following command to install the DCV USB drivers:
+   After you installed DKMS, run the following command to install the DCV USB drivers:
 
    ```
    $ sudo dcvusbdriverinstaller
@@ -729,7 +727,7 @@ If you're using SLES 15 SP1 or SP2, replace {{15}} in the command above with eit
 ------
 #### [ Ubuntu 20.04/22.04/24.04 ]
 
-The Amazon DCV server is available for Ubuntu servers based on the 64-bit x86 and 64-bit ARM architectures.
+The Amazon DCV server is available for Ubuntu 20.04/22.04/24.04 servers based on the 64-bit x86 and 64-bit ARM architectures.
 
 **Important**  
 The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers based on the 64-bit ARM architecture.
@@ -748,7 +746,7 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    $ gpg --import NICE-GPG-KEY
    ```
 
-1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The RPM and deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
+1. Download the packages from the [Amazon DCV download website](http://download.amazondcv.com). The deb packages are packaged into a `.tgz` archive. Make sure that you download the correct archive for your operating system.
    + Ubuntu 20.04 (64-bit x86)
 
      ```
@@ -977,7 +975,7 @@ You can optionally install the `nice-dcv-gltest` package. This package includes 
 1. (Optional) For Ubuntu 22.04 only, if you need to use SSO with system auth, use the following command to install it.
 
    ```
-   $ nice-dcv-gnome-shell-extension_{{version}}_all.ubuntu2204
+   $ sudo apt install ./nice-dcv-gnome-shell-extension_{{version}}_all.ubuntu2204.deb
    ```
 
 ------

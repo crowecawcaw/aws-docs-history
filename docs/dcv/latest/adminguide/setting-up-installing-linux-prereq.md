@@ -9,7 +9,7 @@ This topic describes how to install the prerequisites required to use Amazon DCV
 
 **Topics**
 + [Install a desktop environment and desktop manager](#linux-prereq-gui)
-+ [Disable the Wayland protocol (GDM3 only)](#linux-prereq-wayland)
++ [Disable the Wayland protocol (GDM only)](#linux-prereq-wayland)
 + [Configure the X Server](#linux-prereq-xserver)
 + [Install the glxinfo utility](#linux-prereq-tools)
 + [Verify OpenGL software rendering](#linux-prereq-opengl)
@@ -26,9 +26,9 @@ A desktop environment is a graphical user interface (GUI) that helps you to inte
 The following tabbed content shows the steps for installing the default desktop environment and desktop manager on the supported operating systems and also shows how to configure and start the X server on the supported operating systems.
 
 ------
-#### [ RHEL, CentOS, and Rocky Linux ]
+#### [ RHEL, CentOS, and Rocky Linux 8/9 ]
 
-The default desktop environment for RHEL, CentOS , and Rocky Linux is Gnome3 and the default desktop manager is GDM.
+The default desktop environment for RHEL, CentOS , and Rocky Linux is GNOME and the default desktop manager is GDM.
 
 **To install and configure the desktop environment and desktop manager on RHEL, CentOS, and Rocky Linux**
 
@@ -59,7 +59,7 @@ The default desktop environment for RHEL, CentOS , and Rocky Linux is Gnome3 and
 ------
 #### [ Amazon Linux 2 ]
 
-The default desktop environment for Amazon Linux 2 is Gnome3 and the default desktop manager is GDM.
+The default desktop environment for Amazon Linux 2 is GNOME and the default desktop manager is GDM.
 
 **To install and configure the desktop environment and desktop manager on Amazon Linux 2**
 
@@ -92,7 +92,7 @@ The default desktop environment for Amazon Linux 2 is Gnome3 and the default des
 ------
 #### [ Amazon Linux 2023 ]
 
-The default desktop environment for Amazon Linux 2023 is Gnome3 and the default desktop manager is GDM.
+The default desktop environment for Amazon Linux 2023 is GNOME and the default desktop manager is GDM.
 
 **To install and configure the desktop environment and desktop manager on Amazon Linux 2023**
 
@@ -115,11 +115,11 @@ The default desktop environment for Amazon Linux 2023 is Gnome3 and the default 
    ```
 
 ------
-#### [ Ubuntu 20.x, 22.x, and 24.x ]
+#### [ Ubuntu 20.04, 22.04, and 24.04 ]
 
-For Ubuntu 20.x/22.x/24.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3. Starting with Ubuntu 20.x, LightDM isn't supported anymore with Amazon DCV.
+For Ubuntu 20.04/22.04/24.04, the default desktop environment is GNOME and the default desktop manager is GDM. Starting with Ubuntu 20.04, LightDM isn't supported anymore with Amazon DCV.
 
-**To install and configure the desktop environment and desktop manager on Ubuntu 20.x/22.x/24.x**
+**To install and configure the desktop environment and desktop manager on Ubuntu 20.04/22.04/24.04**
 
 1. Install the desktop environment and the desktop manager packages.
 
@@ -131,13 +131,13 @@ For Ubuntu 20.x/22.x/24.x, the default desktop environment is Gnome3 and the def
    $ sudo apt install ubuntu-desktop
    ```
 
-   Install GDM3
+   Install GDM
 
    ```
    $ sudo apt install gdm3
    ```
 
-1. Verify that GDM3 is set as the default desktop manager.
+1. Verify that GDM is set as the default desktop manager.
 
    ```
    $ cat /etc/X11/default-display-manager
@@ -149,7 +149,7 @@ For Ubuntu 20.x/22.x/24.x, the default desktop environment is Gnome3 and the def
    /usr/sbin/gdm3
    ```
 
-   If GDM3 isn't set as the default desktop manager, use the following command to set it as the default.
+   If GDM isn't set as the default desktop manager, use the following command to set it as the default.
 
    ```
    $ sudo dpkg-reconfigure gdm3
@@ -186,11 +186,11 @@ When using a version of Amazon DCV older than 2022.2 with **Virtual Sessions**, 
 Amazon DCV 2022.2 and newer are not affected by this issue.
 
 ------
-#### [ SUSE Linux Enterprise 12.x ]
+#### [ SUSE Linux Enterprise 12 ]
 
-The default desktop environment for SUSE Linux Enterprise 12.x is SLE Classic and the default desktop manager is GDM.
+The default desktop environment for SUSE Linux Enterprise 12 is SLE Classic and the default desktop manager is GDM.
 
-**To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 12.x**
+**To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 12**
 
 1. Install the desktop environment and the desktop manager packages.
 
@@ -221,11 +221,11 @@ The default desktop environment for SUSE Linux Enterprise 12.x is SLE Classic an
    ```
 
 ------
-#### [ SUSE Linux Enterprise 15.x ]
+#### [ SUSE Linux Enterprise 15 ]
 
-The default desktop environment for SUSE Linux Enterprise 15.x is SLE Classic and the default desktop manager is GDM3.
+The default desktop environment for SUSE Linux Enterprise 15 is SLE Classic and the default desktop manager is GDM.
 
-**To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 15.x**
+**To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 15**
 
 1. Install the desktop environment and the desktop manager packages.
 
@@ -275,20 +275,20 @@ Amazon DCV 2022.2 and newer are not affected by this issue.
 
 ------
 
-## Disable the Wayland protocol (GDM3 only)
+## Disable the Wayland protocol (GDM only)
 <a name="linux-prereq-wayland"></a>
 
-Amazon DCV doesn't support the Wayland protocol. If you're using the GDM3 desktop manager, you must disable the Wayland protocol. If you aren't using GDM3, skip this step.
+Amazon DCV doesn't support the Wayland protocol. If you're using the GDM desktop manager, you must disable the Wayland protocol. If you aren't using GDM, skip this step.
 
 **To disable the Wayland protocol**
 
 1. Open the following file using your preferred text editor.
-   + RHEL, CentOS, SUSE Linux Enterprise 15.x, and Amazon Linux 2023
+   + RHEL, CentOS, Rocky Linux 8/9, SUSE Linux Enterprise 12/15, and Amazon Linux 2/2023
 
      ```
      /etc/gdm/custom.conf
      ```
-   + Ubuntu
+   + Ubuntu 20.04/22.04/24.04
 
      ```
      /etc/gdm3/custom.conf
@@ -302,17 +302,17 @@ Amazon DCV doesn't support the Wayland protocol. If you're using the GDM3 deskto
    ```
 
 1. Restart the GDM service.
-   + RHEL, CentOS, and Amazon Linux 2023
+   + RHEL, CentOS, Rocky Linux 8/9, and Amazon Linux 2/2023
 
      ```
      $ sudo systemctl restart gdm
      ```
-   + Ubuntu
+   + Ubuntu 20.04/22.04/24.04
 
      ```
      $ sudo systemctl restart gdm3
      ```
-   + SUSE Linux Enterprise 15.x
+   + SUSE Linux Enterprise 12/15
 
      ```
      $ sudo systemctl restart xdm
@@ -368,7 +368,7 @@ The glxinfo utility provides information about your Linux server's OpenGL config
 The glxinfo utility is installed as a package dependency of DCV GL. Therefore, if you installed DCV GL, the glxinfo utility is already installed on your Linux server.
 
 ------
-#### [ RHEL, CentOS, Rocky Linux, Amazon Linux 2, and Amazon Linux 2023 ]
+#### [ RHEL, CentOS, Rocky Linux 8/9, and Amazon Linux 2/2023 ]
 
 **To install the glxinfo utility**  
 Run the following command:
@@ -378,7 +378,7 @@ $ sudo yum install glx-utils
 ```
 
 ------
-#### [ Ubuntu ]
+#### [ Ubuntu 20.04/22.04/24.04 ]
 
 **To install the glxinfo utility**  
 Run the following command:
@@ -388,7 +388,7 @@ $ sudo apt install mesa-utils
 ```
 
 ------
-#### [ SUSE Linux Enterprise ]
+#### [ SUSE Linux Enterprise 12/15 ]
 
 **To install the glxinfo utility**  
 Run the following command:
@@ -430,7 +430,7 @@ OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
 
 **Topics**
 + [Install and configure NVIDIA drivers](#gpu-nvidia)
-+ [Install and Configure AMD Drivers](#gpu-amd)
++ [Install and configure AMD drivers](#gpu-amd)
 
 ### Install and configure NVIDIA drivers
 <a name="gpu-nvidia"></a>
@@ -499,7 +499,7 @@ OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 390.75
 OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
 ```
 
-### Install and Configure AMD Drivers
+### Install and configure AMD drivers
 <a name="gpu-amd"></a>
 
 An instance with an attached AMD GPU, such as a G4ad instance, must have the appropriate AMD driver installed. For instructions on how to install the AMD GPU drivers on a compatible Amazon EC2 instance, see [ Install AMD drivers on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-amd-driver.html).
@@ -522,7 +522,7 @@ This is not required if you intend to use virtual sessions.
 The XDummy driver is able to support only resolutions defined in its configuration.
 
 ------
-#### [ RHEL, CentOS, Rocky Linux, Amazon Linux 2, and Amazon Linux 2023 ]
+#### [ RHEL, CentOS, Rocky Linux 8/9, and Amazon Linux 2/2023 ]
 
 **To install the XDummy driver**  
 Run the following command:
@@ -532,7 +532,7 @@ $ sudo yum install xorg-x11-drv-dummy
 ```
 
 ------
-#### [ Ubuntu ]
+#### [ Ubuntu 20.04/22.04/24.04 ]
 
 **To install the XDummy driver**  
 Run the following command:
@@ -542,7 +542,7 @@ $ sudo apt install xserver-xorg-video-dummy
 ```
 
 ------
-#### [ SUSE Linux Enterprise ]
+#### [ SUSE Linux Enterprise 12/15 ]
 
 **To install the XDummy driver**  
 Run the following command:
