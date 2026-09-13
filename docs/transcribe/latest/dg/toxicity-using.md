@@ -14,10 +14,10 @@ To use toxic speech detection with a batch transcription, see the following for 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** (top right). This opens the **Specify job details** page.  
-![Amazon Transcribe console screenshot: the 'specify job details' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/toxicity-batch-details-1.png)
+![Amazon Transcribe console screenshot: the 'specify job details' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/toxicity-batch-details-1.png)
 
 1.  On the **Specify job details** page, you can also enable PII redaction if you want. Note that the other listed options are not supported with Toxicity detection. Select **Next**. This takes you to the **Configure job - optional** page. In the **Audio settings** panel, select **Toxicity detection**.   
-![Amazon Transcribe console screenshot: the 'configure job' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/toxicity-batch-details-2.png)
+![Amazon Transcribe console screenshot: the 'configure job' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/toxicity-batch-details-2.png)
 
 1. Select **Create job** to run your transcription job.
 

@@ -28,7 +28,7 @@ The following are guidelines and requirements for AWS HealthScribe streaming:
 + You can resume a session any number of times within 5 hours from the initial stream creation.
 + You can stream at most 2 hours of audio over a session across all streaming requests.
 + By default, AWS HealthScribe provides encryption at rest to protect sensitive customer data using Amazon S3-managed keys. When you start a stream, you can specify a AWS KMS key for a second layer of encryption. Your `ResourceAccessRoleArn` must have permission to use your AWS KMS key. For more information, see [Data Encryption at rest for AWS HealthScribe](health-scribe-encryption.md). 
-+ You can use AWS HealthScribe streaming with the AWS SDKs, excluding the SDK for Python (Boto3) and SDK for PHP.
++ You can use AWS HealthScribe streaming with the AWS SDKs, excluding the AWS SDK for Python (Boto3) and SDK for PHP.
 + If a `LimitExceededException` exception occurs after you end a stream, you can restart the session and still generate post-stream analytics. To restart the stream, use the [StartMedicalScribeStream](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalScribeStream.html) API and use same `SessionID`. Then send a `MedicalScribeSessionControlEvent` with a `Type` of `END_OF_SESSION` and AWS HealthScribe starts the analytics.
 
 ## ResourceAccessRoleArn role permissions

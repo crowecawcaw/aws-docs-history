@@ -44,13 +44,13 @@ You can start a streaming transcription using the AWS Management Console, WebSoc
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Real-time transcription**. Scroll down to **Content removal settings** and expand this field if it is minimized.  
-![Amazon Transcribe console screenshot: the 'real-time transcription' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream1.png)
+![Amazon Transcribe console screenshot: the 'real-time transcription' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream1.png)
 
 1. Toggle on **PII Identification & redaction**.  
-![Amazon Transcribe console screenshot: the expanded 'content removal settings' panel.](http://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream2.png)
+![Amazon Transcribe console screenshot: the expanded 'content removal settings' panel.](https://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream2.png)
 
 1. Select **Identification only** or **Identification & redaction**, then select the PII entity types you want to identify or redact in your transcript.  
-![Amazon Transcribe console screenshot: list of PII types that can be selected.](http://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream3.png)
+![Amazon Transcribe console screenshot: list of PII types that can be selected.](https://docs.aws.amazon.com/transcribe/latest/dg/images/redaction-stream3.png)
 
 1. You're now ready to transcribe your stream. Select **Start streaming** and begin speaking. To end your dictation, select **Stop streaming**.
 

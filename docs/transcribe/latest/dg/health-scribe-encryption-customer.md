@@ -75,16 +75,14 @@ The following is an example key policy you can use to grant your ResourceAccessR
 
  The IAM policy attached to your DataAccessRole or ResourceAccessRole must grant permissions to perform the necessary AWS KMS actions, regardless of whether the customer-managed key and role are in the same or different accounts. Also, the role's trust policy must grant AWS HealthScribe permission to assume the role.
 
-The following IAM policy example shows how to grant a ResourceAccessRole permissions for AWS HealthScribe streaming. To use this policy for transcription jobs, replace `transcribe.streaming.amazonaws.com` with `transcribe.amazonaws.com` and remove or modify the encryption context.
+The following IAM policy example shows how to grant a ResourceAccessRole permissions for AWS HealthScribe streaming. To use this policy for transcription jobs, remove or modify the encryption context. The `kms:ViaService` condition value is the same for streaming and transcription jobs.
 
 ------
 #### [ JSON ]
 
-****  
-
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -96,7 +94,7 @@ The following IAM policy example shows how to grant a ResourceAccessRole permiss
             "Resource": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{KMS-Example-KeyId}}",
             "Condition": {
                 "StringEquals": {
-                    "kms:ViaService": "transcribe.streaming.amazonaws.com",
+                    "kms:ViaService": "transcribe.{{us-west-2}}.amazonaws.com",
                     "kms:EncryptionContext:aws:us-east-1:transcribe:medical-scribe:session-id": "{{1234abcd-12ab-34cd-56ef-123456SAMPLE}}"
                 }
             }
@@ -109,7 +107,7 @@ The following IAM policy example shows how to grant a ResourceAccessRole permiss
             "Resource": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{KMS-Example-KeyId}}",
             "Condition": {
                 "StringEquals": {
-                    "kms:ViaService": "transcribe.streaming.amazonaws.com"
+                    "kms:ViaService": "transcribe.{{us-west-2}}.amazonaws.com"
                 }
             }
         }

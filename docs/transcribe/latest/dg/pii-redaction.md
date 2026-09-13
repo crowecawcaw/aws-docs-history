@@ -17,4 +17,4 @@ The redaction feature does not meet the requirements for de-identification under
 
 For a video walkthrough of redacting and identifying PII, see:
 
-[![AWS Videos](http://img.youtube.com/vi/4H8dQoeLkyM/0.jpg)](http://www.youtube.com/watch?v=4H8dQoeLkyM)
+[![AWS Videos](https://img.youtube.com/vi/4H8dQoeLkyM/0.jpg)](https://www.youtube.com/watch?v=4H8dQoeLkyM)

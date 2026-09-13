@@ -48,12 +48,12 @@ To partition speakers in a batch transcription, see the following examples:
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** (top right). This opens the **Specify job details** page.  
-![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)
+![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](https://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)
 
 1. Fill in any fields you want to include on the **Specify job details** page, then select **Next**. This takes you to the **Configure job - *optional*** page.
 
    To enable speaker partitioning, in **Audio settings**, choose **Audio identification**. Then choose **Speaker partitioning** and specify the number of speakers.  
-![Amazon Transcribe console 'Configure job' page. In the 'Audio settings' panel, you can enable 'Speaker partitioning'.](http://docs.aws.amazon.com/transcribe/latest/dg/images/diarization-batch.png)
+![Amazon Transcribe console 'Configure job' page. In the 'Audio settings' panel, you can enable 'Speaker partitioning'.](https://docs.aws.amazon.com/transcribe/latest/dg/images/diarization-batch.png)
 
 1. Select **Create job** to run your transcription job. 
 
@@ -143,10 +143,10 @@ To partition speakers in a streaming transcription, see the following examples:
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Real-time transcription**. Scroll down to **Audio settings** and expand this field if it is minimized.  
-![Amazon Transcribe console screenshot: the 'audio settings' tab on the 'real-time transcription' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/diarization-streaming1.png)
+![Amazon Transcribe console screenshot: the 'audio settings' tab on the 'real-time transcription' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/diarization-streaming1.png)
 
 1. Toggle on **Speaker partitioning**.  
-![Amazon Transcribe console screenshot: the expanded 'audio settings' tab with speaker partitioning enabled.](http://docs.aws.amazon.com/transcribe/latest/dg/images/diarization-streaming2.png)
+![Amazon Transcribe console screenshot: the expanded 'audio settings' tab with speaker partitioning enabled.](https://docs.aws.amazon.com/transcribe/latest/dg/images/diarization-streaming2.png)
 
 1. You're now ready to transcribe your stream. Select **Start streaming** and begin speaking. To end your dictation, select **Stop streaming**.
 

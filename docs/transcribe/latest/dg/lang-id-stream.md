@@ -44,16 +44,16 @@ You can use automatic language identification in a streaming transcription using
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Real-time transcription**. Scroll down to **Language settings** and expand this field if it is minimized.  
-![Amazon Transcribe console screenshot: the collapsed 'language settings' tab on the 'real-time transcription' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream1.png)
+![Amazon Transcribe console screenshot: the collapsed 'language settings' tab on the 'real-time transcription' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream1.png)
 
 1. Select **Automatic language identification** or **Automatic multiple languages identification**.  
-![Amazon Transcribe console screenshot: the expanded 'language settings' tab.](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream2.png)
+![Amazon Transcribe console screenshot: the expanded 'language settings' tab.](https://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream2.png)
 
 1. Provide a minimum of two language codes for your transcription. Note that you can provide only one dialect per language. For example, you cannot select both `en-US` and `en-GB` as language options for the same transcription.  
-![Amazon Transcribe console screenshot: the language code selection dropdown menu.](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream3.png)
+![Amazon Transcribe console screenshot: the language code selection dropdown menu.](https://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream3.png)
 
 1. (Optional) From the subset of languages you selected in the previous step, you can choose a preferred language for your transcript.  
-![Amazon Transcribe console screenshot: the 'language settings' panel with preferred language options.](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream4.png)
+![Amazon Transcribe console screenshot: the 'language settings' panel with preferred language options.](https://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-stream4.png)
 
 1. You're now ready to transcribe your stream. Select **Start streaming** and begin speaking. To end your dictation, select **Stop streaming**.
 

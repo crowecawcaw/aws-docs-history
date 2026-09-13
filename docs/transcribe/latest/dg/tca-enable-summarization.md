@@ -13,7 +13,7 @@ To use generative call summarization with a post call analytics job, see the fol
 
 In the Summarization panel, enable Generative call summarization to receive summary in the output.
 
-![Amazon Transcribe console screenshot: the 'Call Analytics jobs' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-summarization.png)
+![Amazon Transcribe console screenshot: the 'Call Analytics jobs' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-summarization.png)
 
 
 ## AWS CLI

@@ -20,18 +20,18 @@ Use the following procedure to start a post-call analytics job. The calls that m
 1. In the navigation pane, under Amazon Transcribe Call Analytics, choose **Call analytics jobs**.
 
 1. Choose **Create job**.  
-![Amazon Transcribe console screenshot: the 'Call Analytics jobs' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start.png)
+![Amazon Transcribe console screenshot: the 'Call Analytics jobs' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start.png)
 
 1. On the **Specify job details** page, provide information about your Call Analytics job, including the location of your input data.  
-![Amazon Transcribe console screenshot: the 'specify job details' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-settings1.png)
+![Amazon Transcribe console screenshot: the 'specify job details' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-settings1.png)
 
    Specify the desired Amazon S3 location of your output data and which IAM role to use.  
-![Amazon Transcribe console screenshot: the 'access permissions' panel.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-settings2.png)
+![Amazon Transcribe console screenshot: the 'access permissions' panel.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-settings2.png)
 
 1. Choose **Next**.
 
 1. For **Configure job**, turn on any optional features you want to include with your Call Analytics job. If you previously created categories, they appear in the **Categories** panel and are automatically applied to your Call Analytics job.  
-![Amazon Transcribe console screenshot: the 'configure job' page showing all custom categories.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-configure.png)
+![Amazon Transcribe console screenshot: the 'configure job' page showing all custom categories.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-configure.png)
 
 1. Choose **Create job**.
 

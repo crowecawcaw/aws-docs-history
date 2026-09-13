@@ -472,7 +472,7 @@ Total message overhead, including the prelude and both checksums, is 16 bytes.
 
 The following diagram shows the components that make up a message and a header. There are multiple headers per message.
 
-![A schematic of the components of a message and a header for a streaming transcription.](http://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-frame-overview.png)
+![A schematic of the components of a message and a header for a streaming transcription.](https://docs.aws.amazon.com/transcribe/latest/dg/images/frame-diagram-frame-overview.png)
 
 
 Each message contains the following components:
@@ -514,4 +514,4 @@ Each streaming request contains one or more data frames. There are two steps to 
 
 The following diagram shows how this works.
 
-![The components of a data frame for a streaming transcription.](http://docs.aws.amazon.com/transcribe/latest/dg/images/streaming10.png)
+![The components of a data frame for a streaming transcription.](https://docs.aws.amazon.com/transcribe/latest/dg/images/streaming10.png)

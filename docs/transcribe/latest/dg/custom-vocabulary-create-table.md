@@ -72,7 +72,7 @@ To process a custom vocabulary table for use with Amazon Transcribe, see the fol
 1. In the navigation pane, choose **Custom vocabulary**. This opens the **Custom vocabulary** page where you can view existing vocabularies or create a new one.
 
 1. Select **Create vocabulary**.  
-![Amazon Transcribe console screenshot: the 'custom vocabulary' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console.png)
+![Amazon Transcribe console screenshot: the 'custom vocabulary' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console.png)
 
    This takes you to the **Create vocabulary** page. Enter a name for your new custom vocabulary.
 
@@ -81,34 +81,34 @@ To process a custom vocabulary table for use with Amazon Transcribe, see the fol
    1. Upload a txt or csv file from your computer.
 
       You can either create your custom vocabulary from scratch or download a template to help you get started. Your vocabulary is then auto-populated in the **View and edit vocabulary** pane.  
-![Amazon Transcribe console screenshot: the 'create and import vocabulary' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-upload.png)
+![Amazon Transcribe console screenshot: the 'create and import vocabulary' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-upload.png)
 
    1. Import a txt or csv file from an Amazon S3 location.
 
       You can either create your custom vocabulary from scratch or download a template to help you get started. Upload your finished vocabulary file to an Amazon S3 bucket and specify its URI in your request. Your vocabulary is then auto-populated in the **View and edit vocabulary** pane.  
-![Amazon Transcribe console screenshot: the 'create and import vocabulary' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-s3.png)
+![Amazon Transcribe console screenshot: the 'create and import vocabulary' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-s3.png)
 
    1. Manually create your vocabulary in the console.
 
       Scroll to the **View and edit vocabulary** pane and select **Add 10 rows**. You can now manually enter terms.  
-![Amazon Transcribe console screenshot: the 'create and import vocabulary' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-manual.png)
+![Amazon Transcribe console screenshot: the 'create and import vocabulary' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-manual.png)
 
 1. You can edit your vocabulary the **View and edit vocabulary** pane. To make changes, click on the entry you want to modify.  
-![Amazon Transcribe console screenshot: the 'create and edit vocabulary' pane.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-edit2.png)
+![Amazon Transcribe console screenshot: the 'create and edit vocabulary' pane.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-edit2.png)
 
    If you make an error, you get a detailed error message so you can correct any issues prior to processing your vocabulary. Note that if you don't correct all errors before selecting **Create vocabulary**, your vocabulary request fails.  
-![Amazon Transcribe console screenshot: the 'create and edit vocabulary' pane.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-edit3.png)
+![Amazon Transcribe console screenshot: the 'create and edit vocabulary' pane.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-edit3.png)
 
    Select the check mark (✓) to save your changes or the 'X' to discard your changes.
 
 1. Optionally, add tags to your custom vocabulary. Once you have all fields completed and are happy with your vocabulary, select **Create vocabulary** at the bottom of the page. This takes you back to the **Custom vocabulary** page where you can view the status of your custom vocabulary. When the status changes from 'Pending' to 'Ready' your custom vocabulary can be used with a transcription.  
-![Amazon Transcribe console screenshot: custom vocabulary in pending status while processing.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-pending.png)
+![Amazon Transcribe console screenshot: custom vocabulary in pending status while processing.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-pending.png)
 
 1. If the status changes to 'Failed', select the name of your custom vocabulary to go to its information page.  
-![Amazon Transcribe console screenshot: 'custom vocabulary' page showing one vocabulary as complete and one as failed.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-failed.png)
+![Amazon Transcribe console screenshot: 'custom vocabulary' page showing one vocabulary as complete and one as failed.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-failed.png)
 
    There is a **Failure reason** banner at the top of this page that provides information on why your custom vocabulary failed. Correct the error in your text file and try again.  
-![Amazon Transcribe console screenshot: vocabulary's information page shows failure reason.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-failed2.png)
+![Amazon Transcribe console screenshot: vocabulary's information page shows failure reason.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-create-console-failed2.png)
 
 ### AWS CLI
 <a name="vocab-create-table-cli"></a>

@@ -55,10 +55,10 @@ You can start a batch transcription job using the AWS Management Console, AWS CL
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** (top right). This will open the **Specify job details** page.
 
 1. After filling in your desired fields on the **Specify job details** page, select **Next** to go to the **Configure job - *optional*** page. Here you'll find the **Content removal** panel with the **PII redaction** toggle.  
-![Amazon Transcribe console screenshot: the 'content removal pane' on the 'configure job' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/content-redact.png)
+![Amazon Transcribe console screenshot: the 'content removal pane' on the 'configure job' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/content-redact.png)
 
 1. Once you select **PII redaction**, you have the option to select all PII types you want to redact. You can also choose to have an unredacted transcript if you select **Include unredacted transcript in job output** box.  
-![Amazon Transcribe console screenshot: the 'content removal' pane showing PII options.](http://docs.aws.amazon.com/transcribe/latest/dg/images/content-redact-select.png)
+![Amazon Transcribe console screenshot: the 'content removal' pane showing PII options.](https://docs.aws.amazon.com/transcribe/latest/dg/images/content-redact-select.png)
 
 1. Select **Create job** to run your transcription job.
 

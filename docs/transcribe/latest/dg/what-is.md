@@ -16,7 +16,7 @@ You can transcribe media in real time (streaming) or you can transcribe media fi
 
 For a short video tour of Amazon Transcribe, see:
 
-[![AWS Videos](http://img.youtube.com/vi/zD8NMw4T1TI/0.jpg)](http://www.youtube.com/watch?v=zD8NMw4T1TI)
+[![AWS Videos](https://img.youtube.com/vi/zD8NMw4T1TI/0.jpg)](https://www.youtube.com/watch?v=zD8NMw4T1TI)
 
 
 To learn more, see [How Amazon Transcribe works](how-it-works.md) and [Getting started with Amazon Transcribe](getting-started.md).

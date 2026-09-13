@@ -36,7 +36,7 @@ For more information, see [Creating a custom vocabulary using a table](custom-vo
 
 To dive a little deeper and learn how to use Amazon Augmented AI with custom vocabularies, see:
 
-[![AWS Videos](http://img.youtube.com/vi/65eVesNiJzY/0.jpg)](http://www.youtube.com/watch?v=65eVesNiJzY)
+[![AWS Videos](https://img.youtube.com/vi/65eVesNiJzY/0.jpg)](https://www.youtube.com/watch?v=65eVesNiJzY)
 
 
 **API operations specific to custom vocabularies**  

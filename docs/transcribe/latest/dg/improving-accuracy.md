@@ -20,12 +20,12 @@ Custom vocabulary features (such as the `DisplayAs` field) are not applied to tr
 
 For a video walkthrough of creating and using custom vocabularies, see:
 
-[![AWS Videos](http://img.youtube.com/vi/oBgSJ7bsP2U/0.jpg)](http://www.youtube.com/watch?v=oBgSJ7bsP2U)
+[![AWS Videos](https://img.youtube.com/vi/oBgSJ7bsP2U/0.jpg)](https://www.youtube.com/watch?v=oBgSJ7bsP2U)
 
 
 For a video walkthrough of creating and using custom language models, see:
 
-[![AWS Videos](http://img.youtube.com/vi/iTkJoIqRrPU/0.jpg)](http://www.youtube.com/watch?v=iTkJoIqRrPU)
+[![AWS Videos](https://img.youtube.com/vi/iTkJoIqRrPU/0.jpg)](https://www.youtube.com/watch?v=iTkJoIqRrPU)
 
 
 **Dive deeper with the AWS Machine Learning Blog**  

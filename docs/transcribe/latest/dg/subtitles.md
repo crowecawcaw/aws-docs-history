@@ -23,7 +23,7 @@ Subtitle files are stored in the same Amazon S3 location as your transcription o
 
 For a video walkthrough of creating subtitles, see:
 
-[![AWS Videos](http://img.youtube.com/vi/PZdfXGggcH4/0.jpg)](http://www.youtube.com/watch?v=PZdfXGggcH4)
+[![AWS Videos](https://img.youtube.com/vi/PZdfXGggcH4/0.jpg)](https://www.youtube.com/watch?v=PZdfXGggcH4)
 
 
 ## Generating subtitle files
@@ -39,7 +39,7 @@ You can create subtitle files using the **AWS Management Console**, **AWS CLI**,
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** (top right). This opens the **Specify job details** page. Subtitle options are located in the **Output data** panel.
 
 1. Select the formats you want for your subtitles files, then choose a value for your start index. Note that the Amazon Transcribe default is `0`, but `1` is more widely used. If you're uncertain which value to use, we recommend choosing `1`, as this may improve compatibility with other services.  
-![Amazon Transcribe console screenshot: the 'output data' pane on the 'specify job details' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/subtitles-startindex.png)
+![Amazon Transcribe console screenshot: the 'output data' pane on the 'specify job details' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/subtitles-startindex.png)
 
 1. Fill in any other fields you want to include on the **Specify job details** page, then select **Next**. This takes you to the **Configure job - *optional* page**.
 

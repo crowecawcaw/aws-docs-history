@@ -39,12 +39,12 @@ Before continuing, save your custom vocabulary filter as a text (\*.txt) file. Y
 1. In the navigation pane, choose **Vocabulary filtering**. This opens the **Vocabulary filters** page where you can view existing custom vocabulary filters or create a new one.
 
 1. Select **Create vocabulary filter**.  
-![Amazon Transcribe console screenshot: the 'vocabulary filters' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-create-console.png)
+![Amazon Transcribe console screenshot: the 'vocabulary filters' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-create-console.png)
 
    This takes you to the **Create vocabulary filter** page. Enter a name for your new custom vocabulary filter.
 
    Select the **File upload** or **S3 location** option under **Vocabulary input source**. Then specify the location of your custom vocabulary file.  
-![Amazon Transcribe console screenshot: the 'create vocabulary filter' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-create-console-upload.png)
+![Amazon Transcribe console screenshot: the 'create vocabulary filter' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-create-console-upload.png)
 
 1. Optionally, add tags to your custom vocabulary filter. Once you have all fields completed, select **Create vocabulary filter** at the bottom of the page. If there are no errors processing your file, this takes you back to the **Vocabulary filters** page.
 

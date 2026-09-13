@@ -28,28 +28,28 @@ Use the following procedure to start a Call Analytics request. The calls that ma
 Only a demo is available in the AWS Management Console. To start a custom real-time analytics transcription, you must use the [API](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartCallAnalyticsStreamTranscription.html).
 
 1. In the navigation pane, under Amazon Transcribe Call Analytics, choose **Analyze a real-time call**.  
-![Amazon Transcribe console screenshot: the 'analyze a streaming call' demo page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream.png)
+![Amazon Transcribe console screenshot: the 'analyze a streaming call' demo page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream.png)
 
 1. For **Step 1: Specify input audio**, choose a demo test file from the dropdown menu.  
-![Amazon Transcribe console screenshot: a dropdown selection for the demo's input audio.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-settings1.png)
+![Amazon Transcribe console screenshot: a dropdown selection for the demo's input audio.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-settings1.png)
 
 1. For **Step 2: Review call categories**, you have the option to review the real-time Call Analytics categories you previously created. All real-time Call Analytics categories are applied to your transcription.
 
    Choosing **View categories** opens a new pane that shows your existing real-time Call Analytics categories and provides a link to create new ones.  
-![Amazon Transcribe console screenshot: the 'call analytics categories' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-settings2.png)
+![Amazon Transcribe console screenshot: the 'call analytics categories' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-settings2.png)
 
 1. For **Step 3: Configure input and output**, you have the option to apply additional settings.
 
    Choosing **Configure advanced settings** opens a new pane where you can specify content redaction settings.  
-![Amazon Transcribe console screenshot: the advanced settings panels, all collapsed.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-settings3.png)
+![Amazon Transcribe console screenshot: the advanced settings panels, all collapsed.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-settings3.png)
 
    Once you've made all your selections, choose **Save** to return to the main page.
 
 1. To apply additional analytics, you can toggle on **Post-call Analytics**. This provides you with the same analytics as a post-call analytics transcription, including interruptions, loudness, non-talk time, talk speed, talk time, issues, action items, and outcomes. Post-call analytics output is stored in a separate file from your real-time Call Analytics transcript.  
-![Amazon Transcribe console screenshot: the post-call analytics panel, collapsed.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-post-call1.png)
+![Amazon Transcribe console screenshot: the post-call analytics panel, collapsed.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-post-call1.png)
 
    If you apply post-call analytics, you must specify an Amazon S3 output file destination and an IAM role. You can optionally choose to encrypt your output.  
-![Amazon Transcribe console screenshot: the post-call analytics panel, expanded.](http://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-post-call1a.png)
+![Amazon Transcribe console screenshot: the post-call analytics panel, expanded.](https://docs.aws.amazon.com/transcribe/latest/dg/images/analytics-start-stream-post-call1a.png)
 
 1. Choose **Start streaming**.
 

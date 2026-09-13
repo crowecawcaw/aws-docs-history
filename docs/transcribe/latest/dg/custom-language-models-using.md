@@ -20,10 +20,10 @@ To use a custom language model with a batch transcription, see the following for
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** (top right). This opens the **Specify job details** page.
 
 1. In the **Job settings** panel under **Model type**, select the **Custom language model** box.  
-![Amazon Transcribe console screenshot: the 'job settings' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/clm-console.png)
+![Amazon Transcribe console screenshot: the 'job settings' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/clm-console.png)
 
    You must also select an input language from the dropdown menu.  
-![Amazon Transcribe console screenshot: the 'job settings' page showing dropdown language menu.](http://docs.aws.amazon.com/transcribe/latest/dg/images/clm-console-language.png)
+![Amazon Transcribe console screenshot: the 'job settings' page showing dropdown language menu.](https://docs.aws.amazon.com/transcribe/latest/dg/images/clm-console-language.png)
 
 1. Under **Custom model selection**, select an existing custom language model from the dropdown menu or **Create a new one**.
 
@@ -121,10 +121,10 @@ To use a custom language model with a streaming transcription, see the following
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Real-time transcription**. Scroll down to **Customizations** and expand this field if it is minimized.  
-![Amazon Transcribe console screenshot: the 'real-time transcription' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/stream-main.png)
+![Amazon Transcribe console screenshot: the 'real-time transcription' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/stream-main.png)
 
 1. Toggle on **Custom language model** and select a model from the dropdown menu.  
-![Amazon Transcribe console screenshot: the expanded 'customizations' panel.](http://docs.aws.amazon.com/transcribe/latest/dg/images/model-stream2.png)
+![Amazon Transcribe console screenshot: the expanded 'customizations' panel.](https://docs.aws.amazon.com/transcribe/latest/dg/images/model-stream2.png)
 
    Include any other settings you want to apply to your stream.
 

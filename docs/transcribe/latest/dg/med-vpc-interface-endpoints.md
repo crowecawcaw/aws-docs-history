@@ -51,7 +51,7 @@ The following is an example of an endpoint policy for streaming transcription in
          "Principal":"*",
          "Effect":"Allow",
          "Action":[
-            "{{transcribe}}:{{StartMedicalStreamTranscription}}",
+            "{{transcribe:StartMedicalStreamTranscription}}"
          ],
          "Resource":"*"
       }

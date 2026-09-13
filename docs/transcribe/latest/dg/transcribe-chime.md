@@ -11,7 +11,7 @@ The Amazon Chime SDK uses its 'active talker' algorithm to select the top two ac
 
 The data flow of an Amazon Chime transcription is depicted in the following diagram:
 
-![Data flow schematic for Amazon Chime SDK transcriptions.](http://docs.aws.amazon.com/transcribe/latest/dg/images/chime-transcribe-architecture.png)
+![Data flow schematic for Amazon Chime SDK transcriptions.](https://docs.aws.amazon.com/transcribe/latest/dg/images/chime-transcribe-architecture.png)
 
 
 For additional information and detailed instructions on how to set up real-time Amazon Chime transcriptions, refer to [Using Amazon Chime SDK live transcription](https://docs.aws.amazon.com/chime-sdk/latest/dg/meeting-transcription.html) in the *Amazon Chime SDK Developer Guide*. For API operations, refer to the [*Amazon Chime SDK API Reference*](https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_StartMeetingTranscription.html).

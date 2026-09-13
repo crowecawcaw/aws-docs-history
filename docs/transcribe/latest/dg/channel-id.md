@@ -62,12 +62,12 @@ To identify channels in a batch transcription, you can use the **AWS Management 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** (top right). This opens the **Specify job details** page.  
-![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)
+![Amazon Transcribe console 'Specify job details' page. In the 'Job settings' panel, you can specify a name for your transcription job, select a Model type, and specify your language settings.](https://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)
 
 1. Fill in any fields you want to include on the **Specify job details** page, then select **Next**. This takes you to the **Configure job - *optional*** page.
 
    In the **Audio settings** panel, select **Channel identification** (under the 'Audio identification type' heading).  
-![Amazon Transcribe console 'Configure job' page. In the 'Audio settings' panel, you can enable Channel identification.](http://docs.aws.amazon.com/transcribe/latest/dg/images/channel-id-batch.png)
+![Amazon Transcribe console 'Configure job' page. In the 'Audio settings' panel, you can enable Channel identification.](https://docs.aws.amazon.com/transcribe/latest/dg/images/channel-id-batch.png)
 
 1. Select **Create job** to run your transcription job. 
 

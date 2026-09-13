@@ -100,10 +100,10 @@ You can use automatic language identification in a batch transcription job using
 1. In the **Job settings** panel, find the **Language settings** section and select **Automatic language identification** or **Automatic multiple languages identification**.
 
    You have the option to select multiple language options (from the *Select languages* dropdown box) if you know which languages are present in your audio file. Providing language options can improve accuracy, but is not required.  
-![Amazon Transcribe console screenshot: the 'job settings' pane on the 'specify job details' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-batch1.png)
+![Amazon Transcribe console screenshot: the 'job settings' pane on the 'specify job details' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-batch1.png)
 
 1. Fill in any other fields you want to include on the **Specify job details** page, then select **Next**. This takes you to the **Configure job - *optional*** page.  
-![Amazon Transcribe console screenshot: the 'configure job' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-configure-batch.png)
+![Amazon Transcribe console screenshot: the 'configure job' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/lang-id-configure-batch.png)
 
 1. Select **Create job** to run your transcription job. 
 

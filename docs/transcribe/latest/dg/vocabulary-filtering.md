@@ -42,7 +42,7 @@ Amazon Transcribe automatically masks racially sensitive terms, though you can o
 
 For a video walkthrough of vocabulary filtering, see:
 
-[![AWS Videos](http://img.youtube.com/vi/TcpSqbr0FnI/0.jpg)](http://www.youtube.com/watch?v=TcpSqbr0FnI)
+[![AWS Videos](https://img.youtube.com/vi/TcpSqbr0FnI/0.jpg)](https://www.youtube.com/watch?v=TcpSqbr0FnI)
 
 
 **API operations specific to vocabulary filtering**  

@@ -18,15 +18,15 @@ To use a custom vocabulary filter with a batch transcription, see the following 
 1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Transcription jobs**, then select **Create job** (top right). This opens the **Specify job details** page.  
-![Amazon Transcribe console screenshot: the 'specify job settings' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)
+![Amazon Transcribe console screenshot: the 'specify job settings' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-job-details-1.png)
 
    Name your job and specify your input media. Optionally include any other fields, then choose **Next**.
 
 1. On the **Configure job** page, in the **Content removal** panel, toggle on **Vocabulary filtering**.  
-![Amazon Transcribe console screenshot: the 'configure job' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-configure-job-vocab-filter.png)
+![Amazon Transcribe console screenshot: the 'configure job' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-configure-job-vocab-filter.png)
 
 1. Select your custom vocabulary filter from the dropdown menu and specify the filtration method.  
-![Amazon Transcribe console screenshot: vocabulary filter selection options.](http://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-vocab-filter-method.png)
+![Amazon Transcribe console screenshot: vocabulary filter selection options.](https://docs.aws.amazon.com/transcribe/latest/dg/images/console-batch-vocab-filter-method.png)
 
 1. Select **Create job** to run your transcription job. 
 
@@ -120,10 +120,10 @@ To use a custom vocabulary filter with a streaming transcription, see the follow
 1. Sign into the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
 1. In the navigation pane, choose **Real-time transcription**. Scroll down to **Content removal settings** and expand this field if it is minimized.  
-![Amazon Transcribe console screenshot: the 'real-time transcription' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/stream-main.png)
+![Amazon Transcribe console screenshot: the 'real-time transcription' page.](https://docs.aws.amazon.com/transcribe/latest/dg/images/stream-main.png)
 
 1. Toggle on **Vocabulary filtering**. Select a custom vocabulary filter from the dropdown menu and specify the filtration method.  
-![Amazon Transcribe console screenshot: the expanded 'content removal settings' pane.](http://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-stream.png)
+![Amazon Transcribe console screenshot: the expanded 'content removal settings' pane.](https://docs.aws.amazon.com/transcribe/latest/dg/images/vocab-filter-stream.png)
 
    Include any other settings you want to apply to your stream.
 
