@@ -10,7 +10,7 @@ With this architecture, you can forecast lodging demand and optimize property pe
 ## Property optimizer diagram
 <a name="propopt-diagram"></a>
 
-![How to forecast lodging demand by using Amazon Forecast, AWS Glue, and Amazon Quick Sight.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/property-optimizer-lodging/images/property-optimizer-lodging.png)
+![How to forecast lodging demand by using Amazon Forecast, AWS Glue, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/property-optimizer-lodging/images/property-optimizer-lodging.png)
 
 
 The following steps describe the data pipeline and forecasting components for this architecture:
