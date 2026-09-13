@@ -13,7 +13,7 @@ This is a supply chain reference architecture for a generic retailer. Specific i
 ## Intelligent Supply Chain - Retail Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how AWS services are used to depict a track and trace use case for a generic retailer.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/intelligent-supply-chain-retail/images/intelligent-supply-chain-retail.png)
+![Reference architecture diagram showing how AWS services are used to depict a track and trace use case for a generic retailer.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/intelligent-supply-chain-retail/images/intelligent-supply-chain-retail.png)
 
 
 1. Suppliers receive the purchase order (PO) and demand signals, and raise Order Received, Order Shipped, Autonomous System Numbers (ASN), and Invoice events. 
