@@ -10,7 +10,7 @@ With this architecture, you can deploy the Open Radio Access Network (O-RAN) Rad
 ## Deploying 5G O-RAN RIC on AWS diagram
 <a name="ric-diagram"></a>
 
-![Reference architecture diagram showing how to deploy near-real-time and non-real-time O-RAN RIC on AWS by using Amazon EKS, SageMaker AI, and AWS Lake Formation.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/deploying-5g-o-ran-ric/images/deploying-5g-o-ran-ric.png)
+![Reference architecture diagram showing how to deploy near-real-time and non-real-time O-RAN RIC on AWS by using Amazon EKS, SageMaker AI, and AWS Lake Formation.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/deploying-5g-o-ran-ric/images/deploying-5g-o-ran-ric.png)
 
 
 The following steps describe the RIC components and data flow for this architecture:
