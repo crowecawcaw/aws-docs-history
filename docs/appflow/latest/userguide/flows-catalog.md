@@ -45,7 +45,7 @@ To create a flow that catalogs data, complete the following steps in the Amazon 
      On the **Edit flow configuration** page, under **Destination details**, ensure that **Destination name** is set to **Amazon S3**.
 
 1. To view the Data Catalog settings, expand the **AWS Glue Data Catalog settings** section, and select the **Create a Data Catalog table** check box.  
-![The AWS Glue Data Catalog settings on the Configure flow page in the Amazon AppFlow console.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-glue-data-catalog-settings.png)
+![The AWS Glue Data Catalog settings on the Configure flow page in the Amazon AppFlow console.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-glue-data-catalog-settings.png)
 
 1. Configure the following settings:
    + **User role** – The required IAM user role. If you haven't created this role yet, see [Before you begin](#catalog-prereqs).
@@ -122,7 +122,7 @@ The flow that transfers the example dataset has the following configuration unde
 + **Database** is set to **example-database**.
 + **Table name prefix** is set to **example-prefix**.
 
-![Example configuration of the AWS Glue Data Catalog settings on the Configure flow page.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-example-gdc-config.png)
+![Example configuration of the AWS Glue Data Catalog settings on the Configure flow page.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-example-gdc-config.png)
 
 
 #### Example Data Catalog table
@@ -130,12 +130,12 @@ The flow that transfers the example dataset has the following configuration unde
 
 When the flow runs, Amazon AppFlow creates tables in the database named example-database. One of these tables is named example-prefix\_appflow\_exampleflow\_1668036146\_latest.Amazon AppFlow updates this table every time the flow runs. You can view the tables that Amazon AppFlow creates for your flows in the Data Catalog console.
 
-![Example database details page in the Data Catalog console.](http://docs.aws.amazon.com/appflow/latest/userguide/images/glue-example-database.png)
+![Example database details page in the Data Catalog console.](https://docs.aws.amazon.com/appflow/latest/userguide/images/glue-example-database.png)
 
 
 The Data Catalog console provides details pages for each table. Each page shows the metadata that a table stores, such as the columns and data types in the data schema. For more information, see [Working with tables on the AWS Glue console](https://docs.aws.amazon.com/glue/latest/dg/console-tables.html) in the *AWS Glue Developer Guide*.
 
-![Schema information on the table details page in the Data Catalog console.](http://docs.aws.amazon.com/appflow/latest/userguide/images/glue-example-table-schema.png)
+![Schema information on the table details page in the Data Catalog console.](https://docs.aws.amazon.com/appflow/latest/userguide/images/glue-example-table-schema.png)
 
 
 While you're on a table details page, you can also view any business metadata that Amazon AppFlow discovered in your source data. To view this data, open the table properties by choosing **Actions** and then **View properties**. The table properties JSON gives the business metadata as the values of the `AppFlowLabel` and `AppFlowDescription` attributes.
@@ -168,4 +168,4 @@ SELECT * FROM "AwsDataCatalog"."example-database"
 
 The Amazon Athena console shows the data that the query retrieves.
 
-![Results from an Amazon Athena query. This query retrieves the data that Amazon AppFlow cataloged in the Data Catalog.](http://docs.aws.amazon.com/appflow/latest/userguide/images/glue-athena-query.png)
+![Results from an Amazon Athena query. This query retrieves the data that Amazon AppFlow cataloged in the Data Catalog.](https://docs.aws.amazon.com/appflow/latest/userguide/images/glue-athena-query.png)

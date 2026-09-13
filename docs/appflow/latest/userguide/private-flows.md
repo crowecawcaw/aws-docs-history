@@ -21,4 +21,4 @@ Amazon AppFlow makes metadata API calls to populate a list of objects and fields
 
 The following diagram illustrates the components of a private flow.
 
-![A private flow using AWS PrivateLink](http://docs.aws.amazon.com/appflow/latest/userguide/images/PrivateLink%20for%20AppFlow.png)
+![A private flow using AWS PrivateLink](https://docs.aws.amazon.com/appflow/latest/userguide/images/PrivateLink%20for%20AppFlow.png)

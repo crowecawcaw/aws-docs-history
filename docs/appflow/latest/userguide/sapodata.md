@@ -27,9 +27,9 @@ To use Amazon AppFlow to transfer data from SAP OData to supported destinations,
 + Your SAP NetWeaver stack version must be 7.40 SP02 or above.
 + You must enable catalog service for service discovery.
   + **OData V2.0:** The OData V2.0 catalog service(s) can be enabled in your SAP Gateway via transaction **/IWFND/MAINT\_SERVICE **.  
-![Service Catalog showing two catalog services with namespace, OAuth scope, and soft state status.](http://docs.aws.amazon.com/appflow/latest/userguide/images/sapodata-odatav2-catalog-service-enablement.png)
+![Service Catalog showing two catalog services with namespace, OAuth scope, and soft state status.](https://docs.aws.amazon.com/appflow/latest/userguide/images/sapodata-odatav2-catalog-service-enablement.png)
   + **OData V4.0:** The OData V4.0 catalog services can be enabled in your SAP Gateway environment by publishing the service groups **/IWFND/CONFIG** or as described in the SAP documentation relevant to your gateway version.  
-![Service Group /IWFND/CONFIG showing LOCAL system alias with two available catalog services.](http://docs.aws.amazon.com/appflow/latest/userguide/images/sapodata-odatav4-catalog-service-enablement.png)
+![Service Group /IWFND/CONFIG showing LOCAL system alias with two available catalog services.](https://docs.aws.amazon.com/appflow/latest/userguide/images/sapodata-odatav4-catalog-service-enablement.png)
 + You must enable OData V2.0/V4.0 services in your SAP Gateway. The OData V2.0 services can be enabled via transaction **/IWFND/MAINT\_SERVICE** and V4.0 services can be published via transaction **/IWFND/V4\_ADMIN**.
 + Your SAP OData service must support client side pagination/query options such as **$top** and **$skip**. It must also support system query option **$count**.
 + Amazon AppFlow supports following authentication mechanisms:
@@ -126,7 +126,7 @@ To connect Amazon AppFlow to your SAP account, provide details about your SAP OD
    1. Choose **Continue**.
 
    1. If using OAuth, you will be redirected to the SAP login page. When prompted, grant Amazon AppFlow permissions to access your SAP account.  
-![Connect to SAP OData with AWS PrivateLink dialog showing OAuth2 authentication fields.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-sapodata-console.png)
+![Connect to SAP OData with AWS PrivateLink dialog showing OAuth2 authentication fields.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-sapodata-console.png)
 
 On the **Manage connections** page, your new connection appears in the **Connections** table. When you create a flow that uses SAP OData as the data source, you can select this connection.
 
@@ -289,7 +289,7 @@ The maximum number of records that Amazon AppFlow receives in each page of the r
 **Maximum number of concurrent processes**  
 The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data. The default value is one. You can specify up to 10.
 
-![Additional settings section showing Batch size field set to 1000 and Maximum number of concurrent processes field set to 1.](http://docs.aws.amazon.com/appflow/latest/userguide/images/sapodata-concurrent-processes.png)
+![Additional settings section showing Batch size field set to 1000 and Maximum number of concurrent processes field set to 1.](https://docs.aws.amazon.com/appflow/latest/userguide/images/sapodata-concurrent-processes.png)
 
 
 When the flow runs, Amazon AppFlow calculates how many processes it needs by dividing the number of records in your instance with the batch size. If the number is less than the maximum, the flow runs the processes only once, and it runs only as many processes as it needs. If the number exceeds the maximum, the flow runs the processes multiple times, and it doesn’t exceed the maximum at any one time.

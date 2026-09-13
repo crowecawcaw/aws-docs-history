@@ -106,7 +106,7 @@ To grant Amazon AppFlow access to your Salesforce data, create a Salesforce conn
 1. On the **Manage connections** page, for **Connectors**, choose **Salesforce**.
 
 1. Choose **Create connection**. The console shows the **Connect to Salesforce** window.  
-![The Connect to Salesforce window.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-salesforce-console.png)
+![The Connect to Salesforce window.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-salesforce-console.png)
 
 1. For **Connection name**, enter a custom name that will help you recognize the connection later.
 
@@ -150,7 +150,7 @@ When you use Salesforce as the source or destination, you can configure the **Sa
 
 The Amazon AppFlow console provides this setting on the **Configure flow** page under **Source details** or **Destination details**. To view it, expand the **Additional settings** section.
 
-![The options for Salesforce API preference on the Configure flow page.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-salesforce-api-preference.png)
+![The options for Salesforce API preference on the Configure flow page.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-salesforce-api-preference.png)
 
 
 You can choose one of these options:
@@ -173,7 +173,7 @@ If you choose this option, your flow can't transfer Salesforce compound fields b
 
 When you use Salesforce as a destination, the Amazon AppFlow console shows additional settings on the **Map data fields** page under **Destination record preference**.
 
-![The options for Destination record preference on the Map data fields page.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-salesforce-destination-record-preference.png)
+![The options for Destination record preference on the Map data fields page.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-salesforce-destination-record-preference.png)
 
 
 You can choose one of these options:

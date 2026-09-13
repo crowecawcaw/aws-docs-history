@@ -50,7 +50,7 @@ You can use Dynatrace as a source only.
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Connect**.  
-![Connect to Dynatrace dialog with fields for API token, subdomain, encryption key, and connection name.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-dynatrace-console.png)
+![Connect to Dynatrace dialog with fields for API token, subdomain, encryption key, and connection name.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-dynatrace-console.png)
 
 1. You will be redirected to the Dynatrace login page. When prompted, grant Amazon AppFlow permissions to access your Dynatrace account.
 

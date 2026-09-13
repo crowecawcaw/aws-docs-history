@@ -15,7 +15,7 @@ In this tutorial, you accomplish the following:
 
 The following diagram shows the two workflows.
 
-![Amazon AppFlow tutorial diagram.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-tutorial.png)
+![Amazon AppFlow tutorial diagram.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-tutorial.png)
 
 
 **Estimated cost: **Some of the actions in this tutorial may incur minor charges on your AWS account. The provided sample data is 1 KB. Should you choose to use your own data, you might incur greater charges. Reduce charges by completing the tutorial through [Step 5: Clean up your resources](flow-tutorial-clean-up.md). For information about pricing, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/) and [Amazon AppFlow pricing](https://aws.amazon.com/appflow/pricing/).

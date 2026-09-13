@@ -55,7 +55,7 @@ You can use Infor Nexus as a source only.
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Connect**.  
-![Connect to Infor Nexus form with fields for access credentials and subdomain.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-infornexus-console.png)
+![Connect to Infor Nexus form with fields for access credentials and subdomain.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-infornexus-console.png)
 
 1. You will be redirected to the Infor Nexus login page. When prompted, grant Amazon AppFlow permissions to access your Infor Nexus account.
 

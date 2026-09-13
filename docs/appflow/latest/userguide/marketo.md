@@ -52,7 +52,7 @@ You must provide Amazon AppFlow with your client ID and client secret. For more 
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Connect**.  
-![Connect to Marketo dialog with fields for Client ID, Client secret, Account/Munchkin ID, and Connection name.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-marketo-console.png)
+![Connect to Marketo dialog with fields for Client ID, Client secret, Account/Munchkin ID, and Connection name.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-marketo-console.png)
 
 1. You will be redirected to the Marketo login page. When prompted, grant Amazon AppFlow permissions to access your Marketo account.
 

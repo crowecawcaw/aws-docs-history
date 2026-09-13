@@ -53,7 +53,7 @@ You can use Veeva as a source only.
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Connect**.  
-![Connect to Veeva dialog with fields for user name, password, instance name, encryption, and connection name.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-veeva-console.png)
+![Connect to Veeva dialog with fields for user name, password, instance name, encryption, and connection name.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-veeva-console.png)
 
 Now that you are connected to your Veeva account, you can continue with the flow creation steps as described in [Creating flows in Amazon AppFlow](create-flow.md).
 
@@ -96,7 +96,7 @@ You can use Amazon AppFlow to extract documents from Veeva VAULT. Follow the ste
    1. Choose **versions** of the document you want to extract, By default only latest version of document is extracted, You can select all versions to be extracted. 
 
    1. Choose **Renditions** options if required, By default Renditions are not included.  
-![Configure flow page showing Veeva source settings with document type, download options, and version selections.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow_setup_veeva-document_extraction.png)
+![Configure flow page showing Veeva source settings with document type, download options, and version selections.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow_setup_veeva-document_extraction.png)
 
 1. Choose a destination from drop down menu.
 **Note**  

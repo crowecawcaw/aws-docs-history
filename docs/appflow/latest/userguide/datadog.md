@@ -52,7 +52,7 @@ You can use Datadog as a source only.
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Connect**.  
-![Datadog connection form with API key, Application key, region selection, and encryption options.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-datadog-console.png)
+![Datadog connection form with API key, Application key, region selection, and encryption options.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-datadog-console.png)
 
 1. You will be redirected to the Datadog login page. When prompted, grant Amazon AppFlow permissions to access your Datadog account.
 

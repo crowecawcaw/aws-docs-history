@@ -56,7 +56,7 @@ For more information, see [Setting up the Amazon AppFlow integration with Zendes
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Continue**.  
-![Zendesk connection form with fields for client ID, secret, account URL, and connection name.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-zendesk-console.png)
+![Zendesk connection form with fields for client ID, secret, account URL, and connection name.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-zendesk-console.png)
 
 Now that you are connected to your Zendesk account, you can continue with the flow creation steps as described in [Creating flows in Amazon AppFlow](create-flow.md).
 

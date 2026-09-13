@@ -120,7 +120,7 @@ You now have a run-on-demand flow. When you choose the **Run flow** button in th
 
 When the flow successfully runs, a banner appears. If you use the provided data, the banner shows nine processed records.
 
-![Success message for flow run.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-success.png)
+![Success message for flow run.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-success.png)
 
 
 ## View transferred data
@@ -158,7 +158,7 @@ For the sample data set, suppose you consider account records valid only if they
 1. In **Validations**, choose **Add validation**.
 
 1. If you use the sample data, for **Field name**, select **Account rating**. For **Condition**, choose **Values missing or null**. For **Action**, choose **Ignore record**. This configuration will omit the transfer of account records with missing rating values.  
-![Example4 and Example8 are missing account rating values.](http://docs.aws.amazon.com/appflow/latest/userguide/images/validate-data.png)
+![Example4 and Example8 are missing account rating values.](https://docs.aws.amazon.com/appflow/latest/userguide/images/validate-data.png)
 
 1. Choose **Save**.
 
@@ -167,7 +167,7 @@ For the sample data set, suppose you consider account records valid only if they
 1. In **Flows**, select your flow from the list.
 
 1. Choose **Run flow**. When the flow successfully runs, a banner appears.  
-![Success message for flow run.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-success.png)
+![Success message for flow run.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-success.png)
 
 1. If you use the sample Salesforce account data, navigate to your Salesforce **Account** tab to view the imported account records. For more information on Salesforce accounts, see [Salesforce Accounts](https://help.salesforce.com/s/articleView?id=sf.accounts).
 

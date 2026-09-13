@@ -50,7 +50,7 @@ You must provide Amazon AppFlow with the API key and secret key for the project 
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Connect**.  
-![Connect to Amplitude dialog with fields for API key, secret key, AWS KMS key, and connection name.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-amplitude-console.png)
+![Connect to Amplitude dialog with fields for API key, secret key, AWS KMS key, and connection name.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-amplitude-console.png)
 
 1. You will be redirected to the Amplitude login page. When prompted, grant Amazon AppFlow permissions to access your Amplitude account.
 

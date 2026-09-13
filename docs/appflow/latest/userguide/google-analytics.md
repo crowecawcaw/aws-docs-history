@@ -55,7 +55,7 @@ For more information, see [Management API - Authorization](https://developers.go
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Continue**.  
-![Connect to Google Analytics dialog with fields for client ID, client secret, encryption key, and connection name.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-googleanalytics-console.png)
+![Connect to Google Analytics dialog with fields for client ID, client secret, encryption key, and connection name.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-googleanalytics-console.png)
 
 1. You will be redirected to the Google Analytics login page. When prompted, grant Amazon AppFlow permissions to access your Google Analytics account.
 

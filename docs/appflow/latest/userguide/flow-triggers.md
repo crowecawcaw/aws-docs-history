@@ -47,7 +47,7 @@ If a schedule-triggered flow runs at time instances *T0*, *T1*, *T2*, and so on,
 
 The total offset value can be longer than the schedule interval (for example,* t* can be longer than *T1 minus T0*), but it must be less than 10 hours. The default value is 0.
 
-![Timeline showing flow run times at T0 through T3, with timestamps T0-t through T3-t used to query source records.](http://docs.aws.amazon.com/appflow/latest/userguide/images/time_offset.png)
+![Timeline showing flow run times at T0 through T3, with timestamps T0-t through T3-t used to query source records.](https://docs.aws.amazon.com/appflow/latest/userguide/images/time_offset.png)
 
 + The flow run at *T0* transfers records that changed between *T0 minus 30 days* and *T0 minus t* in the source application.
 + The flow run at *T1* transfers records that changed between *T0 minus t* and *T1 minus t* in the source application.

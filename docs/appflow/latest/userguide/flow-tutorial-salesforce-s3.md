@@ -141,7 +141,7 @@ Your event-triggered flow runs when a change occurs to a record that you've set 
 
 After about a minute, refresh your flow page in Amazon AppFlow. When the flow successfully runs, a timestamp from the last flow run appears.
 
-![Timestamp showing last event-triggered flow run.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-timestamp.png)
+![Timestamp showing last event-triggered flow run.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-timestamp.png)
 
 
 ### Run an on-demand flow with a supported SaaS source
@@ -157,7 +157,7 @@ Your on-demand flow runs when you choose the **Run flow** button in the console.
 
 When the flow successfully runs, a banner appears.
 
-![Success message for flow run.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-success2.png)
+![Success message for flow run.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-success2.png)
 
 
 ## View transferred data

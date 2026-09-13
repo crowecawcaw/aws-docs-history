@@ -63,7 +63,7 @@ You can use Slack as a source only.
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Continue**.  
-![Slack connection form with fields for client ID, secret, workspace URL, and connection name.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-slack-console.png)
+![Slack connection form with fields for client ID, secret, workspace URL, and connection name.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-slack-console.png)
 
 1. You will be redirected to the Slack login page. When prompted, grant Amazon AppFlow permissions to access your Slack account.
 

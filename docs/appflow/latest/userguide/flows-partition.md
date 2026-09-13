@@ -29,7 +29,7 @@ To configure the partition and aggregation settings in the Amazon AppFlow consol
      To configure the partition and aggregation settings, go to the **Edit data fields** page.
 
    The console shows the settings under **Partition and aggregation settings**.  
-![Partition and aggregation settings on the Map data fields page in the Amazon AppFlow console.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-partition-and-aggregation-settings.png)
+![Partition and aggregation settings on the Map data fields page in the Amazon AppFlow console.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-partition-and-aggregation-settings.png)
 
 1. For **Partition settings,** choose any of the following partition keys:
    + **Date and time** – Represents the dates and times when your flow runs. You choose the precision (yearly, monthly, daily, and so on). The dates and times are shown in Coordinated Universal Time (UTC).
@@ -105,14 +105,14 @@ The example file paths include two folders for schema version. After the flow is
 + The **Execution ID** partition key is turned on.
 + The **Destination fields** partition key is turned on, and the field **Account Rating** is used as a key.
 
-![Example configuration for the partition and aggregation settings. This configuration produces the example file paths under the schemaVersion_1/ folder.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-example-partition-settings-sv1.png)
+![Example configuration for the partition and aggregation settings. This configuration produces the example file paths under the schemaVersion_1/ folder.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-example-partition-settings-sv1.png)
 
 With this configuration, Amazon AppFlow organizes the output into datasets that contain records with matching field-value pairs for the `Account Rating` field. Amazon AppFlow stores each of these datasets in the corresponding folders, such as the folder `Account Rating=Warm/`.  
  After the partition settings in the flow are edited and the flow is run again, Amazon AppFlow creates the folder `schemaVersion_2/`. That revision set the following partition settings:  
 + The **Date and time** partition key is turned on, and the granularity is set to **Daily**.
 + The **Destination fields** partition key is turned on, and the field **Industry** is used as a key.
 
-![Example configuration for the partition and aggregation settings. This configuration produces the example file paths under the schemaVersion_2 folder.](http://docs.aws.amazon.com/appflow/latest/userguide/images/flow-example-partition-settings-sv2.png)
+![Example configuration for the partition and aggregation settings. This configuration produces the example file paths under the schemaVersion_2 folder.](https://docs.aws.amazon.com/appflow/latest/userguide/images/flow-example-partition-settings-sv2.png)
 
 
 With this configuration, Amazon AppFlow organizes the output into filepaths for the year, month, and day that the flow runs: `2022/11/10`. Within that path, Amazon AppFlow organizes the output into datasets that contain records with matching field-value pairs for the `Industry` field. Amazon AppFlow stores each of these datasets in the corresponding folders, such as the folder `Industry=Apparel/`.

@@ -67,7 +67,7 @@ You can use Snowflake as a destination only.
    1. Under **Connection name**, specify a name for your connection.
 
    1. Choose **Connect**.  
-![Snowflake connection form with fields for warehouse, stage, bucket, account, and other details.](http://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-snowflake-console.png)
+![Snowflake connection form with fields for warehouse, stage, bucket, account, and other details.](https://docs.aws.amazon.com/appflow/latest/userguide/images/connection_setup-snowflake-console.png)
 
 Now that you are connected to your Snowflake account, you can continue with the flow creation steps as described in [Creating flows in Amazon AppFlow](create-flow.md).
 
