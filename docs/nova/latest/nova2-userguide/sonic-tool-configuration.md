@@ -21,7 +21,7 @@ The following are simplified steps on how to use tools:
 
 The following diagram illustrates how tool use works:
 
-![Conversation flow showing client setup, tool use event handling with Amazon Bedrock Agents and Nova S2S, and transcript generation stages.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/How-tool-use-works_5.png)
+![Conversation flow showing client setup, tool use event handling with Amazon Bedrock Agents and Nova S2S, and transcript generation stages.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/How-tool-use-works_5.png)
 
 
 ## Defining tools

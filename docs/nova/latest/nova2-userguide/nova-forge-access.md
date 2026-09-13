@@ -53,7 +53,7 @@ Flow 1: The account user must reach out to the account admin to request the foll
 + Add the `forge-subscription` tag to the account through IAM (see Appendix A for steps).
 + Add the `ListRoleTags` and `ListAttachedRolePolicies` permissions through IAM (see Appendix B for steps).
 
-![Nova Forge subscription page showing not subscribed status and setup requirements banner.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Onboarding-option-a.png)
+![Nova Forge subscription page showing not subscribed status and setup requirements banner.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Onboarding-option-a.png)
 
 
 ### Option B
@@ -70,25 +70,25 @@ Flow: The account user must reach out to the account admin to request admin acce
 <a name="nova-forge-appendix-a"></a>
 
 1. Go to the Amazon Web Services IAM Dashboard. Click on Roles on the left. Search for admin and click on the admin role  
-![IAM console showing Roles page with admin search term entered in the search field.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/add-forge-sub-policy.png)
+![IAM console showing Roles page with admin search term entered in the search field.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/add-forge-sub-policy.png)
 
 1. Select <AssumedRoleToUse> (e.g., libsAdminAccess). Click on the Tags tab.  
-![Tags tab selected showing two tags with "forge-subscription" as the key.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/add-forge-sub-policy-2.png)
+![Tags tab selected showing two tags with "forge-subscription" as the key.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/add-forge-sub-policy-2.png)
 
 1. Click on Manage tabs. Add new tag. Type "forge-subscription" under Key and click on save changes  
-![Tags container showing two tags with keys "forge-subscription" and "prime-subscription".](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/add-forge-sub-tag-policy.png)
+![Tags container showing two tags with keys "forge-subscription" and "prime-subscription".](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/add-forge-sub-tag-policy.png)
 
 1. Ensure that you see forge-subscription as a key in Tags section  
-![Tags section showing "forge-subscription" as a key in the selected role.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/forge-tag-policy-verify.png)
+![Tags section showing "forge-subscription" as a key in the selected role.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/forge-tag-policy-verify.png)
 
 ### Appendix B. Add ListRoleTags and ListAttachedPolicies policies to Amazon Web Services account for Non-Admin Role by Admin
 <a name="nova-forge-appendix-b"></a>
 
 1. Go to the Amazon Web Services IAM Dashboard. Click on Roles on the left. Search for <AssumedRoleToUse> (e.g., ForgeAccessRole) and click on the <AssumedRoleToUse> (e.g., ForgeAccessRole) role  
-![IAM Roles page with search field showing forge filter and ForgeAccessRole in results.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/forge-list-tags-policy.png)
+![IAM Roles page with search field showing forge filter and ForgeAccessRole in results.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/forge-list-tags-policy.png)
 
 1. Click on the <AssumedRoleToUse> (e.g., ForgeAccessRole) role and select Tags. Add a new tag with type "forge-subscription"  
-![Tags tab showing "forge-subscription" key tag in ForgeAccessRole role.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/forge-tag-appendix.png)
+![Tags tab showing "forge-subscription" key tag in ForgeAccessRole role.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/forge-tag-appendix.png)
 
 1. Under Permissions, add new permission: Add Permissions → Create inline policy → Add the following policy listed below
 
@@ -108,7 +108,7 @@ Flow: The account user must reach out to the account admin to request admin acce
        ]
    }
    ```  
-![ForgeAccessRole details page showing permissions policies with JSON policy document.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/forge-add-tag-polices-example.png)
+![ForgeAccessRole details page showing permissions policies with JSON policy document.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/forge-add-tag-polices-example.png)
 
 ## Step 2. Set up HyperPod infrastructure
 <a name="nova-forge-step2"></a>

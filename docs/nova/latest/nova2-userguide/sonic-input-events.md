@@ -34,7 +34,7 @@ Skipping any of these closing events can result in incomplete conversations or o
 
 These identifiers create a hierarchical structure: the `promptName` ties all conversation events together, while each `contentName` marks the boundaries of specific content blocks. This hierarchy ensures that model maintains proper context throughout the interaction.
 
-![Flow diagram showing session structure with prompt markers including sessionStart, promptStart, contentStart, textInput, audioInput, and contentEnd.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Closing-the-session_2.png)
+![Flow diagram showing session structure with prompt markers including sessionStart, promptStart, contentStart, textInput, audioInput, and contentEnd.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Closing-the-session_2.png)
 
 
 ## Input Event Flow

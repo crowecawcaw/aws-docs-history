@@ -133,7 +133,7 @@ Amazon Nova 2 Sonic can be integrated with various frameworks and platforms to b
 
 Amazon Bedrock AgentCore provides a managed runtime environment for deploying Nova 2 Sonic applictions with enterprise-grade security and scalability. AgentCore simplifies the deployment of real-time voice AI applications by handling infrastructure, authentication, and WebSocket connectivity.
 
-![AgentCore architecture showing client apps connecting via WebSocket to runtime container with Nova Sonic.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Agentcore-Architecture-Overview_11.png)
+![AgentCore architecture showing client apps connecting via WebSocket to runtime container with Nova Sonic.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Agentcore-Architecture-Overview_11.png)
 
 
 **Key features:**
@@ -165,7 +165,7 @@ LiveKit is an open-source platform for building real-time audio and video applic
 
  For detailed implementation examples and code examples, visit the [LiveKit AWS Integration Documentation.](https://docs.livekit.io/agents/integrations/aws/)
 
-![Architecture diagram showing LiveKit integration with Amazon Bedrock using WebRTC and Nova Sonic.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/LiveKit-Architecture-Overview_9.png)
+![Architecture diagram showing LiveKit integration with Amazon Bedrock using WebRTC and Nova Sonic.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/LiveKit-Architecture-Overview_9.png)
 
 
 **How it works:**
@@ -187,7 +187,7 @@ For detailed implementation examples and code samples, visit the [PipeCat AWS In
 + WebRTC Support: Built-in integration with Daily and other WebRTC providers for real-time audio streaming.
 + AWS Integration: Native support for Amazon Bedrock, Amazon Transcribe, and Amazon Polly.
 
-![Architecture diagram showing voice input flow through VAD, Amazon Transcribe, Pipecat Flows, Amazon Bedrock, and Amazon Polly to voice output via WebRTC.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Pipecat-Architecture-Overview_10.png)
+![Architecture diagram showing voice input flow through VAD, Amazon Transcribe, Pipecat Flows, Amazon Bedrock, and Amazon Polly to voice output via WebRTC.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Pipecat-Architecture-Overview_10.png)
 
 
 The architecture includes:
@@ -211,7 +211,7 @@ Deployment options
 
 For a complete, production-ready example of deploying Nova Sonic with AWS CDK, see the [Speech-to-Speech CDK Sample](https://github.com/aws-samples/generative-ai-cdk-constructs-samples/tree/main/samples/speech-to-speech) on GitHub. This sample demonstrates:
 
-![Architecture diagram showing users connecting via HTTPS and WebSocket to static website and speech-to-speech service components, with Amazon Bedrock integration for Nova Sonic.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/cdk-12.png)
+![Architecture diagram showing users connecting via HTTPS and WebSocket to static website and speech-to-speech service components, with Amazon Bedrock integration for Nova Sonic.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/cdk-12.png)
 
 + Complete CDK infrastructure setup with TypeScript
 + WebSocket server implementation for real-time communication
@@ -232,7 +232,7 @@ Conversation flow management: Ensures all necessary information is collected bef
 
 Intent classification: Analyzes user inquiries and routes them to the appropriate specialized sub-agent.
 
-![Architecture diagram showing call flow from user through greeting to three agents handling authentication, banking, and mortgage services.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Banking-Assistant_13.png)
+![Architecture diagram showing call flow from user through greeting to three agents handling authentication, banking, and mortgage services.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Banking-Assistant_13.png)
 
 
 The diagram above shows a banking voice assistant that uses a multi-agent architecture. The conversation flow begins with a greeting and collecting the user's name, then handles inquiries related to banking or mortgages through specialized sub-agents.

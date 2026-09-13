@@ -16,7 +16,7 @@ Refer to the following resources for more information on managing chat history:
 
 A conversation history can be included only once, after the system/speech prompt and before audio streaming begins. Overall chat history cannot be larger than 200KB. The following diagram shows when chat history is passed in during the event lifecycle:
 
-![Chat history sent from client to Bedrock, placed between system prompt and audio streaming.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Sending-Chat-History_4.png)
+![Chat history sent from client to Bedrock, placed between system prompt and audio streaming.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Sending-Chat-History_4.png)
 
 
 Each historical message requires three events: `contentStart`, `textInput` and `contentEnd`.

@@ -15,7 +15,7 @@ Unlike traditional synchronous tool calling where the AI waits silently for tool
 
 When Nova 2 Sonic issues a tool call, it doesn't pause the conversation. Instead, it continues listening and responsing naturally until the tool arrives.
 
-![Flow diagram showing Nova Sonic responding to user queries while weather and calendar tools run asynchronously.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Asynchronous-Tool-Calling_6.png)
+![Flow diagram showing Nova Sonic responding to user queries while weather and calendar tools run asynchronously.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Asynchronous-Tool-Calling_6.png)
 
 
 ## Handling user interruptions
@@ -23,7 +23,7 @@ When Nova 2 Sonic issues a tool call, it doesn't pause the conversation. Instead
 
 If a user changes their request while a tool is executing, Nova 2 Sonic handles it intelligently without canceling pending tools calls.
 
-![Sequence diagram showing user interrupting flight search from Chicago to Seattle mid-process.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Asynchronous-User-Interruption_7.png)
+![Sequence diagram showing user interrupting flight search from Chicago to Seattle mid-process.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Asynchronous-User-Interruption_7.png)
 
 
 Example Scenario

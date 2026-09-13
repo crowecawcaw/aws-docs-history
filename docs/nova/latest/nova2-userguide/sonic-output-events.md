@@ -55,7 +55,7 @@ The model sends a `completionEnd` event with the original identifiers and a `sto
 
 The output event flow begins by entering the response generation phase. It starts with automatic speech recognition, selects a tool for use, transcribes speech, generates audio, finalizes the transcription, and finishes the session.
 
-![Flow diagram showing conversation stages from Start through ASR, tool handling, text and audio responses, to End with associated events.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Output-Event -Flow_3.png)
+![Flow diagram showing conversation stages from Start through ASR, tool handling, text and audio responses, to End with associated events.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Output-Event -Flow_3.png)
 
 
 ## Output Event Flow

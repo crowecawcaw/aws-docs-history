@@ -7,7 +7,7 @@ Barge-in allows users to interrupt the AI assistant while it's speaking, just li
 
 The following diagram illustrates the complete barge-in conversation flow:
 
-![Barge-in flow showing user interruption, audio queue clearing, and new response generation.](http://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Barge-In-Flow_8.png)
+![Barge-in flow showing user interruption, audio queue clearing, and new response generation.](https://docs.aws.amazon.com/nova/latest/nova2-userguide/images/Barge-In-Flow_8.png)
 
 
 ## How Amazon Nova 2 Sonic handles barge-in
