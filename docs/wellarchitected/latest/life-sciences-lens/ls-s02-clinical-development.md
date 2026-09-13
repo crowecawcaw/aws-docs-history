@@ -17,7 +17,7 @@
 
  The following reference architecture aims to address the critical needs, providing a blueprint for a comprehensive data strategy that accelerates research, enhances collaboration, and ultimately leads to more informed, impactful results from clinical trials. 
 
-![Clinical development reference architecture](http://docs.aws.amazon.com/wellarchitected/latest/life-sciences-lens/images/clinical-development-reference-architecture.png)
+![Clinical development reference architecture](https://docs.aws.amazon.com/wellarchitected/latest/life-sciences-lens/images/clinical-development-reference-architecture.png)
 
 
 1.  Data ingestion: 
