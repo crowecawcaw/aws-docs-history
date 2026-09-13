@@ -215,7 +215,7 @@ This is the only chance for you to save the private key file.
 **Note**  
 After choosing the Domain join directory, you may see:   
 
-![An error message when selecting your Domain join directory. There is an error with your existing SSM document.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/SSM-Error-Message.png)
+![An error message when selecting your Domain join directory. There is an error with your existing SSM document.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/SSM-Error-Message.png)
 
 This error occurs if the EC2 launch wizard identifies an existing SSM document with unexpected properties. You can do one of the following:  
 If you previously edited the SSM document and the properties are expected, choose close and proceed to launch the EC2 instance with no changes.

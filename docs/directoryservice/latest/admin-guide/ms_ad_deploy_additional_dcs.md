@@ -9,7 +9,7 @@ When you first create your directory, AWS Managed Microsoft AD deploys two domai
 
 For example, in the below illustration, DC-1 and DC-2 represent the two domain controllers that were originally created with your directory. The Directory Service console refers to these default domain controllers as **Required**. AWS Managed Microsoft AD intentionally locates each of these domain controllers in separate Availability Zones during the directory creation process. Later, you might decide to add two more domain controllers to help distribute the authentication load over peak login times. Both DC-3 and DC-4 represent the new domain controllers, which the console now refers to as **Additional**. As before, AWS Managed Microsoft AD again automatically places the new domain controllers in different Availability Zones to ensure your domain's high availability.
 
-![Four domain controllers spread across two availability zones.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/ms_ad_additionaldcs.png)
+![Four domain controllers spread across two availability zones.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/ms_ad_additionaldcs.png)
 
 
 This process eliminates the need for you to manually configure directory data replication, automated daily snapshots, or monitoring for the additional domain controllers. It's also easier for you to migrate and run mission critical Active Directory–integrated workloads in the AWS Cloud without having to deploy and maintain your own Active Directory infrastructure.

@@ -11,7 +11,7 @@ The process for sharing your directory differs depending on whether you share th
 
 This workflow has four basic steps. 
 
-![Steps to share AWS Managed Microsoft AD: Set up your networking environment, share your directory, accept shared directory invite, and test seamlessly join an Amazon EC2 instance for Windows Server to a domain.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/directory_sharing_tutorial3.png)
+![Steps to share AWS Managed Microsoft AD: Set up your networking environment, share your directory, accept shared directory invite, and test seamlessly join an Amazon EC2 instance for Windows Server to a domain.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/directory_sharing_tutorial3.png)
 
 
 **[Step 1: Set up your networking environment](step1_setup_networking.md)**  

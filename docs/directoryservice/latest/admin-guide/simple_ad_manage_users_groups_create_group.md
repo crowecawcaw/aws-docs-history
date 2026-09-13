@@ -18,7 +18,7 @@ You can run the following from a command prompt on the instance to open the Acti
    ```
 
 1. In the directory tree, select an OU under your directory's NetBIOS name OU where you want to store your group (for example, Corp\\Users). For more information about the OU structure used by directories in AWS, see [What gets created with your AWS Managed Microsoft AD](ms_ad_getting_started_what_gets_created.md).  
-![Active Directory Users and Computers tool showing example OU structure.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/create-security-groups-OU.png)
+![Active Directory Users and Computers tool showing example OU structure.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/create-security-groups-OU.png)
 
 1. On the **Action** menu, click **New**, and then click **Group** to open the new group wizard.
 

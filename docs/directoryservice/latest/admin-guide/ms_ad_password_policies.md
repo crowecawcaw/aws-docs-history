@@ -37,11 +37,11 @@ AWS provides a set of fine-grained password policies in AWS Managed Microsoft AD
 
 | Policy | Password Reset | Password Change | 
 | --- | --- | --- | 
-| Enforce password history | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
-| Maximum password age | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
-| Minimum password age | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-no.png) No | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
-| Minimum password length | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
-| Password must meet complexity requirements | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | ![](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
+| Enforce password history | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-no.png) No | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
+| Maximum password age | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
+| Minimum password age | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-no.png) No | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
+| Minimum password length | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
+| Password must meet complexity requirements | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | ![](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/icon-yes.png) Yes | 
 
  These differences have security implications. For example, whenever a user's password is reset, the enforce password history and minimum password age policies are not enforced. For more information, see Microsoft documentation on the security considerations related to [enforce password history](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/enforce-password-history#security-considerations) and [minimum password age](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/minimum-password-age#security-considerations) policies.
 

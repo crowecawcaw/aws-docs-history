@@ -13,7 +13,7 @@ You can manage users and groups with [AWS Directory Service Data](ms_ad_getting_
 
 For a demonstration of the AWS Directory Service Data CLI, see the following YouTube video.
 
-[![AWS Videos](http://img.youtube.com/vi/GJK567cuBu0?si=vb9KNV5JOWDXELSI/0.jpg)](http://www.youtube.com/watch?v=GJK567cuBu0?si=vb9KNV5JOWDXELSI)
+[![AWS Videos](https://img.youtube.com/vi/GJK567cuBu0?si=vb9KNV5JOWDXELSI/0.jpg)](https://www.youtube.com/watch?v=GJK567cuBu0?si=vb9KNV5JOWDXELSI)
 
 
 Alternatively, you can use a [domain-joined instance](#ms_ad_manage_users_groups_with_instance).

@@ -38,7 +38,7 @@ For more information on how site names and DCLocator process interacts, see the 
 
 To resolve this problem, ensure the security group settings for your domain and access control list (ACL) for your VPC are correct and you have accurately entered the information for your conditional forwarder. AWS configures the security group to open only the ports that are required for Active Directory communications. In the default configuration, the security group accepts traffic to these ports from any IP address. Outbound traffic is restricted to the Security group. You will need to update the outbound rule on the security group to allow traffic to your on premise network. For more information about security requirements, please see [Step 2: Prepare your AWS Managed Microsoft AD](ms_ad_tutorial_setup_trust_prepare_mad.md).
 
-![Edit security group](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/edit_security_group.png)
+![Edit security group](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/edit_security_group.png)
 
 
 If the DNS servers for the networks of the other directories use public (non-RFC 1918) IP addresses, you will need add an IP route on the directory from the Directory Services Console to the DNS Servers. For more information, see [Create, verify, or delete a trust relationship](ms_ad_setup_trust.md#trust_steps) and [Prerequisites](ms_ad_setup_trust.md#trust_prereq).
@@ -54,7 +54,7 @@ Verify that the **Default AD Site Name** for your AWS Managed Microsoft AD match
 
 For more information about how this works, see [Domain Locator Across a Forest Trust](https://techcommunity.microsoft.com/t5/ask-the-directory-services-team/domain-locator-across-a-forest-trust/ba-p/395689) on Microsoft website.
 
-![Default first site name](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/default_first_site_name.png)
+![Default first site name](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/default_first_site_name.png)
 
 
 ## The operation could not be performed on this domain

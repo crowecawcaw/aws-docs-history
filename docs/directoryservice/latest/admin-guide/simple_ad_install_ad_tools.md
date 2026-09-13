@@ -39,6 +39,6 @@ Before you can begin this procedure, complete the following:
 1. Under **Server Selection**, make sure the local server is selected, and choose **Features** in the left navigation pane.
 
 1. In the **Features** tree, select and open **Remote Server Administration Tools**, **Role Administration Tools**, and **AD DS and AD LDS Tools**. With **AD DS and AD LDS Tools** selected, **Active Directory module for PowerShell**, **AD DS Tools**, and **AD LDS Snap-ins and Command-Line Tools** are selected. Scroll down and select **DNS Server Tools**, and then choose **Next**.  
-![Installing Microsoft AD Tools, the Add Roles and Features Wizard Features Tree with tools selected.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/ms-install-ad-tools.png)
+![Installing Microsoft AD Tools, the Add Roles and Features Wizard Features Tree with tools selected.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/ms-install-ad-tools.png)
 
 1. Review the information and choose **Install**. When the feature installation is finished, the Active Directory Domain Services and Active Directory Lightweight Directory Services Tools are available from the Start menu in the **Administrative Tools** folder.

@@ -10,4 +10,4 @@ You can use AWS Managed Microsoft AD to provide AWS IAM Identity Center services
 **Note**  
 AWS Single Sign-On was renamed to IAM Identity Center.
 
-[![AWS Videos](http://img.youtube.com/vi/nuPjljOVZmU/0.jpg)](http://www.youtube.com/watch?v=nuPjljOVZmU)
+[![AWS Videos](https://img.youtube.com/vi/nuPjljOVZmU/0.jpg)](https://www.youtube.com/watch?v=nuPjljOVZmU)

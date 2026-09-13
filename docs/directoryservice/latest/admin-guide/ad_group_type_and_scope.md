@@ -40,4 +40,4 @@ There are limitations when changing a group scope. The following list and diagra
 
 For more information about group scopes, see [Microsoft documentation](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope).
 
-![Diagram showing three different group scopes (domain local, universal, and global) and how group scope impacts group membership.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/group_scope_membership.png)
+![Diagram showing three different group scopes (domain local, universal, and global) and how group scope impacts group membership.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/group_scope_membership.png)

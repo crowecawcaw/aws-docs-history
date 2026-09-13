@@ -35,7 +35,7 @@ User accounts in both directories must have Kerberos preauthentication enabled. 
 1. Choose the **Users** folder and open the context (right-click) menu. Select any random user account listed in the right pane. Choose **Properties**. 
 
 1. Choose the **Account** tab. In the **Account options** list, scroll down and ensure that **Do not require Kerberos preauthentication** is *not* checked.   
-![Corp User Properties dialog box with the account option do not require Kerberos preauthentication highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/kerberos_enabled.png)
+![Corp User Properties dialog box with the account option do not require Kerberos preauthentication highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/kerberos_enabled.png)
 
 ## Configure DNS conditional forwarders for your self-managed domain
 <a name="tutorial_setup_trust_onprem_forwarder"></a>
@@ -67,7 +67,7 @@ You must set up DNS conditional forwarders on each domain. Before doing this on 
 1. Choose **IP addresses of the primary servers** and type the DNS addresses of your AWS Managed Microsoft AD directory, which you noted earlier. In this example those are: 10.0.10.246, 10.0.20.121 (or 2001:db8::1, 2001:db8::2 for IPv6)
 
    After entering the DNS addresses, you might get a "timeout" or "unable to resolve" error. You can generally ignore these errors.  
-![New Conditional Forwarder dialog box with the IP addresses of the DNS servers highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/new_cond_forwarder_diag_box_2.png)
+![New Conditional Forwarder dialog box with the IP addresses of the DNS servers highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/new_cond_forwarder_diag_box_2.png)
 
 1. Select **Store this conditional forwarder in Active Directory, and replicate it as follows**.
 

@@ -33,10 +33,10 @@ You must perform this procedure on a computer that is joined to your directory a
 1. Select **Only the following objects in the folder**, and then select **Computer objects**. 
 
 1. Select **Create selected objects in this folder** and **Delete selected objects in this folder**. Then choose **Next**.  
-![Delegation of Control Wizard Active Directory Object Type dialog box with only the following objects in the folder selected user objects, create selected objects in this folder, and delete selected objects in this folder.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/aduc_delegate_join_linux.png)
+![Delegation of Control Wizard Active Directory Object Type dialog box with only the following objects in the folder selected user objects, create selected objects in this folder, and delete selected objects in this folder.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/aduc_delegate_join_linux.png)
 
 1. Select **Read** and **Write**, and then choose **Next**.  
-![Delegation of Control Wizard permissions dialog box with the following permissions selected general, property-specific, and read.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/aduc_delegate_join_permissions.png)
+![Delegation of Control Wizard permissions dialog box with the following permissions selected general, property-specific, and read.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/aduc_delegate_join_permissions.png)
 
 1. Verify the information on the **Completing the Delegation of Control Wizard** page and choose **Finish**. 
 

@@ -30,7 +30,7 @@ You can view AWS Managed Microsoft AD directory information using the AWS Manage
 
 1. Choose the directory ID link for your directory. Information about the directory is displayed in the **Directory details** page. 
 
-![Directory Service Directory details page.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/ms_ad_directory_details.png)
+![Directory Service Directory details page.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/ms_ad_directory_details.png)
 
 
 ------

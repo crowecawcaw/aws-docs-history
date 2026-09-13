@@ -30,7 +30,7 @@ Once a new Region has been added, the following operations automatically occur a
 + AWS Managed Microsoft AD replicates all Active Directory objects and configurations to the new Region, including users, groups, group policies, Active Directory trusts, organizational units, and Active Directory schema. Active Directory site links are configured to use [Change Notification](https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/modify-default-intra-site-dc-replication-interval). With change notification between sites enabled, changes propagate to the remote site with the same frequency that they are propagated within the source site, including changes that warrant urgent replication.
 + If this is the first Region you've added, AWS Managed Microsoft AD makes all features multi-Region aware. For more information, see [Global vs Regional features](multi-region-global-region-features.md).
 
-![Multi-region replication of a AWS Managed Microsoft AD Active Directory between a primary region and an additional region.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/multiregion.png)
+![Multi-region replication of a AWS Managed Microsoft AD Active Directory between a primary region and an additional region.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/multiregion.png)
 
 
 ### Active Directory sites

@@ -138,12 +138,12 @@ This procedure must be performed on a machine that is joined to your directory a
 1. Select **Only the following objects in the folder**, and then select **Computer objects** and **User objects**.
 
 1. Select **Create selected objects in this folder** and **Delete selected objects in this folder**. Then choose **Next**.  
-![Delegation of Control Wizard - Only the following objects in the folder, user objects, create selected objects in this folder, and delete selected objects in this folder options are selected.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/aduc_delegate_join_linux.png)
+![Delegation of Control Wizard - Only the following objects in the folder, user objects, create selected objects in this folder, and delete selected objects in this folder options are selected.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/aduc_delegate_join_linux.png)
 
 1. Select **Read**, and then choose **Next**.
 **Note**  
 If you will be using Seamless Domain Join or WorkSpaces, you must also enable **Write** permissions so that the Active Directory can create computer objects.  
-![Delegation of Control Wizard - Under Show these permissions, general, property-specific, and read are selected.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/aduc_delegate_join_permissions.png)
+![Delegation of Control Wizard - Under Show these permissions, general, property-specific, and read are selected.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/aduc_delegate_join_permissions.png)
 
 1. Verify the information on the **Completing the Delegation of Control Wizard** page, and click **Finish**. 
 

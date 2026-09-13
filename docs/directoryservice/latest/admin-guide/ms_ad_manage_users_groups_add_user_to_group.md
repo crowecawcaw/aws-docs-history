@@ -21,7 +21,7 @@ You can run the following from a command prompt on the instance to open the Acti
    ```
 
 1. In the directory tree, select the OU under your directory's NetBIOS name OU where you stored your group, and select the group that you want to add a user as a member.  
-![Active Directory Users and Computers tool showing example OU structure.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/create-security-groups-OU.png)
+![Active Directory Users and Computers tool showing example OU structure.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/create-security-groups-OU.png)
 
 1. On the **Action** menu, click **Properties** to open the properties dialog box for the group.
 

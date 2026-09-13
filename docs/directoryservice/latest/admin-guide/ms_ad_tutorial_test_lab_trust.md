@@ -7,7 +7,7 @@ In this tutorial, you learn how to create a trust between the AWS Directory Serv
 
 You should only need to create this tutorial once. After that you can add optional tutorials when necessary for more experience.
 
-![Steps to create a trust from a Microsoft Active Directory to a self-managed Active Directory: Set up your environment, create your Microsoft Active Directory, Deploy an Amazon EC2 instance, and test the lab.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/tutorialmicrosoftadtrust.png)
+![Steps to create a trust from a Microsoft Active Directory to a self-managed Active Directory: Set up your environment, create your Microsoft Active Directory, Deploy an Amazon EC2 instance, and test the lab.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/tutorialmicrosoftadtrust.png)
 
 
 **[Step 1: Set up your environment for trusts](microsoftadtruststep1.md)**  

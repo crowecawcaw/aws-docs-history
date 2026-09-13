@@ -121,10 +121,10 @@ Function Set-EntraConnectSvcPerms {
 1. Once the script has completed, you can run the downloaded Microsoft Entra Connect (formerly known as Azure Active Directory Connect) configuration file.
 
 1. A Microsoft Azure Active Directory Connect window opens after running the configuration file from the previous step. On the **Express Settings** window, select **Customize**.  
-![Microsoft Azure Active Directory Connect window with customize button highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/express-settings.png)
+![Microsoft Azure Active Directory Connect window with customize button highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/express-settings.png)
 
 1. On the **Install required components** window, select the **Use an existing service account** checkbox. In **SERVICE ACCOUNT NAME** and **SERVICE ACCOUNT PASSWORD**, enter the AD DS Connector account name and password for the user you created in Step 1. For example, if your AD DS Connector account name is `entra`, the account name would be `corp\entra`. Then select **Install**.  
-![Install required components window with use existing service account and domain account selected, and the service account name and password provided.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/install-required-components.png)
+![Install required components window with use existing service account and domain account selected, and the service account name and password provided.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/install-required-components.png)
 
 1. On the **User Sign-in** window, select one of the following options:
 
@@ -139,7 +139,7 @@ Function Set-EntraConnectSvcPerms {
 1. On the **Connect your directories** window, choose **Active Directory** for **DIRECTORY TYPE**. Choose the forest for your AWS Managed Microsoft AD for **FOREST**. Then select **Add Directory**.
 
 1. A pop-up box appears requesting your account options. Select **Use existing AD account**. Enter the AD DS Connector account username and password created in Step 1 and then select **OK**. Then select **Next**.  
-![AD forest account pop-up box with the use existing AD account selected and domain username and password provided.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/connect-to-your-directories.png)
+![AD forest account pop-up box with the use existing AD account selected and domain username and password provided.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/connect-to-your-directories.png)
 
 1. On the **Azure AD Sign-in** window, select **Continue without matching all UPN suffixes to verified domains**, only if you do not have a verified vanity domain added to Entra ID. Then select **Next**.
 

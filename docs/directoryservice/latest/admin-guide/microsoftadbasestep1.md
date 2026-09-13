@@ -27,7 +27,7 @@ This is the only chance for you to save the private key file. You need to provid
 
 As shown in the following illustration, by the time you finish this multi-step process you will have created and configured two public VPCs, two public subnets per VPC, one Internet Gateway per VPC, and one VPC Peering connection between the VPCs. We chose to use public VPCs and subnets for the purpose of simplicity and cost. For production workloads, we recommend that you use private VPCs. For more information about improving VPC Security, see [Security in Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/security.html).
 
-![Amazon VPC environment with subnets, and Internet Gateways to create an AWS Managed Microsoft AD Active Directory.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/tutorialmicrosoftadbase_vpclayout.png)
+![Amazon VPC environment with subnets, and Internet Gateways to create an AWS Managed Microsoft AD Active Directory.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/tutorialmicrosoftadbase_vpclayout.png)
 
 
 All of the AWS CLI and PowerShell examples use the VPC information from below and are built in us-west-2. You may choose any [supported Region](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/regions.html) to build you environment in. For general information, see [What is Amazon VPC?](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html).

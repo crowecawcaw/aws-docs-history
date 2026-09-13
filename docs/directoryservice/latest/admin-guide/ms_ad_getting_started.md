@@ -7,7 +7,7 @@ AWS Managed Microsoft AD creates a fully managed, Microsoft Active Directory in 
 
 For a demo and overview of AWS Managed Microsoft AD, see the following YouTube video.
 
-[![AWS Videos](http://img.youtube.com/vi/MdkhobcciX8?si=o0HpdeTIDwK3YWla/0.jpg)](http://www.youtube.com/watch?v=MdkhobcciX8?si=o0HpdeTIDwK3YWla)
+[![AWS Videos](https://img.youtube.com/vi/MdkhobcciX8?si=o0HpdeTIDwK3YWla/0.jpg)](https://www.youtube.com/watch?v=MdkhobcciX8?si=o0HpdeTIDwK3YWla)
 
 
 **Topics**

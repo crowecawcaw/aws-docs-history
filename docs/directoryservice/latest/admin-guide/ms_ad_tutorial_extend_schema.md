@@ -11,7 +11,7 @@ If you wanted to add a new property, such as Shoe-Size, you would define a new a
 
 This workflow has three basic steps. 
 
-![Diagram showing the steps for the tutorial: 1 create a LDIF file, 2 import the LDIF file, and 3 verify schema changes.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/tutorialextendadschema.png)
+![Diagram showing the steps for the tutorial: 1 create a LDIF file, 2 import the LDIF file, and 3 verify schema changes.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/tutorialextendadschema.png)
 
 
 **[Step 1: Create your LDIF file](create.md)**  

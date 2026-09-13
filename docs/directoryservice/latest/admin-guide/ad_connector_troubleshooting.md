@@ -233,7 +233,7 @@ The AD Connector directory's service account resides in the customer managed Act
   1.  After removing, enter **DisableVLVSupport=0**. Select **Add**.
 
   1. Select **OK**. You can close the ADSI Edit tool. The following image shows the Multi-valued String Editor dialog box in the ADSI Edit window:  
-![ADSI Edit dialog box with Multi-valued String editor and DisableVLVSupport=0 highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/DisableVLVSupport.png)
+![ADSI Edit dialog box with Multi-valued String editor and DisableVLVSupport=0 highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/DisableVLVSupport.png)
 **Note**  
 In large Active Directory infrastructure with more than 100,000 users, you might only be able to search specific users. However, if you try to list all the users (For example, **Show All Users in WorkSpaces Launch Wizard**) at once, it might result in the same error even if VLV Support is enabled. AD Connector requires the results to be sorted for attribute "CN" using Subtree Index. The Subtree Index is the type of index which prepares the domain controllers for performing a Virtual List View (LDAP) search operation that allows AD Connector to complete a sorted search. This index improves the VLV search and prevents the use of the temporary database table called [MaxTempTableSize](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/view-set-ldap-policy-using-ntdsutil). The size of this table can vary, but by default the maximum number of entries is 10000 (the MaxTempTableSize setting of the Default Query Policy). Increasing the MaxTempTableSize is less efficient than using the Subtree Indexing. To avoid these errors in large AD environments, it is advised to use Subtree Indexing. 
 
@@ -252,7 +252,7 @@ You can enable the Subtree index by modifying the [searchflags](https://techcomm
 1. Locate the **searchFlags **attribute and change its value to **65 (0x41)** for enabling SubTree indexing along with normal Index.
 
    The following image shows the CN=Common-Name properties dialog box in the ADSI Edit window:  
-![ADSI Edit dialog box open with searchFlags attribute highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/SUBTREE_INDEX.png)
+![ADSI Edit dialog box open with searchFlags attribute highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/SUBTREE_INDEX.png)
 
 1. Select **OK**. You can close the ADSI Edit tool.
 

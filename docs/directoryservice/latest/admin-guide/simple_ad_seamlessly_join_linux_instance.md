@@ -51,7 +51,7 @@ There are fees associated with Secrets Manager. For more information see, [Prici
       1. In the first box, enter **awsSeamlessDomainUsername**. On the same row, in the next box, enter the username for your service account. For example, if you used the PowerShell command previously, the service account name would be **awsSeamlessDomain**.
 **Note**  
 You must enter **awsSeamlessDomainUsername** exactly as it is. Make sure there are not any leading or ending spaces. Otherwise the domain join will fail.   
-![In the AWS Secrets Manager console on the choose a secret type page. Other type of secret is selected under secret type and awsSeamlessDomainUsername is entered as the key value.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/secrets_manager_1.png)
+![In the AWS Secrets Manager console on the choose a secret type page. Other type of secret is selected under secret type and awsSeamlessDomainUsername is entered as the key value.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/secrets_manager_1.png)
 
       1. Choose **Add row**.
 
@@ -72,7 +72,7 @@ You must enter **awsSeamlessDomainPassword** exactly as it is. Make sure there a
    This will be used to retrieve secrets in the application.
 **Note**  
 You must enter **aws/directory-services/{{d-xxxxxxxxx}}/seamless-domain-join** exactly as it is but replace {{d-xxxxxxxxxx}} with your directory ID. Make sure that there are no leading or ending spaces. Otherwise the domain join will fail.   
-![In the AWS Secrets Manager console on the configure secret page. The secret name is entered and highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/secrets_manager_2.png)
+![In the AWS Secrets Manager console on the configure secret page. The secret name is entered and highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/secrets_manager_2.png)
 
 1. Leave everything else set to defaults, and then choose **Next**.
 
@@ -159,7 +159,7 @@ You use the IAM console to create the role that you will use to domain join your
 1. Under **Select type of trusted entity**, choose **AWS service**.
 
 1. Under **Use case**, choose **EC2**, and then choose **Next**.  
-![In the IAM console on the select trusted entity page. AWS service and EC2 are selected.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/iam-console-trusted-entity.png)
+![In the IAM console on the select trusted entity page. AWS service and EC2 are selected.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/iam-console-trusted-entity.png)
 
 1. For **Filter policies**, do the following:
 
@@ -225,7 +225,7 @@ This is the only chance for you to save the private key file.
 **Note**  
 After choosing the Domain join directory, you may see:   
 
-![An error message when selecting your Domain join directory. There is an error with your existing SSM document.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/SSM-Error-Message.png)
+![An error message when selecting your Domain join directory. There is an error with your existing SSM document.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/SSM-Error-Message.png)
 
 This error occurs if the EC2 launch wizard identifies an existing SSM document with unexpected properties. You can do one of the following:  
 If you previously edited the SSM document and the properties are expected, choose close and proceed to launch the EC2 instance with no changes.

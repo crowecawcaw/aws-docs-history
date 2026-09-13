@@ -43,30 +43,30 @@ Some AWS services like Amazon WorkDocs and Amazon WorkSpaces, will create a Simp
 1. In the **Windows Security** dialog box, copy your local administrator credentials for the Windows Server computer to sign in. The username can be in the following formats: `NetBIOS-Name\administrator` or `DNS-Name\administrator`. For example, `corp\administrator` would be the username if you followed the procedure in [Create your Simple AD](simple_ad_getting_started.md#how_to_create_simple_ad).
 
 1. Once signed in to the Windows Server computer, open **Windows Administrative Tools** from the Start menu by choosing **Windows Administrative Tools** folder.  
-![Windows Start menu showing Windows Administrative Tools folder expanded with system tools.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_5.png)
+![Windows Start menu showing Windows Administrative Tools folder expanded with system tools.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_5.png)
 
 1. In the Windows Administrative Tools dashboard, open **Active Directory Users and Computers** by choosing **Active Directory User and Computers**.  
-![Windows Administrative Tools folder showing Active Directory Users and Computers shortcut.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_6.png)
+![Windows Administrative Tools folder showing Active Directory Users and Computers shortcut.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_6.png)
 
 1. In the **Active Directory Users and Computers** window, select **View** and then choose **Enable Advanced Features**.  
-![View menu with Advanced Features option selected.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_7.png)
+![View menu with Advanced Features option selected.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_7.png)
 
 1. In the **Active Directory Users and Computers** window, select **Users** from the left panel.  
-![Active Directory Users and Computers navigation tree with Users folder highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_8.png)
+![Active Directory Users and Computers navigation tree with Users folder highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_8.png)
 
 1. Find the user named **krbtgt**, right click on it and select **Reset Password**.  
-![Context menu with Reset Password option highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_9.png)
+![Context menu with Reset Password option highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_9.png)
 
 1. In the new window, enter the new password, enter it again, and then choose **OK** to reset the krbtgt account password.  
-![Reset Password dialog with password fields, checkbox options, and OK and Cancel buttons.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_10.png)
+![Reset Password dialog with password fields, checkbox options, and OK and Cancel buttons.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_10.png)
 
 1. In the Windows Administrative Tools dashboard, choose **Active Directory Sites and Services**.  
-![Administrative Tools folder showing Active Directory Sites and Services among other shortcuts.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_11.png)
+![Administrative Tools folder showing Active Directory Sites and Services among other shortcuts.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_11.png)
 
 1. In the Active Directory Sites and Services window, expand **Site**, **Default-First-Site-Name**, and **Servers**.  
-![Active Directory Sites and Services console showing expanded Servers node with NTDS Settings.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_12.png)
+![Active Directory Sites and Services console showing expanded Servers node with NTDS Settings.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_12.png)
 
 1. In the NTDS Settings window, right click on the server and select **Replicate Now**.  
-![Context menu with Replicate Now option highlighted for a connection in NTDS Settings.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_13.png)
+![Context menu with Replicate Now option highlighted for a connection in NTDS Settings.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/simple_ad_krbtgt_acct_step_13.png)
 
 1. Repeat steps 13 - 14 for your other servers.

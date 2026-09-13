@@ -94,7 +94,7 @@ This is the only chance for you to save the private key file.
 **Note**  
 After choosing the Domain join directory, you may see:   
 
-![An error message when selecting your Domain join directory. There is an error with your existing SSM document.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/SSM-Error-Message.png)
+![An error message when selecting your Domain join directory. There is an error with your existing SSM document.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/SSM-Error-Message.png)
 
 This error occurs if the EC2 launch wizard identifies an existing SSM document with unexpected properties. You can do one of the following:  
 If you previously edited the SSM document and the properties are expected, choose close and proceed to launch the EC2 instance with no changes.
@@ -129,7 +129,7 @@ To manually join an existing Amazon EC2 Windows instance to an AWS Managed Micro
 
 You will need the IP addresses of the AWS Managed Microsoft AD DNS servers. This information can be found under **Directory Services** > **Directories** > the **Directory ID ** link for your directory > **Directory details** and **Networking & Security** sections.
 
-![On the Directory Service console on the directory details page, the IP addresses of the Directory Service provided DNS servers are highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/directory_details_highlighted.png)
+![On the Directory Service console on the directory details page, the IP addresses of the Directory Service provided DNS servers are highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/directory_details_highlighted.png)
 
 
 **To join a Windows instance to an AWS Managed Microsoft AD Active Directory**
@@ -151,7 +151,7 @@ You can open **Network Connections** directly by running the following from a co
    1. In the connection properties dialog box, open (double-click) **Internet Protocol Version 4**.
 
 1. Select **Use the following DNS server addresses**, change the **Preferred DNS server** and **Alternate DNS server** addresses to the IP addresses of your AWS Managed Microsoft AD-provided DNS servers, and choose **OK**.  
-![The Internet Protocol Version 4 (TCP/IPv4) Properties dialog box with the preferred DNS server and alternative DNS server fields highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/dns_server_addresses.png)
+![The Internet Protocol Version 4 (TCP/IPv4) Properties dialog box with the preferred DNS server and alternative DNS server fields highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/dns_server_addresses.png)
 
 1. Open the **System Properties** dialog box for the instance, select the **Computer Name** tab, and choose **Change**.
 **Tip**  

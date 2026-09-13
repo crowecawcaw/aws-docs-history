@@ -18,7 +18,7 @@ You can run the following from a command prompt on the instance to open the Acti
    ```
 
 1. In the directory tree, select the OU containing the user that you want to delete (for example, **corp\\Users**).  
-![Active Directory Users and Computers tool showing example OU structure.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/create-security-groups-OU.png)
+![Active Directory Users and Computers tool showing example OU structure.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/create-security-groups-OU.png)
 
 1. Select the user you wish to delete. On the **Action** menu, choose **Delete**.
 

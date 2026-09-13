@@ -7,7 +7,7 @@ This tutorial teaches you how to set up your AWS environment to prepare for a ne
 
 As shown in the following illustration, the lab you create from this tutorial is the foundational component for hands-on learning about AWS Managed Microsoft AD. You can later add optional tutorials for more hands-on experience. This tutorial series is ideal for anyone who is new to AWS Managed Microsoft AD and wants a test lab for evaluation purposes. This tutorial takes approximately 1 hour to complete.
 
-![Diagram showing tutorial steps: 1 set up your environment, 2 create your AWS Managed Microsoft AD, 3 deploy an Amazon EC2, and 4 test the lab.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/tutorialmicrosoftadbase.png)
+![Diagram showing tutorial steps: 1 set up your environment, 2 create your AWS Managed Microsoft AD, 3 deploy an Amazon EC2, and 4 test the lab.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/tutorialmicrosoftadbase.png)
 
 
 **[Step 1: Set up your AWS environment for AWS Managed Microsoft AD Active Directory](microsoftadbasestep1.md)**  

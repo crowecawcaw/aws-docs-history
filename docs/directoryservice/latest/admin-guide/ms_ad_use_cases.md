@@ -7,7 +7,7 @@ With AWS Managed Microsoft AD, you can share a single directory for multiple use
 
 The following diagram shows some of the use cases for your AWS Managed Microsoft AD directory. These include the ability to grant your users access to external cloud applications and allow your on-premises Active Directory users to manage and have access to resources in the AWS Cloud. 
 
-![Use cases for your AWS Managed Microsoft AD directory like granting your users access to external cloud applications, allowing your on-premises Active Directory users to manage and have access to resources in the AWS Cloud.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/ms_ad_use_cases2.png)
+![Use cases for your AWS Managed Microsoft AD directory like granting your users access to external cloud applications, allowing your on-premises Active Directory users to manage and have access to resources in the AWS Cloud.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/ms_ad_use_cases2.png)
 
 
 Use AWS Managed Microsoft AD for either of the following business use cases.

@@ -10,7 +10,7 @@ AWS Managed Microsoft AD integrates tightly with AWS Organizations to allow seam
 
 You will get more out of the directory sharing feature if you become familiar with the following key concepts.
 
-![Two AWS Managed Microsoft AD with directory sharing, domain joins, and Amazon VPC peering.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/directory_sharing_concepts.png)
+![Two AWS Managed Microsoft AD with directory sharing, domain joins, and Amazon VPC peering.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/directory_sharing_concepts.png)
 
 
 ### Directory owner account

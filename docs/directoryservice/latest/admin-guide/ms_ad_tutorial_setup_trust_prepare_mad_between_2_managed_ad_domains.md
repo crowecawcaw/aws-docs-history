@@ -43,7 +43,7 @@ Repeat steps 1-6 below for each directory.
 1. In the navigation pane, choose **Security Groups**.
 
 1. Use the search box to search for your AWS Managed Microsoft AD directory ID. In the search results, select the item with the description **AWS created security group for {{yourdirectoryID}} directory controllers**.  
-![In the Amazon VPC Console, search results for the security group for the directory controllers are highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/security-group-search.png)
+![In the Amazon VPC Console, search results for the security group for the directory controllers are highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/security-group-search.png)
 
 1. Go to the **Outbound Rules** tab for that security group. Choose **Edit**, and then **Add another rule**. For the new rule, enter the following values: 
    + **Type**: ALL Traffic
@@ -51,7 +51,7 @@ Repeat steps 1-6 below for each directory.
    + **Destination** determines the traffic that can leave your domain controllers and where it can go. Specify a single IP address or an IP address range in CIDR notation (for example, 203.0.113.5/32). You can also specify the name or ID of another security group in the same Region. For more information, see [Understand your directory's AWS security group configuration and use](ms_ad_best_practices.md#understandsecuritygroup).
 
 1. Select **Save**.  
-![In the Amazon VPC Console, edit the outbound rules for the directory controller security groups.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/editing-and-saving-rule.png)
+![In the Amazon VPC Console, edit the outbound rules for the directory controller security groups.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/editing-and-saving-rule.png)
 
 ## Ensure that Kerberos pre-authentication is enabled
 <a name="tutorial_setup_trust_enable_kerberos_on_mad_between_2_managed_ad_domains"></a>
@@ -67,7 +67,7 @@ Now you want to confirm that users in your AWS Managed Microsoft AD also have Ke
 1. Open Server Manager. On the **Tools** menu, choose **Active Directory Users and Computers**.
 
 1. Choose the **Users** folder in your domain. Note that this is the **Users** folder under your NetBIOS name, not the **Users ** folder under the fully qualified domain name (FQDN).  
-![In the Active Directory Users and Computers dialog box, the Users folder is highlighted.](http://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/correct_users_folder.png)
+![In the Active Directory Users and Computers dialog box, the Users folder is highlighted.](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/images/correct_users_folder.png)
 
 1. In the list of users, right-click on a user, and then choose **Properties**.
 
