@@ -29,15 +29,15 @@ You must plan the requirements for the audio rendition group. You must identify 
 
 1. (Optional) For completeness in designing the output group, identify the captions that you require. 
 
-![Diagram showing output group with AAC, Dolby, and WebVTT caption groups in English and French.](http://docs.aws.amazon.com/medialive/latest/ug/images/ARG_twoV_twoA_twoC.png)
+![Diagram showing output group with AAC, Dolby, and WebVTT caption groups in English and French.](https://docs.aws.amazon.com/medialive/latest/ug/images/ARG_twoV_twoA_twoC.png)
 
 
 ## Rules for video and audio in rendition groups
 <a name="ARG-rules"></a>
 + Both video and captions are optional.
 + A video encode can be associated with more than one rendition group. For example, *video high* can be associated with both *Dolby audio* and *AAC audio*. There is no need to create separate video encodes for each rendition group.  
-![Diagram showing Rendition GP 1 and Rendition GP 2 both connecting to Video1.](http://docs.aws.amazon.com/medialive/latest/ug/images/ARG_oneV_twoARG.png)
+![Diagram showing Rendition GP 1 and Rendition GP 2 both connecting to Video1.](https://docs.aws.amazon.com/medialive/latest/ug/images/ARG_oneV_twoARG.png)
 + All the rendition groups associated with the same video must contain the same audio encodes. For example, if both the AAC group and the Dolby group are associated with the high definition video encode, both these groups must contain the same audio languages (perhaps English, French, and Spanish). 
 + An audio encode can belong to only one audio rendition group. 
 + An audio rendition group can be associated with more than one video. For example, the Dolby group can be associated with the high definition video encode and the low definition video encode. There is no need to create separate rendition groups for each video.  
-![Rendition Group 1 connected to Video1 and Video2 outputs.](http://docs.aws.amazon.com/medialive/latest/ug/images/ARG_twoV_oneARG.png)
+![Rendition Group 1 connected to Video1 and Video2 outputs.](https://docs.aws.amazon.com/medialive/latest/ug/images/ARG_twoV_oneARG.png)

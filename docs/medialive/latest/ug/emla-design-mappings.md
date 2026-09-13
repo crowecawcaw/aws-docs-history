@@ -12,12 +12,12 @@ In each cluster, you must design a collection of mappings. You must design these
 
 Each mapping connects one network to the node network interface that handles the traffic for that network. For example, there might be a mapping to connect the input network to the node network interface for input traffic. 
 
-![Network container with input-network name mapped to Node container with Eth1 physical interface.](http://docs.aws.amazon.com/medialive/latest/ug/images/anywhere_nwork_nodeinterface.png)
+![Network container with input-network name mapped to Node container with Eth1 physical interface.](https://docs.aws.amazon.com/medialive/latest/ug/images/anywhere_nwork_nodeinterface.png)
 
 
 The mapping works as illustrated in the diagram that follows. The mapping (the blue box) consists of two pieces of information — the network ID and a logical interface name that you assign. The mapping connects the network (the pink box) to the physical interface (the yellow box).
 
-![Network box connected to mapping box with network ID, which connects to node box with interfaces.](http://docs.aws.amazon.com/medialive/latest/ug/images/anywhere_nwork_full.png)
+![Network box connected to mapping box with network ID, which connects to node box with interfaces.](https://docs.aws.amazon.com/medialive/latest/ug/images/anywhere_nwork_full.png)
 
 
 You must design one mapping for each network in a cluster. You don't create one mapping for each node. Instead, the similar physical interfaces in all the nodes share the same mapping. For example, the physical interfaces for input traffic all share the same mapping. 

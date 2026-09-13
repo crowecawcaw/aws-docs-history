@@ -44,19 +44,19 @@ The following diagrams illustrate the mapping of the output encodes back to sour
 
 **Encodes and assets**
 
-![Diagram showing HLS, RTMP, and Archive sections with various video, audio, and caption sources.](http://docs.aws.amazon.com/medialive/latest/ug/images/channel-design-map-in-out.png)
+![Diagram showing HLS, RTMP, and Archive sections with various video, audio, and caption sources.](https://docs.aws.amazon.com/medialive/latest/ug/images/channel-design-map-in-out.png)
 
 
 **Mapping video encodes to assets**
 
-![Diagram showing video, audio, and caption sources mapped to HLS, RTMP, and Archive outputs.](http://docs.aws.amazon.com/medialive/latest/ug/images/channel-design-map-in-out-V.png)
+![Diagram showing video, audio, and caption sources mapped to HLS, RTMP, and Archive outputs.](https://docs.aws.amazon.com/medialive/latest/ug/images/channel-design-map-in-out-V.png)
 
 
 **Mapping audio encodes to assets**
 
-![Diagram showing audio and video sources mapped to HLS, RTMP, and Archive outputs.](http://docs.aws.amazon.com/medialive/latest/ug/images/channel-design-map-in-out-A.png)
+![Diagram showing audio and video sources mapped to HLS, RTMP, and Archive outputs.](https://docs.aws.amazon.com/medialive/latest/ug/images/channel-design-map-in-out-A.png)
 
 
 **Mapping captions encodes to assets**
 
-![Diagram showing video, audio, and caption sources mapped to HLS, RTMP, and Archive outputs.](http://docs.aws.amazon.com/medialive/latest/ug/images/channel-design-map-in-out-C.png)
+![Diagram showing video, audio, and caption sources mapped to HLS, RTMP, and Archive outputs.](https://docs.aws.amazon.com/medialive/latest/ug/images/channel-design-map-in-out-C.png)

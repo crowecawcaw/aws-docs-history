@@ -20,9 +20,11 @@ The information in this section assumes that you are familiar with the general s
 
 1. If you want to include CBET watermarks: In the **CBET Settings** field, choose **Nielsen CBET**. More fields appear.
 
-   If you want to include NAES watermarks: In the **NAES II and NW Settings** field, choose **NAES II and NW**. More fields appear.
+   If you want to include NAES II (N2) and NAES VI (NW) watermarks: In the **NAES II and NW Settings** field, choose **NAES II and NW**. More fields appear.
 
-   You can include both sets of watermarks in the same output audio.
+   If you want to include NAES VI (NW) watermarks only, without NAES II (N2) watermarks: In the **NW Only Settings** field, choose **NW Only**. More fields appear.
+
+   You can include CBET watermarks and NAES II (N2) and NAES VI (NW) watermarks in the same output audio. But if you choose **NW Only**, you can't also choose **NAES II and NW** or **Nielsen CBET** for that audio encode.
 
 1. Complete the fields as shown in the table.     
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/medialive/latest/ug/watermark-procedure.html)

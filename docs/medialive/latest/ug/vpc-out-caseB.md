@@ -12,7 +12,7 @@ This use case applies if the MediaLive channel includes inputs that use the VPC:
 
 Here is a diagram of the setup, when the channel is a standard channel. In this example, the channel has at least one VPC input. It also has two output groups. Assume that the destinations of both the output groups are on EC2 on your VPC.
 
-![MediaLive input flows through two pipelines to endpoints, each connecting to HLS and Microsoft Smooth destinations.](http://docs.aws.amazon.com/medialive/latest/ug/images/vpc-delivery-2.png)
+![MediaLive input flows through two pipelines to endpoints, each connecting to HLS and Microsoft Smooth destinations.](https://docs.aws.amazon.com/medialive/latest/ug/images/vpc-delivery-2.png)
 
 
 **Single-pipeline channels**

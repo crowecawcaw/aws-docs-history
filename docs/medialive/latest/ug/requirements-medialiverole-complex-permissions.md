@@ -5,7 +5,7 @@
 
 With the complex option, MediaLive users must have permissions to use the trusted entity wizard. This wizard is in the **IAM Role** section on the **Channel and input details** pane:
 
-![IAM Role section showing MediaLiveAccessRole dropdown, Update button, and Remember role checkbox.](http://docs.aws.amazon.com/medialive/latest/ug/images/medialiveaccessrole_withUpdateButton.png)
+![IAM Role section showing MediaLiveAccessRole dropdown, Update button, and Remember role checkbox.](https://docs.aws.amazon.com/medialive/latest/ug/images/medialiveaccessrole_withUpdateButton.png)
 
 
 Topics

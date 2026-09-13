@@ -28,7 +28,7 @@ Captions are grouped into five categories, based on how the captions are include
 
 The captions are carried inside the video encode, which is itself in an output in the output group. There is only ever one captions entity within that video encode, although that entity might contain captions for up to four languages. 
 
-![Output container showing Video encode with Captions nested inside, and Audio encode below.](http://docs.aws.amazon.com/medialive/latest/ug/images/caption_categories_embedded.png)
+![Output container showing Video encode with Captions nested inside, and Audio encode below.](https://docs.aws.amazon.com/medialive/latest/ug/images/caption_categories_embedded.png)
 
 
 ## Object-style captions
@@ -36,7 +36,7 @@ The captions are carried inside the video encode, which is itself in an output i
 
 All the captions encodes for a specific output group are in the same output as the corresponding video and audio. 
 
-![Output container showing video encode, audio encode, and two captions encode items.](http://docs.aws.amazon.com/medialive/latest/ug/images/caption_categories_object.png)
+![Output container showing video encode, audio encode, and two captions encode items.](https://docs.aws.amazon.com/medialive/latest/ug/images/caption_categories_object.png)
 
 
 ## Sidecar captions
@@ -44,7 +44,7 @@ All the captions encodes for a specific output group are in the same output as t
 
 Each captions encode for a specific output group is in its own "captions-only" output. The output group can contain more than one captions output, for example, one for each language. 
 
-![Three output groups: one with video and audio encode, two with captions encode only.](http://docs.aws.amazon.com/medialive/latest/ug/images/caption_categories_sidecar.png)
+![Three output groups: one with video and audio encode, two with captions encode only.](https://docs.aws.amazon.com/medialive/latest/ug/images/caption_categories_sidecar.png)
 
 
 Each captions-only output becomes a separate file in the packaged output.
@@ -54,7 +54,7 @@ Each captions-only output becomes a separate file in the packaged output.
 
 Each captions encode for a specific output group is in its own "captions-only" output. The output group can contain more than one captions output, for example, one for each language.
 
-![Three output groups: one with video and audio encode, two with captions encode only.](http://docs.aws.amazon.com/medialive/latest/ug/images/caption_categories_stream.png)
+![Three output groups: one with video and audio encode, two with captions encode only.](https://docs.aws.amazon.com/medialive/latest/ug/images/caption_categories_stream.png)
 
 
 Each captions-only output becomes a separate stream in the packaged output.

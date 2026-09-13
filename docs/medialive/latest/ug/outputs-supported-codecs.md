@@ -9,7 +9,7 @@ The following table lists the video and audio codecs that each type of MediaLive
 | Container (output group) | Video codecs | Audio codecs | 
 | --- | --- | --- | 
 | Archive | H.264 (AVC)H.265 (HEVC) | AAC<br />Dolby Digital (AC3)<br />Dolby Digital Plus (EAC3)<br />Dolby Digital Plus with Atmos<br />MPEG-1 Layer II (MP2) | 
-| CMAF Ingest | AV1H.265 (AVC)<br />H.265 (HEVC) | AAC<br />Dolby Digital (AC3)<br />Dolby Digital Plus (EAC3)<br />Dolby Digital Plus with Atmos | 
+| CMAF Ingest | AV1H.264 (AVC)<br />H.265 (HEVC) | AAC<br />Dolby Digital (AC3)<br />Dolby Digital Plus (EAC3)<br />Dolby Digital Plus with Atmos | 
 | Frame Capture | JPEG | None. A Frame capture output doesn't include audio. | 
 | HLS with a standard container | H.264 (AVC)H.265 (HEVC) | AAC<br />Dolby Digital (AC3)<br />Dolby Digital Plus (EAC3)<br />Dolby Digital Plus with Atmos | 
 | HLS with an fMP4 container | H.264 (AVC)<br />H.265 (HEVC) | AAC<br />Dolby Digital (AC3)<br />Dolby Digital Plus (EAC3)<br />Dolby Digital Plus with Atmos | 

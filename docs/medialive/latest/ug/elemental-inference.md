@@ -9,6 +9,7 @@ MediaLive implements the following features of AWS Elemental Inference:
 + Automatic subtitling, which generates TTML or WebVTT subtitles from the audio in your source media using automatic speech recognition. For more information, see [Smart Subtitles using Elemental Inference](elemental-inference-automatic-subtitling.md).
 + Smart crop, which lets you produce channel video outputs that are a different aspect ratio and/or orientation from the video source. For more information, see [Smart cropping video using Elemental Inference](elemental-inference-smart-crop.md).
 + Event clipping, which lets you produce file clips from the channel video source. For more information, see [Clipping video using AWS Elemental Inference](elemental-inference-event-clip.md).
++ Contextual metadata enrichment, which embeds AWS Elemental Inference query parameters into outgoing SCTE-35 cue-out markers. Downstream systems, such as AWS Elemental MediaTailor, can then query Elemental Inference for contextual metadata at ad-decision time. For more information, see [Contextual metadata enrichment](elemental-inference-cm-enrichment.md).
 
 ## Elemental Inference quotas
 <a name="elemental-inference-in-eml-quotas"></a>
@@ -22,3 +23,8 @@ Keep in mind that these feeds and outputs count toward your Elemental Inference 
 For information about the default values for quotas and which quotas can be changed (adjusted) see the Elemental Inference section in [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits).
 
 For more information about changing Elemental Inference quotas, see the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/elemental-inference/quotas).
+
+## Regions
+<a name="elemental-inference-in-eml-regions"></a>
+
+Use Elemental Inference feeds from the same AWS Region as your MediaLive channel. This ensures stability and low latency for your workflow. To see the AWS Regions where Elemental Inference is available, see [AWS Elemental Inference endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/elemental-inference.html) in the AWS General Reference.

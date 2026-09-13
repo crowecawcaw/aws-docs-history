@@ -7,9 +7,12 @@ This section applies if you are [setting up TTML captions](output-sidecar-and-sm
 
 1. In the output that has the TTML captions, display the section for the captions. 
 
-1. Set **Style control** to **Passthrough** or **USE\_CONFIGURED**.
+1. Set **Style control** to one of the following:
+   + **Passthrough**: Copy the style and position information from the source captions to the output.
+   + **Use configured**: Use default styling for the output captions instead of passing through style from the source. (There are no additional fields to configure with this option.)
+   + **Manual**: Manually configure the output captions. Any settings that you don't specify use default values. Currently, only the vertical position (**Y position**) is supported.
 
-   Note that when **USE\_CONFIGURED** is selected, there are actually no fields that you can configure.
+1. If you set **Style control** to **Manual**, configure the settings that you want. Currently, only **Y position** is supported. For details about a field on the MediaLive console, choose the **Info** link next to the field. Enter the vertical position of the top edge of the caption as a percentage of the output height, where 0 is the top of the frame and 100 is the bottom.
 
 The XML file for the captions will include the following style information:
 
@@ -21,3 +24,5 @@ The XML file for the captions will include the following style information:
 | Font size  | Match size of source captions, if specified. Otherwise, set to 80% of the available height available for captions. | Left blank. | 
 | Font family | Match family of source captions, if specified. Otherwise, set to monospaceSansSerif. | Left blank. | 
 | Line gap  | Set to leave the line gap unfilled. | Set to leave the gap unfilled. | 
+
+When you set **Style control** to **Manual**, AWS Elemental MediaLive uses default values for any setting that you don't specify. Currently, the only setting that you can specify is the vertical position (**Y position**).

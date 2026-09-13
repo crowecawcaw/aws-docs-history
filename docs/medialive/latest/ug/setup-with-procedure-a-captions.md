@@ -5,7 +5,7 @@
 
 This example for captions in MediaLive shows how to implement [[the fourth use case](use-case-one-input-format-to-one-output-format-not-converted.md)](use-case-one-captions-output-multiple-video-encodes.md) from the typical scenarios. For example, you want to produce an HLS output with three video encodes (one for low-resolution video, one for medium, one for high) and one audio. You also want to include embedded captions (in English and Spanish) and associate them with all three video encodes.
 
-![Diagram showing input captions flowing to three video outputs with embedded captions and one audio output.](http://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTembed_ABRhls_result.png)
+![Diagram showing input captions flowing to three video outputs with embedded captions and one audio output.](https://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTembed_ABRhls_result.png)
 
 
 To set up for this use case, follow this procedure.

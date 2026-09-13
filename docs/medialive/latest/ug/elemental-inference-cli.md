@@ -9,6 +9,7 @@ We assume that you have read the sections about setting up individual Elemental 
 + [Event clipping](elemental-inference-event-clip.md)
 + [Smart crop](elemental-inference-smart-crop.md)
 + [Smart Subtitles](elemental-inference-automatic-subtitling.md)
++ [Contextual metadata enrichment](elemental-inference-cm-enrichment.md)
 
 **Topics**
 + [Setting up Elemental Inference features for the first time](smart-crop-procedure-cli-create.md)

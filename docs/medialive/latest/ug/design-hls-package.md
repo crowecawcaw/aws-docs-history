@@ -23,12 +23,12 @@ Plan for the output group to contain the following:
 
 This diagram illustrates an HLS output group when the captions encodes are embedded.
 
-![Output group with two outputs, each containing embedded video and two audio streams.](http://docs.aws.amazon.com/medialive/latest/ug/images/output11-ABR-2Ve-2A.png)
+![Output group with two outputs, each containing embedded video and two audio streams.](https://docs.aws.amazon.com/medialive/latest/ug/images/output11-ABR-2Ve-2A.png)
 
 
 This diagram illustrates an HLS output group when the captions encodes are sidecars.
 
-![Output group containing video and audio outputs, with separate caption outputs as sidecars.](http://docs.aws.amazon.com/medialive/latest/ug/images/output12-ABR-2V-2A-2C.png)
+![Output group containing video and audio outputs, with separate caption outputs as sidecars.](https://docs.aws.amazon.com/medialive/latest/ug/images/output12-ABR-2V-2A-2C.png)
 
 
 **Downstream players that require separate audio**
@@ -44,9 +44,9 @@ The arrangement of the audio encodes in this output group is called an *audio re
 
 This diagram illustrates an HLS output group with an audio rendition group, and with embedded captions encodes.
 
-![Output group containing two outputs with embedded captions and two outputs with type A.](http://docs.aws.amazon.com/medialive/latest/ug/images/output13-ABR-2Ve-2Asep.png)
+![Output group containing two outputs with embedded captions and two outputs with type A.](https://docs.aws.amazon.com/medialive/latest/ug/images/output13-ABR-2Ve-2Asep.png)
 
 
 This diagram illustrates an HLS output group for an ABR stack with an audio rendition group, and with sidecar captions encodes.
 
-![Output group containing six outputs: two video, two audio, and two captions outputs.](http://docs.aws.amazon.com/medialive/latest/ug/images/output14-ABR-2V-2Asep-2C.png)
+![Output group containing six outputs: two video, two audio, and two captions outputs.](https://docs.aws.amazon.com/medialive/latest/ug/images/output14-ABR-2V-2Asep-2C.png)

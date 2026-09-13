@@ -23,7 +23,7 @@ Plan for the output group to contain the following:
 
 This diagram illustrates a Microsoft output group with bundled audio.
 
-![Three output groups containing outputs labeled V, A, A, V, A, A, C, and C respectively.](http://docs.aws.amazon.com/medialive/latest/ug/images/output12-ABR-2V-2A-2C.png)
+![Three output groups containing outputs labeled V, A, A, V, A, A, C, and C respectively.](https://docs.aws.amazon.com/medialive/latest/ug/images/output12-ABR-2V-2A-2C.png)
 
 
 **Downstream players that require separate audio**
@@ -39,4 +39,4 @@ The arrangement of the audio encodes in this output group is called an *audio re
 
 This diagram illustrates a Microsoft Smooth output group with an audio rendition group.
 
-![Output group containing six outputs: two V outputs, two A outputs, and two C outputs.](http://docs.aws.amazon.com/medialive/latest/ug/images/output14-ABR-2V-2Asep-2C.png)
+![Output group containing six outputs: two V outputs, two A outputs, and two C outputs.](https://docs.aws.amazon.com/medialive/latest/ug/images/output14-ABR-2V-2Asep-2C.png)

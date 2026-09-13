@@ -23,7 +23,7 @@ When you start the channel, the channel ingests the content from both inputs. In
 
 As this diagram illustrates, there are two instances of the content source. 
 
-![Two upstream origin servers connecting through standard-class inputs in a failover pair to a single pipeline channel feeding a downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/aif-single-setup.png)
+![Two upstream origin servers connecting through standard-class inputs in a failover pair to a single pipeline channel feeding a downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/aif-single-setup.png)
 
 
 ## Failure handling
@@ -35,4 +35,4 @@ If there is a failure, the behavior is as follows:
 
 This diagram illustrates the flow after there is a failure upstream of the first input. MediaLive has failed over to the second input.
 
-![Failover pair with active connection from second upstream server through standard-class input to pipeline and downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/aif-single-input-failover.png)
+![Failover pair with active connection from second upstream server through standard-class input to pipeline and downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/aif-single-input-failover.png)

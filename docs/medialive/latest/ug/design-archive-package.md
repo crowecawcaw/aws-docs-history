@@ -15,9 +15,9 @@ Typically, the Archive output group mirrors the output structure of another outp
 
 This diagram illustrates an Archive output group that contains one output that holds one video encode with embedded captions, and two audio encodes. 
 
-![Output group containing one output with video encode and two audio encodes labeled A.](http://docs.aws.amazon.com/medialive/latest/ug/images/output3-nonABR-Ve-2A.png)
+![Output group containing one output with video encode and two audio encodes labeled A.](https://docs.aws.amazon.com/medialive/latest/ug/images/output3-nonABR-Ve-2A.png)
 
 
 This diagram illustrates an Archive output group that contains one output that holds one video encode, two audio encodes, and two object-style captions encode.
 
-![Output group labeled Output containing five elements: V, A, A, C, and C.](http://docs.aws.amazon.com/medialive/latest/ug/images/output4-nonABR-V-2A-2C.png)
+![Output group labeled Output containing five elements: V, A, A, C, and C.](https://docs.aws.amazon.com/medialive/latest/ug/images/output4-nonABR-V-2A-2C.png)

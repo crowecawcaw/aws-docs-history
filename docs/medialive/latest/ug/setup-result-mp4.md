@@ -9,4 +9,4 @@ When you start the channel, MediaLive will connect to the upstream system at thi
 + For a standard channel, MediaLive expects the upstream system to provide two sources and will therefore attempt to pull from both source locations.
 + For a single-pipeline channel, MediaLive expects the upstream system to provide one source and will therefore attempt to pull from one source location. 
 
-![Diagram showing MP4 input retrieval from two S3 bucket locations in MediaLive.](http://docs.aws.amazon.com/medialive/latest/ug/images/mp4-pull-uss-input.png)
+![Diagram showing MP4 input retrieval from two S3 bucket locations in MediaLive.](https://docs.aws.amazon.com/medialive/latest/ug/images/mp4-pull-uss-input.png)

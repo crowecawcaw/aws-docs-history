@@ -11,7 +11,7 @@ MediaLive is set up as a trusted entity as follows: A role (that belongs to your
 
 "MediaLive is allowed to assume this role in order to perform the operations on the resources that are specified in the policies."
 
-![Diagram showing role connected to multiple policies and AWS Elemental MediaLive via trust relationship.](http://docs.aws.amazon.com/medialive/latest/ug/images/medialiveaccessrole.png)
+![Diagram showing role connected to multiple policies and AWS Elemental MediaLive via trust relationship.](https://docs.aws.amazon.com/medialive/latest/ug/images/medialiveaccessrole.png)
 
 
 After this role is created, the MediaLive user attaches the role to a specified channel, when they create or edit the channel. This attachment makes this statement:
@@ -20,4 +20,4 @@ After this role is created, the MediaLive user attaches the role to a specified 
 
 The attachment is at the channel level, which gives you the flexibility to create different roles for different channels. Each role gives MediaLive access to different operations and, especially, different resources.
 
-![Diagram showing Role for the service connected to Channel.](http://docs.aws.amazon.com/medialive/latest/ug/images/medialiveaccessrole-to-channel.png)
+![Diagram showing Role for the service connected to Channel.](https://docs.aws.amazon.com/medialive/latest/ug/images/medialiveaccessrole-to-channel.png)

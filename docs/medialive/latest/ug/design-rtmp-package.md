@@ -13,9 +13,9 @@ Each output can contain the following:
 
 This diagram illustrates an RTMP output group that contains one output where the captions are embedded in the video encode.
 
-![Output group containing output with video embedded captions and audio.](http://docs.aws.amazon.com/medialive/latest/ug/images/output1-non-abr-Ve-A.png)
+![Output group containing output with video embedded captions and audio.](https://docs.aws.amazon.com/medialive/latest/ug/images/output1-non-abr-Ve-A.png)
 
 
 This diagram illustrates an RTMP output group that contains one output with object-style captions. 
 
-![Output group containing three outputs labeled V, A, and C.](http://docs.aws.amazon.com/medialive/latest/ug/images/output2-non-abr-VAC.png)
+![Output group containing three outputs labeled V, A, and C.](https://docs.aws.amazon.com/medialive/latest/ug/images/output2-non-abr-VAC.png)

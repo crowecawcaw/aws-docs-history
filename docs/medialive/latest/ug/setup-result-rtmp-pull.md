@@ -7,4 +7,4 @@ As a result of this setup, an RTMP pull input exists that specifies one or two *
 
 At runtime of the channel, the input will connect to two URLs (for a standard channel) or one URL (for a single-pipeline channel), and pull the source content identified by the application name and instance name into MediaLive.
 
-![Diagram showing upstream systems sending GET requests to two input URLs with different IP addresses.](http://docs.aws.amazon.com/medialive/latest/ug/images/rtmp-pull-uss-input.png)
+![Diagram showing upstream systems sending GET requests to two input URLs with different IP addresses.](https://docs.aws.amazon.com/medialive/latest/ug/images/rtmp-pull-uss-input.png)

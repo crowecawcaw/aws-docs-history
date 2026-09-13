@@ -10,7 +10,7 @@ An AWS Elemental MediaLive Anywhere deployment involves several components:
 + Channel placement groups (yellow boxes), which group channels.
 + Channels (orange boxes), which are the MediaLive channels running specifically on MediaLive Anywhere nodes.
 
-![Hierarchical diagram showing multiple levels of interconnected components in a system architecture.](http://docs.aws.amazon.com/medialive/latest/ug/images/anywhere_cluster_relational.png)
+![Hierarchical diagram showing multiple levels of interconnected components in a system architecture.](https://docs.aws.amazon.com/medialive/latest/ug/images/anywhere_cluster_relational.png)
 
 
 A cluster is a collection of nodes. The cluster is associated with one or more networks. 

@@ -20,6 +20,7 @@ Key benefits of MediaPackage v2:
 + Low-latency HLS (LL-HLS) delivery support
 + Multi-codec packaging
 + Cross-Region distribution (configure additional destinations for redundancy)
++ Required for sourcing Dynamic Multiview compatible encodes to MediaPackage. See [Dynamic Multiview](dynamic-multiview.md).
 
 For setup instructions, see [Creating a MediaPackage output group](opg-mediapackage.md).
 
@@ -31,6 +32,9 @@ MediaPackage v2 also accepts input from the following output group types:
 + **HLS output group** — delivers HLS content to MediaPackage v2 ingest endpoints. This option exists for backwards compatibility with existing HLS-based workflows.
 
 However, the MediaPackage output group is the recommended path because it provides managed connectivity between MediaLive and MediaPackage, including automatic endpoint discovery and streamlined configuration. If you use a generic CMAF Ingest or HLS output group, you will not benefit from this managed integration and may need to migrate later to access features that depend on it.
+
+**Note**  
+Dynamic Multiview requires CMAF Ingest outputs to MediaPackage v2. An HLS output group to MediaPackage v2 can't be used for multiview. See [Dynamic Multiview: Requirements and Limitations](dynamic-multiview-requirements.md).
 
 ## MediaPackage v1 (legacy)
 <a name="delivering-to-mediapackage-v1"></a>

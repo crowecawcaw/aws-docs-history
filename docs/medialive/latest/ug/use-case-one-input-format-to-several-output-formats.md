@@ -7,4 +7,4 @@ In this use case for including captions in a MediaLive output, the input is set 
 
 For example, the input has Teletext captions in Czech and Polish. You want to produce a Microsoft Smooth output and an HLS output. In the Microsoft Smooth output, you want to convert both captions to TTML. In the HLS output, you want to convert both captions to WebVTT. 
 
-![Flowchart showing input captions conversion to output captions for different streaming formats.](http://docs.aws.amazon.com/medialive/latest/ug/images/captions_INttext_OUT_OPmss_hls.png)
+![Flowchart showing input captions conversion to output captions for different streaming formats.](https://docs.aws.amazon.com/medialive/latest/ug/images/captions_INttext_OUT_OPmss_hls.png)

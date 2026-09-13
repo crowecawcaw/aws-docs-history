@@ -23,7 +23,7 @@ When you set up a single-pipeline channel with the option to easily upgrade, the
 
 As this diagram illustrates, the upstream system provides one instance of the source content to the input, to the pipeline that is indicated by the blue line. The input provides that one instance to the one pipeline in the channel. The channel produces one instance of the output for the downstream system. The other pipeline in the input (the green pipeline) is always inactive.
 
-![Data flow from upstream server through standard-class input to single active pipeline to downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/pipeline-redundancy-single-channel-standard-input.png)
+![Data flow from upstream server through standard-class input to single active pipeline to downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/pipeline-redundancy-single-channel-standard-input.png)
 
 
 ## Failure handling

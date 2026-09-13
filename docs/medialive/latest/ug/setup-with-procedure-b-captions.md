@@ -5,7 +5,7 @@
 
 This example for captions in MediaLive shows an ABR workflow where the captions are in sidecars. For example, you want to produce a Microsoft Smooth output with three video encodes (one for low-resolution video, one for medium, one for high) and one audio. These encodes are in a Microsoft Smooth output. You want to ingest embedded captions (in English and Spanish) and convert them to TTML captions, one for English and one for Spanish. 
 
-![Diagram showing output groups for video, audio, and captions in English and Spanish.](http://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTembed_ABRmss_result.png)
+![Diagram showing output groups for video, audio, and captions in English and Spanish.](https://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTembed_ABRmss_result.png)
 
 
 To set up for this use case, follow this procedure.

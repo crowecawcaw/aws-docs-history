@@ -14,4 +14,4 @@ MediaLive performs maintenance as follows:
 **Note**  
 Setting up with standard channels is an effective way to mitigate the impact of maintenance events. You might want to consider this mitigation for your most important 24x7 channels. 
 
-![](http://docs.aws.amazon.com/medialive/latest/ug/images/maintenance.png)
+![](https://docs.aws.amazon.com/medialive/latest/ug/images/maintenance.png)

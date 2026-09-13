@@ -7,7 +7,14 @@ To prepare to insert Nielsen watermarks in a MediaLive output, you must obtain s
 
 **To get ready for watermarks**
 
-1. Determine if you should insert NAES II (N2), NAES VI (NW) watermarks, or CBET watermarks. NAES II are used in the United States. CBET are used in Canada. You can insert one or both types in the same audio encode.
+1. Determine which type of watermarks you should insert:
+   + NAES II (N2) and NAES VI (NW) watermarks together
+   + NAES VI (NW) watermarks only, without NAES II (N2) watermarks
+   + CBET watermarks
+
+   NAES watermarks are used in the United States. CBET watermarks are used in Canada.
+
+   You can insert NAES II (N2) and NAES VI (NW) watermarks and CBET watermarks in the same audio encode. But if you choose to insert NAES VI (NW) watermarks only, you can't insert any other type of Nielsen watermark in that audio encode.
 
 1. Obtain the following information from your contact at The Nielsen Company:
    + For NAES II or NAES VI watermarks:

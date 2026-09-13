@@ -9,7 +9,7 @@ With VPC delivery, the endpoints for the channel are in your VPC, rather than in
 
 The following diagram illustrates how VPC delivery works. The blue box is a channel with two pipelines. The orange box is your VPC. Notice that the endpoints for the two pipelines are in your VPC. In this example, you have only one output group, with a destination in EC2 in your VPC. This output group might be an HLS output group being sent to an HTTP server on your EC2 instance. 
 
-![MediaLive channel with two pipelines, each with an endpoint connecting to an output destination.](http://docs.aws.amazon.com/medialive/latest/ug/images/vpc-delivery-overview.png)
+![MediaLive channel with two pipelines, each with an endpoint connecting to an output destination.](https://docs.aws.amazon.com/medialive/latest/ug/images/vpc-delivery-overview.png)
 
 
 The following diagram illustrates a channel with three output groups: 
@@ -17,7 +17,7 @@ The following diagram illustrates a channel with three output groups:
 + The destination for the output shown at the top is on MediaPackage. The output leaves the pipeline endpoint, goes to the boundary of AWS (the gray box), and comes back in, to the destination on AWS Elemental MediaPackage.
 + The destination for the output shown at the bottom is on the public internet. The output leaves the pipeline, then leaves AWS and enters the public internet.
 
-![MediaLive channel with two pipelines routing to destinations on MediaPackage, EC2, and public internet.](http://docs.aws.amazon.com/medialive/latest/ug/images/vpc-delivery-overview-multi-outputs.png)
+![MediaLive channel with two pipelines routing to destinations on MediaPackage, EC2, and public internet.](https://docs.aws.amazon.com/medialive/latest/ug/images/vpc-delivery-overview-multi-outputs.png)
 
 
 You set up for delivery to your VPC as follows:

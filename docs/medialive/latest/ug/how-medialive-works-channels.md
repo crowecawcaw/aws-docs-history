@@ -18,7 +18,7 @@ To create a MediaLive workflow, you create one or more MediaLive inputs. The inp
 
 This setup connects the components as illustrated in this diagram.
 
-![Flow diagram showing upstream system with source content connecting through input and channel to output and downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/components-4main.png)
+![Flow diagram showing upstream system with source content connecting through input and channel to output and downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/components-4main.png)
 
 
 To start processing the content, you start the channel. When the channel is running, it ingests the source content from the upstream system that is identified by the input. The channel then transcodes that video (and the related audio, captions, and metadata) and creates outputs. MediaLive sends the outputs to the specified downstream systems. 
@@ -36,7 +36,7 @@ An input contains information about how the upstream system and the channel conn
 
 A push input has a MediaLive *input security group* associated with it. The input security group identifies a range of IP addresses that includes the source addresses on the upstream system. IP addresses within this range are allowed to push content to the input. 
 
-![Upstream system with source content connecting to input, which connects to input security group.](http://docs.aws.amazon.com/medialive/latest/ug/images/components-input-side.png)
+![Upstream system with source content connecting to input, which connects to input security group.](https://docs.aws.amazon.com/medialive/latest/ug/images/components-input-side.png)
 
 
 ## MediaLive channels
@@ -52,7 +52,7 @@ The output group consists of one or more *outputs*. Each output contains a speci
 
 The following diagram is a detailed illustration of the workflow. 
 
-![Upstream system connects to channel with two pipelines, each containing output groups with video, audio, and captions flowing to downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/components-workflow.png)
+![Upstream system connects to channel with two pipelines, each containing output groups with video, audio, and captions flowing to downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/components-workflow.png)
 
 
 The illustration shows a channel with only one output group. 

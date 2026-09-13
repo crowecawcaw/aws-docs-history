@@ -16,14 +16,14 @@ Keep in mind that the channel can't have more than two push inputs. This means t
 
 To implement automatic input failover for the selected push input, you create two standard-class inputs, in the usual way. When you create the channel, you attach these two inputs and then set them up as a failover pair. Both these steps are covered later in the setting up sections later in this topic.
 
-![Two upstream systems connecting to standard-class inputs in a failover pair, feeding into pipelines in a standard channel, then to downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/aif-standard-setup.png)
+![Two upstream systems connecting to standard-class inputs in a failover pair, feeding into pipelines in a standard channel, then to downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/aif-standard-setup.png)
 
 
 When you start the channel, MediaLive ingests the content from both inputs. So it ingests four sources (as shown by the red lines in the diagram). But only the content from the first input goes to the channel pipeline. The content from the blue pipeline goes to pipeline 0. The content from the green pipeline goes to pipeline 1. 
 
 The pipeline produces two outputs for the downstream system, in the usual way. The downstream system chooses to handle one pipeline and to ignore the other pipeline.
 
-![Failover pair with standard-class inputs routing through two pipelines to downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/aif-standard-beforefailure.png)
+![Failover pair with standard-class inputs routing through two pipelines to downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/aif-standard-beforefailure.png)
 
 
 ## Failure handling
@@ -36,7 +36,7 @@ If normal processing is in progress and there is a failure in pipeline 0 in the 
 + The channel immediately fails over to pipeline 0 in the second input (which is already being ingested) and starts processing that input. The channel processes the yellow line in pipeline 0, and the green line in pipeline 1. (So there is no change in pipeline 1.) The output is not affected. 
 + The downstream system continues to handle the output from the pipeline it had chosen before the problem. The downstream system is not affected by the failure in the pipeline 0. 
 
-![Failover pair with standard-class inputs routing through two pipelines to downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/aif-standard-pipeline-failure.png)
+![Failover pair with standard-class inputs routing through two pipelines to downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/aif-standard-pipeline-failure.png)
 
 
 ### Failure scenario 2
@@ -46,4 +46,4 @@ If normal processing is in progress and there is a failure upstream of the first
 + The channel immediately fails over to the second input (which is already being ingested) and starts processing that input. The yellow line is processed in pipeline 0, the pink line in pipeline 1. The output is not affected. 
 + The downstream system continues to handle the output from the pipeline it had chosen before the problem. The downstream system is not affected by the failure in the first input. 
 
-![Failover pair with standard-class inputs routing through two pipelines to downstream system.](http://docs.aws.amazon.com/medialive/latest/ug/images/aif-standard-input-failure.png)
+![Failover pair with standard-class inputs routing through two pipelines to downstream system.](https://docs.aws.amazon.com/medialive/latest/ug/images/aif-standard-input-failure.png)

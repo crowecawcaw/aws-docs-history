@@ -12,7 +12,7 @@ There are two ways to change the maintenance window (red mark). You can edit the
 | Reason for change | Use this method if you're happy to wait until the next maintenance opening (purple bar), but the current day of the week and/or time doesn't suit your operations. | Use this method if you don't want to wait until the next maintenance opening (purple bar) for maintenance. You want to move the maintenance window earlier in the maintenance event period (green bar). | 
 | Period when you can make the change | Any time from the minute that you create the channel until one minute before the start of the upcoming maintenance window (red mark). | From the start of the maintenance event period (green bar) until one minute before the start of the upcoming maintenance window (red mark). You can't change the maintenance window outside of the maintenance event period. | 
 
-![](http://docs.aws.amazon.com/medialive/latest/ug/images/maintenance.png)
+![](https://docs.aws.amazon.com/medialive/latest/ug/images/maintenance.png)
 
 
 ## Change the maintenance window

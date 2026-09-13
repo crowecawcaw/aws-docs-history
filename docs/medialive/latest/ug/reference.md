@@ -12,3 +12,4 @@ This chapter contains reference tables for different features and functions of A
 + [Output types supported in MediaLive](supported-containers-output.md)
 + [Output codecs in MediaLive](supported-containers-and-codecs-output.md)
 + [Identifiers for variable data in MediaLive](variable-data-identifiers.md)
++ [AWSE SCTE-35 format](awse-scte35-format.md)

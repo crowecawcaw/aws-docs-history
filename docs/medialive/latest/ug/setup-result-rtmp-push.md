@@ -11,4 +11,4 @@ Keep in mind that with a push input, the upstream system must be pushing the vid
 
 At runtime of the channel, MediaLive reacts to the content that is being pushed and ingests it. 
 
-![Upstream system with public IP addresses routing to MediaLive RTMP inputs and Input Security Group.](http://docs.aws.amazon.com/medialive/latest/ug/images/rtmp-push-uss-input.png)
+![Upstream system with public IP addresses routing to MediaLive RTMP inputs and Input Security Group.](https://docs.aws.amazon.com/medialive/latest/ug/images/rtmp-push-uss-input.png)

@@ -9,7 +9,7 @@ For example, the input has embedded captions in English and French. You want to 
 
 This example illustrates two important features of an embedded passthrough workflow. First, you don't create separate captions selectors; all the languages are automatically included. Second, if you are outputting to HLS, there is an opportunity to specify the languages and the order in which they appear.
 
-![Diagram showing captions selector, output with video and audio, and HLS output group.](http://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTembed_hls_result.png)
+![Diagram showing captions selector, output with video and audio, and HLS output group.](https://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTembed_hls_result.png)
 
 
 To set up for this use case, follow this procedure.

@@ -7,4 +7,4 @@ In this use case for including captions in a MediaLive output, the input is set 
 
 For example, the input has embedded captions in English and French. You want to produce HLS output that includes embedded captions in both English and French.
 
-![Diagram showing input captions in English and French flowing to output captions and HLS output.](http://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTembed_hls.png)
+![Diagram showing input captions in English and French flowing to output captions and HLS output.](https://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTembed_hls.png)

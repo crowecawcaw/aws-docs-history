@@ -64,6 +64,9 @@ Follow this procedure if you want to enable or disable passthrough of SCTE 35 me
 
      Each SCTE 35 message inserted will result in a new IDR in the video, but it won't result in a new segment. Note that CMAF Ingest doesn't require that SCTE 35 messages force a new segment. 
 
+     This option isn't compatible with Dynamic Multiview. The IDR that it inserts at a non-segment boundary prevents MediaPackage from combining the encode into a multiview output. For more information, see [Dynamic Multiview: Requirements and Limitations](dynamic-multiview-requirements.md).
+   + **SCTE\_35\_WITHOUT\_IDR**: Includes (passes through) the SCTE 35 messages in the output group, without inserting an IDR in the video and without starting a new segment.
+
 ## Enabling passthrough for HLS outputs
 <a name="procedure-to-enable-passthrough-hls"></a>
 

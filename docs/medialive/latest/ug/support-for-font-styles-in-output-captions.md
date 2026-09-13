@@ -20,8 +20,8 @@ The procedures later in this chapter describe how to set up font styles. You mig
 | An Embedded Combination (Embedded, Embedded\+SCTE-20, SCTE-20\+Embedded) | EBU-TT-D | You can specify some of the style information and take some of the information from the input captions. Or you can set up the captions with no style data. | 
 | Teletext | EBU-TT-D | You can specify some of the style information and take some of the information from the input captions. Or you can set up the captions with no style data. | 
 | Teletext | Teletext | None. The font styles in the input are automatically passed through in the output. | 
-| An Embedded Combination (Embedded, Embedded\+SCTE-20, SCTE-20\+Embedded) | TTML | You can set up to copy the font information from the source to the output. Or you can let the downstream player determine the font style.  | 
-| Teletext | TTML | You can set up to copy the font information from the source to the output. Or you can let the downstream player determine the font style. | 
-| An Embedded Combination (Embedded, Embedded\+SCTE-20, SCTE-20\+Embedded) | WebVTT | You can set up to pass through color and position style information from the source to the output. Or you can set up the captions with no style data. | 
-| Teletext | WebVTT | You can set up to pass through color and position style information from the source to the output. Or you can set up the captions with no style data. | 
+| An Embedded Combination (Embedded, Embedded\+SCTE-20, SCTE-20\+Embedded) | TTML | You can set up to copy the font information from the source to the output. Or you can let the downstream player determine the font style. Or you can manually configure the captions. | 
+| Teletext | TTML | You can set up to copy the font information from the source to the output. Or you can let the downstream player determine the font style. Or you can manually configure the captions. | 
+| An Embedded Combination (Embedded, Embedded\+SCTE-20, SCTE-20\+Embedded) | WebVTT | You can set up to pass through color and position style information from the source to the output. Or you can set up the captions with no style data. Or you can manually configure the captions. | 
+| Teletext | WebVTT | You can set up to pass through color and position style information from the source to the output. Or you can set up the captions with no style data. Or you can manually configure the captions. | 
 | Any Other | Any Other | No control: the font style is always determined by the downstream player.  | 

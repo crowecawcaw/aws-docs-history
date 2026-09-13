@@ -7,7 +7,7 @@ This example for captions in MediaLive shows how to implement [[the third use ca
 
 For example, the input has Teletext captions in Czech and Polish. Assume that you want to produce a Microsoft Smooth output and an HLS output. Assume that in the Microsoft Smooth output, you want to include one video and one audio and you want to convert the captions to TTML. In the HLS output, you want to include one video and one audio and you want to convert the captions to WebVTT.
 
-![Diagram showing caption conversion from Teletext to TTML for Smooth and WebVTT for HLS outputs.](http://docs.aws.amazon.com/medialive/latest/ug/images/captions_INttext_OUT_OPmss_hls_result.png)
+![Diagram showing caption conversion from Teletext to TTML for Smooth and WebVTT for HLS outputs.](https://docs.aws.amazon.com/medialive/latest/ug/images/captions_INttext_OUT_OPmss_hls_result.png)
 
 
 To set up for this use case, follow this procedure.

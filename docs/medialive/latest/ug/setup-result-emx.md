@@ -16,4 +16,4 @@ The upstream system pushes the source content to the source on the AWS Elemental
 
 At runtime of the channel, MediaLive reacts to the content that is being pushed and ingests it. 
 
-![Upstream system sending two flows to MediaConnect, which inputs them into MediaLive.](http://docs.aws.amazon.com/medialive/latest/ug/images/emx-push-uss-input.png)
+![Upstream system sending two flows to MediaConnect, which inputs them into MediaLive.](https://docs.aws.amazon.com/medialive/latest/ug/images/emx-push-uss-input.png)

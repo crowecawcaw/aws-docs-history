@@ -22,7 +22,7 @@ When you set up a standard channel, the channel has two pipelines—pipeline 0 a
 
 As this diagram illustrates, the upstream system provides two instances of the content to the input. One instance goes to the pipeline that is indicated by the blue line, the other goes to the pipeline indicated by the green line. Each of these lines is attached to one of the two pipelines in the channel. The channel produces two identical instances of the output for the downstream system. The downstream system chooses to handle one instance (the output from blue pipeline) and to ignore the other instance (the output from the green pipeline).
 
-![Upstream system sending content through two pipelines to downstream system via standard channel.](http://docs.aws.amazon.com/medialive/latest/ug/images/pipeline-redundancy-standard-channel.png)
+![Upstream system sending content through two pipelines to downstream system via standard channel.](https://docs.aws.amazon.com/medialive/latest/ug/images/pipeline-redundancy-standard-channel.png)
 
 
 ## Failure handling
@@ -34,4 +34,4 @@ There might be a problem that causes a pipeline to stop functioning.
 
 In this diagram, notice that the upstream system is still sending source content to the blue pipeline, which indicates that the upstream system is working but pipeline 0 has failed. The downstream system has started handling pipeline 1 instead, using the source content from the green pipeline. 
 
-![Upstream system connected to two pipelines, with pipeline 0 failed and pipeline 1 active.](http://docs.aws.amazon.com/medialive/latest/ug/images/pipeline-redundancy-standard-failure.png)
+![Upstream system connected to two pipelines, with pipeline 0 failed and pipeline 1 active.](https://docs.aws.amazon.com/medialive/latest/ug/images/pipeline-redundancy-standard-failure.png)

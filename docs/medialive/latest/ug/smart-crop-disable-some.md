@@ -26,6 +26,7 @@ Use `update-channel` to make changes in the JSON for the MediaLive channel.
 | Event clipping | There are no changes to make in the channel JSON. | 
 | Smart crop in one or more outputs |  1.  Identify the video encodes (video descriptions) for the target outputs where you want to disable smart crop. For example, one target output might be the video encode (video description) named `high_resolution` in an output named `output_A` in the output group named `My_outputgroup`. <br />2.  In the JSON for each video description that you identified, change these parameters:   `Width` and `Height`: Set to values that are suitable when there is no Elemental Inference features occurring.   `ScalingBehavior`: Set to a value other than `SMART_CROP`.    <br />Smart crop is now disabled in these outputs.   | 
 | Smart Subtitles |  1.  Remove the `SmartSubtitleSourceSettings` caption selectors from all input attachments. <br />2.  Remove or update any caption descriptions that reference those selectors. <br />3.  Remove the captions-only output (WebVTT or TTML) if it is no longer needed.   | 
+| Contextual metadata enrichment | Remove `SCTE35_ELEMENTAL_INFERENCE_QUERY_PARAMS` from the `EnrichmentMethods` array in `InferenceSettings`, or set `EnrichmentMethods` to an empty array. | 
 
 See [Setting up Elemental Inference features for the first time](smart-crop-procedure-cli-create.md) for an example of the JSON as it appears *before *you make these changes.
 
@@ -40,10 +41,11 @@ Make changes in Elemental Inference as described in the following table.
 
 |  Action  |  Action  | 
 | --- | --- | 
-| To disable event clipping | Use `UpdateFeed` to change the status parameter of the `OutputConfig` that is of type `ClippingConfig`. Change the status from `ENABLED` to `DISABLED`. | 
-| To disable smart crop in all video outputs | Use UpdateFeed to change the status parameter of the OutputConfig that is of type CropConfig. Change the status from ENABLED to DISABLED.  | 
-| To disable smart crop in some video outputs | There are no changes to make. Leave the status of CropConfig as ENABLED. | 
-| To disable Smart Subtitles | Use UpdateFeed to change the status parameter of the OutputConfig that is of type SubtitlingConfig. Change the status from ENABLED to DISABLED. | 
+| Disable event clipping | Use `UpdateFeed` to change the status parameter of the `OutputConfig` that is of type `ClippingConfig`. Change the status from `ENABLED` to `DISABLED`. | 
+| Disable smart crop in all video outputs | Use UpdateFeed to change the status parameter of the OutputConfig that is of type CropConfig. Change the status from ENABLED to DISABLED.  | 
+| Disable smart crop in some video outputs | There are no changes to make. Leave the status of CropConfig as ENABLED. | 
+| Disable Smart Subtitles | Use UpdateFeed to change the status parameter of the OutputConfig that is of type SubtitlingConfig. Change the status from ENABLED to DISABLED. | 
+| Disable contextual metadata enrichment | Use UpdateFeed to change the status parameter of the OutputConfig that is of type ContextualMetadataConfig. Change the status from ENABLED to DISABLED. | 
 
 ## Result of disabling some features
 <a name="smart-crop-disable-result-partial"></a>

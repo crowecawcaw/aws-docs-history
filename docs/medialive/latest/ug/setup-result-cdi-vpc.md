@@ -20,4 +20,4 @@ Keep in mind that with a push input, the upstream system must be pushing the vid
 
 At runtime of the channel, MediaLive reacts to the content that is being pushed and ingests it. 
 
-![Two upstream systems pushing content to CDI inputs in different availability zones within a VPC.](http://docs.aws.amazon.com/medialive/latest/ug/images/cdi-vpc-uss-input.png)
+![Two upstream systems pushing content to CDI inputs in different availability zones within a VPC.](https://docs.aws.amazon.com/medialive/latest/ug/images/cdi-vpc-uss-input.png)

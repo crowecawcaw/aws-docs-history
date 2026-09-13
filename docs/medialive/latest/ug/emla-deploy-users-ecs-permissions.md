@@ -22,6 +22,53 @@ Both these policies allow MediaLive to make the requests using IAM forward acces
 
 1. Choose **Create policy**.
 
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+	"Version":"2012-10-17",		 	 	 
+	"Statement": [
+           {
+            "Sid": "ECSManagement",
+            "Effect": "Allow",
+            "Action": [
+                "ecs:CreateCluster",
+                "ecs:RegisterTaskDefinition",
+                "ecs:TagResource"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:RequestTag/created_by": "MediaLiveAnywhere"
+                }
+            }
+        },
+        {
+            "Sid": "ECSCreateService",
+            "Effect": "Allow",
+            "Action": [
+                "ecs:CreateService"
+            ],
+            "Resource": [
+                "arn:aws:ecs:*:*:*"
+            ],
+            "Condition": {
+                "ArnLike": {
+                    "ecs:Cluster": "arn:aws:ecs:*:*:cluster/MediaLiveAnywhere*"
+                }
+            }
+        }
+    ]
+}
+```
+
+------
+
 ## Create the node registration policy
 <a name="emla-deploy-users-ssm-script"></a>
 

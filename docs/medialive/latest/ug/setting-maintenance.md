@@ -21,7 +21,7 @@ In the following example, assume that your *maintenance window* is currently set
 + The short red marks are *potential maintenance events*. Each potential maintenance event is set on the same day. In this example, there is a potential maintenance event every Thursday.
 + The red mark in the purple bar is the *current maintenance window*. Automatic maintenance is set to occur some time during the maintenance window that occurs during the maintenance opening. In this example, it is set to occur on Thursday, May 18 between 4:00 and 5:00 UTC.
 
-![Calendar view showing a scheduled event spanning Thursday with markers on days 4, 11, and 18.](http://docs.aws.amazon.com/medialive/latest/ug/images/maintenance.png)
+![Calendar view showing a scheduled event spanning Thursday with markers on days 4, 11, and 18.](https://docs.aws.amazon.com/medialive/latest/ug/images/maintenance.png)
 
 
 ## Options for handling maintenance

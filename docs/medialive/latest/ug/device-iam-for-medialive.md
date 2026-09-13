@@ -41,6 +41,39 @@ In this step, you create a policy that makes the statement "Let a principal have
 
 1. In the **Policy editor**, clear the sample content and paste the following:
 
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "mediaconnect:DescribeFlow"
+               ],
+               "Resource": [
+                   "*"
+               ]
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "secretsmanager:GetSecretValue"
+               ],
+               "Resource": [
+                   "arn:aws:secretsmanager:{{us-east-1}}:{{111122223333}}:secret:{{secret name}}"
+               ]
+           }
+       ]
+   }
+   ```
+
+------
+
 1. In the **Resource** section for **secretsmanager**, replace the Region, account, and secret name with real values.
 
 1. Add more lines in the **Resources** section or `secretsmanager`, one for each secret. Make sure you include a comma at the end of all lines except the last line. For example:

@@ -7,4 +7,4 @@ In this use case for including captions in a MediaLive output, the input is set 
 
 For example, the input has embedded captions in German and French. You want to convert the captions to DVB-Sub and include these captions in both languages in a UDP output. 
 
-![Diagram showing input captions in German and French converting to DVB-Sub output formats.](http://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTdvb_udp.png)
+![Diagram showing input captions in German and French converting to DVB-Sub output formats.](https://docs.aws.amazon.com/medialive/latest/ug/images/captions_INembed_OUTdvb_udp.png)
