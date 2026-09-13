@@ -12,7 +12,7 @@ For more information about this workshop, see [aws-remote-desktop-for-eda](https
 ## Remote desktop for Electronic Design Automation diagram
 <a name="remote-eda-diagram"></a>
 
-![Reference architecture diagram showing how to launch Xilinx Vivado by using Amazon DCV remote desktop on AWS with CloudFormation and Amazon S3.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/remote-desktop-eda/images/remote-desktop-eda.png)
+![Reference architecture diagram showing how to launch Xilinx Vivado by using Amazon DCV remote desktop on AWS with CloudFormation and Amazon S3.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/remote-desktop-eda/images/remote-desktop-eda.png)
 
 
 The following steps describe the setup and connection flow for this architecture:
