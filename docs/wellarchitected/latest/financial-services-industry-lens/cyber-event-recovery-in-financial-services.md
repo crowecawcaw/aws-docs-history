@@ -7,7 +7,7 @@
 
  **Reference architecture** 
 
-![Cyber event recovery reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/cyber-event-recovery-reference-architecture.png)
+![Cyber event recovery reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/cyber-event-recovery-reference-architecture.png)
 
 
  **Architecture description** 

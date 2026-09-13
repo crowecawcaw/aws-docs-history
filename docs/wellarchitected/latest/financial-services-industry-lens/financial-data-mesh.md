@@ -13,7 +13,7 @@ The term *data mesh* refers to any architectural framework that enables access t
 
  **Reference architecture** 
 
-![Financial data mesh reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/financial-data-mesh-reference-architecture.png)
+![Financial data mesh reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/financial-data-mesh-reference-architecture.png)
 
 
  **Architecture description** 

@@ -12,7 +12,7 @@ In open banking, banks use an API messaging framework to securely share their cu
 
  **Reference architecture** 
 
-![Open banking reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/open-banking-reference-architecture.png)
+![Open banking reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/open-banking-reference-architecture.png)
 
 
  **Architecture description** 

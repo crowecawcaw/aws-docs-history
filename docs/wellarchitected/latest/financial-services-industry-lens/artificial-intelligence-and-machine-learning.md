@@ -15,7 +15,7 @@
 
  **Reference architecture** 
 
-![Artificial intelligence and machine learning reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/artificial-intelligence-machine-learning-reference-architecture.png)
+![Artificial intelligence and machine learning reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/artificial-intelligence-machine-learning-reference-architecture.png)
 
 
  **AI/ML architecture description** 

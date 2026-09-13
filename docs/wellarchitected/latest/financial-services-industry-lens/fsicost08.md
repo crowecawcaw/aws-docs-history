@@ -14,4 +14,4 @@
 
  For steady inference and model-serving workloads, pair Savings Plans with provisioned throughput or concurrency settings on managed generative AI endpoints (for example, Amazon Bedrock or Amazon SageMaker AI Endpoint). Avoid over-commitment by separating development or test environments from production accounts and verify that only sustained production traffic uses reserved compute capacity. Review plan coverage quarterly as model architectures, token volumes, and context sizes evolve. 
 
-![Stacked bar chart showing savings plan commitment versus actual usage across quarters.](http://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/image1.jpeg)
+![Stacked bar chart showing savings plan commitment versus actual usage across quarters.](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/image1.jpeg)

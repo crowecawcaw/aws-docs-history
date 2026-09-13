@@ -16,7 +16,7 @@ Payment gateways can use tokenization to protect customer data by replacing the 
 
  **Reference architecture** 
 
-![QR payments reference architecture diagram](http://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/payments-reference-architecture.png)
+![QR payments reference architecture diagram](https://docs.aws.amazon.com/wellarchitected/latest/financial-services-industry-lens/images/payments-reference-architecture.png)
 
 
  **Architecture description** 
