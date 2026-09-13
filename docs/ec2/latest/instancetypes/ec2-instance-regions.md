@@ -73,7 +73,7 @@ The following instance types are available in Africa (Cape Town).
 The following instance types are available in Asia Pacific (Hong Kong).
 + **General Purpose:** M5 \| M5d \| M6g \| M6gd \| M6i \| M7g \| M7i \| M7i-flex \| M8g \| T3 \| T4g
 + **Compute Optimized:** C5 \| C5a \| C5d \| C5n \| C6a \| C6g \| C6gn \| C6i \| C6in \| C7g \| C7i \| C7i-flex \| C8g \| C8gn
-+ **Memory Optimized:** R5 \| R5d \| R5n \| R6g \| R6i \| R7g \| R7gd \| R8g \| R8gd \| U-3tb1 \| X1
++ **Memory Optimized:** R5 \| R5d \| R5n \| R6g \| R6i \| R7g \| R7gd \| R8g \| R8gd \| U-3tb1 \| X1 \| X2idn
 + **Storage Optimized:** D2 \| I3 \| I3en \| I4i \| I7i \| I7ie \| I8ge
 + **Accelerated Computing:** G4dn \| G5 \| Inf1
 
@@ -329,7 +329,7 @@ The following instance types are available in Europe (Stockholm).
 + **Compute Optimized:** C5 \| C5a \| C5d \| C5n \| C6g \| C6gd \| C6gn \| C6i \| C6in \| C7a \| C7g \| C7gd \| C7i \| C7i-flex \| C8g \| C8gn \| C8i \| C8id
 + **Memory Optimized:** R5 \| R5b \| R5d \| R5dn \| R5n \| R6g \| R6gd \| R6i \| R6idn \| R6in \| R7a \| R7g \| R7gd \| R7i \| R8g \| R8gd \| R8i \| R8id \| R8i-flex \| U-6tb1 \| U7i-6tb \| U7i-8tb \| U7i-12tb \| U7in-24tb \| X2idn \| X2iedn \| X8g \| X8aedz \| X8i
 + **Storage Optimized:** D2 \| I3 \| I3en \| I4i \| I7i \| I7ie \| I8g \| I8ge
-+ **Accelerated Computing:** G4dn \| G5 \| G6 \| G6e \| G6f \| Gr6 \| Gr6f \| G7e \| Inf1 \| Inf2 \| P4d \| P5 \| P5e \| P5en
++ **Accelerated Computing:** G4dn \| G5 \| G6 \| G6e \| G6f \| Gr6 \| Gr6f \| G7e \| Inf1 \| Inf2 \| P4d \| P5 \| P5e \| P5en \| P6-B200
 + **High Performance Computing:** Hpc6a \| Hpc6id \| Hpc7a \| Hpc8a
 
 ## Europe (Zurich) — `eu-central-2`
