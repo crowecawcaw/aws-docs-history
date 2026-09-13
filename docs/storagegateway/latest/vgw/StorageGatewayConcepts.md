@@ -23,7 +23,7 @@ Cached volumes can range from 1 GiB to 32 TiB in size and must be rounded to the
 
 In the cached volumes solution, Storage Gateway stores all your on-premises application data in a storage volume in Amazon S3. The following diagram provides an overview of the cached volumes deployment.
 
-![application server connected to volumes and snapshots in the AWS cloud through Storage Gateway.](http://docs.aws.amazon.com/storagegateway/latest/vgw/images/aws-storage-gateway-cached-diagram.png)
+![application server connected to volumes and snapshots in the AWS cloud through Storage Gateway.](https://docs.aws.amazon.com/storagegateway/latest/vgw/images/aws-storage-gateway-cached-diagram.png)
 
 
 After you install the Storage Gateway software appliance—the VM—on a host in your data center and activate it, you use the AWS Management Console to provision storage volumes backed by Amazon S3. You can also provision storage volumes programmatically using the Storage Gateway API or the AWS SDK libraries. You then mount these storage volumes to your on-premises application servers as iSCSI devices.
@@ -53,7 +53,7 @@ With stored volumes, you maintain your volume storage on-premises in your data c
 
 The following diagram provides an overview of the stored volumes deployment.
 
-![application server and NAS connected to snapshots in the AWS cloud through Storage Gateway.](http://docs.aws.amazon.com/storagegateway/latest/vgw/images/aws-storage-gateway-stored-diagram.png)
+![application server and NAS connected to snapshots in the AWS cloud through Storage Gateway.](https://docs.aws.amazon.com/storagegateway/latest/vgw/images/aws-storage-gateway-stored-diagram.png)
 
 
 After you install the Storage Gateway software appliance—the VM—on a host in your data center and activated it, you can create gateway *storage volumes*. You then map them to on-premises direct-attached storage (DAS) or storage area network (SAN) disks. You can start with either new disks or disks already holding data. You can then mount these storage volumes to your on-premises application servers as iSCSI devices. As your on-premises applications write data to and read data from a gateway's storage volume, this data is stored and retrieved from the volume's assigned disk.

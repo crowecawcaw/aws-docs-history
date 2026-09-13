@@ -12,7 +12,7 @@ The following diagram highlights the iSCSI target in the larger picture of the S
 
  
 
-![Storage Gateway resources exposed as iSCSI targets connected to an application server.](http://docs.aws.amazon.com/storagegateway/latest/vgw/images/ArchitectureDiagram_HighlightediSCSI-diagram.png)
+![Storage Gateway resources exposed as iSCSI targets connected to an application server.](https://docs.aws.amazon.com/storagegateway/latest/vgw/images/ArchitectureDiagram_HighlightediSCSI-diagram.png)
 
 
 You can connect to your volume from either a Windows or Red Hat Linux client. You can optionally configure CHAP for either client type.

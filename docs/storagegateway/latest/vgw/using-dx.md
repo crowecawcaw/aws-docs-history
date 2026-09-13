@@ -9,7 +9,7 @@ Storage Gateway uses public endpoints. With an Direct Connect connection in plac
 
 The following illustration shows an example of how Direct Connect works with Storage Gateway.
 
-![network architecture showing Storage Gateway connected to the cloud using AWS direct connect.](http://docs.aws.amazon.com/storagegateway/latest/vgw/images/DirectConnect3.png)
+![network architecture showing Storage Gateway connected to the cloud using AWS direct connect.](https://docs.aws.amazon.com/storagegateway/latest/vgw/images/DirectConnect3.png)
 
 
 The following procedure assumes that you have created a functioning gateway.

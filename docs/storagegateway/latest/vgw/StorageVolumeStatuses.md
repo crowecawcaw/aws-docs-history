@@ -61,7 +61,7 @@ In the diagram, a transition between two states is depicted with a labeled line.
 
  
 
-![all possible cached volume states with arrows indicating possible transitions between states.](http://docs.aws.amazon.com/storagegateway/latest/vgw/images/VolumeStateDiagramCachedVolume-diagram.png)
+![all possible cached volume states with arrows indicating possible transitions between states.](https://docs.aws.amazon.com/storagegateway/latest/vgw/images/VolumeStateDiagramCachedVolume-diagram.png)
 
 
 **Note**  
@@ -85,7 +85,7 @@ In the following diagram, a transition between two states is depicted with a lab
 
  
 
-![all possible stored volume states with arrows indicating possible transitions between states.](http://docs.aws.amazon.com/storagegateway/latest/vgw/images/VolumeStateDiagram-diagram.png)
+![all possible stored volume states with arrows indicating possible transitions between states.](https://docs.aws.amazon.com/storagegateway/latest/vgw/images/VolumeStateDiagram-diagram.png)
 
 
 **Note**  

@@ -36,7 +36,7 @@ Moving the cursor over a data point displays information about the data point, i
 
  
 
-![a sample cloud bytes uploaded metric graph for a gateway with the sum statistic.](http://docs.aws.amazon.com/storagegateway/latest/vgw/images/GatewayMetrics_25.png)
+![a sample cloud bytes uploaded metric graph for a gateway with the sum statistic.](https://docs.aws.amazon.com/storagegateway/latest/vgw/images/GatewayMetrics_25.png)
 
 
 **To measure the latency per operation of a gateway**
