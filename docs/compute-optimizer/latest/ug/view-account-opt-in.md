@@ -21,7 +21,7 @@ The following procedure assumes that you have already completed the [Opting in t
 1. Choose **Account management** in the navigation pane.
 
    The **Account management** page lists the member accounts of the organization and their current Compute Optimizer opt-in status. The **Opt-in status** and **Status description** columns describe the status of each account ID that are listed. To delegate an administrator account, see [Delegating an administrator account](delegate-administrator-account.md).  
-![Accounts page in the Compute Optimizer console](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/accounts-page.png)
+![Accounts page in the Compute Optimizer console](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/accounts-page.png)
 
 ## Additional resources
 <a name="view-account-resources"></a>

@@ -24,7 +24,7 @@ Make sure that you have the appropriate permissions to activate and deactivate e
    If you’re the account manager or delegated administrator of your organization, you can manage all member accounts or an individual member account for enhanced infrastructure metrics. 
    + To opt in all member accounts, choose **All opted-in accounts** from the Preference level dropdown. 
    + To opt in an individual member account, choose **Choose account** from the Preference level dropdown. In the prompt that appears, select the account you want to opt in for rightsizing preferences. Then, choose **Set account level**.  
-![Account level preferences](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/eim-accounts.png)
+![Account level preferences](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/eim-accounts.png)
 
 1. Choose **Edit**.
 

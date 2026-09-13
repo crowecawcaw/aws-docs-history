@@ -21,7 +21,7 @@ Using EC2 as an example, the estimated monthly savings and savings opportunity f
 **Important**  
 If you enable Cost Optimization Hub in AWS Cost Explorer, Compute Optimizer uses Cost Optimization Hub data, which includes your specific pricing discounts, to generate your recommendations. If Cost Optimization Hub isn't enabled, Compute Optimizer uses Cost Explorer data and On-Demand pricing information to generate your recommendations. For more information, see [Enabling Cost Explorer](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html) and [ Cost Optimization Hub](https://docs.aws.amazon.com/cost-management/latest/userguide/cost-optimization-hub.html) in the in the *AWS Cost Management User Guide*.
 
-![Performance risk reduction opportunity in the Compute Optimizer dashboard](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/dashboard-savings-opportunities.png)
+![Performance risk reduction opportunity in the Compute Optimizer dashboard](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/dashboard-savings-opportunities.png)
 
 
 ## Performance improvement opportunity
@@ -29,7 +29,7 @@ If you enable Cost Optimization Hub in AWS Cost Explorer, Compute Optimizer uses
 
 The performance improvement opportunity section displays a count and percentage of the resources in your account that Compute Optimizer found to be at risk of not meeting your workload performance needs. It also displays the performance risk classifications per resource type. Resources can have a performance risk of high, medium, and very low. If you prefer to evaluate your resources for performance improvements, then prioritize the resource types that have a high performance risk.
 
-![Savings opportunity in the Compute Optimizer dashboard](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/dashboard-performance-improvement-opportunities.png)
+![Savings opportunity in the Compute Optimizer dashboard](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/dashboard-performance-improvement-opportunities.png)
 
 
 ## Optimization options per resource

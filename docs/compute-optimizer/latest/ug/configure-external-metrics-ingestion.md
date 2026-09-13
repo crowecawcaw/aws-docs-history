@@ -27,14 +27,14 @@ Make sure that you understand the metric requirments in order for Compute Optimi
    If you’re the account manager or delegated administrator of your organization, you can opt-in all member accounts or an individual member account for external metrics ingestion. 
    + To opt-in all member accounts, choose **All opted-in accounts** from the Preference level dropdown. 
    + To opt-in an individual member account, choose **Choose account** from the Preference level dropdown. In the prompt that appears, select the account you want to opt-in. Then, choose **Set account level**.  
-![Choose preference level](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/external-metrics-preference.png)
+![Choose preference level](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/external-metrics-preference.png)
 
 1. Choose **Edit**.
 
 1. In the prompt that appears, select your external metrics provider for EC2 instances. Then, choose **Enable**.
 
 1. Navigate to your external metrics provider's website. To do this, choose **Configure with provider** or the external metrics source link.  
-![Choose metrics source link](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/external-metrics-choose.png)
+![Choose metrics source link](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/external-metrics-choose.png)
 
 1.  Complete the configuration process on your external metrics provider’s website. 
 **Important**  
@@ -61,7 +61,7 @@ If you don't complete the configuration process with your external metrics provi
 1. Choose **Accounts** in the navigation pane.
 
 1. In the **Organization-level preferences for external metrics ingestion** or the **Account-level preferences for external metrics ingestion** section, navigate to your external metrics provider's website. To do this, choose **Configure with provider** or the external metrics source link.  
-![Choose metrics source link](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/external-metrics-choose.png)
+![Choose metrics source link](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/external-metrics-choose.png)
 
 1.  Complete the configuration process on your external metrics provider’s website. 
 **Important**  

@@ -33,7 +33,7 @@ If you’re an individual AWS account holder, skip to [Step2: Regional scope](ht
 1. In your chosen resource section, choose the ** All opted-in accounts** dropdown menu.
    + To opt in all member accounts, choose **All opted-in accounts** from the Preference level dropdown. 
    + To opt in an individual member account, choose **Choose account** from the Preference level dropdown. In the prompt that appears, select the account you want to opt in for rightsizing preferences. Then, choose **Set account level**.  
-![Choose the account for rightsizing recommendation preferences](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-preference-level.png)
+![Choose the account for rightsizing recommendation preferences](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-preference-level.png)
 
 ### Step 2: Set regional scope
 <a name="rightsizing-preferences-regions"></a>
@@ -53,7 +53,7 @@ In this step you can specify the AWS Regions where you want Compute Optimizer to
 1. Choose either **Any Region** or **Custom Regions** based on your requirements.
 
 1. If you choose **Custom Regions**, select the AWS Regions where you want Compute Optimizer to apply your preferences. Then, choose **Next**.  
-![Choose the Regions for rightsizing recommendation preferences](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-regions.png)
+![Choose the Regions for rightsizing recommendation preferences](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-regions.png)
 
 ### Step 3: Specify preferred EC2 instances
 <a name="rightsizing-preferences-preferred-resources-process"></a>
@@ -69,7 +69,7 @@ Use the following procedure to specify your preferred instance types and sizes f
 1. If you choose **Limit to specific instance types and sizes**, select the instance types you want in your recommendation output.
    + Use the **Search by instance families** dropdown menu. When you select any of the instance families, the list only displays the available instance types within those families that you selected.
    + Use the **Find instance types** search bar to enter the specific instance types you want.  
-![Choose the preferred instances for rightsizing recommendation preferences](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-all-instances.png)
+![Choose the preferred instances for rightsizing recommendation preferences](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-all-instances.png)
 
 1. (Optional) To specify the sizes of each instance type, do the following:
 
@@ -80,7 +80,7 @@ Use the following procedure to specify your preferred instance types and sizes f
    1. Select **✔** to confirm your selections.
 
 1. (Optional) If you don't want Compute Optimizer to automatically consider future variations of your chosen instance families, turn off **Automatically consider future variations of the instance families selected**.  
-![Automatically consider future variations of the instance families toggle](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-future-instances.png)
+![Automatically consider future variations of the instance families toggle](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-future-instances.png)
 
 1. Choose **Next**.
 
@@ -100,7 +100,7 @@ Use the following procedure to specify the lookback period, and the CPU and memo
 1. Choose a utilization preset: **Max savings**, **Balanced**, **Default**, or **Max performance**.
 
    Alternatively, you can customize your own specific CPU and memory utilization preferences.  
-![Choose from preset options](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-custom-configuration.png)
+![Choose from preset options](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/rightsizing-custom-configuration.png)
 
 1. Choose **Next**.
 

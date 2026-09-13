@@ -15,10 +15,10 @@ This section provides you with instructions on how to activate or deactivate the
 1. Choose **General** in the navigation pane.
 
 1. Choose the **Savings estimation mode** tab. Then, choose **Edit**.  
-![Choose the Edit button](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/sem-edit.png)
+![Choose the Edit button](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/sem-edit.png)
 
 1. In the pop-up window that appears, select the AWS Regions where you want to activate the savings estimation mode preference. Then, choose **Save**.  
-![Select the AWS Regions and save](http://docs.aws.amazon.com/compute-optimizer/latest/ug/images/sem-activate-save.png)
+![Select the AWS Regions and save](https://docs.aws.amazon.com/compute-optimizer/latest/ug/images/sem-activate-save.png)
 
 1. (Optional) Unselect the AWS Regions where you want to deactivate the savings estimation mode preference.
 
