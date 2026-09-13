@@ -10,7 +10,7 @@ TiDB is an open-source MySQL-compatible database that supports hybrid transactio
 ## Fast Backup and Restore of TiDB on AWS
 <a name="diagram1"></a>
 
-![Architecture diagram showing fast backup and restore of TiDB on AWS using Amazon EBS snapshots and Amazon S3.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/tidb-backup-restore/images/tidb-backup-restore.png)
+![Architecture diagram showing fast backup and restore of TiDB on AWS using Amazon EBS snapshots and Amazon S3.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/tidb-backup-restore/images/tidb-backup-restore.png)
 
 
 The following steps describe the architecture:
