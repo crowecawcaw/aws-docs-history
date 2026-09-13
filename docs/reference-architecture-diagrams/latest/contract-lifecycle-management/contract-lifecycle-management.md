@@ -14,7 +14,7 @@ This architecture uses Amazon Simple Storage Service (Amazon S3), AWS Glue, and 
 ## Contract lifecycle management and modeling diagram
 <a name="contract-lifecycle-management-diagram"></a>
 
-![Architecture for airline contract lifecycle management using Amazon S3, AWS Glue, Amazon EMR, Step Functions, DynamoDB, and Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/contract-lifecycle-management/images/contract-lifecycle-management-ra.png)
+![Architecture for airline contract lifecycle management using Amazon S3, AWS Glue, Amazon EMR, Step Functions, DynamoDB, and Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/contract-lifecycle-management/images/contract-lifecycle-management-ra.png)
 
 
 The following steps describe the architecture:
