@@ -60,4 +60,4 @@ windowAvg
 
 The following screenshot shows the results of this moving average example. The sum(Revenue) field is added to the chart to show the difference between the revenue and the moving average of revenue.
 
-![Line chart showing revenue and moving average trending upward from 70M to 150M between Jan 2017 and May 2018.](http://docs.aws.amazon.com/quick/latest/userguide/images/windowAvg.png)
+![Line chart showing revenue and moving average trending upward from 70M to 150M between Jan 2017 and May 2018.](https://docs.aws.amazon.com/quick/latest/userguide/images/windowAvg.png)

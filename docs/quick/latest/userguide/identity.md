@@ -38,31 +38,31 @@ IAM permissions control access to some sections of the Amazon Quick administrati
 
 | Admin action | IAM permissions required | 
 | --- | --- | 
-| **Account settings** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Manage assets** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Amazon Q** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Manage subscriptions** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **SPICE capacity** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **Index capacity** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Manage users (view)** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **Manage users > Role groups** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Manage domains** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **Mobile settings** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **Manage IP/VPC restrictions** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Manage VPC connections** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Manage OAuth client applications** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **KMS keys** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **AWS resources** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Default access policy** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **IAM policy assignments** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **AWS actions** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Extension access** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Custom permissions** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Configure SageMaker** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Brand customization** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Agent customization** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Email customization** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Quick Usage Metrics** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Account settings** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Manage assets** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Amazon Q** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Manage subscriptions** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **SPICE capacity** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **Index capacity** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Manage users (view)** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **Manage users > Role groups** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Manage domains** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **Mobile settings** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **Manage IP/VPC restrictions** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Manage VPC connections** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Manage OAuth client applications** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **KMS keys** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **AWS resources** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Default access policy** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **IAM policy assignments** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **AWS actions** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Extension access** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Custom permissions** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Configure SageMaker** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Brand customization** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Agent customization** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Email customization** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Quick Usage Metrics** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
 
 If you have the Amazon Quick admin role, you can perform actions that do not require IAM permissions. To perform actions that require IAM permissions, sign in to the AWS Management Console as an IAM principal with the appropriate `quicksight:*` permissions. You can also perform some admin actions programmatically through the Amazon Quick API. For a list of available API operations, see the [Amazon Quick API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/Welcome.html).
 

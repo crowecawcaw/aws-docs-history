@@ -37,4 +37,4 @@ You can also specify at what level to group the computation using one or more di
 avg({Sales}, [{Country}])
 ```
 
-![Average sales numbers are aggregated only at the country level.](http://docs.aws.amazon.com/quick/latest/userguide/images/avg-function-example.png)
+![Average sales numbers are aggregated only at the country level.](https://docs.aws.amazon.com/quick/latest/userguide/images/avg-function-example.png)

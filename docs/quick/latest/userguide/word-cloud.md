@@ -9,7 +9,7 @@ Each word in a word cloud represents one or more values in a dimension. The size
 
 The following screenshot shows an example of a word cloud.
 
-![Word cloud showing top 100 lead names with various enterprise and startup identifiers.](http://docs.aws.amazon.com/quick/latest/userguide/images/word-cloud.png)
+![Word cloud showing top 100 lead names with various enterprise and startup identifiers.](https://docs.aws.amazon.com/quick/latest/userguide/images/word-cloud.png)
 
 
 To create a word cloud, use one dimension in the **Group by** field well. Optionally, you can add a metric to the **Size** field well.

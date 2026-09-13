@@ -21,7 +21,7 @@ Using a pivot table, you can do the following:
 + Transpose fields used by rows and columns
 + Create custom total aggregations
 
-To easily transpose the fields used by the rows and columns of the pivot table, choose the orientation icon (![Icon showing an arrow pointing from a circle to a square, indicating a share or export action.](http://docs.aws.amazon.com/quick/latest/userguide/images/pivot-orientation.png)) near the top right of the visual. To see options for showing and hiding totals and subtotals, formatting the visual, or exporting data to a CSV file, choose the Menu items icon at top right. 
+To easily transpose the fields used by the rows and columns of the pivot table, choose the orientation icon (![Icon showing an arrow pointing from a circle to a square, indicating a share or export action.](https://docs.aws.amazon.com/quick/latest/userguide/images/pivot-orientation.png)) near the top right of the visual. To see options for showing and hiding totals and subtotals, formatting the visual, or exporting data to a CSV file, choose the Menu items icon at top right. 
 
 As with all visual types, you can add and remove fields. You can also change the field associated with a visual element, change field aggregation, and change date field granularity. In addition, you can focus on or exclude rows or columns. For more information about how to make these changes to a pivot table, see [Changing fields used by a visual in Amazon Quick](changing-visual-fields.md). 
 

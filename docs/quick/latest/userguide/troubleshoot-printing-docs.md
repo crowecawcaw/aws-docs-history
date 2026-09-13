@@ -7,4 +7,4 @@ The browser sometimes prints the document feedback bar across the page, blocking
 
 To avoid this problem, use the twirl-down icon on the bottom left of the screen (shown following) to minimize the feedback bar. Then print your document.
 
-![This image shows a small "twirl-down arrow" at the bottom left of the documentation webpage.](http://docs.aws.amazon.com/quick/latest/userguide/images/printing-docs.png)
+![This image shows a small "twirl-down arrow" at the bottom left of the documentation webpage.](https://docs.aws.amazon.com/quick/latest/userguide/images/printing-docs.png)

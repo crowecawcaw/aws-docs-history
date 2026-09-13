@@ -78,7 +78,7 @@ When an author creates a sheet tooltip, a tooltip sheet is created and associate
 
 Consider a bar chart showing sales by product category. You could create a sheet tooltip that shows a trend line of monthly sales, a KPI of year-over-year growth, and a text box with the category name, all filtered to whichever category the viewer hovers over.
 
-![Animated image showing a sheet tooltip appearing when hovering over data points in a visual.](http://docs.aws.amazon.com/quick/latest/userguide/images/sheet-tooltip-preview.gif)
+![Animated image showing a sheet tooltip appearing when hovering over data points in a visual.](https://docs.aws.amazon.com/quick/latest/userguide/images/sheet-tooltip-preview.gif)
 
 
 ### Sheet tooltip limits
@@ -107,7 +107,7 @@ Use the following procedure to create a sheet tooltip for a visual.
 1. In the **Properties** pane that opens, choose **Interactions** > **Tooltip**.
 
 1. For **Type**, choose **Sheet tooltip**.  
-![The Properties pane showing the Sheet tooltip option selected in the Type dropdown.](http://docs.aws.amazon.com/quick/latest/userguide/images/sheet-tooltip-properties-pane.png)
+![The Properties pane showing the Sheet tooltip option selected in the Type dropdown.](https://docs.aws.amazon.com/quick/latest/userguide/images/sheet-tooltip-properties-pane.png)
 
 1. Choose **Create tooltip sheet**. You will automatically navigate to a tooltip sheet editing experience. A tooltip name is auto-generated and you can edit it by choosing the tab title.
 
@@ -136,7 +136,7 @@ Use the following procedure to edit an existing sheet tooltip.
 1. In the **Tooltip** accordion, select the tooltip that you would like to edit and choose the edit icon next to the tooltip sheet name to navigate to it.
 
 1. Make your changes to the visuals, text boxes, or images on the tooltip sheet.  
-![Animated image showing how to edit a tooltip sheet.](http://docs.aws.amazon.com/quick/latest/userguide/images/sheet-tooltip-editing.gif)
+![Animated image showing how to edit a tooltip sheet.](https://docs.aws.amazon.com/quick/latest/userguide/images/sheet-tooltip-editing.gif)
 
 ### Switching between tooltip types
 <a name="customizing-visual-tooltips-sheet-switch"></a>

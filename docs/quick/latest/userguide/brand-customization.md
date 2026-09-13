@@ -85,7 +85,7 @@ Use the following procedure to create a custom brand in Amazon Quick.
 1. (Optional) For **Brand description**, enter a description for the custom brand. The brand description can contain up to 512 characters.
 
 1. Navigate to the **Logo** section.  
-![The Logo section of the Brand Info page.](http://docs.aws.amazon.com/quick/latest/userguide/images/logo.png)
+![The Logo section of the Brand Info page.](https://docs.aws.amazon.com/quick/latest/userguide/images/logo.png)
 
 1. For **Primary**, choose the ellipsis (three dots) next to the primary icon, and then choose **Replace image**.
 
@@ -120,7 +120,7 @@ Use the following procedure to create a custom brand in Amazon Quick.
 1. To make changes to the theme colors of the brand, navigate to the **Appearance** pane on the left and choose **Theme**.
 
 1. The **Theme settings** page appears and displays all parts of a Amazon Quick theme that can be customized. The following image shows the configuration settings of the global navigation bar.  
-![The configuration settings for the global navigation bar. Use the Background and Foreground swatches to customize the colors of every theme item listed on the Theme settings page.](http://docs.aws.amazon.com/quick/latest/userguide/images/navigation-bar.png)
+![The configuration settings for the global navigation bar. Use the Background and Foreground swatches to customize the colors of every theme item listed on the Theme settings page.](https://docs.aws.amazon.com/quick/latest/userguide/images/navigation-bar.png)
 
 1. To change the background color of an area, navigate to the item that you want to change and choose the **Background** color swatch.
 

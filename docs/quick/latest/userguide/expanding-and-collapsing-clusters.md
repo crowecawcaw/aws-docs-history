@@ -14,4 +14,4 @@ If you are using grouped columns or rows in a pivot table, you can expand or col
    + To expand a group, choose the expand icon near the name of the field. The collapse icon shows a minus sign. The expand icon shows a plus sign.
 
    In the following screenshot, `Customer Region` and the `Enterprise` segment are expanded, and `SMB` and `Startup` are collapsed. When a group is collapsed, its data is summarized in the row or column.  
-![Revenue data table with Customer Region expanded showing APAC, EMEA, and US consumption channels.](http://docs.aws.amazon.com/quick/latest/userguide/images/pivot-table-collapse.png)
+![Revenue data table with Customer Region expanded showing APAC, EMEA, and US consumption channels.](https://docs.aws.amazon.com/quick/latest/userguide/images/pivot-table-collapse.png)

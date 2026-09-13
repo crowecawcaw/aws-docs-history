@@ -35,7 +35,7 @@ However, anomaly computations aren't compatible with any other computation type 
    Doing this inserts the expression **GrowthRate.timePeriods**, which is the number of periods you set in the configuration for **GrowthRate**. 
 
 1. Complete the sentence with ** days is ** (a space before and afterwards), and add the expression **GrowthRate.compoundedGrowthRate.formattedValue**, followed by a period (`.`). Choose the expression from the list, rather than typing it in. However, you can edit the contents of the expression after you add it.  
-![Expression editor with open expressions list.](http://docs.aws.amazon.com/quick/latest/userguide/images/narrative-add-expression.png)
+![Expression editor with open expressions list.](https://docs.aws.amazon.com/quick/latest/userguide/images/narrative-add-expression.png)
 **Note**  
 The **formattedValue** expression returns a string that is formatted based on the formatting applied for the metric on the field. To perform metric math, use **value** instead, which returns the raw value as an integer or decimal.
 
@@ -48,7 +48,7 @@ The **formattedValue** expression returns a string that is formatted based on th
 1. Add another expression block for the case when the growth rate wasn't that great by repeating the previous step. But this time, make it **<0** and enter the text **worse than expected**. Make it red instead of green. 
 
 1. Choose **Save**. The customized narrative that we just created should look similar to the following.  
-![Customized narrative.](http://docs.aws.amazon.com/quick/latest/userguide/images/narrative-example-result.png)
+![Customized narrative.](https://docs.aws.amazon.com/quick/latest/userguide/images/narrative-example-result.png)
 
 The expression editor provides you with a sophisticated tool to customize your narratives. You can also reference the parameters you create for your analysis or dashboard, and use a set of built-in functions for further customization.
 

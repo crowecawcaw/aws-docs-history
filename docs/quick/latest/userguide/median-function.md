@@ -31,7 +31,7 @@ The following example returns the median sales value for each region. It is comp
 median({Sales})
 ```
 
-![The median sales value for each region.](http://docs.aws.amazon.com/quick/latest/userguide/images/min-max-median-function-example.png)
+![The median sales value for each region.](https://docs.aws.amazon.com/quick/latest/userguide/images/min-max-median-function-example.png)
 
 
 You can also specify at what level to group the computation using one or more dimensions in the view or in your dataset. This is called a LAC-A function. For more information about LAC-A functions, see [Level-aware calculation - aggregate (LAC-A) functions](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations-aggregate.html). The following example calculates the median sales at the Country level, but not across other dimensions (Region) in the visual.
@@ -40,4 +40,4 @@ You can also specify at what level to group the computation using one or more di
 median({Sales}, [Country])
 ```
 
-![The median sales value in each country.](http://docs.aws.amazon.com/quick/latest/userguide/images/median-function-example2.png)
+![The median sales value in each country.](https://docs.aws.amazon.com/quick/latest/userguide/images/median-function-example2.png)

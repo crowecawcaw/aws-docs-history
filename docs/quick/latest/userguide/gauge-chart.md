@@ -9,7 +9,7 @@ A gauge chart is similar to a nondigital gauge, for example a gas gauge in an au
 
 To learn how to use gauge charts in Amazon Quick, you can watch this video:
 
-[![AWS Videos](http://img.youtube.com/vi/03gYx4-iGak/0.jpg)](http://www.youtube.com/watch?v=03gYx4-iGak)
+[![AWS Videos](https://img.youtube.com/vi/03gYx4-iGak/0.jpg)](https://www.youtube.com/watch?v=03gYx4-iGak)
 
 
 To create a gauge chart, you need to use at least one measure. Put the measure in the **Value** field well. If you want to compare two measures, put the additional measure in the **Target value** field well. If you want to compare a single measure to a target value that isn't in your dataset, you can use a calculated field that contains a fixed value. 

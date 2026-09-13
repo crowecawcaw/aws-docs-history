@@ -274,7 +274,7 @@ To configure the Pivot step, use the following in the **Configuration** pane:
 
 1. **Group by**: Specify organizing columns (e.g., Segment).
 
-![Pivot table configuration showing input tables transformed into output with pivot and value columns.](http://docs.aws.amazon.com/quick/latest/userguide/images/pivot.png)
+![Pivot table configuration showing input tables transformed into output with pivot and value columns.](https://docs.aws.amazon.com/quick/latest/userguide/images/pivot.png)
 
 
 **Supported operators per data type**
@@ -308,7 +308,7 @@ To configure the Unpivot step, in the **Configuration** pane:
    + **Unpivoted column header**: The name for former column names (e.g., Category)
    + **Unpivoted column values**: The name for the unpivoted values (e.g., Sales)
 
-![Unpivot columns configuration showing input columns mapped to output column row values.](http://docs.aws.amazon.com/quick/latest/userguide/images/unpivot.png)
+![Unpivot columns configuration showing input columns mapped to output column row values.](https://docs.aws.amazon.com/quick/latest/userguide/images/unpivot.png)
 
 
 **Key features**

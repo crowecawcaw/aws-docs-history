@@ -11,7 +11,7 @@ For more information about Highcharts visuals in Amazon Quick, see the [Highchar
 
 The following image shows a lipstick chart that is configured in the **Chart code** JSON editor of a Highcharts visual in Quick.
 
-![Bar chart comparing current year sales in blue to prior year sales in dark gray across ten industries.](http://docs.aws.amazon.com/quick/latest/userguide/images/highcharts-example1.png)
+![Bar chart comparing current year sales in blue to prior year sales in dark gray across ten industries.](https://docs.aws.amazon.com/quick/latest/userguide/images/highcharts-example1.png)
 
 
 For more examples of visuals that you can create with the Highcharts visual in Quick, see [Highcharts demos](https://www.highcharts.com/demo).

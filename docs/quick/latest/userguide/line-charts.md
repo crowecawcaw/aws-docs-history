@@ -68,12 +68,12 @@ If you have two or more metrics that you want to display in the same line chart,
 
 A *dual-axis chart* is a chart with two Y-axes (one axis at the left of the chart, and one axis at the right of the chart). For example, let's say you create a line chart. It shows the number of visitors who signed up for a mailing list and for a free service over a period of time. If the scale between those two measures varies widely over time, your chart might look something like the following line chart. Because the scale between measures varies so greatly, the measure with the smaller scale appears nearly flat at zero.
 
-![Image of a line chart with two lines and one axis. One line is flat at zero.](http://docs.aws.amazon.com/quick/latest/userguide/images/dual-axis-chart1.png)
+![Image of a line chart with two lines and one axis. One line is flat at zero.](https://docs.aws.amazon.com/quick/latest/userguide/images/dual-axis-chart1.png)
 
 
  If you want to show these measures in the same chart, you can create a dual-axis line chart. The following is an example of the same line chart with two Y-axes.
 
-![Image of the previous line chart with dual axes. Both lines are now visible.](http://docs.aws.amazon.com/quick/latest/userguide/images/dual-axis-chart2.png)
+![Image of the previous line chart with dual axes. Both lines are now visible.](https://docs.aws.amazon.com/quick/latest/userguide/images/dual-axis-chart2.png)
 
 
 **To create a dual-axis line chart**
@@ -89,7 +89,7 @@ A *dual-axis chart* is a chart with two Y-axes (one axis at the left of the char
    1. In the **Properties** pane that opens, choose **Data series**.
 
    1. In the **Data series** section, choose the **Show on right axis** icon for the value that you want to place on a separate axis. Use the search bar to quickly find a value if you need to.  
-![Image of Data series section of the Format visual pane with the Show on right axis icon circled in red.](http://docs.aws.amazon.com/quick/latest/userguide/images/dual-axis-chart3.png)
+![Image of Data series section of the Format visual pane with the Show on right axis icon circled in red.](https://docs.aws.amazon.com/quick/latest/userguide/images/dual-axis-chart3.png)
 
    The icon updates to indicate that the value is being shown on the right axis. The chart updates with two axes.
 

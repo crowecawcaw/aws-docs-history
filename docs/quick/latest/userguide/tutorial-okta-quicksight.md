@@ -169,13 +169,13 @@ Next, you create an IAM role to enable the SAML 2.0 federation to act as a trust
 
 1. Refresh the list of policies by choosing the refresh icon at right. 
 
-1. For **Search**, enter **QuicksightOktaFederatedPolicy**. Choose the policy to enable it (![](http://docs.aws.amazon.com/quick/latest/userguide/images/checkbox-on.png)).
+1. For **Search**, enter **QuicksightOktaFederatedPolicy**. Choose the policy to enable it (![](https://docs.aws.amazon.com/quick/latest/userguide/images/checkbox-on.png)).
 
    If you don't want to use automatic provisioning, you can skip the following step. 
 
    To add a Amazon Quick user, use [register-user](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html). To add a Amazon Quick group, use [create-group](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateGroup.html). To add users to the Amazon Quick group, use [create-group-membership](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateGroupMembership.html). 
 
-1. (Optional) For **Search**, enter **QuicksightCreateReader**. Choose the policy to enable it (![](http://docs.aws.amazon.com/quick/latest/userguide/images/checkbox-on.png)).
+1. (Optional) For **Search**, enter **QuicksightCreateReader**. Choose the policy to enable it (![](https://docs.aws.amazon.com/quick/latest/userguide/images/checkbox-on.png)).
 
    Do this step if you want to provision Amazon Quick users automatically, rather than using the Amazon Quick API.
 
@@ -197,7 +197,7 @@ Next, you create an IAM role to enable the SAML 2.0 federation to act as a trust
 
    1. On the **Summary** page for the policy, examine the **Permissions** tab. Verify that the role has the policy or policies that you attached to it. It should have `QuicksightOktaFederatedPolicy`. If you chose to add the ability to create users, it should also have `QuicksightCreateReader`.
 
-   1. Use the ![](http://docs.aws.amazon.com/quick/latest/userguide/images/caret-right-filled.png) icon to open each policy. Verify that the text matches what is shown in this procedure. Double-check that you added your own AWS account number in place of the example account number 111111111111. 
+   1. Use the ![](https://docs.aws.amazon.com/quick/latest/userguide/images/caret-right-filled.png) icon to open each policy. Verify that the text matches what is shown in this procedure. Double-check that you added your own AWS account number in place of the example account number 111111111111. 
 
    1. On the **Trust relationships** tab, verify that the **Trusted entities** field contains the ARN for the identity provider. You can double-check the ARN in the IAM console by opening **Identity providers**, **Okta**. 
 
@@ -255,7 +255,7 @@ Next, you create an IAM role to enable the SAML 2.0 federation to act as a trust
 
    1. On the **Permissions** tab, verify that the **OktaListRolesPolicy** is attached. 
 
-   1. Use the ![](http://docs.aws.amazon.com/quick/latest/userguide/images/caret-right-filled.png) icon to open the policy. Verify that the text matches what is shown in this procedure. 
+   1. Use the ![](https://docs.aws.amazon.com/quick/latest/userguide/images/caret-right-filled.png) icon to open the policy. Verify that the text matches what is shown in this procedure. 
 
    1. On the **Security credentials** tab, you can check the access key, although you already downloaded it. You can return to this tab to create an access key when you need a new one.
 

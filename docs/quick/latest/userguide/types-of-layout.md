@@ -10,7 +10,7 @@ There are three dashboard layout designs you can choose from: **Tiled**, **Free-
 
 Visuals in a **Tiled** layout snap to a grid with standard spacing and alignment. You can make visuals any size and place them wherever you want within a dashboard, but visuals can’t overlap. 
 
-![Settings panel showing Tiled layout option selected with dashboard displaying profit metric and sales chart.](http://docs.aws.amazon.com/quick/latest/userguide/images/fixed-layouts-tiled-demo.gif)
+![Settings panel showing Tiled layout option selected with dashboard displaying profit metric and sales chart.](https://docs.aws.amazon.com/quick/latest/userguide/images/fixed-layouts-tiled-demo.gif)
 
 
 Dashboards are displayed as designed, with options to fit to screen or view at actual size. You can also fit an entire dashboard to your window by choosing **Fit to window** for **View**. This option was previously called **Optimized**.
@@ -23,7 +23,7 @@ On mobile devices, tiled layout dashboards appear as a single column in portrait
 
 Visuals in a **Free-form** layout can be placed anywhere in your dashboard using precise coordinates. You can drag a visual to the exact place you want, or you can enter the coordinates of the visual’s location. Use the following procedure to enter the exact coordinates of the visual's location.
 
-![Settings panel showing Sheet Layout options with Free-form selected and a chart displaying sales data by product and segment.](http://docs.aws.amazon.com/quick/latest/userguide/images/fixed-layouts-freeform-placement1.gif)
+![Settings panel showing Sheet Layout options with Free-form selected and a chart displaying sales data by product and segment.](https://docs.aws.amazon.com/quick/latest/userguide/images/fixed-layouts-freeform-placement1.gif)
 
 
 Dashboards are displayed the way that you choose to design them, with options to fit to screen or to view at its actual size. You can optimize free-form layouts for viewing at specific resolutions, with the default being 1,600 pixels. You can also fit an entire dashboard to a browser's window by choosing **Fit to window** for **View**.

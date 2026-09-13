@@ -5,7 +5,7 @@
 
 Use geospatial heatmaps to reveal patterns of marker concentration in your geospatial visuals. Heat maps display concentrations of data points using a colored overlay that highlights the intensity or concentration of the visual's markers.
 
-![This is an example of marker clustering at work.](http://docs.aws.amazon.com/quick/latest/userguide/images/heat-map-1.png)
+![This is an example of marker clustering at work.](https://docs.aws.amazon.com/quick/latest/userguide/images/heat-map-1.png)
 
 
 **To turn a geospatial map into a heat map**

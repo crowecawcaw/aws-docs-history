@@ -60,7 +60,7 @@ This is a public client registration. Entra ID enforces PKCE automatically for p
 
 1. In the app registration, navigate to **Authentication**.
 
-1. Under **Advanced settings**, set **Allow public client flows** to **Yes**.
+1. Under **Advanced settings**, leave **Allow public client flows** set to **No**.
 
 1. Verify that `http://localhost:18080` is listed under **Mobile and desktop applications**.
 

@@ -64,6 +64,6 @@ To locate the output parameters, open the **Computations** tab on the right, and
 1. For **Computation type**, choose **Period over period**, and then choose **Select**.
 
 1. In the new insight that you created, add the time dimension and value dimension fields that you want to compare. In the screenshot below, `Order Date` and `Sales (Sum)` are added to the insight. With these two fields selected, Quick Sight shows the year to date sales of the latest month and the percentage difference compared with the previous month.  
-![Field wells showing Order Date in Time section and Sales (Sum) in Values section.](http://docs.aws.amazon.com/quick/latest/userguide/images/periodOverPeriod1.png)
+![Field wells showing Order Date in Time section and Sales (Sum) in Values section.](https://docs.aws.amazon.com/quick/latest/userguide/images/periodOverPeriod1.png)
 
 1. (Optional) To further customize the insight, open the on-visual menu and choose **Customize narrative**. In the **Edit narative** window that appears, drag and drop the fields that you need from the **Computations** list, and then choose **Save**.

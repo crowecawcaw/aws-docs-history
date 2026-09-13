@@ -42,7 +42,7 @@ From the user's perspective, the process happens transparently. The user starts 
 
 In the following diagram, you can find an authentication flow between Amazon Quick and a third-party identity provider (IdP). In this example, the administrator has set up a sign-in page to access Amazon Quick, called `applications.example.com`. When a user signs in, the sign-in page posts a request to a federation service that complies with SAML 2.0. The end user initiates authentication from the sign-on page of the IdP.
 
-![Quick SAML Diagram. The diagram contains two boxes. The first one describes an authentication process inside the enterprise. The second one describes authentication inside AWS. The process is described in the text following the table.](http://docs.aws.amazon.com/quick/latest/userguide/images/SAML-Flow-Diagram.png)
+![Quick SAML Diagram. The diagram contains two boxes. The first one describes an authentication process inside the enterprise. The second one describes authentication inside AWS. The process is described in the text following the table.](https://docs.aws.amazon.com/quick/latest/userguide/images/SAML-Flow-Diagram.png)
 
 
 For information from some common providers, see the following third-party documentation:

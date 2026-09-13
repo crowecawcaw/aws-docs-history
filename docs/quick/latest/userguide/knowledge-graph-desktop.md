@@ -3,152 +3,58 @@
 # Knowledge graph
 <a name="knowledge-graph-desktop"></a>
 
-The Amazon Quick desktop application builds a personal knowledge graph that captures entities and relationships from your connected data sources. The knowledge graph gives Quick contextual understanding of the people, projects, organizations, and events in your work, so it can provide more relevant and personalized responses.
+Amazon Quick builds a personal knowledge graph that captures entities and the relationships between them from your connected data sources and files. The graph gives Quick contextual understanding of the people, projects, organizations, and events in your work, so it provides more relevant, personalized responses. It is kept for you, per user, in your Amazon Quick account.
 
-## What is the knowledge graph?
-<a name="kg-what-is"></a>
-
-The knowledge graph is a structured representation of your professional context. Quick automatically extracts entities (such as people, companies, projects, and events) and the relationships between them from your connected sources. This information is stored locally on your machine and used to enrich the understanding of Quick when you ask questions about your work.
-
-For example, if you ask "What's the latest on Project Meridian?", Quick can use the knowledge graph to identify related people, recent meetings, associated documents, and relevant Slack channels — all without you needing to specify those connections explicitly.
+If you ask about a project, Quick uses the graph to identify related people, recent meetings, associated documents, and relevant channels.
 
 ## Entity categories
-<a name="kg-entity-categories"></a>
+<a name="kg-desktop-entity-categories"></a>
 
-Quick organizes knowledge graph entities into the following categories.
-
-
-| Category | Description | Examples | 
-| --- | --- | --- | 
-| Person | People you interact with across your connected services. | Colleagues, managers, external contacts | 
-| Customer | Organizations and companies referenced in your communications. | Client companies, partner organizations | 
-| Channel | Communication channels from your messaging integrations. | Slack channels, Teams channels | 
-| Event | Meetings, incidents, milestones, and other time-bound occurrences. | Board meetings, incidents, project launches | 
-| Creative Work | Documents, presentations, reports, and other created content. | User guides, launch training decks, architecture docs | 
-| Project | Projects and initiatives referenced across your sources. | Product launches, migration efforts, platform initiatives | 
-| Action | Tasks, action items, and follow-ups extracted from conversations and meetings. | Review requests, sign-offs, deliverables | 
-| Product | Products, services, and tools mentioned in your work context. | Internal tools, AWS services, third-party products | 
-| Defined Term | Domain-specific terminology and acronyms from your workspace. | Company jargon, technical terms, abbreviations | 
-| Place | Physical or virtual locations referenced in your work. | Offices, data centers, regional locations | 
-
-Each entity has a count of edges (relationships) connecting it to other entities in the graph.
+Quick organizes graph entities into categories that span the people, organizations, projects, places, events, communications, documents, actions, decisions, and terminology in your work, along with structured data types such as datasets, dashboards, and topics when relevant. The category set is supplied at runtime. Each entity has a count of edges, the relationships connecting it to other entities.
 
 ## Data sources
-<a name="kg-data-sources"></a>
+<a name="kg-desktop-data-sources"></a>
 
-The knowledge graph extracts entities from the following sources.
-
-### Connected integrations
-<a name="kg-connected-integrations"></a>
-
-When you enable **Auto-ingest from integrations** in the knowledge graph configuration, Quick automatically extracts entities from your connected services. You can toggle ingestion independently for each source type.
-+ **Slack** – Extracts entities from messages, channels, threads, and direct messages.
-+ **Email** – Extracts entities from email messages, including senders, recipients, and referenced content.
-+ **Other** – Extracts entities from additional connected integrations.
-
-### Local folders
-<a name="kg-local-folders"></a>
-
-When you enable **Knowledge graph extraction** for a local folder in **Settings** > **My computer**, Quick extracts entities from files in that folder. This works alongside keyword search and semantic search indexing, but is toggled independently.
+The graph extracts entities from connected integrations and from local folders. When you enable auto-ingestion, Quick extracts entities from your connected apps. When you enable knowledge graph extraction for a folder on the Knowledge tab in Customize (see [Knowledge](knowledge-desktop.md)), Quick extracts entities from files in that folder, independently of keyword and semantic indexing.
 
 ## Viewing the knowledge graph
-<a name="kg-viewing"></a>
+<a name="kg-desktop-viewing"></a>
 
-To view your knowledge graph, open **Settings** in the sidebar and choose **My context**. The **Knowledge graph** tab displays an interactive visualization of your entities and relationships.
+Open My context and choose the Knowledge graph tab for an interactive, force-directed visualization where nodes are entities and edges are relationships.
++ Node color: each category has a distinct color; a legend maps colors to categories and lets you highlight a category.
++ Node size: scaled automatically by how connected an entity is; more-connected entities appear larger.
++ Search entities: find an entity by name and jump to it.
++ Interact: click a node to select it and view its details, double-click to focus on a node and see its direct connections, scroll to zoom, and drag to pan.
++ View mode: switch between Top N connected (the most-connected entities) and Communities (clustered by community detection).
++ Display limits: choose how many nodes (50 to 1,000) and edges (100 to 2,000) render, shown against the totals, to keep large graphs responsive.
++ Node details: selecting an entity opens an entity details panel (see the next section).
 
-### Graph visualization
-<a name="kg-graph-visualization"></a>
+### Working with an entity
+<a name="kg-desktop-working-with-entity"></a>
 
-The knowledge graph visualization is an interactive force-directed graph where each node represents an entity and each edge represents a relationship between entities.
-+ **Node color** – Each entity category has a distinct color. Refer to the legend at the bottom-left of the graph for the color-to-category mapping.
-+ **Node size** – Node size is determined by the **Size** dropdown in the top-right corner. The default is **PageRank**, which makes nodes with more connections appear larger.
-+ **Edges** – Lines connecting nodes represent relationships between entities.
+When you select an entity, the entity details panel shows the following.
++ Name and category: the entity's display name and its category (for example, Person or Project). Choose Edit next to either to rename the entity or change its category.
++ AI-generated summary: a short summary of what Quick knows about the entity. Choose Regenerate to rebuild the summary from the latest data.
++ Connected entities: other entities that this entity is related to, grouped by relationship.
++ Source files: the files and messages Quick used to extract this entity.
++ Ask: start a new chat about the entity. Quick opens a conversation preloaded with the entity's context.
++ Delete: remove the entity and its relationships from the knowledge graph. This permanently removes the entity and any relationships that connect to it, and cannot be undone.
 
-### Interacting with the graph
-<a name="kg-interacting"></a>
+## Configuring and resetting the knowledge graph
+<a name="kg-desktop-configuring-resetting"></a>
 
-You can interact with the knowledge graph visualization using the following controls.
+The Knowledge graph settings include Auto-ingest from integrations, a single toggle that lets Quick learn from your connected apps and build the graph. Per-folder knowledge graph extraction is configured separately, on the Knowledge tab in Customize (see [Knowledge](knowledge-desktop.md)).
 
+You can reset the knowledge graph to permanently remove all entities and relationships that Quick has built. Resetting removes all people, projects, organizations, events, and relationships. It does not affect your files, your memories, or your connected services. Quick can rebuild the graph from those sources over time if you leave auto-ingest and per-folder extraction enabled.
 
-| Action | How to perform | 
-| --- | --- | 
-| Select a node | Choose a node to select it and view its details. | 
-| Focus on a node | Double-click a node to focus the view on that entity and its immediate connections. | 
-| Zoom | Scroll to zoom in or out of the graph. | 
-| Pan | Choose and drag on the background to move the view. | 
-| Search | Use the Search entities bar at the top to find specific entities by name. | 
+**To reset the knowledge graph**
 
-### Browsing entities
-<a name="kg-browsing-entities"></a>
+1. From the account menu, choose My context.
 
-Choose **Browse all** at the bottom of the category legend to open a sidebar listing all entities organized by category. Each entity shows its name and edge count (the number of relationships it has). The categories are collapsible, and each shows a count of entities it contains.
+1. Choose Configuration in the upper-right corner.
 
-You can choose any entity in the sidebar to highlight it in the graph visualization.
+1. In the Knowledge graph section, choose Reset knowledge graph.
 
-### Display limits
-<a name="kg-display-limits"></a>
+1. Type "reset" to confirm, and then choose Reset.
 
-Choose the three-dot menu in the top-right corner of the graph to configure display limits. The display limits control how many nodes and edges are rendered in the visualization.
-+ **Total nodes** – The maximum number of nodes to display (for example, 300 out of 3,147 total nodes).
-+ **Total edges** – The maximum number of edges to display (for example, 2,000 out of the total edges).
-
-Adjusting these limits can improve performance for large knowledge graphs or help you focus on the most connected entities.
-
-### Refreshing the graph
-<a name="kg-refreshing"></a>
-
-Choose the refresh icon next to the **Size** dropdown to reload the knowledge graph visualization with the latest data.
-
-## Configuring the knowledge graph
-<a name="kg-configuring"></a>
-
-Choose the **Configuration** button in the top-right corner of the My context page to open the configuration panel. The knowledge graph configuration includes the following settings.
-
-### Knowledge graph statistics
-<a name="kg-statistics"></a>
-
-The configuration panel displays current statistics for your knowledge graph.
-
-
-| Statistic | Description | 
-| --- | --- | 
-| Nodes | Total number of nodes in the graph, including entities and their attributes. | 
-| Edges | Total number of relationships between entities. | 
-| Entities | Total number of distinct entities (people, companies, projects, and so on). | 
-| Files | Total number of files that have been processed for entity extraction. | 
-
-### Auto-ingest from integrations
-<a name="kg-auto-ingest"></a>
-
-The **Auto-ingest from integrations** toggle controls whether Quick automatically extracts entities from your connected services into the knowledge graph. When enabled, you can toggle ingestion for individual source types.
-+ **Slack** – Toggle entity extraction from Slack messages and channels.
-+ **Email** – Toggle entity extraction from email messages.
-+ **Other** – Toggle entity extraction from other connected integrations.
-
-### Per-folder knowledge graph ingestion
-<a name="kg-per-folder"></a>
-
-**To enable knowledge graph extraction for a local folder**  
-Use the following procedure.
-
-1. Open **Settings** in the sidebar and choose **My computer**.
-
-1. Expand the folder you want to configure.
-
-1. Toggle **Knowledge graph extraction** to enable entity extraction for that folder.
-
-**Note**  
-Enabling knowledge graph extraction for a folder is independent of keyword search and semantic search. You can enable any combination of these three indexing options for each folder.
-
-## Using the knowledge graph
-<a name="kg-using"></a>
-
-Quick automatically uses the knowledge graph to provide contextual responses in your conversations. You don't need to explicitly reference the knowledge graph — Quick consults it when relevant to your questions.
-
-The following are examples of how the knowledge graph enhances your interactions with Quick.
-+ **People context** – Ask "What do I know about Rachel Byrne?" and Quick uses the knowledge graph to summarize her role, recent interactions, and related projects.
-+ **Project context** – Ask "Give me an update on Project Meridian" and Quick identifies related people, meetings, documents, and action items from the graph.
-+ **Relationship discovery** – Ask "Who is involved with the Atlas Risk Engine?" and Quick traverses relationships in the graph to identify connected people and teams.
-+ **Meeting preparation** – Ask "Prepare me for my meeting with Sanjay Mehta" and Quick uses the knowledge graph to surface recent context, open action items, and relevant documents.
-
-You can also interact with the knowledge graph directly in chat by asking Quick to add entities, explore relationships, or search for specific information.
+A reset is permanent. There is no undo. Consider narrowing auto-ingest or per-folder extraction first if you only want to remove a specific source of entities.

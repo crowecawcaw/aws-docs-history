@@ -7,7 +7,7 @@ In Amazon Quick, you can choose from multiple formatting options for your maps a
 
 Quick authors and readers can also toggle the different formatting options of a geospatial map visual from the on visual menu.
 
-![Toggle geospatial map formatting options from the on-visual menu.](http://docs.aws.amazon.com/quick/latest/userguide/images/geospatial-map-options-1.gif)
+![Toggle geospatial map formatting options from the on-visual menu.](https://docs.aws.amazon.com/quick/latest/userguide/images/geospatial-map-options-1.gif)
 
 
 **Topics**

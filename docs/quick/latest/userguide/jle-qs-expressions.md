@@ -76,7 +76,7 @@ Similar to `getColumn`, the following expressions can be used to return column v
 
 **Example**
 
-![Table showing sum of cancelled orders grouped by day of month and day of week.](http://docs.aws.amazon.com/quick/latest/userguide/images/get-column-example.png)
+![Table showing sum of cancelled orders grouped by day of month and day of week.](https://docs.aws.amazon.com/quick/latest/userguide/images/get-column-example.png)
 
 
 `getColumn` can access any column from the table:

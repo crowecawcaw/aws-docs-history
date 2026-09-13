@@ -8,18 +8,17 @@ Amazon Quick on desktop is a native application that extends Amazon Quick to you
 ## What you can do with Quick on desktop
 <a name="desktop-what-you-can-do"></a>
 
-Quick on desktop works with the files already on your machine. You grant access to the folders you choose, and Quick can read, write, search, and index them directly. There's no uploading, no copy-pasting, and no size limits imposed by a browser.
+Quick on desktop works with the files already on your machine. You grant access to the folders you choose, and Quick reads, writes, searches, and indexes them directly.
 
-Quick connects to the services you use every day: email, calendar, chat, CRM, and more. Once connected, Quick can pull information from these services, take actions in them, and combine data across them in a single conversation. You don't have to switch between tools to get a complete picture.
+Amazon Quick runs in the cloud. Your conversations, memory, knowledge graph, agent-produced files, and the index of content you make searchable are kept for you in your Amazon Quick account, so they are available across the web, mobile, and desktop. What the desktop application adds is access to your machine: the files in the folders you grant, browser automation in your own browser, local code execution, and MCP servers and coding agents you configure locally. The desktop keeps only what it needs to work locally: your folder permissions, local connector configuration, and sign-in credentials.
 
-As you work with Quick, it builds a knowledge graph of the people, projects, and decisions relevant to you. It also retains your preferences and workflows in long-term memory. Together, these mean Quick understands your work context and provides personalized responses that improve over time.
+Quick connects to the services you use every day: email, calendar, chat, customer relationship management (CRM) tools, and more. Once connected, Quick pulls information from these services, takes actions in them, and combines data across them in a single conversation.
 
-You can create agents with their own instructions and knowledge, and assign them to scheduled tasks that run at intervals you define. These agents prepare for your meetings, summarize what's changed in your channels, generate reports, and deliver results through an activity feed so you start each day informed.
+As you work with Quick, it builds a knowledge graph of the people, projects, and decisions relevant to you, and it retains your preferences and workflows in long-term memory. Together, these let Quick understand your work context and provide personalized responses that improve over time. You review and manage both from My context.
 
-Quick is also extensible. You can connect MCP servers to add custom tools and integrations, delegate development tasks to coding agents, use browser automation to interact with web applications, and create skills that teach Quick new workflows.
+You create agents with their own instructions and knowledge, and pair them with schedules that run at intervals you define. Agents prepare for your meetings, summarize what changed in your channels, generate reports, and deliver results through an activity feed.
 
-**Note**  
-Amazon Quick on desktop shares the same core AI capabilities as the web experience. During Preview, some capabilities and features available to the web will not be available to the desktop application and conversely the web.
+Quick on desktop is extensible. You connect MCP servers to add custom tools and integrations, delegate development tasks to coding agents, use browser automation to interact with web applications, and create skills that teach Quick new workflows.
 
 ## Next steps
 <a name="desktop-next-steps"></a>

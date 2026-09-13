@@ -69,7 +69,7 @@ lag(
 
 The following screenshot shows the results of the example.
 
-![Pivot table showing Sales and lag1 values grouped by Order Date from Jan 4-12, 2020.](http://docs.aws.amazon.com/quick/latest/userguide/images/lagCalc.png)
+![Pivot table showing Sales and lag1 values grouped by Order Date from Jan 4-12, 2020.](https://docs.aws.amazon.com/quick/latest/userguide/images/lagCalc.png)
 
 
 The following example uses a calculated field with `lag` to display the sales amount for the previous row next to the amount for the current row, sorted by `Order Date` partitioned by `Segment`.
@@ -85,4 +85,4 @@ lag
 
 The following screenshot shows the results of the example.
 
-![Table showing sum of Sales and Lag2 values grouped by Order Date and Segment fields.](http://docs.aws.amazon.com/quick/latest/userguide/images/lagCalc2.png)
+![Table showing sum of Sales and Lag2 values grouped by Order Date and Segment fields.](https://docs.aws.amazon.com/quick/latest/userguide/images/lagCalc2.png)

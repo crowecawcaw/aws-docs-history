@@ -91,4 +91,4 @@ percentileDiscOver
 ```
 The following screenshot shows the how these two examples look on a chart.   
 
-![Table showing billed amounts and percentages by customer region for APAC, EMEA, and US.](http://docs.aws.amazon.com/quick/latest/userguide/images/percentilOver-50-98.png)
+![Table showing billed amounts and percentages by customer region for APAC, EMEA, and US.](https://docs.aws.amazon.com/quick/latest/userguide/images/percentilOver-50-98.png)

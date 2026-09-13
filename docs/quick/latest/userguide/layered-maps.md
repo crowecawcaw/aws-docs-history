@@ -7,7 +7,7 @@ Use layer maps to visualize data with custom geographic boundaries, such as cong
 
 The following image shows a layer map visual in Amazon Quick.
 
-![Choropleth map of Washington DC area showing percentage data by census tract with gradient from green to orange.](http://docs.aws.amazon.com/quick/latest/userguide/images/layer-map.png)
+![Choropleth map of Washington DC area showing percentage data by census tract with gradient from green to orange.](https://docs.aws.amazon.com/quick/latest/userguide/images/layer-map.png)
 
 
 ## Creating a shape layer with layered maps

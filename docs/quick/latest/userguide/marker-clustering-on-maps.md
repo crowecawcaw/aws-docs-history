@@ -5,7 +5,7 @@
 
 Use marker clustering to improve readability of collocated points on a map. Geospatial locations on point maps are represented using markers. Usually, there is one marker per data point. However, if there are too many markers close together, the map becomes difficult to read. To make it easier to interpret the map, you can enable marker clustering to represent groupings of locations on the map. As the reader zooms in on the map, the clustered markers leave the area marker to display separately. 
 
-![This is an example of marker clustering at work.](http://docs.aws.amazon.com/quick/latest/userguide/images/map-marker-clustering.gif)
+![This is an example of marker clustering at work.](https://docs.aws.amazon.com/quick/latest/userguide/images/map-marker-clustering.gif)
 
 
 **To add cluster points to a map**

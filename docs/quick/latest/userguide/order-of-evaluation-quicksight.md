@@ -9,7 +9,7 @@ If you understand the order that the configuration is evaluated in, you know the
 
 The following illustration shows the order of evaluation. The column on the left shows the order of evaluation when no level aware calculation window (LAC-W) nor aggregate (LAC-A) function is involved. The second column shows the order of evaluation for analyses that contain calculated fields to compute LAC-W expressions at the prefilter (`PRE_FILTER`) level. The third column shows the order of evaluation for analyses that contain calculated fields to compute LAC-W expressions at the preaggregate (`PRE_AGG`) level. The last column shows the order of evaluation for analyses that contain calculated fields to compute LAC-A expressions. Following the illustration, there is a more detailed explanation of the order of evaluation. For more information about level aware calculations, see [Using level-aware calculations in Quick Sight](level-aware-calculations.md).
 
-![Four columns showing order of evaluation for DEFAULT, LAC-W PRE_FILTER, LAC-W PRE_AGG, and LAC-A.](http://docs.aws.amazon.com/quick/latest/userguide/images/order-of-evaluation2.png)
+![Four columns showing order of evaluation for DEFAULT, LAC-W PRE_FILTER, LAC-W PRE_AGG, and LAC-A.](https://docs.aws.amazon.com/quick/latest/userguide/images/order-of-evaluation2.png)
 
 
 The following list shows the sequence in which Amazon Quick Sight applies the configuration in your analysis. Anything that's set up in your data set happens outside your analysis, for example calculations at the data set level, filters, and security settings. These all apply to the underlying data. The following list only covers what happens inside the analysis. 

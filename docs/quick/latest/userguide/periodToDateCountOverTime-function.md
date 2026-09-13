@@ -37,4 +37,4 @@ The following example calculates the count of vendors month over month.
 periodToDateCountOverTime(count(vendorid), pickupDatetime, MONTH)
 ```
 
-![This is an image of the results of the example calculation with illustrations.](http://docs.aws.amazon.com/quick/latest/userguide/images/PTDCountOverTimeResults.png)
+![This is an image of the results of the example calculation with illustrations.](https://docs.aws.amazon.com/quick/latest/userguide/images/PTDCountOverTimeResults.png)

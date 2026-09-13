@@ -31,7 +31,7 @@ The following example calculates the total number of dates when products were or
 distinct_count({Order Date})
 ```
 
-![The total number of dates when products were ordered in each region.](http://docs.aws.amazon.com/quick/latest/userguide/images/distinct_count-function-example.png)
+![The total number of dates when products were ordered in each region.](https://docs.aws.amazon.com/quick/latest/userguide/images/distinct_count-function-example.png)
 
 
 You can also specify at what level to group the computation using one or more dimensions in the view or in your dataset. This is called a LAC-A function. For more information about LAC-A functions, see [Level-aware calculation - aggregate (LAC-A) functions](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations-aggregate.html). The following example calculates the average sales at the Country level, but not across other dimensions (Region) in the visual.
@@ -40,4 +40,4 @@ You can also specify at what level to group the computation using one or more di
 distinct_count({Order Date}, [Country])
 ```
 
-![The total number of dates when products were ordered in each country.](http://docs.aws.amazon.com/quick/latest/userguide/images/distinct_count-function-example2.png)
+![The total number of dates when products were ordered in each country.](https://docs.aws.amazon.com/quick/latest/userguide/images/distinct_count-function-example2.png)

@@ -277,3 +277,143 @@ Constraints:
   "escalationNeeded": false
 }
 ```
+
+## Using datasets with custom agents
+<a name="custom-agent-datasets"></a>
+
+In Amazon Quick Automate, you can connect datasets to custom agents so that an agent can answer natural-language questions about your data. The underlying query returns a list of data tables and a string output from the API call. You can then convert this output into a desired data structure, either by prompting the custom agent or by using the structured output feature of the custom agent.
+
+Dataset Q&A (querying datasets) is an agentic action that you use with the custom agent. A custom agent can query multiple datasets, but it runs one query at a time.
+
+Use datasets for data-driven question-answering automations. For example, you can build an agent that answers questions such as "which customers have unpaid invoices over $10,000" by querying an invoices dataset and returning the matching rows.
+
+### Prerequisites
+<a name="custom-agent-datasets-prerequisites"></a>
++ Owner-level access to the dataset you want to attach
++ A dataset that does not use row-level security (RLS) or column-level security (CLS). Datasets with RLS or CLS are not supported.
++ An automation group where you are an owner
++ Datasets attached to the automation group for run-as-service mode, or datasets shared with your user ID for run-as-user mode
+
+### Attach a dataset to your automation group
+<a name="custom-agent-datasets-attach-group"></a>
+
+Before a custom agent can query a dataset, you must attach the dataset to your automation group. You must already have access to the dataset as an owner. Attaching the dataset to the automation group does not grant you access to it.
+
+To attach a dataset to an automation group:
+
+1. In the **Automations** tab, go to the **Projects** page.
+
+1. Choose **Groups** and select the group you want to attach the dataset to.
+**Tip**  
+You can also choose **Create group** to create a new automation group.
+
+1. In the **Assets** section, choose **Add**, and then choose **Datasets**. The picker opens with **Actions**, **Credentials**, **Spaces**, and **Datasets** tabs.
+
+1. On the **Datasets** tab, select the dataset you want to use, and then choose **Add**. You can search your Quick assets. Datasets that you cannot use appear disabled, and you can hover over one to see the reason, such as needing to be an owner.
+
+The dataset now appears in the automation group's assets and connections list. Custom agents in this automation group can query it.
+
+**Note**  
+You must be the owner of the dataset to use it. Datasets that use row-level security (RLS) or column-level security (CLS) are not supported.
+
+### Add datasets to a custom agent
+<a name="custom-agent-datasets-add"></a>
+
+After you attach one or more datasets to your automation group, you can configure a custom agent to query them. The workflow must be in the same automation group where you attached the datasets. After you add the Custom Agent step, you add the dataset from the agent's properties panel on the **Datasets** tab.
+
+To add datasets to a custom agent:
+
+1. In the workflow builder, add a **Custom Agent** step. You can either chat with the automation assistant to build this step, or drag and drop a Custom Agent node onto the canvas.
+
+1. In the agent properties panel, choose the **Datasets** tab.
+
+1. Add one or more datasets directly on the **Datasets** tab.
+
+1. Choose **Save**.
+
+A custom agent can use multiple datasets, but it runs one query at a time. If you connect a Quick space that contains a dataset, the agent can query that dataset as well. For more information about spaces, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md).
+
+### Query a dataset with the agent
+<a name="custom-agent-datasets-query"></a>
+
+After you add a dataset to the custom agent, you can ask the agent a question about the data. When the automation runs, or when you test the agent, the agent queries the attached dataset and returns a response based on the results.
+
+To query a dataset:
+
+1. In the agent **Instructions**, write a prompt that asks a question about the data. For example, ask a natural-language question about records in the dataset.
+
+1. Run the automation, or use the agent unit test to run the agent. For more information about testing an agent, see [Custom agent testing](#custom-agent-testing).
+
+The agent queries the dataset and returns the answer.
+
+To return the results in a specific format that downstream steps can process, such as a JSON object or a data table, configure the Structured Output option for the agent. Structured output is optional and returns structured JSON. The structured output configuration for custom agents follows the same format as UI agents. In your prompt, instruct the agent to produce output that matches the structured output schema.
+
+### Use datasets in a space with a custom agent
+<a name="custom-agent-datasets-via-space"></a>
+
+Instead of attaching datasets directly on the agent's **Datasets** tab, you can add your datasets to a Quick space, attach the space to your automation group, and then attach the space to the custom agent on the **Knowledge** tab. The agent can then query the datasets in that space based on your instructions. This approach is useful when you already organize datasets, and other knowledge, in a space.
+
+To use datasets in a space:
+
+1. Add your dataset or datasets to a Quick space. For more information about spaces, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md).
+
+1. Attach the space to your automation group. In the **Automations** tab, on the **Projects** page, choose **Groups** and select your group. In the **Assets** section, choose **Add**, and then choose **Spaces**. Select the space and choose **Add**.
+
+1. In the workflow builder, add a **Custom Agent** step. You can either chat with the automation assistant to build this step, or drag and drop a Custom Agent node onto the canvas.
+
+1. In the agent properties panel, choose the **Knowledge** tab, choose **Add**, select the space that contains your datasets, and then choose **Save**.
+
+1. In the agent **Instructions**, write a prompt that asks a question about the data in the space's datasets.
+
+When the automation runs, the agent queries the datasets in the attached space and returns the results. The datasets must still meet the dataset requirements. You must be an owner of each dataset, and datasets that use row-level security (RLS) or column-level security (CLS) are not supported.
+
+### Writing instructions for dataset queries
+<a name="custom-agent-datasets-instructions"></a>
+
+When a custom agent has datasets attached, it automatically determines the relevant dataset and constructs the query based on your instructions. Write instructions that clearly describe what data the agent should retrieve and how it should present the results.
+
+Best practices:
++ Be specific about what data to retrieve, such as the columns, records, or aggregations you expect in the results.
++ Include filters, calculation definitions, or metric logic in the prompt to improve query accuracy.
++ Specify the output format so that downstream steps can process the results.
+
+### Example: Invoice analysis agent with a dataset
+<a name="custom-agent-datasets-example"></a>
+
+The following example shows how to configure a custom agent that queries a dataset to answer questions about outstanding invoices.
+
+**Setup:**
++ A dataset that contains customer invoice records, including customer name, invoice amount, and payment status
++ The dataset is attached to the automation group
++ The dataset is added to the custom agent on the Datasets tab
+
+**Instructions:**
+
+```
+"""You are an invoice analysis agent.
+
+Task: Answer the user's question by querying the invoices dataset.
+
+Instructions:
+1. Identify the relevant dataset and construct a query for the user's request.
+2. For the request "Show me customers with unpaid invoices over $10,000",
+   filter for records where payment status is unpaid and invoice amount is
+   greater than 10000.
+3. Return the results as a data table with customer name and invoice amount.
+
+Constraints:
+- Only use data found in the dataset. Do not make up values.
+- Sort the results by invoice amount in descending order."""
+```
+
+**Output:**
+
+The agent returns a data table similar to the following:
+
+```
+| Customer name        | Invoice amount |
+|----------------------|----------------|
+| Example Corp         | 24,500         |
+| AnyCompany Retail    | 15,200         |
+| AnyCompany Financial | 11,750         |
+```

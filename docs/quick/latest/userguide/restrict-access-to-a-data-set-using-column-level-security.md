@@ -3,7 +3,7 @@
 # Using column-level security to restrict access to a dataset
 <a name="restrict-access-to-a-data-set-using-column-level-security"></a>
 
-In the Enterprise edition of Quick, you can restrict access to a dataset by configuring column-level security (CLS) on it. A dataset or analysis with CLS enabled has the restricted ![The lock icon for CLS.](http://docs.aws.amazon.com/quick/latest/userguide/images/cls-restricted-icon.png) symbol next to it. By default, all users and groups have access to the data. By using CLS, you can manage access to specific columns in your dataset.
+In the Enterprise edition of Quick, you can restrict access to a dataset by configuring column-level security (CLS) on it. A dataset or analysis with CLS enabled has the restricted ![The lock icon for CLS.](https://docs.aws.amazon.com/quick/latest/userguide/images/cls-restricted-icon.png) symbol next to it. By default, all users and groups have access to the data. By using CLS, you can manage access to specific columns in your dataset.
 
 If you use an analysis or dashboard that contains datasets with CLS restrictions that you don't have access to, you can't create, view, or edit visuals that use the restricted fields. For most visual types, if a visual has restricted columns that you don't have access to, you can't see the visual in your analysis or dashboard.
 

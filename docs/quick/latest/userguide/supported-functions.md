@@ -15,10 +15,10 @@ You can use the following functions in pivot table calculations.
 
 You can apply functions listed to the following data:
 
-![Table showing billed amounts by date, customer region, consumption channel, and service line.](http://docs.aws.amazon.com/quick/latest/userguide/images/running-total1.png)
+![Table showing billed amounts by date, customer region, consumption channel, and service line.](https://docs.aws.amazon.com/quick/latest/userguide/images/running-total1.png)
 
 
-![](http://docs.aws.amazon.com/quick/latest/userguide/images/running-total1.png)
+![](https://docs.aws.amazon.com/quick/latest/userguide/images/running-total1.png)
 
 
 ## Running total
@@ -28,7 +28,7 @@ The **Running total** function calculates the sum of a given cell value and the 
 
 Applying the **Running total** function across the table rows, using **Table across** for **Calculate as**, gives you the following results.
 
-![Pivot table showing billed amounts by date, region, service line, and consumption channel.](http://docs.aws.amazon.com/quick/latest/userguide/images/running-total2.png)
+![Pivot table showing billed amounts by date, region, service line, and consumption channel.](https://docs.aws.amazon.com/quick/latest/userguide/images/running-total2.png)
 
 
 ## Difference
@@ -38,7 +38,7 @@ The **Difference** function calculates the difference between a cell value and v
 
 Applying the **Difference** function across the table rows, using **Table across** for **Calculate as**, gives you the following results.
 
-![Table showing billed amounts by date, customer region, consumption channel, and service line.](http://docs.aws.amazon.com/quick/latest/userguide/images/difference.png)
+![Table showing billed amounts by date, customer region, consumption channel, and service line.](https://docs.aws.amazon.com/quick/latest/userguide/images/difference.png)
 
 
 ## Percentage difference
@@ -48,7 +48,7 @@ The **Percentage Difference** function calculates the percent difference between
 
 Applying the **Percentage Difference** function across the table rows, using **Table across** for **Calculate as**, gives you the following results.
 
-![Table showing percentage differences in billed amounts across service lines and channels by region.](http://docs.aws.amazon.com/quick/latest/userguide/images/percentage-difference.png)
+![Table showing percentage differences in billed amounts across service lines and channels by region.](https://docs.aws.amazon.com/quick/latest/userguide/images/percentage-difference.png)
 
 
 ## Percent of total
@@ -58,7 +58,7 @@ The **Percent of Total** function calculates the percentage the given cell repre
 
 Applying the **Percent of Total** function across the table rows, using **Table across** for **Calculate as**, gives you the following results.
 
-![Table showing percentage distribution of billed amounts across service lines and channels by region and year.](http://docs.aws.amazon.com/quick/latest/userguide/images/percent-of-total.png)
+![Table showing percentage distribution of billed amounts across service lines and channels by region and year.](https://docs.aws.amazon.com/quick/latest/userguide/images/percent-of-total.png)
 
 
 ## Rank
@@ -68,12 +68,12 @@ The **Rank** function calculates the rank of the cell value compared to the valu
 
 For example, suppose that you have the following data.
 
-![Table showing billed amounts by customer region and service line with sample data.](http://docs.aws.amazon.com/quick/latest/userguide/images/rank.png)
+![Table showing billed amounts by customer region and service line with sample data.](https://docs.aws.amazon.com/quick/latest/userguide/images/rank.png)
 
 
 Applying the **Rank** function across the table rows, using **Table across** for **Calculate as**, gives you the following results.
 
-![Table showing billed amounts by customer region and service line with numeric values.](http://docs.aws.amazon.com/quick/latest/userguide/images/rank2.png)
+![Table showing billed amounts by customer region and service line with numeric values.](https://docs.aws.amazon.com/quick/latest/userguide/images/rank2.png)
 
 
 ## Percentile
@@ -93,4 +93,4 @@ Where:
 
 Applying the **Percentile** function across the table rows, using **Table across** for **Calculate as**, gives you the following results.
 
-![Table showing billed amounts by customer region, date, consumption channel, and service line.](http://docs.aws.amazon.com/quick/latest/userguide/images/percentile.png)
+![Table showing billed amounts by customer region, date, consumption channel, and service line.](https://docs.aws.amazon.com/quick/latest/userguide/images/percentile.png)

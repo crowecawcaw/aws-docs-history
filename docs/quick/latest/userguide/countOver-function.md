@@ -71,14 +71,14 @@ countOver
 
 The following screenshot shows the results of the example. Because there are no other fields involved, the count is one for each region.
 
-![Table showing countOver results by Customer Region with APAC, EMEA, and US each having a count of 1.](http://docs.aws.amazon.com/quick/latest/userguide/images/countOver1.png)
+![Table showing countOver results by Customer Region with APAC, EMEA, and US each having a count of 1.](https://docs.aws.amazon.com/quick/latest/userguide/images/countOver1.png)
 
 
 If you add additional fields, the count changes. In the following screenshot, we add `Customer Segment` and `Service Line`. Each of those fields contains three unique values. With 3 segments, 3 service lines, and 3 regions, the calculated field shows 9.
 
-![Field wells interface showing Group by fields and Value field with countOver calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/countOver2.png)
+![Field wells interface showing Group by fields and Value field with countOver calculation.](https://docs.aws.amazon.com/quick/latest/userguide/images/countOver2.png)
 
 
 If you add the two additional fields to the partitioning fields in the calculated field, `countOver( sum({Billed Amount}), [{Customer Region}, {Customer Segment}, {Service Line}]`, then the count is again 1 for each row.
 
-![Table showing countOver values of 1 for Enterprise segment across Billing and HR service lines in APAC, EMEA, and US regions.](http://docs.aws.amazon.com/quick/latest/userguide/images/countOver.png)
+![Table showing countOver values of 1 for Enterprise segment across Billing and HR service lines in APAC, EMEA, and US regions.](https://docs.aws.amazon.com/quick/latest/userguide/images/countOver.png)

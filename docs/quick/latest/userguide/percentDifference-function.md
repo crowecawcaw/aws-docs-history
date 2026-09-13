@@ -65,4 +65,4 @@ percentDifference
 
 The following screenshot shows the results of the example. The red letters show that the total `Billed Amount` for the `Customer Region` **APAC** is 24 percent less than the amount for the **EMEA** region.
 
-![Table showing Billed Amount and percentDifference by Customer Region with calculation formula.](http://docs.aws.amazon.com/quick/latest/userguide/images/percentDifference.png)
+![Table showing Billed Amount and percentDifference by Customer Region with calculation formula.](https://docs.aws.amazon.com/quick/latest/userguide/images/percentDifference.png)

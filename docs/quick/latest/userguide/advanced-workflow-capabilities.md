@@ -30,7 +30,7 @@ To initiate a Divergence, in your workflow:
 
 1. Use Join or Append steps to recombine paths into a single output.
 
-![Data flow diagram showing Superstore 2018 data through rename, customer join, product join, filters, self join, and join 2 steps.](http://docs.aws.amazon.com/quick/latest/userguide/images/divergence.png)
+![Data flow diagram showing Superstore 2018 data through rename, customer join, product join, filters, self join, and join 2 steps.](https://docs.aws.amazon.com/quick/latest/userguide/images/divergence.png)
 
 
 **Key features**

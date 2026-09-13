@@ -42,7 +42,7 @@ The following example uses a calculated field `PeriodOverPeriod` to display the 
 periodOverPeriodDifference(sum(Sales), {Order Date})
 ```
 
-![This is an image of the return of the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthDifference.png)
+![This is an image of the return of the example calculation.](https://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthDifference.png)
 
 
 The following example uses a calculated field `PeriodOverPeriod` to display the sales amount difference of previous 2 months. Below example is comparing sales of `Mar2020` with `Jan2020`.
@@ -51,4 +51,4 @@ The following example uses a calculated field `PeriodOverPeriod` to display the 
 periodOverPeriodDifference(sum(Sales),{Order Date}, MONTH, 1)
 ```
 
-![This is an image of the return of the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthDifference2.png)
+![This is an image of the return of the example calculation.](https://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthDifference2.png)

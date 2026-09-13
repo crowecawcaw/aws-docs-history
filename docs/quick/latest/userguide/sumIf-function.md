@@ -30,7 +30,7 @@ The following example uses a calculated field with `sumIf` to display the sales 
 sumIf(Sales, Segment=’SMB’)
 ```
 
-![Table showing Sum of Sales and SumIf by Segment with Field wells configuration panel above.](http://docs.aws.amazon.com/quick/latest/userguide/images/sumIfCalc.png)
+![Table showing Sum of Sales and SumIf by Segment with Field wells configuration panel above.](https://docs.aws.amazon.com/quick/latest/userguide/images/sumIfCalc.png)
 
 
 The following example uses a calculated field with `sumIf` to display the sales amount if `Segment` is equal to `SMB` and `Order Date` greater than year 2022.

@@ -48,4 +48,4 @@ The following example calculates the month over month percent difference in sale
 periodOverPeriodPercentDifference(sum(Sales), {Order Date}, MONTH, 1)
 ```
 
-![This is an image of the return of the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthPercentDifference.png)
+![This is an image of the return of the example calculation.](https://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthPercentDifference.png)

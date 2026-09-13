@@ -9,7 +9,7 @@ Each wedge in a donut chart represents one value in a dimension. The size of the
 
 To learn how to use donut charts in Amazon Quick, you can watch this video:
 
-[![AWS Videos](http://img.youtube.com/vi/vR6H4bXaRBY/0.jpg)](http://www.youtube.com/watch?v=vR6H4bXaRBY)
+[![AWS Videos](https://img.youtube.com/vi/vR6H4bXaRBY/0.jpg)](https://www.youtube.com/watch?v=vR6H4bXaRBY)
 
 
 To create a donut chart, use one dimension in the **Group/Color** field well. With only one field, the chart displays the division of values by row count. To display the division of dimension values by a metric value, you can add a metric field to the **Value** field well. 

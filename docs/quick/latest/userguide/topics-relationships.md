@@ -22,16 +22,16 @@ The relationship graph must be a directed acyclic graph (DAG) — circular relat
 1. Open the Topic that you want to configure.
 
 1. Navigate to the **Relationships** tab.  
-![Topic editor showing the Relationships tab with six datasets listed: PRODUCT_DIM, CUSTOMER_DIM, DATE_DIM, SALES_FACT, RETURN_FACT, and STORE_DIM.](http://docs.aws.amazon.com/quick/latest/userguide/images/topic-relationships-tab.png)
+![Topic editor showing the Relationships tab with six datasets listed: PRODUCT_DIM, CUSTOMER_DIM, DATE_DIM, SALES_FACT, RETURN_FACT, and STORE_DIM.](https://docs.aws.amazon.com/quick/latest/userguide/images/topic-relationships-tab.png)
 
 1. Choose **Upload file** or **Create manually**.  
-![Relationships tab showing Upload file and Create manually buttons, with supported file types YAML and JSON noted.](http://docs.aws.amazon.com/quick/latest/userguide/images/topic-relationships-upload.png)
+![Relationships tab showing Upload file and Create manually buttons, with supported file types YAML and JSON noted.](https://docs.aws.amazon.com/quick/latest/userguide/images/topic-relationships-upload.png)
 
 1. Upload a JSON file defining your relationships (see the following example). After uploading, the relationship graph displays visually at left and the join key details appear at right. Select a join to verify the relationship mapping.  
-![Relationship graph showing SALES_FACT and RETURN_FACT as central fact tables connected to PRODUCT_DIM, CUSTOMER_DIM, DATE_DIM, and STORE_DIM with join keys displayed on the right panel.](http://docs.aws.amazon.com/quick/latest/userguide/images/topic-relationships-graph.png)
+![Relationship graph showing SALES_FACT and RETURN_FACT as central fact tables connected to PRODUCT_DIM, CUSTOMER_DIM, DATE_DIM, and STORE_DIM with join keys displayed on the right panel.](https://docs.aws.amazon.com/quick/latest/userguide/images/topic-relationships-graph.png)
 
 1. To edit a relationship, choose **Edit**, update the join columns using the dropdown selectors, and choose **Save**.  
-![Relationships edit mode showing editable join column dropdowns for each dataset pair, with Cancel and Save buttons at upper right.](http://docs.aws.amazon.com/quick/latest/userguide/images/topic-relationships-edit.png)
+![Relationships edit mode showing editable join column dropdowns for each dataset pair, with Cancel and Save buttons at upper right.](https://docs.aws.amazon.com/quick/latest/userguide/images/topic-relationships-edit.png)
 
 ## Relationship JSON format
 <a name="topics-relationships-json"></a>

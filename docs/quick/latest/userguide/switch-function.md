@@ -91,4 +91,4 @@ switch({origin_city_name},
 
 The preceding example changes the expected delay time for each flight from a particular city.
 
-![An image of the results of the function example, shown in table form.](http://docs.aws.amazon.com/quick/latest/userguide/images/switch-function-example.png)
+![An image of the results of the function example, shown in table form.](https://docs.aws.amazon.com/quick/latest/userguide/images/switch-function-example.png)

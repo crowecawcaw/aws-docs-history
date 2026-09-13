@@ -7,7 +7,7 @@ You can interactively explore the anomalies (also known as outliers) in your ana
 
 To begin, choose **Explore anomalies** in the insight. The following screenshot shows the anomalies screen as it appears when you first open it. In this example, contributors analysis is set up and shows two key drivers.
 
-![Anomalies analysis with contributors shown.](http://docs.aws.amazon.com/quick/latest/userguide/images/anomaly-exploration-v2.png)
+![Anomalies analysis with contributors shown.](https://docs.aws.amazon.com/quick/latest/userguide/images/anomaly-exploration-v2.png)
 
 
 The sections of the screen include the following, from top left to bottom right:

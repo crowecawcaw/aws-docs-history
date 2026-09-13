@@ -12,12 +12,12 @@ The following table compares feature availability between dashboard Q&A and topi
 
 | Q&A feature | Dashboard Q&A | Topic Q&A | 
 | --- | --- | --- | 
-| Allows users in all roles to ask and answer questions of data | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| Allows author and admin roles to enable data Q&A on dashboards | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No (Pro users only) | 
-| Suported in Quick console embedding | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| Ability to add reviewed answers | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| Ability to customize Q&A-specific metadata | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| Ability to support autocomplete for data values | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| Allows users in all roles to ask and answer questions of data | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| Allows author and admin roles to enable data Q&A on dashboards | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No (Pro users only) | 
+| Suported in Quick console embedding | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| Ability to add reviewed answers | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| Ability to customize Q&A-specific metadata | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| Ability to support autocomplete for data values | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
 
 Use the procedure below to enable dashboard Q&A on a Quick Sight dashboard.
 

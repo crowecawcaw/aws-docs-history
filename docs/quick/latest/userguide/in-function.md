@@ -72,7 +72,7 @@ The following example evaluates the `fl_date` field for values in a list of stri
 in(toString(fl_date),["2015-05-14","2015-05-15","2015-05-16"])
 ```
 
-![An image of the results of the function example, shown in table form.](http://docs.aws.amazon.com/quick/latest/userguide/images/in-function-example-manual-list.png)
+![An image of the results of the function example, shown in table form.](https://docs.aws.amazon.com/quick/latest/userguide/images/in-function-example-manual-list.png)
 
 
 Literals and NULL values are supported in expression argument to be compared with the literals in list. Both of the following two examples will generate a new column of TRUE values. 
@@ -105,4 +105,4 @@ in ({{origin_state_name}}, ${{{stateName MultivalueParameter}}})
 ifelse(in(dest_state_name,["Washington", "Oregon","California"]), "WestCoastUSState", "Other US State")
 ```
 
-![An image of the results of the function example, shown in table form.](http://docs.aws.amazon.com/quick/latest/userguide/images/in-function-with-ifelse.png)
+![An image of the results of the function example, shown in table form.](https://docs.aws.amazon.com/quick/latest/userguide/images/in-function-with-ifelse.png)

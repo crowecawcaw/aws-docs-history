@@ -37,4 +37,4 @@ The following example calculates the maximum fare amount month over month.
 periodToDatemaxOverTime(max({fare_amount}), pickupDatetime, MONTH)
 ```
 
-![This is an image of the results of the example calculation with illustrations.](http://docs.aws.amazon.com/quick/latest/userguide/images/PTDMaxOverTimeResults.png)
+![This is an image of the results of the example calculation with illustrations.](https://docs.aws.amazon.com/quick/latest/userguide/images/PTDMaxOverTimeResults.png)

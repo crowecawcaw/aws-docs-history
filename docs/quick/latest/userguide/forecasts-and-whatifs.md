@@ -27,7 +27,7 @@ ML-powered forecasting is not compatible with [small multiples](small-multiples.
 1. On the menu in the upper-right corner of the visual, choose the **Menu options** icon (the three dots), and then choose **Add forecast**.
 
    Quick Sight automatically analyzes the historical data using ML, and displays a graphical forecast for the next 14 periods. Forecast properties apply to all metrics in your visual. If you want individual forecasts for each metric, consider creating a separate visual for each metric and adding a forecast to each.  
-![Image of a line-chart visual with three metrics forecasted.](http://docs.aws.amazon.com/quick/latest/userguide/images/forecast2.png)
+![Image of a line-chart visual with three metrics forecasted.](https://docs.aws.amazon.com/quick/latest/userguide/images/forecast2.png)
 
 1. On the **Forecast properties** panel at left, customize one or more of the following settings:
    + **Forecast length** – Set **Periods forward** to forecast, or set **Periods backward** to look for patterns to base the forecast on.

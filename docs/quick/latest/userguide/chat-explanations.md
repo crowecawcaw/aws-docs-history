@@ -5,7 +5,7 @@
 
 In Amazon Quick, when you chat with dashboards and datasets, each answer includes an Explanation that shows how the model arrived at each numerical claim, including the data sources, assumptions, filters, calculations, and SQL queries that the model used. Instead of manually verifying each answer by finding the original source and re-creating the logic, you can directly see the model's assumptions at the click of a button.
 
-![An Explanation button appears at the bottom of chat answers that contain numerical claims from structured sources.](http://docs.aws.amazon.com/quick/latest/userguide/images/chat-explanation-button.png)
+![An Explanation button appears at the bottom of chat answers that contain numerical claims from structured sources.](https://docs.aws.amazon.com/quick/latest/userguide/images/chat-explanation-button.png)
 
 
 ## Chat with your dashboards
@@ -15,10 +15,10 @@ When you chat with your dashboard data, open the Explanation to see which dashbo
 
 For example, suppose you open your "Test Drive Conversion" dashboard and ask "what electric car models have an almost perfect satisfaction score but a low conversion rate?" You want to see if some cars test drive well but don't result in a sale. You open the Explanation and check the Assumptions section. Chat defined "electric car model" by using the vehicle model naming terminology. It searched for names that ended with "E" (electric) or "SE" (sport electric). Although that might be correct in most cases, the best field to ensure accuracy is "vehicle\_fueltype". You type that directly in the chat: "use the vehicle fuel type for identifying electric cars." You then open the refreshed and correct Explanation.
 
-![Explanation with sample data showing "electric" defined as models ending with 'E', 'SE', or containing 'SE ALL4'.](http://docs.aws.amazon.com/quick/latest/userguide/images/chat-explanation-dashboard-assumptions.png)
+![Explanation with sample data showing "electric" defined as models ending with 'E', 'SE', or containing 'SE ALL4'.](https://docs.aws.amazon.com/quick/latest/userguide/images/chat-explanation-dashboard-assumptions.png)
 
 
-![Updated Explanation with corrected definition, using fuel type equals electric.](http://docs.aws.amazon.com/quick/latest/userguide/images/chat-explanation-dashboard-corrected.png)
+![Updated Explanation with corrected definition, using fuel type equals electric.](https://docs.aws.amazon.com/quick/latest/userguide/images/chat-explanation-dashboard-corrected.png)
 
 
 ### Explanation components
@@ -37,4 +37,4 @@ When you chat directly with your datasets, you can see the SQL queries that are 
 + **Calculation explained** – Shows any calculations that the model performed to arrive at the answer, presented in both natural language and as a math formula.
 + **Generated SQL** – Displays the specific SQL query that produced each numerical claim.
 
-![Explanation panel for a dataset-sourced answer, displaying the SQL queries that produced each claim.](http://docs.aws.amazon.com/quick/latest/userguide/images/chat-explanation-dataset-sql.png)
+![Explanation panel for a dataset-sourced answer, displaying the SQL queries that produced each claim.](https://docs.aws.amazon.com/quick/latest/userguide/images/chat-explanation-dataset-sql.png)

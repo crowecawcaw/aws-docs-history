@@ -34,7 +34,7 @@ You can customize the formatting for cell text within a table.
    + To wrap text in headers that are too long to fit, select **Wrap text**. Wrapping text in cells doesn't automatically increase the row height. Follow the previous procedure for increasing row height.
    + To change the horizontal alignment of text in cells, choose a horizontal alignment icon. You can choose left alignment, center alignment, right alignment, or automatic alignment. Horizontal alignment can only be configured for the **Rows** fields of a hierarchy pivot table.
    + To change the vertical alignment of text in cells, choose a vertical alignment icon. You can choose top alignment, middle alignment, bottom alignment, or automatic. For tabular pivot tables, the value for **Automatic** is vertical. For hierarchy pivot tables, the value for **Automatic** is middle.  
-![Vertical and horizontal cell alignment options in the Format visual menu.](http://docs.aws.amazon.com/quick/latest/userguide/images/format-pivot-table-alignment.png)
+![Vertical and horizontal cell alignment options in the Format visual menu.](https://docs.aws.amazon.com/quick/latest/userguide/images/format-pivot-table-alignment.png)
 
 ## Cell background color
 <a name="format-tables-pivot-tables-cells-background"></a>

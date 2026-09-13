@@ -164,4 +164,4 @@ total_days_worked = netWorkDays({{employment_start_date}}, {{last_day_of_work}})
 total_bonus = {{total_days_worked}} * {{bonus_per_day}}
 ```
 
-![Table showing employee data grouped by employee_id with aggregated values for days worked and bonuses.](http://docs.aws.amazon.com/quick/latest/userguide/images/addWorkDays-function-example.png)
+![Table showing employee data grouped by employee_id with aggregated values for days worked and bonuses.](https://docs.aws.amazon.com/quick/latest/userguide/images/addWorkDays-function-example.png)

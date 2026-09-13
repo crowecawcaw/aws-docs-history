@@ -9,7 +9,7 @@ You can only apply data bars to fields that are added to the **Values** field we
 
 You can create up to 200 different data bar configurations for a single table.
 
-![An image that shows data bars in a table.](http://docs.aws.amazon.com/quick/latest/userguide/images/data-bars-1.png)
+![An image that shows data bars in a table.](https://docs.aws.amazon.com/quick/latest/userguide/images/data-bars-1.png)
 
 
 **To add data bars to a table**

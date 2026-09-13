@@ -40,4 +40,4 @@ The following function calculates the week to date sum of fare amount per paymen
 periodToDateSum(fare_amount, pickUpDateTime, WEEK, parseDate("06-30-2021", "MM-dd-yyyy"))
 ```
 
-![This is an image of the results for the example, with illustrations.](http://docs.aws.amazon.com/quick/latest/userguide/images/PTDSumResults.png)
+![This is an image of the results for the example, with illustrations.](https://docs.aws.amazon.com/quick/latest/userguide/images/PTDSumResults.png)

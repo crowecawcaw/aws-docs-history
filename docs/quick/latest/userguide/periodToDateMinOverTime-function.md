@@ -37,4 +37,4 @@ The following example calculates the minimum fare amount month over month.
 periodToDateMinOverTime(min({fare_amount}), pickupDatetime, MONTH)
 ```
 
-![This is an image of the results of the example calculation with illustrations.](http://docs.aws.amazon.com/quick/latest/userguide/images/PTDMinOverTimeResults.png)
+![This is an image of the results of the example calculation with illustrations.](https://docs.aws.amazon.com/quick/latest/userguide/images/PTDMinOverTimeResults.png)

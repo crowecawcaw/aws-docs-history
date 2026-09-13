@@ -65,4 +65,4 @@ difference(
 
 The red highlights show how each amount is added ( a \+ b = c ) to show the difference between amounts a and c. 
 
-![Table showing Customer Region with difference and Billed Amount columns, with red labels a, b, c.](http://docs.aws.amazon.com/quick/latest/userguide/images/differenceCalc.png)
+![Table showing Customer Region with difference and Billed Amount columns, with red labels a, b, c.](https://docs.aws.amazon.com/quick/latest/userguide/images/differenceCalc.png)

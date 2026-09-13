@@ -37,4 +37,4 @@ The following function calculates the average fare amount month over mont.
 periodToDateAvgOverTime(sum({fare_amount}), pickupDatetime, MONTH)
 ```
 
-![This is an image of the results of the example calculation with illustrations.](http://docs.aws.amazon.com/quick/latest/userguide/images/PTDAvgOverTimeResults.png)
+![This is an image of the results of the example calculation with illustrations.](https://docs.aws.amazon.com/quick/latest/userguide/images/PTDAvgOverTimeResults.png)

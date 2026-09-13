@@ -37,4 +37,4 @@ You can also specify at what level to group the computation using one or more di
 sum(Sales, [Country])
 ```
 
-![The sum of sales for each country.](http://docs.aws.amazon.com/quick/latest/userguide/images/sum-function-example.png)
+![The sum of sales for each country.](https://docs.aws.amazon.com/quick/latest/userguide/images/sum-function-example.png)

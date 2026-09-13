@@ -54,10 +54,10 @@ Use the following procedure to create a new visual.
    + Choose the dropdown arrow next to the **ADD** button to choose a visual type. After the visual is created, choose the fields that you want to populate it.
 
      1. Choose the icon of a visual type from the **Visual types** pane.  
-![Grid of chart and graph icons including bar charts, line graphs, pie charts, and data visualization types.](http://docs.aws.amazon.com/quick/latest/userguide/images/visual-types.png)
+![Grid of chart and graph icons including bar charts, line graphs, pie charts, and data visualization types.](https://docs.aws.amazon.com/quick/latest/userguide/images/visual-types.png)
 
         The field wells display the fields that are visualized.   
-![Line chart field wells showing X axis, Value, Color, and Small multiples dimension options.](http://docs.aws.amazon.com/quick/latest/userguide/images/field-wells.png)
+![Line chart field wells showing X axis, Value, Color, and Small multiples dimension options.](https://docs.aws.amazon.com/quick/latest/userguide/images/field-wells.png)
 
      1. From the **Data** pane, drag the fields that you want to use to the appropriate field wells. Typically, you want to use dimension or measure fields as indicated by the color of the target field well. If you choose to use a dimension field to populate a **Value** field well, the **Count** aggregate function is automatically applied to it to create a numeric value.
 

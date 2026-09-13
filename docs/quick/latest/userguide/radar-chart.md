@@ -9,7 +9,7 @@ In Quick, you can organize a radar chart along its category, value, or color axe
 
 The following image shows an example of a radar chart.
 
-![Radar chart plotting employee satisfaction variables by department.](http://docs.aws.amazon.com/quick/latest/userguide/images/radar-chart-example.png)
+![Radar chart plotting employee satisfaction variables by department.](https://docs.aws.amazon.com/quick/latest/userguide/images/radar-chart-example.png)
 
 
 ## Radar chart features

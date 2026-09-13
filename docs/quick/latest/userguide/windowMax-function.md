@@ -60,4 +60,4 @@ windowMax
 
 The following screenshot shows the results of this trailing 12-month example. The sum(Revenue) field is added to the chart to show the difference between the revenue and the trailing 12-month maximum revenue.
 
-![Line chart showing revenue and trailing 12-month maximum from January 2017 to November 2018.](http://docs.aws.amazon.com/quick/latest/userguide/images/windowMax.png)
+![Line chart showing revenue and trailing 12-month maximum from January 2017 to November 2018.](https://docs.aws.amazon.com/quick/latest/userguide/images/windowMax.png)

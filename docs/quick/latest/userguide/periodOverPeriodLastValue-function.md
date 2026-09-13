@@ -48,4 +48,4 @@ The following example calculates the month over month value in sales with a fixe
 periodOverPeriodLastValue(sum(Sales), {Order Date},MONTH, 1)
 ```
 
-![This is an image of the return of the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthLastValue.png)
+![This is an image of the return of the example calculation.](https://docs.aws.amazon.com/quick/latest/userguide/images/MonthOverMonthLastValue.png)

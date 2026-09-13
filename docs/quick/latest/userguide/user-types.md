@@ -49,16 +49,16 @@ When your Amazon Quick account is integrated with IAM Identity Center, admin cap
 
 | Admin action | IAM permissions | Amazon Quick admin role permissions | 
 | --- | --- | --- | 
-| **Manage assets** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **Security & permissions** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **Manage VPC connections** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **KMS keys** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **Account settings** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
-| **Account customization** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Manage users** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes (IAM Identity Center users) | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes (Amazon Quick and IAM users) | 
-| **Your subscriptions** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Mobile settings** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **Domains and embedding** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
-| **SPICE capacity** | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Manage assets** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **Security & permissions** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **Manage VPC connections** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **KMS keys** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **Account settings** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | 
+| **Account customization** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Manage users** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes (IAM Identity Center users) | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes (Amazon Quick and IAM users) | 
+| **Your subscriptions** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Mobile settings** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **Domains and embedding** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
+| **SPICE capacity** | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/quick/latest/userguide/images/success_icon.png) Yes | 
 
 Admin and Admin Pro users have full reader and author capabilities but focus primarily on system administration to ensure efficient and secure operations for all users. For detailed information about author capabilities and subscription types, see [Amazon Quick pricing](https://aws.amazon.com/quicksuite/pricing/).

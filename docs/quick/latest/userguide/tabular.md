@@ -32,17 +32,17 @@ Table visuals don't display a legend. You can hide or display the title on a tab
 1. To display hidden columns, choose any column, then choose **Show all hidden columns**.
 
 **To transpose columns to rows and rows to columns**
-+ Choose the transpose icon ( ![Icon showing arrows pointing outward from center, indicating expand or resize functionality.](http://docs.aws.amazon.com/quick/latest/userguide/images/transpose-icon.png)) near the top right of the visual. It has two arrows at a 90 degree angle.
++ Choose the transpose icon ( ![Icon showing arrows pointing outward from center, indicating expand or resize functionality.](https://docs.aws.amazon.com/quick/latest/userguide/images/transpose-icon.png)) near the top right of the visual. It has two arrows at a 90 degree angle.
 
 **To vertically align columns**
 
-1. On your visual, choose the **Format visual** icon ( ![Icon showing a house with an upward arrow and a menu button.](http://docs.aws.amazon.com/quick/latest/userguide/images/format-visual-icon.png)) near the top right of the visual.
+1. On your visual, choose the **Format visual** icon ( ![Icon showing a house with an upward arrow and a menu button.](https://docs.aws.amazon.com/quick/latest/userguide/images/format-visual-icon.png)) near the top right of the visual.
 
 1. In the **Properties** pane, choose **Table options**, and choose your table's vertical alignment.
 
 **To wrap the text for headers**
 
-1. On your visual, choose the **Format visual** icon ( ![](http://docs.aws.amazon.com/quick/latest/userguide/images/format-visual-icon.png)) near the top right of the visual.
+1. On your visual, choose the **Format visual** icon ( ![](https://docs.aws.amazon.com/quick/latest/userguide/images/format-visual-icon.png)) near the top right of the visual.
 
 1. In the **Properties** pane, choose **Table options**, and select **Wrap header text**.
 

@@ -40,4 +40,4 @@ The following example calculates the week-to-date minimum fare amount per paymen
 periodToDateAvg(fare_amount, pickUpDatetime, WEEK, parseDate("06-30-2021", "MM-dd-yyyy"))
 ```
 
-![This is an image of the results from the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/PTDAvgResults.png)
+![This is an image of the results from the example calculation.](https://docs.aws.amazon.com/quick/latest/userguide/images/PTDAvgResults.png)

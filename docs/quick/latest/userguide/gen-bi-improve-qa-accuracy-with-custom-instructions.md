@@ -30,10 +30,10 @@ Use the following table to understand when and how to apply different types of m
 
  If you have multiple date fields, for example, clear descriptions can help Amazon Q distinguish between them and choose the most relevant one based on the user’s question. In the sample below, an Author added descriptions for **Solution Create** and **Topic Create**, which enables Amazon Q to more accurately select the appropriate date field in context. 
 
-![solution create description](http://docs.aws.amazon.com/quick/latest/userguide/images/solution_create.png)
+![solution create description](https://docs.aws.amazon.com/quick/latest/userguide/images/solution_create.png)
 
 
-![topic create description](http://docs.aws.amazon.com/quick/latest/userguide/images/topic_create.png)
+![topic create description](https://docs.aws.amazon.com/quick/latest/userguide/images/topic_create.png)
 
 
 ## Adding topic-level descriptions

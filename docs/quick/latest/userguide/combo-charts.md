@@ -66,6 +66,6 @@ Use the following procedure to create a combo chart.
    + To create a single-measure combo chart, choose one measure for either **Bars** or **Lines**.
    + To create a multi-measure combo chart, choose two or more measures for the **Bars** or **Lines** field well. 
    + Optionally, add a dimension to the **Group/Color** field well. If you have a field in **Group/Color**, you can't have more than one field under **Bars**.  
-![Bar chart showing website metrics by event type, with empty having highest visits and declining trend line overlay.](http://docs.aws.amazon.com/quick/latest/userguide/images/combo-chart-example2-clustered.png)
+![Bar chart showing website metrics by event type, with empty having highest visits and declining trend line overlay.](https://docs.aws.amazon.com/quick/latest/userguide/images/combo-chart-example2-clustered.png)
 
 1. (Optional) Add drill-down layers by dragging one or more additional fields to the **X axis** or **Group/Color** field wells. For more information about adding drill-downs, see [Adding drill-downs to visual data in Quick Sight](adding-drill-downs.md). 

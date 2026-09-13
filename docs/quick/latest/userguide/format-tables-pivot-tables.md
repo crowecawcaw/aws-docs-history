@@ -11,7 +11,7 @@ When you export table or pivot table visuals to Microsoft Excel, the formatting 
 
 **To format a table or pivot table**
 + In your analysis, choose the table or pivot table that you want to customize, and then choose the **Format visual** icon.  
-![Image of the Format visual icon.](http://docs.aws.amazon.com/quick/latest/userguide/images/format-tables-icon.png)
+![Image of the Format visual icon.](https://docs.aws.amazon.com/quick/latest/userguide/images/format-tables-icon.png)
 
   The **Properties** pane opens at left.
 

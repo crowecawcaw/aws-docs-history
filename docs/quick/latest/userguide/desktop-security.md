@@ -3,75 +3,63 @@
 # Security, privacy, and architecture
 <a name="desktop-security"></a>
 
-The Amazon Quick desktop application is designed to keep your data private while providing full access to AI capabilities. The following sections describe how Amazon Quick on desktop handles security, privacy, and data storage.
+Amazon Quick on desktop is designed to keep your data private while providing full access to AI capabilities.
 
-**Important**  
 Your data is never used for AI model training. AWS does not use your conversations, files, or personal context to train or improve AI models.
 
-**Note**  
-To control which Amazon Quick features your users can access after they sign in, configure custom permissions. For more information, see [Custom permissions](custom-permissions.md).
-
 ## How data is handled
-<a name="desktop-local-architecture"></a>
+<a name="desktop-security-data-handling"></a>
 
-The Amazon Quick desktop application processes your requests using AI models through API Gateway. The network calls Quick makes are to AI models and to your connected services (such as Slack, Outlook, or Gmail). Quick requires the following to be stored on your machine for the application to operate:
-+ **Application configuration** – Settings, preferences, and connection state needed to run the desktop application.
-+ **Cached content** – Temporary data for performance, including file indexes for your granted local folders.
-+ **Credentials** – Authentication tokens for your connected third-party services.
+Amazon Quick runs in the cloud. Your conversations, memory, knowledge graph, agent-produced files (your Library), and the index of content you make searchable are kept per user in your Amazon Quick account, isolated from other users. The desktop application stores only what it needs to operate locally: application configuration (settings, preferences, and connection state), the folders you have granted access to and their local settings, locally configured MCP and coding-agent servers, and your sign-in credentials (authentication tokens, held in your operating system's credential vault).
 
 ## Data storage
-<a name="desktop-data-storage"></a>
+<a name="desktop-security-data-storage"></a>
 
-Application data is stored in the `~/.quickwork/` directory on macOS or `%USERPROFILE%\.quickwork\` on Windows.
+Local application data, configuration, folder permissions, locally configured MCP and coding-agent servers, and sandbox settings, is stored in `~/.quickwork/` on macOS or `%USERPROFILE%\.quickwork\` on Windows. Your conversations, memory, and knowledge graph are not stored here; they are kept in your Amazon Quick account.
 
 ## Folder permissions
-<a name="desktop-folder-permissions"></a>
+<a name="desktop-security-folder-permissions"></a>
 
-Amazon Quick on desktop uses OS-level sandboxing to control file access. Quick can only access folders that you explicitly grant permission to, and you can revoke access at any time. Each folder supports independent controls for keyword search indexing, semantic search indexing, and knowledge graph extraction. You can also set granular per-operation permissions for read and write operations.
+Quick uses operating-system sandboxing to control file access. It accesses only folders you explicitly grant, and you revoke access at any time. Each folder supports independent controls for keyword search, semantic search, and knowledge graph extraction, plus granular per-operation permissions.
 
-**Note**  
-Quick also has access to system temporary directories regardless of your folder permission settings. On Windows, these are `C:\TEMP`, `C:\TMP`, `\TEMP`, and `\TMP`. On macOS and Linux, these are `/tmp`, `/var/tmp`, and `/usr/tmp`.
-
-To manage folder access and permissions, see [My Computer](desktop-settings.md#desktop-settings-my-computer).
+Quick also has access to system temporary directories regardless of folder permissions. On Windows these are `C:\TEMP`, `C:\TMP`, `\TEMP`, and `\TMP`. On macOS and Linux these are `/tmp`, `/var/tmp`, and `/usr/tmp`.
 
 ## System tool permissions
-<a name="desktop-system-tool-permissions"></a>
+<a name="desktop-security-tool-permissions"></a>
 
-Amazon Quick on desktop includes system tools that provide core capabilities. Each tool can be individually toggled on or off and supports a three-tier permission model (Full Access, Read Only, or Ask Each Time) with granular per-operation controls. For a complete list of system tools and their permissions, see [System tools](system-tools-desktop.md).
+Amazon Quick on desktop governs three kinds of capabilities with the same permission model: system tools that provide core capabilities, connectors to third-party services such as Slack, Outlook, and Gmail, and local tools that run on your device. You can turn each capability on or off. Each supports a three-tier permission model, Always Allow, Ask Each Time, or Always Deny, with granular per-operation controls (see [System tools](system-tools-desktop.md)).
+
+Quick stores your permission choices and applies them consistently whenever an agent acts on your behalf, including scheduled agents. An agent can only take actions you have authorized, and you can review or change these permissions at any time.
 
 ## Connection security
-<a name="desktop-connection-security"></a>
-
-Amazon Quick on desktop uses industry-standard security practices for third-party service connections.
-+ **OAuth 2.0** – Services such as Slack, Google, and Microsoft use OAuth 2.0 for authentication. Quick redirects you to the service's sign-in page, and the service returns an authorization token. Quick never sees or stores your third-party passwords.
-+ **Independent connections** – Each connected service is managed independently. You can disconnect and reconnect any service at any time from **Settings** > **Capabilities** > **Connectors** without affecting other connections.
-+ **Minimal permissions** – Quick requests only the permissions needed to provide its features for each connected service.
-
-## Network access and required domains
-<a name="desktop-network-access"></a>
-
-The Amazon Quick desktop application makes outbound connections for discovery and data plane operations, remote configuration, application updates, and identity provider authentication. In restricted network environments, add the following domains to your allow list so that the application can operate.
-
-
-| Category | Domains | Wildcard meaning | Purpose | 
-| --- | --- | --- | --- | 
-| Amazon Quick console | \*.quicksight.aws.amazon.com | \* = AWS Region (for example, us-east-1) | Web console, resource discovery | 
-| Amazon Quick data plane | \*.dp.appintegrations.\*.prod.plato.ai.aws.dev | First \* = per-account cell ID. Second \* = AWS Region. | Inference, streaming, search | 
-| Amazon Quick enterprise gateway | \*.desktop.enterprise.quick.aws.dev | \* = multi-level subdomain (<cell>.<stage>.<region>) | Enterprise account bidirectional streaming | 
-| Remote configuration and updates | \*.cloudfront.net | \* = CloudFront distribution ID | Feature flags, application updates, Quick Apps content | 
-| Telemetry | cognito-identity.\*.amazonaws.com | \* = AWS Region | Operational telemetry | 
-| Identity provider | Customer-specific (for example, login.microsoftonline.com) | Not applicable | Enterprise SSO authentication | 
-
-For strict proxy environments that can't use wildcards, you can determine the account-specific cell hostname after you first sign in. It follows the pattern `<cell-id>.dp.appintegrations.<region>.prod.plato.ai.aws.dev`, where `<cell-id>` is a stable per-account identifier and `<region>` is the account's home region.
-
-If the application cannot sign in, load content, or update in a restricted environment, verify that these domains are reachable, and check your firewall and VPN settings.
+<a name="desktop-security-connection-security"></a>
++ OAuth 2.0: connected services authenticate with OAuth 2.0; Quick never sees or stores your third-party passwords.
++ Independent connections: each service is managed independently; you disconnect and reconnect any service without affecting others.
++ Minimal permissions: Quick requests only the permissions needed for each service.
 
 ## Privacy controls
 <a name="desktop-privacy-controls"></a>
 
-Amazon Quick on desktop provides privacy controls that let you manage whether Quick learns from your conversations, searches your conversation history, and extracts entities from connected services. You can also view, edit, and delete individual memories. To configure privacy settings, see [My Context](desktop-settings.md#desktop-settings-my-context).
+Quick provides controls for whether it learns from your conversations, searches your conversation history, and extracts entities from connected services. You view, edit, and delete individual memories (see [My context](desktop-settings-my-context.md)).
+
+## Network access and required domains
+<a name="desktop-network-access"></a>
+
+The application makes outbound connections for discovery and data-plane operations, remote configuration, application updates, and identity-provider authentication. In restricted networks, add the required Amazon Quick domains to your allow list.
+
+
+| Category | Domain | Wildcard meaning | Purpose | 
+| --- | --- | --- | --- | 
+| Amazon Quick console | \*.quicksight.aws.amazon.com | \* = AWS Region (for example, us-east-1) | Web console, resource discovery | 
+| Amazon Quick data plane | \*.dp.appintegrations.\*.prod.plato.ai.aws.dev | First \* = per-account cell ID; second \* = AWS Region | Inference, streaming, search | 
+| Amazon Quick enterprise gateway | \*.desktop.enterprise.quick.aws.dev | \* = multi-level subdomain (<cell>.<stage>.<region>) | Enterprise account bidirectional communication | 
+| Remote configuration and updates | \*.cloudfront.net | \* = CloudFront distribution ID | Feature flags, application updates, Apps in Amazon Quick content | 
+| Telemetry | cognito-identity.\*.amazonaws.com | \* = AWS Region | Operational telemetry | 
+| Identity provider | Customer-specific (for example, login.microsoftonline.com) | Not applicable | Enterprise SSO authentication | 
+
+For strict proxy environments that cannot use wildcards, you can determine the account-specific cell hostname after you first sign in. It follows the pattern `<cell-id>.dp.appintegrations.<region>.prod.plato.ai.aws.dev`, where `<cell-id>` is a stable per-account identifier and `<region>` is the account's home region. If your organization inspects encrypted traffic, the operating-system trust store must trust the inspection certificate authority, or the Quick domains must be excluded from inspection (see [Setting up Amazon Quick on desktop for enterprise deployments](desktop-enterprise-setup.md)).
 
 ## Clearing all data
 <a name="desktop-clearing-data"></a>
 
-If you need to completely reset Amazon Quick on desktop, you can use the **Clear all data** option in **Settings** > **Customization** > **Danger zone**. This action is irreversible and removes all conversations, knowledge graph data, saved credentials, and user preferences. For more information, see [Danger zone](desktop-settings.md#desktop-settings-danger-zone).
+To completely reset Quick, use Clear all data in Settings, on the Advanced tab. This is irreversible and removes all conversations, knowledge graph data, saved credentials, and preferences.

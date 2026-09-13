@@ -46,4 +46,4 @@ The following example calculates the week-to-date, 90th percentile of fare amoun
 periodToDatePercentile(fare_amount, 90, pickupDatetime, WEEK, parseDate("06-30-2021", "MM-dd-yyyy"))
 ```
 
-![This is an image of the return from the example calculation.](http://docs.aws.amazon.com/quick/latest/userguide/images/PTDPercentileResults.png)
+![This is an image of the return from the example calculation.](https://docs.aws.amazon.com/quick/latest/userguide/images/PTDPercentileResults.png)

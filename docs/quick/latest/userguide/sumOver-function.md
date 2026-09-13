@@ -61,4 +61,4 @@ sumOver
 
 The following screenshot shows the results of the example. With the addition of `Customer Segment`, the total amount billed for each is summed for the `Customer Region`, and displays in the calculated field.
 
-![Table showing Billed Amount and sumOver values grouped by Customer Region and Customer Segment.](http://docs.aws.amazon.com/quick/latest/userguide/images/sumOver.png)
+![Table showing Billed Amount and sumOver values grouped by Customer Region and Customer Segment.](https://docs.aws.amazon.com/quick/latest/userguide/images/sumOver.png)

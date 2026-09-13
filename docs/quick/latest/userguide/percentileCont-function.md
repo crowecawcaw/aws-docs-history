@@ -77,4 +77,4 @@ You can also specify at what level to group the computation using one or more di
 percentileCont({Sales}, 30, [Country])
 ```
 
-![The percentile of sales in each country.](http://docs.aws.amazon.com/quick/latest/userguide/images/percentileCont-function-example-lac.png)
+![The percentile of sales in each country.](https://docs.aws.amazon.com/quick/latest/userguide/images/percentileCont-function-example-lac.png)

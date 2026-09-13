@@ -44,7 +44,7 @@ Unpacking your answer:
 If the field is not included in a named entity, then it will display as a single visual. 
 + **Did you mean:** – When there are multiple interpretations to your question, it will display a list of alternate answers that you can select to align with your intended question.
   + In the following example, the question "top customers” can be interpreted in several ways, including by “Total Sales,” “Total Profit,” or “number of customers."  
-![Dashboard showing EMEA region sales data with bar chart, bubble chart, and order details table.](http://docs.aws.amazon.com/quick/latest/userguide/images/top-customers.png)
+![Dashboard showing EMEA region sales data with bar chart, bubble chart, and order details table.](https://docs.aws.amazon.com/quick/latest/userguide/images/top-customers.png)
 
 Other tips
 + To re-size the panel, drag the left side.

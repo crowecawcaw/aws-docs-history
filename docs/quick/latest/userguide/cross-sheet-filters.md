@@ -41,7 +41,7 @@ If you want to remove a cross-sheet filter, you can also do this by changing the
 1. One of the edits you can make is changing the scope. You can switch to **Single sheet** or **Single visual**. You can also remove a sheet from the Cross-sheet selection.
 
    Or the custom sheet selection:  
-![This is an image of Delete Filter in Quick Sight.](http://docs.aws.amazon.com/quick/latest/userguide/images/cross-sheet-7.png)
+![This is an image of Delete Filter in Quick Sight.](https://docs.aws.amazon.com/quick/latest/userguide/images/cross-sheet-7.png)
 
 1. If there are controls, you will see a modal to warn you that you will be bulk-removing controls from any of the sheets where the filter no longer applies and this can impact your layout. You can also remove the controls individually. For more information, see [Removing a Cross-Sheet Control](#cross-sheet-removing-control).
 

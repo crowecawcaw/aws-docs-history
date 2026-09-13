@@ -95,9 +95,18 @@ The following table summarizes the supported geographies and their inference Reg
 | Supported Amazon Quick geography | Inference Regions | 
 | --- | --- | 
 | United States | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 
-| Europe | Europe (Frankfurt) (eu-central-1)<br />Europe (Ireland) (eu-west-1)<br />Europe (London) (eu-west-2) | 
+| Europe | Europe (Frankfurt) (eu-central-1)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2) | 
 | Australia | Asia Pacific (Sydney) (ap-southeast-2)<br />Asia Pacific (Melbourne) (ap-southeast-4) | 
 | Japan | Asia Pacific (Tokyo) (ap-northeast-1)<br />Asia Pacific (Osaka) (ap-northeast-3) | 
+
+**Note**  
+Amazon Quick follows the Amazon Bedrock Europe geographic cross-Region inference profile. For the Europe geography:  
+Amazon Quick processes a request that originates in a Europe Region other than Europe (London) (eu-west-2) only in the Europe Regions listed in the preceding table. For example, this applies to requests from Europe (Frankfurt) (eu-central-1) or Europe (Ireland) (eu-west-1).
+Amazon Quick never processes those requests in Europe (London) (eu-west-2) or Europe (Zurich) (eu-central-2).
+Amazon Quick can process a request that originates in Europe (London) (eu-west-2) in the listed Europe Regions or in Europe (London) itself.
+
+**Note**  
+Amazon Quick manages this cross-Region inference routing for you. You can't configure it, and Amazon Bedrock controls such as service control policies (SCPs) and IAM inference-profile permissions aren't available in Amazon Quick.
 
 ## AWS Regions for Amazon Q in Quick
 <a name="regions-q-in-quick"></a>
@@ -130,24 +139,4 @@ Amazon Q in Quick Generative BI features including scenarios are currently suppo
 | Europe (Zurich) (eu-central-2) | Not Available | 
 | South America (São Paulo) (sa-east-1) | Not Available | 
 
-The following table shows the detailed per-Region inference routing.
-
-
-| Supported Amazon Q in Quick geography | Inferenced regions | 
-| --- | --- | 
-| US East (N. Virginia) (us-east-1) |  +  US East (N. Virginia) (us-east-1) <br />+  US East (Ohio) (us-east-2) <br />+  US West (Oregon) (us-west-2)   | 
-| US East (Ohio) (us-east-2) |  +  US East (N. Virginia) (us-east-1) <br />+  US East (Ohio) (us-east-2) <br />+  US West (Oregon) (us-west-2)   | 
-| US West (Oregon) (us-west-2) |  +  US East (N. Virginia) (us-east-1) <br />+  US East (Ohio) (us-east-2) <br />+  US West (Oregon) (us-west-2)   | 
-| Asia Pacific (Mumbai) (ap-south-1) |  +  Asia Pacific (Tokyo) (ap-northeast-1) <br />+  Asia Pacific (Seoul) (ap-northeast-2) <br />+  Asia Pacific (Mumbai) (ap-south-1) <br />+  Asia Pacific (Singapore) (ap-southeast-1) <br />+  Asia Pacific (Sydney) (ap-southeast-2) <br />+  Asia Pacific (Osaka) (ap-northeast-3)\* <br />+  Asia Pacific (Hyderabad) (ap-south-2)\*   | 
-| Asia Pacific (Seoul) (ap-northeast-2) |  +  Asia Pacific (Tokyo) (ap-northeast-1) <br />+  Asia Pacific (Seoul) (ap-northeast-2) <br />+  Asia Pacific (Mumbai) (ap-south-1) <br />+  Asia Pacific (Singapore) (ap-southeast-1) <br />+  Asia Pacific (Sydney) (ap-southeast-2) <br />+  Asia Pacific (Osaka) (ap-northeast-3)\* <br />+  Asia Pacific (Hyderabad) (ap-south-2)\*   | 
-| Asia Pacific (Singapore) (ap-southeast-1) |  +  Asia Pacific (Tokyo) (ap-northeast-1) <br />+  Asia Pacific (Seoul) (ap-northeast-2) <br />+  Asia Pacific (Mumbai) (ap-south-1) <br />+  Asia Pacific (Singapore) (ap-southeast-1) <br />+  Asia Pacific (Sydney) (ap-southeast-2) <br />+  Asia Pacific (Osaka) (ap-northeast-3)\* <br />+  Asia Pacific (Hyderabad) (ap-south-2)\*   | 
-| Asia Pacific (Tokyo) (ap-northeast-1) |  +  Asia Pacific (Tokyo) (ap-northeast-1) <br />+  Asia Pacific (Osaka) (ap-northeast-3)   | 
-| Asia Pacific (Sydney) (ap-southeast-2) |  +  Asia Pacific (Sydney) (ap-southeast-2) <br />+  Asia Pacific (Melbourne) (ap-southeast-4)   | 
-| Europe (Frankfurt) (eu-central-1) |  +  Europe (Frankfurt) (eu-central-1) <br />+  Europe (Stockholm) (eu-north-1) <br />+  Europe (Ireland) (eu-west-1) <br />+  Europe (London) (eu-west-2) <br />+  Europe (Paris) (eu-west-3)   | 
-| Europe (Ireland) (eu-west-1) |  +  Europe (Frankfurt) (eu-central-1) <br />+  Europe (Stockholm) (eu-north-1) <br />+  Europe (Ireland) (eu-west-1) <br />+  Europe (London) (eu-west-2) <br />+  Europe (Paris) (eu-west-3)   | 
-| Europe (London) (eu-west-2) |  +  Europe (Frankfurt) (eu-central-1) <br />+  Europe (Stockholm) (eu-north-1) <br />+  Europe (Ireland) (eu-west-1) <br />+  Europe (London) (eu-west-2) <br />+  Europe (Paris) (eu-west-3)   | 
-| Europe (Paris) (eu-west-3) |  +  Europe (Frankfurt) (eu-central-1) <br />+  Europe (Stockholm) (eu-north-1) <br />+  Europe (Ireland) (eu-west-1) <br />+  Europe (London) (eu-west-2) <br />+  Europe (Paris) (eu-west-3)   | 
-| Europe (Stockholm) (eu-north-1) |  +  Europe (Frankfurt) (eu-central-1) <br />+  Europe (Stockholm) (eu-north-1) <br />+  Europe (Ireland) (eu-west-1) <br />+  Europe (London) (eu-west-2) <br />+  Europe (Paris) (eu-west-3)   | 
-
-**Note**  
-Service is not yet launched in these marked regions (\*), but inference may still occur.
+For the AWS Regions where Amazon Quick processes cross-Region inference requests, see [Supported Regions for cross-Region inference](#cross-region-inference-supported-regions).

@@ -57,17 +57,17 @@ Using the **none** option, you can choose to set both X and Y values to either a
 ### Unaggregated use cases
 <a name="advanced-scatter-plot-options-unaggregated"></a>
 + Unaggregated X and Y values with Color  
-![unaggregated-color](http://docs.aws.amazon.com/quick/latest/userguide/images/unaggregated-color.png)
+![unaggregated-color](https://docs.aws.amazon.com/quick/latest/userguide/images/unaggregated-color.png)
 + Unaggregated X and Y values with Label  
-![unaggregated-label](http://docs.aws.amazon.com/quick/latest/userguide/images/unaggregated-label.png)
+![unaggregated-label](https://docs.aws.amazon.com/quick/latest/userguide/images/unaggregated-label.png)
 + Unaggregated X and Y values with Color and Label  
-![unaggregated-color-label](http://docs.aws.amazon.com/quick/latest/userguide/images/unaggregated-color-label.png)
+![unaggregated-color-label](https://docs.aws.amazon.com/quick/latest/userguide/images/unaggregated-color-label.png)
 
 ### Aggregated use cases
 <a name="advanced-scatter-plot-options-aggregated"></a>
 + Aggregated X and Y values with Color  
-![aaggregated-color](http://docs.aws.amazon.com/quick/latest/userguide/images/aggregated-color.png)
+![aaggregated-color](https://docs.aws.amazon.com/quick/latest/userguide/images/aggregated-color.png)
 + Aggregated X and Y values with Label  
-![aggregated-label](http://docs.aws.amazon.com/quick/latest/userguide/images/aggregated-label.png)
+![aggregated-label](https://docs.aws.amazon.com/quick/latest/userguide/images/aggregated-label.png)
 + Aggregated X and Y values with Color and Label  
-![aggregated-color-label](http://docs.aws.amazon.com/quick/latest/userguide/images/aggregated-color-label.png)
+![aggregated-color-label](https://docs.aws.amazon.com/quick/latest/userguide/images/aggregated-color-label.png)

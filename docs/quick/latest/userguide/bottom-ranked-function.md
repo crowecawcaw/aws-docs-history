@@ -51,4 +51,4 @@ These are the same output parameters as the ones that are returned by the top ra
 
 The following screenshot shows the default configuration for the bottom-ranked computation.
 
-![Default configuration for the bottom-ranked computation.](http://docs.aws.amazon.com/quick/latest/userguide/images/bottom-ranked-computation.png)
+![Default configuration for the bottom-ranked computation.](https://docs.aws.amazon.com/quick/latest/userguide/images/bottom-ranked-computation.png)

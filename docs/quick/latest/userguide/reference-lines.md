@@ -5,7 +5,7 @@
 
 *Reference lines* are visual markings in a visual, similar to ruler lines. You typically use a reference line for a value that needs to be displayed with the data. You use the reference line to communicate thresholds or limits in values. The reference line isn't part of the data that's used to build a chart. Instead, it's based on a value that you enter or a field that you identify in the dataset used by a chart. 
 
-![Stacked bar chart showing costs for Marketing, HR, and Billing with revenue goal and average cost reference lines.](http://docs.aws.amazon.com/quick/latest/userguide/images/formatting-reference-lines-example.png)
+![Stacked bar chart showing costs for Marketing, HR, and Billing with revenue goal and average cost reference lines.](https://docs.aws.amazon.com/quick/latest/userguide/images/formatting-reference-lines-example.png)
 
 
 Quick supports reference lines in the following: 

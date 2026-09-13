@@ -10,13 +10,13 @@ In Quick, there are four options for base maps: light gray canvas, dark gray can
 **Important**  
 Only the light gray canvas is supported in the Asia Pacific (Mumbai) AWS Region (ap-south-1).
 + Light gray canvas  
-![This is an example image of a map visual with the light gray canvas base.](http://docs.aws.amazon.com/quick/latest/userguide/images/map-layers1.png)
+![This is an example image of a map visual with the light gray canvas base.](https://docs.aws.amazon.com/quick/latest/userguide/images/map-layers1.png)
 + Dark gray canvas  
-![This is an example image of a map visual with the dark gray canvas base.](http://docs.aws.amazon.com/quick/latest/userguide/images/map-layers2.png)
+![This is an example image of a map visual with the dark gray canvas base.](https://docs.aws.amazon.com/quick/latest/userguide/images/map-layers2.png)
 + Streets  
-![This is an example image of a map visual with the streets base.](http://docs.aws.amazon.com/quick/latest/userguide/images/map-layers3.png)
+![This is an example image of a map visual with the streets base.](https://docs.aws.amazon.com/quick/latest/userguide/images/map-layers3.png)
 + Imagery  
-![This is an example image of a map visual with the imagery base.](http://docs.aws.amazon.com/quick/latest/userguide/images/map-layers4.png)
+![This is an example image of a map visual with the imagery base.](https://docs.aws.amazon.com/quick/latest/userguide/images/map-layers4.png)
 
 ## Changing base maps
 <a name="base-maps-change"></a>

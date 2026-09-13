@@ -21,9 +21,9 @@ As a Quick author, you can choose the language formatting that best fits your au
 
 1. Navigate to the **Format data** pane using one of the following options:
    + On the visual that contains the data that you want to change, select the field that you want to change, open the **Format** dropdown list, and then choose **More formatting options**.  
-![Access the Format data pane in the visual.](http://docs.aws.amazon.com/quick/latest/userguide/images/format-visual-numeric-data-language-3.png)
+![Access the Format data pane in the visual.](https://docs.aws.amazon.com/quick/latest/userguide/images/format-visual-numeric-data-language-3.png)
    + In the **Field wells** section of the analysis, open the dropdown next to the field that you want to change. Open the **Format** menu, and choose **More formatting options**.  
-![Access the Format data pane from the field wells.](http://docs.aws.amazon.com/quick/latest/userguide/images/format-visual-numeric-data-language-6.png)
+![Access the Format data pane from the field wells.](https://docs.aws.amazon.com/quick/latest/userguide/images/format-visual-numeric-data-language-6.png)
 
 1. In the **Format data** pane that appears, choose **Apply language format**.
 

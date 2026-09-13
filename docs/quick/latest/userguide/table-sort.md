@@ -5,7 +5,7 @@
 
 In Amazon Quick, you can sort values in a table by fields in the columns headers of the table or with the **Sort visual** tool. You can sort up to 10 columns in a single table. Quick can also use an off-visual sort You can sort columns in an **Ascending** or a **Descending** order. The following image shows the **Sort visual** icon and pop over.
 
-![The Sort visual icon and the Sort visual pop over that it opens.](http://docs.aws.amazon.com/quick/latest/userguide/images/table-sort-icon.png)
+![The Sort visual icon and the Sort visual pop over that it opens.](https://docs.aws.amazon.com/quick/latest/userguide/images/table-sort-icon.png)
 
 
 ## Single column sort options

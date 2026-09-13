@@ -64,4 +64,4 @@ lead(
 
 The following screenshot shows the results of the example.
 
-![Table showing Lead and Sum of Billed Amount by Customer Segment with grouped field wells.](http://docs.aws.amazon.com/quick/latest/userguide/images/leadCalc.png)
+![Table showing Lead and Sum of Billed Amount by Customer Segment with grouped field wells.](https://docs.aws.amazon.com/quick/latest/userguide/images/leadCalc.png)

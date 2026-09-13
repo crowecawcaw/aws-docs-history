@@ -59,4 +59,4 @@ runningSum
 
 The following screenshot shows the results of the example. The red labels show how each amount is added ( `a + b = c` ) to the next amount, resulting in a new total. 
 
-![Table showing Billed Amount and runningSum by date with labels indicating addition formula.](http://docs.aws.amazon.com/quick/latest/userguide/images/runningSum.png)
+![Table showing Billed Amount and runningSum by date with labels indicating addition formula.](https://docs.aws.amazon.com/quick/latest/userguide/images/runningSum.png)

@@ -31,7 +31,7 @@ The following example calculates the count of sales by a specified dimension in 
 count({Sales})
 ```
 
-![The count of sales by month.](http://docs.aws.amazon.com/quick/latest/userguide/images/count-function-example.png)
+![The count of sales by month.](https://docs.aws.amazon.com/quick/latest/userguide/images/count-function-example.png)
 
 
 You can also specify at what level to group the computation using one or more dimensions in the view or in your dataset. This is called a LAC-A function. For more information about LAC-A functions, see [Level-aware calculation - aggregate (LAC-A) functions](https://docs.aws.amazon.com/quicksight/latest/user/level-aware-calculations-aggregate.html). The following example calculates the count of sales at the Country level, but not across other dimensions (Region or Product) in the visual.
@@ -40,4 +40,4 @@ You can also specify at what level to group the computation using one or more di
 count({Sales}, [{Country}])
 ```
 
-![Count of sales are aggregated only at the country level.](http://docs.aws.amazon.com/quick/latest/userguide/images/count-function-example2.png)
+![Count of sales are aggregated only at the country level.](https://docs.aws.amazon.com/quick/latest/userguide/images/count-function-example2.png)

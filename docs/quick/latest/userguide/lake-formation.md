@@ -19,7 +19,7 @@ When you set up Lake Formation, you register your data sources to allow it to mo
 
 The following diagram shows the relationships of the AWS services involved. 
 
-![Architecture diagram showing data flow from AWS Glue Data Catalog through Amazon Athena to Amazon QuickSight, with AWS Lake Formation managing permissions for IAM and S3 data lake storage.](http://docs.aws.amazon.com/quick/latest/userguide/images/lake-formation-architecture-drawing-1.png)
+![Architecture diagram showing data flow from AWS Glue Data Catalog through Amazon Athena to Amazon QuickSight, with AWS Lake Formation managing permissions for IAM and S3 data lake storage.](https://docs.aws.amazon.com/quick/latest/userguide/images/lake-formation-architecture-drawing-1.png)
 
 
 After Lake Formation is configured, you can use Amazon Quick to access databases and tables by name or through SQL queries. Amazon Quick provides a full-featured editor where you can write SQL queries. Or you can use the Athena console, the AWS CLI, or your favorite query editor. For more information, see [Accessing Athena](https://docs.aws.amazon.com/athena/latest/ug/accessing-ate.html) in the *Amazon Athena User Guide.* 

@@ -11,7 +11,7 @@ You can also use waterfall charts to present statistical data, for example how m
 
 The following screenshot shows a waterfall chart.
 
-![Waterfall chart showing regional revenue growth from 2012 to 2016 across US, EMEA, and APAC.](http://docs.aws.amazon.com/quick/latest/userguide/images/waterfall-chart.png)
+![Waterfall chart showing regional revenue growth from 2012 to 2016 across US, EMEA, and APAC.](https://docs.aws.amazon.com/quick/latest/userguide/images/waterfall-chart.png)
 
 
 **To create a basic waterfall chart visual**
