@@ -16,7 +16,7 @@ Amazon Kinesis Client Library (KCL) versions 1.x and 2.x are outdated. KCL 1.x w
 
 The following diagram shows how these libraries interact with one another.
 
-![Interaction between DynamoDB Streams, Kinesis Data Streams, and KCL for processing DynamoDB Streams records.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/streams-kinesis-adapter.png)
+![Interaction between DynamoDB Streams, Kinesis Data Streams, and KCL for processing DynamoDB Streams records.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/streams-kinesis-adapter.png)
 
 
 With the DynamoDB Streams Kinesis Adapter in place, you can begin developing against the KCL interface, with the API calls seamlessly directed at the DynamoDB Streams endpoint.

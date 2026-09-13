@@ -46,7 +46,7 @@ Follow these steps to enable DAX encryption at rest on a table using the console
 1. For **Cluster name**, enter a short name for your cluster. Choose the **node type** for all of the nodes in the cluster, and for the cluster size, use **3** nodes.
 
 1. In **Encryption**, make sure that **Enable encryption** is selected.  
-![Screenshot of cluster settings in the console showing the enable encryption setting.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax_encrypt.PNG)
+![Screenshot of cluster settings in the console showing the enable encryption setting.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax_encrypt.PNG)
 
 1. After choosing the IAM role, subnet group, security groups, and cluster settings, choose **Launch cluster**. 
 

@@ -52,7 +52,7 @@ Only the monthly aggregation items contain the `Month` attribute. This distincti
 
 The following diagram shows the table layout with both item types:
 
-![Music library table layout showing download records and monthly aggregation items sharing the same partition key (songID).](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/AggregationQueries.png)
+![Music library table layout showing download records and monthly aggregation items sharing the same partition key (songID).](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/AggregationQueries.png)
 
 
 

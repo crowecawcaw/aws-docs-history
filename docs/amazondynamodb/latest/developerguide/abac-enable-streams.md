@@ -10,7 +10,7 @@ The **Attribute-based access control for Streams** card appears on the **Setting
 ## Attribute-based access control for Streams – not enabled
 <a name="abac-streams-enable-image"></a>
 
-![The DynamoDB console Settings page showing the Attribute-based access control for Streams card with a status of Off, indicating that Streams ABAC is not enabled for the account.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/abac-stream-enable-console.png)
+![The DynamoDB console Settings page showing the Attribute-based access control for Streams card with a status of Off, indicating that Streams ABAC is not enabled for the account.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/abac-stream-enable-console.png)
 
 
 To enable Streams ABAC for your account, we recommend that you first audit your policies as described in the [Auditing your policies before enabling Streams ABAC](#policy-audit-for-stream-abac) section. Then, include the [required permissions for Streams ABAC](#required-permissions-stream-abac) in your IAM policy. Finally, perform the steps described in [Enabling Streams ABAC in console](#stream-abac-enable-console) to enable Streams ABAC for your account in the current AWS Region. After you enable Streams ABAC, you can opt out within the next seven calendar days of opting in.

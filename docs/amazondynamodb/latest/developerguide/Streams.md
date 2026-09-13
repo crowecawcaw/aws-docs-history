@@ -113,7 +113,7 @@ DynamoDB Streams guarantees ordering at the level of an individual item—that i
 
 The following diagram shows the relationship between a stream, shards in the stream, and stream records in the shards.
 
-![DynamoDB Streams structure. Stream records that represent data modifications are organized into shards.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/streams-terminology.png)
+![DynamoDB Streams structure. Stream records that represent data modifications are organized into shards.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/streams-terminology.png)
 
 
 **Note**  

@@ -110,7 +110,7 @@ Amazon S3 can be used as a staging area during a migration. Data stored in CSV (
 
 You may want to combine tables to leverage unique NoSQL access patterns (for example, transforming four legacy tables into a single DynamoDB table). A single key-value document request or a query for a pre-grouped item collection usually returns with better latency than a SQL database that performs a multi-table join. However, this makes the migration task more difficult. A SQL view could do the work within the source database to prepare a single dataset representing all four tables in one set.
 
-![Scenario that combines multiple legacy SQL tables into a single DynamoDB table to leverage NoSQL access patterns.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/OnlineMigrationCustom1.png)
+![Scenario that combines multiple legacy SQL tables into a single DynamoDB table to leverage NoSQL access patterns.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/OnlineMigrationCustom1.png)
 
 
 This view can `JOIN` tables into a denormalized form, or could keep the entities normalized and stack tables using a SQL `UNION`. Key decisions around re-shaping relational data are covered in [this video](https://www.youtube.com/watch?v=kQ-DSjtCb90). For offline migrations, using a view to combine tables is a great way to shape data for a DynamoDB single table schema.
@@ -130,7 +130,7 @@ Perform an offline migration using Amazon S3
 **Offline migration steps:**
 
 1. Build an ETL job that can query the SQL database, transform table data into DynamoDB JSON or CSV format, and save it to an S3 bucket.  
-![An ETL workflow to extract data from a SQL database and saves it to an Amazon S3 bucket.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/OfflineMigration1.png)
+![An ETL workflow to extract data from a SQL database and saves it to an Amazon S3 bucket.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/OfflineMigration1.png)
 
 1. The DynamoDB Import from S3 feature is invoked to create a new table and automatically load data from your S3 bucket.
 
@@ -164,7 +164,7 @@ Perform a hybrid online/offline migration with application dual writes
 
 1. When the backfill job completes, DynamoDB will have all existing and new records and be ready for application cutover
 
-![A hybrid migration process for moving data to DynamoDB, using online and offline migration methods.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/HybridMigration.png)
+![A hybrid migration process for moving data to DynamoDB, using online and offline migration methods.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/HybridMigration.png)
 
 
 **Note**  
@@ -202,7 +202,7 @@ Perform an online migration of each table into DynamoDB using AWS DMS
 
 1. At this point you may perform any validation audits and then switch users to the application that reads and writes to DynamoDB
 
-![Online migration process for moving data to DynamoDB from relational databases using AWS DMS.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/OnlineMigration.png)
+![Online migration process for moving data to DynamoDB from relational databases using AWS DMS.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/OnlineMigration.png)
 
 
 ## Perform an online migration to DynamoDB using a custom staging table
@@ -238,7 +238,7 @@ Perform an online migration with an SQL staging table using AWS DMS
 
 1. Run AWS DMS to migrate and synchronize this source table to a target DynamoDB table
 
-![Online migration from an SQL staging table to DynamoDB using AWS DMS.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/OnlineMigrationCustom2.png)
+![Online migration from an SQL staging table to DynamoDB using AWS DMS.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/OnlineMigrationCustom2.png)
 
 
 This guide presented several considerations and approaches for migrating relational database data into DynamoDB, with a focus on minimizing downtime and using common database tools and techniques. For more information, see the following:

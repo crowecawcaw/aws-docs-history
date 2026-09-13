@@ -22,7 +22,7 @@ AWS CloudTrail logs all console and API actions for table import. For more infor
 
 The following video is an introduction to importing directly from Amazon S3 into DynamoDB.
 
-[![AWS Videos](http://img.youtube.com/vi/fqq0CMOnOaI/0.jpg)](http://www.youtube.com/watch?v=fqq0CMOnOaI)
+[![AWS Videos](https://img.youtube.com/vi/fqq0CMOnOaI/0.jpg)](https://www.youtube.com/watch?v=fqq0CMOnOaI)
 
 
 **Topics**

@@ -26,7 +26,7 @@ Many applications need to maintain a history of item-level revisions for audit o
 
 For example, a parts manufacturer might use a schema like the one illustrated below.
 
-![Version control example showing a table with primary key and data-item attributes.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/VersionControl.png)
+![Version control example showing a table with primary key and data-item attributes.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/VersionControl.png)
 
 
 The `Equipment_1` item goes through a sequence of audits by various auditors. The results of each new audit are captured in a new item in the table, starting with version number one, and then incrementing the number for each successive revision.

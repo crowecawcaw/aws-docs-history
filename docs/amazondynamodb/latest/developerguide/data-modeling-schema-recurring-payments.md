@@ -17,7 +17,7 @@ This use case talks about using DynamoDB to implement a recurring payments syste
 
 This is the entity relationship diagram (ERD) we'll be using for the recurring payments system schema design.
 
-![Recurring payments system ERD showing entities: Account, Subscription, and Receipt.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-1-ERD.png)
+![Recurring payments system ERD showing entities: Account, Subscription, and Receipt.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-1-ERD.png)
 
 
 ## Recurring payments system access patterns
@@ -48,35 +48,35 @@ The generic names `PK` and `SK` are used for key attributes to allow storing dif
 
 Access pattern 1 (`createSubscription`) is used to initially create the subscription, and the details including `SKU`, `NextPaymentDate`, `NextReminderDate` and `PaymentDetails` are set. This step shows the state of the table for just one account with one subscription. There can be multiple subscriptions in the item collection so this is a one-to-many relationship.
 
-![Table design showing the subscription details for an account.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-2-Step1.png)
+![Table design showing the subscription details for an account.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-2-Step1.png)
 
 
 **Step 2: Address access patterns 2 (`createReceipt`) and 3 (`updateSubscription`)**
 
 Access pattern 2 (`createReceipt`) is used to create the receipt item. After the payment is processed each month, the payment processor will write a receipt back to the base table. There, could be multiple receipts in the item collection so this is a one-to-many relationship. The payment processor will also update the subscription item (access Pattern 3 (`updateSubscription`)) to update for the `NextReminderDate` or the `NextPaymentDate` for the next month.
 
-![Receipt details and subscription item update to show the next subscription reminder date.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-3-Step2.png)
+![Receipt details and subscription item update to show the next subscription reminder date.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-3-Step2.png)
 
 
 **Step 3: Address access pattern 4 (`getDueRemindersByDate`)**
 
 The application processes reminders for the payment in batches for the current day. Therefore the application needs to access the subscriptions on a different dimension: date rather than account. This is a good use case for a [global secondary index (GSI)](GSI.md). In this step we add the index `GSI-1`, which uses the `NextReminderDate` as the GSI partition key. We do not need to replicate all the items. This GSI is a [sparse index](data-modeling-blocks.md#data-modeling-blocks-sparse-index) and the receipts items are not replicated. We also do not need to project all the attributes—we only need to include a subset of the attributes. The image below shows the schema of `GSI-1` and it gives the information needed for the application to send the reminder email.
 
-![GSI-1 schema with details, such as email address, the application needs to send a reminder email.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-4-Step3.png)
+![GSI-1 schema with details, such as email address, the application needs to send a reminder email.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-4-Step3.png)
 
 
 **Step 4: Address access pattern 5 (`getDuePaymentsByDate`)**
 
 The application processes the payments in batches for the current day in the same way it does with reminders. We add `GSI-2` in this step, and it uses the `NextPaymentDate` as the GSI partition key. We do not need to replicate all the items. This GSI is a sparse index as the receipts items are not replicated. The image below shows the schema of `GSI-2`.
 
-![GSI-2 schema with details to process payments. NextPaymentDate is the partition key for GSI-2.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-5-Step4.png)
+![GSI-2 schema with details to process payments. NextPaymentDate is the partition key for GSI-2.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-5-Step4.png)
 
 
 **Step 5: Address access patterns 6 (`getSubscriptionsByAccount`) and 7 (`getReceiptsByAccount`)**
 
 The application can retrieve all the subscriptions for an account by using a [query](Query.md) on the base table that targets the account identifier (the `PK`) and uses the range operator to get all the items where the `SK` begins with “SUB\#”. The application can also use the same query structure to retrieve all the receipts by using a range operator to get all the items where the `SK` begins with “REC\#”. This allows us to satisfy access patterns 6 (`getSubscriptionsByAccount`) and 7 (`getReceiptsByAccount`). The application uses these access patterns so the user can see their current subscriptions and their past receipts for the last six months. There is no change to the table schema in this step and we can see below how we target just the subscription item(s) in access pattern 6 (`getSubscriptionsByAccount`).
 
-![Result of query operation on the base table. It shows the subscription of a specific account.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-6-Step5.png)
+![Result of query operation on the base table. It shows the subscription of a specific account.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-6-Step5.png)
 
 
 All access patterns and how the schema design addresses them are summarized in the table below:
@@ -99,17 +99,17 @@ Here are the final schema designs. To download this schema design as a JSON file
 
 **Base table**
 
-![Base table design showing account information, and its subscription and receipt details.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-7-Base.png)
+![Base table design showing account information, and its subscription and receipt details.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-7-Base.png)
 
 
 **GSI-1**
 
-![GSI-1 schema with subscription details, such as email address and NextPaymentDate.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-8-GSI1.png)
+![GSI-1 schema with subscription details, such as email address and NextPaymentDate.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-8-GSI1.png)
 
 
 **GSI-2**
 
-![GSI-2 schema with payment details, such as PaymentAmount and PaymentDay.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-9-GSI2.png)
+![GSI-2 schema with payment details, such as PaymentAmount and PaymentDay.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ReoccurringPayments-9-GSI2.png)
 
 
 ## Using NoSQL Workbench with this schema design

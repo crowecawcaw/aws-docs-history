@@ -153,19 +153,19 @@ In this step, you create an Elastic Beanstalk application, which is a collection
 1. In the Elastic Beanstalk console, choose **Review and Launch**, and then choose **Launch**. 
 
 1. Note the URL for future reference. This URL opens your Tic-Tac-Toe application home page.   
-![Application screenshot showing the environment being created message on the home page.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-beanstalk-setup-50.png)
+![Application screenshot showing the environment being created message on the home page.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-beanstalk-setup-50.png)
 
 1. Configure the Tic-Tac-Toe application so it knows the location of the configuration file.
 
    After Elastic Beanstalk creates the application, choose **Configuration**. 
 
    1. Choose the gear icon next to **Software Configuration**, as shown in the following screenshot.  
-![Tic-tac-toe application screenshot showing the gear icon next to software configuration.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-beanstalk-setup-60.png)
+![Tic-tac-toe application screenshot showing the gear icon next to software configuration.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-beanstalk-setup-60.png)
 
    1. At the end of the **Environment Properties** section, enter **CONFIG\_FILE** and its value **beanstalk.config**, and then choose **Save**.
 
       It might take a few minutes for this environment update to complete.   
-![Application screenshot showing the environment properties section.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-beanstalk-setup-70.png)
+![Application screenshot showing the environment properties section.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-beanstalk-setup-70.png)
 
    After the update completes, you can play the game.
 
@@ -176,12 +176,12 @@ In this step, you create an Elastic Beanstalk application, which is a collection
    ```
 
    Doing this opens the application home page.  
-![Screenshot of application home page showing the create button, invitations, games in progress, and recent history.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-inprod-playgame-10.png)
+![Screenshot of application home page showing the create button, invitations, games in progress, and recent history.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-inprod-playgame-10.png)
 
 1. Log in as testuser1, and choose **CREATE** to start a new tic-tac-toe game. 
 
 1. Enter **testuser2** in the **Choose an Opponent** box.  
-![Application screenshot showing the choose an opponent box.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-inprod-playgame-20.png)
+![Application screenshot showing the choose an opponent box.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-inprod-playgame-20.png)
 
 1. Open another browser window. 
 
@@ -196,9 +196,9 @@ In this step, you create an Elastic Beanstalk application, which is a collection
 1. Log in as testuser2.
 
 1. For the invitation from testuser1 in the list of pending invitations, choose **accept**.  
-![Application screenshot showing the testuser1 invitation in the invitations list.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-inprod-playgame-30.png)
+![Application screenshot showing the testuser1 invitation in the invitations list.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-inprod-playgame-30.png)
 
 1. Now the game page appears.  
-![Application screenshot showing an empty tic-tac-toe grid.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-inprod-playgame-40.png)
+![Application screenshot showing an empty tic-tac-toe grid.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-inprod-playgame-40.png)
 
    Both testuser1 and testuser2 can play the game. For each move, the application saves the move in the corresponding item in the `Games` table. 

@@ -13,7 +13,7 @@ NoSQL Workbench provides a rich graphical user interface for you to develop and 
 
 The video below details concepts of data modeling with NoSQL Workbench.
 
-[![AWS Videos](http://img.youtube.com/vi/p5va6ZX9_o0?si=vqQuf6FjoBuK1phR/0.jpg)](http://www.youtube.com/watch?v=p5va6ZX9_o0?si=vqQuf6FjoBuK1phR)
+[![AWS Videos](https://img.youtube.com/vi/p5va6ZX9_o0?si=vqQuf6FjoBuK1phR/0.jpg)](https://www.youtube.com/watch?v=p5va6ZX9_o0?si=vqQuf6FjoBuK1phR)
 
 
 **Topics**

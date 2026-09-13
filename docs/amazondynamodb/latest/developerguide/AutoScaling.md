@@ -33,7 +33,7 @@ To get started quickly with DynamoDB auto scaling, see [Using the AWS Management
 
 The following diagram provides a high-level overview of how DynamoDB auto scaling manages throughput capacity for a table.
 
-![DynamoDB auto scaling adjusts a table’s throughput capacity to meet demand.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/auto-scaling.png)
+![DynamoDB auto scaling adjusts a table’s throughput capacity to meet demand.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/auto-scaling.png)
 
 
 The following steps summarize the auto scaling process as shown in the previous diagram:

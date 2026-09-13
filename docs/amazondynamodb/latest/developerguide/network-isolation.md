@@ -22,7 +22,7 @@ To access the public internet, your VPC must have an internet gateway—a virtua
 
 By default, communications to and from DynamoDB use the HTTPS protocol, which protects network traffic by using SSL/TLS encryption. The following diagram shows an Amazon EC2 instance in a VPC accessing DynamoDB, by having DynamoDB use an internet gateway rather than VPC endpoints.
 
-![Workflow diagram showing an Amazon EC2 instance accessing DynamoDB through a router, internet gateway, and the internet.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-no-vpc-endpoint.png)
+![Workflow diagram showing an Amazon EC2 instance accessing DynamoDB through a router, internet gateway, and the internet.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-no-vpc-endpoint.png)
 
 
 Many customers have legitimate privacy and security concerns about sending and receiving data across the public internet. You can address these concerns by using a virtual private network (VPN) to route all DynamoDB network traffic through your own corporate network infrastructure. However, this approach can introduce bandwidth and availability challenges.
@@ -36,7 +36,7 @@ When you create a VPC endpoint for DynamoDB, any requests to a DynamoDB endpoint
 
 The following diagram shows how an EC2 instance in a VPC can use a VPC endpoint to access DynamoDB.
 
-![Workflow diagram showing an EC2 instance accessing DynamoDB through a router and VPC endpoint only.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-yes-vpc-endpoint.png)
+![Workflow diagram showing an EC2 instance accessing DynamoDB through a router and VPC endpoint only.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-yes-vpc-endpoint.png)
 
 
 For more information, see [Tutorial: Using a VPC endpoint for DynamoDB](#vpc-endpoints-dynamodb-tutorial).

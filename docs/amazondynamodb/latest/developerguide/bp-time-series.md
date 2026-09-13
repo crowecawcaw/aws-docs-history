@@ -36,4 +36,4 @@ For more information about table classes and how to choose between them, see [Dy
 
 The following is a time series data example in which the current table is provisioned at a higher read/write capacity and the older tables are scaled down because they are accessed infrequently.
 
-![Table schema for high-volume time-series data.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/TimeSeries.png)
+![Table schema for high-volume time-series data.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/TimeSeries.png)

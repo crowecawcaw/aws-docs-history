@@ -31,7 +31,7 @@ Follow these steps to create a global table using the console. The following exa
    To create the table, choose **Create**. This table serves as the first replica table in a new global table. It is the prototype for other replica tables that you add later.
 
 1. Choose the **Global Tables** tab, and then choose **Create a Version 2017.11.29 (Legacy) replica**.  
-![Console screenshot showing the Create a Version 2017.11.29 (Legacy) replica button.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/GlobalTables-old.png)
+![Console screenshot showing the Create a Version 2017.11.29 (Legacy) replica button.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/GlobalTables-old.png)
 
 1. From the **Available replication Regions** dropdown, choose **US West (Oregon)**.
 

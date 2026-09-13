@@ -24,15 +24,15 @@ This example application highlights the following DynamoDB data model concepts:
   + The user who uses the **O** symbol on the board. The user who initiates the games uses the **O** symbol.
 
   In addition, the application creates a `StatusDate` concatenated attribute, marking the initial game state as `PENDING`. The following screenshot shows an example item as it appears in the DynamoDB console:  
-![Console screenshot of the attributes table.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-10.png)
+![Console screenshot of the attributes table.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-10.png)
 
   As the game progresses, the application adds one attribute to the table for each game move. The attribute name is the board position, for example `TopLeft` or `BottomRight`. For example, a move might have a `TopLeft` attribute with the value `O`, a `TopRight` attribute with the value `O`, and a `BottomRight` attribute with the value `X`. The attribute value is either `O` or `X`, depending on which user made the move. For example, consider the following board.  
-![Screenshot showing a finished tic-tac-toe game that ended in a tie.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-30.png)
+![Screenshot showing a finished tic-tac-toe game that ended in a tie.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-30.png)
 + ****Concatenated value attributes**** – The `StatusDate` attribute illustrates a concatenated value attribute. In this approach, instead of creating separate attributes to store game status (`PENDING`, `IN_PROGRESS`, and `FINISHED`) and date (when the last move was made), you combine them as single attribute, for example `IN_PROGRESS_2014-04-30 10:20:32`.
 
   The application then uses the `StatusDate` attribute in creating secondary indexes by specifying `StatusDate` as a sort key for the index. The benefit of using the `StatusDate` concatenated value attribute is further illustrated in the indexes discussed next.
 + ****Global secondary indexes**** – You can use the table's primary key, `GameId`, to efficiently query the table to find a game item. To query the table on attributes other than the primary key attributes, DynamoDB supports the creation of secondary indexes. In this example application, you build the following two secondary indexes:   
-![Screenshot showing the hostStatusDate and oppStatusDate global secondary indexes created in the example application.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-indexes-10.png)
+![Screenshot showing the hostStatusDate and oppStatusDate global secondary indexes created in the example application.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-indexes-10.png)
   + **HostId-StatusDate-index**. This index has `HostId` as a partition key and `StatusDate` as a sort key. You can use this index to query on `HostId`, for example to find games hosted by a particular user. 
   + **OpponentId-StatusDate-index**. This index has `OpponentId` as a partition key and `StatusDate` as a sort key. You can use this index to query on `Opponent`, for example to find games where a particular user is the opponent.
 
@@ -64,7 +64,7 @@ Let us see in detail how the application works.
 
 After the user logs in, the application displays the following three lists of information.
 
-![Screenshot showing the application home page with 3 lists: pending invitations, games in progress, and recent history.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-homepage-10.png)
+![Screenshot showing the application home page with 3 lists: pending invitations, games in progress, and recent history.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-homepage-10.png)
 
 + ****Invitations**** – This list shows up to the 10 most recent invitations from others that are pending acceptance by the user who is logged in. In the preceding screenshot, user1 has invitations from user5 and user2 pending.
 + ****Games in-progress**** – This list shows up to the 10 most recent games that are in progress. These are games that the user is actively playing, which have the status `IN_PROGRESS`. In the screenshot, user1 is actively playing a tic-tac-toe game with user3 and user4.
@@ -169,7 +169,7 @@ The `getGamesWithStatus` function runs the following two queries, each time usin
 
 The game page is where the user plays tic-tac-toe games. It shows the game grid along with game-relevant information. The following screenshot shows an example game in progress:
 
-![Screenshot showing a tic-tac-toe game in progress.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-example-board-10.png)
+![Screenshot showing a tic-tac-toe game in progress.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-example-board-10.png)
 
 
 The application displays the game page in the following situations:

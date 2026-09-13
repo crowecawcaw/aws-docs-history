@@ -11,7 +11,7 @@ For more information, see [Default VPC and default subnets](https://docs.aws.ama
 
 The following diagram shows a high-level overview of DAX.
 
-![Workflow diagram showing interaction of application, DAX client, and DAX cluster in a VPC.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax_high_level.png)
+![Workflow diagram showing interaction of application, DAX client, and DAX cluster in a VPC.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax_high_level.png)
 
 
 To create a DAX cluster, you use the AWS Management Console. Unless you specify otherwise, your DAX cluster runs within your default VPC. To run your application, you launch an Amazon EC2 instance into your Amazon VPC. You then deploy your application (with the DAX client) on the EC2 instance.

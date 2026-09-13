@@ -28,7 +28,7 @@ Similarly, you'll notice smaller spikes throughout the month as new backups are 
 
 Here is an example of what you may see in Cost Explorer at the start of the month:
 
-![Image showing DynamoDB billing chart in Cost Explorer.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-backups-billing-ce.png)
+![Image showing DynamoDB billing chart in Cost Explorer.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-backups-billing-ce.png)
 
 
 Notice how February 1st appears to have a much larger spike relative to previous months. Let’s break down why this occurs.

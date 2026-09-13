@@ -21,7 +21,7 @@ Amazon DynamoDB is common target in these data pipelines to support applications
 
 An Integration between Amazon MSK and DynamoDB uses a [Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) function to consume records from Amazon MSK and write them to DynamoDB.
 
-![Diagram showing an integration between Amazon MSK and DynamoDB, and how Amazon MSK uses a Lambda function to consume records and write them to DynamoDB.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-diagram.png)
+![Diagram showing an integration between Amazon MSK and DynamoDB, and how Amazon MSK uses a Lambda function to consume records and write them to DynamoDB.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-diagram.png)
 
 
 Lambda internally polls for new messages from Amazon MSK and then synchronously invokes the target Lambda function. The Lambda function’s event payload contains batches of messages from Amazon MSK. For the integration between Amazon MSK and DynamoDB, the Lambda function writes these messages to DynamoDB.
@@ -43,16 +43,16 @@ To generate test data, create an Amazon MSK topic and then create a DynamoDB tab
 After running the CloudFormation template, you can finish building this architecture by performing the following operations. 
 
 1. Run the CloudFormation template `S3bucket.yaml` to create an S3 bucket. For any subsequent scripts or operations, please run them in the same Region. Enter `ForMSKTestS3` as the CloudFormation stack name.   
-![Image showing the CloudFormation console stack creation screen.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-create-stack.png)
+![Image showing the CloudFormation console stack creation screen.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-create-stack.png)
 
    After this is completed, note down the S3 bucket name output under *Outputs*. You will need the name in Step 3.  
-![Outputs tab showing BucketName key with S3 bucket name value for-msk-ddb-sample-466288479681.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-bucket-name.png)
+![Outputs tab showing BucketName key with S3 bucket name value for-msk-ddb-sample-466288479681.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-bucket-name.png)
 
 1. Upload the downloaded ZIP file `fromMSK.zip` to the S3 bucket you just created.  
-![Image showing where you can upload files in the S3 console.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-zip.png)
+![Image showing where you can upload files in the S3 console.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-zip.png)
 
 1. Run the CloudFormation template `VPC.yaml` to create a VPC, Amazon MSK cluster, and Lambda function. On the parameter input screen, enter the S3 bucket name you created in Step 1 where it asks for the S3 bucket. Set the CloudFormation stack name to `ForMSKTestVPC`.   
-![Image showing the fields you need to fill out when specifying the CloudFormation stack details.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-vpc.png)
+![Image showing the fields you need to fill out when specifying the CloudFormation stack details.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-vpc.png)
 
 1. Prepare the environment for running Python scripts in CloudShell. You can use CloudShell on the AWS Management Console. For more information on using CloudShell, see [Getting started with AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/getting-started.html). After starting CloudShell, create a CloudShell that belongs to the VPC you have just created in order to connect to the Amazon MSK Cluster. Create the CloudShell in a private subnet. Fill in the following fields: 
 
@@ -63,8 +63,8 @@ After running the CloudFormation template, you can finish building this architec
    1. **Subnet** - select **MSKTest Private Subnet (AZ1)**
 
    1. **SecurityGroup** - select **ForMSKSecurityGroup**  
-![CloudShell interface showing ap-southeast-1 environment with Open environment option displayed.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-cshell-1.png)  
-![Image showing a CloudShell environment with the fields you have to specify.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-cshell-2.png)
+![CloudShell interface showing ap-southeast-1 environment with Open environment option displayed.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-cshell-1.png)  
+![Image showing a CloudShell environment with the fields you have to specify.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-cshell-2.png)
 
    After the CloudShell belonging to the Private Subnet has started, run the following command:
 
@@ -80,8 +80,8 @@ After running the CloudFormation template, you can finish building this architec
    ```
 
 1. Check the management console and set the environment variables for the broker URL and Region value in the Python scripts. Check the Amazon MSK cluster broker endpoint in the management console.   
-![Cluster summary page with arrow pointing to View client information button.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-view-client-1.png)  
-![TODO.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-view-client-2.png)
+![Cluster summary page with arrow pointing to View client information button.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-view-client-1.png)  
+![TODO.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-view-client-2.png)
 
 1. Set the environment variables on the CloudShell. If you are using the US West (Oregon):
 
@@ -111,7 +111,7 @@ After running the CloudFormation template, you can finish building this architec
    ```
 
 1. Check the CloudWatch metrics for the created Amazon MSK, Lambda, and DynamoDB resources, and verify the data stored in the `device_status `table using the DynamoDB Data Explorer to make sure all processes ran correctly. If each process is run without error, you can check that the test data written from CloudShell to Amazon MSK is also written to DynamoDB.  
-![Image showing the DynamoDB console and how there are now items returned when you perform a scan.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-explore.png)
+![Image showing the DynamoDB console and how there are now items returned when you perform a scan.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/msk-dynamodb-explore.png)
 
 1. When you're done with this example, delete the resources created in this tutorial. Delete the two CloudFormation stacks: `ForMSKTestS3` and `ForMSKTestVPC`. If the stack deletion completes successfully, all resources will be deleted. 
 

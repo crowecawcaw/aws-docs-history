@@ -23,7 +23,7 @@ Some typical access patterns for this system include:
 
 This is the entity relationship diagram (ERD) we'll be using for monitoring device status updates.
 
-![ERD of device status updates. It shows the entities: Device and Operator.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-1-ERD.jpg)
+![ERD of device status updates. It shows the entities: Device and Operator.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-1-ERD.jpg)
 
 
 ## Access patterns
@@ -52,7 +52,7 @@ These are the access patterns we'll be considering for monitoring device status 
 
 The unit of scaling for a device tracking system would be individual devices. In this system, a `deviceID` uniquely identifies a device. This makes `deviceID` a good candidate for the partition key. Each device sends information to the tracking system periodically (say, every five minutes or so). This ordering makes date a logical sorting criterion and therefore, the sort key. The sample data in this case would look something like this:
 
-![Table to store status of multiple devices. DeviceID is the primary key and status update Date is the sort key.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-2-Step1.png)
+![Table to store status of multiple devices. DeviceID is the primary key and status update Date is the sort key.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-2-Step1.png)
 
 
 To fetch log entries for a specific device, we can perform a [query](Query.md) operation with partition key `DeviceID="d#12345"`.
@@ -63,7 +63,7 @@ Since `State` is a non-key attribute, addressing access pattern 3 with the curre
 
 Let's change how to handle this access pattern by using [composite sort keys](data-modeling-blocks.md#data-modeling-blocks-composite). You can import sample data from [DeviceStateLog\_3.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_3.json) where the sort key is changed to `State#Date`. This sort key is the composition of the attributes `State`, `#`, and `Date`. In this example, `#` is used as a delimiter. The data now looks something like this: 
 
-![Status update data for the device, d#12345, fetched using the composite sort key State#Date.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-3-Step2.png)
+![Status update data for the device, d#12345, fetched using the composite sort key State#Date.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-3-Step2.png)
 
 
 To fetch only warning logs for a device, the query becomes more targeted with this schema. The key condition for the query uses partition key `DeviceID="d#12345"` and sort key `State#Date begins_with “WARNING”`. This query will only read the relevant three items with the *warning* state.
@@ -72,17 +72,17 @@ To fetch only warning logs for a device, the query becomes more targeted with th
 
 You can import [DeviceStateLog\_4.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_4.json)D where the `Operator` attribute was added to the `DeviceStateLog` table with example data.
 
-![DeviceStateLog table design with Operator attribute to get an operator's logs between specific dates.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-4-Step3.png)
+![DeviceStateLog table design with Operator attribute to get an operator's logs between specific dates.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-4-Step3.png)
 
 
 Since `Operator` is not currently a partition key, there is no way to perform a direct key-value lookup on this table based on `OperatorID`. We’ll need to create a new [item collection](WorkingWithItemCollections.md) with a global secondary index on `OperatorID`. The access pattern requires a lookup based on dates so Date is the sort key attribute for the [global secondary index (GSI)](GSI.md). This is what the GSI now looks like:
 
-![GSI design with OperatorID and Date as partition key and sort key to get logs for a specific operator.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-5-Step3.png)
+![GSI design with OperatorID and Date as partition key and sort key to get logs for a specific operator.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-5-Step3.png)
 
 
 For access pattern 4 (`getLogsForOperatorBetweenTwoDates`), you can query this GSI with partition key `OperatorID=Liz` and sort key `Date` between `2020-04-11T05:58:00` and `2020-04-24T14:50:00`.
 
-![Querying on GSI using OperatorID and Date to get logs for an operator between two dates.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-6-GSI1_1.png)
+![Querying on GSI using OperatorID and Date to get logs for an operator between two dates.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-6-GSI1_1.png)
 
 
 **Step 4: Address access patterns 5 (`getEscalatedLogsForSupervisor`) 6 (`getEscalatedLogsWithSpecificStatusForSupervisor`), and 7 (`getEscalatedLogsWithSpecificStatusForSupervisorForDate`)**
@@ -93,12 +93,12 @@ Global secondary indexes are sparse by default, so only items in the base table 
 
 You can import [DeviceStateLog\_6.json](https://github.com/aws-samples/amazon-dynamodb-design-patterns/blob/master/examples/device-state-log/json/DeviceStateLog_6.json) where the `EscalatedTo` attribute was added to the `DeviceStateLog` table with example data. As mentioned earlier, not all of the logs gets escalated to a supervisor.
 
-![GSI design with the EscalatedTo attribute to get all the escalated logs for a supervisor.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-7-Step4.png)
+![GSI design with the EscalatedTo attribute to get all the escalated logs for a supervisor.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-7-Step4.png)
 
 
 You can now create a new GSI where `EscalatedTo` is the partition key and `State#Date` is the sort key. Notice that only items that have both `EscalatedTo` and `State#Date` attributes appear in the index.
 
-![GSI design to get all the items with the EscalatedTo and State#Date attributes.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-8-Step4.png)
+![GSI design to get all the items with the EscalatedTo and State#Date attributes.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-8-Step4.png)
 
 
 The rest of the access patterns are summarized as follows:
@@ -125,17 +125,17 @@ Here are the final schema designs. To download this schema design as a JSON file
 
 **Base table**
 
-![Base table design with device status metadata, such as Device ID, State, and Date.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-9-Table.png)
+![Base table design with device status metadata, such as Device ID, State, and Date.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-9-Table.png)
 
 
 **GSI-1**
 
-![GSI-1 design. It shows the primary key and attributes: DeviceID, State#Date, and State.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-10-GSI1.png)
+![GSI-1 design. It shows the primary key and attributes: DeviceID, State#Date, and State.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-10-GSI1.png)
 
 
 **GSI-2**
 
-![GSI-2 design. It shows the primary key and attributes: DeviceID, Operator, Date, and State.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-11-GSI2.png)
+![GSI-2 design. It shows the primary key and attributes: DeviceID, Operator, Date, and State.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/DeviceStatus-11-GSI2.png)
 
 
 ## Using NoSQL Workbench with this schema design

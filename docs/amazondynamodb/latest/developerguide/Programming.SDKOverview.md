@@ -5,7 +5,7 @@
 
 The following diagram provides a high-level overview of Amazon DynamoDB application programming using the AWS SDKs.
 
-![Programming model for using DynamoDB with AWS SDKs.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/SDKSupport.png)
+![Programming model for using DynamoDB with AWS SDKs.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/SDKSupport.png)
 
 
 1. You write an application using an AWS SDK for your programming language.

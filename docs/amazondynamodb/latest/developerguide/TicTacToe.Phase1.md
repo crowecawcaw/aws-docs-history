@@ -81,19 +81,19 @@ To test the Tic-Tac-Toe application, you need to run DynamoDB locally on your co
    ```
 
    The browser shows the home page.  
-![Screenshot of the application home page with a create button and links to games, invitations, and recent history.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-5.png)
+![Screenshot of the application home page with a create button and links to games, invitations, and recent history.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-5.png)
 
 1. Enter **user1** in the **Log in** box to log in as user1.
 **Note**  
 This example application does not perform any user authentication. The user ID is only used to identify players. If two players log in with the same alias, the application works as if you are playing in two different browsers.
 
 1. If this is your first time playing the game, a page appears requesting you to create the required table (`Games`) in DynamoDB. Choose **CREATE TABLE**.  
-![Screenshot of the create table button in the application.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-10.png)
+![Screenshot of the create table button in the application.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-10.png)
 
 1. Choose **CREATE** to create the first tic-tac-toe game.
 
 1. Enter **user2** in the **Choose an Opponent** box, and choose **Create Game\!**  
-![Screenshot showing the choose an opponent dialog box and create game button.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-20.png)
+![Screenshot showing the choose an opponent dialog box and create game button.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-20.png)
 
    Doing this creates the game by adding an item in the `Games` table. It sets the game status to `PENDING`. 
 
@@ -108,10 +108,10 @@ This example application does not perform any user authentication. The user ID i
 1. Log in as user2.
 
    A page appears that shows a pending invitation from user1.   
-![Screenshot showing the application home page with a pending invitation.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-30.png)
+![Screenshot showing the application home page with a pending invitation.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-30.png)
 
 1. Choose **accept** to accept the invitation.   
-![Screenshot of an empty tic-tac-toe grid with game status in progress.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-40.png)
+![Screenshot of an empty tic-tac-toe grid with game status in progress.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/tic-tac-toe-ddb-local-play-40.png)
 
    The game page appears with an empty tic-tac-toe grid. The page also shows relevant game information such as the game ID, whose turn it is, and game status. 
 

@@ -23,7 +23,7 @@ The following diagram illustrates the four primary scenarios where DynamoDB impl
 
    Consumption exceeds the configured [maximum throughput limits](on-demand-capacity-mode-max-throughput.md) set for a table or GSI. These are limits you configure specifically for cost control purposes.
 
-![The diagram illustrates the four primary reasons why DynamoDB may throttle requests in provisioned and on-demand mode.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/throttling-reasons.png)
+![The diagram illustrates the four primary reasons why DynamoDB may throttle requests in provisioned and on-demand mode.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/throttling-reasons.png)
 
 
 This guide is organized to help you understand and work with throttling in DynamoDB. First, this guide helps you identify the specific type of throttling affecting your workload through a [diagnostic framework](throttling-diagnosing-workflow.md).

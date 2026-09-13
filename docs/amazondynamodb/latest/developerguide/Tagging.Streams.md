@@ -35,7 +35,7 @@ Open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://
 
 The following screenshot shows the **Manage tags** page for a DynamoDB stream, where you add key-value tag pairs and then choose **Save changes**.
 
-![The Manage tags page in the DynamoDB console for a stream on the Movies table, showing empty Key and Value fields, an Add new tag button, and a Save changes button.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/manage-stream-tags-console.png)
+![The Manage tags page in the DynamoDB console for a stream on the Movies table, showing empty Key and Value fields, an Add new tag button, and a Save changes button.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/manage-stream-tags-console.png)
 
 
 ## Tagging existing streams (AWS CLI)

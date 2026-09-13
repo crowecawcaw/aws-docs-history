@@ -39,7 +39,7 @@ The following factors contribute to this type of workload:
 + Unpredictable request timing (resulting in traffic spikes)
 + Drops to zero or below 30% of the peak for a given hour 
 
-![Graphs for unpredictable, variable workload with spikes and periods of low activity.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/choose-on-demand-1.png)![Graphs for unpredictable, variable workload with spikes and periods of low activity.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/choose-on-demand-2.png)
+![Graphs for unpredictable, variable workload with spikes and periods of low activity.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/choose-on-demand-1.png)![Graphs for unpredictable, variable workload with spikes and periods of low activity.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/choose-on-demand-2.png)
 
 
 For workloads with the above factors, using auto scaling to maintain enough capacity on the table to respond to spikes in traffic will likely lead to the table being overprovisioned and costing more than necessary or the table being under provisioned and requests being unnecessarily throttled. On-demand capacity mode is the better choice because it can handle fluctuating traffic without requiring you to predict or adjust capacity.
@@ -58,14 +58,14 @@ The following factors contribute to this type of workload:
 + Steady, predictable and cyclical traffic for a given hour or day
 + Limited short-term bursts of traffic
 
-![Graph depicting a predictable, cyclical workload with limited spikes in traffic.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/choose-provisioned-1.png)
+![Graph depicting a predictable, cyclical workload with limited spikes in traffic.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/choose-provisioned-1.png)
 
 
 Since the traffic volumes within a given hour or day are more stable, you can set the provisioned capacity of the table relatively close to the actual consumed capacity of the table. Cost optimizing a provisioned capacity table is ultimately an exercise in getting the provisioned capacity (blue line) as close to the consumed capacity (orange line) as possible without increasing `ThrottledRequests` on the table. The space between the two lines is both wasted capacity as well as insurance against a bad user experience due to throttling. If you can predict your application’s throughput requirements and you prefer the cost predictability of controlling read and write capacity, then you might want to continue using provisioned tables.
 
 DynamoDB provides auto scaling for provisioned capacity tables which will automatically balance this on your behalf. This lets you track your consumed capacity throughout the day and set the capacity of the table based on a handful of variables. When using auto scaling, your table will be over-provisioned and you need to fine tune the ratio between number of throttles versus over-provisioned capacity units to match your workload needs.
 
-![DynamoDB console. Provisioned capacity and auto scaling are enabled. Target utilization is set to 70.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/TableCapacityModeAutoScaling.png)
+![DynamoDB console. Provisioned capacity and auto scaling are enabled. Target utilization is set to 70.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/TableCapacityModeAutoScaling.png)
 
 
 **Minimum capacity units**  

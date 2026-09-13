@@ -21,7 +21,7 @@ Amazon EventBridge is a serverless service that uses events to connect applicati
 
 The integration between DynamoDB and EventBridge pipes uses DynamoDB Streams to capture a time-ordered sequence of item-level changes in a DynamoDB table. Each record captured this way contains the data modified in the table.
 
-![Image showing how DynamoDB Streams integrate with an Amazon EventBridge bus.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/eventbridge-dynamodb.png)
+![Image showing how DynamoDB Streams integrate with an Amazon EventBridge bus.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/eventbridge-dynamodb.png)
 
 
 An EventBridge pipe consumes events from DynamoDB Streams and routes them to a target such as an EventBridge bus (an event bus is a router that receives events and delivers them to destinations, also called targets). Delivery is based on which rules match the contents of the event. Optionally, the pipe also includes the ability to filter for specific events and perform enrichments on the event data before sending it to the target.
@@ -70,7 +70,7 @@ Follow the steps below to create an integration through the AWS Management Conso
    1. When defining the rule detail, select the name of the event bus you created in step 2 as the **Event bus**.
 
    1. When building the event pattern, follow the guide for **Existing schema**. Here, you can select the *discovered-schemas* registry and the discovered schema for your event. This allows you to configure an event pattern specific to your use case that only routes messages that match specific attributes. For example, if you wanted to match only on DynamoDB items where the SK begins with `“user#”`, you’d use a configuration like this.  
-![Image showing an EventBridge rule where only DynamoDB items that have a sort key beginning with "user#" is displayed.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/eventbridge-rule-example.png)
+![Image showing an EventBridge rule where only DynamoDB items that have a sort key beginning with "user#" is displayed.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/eventbridge-rule-example.png)
 
    1. Choose **Generate event pattern in JSON** after you’ve finished designing a pattern against your schema. If you instead want to match all events that appear on DynamoDB Streams, use the following JSON for the event pattern.
 

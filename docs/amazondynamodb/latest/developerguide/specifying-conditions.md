@@ -19,9 +19,9 @@ In DynamoDB, you can specify conditions in an IAM policy using condition keys, a
 
 In addition to controlling access to DynamoDB API actions, you can also control access to individual data items and attributes. For example, you can do the following:
 + Grant permissions on a table, but restrict access to specific items in that table based on certain primary key values. An example might be a social networking app for games, where all users' saved game data is stored in a single table, but no users can access data items that they do not own, as shown in the following illustration:  
-![A use case which grants table-level access to a user but restricts access to specific data items.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-horizontal.png)
+![A use case which grants table-level access to a user but restricts access to specific data items.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-horizontal.png)
 + Hide information so that only a subset of attributes is visible to the user. An example might be an app that displays flight data for nearby airports, based on the user's location. Airline names, arrival and departure times, and flight numbers are all displayed. However, attributes such as pilot names or the number of passengers are hidden, as shown in the following illustration:   
-![A use case that displays only a subset of data to users, but hides certain attributes of the data.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-vertical.png)
+![A use case that displays only a subset of data to users, but hides certain attributes of the data.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/info-hiding-vertical.png)
 
 To implement this kind of fine-grained access control, you write an IAM permissions policy that specifies conditions for accessing security credentials and the associated permissions. You then apply the policy to users, groups, or roles that you create using the IAM console. Your IAM policy can restrict access to individual items in a table, access to the attributes in those items, or both at the same time.
 
@@ -31,7 +31,7 @@ You use the IAM `Condition` element to implement a fine-grained access control p
 
 The video below explains fine-grained access control in DynamoDB using IAM policy conditions.
 
-[![AWS Videos](http://img.youtube.com/vi/LbEmo_yulb0?si=VTSlNHVocAEYwhJi/0.jpg)](http://www.youtube.com/watch?v=LbEmo_yulb0?si=VTSlNHVocAEYwhJi)
+[![AWS Videos](https://img.youtube.com/vi/LbEmo_yulb0?si=VTSlNHVocAEYwhJi/0.jpg)](https://www.youtube.com/watch?v=LbEmo_yulb0?si=VTSlNHVocAEYwhJi)
 
 
 ## Understanding Fine-Grained Access Control in DynamoDB

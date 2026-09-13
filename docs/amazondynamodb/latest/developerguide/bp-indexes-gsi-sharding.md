@@ -26,7 +26,7 @@ When working with DynamoDB, you can overcome time-based data retrieval challenge
 + GSI Partition Key (PK\_GSI): "ShardNumber\#"
 + GSI Sort Key (SK\_GSI): ISO 8601 timestamp (e.g., "2030-04-01T12:00:00Z")
 
-![Pattern designs for time-series data.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/BestPractices-44-TimeBoundedTable-2.png)
+![Pattern designs for time-series data.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/BestPractices-44-TimeBoundedTable-2.png)
 
 
 ## Sharding strategy
@@ -56,7 +56,7 @@ Querying across all shards for items within a particular time range in a DynamoD
            ":end_date": {"S": "2024-04-30"}
        }'
    ```  
-![Query for single shard example.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/BestPractices-44-single-shard-example.png)
+![Query for single shard example.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/BestPractices-44-single-shard-example.png)
 
    You would replicate this query for each shard, adjusting the partition key accordingly (e.g., "ShardNumber\#1", "ShardNumber\#2", ..., "ShardNumber\#9").
 

@@ -227,7 +227,7 @@ Perform the following steps to upgrade your version of DynamoDB global tables us
 1. Choose the **Global Tables** tab.
 
 1. Choose **Update version**.  
-![Console screenshot showing the Update version button.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/GlobalTables-upgrade.png)
+![Console screenshot showing the Update version button.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/GlobalTables-upgrade.png)
 
 1. Read and agree to the new requirements, and then choose **Update version**.
 

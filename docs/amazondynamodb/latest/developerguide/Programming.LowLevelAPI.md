@@ -27,7 +27,7 @@ For more information about JSON, see [Introducing JSON](http://json.org) on the 
 + [Numeric data](#Programming.LowLevelAPI.Numbers)
 + [Binary data](#Programming.LowLevelAPI.Binary)
 
-![DynamoDB low-level API and how AWS SDKs handle the protocol-level requests and responses.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/SDKSupport.DDBLowLevelAPI.png)
+![DynamoDB low-level API and how AWS SDKs handle the protocol-level requests and responses.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/SDKSupport.DDBLowLevelAPI.png)
 
 
 ## Request format

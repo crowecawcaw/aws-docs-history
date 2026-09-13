@@ -21,7 +21,7 @@ A traditional relational database management system (RDBMS) stores data in a nor
 
 The following schema is an example of a relational data model for a generic order-entry application. The application supports a human resources schema that backs the operational and business support systems of a theoretical manufacturer.
 
-![Example RDBMS schema.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/RDBMS.png)
+![Example RDBMS schema.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/RDBMS.png)
 
 
 As a non-relational database service, DynamoDB offers many advantages over traditional relational database management systems. 

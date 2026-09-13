@@ -98,7 +98,7 @@ A longer TTL duration can cause stale data to remain in your secondary Region fo
 
 The following diagram shows data replication occurring at the global table level in the source Region A. The DAX cluster in Region B isn't immediately aware of the newly replicated data from the source Region A.
 
-![A global table replicates Item v2 from Region A to Region B. Region B DAX cluster B is unaware of Item v2.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-ddb-gt-data-replication.png)
+![A global table replicates Item v2 from Region A to Region B. Region B DAX cluster B is unaware of Item v2.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-ddb-gt-data-replication.png)
 
 
 ## DAX Region availability

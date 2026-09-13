@@ -20,7 +20,7 @@ This use case talks about using DynamoDB as a social network. A social network i
 
 This is the entity relationship diagram (ERD) we'll be using for the social network schema design.
 
-![ERD for a social network application that shows entities, such as User, Post, and Follower.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetworkERD.png)
+![ERD for a social network application that shows entities, such as User, Post, and Follower.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetworkERD.png)
 
 
 ## Social network access patterns
@@ -50,14 +50,14 @@ In our example, we track two types of data for our user: their "count" and their
 
 We see these two kinds of data represented by the two items below. The item that has "count" in its sort key (SK) is more likely to change than the item with "info." DynamoDB considers the size of the item as it appears before and after the update and the provisioned throughput consumed will reflect the larger of these item sizes. So even if you update just a subset of the item's attributes, [`UpdateItem`](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html) will still consume the full amount of provisioned throughput (the larger of the before and after item sizes). You can get the items with a single `Query` operation and use `UpdateItem` to add or subtract from existing numeric attributes.
 
-![Result of the Query operation for a user with ID u#12345 and their count and info data.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork1.png)
+![Result of the Query operation for a user with ID u#12345 and their count and info data.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork1.png)
 
 
 **Step 2: Address access pattern 2 (`getFollowerListByUserID`)**
 
 To get a list of users who are following a given user, we'll need to `Query` the base table with a key condition of `PK=<userID>#follower`. 
 
-![Result of Query operation on a table to list the followers of the user with ID u#12345.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork2.png)
+![Result of Query operation on a table to list the followers of the user with ID u#12345.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork2.png)
 
 
 **Step 3: Address access pattern 3 (`getFollowingListByUserID`)**
@@ -66,21 +66,21 @@ To get a list of users a given user is following, we'll need to `Query` the base
 + Add User A to User B's follower list, and then increment User B's follower count by one.
 + Add User B to User A's follower list, and then increment User A's follower count by one.
 
-![Result of Query operation on a table to list all users the user with ID u#12345 is following.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork3.png)
+![Result of Query operation on a table to list all users the user with ID u#12345 is following.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork3.png)
 
 
 **Step 4: Address access pattern 4 (`getPostListByUserID`)**
 
 To get a list of posts created by a given user, we'll need to `Query` the base table with a key condition of `PK=<userID>#post`. One important thing to note here is that a user's postIDs must be incremental: the second postID value must be greater than the first postID value (since users want to see their posts in a sorted manner). You can do this by generating postIDs based on a time value like a Universally Unique Lexicographically Sortable Identifier (ULID).
 
-![Result of Query operation with a key condition to get a list of posts created by a specific user.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork4.png)
+![Result of Query operation with a key condition to get a list of posts created by a specific user.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork4.png)
 
 
 **Step 5: Address access pattern 5 (`getUserLikesByPostID`)**
 
 To get a list of users who liked a given user's post, we'll need to `Query` the base table with a key condition of `PK=<postID>#likelist`. This approach is the same pattern that we used for retrieving the follower and following lists in access pattern 2 (`getFollowerListByUserID`) and access pattern 3 (`getFollowingListByUserID`).
 
-![Result of Query operation with a key condition to get a list of users who liked a specific user’s post.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork5.png)
+![Result of Query operation with a key condition to get a list of users who liked a specific user’s post.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork5.png)
 
 
 **Step 6: Address access pattern 6 (`getLikeCountByPostID`)**
@@ -89,7 +89,7 @@ To get a count of likes for a given post, we'll need to perform a [`GetItem`](ht
 
 You should evaluate whether it's really essential for all users to view the like count simultaneously or if it can happen gradually over time. In general, a post's like count doesn't need to be immediately 100% accurate. You can implement this strategy by putting a queue between your application and DynamoDB to have the updates happen periodically.
 
-![Result of GetItem operation with a key condition to get the count of likes for a specific post.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork6.png)
+![Result of GetItem operation with a key condition to get the count of likes for a specific post.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork6.png)
 
 
 **Step 7: Address access pattern 7 (`getTimelineByUserID`)**
@@ -98,7 +98,7 @@ To get the timeline for a given user, we'll need to perform a `Query` operation 
 
 The timeline is a place that shows recent posts, so we'll need a way to clean up the old ones. Instead of using WCU to delete them, you can use DynamoDB's [TTL](TTL.md) feature to do it for free.
 
-![Result of Query operation with a key condition to get the timeline for a given user showing their recent posts.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork7.png)
+![Result of Query operation with a key condition to get the timeline for a given user showing their recent posts.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork7.png)
 
 
 All access patterns and how the schema design addresses them are summarized in the table below:
@@ -121,7 +121,7 @@ Here is the final schema design. To download this schema design as a JSON file, 
 
 **Base table:**
 
-![Final schema design of a table that contains results of the preceding Query and GetItem operations.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork8.png)
+![Final schema design of a table that contains results of the preceding Query and GetItem operations.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SocialNetwork8.png)
 
 
 ## Using NoSQL Workbench with this schema design

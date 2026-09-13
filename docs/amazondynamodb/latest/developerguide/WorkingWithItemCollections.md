@@ -10,7 +10,7 @@ Item collections can exist either in a base table or a secondary index. For more
 
 Consider the following table showing three different users and their in-game inventories:
 
-![Three different item collections with different attributes.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/item_collection.png)
+![Three different item collections with different attributes.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/item_collection.png)
 
 
 For some items in each collection, the sort key is a concatenation made up of information used to group data, such as `inventory::armor`, `inventory::weapon` or `info`. Each item collection can have a different combination of these attributes as the sort key. User `account1234` has an `inventory::weapons` item, while user `account1387` does not (because they have not found any yet). User `account1138` only uses two items for their sort key (since they have no inventory yet) while the other users use three.

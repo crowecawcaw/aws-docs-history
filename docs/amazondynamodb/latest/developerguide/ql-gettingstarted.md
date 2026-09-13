@@ -14,7 +14,7 @@ To [download](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/w
 ------
 #### [ Console ]
 
-![PartiQL editor interface that shows the result of running the Query operation on the Music table.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/partiqlgettingstarted.png)
+![PartiQL editor interface that shows the result of running the Query operation on the Music table.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/partiqlgettingstarted.png)
 
 
 1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/).
@@ -34,7 +34,7 @@ To [download](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/w
 ------
 #### [ NoSQL workbench ]
 
-![NoSQL workbench interface. It shows a PartiQL SELECT statement that you can run on the Music table.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/workbench/partiql.single.png)
+![NoSQL workbench interface. It shows a PartiQL SELECT statement that you can run on the Music table.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/workbench/partiql.single.png)
 
 
 1. Choose **PartiQL statement**.

@@ -19,7 +19,7 @@ For more details on secondary indexes and best practices, you can refer to the f
 
 Let's now look at data modeling a little closer. The process of designing a flexible and highly-optimized schema on DynamoDB, or any NoSQL database for that matter, can be a challenging skill to learn. The goal of this module is to help you develop a mental flowchart for designing a schema that will take you from use case into production. We will start with an introduction to the foundational choice of any design, single table versus multiple table design. Then we will review the multitude of design patterns (building blocks) that can be used to achieve various organizational or performance results for your application. Finally, we are including a variety of complete schema design packages for different use cases and industries.
 
-![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SchemaDesign.png)
+![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SchemaDesign.png)
 
 
 **Topics**

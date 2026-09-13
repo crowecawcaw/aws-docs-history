@@ -18,7 +18,7 @@ You can enable TTL in the Amazon DynamoDB Console, the AWS Command Line Interfac
 1. In the **Additional settings** tab, in the **Time to Live (TTL)** section, choose **Turn on** to enable TTL.
 
 1. When enabling TTL on a table, DynamoDB requires you to identify a specific attribute name that the service will look for when determining if an item is eligible for expiration. The TTL attribute name, shown below, is case sensitive and must match the attribute defined in your read and write operations. A mismatch will cause expired items to go undeleted. Renaming the TTL attribute requires you to disable TTL and then re-enable it with the new attribute going forward. TTL will continue to process deletions for approximately 30 minutes after it is disabled. TTL must be reconfigured on restored tables.  
-![Case-sensitive TTL attribute name that DynamoDB uses to determine an item's eligiblity for expiration.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/EnableTTL-Settings.png)
+![Case-sensitive TTL attribute name that DynamoDB uses to determine an item's eligiblity for expiration.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/EnableTTL-Settings.png)
 
 1. (Optional) You can perform a test by simulating the date and time of the expiration and matching a few items. This provides you with a sample list of items and confirms that there are items containing the TTL attribute name provided along with the expiration time.
 

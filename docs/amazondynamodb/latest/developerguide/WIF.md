@@ -37,7 +37,7 @@ When a user wants to play a game, they sign in to their Login with Amazon accoun
 
 The following diagram shows how these pieces fit together.
 
-![A gaming app’s workflow. The app uses Amazon ID and AWS STS to obtain temporary credentials for accessing a DynamoDB table.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/wif-overview.png)
+![A gaming app’s workflow. The app uses Amazon ID and AWS STS to obtain temporary credentials for accessing a DynamoDB table.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/wif-overview.png)
 
 
 **Web identity federation overview**

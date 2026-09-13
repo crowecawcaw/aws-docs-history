@@ -41,19 +41,19 @@ The console provides an intuitive way to enable Contributor Insights and select 
 1. Choose the **Monitor** tab.
 
 1. Choose **Turn on CloudWatch Contributor Insights**.  
-![Console screenshot showing monitor tab and button.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_ChooseAndManageNew.PNG)
+![Console screenshot showing monitor tab and button.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_ChooseAndManageNew.PNG)
 
 1. In the **Manage CloudWatch Contributor Insights settings** dialog box, toggle **Turn on** for both the `Music` base table and the `AlbumTitle-index` global secondary index.
 
 1. Leave the **Only throttled keys mode** toggle in the off position for both and then choose **Save changes**.  
-![Console screenshot showing Contributor Insights status list options.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_Enable.png)
+![Console screenshot showing Contributor Insights status list options.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_Enable.png)
 
    This enables the default *accessed and throttled keys* mode for both the table and GSI, which provides monitoring of both accessed and throttled items. Switching the **Only throttled keys mode** toggle to the on position would enable the *throttled keys* mode.
 
    If the operation fails, see [DescribeContributorInsights FailureException](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeContributorInsights.html#DDB-DescribeContributorInsights-response-FailureException) in the *Amazon DynamoDB API Reference* for possible reasons.
 
 1. The CloudWatch Contributor Insights graphs are now visible on the **Monitor** tab for the `Music` table. Since you enabled *accessed and throttled keys* mode, you see both accessed and throttled item graphs.  
-![Console screenshot showing Contributor Insights tab with several graphs for the music table.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_Graphs.png)
+![Console screenshot showing Contributor Insights tab with several graphs for the music table.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_Graphs.png)
 
 ### Switching between modes
 <a name="usecontributorinsights_console.switching-modes"></a>
@@ -92,15 +92,15 @@ Follow these steps to create a CloudWatch alarm and be notified when any partiti
 1. Choose **Max Contributor Value**.
 **Note**  
 Only `Max Contributor Value` and `Maximum` return useful statistics. The other statistics in this list don't return meaningful values.  
-![Console screenshot showing Contributor Insights tab and button.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_AlarmsViewinMetrics.png)
+![Console screenshot showing Contributor Insights tab and button.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_AlarmsViewinMetrics.png)
 
 1. On the **Actions** column, Choose **Create Alarm**.  
-![Console screenshot showing Contributor Insights status list options.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_AlarmsSetAlarm.png)
+![Console screenshot showing Contributor Insights status list options.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_AlarmsSetAlarm.png)
 
 1. Enter an appropriate threshold value and choose **Next**:
    + For accessed items (PKC rules): Enter 50000 for `ConsumedThroughputUnits`
    + For throttled items (PKT rules): Enter 1 for `ThrottleCount` to be alerted on any throttling  
-![Console screenshot showing Contributor Insights tab and button.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_AlarmsSetAlarmThreashold.png)
+![Console screenshot showing Contributor Insights tab and button.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_AlarmsSetAlarmThreashold.png)
 
 1.  See [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) for details on how to configure the notification for the alarm.
 

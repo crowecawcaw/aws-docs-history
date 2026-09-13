@@ -20,7 +20,7 @@ Some comments may have attachments describing the complaint or solution. While t
 
 The following diagram shows the architecture diagram of the complaint management system. This diagram shows the different AWS service integrations that the complaint management system uses.
 
-![Combined workflow to fulfill non-transactional requirements using integrations with several AWS services.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-1-AD.jpg)
+![Combined workflow to fulfill non-transactional requirements using integrations with several AWS services.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-1-AD.jpg)
 
 
 Apart from the key-value transactional access patterns that we will be handling in the DynamoDB data modeling section later, we have three non-transactional requirements. The architecture diagram above can be broken down into the following three workflows:
@@ -37,7 +37,7 @@ Let's take a more in-depth look at each one.
 
 We can use the below workflow to achieve this requirement:
 
-![Workflow to invoke Lambda functions to send notifications based on changes recorded by DynamoDB Streams.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-2-Workflow1.jpg)
+![Workflow to invoke Lambda functions to send notifications based on changes recorded by DynamoDB Streams.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-2-Workflow1.jpg)
 
 
 [DynamoDB Streams](Streams.md) is a change data capture mechanism to record all write activity on your DynamoDB tables. You can configure Lambda functions to trigger on some or all of these changes. An [event filter](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) can be configured on Lambda triggers to filter out events that are not relevant to the use-case. In this instance, we can use a filter to trigger Lambda only when a new comment is added and send out notification to relevant email ID(s) which can be fetched from [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) or any other credential store.
@@ -46,7 +46,7 @@ We can use the below workflow to achieve this requirement:
 
 DynamoDB is suitable for workloads that are primarily focused on online transactional processing (OLTP). For the other 10-20% access patterns with analytical requirements, data can be exported to S3 with the managed [Export to Amazon S3](S3DataExport.HowItWorks.md) feature with no impact to the live traffic on DynamoDB table. Take a look at this workflow below:
 
-![Workflow to periodically invoke a Lambda function to store DynamoDB data in an Amazon S3 bucket.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-3-Workflow2.jpg)
+![Workflow to periodically invoke a Lambda function to store DynamoDB data in an Amazon S3 bucket.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-3-Workflow2.jpg)
 
 
 [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is) can be used to trigger AWS Lambda on schedule - it allows you to configure a cron expression for Lambda invocation to take place periodically. Lambda can invoke the `ExportToS3` API call and store DynamoDB data in S3. This S3 data can then be accessed by a SQL engine such as [Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/what-is) to run analytical queries on DynamoDB data without affecting the live transactional workload on the table. A sample Athena query to find number of complaints per severity level would look like this:
@@ -60,14 +60,14 @@ GROUP BY Item.severity.S ;
 
 This results in the following Athena query result:
 
-![Athena query results showing number of complaints for severity levels P3, P2, and P1.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-4-Athena.png)
+![Athena query results showing number of complaints for severity levels P3, P2, and P1.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-4-Athena.png)
 
 
 **Archive data older than three years**
 
 You can leverage the DynamoDB [Time to Live (TTL)](TTL.md) feature to delete obsolete data from your DynamoDB table at no additional cost (except in the case of global tables replicas for the 2019.11.21 (Current) version, where TTL deletes replicated to other Regions consume write capacity). This data appears and can be consumed from DynamoDB Streams to be archived off into Amazon S3. The workflow for this requirement is as follows:
 
-![Workflow to archive old data in an Amazon S3 bucket using the TTL feature and DynamoDB Streams.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-5-Workflow3.jpg)
+![Workflow to archive old data in an Amazon S3 bucket using the TTL feature and DynamoDB Streams.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-5-Workflow3.jpg)
 
 
 ## Complaint management system entity relationship diagram
@@ -75,7 +75,7 @@ You can leverage the DynamoDB [Time to Live (TTL)](TTL.md) feature to delete obs
 
 This is the entity relationship diagram (ERD) we'll be using for the complaint management system schema design. 
 
-![Complaint management system ERD that shows the entities Customer, Complaint, Comment, and Agent.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-6-ERD.jpg)
+![Complaint management system ERD that shows the entities Customer, Complaint, Comment, and Agent.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-6-ERD.jpg)
 
 
 ## Complaint management system access patterns
@@ -124,7 +124,7 @@ We can use a generic sort key valued called "metadata" (or "AA") to store compla
 
 1. [`GetItem`](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html) to fetch metadata for the complaint
 
-![Primary key, sort key, and attribute values, such as customer_id and severity, for a complaint item.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-7-Step1.png)
+![Primary key, sort key, and attribute values, such as customer_id and severity, for a complaint item.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-7-Step1.png)
 
 
 **Step 2: Address access pattern 5 (`addCommentByComplaintID`)**
@@ -135,19 +135,19 @@ Other options to deal with such possible comment collisions would be to increase
 
 We also need to make sure that the `currentState` in the complaint metadata reflects the state when a new comment is added. Adding a comment might indicate that the complaint has been assigned to an agent or it has been resolved and so on. In order to bundle the addition of comment and update of current state in the complaint metadata, in an all-or-nothing manner, we will use the [TransactWriteItems](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html) API. The resulting table state now looks like this:
 
-![Table to store a complaint with its comments as a one-to-many relationship using a composite sort key.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-8-Step2.png)
+![Table to store a complaint with its comments as a one-to-many relationship using a composite sort key.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-8-Step2.png)
 
 
 Let’s add some more data in the table and also add `ComplaintID` as a separate field from our `PK` for future-proofing the model in case we need additional indexes on `ComplaintID`. Also note that some comments may have attachments which we will store in Amazon Simple Storage Service and only maintain their references or URLs in DynamoDB. It’s a best practice to keep the transactional database as lean as possible to optimize cost and performance. The data now looks like this:
 
-![Table with complaint metadata and the data of all comments associated with each complaint.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-9-Step3.png)
+![Table with complaint metadata and the data of all comments associated with each complaint.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-9-Step3.png)
 
 
 **Step 3: Address access patterns 6 (`getAllCommentsByComplaintID`) and 7 (`getLatestCommentByComplaintID`)**
 
 In order to get all comments for a complaint, we can use the [`query`](Query.md) operation with the `begins_with` condition on the sort key. Instead of consuming additional read capacity to read the metadata entry and then having the overhead of filtering the relevant results, having a sort key condition like this help us only read what we need. For example, a query operation with `PK=Complaint123` and `SK` begins\_with `comm#` would return the following while skipping the metadata entry:
 
-![Query operation result using a sort key condition that only displyas a complaint's comments.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-10-Step4.png)
+![Query operation result using a sort key condition that only displyas a complaint's comments.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-10-Step4.png)
 
 
 Since we need the latest comment for a complaint in pattern 7 (`getLatestCommentByComplaintID`), let's use two additional query parameters:
@@ -158,12 +158,12 @@ Since we need the latest comment for a complaint in pattern 7 (`getLatestComment
 
 Similar to access pattern 6 (`getAllCommentsByComplaintID`), we skip the metadata entry using `begins_with` `comm#` as the sort key condition. Now, you can perform access pattern 7 on this design using the query operation with `PK=Complaint123` and `SK=begins_with comm#`, `ScanIndexForward=False`, and `Limit` 1. The following targeted item will be returned as a result:
 
-![Result of query operation using a sort key condition to get a complaint's last comment.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-11-Step5.png)
+![Result of query operation using a sort key condition to get a complaint's last comment.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-11-Step5.png)
 
 
 Let's add more dummy data to the table.
 
-![Table with dummy data to get latest comments on complaints received.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-12-Step6.png)
+![Table with dummy data to get latest comments on complaints received.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-12-Step6.png)
 
 
 **Step 4: Address access patterns 8 (`getAComplaintbyCustomerIDAndComplaintID`) and 9 (`getAllComplaintsByCustomerID`)**
@@ -172,17 +172,17 @@ Access patterns 8 (`getAComplaintbyCustomerIDAndComplaintID`) and 9 (`getAllComp
 
 The data in the GSI would look like this:
 
-![GSI with a one-to-many relationship model to get all complaints by a specific CustomerID.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-13-Step4-GSI.png)
+![GSI with a one-to-many relationship model to get all complaints by a specific CustomerID.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-13-Step4-GSI.png)
 
 
  An example query on this GSI for access pattern 8 (`getAComplaintbyCustomerIDAndComplaintID`) would be: `customer_id=custXYZ`, `sort key=Complaint1321`. The result would be:
 
-![Query operation result on a GSI to get data of a specific complaint by a given customer.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-14-Step4-8.png)
+![Query operation result on a GSI to get data of a specific complaint by a given customer.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-14-Step4-8.png)
 
 
 To get all complaints for a customer for access pattern 9 (`getAllComplaintsByCustomerID`), the query on the GSI would be: `customer_id=custXYZ` as the partition key condition. The result would be:
 
-![Query operation result using a partition key condition to get all complaints by a given customer.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-15-Step4-9.png)
+![Query operation result using a partition key condition to get all complaints by a given customer.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-15-Step4-9.png)
 
 
 **Step 5: Address access pattern 10 (`escalateComplaintByComplaintID`)**
@@ -191,14 +191,14 @@ This access introduces the escalation aspect. To escalate a complaint, we can us
 
 `UpdateItem with PK=Complaint1444, SK=metadata`
 
-![Result of updating complaint metadata using UpdateItem API operation.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-16-Step5.png)
+![Result of updating complaint metadata using UpdateItem API operation.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-16-Step5.png)
 
 
 **Step 6: Address access patterns 11 (`getAllEscalatedComplaints`) and 12 (`getEscalatedComplaintsByAgentID`)**
 
 Only a handful of complaints are expected to be escalated out of the whole data set. Therefore, creating an index on the escalation-related attributes would lead to efficient lookups as well as cost-effective GSI storage. We can do this by leveraging the [sparse index](data-modeling-blocks.md#data-modeling-blocks-sparse-index) technique. The GSI with partition key as `escalated_to` and sort key as `escalation_time` would look like this:
 
-![GSI design using escalation-related attributes, escalated_to and escalation_time.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-17-Step6.png)
+![GSI design using escalation-related attributes, escalated_to and escalation_time.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-17-Step6.png)
 
 
 To get all escalated complaints for access pattern 11 (`getAllEscalatedComplaints`), we simply scan this GSI. Note that this scan will be performant and cost-efficient due to the size of the GSI. To get escalated complaints for a specific agent (access pattern 12 (`getEscalatedComplaintsByAgentID`)), the partition key would be `escalated_to=agentID` and we set `ScanIndexForward` to `False` for ordering from newest to oldest.
@@ -207,12 +207,12 @@ To get all escalated complaints for access pattern 11 (`getAllEscalatedComplaint
 
 For the last access pattern, we need to perform a lookup by a new dimension: `AgentID`. We also need time-based ordering to read comments between two dates so we create a GSI with `agent_id` as the partition key and `comm_date` as the sort key. The data in this GSI will look like the following:
 
-![GSI design to lookup comments by a given agent sorted using comment date.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-18.png)
+![GSI design to lookup comments by a given agent sorted using comment date.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-18.png)
 
 
 An example query on this GSI would be `partition key agentID=AgentA` and `sort key=comm_date between (2023-04-30T12:30:00, 2023-05-01T09:00:00)`, the result of which is:
 
-![Result of query using a partition key and sort key on a GSI.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-19.png)
+![Result of query using a partition key and sort key on a GSI.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-19.png)
 
 
 All access patterns and how the schema design addresses them are summarized in the table below:
@@ -241,22 +241,22 @@ Here are the final schema designs. To download this schema design as a JSON file
 
 **Base table**
 
-![Base table design with complaint metadata.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-20-Complaint_management_system.png)
+![Base table design with complaint metadata.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-20-Complaint_management_system.png)
 
 
 **Customer\_Complaint\_GSI**
 
-![GSI design showing complaints by a given customer.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-21-Customer_Complaint_GSI.png)
+![GSI design showing complaints by a given customer.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-21-Customer_Complaint_GSI.png)
 
 
 **Escalations\_GSI**
 
-![GSI design showing escalation-related attributes.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-22-Escalations_GSI.png)
+![GSI design showing escalation-related attributes.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-22-Escalations_GSI.png)
 
 
 **Agents\_Comments\_GSI**
 
-![GSI design showing comments made by a given agent.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-23-Comments_GSI.png)
+![GSI design showing comments made by a given agent.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/ComplaintManagement-23-Comments_GSI.png)
 
 
 ## Using NoSQL Workbench with this schema design

@@ -34,7 +34,7 @@ To create a new `Music` table using the DynamoDB console:
 1. For **Table settings**, keep the default selection of **Default settings**.
 
 1. Choose **Create table** to create the table.  
-![The Create table page with the Table details filled in.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/GettingStarted/CreateTableMusic.png)
+![The Create table page with the Table details filled in.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/GettingStarted/CreateTableMusic.png)
 
 1. Once the table is in `ACTIVE` status, we recommend that you enable [Point-in-time backups for DynamoDB](Point-in-time-recovery.md) on the table by performing the following steps:
 

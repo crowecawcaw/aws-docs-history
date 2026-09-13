@@ -5,7 +5,7 @@
 
 This section covers the foundation layer by examining the two types of table design: single table and multiple table.
 
-![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks. Emphasis on the foundation.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SchemaDesignFoundation.png)
+![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks. Emphasis on the foundation.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SchemaDesignFoundation.png)
 
 
 ## Single table design foundation
@@ -13,7 +13,7 @@ This section covers the foundation layer by examining the two types of table des
 
 One choice for the foundation of our DynamoDB schema is **single table design**. Single table design is a pattern that allows you to store multiple types (entities) of data in a single DynamoDB table. It aims to optimize data access patterns, improve performance, and reduce costs by eliminating the need for maintaining multiple tables and complex relationships between them. This is possible because DynamoDB stores items with the same partition key (known as an item collection) on the same partition(s) as each other. In this design, different types of data are stored as items in the same table, and each item is identified by a unique sort key.
 
-![Image showing a table and how the sort key is used to differentiate each item by entity type within the same UserID Item collection.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SingleTableSchema.png)
+![Image showing a table and how the sort key is used to differentiate each item by entity type within the same UserID Item collection.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SingleTableSchema.png)
 
 
 **Advantages**
@@ -50,10 +50,10 @@ Single table design works well for applications that frequently query multiple e
 
 The second choice for the foundation of our DynamoDB schema is multiple table design****. Multiple table design is a pattern that is more like a traditional database design where you store a single type(entity) of data in a each DynamoDB table. Data within each table will still be organized by partition key so performance within a single entity type will be optimized for scalability and performance, but queries across multiple tables must be done independently.
 
-![Image showing a forum table containing a list of forums and some aggregate data.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/MultipleTable1.png)
+![Image showing a forum table containing a list of forums and some aggregate data.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/MultipleTable1.png)
 
 
-![Image showing a thread table containing a list of threads partitioned by the specific forum they belong to.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/MultipleTable2.png)
+![Image showing a thread table containing a list of threads partitioned by the specific forum they belong to.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/MultipleTable2.png)
 
 
 **Advantages**

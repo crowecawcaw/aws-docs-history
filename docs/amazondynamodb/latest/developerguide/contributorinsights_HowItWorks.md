@@ -160,7 +160,7 @@ In *throttled keys* mode, this is the only type of graph you'll see. The absence
 
 The following example shows the reports generated for a table with both a partition keys and sort keys in *accessed and throttled keys* modes. In *throttled keys* mode, you see only the throttling-related portion of this report.
 
-![4 different Contributor Insights reports showing most accessed items and most throttled items.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_Graphs_Example.png)
+![4 different Contributor Insights reports showing most accessed items and most throttled items.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CI_Graphs_Example.png)
 
 
 ## Interactions with other DynamoDB features

@@ -5,7 +5,7 @@
 
 Every [AWS SDK](https://aws.amazon.com/tools) provides one or more programmatic interfaces for working with Amazon DynamoDB. These interfaces range from simple low-level DynamoDB wrappers to object-oriented persistence layers. The available interfaces vary depending on the AWS SDK and programming language that you use.
 
-![Programmatic interfaces available in different AWS SDKs for working with DynamoDB.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/SDKSupport.SDKInterfaces.png)
+![Programmatic interfaces available in different AWS SDKs for working with DynamoDB.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/SDKSupport.SDKInterfaces.png)
 
 
 The following section highlights some of the interfaces available, using the AWS SDK for Java as an example. (Not all interfaces are available in all AWS SDKs.)

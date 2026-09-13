@@ -104,10 +104,10 @@ You can use either the AWS CLI or AWS Management Console to monitor and identify
 1. On the left navigation bar, select **Tables**. On the **Tables** page, select the table's **Name**.
 
 1. On the *Table details* page, choose **Additional settings**, and then review your table's auto scaling settings.  
-![DynamoDB table details page with auto scaling settings. Review the provisioned capacity utilization and adjust as needed.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings1.png)
+![DynamoDB table details page with auto scaling settings. Review the provisioned capacity utilization and adjust as needed.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings1.png)
 
    For indexes, expand the **Index capacity** section to review the index's auto scaling settings.  
-![DynamoDB console's Index capacity section. Review and manage auto scaling settings for indexes.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings2.png)
+![DynamoDB console's Index capacity section. Review and manage auto scaling settings for indexes.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings2.png)
 
 ------
 
@@ -211,15 +211,15 @@ You can use AWS CLI to execute the following steps to create a scheduled auto sc
 
 The following picture shows a sample workload that always keeps the 70% target utilization. Notice how the auto scaling rules are still applying and the throughput will not be reduced.
 
-![A table's throughput at 70% target utilization, even as auto scaling rules adjust capacity.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings3.png)
+![A table's throughput at 70% target utilization, even as auto scaling rules adjust capacity.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings3.png)
 
 
 Zooming in, you can see there was a spike in the application that triggered the 70% auto scaling threshold, forcing the auto scaling to kick in and provide the extra capacity required for the table. The scheduled auto scaling action will affect maximum and minimum values, and it is your responsibility to set them up.
 
-![Spike in a DynamoDB table throughput that initiates auto scaling to provide required extra capacity.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings4.png)
+![Spike in a DynamoDB table throughput that initiates auto scaling to provide required extra capacity.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings4.png)
 
 
-![DynamoDB table's auto scaling configuration: Target utilization and minimum and maximum capacity values.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings5.png)
+![DynamoDB table's auto scaling configuration: Target utilization and minimum and maximum capacity values.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/AutoScalingSettings5.png)
 
 
 ## How to address spiky workloads with unknown patterns

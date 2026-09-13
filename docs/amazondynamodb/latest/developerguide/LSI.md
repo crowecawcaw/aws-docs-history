@@ -23,7 +23,7 @@ Some applications only need to query data using the base table's primary key. Ho
 
 As an example, consider the `Thread` table. This table is useful for an application such as the [AWS discussion forums](https://forums.aws.amazon.com/). The following diagram shows how the items in the table would be organized. (Not all of the attributes are shown.)
 
-![Thread table containing a list of forum names, subjects, last post time, and number of replies.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/LSI_01.png)
+![Thread table containing a list of forum names, subjects, last post time, and number of replies.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/LSI_01.png)
 
 
 DynamoDB stores all of the items with the same partition key value continuously. In this example, given a particular `ForumName`, a `Query` operation could immediately locate all of the threads for that forum. Within a group of items with the same partition key value, the items are sorted by sort key value. If the sort key (`Subject`) is also provided in the query, DynamoDB can narrow down the results that are returned—for example, returning all of the threads in the "S3" forum that have a `Subject` beginning with the letter "a".
@@ -43,7 +43,7 @@ Suppose that an application needs to find all of the threads that have been post
 
 The following diagram shows a local secondary index named `LastPostIndex`. Note that the partition key is the same as that of the `Thread` table, but the sort key is `LastPostDateTime`.
 
-![LastPostIndex table containing a list of forum names, subjects, and last post time.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/LSI_02.png)
+![LastPostIndex table containing a list of forum names, subjects, and last post time.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/LSI_02.png)
 
 
 Every local secondary index must meet the following conditions:
@@ -69,7 +69,7 @@ Suppose that you wanted to populate a webpage with a list of all the threads in 
 
 The most efficient way to query this data and to avoid fetch operations would be to project the `Replies` attribute from the table into the local secondary index, as shown in this diagram.
 
-![LastPostIndex table containing a list of forum names, last post times, subjects, and replies.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/LSI_03.png)
+![LastPostIndex table containing a list of forum names, last post times, subjects, and replies.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/LSI_03.png)
 
 
 
@@ -228,7 +228,7 @@ In DynamoDB, an *item collection* is any group of items that have the same parti
 
 The following diagram shows the item collection for forum `S3`.
 
-![A DynamoDB item collection with table and Local Secondary Index items that have the same partition key value of S3.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/LSI_04.png)
+![A DynamoDB item collection with table and Local Secondary Index items that have the same partition key value of S3.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/LSI_04.png)
 
 
 In this diagram, the item collection consists of all the items in `Thread` and `LastPostIndex` where the `ForumName` partition key value is "S3". If there were other local secondary indexes on the table, any items in those indexes with `ForumName` equal to "S3" would also be part of the item collection.

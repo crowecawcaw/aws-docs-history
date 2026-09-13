@@ -31,7 +31,7 @@ Tags aren't preserved in restored tables. You need to add tags to restored table
 
 The following video will give you an introductory look at the backup and restore concept and talk more about point-in-time recovery.
 
-[![AWS Videos](http://img.youtube.com/vi/g4WPLFXLwDE/0.jpg)](http://www.youtube.com/watch?v=g4WPLFXLwDE)
+[![AWS Videos](https://img.youtube.com/vi/g4WPLFXLwDE/0.jpg)](https://www.youtube.com/watch?v=g4WPLFXLwDE)
 
 
 **Topics**

@@ -180,7 +180,7 @@ dynamoDbClient = DynamoDbClient.builder().region(region)
 
 Interface endpoints in your Amazon VPC can route both in-Amazon VPC applications and on-premises applications to DynamoDB over the Amazon network, as illustrated in the following diagram.
 
-![Data flow diagram showing access from on-premises and in-Amazon VPC apps to DynamoDB; by using an interface endpoint and AWS PrivateLink.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/PrivateLink-interfaceEndpoints.png)
+![Data flow diagram showing access from on-premises and in-Amazon VPC apps to DynamoDB; by using an interface endpoint and AWS PrivateLink.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/PrivateLink-interfaceEndpoints.png)
 
 
 The diagram illustrates the following: 
@@ -194,7 +194,7 @@ The diagram illustrates the following:
 
 You can create interface endpoints and retain the existing gateway endpoint in the same Amazon VPC, as the following diagram shows. By taking this approach, you allow in-Amazon VPC applications to continue accessing DynamoDB through the gateway endpoint, which is not billed. Then, only your on-premises applications would use interface endpoints to access DynamoDB. To access DynamoDB this way, you must update your on-premises applications to use endpoint-specific DNS names for DynamoDB.
 
-![Data-flow diagram showing access to DynamoDB by using gateway endpoints and interface endpoints together.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/PL-Image2-InterfaceAndGatewayEP.png)
+![Data-flow diagram showing access to DynamoDB by using gateway endpoints and interface endpoints together.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/PL-Image2-InterfaceAndGatewayEP.png)
 
 
 The diagram illustrates the following: 

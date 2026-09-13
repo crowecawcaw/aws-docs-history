@@ -9,7 +9,7 @@ Let's understand two key metrics that shape your DR strategy:
 + **Recovery time objective (RTO)** – This is the maximum acceptable delay between the interruption of service and its restoration. RTO answers the question, How long can we afford to be down? This can range from zero (requiring continuous availability) to several hours, depending on business requirements.
 + **Recovery point objective (RPO)** – This represents the maximum acceptable amount of time since the last data recovery point. RPO answers the question, How much data can we afford to lose? For example, if your RPO is 1 hour, your DR solution must make sure you can recover data to a point no more than 1 hour before an incident began.
 
-![Recovery Objectives](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/recoveryobjectives.png)
+![Recovery Objectives](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/recoveryobjectives.png)
 
 
 Your choice of DynamoDB DR strategy should be based on the following factors:

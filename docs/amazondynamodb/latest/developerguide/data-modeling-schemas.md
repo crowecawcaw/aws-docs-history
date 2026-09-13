@@ -5,7 +5,7 @@
 
 Learn about data modeling schema design packages for DynamoDB, including use cases, access patterns, and final schema designs for social networks, gaming profiles, complaint management, recurring payments, device status, and online shops.
 
-![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks. Emphasis on the foundation.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SchemaDesignData.png)
+![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks. Emphasis on the foundation.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SchemaDesignData.png)
 
 
 ## Prerequisites

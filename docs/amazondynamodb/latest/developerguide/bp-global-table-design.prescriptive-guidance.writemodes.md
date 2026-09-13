@@ -12,7 +12,7 @@ There are three main managed write patterns, as explained in the next three sect
 
 The *write to any Region* mode, illustrated in the following diagram, is fully active-active and doesn’t impose restrictions on where a write might occur. Any Region might accept a write at any time. This is the simplest mode, but it can only be used with some types of applications. This mode is suitable for all MRSC tables. It’s also suitable for MREC tables when all writers are idempotent, and therefore safely repeatable so that concurrent or repeated write operations across Regions are not in conflict. For example, when a user updates their contact data. This mode also works well for a special case of being idempotent, an append-only dataset where all writes are unique inserts under a deterministic primary key. Lastly, this mode is suitable for MREC where the risk of conflicting writes would be acceptable.
 
-![Diagram of how client writes to any region works.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/gt-client-read-write-to-any-region2.png)
+![Diagram of how client writes to any region works.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/gt-client-read-write-to-any-region2.png)
 
 
 The *write to any Region* mode is the most straightforward architecture to implement. Routing is easier because any Region can be the write target at any time. Failover is easier, because with MRSC tables, the items are always synchronized, and with MRSC tables, any recent writes can be replayed any number of times to any secondary Region. Where possible, you should design for this write mode.
@@ -32,7 +32,7 @@ When you use an MRSC table, you might choose to generally write to one Region fo
 
 Eventually consistent reads can go to any replica Regions to achieve lower latencies. Strongly consistent reads must go to the single primary Region.
 
-![Diagram of how writing to one Region works.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/gt-client-writes-one-region2.png)
+![Diagram of how writing to one Region works.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/gt-client-writes-one-region2.png)
 
 
 It’s sometimes necessary to change the active Region in response to a Regional failure. Some users change the currently active Region on a regular schedule, such as implementing a follow-the-sun deployment. This places the active Region near the geography that has the most activity (usually where it’s daytime, thus the name), which results in the lowest latency read and write operations. It also has the side benefit of calling the Region-changing code daily and making sure that it’s well tested before any disaster recovery.
@@ -50,7 +50,7 @@ The *write to your Region* write mode, illustrated in the following diagram, wor
 
 This mode is similar to *write to one Region* except that it enables lower-latency write operations, because the data associated with each user can be placed in closer network proximity to that user. It also spreads the surrounding infrastructure more evenly between Regions and requires less work to build out infrastructure during a failover scenario, because all Regions have a portion of their infrastructure already active.
 
-![Diagram of how client writes to each item in a single Region works.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/get-client-writes-each-item-single-region2.png)
+![Diagram of how client writes to each item in a single Region works.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/get-client-writes-each-item-single-region2.png)
 
 
 You can determine the home Region for items in several ways:

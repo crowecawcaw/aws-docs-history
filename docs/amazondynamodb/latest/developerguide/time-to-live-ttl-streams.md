@@ -45,7 +45,7 @@ While DynamoDB Streams contains all data modifications, such as `Create`, `Modif
 
 Event filtering is applied to the [Lambda event source mapping](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html), which is a resource that reads from a chosen event—the DynamoDB stream—and invokes a Lambda function. In the following diagram, you can see how a Time to Live deleted item is consumed by a Lambda function using streams and event filters.
 
-![An item deleted through TTL process starts a Lambda function that uses streams and event filters.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/streams-lambda-ttl.png)
+![An item deleted through TTL process starts a Lambda function that uses streams and event filters.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/streams-lambda-ttl.png)
 
 
 ### DynamoDB Time to Live event filter pattern

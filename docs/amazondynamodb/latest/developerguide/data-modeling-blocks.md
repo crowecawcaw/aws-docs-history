@@ -5,7 +5,7 @@
 
 This section covers the building block layer to give you design patterns you can use in your application.
 
-![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks. Emphasis on the foundation.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SchemaDesignBlocks.png)
+![Image showing the conceptual relationship between the data, the blocks that sit under them, and then the foundation that sits under the blocks. Emphasis on the foundation.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/SchemaDesignBlocks.png)
 
 
 **Topics**
@@ -124,7 +124,7 @@ Since the deletes done by TTL are free, it is strongly recommended to use this f
 
 While TTL is an effective tool for deleting older data from DynamoDB, many use cases require an archive of the data be kept for a longer period of time than the primary datastore. In this instance, we can leverage TTL's timed deletion of records to push expired records into a long-term datastore.
 
-![Image showing a table that sends a time to live delete job to DynamoDB Streams followed by a long-term datastore.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/TTLArchive.png)
+![Image showing a table that sends a time to live delete job to DynamoDB Streams followed by a long-term datastore.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/TTLArchive.png)
 
 
 When a TTL delete is done by DynamoDB, it is still pushed into the DynamoDB Stream as a `Delete` event. When DynamoDB TTL is the one who performs the delete though, there is an attribute on the stream record of `principal:dynamodb`. Using a Lambda subscriber to the DynamoDB Stream, we can apply an event-filter for only the DynamoDB principal attribute and know that any records that match that filter are to be pushed to an archival store like Amazon Glacier.
@@ -199,7 +199,7 @@ One of the very few hard limits DynamoDB has in place is the restriction of how 
 
 In the event requests against the table exceed either of these limits, an error is sent back to the client SDK of `ThroughputExceededException`, more commonly referred to as throttling. Use cases that require read operations beyond that limit will mostly be served best by placing a read cache in front of DynamoDB, but write operations require a schema level design known as **write sharding**.
 
-![Image showing how DynamoDB shards partition keys across multiple partitions to prevent throttling from spikes in traffic.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/WriteShardingProblem.png)
+![Image showing how DynamoDB shards partition keys across multiple partitions to prevent throttling from spikes in traffic.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/WriteShardingProblem.png)
 
 
 

@@ -25,7 +25,7 @@ DynamoDB supports two types of secondary indexes:
 
 For a comparison of global secondary indexes and local secondary indexes, see this video.
 
-[![AWS Videos](http://img.youtube.com/vi/BkEu7zBWge8/0.jpg)](http://www.youtube.com/watch?v=BkEu7zBWge8)
+[![AWS Videos](https://img.youtube.com/vi/BkEu7zBWge8/0.jpg)](https://www.youtube.com/watch?v=BkEu7zBWge8)
 
 
 **Topics**

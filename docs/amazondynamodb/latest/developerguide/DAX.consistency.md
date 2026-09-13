@@ -40,7 +40,7 @@ With DynamoDB, the `GetItem` operation performs an eventually consistent read by
 
 When you use `GetItem` with the DAX client, the operation (in this case, an eventually consistent read) proceeds as shown following.
 
-![Workflow diagram showing the numbered steps for updating an item.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-item-cache.png)
+![Workflow diagram showing the numbered steps for updating an item.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-item-cache.png)
 
 
 1. The DAX client issues a `GetItem` request. DAX tries to read the requested item from the item cache. If the item is in the cache (*cache hit*), DAX returns it to the application.
@@ -155,7 +155,7 @@ When you write an item, DAX ensures that the cached item is synchronized with th
 
 To illustrate, consider two users (Alice and Bob), who are working with the `ProductCatalog` table. Alice accesses the table using DAX, but Bob bypasses DAX and accesses the table directly in DynamoDB.
 
-![Workflow diagram showing numbered steps for how users Alice and Bob access a table using DAX and DynamoDB.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-consistency-alice-bob.png)
+![Workflow diagram showing numbered steps for how users Alice and Bob access a table using DAX and DynamoDB.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-consistency-alice-bob.png)
 
 
 1. Alice updates an item in the `ProductCatalog` table. DAX forwards the request to DynamoDB, and the update succeeds. DAX then writes the item to its item cache and returns a successful response to Alice. From that point on, until the item is ultimately evicted from the cache, any user who reads the item from DAX sees the item with Alice's update.
@@ -175,7 +175,7 @@ If you decide to use a write-around strategy, remember that DAX populates its it
 
 For example, consider a user (Charlie) who wants to work with a different table, the `GameScores` table, using DAX. The partition key for `GameScores` is `UserId`, so all of Charlie's scores would have the same `UserId`.
 
-![Workflow diagram showing the numbered steps for how Charlie works with a DynamoDB table using DAX.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-consistency-charlie.png)
+![Workflow diagram showing the numbered steps for how Charlie works with a DynamoDB table using DAX.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/dax-consistency-charlie.png)
 
 
 1. Charlie wants to retrieve all of his scores, so he sends a `Query` to DAX. Assuming that this query has not been issued before, DAX forwards the query to DynamoDB for processing. It stores the results in the DAX query cache, and then returns the results to Charlie. The result set remains available in the query cache until it is evicted.

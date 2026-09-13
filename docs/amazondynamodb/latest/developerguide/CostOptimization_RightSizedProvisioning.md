@@ -240,49 +240,49 @@ If you specify a short period and a long time range, you might need to modify th
 This example talks about write operation metrics, but you can also use these steps to graph the read operation metrics.
 
 1. Choose the **Graphed metrics (2)** tab to modify the formulas. By default, CloudWatch selects the statistical function **Average** for the graphs.  
-![The selected graphed metrics and Average as the default statistical function.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning1.png)
+![The selected graphed metrics and Average as the default statistical function.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning1.png)
 
 1. While having both graphed metrics selected (the checkbox on the left) select the menu **Add math**, followed by **Common**, and then select the **Percentage** function. Repeat the procedure twice.
 
    First time selecting the **Percentage** function:  
-![CloudWatch console. The Percentage function is selected for the graphed metrics.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning2.png)
+![CloudWatch console. The Percentage function is selected for the graphed metrics.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning2.png)
 
    Second time selecting the **Percentage** function:  
-![CloudWatch console. The Percentage function is selected a second time for the graphed metrics.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning3.png)
+![CloudWatch console. The Percentage function is selected a second time for the graphed metrics.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning3.png)
 
 1. At this point you should have four metrics in the bottom menu. Let’s work on the `ConsumedWriteCapacityUnits` calculation. To be consistent, you need to match the names used in the AWS CLI section. Choose the **m1 ID** and change this value to **consumedWCU**.   
-![CloudWatch console. The graphed metric with m1 ID is renamed to consumedWCU.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning4.png)
+![CloudWatch console. The graphed metric with m1 ID is renamed to consumedWCU.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning4.png)
 
    Rename the **ConsumedWriteCapacityUnit** label as **consumedWCU**.  
-![The graphed metric with ConsumedWriteCapacityUnit label is renamed to consumedWCU.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning5.png)
+![The graphed metric with ConsumedWriteCapacityUnit label is renamed to consumedWCU.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning5.png)
 
 1. Change the statistic from **Average** to **Sum**. This action will automatically create another metric called **ANOMALY\_DETECTION\_BAND**. For the scope of this procedure, let's ignore it by removing the checkbox on the newly generated **ad1 metric**.  
-![CloudWatch console. The statistic SUM is selected in the dropdown list for the graphed metrics.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning6.png)  
-![CloudWatch console. The ANOMALY_DETECTION_BAND metric is removed from the list of graphed metrics.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning7.png)
+![CloudWatch console. The statistic SUM is selected in the dropdown list for the graphed metrics.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning6.png)  
+![CloudWatch console. The ANOMALY_DETECTION_BAND metric is removed from the list of graphed metrics.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning7.png)
 
 1. Repeat step 8 to rename the **m2 ID** to **provisionedWCU**. Leave the statistic set to **Average**.  
-![CloudWatch console. The graphed metric with m2 ID is renamed to provisionedWCU.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning8.png)
+![CloudWatch console. The graphed metric with m2 ID is renamed to provisionedWCU.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning8.png)
 
 1. Select the **Expression1** label and update the value to **m1** and the label to **Consumed WCUs**.
 **Note**  
 Make sure you have only selected **m1** (checkbox on the left) and **provisionedWCU** to properly visualize the data. Update the formula by clicking in **Details** and changing the formula to **consumedWCU/PERIOD(consumedWCU)**. This step might also generate another **ANOMALY\_DETECTION\_BAND** metric, but for the scope of this procedure you can ignore it.  
 
-![m1 and provisionedWCU are selected. Details for m1 is updated as consumedWCU/PERIOD(consumedWCU).](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning10.png)
+![m1 and provisionedWCU are selected. Details for m1 is updated as consumedWCU/PERIOD(consumedWCU).](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning10.png)
 
 
 1. You should have now have two graphics: one that indicates your provisioned WCUs on the table and another that indicates the consumed WCUs. The shape of the graphic might be different from the one below, but you can use it as reference:  
-![Graph with the provisioned WCUs and consumed WCUs for the table plotted.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning11.png)
+![Graph with the provisioned WCUs and consumed WCUs for the table plotted.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning11.png)
 
 1. Update the percentage formula by selecting the Expression2 graphic (**e2**). Rename the labels and IDs to **utilizationPercentage**. Rename the formula to match **100\*(m1/provisionedWCU)**.  
-![CloudWatch console. Labels and IDs for Expression2 are renamed to utilizationPercentage.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning12.png)  
-![CloudWatch console. Percentage formula for Expression2 is updated to 100*(m1/provisionedWCU).](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning13.png)
+![CloudWatch console. Labels and IDs for Expression2 are renamed to utilizationPercentage.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning12.png)  
+![CloudWatch console. Percentage formula for Expression2 is updated to 100*(m1/provisionedWCU).](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning13.png)
 
 1. Remove the checkbox from all the metrics but **utilizationPercentage** to visualize your utilization patterns. The default interval is set to 1 minute, but feel free to modify it as you need.  
-![Graph of the utilizationPercentage metric for the selected time interval.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning14.png)
+![Graph of the utilizationPercentage metric for the selected time interval.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning14.png)
 
 Here is view of a longer period of time as well as a bigger period of 1 hour. You can see there are some intervals where the utilization was higher than 100%, but this particular workload has longer intervals with zero utilization.
 
-![Utilization pattern for an extended period. It highlights periods of utilization over 100% and zero.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning15.png)
+![Utilization pattern for an extended period. It highlights periods of utilization over 100% and zero.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/RightSizedProvisioning15.png)
 
 
 At this point, you might have different results from the pictures in this example. It all depends on the data from your workload. Intervals with more than 100% utilization are prone to throttling events. DynamoDB offers [burst capacity](burst-adaptive-capacity.md#burst-capacity), but as soon as the burst capacity is done anything above 100% will be throttled.

@@ -10,7 +10,7 @@ If you don’t see the **Attribute-based access control** card or if the card di
 ## Attribute-based access control – not enabled
 <a name="abac-disabled-image"></a>
 
-![Settings page on the DynamoDB console that shows the Attribute-based access control card.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-console-settings-page.png)
+![Settings page on the DynamoDB console that shows the Attribute-based access control card.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/ddb-console-settings-page.png)
 
 
 ABAC isn't enabled for AWS accounts for which tag-based conditions specified in their identity-based policies or other policies still need to be audited. If ABAC isn't enabled for your account, the tag-based conditions in your policies that are intended to act on DynamoDB tables or indexes are evaluated as if no tags are present for your resources or API requests. When ABAC is enabled for your account, the tag-based conditions in the policies of your account are evaluated considering the tags attached to your tables or API requests.

@@ -29,7 +29,7 @@ The size of the gaming profile will vary in different games. [Compressing large 
 
 This is the entity relationship diagram (ERD) we'll be using for the gaming profile schema design.
 
-![ER diagram for a gaming profile, showing relationships between entities, such as User, Game, and Score.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfileERD.png)
+![ER diagram for a gaming profile, showing relationships between entities, such as User, Game, and Score.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfileERD.png)
 
 
 ## Gaming profile access patterns
@@ -58,7 +58,7 @@ We address access pattern 1 (`getPlayerFriends`) with this step. In our current 
 
 However, if a game has a large number of friends, and the relationships between them are complex (such as friendships being bi-directional with both an invite and accept component) it would be necessary to use a many-to-many relationship to store each friend individually, in order to scale to an unlimited friend list size. And if the friendship change involves operating on multiple items at the same time, DynamoDB transactions can be used to group multiple actions together and submit them as a single all-or-nothing [`TransactWriteItems`](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html) or [`TransactGetItems`](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html) operation.
 
-![Complex many-to-many relationship diagram for a gaming profile of the Friends entity.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile1.png)
+![Complex many-to-many relationship diagram for a gaming profile of the Friends entity.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile1.png)
 
 
 **Step 2: Address access patterns 2 (`getPlayerAllProfile`), 3 (`getPlayerAllItems`), and 4 (`getPlayerSpecificItem`) **
@@ -74,7 +74,7 @@ filterExpression: "ItemType = :itemType"
 expressionAttributeValues: {":itemType": "Weapon"}
 ```
 
-![Using Query operation with a partition key and sort key conditions to implement different access patterns.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile2.png)
+![Using Query operation with a partition key and sort key conditions to implement different access patterns.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile2.png)
 
 
 **Note**  
@@ -91,7 +91,7 @@ UpdateExpression: "SET currency = currency - :amount"
 ConditionExpression: "currency >= :minAmount"
 ```
 
-![Using UpdateItem with a condition expression to modify a player's currency, ensuring it's never less than a set amount.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile4-Update-player-Currency.png)
+![Using UpdateItem with a condition expression to modify a player's currency, ensuring it's never less than a set amount.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile4-Update-player-Currency.png)
 
 
 When developing with DynamoDB and using [Atomic Counters](WorkingWithItems.md#WorkingWithItems.AtomicCounters) to decrement inventory, we can ensure idempotency by using optimistic locking. Here is a pseudocode example for Atomic Counters:
@@ -101,7 +101,7 @@ UpdateExpression: "SET ItemCount = ItemCount - :incr"
 expression-attribute-values: '{":incr":{"N":"1"}}'
 ```
 
-![Using atomic counter to decrement the ItemCount attribute value from 5 to 4.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile5-Update-Item-Count.png)
+![Using atomic counter to decrement the ItemCount attribute value from 5 to 4.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile5-Update-Item-Count.png)
 
 
 In addition, in a scenario where the player purchases an item with currency, the entire process needs to deduct currency and add an item at the same time. We can use DynamoDB Transactions to group multiple actions together and submit them as a single all-or-nothing `TransactWriteItems` or `TransactGetItems` operation. `TransactWriteItems` is a synchronous and idempotent write operation that groups up to 100 write actions in a single all-or-nothing operation. The actions are completed atomically so that either all of them succeed or none of them succeeds. Transactions help eliminate the risk of duplication or vanishing currency. For more information on transactions, see [DynamoDB transactions example](transaction-example.md) .
@@ -125,7 +125,7 @@ Here is the final schema design. To download this schema design as a JSON file, 
 
 **Base table:**
 
-![Final schema design of a table that contains results of the preceding access pattern implementations.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile6-FinalSchema.png)
+![Final schema design of a table that contains results of the preceding access pattern implementations.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/DataModeling/GamingProfile6-FinalSchema.png)
 
 
 ## Using NoSQL Workbench with this schema design

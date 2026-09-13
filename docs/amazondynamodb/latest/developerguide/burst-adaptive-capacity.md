@@ -27,7 +27,7 @@ The following diagram illustrates how adaptive capacity works. The example table
 
 DynamoDB adaptive capacity responds by increasing the capacity of partition 4 so that it can sustain the higher workload of 150 WCU/sec without being throttled.
 
-![Adaptive capacity automatically increases throughput for partition 4 with higher traffic to avoid throttling.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/adaptive-capacity.png)
+![Adaptive capacity automatically increases throughput for partition 4 with higher traffic to avoid throttling.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/adaptive-capacity.png)
 
 
 Adaptive capacity is enabled automatically for every DynamoDB table, at no additional cost. You don't need to explicitly enable or disable it.

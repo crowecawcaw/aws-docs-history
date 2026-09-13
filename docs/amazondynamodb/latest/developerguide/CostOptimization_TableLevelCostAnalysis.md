@@ -27,7 +27,7 @@ If the table is in on-demand capacity mode, then `DescribeTable` will not help e
 
 Cost Explorer's default view provides charts showing the cost of consumed resources such as throughput and storage. You can choose to group costs by period, such as totals by month or by day. The costs of storage, reads, writes, and other features can be broken out and compared as well.
 
-![Cost Explorer's default view showing the cost of consumed resources grouped by usage type.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/CostExplorerView.png)
+![Cost Explorer's default view showing the cost of consumed resources grouped by usage type.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/CostExplorerView.png)
 
 
 ## How to use and apply table tags in Cost Explorer

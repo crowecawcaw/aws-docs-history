@@ -16,7 +16,7 @@ This section provides an overview of how to select the appropriate table class f
 
 When you create a DynamoDB Table, you must select either DynamoDB Standard or DynamoDB Standard-IA for the table class. The table class can be changed twice in a 30-day period, so you can always change it in the future. Selecting either table class has no effect on table performance, availability, reliability, or durability.
 
-![DynamoDB table class options. In this image, the DynamoDB Standard-IA table class is selected.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/TableClassOptions.png)
+![DynamoDB table class options. In this image, the DynamoDB Standard-IA table class is selected.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/CostOptimization/TableClassOptions.png)
 
 
 **Standard table class**  

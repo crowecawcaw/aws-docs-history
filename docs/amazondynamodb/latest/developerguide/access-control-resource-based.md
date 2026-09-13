@@ -11,7 +11,7 @@ A significant benefit of using resource-based policies is to simplify cross-acco
 
 Resource-based policies also support integrations with [IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) external access analyzer and [Block Public Access (BPA)](rbac-bpa-rbp.md) capabilities. IAM Access Analyzer reports cross-account access to external entities specified in resource-based policies. It also provides visibility to help you refine permissions and conform to the least privilege principle. BPA helps you prevent public access to your DynamoDB tables, indexes, and streams, and is automatically enabled in the resource-based policies creation and modification workflows.
 
-[![AWS Videos](http://img.youtube.com/vi/q9sBxrVgq4U?si=0cR4TJIlKvH9Wlu5/0.jpg)](http://www.youtube.com/watch?v=q9sBxrVgq4U?si=0cR4TJIlKvH9Wlu5)
+[![AWS Videos](https://img.youtube.com/vi/q9sBxrVgq4U?si=0cR4TJIlKvH9Wlu5/0.jpg)](https://www.youtube.com/watch?v=q9sBxrVgq4U?si=0cR4TJIlKvH9Wlu5)
 
 
 **Topics**

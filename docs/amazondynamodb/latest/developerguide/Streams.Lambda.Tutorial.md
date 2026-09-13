@@ -16,7 +16,7 @@ In this tutorial, you will create an AWS Lambda trigger to process a stream from
 
 The scenario for this tutorial is Woofer, a simple social network. Woofer users communicate using *barks* (short text messages) that are sent to other Woofer users. The following diagram shows the components and workflow for this application.
 
-![Woofer application workflow of a DynamoDB table, stream record, Lambda function, and Amazon SNS topic.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/StreamsAndTriggers.png)
+![Woofer application workflow of a DynamoDB table, stream record, Lambda function, and Amazon SNS topic.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/StreamsAndTriggers.png)
 
 
 1. A user writes an item to a DynamoDB table (`BarkTable`). Each item in the table represents a bark.

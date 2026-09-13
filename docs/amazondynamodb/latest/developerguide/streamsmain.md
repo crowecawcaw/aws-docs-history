@@ -17,7 +17,7 @@ Adding tags to DynamoDB Streams and using [attribute-based access control (ABAC)
 
 The following video will give you an introductory look at the change data capture concept.
 
-[![AWS Videos](http://img.youtube.com/vi/VVv_-mZ5Ge8/0.jpg)](http://www.youtube.com/watch?v=VVv_-mZ5Ge8)
+[![AWS Videos](https://img.youtube.com/vi/VVv_-mZ5Ge8/0.jpg)](https://www.youtube.com/watch?v=VVv_-mZ5Ge8)
 
 
 **Topics**
@@ -49,4 +49,4 @@ You can enable both streaming models on the same DynamoDB table.
 
 The following video talks more about the differences between the two options.
 
-[![AWS Videos](http://img.youtube.com/vi/UgG17Wh2y0g/0.jpg)](http://www.youtube.com/watch?v=UgG17Wh2y0g)
+[![AWS Videos](https://img.youtube.com/vi/UgG17Wh2y0g/0.jpg)](https://www.youtube.com/watch?v=UgG17Wh2y0g)

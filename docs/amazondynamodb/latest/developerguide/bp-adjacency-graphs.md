@@ -16,14 +16,14 @@ A real-world example where this pattern has been useful is an invoicing system w
 
 The schema looks like the following.
 
-![Table schema for billing adjacency-list example.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/AdjacencyLists_01.png)
+![Table schema for billing adjacency-list example.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/AdjacencyLists_01.png)
 
 
 Using the preceding schema, you can see that all bills for an invoice can be queried using the primary key on the table. To look up all invoices that contain a part of a bill, create a global secondary index on the table's sort key. 
 
 The projections for the global secondary index look like the following.
 
-![GSI projection for billing adjacency-list example.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/AdjacencyLists_02.png)
+![GSI projection for billing adjacency-list example.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/AdjacencyLists_02.png)
 
 
 ## Materialized graph pattern
@@ -35,13 +35,13 @@ As a real-world example, consider a social networking application. In this appli
 
 With the materialized graph pattern, you can store both nodes and edges in a single DynamoDB table and efficiently traverse relationships. The following diagrams show how to model this social networking graph. The first diagram shows the primary table structure. The subsequent diagrams show the global secondary index projections.
 
-![Primary table schema for the materialized graph pattern in DynamoDB, showing people as partition keys with their edges as items within each partition.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/1513869910203-418.png)
+![Primary table schema for the materialized graph pattern in DynamoDB, showing people as partition keys with their edges as items within each partition.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/1513869910203-418.png)
 
 
-![First global secondary index projection in DynamoDB, built on the overloaded Data attribute for queries by dates, names, places, and skills.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/1513852802235-256.png)
+![First global secondary index projection in DynamoDB, built on the overloaded Data attribute for queries by dates, names, places, and skills.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/1513852802235-256.png)
 
 
-![Second global secondary index projection in DynamoDB, built on the TypeTarget composite key for reverse lookups.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/1513852905360-671.png)
+![Second global secondary index projection in DynamoDB, built on the TypeTarget composite key for reverse lookups.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/1513852905360-671.png)
 
 
 The table uses the following key structure:
@@ -68,7 +68,7 @@ If your use case isn't sensitive to real-time data consistency, you can use a sc
 
 To maintain some level of consistency, the design could include Amazon DynamoDB Streams and AWS Lambda to process edge updates. It could also use an Amazon EMR job to validate results on a regular interval. This approach is illustrated by the following diagram. It is commonly used in social networking applications, where the cost of a real-time query is high and the need to immediately know individual user updates is low.
 
-![Diagram illustrating graph workflow.](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/1513856345673-336.png)
+![Diagram illustrating graph workflow.](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/images/1513856345673-336.png)
 
 
 IT service-management (ITSM) and security applications generally need to respond in real time to entity state changes composed of complex edge aggregations. Such applications need a system that can support real-time multiple node aggregations of second- and third-level relationships, or complex edge traversals. If your use case requires these types of real-time graph query workflows, we recommend that you consider using [Amazon Neptune](https://docs.aws.amazon.com/neptune/latest/userguide/) to manage these workflows.
