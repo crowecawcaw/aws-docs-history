@@ -11,7 +11,7 @@ Cloud-based connections are configured as follows with differences called out be
 
 The following diagram shows how cloud-based connections work with user accounts or organizations.
 
-![Diagram showing the relationship between app installations and connections for cloud-based providers.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-flow.png)
+![Diagram showing the relationship between app installations and connections for cloud-based providers.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-flow.png)
 
 
 Connections are owned by the AWS account that creates them. Connections are identified by an ARN containing a connection ID. The connection ID is a UUID that cannot be changed or remapped. Deleting and re-establishing a connection results in a new connection ID, and therefore a new connection ARN. This means that connection ARNs are never reused.
@@ -29,7 +29,7 @@ In all cases, you will need to provide the URL for your on-prem server. Addition
 
 The following diagram shows how on-prem connections work with user accounts or organizations.
 
-![Diagram showing the relationship between app installations and connections for on-prem providers.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-flow-host.png)
+![Diagram showing the relationship between app installations and connections for on-prem providers.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-flow-host.png)
 
 
 A newly created host is in a `Pending` state. A third-party registration process is required to complete setup of the host and for it to move from `Pending` to an `Available` state. After this is complete, a host is `Available` and can be used for connections to installed provider types.

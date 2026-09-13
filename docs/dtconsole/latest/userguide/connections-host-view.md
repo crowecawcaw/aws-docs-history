@@ -29,7 +29,7 @@ You can use the Developer Tools console or the **get-host** command in the AWS C
      + VPC\_CONFIG\_VPC\_FAILED\_INITIALIZATION - The VPC configuration for the host encountered and error and failed.
      + VPC\_CONFIG\_VPC\_AVAILABLE - The VPC configuration for the host has completed setup and is available.
      + VPC\_CONFIG\_VPC\_DELETING - The VPC configuration for the host is being deleted.  
-![Console screenshot showing host details with the host in Available status.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-view-host-screen.png)
+![Console screenshot showing host details with the host in Available status.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-view-host-screen.png)
 
 1. To delete the host, choose **Delete**.
 

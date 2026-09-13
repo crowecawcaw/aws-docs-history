@@ -36,7 +36,7 @@ You can use the console to create shared connection resources.
    For more information about sharing global resources, see [Sharing Regional resources compared to global resources](https://docs.aws.amazon.com/ram/latest/userguide/working-with-regional-vs-global.html).
 
 1. On the creation page, in **Name**, enter a name for your resource share. Under **Resources**, choose **Code Connections**.  
-![Add a resource share by choosing the resource on the creation page](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-share-create.png)
+![Add a resource share by choosing the resource on the creation page](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-share-create.png)
 
 1. Choose your connection resource and assign the principals with whom you want to share.
 

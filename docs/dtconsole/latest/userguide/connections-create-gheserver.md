@@ -10,6 +10,7 @@ Connections only provide access to repositories owned by the GitHub Enterprise S
 Before you begin:
 + You must already have a GitHub Enterprise Server instance and a repository in it.
 + You need to be an administrator of the GitHub Enterprise Server instance in order to create GitHub apps and create a host resource as shown in this section.
++ If your GitHub Enterprise Server instance reaches AWS over the public internet through an outbound proxy or firewall (rather than through an Amazon VPC), allow outbound HTTPS (port 443) to `https://{{region}}.codestar-connections.webhooks.aws/` before you install the GitHub App. In this endpoint, {{region}} is the AWS Region of your connection. If this endpoint is blocked when you install the app, the connection remains in the `Pending` state. For more information, see [GitHub Enterprise Server connection stays in Pending (outbound proxy or firewall blocking the installation webhook)](https://docs.aws.amazon.com/dtconsole/latest/userguide/troubleshooting-connections.html#troubleshooting-GHES-webhook-blocked).
 
 **Important**  
 When you set up your host for GitHub Enterprise Server, a VPC endpoint for webhooks event data is created for you. If you created your host before November 24, 2020, and you want to use VPC PrivateLink webhook endpoints, you must first [delete](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-delete.html) your host and then [create](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-create.html) a new host.

@@ -22,4 +22,4 @@ To create or update a connection using the console, you use the CodePipeline edi
 
 
 
-![Diagram showing the workflow of creating a connection to third-party provider.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/Connections-flowchart.png)
+![Diagram showing the workflow of creating a connection to third-party provider.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/Connections-flowchart.png)

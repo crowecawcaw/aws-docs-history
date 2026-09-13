@@ -22,4 +22,4 @@ If you are creating a connection to an installed provider type, such as GitHub E
 
 Use the console to set up the host and change its status from `pending` to `available`.
 
-![Diagram showing the workflow of creating a connection to third-party provider.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/Hosts-flowchart.png)
+![Diagram showing the workflow of creating a connection to third-party provider.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/Hosts-flowchart.png)

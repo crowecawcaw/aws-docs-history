@@ -152,7 +152,7 @@ This is not the source bucket for your source code. This is the artifact store f
 1. On **Step 5: Review**, choose **Create pipeline**.
 
 1. When your pipeline is successfully created, a pipeline execution starts.  
-![Console screenshot showing successfully completed pipeline with Bitbucket source.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/pipeline-wizard-bitbucket.png)
+![Console screenshot showing successfully completed pipeline with Bitbucket source.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/pipeline-wizard-bitbucket.png)
 
 1. On your successful build stage, choose **Details**.
 
@@ -161,7 +161,7 @@ This is not the source bucket for your source code. This is the artifact store f
    ```
    This is a Bitbucket repository!
    ```  
-![Console screenshot showing successfully completed build output example.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/pipeline-wizard-bitbucket-output.png)
+![Console screenshot showing successfully completed build output example.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/pipeline-wizard-bitbucket-output.png)
 
 ## Step 3: Associate your repository with CodeGuru Reviewer
 <a name="getting-started-connections-analysis"></a>

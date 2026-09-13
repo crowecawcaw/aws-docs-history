@@ -29,9 +29,9 @@ You can use the Developer Tools console to complete a pending connection.
 1. On the **Connect to Bitbucket** page, in **Connection name**, verify the name of your connection.
 
    Under **Bitbucket apps**, choose an app installation, or choose **Install a new app** to create one.  
-![Console screenshot showing the Connect to Bitbucket dialog box, with the install new app button.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/newreview-source-wizard-bitbucket.png)
+![Console screenshot showing the Connect to Bitbucket dialog box, with the install new app button.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/newreview-source-wizard-bitbucket.png)
 
 1. On the app installation page, a message shows that the AWS CodeStar app is trying to connect to your Bitbucket account. Choose **Grant access**.  
-![Console screenshot showing AWS CodeStar requests access.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/bitbucket-access-popup.png)
+![Console screenshot showing AWS CodeStar requests access.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/bitbucket-access-popup.png)
 
 1. The connection ID for your new installation is displayed. Choose **Complete connection**.

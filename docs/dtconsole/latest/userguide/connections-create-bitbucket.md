@@ -34,7 +34,7 @@ Beginning July 1, 2024, the console creates connections with `codeconnections` i
 1. Choose **Settings > Connections**, and then choose **Create connection**.
 
 1. To create a connection to a Bitbucket repository, under **Select a provider**, choose **Bitbucket**. In **Connection name**, enter the name for the connection that you want to create. Choose **Connect to Bitbucket**, and proceed to Step 2.  
-![Console screenshot showing connection option selected for Bitbucket.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-bitbucket.png)
+![Console screenshot showing connection option selected for Bitbucket.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-bitbucket.png)
 
 **Step 2: Connect to Bitbucket**
 
@@ -43,7 +43,7 @@ Beginning July 1, 2024, the console creates connections with `codeconnections` i
    Under **Bitbucket apps**, choose an app installation or choose **Install a new app** to create one.
 **Note**  
 You only install the app once for each Bitbucket workspace or account. If you have already installed the Bitbucket app, choose it and move to the last step in this section.  
-![Console screenshot showing the Connect to Bitbucket dialog box, with the install new app button.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/newreview-source-wizard-bitbucket.png)
+![Console screenshot showing the Connect to Bitbucket dialog box, with the install new app button.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/newreview-source-wizard-bitbucket.png)
 
 1. If the login page for Bitbucket displays, log in with your credentials and then choose to continue.
 
@@ -52,10 +52,10 @@ You only install the app once for each Bitbucket workspace or account. If you ha
    If you are using a Bitbucket workspace, change the **Authorize for** option to the workspace. Only workspaces where you have administrator access will display.
 
    Choose **Grant access**.  
-![Console screenshot showing the connector access request.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/bitbucket-access-popup.png)
+![Console screenshot showing the connector access request.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/bitbucket-access-popup.png)
 
 1. In **Bitbucket apps**, the connection ID for your new installation is displayed. Choose **Connect**. The created connection displays in the connections list.  
-![Console screenshot showing the connector access request.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/create-connection-bitbucket-app-ID.png)
+![Console screenshot showing the connector access request.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/create-connection-bitbucket-app-ID.png)
 
 ## Create a connection to Bitbucket (CLI)
 <a name="connections-create-bitbucket-cli"></a>

@@ -13,7 +13,7 @@ The Developer Tools console includes the following services:
 
 Here's an example of how you can use the services in the Developer Tools console together to help you develop software. 
 
-![An example CI/CD pipeline that uses services in the AWS Developer Tools console.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/ExampleCICDPipeline.png)
+![An example CI/CD pipeline that uses services in the AWS Developer Tools console.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/ExampleCICDPipeline.png)
 
 
 In this example, developers create a repository in CodeCommit and use it to develop and collaborate on their code. They create a build project in CodeBuild to build and test their code, and use CodeDeploy to deploy their code to test and production environments. They want to iterate quickly, so they create a pipeline in CodePipeline to detect the changes in the CodeCommit repository. Those changes are built, tests are run, and successfully built and tested code is deployed to the test server. The team adds test stages to the pipeline to run more tests on the staging server, such as integration or load tests. Upon the successful completion of those tests, a team member reviews the results and if satisfied, manually approves the changes for production. CodePipeline deploys the tested and approved code to production instances. 

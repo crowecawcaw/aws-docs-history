@@ -71,7 +71,7 @@ For organizations in GitHub Enterprise Server or GitLab self-managed, you don’
 If your host setup includes a VPC configuration, allow several minutes for provisioning of host network components.
 
    Wait for your host to reach a **Pending** status, and then complete the setup. For more information, see [Set up a pending host](connections-host-setup.md).  
-![Console screenshot showing GitLab self-managed host details with the host in Pending status.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-glsm-host.png)
+![Console screenshot showing GitLab self-managed host details with the host in Pending status.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-glsm-host.png)
 
 **Step 2: Set up your pending host**
 
@@ -80,10 +80,10 @@ If your host setup includes a VPC configuration, allow several minutes for provi
 1. A **Set up {{host\_name}}** page displays. In **Provide personal access token**, provide your GitLab PAT with the `api` scope. If Admin Mode is enabled on your GitLab instance, the PAT must also include the `admin_mode` scope. For more information, see [Access token scopes](https://docs.gitlab.com/security/tokens/access_token_scopes/) on the GitLab website.
 **Note**  
 Only an administrator can create and use the PAT.  
-![Console screenshot showing GitLab personal access token entry for the new host](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-glsm-pat.png)
+![Console screenshot showing GitLab personal access token entry for the new host](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-glsm-pat.png)
 
 1. After your host is successfully registered, the host details page appears and shows that the host status is **Available**.  
-![Console screenshot showing available status for the new host](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-glsm-host-available.png)
+![Console screenshot showing available status for the new host](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-glsm-host-available.png)
 
 **Step 3: Create your connection**
 
@@ -92,7 +92,7 @@ Only an administrator can create and use the PAT.
 1. Choose **Settings**, and then choose **Connections**. Choose **Create connection**.
 
 1. To create a connection to a GitLab repository, under **Select a provider**, choose **GitLab self-managed**. In **Connection name**, enter the name for the connection that you want to create.   
-![Console screenshot showing connection option selected for GitLab self-managed.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-glsm.png)
+![Console screenshot showing connection option selected for GitLab self-managed.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-glsm.png)
 
 1. In **URL**, enter the endpoint for your server.
 

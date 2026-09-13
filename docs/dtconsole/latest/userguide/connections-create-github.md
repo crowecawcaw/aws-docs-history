@@ -31,39 +31,39 @@ Beginning July 1, 2024, the console creates connections with `codeconnections` i
 1. Choose **Settings > Connections**, and then choose **Create connection**.
 
 1. To create a connection to a GitHub or GitHub Enterprise Cloud repository, under **Select a provider**, choose **GitHub**. In **Connection name**, enter the name for the connection that you want to create. Choose **Connect to GitHub**, and proceed to Step 2.  
-![Console screenshot showing connection option selected for Bitbucket.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn.png)
+![Console screenshot showing connection option selected for Bitbucket.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn.png)
 
 **To create a connection to GitHub**
 
 1. Under **GitHub connection settings**, your connection name appears in **Connection name**. Choose **Connect to GitHub**. The access request page appears.  
-![Console screenshot showing the GitHub account access page.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn-access.png)
+![Console screenshot showing the GitHub account access page.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn-access.png)
 
 1. Choose **Authorize AWS Connector for GitHub**. The connection page displays and shows the **GitHub Apps** field.  
-![Console screenshot showing the initial GitHub connection page with the GitHub Apps field.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn-access-app.png)
+![Console screenshot showing the initial GitHub connection page with the GitHub Apps field.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn-access-app.png)
 
 1. Under **GitHub Apps**, choose an app installation or choose **Install a new app** to create one.
 **Note**  
 You install one app for all of your connections to a particular provider. If you have already installed the AWS Connector for GitHub app, choose it and skip this step.
 
 1. On the Install **AWS Connector for GitHub** page, choose the account where you want to install the app.  
-![Console screenshot showing the AWS Connector for GitHub installation page.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn-access-app-install1.png)
+![Console screenshot showing the AWS Connector for GitHub installation page.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn-access-app-install1.png)
 **Note**  
 You only install the app once for each GitHub account. If you previously installed the app, you can choose **Configure** to proceed to a modification page for your app installation, or you can use the back button to return to the console.
 
 1. On the **Install AWS Connector for GitHub** page, leave the defaults, and choose **Install**.  
-![Console screenshot showing the second AWS Connector for GitHub installation page.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn-access-app-install2.png)
+![Console screenshot showing the second AWS Connector for GitHub installation page.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/github-conn-access-app-install2.png)
 
    After this step, an updated permissions page might display in GitHub.
 
 1. If a page displays showing that there are updated permissions for the AWS Connector for GitHub app, choose **Accept new permissions**.  
-![Console screenshot showing the AWS Connector for GitHub updated permissions page.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/accept-new-permissions.png)
+![Console screenshot showing the AWS Connector for GitHub updated permissions page.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/accept-new-permissions.png)
 
 1. You are returned to the **Connect to GitHub** page. The connection ID for your new installation appears in **GitHub Apps**. Choose **Connect**.
 
 ### View your created connection
 <a name="connections-create-github-console-view"></a>
 + The created connection displays in the connections list.  
-![Console screenshot showing connections listing with successfully created connection.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghe-complete.png)
+![Console screenshot showing connections listing with successfully created connection.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghe-complete.png)
 
 ## Create a connection to GitHub (CLI)
 <a name="connections-create-github-cli"></a>

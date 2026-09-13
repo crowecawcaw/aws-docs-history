@@ -16,6 +16,7 @@ The following information might help you troubleshoot common issues with connect
 + [I’m unable to create a connection for my host](#troubleshooting-connections-host-cannot-create)
 + [Troubleshooting VPC configuration for your host](#troubleshooting-connections-host-vpc)
 + [Troubleshooting webhook VPC endpoints (PrivateLink) for GitHub Enterprise Server connections](#troubleshooting-connections-host-vpc-webhook)
++ [GitHub Enterprise Server connection stays in Pending (outbound proxy or firewall blocking the installation webhook)](#troubleshooting-GHES-webhook-blocked)
 + [Troubleshooting for a host created before November 24, 2020](#troubleshooting-connections-host-vpc-webhook-host)
 + [Unable to create the connection for a GitHub repository](#troubleshooting-connections-GitHub-admin)
 + [Edit your GitHub Enterprise Server connection app permissions](#troubleshooting-GHES-app-permissions)
@@ -60,6 +61,8 @@ Make sure you have the permissions to use a connection, including listing the av
 If the console displays a message that a connection is not in an available state, choose **Complete connection**.
 
 If you choose to complete the connection and a message appears that the connection is not in a pending state, you can cancel the request because the connection is already in an available state.
+
+If your connection to GitHub Enterprise Server reaches AWS over the public internet through a proxy or firewall, a blocked installation webhook can leave the connection in the `Pending` state. See [GitHub Enterprise Server connection stays in Pending (outbound proxy or firewall blocking the installation webhook)](#troubleshooting-GHES-webhook-blocked).
 
 ## Add GitClone permissions for connections
 <a name="troubleshooting-connections-gitclone-permissions"></a>
@@ -129,6 +132,9 @@ Connections and hosts can move into the error state if the underlying GitHub app
 If the console or CLI returns a host or a connection related to a host with an `Error` state, you might need to perform the following step:
 + Delete and recreate the host resource and then reinstall the host registration app. For more information, see [Create a host](connections-host-create.md). 
 
+**Note**  
+If a connection remains in the `Pending` state (rather than the `Error` state) because AWS did not receive an installation webhook, you can recover it without deleting the host or connection. See [GitHub Enterprise Server connection stays in Pending (outbound proxy or firewall blocking the installation webhook)](#troubleshooting-GHES-webhook-blocked).
+
 ## I’m unable to create a connection for my host
 <a name="troubleshooting-connections-host-cannot-create"></a>
 
@@ -159,7 +165,7 @@ Each VPC can only be associated with one host (GitHub Enterprise Server instance
 
 The following image shows an EC2 instance launched using the GitHub Enterprise AMI.
 
-![Console screenshot showing instance description](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/instance-vpc.png)
+![Console screenshot showing instance description](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/instance-vpc.png)
 
 
 When you use a VPC for a GitHub Enterprise Server connection, you must provide the following for your infrastructure when you set up your host:
@@ -250,6 +256,48 @@ AWS CodeConnections manages the lifecycle of the webhook VPC endpoints for your 
   ec2:DeleteNetworkInterface
   ```
 
+## GitHub Enterprise Server connection stays in Pending (outbound proxy or firewall blocking the installation webhook)
+<a name="troubleshooting-GHES-webhook-blocked"></a>
+
+When you create a connection to GitHub Enterprise Server that reaches AWS over the public internet, your GitHub Enterprise Server instance must send a one-time `installation.created` webhook to AWS. Your instance sends this webhook after you install the GitHub App, and AWS registers the app installation only when it receives the webhook. If an outbound proxy or firewall in front of your GitHub Enterprise Server instance blocks that request, AWS never registers the installation, and you cannot complete the connection.
+
+**Symptoms**
++ Your host reaches the `Available` state and the GitHub App installs successfully on GitHub Enterprise Server, but the connection remains in the `Pending` state.
++ When you use the connection, AWS returns the following error:
+
+  ProviderResourceNotFoundException: Installation {{id}} does not exist
+
+This error means that AWS did not receive the installation webhook, so the installation was never registered. It does not mean the installation ID is invalid.
+
+**Resolution**
+
+1. Allow outbound HTTPS (port 443) from your GitHub Enterprise Server instance (including through any proxy or firewall) to the CodeConnections webhook endpoint for your AWS Region: `https://{{region}}.codestar-connections.webhooks.aws/`. Replace {{region}} with the AWS Region of your host and connection. For example, in the US East (N. Virginia) Region: `https://us-east-1.codestar-connections.webhooks.aws/`. If your proxy supports wildcards and you use more than one Region, you can allow `https://*.codestar-connections.webhooks.aws/`.
+**Note**  
+Your GitHub Enterprise Server instance sends the `installation.created` webhook only once, when you install the app. After you allow the endpoint, you must re-send the webhook using one of the following options. Allowing the endpoint alone does not complete a connection that is already in the `Pending` state.
+
+1. Re-send the installation webhook using one of the following options. You do not need to delete your host or connection to recover a connection that is in the `Pending` state.
+
+**Option 1: Redeliver the failed webhook (recommended)**
+
+   1. In GitHub Enterprise Server, as the owner of the app, open the app's advanced settings. From the drop-down on your profile photo, choose **Settings**. Choose **Developer settings**, and then choose **GitHub Apps**. In the list of apps, choose the name of the app for your connection (the default app name is **AWS**; if you chose a different name when you created the connection, choose that name instead), and then choose **Advanced**.
+
+   1. Under **Recent Deliveries**, find the failed `installation.created` delivery and expand it.
+
+   1. Choose **Redeliver**, and confirm that the delivery now succeeds.
+
+   1. Return to the connection in the AWS console and choose **Update pending connection** to complete setup.
+
+**Option 2: Reinstall the GitHub App**
+
+   1. In GitHub Enterprise Server, open your organization's installed apps. Choose your organization's **Settings**, and then choose **Installed GitHub Apps**.
+
+   1. For the CodeConnections app, choose **Configure**, and then choose **Uninstall**.
+
+   1. Return to the connection in the AWS console and choose **Update pending connection**. Completing the flow reinstalls the app and sends a fresh installation webhook.
+
+**Note**  
+This section applies to hosts that connect over the public internet. If your host is configured within an Amazon VPC, the webhook is delivered through a VPC endpoint (PrivateLink) instead. For that configuration, see [Troubleshooting webhook VPC endpoints (PrivateLink) for GitHub Enterprise Server connections](#troubleshooting-connections-host-vpc-webhook).
+
 ## Troubleshooting for a host created before November 24, 2020
 <a name="troubleshooting-connections-host-vpc-webhook-host"></a>
 
@@ -297,7 +345,7 @@ You must complete these steps on your GitHub Enterprise Server instance, and you
 1. In the list of apps, choose the name of the app for your connection, and then choose **Permissions and events** in the settings display.
 
 1. Under **Organization permissions**, for **Members**, choose **Read-only** from the **Access** drop-down.  
-![Organization permissions interface showing Members set to Read-only access level.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/ghes-app-permissions.png)
+![Organization permissions interface showing Members set to Read-only access level.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/ghes-app-permissions.png)
 
 1. In **Add a note to users**, add a description of the reason for the update. Choose **Save changes**.
 

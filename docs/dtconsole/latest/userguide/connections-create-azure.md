@@ -33,7 +33,7 @@ Beginning July 1, 2024, the console creates connections with `codeconnections` i
 1. Choose **Settings > Connections**, and then choose **Create connection**.
 
 1. To create a connection to an Azure DevOps repository, under **Select a provider**, choose **Azure DevOps**. In **Connection name**, enter the name for the connection that you want to create. Choose **Connect to Azure DevOps**, and proceed to Step 2.  
-![Console screenshot showing connection option selected for Azure DevOps.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-azure-updated.png)
+![Console screenshot showing connection option selected for Azure DevOps.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-azure-updated.png)
 
 **Step 2: Connect to Azure DevOps**
 
@@ -44,7 +44,7 @@ Beginning July 1, 2024, the console creates connections with `codeconnections` i
 1. If the login page for Microsoft displays, log in with your credentials and then choose to continue.
 
    You may need to grant permissions if this is your first time creating a connection to Azure DevOps from AWS Management Console.  
-![Microsoft permissions request screenshot for the first time users when creating a connection to Azure DevOps.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/permissions_request_azure.png)
+![Microsoft permissions request screenshot for the first time users when creating a connection to Azure DevOps.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/permissions_request_azure.png)
 
 1. Choose **Accept**.
 

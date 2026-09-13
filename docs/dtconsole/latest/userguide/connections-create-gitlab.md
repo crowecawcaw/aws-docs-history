@@ -34,14 +34,14 @@ Beginning July 1, 2024, the console creates connections with `codeconnections` i
 1. Choose **Settings**, and then choose **Connections**. Choose **Create connection**.
 
 1. To create a connection to a GitLab repository, under **Select a provider**, choose **GitLab**. In **Connection name**, enter the name for the connection that you want to create. Choose **Connect to GitLab**.  
-![Console screenshot showing connection option selected for GitLab.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-gitlab.png)
+![Console screenshot showing connection option selected for GitLab.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-gitlab.png)
 
 1. When the sign-in page for GitLab displays, log in with your credentials and then choose **Sign in**.
 
 1. An authorization page displays with a message requesting authorization for the connection to access your GitLab account.
 
    Choose **Authorize**.  
-![Screenshot showing the message to authorize the connection for your GitLab account.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/gitlab-authorization.png)
+![Screenshot showing the message to authorize the connection for your GitLab account.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/gitlab-authorization.png)
 
 1. The browser returns to the connections console page. Under **Create GitLab connection**, the new connection is shown in **Connection name**.
 

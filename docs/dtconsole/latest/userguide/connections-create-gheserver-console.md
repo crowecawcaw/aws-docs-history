@@ -45,7 +45,7 @@ To create a connection to GitHub Enterprise Server, have your server URL and Git
 If your host setup includes a VPC configuration, allow several minutes for provisioning of host network components.
 
    Wait for your host to reach a **Pending** status, and then complete the setup. For more information, see [Set up a pending host](connections-host-setup.md).  
-![Console screenshot showing host details with the host in Pending status.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-host-pending.png)
+![Console screenshot showing host details with the host in Pending status.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-host-pending.png)
 
 **Step 2: Create your connection to GitHub Enterprise Server (console)**
 
@@ -58,7 +58,7 @@ If your host setup includes a VPC configuration, allow several minutes for provi
 **Connect to GitHub Enterprise Server**
 
 1. In **Connection name**, enter the name for your connection.  
-![Console screenshot showing Create host settings page with no VPC.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-screen.png)
+![Console screenshot showing Create host settings page with no VPC.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-screen.png)
 
 1. In **URL**, enter the endpoint for your server.
 **Note**  
@@ -79,24 +79,24 @@ For organizations in GitHub Enterprise Server or GitLab self-managed, you don’
       Make sure to choose the security group for the infrastructure where your GitHub Enterprise Server instance is installed or a security group with access to your installed GitHub Enterprise Server instance through VPN or Direct Connect.
 
    1. If you have a private VPC configured, and you have configured your GitHub Enterprise Server instance to perform TLS validation using a non-public certificate authority, in **TLS certificate**, enter your certificate ID. The TLS Certificate value should be the public key of the certificate.  
-![Console screenshot showing create GitHub Enterprise Server connection page for VPC options.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-screen-vpc.png)
+![Console screenshot showing create GitHub Enterprise Server connection page for VPC options.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-screen-vpc.png)
 
 1. Choose **Connect to GitHub Enterprise Server**. The created connection is shown with a **Pending** status. A host resource is created for the connection with the server information you provided. For the host name, the URL is used.
 
 1.  Choose **Update pending connection.**  
-![Console screenshot showing pending GitHub Enterprise Server connection page.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-pending.png)
+![Console screenshot showing pending GitHub Enterprise Server connection page.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-pending.png)
 
 1. If prompted, on the GitHub Enterprise login page, sign in with your GitHub Enterprise credentials.
 
 1. On the **Create GitHub App** page, choose a name for your app.  
-![Console screenshot showing app creation page.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-app-name.png)
+![Console screenshot showing app creation page.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-app-name.png)
 
 1. On the GitHub authorization page, choose **Authorize <app-name>**.  
-![Console screenshot showing app authorization page.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-app-authorize.png)
+![Console screenshot showing app authorization page.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-app-authorize.png)
 
 1. On the app installation page, a message shows that the connector app is ready to be installed. If you have multiple organizations, you might be prompted to choose the organization where you want to install the app. 
 
    Choose the repository settings where you want to install the app. Choose **Install**.  
-![Console screenshot showing app authorization page.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-app-install.png)
+![Console screenshot showing app authorization page.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-ghes-app-install.png)
 
 1. The connection page shows the created connection in an **Available** status.

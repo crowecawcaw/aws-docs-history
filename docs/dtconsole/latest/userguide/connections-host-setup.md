@@ -20,6 +20,6 @@ After your host is created, it is in a **Pending** status. To move the host from
 1. On the app install page, in **GitHub App name**, enter a name for the app you want to install for your host. Choose **Create GitHub App**.
 
 1. After your host is successfully registered, the host details page appears and shows that the host status is **Available**.  
-![Console screenshot showing the host setup is complete and in Available status.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-host-register-complete.png)
+![Console screenshot showing the host setup is complete and in Available status.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-create-host-register-complete.png)
 
 1. You can continue with creating your connection after the host is available. On the success banner, choose **Create connection**. Complete the steps in [Create a connection](connections-create-gheserver-console.md).

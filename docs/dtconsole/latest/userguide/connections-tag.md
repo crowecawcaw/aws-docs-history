@@ -53,7 +53,7 @@ When you create a connection for an installed provider such as GitHub Enterprise
 1. Under **Connection tags**, choose **Edit**. The **Edit Connection tags** page displays.
 
 1. In the **Key** and **Value** fields, enter a key pair for each set of tags you want to add. (The **Value** field is optional.) For example, in **Key**, enter **Project**. In **Value**, enter **ProjectA**.  
-![Edit Connection tags interface with Key and Value input fields, Add tag, Remove tag, Cancel, and Submit buttons.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-tags.png)
+![Edit Connection tags interface with Key and Value input fields, Add tag, Remove tag, Cancel, and Submit buttons.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/connections-tags.png)
 
 1. (Optional) Choose **Add tag** to add more rows and enter more tags.
 
@@ -70,7 +70,7 @@ When you create a connection for an installed provider such as GitHub Enterprise
 1. Under **Host tags**, choose **Edit**. The **Host tags** page displays.
 
 1. In the **Key** and **Value** fields, enter a key pair for each set of tags you want to add. (The **Value** field is optional.) For example, in **Key**, enter **Project**. In **Value**, enter **ProjectA**.  
-![Edit Host tags interface with Key and Value input fields, Add tag and Remove tag buttons.](http://docs.aws.amazon.com/dtconsole/latest/userguide/images/hosts-tag.png)
+![Edit Host tags interface with Key and Value input fields, Add tag and Remove tag buttons.](https://docs.aws.amazon.com/dtconsole/latest/userguide/images/hosts-tag.png)
 
 1. (Optional) Choose **Add tag** to add more rows and enter more tags for a host.
 
