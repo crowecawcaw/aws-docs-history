@@ -27,13 +27,13 @@ The following steps explain how to set up the Amazon Chime Meetings App for Slac
 
 1. On the next page, choose **Allow**.
 
-When the setup process finishes, a phone icon (![An icon of a telephone receiver.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-slack-call.png)) appears in the upper-right corner of the Slack screen. The icon only appears in your message threads, not your channels.
+When the setup process finishes, a phone icon (![An icon of a telephone receiver.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-slack-call.png)) appears in the upper-right corner of the Slack screen. The icon only appears in your message threads, not your channels.
 
 ## Starting calls or meetings
 <a name="start-slack-mtgs"></a>
 
 The steps in this topic explain how to start Amazon Chime Meetings App for Slack calls and meetings. You can do either of the following:
-+ In a direct message thread, use the **Call** command (![An icon of a telephone receiver.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-slack-call.png)).
++ In a direct message thread, use the **Call** command (![An icon of a telephone receiver.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-slack-call.png)).
 + In a channel, enter **/chime @attendee1 @attendee2**. You must use this command to start meetings in channels. You can also use it in direct message threads.
 
 **To use the Call command**

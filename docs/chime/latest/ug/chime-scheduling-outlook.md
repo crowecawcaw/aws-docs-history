@@ -21,7 +21,7 @@ The following steps explain how to use both add-ins.
 
 1. In your Outlook calendar, on the **Home** tab, choose **New Meeting**. 
 
-1. On the blank meeting that appears, choose **Schedule Chime Meeting**. ![Icon of spokes radiating from a circle.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-chime-add-in.png)
+1. On the blank meeting that appears, choose **Schedule Chime Meeting**. ![Icon of spokes radiating from a circle.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-chime-add-in.png)
 
 1. Select a **Meeting ID type**. For more information about the ID types, see [Choosing a meeting ID](understand-mtg-options.md#choose-type).
 
@@ -30,7 +30,7 @@ The following steps explain how to use both add-ins.
 1. (Optional) Under **Allow anyone with the meeting ID to join using**, choose one or both options.
 
    If you choose **Dial-in**, you can keep the default phone numbers or open the list and choose different numbers, including international phone numbers.  
-![A list of phone numbers, with Estonia highlighted.](http://docs.aws.amazon.com/chime/latest/ug/images/foreign-number-list.png)
+![A list of phone numbers, with Estonia highlighted.](https://docs.aws.amazon.com/chime/latest/ug/images/foreign-number-list.png)
 
 1. Choose **Add to invite**.
 

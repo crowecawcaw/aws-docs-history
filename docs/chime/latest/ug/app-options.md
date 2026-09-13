@@ -5,7 +5,7 @@
 
 You use the **Settings** page in the Amazon Chime mobile app to control meeting and audio settings, block users, and turn the Amazon Chime push notification service on or off.
 
-To open your settings, choose the **Settings** icon (![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/chime/latest/ug/images/settings.png)) from anywhere in the app. The **Settings** page appears and groups available settings by category. The following sections explain how to use the settings in each category.
+To open your settings, choose the **Settings** icon (![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/chime/latest/ug/images/settings.png)) from anywhere in the app. The **Settings** page appears and groups available settings by category. The following sections explain how to use the settings in each category.
 
 ## Meeting and call settings
 <a name="mobile-meetings-settings"></a>

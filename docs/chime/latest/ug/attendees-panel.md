@@ -63,12 +63,12 @@ The following table lists and describes the icons.
 
 | Icon | Status | 
 | --- | --- | 
-| ![An icon of a crown.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-mtg-organizer.png)  | Indicates the meeting organizer. | 
-| ![A line drawing of a video camera.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-video-on.png)  | The attendee's camera is on. | 
-| ![A line drawing of a blue microphone.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-audio-on.png) | The attendee's microphone is on. The inside of the microphone icon displays the audio level as that attendee talks. | 
-| ![A line drawing of a gray microphone with a diagonal slash.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-audio-muted.png) | The attendee's microphone is muted. Changes to a ![Line drawing of a blue microphone.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-audio-on.png) when the attendee unmutes their microphone.  | 
-| ![A console style phone.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-dial-in.png) | Indicates that the attendee dialed in from a phone. | 
-| ![A line drawing of a computer screen.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-screen-share.png) | Indicates the attendee currently sharing their screen. | 
+| ![An icon of a crown.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-mtg-organizer.png)  | Indicates the meeting organizer. | 
+| ![A line drawing of a video camera.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-video-on.png)  | The attendee's camera is on. | 
+| ![A line drawing of a blue microphone.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-audio-on.png) | The attendee's microphone is on. The inside of the microphone icon displays the audio level as that attendee talks. | 
+| ![A line drawing of a gray microphone with a diagonal slash.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-audio-muted.png) | The attendee's microphone is muted. Changes to a ![Line drawing of a blue microphone.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-audio-on.png) when the attendee unmutes their microphone.  | 
+| ![A console style phone.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-dial-in.png) | Indicates that the attendee dialed in from a phone. | 
+| ![A line drawing of a computer screen.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-screen-share.png) | Indicates the attendee currently sharing their screen. | 
 
 ## Opening or closing the Attendees panel
 <a name="open-close-attendees"></a>
@@ -76,11 +76,11 @@ The following table lists and describes the icons.
 You can open or close the **Attendees** panel at any time during a meeting. Closing the panel hides the meeting roster.
 
 **To open or close the panel**
-+ Choose the **Attendee panel** icon (![Icon of two figures surrounded by a blue circle.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-2.png)).
++ Choose the **Attendee panel** icon (![Icon of two figures surrounded by a blue circle.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-2.png)).
 
   —OR—
 
-  Choose the **Close attendees panel** icon (![Icon of an X inside a square box.](http://docs.aws.amazon.com/chime/latest/ug/images/attendees-close-icon.png) ) to close the panel.
+  Choose the **Close attendees panel** icon (![Icon of an X inside a square box.](https://docs.aws.amazon.com/chime/latest/ug/images/attendees-close-icon.png) ) to close the panel.
 
 ## Adding an attendee
 <a name="add-attendee-panel"></a>
@@ -89,7 +89,7 @@ You can add an attendee at any time during a meeting. However, the attendee must
 
 **To add an attendee**
 
-1. Choose the **Add attendee** icon at the top of the panel ( ![An icon showing a plus sign surrounded by a square.](http://docs.aws.amazon.com/chime/latest/ug/images/attendees-add-icon.png)), or press  Ctrl N .
+1. Choose the **Add attendee** icon at the top of the panel ( ![An icon showing a plus sign surrounded by a square.](https://docs.aws.amazon.com/chime/latest/ug/images/attendees-add-icon.png)), or press  Ctrl N .
 
 1. In the **Add attendees** dialog box, enter and select the name of the attendee you want to add. Then, choose **Add**.
 
@@ -99,14 +99,14 @@ You can add an attendee at any time during a meeting. However, the attendee must
 You can search for specific attendees during a meeting. When you search for an attendee, you can view their contact information or send them a direct message.
 
 **To search for an attendee**
-+ Choose the **Search attendees** icon at the top of the **Attendees** panel (![Icon of a magnifying glass.](http://docs.aws.amazon.com/chime/latest/ug/images/attendees-search-icon.png)).
++ Choose the **Search attendees** icon at the top of the **Attendees** panel (![Icon of a magnifying glass.](https://docs.aws.amazon.com/chime/latest/ug/images/attendees-search-icon.png)).
 
 ## Using the Waiting Room
 <a name="use-wr"></a>
 
 The Waiting Room appears in the **Attendee** panel whenever an anonymous user tries to join a meeting. You can admit anonymous users to the meeting. For more information, see [Using the Waiting Room](waiting-room.md).
 
-![Image of the Turn off Waiting Room link.](http://docs.aws.amazon.com/chime/latest/ug/images/turn-off-wr-from-attendee-panel.png)
+![Image of the Turn off Waiting Room link.](https://docs.aws.amazon.com/chime/latest/ug/images/turn-off-wr-from-attendee-panel.png)
 
 
 ## Messaging attendees directly

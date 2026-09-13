@@ -7,7 +7,7 @@ In a meeting with a lot of video tiles, you may not always see the tile of the p
 
 **To sort speaker tiles**
 
-1. In the left control bar, choose the **Media layout** icon (![An icon showing a stylized app screen with three panels.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-5.png)).
+1. In the left control bar, choose the **Media layout** icon (![An icon showing a stylized app screen with three panels.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-5.png)).
 
 1. Choose **Sort active speaker into view**.
 

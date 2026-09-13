@@ -9,7 +9,7 @@ When you join a meeting, a floating call control bar appears whenever you put th
 
 This image shows the floating control bar. Numbers in the image text correspond to numbers in the text below.
 
-![Images of the floating call control bar and 6 text descriptions.](http://docs.aws.amazon.com/chime/latest/ug/images/floating-control-bar-diag.png)
+![Images of the floating call control bar and 6 text descriptions.](https://docs.aws.amazon.com/chime/latest/ug/images/floating-control-bar-diag.png)
 
 
 In the image:

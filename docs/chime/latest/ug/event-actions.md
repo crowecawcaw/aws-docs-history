@@ -21,12 +21,12 @@ To manage Event Mode, do the following:
 
 **To start Event Mode**
 
-1. Open the **More options** menu (![An icon of a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)), then choose **Start event mode**.
+1. Open the **More options** menu (![An icon of a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)), then choose **Start event mode**.
 
 1. In the **Start event mode** dialog box, review the information about Event mode, then choose **Start event mode**.
 
 **To stop Event Mode**
-+ Open the **More options** menu (![An icon of a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)), then choose **Stop event mode**.
++ Open the **More options** menu (![An icon of a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)), then choose **Stop event mode**.
 
 ## Adding and removing presenters
 <a name="promote-attendee"></a>
@@ -35,13 +35,13 @@ By default in Event Mode, only hosts, moderators, and delegates can act as prese
 
 **To promote an attendee to presenter**
 
-1. In the left control bar, open the **More options** menu (![An icon of a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). Then, choose **Add event mode presenters**.
+1. In the left control bar, open the **More options** menu (![An icon of a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). Then, choose **Add event mode presenters**.
 
 1. In the dialog box that appears, select one or more attendees and choose **Add**.
 
    
 
-The selected attendees receive a notification, and the event mode icon (![An icon of a stick figure at a podium.](http://docs.aws.amazon.com/chime/latest/ug/images/event-mode-icon.png)) appears next to their names in the roster.
+The selected attendees receive a notification, and the event mode icon (![An icon of a stick figure at a podium.](https://docs.aws.amazon.com/chime/latest/ug/images/event-mode-icon.png)) appears next to their names in the roster.
 
 **To demote an attendee from presenter**
 
@@ -51,4 +51,4 @@ The selected attendees receive a notification, and the event mode icon (![An ico
 
 Meeting hosts, moderators, or delegates who sign in to the Amazon Chime app can also perform the following actions in Event Mode:
 + To remove an attendee from the presenters list, choose their name on the roster, then choose **Remove from Presenters**.
-+ To turn off Event Mode, open the **More options** menu (![An icon showing a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)), then choose **Disable Event Mode**. Once you turn off Event Mode, attendees can mute and unmute themselves, share their screens, and turn their video off or on. 
++ To turn off Event Mode, open the **More options** menu (![An icon showing a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)), then choose **Disable Event Mode**. Once you turn off Event Mode, attendees can mute and unmute themselves, share their screens, and turn their video off or on. 

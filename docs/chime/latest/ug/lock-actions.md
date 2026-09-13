@@ -7,7 +7,7 @@ Hosts, moderators, and delegates can lock meetings. When you lock a meeting, rem
 
 **To lock a meeting**
 
-1. In the left control bar, choose the **More options** menu (![An icon of a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). 
+1. In the left control bar, choose the **More options** menu (![An icon of a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). 
 
 1. Choose **Lock meeting**
 

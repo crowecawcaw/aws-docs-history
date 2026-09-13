@@ -14,7 +14,7 @@ The following steps explain how to find and copy the IDs needed to have a messag
 1. In a conversation, group, or chat room, open the ellipsis menu next to the message that you want to delete.
 
 1. Choose **Copy message ID**.  
-![Menu showing the Copy message ID command.](http://docs.aws.amazon.com/chime/latest/ug/images/copy-message-id.png)
+![Menu showing the Copy message ID command.](https://docs.aws.amazon.com/chime/latest/ug/images/copy-message-id.png)
 
    Amazon Chime copies the ID of the message and the ID of the conversation or the chat room, depending on the message's location. The administrator needs both values.
 

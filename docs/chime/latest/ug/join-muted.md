@@ -17,7 +17,7 @@ You can join meetings with your audio already muted. Follow these steps.
 
 Amazon Chime now mutes your audio each time you join a meeting. You can unmute your audio at any time by selecting the **Unmute mic** icon at the bottom of the meeting window.
 
-![A microphone with a diagonal slash.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-unmute-mic.png)
+![A microphone with a diagonal slash.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-unmute-mic.png)
 
 
 To join meetings with your audio unmuted, repeat the steps listed above and clear the **Join muted** checkbox.

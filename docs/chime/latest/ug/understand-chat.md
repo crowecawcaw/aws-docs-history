@@ -47,12 +47,12 @@ Displays past messages from all the contacts that you've chatted with during the
 
 The messages you exchange with a contact or a group appear to the right of the sidebar. The name of the contact appears above the messages. For a group chat, the names of everyone in the group appears above the messages. When you use a chat room, the room name appears above the messages. This image shows a group chat:
 
-![Two names separated by a dot.](http://docs.aws.amazon.com/chime/latest/ug/images/chat-group-names.png)
+![Two names separated by a dot.](https://docs.aws.amazon.com/chime/latest/ug/images/chat-group-names.png)
 
 
 A set of icons appears to the right of the names. Use them to call the contact or group, change your notification settings, and open the actions menu, respectively. 
 
-![A phone, a bell, and 3 horizontal dots in a circle.](http://docs.aws.amazon.com/chime/latest/ug/images/chat-name-controls.png)
+![A phone, a bell, and 3 horizontal dots in a circle.](https://docs.aws.amazon.com/chime/latest/ug/images/chat-name-controls.png)
 
 
 ## The message controls and menus
@@ -60,4 +60,4 @@ A set of icons appears to the right of the names. Use them to call the contact o
 
 Another set of controls appears to the right of each message. They show you when the message was sent, plus another actions menu. You use the menu to quote a message, copy a message, or copy a message's ID. For group chats, you also see the number of group members who've read the message. That number changes as more group members open the chat thread.
 
-![The time, the number of people who've read the message, and three dots in a circle.](http://docs.aws.amazon.com/chime/latest/ug/images/chat-read-by.png)
+![The time, the number of people who've read the message, and three dots in a circle.](https://docs.aws.amazon.com/chime/latest/ug/images/chat-read-by.png)

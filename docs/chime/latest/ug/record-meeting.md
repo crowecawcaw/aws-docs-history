@@ -11,7 +11,7 @@ Meeting organizers, delegates, and moderators can record meetings. Recordings ha
 
 **To record a meeting**
 
-1. At the bottom of the left control bar, choose the **Record meeting** icon ( ![A rectangular icon showing REC.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-record-meeting.png) ).
+1. At the bottom of the left control bar, choose the **Record meeting** icon ( ![A rectangular icon showing REC.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-record-meeting.png) ).
 
 1. To stop recording, choose the **Record meeting** icon again.
 

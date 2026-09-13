@@ -15,10 +15,10 @@ Amazon Chime keeps a list of the calls (instant meetings) that you make, calls t
 
 1. Enter your message.
 
-1. (Optional) Choose **Attach a file** (![An icon showing a paperclip.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-attach-file.png)) to attach a file to the message. You can attach files of up to 50 MB.
+1. (Optional) Choose **Attach a file** (![An icon showing a paperclip.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-attach-file.png)) to attach a file to the message. You can attach files of up to 50 MB.
 
-1. (Optional) Choose **Pick an emoji** (![An icon showing a smiley face.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-add-emoji.png)) to add an emoji.
+1. (Optional) Choose **Pick an emoji** (![An icon showing a smiley face.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-add-emoji.png)) to add an emoji.
 **Note**  
 You can also enter emoji codes to a message, such as `:-)` or `:(`. The emojis appear after you send the message.
 
-1. Choose send (![An arrow pointed to the right.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-send-msg.png)) or press **Enter**.
+1. Choose send (![An arrow pointed to the right.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-send-msg.png)) or press **Enter**.

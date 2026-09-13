@@ -10,7 +10,7 @@ Your company may limit you to phone numbers in the corporate address book.
 
 **To dial a phone number**
 
-1. In the sidebar, next to **Recent Messages**, choose the **Message a contact** icon (![This is my image.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-message-contact.png)).
+1. In the sidebar, next to **Recent Messages**, choose the **Message a contact** icon (![This is my image.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-message-contact.png)).
 
 1. In the **To** line of the message that appears, search for and select a phone number.
 

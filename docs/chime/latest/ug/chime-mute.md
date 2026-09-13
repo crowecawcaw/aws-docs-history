@@ -14,7 +14,7 @@ You can mute and unmute your audio at any time during an Amazon Chime meeting.
 
 **To mute or unmute your audio in the desktop client and web app**
 + Select the **Mute mic** icon at the bottom of the meeting window.  
-![A blue circle with a microphone.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-mute-mic.png)
+![A blue circle with a microphone.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-mute-mic.png)
 
   To unmute yourself, select the icon again.
 
@@ -45,6 +45,6 @@ You must be a meeting host, delegate, and moderator to complete these steps. Als
 
 **To prevent attendees from unmuting**
 
-1. In the left control bar, open the **More options** menu (![An icon showing a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). 
+1. In the left control bar, open the **More options** menu (![An icon showing a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). 
 
 1. Choose **Prevent attendees from unmuting**.

@@ -9,13 +9,13 @@ When you accept a call from a meeting, or you choose a link to a meeting, the **
 
 This image shows the **Device preview** dialog box.
 
-![Image showing the Device preview dialog and its options.](http://docs.aws.amazon.com/chime/latest/ug/images/device-preview-annotated.png)
+![Image showing the Device preview dialog and its options.](https://docs.aws.amazon.com/chime/latest/ug/images/device-preview-annotated.png)
 
 
 **Note**  
 If the Device preview dialog box doesn't appear, you can change your audio and video sources while in the meeting. For more information, see [Using audio during meetings](using-audio.md) and [Using video during meetings](use-video.md).  
 If you see the Device preview dialog box, but you don't see your video or audio sources, choose the Settings icon.  
-![A typical settings icon with a gear.](http://docs.aws.amazon.com/chime/latest/ug/images/join-dialog-settings.png)  
+![A typical settings icon with a gear.](https://docs.aws.amazon.com/chime/latest/ug/images/join-dialog-settings.png)  
 If you chose to hide the Device preview dialog box, and you want to show again, change the global setting. For more information, see [Amazon Chime global program settings](chm-settings.md).
 
 The following topics explain how to use the options shown in the image above.

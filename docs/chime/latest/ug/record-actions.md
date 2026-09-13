@@ -9,19 +9,19 @@ A meeting host, moderator, or delegate can record meetings. When you record a me
 Amazon Chime only records video when someone shares their screen. Any parts of a meeting without a screen share are blank during playback. Meeting recordings don't include attendee video tiles. 
 Recording files appear in the regular Amazon Chime chat window, not the meeting window. The recording files appear in the navigation pane under **Recent Messages**. This image shows a typical recording message.  
 
-![A recording file message in the Chime chat window.](http://docs.aws.amazon.com/chime/latest/ug/images/recording-in-chat.png)
+![A recording file message in the Chime chat window.](https://docs.aws.amazon.com/chime/latest/ug/images/recording-in-chat.png)
 
 
 **To start or stop meeting recording**
 
 1. To start recording, do one of the following:
-   + In the left control bar, choose the **Record meeting** icon (![Icon of a record button.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-record-meeting.png)). 
-   + In the left control bar, choose the **More options** menu (![An icon showing a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)), then choose **Record meeting**.
+   + In the left control bar, choose the **Record meeting** icon (![Icon of a record button.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-record-meeting.png)). 
+   + In the left control bar, choose the **More options** menu (![An icon showing a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)), then choose **Record meeting**.
    + If you joined the meeting from a phone or in-room conference system, press \*2.
 
 1. To stop recording, do one of the following:
    + In the left control bar, choose the **Record meeting** icon, located at the bottom of the bar. 
-   + Open the **More options** menu (![An icon showing a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)) and choose **Record meeting**.
+   + Open the **More options** menu (![An icon showing a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)) and choose **Record meeting**.
    + From a phone or in-room video system, press \*2.
 
 When meeting attendees join a meeting that you record, Amazon Chime notifies them that you've started recording. When you stop recording, the attendees receive an update that you've stopped recording. Recording automatically stops when the meeting ends.

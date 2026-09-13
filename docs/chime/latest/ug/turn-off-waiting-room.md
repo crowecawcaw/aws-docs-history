@@ -19,6 +19,6 @@ You must have at least one person in the waiting room in order to turn it off.
 1. On the left control bar, open the More menu (**...**).
 
 1. Choose **Turn off Waiting Room**.  
-![An ellipsis menu and the Turn off Waiting Room menu command.](http://docs.aws.amazon.com/chime/latest/ug/images/waiting-room-off.png)
+![An ellipsis menu and the Turn off Waiting Room menu command.](https://docs.aws.amazon.com/chime/latest/ug/images/waiting-room-off.png)
 
 To turn the Waiting Room on, repeat the steps listed above.

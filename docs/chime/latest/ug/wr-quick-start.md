@@ -5,7 +5,7 @@
 
 When anonymous users try to join a meeting, the **Waiting Room** section appears in the **Attendees** panel. The following image shows the section. Numbers in the image correspond to the numbered text below.
 
-![A list of names with Xs and checkmarks next to them, plus three numbered call outs.](http://docs.aws.amazon.com/chime/latest/ug/images/waiting-room-basic.png)
+![A list of names with Xs and checkmarks next to them, plus three numbered call outs.](https://docs.aws.amazon.com/chime/latest/ug/images/waiting-room-basic.png)
 
 
 In the image:

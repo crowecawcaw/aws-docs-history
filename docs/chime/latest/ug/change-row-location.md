@@ -15,7 +15,7 @@ By default, attendee video tiles appear in a row at the top of the meetings wind
 
 **To change the location during a meeting**
 
-1. In the left control bar, choose the **Media layout** icon (![An icon showing a stylized app screen with three panels.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-5.png)).
+1. In the left control bar, choose the **Media layout** icon (![An icon showing a stylized app screen with three panels.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-5.png)).
 
 1. Point to **Video row location**, and on the menu that appears, choose **Above featured content** or **Below featured content**.
 

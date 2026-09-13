@@ -7,7 +7,7 @@
 
 **To select your chat font size**
 
-1. In the desktop client or web app, choose your name (![A stylized person.](http://docs.aws.amazon.com/chime/latest/ug/images/profile-gray.png)).
+1. In the desktop client or web app, choose your name (![A stylized person.](https://docs.aws.amazon.com/chime/latest/ug/images/profile-gray.png)).
 
 1. Choose **Settings**, and then choose **Accessibility**.
 

@@ -11,7 +11,7 @@ All calls take place in the Meetings Window. When you start a call you automatic
 
 1. In the sidebar, select the chat room.
 
-1. Choose the **Select people to call** icon, to the right of the chat room name (![Line drawing of a phone.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-chat-call.png)).
+1. Choose the **Select people to call** icon, to the right of the chat room name (![Line drawing of a phone.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-chat-call.png)).
 
 1. In the **Select people to call** dialog box, choose one or more people.
 

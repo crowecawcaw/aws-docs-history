@@ -24,7 +24,7 @@ The steps in this topic assume you've entered at least one contact. If not, see 
 
 **To send messages to a group of contacts**
 
-1. On the navigation bar, choose **Messages**, then choose the **New message** icon (![A pen and piece of paper.](http://docs.aws.amazon.com/chime/latest/ug/images/mobile-new-message-icon.png)).
+1. On the navigation bar, choose **Messages**, then choose the **New message** icon (![A pen and piece of paper.](https://docs.aws.amazon.com/chime/latest/ug/images/mobile-new-message-icon.png)).
 
 1. From the list on the **New message** view, choose a contact to add them to the **To** field.
 
@@ -32,7 +32,7 @@ The steps in this topic assume you've entered at least one contact. If not, see 
 
 1. After you enter your contacts, choose **Type a new message** to enter the message.
 
-1. To add an image to your message, choose the camera icon (![A camera.](http://docs.aws.amazon.com/chime/latest/ug/images/mobile-camera-icon.png)). You can upload an existing image or video, or use your device to capture a photo or video.
+1. To add an image to your message, choose the camera icon (![A camera.](https://docs.aws.amazon.com/chime/latest/ug/images/mobile-camera-icon.png)). You can upload an existing image or video, or use your device to capture a photo or video.
 
 1. Choose the **Send** icon.
 

@@ -18,10 +18,10 @@ Be careful about the messages that you send. By design, Amazon Chime doesn't all
 
 1. (Optional) to add line breaks to a message, press Ctrl\+Enter or Shift\+Enter.
 
-1. (Optional) Choose **Attach a file** (![An icon showing a paperclip.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-attach-file.png)) to attach a file to the message. You can attach files of up to 50 MB.
+1. (Optional) Choose **Attach a file** (![An icon showing a paperclip.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-attach-file.png)) to attach a file to the message. You can attach files of up to 50 MB.
 
-1. (Optional) Choose **Pick an emoji** (![An icon showing a smiley face.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-add-emoji.png)) to add an emoji.
+1. (Optional) Choose **Pick an emoji** (![An icon showing a smiley face.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-add-emoji.png)) to add an emoji.
 **Note**  
 You can also add emoji codes to a message, such as `:-)` or `:(`. The emojis appear after you send the message.
 
-1. Choose send (![An arrow pointed to the right.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-send-msg.png)) or press **Enter**.
+1. Choose send (![An arrow pointed to the right.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-send-msg.png)) or press **Enter**.

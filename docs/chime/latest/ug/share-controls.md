@@ -3,7 +3,7 @@
 # Using the screen share control bar
 <a name="share-controls"></a>
 
-When a meeting host or attendee shares their screen, the screen share control bar appears: ![A dark gray bar with four icons.](http://docs.aws.amazon.com/chime/latest/ug/images/meeting-shared-screen-controls.png) 
+When a meeting host or attendee shares their screen, the screen share control bar appears: ![A dark gray bar with four icons.](https://docs.aws.amazon.com/chime/latest/ug/images/meeting-shared-screen-controls.png) 
 
 Moving from left to right: 
 + **Hide all video** – Hides all attendee video tiles, including yours.

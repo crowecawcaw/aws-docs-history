@@ -10,7 +10,7 @@ These steps only apply to Windows devices.
 
 **To start a troubleshooter**
 
-1. Choose the **Audio menu** icon, located next to the microphone icon (![Icon of a microphone and caret symbol.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-mic-caret.png)).
+1. Choose the **Audio menu** icon, located next to the microphone icon (![Icon of a microphone and caret symbol.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-mic-caret.png)).
 
 1. Under **Device Assistance**, choose the desired troubleshooter.
 

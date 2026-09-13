@@ -7,6 +7,6 @@ After you join an Amazon Chime meeting, you can change to a different microphone
 
 **To change audio devices**
 
-1. Choose the **Audio menu** icon located next to the microphone icon (![Icon of a microphone and caret symbol.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-mic-caret.png)).
+1. Choose the **Audio menu** icon located next to the microphone icon (![Icon of a microphone and caret symbol.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-mic-caret.png)).
 
 1. Under **Speakers**, choose any available device.

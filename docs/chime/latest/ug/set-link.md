@@ -7,7 +7,7 @@ If you have Amazon Chime Pro permissions, you can create a personalized meeting 
 
 **To set a personalized link in the desktop client**
 
-1. On the navigation bar, choose **Meetings** (![The Meetings icon.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-meetings.png)), then choose **My meeting bridge information**.
+1. On the navigation bar, choose **Meetings** (![The Meetings icon.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-meetings.png)), then choose **My meeting bridge information**.
 
 1. Choose **Create your personalized ID**.
 
@@ -35,7 +35,7 @@ If you have Amazon Chime Pro permissions, you can create a personalized meeting 
 
 1. Follow steps 1 and 2 in either of the previous procedures to display your meeting bridge information.
 
-1. Choose the **Edit or delete personalized ID** icon (![An icon showing a pen.](http://docs.aws.amazon.com/chime/latest/ug/images/edit-id-icon.png)).
+1. Choose the **Edit or delete personalized ID** icon (![An icon showing a pen.](https://docs.aws.amazon.com/chime/latest/ug/images/edit-id-icon.png)).
 
 1. In the message that appears, review the information, then choose **Acknowledge and continue**.
 
@@ -47,7 +47,7 @@ If you have Amazon Chime Pro permissions, you can create a personalized meeting 
 
 1. Follow steps 1 and 2 in either of the previous procedures to display your meeting bridge information.
 
-1. Choose the **Edit or delete personalized ID** icon (![An icon showing a pen.](http://docs.aws.amazon.com/chime/latest/ug/images/edit-id-icon.png)).
+1. Choose the **Edit or delete personalized ID** icon (![An icon showing a pen.](https://docs.aws.amazon.com/chime/latest/ug/images/edit-id-icon.png)).
 
 1. In the message that appears, review the information, then choose **Acknowledge and continue**.
 

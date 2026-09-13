@@ -7,7 +7,7 @@ If you don't want to watch your video, or you want to make more room for a scree
 
 **To hide your video tile**
 
-1. On the left toolbar, open the **Media layout** menu (![An icon showing a stylized app window with three panels.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-5.png)).
+1. On the left toolbar, open the **Media layout** menu (![An icon showing a stylized app window with three panels.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-5.png)).
 
 1. Choose **Hide my own video**.
 

@@ -17,20 +17,20 @@ These topics only introduce the desktop client and web app. For information abou
 
 When you start either of the Amazon Chime clients, you see the Home section of the Main window. This image shows the window in the desktop client.
 
-![The Amazon Chime Home window.](http://docs.aws.amazon.com/chime/latest/ug/images/full-home-screen-condensed.png)
+![The Amazon Chime Home window.](https://docs.aws.amazon.com/chime/latest/ug/images/full-home-screen-condensed.png)
 
 
 Starting from the upper-left corner, the Home window displays the following items:
 
 **Menu bar (desktop client only)**  
 Use these menu options to change program settings, edit text, change the size of the Amazon Chime program window, and get help.  
-![A set of menus named File, Edit, View, Window, and Help.](http://docs.aws.amazon.com/chime/latest/ug/images/menu-bar.png) 
+![A set of menus named File, Edit, View, Window, and Help.](https://docs.aws.amazon.com/chime/latest/ug/images/menu-bar.png) 
 
 **Your name and status**  
 Both clients display your name, along with an icon that shows your status, such as **Available** or **Busy**. You can also add a custom status message.  
 In either client, choose your name to open the following menu:  
 
-![Enter a custom status, view your chat rooms, messages, and contacts, change settings, start the help, send diagnostic logs, and sign out of Amazon Chime.](http://docs.aws.amazon.com/chime/latest/ug/images/default-profile-menu.png)
+![Enter a custom status, view your chat rooms, messages, and contacts, change settings, start the help, send diagnostic logs, and sign out of Amazon Chime.](https://docs.aws.amazon.com/chime/latest/ug/images/default-profile-menu.png)
 
 The following list describes the menu commands:   
 + **Automatic ** – (default setting) Choose the command to set your availability status. The text in the menu matches your choice.
@@ -46,19 +46,19 @@ The following list describes the menu commands:
 
 **The navigation bar (desktop client only)**  
 The navigation bar in the desktop client provides icons for returning to Home, opening your contacts list, creating a 1:1 or group message, opening your list of chat rooms, joining a meeting, starting an instant meeting, scheduling a meeting, and seeing your meeting bridge information.  
-![A set of icons labeled Home, Contacts, Message, Rooms, and Meetings.](http://docs.aws.amazon.com/chime/latest/ug/images/5-navigation-bar-highlight.png)  
- ![A home icon.](http://docs.aws.amazon.com/chime/latest/ug/images/home-icon-web.png) 
+![A set of icons labeled Home, Contacts, Message, Rooms, and Meetings.](https://docs.aws.amazon.com/chime/latest/ug/images/5-navigation-bar-highlight.png)  
+ ![A home icon.](https://docs.aws.amazon.com/chime/latest/ug/images/home-icon-web.png) 
 
 **The sidebar**  
 Both clients display the left navigation on the Main window. The sidebar lists your call history, chat rooms, favorites, and the people you've messaged recently.   
 
-![A pane that lists call history, chat room, and several obscured names.](http://docs.aws.amazon.com/chime/latest/ug/images/sidebar.png)
+![A pane that lists call history, chat room, and several obscured names.](https://docs.aws.amazon.com/chime/latest/ug/images/sidebar.png)
 
 
 **Quick actions links**  
 These links provide the same functionality as the navigation bar in the desktop client. The desktop client displays these links in the Main window. The web app displays these links all the time.  
 
-![A set of links under the heading Quick actions.](http://docs.aws.amazon.com/chime/latest/ug/images/quick-actions.png)
+![A set of links under the heading Quick actions.](https://docs.aws.amazon.com/chime/latest/ug/images/quick-actions.png)
 
 
 ## The chat window

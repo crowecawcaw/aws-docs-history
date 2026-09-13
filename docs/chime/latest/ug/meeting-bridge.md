@@ -7,7 +7,7 @@ You use your meeting bridge information to invite others to an Amazon Chime meet
 
 **To view meeting bridge information**
 
-1. On the left control bar, choose the **Meeting bridge information** icon ( ![An icon showing a lowercase letter i in a circle.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-1.png)), or press  Ctrl I .
+1. On the left control bar, choose the **Meeting bridge information** icon ( ![An icon showing a lowercase letter i in a circle.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-1.png)), or press  Ctrl I .
 
 1. Do either of the following:
    + Choose **Copy** to copy the information to your device's clipboard.
@@ -17,7 +17,7 @@ You use your meeting bridge information to invite others to an Amazon Chime meet
 
 **To add attendees from your Contacts list**
 
-1. On the left control bar, choose the **Meeting bridge information** icon ( ![An icon showing a lowercase letter i in a circle.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-1.png)), or press  Ctrl I .
+1. On the left control bar, choose the **Meeting bridge information** icon ( ![An icon showing a lowercase letter i in a circle.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-1.png)), or press  Ctrl I .
 
 1. Choose **Add attendee**.
 

@@ -7,6 +7,6 @@ By default, Amazon Chime displays notifications for a variety of meeting events.
 
 To turn off notifications for all attendees, do the following:
 
-1. In the left control bar, open the **More options** menu (![An icon showing a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). 
+1. In the left control bar, open the **More options** menu (![An icon showing a horizontal ellipsis.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). 
 
 1. Choose **Notify for all meeting events** to clear the check mark.

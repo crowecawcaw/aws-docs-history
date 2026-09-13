@@ -9,7 +9,7 @@ Follow these steps to change or not share your presence status:
 
 **To change your status**
 
-1. From the Amazon Chime app, choose the **Settings** icon (![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/chime/latest/ug/images/settings.png)) .
+1. From the Amazon Chime app, choose the **Settings** icon (![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/chime/latest/ug/images/settings.png)) .
 
 1. From the Settings page, under **Status**, choose the current status.
 
@@ -17,7 +17,7 @@ Follow these steps to change or not share your presence status:
 
 **To change whether your status is shown publicly**
 
-1. From the Amazon Chime app, choose the **Settings** icon (![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/chime/latest/ug/images/settings.png)).
+1. From the Amazon Chime app, choose the **Settings** icon (![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/chime/latest/ug/images/settings.png)).
 
 1. Under **Share presence with**, select **Everyone** to share your status with other. To hide your status, select **No one**.
 **Note**  

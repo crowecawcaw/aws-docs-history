@@ -22,19 +22,19 @@ When you start a group chat, the people you invite can decline the invitation. A
 
 **To start a group chat**
 
-1. In the sidebar, next to **Recent Messages**, choose the **Message a contact** icon (![Line drawing of a pen.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-message-contact.png)).
+1. In the sidebar, next to **Recent Messages**, choose the **Message a contact** icon (![Line drawing of a pen.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-message-contact.png)).
 
-1. In the **To** field, add up to 50 users. The first two names that you enter appear in the sidebar, along with this icon: ![A line drawing of two people.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-group-chat.png)
+1. In the **To** field, add up to 50 users. The first two names that you enter appear in the sidebar, along with this icon: ![A line drawing of two people.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-group-chat.png)
 
 1. Enter your message.
 
-1. (Optional) Choose **Attach a file** (![A line drawing of a paperclip.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-attach-file.png)) to attach a file to the message. You can attach files of up to 50 MB.
+1. (Optional) Choose **Attach a file** (![A line drawing of a paperclip.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-attach-file.png)) to attach a file to the message. You can attach files of up to 50 MB.
 
-1. (Optional) Choose **Pick an emoji** (![A line drawing of a smiley face.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-add-emoji.png)) to add an emoji.
+1. (Optional) Choose **Pick an emoji** (![A line drawing of a smiley face.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-add-emoji.png)) to add an emoji.
 **Note**  
 You can also enter emoji codes to a message, such as `:-)` or `:(`. The emojis appear after you send the message.
 
-1. Choose send (![An arrow pointed to the right.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-send-msg.png)) or press **Enter**.
+1. Choose send (![An arrow pointed to the right.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-send-msg.png)) or press **Enter**.
 
 Group chats appear in the sidebars of the desktop client and web app. If you use the Amazon Chime mobile app, group chat messages appear as push notifications if you enable that service. For more information about push notifications in the mobile app, see [Additional Amazon Chime settings](app-options.md#mobile-chime-settings).
 
@@ -48,7 +48,7 @@ The following steps apply to the desktop client and web app.
 
   —OR—
 
-  Choose the phone icon in the upper-right corner of the chat window (![Line drawing of a phone receiver.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-chat-call.png)).
+  Choose the phone icon in the upper-right corner of the chat window (![Line drawing of a phone receiver.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-chat-call.png)).
 
 ## Adding and removing group members
 <a name="add-remove-members"></a>

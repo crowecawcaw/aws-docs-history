@@ -11,4 +11,4 @@ Amazon Chime gives you two ways to chat—in-meeting chat and regular Amazon Chi
 You can show or hide the **Chat** panel at any time during a meeting.
 
 **To show or hide the Chat panel**
-+ On the left control bar, choose the **Meeting chat panel** icon (![An icon of a rectangular message balloon in a blue circle.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-3.png)).
++ On the left control bar, choose the **Meeting chat panel** icon (![An icon of a rectangular message balloon in a blue circle.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-3.png)).

@@ -8,7 +8,7 @@ By default, your video tile displays a mirror image of you during meetings. For 
 **To unmirror your view**
 
 1. Open the **Video** menu, located below the screenshare window.  
-![Image of a video camera icon and a caret symbol. The caret indicates the menu.](http://docs.aws.amazon.com/chime/latest/ug/images/video-menu-closed.png)
+![Image of a video camera icon and a caret symbol. The caret indicates the menu.](https://docs.aws.amazon.com/chime/latest/ug/images/video-menu-closed.png)
 
 1. Select the **Mirror my self view** command to clear the checkmark.
 

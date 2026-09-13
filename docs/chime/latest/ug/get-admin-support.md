@@ -17,11 +17,11 @@ If you can, provide your Amazon Chime administrator with the following informati
   + In Windows, choose **Help**, **About Amazon Chime**.
   + In OS X, choose **Amazon Chime**, **About Amazon Chime**.
   + In iOS and Android, choose **Settings**, **About**.
-  + In the web application, open the menu next to your name (![A circle that contains three horizontal lines.](http://docs.aws.amazon.com/chime/latest/ug/images/web-app-top-menu-btn.png)) and choose **About Amazon Chime**.
+  + In the web application, open the menu next to your name (![A circle that contains three horizontal lines.](https://docs.aws.amazon.com/chime/latest/ug/images/web-app-top-menu-btn.png)) and choose **About Amazon Chime**.
 + The Log Reference ID. To find this ID:
   + In Windows and OS X, choose **Help**, **Send Diagnostic Logs**.
   + In iOS and Android, choose **Settings**, **Send Diagnostic Logs**. 
-  + In the web application, open the menu next to your name (open the menu next to your name (![A circle that contains three horizontal lines.](http://docs.aws.amazon.com/chime/latest/ug/images/web-app-top-menu-btn.png)) and choose **Send Diagnostic Logs**.
+  + In the web application, open the menu next to your name (open the menu next to your name (![A circle that contains three horizontal lines.](https://docs.aws.amazon.com/chime/latest/ug/images/web-app-top-menu-btn.png)) and choose **Send Diagnostic Logs**.
 + If your issue is related to a meeting, the Meeting ID.
 
 **Note**  

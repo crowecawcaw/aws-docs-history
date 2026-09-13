@@ -11,7 +11,7 @@ The following steps explain how to use the desktop client and web app to add con
 
 **To add contacts in the desktop client**
 
-1. On the navigation bar, choose **Contacts**(![An icon showing a person.](http://docs.aws.amazon.com/chime/latest/ug/images/icon-contacts.png) ).
+1. On the navigation bar, choose **Contacts**(![An icon showing a person.](https://docs.aws.amazon.com/chime/latest/ug/images/icon-contacts.png) ).
 
 1. In the **Contacts** dialog box, search for the contact by name, email alias, email address, or phone number. 
 **Note**  

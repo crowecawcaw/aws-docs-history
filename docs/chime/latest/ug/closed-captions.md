@@ -7,7 +7,7 @@ When you attend a meeting hosted by someone from Amazon, you can view machine-ge
 
 **To show or hide closed captions**
 
-1. On the left control bar, choose **Closed captions** (![An icon of a box surrounding the letters CC.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-4.png)). 
+1. On the left control bar, choose **Closed captions** (![An icon of a box surrounding the letters CC.](https://docs.aws.amazon.com/chime/latest/ug/images/left-control-4.png)). 
 
 1. In the **Language Preference** dialog box, open the **Language** list and choose your language.
 
