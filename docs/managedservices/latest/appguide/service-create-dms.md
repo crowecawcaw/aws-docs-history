@@ -9,7 +9,7 @@ AWS Database Migration Service (AWS DMS) helps you migrate databases to AMS easi
 
 The following graphic depicts the workflow of an database migration.
 
-![AWS DMS workflow showing source database connecting through endpoints and replication task to target database.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/datarep-Welcome.png)
+![AWS DMS workflow showing source database connecting through endpoints and replication task to target database.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/datarep-Welcome.png)
 
 
 **Topics**

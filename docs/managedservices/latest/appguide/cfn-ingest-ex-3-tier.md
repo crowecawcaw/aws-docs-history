@@ -7,7 +7,7 @@ End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. 
 
 Ingest a CloudFormation template for a standard 3-Tier Web Application.
 
-![VPC with Application Load Balancer, Auto Scaling group with web servers, and RDS databases across two availability zones.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/cfn-ingest-ex-3-tier.png)
+![VPC with Application Load Balancer, Auto Scaling group with web servers, and RDS databases across two availability zones.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/cfn-ingest-ex-3-tier.png)
 
 
 This includes an Application Load Balancer, Application Load Balancer target group, Auto Scaling group, Auto Scaling group launch template, Amazon Relational Database Service (RDS for SQL Server) with a MySQL database, AWS SSM Parameter store, and AWS Secrets Manager. Allow 30-60 minutes to walk through this example.

@@ -13,7 +13,7 @@ You can use the AMS console or API/CLI to create an AMS AWS DMS replication subn
 ### Creating a AWS DMS replication subnet group with the console
 <a name="dms-rsg-create-con"></a>
 
-![DMS replication subnet group details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateRepSubGroupCT.png)
+![DMS replication subnet group details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateRepSubGroupCT.png)
 
 
 **Note**  

@@ -8,7 +8,7 @@ End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. 
 **Note**  
 Because two parties are required for this process, this section describes the tasks for each: an AMS Cloud Migration Partner (migration partner), and an Application Owner (you).
 
-![Migration workflow showing VM migration to EC2 through four stages: preparation, ingestion, stack deployment, and validation.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/migration-ams-wigs.png)
+![Migration workflow showing VM migration to EC2 through four stages: preparation, ingestion, stack deployment, and validation.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/migration-ams-wigs.png)
 
 
 1. Migration partner, Set Up:

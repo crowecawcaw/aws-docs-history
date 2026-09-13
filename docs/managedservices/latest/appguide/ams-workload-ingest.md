@@ -23,7 +23,7 @@ Every workload and account is different. AMS will work with you to prepare for a
 
 The following diagram depicts the AMS workload ingestion process.
 
-![Workflow showing migration partner moving customer instance to EC2, then CT workflow launching stack in AMS.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/Workload_ingestion_product_process.png)
+![Workflow showing migration partner moving customer instance to EC2, then CT workflow launching stack in AMS.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/Workload_ingestion_product_process.png)
 
 
 ## Workload Ingest Stack: Creating
@@ -34,7 +34,7 @@ The following diagram depicts the AMS workload ingestion process.
 
 Screenshot of this change type in the AMS console:
 
-![Migrate Instance to AMS Stack change type showing ID, execution mode, version, classification, and description fields.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiIngestStackFromPartMigStackCreateCT.png)
+![Migrate Instance to AMS Stack change type showing ID, execution mode, version, classification, and description fields.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiIngestStackFromPartMigStackCreateCT.png)
 
 
 How it works:

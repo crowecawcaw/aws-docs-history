@@ -15,7 +15,7 @@ You can use the AMS console or API/CLI to create an AMS AWS DMS replication inst
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-27apldkhqr0ol, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateRepInstanceCT.png)
+![Change type details showing ID ct-27apldkhqr0ol, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateRepInstanceCT.png)
 
 
 How it works:

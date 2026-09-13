@@ -15,7 +15,7 @@ You can use the AMS console or API/CLI to create an AMS DMS source endpoint for 
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID ct-0attesnjqy2cx, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateSourceEpCT.png)
+![Change type details showing ID ct-0attesnjqy2cx, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateSourceEpCT.png)
 
 
 How it works:
@@ -134,7 +134,7 @@ To learn more, see [Sources for Data Migration](https://docs.aws.amazon.com/dms/
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 1.0, and automated execution mode for MongoDB DMS endpoint.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateSourceEpMongoCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for MongoDB DMS endpoint.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateSourceEpMongoCT.png)
 
 
 How it works:
@@ -249,7 +249,7 @@ AMS DMS can use Mongo or any Relational Database Service (RDS) as a source endpo
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 1.0, and automated execution mode for creating DMS source endpoint for S3.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateSourceEpS3CT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for creating DMS source endpoint for S3.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateSourceEpS3CT.png)
 
 
 How it works:

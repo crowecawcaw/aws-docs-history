@@ -24,4 +24,4 @@ RFC Comment=Please click 'Get started' on the MGN welcome page here:
 
 Once AMS successfully completes the RFC and initializes AWS MGN in your Tools account, you can use `AWSManagedServicesMigrationRole` to edit the default template for your requirements.
 
-![AWS MGN, Setup application migration service.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/aws_mgn_firstrun.png)
+![AWS MGN, Setup application migration service.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/aws_mgn_firstrun.png)

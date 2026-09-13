@@ -13,7 +13,7 @@ Create CodeDeploy application groups.
 ### Creating a CodeDeploy deployment group with the console
 <a name="cd-dep-group-create-con"></a>
 
-![Change type details showing ID, version 1.0, and automated execution mode for deployment group.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCDDepGroupCreateCT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for deployment group.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCDDepGroupCreateCT.png)
 
 
 How it works:
@@ -123,7 +123,7 @@ For more information about AWS CodeDeploy deployment groups, see [Create a Deplo
 ### Creating a CodeDeploy deployment group for EC2 with the console
 <a name="cd-dep-group-ec2-create-con"></a>
 
-![Change type details showing CodeDeploy deployment group creation with EC2 instance targeting.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCDDepGroupCreate4Ec2CT.png)
+![Change type details showing CodeDeploy deployment group creation with EC2 instance targeting.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCDDepGroupCreate4Ec2CT.png)
 
 
 How it works:

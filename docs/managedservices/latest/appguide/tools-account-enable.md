@@ -29,4 +29,4 @@ Once the tools account is created, AMS provides you with an account ID. Your nex
 
 Example graphic of a final account setup:
 
-![AWS architecture diagram showing Migration VPC, IAM, and Permissions with various components and connections.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/WIGS_Account_ExpandedV1.png)
+![AWS architecture diagram showing Migration VPC, IAM, and Permissions with various components and connections.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/WIGS_Account_ExpandedV1.png)

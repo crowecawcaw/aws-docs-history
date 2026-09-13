@@ -15,7 +15,7 @@ AWS DMS management examples.
 
 Screenshot of this change type in the AMS console:
 
-![Start DMS Replication Task interface showing task description, ID ct-1yq7hhqse71yg, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsStartRepTaskCT.png)
+![Start DMS Replication Task interface showing task description, ID ct-1yq7hhqse71yg, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsStartRepTaskCT.png)
 
 
 How it works:
@@ -131,7 +131,7 @@ You can start a AWS DMS replication task, using the AMS console or the AMS API/C
 
 Screenshot of this change type in the AMS console:
 
-![Stop DMS Replication Task page showing task ID ct-1vd3y4ygbqmfk with version 1.0.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsStopRepTaskCT.png)
+![Stop DMS Replication Task page showing task ID ct-1vd3y4ygbqmfk with version 1.0.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsStopRepTaskCT.png)
 
 
 How it works:

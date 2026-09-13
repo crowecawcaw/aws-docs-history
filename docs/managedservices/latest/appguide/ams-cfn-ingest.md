@@ -36,7 +36,7 @@ Version 1.0 is a manual change type. This means that an AMS operator must take s
 ### Creating a CloudFormation ingest stack using the console
 <a name="cfn-ingest-create-con"></a>
 
-![Create Stack From CloudFormation Template dialog showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCfnIngestCT.png)
+![Create Stack From CloudFormation Template dialog showing description, ID, and version fields.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCfnIngestCT.png)
 
 
 **To create a CloudFormation ingest stack using the console**
@@ -199,7 +199,7 @@ To learn more about CFN validation and validator, see [Template Validation](http
 ### Updating a CloudFormation ingest stack using the console
 <a name="cfn-ingest-update-con"></a>
 
-![Update CloudFormation Stack page showing description, ID ct-361tlo1k7339x, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCfnStackUpdateCT-v2.png)
+![Update CloudFormation Stack page showing description, ID ct-361tlo1k7339x, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCfnStackUpdateCT-v2.png)
 
 
 **To update a CloudFormation Ingest Stack using the console**
@@ -338,7 +338,7 @@ To learn more about CFN validation and validator, see [Template Validation](http
 ### Approving and updating a CloudFormation ingest stack using the console
 <a name="cfn-ingest-approve-update-con"></a>
 
-![ChangeSet details showing ID ct-1404e21baa2ox, Automated execution mode, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCfnStackApproveAndUpdateCT.png)
+![ChangeSet details showing ID ct-1404e21baa2ox, Automated execution mode, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCfnStackApproveAndUpdateCT.png)
 
 
 **To approve and update a CloudFormation ingest stack using the console**
@@ -411,7 +411,7 @@ To learn more about AWS CloudFormation, see [AWS CloudFormation](https://aws.ama
 
 The following shows this change type in the AMS console.
 
-![Update Termination Protection change type showing ID ct-2uzbqr7x7mekd and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCfnProTermUpdateCT.png)
+![Update Termination Protection change type showing ID ct-2uzbqr7x7mekd and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiCfnProTermUpdateCT.png)
 
 
 How it works:

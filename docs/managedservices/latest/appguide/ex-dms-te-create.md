@@ -17,7 +17,7 @@ AMS DMS can use S3 or any Relational Database Service (RDS) with MySQL, MariaDB,
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing Create DMS target endpoint with ID, version, and execution mode.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateTargetEpCT.png)
+![Change type details showing Create DMS target endpoint with ID, version, and execution mode.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateTargetEpCT.png)
 
 
 How it works:
@@ -131,7 +131,7 @@ aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-3gf8
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 1.0, and automated execution mode for creating DMS target endpoint for S3.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateTargetEpS3CT.png)
+![Change type details showing ID, version 1.0, and automated execution mode for creating DMS target endpoint for S3.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/guiDmsCreateTargetEpS3CT.png)
 
 
 How it works:

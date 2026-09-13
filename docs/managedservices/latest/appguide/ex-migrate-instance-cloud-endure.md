@@ -21,7 +21,7 @@ Prerequisites:
 **Note**  
 Specific preparation and migration processes are described in this section.
 
-![AWS architecture diagram showing data flow between on-premises server and AWS cloud services.](http://docs.aws.amazon.com/managedservices/latest/appguide/images/migration-ams-wigs-solution.png)
+![AWS architecture diagram showing data flow between on-premises server and AWS cloud services.](https://docs.aws.amazon.com/managedservices/latest/appguide/images/migration-ams-wigs-solution.png)
 
 
 Preparation: You and AMS operator:

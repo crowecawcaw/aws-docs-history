@@ -11,7 +11,7 @@ For more information, see [ AWS Backup and AWS Organizations bring cross-account
 
 You copy snapshots cross account for disaster recovery (DR). You might have requirements to keep snapshots within the same AWS Region, but across from the account boundaries, for data protection.
 
-![AWS Backup Cross Account Snapshot Copy Process](http://docs.aws.amazon.com/managedservices/latest/appguide/images/qsBackupCrossAccountSnapshotCopy2.png)
+![AWS Backup Cross Account Snapshot Copy Process](https://docs.aws.amazon.com/managedservices/latest/appguide/images/qsBackupCrossAccountSnapshotCopy2.png)
 
 
 **Overview**:
