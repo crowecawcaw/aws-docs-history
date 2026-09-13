@@ -10,7 +10,7 @@ With this architecture, you can build smart, connected lodging properties. Use I
 ## Connected lodging properties diagram
 <a name="conlodge-diagram"></a>
 
-![How to build connected lodging properties by using AWS IoT Core, AWS IoT Greengrass, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-lodging-properties-iot/images/connected-lodging-properties-iot.png)
+![How to build connected lodging properties by using AWS IoT Core, AWS IoT Greengrass, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-lodging-properties-iot/images/connected-lodging-properties-iot.png)
 
 
 The following steps describe the architecture:
