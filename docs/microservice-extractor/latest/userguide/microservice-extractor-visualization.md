@@ -14,14 +14,14 @@ AWS Microservice Extractor for .NET creates a visualization of the monolithic ap
 
 The following image shows the **Visualization canvas** displaying root level groupings of applications nodes. Application nodes at this level are classified as either project or group nodes.
 
-![Root level projects and groups visualization.](http://docs.aws.amazon.com/microservice-extractor/latest/userguide/images/Root%20level%20projects%20and%20groups.png)
+![Root level projects and groups visualization.](https://docs.aws.amazon.com/microservice-extractor/latest/userguide/images/Root%20level%20projects%20and%20groups.png)
 
 
 The following image shows the **Visualization canvas** displaying namespace level aggregations of application nodes. Nodes at this level are aggregated as namespaces.
 
-![Namespace visualization.](http://docs.aws.amazon.com/microservice-extractor/latest/userguide/images/Namespaces%20visualization.png)
+![Namespace visualization.](https://docs.aws.amazon.com/microservice-extractor/latest/userguide/images/Namespaces%20visualization.png)
 
 
 The following image shows the **Visualization canvas** displaying a class level view within the namespace. Nodes at this level are individual classes.
 
-![Classes visualization.](http://docs.aws.amazon.com/microservice-extractor/latest/userguide/images/Classes%20visualization.png)
+![Classes visualization.](https://docs.aws.amazon.com/microservice-extractor/latest/userguide/images/Classes%20visualization.png)
