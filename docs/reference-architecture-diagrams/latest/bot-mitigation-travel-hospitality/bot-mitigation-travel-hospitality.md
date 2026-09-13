@@ -10,7 +10,7 @@ With this architecture, you can build a fully serverless content delivery networ
 ## Bot mitigation diagram
 <a name="botmit-diagram"></a>
 
-![How to detect and mitigate bots by using Amazon CloudFront, AWS WAF, and AWS Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/bot-mitigation-travel-hospitality/images/bot-mitigation-travel-hospitality.png)
+![How to detect and mitigate bots by using Amazon CloudFront, AWS WAF, and AWS Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/bot-mitigation-travel-hospitality/images/bot-mitigation-travel-hospitality.png)
 
 
 The following steps describe the architecture:
