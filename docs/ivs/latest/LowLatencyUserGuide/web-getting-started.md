@@ -22,7 +22,7 @@ To set up the Amazon IVS player using the `script` tag:
 1. Include the following tag (for the latest version of the player).
 
    ```
-   <script src="https://player.live-video.net/1.56.0/amazon-ivs-player.min.js"></script>
+   <script src="https://player.live-video.net/1.56.1/amazon-ivs-player.min.js"></script>
    ```
 
 1. Once `amazon-ivs-player.min.js` is loaded, it adds an `IVSPlayer` variable to the global context. This is the library you will use to create a player instance. First, check `isPlayerSupported` to determine if the browser supports the IVS player:
@@ -54,7 +54,7 @@ To set up the Amazon IVS player using the `script` tag:
 In this example, replace `PLAYBACK_URL` with the URL of the source stream you want to load. The example uses the latest version of the Amazon IVS player.
 
 ```
-<script src="https://player.live-video.net/1.56.0/amazon-ivs-player.min.js"></script>
+<script src="https://player.live-video.net/1.56.1/amazon-ivs-player.min.js"></script>
 <video id="video-player" playsinline></video>
 <script>
   if (IVSPlayer.isPlayerSupported) {
@@ -78,7 +78,7 @@ For guidance, including an example Webpack configuration file, see the following
 ## TypeScript
 <a name="web-typescript"></a>
 
-If you’re using TypeScript, the npm package includes types you may want to import and use. For information on these types, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.0/web/).
+If you’re using TypeScript, the npm package includes types you may want to import and use. For information on these types, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.1/web/).
 
 ## Set Up Service Worker
 <a name="web-service-worker"></a>
@@ -92,7 +92,7 @@ To set up the Amazon IVS player to use a service worker:
    Create a file named `amazon-ivs-service-worker-loader.js` or similar and add the following line:
 
    ```
-   importScripts('https://player.live-video.net/1.56.0/amazon-ivs-service-worker.min.js');
+   importScripts('https://player.live-video.net/1.56.1/amazon-ivs-service-worker.min.js');
    ```
 
 1. When creating a player instance, pass in the following `serviceWorker` config referencing the `amazon-ivs-service-worker-loader.js` file:

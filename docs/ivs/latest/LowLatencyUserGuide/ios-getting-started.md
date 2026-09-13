@@ -32,7 +32,7 @@ We recommend that you integrate the player SDK via Swift Package Manager. (Alter
 1. Extract the contents of the archive. `AmazonIVSPlayer.xcframework` contains the SDK for both device and simulator.
 
 1. Embed `AmazonIVSPlayer.xcframework` by dragging it into the **Frameworks, Libraries, and Embedded Content** section of the **General** tab for your application target:  
-![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/iOS_Player_SDK_Guide_xcframework.png)
+![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/iOS_Player_SDK_Guide_xcframework.png)
 
 ## Create Player
 <a name="ios-create-player"></a>

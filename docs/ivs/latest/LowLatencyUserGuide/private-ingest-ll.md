@@ -5,7 +5,7 @@
 
 For workloads that require secure, live video ingestion, you can use an interface VPC (Virtual Private Cloud) endpoint to establish a secure private connection between your Amazon VPC and IVS. This keeps your IVS ingest traffic within the AWS network and off the public internet. Interface VPC endpoints are powered by AWS PrivateLink, an AWS technology that enables private communication between AWS services, using an elastic network interface with private IPs in your Amazon VPC. For more information, see [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) and [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint) (AWS PrivateLink).
 
-![Using an interface VPC (Virtual Private Cloud) endpoint to establish a secure private connection between your Amazon VPC and IVS.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/VPC_endpoint.png)
+![Using an interface VPC (Virtual Private Cloud) endpoint to establish a secure private connection between your Amazon VPC and IVS.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/VPC_endpoint.png)
 
 
 You can ingest RTMP(S) streams into IVS from your Amazon VPC or through AWS Direct Connect, and send video privately to either IVS low-latency channels or IVS real-time stages. You are billed for standard interface VPC endpoint hourly usage and data-processing charges; for details, see [Interface endpoint pricing](https://aws.amazon.com/privatelink/pricing/). There is no additional cost from Amazon IVS for enabling this capability.

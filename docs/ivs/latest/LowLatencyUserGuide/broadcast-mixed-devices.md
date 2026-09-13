@@ -16,7 +16,7 @@ The returned device can be attached to a `BroadcastSession` (low-latency streami
 ## Terminology
 <a name="broadcast-mixed-devices-terminology"></a>
 
-![IVS broadcasting mixed devices terminology.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Broadcast_SDK_Mixer_Glossary.png)
+![IVS broadcasting mixed devices terminology.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Broadcast_SDK_Mixer_Glossary.png)
 
 
 
@@ -93,7 +93,7 @@ The returned device can be attached to a `BroadcastSession` (low-latency streami
 ## Creating and Configuring a Mixed Image Device
 <a name="broadcast-mixed-image-device-creating-configuring"></a>
 
-![Configuring a broadcast session for mixing.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Broadcast_SDK_Mixer_Configuring.png)
+![Configuring a broadcast session for mixing.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Broadcast_SDK_Mixer_Configuring.png)
 
 
 Here, we create a scene similar to the one at the beginning of this guide, with three on-screen elements:

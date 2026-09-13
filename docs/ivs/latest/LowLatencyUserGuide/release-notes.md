@@ -5,6 +5,17 @@
 
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first, organized by date of release.
 
+## September 8, 2026
+<a name="sep08-26-player-web-ll"></a>
+
+### IVS Player SDK: Web 1.56.1
+<a name="sep08-26-player-web-ll-1561"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web player 1.56.1](player-web.md) & [Video.js integration](player-videojs.md) & [JW player integration](player-jwplayer.md)  | **NPM Package:** [https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player)<br />**Script asset: **[https://player.live-video.net/1.56.1/amazon-ivs-player.min.js](https://player.live-video.net/1.56.1/amazon-ivs-player.min.js)<br />**Video.js tech asset: **[https://player.live-video.net/1.56.1/amazon-ivs-videojs-tech.min.js](https://player.live-video.net/1.56.1/amazon-ivs-videojs-tech.min.js)<br />**Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.56.1/web/](https://aws.github.io/amazon-ivs-player-docs/1.56.1/web/)+  Added missing TypeScript types for the `TEXT_TRACKS_CHANGED` and `TEXT_TRACK_CHANGED` events.  | 
+
 ## September 3, 2026
 <a name="sep03-26-player-web-ll"></a>
 

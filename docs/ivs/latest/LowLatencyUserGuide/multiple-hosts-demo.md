@@ -5,7 +5,7 @@
 
 Scenario: Alice (A) is broadcasting to her Amazon IVS channel and wants to invite Bob (B) on stage as a guest. (In a real broadcast, A and B would be images of Alice and Bob.)
 
-![Demo Scenario: Alice (A) is broadcasting to her Amazon IVS channel and wants to invite Bob (B) on stage as a guest.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Intro.png)
+![Demo Scenario: Alice (A) is broadcasting to her Amazon IVS channel and wants to invite Bob (B) on stage as a guest.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Intro.png)
 
 
 ## 1. Create a Stage
@@ -67,7 +67,7 @@ Content-type: application/json
 
 The client now has a token for Alice (A) and Bob (B). By default, tokens are valid for 1 hour; optionally you can pass in a custom `duration` when you create the stage. Tokens can be used to join a stage. 
 
-![How to distribute tokens from your server to each client (e.g., via a WebSocket channel). We do not provide this functionality.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Distribute_Participant_Token_crop.png)
+![How to distribute tokens from your server to each client (e.g., via a WebSocket channel). We do not provide this functionality.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Distribute_Participant_Token_crop.png)
 
 
 You will need a way to distribute tokens from your server to each client (e.g., via a WebSocket channel). We do not provide this functionality.
@@ -79,7 +79,7 @@ Participants can join the stage via the Amazon IVS Broadcast SDK on Android or i
 
 Here is an architecture overview:
 
-![Participants can join the stage via the Amazon Broadcast SDK on Android or iOS. Here we show Alice joining the stage first.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Join_the_Stage_crop.png)
+![Participants can join the stage via the Amazon Broadcast SDK on Android or iOS. Here we show Alice joining the stage first.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Join_the_Stage_crop.png)
 
 
 And here is an Android code sample for joining the stage. The code snippet below would run on Alice's device. In the `join()` call, Alice joins the stage. The figure above shows the result of this code execution: Alice has joined the stage and is publishing to it (in addition to broadcasting to her channel, which she started doing in step 1).
@@ -134,7 +134,7 @@ try {
 ### Client-Side Composition
 <a name="demo-broadcast-stage-client-side"></a>
 
-![Broadcasting the stage: client-side composition.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Client_Side_Composition_1_crop.png)
+![Broadcasting the stage: client-side composition.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Client_Side_Composition_1_crop.png)
 
 
 Here is an Android code sample for broadcasting the stage:
@@ -178,7 +178,7 @@ Alice can then add Bob’s video and audio to the mixer, to be included in the R
 
 Now Alice is broadcasting to multiple viewers, via the Amazon IVS Android Broadcast SDK. Here is what this looks like architecturally:
 
-![Broadcasting the stage: client-side composition. Alice is broadcasting to multiple viewers.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Client_Side_Composition_2_crop.png)
+![Broadcasting the stage: client-side composition. Alice is broadcasting to multiple viewers.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Client_Side_Composition_2_crop.png)
 
 
 ### Server-Side Composition
@@ -186,4 +186,4 @@ Now Alice is broadcasting to multiple viewers, via the Amazon IVS Android Broadc
 
 For comparison, here is how [server-side composition](multiple-hosts-broadcasting-client-vs-server.md) works. (For details, see [Server-Side Composition](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/server-side-composition.html) in the *IVS Real-Time User Guide*.)
 
-![Broadcasting the stage: server-side composition.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Server_Side_Composition.png)
+![Broadcasting the stage: server-side composition.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Server_Side_Composition.png)

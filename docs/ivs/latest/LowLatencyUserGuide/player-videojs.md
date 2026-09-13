@@ -5,7 +5,7 @@
 
 This document describes the most important functions available in the Amazon Interactive Video Service (IVS) Video.js player.
 
-**Latest version of Video.js player integration:** 1.56.0 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#sep03-26-player-web-ll))
+**Latest version of Video.js player integration:** 1.56.1 ([Release Notes](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/release-notes.html#sep08-26-player-web-ll))
 
 ## Getting Started
 <a name="videojs-getting-started"></a>
@@ -27,7 +27,7 @@ To set up the Amazon IVS tech using the `script` tag:
 1. Include the following tag (for the latest version of the player integration).
 
    ```
-   <script src="https://player.live-video.net/1.56.0/amazon-ivs-videojs-tech.min.js"></script>
+   <script src="https://player.live-video.net/1.56.1/amazon-ivs-videojs-tech.min.js"></script>
    ```
 
 1. Register the tech using the `registerIVSTech` function:
@@ -53,7 +53,7 @@ In this example, `PLAYBACK_URL` is the source stream you want to load. The examp
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.14.3/video-js.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/7.14.3/video.min.js"></script>
-    <script src="https://player.live-video.net/1.56.0/amazon-ivs-videojs-tech.min.js"></script>
+    <script src="https://player.live-video.net/1.56.1/amazon-ivs-videojs-tech.min.js"></script>
 </head>
 
 <body>
@@ -142,7 +142,7 @@ If you’re using TypeScript, our npm package includes the following types you m
 + `VideoJSIVSTech`, which describes the interface to a player instance that uses the `AmazonIVS` tech. This can be [intersected](https://www.typescriptlang.org/docs/handbook/advanced-types.html#intersection-types) with the `VideoJsPlayer` type exposed by the [@types/video.js](https://www.npmjs.com/package/@types/video.js) npm package.
 + `TechOptions`, which describes the interface defining the configuration options you can send to `registerIVSTech()`.
 
-For more information on these types, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.0/web/).
+For more information on these types, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.1/web/).
 
 ## Events
 <a name="videojs-events"></a>
@@ -156,7 +156,7 @@ player.getIVSPlayer().addEventListener(event, callback);
 player.getIVSPlayer().removeEventListener(event, callback);
 ```
 
-where `callback` is a callback you define, and `event` is one of: `PlayerEventType` or `PlayerState`. For more information about events, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.0/web/).
+where `callback` is a callback you define, and `event` is one of: `PlayerEventType` or `PlayerState`. For more information about events, see the [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.1/web/).
 
 ## Errors
 <a name="videojs-errors"></a>
@@ -179,7 +179,7 @@ The callback will receive an object with the following fields:
 
 | Field | Description | 
 | --- | --- | 
-| `type` | The error type. Corresponds to `ErrorType` events. For more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.0/web/). | 
+| `type` | The error type. Corresponds to `ErrorType` events. For more information, see [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.1/web/). | 
 | `code` | The error code. | 
 | `source` | Source of the error. | 
 | `message` | Human readable error message. | 
@@ -190,7 +190,7 @@ The callback will receive an object with the following fields:
 We provide a plugin that creates a UI toggle for available qualities. To use this plugin, it must be loaded by including the `amazon-ivs-quality-plugin.min.js` file if you are using our tech through the following `script` tag (for the latest version of the IVS Player): 
 
 ```
-<script src="https://player.live-video.net/1.56.0/amazon-ivs-quality-plugin.min.js"></script>
+<script src="https://player.live-video.net/1.56.1/amazon-ivs-quality-plugin.min.js"></script>
 ```
 
 If you are using npm, import the `registerIVSQualityPlugin` from the `amazon-ivs-player` module:
@@ -345,7 +345,7 @@ None
 
 Returns an object that holds Amazon IVS-specific enums. This is used for listening to Amazon IVS-specific errors and events. For more information, see:
 + [Events](#videojs-events) and [Errors](#videojs-errors) in this document.
-+ [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.0/web/) for more information about events, error types, and error sources.
++ [Amazon IVS Player SDK: Web Reference](https://aws.github.io/amazon-ivs-player-docs/1.56.1/web/) for more information about events, error types, and error sources.
 
 ### Signature
 <a name="videojs-getivsevents-signatures"></a>

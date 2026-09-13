@@ -7,12 +7,12 @@ Multitrack video is a new, low-latency streaming paradigm supported by Amazon In
 
 Here is single-track video:
 
-![Single-track video.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Single-Track_Video.png)
+![Single-track video.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Single-Track_Video.png)
 
 
 In contrast, here is multitrack video:
 
-![Multitrack video.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Multitrack_Video.png)
+![Multitrack video.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Multitrack_Video.png)
 
 
 Multitrack video streaming allows broadcaster software tools (e.g., OBS Studio) to:

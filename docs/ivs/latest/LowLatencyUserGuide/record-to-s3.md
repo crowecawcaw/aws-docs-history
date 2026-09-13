@@ -419,7 +419,7 @@ https://a1b23cdef4ghij.cloudfront.net/ivs/v1/012345678912/a0bCDeFGH1IjK/2021/4/2
 
 To play back from a web browser, make sure to configure CORS in both CloudFront and S3 bucket. For CloudFront configuration, follow the instructions in [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) to attach a **CORS-S3 Origin** request policy and **SimpleCORS** response header policy to the CloudFront distribution. See the example configuration console page below:
 
-![Example configuration console page. We recommend using a cache policy and origin request policy to control the cache key and origin requests.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/CORS_Configuration.png)
+![Example configuration console page. We recommend using a cache policy and origin request policy to control the cache key and origin requests.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/CORS_Configuration.png)
 
 
 For S3 CORS configuration, see [CORS configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManageCorsUsing.html) to create appropriate rules for your S3 bucket.

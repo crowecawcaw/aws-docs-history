@@ -15,7 +15,7 @@ To create a new stage and a participant token for it, follow these steps:
    (You can also access the Amazon IVS console through the [AWS Management Console](https://console.aws.amazon.com).)
 
 1. On the left navigation pane, select **Stages**, then select **Create stage**. The **Create stage** window appears.  
-![Use the Create stage window to create a new stage and a participant token for it.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Create_Stage_Console_IPR.png)
+![Use the Create stage window to create a new stage and a participant token for it.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Create_Stage_Console_IPR.png)
 
 1. Optionally enter a **Stage name**. Select **Create stage** to create the stage. The stage details page appears, for the new stage.
 

@@ -55,12 +55,12 @@ Customers can generate estimates of S3 storage needs and costs by using the IVS 
 
 In the console, when creating a new channel or editing an existing channel, turn on **Enable automatic recording** in the **Record and store streams** area. This displays information about **Associated costs**.
 
-![Select Auto-record to S3 in the Record and store streams area to display information about Associated costs.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Costs_Associated_Costs.png)
+![Select Auto-record to S3 in the Record and store streams area to display information about Associated costs.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Costs_Associated_Costs.png)
 
 
 Select **Estimate data use** to display the data-use calculator:
 
-![Select Estimate data use to display the data-use calculator.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Costs_Estimate_Data_Use.png)
+![Select Estimate data use to display the data-use calculator.](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Costs_Estimate_Data_Use.png)
 
 
 As noted on the screen, the estimates that are provided can be used with the [AWS Pricing Calculator](https://calculator.aws/#/createCalculator/S3) to compute estimates of the monthly cost incurred by S3 storage and data movement.
