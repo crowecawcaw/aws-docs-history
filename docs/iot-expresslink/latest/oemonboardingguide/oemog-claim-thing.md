@@ -11,16 +11,16 @@
 1. If you do not have AWS account, or wish to use a new one specifically for ExpressLink follow the steps to [ Create an AWS account](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-creating.html).
 
 1. If you aren't already signed in to your AWS account, sign in, then open the [AWS IoT console](https://console.aws.amazon.com/iot/home).  
-![Generate a claim-thing certificate.](http://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss01.png)
+![Generate a claim-thing certificate.](https://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss01.png)
 
 1. In the AWS IoT console, on the left navigation pane, select **Security** to expand the sub-menu, then select **Certificates**.  
-![Setup and manage your device and data security.](http://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss02.png)
+![Setup and manage your device and data security.](https://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss02.png)
 
 1. On the **Certificates** page, on the right side of the table that shows currently-installed certificates, select **Add certificate**, then select **Create certificate** in the drop-down menu.  
-![AWS IoT console showing options to add, create, and register certificates.](http://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss03.png)
+![AWS IoT console showing options to add, create, and register certificates.](https://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss03.png)
 
 1. On the **Create certificate** page, choose **Auto-generate new certificate**, and choose **Inactive**. Select **Create** to create an X.509 certificate.   
-![AWS IoT create certificate screen with option to auto-generate new certificate.](http://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss04.png)
+![AWS IoT create certificate screen with option to auto-generate new certificate.](https://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss04.png)
 
 1. In the pop-up window that opens, select **Download** for each of the credentials files that you will need:
    + `{{certificate fingerprint}}.pem.crt` 
@@ -29,7 +29,7 @@
    + `Amazon Root CA 1` (this file will be downloaded as `AmazonRootCA1.pem`). 
 
    (The {{certificate fingerprint}} is a hexadecimal string that uniquely identifies the certificate and is generated using the certificate body.)  
-![Download certificates and keys screen with device certificates.](http://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss05.png)
+![Download certificates and keys screen with device certificates.](https://docs.aws.amazon.com/iot-expresslink/latest/oemonboardingguide/images/ss05.png)
 
 1. Select **Continue** to close the pop-up window, then store the keys and the certificate in a safe place following security best practices. 
 
