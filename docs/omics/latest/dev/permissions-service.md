@@ -141,6 +141,23 @@ The following example shows the policy for a service role that you can use for a
 }
 ```
 
+The following example shows the policy for a service role that publishes run metrics to CloudWatch. For more information, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
+
+**Example Service role policy for run metrics**  
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloudwatch:PutMetricData",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
 ## Example CloudFormation template
 <a name="permissions-service-sampletemplates"></a>
 

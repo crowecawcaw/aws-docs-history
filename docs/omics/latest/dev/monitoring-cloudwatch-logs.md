@@ -33,6 +33,8 @@ HealthOmics provides the following types of logs for workflows:
   + memoryMaximumGiB
   + memoryReservedGiB
   + runningSeconds
+
+  Run metrics are also available in near real time through CloudWatch OpenTelemetry metrics. For more information, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
 + Run logs – Run logs provide the overall run status and the time when individual tasks are starting, running, stopping, and completed. Run logs also give you visibility into file import and export steps. 
 + Task logs – Task logs provide detailed logging information about individual tasks in your run. The outputs in your task log depend on the task definition and where you use log statements in your code. If your task logs don't provide the level of insight you need, consider adding additional log statements to your task definition to produce more insightful task logs. 
 + Run cache logs – Run cache logs provide the overall status of run caches and the caching of task outputs. Run cache logs give you visibility into cache hits and misses for each run that uses caching. 

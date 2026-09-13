@@ -3,7 +3,7 @@
 # Nextflow workflow definition specifics
 <a name="workflow-definition-nextflow"></a>
 
-HealthOmics suppports Nextflow DSL1 and DSL2. For details, see [Nextflow version support](workflows-lang-versions.md#workflows-lang-versions-nextflow).
+HealthOmics supports Nextflow DSL1 and DSL2. For details, see [Nextflow version support](workflows-lang-versions.md#workflows-lang-versions-nextflow).
 
 Nextflow DSL2 is based on the Groovy programming language, so parameters are dynamic and type coercion is possible using the same rules as Groovy. Parameters and values supplied by the input JSON are available in the parameters (`params`) map of the workflow.
 
@@ -18,7 +18,6 @@ Nextflow DSL2 is based on the Groovy programming language, so parameters are dyn
 + [Specify the Nextflow syntax version](#nextflow-syntax-version)
 + [Automatic syntax validation during workflow creation](#nextflow-automatic-validation)
 + [Using scratch storage efficiently in Nextflow](#nextflow-scratch-storage)
-+ [Nextflow v26.04 release notes](#nextflow-v26-release-notes)
 
 ## Use nf-schema and nf-validation plugins
 <a name="schema-and-validation-plugins-nextflow"></a>
@@ -492,33 +491,3 @@ process my_process {
 ```
 
 For more information about ephemeral storage and the `disk` directive, see [Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md).
-
-## Nextflow v26.04 release notes
-<a name="nextflow-v26-release-notes"></a>
-
-The following tables summarize HealthOmics support for new features, enhancements, and deprecations released in Nextflow version 26.04.
-
-### New features and enhancements
-<a name="nextflow-v26-new-features"></a>
-
-
-| Feature | From version | HealthOmics support | Notes | 
-| --- | --- | --- | --- | 
-| Strict syntax parser (default) | 26.04 | Yes | Enabled by default from v26.04. Legacy parser available via syntaxVersion: "v1" in engine settings. | 
-| Record types | 26.04 | Yes | For more information, see [Records](https://docs.seqera.io/nextflow/script#records) in the Seqera Nextflow documentation. | 
-| Workflow output summaries | 26.04 | Yes | Prints a summary of workflow outputs on run completion. Output format configurable via outputFormat in engine settings. For more information, see [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings). | 
-| Agent logging mode | 26.04 | Yes | Configurable via agentMode in engine settings. For more information, see [Specify Nextflow engine settings](starting-a-run.md#start-run-api-engine-settings). | 
-| Module system (Nextflow Registry) | 26.04 | No | HealthOmics workflows run in an isolated network with no outbound internet access. You can include modules directly in your workflow zip. | 
-| Static typing (preview) | 26.04 | No | HealthOmics does not support preview features. | 
-| Auto-load collection params from files | 26.04 | No | Requires static typing (preview), which HealthOmics does not support. | 
-| Multi-revision pipelines checkout | 26.04 | N/A | Not applicable. HealthOmics does not use Git-based pipeline checkout. | 
-
-### Deprecations
-<a name="nextflow-v26-deprecations"></a>
-
-
-| Deprecated item | From version | Impact | Recommended action | 
-| --- | --- | --- | --- | 
-| listFiles() method | 26.04 | Deprecation warning | Replace with listDirectory(). | 
-| nextflow.enable.strict flag | 26.04 | No longer needed | Remove from config. Strict mode is now the default. | 
-| manifest.defaultBranch | 26.04 | No longer needed | Remove from config. HealthOmics does not use Git-based pipeline checkout and has never supported this option. | 

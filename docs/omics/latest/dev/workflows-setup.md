@@ -19,5 +19,6 @@ In addition to built-in linters, you can optionally run a linter locally on your
 + [Container images for private workflows](workflows-ecr.md)
 + [HealthOmics Workflow README files](workflows-readme.md)
 + [Requesting Sentieon licenses for private workflows](private-workflows-subscribe.md)
++ [Supported workflow languages for HealthOmics](workflows-supported-languages.md)
 + [Workflow linters in HealthOmics](workflows-linter.md)
 + [HealthOmics workflow operations](creating-private-workflows.md)

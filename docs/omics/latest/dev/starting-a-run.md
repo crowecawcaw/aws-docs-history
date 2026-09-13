@@ -26,6 +26,7 @@ When you start a run, you specify the resources that HealthOmics allocates for t
 + [Starting a run using the API](#starting-a-run-api)
 + [Specify Nextflow engine settings](#start-run-api-engine-settings)
 + [VPC networking](#start-run-vpc-networking)
++ [Enable run metrics](#starting-a-run-metrics)
 
 ## Starting a run using the console
 <a name="starting-a-run-console"></a>
@@ -312,3 +313,23 @@ To enable VPC networking:
 1. When starting a run using the API, use `--networking-mode VPC` and reference your configuration with `--configuration-name`.
 
 For more information, see [Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md).
+
+## Enable run metrics
+<a name="starting-a-run-metrics"></a>
+
+Run metrics report near real-time resource utilization for a run. To enable run metrics, the service role that you use for the run must have the `cloudwatch:PutMetricData` permission. For more information, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
+
+Add the following permission to the service role that you use for the run.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloudwatch:PutMetricData",
+      "Resource": "*"
+    }
+  ]
+}
+```

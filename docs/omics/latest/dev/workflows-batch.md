@@ -620,6 +620,26 @@ You can filter results using the following query parameters:
 | name | Filter by batch name. | 
 | runGroupId | Filter by run group ID. | 
 
+### Enable run metrics
+<a name="batch-enable-run-metrics"></a>
+
+Run metrics report near real-time resource utilization for the runs in a batch. To enable run metrics, the service role that you use for the batch must have the `cloudwatch:PutMetricData` permission. For more information, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
+
+Add the following permission to the service role that you use for the batch.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "cloudwatch:PutMetricData",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
 ## Handling failed runs
 <a name="batch-handling-failures"></a>
 

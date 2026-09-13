@@ -42,7 +42,7 @@ HealthOmics supports released features in each version, but not preview features
 <a name="workflows-versions-nextflow-list"></a>
 
 HealthOmics supports the following Nextflow versions:
-+ Nextflow v22.04.01 DSL 1 and DSL 2
++ Nextflow v22.04.0 DSL 1 and DSL 2
 + Nextflow v23.10.0 DSL 2 (default)
 + Nextflow v24.10.8 DSL 2
 + Nextflow v25.10.0 DSL 2

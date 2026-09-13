@@ -7,6 +7,7 @@ The following topics can help you troubleshoot issues that you encounter when us
 
 **Topics**
 + [Troubleshooting workflows](#error-workflows)
++ [Troubleshooting run metrics](#troubleshooting-run-metrics)
 + [Troubleshooting call caching issues](#workflow-cache-troubleshooting)
 + [Troubleshooting data stores](#error-datastores)
 + [Troubleshooting with Kiro CLI](#kiro-cli-troubleshooting)
@@ -45,6 +46,68 @@ You can specify up to 50 KB of input parameters for a workflow. You can use dire
 <a name="troubleshooting-unresponsive-runs"></a>
 
 If there are issues with your code and the processes have not exited properly, your run could become unresponsive or “stuck”. For more information on how to prevent and catch unresponsive runs, see [Guidance for unresponsive runs](workflows-run-errors.md#workflows-guidance-unresponsive-runs).
+
+## Troubleshooting run metrics
+<a name="troubleshooting-run-metrics"></a>
+
+**Topics**
++ [Why is my task running slower than expected?](#troubleshooting-metrics-slow-task)
++ [Why did my run fail due to running out of storage?](#troubleshooting-metrics-storage)
++ [How do I right-size the compute and storage for my workflow?](#troubleshooting-metrics-right-size)
++ [Why am I not seeing metrics for my run?](#troubleshooting-metrics-missing)
++ [How is this different from the run manifest log resource statistics?](#troubleshooting-metrics-vs-manifest)
++ [How are run metrics in Query Studio different from the Nextflow execution report?](#troubleshooting-metrics-vs-nextflow-report)
+
+### Why is my task running slower than expected?
+<a name="troubleshooting-metrics-slow-task"></a>
+
+A task may run slowly if it is Central Processing Unit (CPU)-bound, Graphics Processing Unit (GPU)-bound, or waiting on input/output (I/O). Use the near real-time CloudWatch metrics for the run to see resource utilization while the task is still running:
++ Compare `aws.omics.task.cpu.usage` against `aws.omics.task.cpu.limit`. Sustained usage at the limit indicates that the task is CPU-bound and may benefit from more allocated CPU.
++ For GPU workloads, check `aws.omics.task.gpu.utilization`. Low utilization can indicate that the task isn't using the GPU effectively.
++ Check `aws.omics.task.filesystem.io` and `aws.omics.task.filesystem.operations` for I/O bottlenecks.
+
+For more information, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
+
+### Why did my run fail due to running out of storage?
+<a name="troubleshooting-metrics-storage"></a>
+
+A run can fail when it exhausts the storage on its shared file system. Compare `aws.omics.run.filesystem.usage`, which reports the storage in use on the run's shared file system, against `aws.omics.run.filesystem.limit`, which reports its total capacity. You can create dashboards or alarms to monitor storage utilization. For more information, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
+
+### How do I right-size the compute and storage for my workflow?
+<a name="troubleshooting-metrics-right-size"></a>
+
+Run your workflow once and review the CloudWatch metrics to compare actual utilization against the allocated limits:
++ If CPU, GPU, or memory usage stays well below the limit, you can reduce the allocation to lower cost.
++ If usage is consistently at the limit, increase the allocation to improve performance or to avoid failures.
++ Use `aws.omics.run.filesystem.usage` to set an appropriate file system size for the run.
+
+For more information, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
+
+### Why am I not seeing metrics for my run?
+<a name="troubleshooting-metrics-missing"></a>
+
+If run and task metrics don't appear in the `cloudwatch.aws/omics` scope in CloudWatch, check the following:
++ Confirm that the IAM role used for the run has permission to publish metrics to CloudWatch.
++ Metrics are published in near real time during run execution. Allow a short delay (around 30 seconds) for the first data points to appear.
++ Tasks that run for less than 30 seconds might not have metrics.
++ Verify that you are viewing the correct AWS Region and account.
+
+For more information, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
+
+### How is this different from the run manifest log resource statistics?
+<a name="troubleshooting-metrics-vs-manifest"></a>
+
+Run manifest logs report aggregated statistics for a completed run, such as the maximum and average CPU and memory, so you can review a finished run for optimization opportunities. CloudWatch run metrics are a time series: HealthOmics publishes data points at the frequency listed in [Available metrics](monitoring-run-metrics.md#monitoring-run-metrics-available), so you can monitor utilization changes while the run is in progress and use finer-grained data to troubleshoot your runs. For more information about run metrics, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
+
+### How are run metrics in Query Studio different from the Nextflow execution report?
+<a name="troubleshooting-metrics-vs-nextflow-report"></a>
+
+Both report resource utilization for your workflow. They differ in timing, engine coverage, and how you use them. Use run metrics to monitor a run in progress, and use the Nextflow execution report to review a completed run.
++ Run metrics are available in near real time while the run is executing, so you can monitor progress, set alarms, and troubleshoot a run that is still going. The Nextflow execution report is written when the run finishes, so you can only use it to review a run after the fact.
++ HealthOmics emits run metrics for every private workflow run, regardless of which workflow engine the run uses. The execution report is specific to Nextflow, and HealthOmics exports it only when you configure it to write under `/mnt/workflow/output/`.
++ Run metrics are CloudWatch time series, so you can query them with PromQL, alarm on them, and add them to a dashboard. The execution report is a static file in your run's Amazon S3 output location.
+
+For more information about the execution report, see [Generate Nextflow execution reports](workflow-definition-nextflow.md#nextflow-execution-reports). For more information about run metrics, see [Run metrics for Private Workflows](monitoring-run-metrics.md).
 
 ## Troubleshooting call caching issues
 <a name="workflow-cache-troubleshooting"></a>

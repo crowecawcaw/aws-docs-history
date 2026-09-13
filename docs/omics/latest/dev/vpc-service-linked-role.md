@@ -18,7 +18,7 @@ The service-linked role grants HealthOmics the following Amazon EC2 permissions 
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Sid": "AllowEC2DescribeActions",
@@ -109,7 +109,7 @@ The service-linked role is automatically created when you create your first VPC 
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
