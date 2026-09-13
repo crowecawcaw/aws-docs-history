@@ -10,7 +10,7 @@ With this architecture, you can detect fraud in real time by using Redis Enterpr
 ## Real-Time fraud detection diagram
 <a name="fraud-redis-diagram"></a>
 
-![Reference architecture diagram showing how to detect fraud in real time by using Redis Enterprise Cloud, SageMaker AI, Amazon Kinesis Data Streams, and Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/realtime-fraud-detection-redis/images/realtime-fraud-detection-redis.png)
+![Reference architecture diagram showing how to detect fraud in real time by using Redis Enterprise Cloud, SageMaker AI, Amazon Kinesis Data Streams, and Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/realtime-fraud-detection-redis/images/realtime-fraud-detection-redis.png)
 
 
 The following steps describe the data flow and ML inference pipeline for this architecture:
