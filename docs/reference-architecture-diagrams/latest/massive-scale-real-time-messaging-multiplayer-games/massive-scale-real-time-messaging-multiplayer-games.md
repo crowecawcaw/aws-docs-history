@@ -10,7 +10,7 @@ This architecture shows how to deliver real-time messaging for multiplayer games
 ## Massive Scale Real-Time Messaging for Multiplayer Games diagram
 <a name="messaging-diagram"></a>
 
-![Reference architecture diagram showing how to deliver real-time messaging for multiplayer games by using Amazon ElastiCache for Redis PubSub clusters and WebSockets.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/massive-scale-real-time-messaging-multiplayer-games/images/massive-scale-real-time-messaging-multiplayer-games.png)
+![Reference architecture diagram showing how to deliver real-time messaging for multiplayer games by using Amazon ElastiCache for Redis PubSub clusters and WebSockets.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/massive-scale-real-time-messaging-multiplayer-games/images/massive-scale-real-time-messaging-multiplayer-games.png)
 
 
 The following steps describe the architecture:
