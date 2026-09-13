@@ -174,7 +174,7 @@ Previously the default setting for `EnhancedHealthAuthEnabled` was `false`, whic
 
 The enhanced health system generates events when an environment transitions between states. The following example shows events output by an environment transitioning between **Info**, **OK**, and **Severe** states.
 
-![The Elastic Beanstalk environment overview page of the Elastic Beanstalk console showing enhanced health recent events](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/enhanced-health-events.png)
+![The Elastic Beanstalk environment overview page of the Elastic Beanstalk console showing enhanced health recent events](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/enhanced-health-events.png)
 
 
 When transitioning to a worse state, the enhanced health event includes a message indicating the transition cause.

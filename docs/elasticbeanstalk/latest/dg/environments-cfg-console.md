@@ -69,7 +69,7 @@ The **Review Changes** page displays a table showing all the pending option chan
 
 The tables lists each option as a combination of the **Namespace** and **Option** with which Elastic Beanstalk identifies it. For details, see [Configuration options](command-options.md).
 
-![Review changes in the configuration page of the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-console-review-new-console.png)
+![Review changes in the configuration page of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-console-review-new-console.png)
 
 
 When you're done reviewing your changes, you can choose one of the following actions:

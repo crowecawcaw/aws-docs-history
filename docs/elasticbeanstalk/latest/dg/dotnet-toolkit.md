@@ -43,7 +43,7 @@ After testing your application, you are ready to deploy it to Elastic Beanstalk.
    1. For **Region**, select the region where you want to deploy your application. For information about available AWS Regions, see [AWS Elastic Beanstalk Endpoints and Quotas](https://docs.aws.amazon.com/general/latest/gr/elasticbeanstalk.html) in the *AWS General Reference*. If you select a region that is not supported by Elastic Beanstalk, then the option to deploy to Elastic Beanstalk will become unavailable.
 
    1.  Click **Deploy new application with template** and select **Elastic Beanstalk**. Then click **Next**.  
-![Publish to AWS wizard 1](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-create-newapp-template.png)
+![Publish to AWS wizard 1](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-create-newapp-template.png)
 
 1. On the **Application** page, enter your application details.
 
@@ -54,7 +54,7 @@ After testing your application, you are ready to deploy it to Elastic Beanstalk.
    1. The version label of the application automatically appears in the **Deployment version label**.
 
    1. Select **Deploy application incrementally** to deploy only the changed files. An incremental deployment is faster because you are updating only the files that changed instead of all the files. If you choose this option, an application version will be set from the Git commit ID. If you choose to not deploy your application incrementally, then you can update the version label in the **Deployment version label** box.   
-![Publish to beanstalk wizard 2](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk1.png)
+![Publish to beanstalk wizard 2](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk1.png)
 
    1. Click **Next**.
 
@@ -77,7 +77,7 @@ For single-instance environments, load balancing, auto scaling, and the health c
    1. The environment URL automatically appears in the **Environment URL** once you move your cursor to that box.
 
    1. Click **Check availability** to make sure the environment URL is available.  
-![Publish to beanstalk wizard 3](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk2.png)
+![Publish to beanstalk wizard 3](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk2.png)
 
    1. Click **Next**.
 
@@ -94,13 +94,13 @@ For single-instance environments, load balancing, auto scaling, and the health c
       If you do not have an instance profile, select **Create a default instance profile**. For information about using instance profiles with Elastic Beanstalk, see [Managing Elastic Beanstalk instance profiles](iam-instanceprofile.md).
 
    1. If you have a custom VPC that you would like to use with your environment, click **Launch into VPC**. You can configure the VPC information on the next page. For more information about Amazon VPC, go to [Amazon Virtual Private Cloud (Amazon VPC)](https://aws.amazon.com/vpc/). For a list of supported nonlegacy container types, see [Why are some platform versions marked legacy?](using-features.migration.md#using-features.migration.why)  
-![Publish to beanstalk wizard 4](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk3b_iam.png)
+![Publish to beanstalk wizard 4](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk3b_iam.png)
 
    1.  Click **Next**. 
 
 1. If you selected to launch your environment inside a VPC, the **VPC Options** page appears; otherwise, the **Additional Options** page appears. Here you'll configure your VPC options.  
-![VPC options for load-balanced, scalable environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk3b_vpc.png)  
-![VPC options for single-instance environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk3b_vpc-single.png)
+![VPC options for load-balanced, scalable environment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk3b_vpc.png)  
+![VPC options for single-instance environment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk3b_vpc-single.png)
 
    1. Select the VPC ID of the VPC in which you would like to launch your environment. 
 
@@ -129,18 +129,18 @@ For single-instance environments, load balancing, auto scaling, and the health c
    1. The **Application Environment** section lets you specify environment variables on the Amazon EC2 instances that are running your application. This setting enables greater portability by eliminating the need to recompile your source code as you move between environments.
 
    1. Select the application credentials option you want to use to deploy your application.  
-![Publish to beanstalk wizard 6](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk3a.png)
+![Publish to beanstalk wizard 6](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk3a.png)
 
    1. Click **Next**.
 
 1. If you have previously set up an Amazon RDS database, the **Amazon RDS DB Security Group** page appears. If you want to connect your Elastic Beanstalk environment to your Amazon RDS DB Instance, then select one or more security groups. Otherwise, go on to the next step. When you're ready, click **Next**.  
-![Publish to beanstalk wizard 7](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk6b.png)
+![Publish to beanstalk wizard 7](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk6b.png)
 
 1.  Review your deployment options. If everything is as you want, click **Deploy**.   
-![Publish to beanstalk wizard 8](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk4.png)
+![Publish to beanstalk wizard 8](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-beanstalk4.png)
 
    Your ASP.NET project will be exported as a web deploy file, uploaded to Amazon S3, and registered as a new application version with Elastic Beanstalk. The Elastic Beanstalk deployment feature will monitor your environment until it becomes available with the newly deployed code. On the env:<environment name> tab, you will see status for your environment.   
-![Environment status](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-env-status.png)
+![Environment status](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-env-status.png)
 
 ## Terminating an environment
 <a name="create_deploy_NET.terminating"></a>
@@ -155,6 +155,6 @@ To avoid incurring charges for unused AWS resources, you can terminate a running
 1.  Expand the Elastic Beanstalk node and the application node in **AWS Explorer**. Right-click your application environment and select **Terminate Environment**.
 
 1. When prompted, click **Yes** to confirm that you want to terminate the environment. It will take a few minutes for Elastic Beanstalk to terminate the AWS resources running in the environment.  
-![Elastic Beanstalk terminate environment dialog box](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-terminate-confirm.png)
+![Elastic Beanstalk terminate environment dialog box](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-terminate-confirm.png)
 **Note**  
 When you terminate your environment, the CNAME associated with the terminated environment becomes available for anyone to use. 

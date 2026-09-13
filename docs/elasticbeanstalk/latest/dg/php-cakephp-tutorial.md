@@ -212,7 +212,7 @@ When the DB instance has finished launching, bundle up and deploy the updated ap
 
 Deploying a new version of your application takes less than a minute. When the deployment is complete, refresh the web page again to verify that the database connection succeeded:
 
-![Database connection success message with green checkmark icon.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/php-cakephp-defaultwdb.png)
+![Database connection success message with green checkmark icon.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/php-cakephp-defaultwdb.png)
 
 
 ## Cleanup

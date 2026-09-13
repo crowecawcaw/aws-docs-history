@@ -12,7 +12,7 @@ When you configure notifications for your environment, Elastic Beanstalk creates
 
 When a notable [event](using-features.events.md) occurs, Elastic Beanstalk sends a message to the topic. Then, Amazon SNS relays the messages that it receives to the topic's subscribers. Notable events include environment creation errors and all changes in [environment and instance health](health-enhanced.md). Events for Amazon EC2 Auto Scaling operations (like adding and removing instances from the environment) and other informational events don't trigger notifications.
 
-![Amazon SNS notification email](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/sns-notification-email.png)
+![Amazon SNS notification email](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/sns-notification-email.png)
 
 
 You can enter an email address in the Elastic Beanstalk console when you create an environment or sometime afterwards. This will create an Amazon SNS topic and subscribe to it. Elastic Beanstalk manages the lifecycle of the topic, and deletes it when your environment is terminated or when you remove your email address in the [environment management console](environments-console.md).

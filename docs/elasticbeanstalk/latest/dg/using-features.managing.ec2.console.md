@@ -25,7 +25,7 @@ Although the Elastic Beanstalk console doesn't provide the option to change the 
 Scroll down to **Processor** to select a processor architecture for your EC2 instances. The console lists processor architectures that are supported by the platform that you chose earlier in the **Create environment** panel.   
 If you don't see the processor architecture that you need, return to the configuration category list to select a platform that supports it. From the **Modify Capacity** panel, choose **Cancel**. Then, choose **Change platform version** to choose new platform settings. Next, in the **Capacity** configuration category choose **Edit** tot see the processor architecture choices again.  
 
-![Amazon EC2 instance settings on Elastic Beanstalk capacity configuration window for running environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-config-ec2-capacity-create-env-page.png)
+![Amazon EC2 instance settings on Elastic Beanstalk capacity configuration window for running environment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-config-ec2-capacity-create-env-page.png)
 
 
 1. Choose **Save**, and then make any other configuration changes that your environment requires.
@@ -61,7 +61,7 @@ The following settings related to Amazon EC2 instances are available in the **In
 + [Instance metadata service](#using-features.managing.ec2.imds)
 + [EC2 security groups](#using-features.managing.ec2.securitygroups)
 
-![Amazon EC2 instance settings on Elastic Beanstalk instances configuration window](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-config-ec2-instances-page.png)
+![Amazon EC2 instance settings on Elastic Beanstalk instances configuration window](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-config-ec2-instances-page.png)
 
 
 ### Monitoring interval
@@ -115,7 +115,7 @@ The following settings related to Amazon EC2 instances are available in the **Ca
 + [Instance types](#using-features.managing.ec2.instancetypes)
 + [AMI ID](#using-features.managing.ec2.customami)
 
-![Amazon EC2 instance settings on Elastic Beanstalk capacity configuration window for create environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-config-ec2-capacity-page2.png)
+![Amazon EC2 instance settings on Elastic Beanstalk capacity configuration window for create environment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-config-ec2-capacity-page2.png)
 
 
 ### Instance types

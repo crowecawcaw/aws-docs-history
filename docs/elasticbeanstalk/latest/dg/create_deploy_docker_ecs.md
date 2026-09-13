@@ -15,7 +15,7 @@ Elastic Beanstalk uses Amazon Elastic Container Service (Amazon ECS) to coordina
 
 The following diagram shows an example Elastic Beanstalk environment configured with three Docker containers running on each Amazon EC2 instance in an Auto Scaling group:
 
-![Elastic Beanstalk environment with load balancer, auto scaling group, and containerized tasks.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-multicontainer-docker-example.png)
+![Elastic Beanstalk environment with load balancer, auto scaling group, and containerized tasks.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-multicontainer-docker-example.png)
 
 
 ## Amazon ECS resources created by Elastic Beanstalk

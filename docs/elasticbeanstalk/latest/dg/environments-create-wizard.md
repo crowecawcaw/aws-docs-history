@@ -13,7 +13,7 @@ In [Creating an Elastic Beanstalk environment](using-features.environments.md) w
 
 The **Create environment** wizard provides a set of steps for you to create a new environment.
 
-![The Create environment wizard on the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/create-new-env-wizard-step01.png)
+![The Create environment wizard on the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/create-new-env-wizard-step01.png)
 
 
 
@@ -21,7 +21,7 @@ The **Create environment** wizard provides a set of steps for you to create a ne
 **Environment tier**  
 For **environment tier**, choose the **Web server environment** or **Worker environment** [environment tier](concepts.md#concepts-tier). You can't change an environment's tier after creation.
 
-![Environment tier section of the environment wizard.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/step-01-environemnt-tier.png)
+![Environment tier section of the environment wizard.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/step-01-environemnt-tier.png)
 
 
 **Note**  
@@ -30,13 +30,13 @@ The [.NET on Windows Server platform](create_deploy_NET.md) doesn't support the 
 **Application information**  
 If you launched the wizard by selecting **Create new environment** from the **Application overview** page, then the **Application name** is prefilled. Otherwise, enter an application name. Optionally, add [application tags](applications-tagging.md).
 
-![Application information section of the environment wizard.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/step-01-application-information.png)
+![Application information section of the environment wizard.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/step-01-application-information.png)
 
 
 **Environment information**  
 Set the environment's name and domain, and create a description for your environment. Be aware that these environment settings cannot change after the environment is created.
 
-![Environment information section of the environment wizard.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/step-01-environment-information.png)
+![Environment information section of the environment wizard.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/step-01-environment-information.png)
 
 + **Name** – Enter a name for the environment. The form provides a generated name.
 + **Domain** – (web server environments) Enter a unique domain name for your environment. The default name is the environment's name. You can enter a different domain name. Elastic Beanstalk uses this name to create a unique CNAME for the environment. To check whether the domain name you want is available, choose **Check Availability**.
@@ -53,7 +53,7 @@ You can create a new environment from two types of platforms:
 
 In most cases you use an Elastic Beanstalk managed platform for your new environment. When the new environment wizard starts, it selects the **Managed platform** option by default.
 
-![Managed platform option in the create new environment wizard](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-defaultenvironment.png)
+![Managed platform option in the create new environment wizard](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-defaultenvironment.png)
 
 
 Select a platform, a platform branch within that platform, and a specific platform version in the branch. When you select a platform branch, the recommended version within the branch is selected by default. In addition, you can select any platform version you've used before.
@@ -70,7 +70,7 @@ If an off-the-shelf platform doesn't meet your needs, you can create a new envir
 
 Now that you have selected the platform to use, the next step is to provide your application code.
 
-![Providing application code in the create new environment wizard of the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-environment-appcode.png)
+![Providing application code in the create new environment wizard of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-environment-appcode.png)
 
 
 You have several options:
@@ -81,7 +81,7 @@ You have several options:
 Depending on the platform version you selected, you can upload your application in a ZIP [source bundle](applications-sourcebundle.md), a [WAR file](java-tomcat-platform.md), or a [plaintext Docker configuration](docker.md). The file size limit is 500 MB.
 
   When you choose to upload new code, you can also provide tags to associate with your new code. For more information about tagging an application version, see [Tagging application versions](applications-versions-tagging.md).  
-![Uploading new application code in the create new environment wizard of the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-environment-appcode-upload.png)
+![Uploading new application code in the create new environment wizard of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-environment-appcode-upload.png)
 
 For quick environment creation using default configuration options, you can now choose **Create environment**. Choose **Configure more options** to make additional configuration changes, as described in the following sections.
 
@@ -95,7 +95,7 @@ When you choose **Configure more options**, the wizard shows the **Configure** p
 
 On the **Presets** section of the page, Elastic Beanstalk provides several configuration presets for different use cases. Each preset includes recommended values for several [configuration options](command-options.md).
 
-![Configuration presets section in the configuration page of the create new environment wizard](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-presets.png)
+![Configuration presets section in the configuration page of the create new environment wizard](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-presets.png)
 
 
 The **High availability** presets include a load balancer, and are recommended for production environments. Choose them if you want an environment that can run multiple instances for high availability and scale in response to load. The **Single instance** presets are primarily recommended for development. Two of the presets enable Spot Instance requests. For details about Elastic Beanstalk capacity configuration, see [Auto Scaling group](using-features.managing.as.md).
@@ -127,7 +127,7 @@ In addition to (or instead of) choosing a configuration preset, you can fine-tun
 
 Use the **Modify software** configuration page to configure the software on the Amazon Elastic Compute Cloud (Amazon EC2) instances that run your application. You can configure environment properties, AWS X-Ray debugging, instance log storing and streaming, and platform-specific settings. For details, see [Environment variables and other software settings](environments-cfg-softwaresettings.md).
 
-![Modify software configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-software.png)
+![Modify software configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-software.png)
 
 
 #### Instances
@@ -135,7 +135,7 @@ Use the **Modify software** configuration page to configure the software on the 
 
 Use the **Modify instances** configuration page to configure the Amazon EC2 instances that run your application. For details, see [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.ec2.md).
 
-![Modify instances configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-instances.png)
+![Modify instances configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-instances.png)
 
 
 #### Capacity
@@ -150,7 +150,7 @@ A single-instance environment isn't production ready. If the instance becomes un
 
 For more information about environment capacity settings, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.as.md) and [The Amazon EC2 instances for your Elastic Beanstalk environment](using-features.managing.ec2.md).
 
-![Modify capacity configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-capacity.png)
+![Modify capacity configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-capacity.png)
 
 
 #### Load balancer
@@ -163,7 +163,7 @@ You can only select your environment's load balancer type during environment cre
 
 For more information about load balancer types and settings, see [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md) and [Configuring HTTPS for your Elastic Beanstalk environment](configuring-https.md).
 
-![Load balancer configuration during environment creation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-elb.png)
+![Load balancer configuration during environment creation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-elb.png)
 
 
 **Note**  
@@ -176,12 +176,12 @@ Use the **Modify rolling updates and deployments** configuration page to configu
 
 Application deployments happen when you upload an updated application source bundle and deploy it to your environment. For more information about configuring deployments, see [Deployment policies and settings](using-features.rolling-version-deploy.md).
 
-![Application deployments section in the modify rolling updates and deployments configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-rollingdeployments.png)
+![Application deployments section in the modify rolling updates and deployments configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-rollingdeployments.png)
 
 
 Configuration changes that modify the [launch configuration](command-options-general.md#command-options-general-autoscalinglaunchconfiguration) or [VPC settings](command-options-general.md#command-options-general-ec2vpc) require terminating all instances in your environment and replacing them. For more information about setting the update type and other options, see [Configuration changes](environments-updating.md).
 
-![Configuration updates section in the modify rolling updates and deployments configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-rolling-updates-health.png)
+![Configuration updates section in the modify rolling updates and deployments configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-rolling-updates-health.png)
 
 
 #### Security
@@ -222,7 +222,7 @@ The first time you create an environment in the Elastic Beanstalk console, you m
 
 1. Return to the **Configure service access** tab, refresh the list, then select the newly created EC2 instance profile.
 
-![Configure service access](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/configure-service-access.png)
+![Configure service access](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/configure-service-access.png)
 
 
 #### Monitoring
@@ -230,7 +230,7 @@ The first time you create an environment in the Elastic Beanstalk console, you m
 
 Use the **Modify monitoring** configuration page to configure health reporting, monitoring rules, and health event streaming. For details, see [Enabling Elastic Beanstalk enhanced health reporting](health-enhanced-enable.md), [Configuring enhanced health rules for an environment](health-enhanced-rules.md), and [Streaming Elastic Beanstalk environment health information to Amazon CloudWatch Logs](AWSHowTo.cloudwatchlogs.envhealth.md).
 
-![Modify monitoring configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-monitoring.png)
+![Modify monitoring configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-monitoring.png)
 
 
 #### Managed updates
@@ -238,7 +238,7 @@ Use the **Modify monitoring** configuration page to configure health reporting, 
 
 Use the **Modify managed updates** configuration page to configure managed platform updates. You can decide if you want them enabled, set the schedule, and configure other properties. For details, see [Managed platform updates](environment-platform-update-managed.md).
 
-![Modify managed updates configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-managed-updates.png)
+![Modify managed updates configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-managed-updates.png)
 
 
 #### Notifications
@@ -246,7 +246,7 @@ Use the **Modify managed updates** configuration page to configure managed platf
 
 Use the **Modify notifications** configuration page to specify an email address to receive [email notifications](using-features.managing.sns.md) for important events from your environment.
 
-![Modify notifications configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-notifications.png)
+![Modify notifications configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-notifications.png)
 
 
 #### Network
@@ -254,7 +254,7 @@ Use the **Modify notifications** configuration page to specify an email address 
 
 If you have created a [custom VPC](using-features.managing.vpc.md), the **Modify network** configuration page to configure your environment to use it. If you don't choose a VPC, Elastic Beanstalk uses the default VPC and subnets.
 
-![Modify network configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-network.png)
+![Modify network configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-network.png)
 
 
 #### Database
@@ -264,7 +264,7 @@ Use the **Modify database** configuration page to add an Amazon Relational Datab
 
 For details, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.db.md).
 
-![Modify database configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-database.png)
+![Modify database configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-database.png)
 
 
 #### Tags
@@ -272,7 +272,7 @@ For details, see [Adding a database to your Elastic Beanstalk environment](using
 
 Use the **Modify tags** configuration page to add [tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) to the resources in your environment. For more information about environment tagging, see [Tagging resources in your Elastic Beanstalk environments](using-features.tagging.md).
 
-![Modify tags configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-create-tags.png)
+![Modify tags configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-create-tags.png)
 
 
 #### Worker environment
@@ -282,4 +282,4 @@ If you're creating a *worker tier environment*, use the **Modify worker** config
 
 For more information, see [Elastic Beanstalk worker environments](using-features-managing-env-tiers.md).
 
-![Modify worker configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-worker.png)
+![Modify worker configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/wizard-worker.png)

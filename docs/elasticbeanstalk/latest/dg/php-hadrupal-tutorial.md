@@ -90,7 +90,7 @@ Next, modify the security group attached to your DB instance to allow inbound tr
 1. For **Type**, choose the DB engine that your application uses.
 
 1. For **Source**, type **sg-** to view a list of available security groups. Choose the security group that's associated with the Auto Scaling group that's used with your Elastic Beanstalk environment. This is so that Amazon EC2 instances in the environment can have access to the database.  
-![Screen image to edit the inbound rules for a security group in the Amazon EC2 console.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/ec2-securitygroup-rds.png)
+![Screen image to edit the inbound rules for a security group in the Amazon EC2 console.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/ec2-securitygroup-rds.png)
 
 1. Choose **Save**.
 
@@ -172,7 +172,7 @@ Next, use environment properties to pass the connection information to your envi
 
 1. In the **Environment properties** section, define the variables that your application reads to construct a connection string. For compatibility with environments that have an integrated RDS DB instance, use the following names and values. You can find all values, except for your password, in the [RDS console](https://console.aws.amazon.com/rds/home).    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/php-hadrupal-tutorial.html)  
-![Environment properties configuration section with RDS properties added](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-envprops-rds.png)
+![Environment properties configuration section with RDS properties added](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-envprops-rds.png)
 
 1. To save the changes choose **Apply** at the bottom of the page.
 

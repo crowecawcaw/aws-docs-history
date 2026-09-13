@@ -67,12 +67,12 @@ The command with the `--delete` {{version-label}} option displays a message conf
 
 The following example shows the interactive window for an application with no deployments.
 
-![Application versions list showing three versions with labels, creation dates, ages, and descriptions.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/InteractiveModeNoEnvironment.png)
+![Application versions list showing three versions with labels, creation dates, ages, and descriptions.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/InteractiveModeNoEnvironment.png)
 
 
 The following example shows the interactive window for an application with the fourth version, with version label **Sample Application**, deployed.
 
-![Versions table showing Sample Application as version 4 deployed with Health Green status.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/InteractiveModeWithEnvironment.png)
+![Versions table showing Sample Application as version 4 deployed with Health Green status.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/InteractiveModeWithEnvironment.png)
 
 
 The following example shows the output from an **eb appversion lifecycle -p** command, where {{ACCOUNT-ID}} is the user's account ID:

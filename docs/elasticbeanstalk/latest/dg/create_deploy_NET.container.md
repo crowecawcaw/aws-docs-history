@@ -19,7 +19,7 @@ If you want to, you can extend the number of parameters. For information about e
 1. At the bottom of the **Overview** pane, click the **Configuration** tab.
 
 1. Under **Container**, you can configure container options.   
-![Elastic Beanstalk container panel](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-container.png)
+![Elastic Beanstalk container panel](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-container.png)
 
 ## .NET container options
 <a name="create_deploy_NET.container.vs.options"></a>
@@ -31,4 +31,4 @@ You can choose the version of .NET Framework for your application. Choose either
 
 The **Application Settings** section lets you specify environment variables that you can read from your application code. 
 
-![Elastic Beanstalk container panel](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-container-envproperties.png)
+![Elastic Beanstalk container panel](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-container-envproperties.png)

@@ -94,7 +94,7 @@ Create a `Dockerrun.aws.json` v2 text file with this name at the root of your ap
 
 This example configuration defines two containers, a PHP web site with an nginx proxy in front of it. These two containers will run side by side in Docker containers on each instance in your Elastic Beanstalk environment, accessing shared content (the content of the website) from volumes on the host instance, which are also defined in this file. The containers themselves are created from images hosted in official repositories on Docker Hub. The resulting environment looks like the following:
 
-![Elastic Load Balancer routing traffic to two EC2 instances running Nginx and PHP-FPM containers.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-multicontainer-tutorial.png)
+![Elastic Load Balancer routing traffic to two EC2 instances running Nginx and PHP-FPM containers.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-multicontainer-tutorial.png)
 
 
 The volumes defined in the configuration correspond to the content that you will create next and upload as part of your application source bundle. The containers access content on the host by mounting volumes in the `mountPoints` section of the container definitions. 

@@ -105,10 +105,10 @@ Use this method to update to the latest version of your environment's platform b
 1. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
 
 1. On the environment overview page, under **Platform**, choose **Change**.  
-![Elastic Beanstalk newer platform available](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-management-platform-change.png)
+![Elastic Beanstalk newer platform available](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-management-platform-change.png)
 
 1. On the **Update platform version** dialog, select a platform version. The newest (recommended) platform version in the branch is selected automatically. You can update to any version that you've used in the past.  
-![Elastic Beanstalk update platform version confirmation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-management-update-platform-version.png)
+![Elastic Beanstalk update platform version confirmation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-management-update-platform-version.png)
 
 1. Choose **Save**.
 

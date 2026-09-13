@@ -13,7 +13,7 @@ Unlike the workflow described in the prior section, the deployment Configuration
 The diagram doesn't represent the complete set of steps that Elastic Beanstalk takes on environment instances during deployment. We provide this diagram for illustration, to provide you with the order and context for the execution of your customizations.
 For simplicity, the diagram mentions only the `.platform/hooks/*` hook subdirectories (for application deployments), and not the `.platform/confighooks/*` hook subdirectories (for configuration deployments). Hooks in the latter subdirectories run during exactly the same steps as hooks in corresponding subdirectories shown in the diagram.
 
-![Workflow for extensions execution order on an environment instance on the ECS-based Docker platform.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/platform-ecs-al2-extended-order.png)
+![Workflow for extensions execution order on an environment instance on the ECS-based Docker platform.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/platform-ecs-al2-extended-order.png)
 
 
 The following list details the deployment workflow steps.

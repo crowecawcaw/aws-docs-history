@@ -37,7 +37,7 @@ The following settings are available.
 
 Choose a VPC for your environment. You can only change this setting during environment creation.
 
-![VPC section in the Modify network configuration page on the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-vpc-console-vpc.png)
+![VPC section in the Modify network configuration page on the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-vpc-console-vpc.png)
 
 
 ### Load balancer visibility
@@ -50,7 +50,7 @@ For a load-balanced environment, choose the load balancer scheme. By default, th
 
 For a load-balanced environment, choose the subnets that your load balancer uses to serve traffic. For a public application, choose public subnets. Use subnets in multiple availability zones for high availability. For an internal application, choose private subnets and disable load balancer visibility.
 
-![Load balancer settings section in the Modify network configuration page on the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-vpc-console-lb.png)
+![Load balancer settings section in the Modify network configuration page on the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-vpc-console-lb.png)
 
 
 ### Instance public IP address
@@ -63,7 +63,7 @@ If you choose public subnets for your application instances, enable public IP ad
 
 Choose subnets for your application instances. Choose at least one subnet for each availability zone that your load balancer uses. If you choose private subnets for your instances, your VPC must have a NAT gateway in a public subnet that the instances can use to access the Internet.
 
-![Instance settings section in the Modify network configuration page on the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-vpc-console-ec2.png)
+![Instance settings section in the Modify network configuration page on the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-vpc-console-ec2.png)
 
 
 ### Database subnets

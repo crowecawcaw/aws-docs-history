@@ -42,7 +42,7 @@ You can use the Elastic Beanstalk console to configure a Network Load Balancer's
 1. In the **Load balancer** configuration category, choose **Edit**.
 
 1. Select the **Network Load Balancer** option, if it isn't already selected.  
-![Elastic Load Balancing configuration page - choosing load balancer type](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-type-chooser.png)
+![Elastic Load Balancing configuration page - choosing load balancer type](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-type-chooser.png)
 
 1. Make any Network Load Balancer configuration changes that your environment requires.
 
@@ -75,7 +75,7 @@ If the **Load balancer** configuration category doesn't have an **Edit** button,
 
 Use this list to specify listeners for your load balancer. Each listener routes incoming client traffic on a specified port to a process on your instances. Initially, the list shows the default listener, which routes incoming traffic on port 80 to a process named **default**, which listens to port 80.
 
-![Network Load Balancer configuration - listener list](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-listeners.png)
+![Network Load Balancer configuration - listener list](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-listeners.png)
 
 
 **To configure an existing listener**
@@ -92,7 +92,7 @@ Use this list to specify listeners for your load balancer. Each listener routes 
 
 Use the **Network Load Balancer listener** dialog box to configure the port on which the listener listens to traffic, and to choose the process to which you want to route traffic (specified by the port that the process listens to).
 
-![Network Load Balancer listener dialog box](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-listener-dialog.png)
+![Network Load Balancer listener dialog box](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-listener-dialog.png)
 
 
 ### Processes
@@ -100,7 +100,7 @@ Use the **Network Load Balancer listener** dialog box to configure the port on w
 
 Use this list to specify processes for your load balancer. A process is a target for listeners to route traffic to. Each listener routes incoming client traffic on a specified port to a process on your instances. Initially, the list shows the default process, which listens to incoming traffic on port 80.
 
-![Network Load Balancer configuration - process list](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-processes.png)
+![Network Load Balancer configuration - process list](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-processes.png)
 
 
 You can edit the settings of an existing process, or add a new process. To start editing a process on the list or adding a process to it, use the same steps listed for the [listener list](environments-cfg-alb.md#environments-cfg-alb-console-listeners). The **Environment process** dialog box opens.
@@ -114,7 +114,7 @@ You can edit the settings of an existing process, or add a new process. To start
 
 Use these settings to define the process: its **Name** and the **Process port** on which it listens to requests.
 
-![Network Load Balancer process dialog box settings for name, listener port, and process port](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-process-definition.png)
+![Network Load Balancer process dialog box settings for name, listener port, and process port](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-process-definition.png)
 
 
 #### Health check
@@ -125,7 +125,7 @@ Use the following settings to configure process health checks:
 + **Healthy threshold** – The number of health checks that must pass before Elastic Load Balancing changes an instance's health state. (For Network Load Balancer, **Unhealthy threshold** is a read-only setting that is always equal to the healthy threshold value.)
 + **Deregistration delay** – The amount of time, in seconds, to wait for active requests to complete before deregistering an instance.
 
-![Network Load Balancer process dialog box settings for health check](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-process-healthcheck.png)
+![Network Load Balancer process dialog box settings for health check](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-process-healthcheck.png)
 
 
 **Note**  
@@ -141,16 +141,16 @@ In this example, your application requires end-to-end traffic encryption. To con
 **To configure the load balancer for this example**
 
 1. *Configure the default process.* Select the default process, and then, for **Actions**, choose **Edit**. For **Process port**, type `443`.  
-![Network Load Balancer configuration example - configuring default process to use process port 443](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-example-process-443.png)
+![Network Load Balancer configuration example - configuring default process to use process port 443](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-example-process-443.png)
 
 1. *Add a port 443 listener.* Add a new listener. For **Listener port**, type `443`. For **Process port**, make sure that `443` is selected.  
-![Network Load Balancer configuration example - adding a port 443 listener](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-example-listener-443.png)
+![Network Load Balancer configuration example - adding a port 443 listener](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-example-listener-443.png)
 
    You can now see your additional listener on the list.  
-![Network Load Balancer configuration example - listener list with two listeners](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-example-listeners.png)
+![Network Load Balancer configuration example - listener list with two listeners](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-example-listeners.png)
 
 1. *Disable the default port 80 listener.* For the default listener, turn off the **Enabled** option.  
-![Network Load Balancer configuration example - disabling default listener](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-example-listeners-disabled.png)
+![Network Load Balancer configuration example - disabling default listener](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-nlb-example-listeners-disabled.png)
 
 ## Configuring a Network Load Balancer using the EB CLI
 <a name="environments-cfg-nlb-ebcli"></a>

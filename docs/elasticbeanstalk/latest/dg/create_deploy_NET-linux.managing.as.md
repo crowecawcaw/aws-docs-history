@@ -11,7 +11,7 @@ Amazon EC2 Auto Scaling lets you take a group of Amazon EC2 instances and set va
 
 Elastic Beanstalk provisions Amazon EC2 Auto Scaling for your application. You can edit the Elastic Beanstalk environment's Amazon EC2 instance configuration with the **Auto Scaling** tab inside your application environment tab in the AWS Toolkit for Visual Studio.
 
-![Screenshot of Auto Scaling configuration panel in Visual Studio Toolkit for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-linux-autoscaling.png)
+![Screenshot of Auto Scaling configuration panel in Visual Studio Toolkit for Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-linux-autoscaling.png)
 
 
 The following section discusses how to configure Auto Scaling parameters for your application. 
@@ -23,7 +23,7 @@ You can edit the launch configuration to control how your Elastic Beanstalk appl
 
 The **Minimum Instance Count** and **Maximum Instance Count** boxes let you specify the minimum and maximum size of the Auto Scaling group that your Elastic Beanstalk application uses.
 
-![Elastic Beanstalk Auto Scaling launch config configuration window](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-autoscaling-launchconfig.png)
+![Elastic Beanstalk Auto Scaling launch config configuration window](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-autoscaling-launchconfig.png)
 
 
 **Note**  
@@ -41,7 +41,7 @@ A *trigger* is an Amazon EC2 Auto Scaling mechanism that you set to tell the sys
 
 You can define a scaling trigger for your Elastic Beanstalk application using AWS Toolkit for Visual Studio.
 
-![Elastic Beanstalk Auto Scaling trigger](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-autoscaling-triggers.png)
+![Elastic Beanstalk Auto Scaling trigger](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-autoscaling-triggers.png)
 
 
 Amazon EC2 Auto Scaling triggers work by monitoring a specific Amazon CloudWatch metric of a particular instance. Metrics include CPU utilization, network traffic, and disk activity. Use the **Trigger Measurement** setting to select a metric for your trigger.

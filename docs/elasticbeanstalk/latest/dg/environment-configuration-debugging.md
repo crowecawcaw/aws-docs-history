@@ -9,7 +9,7 @@ You can use the AWS Elastic Beanstalk console or a configuration file to run the
 Some regions don't offer X-Ray. If you create an environment in one of these regions, you can't run the X-Ray daemon on the instances in your environment.  
 For information about the AWS services offered in each Region, see [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
-![The service map for a web API application that uses Amazon DynamoDB to store data](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/scorekeep-servicemap.png)
+![The service map for a web API application that uses Amazon DynamoDB to store data](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/scorekeep-servicemap.png)
 
 
 X-Ray provides an SDK that you can use to instrument your application code, and a daemon application that relays debugging information from the SDK to the X-Ray API.

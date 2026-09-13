@@ -13,7 +13,7 @@ To avoid running long-running tasks locally, you can use the AWS SDK for your pr
 
 Elastic Beanstalk worker environments simplify this process by managing the Amazon SQS queue and running a [daemon process](#worker-daemon) on each instance that reads from the queue for you. When the daemon pulls an item from the queue, it sends an HTTP POST request locally to `http://localhost/` on port 80 with the contents of the queue message in the body. All that your application needs to do is perform the long-running task in response to the POST. You can [configure the daemon](#using-features-managing-env-tiers-worker-settings) to post to a different path, use a MIME type other than application/JSON, connect to an existing queue, or customize connections (maximum concurrent requests), timeouts, and retries.
 
-![Elastic Beanstalk worker environment Amazon SQS message processing](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-messageflow-worker.png)
+![Elastic Beanstalk worker environment Amazon SQS message processing](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-messageflow-worker.png)
 
 
 With [periodic tasks](#worker-periodictasks), you can also configure the worker daemon to queue messages based on a cron schedule. Each periodic task can POST to a different path. Enable periodic tasks by including a YAML file in your source code that defines the schedule and path for each task.
@@ -130,7 +130,7 @@ You can also set other CloudWatch alarms, as needed, by using the Elastic Beanst
 
 You can manage a worker environment's configuration by editing the **Worker** category on the **Configuration** page in the [environment management console](environments-console.md).
 
-![Modify worker configuration page in the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-worker.png)
+![Modify worker configuration page in the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-worker.png)
 
 
 **Note**  

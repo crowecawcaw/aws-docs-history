@@ -10,7 +10,7 @@ You can view a list of Amazon EC2 instances running your Elastic Beanstalk appli
 1.  In Visual Studio, in **AWS Explorer**, expand the **Amazon EC2** node and double-click **Instances**. 
 
 1.  Right-click the instance ID for the Amazon EC2 instance running in your application's load balancer in the **Instance** column and select **Open Remote Desktop** from the context menu.   
-![Open remote desktop dialog box](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-rdp-login.png)
+![Open remote desktop dialog box](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-rdp-login.png)
 
 1.  Select **Use EC2 keypair to log on** and paste the contents of your private key file that you used to deploy your application in the **Private key** box. Alternatively, enter your user name and password in the **User name** and **Password** text boxes.
 **Note**  

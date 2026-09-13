@@ -7,7 +7,7 @@ This section walks you through the tasks to deploy an Elastic Beanstalk applicat
 
 Your infrastructure will look similar to the following diagram.
 
-![Diagram of Elastic Beanstalk and VPC topology with Amazon RDS.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-rds-topo-ngw.png)
+![Diagram of Elastic Beanstalk and VPC topology with Amazon RDS.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-rds-topo-ngw.png)
 
 
 **Note**  
@@ -25,10 +25,10 @@ You can use the [Amazon VPC console](https://console.aws.amazon.com/vpc/) to cre
 1. In the navigation pane, choose **VPC Dashboard**. Then choose **Create VPC**.
 
 1. Choose **VPC with Public and Private Subnets**, and then choose **Select**.  
-![Choose VPC with Public and Private Subnets, then choose Select.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/Case2_Wizard_Page2.png)
+![Choose VPC with Public and Private Subnets, then choose Select.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/Case2_Wizard_Page2.png)
 
 1. Your Elastic Load Balancing load balancer and your Amazon EC2 instances must be in the same Availability Zone so they can communicate with each other. Choose the same Availability Zone from each **Availability Zone** list.  
-![Choose the same Availability Zones for your private and public subnets.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/Case2_Wizard_Confirmation2.png)
+![Choose the same Availability Zones for your private and public subnets.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/Case2_Wizard_Confirmation2.png)
 
 1. Choose an Elastic IP address for your NAT gateway.
 
@@ -39,7 +39,7 @@ You can use the [Amazon VPC console](https://console.aws.amazon.com/vpc/) to cre
 You can choose to launch a NAT instance in the public subnet instead of a NAT gateway. For more information, see [Scenario 2: VPC with Public and Private Subnets (NAT)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html) in the *Amazon VPC User Guide*.
 
 1. After the VPC is successfully created, you get a VPC ID. You need this value for the next step. To view your VPC ID, choose **Your VPCs** in the left pane of the [Amazon VPC console](https://console.aws.amazon.com/vpc/).  
-![The Amazon VPC console displays your VPC ID.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-id.png)
+![The Amazon VPC console displays your VPC ID.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-id.png)
 
 ## Create a DB subnet group
 <a name="vpc-rds-subnet"></a>
@@ -61,7 +61,7 @@ A DB subnet group for a VPC is a collection of subnets (typically private) that 
 1. For **VPC**, choose the ID of the VPC that you created.
 
 1. In **Add subnets**, choose **Add all the subnets related to this VPC**.  
-![Add all the subnets related to your VPC.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-rds-addsubnets.png)
+![Add all the subnets related to your VPC.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-rds-addsubnets.png)
 
 1. When you are finished, choose **Create**.
 
@@ -90,7 +90,7 @@ Select the subnets for your load balancer and EC2 instances. Be sure you select 
 
 You can view your subnet IDs by choosing **Subnets** in the [Amazon VPC console](https://console.aws.amazon.com/vpc/).
 
-![Subnet IDs for your VPC](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-subnets.png)
+![Subnet IDs for your VPC](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-subnets.png)
 
 
 ### Deploying with the AWS toolkits, EB CLI, AWS CLI, or API

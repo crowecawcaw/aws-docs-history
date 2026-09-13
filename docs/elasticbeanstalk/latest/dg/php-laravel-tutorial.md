@@ -117,7 +117,7 @@ To optimize the source bundle further, initialize a Git repository and use the [
 
 When the deployment completes, click the URL to open your Laravel application in the browser:
 
-![403 Forbidden error page indicating the user does not have permission to access the requested resource.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/php-laravel-403.png)
+![403 Forbidden error page indicating the user does not have permission to access the requested resource.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/php-laravel-403.png)
 
 
 What's this? By default, Elastic Beanstalk serves the root of your project at the root path of the website. In this case, though, the default page (`index.php`) is one level down in the `public` folder. You can verify this by adding `/public` to the URL. For example, `http://{{laravel}}.{{us-east-2}}.elasticbeanstalk.com/public`.
@@ -140,7 +140,7 @@ To serve the Laravel application at the root path, use the Elastic Beanstalk con
 
 1. When the update is complete, click the URL to reopen your site in the browser.
 
-![Laravel logo with navigation menu items: Documentation, Laracasts, News, Forge, GitHub.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/php-laravel-defaultnodb.png)
+![Laravel logo with navigation menu items: Documentation, Laracasts, News, Forge, GitHub.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/php-laravel-defaultnodb.png)
 
 
 So far, so good. Next you'll add a database to your environment and configure Laravel to connect to it.
@@ -237,7 +237,7 @@ When the DB instance has finished launching, bundle and deploy the updated appli
 
 Deploying a new version of your application takes less than a minute. When the deployment is complete, refresh the web page again to verify that the database connection succeeded:
 
-![Laravel application homepage showing successful database connection to ebdb.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/php-laravel-defaultwdb.png)
+![Laravel application homepage showing successful database connection to ebdb.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/php-laravel-defaultwdb.png)
 
 
 ## Cleanup

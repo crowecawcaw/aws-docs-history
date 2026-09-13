@@ -7,7 +7,7 @@ AWS resources created for a worker environment tier include an Auto Scaling grou
 
 The following diagram shows the different components and their interactions across environments and AWS services.
 
-![AWS Elastic Beanstalk worker tier architecture diagram.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-architecture_worker.png)
+![AWS Elastic Beanstalk worker tier architecture diagram.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-architecture_worker.png)
 
 
 Amazon CloudWatch is used for alarms and health monitoring. For more information, go to [Basic health reporting](using-features.healthstatus.md).

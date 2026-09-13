@@ -150,7 +150,7 @@ By default, the `eb deploy` command creates a ZIP file of your project folder. Y
 
 The site collects user contact information and uses a DynamoDB table to store the data. To add an entry, choose **Sign up today**, enter a name and email address, and then choose **Sign Up\!**. The web app writes the form contents to the table and triggers an Amazon SNS email notification.
 
-![Startup landing page with teaser message and sign-up button for upcoming product launch.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/nodejs-dynamodb-tutorial-app.png)
+![Startup landing page with teaser message and sign-up button for upcoming product launch.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/nodejs-dynamodb-tutorial-app.png)
 
 
 Right now, the Amazon SNS topic is configured with a placeholder email for notifications. You will update the configuration soon, but in the meantime you can verify the DynamoDB table and Amazon SNS topic in the AWS Management Console.

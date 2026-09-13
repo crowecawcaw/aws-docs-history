@@ -9,7 +9,7 @@ Elastic Load Balancing is an Amazon web service that helps you improve the avail
 
  Elastic Beanstalk automatically provisions Elastic Load Balancing when you deploy an application. You can edit the Elastic Beanstalk environment's Amazon EC2 instance configuration with the **Load Balancer** tab inside your application environment tab in AWS Toolkit for Visual Studio.
 
-![Screenshot of Load Balancer configuration panel in Visual Studio Toolkit for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-linux-loadbalancer.png)
+![Screenshot of Load Balancer configuration panel in Visual Studio Toolkit for Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-linux-loadbalancer.png)
 
 
  The following sections describe the Elastic Load Balancing parameters you can configure for your application.
@@ -19,7 +19,7 @@ Elastic Load Balancing is an Amazon web service that helps you improve the avail
 
 The load balancer provisioned to handle requests for your Elastic Beanstalk application sends requests to the Amazon EC2 instances that are running your application. The provisioned load balancer can listen for requests on HTTP and HTTPS ports and route requests to the Amazon EC2 instances in your AWS Elastic Beanstalk application. By default, the load balancer handles requests on the HTTP port. For this to work, at least one of the ports (either HTTP or HTTPS) must be turned on.
 
-![Elastic Beanstalk Elastic Load Balancing configuration - ports](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-loadbalancer-ports.png)
+![Elastic Beanstalk Elastic Load Balancing configuration - ports](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-loadbalancer-ports.png)
 
 
 **Important**  
@@ -54,7 +54,7 @@ Elastic Load Balancing supports the HTTPS/TLS protocol to enable traffic encrypt
 1. Create a new certificate using AWS Certificate Manager (ACM) or upload a certificate and key to AWS Identity and Access Management (IAM). For more information about requesting an ACM certificate, see [Request a Certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request.html) in the *AWS Certificate Manager User Guide*. For more information about importing third-party certificates into ACM, see [Importing Certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide*. If ACM is not [available in your region](https://docs.aws.amazon.com/general/latest/gr/acm.html), use AWS Identity and Access Management (IAM) to upload a third-party certificate. The ACM and IAM services store the certificate and provide an Amazon Resource Name (ARN) for the SSL certificate. For more information about creating and uploading certificates to IAM, see [Working with Server Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html) in *IAM User Guide*.
 
 1. Specify the HTTPS port by selecting a port for **HTTPS Listener Port**.  
-![Elastic Beanstalk Elastic Load Balancing configuration - SSL](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-elb-ssl.png)
+![Elastic Beanstalk Elastic Load Balancing configuration - SSL](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-elb-ssl.png)
 
 1. For **SSL Certificate ID**, enter the Amazon Resources Name (ARN) of your SSL certificate. For example, **arn:aws:iam::123456789012:server-certificate/abc/certs/build** or **arn:aws:acm:us-east-2:123456789012:certificate/12345678-12ab-34cd-56ef-12345678**. Use the SSL certificate that you created or uploaded in step 1.
 
@@ -67,7 +67,7 @@ The health check definition includes a URL to be queried for instance health. By
 
  You can control the settings for the health check using the **EC2 Instance Health Check** section of the **Load Balancing** panel.
 
-![Elastic Beanstalk Elastic Load Balancing configuration - health checks](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-loadbalancer-healthcheck.png)
+![Elastic Beanstalk Elastic Load Balancing configuration - health checks](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-loadbalancer-healthcheck.png)
 
 
 The health check definition includes a URL to be queried for instance health. Override the default URL to match an existing resource in your application (for example, `/myapp/index.jsp`) by entering it in the **Application Health Check URL** box. 
@@ -86,7 +86,7 @@ By default, a load balancer routes each request independently to the server inst
 
 You can use the **Sessions** section on the **Load Balancer** tab to specify whether the load balancer for your application allows session stickiness.
 
-![Elastic Beanstalk Elastic Load Balancing configuration - sessions](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-loadbalancer-sessions.png)
+![Elastic Beanstalk Elastic Load Balancing configuration - sessions](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-loadbalancer-sessions.png)
 
 
  For more information on Elastic Load Balancing, see the [Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/). 

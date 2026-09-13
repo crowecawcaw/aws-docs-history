@@ -63,7 +63,7 @@ For a quick fix, you can also select the proxy server in the Elastic Beanstalk c
 
 1. To save the changes choose **Apply** at the bottom of the page.
 
-![Choosing the proxy for a Tomcat environment in the Elastic Beanstalk console's software configuration category](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/java-tomcat-proxy-selection.png)
+![Choosing the proxy for a Tomcat environment in the Elastic Beanstalk console's software configuration category](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/java-tomcat-proxy-selection.png)
 
 
 ### Extending and overriding the default Apache configuration — Amazon Linux AMI (AL1)

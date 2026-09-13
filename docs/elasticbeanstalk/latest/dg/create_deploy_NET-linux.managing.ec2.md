@@ -7,7 +7,7 @@ You can use Amazon Elastic Compute Cloud (Amazon EC2) to launch and manage serve
 
 You can edit your Amazon EC2 instance configuration with the **Server** tab inside your application environment tab in the AWS Toolkit for Visual Studio. 
 
-![Screenshot of Porting Assistant for .NET configuration panel in Visual Studio Toolkit for Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-linux-server-tab.png)
+![Screenshot of Porting Assistant for .NET configuration panel in Visual Studio Toolkit for Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-linux-server-tab.png)
 
 
 ## Amazon EC2 instance types

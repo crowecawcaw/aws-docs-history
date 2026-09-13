@@ -8,7 +8,7 @@ Now that you have tested your application, it is easy to edit and redeploy your 
  **To edit and redeploy your ASP.NET web application ** 
 
 1.  In **Solution Explorer**, right-click your application, and then click **Republish to Environment <{{your environment name}}>**. The **Re-publish to AWS Elastic Beanstalk** wizard opens.  
-![Publish to beanstalk wizard 1](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-republish-beanstalk-sameenv.png)
+![Publish to beanstalk wizard 1](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-republish-beanstalk-sameenv.png)
 
 1.  Review your deployment details and click **Deploy**. 
 **Note**  
@@ -23,14 +23,14 @@ You can also deploy an existing application to an existing environment if, for i
 1. Right-click your Elastic Beanstalk application by expanding the Elastic Beanstalk node in **AWS Explorer**. Select **View Status**. 
 
 1. In the **App: <{{application name}}>** tab, click **Versions**.   
-![Application versions](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-app-version.png)
+![Application versions](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-app-version.png)
 
 1. Click the application version you want to deploy and click **Publish Version**.
 
 1.  In the **Publish Application Version** wizard, click **Next**.  
-![Publish application version wizard 1](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-republish-beanstalk2a.png)
+![Publish application version wizard 1](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-republish-beanstalk2a.png)
 
 1.  Review your deployment options, and click **Deploy**.   
-![Publish application version wizard 2](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-app-version-wizard3.png)
+![Publish application version wizard 2](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-publish-app-version-wizard3.png)
 
    Your ASP.NET project will be exported as a web deploy file and uploaded to Amazon S3. The Elastic Beanstalk deployment feature will monitor your environment until it becomes available with the newly deployed code. On the **env:<{{environment name}}>** tab, you will see status for your environment. 

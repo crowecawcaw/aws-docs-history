@@ -36,7 +36,7 @@ Also, consider a multi‐account strategy. For more information, see [Organizing
 1. If managed updates are enabled, select a maintenance window, and then select an **Update level**.
 
 1. (Optional) Select **Instance replacement** to enable weekly instance replacement.  
-![Modify managed updates configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-platform-update-managed.png)
+![Modify managed updates configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-platform-update-managed.png)
 
 1. To save the changes choose **Apply** at the bottom of the page.
 

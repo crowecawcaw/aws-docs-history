@@ -27,7 +27,7 @@ The topics in this section describe the many ways you can use additional AWS ser
 
 The following diagram illustrates an example architecture of Elastic Beanstalk across multiple Availability Zones working with other AWS products such as Amazon CloudFront, Amazon Simple Storage Service (Amazon S3), and Amazon Relational Database Service (Amazon RDS).
 
-![Architecture diagram of Elastic Beanstalk working with other AWS products across multiple Availability Zones.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-architecture_crossaws2.png)
+![Architecture diagram of Elastic Beanstalk working with other AWS products across multiple Availability Zones.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-architecture_crossaws2.png)
 
 
 To plan for fault-tolerance, it is advisable to have N\+1 Amazon EC2 instances and spread your instances across multiple Availability Zones. In the unlikely case that one Availability Zone goes down, you will still have your other Amazon EC2 instances running in another Availability Zone. You can adjust Amazon EC2 Auto Scaling to allow for a minimum number of instances as well as multiple Availability Zones. For instructions on how to do this, see [Auto Scaling your Elastic Beanstalk environment instances](using-features.managing.as.md). For more information about building fault-tolerant applications, go to [ Building Fault-Tolerant Applications on AWS](http://media.amazonwebservices.com/AWS_Building_Fault_Tolerant_Applications.pdf). 

@@ -31,7 +31,7 @@ The following settings are available.
 + [EC2 key pair](#using-features.managing.security.keypair)
 + [IAM instance profile](#using-features.managing.security.profile)
 
-![The Elastic Beanstalk security service access configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/configuration-configure-service-access.png)
+![The Elastic Beanstalk security service access configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/configuration-configure-service-access.png)
 
 
 ### Service role

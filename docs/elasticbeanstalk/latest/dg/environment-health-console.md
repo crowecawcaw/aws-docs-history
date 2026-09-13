@@ -29,7 +29,7 @@ For a greater variety of time interval selections, choose **Custom**. From here 
 
  
 
-![Environment health monitoring section on the environment monitoring page of the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-monitoring-graphs.png)
+![Environment health monitoring section on the environment monitoring page of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-monitoring-graphs.png)
 
 
 ## Customizing the monitoring console
@@ -37,7 +37,7 @@ For a greater variety of time interval selections, choose **Custom**. From here 
 
 To create and view custom metrics you must use Amazon CloudWatch. With CloudWatch you can create custom dashboards to monitor your resources in a single view. Select **Add to dashboard** to navigate to the Amazon CloudWatch console from the **Monitoring** page. Amazon CloudWatch provides you the option to create a new dashboard or select an existing one. For more information, see [Using Amazon CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) in the *Amazon CloudWatch User Guide*.
 
-![Environment health monitoring section on the environment monitoring page of the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-monitoring-graphs.png)
+![Environment health monitoring section on the environment monitoring page of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-monitoring-graphs.png)
 
 
 [Elastic Load Balancing](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/elb-metricscollected.html) and [Amazon EC2](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/ec2-metricscollected.html) metrics are enabled for all environments.

@@ -7,7 +7,7 @@ With Elastic Beanstalk you can deploy web applications into the AWS Cloud on a v
 
 In addition to *web server* environments, Elastic Beanstalk also provides *worker* environments which you can use to process messages from an Amazon SQS queue, useful for asynchronous or long-running tasks. For more information, see [Elastic Beanstalk worker environments](using-features-managing-env-tiers.md).
 
-![Illustrative diagram showing the relationship between an Elastic Beanstalk application and web/worker environments.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview.png)
+![Illustrative diagram showing the relationship between an Elastic Beanstalk application and web/worker environments.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview.png)
 
 
 ## Supported platforms
@@ -30,7 +30,7 @@ After you create and deploy your application and your environment is launched, y
 
  The following diagram illustrates Elastic Beanstalk workflow:
 
-![Elastic Beanstalk workflow.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/clearbox-flow-00.png)
+![Elastic Beanstalk workflow.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/clearbox-flow-00.png)
 
 
 ## Pricing

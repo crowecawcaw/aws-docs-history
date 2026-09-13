@@ -139,7 +139,7 @@ Use Ctrl-C to stop
 
 Open `http://localhost:3000` in a web browser to see the default project in action.
 
-![The default rails site development page.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/ruby-rails-default.png)
+![The default rails site development page.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/ruby-rails-default.png)
 
 
 This page is only visible in development mode. Add some content to the front page of the application to support production deployment to Elastic Beanstalk. Use `rails generate` to create a controller, route, and view for your welcome page. 

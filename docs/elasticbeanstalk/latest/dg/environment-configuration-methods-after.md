@@ -88,7 +88,7 @@ The Elastic Beanstalk console presents many configuration options on the **Confi
    + To look for an option, turn on **Table View**, and then enter search terms into the search box. As you type, the list gets shorter and shows only options that match your search terms.
 
      When you see the option you're looking for, choose **Edit** in the configuration category that contains it.  
-![Table view of the configuration overview page of the Elastic Beanstalk console, showing an option search](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-console.overview.table.search1.png)
+![Table view of the configuration overview page of the Elastic Beanstalk console, showing an option search](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-console.overview.table.search1.png)
 
 1. Change settings, and then choose **Save**.
 

@@ -21,7 +21,7 @@ You can specify tags when you create the Elastic Beanstalk environment. In an ex
 
 When you use the Elastic Beanstalk console to create an environment, you can specify tag keys and values on the **Modify tags** configuration page of the [Create New Environment wizard](environments-create-wizard.md).
 
-![Modify tags configuration page during environment creation in the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-create-tags.png)
+![Modify tags configuration page during environment creation in the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-create-tags.png)
 
 
 If you use the EB CLI to create an environment, use the `--tags` option with **[eb create](eb3-create.md)** to add tags.
@@ -56,7 +56,7 @@ However, you can't edit the default tags that Elastic Beanstalk applies to your 
 1. In the navigation pane, choose **Tags**.
 
    The tag management page shows the list of tags that currently exist in the environment.  
-![Tag management page shows tags for the environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-manage-tags.png)
+![Tag management page shows tags for the environment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-manage-tags.png)
 
 1. Add, update, or delete tags:
    + To add a tag, enter it into the empty boxes at the bottom of the list. To add another tag, choose **Add tag** and Elastic Beanstalk adds another pair of empty boxes.

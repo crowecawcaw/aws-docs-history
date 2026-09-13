@@ -7,7 +7,7 @@ This topic describes the top-level information about your environment that appea
 
 The following image displays the **Environment overview** and **Platform** panes.
 
-![Environment overview and Platform panes: health, domain, ID, application name, platform version, and platform state.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-top-part-OK-status.png)
+![Environment overview and Platform panes: health, domain, ID, application name, platform version, and platform state.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-top-part-OK-status.png)
 
 
 ## Health

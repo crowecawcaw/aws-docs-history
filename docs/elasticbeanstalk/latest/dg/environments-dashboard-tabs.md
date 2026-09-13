@@ -7,7 +7,7 @@ This topic describes the additional information that the environment management 
 
 The following image illustrates the environment management console.
 
-![Image of the environment management console.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-margin.png)
+![Image of the environment management console.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-margin.png)
 
 
 The bottom half of the environment management console lists tabs that provide more detailed and varied information about the environment. To view a page, either select its tab or select its name from the left navigation pane under the environment name. The **Events** tab displays by default.

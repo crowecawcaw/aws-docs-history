@@ -27,7 +27,7 @@ Create a saved configuration from the current state of your environment in the E
 1. Use the on-screen form to name the saved configuration. Optionally, provide a brief description, and add tag keys and values.
 
 1. Choose **Save**.  
-![Save Configuration page on the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-saveconfiguration-dialog.png)
+![Save Configuration page on the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-saveconfiguration-dialog.png)
 
 The saved configuration includes any settings that you have applied to the environment with the console or any other client that uses the Elastic Beanstalk API. You can then apply the saved configuration to your environment at a later date to restore it to its previous state, or apply it to a new environment during [environment creation](environments-create-wizard.md).
 

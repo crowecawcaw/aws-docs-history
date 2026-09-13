@@ -610,7 +610,7 @@ YAML relies on consistent indentation. Match the indentation level when replacin
 1. Your environment will be updated after a few minutes. After your environment is green and ready, verify that the code worked.
 
    1. Check the [Amazon CloudWatch console](https://console.aws.amazon.com/cloudwatch/home) to view your ElastiCache metrics. To view your ElastiCache metrics, select **Metrics** in the left pane, and then search for **CurrItems**. Select **ElastiCache > Cache Node Metrics**, and then select your cache node to view the number of items in the cache.  
-![CloudWatch Metrics console showing CurrItems metric graph and ElastiCache cache node selection.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/elasticache-express.png)
+![CloudWatch Metrics console showing CurrItems metric graph and ElastiCache cache node selection.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/elasticache-express.png)
 **Note**  
 Make sure you are looking at the same region that you deployed your application to.
 

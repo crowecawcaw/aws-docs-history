@@ -215,7 +215,7 @@ When log streaming is enabled, you can view these log groups directly in the Ela
 
 You can configure log streaming in the Elastic Beanstalk console either [during environment creation](environments-create-wizard.md#environments-create-wizard-software) or [for an existing environment](environments-cfg-logging.md#environments-cfg-logging-console). You can set the following options from the console: enable /disable log streaming to CloudWatch Logs, set the number of retention days, and select from Lifecyle options. In the following example, logs are saved for up to seven days, even when the environment is terminated.
 
-![Screen image of CloudWatch Logs settings in the Elastic Beanstalk console.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/log-streaming-screen.png)
+![Screen image of CloudWatch Logs settings in the Elastic Beanstalk console.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/log-streaming-screen.png)
 
 
 The following [configuration file](ebextensions.md) enables log streaming with 180 days retention, even if the environment is terminated.

@@ -30,12 +30,12 @@ For example, you can configure AWS Config to record changes for Elastic Beanstal
 
 The following figure shows the AWS Config **Settings** page, with Elastic Beanstalk resource types that you can choose to record: **Application**, **ApplicationVersion**, and **Environment**.
 
-![AWS Config settings page showing a list of resource types to choose to record](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-settings-resource-types.png)
+![AWS Config settings page showing a list of resource types to choose to record](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-settings-resource-types.png)
 
 
 After you select a few resource types, this is how the **Specific types** list appears.
 
-![AWS Config settings page showing selected resource types to record](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-settings-resource-types-selected.png)
+![AWS Config settings page showing selected resource types to record](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-settings-resource-types-selected.png)
 
 
 To learn about *regional* vs. *global* resources, and for the full customization procedure, see [Selecting which Resources AWS Config Records](https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html).
@@ -58,19 +58,19 @@ You can use the AWS Config console to look for Elastic Beanstalk resources, and 
 To view configuration details for other resources that Elastic Beanstalk created for your application, choose additional resource types. For example, you can choose **Instance** under **EC2**.
 
 1. Choose **Look up**. See **2** in the following figure.   
-![AWS Config resource inventory page showing a list of resource types to look up](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-resources-dropdown.png)
+![AWS Config resource inventory page showing a list of resource types to look up](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-resources-dropdown.png)
 
 1. Choose a resource ID in the list of resources that AWS Config displays.  
-![AWS Config resource inventory page showing a list of resources](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-resources-list.png)
+![AWS Config resource inventory page showing a list of resources](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-resources-list.png)
 
 AWS Config displays configuration details and other information about the resource you selected.
 
-![AWS Config resource details page showing configuration details for an Elastic Beanstalk environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-resources-resource-details.png)
+![AWS Config resource details page showing configuration details for an Elastic Beanstalk environment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-resources-resource-details.png)
 
 
 To see the full details of the recorded configuration, choose **View Details**.
 
-![AWS Config resource details page showing configuration details for an Elastic Beanstalk environment](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-resources-view-details.png)
+![AWS Config resource details page showing configuration details for an Elastic Beanstalk environment](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cc-resources-view-details.png)
 
 
 To learn more ways to find a resource and view information on this page, see [Viewing AWS Resource Configurations and History](https://docs.aws.amazon.com/config/latest/developerguide/view-manage-resource.html) in the *AWS Config Developer Guide*.

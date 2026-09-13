@@ -13,7 +13,7 @@ After completing this tutorial, you will understand the basics of creating, conf
 
 Estimated duration: **35-45 minutes**
 
-![Simplified architecture of Elastic Beanstalk application with a web server environment.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-simple.png)
+![Simplified architecture of Elastic Beanstalk application with a web server environment.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-simple.png)
 
 
 ## What you will build
@@ -42,7 +42,7 @@ To create your example application, you'll use the **Create application** consol
 
 Reminder: an *environment* is a collection of AWS resources required to run your application code.
 
-![Elastic Beanstalk console with arrow pointing to Create application button.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-01-create-app.png)
+![Elastic Beanstalk console with arrow pointing to Create application button.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-01-create-app.png)
 
 
 **To create an application**
@@ -135,7 +135,7 @@ When you create an application, Elastic Beanstalk sets up the environments for y
 
 The initial deploy can take up to five minutes to create the resources. Updates will take less time because only changes will be deployed to your stack.
 
-![Illustrative image representing a deploy process](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/process-external-input.png)
+![Illustrative image representing a deploy process](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/process-external-input.png)
 
 
 When you create the example application, Elastic Beanstalk creates the following resources:
@@ -150,7 +150,7 @@ When you create the example application, Elastic Beanstalk creates the following
 
 Elastic Beanstalk creates your application, launches an environment, makes an application version, then deploys your code into the environment. During the process, the console tracks progress and displays event status in the Events tab.
 
-![Overview of the architecture of Elastic Beanstalk application with a web server environment.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview-web-only.png)
+![Overview of the architecture of Elastic Beanstalk application with a web server environment.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-overview-web-only.png)
 
 
 After all of the resources are deployed, the environment's health should change to **Ok**.
@@ -175,14 +175,14 @@ You'll start exploring your deployed application environment from the **Environm
 
    *The connection will be HTTP (not HTTPS), so you might see a warning in your browser.*
 
-![Illustrative example of the Congratulations screen from the sample Elastic Beanstalk application.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-launched-app.png)
+![Illustrative example of the Congratulations screen from the sample Elastic Beanstalk application.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-launched-app.png)
 
 
 Back in the Elastic Beanstalk console, the upper portion shows the **Environment overview** with top level information about your environment, including name, domain URL, current health status, running version, and the platform that the application is running on. The running version and platform are essential for troubleshooting your currently deployed application.
 
 After the overview pane, you will see recent environment activity in the **Events** tab.
 
-![Elastic Beanstalk console showing the launched environment.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-console-environment.png)
+![Elastic Beanstalk console showing the launched environment.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-console-environment.png)
 
 
 While Elastic Beanstalk creates your AWS resources and launches your application, the environment is in a `Pending` state. Status messages about launch events are continuously added to the list of **Events **.
@@ -270,7 +270,7 @@ Eventually, you will want to update your application. You can deploy a new versi
 
 The application version that you started this tutorial with is called **Sample Application**.
 
-![Illustrative image implying updating your environment.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/redeploy-491854279.jpg)
+![Illustrative image implying updating your environment.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/redeploy-491854279.jpg)
 
 
 **To update your application version**
@@ -307,7 +307,7 @@ You can configure your environment to better suit your application. For example,
 
 Some configuration changes are simple and happen quickly. Some changes require deleting and recreating AWS resources, which can take several minutes. When you change configuration settings, Elastic Beanstalk warns you about potential application downtime. 
 
-![Illustrative image showing growth of your environments.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/growth_532477598.jpg)
+![Illustrative image showing growth of your environments.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/growth_532477598.jpg)
 
 
 ### Increase capacity settings
@@ -354,7 +354,7 @@ With two Amazon EC2 instances, your environment capacity has doubled, and it onl
 
 To ensure that you're not charged for any services you aren't using, delete all application versions and terminate environments, which also deletes the AWS resources that the environment created for you.
 
-![Illustrative image showing deleting resources.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-cleanup_514078822.jpg)
+![Illustrative image showing deleting resources.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-gs-cleanup_514078822.jpg)
 
 
 **To delete the application and all associated resources**

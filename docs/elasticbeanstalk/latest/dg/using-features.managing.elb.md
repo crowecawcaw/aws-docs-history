@@ -17,9 +17,9 @@ Elastic Beanstalk supports all three load balancer types. The following table sh
 
 | Load balancer type | Dedicated | Shared | 
 | --- | --- | --- | 
-| Classic Load Balancer |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No | 
-| Application Load Balancer |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes | 
-| Network Load Balancer |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No | 
+| Classic Load Balancer |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No | 
+| Application Load Balancer |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes | 
+| Network Load Balancer |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No | 
 
 **Note**  
 The Classic Load Balancer (CLB) option is disabled on the **Create Environment** console wizard. If you have an existing environment configured with a Classic Load Balancer you can create a new one by [cloning the existing environment](using-features.managing.clone.md) using either the Elastic Beanstalk console or the [EB CLI](using-features.managing.clone.md#using-features.managing.clone.CLI). You also have the option to use the EB CLI or the [AWS CLI](environments-create-awscli.md) to create a new environment configured with a Classic Load Balancer. These command line tools will create a new environment with a CLB even if one doesn’t already exist in your account. 

@@ -57,7 +57,7 @@ You can't edit your shared Application Load Balancer configuration in the Applic
 1. In the **Load balancer** configuration category, choose **Edit**.
 
 1. Select the **Application Load Balancer** option, if it isn't already selected, and then select the **Shared** option.  
-![Elastic Load Balancing configuration page - choosing load balancer type](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-type-chooser.png)
+![Elastic Load Balancing configuration page - choosing load balancer type](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-type-chooser.png)
 
 1. Make any shared Application Load Balancer configuration changes that your environment requires.
 
@@ -81,7 +81,7 @@ When you're done configuring shared load balancers outside of Elastic Beanstalk,
 + **Load balancer ARN** – The shared load balancer to use in this environment. Select from a list of load balancers or enter a load balancer Amazon Resource Name (ARN).
 + **Default listener port** – A listener port that the shared load balancer listens on. Select from a list of existing listener ports. Traffic from this listener with the environment's CNAME in the host header is routed to a default process in this environment.
 
-![Application Load Balancer configuration - choosing shared load balancer](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-alb.png)
+![Application Load Balancer configuration - choosing shared load balancer](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-alb.png)
 
 
 ### Processes
@@ -89,7 +89,7 @@ When you're done configuring shared load balancers outside of Elastic Beanstalk,
 
 Use this list to specify processes for your shared load balancer. A process is a target for listeners to route traffic to. Initially, the list shows the default process, which receives traffic from the default listener.
 
-![Application Load Balancer configuration - process list](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-processes.png)
+![Application Load Balancer configuration - process list](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-processes.png)
 
 
 **To configure an existing process**
@@ -114,7 +114,7 @@ Use this list to specify processes for your shared load balancer. A process is a
 
 Use these settings to define the process: its **Name**, and the **Port** and **Protocol** on which it listens to requests.
 
-![Application Load Balancer process settings for name, port, and protocol](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition.png)
+![Application Load Balancer process settings for name, port, and protocol](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition.png)
 
 
 #### Health check
@@ -128,7 +128,7 @@ Use the following settings to configure process health checks:
 + **Unhealthy threshold**, **Healthy threshold** – The number of health checks that must fail or pass, respectively, before Elastic Load Balancing changes an instance's health state.
 + **Deregistration delay** – The amount of time, in seconds, to wait for active requests to complete before deregistering an instance.
 
-![Application Load Balancer process settings for a health check](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-healthcheck.png)
+![Application Load Balancer process settings for a health check](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-healthcheck.png)
 
 
 **Note**  
@@ -141,7 +141,7 @@ For more information about health checks and how they influence your environment
 
 Select or clear the **Stickiness policy enabled** box to enable or disable sticky sessions. Use **Cookie duration** to configure a sticky session's duration, up to **604800** seconds.
 
-![Application Load Balancer process settings for session stickiness](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-sessions.png)
+![Application Load Balancer process settings for session stickiness](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-sessions.png)
 
 
 ### Rules
@@ -151,7 +151,7 @@ Use this list to specify custom listener rules for your shared load balancer. A 
 
 Rules have numeric priorities that determine the precedence in which they are applied to incoming requests. Elastic Beanstalk adds a default rule that routes all the default listener's traffic to the default process of your new environment. The default rule's precedence is the lowest; it's applied if no other rule for the same listener matches the incoming request. Initially, if you haven't added custom rules, the list is empty. The default rule isn't displayed.
 
-![Application Load Balancer configuration - rule list](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-rules.png)
+![Application Load Balancer configuration - rule list](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-rules.png)
 
 
 You can edit the settings of an existing rule, or add a new rule. To start editing a rule on the list or adding a rule to it, use the same steps listed for the [process list](#environments-cfg-alb-shared-console-processes). The **Listener rule** dialog box opens, with the following settings:
@@ -161,7 +161,7 @@ You can edit the settings of an existing rule, or add a new rule. To start editi
 + **Match conditions** – A list of request URL conditions that the rule applies to. There are two types of conditions: **HostHeader** (the URL's domain part), and **PathPattern** (the URL's path part). One condition is reserved for the environment subdomain, and you can add up to four conditions. Each condition value is up to 128 characters in length, and can include wildcard characters.
 + **Process** – The process to which the load balancer routes requests that match the rule.
 
-![Application Load Balancer configuration - rule list](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-dialog.png)
+![Application Load Balancer configuration - rule list](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-dialog.png)
 
 
 ## Example: use a shared Application Load Balancer for a secure micro-service-based application
@@ -176,16 +176,16 @@ In Elastic Beanstalk, configure each micro-service environment to use the shared
 **To configure the shared load balancer for this example**
 
 1. In the **Shared Application Load Balancer** section, select your load balancer, and then, for **Default listener port**, select **443**. The listener port should already be selected if it's the only listener that the load balancer has.  
-![Application Load Balancer configuration - adding a secure listener](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-example-alb.png)
+![Application Load Balancer configuration - adding a secure listener](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-shared-example-alb.png)
 
 1. *Configure the default process to HTTPS.* Select the default process, and then for **Actions**, choose **Edit**. For **Port**, enter **443**. For **Protocol**, select **HTTPS**.  
-![Application Load Balancer configuration example - configuring default process to HTTPS](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition-https.png)
+![Application Load Balancer configuration example - configuring default process to HTTPS](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition-https.png)
 
 1. *Add an admin process.* For **Name**, enter **admin**. For **Port**, enter **443**. For **Protocol**, select **HTTPS**. Under **Health check**, for **Path** enter **/admin**.  
-![Application Load Balancer configuration example - adding admin process](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition-https-admin.png)
+![Application Load Balancer configuration example - adding admin process](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition-https-admin.png)
 
 1. *Add a rule for admin traffic.* For **Name**, enter **admin**. For **Listener port**, enter **443**. For **Match conditions**, add a **PathPattern** with the value **/admin/\***. For **Process**, select **admin**.  
-![Application Load Balancer configuration example - adding admin rule](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-https-admin.png)
+![Application Load Balancer configuration example - adding admin rule](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-https-admin.png)
 
 ## Configuring a shared Application Load Balancer using the EB CLI
 <a name="environments-cfg-alb-shared-ebcli"></a>

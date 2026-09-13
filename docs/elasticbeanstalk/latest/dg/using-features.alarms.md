@@ -20,11 +20,11 @@ For more information about monitoring specific metrics, see [Basic health report
 
 1. In the navigation pane, choose **Alarms**.
 
-   The page displays a list of existing alarms. If any alarms are in the alarm state, they are flagged with the warning icon (![Image of the warning icon.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/warning.png)).
+   The page displays a list of existing alarms. If any alarms are in the alarm state, they are flagged with the warning icon (![Image of the warning icon.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/warning.png)).
 
 1. To filter alarms, choose the drop-down menu, and then select a filter.
 
-1. To edit or delete an alarm, choose the edit icon (![Image of a cog, which serves as the edit icon.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cog.png)) or the delete icon (![Image of an x, which servers as the delete icon.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/x.png)), respectively.
+1. To edit or delete an alarm, choose the edit icon (![Image of a cog, which serves as the edit icon.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/cog.png)) or the delete icon (![Image of an x, which servers as the delete icon.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/x.png)), respectively.
 
 **To create an alarm**
 
@@ -34,7 +34,7 @@ For more information about monitoring specific metrics, see [Basic health report
 
 1. In the navigation pane, choose **Monitoring**.
 
-1. Locate the metric for which you want to create an alarm, and then choose the alarm icon (![Image of a bell, which serves as the alarm icon.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/bell.png)). The **Add alarm** page is displayed.
+1. Locate the metric for which you want to create an alarm, and then choose the alarm icon (![Image of a bell, which serves as the alarm icon.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/bell.png)). The **Add alarm** page is displayed.
 
 1. Enter details about the alarm:
    + **Name**: A name for this alarm.

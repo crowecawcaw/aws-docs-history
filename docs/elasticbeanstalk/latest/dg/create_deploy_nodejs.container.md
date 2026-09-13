@@ -156,7 +156,7 @@ When this happens, attempting to update to a new version of the platform that do
 1. On the environment overview page, under **Platform**, choose **Change**.
 
 1. On the **Update platform version** dialog box, select a Node.js version.  
-![Elastic Beanstalk update platform version confirmation](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/platform-nodejs-update-node-version.png)
+![Elastic Beanstalk update platform version confirmation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/platform-nodejs-update-node-version.png)
 
 1. Choose **Save**.
 

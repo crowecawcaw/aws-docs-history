@@ -7,7 +7,7 @@ This topic describes the common operations that you can select to perform on you
 
 The following image illustrates the environment management console. The **Actions** drop-down menu is on the right side of the header that displays the environment name, next to the **Refresh** button.
 
-![Image of the environment management console showing the Actions drop-down menu.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-margin.png)
+![Image of the environment management console showing the Actions drop-down menu.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-margin.png)
 
 
 **Note**  

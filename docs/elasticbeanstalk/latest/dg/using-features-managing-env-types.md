@@ -36,7 +36,7 @@ You can change your environment type to a single-instance or load-balanced, scal
 1. In the **Capacity** category, choose **Edit**.
 
 1. From the **Environment Type** list, select the type of environment that you want.  
-![The Auto Scaling group section of the modify capacity page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/using-features-managing-env-types.png)
+![The Auto Scaling group section of the modify capacity page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/using-features-managing-env-types.png)
 
 1. Choose **Save**.
 

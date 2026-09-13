@@ -438,10 +438,10 @@ You can create a site administrator for your Django application to access the ad
    ```
    http://{{djang-env.p33kq46sfh.us-west-2}}.elasticbeanstalk.com/admin/
    ```  
-![Enter the username and password you created in step 2 to log in to the admin console.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb_django_admin_login.png)
+![Enter the username and password you created in step 2 to log in to the admin console.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb_django_admin_login.png)
 
 1. Log in with the username and password that you configured in step 2.  
-![The Django administration console for your Django website deployed with Elastic Beanstalk](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb_django_admin_console.png)
+![The Django administration console for your Django website deployed with Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb_django_admin_console.png)
 
 You can use a similar procedure of local updating/testing followed by **eb deploy**. Elastic Beanstalk does the work of updating your live servers, so you can focus on application development instead of server administration\!
 

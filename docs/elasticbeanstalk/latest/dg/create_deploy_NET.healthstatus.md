@@ -11,7 +11,7 @@ You can access operational information about your application by using either th
 
 The toolkit displays your environment's status and application health in the **Status** field.
 
-![Elastic Beanstalk health status](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-env-status.png)
+![Elastic Beanstalk health status](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-env-status.png)
 
 
 **To monitor application health**
@@ -23,7 +23,7 @@ The toolkit displays your environment's status and application health in the **S
 1. On your application environment tab, click **Monitoring**.
 
    The **Monitoring** panel includes a set of graphs showing resource usage for your particular application environment.  
-![Elastic Beanstalk monitoring panel](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-monitoring.png)
+![Elastic Beanstalk monitoring panel](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-monitoring.png)
 **Note**  
 By default, the time range is set to the last hour. To modify this setting, in the **Time Range** list, click a different time range.
 
@@ -36,4 +36,4 @@ You can use the AWS Toolkit for Visual Studio or the AWS Management Console to v
 1. Right-click your Elastic Beanstalk environment in **AWS Explorer** and then click **View Status**. 
 
 1. In your application environment tab, click **Events**.  
-![Elastic Beanstalk events panel](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-events.png)
+![Elastic Beanstalk events panel](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-events.png)

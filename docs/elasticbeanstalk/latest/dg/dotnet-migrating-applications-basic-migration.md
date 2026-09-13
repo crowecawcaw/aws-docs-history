@@ -197,7 +197,7 @@ PS C:\migrations_workspace> eb health
 ```
 The following screen image shows instance health, application response metrics, and system resource utilization.  
 
-![Output from eb health command shows instance health, application response metrics, and system resource utilization.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb-health-after-migration.png)
+![Output from eb health command shows instance health, application response metrics, and system resource utilization.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb-health-after-migration.png)
 
 
 Use the **eb logs** command to access logs to troubleshoot any issues:  

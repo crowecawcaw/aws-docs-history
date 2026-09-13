@@ -69,7 +69,7 @@ You must include the `-p` flag to map port 8080 on the container to the localhos
    ```
    http://localhost:3000
    ```  
-![The GlassFish example application showing in a web browser](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/dockerpreconfig-webpage.png)
+![The GlassFish example application showing in a web browser](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/dockerpreconfig-webpage.png)
 
 ### Deploy to Elastic Beanstalk
 <a name="create_deploy_dockerpreconfig.walkthrough.deploy"></a>

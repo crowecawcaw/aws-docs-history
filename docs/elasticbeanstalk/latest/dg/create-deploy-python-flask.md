@@ -156,7 +156,7 @@ Run `application.py` with Python:
 
 Open `http://127.0.0.1:5000/` in your web browser. You should see the application running, showing the index page:
 
-![Flask application running locally displaying Hello World message and hint about appending username to URL.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb_flask_test_local.png)
+![Flask application running locally displaying Hello World message and hint about appending username to URL.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb_flask_test_local.png)
 
 
 Check the server log to see the output from your request. You can stop the web server and return to your virtual environment by typing **Ctrl\+C**.
@@ -244,7 +244,7 @@ When the environment creation process completes, open your web site with **eb op
 
 This will open a browser window using the domain name created for your application. You should see the same Flask website that you created and tested locally.
 
-![Flask application deployed on Elastic Beanstalk displaying Hello World message and hint about appending username to URL.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb_flask_deployed.png)
+![Flask application deployed on Elastic Beanstalk displaying Hello World message and hint about appending username to URL.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/eb_flask_deployed.png)
 
 
 If you don't see your application running, or get an error message, see [Troubleshooting Deployments](troubleshooting.md#troubleshooting-deployments) for help with how to determine the cause of the error.

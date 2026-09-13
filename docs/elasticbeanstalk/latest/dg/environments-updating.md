@@ -23,10 +23,10 @@ Deployments with immutable updates or traffic splitting enabled
 
 | Rolling update setting | Load-balanced environments | Single-instance environments | Legacy Windows server environments† | 
 | --- | --- | --- | --- | 
-| Disabled |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes | 
-| Rolling Based on Health |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes | 
-| Rolling Based on Time |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes | 
-| Immutable |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No | 
+| Disabled |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes | 
+| Rolling Based on Health |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes | 
+| Rolling Based on Time |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes | 
+| Immutable |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/icon-no.png) No | 
 
 † For the purpose of this table, a *Legacy Windows Server Environment* is an environment based on a [Windows Server platform configuration](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html#platforms-supported.net) that use an IIS version earlier than IIS 8.5.
 

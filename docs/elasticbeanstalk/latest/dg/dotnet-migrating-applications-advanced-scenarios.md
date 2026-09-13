@@ -38,7 +38,7 @@ For example, consider a common ARR configuration where a `RouterSite` running on
 
 The following diagram depicts how these rules are hidden behind port 80 in the IIS server and not exposed via the EC2 Security Groups. Only port 80 is accessible to the Application Load Balancer and all traffic from it is routed to the target group at port 80.
 
-![Elastic Beanstalk architecture with Application Request Routing (ARR)](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/architecture-diagram-with-arr.png)
+![Elastic Beanstalk architecture with Application Request Routing (ARR)](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/architecture-diagram-with-arr.png)
 
 
 The following command can migrate this configuration:
@@ -140,7 +140,7 @@ Consider a multi-site IIS configuration with three sites, each with its own host
 
 These sites are exposed at ports 8081, 8082, and 8083 via the EC2 Security Groups. The Application Load Balancer routes to them based on the Load Balancer listener rule configuration.
 
-![Elastic Beanstalk architecture without Application Request Routing (ARR)](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/architecture-diagram-without-arr.png)
+![Elastic Beanstalk architecture without Application Request Routing (ARR)](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/architecture-diagram-without-arr.png)
 
 
 ### Migration process

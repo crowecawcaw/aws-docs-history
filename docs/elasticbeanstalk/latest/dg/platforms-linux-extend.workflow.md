@@ -12,7 +12,7 @@ With many ways to extend your environment's platform, it's useful to know what h
 The diagram doesn't represent the complete set of steps that Elastic Beanstalk takes on environment instances during deployment. We provide this diagram for illustration, to provide you with the order and context for the execution of your customizations.
 For simplicity, the diagram mentions only the `.platform/hooks/*` hook subdirectories (for application deployments), and not the `.platform/confighooks/*` hook subdirectories (for configuration deployments). Hooks in the latter subdirectories run during exactly the same steps as hooks in corresponding subdirectories shown in the diagram.
 
-![Workflow for extensions execution order on an environment instance running on a Amazon Linux-based platform.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/platforms-linux-extend-order.png)
+![Workflow for extensions execution order on an environment instance running on a Amazon Linux-based platform.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/platforms-linux-extend-order.png)
 
 
 The following list details the deployment phases and steps.

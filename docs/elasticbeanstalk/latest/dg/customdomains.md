@@ -7,7 +7,7 @@ By default, your environment is available to users at a subdomain of `elasticbea
 
 To route users to your environment, Elastic Beanstalk registers a CNAME record that points to your environment's load balancer. You can see URL of your environment's application with the current value of the CNAME in the [environment overview](environments-dashboard.md) page of the Elastic Beanstalk console.
 
-![Environment URL with CNAME showing on the environment overview page in the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-management-dashboard-url.png)
+![Environment URL with CNAME showing on the environment overview page in the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-management-dashboard-url.png)
 
 
 Choose the URL on the overview page, or choose **Go to environment** on the navigation pane, to navigate to your application's web page.

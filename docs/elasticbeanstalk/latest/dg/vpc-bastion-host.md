@@ -7,7 +7,7 @@ This section explains how to deploy an Elastic Beanstalk application inside a VP
 
 If your Amazon EC2 instances are located inside a private subnet, you will not be able to connect to them remotely. To connect to your instances, you can set up bastion servers in the public subnet to act as proxies. For example, you can set up SSH port forwarders or RDP gateways in the public subnet to proxy the traffic going to your database servers from your own network. This section provides an example of how to create a VPC with a private and public subnet. The instances are located inside the private subnet, and the bastion host, NAT gateway, and load balancer are located inside the public subnet. Your infrastructure will look similar to the following diagram.
 
-![Diagram of Elastic Beanstalk and VPC topology with bastion host.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-bastion-topo-ngw.png)
+![Diagram of Elastic Beanstalk and VPC topology with bastion host.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vpc-bastion-topo-ngw.png)
 
 
 To deploy an Elastic Beanstalk application inside a VPC using a bastion host, complete the steps described in the following subsections.
@@ -61,7 +61,7 @@ Select your VPC.
    If your bastion host is a Windows instance, under **Type**, select **RDP**.
 
 1. Enter the desired source CIDR range in the **Source** field and choose **Save**.  
-![Bastion host security group](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/vpc-bh-sg-inbound.png)
+![Bastion host security group](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/vpc-bh-sg-inbound.png)
 
 1. On the **Outbound Rules** tab, choose **Edit**.
 
@@ -80,7 +80,7 @@ Select your VPC.
    1. Note the value under **IPv4 CIDR** for each **Availability Zone** in which you have hosts that you want the bastion host to bridge to.
 **Note**  
 If you have hosts in multiple availability zones, create an outbound rule for each one of these availability zones.  
-![VPC subnets](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/vpc-subnets.png)
+![VPC subnets](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/vpc-subnets.png)
 
 1. Choose **Save**.
 

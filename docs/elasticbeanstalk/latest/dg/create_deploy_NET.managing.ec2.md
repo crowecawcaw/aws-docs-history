@@ -7,7 +7,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) is a web service that you use to launc
 
 You can edit the Elastic Beanstalk environment's Amazon EC2 instance configuration with the **Server** tab inside your application environment tab in the AWS Toolkit for Visual Studio. 
 
-![Elastic Beanstalk servers configuration panel](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-server.png)
+![Elastic Beanstalk servers configuration panel](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-server.png)
 
 
 ## Amazon EC2 instance types

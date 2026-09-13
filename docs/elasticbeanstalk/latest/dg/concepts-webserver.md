@@ -5,7 +5,7 @@
 
 The following diagram shows an example Elastic Beanstalk architecture for a web server environment tier, and shows how the components in that type of environment tier work together.
 
-![AWS Elastic Beanstalk web server tier architecture diagram.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-architecture2.png)
+![AWS Elastic Beanstalk web server tier architecture diagram.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-architecture2.png)
 
 
 The environment is the heart of the application. In the diagram, the environment is shown within the top-level solid line. When you create an environment, Elastic Beanstalk provisions the resources required to run your application. AWS resources created for an environment include one elastic load balancer (ELB in the diagram), an Auto Scaling group, and one or more Amazon Elastic Compute Cloud (Amazon EC2) instances.

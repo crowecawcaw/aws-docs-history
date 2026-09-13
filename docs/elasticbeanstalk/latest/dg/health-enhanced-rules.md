@@ -28,7 +28,7 @@ You can use the Elastic Beanstalk console to configure enhanced health rules in 
 1. In the **Monitoring** configuration category, choose **Edit**.
 
 1. Under **Health monitoring rule customization**, enable or disable the desired **Ignore** options.  
-![Health monitoring rule customization section on the monitoring configuration page of the Elastic Beanstalk console](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/enhanced-health-rule-customization.png)
+![Health monitoring rule customization section on the monitoring configuration page of the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/enhanced-health-rule-customization.png)
 
 1. To save the changes choose **Apply** at the bottom of the page.
 

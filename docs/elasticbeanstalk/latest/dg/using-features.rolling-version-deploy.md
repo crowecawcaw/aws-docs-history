@@ -59,7 +59,7 @@ For the **Traffic splitting** deployment policy you can configure the following:
 + **Traffic split** – The initial percentage of incoming client traffic that Elastic Beanstalk shifts to environment instances running the new application version you're deploying.
 + **Traffic splitting evaluation time** – The time period, in minutes, that Elastic Beanstalk waits after an initial healthy deployment before proceeding to shift all incoming client traffic to the new application version that you're deploying.
 
-![Elastic Beanstalk application deployment configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-rollingdeployments.png)
+![Elastic Beanstalk application deployment configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-rollingdeployments.png)
 
 
 The **Deployment preferences** section contains options related to health checks.
@@ -67,7 +67,7 @@ The **Deployment preferences** section contains options related to health checks
 + **Healthy threshold** – Lowers the threshold at which an instance is considered healthy during rolling deployments, rolling updates, and immutable updates.
 + **Command timeout** – The number of seconds to wait for an instance to become healthy before canceling the deployment or, if **Ignore health check** is set, to continue to the next batch.
 
-![Elastic Beanstalk application deployments configuration page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-healthchecks.png)
+![Elastic Beanstalk application deployments configuration page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-cfg-healthchecks.png)
 
 
 ## How rolling deployments work

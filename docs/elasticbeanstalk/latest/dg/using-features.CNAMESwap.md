@@ -24,7 +24,7 @@ For instructions on how to configure your application to connect to an Amazon RD
 1. On the environment overview page, choose **Actions**, and then choose **Swap environment URLs**.
 
 1. For **Environment name**, select the current environment.  
-![Swap environment URL page](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-swap-url.png)
+![Swap environment URL page](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-swap-url.png)
 
 1. Choose **Swap**.
 

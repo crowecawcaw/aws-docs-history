@@ -51,12 +51,12 @@ To rebuild an environment that is no longer visible, use the **Restore terminate
 1. In the navigation pane, choose **Applications**, and then choose your application's name from the list.
 
 1. Choose **Actions**, and then choose **Restore terminated environment**.  
-![Actions dropdown menu with "Restore terminated environment" option highlighted.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/applications-restoreenvironment.png)
+![Actions dropdown menu with "Restore terminated environment" option highlighted.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/applications-restoreenvironment.png)
 
 1. Choose a terminated environment.
 
 1. Choose **Restore**.  
-![Table showing terminated environment details with options to cancel or restore.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/applications-restoreenvironment-modal.png)
+![Table showing terminated environment details with options to cancel or restore.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/applications-restoreenvironment-modal.png)
 
 Elastic Beanstalk attempts to create a new environment with the same name, ID, and configuration. If an environment with the same name or URL exists when you attempt to rebuild, the rebuild fails. Deleting the application version that was deployed to the environment will also cause the rebuild to fail.
 

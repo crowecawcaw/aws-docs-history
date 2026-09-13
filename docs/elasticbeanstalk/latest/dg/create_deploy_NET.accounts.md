@@ -13,10 +13,10 @@ If you want to set up different AWS accounts to perform different tasks, such as
 1.  In Visual Studio, on the **View** menu, click **AWS Explorer**.
 
 1.  Beside the **Account** list, click the **Add Account** button.   
-![AWS explorer tab](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-aws-explorer-tab.png)
+![AWS explorer tab](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-aws-explorer-tab.png)
 
     The **Add Account** dialog box appears.   
-![Add account dialog box](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-add-account.png)
+![Add account dialog box](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-vs-add-account.png)
 
 1. Fill in the requested information. 
 

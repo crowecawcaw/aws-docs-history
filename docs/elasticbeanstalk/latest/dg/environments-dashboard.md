@@ -15,7 +15,7 @@ If you're already logged in to the Elastic Beanstalk console, you can also launc
 
 The following image illustrates the environment management console.
 
-![Image of the environment management console.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-margin.png)
+![Image of the environment management console.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environment-overview-v2-margin.png)
 
 
 The top pane is the **Environment overview** page. It shows top-level information about your environment.

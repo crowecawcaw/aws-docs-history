@@ -31,7 +31,7 @@ The **Security Groups** screen shows environments and their associated security 
 
 The **Inbound rules** screen drills down into the EC2 security group for the instances of *GettingStarted3-env*. This example defines the inbound rules for the EC2 security group. Note that the *Source* column in the *Inbound rules* lists the security group id of the load balancer security group listed in the prior image. This rule allows the EC2 instances of *GettingStarted3-env* to receive inbound traffic from that specific load balancer on port 80. 
 
-![Amazon EC2 console displays Elastic Beanstalk security groups for each environment.](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-config-ec2-ec2console-sg-to-rule.png)
+![Amazon EC2 console displays Elastic Beanstalk security groups for each environment.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/aeb-env-config-ec2-ec2console-sg-to-rule.png)
 
 
 
