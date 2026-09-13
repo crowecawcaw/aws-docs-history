@@ -25,7 +25,7 @@ When you use the Lambda console to create the function, you can also create a Co
 1. On the **Configuration** tab, choose **Add trigger**.
 
 1.  In **Trigger configuration**, choose **CodeCommit** from the services drop-down list.   
-![Creating a repository from the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-lambda-trigger.png)
+![Creating a repository from the console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-lambda-trigger.png)
 
     
    + In **Repository name**, choose the name of the repository where you want to configure a trigger that uses the Lambda function in response to repository events.

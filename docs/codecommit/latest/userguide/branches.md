@@ -7,7 +7,7 @@ What is a branch? In Git, branches are pointers or references to a commit. In de
 
 In CodeCommit, you can change the default branch for your repository. You can also create and delete branches and view details about a branch. You can quickly compare differences between a branch and the default branch (or any two branches). To view the history of branches and merges in your repository, you can use the [Commit visualizer](how-to-view-commit-details.md#how-to-view-commit-details-console-visualizer), which is shown in the following graphic.
 
-![A view of branches in a repository](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
+![A view of branches in a repository](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
 
 
 For information about working with other aspects of your repository in CodeCommit, see [Working with repositories](repositories.md), [Working with files](files.md), [Working with pull requests](pull-requests.md), [Working with commits](commits.md), and [Working with user preferences](user-preferences.md). 

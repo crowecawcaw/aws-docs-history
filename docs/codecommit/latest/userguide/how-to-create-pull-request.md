@@ -25,7 +25,7 @@ You can use the CodeCommit console to create a pull request in a CodeCommit repo
 You can also create pull requests from **Branches** and **Code**.
 
 1. Choose **Create pull request**.   
-![Creating a pull request from the Pull requests page in the CodeCommit console.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+![Creating a pull request from the Pull requests page in the CodeCommit console.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
 
 1. In **Create pull request**, in **Source**, choose the branch that contains the changes you want reviewed. 
 
@@ -40,7 +40,7 @@ You can also create pull requests from **Branches** and **Code**.
 1. (Optional) In **Description**, enter details about this review and any other useful information for reviewers.
 
 1. Choose **Create**.  
-![Creating a pull request](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
+![Creating a pull request](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
 
 Your pull request appears in the list of pull requests for the repository. If you [configured notifications](how-to-repository-email.md), subscribers to the Amazon SNS topic receive an email to inform them of the newly created pull request.
 

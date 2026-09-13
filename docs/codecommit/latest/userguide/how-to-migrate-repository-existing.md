@@ -10,7 +10,7 @@ You can migrate an existing Git repository to a CodeCommit repository. The proce
 + View files in the CodeCommit repository.
 + Share the CodeCommit repository with your team.
 
-![Migrating a Git repository to CodeCommit](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-migrate-existing.png)
+![Migrating a Git repository to CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-migrate-existing.png)
 
 
 **Topics**
@@ -172,7 +172,7 @@ The description field displays Markdown in the console and accepts all HTML char
 
 1. Choose **Create**. 
 
-![Creating a repository for migrating a Git repository to CodeCommit](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-repo-migrate-existing.png)
+![Creating a repository for migrating a Git repository to CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-repo-migrate-existing.png)
 
 
 After it is created, the repository appears in the **Repositories** list. In the URL column, choose the copy icon, and then choose the protocol (SSH or HTTPS) to be used to connect to CodeCommit. Copy the URL.
@@ -235,7 +235,7 @@ After you have pushed the contents of your directory, you can use the CodeCommit
 1. In **Repositories**, choose the name of the repository (for example, {{MyClonedRepository}}). 
 
 1. View the files in the repository for the branches, the clone URLs, the settings, and more.  
-![View of a cloned repository in CodeCommit](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cloned-repo-url.png)
+![View of a cloned repository in CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cloned-repo-url.png)
 
 ## Step 4: Share the CodeCommit repository
 <a name="how-to-migrate-existing-share"></a>

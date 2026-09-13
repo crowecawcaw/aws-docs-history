@@ -37,7 +37,7 @@ Use the CodeCommit console to view the differences between two branches that you
 1. In **Destination** and **Source**, choose the two branches to compare, and then choose **Compare**. To view the list of changed files, expand the changed files list. You can view changes in files side by side (Split view) or inline (Unified view).
 **Note**  
 If you are signed in as an IAM user, you can configure and save your preferences for viewing code and other console settings. For more information, see [Working with user preferences](user-preferences.md).  
-![An abbreviated view of the differences between two branches.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-branches.png)
+![An abbreviated view of the differences between two branches.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-branches.png)
 
 ## Merge two branches (AWS CLI)
 <a name="how-to-merge-branches-cli"></a>

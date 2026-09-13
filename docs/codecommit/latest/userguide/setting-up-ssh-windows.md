@@ -133,7 +133,7 @@ You can directly view and manage your CodeCommit credentials in **My Security Cr
 1. Paste the contents of your SSH public key into the field, and then choose **Upload SSH public key**. 
 
 1. Copy or save the information in **SSH Key ID** (for example, {{APKAEIBAERJR2EXAMPLE}}).   
-![The SSH Key ID in the IAM console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ssh-key-id-iam.png)
+![The SSH Key ID in the IAM console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ssh-key-id-iam.png)
 **Note**  
 If you have more than one SSH key IDs uploaded, the keys are listed alphabetically by key ID, not by upload date. Make sure that you have copied the key ID that is associated with the correct upload date.
 

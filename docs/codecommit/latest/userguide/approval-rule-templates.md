@@ -7,7 +7,7 @@ You can create approval rules for pull requests. To automatically apply approval
 
 You can associate an approval rule template with one or more repositories in the AWS Region where they are created. When a template is associated with a repository, it automatically creates approval rules for pull requests in that repository as part of creating the pull request. Just like a single approval rule, an approval rule template defines an approval rule structure, including the number of required approvals and an optional pool of users from which approvals must come. Unlike an approval rule, you can also define destination references (the branch or branches), also known as *branch filters*. If you define destination references, then only pull requests whose destination branch names match the specified branch names (destination references) in the template have rules created for them. So, for example, if you specify **refs/heads/main** as a destination reference, the approval rule defined in the template is only applied to pull requests if the destination branch is `main`.
 
-![An approval rule template that requires 1 approver from a defined approval rule if a pull request is created on a branch named main, associated with two repositories](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-template.png)
+![An approval rule template that requires 1 approver from a defined approval rule if a pull request is created on a branch named main, associated with two repositories](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-template.png)
 
 
 **Topics**

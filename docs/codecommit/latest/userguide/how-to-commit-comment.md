@@ -55,16 +55,16 @@ You can add and reply to comments to a commit with text and with emojis. Your co
 
 1. To add a comment, do one of the following:
    + To add a general comment, in **Comments on changes**, enter your comment, and then choose **Save**. You can use [Markdown](https://en.wikipedia.org/wiki/Markdown), or you can enter your comment in plaintext.  
-![A general comment on the changes in a commit.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
+![A general comment on the changes in a commit.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
    + To add a comment to a file in the commit, find the name of the file. Choose **Comment on file**, enter your comment, and then choose **Save**.   
-![Adding a comment on a file in a commit.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
-   + To add a comment to a changed line in the commit, go to the line where the change appears. Choose the comment bubble ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), enter your comment, and then choose **Save**.   
-![Adding a comment on a line in a commit.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addlinecomment.png)
+![Adding a comment on a file in a commit.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
+   + To add a comment to a changed line in the commit, go to the line where the change appears. Choose the comment bubble ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png), enter your comment, and then choose **Save**.   
+![Adding a comment on a line in a commit.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addlinecomment.png)
 **Note**  
 You can edit your comment after you have saved it. You can also delete its contents. The comment will remain with a message saying that the contents have been deleted. Consider using the **Preview markdown** mode for your comment before you save it.
 
 1. To reply to comments on a commit, choose **Reply**. To reply to a comment with an emoji, choose the emoji you want from the list. You can only choose one emoji per comment. If you want to change your emoji reaction, choose a different one from the list, or choose **None** to remove your reaction.  
-![Adding replies and emoji reactions to a comment.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
+![Adding replies and emoji reactions to a comment.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
 
 ### Add and reply to comments when comparing two commit specifiers
 <a name="how-to-commit-comment-console-compare"></a>
@@ -78,13 +78,13 @@ You can add comments to a comparison between branches, tags, or commits.
 1. In **Repositories**, choose the repository where you want to compare commits, branches, or tagged commits. 
 
 1. In the navigation pane, choose **Commits**, and then choose the **Compare commits** tab.  
-![Compare any two commit specifiers](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-1.png)
+![Compare any two commit specifiers](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-1.png)
 
 1. Use the **Destination** and **Source** fields to compare two commit specifiers. Use the drop-down lists or paste in commit IDs. Choose **Compare**.  
-![A sample result when comparing a commit ID to a branch](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-4.png)
+![A sample result when comparing a commit ID to a branch](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-4.png)
 
 1. Do one or more of the following:
-   + To add comments to files or lines, choose the comment bubble ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png).
+   + To add comments to files or lines, choose the comment bubble ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png).
    + To add general comments on the compared changes, go to **Comments on changes**.
 
 ## View, add, update, and reply to commments (AWS CLI)

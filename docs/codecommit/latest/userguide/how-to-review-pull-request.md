@@ -23,7 +23,7 @@ You can use the CodeCommit console to review a pull request in a CodeCommit repo
 1. In the navigation pane, choose **Pull requests**.
 
 1. By default, a list of all open pull requests is displayed. Choose the open pull request you want to review.   
-![Open pull requests displayed in the CodeCommit console.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view-list.png)
+![Open pull requests displayed in the CodeCommit console.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view-list.png)
 **Note**  
 You can comment on a closed or merged pull request, but you cannot merge or reopen it.
 
@@ -31,19 +31,19 @@ You can comment on a closed or merged pull request, but you cannot merge or reop
 
 1. Do one of the following:
    + To add a general comment for the entire pull request, in **Comments on changes**, in **New comment**, enter a comment, and then choose **Save**. You can use [Markdown](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html), or you can enter your comment in plaintext.  
-![A general comment on the changes in a pull request.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
-   + To add a comment to a file in the commit, in **Changes**, find the name of the file. Choose the comment icon ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png) that appears next to the file name, enter a comment, and then choose **Save**.   
-![Adding a comment on a file in a pull request.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
-   + To add a comment to a changed line in the pull request, in **Changes**, go to the line you want to comment on. Choose the comment icon ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png) that appears for that line, enter a comment, and then choose **Save**.   
-![Adding a comment on a line in a pull request.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
+![A general comment on the changes in a pull request.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-changecomment.png)
+   + To add a comment to a file in the commit, in **Changes**, find the name of the file. Choose the comment icon ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png) that appears next to the file name, enter a comment, and then choose **Save**.   
+![Adding a comment on a file in a pull request.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addfilecomment.png)
+   + To add a comment to a changed line in the pull request, in **Changes**, go to the line you want to comment on. Choose the comment icon ![The comment bubble icon that that indicates that you can leave a comment on that line of code.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commentbubble.png) that appears for that line, enter a comment, and then choose **Save**.   
+![Adding a comment on a line in a pull request.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
 
 1. To reply to comments on a commit, in **Changes** or **Activity**, choose **Reply**. You can reply with text and with emojis.   
-![Adding replies and emoji reactions to a comment.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
+![Adding replies and emoji reactions to a comment.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
 
    You can view the names of those who responded with a particular emoji reaction reply by choosing it. To view all emoji reactions and information about who responded with what emojis, choose **View all reactions**. If you've responded with an emoji to a comment, your response is shown in the icon for the emoji reaction button.
 **Note**  
 Reaction counts displayed in the console are accurate as of the time the page was loaded. For the most current information about emoji reaction counts, either refresh the page, or choose **View all reactions**.  
-![Viewing information about users who responded to a comment with an emoji reaction.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-comment-view-reaction.png)
+![Viewing information about users who responded to a comment with an emoji reaction.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-comment-view-reaction.png)
 
 1. (Optional) To reply to a recommendation created by Amazon CodeGuru Reviewer, including providing feedback on the recommendation's quality, choose **Reply**. Use the reaction buttons to provide general information about whether you approve or disapprove the recommendation. Use the comment field to provide more details about your reaction.
 **Note**  
@@ -51,7 +51,7 @@ Amazon CodeGuru Reviewer is an automated code review service that uses program a
 You only see Amazon CodeGuru Reviewer comments if you have associated the repository with Amazon CodeGuru Reviewer, if the analysis is complete, and if the code in the pull request is Java or Python code. For more information, see [Amazon CodeGuru Reviewer and AWS CodeCommit](how-to-amazon-codeguru-reviewer.md).
 Amazon CodeGuru Reviewer comments only appear in the **Changes** tab if the comments were made on the most recent revision of the pull request. They always appear in the **Activity** tab.
 While you can respond with any of the available emoji reactions to Amazon CodeGuru Reviewer recommendations, only thumbs up and thumbs down emoji reactions are used to evaluate the usefulness of the recommendation.   
-![A recommendation created by Amazon CodeGuru Reviewer with a review job in progress.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-bot.png)
+![A recommendation created by Amazon CodeGuru Reviewer with a review job in progress.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-reply-bot.png)
 
 1. To approve the changes made in a pull request, choose **Approve**. 
 **Note**  
@@ -60,7 +60,7 @@ You cannot approve a pull request that you created.
    You can view approvals, approval rules for a pull request, and approval rules created by approval rule templates in **Approvals**. If you decide you do not want to approve the pull request after all, you can choose **Revoke approval**.
 **Note**  
 You can only approve or revoke approval on an open pull request. You cannot approve or revoke approval on a pull request whose status is Merged or Closed.  
-![Approvals and approval rules in a pull request.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-met.png)
+![Approvals and approval rules in a pull request.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-met.png)
 
 ## Review pull requests (AWS CLI)
 <a name="how-to-review-pull-request-cli"></a>

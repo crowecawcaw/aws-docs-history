@@ -26,7 +26,7 @@ You can use the CodeCommit console to create an approval rule for a pull request
 1. In the navigation pane, choose **Pull Requests**.
 
 1. Choose the pull request for which you want to create an approval rule from the list. You can only create approval rules for open pull requests.  
-![A list of pull requests for a repository in the CodeCommit console.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+![A list of pull requests for a repository in the CodeCommit console.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
 
 1. In the pull request, choose **Approvals**, and then choose **Create approval rule**. 
 
@@ -35,7 +35,7 @@ You can use the CodeCommit console to create an approval rule for a pull request
 You cannot change the name of an approval rule after you create it.
 
    In **Number of approvals needed**, enter the number you want. The default is 1.   
-![Creating an approval rule for a pull request](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-approval-rule.png)
+![Creating an approval rule for a pull request](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-approval-rule.png)
 
 1. (Optional) If you want to require that the approvals for a pull request come from a specific group of users, in **Approval rule members**, choose **Add**. In **Approver type**, choose one of the following: 
    + **IAM user name or assumed role**: This option prepopulates the AWS account ID with the account you used to sign in, and only requires a name. It can be used for both IAM users and federated access users whose name matches the provided name. This is a very powerful option that offers a great deal of flexibility. For example, if you are signed in with the Amazon Web Services account 123456789012 and choose this option, and you specify **Mary\_Major**, all of the following are counted as approvals coming from that user:

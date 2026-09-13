@@ -22,7 +22,7 @@ You can use the CodeCommit console to create a branch in a CodeCommit repository
 1. In the navigation pane, choose **Branches**.
 
 1. Choose **Create branch**.   
-![Creating a branch in the CodeCommit console.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches-create.png)
+![Creating a branch in the CodeCommit console.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches-create.png)
 
    In **Branch name**, enter a name for the branch. In **Branch from**, choose a branch or tag from the list, or paste a commit ID. Choose **Create branch**.
 

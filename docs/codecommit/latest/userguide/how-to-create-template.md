@@ -51,7 +51,7 @@ You can choose to associate repositories after creating the template. For more i
 
 1. Choose **Create**.
 
-![An approval rule template that requires 1 approver from a defined approval rule if a pull request is created on a branch named main, associated with two repositories](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-template.png)
+![An approval rule template that requires 1 approver from a defined approval rule if a pull request is created on a branch named main, associated with two repositories](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-approval-rule-template.png)
 
 
 ## Create an approval rule template (AWS CLI)

@@ -26,14 +26,14 @@ You can use the CodeCommit console to edit or delete an approval rule for a pull
 1. In the navigation pane, choose **Pull Requests**.
 
 1. Choose the pull request where you want to edit or delete an approval rule. You can only edit and delete approval rules for open pull requests.  
-![A list of pull requests for a repository in the CodeCommit console.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+![A list of pull requests for a repository in the CodeCommit console.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
 
 1. In the pull request, choose **Approvals**, and then choose the rule you want to edit or delete from the list. Do one of the following:
    + If you want to edit the rule, choose **Edit**. 
    + If you want to delete the rule, choose **Delete**, and then follow the instructions for verifying the deletion of the rule.
 
 1. In **Edit approval rule**, make the changes you want to the rule, and then choose **Submit**.  
-![Editing an approval rule](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-edit-rule.png)
+![Editing an approval rule](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-edit-rule.png)
 
 1. When you have finished configuring the approval rule, choose **Submit**.
 

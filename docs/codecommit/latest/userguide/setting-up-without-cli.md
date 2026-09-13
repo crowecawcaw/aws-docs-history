@@ -41,7 +41,7 @@ The public-private key pair must be SSH-2 RSA, in OpenSSH format, and contain 20
 IAM accepts public keys in the OpenSSH format only. If you provide your public key in another format, you see an error message that says the key format is not valid. 
 
 1. Copy the SSH key ID (for example, {{APKAEIBAERJR2EXAMPLE}}) and close the console.  
-![The SSH key ID in the IAM console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ssh-key-id-iam.png)
+![The SSH key ID in the IAM console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-ssh-key-id-iam.png)
 
 ## Step 2: Add CodeCommit to your SSH configuration
 <a name="setting-up-without-cli-configure-client"></a>

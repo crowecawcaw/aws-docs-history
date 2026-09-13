@@ -21,13 +21,13 @@ You can quickly view the difference between a commit and its parent to review th
 1. In the navigation pane, choose **Commits**.
 
 1. Choose the abbreviated commit ID of any commit in the list. The view changes to show details for this commit, including the differences between it and its parent commit.  
-![Choose the abbreviated commit ID to show differences between this commit and its parent](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-changes1.png)
+![Choose the abbreviated commit ID to show differences between this commit and its parent](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-changes1.png)
 
    You can show changes side by side (**Split** view) or inline (**Unified** view). You can also hide or show white space changes. You can also add comments. For more information, see [Comment on a commit](how-to-commit-comment.md).
 **Note**  
 Your preferences for viewing code and other console settings are saved as browser cookies whenever you change them. For more information, see [Working with user preferences](user-preferences.md).  
-![Changes shown in Unified view, with white space changes hidden](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-changes2c.png)  
-![Changes shown in Split view, with a comment on a line](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
+![Changes shown in Unified view, with white space changes hidden](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-changes2c.png)  
+![Changes shown in Split view, with a comment on a line](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
 **Note**  
  Depending on line ending style, your code editor, and other factors, you might see entire lines added or deleted instead of specific changes in a line. The level of detail matches what's returned in the **git show** or **git diff** commands.
 
@@ -43,16 +43,16 @@ You can view the differences between any two commit specifiers in the CodeCommit
 1. On the **Repositories** page, choose the repository where you want to compare commits, branches, or tagged commits. 
 
 1. In the navigation pane, choose **Commits**, and then choose **Compare commits**.  
-![Compare any two commit specifiers](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-1.png)
+![Compare any two commit specifiers](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-1.png)
 
 1. Use the boxes to compare two commit specifiers. 
    + To compare the tip of a branch, choose the branch name from the list. This selects the most recent commit from that branch for the comparison.
    + To compare a commit with a specific tag associated with it, choose the tag name from the list, if any. This selects the tagged commit for the comparison.
    + To compare a specific commit, enter or paste the commit ID in the box. To get the full commit ID, choose **Commits** in the navigation bar, and copy the commit ID from the list. On the **Compare commits** page, paste the full commit ID in the text box, and choose **Use commit ID**.   
-![Compare branches, tags, or commit IDs](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-2.png)
+![Compare branches, tags, or commit IDs](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-2.png)
 
 1. After you have selected the specifiers, choose **Compare**.   
-![The comparison view between two branches](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-branches.png)
+![The comparison view between two branches](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-branches.png)
 
    You can show differences side by side (**Split** view) or inline (**Unified** view). You can also hide or show white space changes.
 

@@ -23,7 +23,7 @@ Use the AWS CodeCommit console to quickly view a list of Git tags for your repos
 1. In **Repositories**, choose the name of the repository where you want to view tags. 
 
 1. In the navigation pane, choose **Git tags**.  
-![A view of tags in a repository.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-tags-view.png)
+![A view of tags in a repository.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-tags-view.png)
 
 1. Do one of the following:
    + To view the code as it was at that commit, choose the Git tag name.

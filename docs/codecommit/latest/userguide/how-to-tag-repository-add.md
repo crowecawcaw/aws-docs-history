@@ -28,7 +28,7 @@ You can use the CodeCommit console to add one or more tags to a CodeCommit repos
 1. If no tags have been added to the repository, choose **Add tag**. Otherwise, choose **Edit**, and then choose **Add tag**.
 
 1. In **Key**, enter a name for the tag. You can add an optional value for the tag in **Value**.   
-![Adding a tag to a repository](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-repository-tags-edit.png)
+![Adding a tag to a repository](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-repository-tags-edit.png)
 
 1. (Optional) To add another tag, choose **Add tag** again.
 

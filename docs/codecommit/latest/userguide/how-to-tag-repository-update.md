@@ -22,7 +22,7 @@ You can use the CodeCommit console to edit the tags associated with a CodeCommit
 1. Choose **Edit**.
 
 1.   
-![Editing the value of a tag for a repository](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-repository-tags-edit2.png)
+![Editing the value of a tag for a repository](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-repository-tags-edit2.png)
 
    Do one of the following:
    + To change the tag, enter a new name in **Key**. Changing the name of the tag is the equivalent of removing a tag and adding a new tag with the new key name.

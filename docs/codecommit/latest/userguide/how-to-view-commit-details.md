@@ -33,7 +33,7 @@ You can browse the commit history for a specific branch or tag of the repository
 1. In **Repositories**, choose the repository for which you want to review the commit history. 
 
 1. In the navigation pane, choose **Commits**. In the commit history view, a history of commits for the repository in the default branch is displayed, in reverse chronological order of the commit date. Date and time are in coordinated universal time (UTC). You can view the commit history of a different branch by choosing the view selector button and then choosing a branch from the list. If you are using tags in your repository, you can view a commit with a specific tag and its parents by choosing that tag in the view selector button.  
-![The commits view in the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-list.png)
+![The commits view in the console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-list.png)
 
 1. To view the difference between a commit and its parent, and to see any comments on the changes, choose the abbreviated commit ID. For more information, see [Compare a commit to its parent](how-to-compare-commits.md#how-to-compare-commits-parent) and [Comment on a commit](how-to-commit-comment.md). To view the difference between a commit and any other commit specifier, including a branch, tag, or commit ID, see [Compare any two commit specifiers](how-to-compare-commits.md#how-to-compare-commits-compare).
 
@@ -57,7 +57,7 @@ Commits that are merged using the fast-forward method do not appear as separate 
 1. In **Repositories**, choose the repository for which you want to view a commit graph. 
 
 1. In the navigation pane, choose **Commits**, and then choose the **Commit visualizer** tab.  
-![A graphical view of a repository in the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
+![A graphical view of a repository in the console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
 
    In the commit graph, the abbreviated commit ID and the subject for each commit message appears next to that point in the graph. 
 **Note**  
@@ -66,7 +66,7 @@ By using the view selector button to show the graph for a specific branch.
 By pasting a full commit ID into the search box to render the graph from that commit.
 
 1. To render a new graph from a commit, choose the point in the graph that corresponds to that commit. The view selector button changes to the abbreviated commit ID.  
-![A new graph rendered from a specific commit](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-commit.png)
+![A new graph rendered from a specific commit](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-commit.png)
 
 ## View commit details (AWS CLI)
 <a name="how-to-view-commit-details-cli"></a>

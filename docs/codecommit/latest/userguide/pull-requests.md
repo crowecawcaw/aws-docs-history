@@ -7,17 +7,17 @@ A pull request is the primary way you and other repository users can review, com
 
 Li Juan, a developer working in a repo named MyDemoRepo, wants to work on a new feature for an upcoming version of a product. To keep her work separate from production-ready code, she creates a branch off of the default branch and names it {{feature-randomizationfeature}}. She writes code, makes commits, and pushes the new feature code into this branch. She wants other repository users to review the code for quality before she merges her changes into the default branch. To do this, she creates a pull request. The pull request contains the comparison between her working branch and the branch of the code where she intends to merge her changes (in this case, the default branch). She can also create an approval rule that requires a specified number of users to approve her pull request. She can even specify an approval pool of users. Other users review her code and changes, adding comments and suggestions. She might update her working branch multiple times with code changes in response to comments. Her changes are incorporated into the pull request every time she pushes them to that branch in CodeCommit. She might also incorporate changes that have been made in the intended destination branch while the pull request is open, so users can be sure they're reviewing all of the proposed changes in context. When she and her reviewers are satisfied, and the conditions for approval rules (if any) have been satisfied, she or one of her reviewers merges her code and closes the pull request. 
 
-![Creating a pull request](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
+![Creating a pull request](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
 
 
 Pull requests require two branches: a source branch that contains the code you want reviewed, and a destination branch, where you merge the reviewed code. The source branch contains the AFTER commit, which is the commit that contains the changes you want to merge into the destination branch. The destination branch contains the BEFORE commit, which represents the state of the code before the pull request branch is merged into the destination branch. The choice of merge strategy affects the details of how commits are merged between the source and destination branches in the CodeCommit console. For more information about merge strategies in CodeCommit, see [Merge a pull request (console)](how-to-merge-pull-request.md#how-to-merge-pull-request-console).
 
-![The source and destination branches for a pull requests, showing the relationship between before and after commits](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-concepts.png)
+![The source and destination branches for a pull requests, showing the relationship between before and after commits](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-concepts.png)
 
 
 The pull request displays the differences between the tip of the source branch and the latest commit on the destination branch when the pull request is created, so users can view and comment on the changes. You can update the pull request in response to comments by committing and pushing changes to the source branch. 
 
-![Adding a comment on a line in a pull request.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
+![Adding a comment on a line in a pull request.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-comment.png)
 
 
 When your code has been reviewed, and the approval rule requirements (if any) have been satisfied, you can close the pull request in one of several ways: 

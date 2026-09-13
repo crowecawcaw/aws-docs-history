@@ -26,10 +26,10 @@ You can use the CodeCommit console to resolve conflicts in a pull request in a C
 1. By default, a list of all open pull requests is displayed. Choose the open pull request that you want to merge but it contains conflicts.
 
 1. In the pull request, choose **Resolve conflicts**. This option only appears if there are conflicts that must be resolved before the pull request can be merged.  
-![A pull request showing that it has conflicts that must be resolved before it can be merged.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-resolve-conflicts.png)
+![A pull request showing that it has conflicts that must be resolved before it can be merged.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-resolve-conflicts.png)
 
 1. A conflict resolution window opens listing each file that has conflicts that must be resolved. Choose each file in the list to review the conflicts, and make any necessary changes until all conflicts have been resolved.  
-![The conflict resolution editor showing a file with conflicts that have not yet been resolved.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-resolve.png)
+![The conflict resolution editor showing a file with conflicts that have not yet been resolved.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-resolve.png)
    + You can choose to use the source file contents, the destination file contents, or if the file is not a binary file, to manually edit the contents of a file so it contains only the changes you want. Standard git diff markers are used to show the conflicts between the destination (HEAD) and source branches in the file.
    + If a file is a binary file, a Git submodule, or if there is a file/folder name conflict, you must choose to use the source file or the destination file to resolve the conflicts. You cannot view or edit binary files in the CodeCommit console.
    + If there are file mode conflicts, you see the option to resolve that conflict by choosing between the file mode of the source file and the file mode of the destination file. 

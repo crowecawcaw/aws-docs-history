@@ -20,7 +20,7 @@ Use the CodeCommit console to quickly view a list of branches for your repositor
 1. In **Repositories**, choose the name of the repository where you want to view branch details. 
 
 1. In the navigation pane, choose **Branches**.  
-![A view of branches in a repository.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches.png)
+![A view of branches in a repository.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-branches.png)
 
 1. The name of the branch used as the default for the repository is displayed next to **Default branch**. To view details about the most recent commit to a branch, choose the branch, and then choose **View last commit**. To view the files and code in a branch, choose the branch name. 
 

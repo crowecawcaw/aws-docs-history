@@ -7,7 +7,7 @@ In CodeCommit, a file is a version-controlled, self-contained piece of informati
 
 To add or edit a file in a repository, you can use a Git client. You can also use the CodeCommit console, the AWS CLI, or the CodeCommit API.
 
-![A view of creating a file in the CodeCommit console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-file.png)
+![A view of creating a file in the CodeCommit console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-file.png)
 
 
 For information about working with other aspects of your repository in CodeCommit, see [Working with repositories](repositories.md), [Working with pull requests](pull-requests.md), [Working with branches](branches.md), [Working with commits](commits.md), and [Working with user preferences](user-preferences.md). 

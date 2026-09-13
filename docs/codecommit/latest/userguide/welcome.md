@@ -57,7 +57,7 @@ As a Git-based service, CodeCommit is well suited to most version control needs.
 
 The following figure shows how you use your development machine, the AWS CLI or CodeCommit console, and the CodeCommit service to create and manage repositories:
 
-![Typical CodeCommit workflow](http://docs.aws.amazon.com/codecommit/latest/userguide/images/arc-workflow.png)
+![Typical CodeCommit workflow](https://docs.aws.amazon.com/codecommit/latest/userguide/images/arc-workflow.png)
 
 
 

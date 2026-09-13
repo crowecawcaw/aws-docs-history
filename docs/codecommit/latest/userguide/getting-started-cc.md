@@ -9,9 +9,9 @@ If you want to migrate existing code to CodeCommit, see [Migrate to AWS CodeComm
 
 If you are unfamiliar with Git, consider completing [Getting started with Git and CodeCommit](getting-started.md) too. After you complete these tutorials, you should have enough practice to start using CodeCommit for your own projects and in team environments.
 
-The CodeCommit console includes helpful information in a collapsible panel that you can open from the information icon (![The information icon that opens and closes the help panel on a page.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-info-icon.png)) or any **Info** link on the page. You can close this panel at any time.
+The CodeCommit console includes helpful information in a collapsible panel that you can open from the information icon (![The information icon that opens and closes the help panel on a page.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-info-icon.png)) or any **Info** link on the page. You can close this panel at any time.
 
-![Viewing additional guidance in the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-guidance-open.png)
+![Viewing additional guidance in the console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-guidance-open.png)
 
 
 The CodeCommit console also provides a way to quickly search for your resources, such as repositories, build projects, deployment applications, and pipelines. Choose **Go to resource** or press the `/` key, and then type the name of the resource. Any matches appear in the list. Searches are case insensitive. You only see resources that you have permissions to view. For more information, see [Viewing resources in the console](auth-and-access-control-iam-identity-based-access-control.md#console-resources). 
@@ -63,7 +63,7 @@ Repository names are case sensitive and can be no longer than 100 characters. Fo
 
 1. Choose **Create**. 
 
-![Creating a repository from the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-repository.png)
+![Creating a repository from the console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-repository.png)
 
 
 **Note**  
@@ -106,7 +106,7 @@ The simplest way to get started is to open the CodeCommit console and add a file
 
    To upload a file, do the following: 
    + If you're uploading a file, choose the file you want to upload.   
-![A view of uploading a file in the CodeCommit console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-first-file.png)
+![A view of uploading a file in the CodeCommit console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-first-file.png)
    + In **Author name**, enter the name you want displayed to other repository users. 
    + In **Email address**, enter an email address.
    + (Optional) In **Commit message**, enter a brief message. Although this is optional, we recommend that you add a commit message to help your team members understand why you added this file. If you do not enter a commit message, a default message is used.
@@ -128,34 +128,34 @@ You can use the CodeCommit console to review the files in a repository or quickl
 1. From **Repositories**, choose MyDemoRepo.
 
 1. The page displays the contents in the default branch of your repository. To view another branch or to view the code at a specific tag, choose the branch or tag you want to view from the list. In the following screenshot, the view is set to the **main** branch.  
-![Browse the contents of a repository](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse.png)
+![Browse the contents of a repository](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse.png)
 
 1. To view the contents of a file in your repository, choose the file from the list. To change the color of the displayed code, choose the settings icon.  
-![View the contents of a file](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse-file.png)
+![View the contents of a file](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse-file.png)
 
    For more information, see [Browse files in a repository](how-to-browse.md).
 
 1. To browse the commit history of the repository, choose **Commits**. The console displays the commit history for the default branch, in reverse chronological order. Review the commit details by author, date, and more.  
-![The commit history view in the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-history.png)
+![The commit history view in the console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-history.png)
 
 1. To view the commit history by [branch](branches.md) or by [Git tag](how-to-view-tag-details.md), choose the branch or tag you want to view from the list. 
 
 1. To view the differences between a commit and its parent commit, choose the abbreviated commit ID. You can choose how the changes are displayed, including showing or hiding white space changes, and whether to view changes inline (**Unified** view) or side by side (**Split** view). 
 **Note**  
 Your preferences for viewing code and other console settings are saved as browser cookies whenever you change them. For more information, see [Working with user preferences](user-preferences.md).  
-![Changes shown in Unified view, with white space changes visible](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-changes2c.png)
+![Changes shown in Unified view, with white space changes visible](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commit-changes2c.png)
 
 1. To view all comments on a commit, choose the commit and then scroll through the changes to view them inline. You can also add your own comments and reply to the comments made by others. 
 
    For more information, see [Comment on a commit](how-to-commit-comment.md). 
 
 1. To view the differences between any two commits specifiers, including tags, branches, and commit IDs, in the navigation pane, choose **Commits**, and then choose **Compare commits**.   
-![Comparing a commit to the tip of a branch in Split view](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-4.png)
+![Comparing a commit to the tip of a branch in Split view](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-compare-4.png)
 
    For more information, see [Browse the commit history of a repository](how-to-view-commit-details.md#how-to-view-commit-details-console-history) and [Compare commits](how-to-compare-commits.md). 
 
 1. In **Commits**, choose the **Commit visualizer** tab.   
-![A graphical view of a repository in the console](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
+![A graphical view of a repository in the console](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
 
    The commit graph is displayed, with the subject line for each commit shown next to its point in the graph. The subject line display is limited to 80 characters.
 
@@ -180,28 +180,28 @@ You can also create pull requests from **Branches** and **Code**.
    In **Create pull request**, in **Source**, choose the branch that contains the changes you want reviewed. In **Destination**, choose the branch where you want the reviewed code to be merged when the pull request is closed. Choose **Compare**. 
 
 1. Review the merge details and changes to confirm that the pull request contains the changes and commits you want reviewed. If so, in **Title**, enter a title for this review. This is the title that appears in the list of pull requests for the repository. In **Description**, enter details about what this review is about and any other useful information for reviewers. Choose **Create**.  
-![Creating a pull request](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
+![Creating a pull request](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-create.png)
 
 1. Your pull request appears in the list of pull requests for the repository. You can filter the view to show only open requests, closed requests, requests that you created, and more.   
-![Viewing pull requests in a repository](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
+![Viewing pull requests in a repository](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-view.png)
 
 1. You can add an approval rule to your pull request to ensure that certain conditions are met before it can be merged. To add an approval rule to your pull request, choose the pull request from the list. On the **Approvals** tab, choose **Create approval rule**. 
 
 1. In **Rule name**, give the rule a descriptive name. For example, if you want to require two people to approve a pull request before it can be merged, you might name the rule **Require two approvals before merge**. In **Number of approvals needed**, enter **2**, the number you want. The default is 1. Choose **Submit**. To learn more about approval rules and approval pool members, see [Create an approval rule for a pull request](how-to-create-pull-request-approval-rule.md).  
-![Creating an approval rule for a pull request](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-approval-rule.png)
+![Creating an approval rule for a pull request](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-create-approval-rule.png)
 
 1. If you configured notifications for your repository and chose to notify users of pull request events, users receive email about your new pull request. Users can view the changes and comment on specific lines of code, files, and the pull request itself. They can also reply to comments with text and emojis. If necessary, you can push changes to the pull request branch, which updates the pull request.  
-![Adding an emoji reaction to a comment on a pull request.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
+![Adding an emoji reaction to a comment on a pull request.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
 
 1. If you are satisfied about the changes made in the request, choose **Approve**. You can choose to approve a pull request even if no approval rules are configured for that pull request. This provides a clear record of your having reviewed the pull request and your approval of the changes. You can also choose to revoke your approval if you change your mind.   
-![Viewing approvals on a pull request](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-approvals.png)
+![Viewing approvals on a pull request](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-pull-request-approvals.png)
 **Note**  
 You cannot approve a pull request if you created it.
 
 1. When you are satisfied that all the code changes have been reviewed and agreed to, from the pull request, do one of the following:
    + If you want to close the pull request without merging branches, choose **Close pull request**.
    + If you want to merge the branches and close the pull request, choose **Merge**. You can choose between the merge strategies available for your code, which depend on the differences between the source and destination branches, and whether to automatically delete the source branch after the merge is complete. After you have made your choices, choose **Merge pull request** to complete the merge.  
-![A pull request showing the merge strategies available for the merge in the CodeCommit console.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-merge-squash.png)
+![A pull request showing the merge strategies available for the merge in the CodeCommit console.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-merge-squash.png)
    + If there are merge conflicts in the branches that cannot be resolved automatically, you can resolve them in the CodeCommit console, or you can use your local Git client to merge the branches and then push the merge. For more information, see [Resolve conflicts in a pull request in an AWS CodeCommit repository](how-to-resolve-conflict-pull-request.md).
 **Note**  
 You can always manually merge branches, including pull request branches, by using the **git merge** command in your local repo and pushing your changes. 

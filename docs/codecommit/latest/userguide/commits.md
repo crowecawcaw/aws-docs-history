@@ -9,7 +9,7 @@ Commits are snapshots of the contents and changes to the contents of your reposi
 + Compare a commit to its parent or to another specifier.
 + Add comments to your commits and reply to comments made by others.
 
-![Adding a comment to a changed line in a commit.](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addlinecomment.png)
+![Adding a comment to a changed line in a commit.](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-commenting-addlinecomment.png)
 
 
 Before you can push commits to a CodeCommit repository, you must set up your local computer to connect to the repository. For the simplest method, see [For HTTPS users using Git credentials](setting-up-gc.md). 

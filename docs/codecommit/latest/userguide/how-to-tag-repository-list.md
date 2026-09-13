@@ -15,7 +15,7 @@ You can use the CodeCommit console to view the tags associated with a CodeCommit
 1. In **Repositories**, choose the name of the repository where you want to view tags.
 
 1. In the navigation pane, choose **Settings**. Choose **Repository tags**.   
-![Viewing tags for a repository](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-repository-tags-view.png)
+![Viewing tags for a repository](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-repository-tags-view.png)
 
 ## View tags for a repository (AWS CLI)
 <a name="how-to-tag-repository-list-cli"></a>

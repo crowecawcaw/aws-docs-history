@@ -5,7 +5,7 @@
 
 A repository is the fundamental version control object in CodeCommit. It's where you securely store code and files for your project. It also stores your project history, from the first commit through the latest changes. You can share your repository with other users so you can work together on a project. If you add AWS tags to repositories, you can set up notifications so that repository users receive email about events (for example, another user commenting on code). You can also change the default settings for your repository, browse its contents, and more. You can create triggers for your repository so that code pushes or other events trigger actions, such as emails or code functions. You can even configure a repository on your local computer (a local repo) to push your changes to more than one repository. 
 
-![A view of the contents of a repository](http://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse.png)
+![A view of the contents of a repository](https://docs.aws.amazon.com/codecommit/latest/userguide/images/codecommit-code-browse.png)
 
 
 Before you can push changes to a CodeCommit repository, you must configure an IAM user in your Amazon Web Services account, or set up access for federated access or temporary credentials. For more information, see [Step 1: Initial configuration for CodeCommit](setting-up-gc.md#setting-up-gc-account) and [Setup steps for HTTPS connections to AWS CodeCommit with git-remote-codecommit](setting-up-git-remote-codecommit.md). 
