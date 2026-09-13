@@ -10,7 +10,7 @@ This reference architecture diagram shows how to deploy [Amazon Elastic Kubernet
 ## Amazon Elastic Kubernetes Service on AWS Outposts Rack
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to deploy Amazon EKS on an AWS Outposts rack with a private cluster control plane, self-managed nodes, and local gateway connectivity.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-eks-on-aws-outposts-rack/images/amazon-eks-on-aws-outposts-rack.png)
+![Reference architecture diagram showing how to deploy Amazon EKS on an AWS Outposts rack with a private cluster control plane, self-managed nodes, and local gateway connectivity.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-eks-on-aws-outposts-rack/images/amazon-eks-on-aws-outposts-rack.png)
 
 
 1. Ensure a reliable network connection between your AWS Outpost and its parent Region. Highly available, low-latency connectivity, such as [https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html).
