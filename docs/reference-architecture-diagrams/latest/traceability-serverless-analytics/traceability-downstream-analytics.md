@@ -8,7 +8,7 @@ This architecture shows how to monitor data processing pipelines within the data
 ## Data Lake Ingest and Processing with Downstream Analytics
 <a name="diagram2"></a>
 
-![Architecture diagram showing data lake downstream analytics using Amazon CloudWatch, Amazon Kinesis Data Streams, Amazon Kinesis Data Analytics, and Amazon Quick Sight.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traceability-serverless-analytics/images/traceability-serverless-analytics-2.png)
+![Architecture diagram showing data lake downstream analytics using Amazon CloudWatch, Amazon Kinesis Data Streams, Amazon Kinesis Data Analytics, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traceability-serverless-analytics/images/traceability-serverless-analytics-2.png)
 
 
 The following steps describe the architecture:

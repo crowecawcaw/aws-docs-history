@@ -10,7 +10,7 @@ This architecture shows how to trace your data lake ingestion and processing usi
 ## Tracing Data Lake Ingest and Processing Using AWS X-Ray
 <a name="diagram1"></a>
 
-![Architecture diagram showing data lake ingest and processing traceability using AWS X-Ray, AWS Step Functions, AWS Lambda, and Amazon Simple Storage Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traceability-serverless-analytics/images/traceability-serverless-analytics-1.png)
+![Architecture diagram showing data lake ingest and processing traceability using AWS X-Ray, AWS Step Functions, AWS Lambda, and Amazon Simple Storage Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traceability-serverless-analytics/images/traceability-serverless-analytics-1.png)
 
 
 The following steps describe the architecture:
