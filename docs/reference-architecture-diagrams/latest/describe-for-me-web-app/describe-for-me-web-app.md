@@ -10,7 +10,7 @@ The [DescribeForMe](https://www.describeforme.com/) web app uses the AWS Cloud t
 ## DescribeForMe Web App Diagram
 <a name="diagram1"></a>
 
-![The DescribeForMe web app uses the AWS Cloud to help the visually impaired review images. Through the use of multiple artificial intelligence and machine learning (AI/ML) services, you can submit a photo and an image caption wi...](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/describe-for-me-web-app/images/describe-for-me-web-app.png)
+![The DescribeForMe web app uses the AWS Cloud to help the visually impaired review images. Through the use of multiple artificial intelligence and machine learning (AI/ML) services, you can submit a photo and an image caption wi...](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/describe-for-me-web-app/images/describe-for-me-web-app.png)
 
 
 1. **AWS Amplify** distributes the DescribeForMe web app, consisting of HTML, JavaScript, and CSS, to your mobile device. 
