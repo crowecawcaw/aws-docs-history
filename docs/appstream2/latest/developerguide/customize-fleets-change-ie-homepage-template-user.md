@@ -18,7 +18,7 @@ If the image builder that you want to connect to is joined to an Active Director
 1. Open Internet Explorer and complete the necessary steps to change the default home page.
 
 1. In the upper right area of the image builder desktop, choose **Admin Commands**, **Switch User**.   
-![Admin Commands menu with Switch User option highlighted.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/admin-commands-switch-user.png)
+![Admin Commands menu with Switch User option highlighted.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/admin-commands-switch-user.png)
 
 1. This disconnects your current session and opens the login menu. Log in to the image builder by doing either of the following:
    + If your image builder is not joined to an Active Directory domain, on the **Local User** tab, choose **Administrator**.

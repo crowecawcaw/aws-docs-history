@@ -125,7 +125,7 @@ Create a script that gets invoked when user is logged on by either using an Work
 ### Option 2: Use GPO Logon Script to mount SMB shared folders to be under My Files
 <a name="powershell-gpo-logon"></a>
 
-1. Mount SMB shared folders by creating a symbolic fink to a file or folder. For more information, see [ Example 7: Create a symbolic link to a file or folder](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.4#example-7-create-a-symbolic-link-to-a-file-or-folder)
+1. Mount SMB shared folders by creating a symbolic link to a file or folder. For more information, see [ Example 7: Create a symbolic link to a file or folder](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/new-item?view=powershell-7.4#example-7-create-a-symbolic-link-to-a-file-or-folder)
 
 1. [Assign user logon scripts.](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn789196(v=ws.11)#how-to-assign-user-logon-scripts)
 
@@ -173,6 +173,6 @@ Create a script that gets invoked when user is logged on by either using an Work
       }
       ```
 
-   1. Update this Logon Script delay configuration using Group Policy, if needed. For more information, see [ Configure Logon Script Delay](https://admx.help/?Category=Windows_8.1_2012R2&Policy=Microsoft.Policies.GroupPolicy::LogonScriptDelay). Logon Script delay will be the amount for time it will delay before triggering your async Logon Script. The default delay is 5 minutes.
+   1. Update this Logon Script delay configuration using Group Policy, if needed. For more information, see [ Configure Logon Script Delay](https://learn.microsoft.com/en-us/windows/client-management/mdm/policy-csp-admx-grouppolicy#logonscriptdelay) on the Microsoft Learn website. Logon Script delay will be the amount of time it will delay before triggering your async Logon Script. The default delay is 5 minutes.
 
    1. Restart your fleet to apply the Logon Script delay.

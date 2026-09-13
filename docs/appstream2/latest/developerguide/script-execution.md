@@ -10,9 +10,9 @@ WorkSpaces Applications uses your VPC details to download the VHD and setup scri
 
 Application Settings Persistence is enabled:
 
-![Application Settings Persistence is enabled.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/app-settings-enabled.png)
+![Application Settings Persistence is enabled.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/app-settings-enabled.png)
 
 
 Application Settings Persistence is disabled:
 
-![Application Settings Persistence is disabled.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/app-settings-disabled.png)
+![Application Settings Persistence is disabled.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/app-settings-disabled.png)

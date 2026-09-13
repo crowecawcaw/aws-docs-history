@@ -5,7 +5,7 @@
 
 The following diagram is an example of the API operations flow between WorkSpaces Applications and a third-party application provider.
 
-![API operations flow between WorkSpaces Applications and third-party application provider with numbered steps.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/dynamic-app-provider-process-diagram4.png)
+![API operations flow between WorkSpaces Applications and third-party application provider with numbered steps.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/dynamic-app-provider-process-diagram4.png)
 
 
 1. The user connects to WorkSpaces Applications. A fleet streaming instance is assigned to the user and Windows login occurs.

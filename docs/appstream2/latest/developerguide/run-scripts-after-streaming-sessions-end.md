@@ -5,7 +5,7 @@
 
 You can also configure your scripts to run after users' streaming sessions end. For example, you can run a script when users select **End Session** from the WorkSpaces Applications toolbar, or when they reach the maximum allowed duration for the session. You can also use these session scripts to clean up your WorkSpaces Applications environment before a streaming instance is terminated. For example, you can use scripts to release file locks or upload log files. When you run scripts after streaming sessions end, the following process occurs:
 
-![Flowchart showing WorkSpaces Applications session termination process with scripts and storage actions.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/session-scripts-termination.png)
+![Flowchart showing WorkSpaces Applications session termination process with scripts and storage actions.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/session-scripts-termination.png)
 
 
 1. Your users' WorkSpaces Applications streaming session ends.

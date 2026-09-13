@@ -10,12 +10,12 @@ Touchscreen devices with a screen size of less than 8 inches are not supported.
 
 To display the on-screen keyboard on an iPad or Android tablet, tap the keyboard icon on the WorkSpaces Applications toolbar. The keyboard icon turns blue, and you can use the on-screen keyboard to input text in the streaming application. Tap the keyboard icon again to hide the on-screen keyboard.
 
-![Toolbar with icons for Catalog, Windows, My Files, Clipboard, Microphone, Camera, Preferences, Full screen, Dual monitor, FN Keys, and Profile.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/toolbar-fn-keys.png)
+![Toolbar with icons for Catalog, Windows, My Files, Clipboard, Microphone, Camera, Preferences, Full screen, Dual monitor, FN Keys, and Profile.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/toolbar-fn-keys.png)
 
 
 Tap the Fn icon to display a row of Windows-specific keys and keyboard shortcuts. 
 
-![Row of icons including grid, folder, and settings symbols, with Fn dropdown highlighted.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/CircleFnIconBorder.PNG)
+![Row of icons including grid, folder, and settings symbols, with Fn dropdown highlighted.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/CircleFnIconBorder.PNG)
 
 
 For touch-enabled devices, the *remote keyboard*, which is displayed when you tap the keyboard icon on the WorkSpaces Applications toolbar, is different than the *local keyboard*, the on-screen keyboard that a touch-enabled device automatically displays when you tap inside an input control in a locally running application. During WorkSpaces Applications streaming sessions, you can use the remote keyboard to input text into streaming applications only. You can display or hide the remote keyboard only by tapping the keyboard icon on the WorkSpaces Applications toolbar. A blue keyboard icon on the WorkSpaces Applications toolbar indicates that the remote keyboard is active.

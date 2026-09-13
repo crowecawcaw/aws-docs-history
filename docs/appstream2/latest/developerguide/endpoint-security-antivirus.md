@@ -23,11 +23,11 @@ Endpoint Security Vendors provide switches and setting that optimize the perform
 + Exclusions required by applications to ensure performance
 
 Endpoint security vendors provide instructions for use with virtual desktop environments which optimize performance.
-+ Trend Micro Office Scan [Support for Virtual Desktop Infrastructure - Apex One/OfficeScan (trendmicro.com)](https://success.trendmicro.com/solution/1055260-best-practice-for-setting-up-virtual-desktop-infrastructure-vdi-in-officescan)
-+ CrowdStrike and [How to Install the CrowdStrike Falcon in the Data Center](https://www.crowdstrike.com/blog/tech-center/install-falcon-datacenter/)
-+ Sophos and [Sophos Central Endpoint: How to install on a gold image to avoid duplicate identities](https://support.sophos.com/support/s/article/KB-000035040?language=en_US) and [Sophos Central: Best practices when installing Windows Endpoints in Virtual Desktop Environments](https://support.sophos.com/support/s/article/KB-000039009?language=en_US)
-+ McAfee and [McAfee Agent provisioning and deployment on Virtual Desktop Infrastructure systems](https://kc.mcafee.com/corporate/index?page=content&id=KB87654)
-+ Microsoft Endpoint Security and [Configuring Microsoft Defender Antivirus for non-persistent VDI machines - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/configuring-microsoft-defender-antivirus-for-non-persistent-vdi/ba-p/1489633)
++ Trend Micro Office Scan [Support for Virtual Desktop Infrastructure - Apex One/OfficeScan (trendmicro.com)](https://success.trendmicro.com/en-US/solution/KA-0002520)
++ CrowdStrike and [How to Deploy the CrowdStrike Falcon Sensor on AWS](https://www.crowdstrike.com/en-us/resources/guides/how-to-deploy-crowdstrike-falcon-sensor-on-aws/) on the CrowdStrike website
++ Sophos and [Sophos Central Endpoint: How to install on a gold image to avoid duplicate identities](https://docs.sophos.com/central/customer/help/en-us/PeopleAndDevices/ProtectDevices/VDIGoldImage/index.html) on the Sophos website and [Sophos Central: Best practices when installing Windows Endpoints in Virtual Desktop Environments](https://support.sophos.com/support/s/article/KB-000039009?language=en_US)
++ McAfee and [Trellix (formerly McAfee) Agent provisioning and deployment on Virtual Desktop Infrastructure systems](https://docs.trellix.com/bundle/agent_36_dg/page/UUID-fd1ba763-7ce8-c07a-be16-f6d9f12988c8.html) on the Trellix website
++ Microsoft Endpoint Security and [Configure Microsoft Defender Antivirus on VDI on Microsoft Learn](https://learn.microsoft.com/en-us/defender-endpoint/deployment-vdi-microsoft-defender-antivirus)
 
 ## Scanning exclusions
 <a name="scanning-exclusions"></a>

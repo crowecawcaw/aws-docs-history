@@ -9,7 +9,7 @@ After you enable your dynamic app provider on an image builder, you can test the
 
 1. Do one of the following: 
    + If you are already connected to the image builder on which you enabled dynamic app providers and you are logged on as** Administrator,** you must switch to an account that does not have local administrator permissions on the image builder. To do so, in the upper right corner of the image builder session toolbar, choose **Admin Commands**, **Switch User**.   
-![Admin Commands menu expanded showing Switch User option.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/admin-commands-switch-user.png)
+![Admin Commands menu expanded showing Switch User option.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/admin-commands-switch-user.png)
    + If you are not already connected to the image builder, connect by either [using the WorkSpaces Applications console](managing-image-builders-connect-console.md) (for web connections only) or [creating a streaming URL](managing-image-builders-connect-streaming-URL.md) (for web or WorkSpaces Applications client connections).
 **Note**  
 When you are prompted to sign in, choose **Directory User**, and sign in with a domain account that does not have local administrator permissions on the image builder. 

@@ -10,8 +10,8 @@ A *modifier key* modifies the action of another key when you use both keys toget
 
 | You can remap this Mac key | To this key during a streaming session | 
 | --- | --- | 
-| Option key![Option key icon.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/mac-option-key.png) |  +  Remote Alt key<br />+ Local modifier key  | 
-| Command key![Command key icon with keyboard symbol.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/mac-command-key.png) |  +  Remote Control key<br />+ Remote Meta key  | 
+| Option key![Option key icon.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/mac-option-key.png) |  +  Remote Alt key<br />+ Local modifier key  | 
+| Command key![Command key icon with keyboard symbol.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/mac-command-key.png) |  +  Remote Control key<br />+ Remote Meta key  | 
 
 Follow these steps to remap the Mac Option and Command keys during an WorkSpaces Applications streaming session.
 
@@ -22,7 +22,7 @@ Follow these steps to remap the Mac Option and Command keys during an WorkSpaces
 1. In the top left of the WorkSpaces Applications toolbar, choose the **Settings** icon, and choose **Keyboard Settings**.
 
 1. Choose the options that correspond to the keys that you want to remap.  
-![Preferences dialog showing keyboard settings with Option and Command key remapping options.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/Preferences-new.png)
+![Preferences dialog showing keyboard settings with Option and Command key remapping options.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/Preferences-new.png)
 
 Follow these steps to remap the Mac Option and Command keys on WorkSpaces Applications web browser access v2.
 

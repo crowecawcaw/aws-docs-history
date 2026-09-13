@@ -35,7 +35,7 @@ Currently, WorkSpaces Applications supports only **English (United States)** and
 1. When prompted, log in again to the image builder as **Template User**. Confirm that Windows is using the display language that you selected. 
 
 1. In the upper right area of the image builder desktop, choose **Admin Commands**, **Switch User**.   
-![Admin Commands menu with Switch User option highlighted.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/admin-commands-switch-user.png)
+![Admin Commands menu with Switch User option highlighted.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/admin-commands-switch-user.png)
 
 1. When prompted, log in as **Administrator**.
 

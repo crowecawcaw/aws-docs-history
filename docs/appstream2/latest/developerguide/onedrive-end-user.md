@@ -19,18 +19,18 @@ To access your OneDrive during WorkSpaces Applications streaming sessions, you m
 1. In the top left of the WorkSpaces Applications toolbar, choose the **My Files** icon.
 
 1. In the **My Files** dialog box, choose **Add Storage**.  
-![My Files dialog box with Add Storage button highlighted in upper right corner.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddStorage.png)
+![My Files dialog box with Add Storage button highlighted in upper right corner.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddStorage.png)
 
 1. Choose **OneDrive**.  
-![OneDrive option selected in the Add Storage dropdown menu.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddOneDrive1.png)
+![OneDrive option selected in the Add Storage dropdown menu.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddOneDrive1.png)
 
 1. Under **Login accounts**, choose the domain for your OneDrive account.   
-![Login accounts dialog with example.com domain highlighted for selection.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/LoginAccounts.png)
+![Login accounts dialog with example.com domain highlighted for selection.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/LoginAccounts.png)
 
 1. In the **Sign in** dialog box, enter the sign-in credentials for your account.
 
 1. After your OneDrive account is added to WorkSpaces Applications, your OneDrive folder is displayed in **My Files**.  
-![My Files interface showing OneDrive folder listed with Home Folder and Temporary Files.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddOneDrive2.png)
+![My Files interface showing OneDrive folder listed with Home Folder and Temporary Files.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/AddOneDrive2.png)
 
 1. To work with your files and folders in OneDrive, choose the **OneDrive** folder and browse to the file or folder you want. If you do not want to work with files in OneDrive during this streaming session, close the **My Files** dialog box. 
 
@@ -45,7 +45,7 @@ To access your OneDrive during WorkSpaces Applications streaming sessions, you m
 1. When the folder is displayed, do one of the following: 
    + To upload a file to the folder, select the file that you want to upload, and choose **Upload**.
    + To download a file from the folder, select the file that you want to download, choose the down arrow to the right of the file name, and choose **Download**.   
-![File list showing My Example File.pdf with Download option selected from the menu.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/GoogleDrive_FileUploadDownload.png)
+![File list showing My Example File.pdf with Download option selected from the menu.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/GoogleDrive_FileUploadDownload.png)
 
 **To remove OneDrive permissions from WorkSpaces Applications**
 

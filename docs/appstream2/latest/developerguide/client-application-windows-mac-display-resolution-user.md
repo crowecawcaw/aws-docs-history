@@ -53,7 +53,7 @@ The following are examples of adjacent monitor placement. If your monitors are n
 **Note**  
 The blue boxes are WorkSpaces Applications-enabled monitors, and the gray boxes are other monitors. 
 
-![Adjacent and nonadjacent monitor placement](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/monitors.PNG)
+![Adjacent and nonadjacent monitor placement](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/monitors.PNG)
 
 
 To enable this feature, complete the following steps: 

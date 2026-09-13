@@ -3,7 +3,7 @@
 # Configure a VPC for WorkSpaces Applications
 <a name="appstream-vpc"></a>
 
-When you set up WorkSpaces Applications, you must specify the virtual private cloud (VPC) and at least one subnet in which to launch your fleet instances and image builders. A VPC is a virtual network in your own logically isolated area within the Amazon Web Services Cloud. A subnet is a range of IP addresses in your VPC.
+When you set up WorkSpaces Applications, you must specify the virtual private cloud (VPC) and the subnets in which to launch your fleet instances and image builders. Fleets require at least two subnets in different Availability Zones; image builders require at least one subnet. A VPC is a virtual network in your own logically isolated area within the Amazon Web Services Cloud. A subnet is a range of IP addresses in your VPC.
 
 When you configure your VPC for WorkSpaces Applications, you can specify either public or private subnets, or a mix of both types of subnets. A public subnet has direct access to the internet through an internet gateway. A private subnet, which doesn't have a route to an internet gateway, requires a Network Address Translation (NAT) gateway or NAT instance to provide access to the internet.
 

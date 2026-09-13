@@ -53,7 +53,7 @@ To complete this step, you must be logged into the image builder with the local 
 **To create an WorkSpaces Applications application catalog**
 
 1. From the image builder desktop, open Image Assistant. Image Assistant guides you through the image creation process.  
-![Image Assistant icon on desktop with toolbar containing flag, copy, settings, pin, and flow icons.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/Image-Builder-Desktop-Image-Assistant.png)
+![Image Assistant icon on desktop with toolbar containing flag, copy, settings, pin, and flow icons.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/Image-Builder-Desktop-Image-Assistant.png)
 
 1. In **1. Add Apps**, choose **\+ Add App**, and navigate to the location of the application, script, or shortcut to add. Choose **Open**. 
 

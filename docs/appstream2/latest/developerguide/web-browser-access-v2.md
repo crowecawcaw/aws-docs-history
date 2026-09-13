@@ -5,7 +5,7 @@
 
 WorkSpaces Applications web browser access version 2 offers an enhanced end user experience, including menu options that are easily discoverable and textual guidance for end users. No new menu items have been added, and all configuration choices that were available in the previous version are still available in the new one. These setting options have been reorganized as a result of usability testing conducted by the WorkSpaces Applications team.
 
-![Menu bar with icons for Catalog, Windows, My Files, Clipboard, Microphone, Camera, Preferences, Full screen, Dual monitor, FN Keys, and Profile.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/toolbar.png)
+![Menu bar with icons for Catalog, Windows, My Files, Clipboard, Microphone, Camera, Preferences, Full screen, Dual monitor, FN Keys, and Profile.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/toolbar.png)
 
 
 End users can access an enhanced WorkSpaces Applications toolbar, plus the following features available under ** My files**: 

@@ -22,4 +22,4 @@ If your home folder doesn't appear, view your home folder files by browsing to t
 1. When the folder that you want is displayed, do one of the following: 
    + To upload a file to the folder, select the file that you want to upload, and choose **Upload**.
    + To download a file from the folder, select the file that you want to download, choose the down arrow to the right of the file name, and choose **Download**.   
-![File management interface showing Upload Files button and Download option in context menu.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/home-folder-new.png)
+![File management interface showing Upload Files button and Download option in context menu.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/home-folder-new.png)

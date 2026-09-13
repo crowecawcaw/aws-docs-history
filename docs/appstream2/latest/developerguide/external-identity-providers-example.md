@@ -5,7 +5,7 @@
 
 The following diagram illustrates the authentication flow between WorkSpaces Applications and a third-party identity provider (IdP). In this example, the administrator has set up a sign-in page to access WorkSpaces Applications, called `applications.exampleco.com`. The webpage uses a SAML 2.0–compliant federation service to trigger a sign-on request. The administrator has also set up a user to allow access to WorkSpaces Applications.
 
-![Amazon WorkSpaces Applications SAML diagram](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/aas2-saml.png)
+![Amazon WorkSpaces Applications SAML diagram](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/aas2-saml.png)
 
 
 1. The user browses to `https://applications.exampleco.com`. The sign-on page requests authentication for the user.

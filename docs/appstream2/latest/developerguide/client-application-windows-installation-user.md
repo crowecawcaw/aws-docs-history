@@ -3,6 +3,9 @@
 # Setup for Windows
 <a name="client-application-windows-installation-user"></a>
 
+**Note**  
+The Amazon AppStream 2.0 client has been renamed to the WorkSpaces Applications client. It is the same application. To stream your applications, download and use the WorkSpaces Applications client.
+
 Follow these steps to install the client.
 
 1. On the PC where you want to install the WorkSpaces Applications client, download the WorkSpaces Applications client for Windows application from [WorkSpaces Applications supported clients](https://clients.amazonappstream.com).

@@ -13,7 +13,7 @@ Using Active Directory domains with WorkSpaces Applications requires an understa
 
 For your users to be authenticated to a domain, several steps must occur when these users initiate an WorkSpaces Applications streaming session. The following diagram illustrates the end-to-end user authentication flow from the initial browser request through SAML and Active Directory authentication.
 
-![Authentication flow diagram showing steps from user login to AWS WorkSpaces Applications session start.](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/domain-join-UPDATED.png)
+![Authentication flow diagram showing steps from user login to AWS WorkSpaces Applications session start.](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/domain-join-UPDATED.png)
 
 
 **User Authentication Flow**

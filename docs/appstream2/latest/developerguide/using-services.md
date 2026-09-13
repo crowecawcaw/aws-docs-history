@@ -17,7 +17,7 @@
 
  In environments where automation routines or developers require making API calls for WorkSpaces Applications, [*create an interface VPC endpoint for WorkSpaces Applications API operations*](https://docs.aws.amazon.com/appstream2/latest/developerguide/access-api-cli-through-interface-vpc-endpoint.html). For example, if there are EC2 instances in private subnets without public internet access, a VPC endpoint for WorkSpaces Applications API can be used to call AppStream 2.0 API operations such as [*CreateStreamingURL*](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateStreamingURL.html). The following diagram shows an example setup where WorkSpaces Applications API and streaming VPC endpoints are consumed by Lambda functions and EC2 instances. 
 
-![A reference architecture diagram for VPC endpoint](http://docs.aws.amazon.com/appstream2/latest/developerguide/images/vpc-endpoint.jpeg)
+![A reference architecture diagram for VPC endpoint](https://docs.aws.amazon.com/appstream2/latest/developerguide/images/vpc-endpoint.jpeg)
 
 
  *VPC endpoint* 

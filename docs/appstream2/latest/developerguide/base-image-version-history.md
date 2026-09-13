@@ -28,10 +28,10 @@ Public base images for Amazon Linux 2 are no longer available from AWS after 04/
 
 | Image type | Image name | 
 | --- | --- | 
-| Base |  +  AppStream-WinServer2025-12-18-2025 <br />+  AppStream-WinServer2022-11-10-2025 <br />+  AppStream-WinServer2019-11-10-2025 <br />+  AppStream-WinServer2016-11-10-2025 <br />+  AppStream-RHEL8-02-18-2026 <br />+  AppStream-RockyLinux8-02-18-2026   | 
-| Graphics G4dn |  +  AppStream-Graphics-G4dn-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G4dn-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G4dn-WinServer2019-11-10-2025 <br />+  AppStream-Graphics-G4dn-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G4dn-RHEL8-02-18-2026 <br />+  AppStream-Graphics-G4dn-RockyLinux8-02-18-2026   | 
-| Graphics G5 |  +  AppStream-Graphics-G5-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G5-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G5-WinServer2019-11-10-2025 <br />+  AppStream-Graphics-G5-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G5-RHEL8-02-18-2026 <br />+  AppStream-Graphics-G5-RockyLinux8-02-18-2026   | 
-| Graphics G6  |  +  AppStream-Graphics-G6-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G6-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G6-RHEL8-02-18-2026 <br />+  AppStream-Graphics-G6-RockyLinux8-02-18-2026   | 
+| Base |  +  AppStream-WinServer2025-12-18-2025 <br />+  AppStream-WinServer2022-11-10-2025 <br />+  AppStream-WinServer2019-11-10-2025 <br />+  AppStream-WinServer2016-11-10-2025 <br />+  AppStream-RHEL8-08-31-2026 <br />+  AppStream-RockyLinux8-08-31-2026   | 
+| Graphics G4dn |  +  AppStream-Graphics-G4dn-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G4dn-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G4dn-WinServer2019-11-10-2025 <br />+  AppStream-Graphics-G4dn-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G4dn-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G4dn-RockyLinux8-08-31-2026   | 
+| Graphics G5 |  +  AppStream-Graphics-G5-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G5-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G5-WinServer2019-11-10-2025 <br />+  AppStream-Graphics-G5-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G5-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G5-RockyLinux8-08-31-2026   | 
+| Graphics G6  |  +  AppStream-Graphics-G6-WinServer2025-12-18-2025 <br />+  AppStream-Graphics-G6-WinServer2022-11-10-2025 <br />+  AppStream-Graphics-G6-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G6-RockyLinux8-08-31-2026   | 
 | Graphics G7  |  +  AppStream-Graphics-G7-WinServer2025-08-31-2026 <br />+  AppStream-Graphics-G7-WinServer2022-08-31-2026 <br />+  AppStream-Graphics-G7-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G7-RockyLinux8-08-31-2026   | 
 | Sample apps | Amazon-AppStream2-Sample-Image-06-17-2024<br />For information about how to access this base image, see [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md). | 
 
@@ -43,56 +43,56 @@ The following table lists the software components for the latest released Window
 #### [ Windows ]
 
 
-| Software component | Latest base images (December 18, 2025) | Managed image updates (June 29, 2026) | 
+| Software component | Latest base images (August 3, 2026) | Managed image updates (August 31, 2026) | 
 | --- | --- | --- | 
-| Amazon AWS (AvsCamera) Driver | 1.0.23.0 | 1.0.23.0 | 
-| Amazon CloudWatch Agent | 1.4.37917 | 1.300063 | 
-| SSM Agent | 3.3.3050.0 | 3.3.3598.0 | 
-| NICE DCV Virtual Display | 2024.0-19143 | 2025.0-20850 | 
+| Amazon AWS (AvsCamera) Driver | 1.0.27.0 | 1.0.23.0 | 
+| Amazon CloudWatch Agent | 1.4.37925 | 1.300069.0b1529 | 
+| SSM Agent | 3.3.4268.0 | 3.3.4851.0 | 
+| NICE DCV Virtual Display | 2024.0-19143 | 2026.0-22938 | 
 | AMD Driver for Graphics Design instances | 24.20.13028.7002  | 24.20.13028.7002 | 
 | AppStream 2.0 Agent | LATEST (06-29-2026) | -- | 
-| AWS Command Line Interface (AWS CLI) | 1.40.24 (Windows Server 2016/2019)<br />2.31.30.0 (Windows Server 2022/2025) | Not included | 
+| AWS Command Line Interface (AWS CLI) | 1.40.24 (Windows Server 2016/2019)<br />2.35.2.0 (Windows Server 2022/2025) | Not included | 
 | Firefox | 144 (Windows Server 2016/2019) | Not included | 
 | Microsoft Message Queuing (MSMQ) | Installed with Windows Server | Installed with Windows Server | 
-| NVIDIA Graphics Driver for G4dn, G5 and G6 instances | 581.42 (Windows Server 2022/2025)<br />539.19 (Windows Server 2019)<br />512.78 (Windows Server 2016) | 581.42 (Windows Server 2022/2025)<br />539.19 (Windows Server 2019)<br />512.78 (Windows Server 2016) | 
+| NVIDIA Graphics Driver for G4dn, G5 and G6 instances | 581.42 (Windows Server 2022/2025)<br />539.19 (Windows Server 2019)<br />512.78 (Windows Server 2016) | 596.36 (Windows Server 2022/2025)<br />539.19 (Windows Server 2019)<br />512.78 (Windows Server 2016) | 
 | Process monitor | 4.01 | [Latest](https://docs.microsoft.com/en-us/sysinternals/downloads/procmon) | 
 | Quality Windows Audio/Video Experience (qWAVE) | Installed with Windows Server | Installed with Windows Server | 
-| Visual C\+\+ redistributable packages | Microsoft Visual C\+\+ 2013 Redistributable (x64) - 12.0.40664.0Microsoft Visual C\+\+ 2015-2022 Redistributable (x64) - 14.42.34438 | Microsoft Visual C\+\+ 2013 Redistributable (x64) - 12.0.30501Microsoft Visual C\+\+ 2015-2022 Redistributable (x64) - 14.44.35211  | 
-| Windows Server updates | Base image updates as of November 2025 | [Latest](https://www.catalog.update.microsoft.com/home.aspx) | 
+| Visual C\+\+ redistributable packages | Microsoft Visual C\+\+ 2013 Redistributable (x64) - 12.0.40664.0Microsoft Visual C\+\+ 2015-2022 Redistributable (x64) - 14.44.35211 | Microsoft Visual C\+\+ 2013 Redistributable (x64) - 12.0.30501Microsoft Visual C\+\+ 2015-2022 Redistributable (x64) - 14.44.35211  | 
+| Windows Server updates | Base image updates as of May 2026 | [Latest](https://www.catalog.update.microsoft.com/home.aspx) | 
 | WinSCard Filter Driver | 1.0.19.0 | 1.0.19.0 | 
-| Paravirtual (PV) driver | 8.6.0 | 8.6.0 | 
+| Paravirtual (PV) driver | 8.6.0 | 8.6.1 | 
 | ENA driver | 2.11.0 | 2.11.0 | 
-| AWS NVMe driver | 1.7.0 | 1.7.0 | 
+| AWS NVMe driver | 1.7.0 | 1.8.2 | 
 
 ------
 #### [ Rocky Linux ]
 
 
-| Software component | Latest base images (February 18, 2026) | Managed image updates (February 18, 2026) | 
+| Software component | Latest base images (August 31, 2026) | Managed image updates (August 31, 2026) | 
 | --- | --- | --- | 
-| AWS Command Line Interface (AWS CLI) | 2.33.24 | 2.33.24 | 
-| Amazon CloudWatch Agent | 1.300064.0b1337-1 | 1.300064.0b1337-1 | 
-| SSM Agent | 3.3.3598.0-1 | 3.3.3598.0-1 | 
-| NICE DCV Server AppStream | 2024.0.17598-18 | 2024.0.17598-18 | 
+| AWS Command Line Interface (AWS CLI) | 2.36.27 | 2.36.27 | 
+| Amazon CloudWatch Agent | 1.300071.0b1720-1 | 1.300071.0b1720-1 | 
+| SSM Agent | 3.3.4851.0-1 | 3.3.4851.0-1 | 
+| NICE DCV Server AppStream | 2026.0.24079-1 | 2026.0.24079-1 | 
 | Cloud-init | 23.4-78\_10.11.0.2 | 23.4-78\_10.11.0.2 | 
-| Kernel | 4.18.0-553.104.1 | 4.18.0-553.104.1 | 
-| NVIDIA Graphics Driver for G4dn, G5 and G6 instances | 580.95.05 | 580.95.05 | 
-| Cuda Version | 13.0 | 13.0 | 
+| Kernel | 4.18.0-553.156.1 | 4.18.0-553.156.1 | 
+| NVIDIA Graphics Driver for G4dn, G5, G6, and G7 instances | 595.91.07 | 595.91.07 | 
+| Cuda Version | 13.2 | 13.2 | 
 
 ------
 #### [ Red Hat Enterprise Linux ]
 
 
-| Software component | Latest base images (February 18, 2026) | Managed image updates (February 18, 2026) | 
+| Software component | Latest base images (August 31, 2026) | Managed image updates (August 31, 2026) | 
 | --- | --- | --- | 
-| AWS Command Line Interface (AWS CLI) | 2.33.24 | 2.33.24 | 
-| Amazon CloudWatch Agent | 1.300064.0b1337-1 | 1.300064.0b1337-1 | 
-| SSM Agent | 3.3.3598.0-1 | 3.3.3598.0-1 | 
-| NICE DCV Server AppStream | 2024.0.17598-18 | 2024.0.17598-18 | 
+| AWS Command Line Interface (AWS CLI) | 2.36.27 | 2.36.27 | 
+| Amazon CloudWatch Agent | 1.300071.0b1720-1 | 1.300071.0b1720-1 | 
+| SSM Agent | 3.3.4851.0-1 | 3.3.4851.0-1 | 
+| NICE DCV Server AppStream | 2026.0.24079-1 | 2026.0.24079-1 | 
 | Cloud-init | 23.4-78\_10.11 | 23.4-78\_10.11 | 
-| Kernel | 4.18.0-553.105.1 | 4.18.0-553.105.1 | 
-| NVIDIA Graphics Driver for G4dn, G5 and G6 instances | 580.95.05 | 580.95.05 | 
-| Cuda Version | 13.0 | 13.0 | 
+| Kernel | 4.18.0-553.156.1 | 4.18.0-553.156.1 | 
+| NVIDIA Graphics Driver for G4dn, G5, G6, and G7 instances | 595.91.07 | 595.91.07 | 
+| Cuda Version | 13.2 | 13.2 | 
 
 ------
 
@@ -111,8 +111,13 @@ The following table describes all released base images.
 
 | Release | Platform | Image  | Changes | 
 | --- | --- | --- | --- | 
-| 02/18/2026 | Red Hat Enterprise Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  4K resolution support for non-accelerated instance types   | 
-| 02/18/2026 | Rocky Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  4K resolution support for non-accelerated instance types   | 
+| 08/31/2026 | Red Hat Enterprise Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6 <br />+  Graphics G7   |  +  Support added for the Graphics G7 instance family <br />+  NVIDIA Graphics Driver updated to 595.91.07 <br />+  CW Agent updated to 1.300071.0b1720-1 <br />+  SSM Agent updated to 3.3.4851.0-1 <br />+  Amazon DCV Server updated to 2026.0.24079-1   | 
+| 08/31/2026 | Rocky Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6 <br />+  Graphics G7   |  +  Support added for the Graphics G7 instance family <br />+  NVIDIA Graphics Driver updated to 595.91.07 <br />+  CW Agent updated to 1.300071.0b1720-1 <br />+  SSM Agent updated to 3.3.4851.0-1 <br />+  Amazon DCV Server updated to 2026.0.24079-1   | 
+| 04/16/2026 | Windows |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  Support added for the Agent Access feature <br />+  General bug fixes and improvements <br />+  CW Agent updated to 1.4.37922 <br />+  SSM Agent updated to 3.3.4121.0 <br />+  Amazon DCV Server updated to 2026.0-21918   | 
+| 04/16/2026 | Red Hat Enterprise Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  General bug fixes and improvements <br />+  CW Agent updated to 1.300066.1b1374-1 <br />+  SSM Agent updated to 3.3.4177.0-1   | 
+| 04/16/2026 | Rocky Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  General bug fixes and improvements <br />+  CW Agent updated to 1.300066.1b1374-1 <br />+  SSM Agent updated to 3.3.4177.0-1   | 
+| 02/18/2026 | Red Hat Enterprise Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  4K resolution support for non-accelerated instance types <br />+  CW Agent updated to 1.300064.0b1337 <br />+  SSM Agent updated to 3.3.3598.0 <br />+  NICE DCV Server AppStream updated to 2024.0.17598   | 
+| 02/18/2026 | Rocky Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  4K resolution support for non-accelerated instance types <br />+  CW Agent updated to 1.300064.0b1337 <br />+  SSM Agent updated to 3.3.3598.0 <br />+  NICE DCV Server AppStream updated to 2024.0.17598   | 
 | 12/18/2025 | Windows |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  Includes support for Windows Server 2025   | 
 | 11/10/2025 | Windows |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  General bug fixes and improvements <br />+  Updated to latest NVIDIA drivers <br />+  Includes new CloudWatch Agent 1.4.37917 <br />+  Include new SSM Agent 3.3.3050.0   | 
 | 11/10/2025 | Red Hat Enterprise Linux |  +  Base <br />+  Graphics G4dn <br />+  Graphics G5 <br />+  Graphics G6   |  +  General bug fixes and improvements <br />+  Updated to latest NVIDIA drivers <br />+  CW Agent updated to 1.300061.0b1289-1 <br />+  SSM Agent updated to 3.3.3270.0-1 <br />+  NICE DCV Server AppStream updated to 2024.0.17598-18   | 
