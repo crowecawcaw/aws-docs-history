@@ -18,7 +18,7 @@ A Neptune global database consists of one DB cluster in a primary AWS Region whe
 
 The following diagram shows an example global database that spans two AWS Regions:
 
-![A Neptune global database has one primary DB cluster and one or more secondary DB clusters.](http://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-gdb-example.png)
+![A Neptune global database has one primary DB cluster and one or more secondary DB clusters.](https://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-gdb-example.png)
 
 
 You can scale each secondary cluster independently to handle read-only workloads by adding one or more read-replica instances.

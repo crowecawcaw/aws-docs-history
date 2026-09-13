@@ -9,4 +9,4 @@ Check out these integration tutorials for [Gremlin data](https://cambridge-intel
 
 Here is a sample KeyLines visualization:
 
-![Sample KeyLines visualization](http://docs.aws.amazon.com/neptune/latest/userguide/images/KeyLines-visualiztion.png)
+![Sample KeyLines visualization](https://docs.aws.amazon.com/neptune/latest/userguide/images/KeyLines-visualiztion.png)

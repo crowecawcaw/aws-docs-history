@@ -7,7 +7,7 @@
 
 Here is a sample metaphactory visualization:
 
-![Sample metaphactory visualization](http://docs.aws.amazon.com/neptune/latest/userguide/images/metaphactory-visualization.png)
+![Sample metaphactory visualization](https://docs.aws.amazon.com/neptune/latest/userguide/images/metaphactory-visualization.png)
 
 
 The platform is designed for and used productively in engineering, manufacturing, pharma, life Sciences, finance, insurance, and more. To see a sample solution architecture, check out [this blog post](https://aws.amazon.com/blogs/apn/exploring-knowledge-graphs-on-amazon-neptune-using-metaphactory/).

@@ -82,7 +82,7 @@ When you repeat the command after the export job has started, the response would
 
 If you open the logs in CloudWatch Logs using the URI provided by the status call, you can then monitor the progress of the export in detail:
 
-![Screenshot of the CloudWatch Logs display.](http://docs.aws.amazon.com/neptune/latest/userguide/images/export-job-monitor.png)
+![Screenshot of the CloudWatch Logs display.](https://docs.aws.amazon.com/neptune/latest/userguide/images/export-job-monitor.png)
 
 
 ## Cancel a running export job

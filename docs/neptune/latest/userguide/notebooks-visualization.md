@@ -15,7 +15,7 @@ To get access to recently added functionality and fixes in notebooks that you ar
 
 This diagram identifies user-interface elements present in the Graph tab:
 
-![Graph tab interface elements](http://docs.aws.amazon.com/neptune/latest/userguide/images/visualization-interface.png)
+![Graph tab interface elements](https://docs.aws.amazon.com/neptune/latest/userguide/images/visualization-interface.png)
 
 
 1. **Graph search**
@@ -73,7 +73,7 @@ oute
 
 Here are some examples of graph visualizations using groups:
 
-![Examples of Gremlin graph visualizations](http://docs.aws.amazon.com/neptune/latest/userguide/images/graph-visualization-example.png)
+![Examples of Gremlin graph visualizations](https://docs.aws.amazon.com/neptune/latest/userguide/images/graph-visualization-example.png)
 
 
 ## Visualizing SPARQL query results

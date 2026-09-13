@@ -31,7 +31,7 @@ For example, suppose **Account A** wants to access data in an Amazon S3 bucket t
 + **Account B** attaches a trust policy to `RoleB` that allows it to pass its permissions back to `RoleA`.
 + To access the data in the **Account B** bucket, **Account A** runs a loader command using an `iamRoleArn` parameter that chains `RoleA` and `RoleB`. For the duration of the loader operation, `RoleA` then temporarily assumes `RoleB` to access the Amazon S3 bucket in **Account B**.
 
-![Diagram illustrating cross-account access using chained roles](http://docs.aws.amazon.com/neptune/latest/userguide/images/cross-account-bulk-load.png)
+![Diagram illustrating cross-account access using chained roles](https://docs.aws.amazon.com/neptune/latest/userguide/images/cross-account-bulk-load.png)
 
 
 For example, `RoleA` would have a trust policy that establishes a trust relationship with Neptune:

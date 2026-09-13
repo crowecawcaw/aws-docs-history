@@ -199,7 +199,7 @@ For more information, see [Common Format and MIME Type for CSV Files](https://to
 
 The following diagram shows an example of two vertices and an edge taken from the TinkerPop Modern Graph.
 
-![Diagram depicting two vertices and an edge, contains marko age 29 and lop software with lang: java.](http://docs.aws.amazon.com/neptune/latest/userguide/images/tiny-modern-graph.png)
+![Diagram depicting two vertices and an edge, contains marko age 29 and lop software with lang: java.](https://docs.aws.amazon.com/neptune/latest/userguide/images/tiny-modern-graph.png)
 
 
 The following is the graph in Neptune CSV load format.

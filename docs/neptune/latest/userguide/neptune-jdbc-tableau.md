@@ -41,7 +41,7 @@ To use Tableau with the Neptune JDBC driver, start by downloading and installing
 
 With Tableau open, select **More** on the left side of the window. If the Tableau connector file is properly located, you can select **Amazon Neptune by AWS** in the list that appears:
 
-![Choosing SQL in Tableau](http://docs.aws.amazon.com/neptune/latest/userguide/images/tableau-sql-gremlin.png)
+![Choosing SQL in Tableau](https://docs.aws.amazon.com/neptune/latest/userguide/images/tableau-sql-gremlin.png)
 
 
 You should not have to edit the port, or add any connection options. Enter your Neptune endpoint and set your IAM and SSL configuration (you must enable SSL if you are using IAM).

@@ -20,7 +20,7 @@ They store data items themselves as *vertices* of the graph, and the relationshi
 
 Here is a small graph representing friends and hobbies in a social network:
 
-![Diagram showing relationships between people and hobbies in a social network.](http://docs.aws.amazon.com/neptune/latest/userguide/images/social-graph.png)
+![Diagram showing relationships between people and hobbies in a social network.](https://docs.aws.amazon.com/neptune/latest/userguide/images/social-graph.png)
 
 
 The edges are shown as named arrows, and the vertices represent specific people and hobbies that they connect.
@@ -55,7 +55,7 @@ Here are some of the most common areas where graph databases are used:
 + **Fraud graphs**   –   This is a common use for graph databases. They can help you track credit card purchases and purchase locations to detect uncharacteristic use, or to detect a purchaser is trying to use the same email address and credit card as was used in a known fraud case. They can let you check for multiple people associated with a personal email address, or multiple people in different physical locations who share the same IP address.
 
   Consider the following graph. It shows the relationship of three people and their identity-related information. Each person has an address, a bank account, and a social security number. However, we can see that Matt and Justin share the same social security number, which is irregular and indicates possible fraud by one of them. A query to a fraud graph can reveal connections of this kind so that they can be reviewed.  
-![Diagram showing the relationships among people and their personal information.](http://docs.aws.amazon.com/neptune/latest/userguide/images/fraud-detection-graph.png)
+![Diagram showing the relationships among people and their personal information.](https://docs.aws.amazon.com/neptune/latest/userguide/images/fraud-detection-graph.png)
 
   To learn out more about fraud graphs and where they are being used, see [Fraud Graphs on AWS](https://aws.amazon.com/neptune/fraud-graphs-on-aws/).
 + **Social networking**   –   One of the first and most common areas where graph databases are used is in social networking applications.
@@ -83,7 +83,7 @@ Neptune supports three special-purpose query languages designed for querying gra
 
 Given the following graph of people (nodes) and their relationships (edges), you can find out who the "friends of friends" of a particular person are— for example, the friends of Howard's friends.
 
-![Diagram showing relationships among people including their friendships.](http://docs.aws.amazon.com/neptune/latest/userguide/images/foaf-graph.png)
+![Diagram showing relationships among people including their friendships.](https://docs.aws.amazon.com/neptune/latest/userguide/images/foaf-graph.png)
 
 
 Looking at the graph, you can see that Howard has one friend, Jack, and Jack has four friends: Annie, Harry, Doug, and Mac. This is a simple example with a simple graph, but these types of queries can scale in complexity, dataset size, and result size. 

@@ -10,7 +10,7 @@
 
 Using the Neptune ML feature in Amazon Neptune generally involves the following five steps to begin with:
 
-![Neptune ML workflow diagram](http://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-ML-workflow.png)
+![Neptune ML workflow diagram](https://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-ML-workflow.png)
 
 
 1. **Data export and configuration**   –   The data-export step uses the Neptune-Export service or the `neptune-export` command line tool to export data from Neptune into Amazon Simple Storage Service (Amazon S3) in CSV form. A configuration file named `training-data-configuration.json` is automatically generated at the same time, which specifies how the exported data can be loaded into a trainable graph.

@@ -503,4 +503,4 @@ g = create_graph_traversal_source(conn)
 
 Here are sample results, showing alternating periods of heavy and light load:
 
-![Diagram showing sample results from the example Python Lambda function.](http://docs.aws.amazon.com/neptune/latest/userguide/images/python-lambda-results.png)
+![Diagram showing sample results from the example Python Lambda function.](https://docs.aws.amazon.com/neptune/latest/userguide/images/python-lambda-results.png)

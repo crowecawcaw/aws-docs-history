@@ -25,6 +25,9 @@ Similarly, if the metric reaches the low threshold you specified and if the `Sca
 **Note**  
 Neptune auto-scaling only removes replicas that it created. It does not remove pre-existing replicas.
 
+**Note**  
+Read-replica auto-scaling removes readers through the Neptune API, so cluster deletion protection does not prevent a scale-in activity from removing a read replica. Deletion protection blocks deletion of the DB cluster itself, not the removal of individual read replicas. The `min-capacity` of your scaling policy determines the minimum number of readers that auto-scaling maintains. For more information about deletion protection, see [How deletion protection affects DB instance deletion](manage-console-instances-delete.md#manage-console-instances-deletion-protection).
+
 Using the [neptune\_autoscaling\_config](parameters.md#parameters-db-cluster-parameters-neptune_autoscaling_config) DB cluster parameter, you can also specify the instance type of the new read-replicas that Neptune auto-scaling creates, the maintenance windows for those read-replicas, and tags to be associated with each of the new read-replicas. You provide these configuration settings in a JSON string as the value of the `neptune_autoscaling_config` parameter, like this:
 
 ```

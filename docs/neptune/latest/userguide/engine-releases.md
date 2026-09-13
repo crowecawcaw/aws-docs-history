@@ -39,13 +39,13 @@ The table below lists all the engine releases since 1.0.1.0, along with informat
 
 | Version | Major version | Minor version | Status | Released | End of life | Upgrade to: | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| [1.2.1.2](engine-releases-1.2.1.2.md) | 1.2 | 1.2 | *active* | 2024-08-05 | 2026-11-30 | 1.3.0.0 | 
-| [1.2.1.1](engine-releases-1.2.1.1.md) | 1.2 | 1.1 | *active* | 2024-03-11 | 2026-11-30 | 1.3.0.0 | 
-| [1.2.1.0](engine-releases-1.2.1.0.md) | 1.2 | 1.0 | *active* | 2023-03-08 | 2026-11-30 | 1.3.0.0 | 
-| [1.2.0.2](engine-releases-1.2.0.2.md) | 1.2 | 0.2 | *active* | 2022-11-16 | 2026-11-30 | 1.3.0.0 | 
-| [1.2.0.1](engine-releases-1.2.0.1.md) | 1.2 | 0.1 | *active* | 2022-10-26 | 2026-11-30 | 1.3.0.0 | 
-| [1.2.0.0](engine-releases-1.2.0.0.md) | 1.2 | 0.0 | *active* | 2022-07-21 | 2026-11-30 | 1.3.0.0 | 
-| [1.1.1.0](engine-releases-1.1.1.0.md) | 1.1 | 1.0 | *active* | 2022-04-19 | 2026-11-30 | 1.2.1.0 | 
+| [1.2.1.2](engine-releases-1.2.1.2.md) | 1.2 | 1.2 | *active* | 2024-08-05 | 2026-12-04 | 1.3.0.0 | 
+| [1.2.1.1](engine-releases-1.2.1.1.md) | 1.2 | 1.1 | *active* | 2024-03-11 | 2026-12-04 | 1.3.0.0 | 
+| [1.2.1.0](engine-releases-1.2.1.0.md) | 1.2 | 1.0 | *active* | 2023-03-08 | 2026-12-04 | 1.3.0.0 | 
+| [1.2.0.2](engine-releases-1.2.0.2.md) | 1.2 | 0.2 | *active* | 2022-11-16 | 2026-12-04 | 1.3.0.0 | 
+| [1.2.0.1](engine-releases-1.2.0.1.md) | 1.2 | 0.1 | *active* | 2022-10-26 | 2026-12-04 | 1.3.0.0 | 
+| [1.2.0.0](engine-releases-1.2.0.0.md) | 1.2 | 0.0 | *active* | 2022-07-21 | 2026-12-04 | 1.3.0.0 | 
+| [1.1.1.0](engine-releases-1.1.1.0.md) | 1.1 | 1.0 | *active* | 2022-04-19 | 2026-12-04 | 1.2.1.0 | 
 | [1.1.0.0](engine-releases-1.1.0.0.md) | 1.1 | 0.0 | *deprecated* | 2021-11-19 | 2025-03-15 | 1.1.1.0 | 
 | [1.0.5.1](engine-releases-1.0.5.1.md) | 1.0 | 5.1 | *deprecated* | 2021-10-01 | 2023-01-30 | 1.1.0.0 | 
 | [1.0.5.0](engine-releases-1.0.5.0.md) | 1.0 | 5.0 | *deprecated* | 2021-07-27 | 2023-01-30 | 1.1.0.0 | 

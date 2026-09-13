@@ -129,17 +129,17 @@ schema {
 
 Now you can create and query data. Here is a snapshot of the AppSync **Queries** console used to test the new GraphQL API, named `TodoExampleAPI` in this case. In the middle window, the Explorer shows you a list of queries and mutations from which you can pick a query, the input parameters, and the return fields. This screenshot shows the the creation of a Todo node type using the `createNodeTodo` mutation:
 
-![Screenshot showing the AppSync Queries console creating a Todo node](http://docs.aws.amazon.com/neptune/latest/userguide/images/todoCreate.png)
+![Screenshot showing the AppSync Queries console creating a Todo node](https://docs.aws.amazon.com/neptune/latest/userguide/images/todoCreate.png)
 
 
 This screenshot shows querying all Todo nodes using the `getNodeTodos` query:
 
-![Screenshot showing the AppSync Queries console querying Todo nodes](http://docs.aws.amazon.com/neptune/latest/userguide/images/todoGetTodos.png)
+![Screenshot showing the AppSync Queries console querying Todo nodes](https://docs.aws.amazon.com/neptune/latest/userguide/images/todoGetTodos.png)
 
 
 After having created a Comment using `createNodeComment`, you can use the `connectNodeTodoToNodeCommentEdgeCommentEdge` mutation to connect them by specifying their ids. Here is a nested query to retrieve Todos and their attached comments:
 
-![Screenshot showing a nested query to retrieve Todos and their attached comments in the AppSync Queries console](http://docs.aws.amazon.com/neptune/latest/userguide/images/todoNestedQuery.png)
+![Screenshot showing a nested query to retrieve Todos and their attached comments in the AppSync Queries console](https://docs.aws.amazon.com/neptune/latest/userguide/images/todoNestedQuery.png)
 
 
 If you want to make changes to the `TodoExample.source.graphql` file as described in [Working with directives](tools-graphql-schema-with-directives.md), you can then use the edited schema as input and run the utility again. The utility will then modify the GraphQL API accordingly.

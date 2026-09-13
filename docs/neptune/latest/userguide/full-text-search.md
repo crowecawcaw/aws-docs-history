@@ -16,7 +16,7 @@ You can use Neptune with an existing OpenSearch Service cluster that has been po
 The Neptune to OpenSearch replication process described here does not replicate blank nodes. This is an important limitation to note.  
 Also, if you enable [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) on your OpenSearch cluster, you need to [enable IAM authentication](iam-auth-enable.md) in your Neptune database as well.
 
-![Neptune open search stream poller architecture layout.](http://docs.aws.amazon.com/neptune/latest/userguide/images/poller-architecture.PNG)
+![Neptune open search stream poller architecture layout.](https://docs.aws.amazon.com/neptune/latest/userguide/images/poller-architecture.PNG)
 
 
 **Topics**

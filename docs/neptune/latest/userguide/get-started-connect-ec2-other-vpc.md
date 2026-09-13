@@ -7,7 +7,7 @@ An Amazon Neptune DB cluster can *only* be created in an Amazon Virtual Private 
 
 When your DB cluster is in a different VPC from the EC2 instance you are using to access it, you can use [VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) to make the connection:
 
-![Diagram of accessing a Neptune cluster from a different VPC.](http://docs.aws.amazon.com/neptune/latest/userguide/images/VPC-connection-02.png)
+![Diagram of accessing a Neptune cluster from a different VPC.](https://docs.aws.amazon.com/neptune/latest/userguide/images/VPC-connection-02.png)
 
 
 A VPC peering connection is a networking connection between two VPCs that routes traffic between them privately, so that instances in either VPC can communicate as if they are within the same network. You can create a VPC peering connection between VPCs in your account, between a VPC in your AWS account and a VPC in another AWS account, or with a VPC in a different AWS Region.

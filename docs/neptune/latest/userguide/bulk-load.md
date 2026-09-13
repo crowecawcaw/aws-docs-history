@@ -9,7 +9,7 @@ The Neptune **Loader** command is faster, has less overhead, is optimized for la
 
 The following diagram shows an overview of the load process:
 
-![Diagram showing the basic steps involved in loading data into Neptune.](http://docs.aws.amazon.com/neptune/latest/userguide/images/load-diagram.png)
+![Diagram showing the basic steps involved in loading data into Neptune.](https://docs.aws.amazon.com/neptune/latest/userguide/images/load-diagram.png)
 
 
 Here are the steps of the loading process:

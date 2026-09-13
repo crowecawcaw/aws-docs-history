@@ -9,4 +9,4 @@ You can get started with low-coding fully interactive dashboards by simply confi
 
 To get started, visit [Graphistry in the AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-ppbjy2nny7xzk).
 
-![](http://docs.aws.amazon.com/neptune/latest/userguide/images/graphistry-visualization.gif)
+![](https://docs.aws.amazon.com/neptune/latest/userguide/images/graphistry-visualization.gif)

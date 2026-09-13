@@ -79,7 +79,7 @@ The following scenarios illustrate how the copy-on-write protocol works.
 
 Data in a source database is stored in pages. In the following diagram, the source database has four pages.
 
-![Neptune source database before DB cloning with 4 pages.](http://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-clone-1.png)
+![Neptune source database before DB cloning with 4 pages.](https://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-clone-1.png)
 
 
 ### Neptune Database After Cloning
@@ -87,7 +87,7 @@ Data in a source database is stored in pages. In the following diagram, the sour
 
 As shown in the following diagram, there are no changes in the source database after DB cloning. Both the source database and the clone database point to the same four pages. No pages have been physically copied, so no additional storage is required.
 
-![Neptune source database and clone database pointing to the same pages after DB cloning.](http://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-clone-2.png)
+![Neptune source database and clone database pointing to the same pages after DB cloning.](https://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-clone-2.png)
 
 
 ### When a Change Is Made to the Source Database
@@ -95,7 +95,7 @@ As shown in the following diagram, there are no changes in the source database a
 
 In the following example, the source database makes a change to the data in `Page 1`. Instead of writing to the original `Page 1`, it uses additional storage to create a new page, called `Page 1'`. The source database now points to the new `Page 1'`, and also to `Page 2`, `Page 3`, and `Page 4`. The clone database continues to point to `Page 1` through `Page 4`.
 
-![Neptune source database and clone database after the source database changes.](http://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-clone-3.png)
+![Neptune source database and clone database after the source database changes.](https://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-clone-3.png)
 
 
 ### When a Change Is Made to the Clone Database
@@ -103,7 +103,7 @@ In the following example, the source database makes a change to the data in `Pag
 
 In the following diagram, the clone database has also changed, this time in `Page 4`. Instead of writing to the original `Page 4`, additional storage is used to create a new page, called `Page 4'`. The source database continues to point to `Page 1'`, and also `Page 2` through `Page 4`, but the clone database now points to `Page 1` through `Page 3`, and also `Page 4'`.
 
-![Neptune source database and clone database, after the clone database changes.](http://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-clone-4.png)
+![Neptune source database and clone database, after the clone database changes.](https://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-clone-4.png)
 
 
 As shown in the second scenario, after DB cloning, there is no additional storage required at the point of clone creation. However, as changes occur in the source database and clone database, only the changed pages are created, as shown in the third and fourth scenarios. As more changes occur over time in both the source database and clone database, you need incrementally more storage to capture and store the changes. 

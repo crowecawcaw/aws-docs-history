@@ -33,7 +33,7 @@ TinkerPop 3.4.11 was enabled in Neptune [engine version 1.0.5.0](engine-releases
 
 When a Gremlin traversal is sent to Neptune, there are three main processes that transform the traversal into an underlying execution plan for the engine to execute. These are parsing, conversion, and optimization:
 
-![3 processes transform a Gremlin query into an execution plan.](http://docs.aws.amazon.com/neptune/latest/userguide/images/Gremlin_traversal_processing.png)
+![3 processes transform a Gremlin query into an execution plan.](https://docs.aws.amazon.com/neptune/latest/userguide/images/Gremlin_traversal_processing.png)
 
 
 ### The traversal parsing process
@@ -88,7 +88,7 @@ g.V().has('code','ANC')
 
 The resulting `explain` API output describes Neptune's execution plan for the traversal. As you can see in the image below, the plan includes each of the 3 steps in the processing pipeline:
 
-![Explain API output for a simple Gremlin traversal.](http://docs.aws.amazon.com/neptune/latest/userguide/images/Gremlin_explain_output_1.png)
+![Explain API output for a simple Gremlin traversal.](https://docs.aws.amazon.com/neptune/latest/userguide/images/Gremlin_explain_output_1.png)
 
 
 ### Tuning a traversal by looking at steps that are not converted
@@ -104,7 +104,7 @@ g.V().has('code','ANC').out().choose(hasLabel('airport'), values('code'), consta
 
 As you can see in the image below, Neptune could not convert the `choose()` step:
 
-![Explain API output in which not all steps can be converted.](http://docs.aws.amazon.com/neptune/latest/userguide/images/Gremlin_explain_output_2.png)
+![Explain API output in which not all steps can be converted.](https://docs.aws.amazon.com/neptune/latest/userguide/images/Gremlin_explain_output_2.png)
 
 
 There are several things you could do to tune the performance of the traversal. The first would be to rewrite it in such a way as to eliminate the step that could not be converted. Another would be to move the step to the end of the traversal so that all other steps can be converted to native ones.
@@ -283,7 +283,7 @@ g.V().has('code','ANC')
 
 The resulting `profile` API output contains both Neptune's execution plan for the traversal and statistics about the plan's execution, as you can see in this image:
 
-![An example of Neptune profile API output.](http://docs.aws.amazon.com/neptune/latest/userguide/images/Gremlin_profile_output_1.png)
+![An example of Neptune profile API output.](https://docs.aws.amazon.com/neptune/latest/userguide/images/Gremlin_profile_output_1.png)
 
 
 In `profile` output, the execution plan section only contains the final execution plan for the traversal, not the intermediate steps. The pipeline section contains the physical pipeline operations that were performed as well as the actual time (in milliseconds) that traversal execution took. The runtime metric is extremely helpful in comparing the times that two different versions of a traversal take as you are optimizing them.

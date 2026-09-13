@@ -17,7 +17,7 @@ When the export job leaves the pending state, you can check its status as follow
 
 1. Look for the job whose name matches the `jobName` returned by Neptune export when you started the export.
 
-![Screenshot of the AWS Batch console when checking for status](http://docs.aws.amazon.com/neptune/latest/userguide/images/batch-console-checking-export.png)
+![Screenshot of the AWS Batch console when checking for status](https://docs.aws.amazon.com/neptune/latest/userguide/images/batch-console-checking-export.png)
 
 
 If the job remains stuck in a `RUNNABLE` state, it may be because networking or security issues are preventing the container instance from joining the underlying Amazon Elastic Container Service (Amazon ECS) cluster. See the section about verifying network and security settings of the compute environment in [this support article](https://aws.amazon.com/premiumsupport/knowledge-center/batch-job-stuck-runnable-status/).
@@ -32,7 +32,7 @@ Another thing you can check is for problems with auto-scaling:
 
 1. Open the **Activity** tab and check the activity history for unsuccessful events.
 
-![Screenshot of the Amazon EC2 console when checking for Auto Scaling problems](http://docs.aws.amazon.com/neptune/latest/userguide/images/ec2-console-checking-auto-scaling.png)
+![Screenshot of the Amazon EC2 console when checking for Auto Scaling problems](https://docs.aws.amazon.com/neptune/latest/userguide/images/ec2-console-checking-auto-scaling.png)
 
 
 ## Neptune Export common errors

@@ -5,7 +5,7 @@
 
 One of the most common ways to connect to a Neptune database is from an Amazon EC2 instance in the same VPC as your Neptune DB cluster. For example, the EC2 instance might be running a web server that connects with the internet. In this case, only the EC2 instance has access to the Neptune DB cluster, and the internet only has access to the EC2 instance:
 
-![Diagram of accessing a Neptune cluster from an EC2 instance in the same VPC.](http://docs.aws.amazon.com/neptune/latest/userguide/images/VPC-connection-01.png)
+![Diagram of accessing a Neptune cluster from an EC2 instance in the same VPC.](https://docs.aws.amazon.com/neptune/latest/userguide/images/VPC-connection-01.png)
 
 
 To enable this configuration, you need to have the right VPC security groups and subnet groups set up. The web server is hosted in a public subnet, so that it can reach the public internet, and your Neptune cluster instance is hosted in a private subnet to keep it secure. See [Set up the Amazon VPC where your Amazon Neptune DB cluster is located](get-started-vpc.md).

@@ -107,7 +107,7 @@ Auto-cast data types are provided to load data types not currently supported nat
 
 The following diagram taken from the TinkerPop Modern Graph shows an example of two nodes and a relationship:
 
-![Diagram of two nodes and a relationship between them.](http://docs.aws.amazon.com/neptune/latest/userguide/images/tinkerpop-2-nodes-and-relationship.png)
+![Diagram of two nodes and a relationship between them.](https://docs.aws.amazon.com/neptune/latest/userguide/images/tinkerpop-2-nodes-and-relationship.png)
 
 
 The following is the graph in the normal Neptune openCypher load format.

@@ -144,4 +144,4 @@ You should now be connected.
 
 This brief video gives you some idea of how you can easily visualize your graph data using graph-explorer:
 
-![Graph-explorer text-only demo video](http://docs.aws.amazon.com/neptune/latest/userguide/images/graph-explorer.gif)
+![Graph-explorer text-only demo video](https://docs.aws.amazon.com/neptune/latest/userguide/images/graph-explorer.gif)

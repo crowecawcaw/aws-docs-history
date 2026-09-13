@@ -347,7 +347,7 @@ If you specify `-H "Accept: text/html"`, then `explain` generates an HTML table:
 
 The HTML renders in a browser something like the following:
 
-![Sample of SPARQL Explain HTML output.](http://docs.aws.amazon.com/neptune/latest/userguide/images/sparql-explain-dynamic-html-output.png)
+![Sample of SPARQL Explain HTML output.](https://docs.aws.amazon.com/neptune/latest/userguide/images/sparql-explain-dynamic-html-output.png)
 
 
 ## Example of SPARQL `explain` output when the DFE is enabled

@@ -60,9 +60,9 @@ g.V().
   +  The target Amazon S3 bucket must not be public. `Block public access` must be enabled. 
   +  The target Amazon S3 destination must be empty. 
   +  The target Amazon S3 bucket must have a lifecycle rule on `Delete expired object delete markers or incomplete multipart uploads` with `Delete incomplete multipart uploads`. See [ Amazon S3 lifecycle management update - support for multipart uploads and delete markers](https://aws.amazon.com/blogs/aws/s3-lifecycle-management-update-support-for-multipart-uploads-and-delete-markers/) for more information.   
-![An image showing the lifecycle rule actions.](http://docs.aws.amazon.com/neptune/latest/userguide/images/lifecycleRuleActions.png)
+![An image showing the lifecycle rule actions.](https://docs.aws.amazon.com/neptune/latest/userguide/images/lifecycleRuleActions.png)
   +  The target Amazon S3 bucket must have the a lifecycle rule on `Delete expired object delete markers or incomplete multipart uploads` with `Delete incomplete multipart uploads` set to a value higher than query evaluation will take (e.g., 7 days). This is required for deleting incomplete uploads (which are not directly visible but would incur costs) in case they cannot be completed or aborted by Neptune (e.g., due to instance/engine failures). See [ Amazon S3 lifecycle management update - support for multipart uploads and delete markers](https://aws.amazon.com/blogs/aws/s3-lifecycle-management-update-support-for-multipart-uploads-and-delete-markers/) for more information.   
-![An image showing the lifecycle rule actions, and the delete expired object delete markers.](http://docs.aws.amazon.com/neptune/latest/userguide/images/lifecycleRuleActionsDelete.png)
+![An image showing the lifecycle rule actions, and the delete expired object delete markers.](https://docs.aws.amazon.com/neptune/latest/userguide/images/lifecycleRuleActionsDelete.png)
 
 **Important considerations**
 +  The export step must be the last step in your Gremlin query. 

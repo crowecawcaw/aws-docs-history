@@ -41,7 +41,7 @@
 
 1.  In the **Pending Maintenance** section, find the operating system update. 
 
-![An image showing the AWS Management Console Maintenance section, and an available OS update.](http://docs.aws.amazon.com/neptune/latest/userguide/images/consoleForOSUpgrades.png)
+![An image showing the AWS Management Console Maintenance section, and an available OS update.](https://docs.aws.amazon.com/neptune/latest/userguide/images/consoleForOSUpgrades.png)
 
 
  You can select the operating system update and click **Apply now** or **Apply at next maintenance window** in the **Pending Maintenance** section. If the maintenance value is **next window**, defer the maintenance items by choosing **Defer upgrade**. You can't defer a maintenance action if it has already started. 

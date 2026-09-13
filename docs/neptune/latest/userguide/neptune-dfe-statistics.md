@@ -410,7 +410,7 @@ The `StatsNumStatementsScanned` CloudWatch metric returns the total number of st
 
 Every time statistics computation is triggered, this number increases, and when no computation is happening, it remains constant. Looking at a plot of `StatsNumStatementsScanned` values over time therefore gives you a pretty clear picture of when statistics computation was happening and how fast:
 
-![Graph of StatsNumStatementsScanned metric values](http://docs.aws.amazon.com/neptune/latest/userguide/images/StatsNumStatementsScanned-graph.png)
+![Graph of StatsNumStatementsScanned metric values](https://docs.aws.amazon.com/neptune/latest/userguide/images/StatsNumStatementsScanned-graph.png)
 
 
 When computation is happening, the slope of the graph shows you how fast (the steeper the slope, the faster statistics are being computed).

@@ -9,7 +9,7 @@ Neptune provides a Blue/Green deployment solution that you can run using an Clou
 
 The Neptune Blue/Green solution goes through two phases, as illustrated in this diagram:
 
-![High-level flow diagram of the blue-green deployment strategy](http://docs.aws.amazon.com/neptune/latest/userguide/images/BG-flow.png)
+![High-level flow diagram of the blue-green deployment strategy](https://docs.aws.amazon.com/neptune/latest/userguide/images/BG-flow.png)
 
 
 **Phase 1 creates a Green DB cluster identical to your production cluster**

@@ -12,7 +12,7 @@ As described in [Neptune ML capabilities](machine-learning.md#machine-learning-c
 
 We can illustrate these different tasks with examples that use the [MovieLens 100k dataset](https://grouplens.org/datasets/movielens/100k/) provided by [GroupLens Research](https://grouplens.org/datasets/movielens/). This dataset consists of movies, users, and ratings of the movies by the users, from which we've created a property graph like this: 
 
-![Sample movie property graph using the MovieLens 100k dataset](http://docs.aws.amazon.com/neptune/latest/userguide/images/movie_property_graph_example.png)
+![Sample movie property graph using the MovieLens 100k dataset](https://docs.aws.amazon.com/neptune/latest/userguide/images/movie_property_graph_example.png)
 
 
 **Node classification**: In the dataset above, `Genre` is a vertex type which is connected to vertex type `Movie` by edge `included_in`. However, if we tweak the dataset to make `Genre` a [categorical](https://en.wikipedia.org/wiki/Categorical_variable) feature for vertex type `Movie`, then the problem of inferring `Genre` for new movies added to our knowledge graph can be solved using node classification models.

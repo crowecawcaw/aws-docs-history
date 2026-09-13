@@ -43,4 +43,4 @@ See pricing and subscription options on [AWS Marketplace](https://aws.amazon.com
 
 Here is a visualization from Linkurious Enterprise:
 
-![Linkurious Enterprise graph visualization showing connected data exploration.](http://docs.aws.amazon.com/neptune/latest/userguide/images/linkurious-visualization.png)
+![Linkurious Enterprise graph visualization showing connected data exploration.](https://docs.aws.amazon.com/neptune/latest/userguide/images/linkurious-visualization.png)

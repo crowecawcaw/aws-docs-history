@@ -13,7 +13,7 @@ Neptune uses the same native storage for the change-log stream as for graph data
 
 The following diagram shows how change-log data can be retrieved from Neptune Streams.
 
-![Diagram showing how change-log data can be retrieved from both writer instances and read-replicas.](http://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-streams.png)
+![Diagram showing how change-log data can be retrieved from both writer instances and read-replicas.](https://docs.aws.amazon.com/neptune/latest/userguide/images/neptune-streams.png)
 
 
 **Neptune streams guarantees**

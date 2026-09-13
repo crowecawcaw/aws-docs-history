@@ -8,6 +8,20 @@ You can delete an Amazon Neptune DB instance in any state and at any time, as lo
 **Warning**  
  If you delete the last remaining instance in a cluster using the **web console**, it will also delete the underlying cluster storage volume. 
 
+## How deletion protection affects DB instance deletion
+<a name="manage-console-instances-deletion-protection"></a>
+
+Deletion protection is a *cluster-level* setting. When it is enabled, it prevents the DB cluster, along with its storage volume and data, from being deleted. You set deletion protection on the DB cluster, not on an individual DB instance.
+
+The effect of cluster deletion protection on the deletion of an individual DB instance depends on the method that you use:
++ **AWS Management Console**   –   While deletion protection is enabled on the cluster, you cannot delete the DB instances in that cluster. The console blocks the deletion.
++ **API, SDK, or AWS CLI**   –   You can still delete individual DB instances, including the last (primary) instance, while cluster deletion protection is enabled. Neptune blocks only the `DeleteDBCluster` operation, which fails until you disable deletion protection. If you remove the last instance by using the API, an SDK, or the AWS CLI, the cluster remains with no instances. Its storage volume and data are retained until you disable deletion protection and explicitly delete the cluster.
+
+**Note**  
+Deletion protection is not a way to enforce a minimum number of read replicas. Read-replica auto-scaling removes readers through the Neptune API, so cluster deletion protection does not prevent a scale-in activity from removing a read replica. The `min-capacity` of your scaling policy determines the minimum number of readers that auto-scaling maintains. For more information, see [Auto-scaling the number of replicas in an Amazon Neptune DB cluster](manage-console-autoscaling.md).
+
+To delete a DB cluster that has deletion protection enabled, first disable deletion protection on the cluster. Enabling or disabling deletion protection does not cause an outage. When you create a DB cluster in the AWS Management Console, deletion protection is enabled by default. When you create a DB cluster with the AWS CLI or the API, it is disabled by default.
+
 ## Taking a Final Snapshot of Your DB Instance Before Deleting It
 <a name="manage-console-instances-final-snapshot"></a>
 

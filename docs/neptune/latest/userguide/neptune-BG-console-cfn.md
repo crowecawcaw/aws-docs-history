@@ -10,7 +10,7 @@ You can use these links to review the solution template, or select the **Launch 
 
 |  |  |  | 
 | --- |--- |--- |
-| [View](https://aws-neptune-customer-samples-us-east-1.s3.amazonaws.com/neptune-bg/bg.yaml) | [View in Designer](https://console.aws.amazon.com/cloudformation/designer/home?templateURL=https://aws-neptune-customer-samples-us-east-1.s3.amazonaws.com/neptune-bg/bg.yaml) | [![Orange button labeled "Launch Stack" with an arrow icon.](http://docs.aws.amazon.com/neptune/latest/userguide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=NeptuneBG&templateURL=https://aws-neptune-customer-samples-us-east-1.s3.amazonaws.com/neptune-bg/bg.yaml)  | 
+| [View](https://aws-neptune-customer-samples-us-east-1.s3.amazonaws.com/neptune-bg/bg.yaml) | [View in Designer](https://console.aws.amazon.com/cloudformation/designer/home?templateURL=https://aws-neptune-customer-samples-us-east-1.s3.amazonaws.com/neptune-bg/bg.yaml) | [![Orange button labeled "Launch Stack" with an arrow icon.](https://docs.aws.amazon.com/neptune/latest/userguide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=NeptuneBG&templateURL=https://aws-neptune-customer-samples-us-east-1.s3.amazonaws.com/neptune-bg/bg.yaml)  | 
 
 In the console, choose the AWS region where you want to run the solution from the dropdown at the upper right of the window.
 

@@ -37,7 +37,7 @@ SELECT * WHERE {
 
 This flow is shown in the following diagram.
 
-![Flow diagram showing SPARQL federated query patterns being evaluated and responses sent back to client.](http://docs.aws.amazon.com/neptune/latest/userguide/images/federated.png)
+![Flow diagram showing SPARQL federated query patterns being evaluated and responses sent back to client.](https://docs.aws.amazon.com/neptune/latest/userguide/images/federated.png)
 
 
 **Note**  
