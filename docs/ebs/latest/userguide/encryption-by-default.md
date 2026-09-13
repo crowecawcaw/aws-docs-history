@@ -164,3 +164,47 @@ Use the [Disable-EC2EbsEncryptionByDefault](https://docs.aws.amazon.com/powershe
 ------
 
 You can't change the KMS key that is associated with an existing snapshot or encrypted volume. However, you can associate a different KMS key during a snapshot copy operation so that the resulting copied snapshot is encrypted by the new KMS key.
+
+## Default encryption key
+<a name="ebs-default-encryption-key"></a>
+
+Amazon EBS automatically creates a unique AWS managed key in each Region where you create Amazon EBS resources. The alias for this KMS key is `aws/ebs`. This is your default encryption key. You can change the default encryption key to a customer managed key.
+
+To change the default encryption key for a Region, use one of the following methods.
+
+------
+#### [ Console ]
+
+**To change the default encryption key for a Region**
+
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+1. From the navigation bar, select the Region.
+
+1. From the navigation pane, select **Settings**, and then select the **Data protection and security** tab.
+
+1. In the **EBS encryption** section, choose **Manage**.
+
+1. For **Default encryption key**, select the KMS key ID that you want to use.
+
+1. Choose **Update EBS encryption**.
+
+------
+#### [ AWS CLI ]
+
+Use the [modify-ebs-default-kms-key-id](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-ebs-default-kms-key-id.html) command.
+
+```
+aws ec2 modify-ebs-default-kms-key-id --kms-key-id {{key-id}} --region {{region}}
+```
+
+------
+#### [ PowerShell ]
+
+Use the [Edit-EC2EbsDefaultKmsKeyId](https://docs.aws.amazon.com/powershell/latest/reference/items/Edit-EC2EbsDefaultKmsKeyId.html) cmdlet.
+
+```
+Edit-EC2EbsDefaultKmsKeyId -KmsKeyId {{key-id}} -Region {{region}}
+```
+
+------

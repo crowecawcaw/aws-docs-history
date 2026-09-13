@@ -41,7 +41,7 @@ When attached to [ Nitro-based instances](https://docs.aws.amazon.com/ec2/latest
 You can achieve up to 256,000 IOPS with [ Nitro-based instances](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve up to 32,000 IOPS.
 + Volume throughput up to 4,000 MiB/s. Throughput scales proportionally at a rate of 0.256 MiB/s per provisioned IOPS. Maximum throughput can be achieved at 16,000 IOPS or higher.
 
-![Throughput limits for io2 Block Express volumes](http://docs.aws.amazon.com/ebs/latest/userguide/images/io2_bx.png)
+![Throughput limits for io2 Block Express volumes](https://docs.aws.amazon.com/ebs/latest/userguide/images/io2_bx.png)
 
 
 ## Provisioned IOPS SSD (`io1`) volumes
@@ -64,7 +64,7 @@ The maximum IOPS can be provisioned for volumes that are 1,280 GiB or larger (50
 
 . The following graph illustrates these performance characteristics:
 
-![Throughput limits for io1 volumes](http://docs.aws.amazon.com/ebs/latest/userguide/images/io1_throughput.png)
+![Throughput limits for io1 volumes](https://docs.aws.amazon.com/ebs/latest/userguide/images/io1_throughput.png)
 
 
 Your per-I/O latency experience depends on the provisioned IOPS and on your workload profile. For the best I/O latency experience, make sure that you provision IOPS to meet the I/O profile of your workload.

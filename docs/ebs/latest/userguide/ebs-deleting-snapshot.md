@@ -42,7 +42,7 @@ In the following diagram, Volume 1 is shown at three points in time. A snapshot 
 
 **Deleting a snapshot with some of its data referenced by another snapshot**
 
-![Snap A contains 6 GiB of referenced data. When Snap A is deleted, that data is merged into Snap B.](http://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot_1b.png)
+![Snap A contains 6 GiB of referenced data. When Snap A is deleted, that data is merged into Snap B.](https://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot_1b.png)
 
 
 ## Delete a snapshot

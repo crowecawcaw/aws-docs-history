@@ -7,7 +7,7 @@ The lifecycle of an Amazon EBS snapshot starts with the creation process. You cr
 
 The following image shows actions that you can perform on your snapshots as part of the snapshot lifecycle.
 
-![Snapshot lifecycle](http://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot-lifecycle.png)
+![Snapshot lifecycle](https://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot-lifecycle.png)
 
 
 **Topics**

@@ -15,7 +15,7 @@ Repeat these steps to create a new, incremental snapshot using the previously cr
 
 For example, in the following diagram, snapshot A is the first new snapshot started. Snapshot A is used as the parent snapshot to start snapshot B. Snapshot B is used as the parent snapshot to start and create snapshot C. Snapshots A, B, and C are incremental snapshots. Snapshot A is used to create EBS volume 1. Snapshot D is created from EBS volume 1. Snapshot D is an incremental snapshot of A; it is not an incremental snapshot of B or C.
 
-![EBS direct APIs used to create incremental snapshots.](http://docs.aws.amazon.com/ebs/latest/userguide/images/ebs-apis-write.png)
+![EBS direct APIs used to create incremental snapshots.](https://docs.aws.amazon.com/ebs/latest/userguide/images/ebs-apis-write.png)
 
 
 The following examples show how to write snapshots using the EBS direct APIs.

@@ -237,7 +237,7 @@ Use one of the following methods to extend the file system on a Windows instance
 1. Log in to your Windows instance using Remote Desktop.
 
 1. In the **Run** dialog, enter **diskmgmt.msc** and press Enter. The Disk Management utility opens.  
-![Windows Server Disk Management Utility](http://docs.aws.amazon.com/ebs/latest/userguide/images/Expand-Volume-Win2008-before.png)
+![Windows Server Disk Management Utility](https://docs.aws.amazon.com/ebs/latest/userguide/images/Expand-Volume-Win2008-before.png)
 
 1. On the **Disk Management** menu, choose **Action**, **Rescan Disks**.
 
@@ -246,10 +246,10 @@ Use one of the following methods to extend the file system on a Windows instance
 **Extend Volume** might be disabled (grayed out) if:  
 The unallocated space is not adjacent to the drive. The unallocated space must be adjacent to the right side of the drive you want to extend.
 The volume uses the Master Boot Record (MBR) partition style and it is already 2TB in size. Volumes that use MBR cannot exceed 2TB in size.  
-![Windows Server Disk Management Utility](http://docs.aws.amazon.com/ebs/latest/userguide/images/Expand-Volume-Win2008-before-menu.png)
+![Windows Server Disk Management Utility](https://docs.aws.amazon.com/ebs/latest/userguide/images/Expand-Volume-Win2008-before-menu.png)
 
 1. In the **Extend Volume** wizard, choose **Next**. For **Select the amount of space in MB**, enter the number of megabytes by which to extend the volume. Generally, you specify the maximum available space. The highlighted text under **Selected** is the amount of space that is added, not the final size the volume will have. Complete the wizard.  
-![Windows Server Extend Volume Wizard](http://docs.aws.amazon.com/ebs/latest/userguide/images/Extend-Volume-Wizard-Win2008.png)
+![Windows Server Extend Volume Wizard](https://docs.aws.amazon.com/ebs/latest/userguide/images/Extend-Volume-Wizard-Win2008.png)
 
 1. If you increase the size of an NVMe volume on an instance that does not have the AWS NVMe driver, you must reboot the instance to enable Windows to see the new volume size. For more information about installing the AWS NVMe driver, see [AWS NVMe drivers](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/aws-nvme-drivers.html).
 
@@ -293,9 +293,9 @@ Use the following procedure to extend a Windows file system using PowerShell.
    ```
 
    The following PowerShell commands show the complete command and response flow for extending a file system to a specific size.  
-![Extend a partition using PowerShell - specific](http://docs.aws.amazon.com/ebs/latest/userguide/images/ebs-extend-powershell-v3-specific.png)
+![Extend a partition using PowerShell - specific](https://docs.aws.amazon.com/ebs/latest/userguide/images/ebs-extend-powershell-v3-specific.png)
 
    The following PowerShell commands show the complete command and response flow for extending a file system to the maximum available size.  
-![Extend a partition using PowerShell - max](http://docs.aws.amazon.com/ebs/latest/userguide/images/ebs-extend-powershell-v3-max.png)
+![Extend a partition using PowerShell - max](https://docs.aws.amazon.com/ebs/latest/userguide/images/ebs-extend-powershell-v3-max.png)
 
 ------

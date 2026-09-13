@@ -18,7 +18,7 @@ When you have only one snapshot of a volume, the snapshot is always the same siz
 
 Archiving these snapshots can help you save with lower storage costs. If you no longer need the source volume, you can delete the volume for further storage cost savings.
 
-![Creating a snapshot, archiving it, and then deleting the source volume.](http://docs.aws.amazon.com/ebs/latest/userguide/images/archive-single-snap.png)
+![Creating a snapshot, archiving it, and then deleting the source volume.](https://docs.aws.amazon.com/ebs/latest/userguide/images/archive-single-snap.png)
 
 
 ## Archiving incremental snapshots of a single volume
@@ -26,7 +26,7 @@ Archiving these snapshots can help you save with lower storage costs. If you no 
 
 When you archive an incremental snapshot, the snapshot is converted to a full snapshot and it is moved to the archive tier. For example, in the following image, if you archive **Snap B**, the snapshot is converted to a full snapshot that is 10 GiB in size and moved to the archive tier. Similarly, if you archive **Snap C**, the size of the full snapshot in the archive tier is 14 GiB.
 
-![Archiving incremental snapshots of a volume.](http://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot_1e.png)
+![Archiving incremental snapshots of a volume.](https://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot_1e.png)
 
 
 If you are archiving snapshots to reduce your storage costs in the standard tier, you should not archive the first snapshot in a set of incremental snapshots. These snapshots are referenced by subsequent snapshots in the snapshot lineage. In most cases, archiving these snapshots will not reduce storage costs.

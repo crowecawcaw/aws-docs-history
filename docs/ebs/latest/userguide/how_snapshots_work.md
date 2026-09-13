@@ -24,7 +24,7 @@ The diagram in this section shows Volume 1, which is `15 GiB` in size, at three 
 + In **State 3**, `2 GiB` of data have been added to the volume, for a total of `12 GiB`, after **Snap B** was taken. **Snap C** is an incremental snapshot. It needs to back up only the `2 GiB` that were added after **Snap B** was taken. As shown by the dashed arrows, **Snap C** also references the `4 GiB` of data stored in **Snap B**, and the `6 GiB` of data stored in **Snap A**.
 + The total storage required for the three snapshots is `16 GiB` total. This accounts for 10 GiB for Snap A, 4 GiB for Snap B, and 2 GiB for Snap C.
 
-![Snapshots capturing an initial volume state and two subsequent states after data has been changed.](http://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot_1a.png)
+![Snapshots capturing an initial volume state and two subsequent states after data has been changed.](https://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot_1a.png)
 
 
  **Incremental snapshots of different volumes** 
@@ -44,7 +44,7 @@ The diagram in this section shows how incremental snapshots can be taken from di
 **Important**  
 The diagram assumes that you own **Vol 1** and **Snap A**, and that **Vol 2** is encrypted with the same KMS key as Vol 1. If **Vol 1** was owned by another AWS account and that account took **Snap A** and shared it with you, then **Snap B** would be a full snapshot. Or, if **Vol 2** was encrypted with a different KMS key than **Vol 1**, then **Snap B** would be a full snapshot.
 
-![Snapshots capturing an initial volume state and two subsequent states after data has been changed.](http://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot_1c.png)
+![Snapshots capturing an initial volume state and two subsequent states after data has been changed.](https://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot_1c.png)
 
 
 For more information about how data is managed when you delete a snapshot, see [Delete an Amazon EBS snapshot](ebs-deleting-snapshot.md).

@@ -89,7 +89,7 @@ An Amazon EBS snapshot transitions through different states from the moment it i
 
 The following illustration shows the transitions between snapshot states. When you create a snapshot, it enters the `pending` state. After the snapshot is ready for use, it enters the `completed` state. When you've decided that you no longer need a snapshot, you can delete it. If you delete a snapshot that matches a Recycle Bin retention rule, it is retained in the Recycle Bin and it enters the `recoverable` state. If you recover a snapshot from the Recycle Bin, it enters the `recovering` state and then the `completed` state. Otherwise, it is permanently deleted.
 
-![Snapshot with allocated blocks](http://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot-statuses.png)
+![Snapshot with allocated blocks](https://docs.aws.amazon.com/ebs/latest/userguide/images/snapshot-statuses.png)
 
 
 The following table summarizes the snapshot states.

@@ -41,7 +41,7 @@ Yes, you can copy snapshots from a Region to a Local Zone in the same Region, fr
 You can use Local snapshots in Local Zones to create Amazon EBS volumes in the same Local Zone only. 
 
 **8. How are Local snapshots in Local Zones encrypted?**  
-Local snapshots can be unencrypted or encrypted by default. When encrypted by default, Local snapshots are encrypted using the same AWS KMS key as the source Amazon EBS volume. When you create a volume from a Local snapshot, you can't re-encrypt the volume using a different KMS key. Volumes created from Local snapshots must be encrypted using the same AWS KMS key as the source snapshot.
+See [Amazon EBS encryption in Local Zones, Outposts, and Wavelength Zones](ebs-encryption-local-zones-outposts-wavelength.md) for Local Zone-specific encryption behavior. In Local Zones where Amazon EBS resources are encrypted by default, volumes created from local snapshots are always encrypted using the same AWS KMS key as the snapshot. However, you can change the encryption key when you copy a local snapshot.
 
 **9. Can I create EBS-backed AMIs using Local snapshots in Local Zones?**  
 Yes, you can use Local snapshots in Local Zones when creating EBS-backed AMIs by specifying the snapshot destination as Local Zones. For more information, see [ Create an Amazon EBS-backed AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot).

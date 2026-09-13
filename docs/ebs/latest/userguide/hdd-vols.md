@@ -42,7 +42,7 @@ Like `gp2`, `st1` uses a burst bucket model for performance. Volume size determi
 
 The following diagram shows the burst bucket behavior for `st1`.
 
-![st1 burst bucket](http://docs.aws.amazon.com/ebs/latest/userguide/images/st1-burst-bucket.png)
+![st1 burst bucket](https://docs.aws.amazon.com/ebs/latest/userguide/images/st1-burst-bucket.png)
 
 
 Subject to throughput and throughput-credit caps, the available throughput of an `st1` volume is expressed by the following formula:
@@ -98,7 +98,7 @@ The following table states the full range of base and burst throughput values fo
 
 The following diagram plots the table values:
 
-![Comparing st1 base and burst throughput](http://docs.aws.amazon.com/ebs/latest/userguide/images/st1_base_v_burst.png)
+![Comparing st1 base and burst throughput](https://docs.aws.amazon.com/ebs/latest/userguide/images/st1_base_v_burst.png)
 
 
 **Note**  
@@ -123,7 +123,7 @@ Cold HDD (`sc1`) volumes attached to EBS-optimized instances are designed to off
 
 Like `gp2`, `sc1` uses a burst bucket model for performance. Volume size determines the baseline throughput of your volume, which is the rate at which the volume accumulates throughput credits. Volume size also determines the burst throughput of your volume, which is the rate at which you can spend credits when they are available. Larger volumes have higher baseline and burst throughput. The more credits your volume has, the longer it can drive I/O at the burst level.
 
-![sc1 burst bucket](http://docs.aws.amazon.com/ebs/latest/userguide/images/sc1-burst-bucket.png)
+![sc1 burst bucket](https://docs.aws.amazon.com/ebs/latest/userguide/images/sc1-burst-bucket.png)
 
 
 Subject to throughput and throughput-credit caps, the available throughput of an `sc1` volume is expressed by the following formula:
@@ -179,7 +179,7 @@ The following table states the full range of base and burst throughput values fo
 
 The following diagram plots the table values:
 
-![Comparing sc1 base and burst throughput](http://docs.aws.amazon.com/ebs/latest/userguide/images/sc1_base_v_burst.png)
+![Comparing sc1 base and burst throughput](https://docs.aws.amazon.com/ebs/latest/userguide/images/sc1_base_v_burst.png)
 
 
 **Note**  

@@ -67,8 +67,7 @@ To store snapshots on an Outpost, you must have an Outpost that is provisioned w
 Keep the following in mind when working with local snapshots.
 + The Outpost must have connectivity to their AWS Region to use local snapshots.
 + Snapshot metadata is stored in the AWS Region associated with the Outpost. This does not include any snapshot data.
-+ Snapshots stored on an Outpost are encrypted by default. Unencrypted snapshots are not supported. Snapshots that are created on an Outpost and snapshots that are copied to an Outpost are encrypted using the default KMS key for the Region or a different KMS key that you specify at the time of the request.
-+ When you create a volume on an Outpost from a local snapshot, you cannot re-encrypt the volume using a different KMS key. Volumes created from local snapshots must be encrypted using the same KMS key as the source snapshot.
++ Snapshots stored on an Outpost are encrypted by default. Unencrypted snapshots are not supported. When you create a volume on an Outpost from a local snapshot, the volume is encrypted using the same KMS key as the source snapshot. However, you can change the encryption key when you copy a local snapshot.
 + After you delete local snapshots from an Outpost, the Amazon S3 storage capacity used by the deleted snapshots becomes available within 72 hours. For more information, see [Delete local snapshots](#delete-snapshots).
 + You can't export local snapshots from an Outpost.
 + You can't enable fast snapshot restore for local snapshots.

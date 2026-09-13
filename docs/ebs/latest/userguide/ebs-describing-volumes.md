@@ -171,7 +171,7 @@ An Amazon EBS volume transitions through different states from the moment it is 
 
 The following illustration shows the transitions between volume states. You can create a volume from an Amazon EBS snapshot or create an empty volume. When you create a volume, it enters the `creating` state. After the volume is ready for use, it enters the `available` state. You can attach an available volume to an instance in the same Availability Zone as the volume. You must detach the volume before you can attach it to a different instance or delete it. You can delete a volume when you no longer need it.
 
-![The lifecycle of an EBS volume.](http://docs.aws.amazon.com/ebs/latest/userguide/images/volume-states.png)
+![The lifecycle of an EBS volume.](https://docs.aws.amazon.com/ebs/latest/userguide/images/volume-states.png)
 
 
 The following table summarizes the volume states.

@@ -7,11 +7,12 @@ The lifecycle of an Amazon EBS volume starts with the creation process. You can 
 
 The following image shows actions that you can perform on your volumes as part of the volume lifecycle. There are also tasks that you perform by connecting to the instance and running an operating system command. For example, formatting the volume, mounting the volume, managing partitions, and viewing the free disk space.
 
-![The lifecycle of an EBS volume.](http://docs.aws.amazon.com/ebs/latest/userguide/images/volume-lifecycle.png)
+![The lifecycle of an EBS volume.](https://docs.aws.amazon.com/ebs/latest/userguide/images/volume-lifecycle.png)
 
 
 **Topics**
 + [Create a volume](ebs-creating-volume.md)
++ [Share a volume](share-volume.md)
 + [Copy a volume](ebs-copying-volume.md)
 + [Attach a volume to an instance](ebs-attaching-volume.md)
 + [Attach a volume to multiple instances](ebs-volumes-multi.md)

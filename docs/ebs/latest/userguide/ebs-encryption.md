@@ -11,6 +11,7 @@ You can attach both encrypted and unencrypted volumes to an instance simultaneou
 
 **Topics**
 + [How Amazon EBS encryption works](how-ebs-encryption-works.md)
++ [Amazon EBS encryption in Local Zones, Outposts, and Wavelength Zones](ebs-encryption-local-zones-outposts-wavelength.md)
 + [Requirements for Amazon EBS encryption](ebs-encryption-requirements.md)
 + [Enable Amazon EBS encryption by default](encryption-by-default.md)
 + [Encrypt EBS resources](#encryption-parameters)

@@ -284,7 +284,7 @@ If you're mounting a volume that already has data on it, do not reformat the vol
 In Windows Server 2008, choose **Start**, **Administrative Tools**, **Computer Management**, **Disk Management**.
 
 1. Bring the volume online. In the lower pane, open the context (right-click) menu for the left panel for the disk for the EBS volume. Choose **Online**.  
-![Bring the volume online.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-volume-online.png)
+![Bring the volume online.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-volume-online.png)
 
 1. (Conditional) If the disk is not initialized, you must initialize it before you can use it. If the disk is already initialized, skip this step.
 **Warning**  
@@ -293,27 +293,27 @@ If you're mounting a volume that already has data on it (for example, a public d
    If the disk is not initialized, initialize it as follows:
 
    1. Open the context (right-click) menu for the left panel for the disk, and choose **Initialize Disk**.  
-![Initialize the volume.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-volume-initialize.png)
+![Initialize the volume.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-volume-initialize.png)
 
    1. In the **Initialize Disk** dialog box, select a partition style, and choose **OK**.  
-![Initialize volume settings.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-volume-initialize-settings.png)
+![Initialize volume settings.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-volume-initialize-settings.png)
 
 1. Open the context (right-click) menu for the right panel for the disk, and choose **New Simple Volume**.  
-![Mount a simple volume.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume.png)
+![Mount a simple volume.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume.png)
 
 1. In the **New Simple Volume Wizard**, choose **Next**.  
-![Begin the New Simple Volume Wizard.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-welcome.png)
+![Begin the New Simple Volume Wizard.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-welcome.png)
 
 1. If you want to change the default maximum value, specify the **Simple volume size in MB**, and then choose **Next.**  
-![Specify the volume size.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-size.png)
+![Specify the volume size.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-size.png)
 
 1. Specify a preferred drive letter, if necessary, within the **Assign the following drive letter** dropdown, and then choose **Next.**  
-![Specify a drive letter.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-letter.png)
+![Specify a drive letter.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-letter.png)
 
 1. Specify a **Volume Label** and adjust the default settings as necessary, and then choose **Next.**  
-![Specify settings to format the volume.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-format.png)
+![Specify settings to format the volume.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-format.png)
 
 1. Review your settings, and then choose **Finish** to apply the modifications and close the New Simple Volume wizard.  
-![Review your settings and finish the wizard.](http://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-finish.png)
+![Review your settings and finish the wizard.](https://docs.aws.amazon.com/ebs/latest/userguide/images/windows-2016-new-simple-volume-wizard-finish.png)
 
 ------

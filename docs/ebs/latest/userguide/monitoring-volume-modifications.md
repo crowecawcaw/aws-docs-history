@@ -27,7 +27,7 @@ The possible modification states are `modifying`, `optimizing`, and `completed`.
 1. Select the volume.
 
 1. The **Volume state** column and the **Volume state** field in the **Details** tab contain information in the following format: {{Volume state}} - {{Modification state}} ({{Modification progress}}%). The following image shows the volume and volume modification states.  
-![Volume and volume modification states](http://docs.aws.amazon.com/ebs/latest/userguide/images/volume_state.png)
+![Volume and volume modification states](https://docs.aws.amazon.com/ebs/latest/userguide/images/volume_state.png)
 
    After the modification completes, only the volume state is displayed. The modification state and progress are no longer displayed.
 

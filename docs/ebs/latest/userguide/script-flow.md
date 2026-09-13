@@ -5,7 +5,7 @@
 
 The following image shows the process flow for pre and post scripts when using custom SSM documents. This does not apply to VSS Backups.
 
-![Amazon Data Lifecycle Manager pre and post script process flow](http://docs.aws.amazon.com/ebs/latest/userguide/images/dlm-scripts.png)
+![Amazon Data Lifecycle Manager pre and post script process flow](https://docs.aws.amazon.com/ebs/latest/userguide/images/dlm-scripts.png)
 
 
 At the scheduled snapshot creation time, the following actions and cross-service interactions occur.
