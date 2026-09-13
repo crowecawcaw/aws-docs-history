@@ -10,7 +10,7 @@ This architecture shows how to build global dual stack Amazon VPC connectivity w
 ## Dual Stack Amazon VPC Connectivity with AWS Transit Gateway architecture
 <a name="ipv6-13-diagram1"></a>
 
-![Architecture diagram showing dual stack connectivity with aws transit gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-13.png)
+![Architecture diagram showing dual stack connectivity with aws transit gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-13.png)
 
 
 The following numbered items describe the key components in this architecture:

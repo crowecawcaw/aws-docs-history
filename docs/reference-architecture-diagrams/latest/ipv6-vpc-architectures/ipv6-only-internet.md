@@ -10,7 +10,7 @@ This architecture shows how to enable IPv6 internet connectivity for your IPv6-o
 ## Internet connectivity for IPv6-only subnets architecture
 <a name="ipv6-3-diagram1"></a>
 
-![Architecture diagram showing IPv6 internet connectivity for IPv6-only subnets using internet gateway and egress-only internet gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-3.png)
+![Architecture diagram showing IPv6 internet connectivity for IPv6-only subnets using internet gateway and egress-only internet gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-3.png)
 
 
 The following numbered items describe the key components in this architecture:

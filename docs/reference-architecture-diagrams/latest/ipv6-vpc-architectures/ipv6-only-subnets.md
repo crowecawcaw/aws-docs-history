@@ -10,7 +10,7 @@ This architecture shows how to integrate IPv6-only subnets in your dual stack Am
 ## IPv6-only subnets in a dual stack Amazon Amazon VPC architecture
 <a name="ipv6-2-diagram1"></a>
 
-![Architecture diagram showing IPv6-only subnets coexisting with IPv4-only and dual stack subnets in an Amazon VPC.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-2.png)
+![Architecture diagram showing IPv6-only subnets coexisting with IPv4-only and dual stack subnets in an Amazon VPC.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-2.png)
 
 
 The following numbered items describe the key components in this architecture:

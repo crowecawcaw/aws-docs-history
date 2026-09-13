@@ -10,7 +10,7 @@ This architecture shows how NAT64 enables communication between IPv6-only resour
 ## NAT64 architecture
 <a name="ipv6-10-diagram1"></a>
 
-![Architecture diagram showing nat64.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-10.png)
+![Architecture diagram showing nat64.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-10.png)
 
 
 The following numbered items describe the key components in this architecture:

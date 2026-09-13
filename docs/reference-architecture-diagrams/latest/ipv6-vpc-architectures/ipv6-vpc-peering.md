@@ -10,7 +10,7 @@ This architecture shows how to configure IPv4 and IPv6 Amazon VPC peering connec
 ## Dual Stack Peering Connectivity for the Amazon Amazon VPC architecture
 <a name="ipv6-12-diagram1"></a>
 
-![Architecture diagram showing dual stack peering connectivity for the amazon .](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-12.png)
+![Architecture diagram showing dual stack peering connectivity for the amazon .](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-12.png)
 
 
 The following numbered items describe the key components in this architecture:

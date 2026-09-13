@@ -10,7 +10,7 @@ This architecture shows how to build dual stack appliance integration with AWS T
 ## Dual Stack AWS Transit Gateway Connect architecture
 <a name="ipv6-17-diagram1"></a>
 
-![Architecture diagram showing dual stack aws transit gateway connect.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-17.png)
+![Architecture diagram showing dual stack aws transit gateway connect.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-17.png)
 
 
 The following numbered items describe the key components in this architecture:

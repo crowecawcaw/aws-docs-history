@@ -10,7 +10,7 @@ This architecture shows how to enable IPv4 and IPv6 internet connectivity to you
 ## IPv6 Targets for Dual Stack Internet-facing Network Load Balancer architecture
 <a name="ipv6-7-diagram1"></a>
 
-![Architecture diagram showing ipv6 targets for dual stack internet-facing network load balancer.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-7.png)
+![Architecture diagram showing ipv6 targets for dual stack internet-facing network load balancer.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-7.png)
 
 
 The following numbered items describe the key components in this architecture:

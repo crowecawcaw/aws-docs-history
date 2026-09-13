@@ -10,7 +10,7 @@ This architecture shows how DNS64 enables DNS resolution for queries from IPv6-o
 ## DNS64 architecture
 <a name="ipv6-9-diagram1"></a>
 
-![Architecture diagram showing dns64.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-9.png)
+![Architecture diagram showing dns64.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-9.png)
 
 
 The following numbered items describe the key components in this architecture:

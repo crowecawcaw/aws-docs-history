@@ -10,7 +10,7 @@ This architecture shows IPv6 support for AWS PrivateLink services and endpoints,
 ## Dual Stack Amazon VPC Connectivity with AWS PrivateLink architecture
 <a name="ipv6-14-diagram1"></a>
 
-![Architecture diagram showing dual stack connectivity with aws privatelink.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-14.png)
+![Architecture diagram showing dual stack connectivity with aws privatelink.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-14.png)
 
 
 The following numbered items describe the key components in this architecture:

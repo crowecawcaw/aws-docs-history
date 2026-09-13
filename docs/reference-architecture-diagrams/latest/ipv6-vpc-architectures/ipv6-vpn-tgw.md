@@ -10,7 +10,7 @@ This architecture shows how to build hybrid dual stack VPN connectivity with AWS
 ## Dual Stack VPN Connectivity with AWS Transit Gateway architecture
 <a name="ipv6-16-diagram1"></a>
 
-![Architecture diagram showing dual stack vpn connectivity with aws transit gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-16.png)
+![Architecture diagram showing dual stack vpn connectivity with aws transit gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-16.png)
 
 
 The following numbered items describe the key components in this architecture:

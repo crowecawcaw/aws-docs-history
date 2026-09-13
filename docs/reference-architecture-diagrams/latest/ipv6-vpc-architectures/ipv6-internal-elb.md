@@ -10,7 +10,7 @@ This architecture shows how to enable IPv4 and IPv6 private connectivity to your
 ## Dual Stack Internal Application and Network Load Balancers architecture
 <a name="ipv6-8-diagram1"></a>
 
-![Architecture diagram showing dual stack internal application and network load balancers.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-8.png)
+![Architecture diagram showing dual stack internal application and network load balancers.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-8.png)
 
 
 The following numbered items describe the key components in this architecture:

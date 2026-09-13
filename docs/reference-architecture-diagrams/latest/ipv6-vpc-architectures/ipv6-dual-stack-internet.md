@@ -10,7 +10,7 @@ This architecture shows how to enable IPv4 and IPv6 internet connectivity for yo
 ## Dual stack Amazon Amazon VPC internet connectivity architecture
 <a name="ipv6-1-diagram1"></a>
 
-![Architecture diagram showing dual stack Amazon VPC with internet connectivity using internet gateway, NAT gateway, and egress-only internet gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-1.png)
+![Architecture diagram showing dual stack Amazon VPC with internet connectivity using internet gateway, NAT gateway, and egress-only internet gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-1.png)
 
 
 The following numbered items describe the key components in this architecture:

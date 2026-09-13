@@ -10,7 +10,7 @@ This architecture shows how to centralize egress traffic to IPv4-only endpoints 
 ## Centralized Egress Traffic with NAT64 architecture
 <a name="ipv6-11-diagram1"></a>
 
-![Architecture diagram showing centralized egress traffic with nat64.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-11.png)
+![Architecture diagram showing centralized egress traffic with nat64.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-11.png)
 
 
 The following numbered items describe the key components in this architecture:

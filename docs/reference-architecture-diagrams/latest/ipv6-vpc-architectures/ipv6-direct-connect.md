@@ -10,7 +10,7 @@ This architecture shows how to build hybrid dual stack connectivity with AWS Dir
 ## Dual Stack Hybrid Connectivity with AWS Direct Connect architecture
 <a name="ipv6-15-diagram1"></a>
 
-![Architecture diagram showing dual stack hybrid connectivity with aws direct connect.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-15.png)
+![Architecture diagram showing dual stack hybrid connectivity with aws direct connect.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ipv6-vpc-architectures/images/ipv6-vpc-architectures-15.png)
 
 
 The following numbered items describe the key components in this architecture:
