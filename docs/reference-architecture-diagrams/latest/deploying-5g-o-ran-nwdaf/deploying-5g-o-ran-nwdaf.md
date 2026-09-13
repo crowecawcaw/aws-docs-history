@@ -10,7 +10,7 @@ With this architecture, you can implement the Network Data Analytics Function (N
 ## Deploying 5G O-RAN NWDAF on AWS diagram
 <a name="nwdaf-diagram"></a>
 
-![Reference architecture diagram showing how to implement NWDAF on AWS for service experience analytics by using Amazon EKS, SageMaker AI, and AWS Lake Formation.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/deploying-5g-o-ran-nwdaf/images/deploying-5g-o-ran-nwdaf.png)
+![Reference architecture diagram showing how to implement NWDAF on AWS for service experience analytics by using Amazon EKS, SageMaker AI, and AWS Lake Formation.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/deploying-5g-o-ran-nwdaf/images/deploying-5g-o-ran-nwdaf.png)
 
 
 The following steps describe the NWDAF components and data flow for this architecture:
