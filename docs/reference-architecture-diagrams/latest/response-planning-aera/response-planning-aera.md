@@ -10,7 +10,7 @@ With this architecture, you can explore options for ingesting data and using AWS
 ## Architecture diagram
 <a name="aera-diagram"></a>
 
-![Data flowing from various sources through AWS services into the Aera SaaS solution and an AWS data lake for analytics and ML.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/response-planning-aera/images/response-planning-on-aws-using-aera-ra.png)
+![Data flowing from various sources through AWS services into the Aera SaaS solution and an AWS data lake for analytics and ML.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/response-planning-aera/images/response-planning-on-aws-using-aera-ra.png)
 
 
 The following steps describe the architecture:
