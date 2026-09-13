@@ -10,7 +10,7 @@ With this architecture, you can enhance the lodging data platform with MDM tools
 ## Lodging data platform with MDM diagram
 <a name="ldpmdm-diagram"></a>
 
-![How to enhance the lodging data platform with MDM by using AWS Glue ML Transform.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/lodging-data-platform-mdm/images/lodging-data-platform-mdm.png)
+![How to enhance the lodging data platform with MDM by using AWS Glue ML Transform.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/lodging-data-platform-mdm/images/lodging-data-platform-mdm.png)
 
 
 The following steps describe the architecture:
