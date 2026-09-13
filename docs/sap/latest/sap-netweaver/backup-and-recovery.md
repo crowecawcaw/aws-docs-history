@@ -31,5 +31,5 @@ aws ec2 create-snapshot --volume-id <vol-1234567890abcdef0> --description "This 
 For SQL Server database backup, you can use one of the following methods:
 +  **SQL native tools to take backup on disk:** Backup requires high throughput compared to IOPS. We recommend using [Throughput Optimized HDD (st1)](https://aws.amazon.com/ebs/features/) which provides maximum throughput of 500 MB/s per volume. Once the backup completes on disk, you can use scripts to move it to an Amazon S3 bucket.
 +  ** AWS Backup **for application-consistent backups via Microsoft’s Volume Shadow Copy Services (VSS). Ensure that the flag in the advanced backup settings is enabled:  
-![Advanced backup settings.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/advanced-backup-settings.png)
+![Advanced backup settings.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/advanced-backup-settings.png)
 +  **Third-party backint tools:** Partners like Commvault, Veritas, and so on use SAP backint interface and store backups directly in Amazon S3 buckets.

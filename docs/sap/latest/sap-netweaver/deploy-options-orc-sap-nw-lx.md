@@ -10,7 +10,7 @@ To install Oracle for SAP NetWeaver, you have four deployment options:
 
 In standalone deployment (also known as single host installation), all components of the SAP NetWevaer, ABAP SAP Central Services (ASCS), and database Primary Application Server (PAS) run on one Amazon EC2 instance. One Amazon EC2 instance in a single Availability Zone in a single Region runs the Oracle database. This option can be optimal for non-production workloads. You can use [Amazon EC2 auto recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) feature to protect your instance against infrastructure issues like loss of network connectivity or system power. However, this solution is not database state aware and does not protect your database against storage failure, OS issues, Availability Zone or Region failure.
 
-![SAP on Oracle standalone deployment](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig1_std-dep-orc-sap-nw-lx.png)
+![SAP on Oracle standalone deployment](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig1_std-dep-orc-sap-nw-lx.png)
 
 
 ## Distributed deployment
@@ -18,7 +18,7 @@ In standalone deployment (also known as single host installation), all component
 
 In distributed deployment, every instance of SAP NetWeaver (ASCS/SCS, database, PAS, and optionally AAS) can run on a separate Amazon EC2 instance. This system also deploys Oracle database in a single Availability Zone. You can use [Amazon EC2 auto recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) feature to protect your instance against infrastructure issues like loss of network connectivity or system power.
 
-![SAP on Oracle distributed deployment](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig2_dis-dep-orc-sap-nw-lx.png)
+![SAP on Oracle distributed deployment](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig2_dis-dep-orc-sap-nw-lx.png)
 
 
 ## High availability deployment
@@ -47,7 +47,7 @@ All Availability Zones within an AWS Region are connected with high-bandwidth ov
 
 The maximum protection mode can cause a shutdown of the primary database in case of a standby database failure. Unless you need to meet a compliance requirement, we recommend using the maximum availability option for high availability.
 
-![SAP on Oracle deployment in multi-AZ with high availability](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig3_hasys-dep-orc-sap-nw-lx.png)
+![SAP on Oracle deployment in multi-AZ with high availability](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig3_hasys-dep-orc-sap-nw-lx.png)
 
 
 You can use manual failover or switchover to the standby database by following the steps in the [Data Guard Broker Switchover and Failover Operations](https://docs.oracle.com/database/121/DGBKR/sofo.htm#DGBKR330). Alternatively, you can automate this process. For more information, see [Oracle Data Guard Fast-Start Failover](https://www.oracle.com/technical-resources/articles/smiley-fsfo.html). To reconnect the SAP applications after the failover is complete, refer to the Reconnect SAP instance to database section in the https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html.
@@ -82,7 +82,7 @@ Hot standby Amazon EC2 instance is of the same size as your production Amazon EC
 
 Pilot light option can run a non-production environment that is the same size as production in the DR Region. This ensures availability of Amazon EC2 instance in case of a DR event.
 
-![Oracle DB instance deployment in multi-AZ with Oracle Data Guard](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig4_disrec-dep-orc-sap-nw-lx.1.png)
+![Oracle DB instance deployment in multi-AZ with Oracle Data Guard](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig4_disrec-dep-orc-sap-nw-lx.1.png)
 
 
  **Option 2:**passive disaster recovery using backup and recovery
@@ -93,7 +93,7 @@ Alternatively, you can use automation such as AWS CloudFormation or Cloud Develo
 
 Note that the time to recover your database is dependent on the size of database. Any log files that were not copied to the DR Regions are lost and cannot be used for recovery. This option typically has higher RTO and RPO as compared to other options that use data replication technologies. However, it offers lower TCO in comparison to other options.
 
-![SAP on Oracle with disaster recovery using backup and restore](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig5_disrec-dep-orc-sap-nw-lx.2.png)
+![SAP on Oracle with disaster recovery using backup and restore](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig5_disrec-dep-orc-sap-nw-lx.2.png)
 
 
  *You can choose to deploy high availability and disaster recovery for the same production database instance.* 

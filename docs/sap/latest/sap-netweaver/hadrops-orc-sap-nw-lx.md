@@ -8,7 +8,7 @@
 
 You can use manual failover or switchover to the standby database using steps described in the [Switchover and Failover Operations](https://docs.oracle.com/en/database/oracle/oracle-database/19/dgbkr/using-data-guard-broker-to-manage-switchovers-failovers.html#GUID-44E7A982-7CD4-4A51-B00E-62C0698C5CD6). You can also automate this process by following the steps in [Oracle Data Guard Fast-Start Failover](https://www.oracle.com/technetwork/articles/smiley-fsfo-084973.html). When using this feature with the observer node, you must place the observer node in the third Availability Zone. Ensure that you have the license to use the fast-start failover, it may not be included with the Data Guard. You can also use supported third-party products that provide automatic failover operation with the Data Guard. To reconnect the SAP applications post-failover, see the *Reconnect SAP instance to database* section-premises in https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html.
 
-![Data Guard Broker switch over](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig8_odg-hadrops-orc-sap-nw-lx.png)
+![Data Guard Broker switch over](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig8_odg-hadrops-orc-sap-nw-lx.png)
 
 
 ## Perform a DNS change

@@ -10,7 +10,7 @@ To install SAP ASE for SAP NetWeaver, you have four deployment options:
 
 In standalone deployment (also known as single host installation), all components of the SAP NetWevaer, ABAP SAP Central Services (ASCS), and database Primary Application Server (PAS) run on one Amazon EC2 instance using a single Availability Zone in an AWS Region. This option is recommended for non-production workloads. You can use [Amazon EC2 auto recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) feature to protect your instance against infrastructure issues like loss of network connectivity or system power. This solution is not database state aware, and does not protect your database against storage failure, OS issues, Availability Zone or Region failure.
 
-![SAP PAS and DB on a single EC2 instance.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-standalone.jpg)
+![SAP PAS and DB on a single EC2 instance.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-standalone.jpg)
 
 
 ## Distributed deployment
@@ -18,7 +18,7 @@ In standalone deployment (also known as single host installation), all component
 
 In distributed deployment, every instance of SAP NetWeaver (ASCS/SCS, database, PAS, and optionally AAS) can run on a separate Amazon EC2 instance. This system also deploys SAP ASE database in a single Availability Zone. You can use [Amazon EC2 auto recovery](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) feature to protect your instance against infrastructure issues like loss of network connectivity or system power. This solution is not database state aware, and does not protect your database against storage failure, OS issues, Availability Zone or Region failure.
 
-![SAP ASCA, SAP PAS, and DB on separate EC2 instances in a single Availability Zone.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-distributed.jpg)
+![SAP ASCA, SAP PAS, and DB on separate EC2 instances in a single Availability Zone.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-distributed.jpg)
 
 
 ## High availability deployment
@@ -30,7 +30,7 @@ All Availability Zones within an AWS Region are connected with high-bandwidth ov
 
 The SAP ASE always-on option is a high availability/disaster recovery system that contains two or more SAP ASE servers – the primary server where all of the transaction processing takes place, and the warm standby (companion) server. The primary and standby nodes are deployed in different Availability Zones, providing protection against zonal failures. You can also integrate Fault Manager to automatically failover the system in case of failures. You can learn more about this on the SAP Help Portal’s [SAP Adaptive Servers Enterprise HADR Users Guide](https://help.sap.com/docs/SAP_ASE/efe56ad3cad0467d837c8ff1ac6ba75c/a6645e28bc2b1014b54b8815a64b87ba.html).
 
-![SAP ASE servers on EC2 instances in multiple Availability Zones.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-ha.jpg)
+![SAP ASE servers on EC2 instances in multiple Availability Zones.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-ha.jpg)
 
 
  *We recommend referring to the following SAP Notes (SAP portal access required) for a high availability deployment.* 
@@ -53,7 +53,7 @@ With this option, you can either choose pilot light, where the recovery instance
 +  * [HADR System with DR Node Users Guide](https://help.sap.com/doc/f0a13ab3128b4eb0a5042281050c95d8/16.0.3.6/en-US/HADR_System_with_DR_Node_Users_Guide.pdf) * 
 +  * [2934459 - HADR support of two ASE servers on Primary and Companion machines - SAP ASE](https://me.sap.com/notes/2934459) (requires SAP portal access)* 
 
-![SAP ASE servers on EC2 instances in multiple Availability Zones of one Region with replication to another Region.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-dr-1.jpg)
+![SAP ASE servers on EC2 instances in multiple Availability Zones of one Region with replication to another Region.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-dr-1.jpg)
 
 
 ### Option 2 – passive disaster recovery using backup and recovery
@@ -65,12 +65,12 @@ Alternatively, you can use AWS CloudFormation, AWS Cloud Development Kit (AWS CD
 
 The time to recover the database is dependent on the size of the database. Any log files that are not copied over to the disaster recovery Regions are lost and cannot be used for recovery. This option has higher recovery time and point objectives but offers lower costs in comparison to other options. You can use Amazon S3 Replication Time Control to reduce your recovery point objective. For more information, see [Using Amazon S3 Replication Time Control](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-time-control.html#enabling-replication-time-control).
 
-![SAP ASE data and log backups replicated across Regions.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-dr-2.1.jpg)
+![SAP ASE data and log backups replicated across Regions.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-dr-2.1.jpg)
 
 
 You can also recover the SAP ASE database backups in the same AWS Region, in case of an Availability Zone failure. Amazon EBS snapshots and Amazon S3 bucket data is automatically replicated within the Region. In the event of an Availability Zone failure, an Amazon EC2 instance can be created in a different Availability Zone of the same Region. It is created from the Amazon EBS snapshots of the source Amazon EC2 instance. The SAP ASE database is restored from the backups in the Amazon S3 bucket. Amazon S3 One Zone-IA is the only exception to automatic replication. For more information, see [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/).
 
-![SAP ASE data and log backups in a single Region with recovery across Availability Zones.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-dr-2.2.jpg)
+![SAP ASE data and log backups in a single Region with recovery across Availability Zones.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-dr-2.2.jpg)
 
 
 ### Option 3 – disaster recovery using AWS Elastic Disaster Recovery
@@ -82,4 +82,4 @@ Elastic Disaster Recovery is only used for disaster recovery. You can use Amazon
 
 For more information, see [Disaster recovery for SAP workloads on AWS using AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/sap/latest/general/dr-sap.html).
 
-![Continuous real-time data replication traffic across Regions to staging area replication servers.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-dr-3.jpg)
+![Continuous real-time data replication traffic across Regions to staging area replication servers.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/ase-dr-3.jpg)

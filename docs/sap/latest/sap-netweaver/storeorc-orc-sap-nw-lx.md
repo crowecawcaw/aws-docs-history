@@ -104,7 +104,7 @@ Create one Amazon EBS volume for each file system size and use provisioned IOPS 
 
 This is a simpler approach and doesn’t require any volume striping using Linux LVM or similar technology. However, with this approach, you are still limited by the maximum size and IOPS supported by individual Amazon EBS volumes.
 
-![File system layout without LVM striping](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig6_egconf-storeorc-orc-sap-nw-lx.1.png)
+![File system layout without LVM striping](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig6_egconf-storeorc-orc-sap-nw-lx.1.png)
 
 
  **Data file system with provisioned IOPS using `gp3` or `io2` and with LVM:** 
@@ -119,4 +119,4 @@ The benefit of using this approach is that you don’t need to have the IOPS and
 
 Use 25 GB `gp3` Amazon EBS volumes with 3,800 provisioned IOPS.
 
-![File system layout with LVM striping](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig7_egconf-storeorc-orc-sap-nw-lx.2.png)
+![File system layout with LVM striping](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/fig7_egconf-storeorc-orc-sap-nw-lx.2.png)

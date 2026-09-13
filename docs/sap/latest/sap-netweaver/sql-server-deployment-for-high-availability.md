@@ -16,7 +16,7 @@
       You can assign IP addresses through the AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS Tools for Windows PowerShell. For detailed working instructions, see [Multiple IP Addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/MultipleIP.html#ManageMultipleIP).
 
       For example, in the screenshot that follows, 10.100.4.53 is the primary private IP address of the EC2 instance. It has been allocated two secondary private addresses: 10.100.4.54 and 10.100.4.55.  
-![Locate the private IP addresses for your EC2 instances.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/multiple-ip-addresses.png)
+![Locate the private IP addresses for your EC2 instances.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/multiple-ip-addresses.png)
 
 1. Domain join EC2 instances created in Step 1. If you are using AWS Managed Microsoft AD, see [AWS Directory Service documentation](https://docs.aws.amazon.com/en_us/directoryservice/latest/admin-guide/join_windows_instance.html) for detailed steps.
 
@@ -43,7 +43,7 @@ This command may force your EC2 instance to restart. Make sure you execute the c
 1. Install SQL Server on both EC2 instances. For instructions, see the [SAP installation guide](https://help.sap.com/viewer/nwguidefinder).
 
    Install the database instance on the primary node. Follow SAP installation guide to install Database instance on primary node. Make sure you perform domain installations and choose **Domain of Current User** or **Different Domain** as appropriate during parameter selection.  
-![The domain model parameter.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/domain-installation.png)
+![The domain model parameter.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/domain-installation.png)
 
 1. Create operating system users on secondary instance.
 
@@ -54,7 +54,7 @@ The navigation path can vary depending on the version of SWPM you are using.
    1. Create users and groups for this instance, as appropriate.
 **Note**  
 You do not need to create users on the primary instance because the database instance was installed on the primary node operating system.  
-![The Operating System Users and Groups option.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/os-users-groups.png)
+![The Operating System Users and Groups option.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/os-users-groups.png)
 
 1. Install SAP Host agent on secondary instance with SWPM.
 

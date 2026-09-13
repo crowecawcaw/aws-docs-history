@@ -24,7 +24,7 @@ The following figure provides an overview of architecture for SQL Server Always 
 +  AWS Directory Service for Microsoft Active Directory deployed in private subnet. Alternatively, you can also manage your own AD DS deployed on Amazon EC2 instance.
 + In a private subnet, Windows Servers configured with WSFC for SQL Server Enterprise edition with SQL Server Always On availability groups.
 
-![SQL Server Always On availability groups across two Availability Zones.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/sql-always-on-avail-group.png)
+![SQL Server Always On availability groups across two Availability Zones.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/sql-always-on-avail-group.png)
 
 
 ### Third-Party Solutions

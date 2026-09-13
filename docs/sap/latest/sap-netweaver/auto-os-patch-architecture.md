@@ -5,7 +5,7 @@
 
 The diagram below highlights the AWS services that you can use to set up automated operating system patching and optional notifications on the patch status using Amazon Simple Notification Service (Amazon SNS).
 
-![The patch architecture uses Systems Manager](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-patch-arch.png)
+![The patch architecture uses Systems Manager](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-patch-arch.png)
 
 
 The topics below contain descriptions of key components of the automated operating system patching setup. Familiarize yourself with them before continuing to the prerequisites.

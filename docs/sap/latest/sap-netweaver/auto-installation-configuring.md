@@ -28,7 +28,7 @@ For SAP installation, bootstrapping includes several tasks, such as setting the 
 
 The image below shows the steps required for the bootstrap instance SSM document.
 
-![Detailed flow chart of the bootstrap instances SSM document.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-bootstrap.png)
+![Detailed flow chart of the bootstrap instances SSM document.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-bootstrap.png)
 
 
 The SSM document accepts required and optional parameters. The code below is an example parameter section for bootstrapping an SAP HANA database instance or any SAP NetWeaver application server instance:

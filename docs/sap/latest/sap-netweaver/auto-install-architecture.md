@@ -5,7 +5,7 @@
 
 The example architecture shown in the diagram below uses a centralized AWS account that stores the AWS Systems Manager document (SSM document). The document is shared with AWS accounts that host Amazon EC2 instances running SAP HANA workloads.
 
-![The Systems Manager automation document connects to three child accounts.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-installation-architecture.png)
+![The Systems Manager automation document connects to three child accounts.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-installation-architecture.png)
 
 
 You can use multiple AWS accounts and AWS organizations to arrange the accounts into a hierarchy and group them into organizational units. These organizational units can be used for things such as consolidated billing, workload isolation, and administrative isolation. You can create separate AWS accounts for development, testing, staging, and production on a per-application basis as part of an organization. For more information, see the https://docs.aws.amazon.com/organizations/latest/userguide/orgs\_introduction.html*  AWS Organizations">User Guide*.
@@ -48,4 +48,4 @@ As an example, each runbook can be made up of several SSM documents that perform
 + Install a primary application server
 + Install an additional application server
 
-![Detailed flow chart of the SSM document.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-flow.png)
+![Detailed flow chart of the SSM document.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/automation-flow.png)

@@ -20,7 +20,7 @@ To migrate SAP NetWeaver based applications running on SAP HANA database, use th
 
 The following diagram illustrates an application migration with this template.
 
-![Migrate an application using Migration Hub.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/mho-hana.png)
+![Migrate an application using Migration Hub.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/mho-hana.png)
 
 
 ## Migrate applications with any database
@@ -30,4 +30,4 @@ To migrate SAP NetWeaver based applications running on any database *other than 
 
 The following diagram illustrates an application migration with this template.
 
-![Migrate applications with a database using Migration Hub.](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/mho-anydb.png)
+![Migrate applications with a database using Migration Hub.](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/mho-anydb.png)

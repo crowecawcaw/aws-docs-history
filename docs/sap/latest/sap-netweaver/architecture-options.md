@@ -12,4 +12,4 @@ SAP NetWeaver applications based on SQL Server can be installed in three differe
 
 Regardless of which option you choose to make your SQL Server database highly available, AWS recommends that you deploy a primary and secondary SQL Server in different AWS Availability Zones within an AWS Region. The following diagram provides a high-level architecture for SQL Server high availability on AWS. This option is suited for business-critical applications.
 
-![High-level HA architecture for SQL Server](http://docs.aws.amazon.com/sap/latest/sap-netweaver/images/high-level-ha-architecture-sql-server.png)
+![High-level HA architecture for SQL Server](https://docs.aws.amazon.com/sap/latest/sap-netweaver/images/high-level-ha-architecture-sql-server.png)
