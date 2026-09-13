@@ -10,7 +10,7 @@ This architecture shows how Protegrity on AWS can be used to protect sensitive d
 ## Protegrity Data Protection for Amazon S3 and Snowflake Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how Protegrity on AWS can be used to protect sensitive data in Amazon S3 and then show the same data as clear text based on permissions from Snowflake.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/protegrity-data-protection-for-amazon-s3-and-snowflake/images/protegrity-data-protection-for-amazon-s3-and-snowflake.png)
+![Reference architecture diagram showing how Protegrity on AWS can be used to protect sensitive data in Amazon S3 and then show the same data as clear text based on permissions from Snowflake.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/protegrity-data-protection-for-amazon-s3-and-snowflake/images/protegrity-data-protection-for-amazon-s3-and-snowflake.png)
 
 
 1.  External Files are sent to an **Amazon S3** (Amazon S3) input bucket by **AWS DataSync**. 
