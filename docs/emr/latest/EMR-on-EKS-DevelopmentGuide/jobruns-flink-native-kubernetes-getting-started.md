@@ -76,7 +76,7 @@ Amazon EMR 6.13.0 and higher supports Flink Native Kubernetes for running Flink 
    ```
 
 1. Locally access the Flink UI.  
-![Access the Flink UI.](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/jobruns-flink-native-kubernetes-ui.png)
+![Access the Flink UI.](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/jobruns-flink-native-kubernetes-ui.png)
 
 1. Delete the Flink application.
 

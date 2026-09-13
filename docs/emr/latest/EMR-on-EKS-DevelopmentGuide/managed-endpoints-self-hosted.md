@@ -238,7 +238,7 @@ Optionally, you can pass additional Spark configurations for the Spark kernels. 
    ```
 
    Once that is running, navigate to your local browser and visit `localhost:8888` to see the JupyterLab interface:  
-![Screenshot of JupyterLab start screen.](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-Jupyter-notebook-start.png)
+![Screenshot of JupyterLab start screen.](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-Jupyter-notebook-start.png)
 
 1. From JupyterLab, create a new Scala notebook. Here is a sample code snippet that you can run to approximate the value of Pi:
 
@@ -267,7 +267,7 @@ Optionally, you can pass additional Spark configurations for the Spark kernels. 
    println(s"Pi is roughly ${4.0 * count / (n - 1)}")
    session.stop()
    ```  
-![Screenshot of example Scala notebook code in JupyterLab.](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-Jupyter-notebook-scala-program.png)
+![Screenshot of example Scala notebook code in JupyterLab.](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-Jupyter-notebook-scala-program.png)
 
 ## Delete a self-hosted Jupyter notebook
 <a name="managed-endpoints-self-hosted-cleanup"></a>

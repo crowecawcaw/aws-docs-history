@@ -10,7 +10,7 @@ The following steps and diagram illustrate the Amazon EMR on EKS workflow:
 + Create a virtual cluster by registering Amazon EMR with a namespace on an EKS cluster.
 + Submit your job to the virtual cluster using the AWS CLI or SDK. 
 
-![Amazon EMR on EKS jobs](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-jobs.png)
+![Amazon EMR on EKS jobs](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-jobs.png)
 
 
 For each job that you run, Amazon EMR on EKS creates a container with an Amazon Linux 2 base image, Apache Spark, and associated dependencies. Each job runs in a pod that downloads the container and starts to run it. The pod terminates after the job terminates. If the container’s image has been previously deployed to the node, then a cached image is used and the download is bypassed. Sidecar containers, such as log or metric forwarders, can be deployed to the pod. After the job terminates, you can still debug it using Spark application UI in the Amazon EMR console.

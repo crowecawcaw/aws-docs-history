@@ -173,7 +173,7 @@ Take the following steps to run a simple Spark application on Amazon EMR on EKS.
    + Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
    + In the **Navigation** pane, choose **Logs**. Then choose **Log groups**.
    + Choose the log group for Amazon EMR on EKS and then view the uploaded log events.   
-![Monitoring using CloudWatch logs](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-monitoring.png)
+![Monitoring using CloudWatch logs](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-monitoring.png)
 
 **Important**  
 Jobs have a [default configured retry policy](jobruns-using-retry-policies.md#retry-config). For information on how to modify or disable the configuration, refer to [Using job retry policies](jobruns-using-retry-policies.md).

@@ -7,7 +7,7 @@ Using Amazon EMR on EKS with Lake Formation lets you enforce a layer of permissi
 
 The following is a high-level overview of how Amazon EMR on EKS gets access to data protected by Lake Formation security policies.
 
-![Job security by means of Lake Formation](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/fgac_diagram_eks_spark.png)
+![Job security by means of Lake Formation](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/fgac_diagram_eks_spark.png)
 
 
 The following steps describe this process:

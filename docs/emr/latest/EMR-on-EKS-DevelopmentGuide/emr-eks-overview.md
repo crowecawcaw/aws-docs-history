@@ -9,4 +9,4 @@ With this loose coupling of services, you can run multiple, securely isolated jo
 
 The following diagram illustrates how Amazon EMR on EKS works with other AWS services. 
 
-![Amazon EMR on EKS architecture](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-architecture.png)
+![Amazon EMR on EKS architecture](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/emr-on-eks-architecture.png)

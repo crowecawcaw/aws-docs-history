@@ -33,4 +33,4 @@ To access the Flink Web Dashboard for a running Flink application on Kubernetes:
    ```
 
 1. In a web browser, navigate to `http://localhost:8081` (or `http://localhost:{{local-port}}` if you used a custom local port) to access the Flink Web Dashboard. This dashboard shows information about the running Flink application, such as the status of the job, the number of TaskManagers, and the metrics and logs for the job.  
-![Sample Flink Dashboard UI](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/sample-flink-dashboard-ui.png)
+![Sample Flink Dashboard UI](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/sample-flink-dashboard-ui.png)

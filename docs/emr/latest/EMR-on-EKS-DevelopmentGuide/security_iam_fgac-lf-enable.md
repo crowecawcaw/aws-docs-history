@@ -14,7 +14,7 @@ First, to apply row and column level permissions with Lake Formation, the data l
 
 Navigate to the AWS Lake Formation console and select the **Application integration settings** option from the **Administration** section in the sidebar. Then, check the box **Allow external engines to filter data in Amazon S3 locations registered with Lake Formation**. Add the **AWS Account IDs ** where the Spark Jobs would be running, and the **Session tag Values**.
 
-![Application integration settings](http://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/application_integration_settings_fgac.png)
+![Application integration settings](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/images/application_integration_settings_fgac.png)
 
 
 Note that the **LakeFormationAuthorizedCaller** Session Tag passed here is passed in the **SecurityConfiguration** later when you set up IAM roles, in section 3.
