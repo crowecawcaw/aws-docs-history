@@ -14,7 +14,7 @@ Users that are using a version of Amazon EMR before 7.4.0 and are migrating to E
 
 The following illustration shows the HBase components relevant to HBase on Amazon S3.
 
-![HBase on Amazon S3 architecture.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hbase_s3.png)
+![HBase on Amazon S3 architecture.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hbase_s3.png)
 
 
 ## Enabling HBase on Amazon S3
@@ -79,7 +79,7 @@ Because the read-replica uses HBase StoreFiles and metadata that the primary clu
 + On the read-replica cluster, when any metadata has changed - for example, when HBase region split or compactions occur, or when tables are added or removed - run the `refresh_meta` command.
 + On the read-replica cluster, run the `refresh_hfiles` command when records are added to or changed in a table.
 
-![Synchronizing data with an HBase read-replica](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hbase-read-replica.png)
+![Synchronizing data with an HBase read-replica](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hbase-read-replica.png)
 
 
 ## Persistent HFile tracking

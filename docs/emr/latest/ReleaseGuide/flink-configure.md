@@ -31,7 +31,7 @@ Amazon EMR releases 6.9.0 and higher support both Hive Metastore and AWS Glue Ca
    sudo chmod 755 /usr/lib/flink/lib/libfb303-0.9.3.jar
    sudo chmod 755 /usr/lib/flink/lib/flink-connector-hive_2.12-1.15.2.jar
    ```  
-![Add step dialog for Custom JAR with fields for name, JAR location, arguments, and action on failure.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hive.png)
+![Add step dialog for Custom JAR with fields for name, JAR location, arguments, and action on failure.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hive.png)
 
 ### Use the AWS Glue Data Catalog
 <a name="flink-configure-hive-glue"></a>
@@ -56,7 +56,7 @@ Amazon EMR releases 6.9.0 and higher support both Hive Metastore and AWS Glue Ca
    sudo chmod 755 /usr/lib/flink/lib/libfb303-0.9.3.jar
    sudo chmod 755 /usr/lib/flink/lib/flink-connector-hive_2.12-1.15.2.jar
    ```  
-![AWS Glue Data Catalog configuration for Apache Flink on Amazon EMR.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/flink-glue-emr.png)
+![AWS Glue Data Catalog configuration for Apache Flink on Amazon EMR.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/flink-glue-emr.png)
 
 ## Configure Flink with a configuration file
 <a name="flink-configure-config"></a>

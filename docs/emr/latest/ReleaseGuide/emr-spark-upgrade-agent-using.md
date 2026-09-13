@@ -20,7 +20,7 @@ Please refer to [Features and Capabilities](emr-spark-upgrade-agent-features.md)
 
 On Amazon SageMaker Unified Studio VS Code Editor Spaces, you can configure the IAM profile and MCP config as described in the Setup for Upgrade Agent by simply following the screenshot below:
 
-![Apache Spark Upgrade Agent](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/SparkUpgradeVSCodeEditor.png)
+![Apache Spark Upgrade Agent](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/SparkUpgradeVSCodeEditor.png)
 
 
 A demonstration of the EMR on EC2 upgrade experience with SMUS VS code editor. It starts with a simple prompt to ask to the Agent start the Spark Upgrade process.
@@ -32,7 +32,7 @@ s3://<please fill in your staging bucket path> to store updated application arti
 Use spark-upgrade-profile for AWS CLI operations.
 ```
 
-[![AWS Videos](http://img.youtube.com/vi/Hk4_GPvYeqI/0.jpg)](http://www.youtube.com/watch?v=Hk4_GPvYeqI)
+[![AWS Videos](https://img.youtube.com/vi/Hk4_GPvYeqI/0.jpg)](https://www.youtube.com/watch?v=Hk4_GPvYeqI)
 
 
 ### Integration With Kiro CLI (QCLI)
@@ -58,7 +58,7 @@ Use EMR-Serverless Applicaion <application-id> and execution role <your EMR Serv
 s3://<please fill in your staging bucket path> to store updated application artifacts.
 ```
 
-[![AWS Videos](http://img.youtube.com/vi/Kw8E2wWv4uQ/0.jpg)](http://www.youtube.com/watch?v=Kw8E2wWv4uQ)
+[![AWS Videos](https://img.youtube.com/vi/Kw8E2wWv4uQ/0.jpg)](https://www.youtube.com/watch?v=Kw8E2wWv4uQ)
 
 
 ### Integration with Other IDEs

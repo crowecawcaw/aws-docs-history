@@ -12,7 +12,7 @@ Use one of the following methods to select a security configuration when you cre
 
 From the AWS Management Console, specify the configuration under **Security configuration and EC2 key pair**.
 
-![Security configuration section with search field showing DO-NOT-DELETE-disable-IM and buttons for Browse and Create security configuration.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/wal-configure-security.png)
+![Security configuration section with search field showing DO-NOT-DELETE-disable-IM and buttons for Browse and Create security configuration.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/wal-configure-security.png)
 
 
 ------

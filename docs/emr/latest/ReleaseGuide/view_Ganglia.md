@@ -16,4 +16,4 @@ The last release of Amazon EMR to include Ganglia was Amazon EMR 6.15.0. To moni
 
 1.  With the proxy set and the SSH connection open, you can view the Ganglia UI by opening a browser window with http://{{master-public-dns-name}}/ganglia/, where {{master-public-dns-name}} is the public DNS address of the master server in the EMR cluster. 
 
-![Ganglia cluster report](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/ganglianew.png)
+![Ganglia cluster report](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/ganglianew.png)

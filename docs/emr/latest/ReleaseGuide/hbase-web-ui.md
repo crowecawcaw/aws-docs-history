@@ -16,12 +16,12 @@ HBase provides a web-based user interface that you can use to monitor your HBase
 
 1. With the proxy set and the SSH connection open, you can view the HBase UI by opening a browser window with **http://{{master-public-dns-name}}:16010/master-status**, where {{master-public-dns-name}} is the public DNS address of the cluster's primary node. 
 
-![HMaster](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hmaster.png)
+![HMaster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hmaster.png)
 
 
 You can also view HBase in Hue. For example, the following shows the table, `t1`, created in [Using the HBase shell](emr-hbase-connect.md):
 
-![HMaster](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/huehbase.png)
+![HMaster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/huehbase.png)
 
 
  For more information about Hue, see [Hue](emr-hue.md).

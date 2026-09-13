@@ -9,7 +9,7 @@ Sparkmagic is a library of kernels that allows Jupyter notebooks to interact wit
 
 The following diagram depicts the components of JupyterHub on Amazon EMR with corresponding authentication methods for notebook users and the administrator. For more information, see [Adding Jupyter Notebook users and administrators](emr-jupyterhub-user-access.md).
 
-![Architecture diagram showing SSH and command line access through PAM or LDAP to JupyterHub master instance.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/jupyter-arch.png)
+![Architecture diagram showing SSH and command line access through PAM or LDAP to JupyterHub master instance.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/jupyter-arch.png)
 
 
 The following table lists the version of JupyterHub included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with JupyterHub.

@@ -25,15 +25,15 @@ There are four sub-interpreters in Flink interpreter. They serve different purpo
 Use the following steps to configure Apache Flink on Apache Zeppelin to run on an EMR cluster:
 
 1. Create a new cluster from the Amazon EMR console. Select emr-6.10.0 or higher for the Amazon EMR release. Then, choose to customize your application bundle with the Custom option. Include at least Flink, Hadoop, and Zeppelin in your bundle.  
-![In the Amazon EMR console, customize your application bundle with the Custom option. Include at least Flink, Hadoop, and Zeppelin in your bundle](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-flink-zeppelin-console.png)
+![In the Amazon EMR console, customize your application bundle with the Custom option. Include at least Flink, Hadoop, and Zeppelin in your bundle](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-flink-zeppelin-console.png)
 
 1. Create the rest of your cluster with the settings that you prefer.
 
 1. Once your cluster is running, select the cluster in the console to view its details and open the Applications tab. Select Zeppelin from the Application user interfaces section to open the Zeppelin web interface. Be sure that you’ve set up access to the Zeppelin web interface with an SSH tunnel to the primary node and a proxy connection as described in the [Prerequisites](#flink-zeppelin-prerequisites).  
-![On the Zeppelin web interface, you can import and create new notebooks.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/welcome-to-zeppelin.png)
+![On the Zeppelin web interface, you can import and create new notebooks.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/welcome-to-zeppelin.png)
 
 1. Now, you can create a new note in a Zeppelin notebook with Flink as the default interpreter.  
-![You can create a new note in a Zeppelin notebook with Flink as the default interpreter.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-flink-zeppelin-create-notebook.png)
+![You can create a new note in a Zeppelin notebook with Flink as the default interpreter.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-flink-zeppelin-create-notebook.png)
 
 1. Refer to the following code examples that demonstrate how to run Flink jobs from a Zeppelin notebook.
 
@@ -68,7 +68,7 @@ Use the following steps to configure Apache Flink on Apache Zeppelin to run on a
   
   senv.execute()
   ```  
-![For example, you can run batch WordCount and streaming WordCount jobs from a Zeppelin notebook.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/streaming-wordcount-example.png)
+![For example, you can run batch WordCount and streaming WordCount jobs from a Zeppelin notebook.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/streaming-wordcount-example.png)
 + Example 2, Flink Streaming SQL
 
   ```
@@ -90,7 +90,7 @@ Use the following steps to configure Apache Flink on Apache Zeppelin to run on a
   
   SELECT * FROM dummy_table;
   ```  
-![This example demonstrates how to run an Flink Streaming SQL job.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/flink-streaming-sql.png)
+![This example demonstrates how to run an Flink Streaming SQL job.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/flink-streaming-sql.png)
 + Example 3, Pyflink. Note that you must upload your own sample text file named `word.txt` to your S3 bucket.
 
   ```
@@ -173,7 +173,7 @@ Use the following steps to configure Apache Flink on Apache Zeppelin to run on a
   ```
 
 1. Choose **FLINK JOB** in the Zeppelin UI to access and view the Flink Web UI.  
-![FLINK JOB button highlighted in the Zeppelin notebook interface toolbar.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/batch-wordcount-example.png)
+![FLINK JOB button highlighted in the Zeppelin notebook interface toolbar.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/batch-wordcount-example.png)
 
 1. Choosing **FLINK JOB** routes to the Flink Web Console in another tab of your browser.  
-![Choosing FLINK JOB opens the Flink Web Console in another tab of your browser.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/flink-web-console.png)
+![Choosing FLINK JOB opens the Flink Web Console in another tab of your browser.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/flink-web-console.png)

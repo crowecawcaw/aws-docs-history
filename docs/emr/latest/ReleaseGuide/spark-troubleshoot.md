@@ -18,7 +18,7 @@ The Apache Spark Troubleshooting Agent is available at no additional cost as par
 
 The troubleshooting agent has three main components: an MCP-compatible AI Assistant in your development environment for interaction, the [MCP Proxy for AWS](https://github.com/aws/mcp-proxy-for-aws) that handles secure communication and authentication between your client and AWS services, and the Amazon SageMaker Unified Studio Remote MCP Server that provides specialized Spark troubleshooting tools for Amazon EMR (EMR on EC2, EMR Serverless, and EMR on EKS), AWS Glue and Amazon SageMaker Notebooks. This diagram illustrates how you interact with the Amazon SageMaker Unified Studio Remote MCP Server through your AI Assistant.
 
-![Spark Troubleshooting Agent Architecture.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/spark-troubleshooting-agent-architecture.png)
+![Spark Troubleshooting Agent Architecture.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/spark-troubleshooting-agent-architecture.png)
 
 
 The AI assistant will orchestrate the troubleshooting using specialized tools provided by the MCP server following these steps:

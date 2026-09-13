@@ -18,7 +18,7 @@ The Apache Spark Upgrade Agent is available at no additional cost as part of Ama
 
 The upgrade agent has three main components: any MCP-compatible AI Assistant in your development environment for interaction, the [ MCP Proxy for AWS](https://github.com/aws/mcp-proxy-for-aws) that handles secure communication between your client and the MCP server, and the Amazon SageMaker Unified Studio Managed MCP Server that provides specialized Spark upgrade tools for Amazon EMR. This diagram illustrates how you interact with the Amazon SageMaker Unified Studio Managed MCP Server through your AI Assistant.
 
-![Apache Spark Upgrade Agent](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/SparkUpgradeIntroduction.png)
+![Apache Spark Upgrade Agent](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/SparkUpgradeIntroduction.png)
 
 
 The AI assistant will orchestrate the upgrade using specialized tools provided by the MCP server following these steps:

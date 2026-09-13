@@ -22,7 +22,7 @@ Please refer to [Features and Capabilities](spark-troubleshooting-features.md) t
 
 A demonstration of troubleshooting experience with Amazon SageMaker Notebooks. For any Notebook cell failure, you can ask the Amazon SageMaker Notebook Agent to troubleshoot the failure to request the analysis followed by possible code fix if the error resulted from code, by clicking the `Fix with AI` button.
 
-[![AWS Videos](http://img.youtube.com/vi/btW8hwio0tE/0.jpg)](http://www.youtube.com/watch?v=btW8hwio0tE)
+[![AWS Videos](https://img.youtube.com/vi/btW8hwio0tE/0.jpg)](https://www.youtube.com/watch?v=btW8hwio0tE)
 
 
 ### Troubleshooting Glue and EMR Spark applications with Kiro CLI
@@ -48,7 +48,7 @@ A demonstration of the troubleshooting experience with Kiro CLI. You can simply 
 Analyze my Glue job. The job name is "xxx" and the job run id is "xxx"
 ```
 
-[![AWS Videos](http://img.youtube.com/vi/YLwV_EenJXY/0.jpg)](http://www.youtube.com/watch?v=YLwV_EenJXY)
+[![AWS Videos](https://img.youtube.com/vi/YLwV_EenJXY/0.jpg)](https://www.youtube.com/watch?v=YLwV_EenJXY)
 
 
 ### Integration With Other MCP Clients
@@ -71,7 +71,7 @@ Open the Amazon EMR console at [https://console.aws.amazon.com/elasticmapreduce/
 
 The following video shows how to use the **Troubleshoot with AI** button for EMR on EC2.
 
-[![AWS Videos](http://img.youtube.com/vi/BPOlS55EqR8/0.jpg)](http://www.youtube.com/watch?v=BPOlS55EqR8)
+[![AWS Videos](https://img.youtube.com/vi/BPOlS55EqR8/0.jpg)](https://www.youtube.com/watch?v=BPOlS55EqR8)
 
 
 ### Troubleshoot with AI button for EMR Serverless console
@@ -81,7 +81,7 @@ Open the Amazon EMR console at [https://console.aws.amazon.com/elasticmapreduce/
 
 The following video shows how to use the **Troubleshoot with AI** button for EMR Serverless.
 
-[![AWS Videos](http://img.youtube.com/vi/ELgM9DA2Ung/0.jpg)](http://www.youtube.com/watch?v=ELgM9DA2Ung)
+[![AWS Videos](https://img.youtube.com/vi/ELgM9DA2Ung/0.jpg)](https://www.youtube.com/watch?v=ELgM9DA2Ung)
 
 
 ### Troubleshoot with AI button for EMR on EKS console
@@ -91,4 +91,4 @@ Open the Amazon EMR console at [https://console.aws.amazon.com/elasticmapreduce/
 
 The following video shows how to use the **Troubleshoot with AI** button for EMR on EKS.
 
-[![AWS Videos](http://img.youtube.com/vi/UqCVYpG_NuM/0.jpg)](http://www.youtube.com/watch?v=UqCVYpG_NuM)
+[![AWS Videos](https://img.youtube.com/vi/UqCVYpG_NuM/0.jpg)](https://www.youtube.com/watch?v=UqCVYpG_NuM)

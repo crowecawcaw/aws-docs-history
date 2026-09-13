@@ -7,4 +7,4 @@ Amazon EMR WAL adds the concept of WAL workspaces. A *WAL workspace* is a logica
 
 You can use WAL workspaces to scope down Amazon EMR WAL IAM permissions to only include the workspaces that the cluster needs to access. You can also tag your WAL workspace for tag-based access control. For more information on tagging, see [Tagging WAL workspaces](emr-hbase-wal-tagging.md).
 
-![HBase architecture diagram showing write request flow through RegionServers, MemStore, and data storage.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/wal-new.png)
+![HBase architecture diagram showing write request flow through RegionServers, MemStore, and data storage.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/wal-new.png)

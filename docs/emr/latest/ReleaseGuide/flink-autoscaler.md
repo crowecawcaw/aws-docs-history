@@ -25,10 +25,10 @@ Use the following steps to enable the Flink autoscaler when you create an Amazon
 1. In the Amazon EMR console, create a new EMR cluster:
 
    1. Choose Amazon EMR release `emr-6.15.0` or higher. Select the **Flink** application bundle, and select any other applications that you might want to include on your cluster.  
-![Application bundle section with Flink selected and checkboxes for Flink, Hadoop, Hive, and Zeppelin.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-flink-cluster-create.png)
+![Application bundle section with Flink selected and checkboxes for Flink, Hadoop, Hive, and Zeppelin.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-flink-cluster-create.png)
 
    1. For the **Cluster scaling and provisioning** option, select **Use EMR-managed scaling**.  
-![Cluster scaling options with Use EMR-managed scaling selected.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-flink-cluster-managedscaling.png)
+![Cluster scaling options with Use EMR-managed scaling selected.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-flink-cluster-managedscaling.png)
 
 1. In the **Software settings** section, enter the following configuration to enable Flink autoscaler. For testing scenarios, set the decision interval, metrics window interval, and stabilization interval to a lower value so that the job immediately makes a scaling decision for easier verification.
 

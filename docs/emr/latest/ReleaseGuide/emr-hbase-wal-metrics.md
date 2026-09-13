@@ -12,9 +12,9 @@
 
 **Example `EMRWALCount`:**
 
-![Line graph showing ResourceCount fluctuations over time, ranging from about 18.87 to 19.20.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/wal-metric.png)
+![Line graph showing ResourceCount fluctuations over time, ranging from about 18.87 to 19.20.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/wal-metric.png)
 
 
 **Example `EMRWALWorkspaceCount`:**
 
-![Graph showing ResourceCount fluctuations over time, ranging from 7.97 to 8.32.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/wal-metric2.png)
+![Graph showing ResourceCount fluctuations over time, ranging from 7.97 to 8.32.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/wal-metric2.png)

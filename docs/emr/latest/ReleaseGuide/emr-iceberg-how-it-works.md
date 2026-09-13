@@ -9,7 +9,7 @@ Iceberg tracks individual data files in a table instead of in directories. This 
 
 **Iceberg snapshot diagram**
 
-![Diagram of two snapshots. Each snapshot has its own manifest list, which stores metadata about multiple reusable manifests. Each manifest refers to one or multiple data files.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/Iceberg-snapshot-diagram.png)
+![Diagram of two snapshots. Each snapshot has its own manifest list, which stores metadata about multiple reusable manifests. Each manifest refers to one or multiple data files.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/Iceberg-snapshot-diagram.png)
 
 
 Iceberg offers the following features:
