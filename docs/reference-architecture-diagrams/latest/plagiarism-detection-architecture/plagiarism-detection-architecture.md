@@ -10,7 +10,7 @@ This architecture helps you create a plagiarism-detection service using AWS Step
 ## Plagiarism Detection Architecture Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS Step Functions, AWS Lambda, Amazon SageMaker AI, and OpenSearch Service services to create a plagiarism-detection service .](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/plagiarism-detection-architecture/images/plagiarism-detection-architecture.png)
+![Reference architecture diagram showing how you can use AWS Step Functions, AWS Lambda, Amazon SageMaker AI, and OpenSearch Service services to create a plagiarism-detection service .](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/plagiarism-detection-architecture/images/plagiarism-detection-architecture.png)
 
 
 1. Copy the document you’d like to run plagiarism detection on to **Amazon Simple Storage Service** (Amazon S3). 
