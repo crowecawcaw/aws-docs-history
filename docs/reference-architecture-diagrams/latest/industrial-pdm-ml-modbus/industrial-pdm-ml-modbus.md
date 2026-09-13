@@ -10,7 +10,7 @@ With this architecture, you can create a predictive maintenance (PdM) ML model b
 ## Industrial PdM ML Modbus architecture diagram
 <a name="ipm-diagram"></a>
 
-![Architecture diagram for AWS Industrial PdM ML Model with Modbus communication.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-pdm-ml-modbus/images/aws-industrial-PdM-ML-modbus-RA.png)
+![Architecture diagram for AWS Industrial PdM ML Model with Modbus communication.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-pdm-ml-modbus/images/aws-industrial-PdM-ML-modbus-RA.png)
 
 
 The following steps describe the architecture:
