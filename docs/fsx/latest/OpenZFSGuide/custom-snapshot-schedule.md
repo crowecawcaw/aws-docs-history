@@ -12,7 +12,7 @@ For more information on CRON schedule patterns, see [Schedule expressions for ru
 
 Deploying this solution builds the following resources in the AWS Cloud:
 
-![Diagram showing the custom snapshot schedule CloudFormation template.](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/openzfs-custom-snapshot-architecture.png)
+![Diagram showing the custom snapshot schedule CloudFormation template.](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/openzfs-custom-snapshot-architecture.png)
 
 
 The diagram illustrates the following custom snapshot schedule workflow:

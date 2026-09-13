@@ -13,7 +13,7 @@ FSx for OpenZFS publishes CloudWatch metrics in the following domains:
 
 The following diagram illustrates an FSx for OpenZFS file system, its components, and its metric domains.
 
-![FSx for Windows File Server reports metrics in CloudWatch.](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/metrics-overview-FSxZ.png)
+![FSx for Windows File Server reports metrics in CloudWatch.](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/metrics-overview-FSxZ.png)
 
 
 By default, FSx for OpenZFS sends metric data to CloudWatch at 1-minute intervals. The following are exceptions to the default, and are sent at 5-minute intervals:

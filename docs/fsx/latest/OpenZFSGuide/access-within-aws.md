@@ -47,7 +47,7 @@ When you access your Multi-AZ file system from outside of the file system's VPC,
 
 The following diagram illustrates using Transit Gateway for NFS access to a Multi-AZ file system that is in a different VPC than the clients that are accessing it.
 
-![Using Transit Gateway to access NFS endpoints with clients in a different VPC.](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/fsx-openzfs-multi-az-access-transit-gateway.png)
+![Using Transit Gateway to access NFS endpoints with clients in a different VPC.](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/fsx-openzfs-multi-az-access-transit-gateway.png)
 
 
 **Note**  

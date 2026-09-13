@@ -16,7 +16,7 @@ With ongoing periodic data replication, you can set up a schedule that automatic
 
 Deploying this solution builds the following resources in the AWS Cloud.
 
-![Architecture of the periodic data replication solution.](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/openzfs-periodic-data-replication-architecture.PNG)
+![Architecture of the periodic data replication solution.](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/openzfs-periodic-data-replication-architecture.PNG)
 
 
 The diagram illustrates the following periodic replication workflow.

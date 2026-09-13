@@ -9,7 +9,7 @@ There are two primary architectural components of each Amazon FSx file system:
 
 FSx for OpenZFS reports metrics in CloudWatch that track performance and resource utilization for your file system's file server and storage volumes. The following diagram illustrates an Amazon FSx file system with its architectural components, and the performance and resource CloudWatch metrics that are available for monitoring. The key property for a set of metrics is the file system property that determines the capacity for those metrics. Adjusting that property modifies the file system's performance for that set of metrics.
 
-![Diagram displaying the different types of FSx for OpenZFS Cloudwatch metrics.](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/file-server-metrics-FSxZ.png)
+![Diagram displaying the different types of FSx for OpenZFS Cloudwatch metrics.](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/file-server-metrics-FSxZ.png)
 
 
 You can use the **Monitoring & performance** panel on your file system's dashboard in the Amazon FSx console to view the metrics that are described in the following table. For more information, see [Accessing CloudWatch metrics](accessingmetrics.md).

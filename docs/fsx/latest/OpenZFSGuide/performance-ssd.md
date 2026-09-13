@@ -9,7 +9,7 @@ When a client accesses data that's stored in either the in-memory or NVMe caches
 
 FSx for OpenZFS file systems can serve network I/O about three times faster than disk I/O, which means that clients can drive greater throughput and IOPS with lower latencies for frequently accessed data in cache. The following diagram illustrates how data is accessed from an FSx for OpenZFS file system, with the NVMe cache applying to all Single-AZ 2 file systems.
 
-![Diagram showing how data is accessed in an FSx for OpenZFS file system.](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/zfs-data-access-nvme.png)
+![Diagram showing how data is accessed in an FSx for OpenZFS file system.](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/zfs-data-access-nvme.png)
 
 
 File-based workloads are typically spiky, characterized by short, intense periods of high I/O with plenty of idle time between bursts. To support spiky workloads, in addition to the *baseline* speeds that a file system can sustain 24/7, Amazon FSx provides the capability to *burst* to higher speeds for periods of time for both network I/O and disk I/O operations. Amazon FSx uses a network I/O credit mechanism to allocate throughput and IOPS based on average utilization — file systems accrue credits when their throughput and IOPS usage is below their baseline limits, and can use these credits when they perform I/O operations.
@@ -336,4 +336,4 @@ If you select `Automatic` provisioned SSD IOPS, Amazon FSx will provision 3 IOPS
 
 The following graph illustrates the maximum IOPS for Single-AZ 1 (non-HA and HA), Single-AZ 2 (non-HA and HA), and Multi-AZ (HA) depending on storage capacity.
 
-![Chart showing provisioned IOPS.](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/updated-ssdiops-performance-graph.png)
+![Chart showing provisioned IOPS.](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/updated-ssdiops-performance-graph.png)

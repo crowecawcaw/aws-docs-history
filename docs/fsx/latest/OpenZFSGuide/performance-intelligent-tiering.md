@@ -17,7 +17,7 @@ A write request occurs when FSx for OpenZFS writes a block of data to Intelligen
 
 Data from the in-memory cache on file systems using the Intelligent-Tiering storage class is served directly to the requesting client as *network I/O*. When a client accesses data that is not in the in-memory cache, it is read from either the SSD read cache or Intelligent-Tiering storage as *disk I/O* and then served to the client as network I/O. The following diagram illustrates how data is accessed from an Intelligent-Tiering file system.
 
-![Diagram showing how data is accessed in an FSx for OpenZFS file system with Intelligent-Tiering.](http://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/intelligent-tiering-arch.png)
+![Diagram showing how data is accessed in an FSx for OpenZFS file system with Intelligent-Tiering.](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/images/intelligent-tiering-arch.png)
 
 
 **Topics**
