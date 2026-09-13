@@ -29,19 +29,19 @@ Amazon Data Firehose buffers incoming streaming data to a certain size or for a 
 
 For Amazon S3 destinations, streaming data is delivered to your S3 bucket. If data transformation is enabled, you can optionally back up source data to another Amazon S3 bucket.
 
-![A diagram showing the Amazon Data Firehose data flow for Amazon S3.](http://docs.aws.amazon.com/firehose/latest/dev/images/fh-flow-s3.png)
+![A diagram showing the Amazon Data Firehose data flow for Amazon S3.](https://docs.aws.amazon.com/firehose/latest/dev/images/fh-flow-s3.png)
 
 
 For Amazon Redshift destinations, streaming data is delivered to your S3 bucket first. Amazon Data Firehose then issues an Amazon Redshift **COPY** command to load data from your S3 bucket to your Amazon Redshift cluster. If data transformation is enabled, you can optionally back up source data to another Amazon S3 bucket.
 
-![A diagram showing Amazon Data Firehose data flow for Amazon Redshift.](http://docs.aws.amazon.com/firehose/latest/dev/images/fh-flow-rs.png)
+![A diagram showing Amazon Data Firehose data flow for Amazon Redshift.](https://docs.aws.amazon.com/firehose/latest/dev/images/fh-flow-rs.png)
 
 
 For OpenSearch Service destinations, streaming data is delivered to your OpenSearch Service cluster, and it can optionally be backed up to your S3 bucket concurrently.
 
-![A diagram showing Amazon Data Firehose data flow for OpenSearch Service.](http://docs.aws.amazon.com/firehose/latest/dev/images/fh-flow-es.png)
+![A diagram showing Amazon Data Firehose data flow for OpenSearch Service.](https://docs.aws.amazon.com/firehose/latest/dev/images/fh-flow-es.png)
 
 
 For Splunk destinations, streaming data is delivered to Splunk, and it can optionally be backed up to your S3 bucket concurrently. 
 
-![A diagram showing Amazon Data Firehose data flow for Splunk.](http://docs.aws.amazon.com/firehose/latest/dev/images/fh-flow-splunk.png)
+![A diagram showing Amazon Data Firehose data flow for Splunk.](https://docs.aws.amazon.com/firehose/latest/dev/images/fh-flow-splunk.png)
