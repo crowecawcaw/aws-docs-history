@@ -26,14 +26,14 @@ In this example, you write the following records to an Amazon Kinesis stream:
 
 You then create an Kinesis Data Analytics application on the console, with the Kinesis data stream as the streaming source. The discovery process reads sample records on the streaming source and infers an in-application schema with one column (LOGENTRY), as shown following.
 
-![Console screenshot showing in-application schema with LOGENTRY column.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_log_parse_0.png)
+![Console screenshot showing in-application schema with LOGENTRY column.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_log_parse_0.png)
 
 
 Then, you use the application code with the `REGEX_LOG_PARSE` function to parse the log string to retrieve the data elements. You insert the resulting data into another in-application stream, as shown in the following screenshot: 
 
 
 
-![Console screenshot showing the resulting data table with ROWTIME, LOGENTRY, MATCH1, and MATCH2 columns.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_log_parse_1.png)
+![Console screenshot showing the resulting data table with ROWTIME, LOGENTRY, MATCH1, and MATCH2 columns.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_log_parse_1.png)
 
 
 **Topics**

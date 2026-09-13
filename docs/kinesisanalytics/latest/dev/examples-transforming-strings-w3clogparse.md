@@ -26,12 +26,12 @@ In this example, you write log records to an Amazon Kinesis data stream. Example
 
 You then create an Kinesis Data Analytics application on the console, with the Kinesis data stream as the streaming source. The discovery process reads sample records on the streaming source and infers an in-application schema with one column (log), as shown following:
 
-![Console screenshot showing formatted stream sample tab with the in-application schema containing the log column.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/log-10.png)
+![Console screenshot showing formatted stream sample tab with the in-application schema containing the log column.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/log-10.png)
 
 
 Then, you use the application code with the `W3C_LOG_PARSE` function to parse the log, and create another in-application stream with various log fields in separate columns, as shown following:
 
-![Console screenshot showing real-time analytics tab with in-application stream.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/log-20.png)
+![Console screenshot showing real-time analytics tab with in-application stream.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/log-20.png)
 
 
 **Topics**

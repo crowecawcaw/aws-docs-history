@@ -129,7 +129,7 @@ GROUP BY STEP(source_sql_stream_002.rowtime BY INTERVAL '60' SECOND),
 
 The preceding code example produces output in `in_application_stream001` similar to the following:
 
-![Table showing ROWTIME, TICKER, and TICKER_COUNT columns with stock data for QAZ, SAC, PLM, and AMZN.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/input-parallelism-results.png)
+![Table showing ROWTIME, TICKER, and TICKER_COUNT columns with stock data for QAZ, SAC, PLM, and AMZN.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/input-parallelism-results.png)
 
 
 ## Additional Considerations

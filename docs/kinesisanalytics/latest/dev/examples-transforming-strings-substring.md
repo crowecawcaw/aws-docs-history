@@ -26,14 +26,14 @@ In this example, you write the following records to an Amazon Kinesis data strea
 
 You then create an Kinesis Data Analytics application on the console, using the Kinesis data stream as the streaming source. The discovery process reads sample records on the streaming source and infers an in-application schema with one column (`REFERRER`), as shown.
 
-![Console screenshot showing the in-application schema with a list of URLs in the referrer column.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/referrer-10.png)
+![Console screenshot showing the in-application schema with a list of URLs in the referrer column.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/referrer-10.png)
 
 
 Then, you use the application code with the `SUBSTRING` function to parse the URL string to retrieve the company name. Then you insert the resulting data into another in-application stream, as shown following: 
 
 
 
-![Console screenshot showing real-time analytics tab with resulting data in the in-application stream.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/referrer-20.png)
+![Console screenshot showing real-time analytics tab with resulting data in the in-application stream.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/referrer-20.png)
 
 
 **Topics**

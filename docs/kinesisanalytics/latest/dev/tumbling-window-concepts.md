@@ -13,7 +13,7 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 
 When a windowed query processes each window in a non-overlapping manner, the window is referred to as a *tumbling window*. In this case, each record on an in-application stream belongs to a specific window. It is processed only once (when the query processes the window to which the record belongs).
 
-![Timeline showing stream data divided into non-overlapping tumbling windows at regular intervals.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/window-tumbling-20.png)
+![Timeline showing stream data divided into non-overlapping tumbling windows at regular intervals.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/window-tumbling-20.png)
 
 
 For example, an aggregation query using a `GROUP BY` clause processes rows in a tumbling window. The demo stream in the [getting started exercise](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/get-started-exercise.html) receives stock price data that is mapped to the in-application stream `SOURCE_SQL_STREAM_001` in your application. This stream has the following schema.

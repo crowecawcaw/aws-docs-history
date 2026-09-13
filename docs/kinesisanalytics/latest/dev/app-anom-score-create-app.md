@@ -58,7 +58,7 @@ In this section, you create an Amazon Kinesis Data Analytics application as foll
    
 
 1. Run the SQL code and review the results on the Kinesis Data Analytics console:  
-![Console screenshot showing real-time analytics tab with the resulting data in the in-application stream.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/anom-v2-40.png)
+![Console screenshot showing real-time analytics tab with the resulting data in the in-application stream.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/anom-v2-40.png)
 
 
 

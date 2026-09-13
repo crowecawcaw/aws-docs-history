@@ -20,7 +20,7 @@ In this section, you create an Amazon Kinesis Data Analytics application. You co
 1. Choose **Create application**.
 
 1. On the **Create application** page, type an application name, type a description, choose **SQL** for the application's **Runtime** setting, and then choose **Create application**.  
-![Screenshot of New application page with application name and description.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-10.png)
+![Screenshot of New application page with application name and description.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-10.png)
 
    Doing this creates a Kinesis Data Analytics application with a status of READY. The console shows the application hub where you can configure input and output.
 **Note**  

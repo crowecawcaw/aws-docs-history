@@ -61,4 +61,4 @@ In this Kinesis Data Analytics application, the query runs continuously on the i
 
 The example outputs a stream to `TRIGGER_COUNT_STREAM` similar to the following:
 
-![Console screenshot showing the output stream containing ticker symbol, percentage change, and trigger count columns.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex-throttle-alerts.png)
+![Console screenshot showing the output stream containing ticker symbol, percentage change, and trigger count columns.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex-throttle-alerts.png)

@@ -30,14 +30,14 @@ In this example, you write semi-structured records to an Amazon Kinesis data str
 
 You then create an Kinesis Data Analytics application on the console, using the Kinesis stream as the streaming source. The discovery process reads sample records on the streaming source and infers an in-application schema with four columns, as shown following:
 
-![Console screenshot showing in-application schema with 4 columns.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/unstructured-10.png)
+![Console screenshot showing in-application schema with 4 columns.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/unstructured-10.png)
 
 
 Then, you use the application code with the `VARIABLE_COLUMN_LOG_PARSE` function to parse the comma-separated values, and insert normalized rows in another in-application stream, as shown following:
 
 
 
-![Console screenshot showing real-time analytics tab with in-application stream.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/unstructured-20.png)
+![Console screenshot showing real-time analytics tab with in-application stream.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/unstructured-20.png)
 
 
 **Topics**

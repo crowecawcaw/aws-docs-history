@@ -29,14 +29,14 @@ In this example, you write the following records to an Amazon Kinesis data strea
 
 You then create a Kinesis Data Analytics application in the AWS Management Console, with the Kinesis data stream as the streaming source. The discovery process reads sample records on the streaming source and infers an in-application schema with one column (`TICKER`) as shown following.
 
-![Console screenshot showing the in-application schema with a ticker column.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_topk_schema.png)
+![Console screenshot showing the in-application schema with a ticker column.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_topk_schema.png)
 
 
 You use the application code with the `TOP_K_VALUES_TUMBLING` function to create a windowed aggregation of the data. Then you insert the resulting data into another in-application stream, as shown in the following screenshot: 
 
 
 
-![Console screenshot showing the resulting data in an in-application stream.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_topk.png)
+![Console screenshot showing the resulting data in an in-application stream.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_topk.png)
 
 
 In the following procedure, you create a Kinesis Data Analytics application that retrieves the most frequently occurring values in the input stream.

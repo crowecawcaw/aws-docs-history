@@ -14,7 +14,7 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 You can write your own SQL queries against the in-application stream, but for the following step you use one of the templates that provides sample code.
 
 1. On the application hub page, choose **Go to SQL editor**.   
-![Screenshot of the example application page with Go to SQL editor button.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-40.png)
+![Screenshot of the example application page with Go to SQL editor button.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-40.png)
 
 1. In the **Would you like to start running "ExampleApp"?** dialog box, choose **Yes, start application**.
 
@@ -41,7 +41,7 @@ You can write your own SQL queries against the in-application stream, but for th
    1. In the SQL Editor, choose **Save and run SQL**. The console first sends update request to save the application code. Then, the code continuously executes.
 
    1. You can see the results in the **Real-time analytics** tab.   
-![Screenshot of the SQL editor with results shown in the real-time analytics tab.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
+![Screenshot of the SQL editor with results shown in the real-time analytics tab.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
 
       The SQL editor has the following tabs:
       + The **Source data** tab shows an in-application input stream that is mapped to the streaming source. Choose the in-application stream, and you can see data coming in. Note the additional columns in the in-application input stream that weren't specified in the input configuration. These include the following timestamp columns:

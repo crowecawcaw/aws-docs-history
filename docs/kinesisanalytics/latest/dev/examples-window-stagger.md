@@ -35,14 +35,14 @@ In this example, you write the following records to a Kinesis data stream at the
 
 You then create a Kinesis Data Analytics application in the AWS Management Console, with the Kinesis data stream as the streaming source. The discovery process reads sample records on the streaming source and infers an in-application schema with two columns (`EVENT_TIME` and `TICKER`) as shown following.
 
-![Console screenshot showing the in-application schema with price and ticker columns.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_stagger_schema.png)
+![Console screenshot showing the in-application schema with price and ticker columns.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_stagger_schema.png)
 
 
 You use the application code with the `COUNT` function to create a windowed aggregation of the data. Then you insert the resulting data into another in-application stream, as shown in the following screenshot: 
 
 
 
-![Console screenshot showing the resulting data in an in-application stream.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_stagger.png)
+![Console screenshot showing the resulting data in an in-application stream.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_stagger.png)
 
 
 In the following procedure, you create a Kinesis Data Analytics application that aggregates values in the input stream in a stagger window based on EVENT\_TIME and TICKER.

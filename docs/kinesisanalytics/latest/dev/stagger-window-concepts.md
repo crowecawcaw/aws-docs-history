@@ -44,7 +44,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 In the following diagram, an application is counting the number of trades it receives, based on when the trades happened (event time) with one minute of granularity. The application can use a tumbling window for grouping data based on row time and event time. The application receives four records that all arrive within one minute of each other. It groups the records by row time, event time, and ticker symbol. Because some of the records arrive after the first tumbling window ends, the records do not all fall within the same one-minute tumbling window.
 
-![Tumbling windows showing records grouped by event time with EMIT RESULT markers at 11:01 and 11:02.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/stagger_0.png)
+![Tumbling windows showing records grouped by event time with EMIT RESULT markers at 11:01 and 11:02.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/stagger_0.png)
 
 
 The preceding diagram has the following events.
@@ -103,7 +103,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 In the following diagram, events are aggregated by event time and ticker symbol into stagger windows.
 
-![Timeline showing AMZN events aggregated into 1-minute stagger windows by event time and ticker.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/stagger_1.png)
+![Timeline showing AMZN events aggregated into 1-minute stagger windows by event time and ticker.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/stagger_1.png)
 
 
 The preceding diagram has the following events, which are the same events as the tumbling window application analyzed:

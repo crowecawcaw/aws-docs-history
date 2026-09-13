@@ -1453,7 +1453,7 @@ First we share a typical KDA-SQL architecture, before showing how you can replac
 
 Here is the Amazon Kinesis Data Analytics SQL architectural flow: 
 
-![Data flow from Producer through Kinesis Data Streams, Firehose, Analytics SQL, and to S3.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/legacy-sql.png)
+![Data flow from Producer through Kinesis Data Streams, Firehose, Analytics SQL, and to S3.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/legacy-sql.png)
 
 
 We first examine the setup of a legacy Amazon Kinesis Data Analytics-SQL and Amazon Kinesis Data Firehose. The use case is a trading market where trading data, including stock ticker and price, streams from external sources to Amazon Kinesis systems. Amazon Kinesis Data Analytics for SQL uses the input stream to execute Windowed queries like Tumbling window to determine the trade volume and the `min`, `max`, and `average` trade price over a one-minute window for each stock ticker.  
@@ -1537,7 +1537,7 @@ In the updated architecture, you replace Amazon Kinesis Data Firehose with Amazo
 
 Here is the Amazon Managed Service for Apache Flink Studio architectural flow:
 
-![Producer sends data through Kinesis Data Streams to Kinesis Data Analytics Studio, then to S3.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kda-studio.png)
+![Producer sends data through Kinesis Data Streams to Kinesis Data Analytics Studio, then to S3.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kda-studio.png)
 
 
 #### Create a Kinesis Data Stream
@@ -1683,7 +1683,7 @@ This closes the file in Amazon S3 so that it is viewable.
 
 Here is what the contents looks like: 
 
-![Financial data table showing stock prices and volumes for tech companies on March 1, 2023.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kda-studio-contents.png)
+![Financial data table showing stock prices and volumes for tech companies on March 1, 2023.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kda-studio-contents.png)
 
 
 You can use the [CloudFormation template](https://github.com/aws-samples/amazon-kinesis-data-analytics-examples/blob/master/Converting-KDASQL-KDAStudio/environmentStackCfn/KdaStudioStack.template.yaml) to create the infrastructure. 
@@ -1697,7 +1697,7 @@ CloudFormation will create the following resources in your AWS account:
 
 Import the notebook and change the Amazon S3 bucket name with the new Amazon S3 bucket created by CloudFormation. 
 
-![Flink SQL code creating TRADE_DESTINATION_S3 table with trade window start timestamp and ticker fields.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kda-studio-cfn.png)
+![Flink SQL code creating TRADE_DESTINATION_S3 table with trade window start timestamp and ticker fields.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kda-studio-cfn.png)
 
 
 ##### See more

@@ -26,14 +26,14 @@ In this example, you write the following records to an Amazon Kinesis data strea
 
 You then create an Kinesis Data Analytics application on the console, with the Kinesis data stream as the streaming source. The discovery process reads sample records on the streaming source and infers an in-application schema with one column (REFERRER) as shown.
 
-![Console screenshot showing in-application schema with list of URLs in the referrer column.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/referrer-10.png)
+![Console screenshot showing in-application schema with list of URLs in the referrer column.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/referrer-10.png)
 
 
 Then, you use the application code with the `REGEX_REPLACE` function to convert the URL to use `https://` instead of `http://`. You insert the resulting data into another in-application stream, as shown following: 
 
 
 
-![Console screenshot showing resulting data table with ROWTIME, ingest_time, and referrer columns.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_replace.png)
+![Console screenshot showing resulting data table with ROWTIME, ingest_time, and referrer columns.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_regex_replace.png)
 
 
 **Topics**

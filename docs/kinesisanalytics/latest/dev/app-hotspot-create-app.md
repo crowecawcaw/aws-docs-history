@@ -47,7 +47,7 @@ In this section of the [Hotspots example](app-hotspots-detection.md), you create
    
 
 1. Run the SQL code and review the results.  
-![Results of SQL code showing rowtime, hotspot, and hotspot_heat.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/hotspot-v2-40.png)
+![Results of SQL code showing rowtime, hotspot, and hotspot_heat.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/hotspot-v2-40.png)
 
 
 

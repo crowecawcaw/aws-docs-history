@@ -54,14 +54,14 @@ In this example, you write the following records to an Amazon Kinesis data strea
 
 You then create an Kinesis Data Analytics application on the console, with the Kinesis stream as the streaming source. The discovery process reads sample records on the streaming source and infers an in-application schema with two columns (`EVENT_TIME` and `TICKER`) as shown.
 
-![Console screenshot showing the in-application schema with event time and ticker columns..](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_datetime_convert_0.png)
+![Console screenshot showing the in-application schema with event time and ticker columns..](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_datetime_convert_0.png)
 
 
 Then, you use the application code with SQL functions to convert the `EVENT_TIME` time stamp field in various ways. You then insert the resulting data into another in-application stream, as shown in the following screenshot: 
 
 
 
-![Console screenshot showing the resulting data in an in-application stream..](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_datetime_convert_1.png)
+![Console screenshot showing the resulting data in an in-application stream..](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_datetime_convert_1.png)
 
 
 

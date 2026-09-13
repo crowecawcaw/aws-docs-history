@@ -13,7 +13,7 @@ After careful consideration, we have decided to discontinue Amazon Kinesis Data 
 
 Following, you can find information about sections of the SQL editor and how each works. In the SQL editor, you can either author your own code yourself or choose **Add SQL from templates**. A SQL template gives you example SQL code that can help you write common Amazon Kinesis Data Analytics applications. The example applications in this guide use some of these templates. For more information, see [Kinesis Data Analytics for SQL examples](examples.md).
 
-![Screenshot of the SQL editor showing the real-time analytics tab and in-application streams.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
+![Screenshot of the SQL editor showing the real-time analytics tab and in-application streams.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-50.png)
 
 
 ## Source Data Tab
@@ -21,7 +21,7 @@ Following, you can find information about sections of the SQL editor and how eac
 
 The **Source data** tab identifies a streaming source. It also identifies the in-application input stream that this source maps to and that provides the application input configuration. 
 
-![Screenshot of the SQL editor showing the source data tab with the streaming source highlighted.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-60.png)
+![Screenshot of the SQL editor showing the source data tab with the streaming source highlighted.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-60.png)
 
 
 Amazon Kinesis Data Analytics provides the following timestamp columns, so that you don't need to provide explicit mapping in your input configuration: 
@@ -35,7 +35,7 @@ These timestamp values are useful in windowed queries that are time-based. For m
 
 The **Real-time analytics** tab shows all the in-application streams that your application code creates. This group of streams includes the error stream (`error_stream`) that Amazon Kinesis Data Analytics provides for all applications. 
 
-![Screenshot of the SQL editor showing the real-time analytics tab with in-application streams highlighted.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-70.png)
+![Screenshot of the SQL editor showing the real-time analytics tab with in-application streams highlighted.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/gs-v2-70.png)
 
 
 ## Destination Tab

@@ -66,9 +66,9 @@ In the following procedure, the tumbling window aggregation produces two partial
 
 The first pump outputs a stream to `CALC_COUNT_SQL_STREAM` similar to the following. Note that the result set is incomplete: 
 
-![Console screenshot showing partial results.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_partial_0.png)
+![Console screenshot showing partial results.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_partial_0.png)
 
 
 The second pump then outputs a stream to `DESTINATION_SQL_STREAM` that contains the complete result set: 
 
-![Console screenshot showing complete results.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_partial_1.png)
+![Console screenshot showing complete results.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/ex_partial_1.png)

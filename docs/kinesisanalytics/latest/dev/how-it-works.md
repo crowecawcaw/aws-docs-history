@@ -18,7 +18,7 @@ An *application* is the primary resource in Amazon Kinesis Data Analytics that y
 
 Kinesis Data Analytics applications continuously read and process streaming data in real time. You write application code using SQL to process the incoming streaming data and produce output. Then, Kinesis Data Analytics writes the output to a configured destination. The following diagram illustrates a typical application architecture.
 
-![Diagram showing a data analytics application, streaming input sources, reference data, and application output.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kinesis-app.png)
+![Diagram showing a data analytics application, streaming input sources, reference data, and application output.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/kinesis-app.png)
 
 
 Each application has a name, description, version ID, and status. Amazon Kinesis Data Analytics assigns a version ID when you first create an application. This version ID is updated when you update any application configuration. For example, if you add an input configuration, add or delete a reference data source, add or delete an output configuration, or update application code, Kinesis Data Analytics updates the current application version ID. Kinesis Data Analytics also maintains timestamps for when an application was created and last updated. 

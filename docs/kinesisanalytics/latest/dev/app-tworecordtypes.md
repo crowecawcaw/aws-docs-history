@@ -33,7 +33,7 @@ In this exercise, you have a streaming source that receives records of two types
 
 When you create an application using the AWS Management Console, the console displays the following inferred schema for the in-application input stream created. By default, the console names this in-application stream `SOURCE_SQL_STREAM_001`.
 
-![Console screenshot showing the formatted in-application stream sample.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/two-record-types-10.png)
+![Console screenshot showing the formatted in-application stream sample.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/two-record-types-10.png)
 
 
 When you save the configuration, Amazon Kinesis Data Analytics continuously reads data from the streaming source and inserts rows in the in-application stream. You can now perform analytics on data in the in-application stream. 
@@ -101,7 +101,7 @@ In the application code in this example, you first create two additional in-appl
    ```
 
    You see the result, as shown following:  
-![Console screenshot showing the results on the SQL results tab.](http://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/two-record-types-20.png)
+![Console screenshot showing the results on the SQL results tab.](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/images/two-record-types-20.png)
 
 **Topics**
 + [Step 1: Prepare the Data](tworecordtypes-prepare.md)
