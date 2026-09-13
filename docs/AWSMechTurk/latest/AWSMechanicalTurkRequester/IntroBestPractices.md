@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 # Amazon Mechanical Turk best practices
 <a name="IntroBestPractices"></a>
 
@@ -41,12 +43,12 @@ When you create a HIT, you provide a number of attributes about the task that te
 
 Maintaining consistent attributes for your HIT type is important because it directly impacts how your HIT is displayed on the worker website. On the worker website, HITs are grouped together into HIT groups based on their HIT type values. As shown in the following image, each HIT group has thousands of HITs on which a worker can work because they all have the same attributes for title, description, reward, and other attributes. If workers accept a HIT from one of these HIT groups, they can automatically move to the next piece of work in the HIT group without needing to return to the list. 
 
-![HIT Groups list showing three tasks with titles, reward amounts, and action buttons.](http://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/images/mturk_accepted_HIT.png)
+![HIT Groups list showing three tasks with titles, reward amounts, and action buttons.](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/images/mturk_accepted_HIT.png)
 
 
 If, however, each HIT has a unique HIT type, then workers see your HITs as a long list of options in the list and have to return to the list after completing each task.
 
-![Table showing HITs with identical titles, rewards, and creation dates for ad tagging tasks.](http://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/images/mturk_ad_tagger.png)
+![Table showing HITs with identical titles, rewards, and creation dates for ad tagging tasks.](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/images/mturk_ad_tagger.png)
 
 
 ## Specify that links open new browser, windows or tabs
