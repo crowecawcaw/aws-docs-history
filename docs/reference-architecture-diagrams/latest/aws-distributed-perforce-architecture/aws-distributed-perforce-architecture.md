@@ -10,7 +10,7 @@ This architecture shows how to deploy a hybrid multi-Region Perforce Helix Core 
 ## AWS Distributed Perforce Architecture
 <a name="diagram1"></a>
 
-![Architecture diagram showing a distributed Perforce Helix Core deployment on AWS with hybrid and multi-Region connectivity.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-distributed-perforce-architecture/images/aws-distributed-perforce-architecture.png)
+![Architecture diagram showing a distributed Perforce Helix Core deployment on AWS with hybrid and multi-Region connectivity.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-distributed-perforce-architecture/images/aws-distributed-perforce-architecture.png)
 
 
 1. Connect the corporate data center edge server to the AWS primary Region by using [https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) or AWS Site-to-Site VPN. Choose based on bandwidth and connection stability needs. Connect remote users by using AWS Client VPN or virtual workstations on AWS.
