@@ -19,7 +19,7 @@
 ## Reference architecture
 <a name="reference-architecture-1"></a>
 
-![Reference architecture diagram of improving the efficiency of a containerized application's CI/CD pipeline](http://docs.aws.amazon.com/wellarchitected/latest/container-build-lens/images/improving-efficiency-containerized-app-cicd-pipeline.png)
+![Reference architecture diagram of improving the efficiency of a containerized application's CI/CD pipeline](https://docs.aws.amazon.com/wellarchitected/latest/container-build-lens/images/improving-efficiency-containerized-app-cicd-pipeline.png)
 
 
  The reference architecture shown implements a CI/CD pipeline that compiles source code of an application to an executable, stores the executable in an artifact repository, build a container image based on the executable, and stores the image in an image repository. For the pipeline implementation, we use AWS CodePipeline, which automates the build, test, and deploy phases of your release process every time there is a code change, based on the release model you define. 

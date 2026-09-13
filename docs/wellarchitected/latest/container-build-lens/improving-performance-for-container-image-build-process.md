@@ -16,7 +16,7 @@ It is important for an organization to deliver applications and services at high
 +  You want to ensure that your container images and supporting packages maintain your expected security posture. 
 +  You want to use prebuilt images that include many of the packages that your container is dependent upon to speed up the build process. 
 
-![Reference architecture diagram of improving the build pipeline performance of continerized applications](http://docs.aws.amazon.com/wellarchitected/latest/container-build-lens/images/improving-performance-containerized-app-build-pipeline.png)
+![Reference architecture diagram of improving the build pipeline performance of continerized applications](https://docs.aws.amazon.com/wellarchitected/latest/container-build-lens/images/improving-performance-containerized-app-build-pipeline.png)
 
 
 
