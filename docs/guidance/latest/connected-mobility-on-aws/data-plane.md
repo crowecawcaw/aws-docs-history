@@ -5,7 +5,7 @@
 
 The data plane handles the real-time flow of vehicle telemetry from edge devices through the processing pipeline to storage and consumption. Every message follows the same path regardless of source: ingestion → normalization → routing → storage \+ real-time state.
 
-![Cloud-Native Data Plane for Dynamic Vehicle Data Collection](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/cloud-native-data-plane-dynamic-data-collection.png)
+![Cloud-Native Data Plane for Dynamic Vehicle Data Collection](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/cloud-native-data-plane-dynamic-data-collection.png)
 
 
 ## Ingestion layer

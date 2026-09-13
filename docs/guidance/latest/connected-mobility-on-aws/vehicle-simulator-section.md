@@ -5,7 +5,7 @@
 
 The solution includes an integrated vehicle simulator that generates realistic fleet telemetry without requiring physical vehicles. The simulator operates in two modes — MQTT Direct for simple JSON telemetry, and FleetWise Edge (FWE) for CAN bus simulation with campaign-driven data collection.
 
-![Cloud-Native Simulator for Dynamic Vehicle Data Collection](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/cloud-native-simulator-dynamic-data-collection.png)
+![Cloud-Native Simulator for Dynamic Vehicle Data Collection](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/cloud-native-simulator-dynamic-data-collection.png)
 
 
 ## Simulation launch flow

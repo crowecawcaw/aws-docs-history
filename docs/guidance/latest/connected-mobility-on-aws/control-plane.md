@@ -5,7 +5,7 @@
 
 The control plane manages what data is collected from vehicles, how vehicles are configured, and how fleet operators interact with the system. While the data plane handles the flow of telemetry, the control plane determines what telemetry to collect and provides the tools to act on it.
 
-![Cloud-Native Control Plane for Dynamic Vehicle Data Collection](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/cloud-native-control-plane-dynamic-data-collection.png)
+![Cloud-Native Control Plane for Dynamic Vehicle Data Collection](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/cloud-native-control-plane-dynamic-data-collection.png)
 
 
 ## Signal catalog

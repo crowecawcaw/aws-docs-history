@@ -37,4 +37,4 @@ cdk destroy cms-<stage>-data-processing --force
 **Important**  
 Always destroy the `data-processing` stack last. It provides shared infrastructure (MSK configuration, transform-manifest S3 bucket) that other stacks depend on at runtime.
 
-![Deleting the stack deletes all resources. You can choose to retain these resources.](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/delete-stack.png)
+![Deleting the stack deletes all resources. You can choose to retain these resources.](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/delete-stack.png)

@@ -8,7 +8,7 @@ The Fleet Manager console is a React-based web application built with [Cloudscap
 ## Dashboard
 <a name="fm-dashboard"></a>
 
-![Fleet Manager Dashboard](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-dashboard.png)
+![Fleet Manager Dashboard](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-dashboard.png)
 
 
 The dashboard is the landing page after sign-in. It displays configurable widgets for fleet-wide metrics including vehicle utilization, distance driven, driver safety scores, braking events, battery state of health, and vehicle health status. Operators can add, remove, and rearrange widgets to customize their view. Action buttons provide quick access to the fleet map, simulation, and fleet management.
@@ -16,20 +16,20 @@ The dashboard is the landing page after sign-in. It displays configurable widget
 ## Fleet management
 <a name="fm-fleet-management"></a>
 
-![Fleet Management](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-fleet-management.png)
+![Fleet Management](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-fleet-management.png)
 
 
 The fleet management page lists all fleets with their vehicle counts and status. Operators can create new fleets, edit fleet details, associate vehicles (via a selection modal), disassociate vehicles, and delete fleets. Clicking a fleet opens the fleet detail page showing the fleet’s vehicles, active campaigns, and performance summary.
 
 Two Cognito user roles govern fleet access. A **platform-admin** user has cross-fleet authority and can perform bulk enrollment and unenrollment operations across all fleets — for example, enrolling a batch of OEM cloud-connected vehicles in a single API call. A **fleet-operator** user is scoped to the fleets listed in their `custom:fleetIds` Cognito claim and can manage vehicles and run bulk operations only within those fleets. Bulk enrollment supports up to four OEM vehicle enrollments per hour per fleet; operations that exceed this quota return a 429 response and can be retried.
 
-![Fleet Detail](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-fleet-detail.png)
+![Fleet Detail](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-fleet-detail.png)
 
 
 ## Vehicle management
 <a name="fm-vehicle-management"></a>
 
-![Vehicle Management](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-vehicle-management.png)
+![Vehicle Management](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-vehicle-management.png)
 
 
 The vehicle management page displays a searchable, sortable table of all registered vehicles with columns for VIN, status, fleet assignment, and last known location. Operators can create new vehicles (which provisions an IoT certificate and thing in AWS IoT Core), edit vehicle attributes, or delete vehicles.
@@ -37,7 +37,7 @@ The vehicle management page displays a searchable, sortable table of all registe
 ## Vehicle detail
 <a name="fm-vehicle-detail"></a>
 
-![Vehicle Detail](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-vehicle-detail.png)
+![Vehicle Detail](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-vehicle-detail.png)
 
 
 The vehicle detail page is the most information-dense screen in the console. It provides:
@@ -53,7 +53,7 @@ The vehicle detail page is the most information-dense screen in the console. It 
 ## Trip detail
 <a name="fm-trip-detail"></a>
 
-![Trip Detail](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-trip-detail.png)
+![Trip Detail](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-trip-detail.png)
 
 
 The trip detail page shows a completed or active trip with a route map visualization, telemetry timeline, safety events that occurred during the trip, and the driver safety score breakdown. The route is plotted on an Amazon Location Service map using the GPS coordinates stored in the trip’s DynamoDB record (see [Trip lifecycle](trip-lifecycle.md)).
@@ -61,7 +61,7 @@ The trip detail page shows a completed or active trip with a route map visualiza
 ## Fleet map
 <a name="fm-fleet-map"></a>
 
-![Fleet Map](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-fleet-map.png)
+![Fleet Map](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-fleet-map.png)
 
 
 The fleet map displays real-time vehicle positions on an interactive map powered by Amazon Location Service. Vehicle locations are read from the Redis geospatial index using `GEOSEARCH` (see [LKS read path](last-known-state-pattern.md#lks-read-path-detail)). Only vehicles with active trips appear on the map. Clicking a vehicle marker shows a card with current speed, heading, driver, and trip status.
@@ -69,18 +69,18 @@ The fleet map displays real-time vehicle positions on an interactive map powered
 ## Driver management
 <a name="fm-driver-management"></a>
 
-![Driver Management](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-driver-management.png)
+![Driver Management](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-driver-management.png)
 
 
 The driver management page lists all drivers with their safety scores, trip counts, and fleet assignments. Clicking a driver opens the driver detail page showing trip history, safety event history, and a per-trip score trend.
 
-![Driver Detail](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-driver-detail.png)
+![Driver Detail](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-driver-detail.png)
 
 
 ## Safety alerts
 <a name="fm-safety-alerts"></a>
 
-![Safety Alerts](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-safety-alerts.png)
+![Safety Alerts](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-safety-alerts.png)
 
 
 The safety alerts page displays all safety events across the fleet in a filterable table. Operators can filter by fleet, vehicle, event type, severity, and time range. Each row shows the event type, severity, vehicle, trip, timestamp, and trigger details. Clicking a row opens a location modal showing where the event occurred on a map. Events are generated by the SafetyProcessor (see [Safety event detection](safety-event-detection.md)).
@@ -93,22 +93,22 @@ The service alerts page shows maintenance alerts generated by the MaintenancePro
 ## Simulation
 <a name="fm-simulation"></a>
 
-![Simulation](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-simulation.png)
+![Simulation](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-simulation.png)
 
 
 The simulation page provides controls to start, configure, and monitor vehicle telemetry simulations. Operators select the number of vehicles, trips per vehicle, city, safety event rate, and telemetry mode (MQTT Direct or FleetWise Edge). Built-in presets (Quick Test, Fleet Demo, Stress Test) provide one-click configurations. The page shows running simulations with status, vehicle count, and elapsed time. For details on how simulation works, see [Simulation platform](simulation-platform.md).
 
-![Single Trip Simulator](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-single-trip-simulator.png)
+![Single Trip Simulator](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-single-trip-simulator.png)
 
 
 From the vehicle detail page, operators can launch a single-vehicle simulation directly. This starts a trip for the selected vehicle without leaving the detail view.
 
-![Simulator Logs](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-simulator-logs.png)
+![Simulator Logs](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-simulator-logs.png)
 
 
 The simulator log viewer streams real-time output from the simulation process, showing telemetry publish events, trip start/end events, and safety event injections.
 
-![FleetWise Edge Agent Logs](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-fwe-logs.png)
+![FleetWise Edge Agent Logs](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-fwe-logs.png)
 
 
 When running in FleetWise Edge mode, the FWE log viewer streams the agent’s stdout showing MQTT connection status, checkin messages, collection scheme receipts, and CAN signal collection activity.
@@ -116,22 +116,22 @@ When running in FleetWise Edge mode, the FWE log viewer streams the agent’s st
 ## Data processing
 <a name="fm-data-processing"></a>
 
-![Signal Catalog](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-data-processing.png)
+![Signal Catalog](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-data-processing.png)
 
 
 The data processing page provides a read-only browser for the signal catalog, event catalog, decoder manifests, and data transformation configurations. Operators can browse all 260\+ signals grouped by category, view signal metadata (VSS path, unit, data type, range), and search for specific signals.
 
-![Event Catalog](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-event-catalog.png)
+![Event Catalog](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-event-catalog.png)
 
 
 The event catalog viewer displays all safety and maintenance event detection rules with their trigger signals, operators, thresholds, and severity levels. This is the same catalog used by the SafetyProcessor and MaintenanceProcessor Flink applications (see [Safety event detection](safety-event-detection.md) and [Maintenance alert detection](maintenance-alert-detection.md)).
 
-![Campaigns](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-campaigns.png)
+![Campaigns](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-campaigns.png)
 
 
 The campaigns view lists all FleetWise data collection campaigns with their status (RUNNING, SUSPENDED, COMPLETED), target vehicles, and signal counts. Operators can create new campaigns, suspend or resume active campaigns, and view campaign details. For details on how campaigns control FWE agent behavior, see [Campaigns](dynamic-data-collection.md#campaigns-overview).
 
-![Campaign Detail](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-campaign-detail.png)
+![Campaign Detail](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-campaign-detail.png)
 
 
 ## Analytics
@@ -146,7 +146,7 @@ The analytics section provides four views:
 ## Settings
 <a name="fm-settings"></a>
 
-![Settings](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-settings.png)
+![Settings](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-settings.png)
 
 
 The settings page allows operators to configure application preferences including API endpoint, simulation service endpoint, and display options. Dark mode can be toggled from the user dropdown menu (Switch Theme) or the settings page. The theme preference persists across sessions via localStorage.

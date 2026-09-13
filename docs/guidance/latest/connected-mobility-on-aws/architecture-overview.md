@@ -15,7 +15,7 @@ Deploying this solution with the default parameters creates the following archit
 **Note**  
 The architecture diagrams in this guide are currently being updated to reflect the current stack topology. The narrative text on this page describes the current deployed architecture; the diagrams may not yet show all components described in the narrative.
 
-![The solution deploys six integrated stacks as described in the following sections.](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/architecture-overview.png)
+![The solution deploys six integrated stacks as described in the following sections.](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/architecture-overview.png)
 
 
 **Note**  
