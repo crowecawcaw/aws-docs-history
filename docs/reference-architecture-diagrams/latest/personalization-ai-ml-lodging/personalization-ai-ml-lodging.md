@@ -10,7 +10,7 @@ With this architecture, you can personalize and improve the customer experience 
 ## Personalization AI/ML diagram
 <a name="perslodge-diagram"></a>
 
-![How to personalize customer communications for lodging by using Amazon Personalize, Amazon Pinpoint, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/personalization-ai-ml-lodging/images/personalization-ai-ml-lodging.png)
+![How to personalize customer communications for lodging by using Amazon Personalize, Amazon Pinpoint, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/personalization-ai-ml-lodging/images/personalization-ai-ml-lodging.png)
 
 
 The following steps describe the architecture:
