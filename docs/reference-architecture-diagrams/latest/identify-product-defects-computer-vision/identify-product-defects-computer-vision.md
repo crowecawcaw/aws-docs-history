@@ -10,7 +10,7 @@ With this architecture, you can detect anomalies such as casting metal defects, 
 ## Product defects computer vision architecture diagram
 <a name="ipd-diagram"></a>
 
-![Architecture diagram for detecting product defects with computer vision and Amazon Lookout for Vision on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/identify-product-defects-computer-vision/images/identify-product-defects-using-industrial-computer-vision-ra.png)
+![Architecture diagram for detecting product defects with computer vision and Amazon Lookout for Vision on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/identify-product-defects-computer-vision/images/identify-product-defects-using-industrial-computer-vision-ra.png)
 
 
 The following steps describe the architecture:
