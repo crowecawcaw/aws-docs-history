@@ -12,7 +12,7 @@ This architecture uses [Amazon Route 53](https://docs.aws.amazon.com/Route53/la
 ## Enterprise Esri ArcGIS Platform on AWS diagram
 <a name="esri-diagram"></a>
 
-![Reference architecture diagram showing a highly available Esri ArcGIS Enterprise deployment on AWS with Route 53, CloudFront, Amazon EC2, Amazon RDS, Amazon EFS, Amazon S3, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/enterprise-esri-arcgis-platform/images/enterprise-esri-arcgis-platform-on-aws-ra.png)
+![Reference architecture diagram showing a highly available Esri ArcGIS Enterprise deployment on AWS with Route 53, CloudFront, Amazon EC2, Amazon RDS, Amazon EFS, Amazon S3, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/enterprise-esri-arcgis-platform/images/enterprise-esri-arcgis-platform-on-aws-ra.png)
 
 
 The following steps describe the architecture:
