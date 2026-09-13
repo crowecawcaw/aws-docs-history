@@ -5,7 +5,7 @@
 
  The generative AI lifecycle consists of seven key phases: scoping, model selection, model customization, development and integration, deployment, and continuous improvement. Each phase of the generative AI lifecycle is evaluated against the six pillars of the Well-Architected Framework. This process helps verify that workloads are built and maintained according to best practices across critical aspects of system design and operation. 
 
-![Generative AI lifecycle diagram](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/lifecycle.png)
+![Generative AI lifecycle diagram](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/lifecycle.png)
 
 
 ## Scoping

@@ -89,7 +89,7 @@
 
  Design security models that automatically enforce source system permissions within AI responses while maintaining performance through intelligent caching. Implement real-time permission validation for data access requests and provide clear audit trails for compliance monitoring. The architecture must verify that users cannot access information through AI synthesis that they cannot access directly in source systems. 
 
-![Reference architecture for a knowledge worker scenario.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/arch.png)
+![Reference architecture for a knowledge worker scenario.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/arch.png)
 
 
 #### Personas

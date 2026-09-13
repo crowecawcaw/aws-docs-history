@@ -53,7 +53,7 @@
 ## Architecture and design
 <a name="architecture-and-design"></a>
 
-![Architecture diagram depicting an AI platform.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/architecture.png)
+![Architecture diagram depicting an AI platform.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/architecture.png)
 
 
 ### API layer and router
@@ -148,7 +148,7 @@
 ### Example gateway architecture
 <a name="example-gateway-architecture"></a>
 
-![An example gateway architecture for an AI platform.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/llm-platform.png)
+![An example gateway architecture for an AI platform.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/llm-platform.png)
 
 
 ## Best practices, considerations, and trade-offs

@@ -34,7 +34,7 @@
 
  Design principles emphasize event-driven processing for scalability, [defense in depth](https://aws.amazon.com/blogs/machine-learning/architect-defense-in-depth-security-for-generative-ai-applications-using-the-owasp-top-10-for-llms/) for security, resilient operations through graceful degradation, and cost optimization through efficient resource utilization. The architecture supports both synchronous and asynchronous processing patterns, enabling real-time response while maintaining system stability under load. 
 
-![Incident response reference architecture using Amazon and AWS services.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/incident-response.png)
+![Incident response reference architecture using Amazon and AWS services.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/incident-response.png)
 
 
 ## Configuration and implementation

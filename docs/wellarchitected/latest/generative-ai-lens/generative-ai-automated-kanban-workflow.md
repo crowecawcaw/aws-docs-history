@@ -15,7 +15,7 @@
 
  The solution implements a serverless, event-driven architecture that begins with the Jira board publishing events to Amazon SNS when tasks are created or updated. A Lambda function initiates an Amazon Step Functions workflow, which orchestrates the entire process including task description review using Bedrock and subtask generation if the review passes. The workflow integrates with the Jira API for subtask creation, all while operating within a secure, monitored environment. This architecture separates concerns, scalability, and maintainable code through clear component boundaries. The system uses AWS managed services to reduce operational overhead while maintaining high reliability and performance. 
 
-![Reference architecture displaying how to build an automated Kanban process using Amazon and AWS generative AI services.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/automated-kanban.png)
+![Reference architecture displaying how to build an automated Kanban process using Amazon and AWS generative AI services.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/automated-kanban.png)
 
 
 ## Configuration and implementation

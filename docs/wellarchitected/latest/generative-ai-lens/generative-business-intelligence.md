@@ -23,7 +23,7 @@
 ### Managed services approach
 <a name="managed-services-approach"></a>
 
-![Diagram that displays a reference architecture using AWS and Amazon managed services to implement.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/generative-bi-Managed.png)
+![Diagram that displays a reference architecture using AWS and Amazon managed services to implement.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/generative-bi-Managed.png)
 
 
 1.  Users are authenticated through AWS IAM Identity Center, integrating with an existing identity provider or using IAM Identity Center as a standalone identity provider. 
@@ -39,7 +39,7 @@
 ### Embedding in custom applications approach
 <a name="embedding-in-custom-applications-approach"></a>
 
-![Reference architecture displaying a generative BI solution using a custom application alongside AWS services.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/generative-bi-Builder.png)
+![Reference architecture displaying a generative BI solution using a custom application alongside AWS services.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/generative-bi-Builder.png)
 
 
 1.  Unstructured data sources within AWS, such as Amazon S3, and third-party sources, such as Microsoft SharePoint, are connected and synced with an Amazon Bedrock Knowledge Base, providing natural language querying and response generation from unstructured data. 

@@ -13,7 +13,7 @@
 ## Architecture and design
 <a name="architecture-and-design-call-center"></a>
 
-![Flowchart that walks through how the autonomous call center works with Amazon AI services.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/call-center.png)
+![Flowchart that walks through how the autonomous call center works with Amazon AI services.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/call-center.png)
 
 
 ### Core architectural components

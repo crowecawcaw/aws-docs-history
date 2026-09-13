@@ -15,7 +15,7 @@
 
  The core architecture centers on direct integration with code repositories, implementing a streamlined data flow through webhook-initiated automated reviews through Amazon API Gateway and AWS Lambda functions. Connections are private and encrypted for security. The system supports customization through team-specific best practices and potential model fine-tuning when needed. The process flow begins with automated review initiated by pull requests, followed by human review for final approval. This design improves efficiency through automation and quality through human oversight, while maintaining security and flexibility for different team needs. 
 
-![Reference architecture displaying how to perform automated code review with AWS and Amazon generative AI services.](http://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/code-review.png)
+![Reference architecture displaying how to perform automated code review with AWS and Amazon generative AI services.](https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/images/code-review.png)
 
 
 ## Configuration and implementation
