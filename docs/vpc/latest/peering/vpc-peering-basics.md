@@ -22,7 +22,7 @@ For more information, see [VPC peering connections](working-with-vpc-peering.md)
 
 A VPC peering connection goes through various stages starting from when the request is initiated. At each stage, there may be actions that you can take, and at the end of its lifecycle, the VPC peering connection remains visible in the Amazon VPC console and API or command line output for a period of time.
 
-![VPC peering connection lifecycle.](http://docs.aws.amazon.com/vpc/latest/peering/images/peering-lifecycle-diagram.png)
+![VPC peering connection lifecycle.](https://docs.aws.amazon.com/vpc/latest/peering/images/peering-lifecycle-diagram.png)
 
 + **Initiating-request**: A request for a VPC peering connection has been initiated. At this stage, the peering connection can fail, or can go to `pending-acceptance`.
 + **Failed**: The request for the VPC peering connection has failed. While in this state, it cannot be accepted, rejected, or deleted. The failed VPC peering connection remains visible to the requester for 2 hours.
@@ -43,7 +43,7 @@ A VPC peering connection is a one to one relationship between two VPCs. You can 
 
 The following diagram is an example of one VPC peered to two different VPCs. There are two VPC peering connections: VPC A is peered with both VPC B and VPC C. VPC B and VPC C are not peered, and you cannot use VPC A as a transit point for peering between VPC B and VPC C. If you want to enable routing of traffic between VPC B and VPC C, you must create a unique VPC peering connection between them.
 
-![One VPC peered with two VPCs.](http://docs.aws.amazon.com/vpc/latest/peering/images/one-vpc-peered-to-two.png)
+![One VPC peered with two VPCs.](https://docs.aws.amazon.com/vpc/latest/peering/images/one-vpc-peered-to-two.png)
 
 
 ## VPC peering limitations

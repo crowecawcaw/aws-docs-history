@@ -20,7 +20,7 @@ For examples of scenarios in which you might need a specific VPC peering connect
 
 In this configuration, there is a central VPC with two subnets (VPC A), a peering connection between VPC A and VPC B (`pcx-aaaabbbb`), and a peering connection between VPC A and VPC C (`pcx-aaaacccc`). Each VPC requires access to the resources in only one of the subnets in VPC A.
 
-![Two VPCs peered to two subnets in one VPC.](http://docs.aws.amazon.com/vpc/latest/peering/images/two-vpcs-to-two-subnets-one-vpc.png)
+![Two VPCs peered to two subnets in one VPC.](https://docs.aws.amazon.com/vpc/latest/peering/images/two-vpcs-to-two-subnets-one-vpc.png)
 
 
 The route table for subnet 1 uses VPC peering connection `pcx-aaaabbbb` to access the entire CIDR block of VPC B. The route table for VPC B uses `pcx-aaaabbbb` to access the CIDR block of subnet 1 in VPC A. The route table for subnet 2 uses VPC peering connection `pcx-aaaacccc` to access the entire CIDR block of VPC C. The route table for VPC C table uses `pcx-aaaacccc` to access the CIDR block of subnet 2 in VPC A.
@@ -102,7 +102,7 @@ In this configuration, there is a central VPC (VPC A), a peering connection betw
 
 In this configuration, there is a central VPC (VPC A) with one subnet, a peering connection between VPC A and VPC B (`pcx-aaaabbbb`), and a peering connection between VPC A and VPC C (`pcx-aaaacccc`). VPC B and VPC C each have two subnets. The peering connection between VPC A and VPC B uses only one of the subnets in VPC B. The peering connection between VPC A and VPC C uses only one of the subnets in VPC C.
 
-![One VPC peered with two subnets.](http://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-specific-subnets.png)
+![One VPC peered with two subnets.](https://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-specific-subnets.png)
 
 
 Use this configuration when you have a central VPC that has a single set of resources, such as Active Directory services, that other VPCs need to access. The central VPC does not require full access to the VPCs that it's peered with. 
@@ -172,7 +172,7 @@ Alternatively, depending on your use case, you can create a route to a specific 
 
 In this configuration, there is a central VPC (VPC A) with one subnet, a peering connection between VPC A and VPC B (`pcx-aaaabbbb`), and a peering connection between VPC A and VPC C (`pcx-aaaacccc`). VPC A has a subnet with one instance for each peering connection. You can use this configuration to limit peering traffic to specific instances.
 
-![Instances in a VPC peered to instances in two VPCs.](http://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-instances.png)
+![Instances in a VPC peered to instances in two VPCs.](https://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-instances.png)
 
 
 Each VPC route table points to the relevant VPC peering connection to access a single IP address (and therefore a specific instance) in the peer VPC. 
@@ -199,7 +199,7 @@ Each VPC route table points to the relevant VPC peering connection to access a s
 
 In this configuration, there is a central VPC (VPC A) with one subnet, a peering connection between VPC A and VPC B (`pcx-aaaabbbb`), and a peering connection between VPC A and VPC C (`pcx-aaaacccc`). VPC B and VPC C have matching CIDR blocks. You use VPC peering connection `pcx-aaaabbbb` to route traffic between VPC A and a specific instance in VPC B. All other traffic destined for the CIDR address range shared by VPC B and VPC C is routed to VPC C through `pcx-aaaacccc`.
 
-![Peering using the longest prefix match.](http://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-longest-prefix.png)
+![Peering using the longest prefix match.](https://docs.aws.amazon.com/vpc/latest/peering/images/one-to-two-vpcs-longest-prefix.png)
 
 
 VPC route tables use longest prefix match to select the most specific route across the intended VPC peering connection. All other traffic is routed through the next matching route, in this case, across the VPC peering connection `pcx-aaaacccc`.
@@ -233,7 +233,7 @@ VPC D also has a VPC peering connection with VPC X (`pcx-ddddxxxx`). VPC A and V
 
 Similarly, VPC D and VPC Z have overlapping CIDR blocks. Peering traffic between VPC D and VPC X is limited to subnet 2 in VPC D, and peering traffic between VPC X and VPC Z is limited to subnet 1 in VPC Z. This is to ensure that if VPC X receives peering traffic from VPC D or VPC Z, it sends the response traffic back to the correct VPC. 
 
-![Multiple peering configurations.](http://docs.aws.amazon.com/vpc/latest/peering/images/multiple-configurations.png)
+![Multiple peering configurations.](https://docs.aws.amazon.com/vpc/latest/peering/images/multiple-configurations.png)
 
 
 The route tables for VPCs B, C, E, F, and G point to the relevant peering connections to access the full CIDR block for VPC A. The VPC A route table points to the relevant peering connections for VPCs B, C, E, F, and G to access their full CIDR blocks. For peering connection `pcx-aaaadddd`, the VPC A route table routes traffic only to subnet 1 in VPC D and the subnet 1 route table in VPC D points to the full CIDR block of VPC A.
