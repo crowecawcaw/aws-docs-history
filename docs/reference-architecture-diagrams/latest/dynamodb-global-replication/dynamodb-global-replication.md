@@ -10,7 +10,7 @@ Use this architecture for global data-item replication in [DynamoDB](https://doc
 ## DynamoDB Global Replication with Data Localization
 <a name="diagram1"></a>
 
-![Architecture diagram showing DynamoDB global replication with data localization using Lambda, EventBridge, and AWS AppConfig.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/dynamodb-global-replication/images/dynamodb-global-replication.png)
+![Architecture diagram showing DynamoDB global replication with data localization using Lambda, EventBridge, and AWS AppConfig.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/dynamodb-global-replication/images/dynamodb-global-replication.png)
 
 
 The following steps describe the architecture:
