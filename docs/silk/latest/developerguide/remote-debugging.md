@@ -7,7 +7,7 @@ Amazon Silk provides remote debugging through Chrome DevTools. With remote debug
 
 From the Silk browser, tap the menu icon. If you see this menu, you have the latest version of Silk. Use the following procedure for remote debugging. If your menu looks different, you may have an older version of Silk. Follow the procedure in [Remote Debugging for Older Versions of Silk](#remote-debugging-2).
 
-![Amazon Silk browser menu options including Private Browsing, Bookmarks, History, Downloads, Settings, and Help & Support.](http://docs.aws.amazon.com/silk/latest/developerguide/images/Silk_shared-menu.png)
+![Amazon Silk browser menu options including Private Browsing, Bookmarks, History, Downloads, Settings, and Help & Support.](https://docs.aws.amazon.com/silk/latest/developerguide/images/Silk_shared-menu.png)
 
 
 **To remote debug your device**
@@ -30,11 +30,11 @@ From the Silk browser, tap the menu icon. If you see this menu, you have the lat
 
 1. Using Silk on the device, navigate to the page you want to inspect. You can inspect multiple pages by opening each page in its own tab.
 
-    ![Browser tabs showing New York Times, I Can Has Cheezburger, and BBC Homepage.](http://docs.aws.amazon.com/silk/latest/developerguide/images/silk-usb-debug.png) 
+    ![Browser tabs showing New York Times, I Can Has Cheezburger, and BBC Homepage.](https://docs.aws.amazon.com/silk/latest/developerguide/images/silk-usb-debug.png) 
 
 1. Pages that are open in Silk tabs are listed at the remote debugging address.
 
-    ![List of website titles including The New York Times, I Can Has Cheezburger, and BBC News.](http://docs.aws.amazon.com/silk/latest/developerguide/images/remote-debugging-inspectable-pages.png) 
+    ![List of website titles including The New York Times, I Can Has Cheezburger, and BBC News.](https://docs.aws.amazon.com/silk/latest/developerguide/images/remote-debugging-inspectable-pages.png) 
 
    Open inspectable pages and interact with them using the developer tools. To learn more about inspecting pages with the developer tools, see [Chrome DevTools](https://developer.chrome.com/devtools/index). 
 
@@ -67,7 +67,7 @@ If you have an older version of Silk, follow the procedure below.
     Read the message regarding security and confirm your selection by tapping **OK** or **Enable**.
 
 1. Open the Silk browser and enter **about:developer** in the URL bar. A dialog opens, giving you the option to enable developer settings. (If entering **about:developer** doesn't open the dialog, Silk may need to be updated before you can use remote debugging.) If you want to proceed, tap **Enable**. Developer options appear at the bottom of the Settings menu.  
-![Developer settings menu showing Remote Debugging option set to Disabled.](http://docs.aws.amazon.com/silk/latest/developerguide/images/remote-debugging-disabled.png)
+![Developer settings menu showing Remote Debugging option set to Disabled.](https://docs.aws.amazon.com/silk/latest/developerguide/images/remote-debugging-disabled.png)
 
    Tap **Remote Debugging**. In the dialog, select the connection type that fits your development environment. Then connect as follows: 
    + **Unix Domain Socket** (only available on a Unix-based development machine) – Connect the device to the development machine via USB.
@@ -80,7 +80,7 @@ If you have an older version of Silk, follow the procedure below.
 
 1. Using Silk on the device, navigate to the page you want to inspect. You can inspect multiple pages by opening each page in its own tab.
 
-    ![Kindle e-reader interface showing New York Times website and other tabs.](http://docs.aws.amazon.com/silk/latest/developerguide/images/remote-debugging-open-tabs.png) 
+    ![Kindle e-reader interface showing New York Times website and other tabs.](https://docs.aws.amazon.com/silk/latest/developerguide/images/remote-debugging-open-tabs.png) 
 
 1. Follow the directions for your remote debugging configuration: 
    + **Unix Domain Socket**: To inspect open tabs, run the following:
@@ -94,6 +94,6 @@ If you have an older version of Silk, follow the procedure below.
 
 1. Pages that are open in Silk tabs are listed at the remote debugging address.
 
-    ![](http://docs.aws.amazon.com/silk/latest/developerguide/images/remote-debugging-inspectable-pages.png) 
+    ![](https://docs.aws.amazon.com/silk/latest/developerguide/images/remote-debugging-inspectable-pages.png) 
 
    Open inspectable pages and interact with them using the developer tools. To learn more about inspecting pages with the developer tools, see [Chrome DevTools](https://developer.chrome.com/devtools/index). 

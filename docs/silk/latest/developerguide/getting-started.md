@@ -20,4 +20,4 @@ For tips on developing and optimizing web content for Silk, see the sections bel
 
  The second set of numbers, `40051010`, is the build version.
 
-![About Silk dialog showing version 1.0.443.55-Gen6_40051010 and build 40051010.](http://docs.aws.amazon.com/silk/latest/developerguide/images/about-version.png)
+![About Silk dialog showing version 1.0.443.55-Gen6_40051010 and build 40051010.](https://docs.aws.amazon.com/silk/latest/developerguide/images/about-version.png)

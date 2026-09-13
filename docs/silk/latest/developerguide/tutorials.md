@@ -94,7 +94,7 @@ li.more:after {
 
 Notice how the `display` property is used. First, we use `display:none` to hide the nested <ul>, and then we use the `:hover` state to trigger `display:list-item`, which overrides the first `display` and shows us the nested <ul>. The result, rendered on a desktop browser, is shown below.
 
-![Navigation menu with Nav item expanded showing Item 1, Item 2 selected, and Item 3.](http://docs.aws.amazon.com/silk/latest/developerguide/images/dropdown2.png)
+![Navigation menu with Nav item expanded showing Item 1, Item 2 selected, and Item 3.](https://docs.aws.amazon.com/silk/latest/developerguide/images/dropdown2.png)
 
 
 A single <li> contains both a hidden list and a link. To display the drop-down menu, you hover over the appropriate <li>. To follow a link, you click the <a> element within the appropriate <li>. In other words, you need to register two different events under the same parent element. This works fine as long as you're using a mouse, which supports both hovering and clicking. But Silk relies on a single gesture—a tap—to represent both hovering and clicking. As a result, a user might tap an element with the intention of showing menu items, and the effect would be to follow the link. That's a potentially frustrating user experience.
@@ -103,7 +103,7 @@ There are several ways to avoid this problem. One possibility, given the prevale
 
 In the following example page, which is distributed by Superfish and is shown here rendered by Silk on a Kindle Fire HDX, the drop-down menus open on tap.
 
-![Page with four menu items in header, lorem ipsum text, and menu item dropdowns with buttons.](http://docs.aws.amazon.com/silk/latest/developerguide/images/dropdown.png)
+![Page with four menu items in header, lorem ipsum text, and menu item dropdowns with buttons.](https://docs.aws.amazon.com/silk/latest/developerguide/images/dropdown.png)
 
 
 To follow a top-level menu item (for example, menu item 3), you'd tap it a second time. On a desktop browser, the drop-down menus unfold on hover, and you follow links by clicking. Thus, the menus are navigable on both touch-screen and desktop browsers.

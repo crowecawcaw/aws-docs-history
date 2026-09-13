@@ -24,7 +24,7 @@ If you want to detect version and configuration info in the Amazon Silk user age
 
 Here's the page displayed in Silk on a Kindle Fire HDX 7".
 
-![Dialog box showing Silk version 44.1.54 detected on device KFTHWI in Default desktop mode.](http://docs.aws.amazon.com/silk/latest/developerguide/images/user-agent-pop-up.png)
+![Dialog box showing Silk version 44.1.54 detected on device KFTHWI in Default desktop mode.](https://docs.aws.amazon.com/silk/latest/developerguide/images/user-agent-pop-up.png)
 
 
 The script detects the browser version, product model, and requested mode. We could search for other fields, too. To learn more about fields in the Silk user agent, see [Learn about user agent strings](user-agent.md).

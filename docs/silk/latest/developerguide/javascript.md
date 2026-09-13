@@ -7,7 +7,7 @@ Amazon Silk uses the [V8 JavaScript engine](https://developers.google.com/v8/int
 
 Using the Amazon Silk **Settings** menu, users can enable or disable JavaScript. The setting is enabled by default.
 
-![JavaScript setting toggle showing Allowed recommended status with toggle enabled.](http://docs.aws.amazon.com/silk/latest/developerguide/images/silk-shared-javascript.png)
+![JavaScript setting toggle showing Allowed recommended status with toggle enabled.](https://docs.aws.amazon.com/silk/latest/developerguide/images/silk-shared-javascript.png)
 
 
 When JavaScript is disabled, Silk ignores the content of `<script>` tags. You can use the `<noscript>` tag to let users know that JavaScript content is disabled.
@@ -26,7 +26,7 @@ When JavaScript is disabled, Silk ignores the content of `<script>` tags. You ca
 
 Here's the output of the above markup rendered by Amazon Silk with JavaScript disabled:
 
-![Test Script heading with message indicating JavaScript is disabled or not supported.](http://docs.aws.amazon.com/silk/latest/developerguide/images/javascript_disabled_page.png)
+![Test Script heading with message indicating JavaScript is disabled or not supported.](https://docs.aws.amazon.com/silk/latest/developerguide/images/javascript_disabled_page.png)
 
 
 ## JavaScript Loading

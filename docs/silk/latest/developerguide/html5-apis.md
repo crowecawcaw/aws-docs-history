@@ -73,7 +73,7 @@ For more information, see the following resources:
 
 The Geolocation API provides an interface to a device's location information, returned as coordinates of latitude and longitude. The first time an app or website tries to access device location with the Geolocation API, the browser has to obtain user permission. All browsers that support the Geolocation API must respect this requirement, although the implementation varies. Amazon Silk prompts the user with a dialog requesting permission.
 
-![Browser dialog requesting permission to share location with Share location and Decline buttons.](http://docs.aws.amazon.com/silk/latest/developerguide/images/share_location.png)
+![Browser dialog requesting permission to share location with Share location and Decline buttons.](https://docs.aws.amazon.com/silk/latest/developerguide/images/share_location.png)
 
 
 In the Settings menu, Silk users can disable location access for an individual website or for all websites.

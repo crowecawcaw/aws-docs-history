@@ -99,12 +99,12 @@ We could also have implemented other jQuery Mobile touch events, like [swipe](ht
 
 Here's what the page looks like immediately after page load:
 
-![Mobile app interface showing navigation menu, two interactive buttons labeled Tap and Tap and hold, and footer with copyright information.](http://docs.aws.amazon.com/silk/latest/developerguide/images/jquery_mobile_before.png)
+![Mobile app interface showing navigation menu, two interactive buttons labeled Tap and Tap and hold, and footer with copyright information.](https://docs.aws.amazon.com/silk/latest/developerguide/images/jquery_mobile_before.png)
 
 
 And here's the page after the tap and tap-and-hold events.
 
-![Mobile app interface showing two buttons labeled After tap event and After tap-and-hold event.](http://docs.aws.amazon.com/silk/latest/developerguide/images/jquery_mobile_after.png)
+![Mobile app interface showing two buttons labeled After tap event and After tap-and-hold event.](https://docs.aws.amazon.com/silk/latest/developerguide/images/jquery_mobile_after.png)
 
 
 The example above illustrates the beginning of a touch-friendly web design. Even in portrait mode, the top navigation links are wide enough to accommodate touch interactions comfortably. jQuery Mobile makes it especially easy to create such a touch-friendly design, and there are other options, too. [Bootstrap](http://getbootstrap.com/) is a design framework that provides good touch support, and there are various plugins available for improving touch support.

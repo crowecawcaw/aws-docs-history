@@ -9,12 +9,12 @@ Fortunately, Ethan Marcotte has pointed to an alternative in his seminal article
 
 Here's the TIME.com site at desktop scale.
 
-![TIME Entertainment homepage showing navigation menu, article about fictional characters, and Superman illustration.](http://docs.aws.amazon.com/silk/latest/developerguide/images/Time_desktop.png)
+![TIME Entertainment homepage showing navigation menu, article about fictional characters, and Superman illustration.](https://docs.aws.amazon.com/silk/latest/developerguide/images/Time_desktop.png)
 
 
 And here's the site with the browser window reduced in size, as it would be on a mobile device.
 
-![TIME Entertainment mobile view showing article about fictional characters and photo sections.](http://docs.aws.amazon.com/silk/latest/developerguide/images/Time_tablet.png)
+![TIME Entertainment mobile view showing article about fictional characters and photo sections.](https://docs.aws.amazon.com/silk/latest/developerguide/images/Time_tablet.png)
 
 
 The site adapts to the changing width of the browser window, moving content and transforming the navigation bar to a pop-out Sections menu.
@@ -70,7 +70,7 @@ We'll use the [Gridpak app](http://gridpak.com/) to generate a layout that adapt
 
 Here's our demo site in portrait view on a Fire HD 8.9" tablet:
 
-![Mobile layout showing header, navigation sidebar, main content area, related content, and media blocks.](http://docs.aws.amazon.com/silk/latest/developerguide/images/gridpack-shared-vertical.png)
+![Mobile layout showing header, navigation sidebar, main content area, related content, and media blocks.](https://docs.aws.amazon.com/silk/latest/developerguide/images/gridpack-shared-vertical.png)
 
 
 The following media query and the associated styles and scripts (which aren't shown) produce a 6-column grid when the viewport is between 320 and 800 pixels wide.: 
@@ -83,7 +83,7 @@ The following media query and the associated styles and scripts (which aren't sh
 
 Now here's our demo site in landscape view:
 
-![Mobile website layout in landscape orientation showing header, navigation, main content, and related content sections.](http://docs.aws.amazon.com/silk/latest/developerguide/images/gridpack-shared-horizontal.png)
+![Mobile website layout in landscape orientation showing header, navigation, main content, and related content sections.](https://docs.aws.amazon.com/silk/latest/developerguide/images/gridpack-shared-horizontal.png)
 
 
 In this case, the following media query, plus the omitted styles and scripts, produce a 12-column grid when the viewport is more than 800 pixels wide. 

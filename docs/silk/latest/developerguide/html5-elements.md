@@ -33,7 +33,7 @@ The `<audio>` element makes it possible to embed audio files directly in a web p
 
 The sample code above produces the player control shown below:
 
-![HTML5 audio player control with play button, progress bar, and time display showing 00:00.](http://docs.aws.amazon.com/silk/latest/developerguide/images/audio_element.png)
+![HTML5 audio player control with play button, progress bar, and time display showing 00:00.](https://docs.aws.amazon.com/silk/latest/developerguide/images/audio_element.png)
 
 
 For more information, see the [W3C audio element wiki](http://www.w3.org/wiki/HTML/Elements/audio).
@@ -66,7 +66,7 @@ In HTML5, you can use input types to make forms more responsive to mobile client
 
 The Silk virtual keyboard is shown below:
 
-![Virtual keyboard with email input field, at symbol and .com keys highlighted, and Go button.](http://docs.aws.amazon.com/silk/latest/developerguide/images/silk-virtual-keyboard.png)
+![Virtual keyboard with email input field, at symbol and .com keys highlighted, and Go button.](https://docs.aws.amazon.com/silk/latest/developerguide/images/silk-virtual-keyboard.png)
 
 
 For more information, see [Making Forms Fabulous with HTML5](http://www.html5rocks.com/en/tutorials/forms/html5forms/).
@@ -89,7 +89,7 @@ You can use the `<meter>` element to measure data within a given range. It speci
 
 The sample code above produces the gauge below:
 
-![Gauge showing hard disk usage with a partially filled green progress bar.](http://docs.aws.amazon.com/silk/latest/developerguide/images/meter_element.png)
+![Gauge showing hard disk usage with a partially filled green progress bar.](https://docs.aws.amazon.com/silk/latest/developerguide/images/meter_element.png)
 
 
 For more information, see [HTML/Elements/meter](http://www.w3.org/wiki/HTML/Elements/meter).
@@ -112,7 +112,7 @@ The `<output>` element represents the result of a calculation. Although the `<ou
 
 Here's how the markup looks in Silk, after a user enters values in the input fields:
 
-![Form showing 3 dogs, 2 cats, and total of 5 pets with input fields and values.](http://docs.aws.amazon.com/silk/latest/developerguide/images/output_element.png)
+![Form showing 3 dogs, 2 cats, and total of 5 pets with input fields and values.](https://docs.aws.amazon.com/silk/latest/developerguide/images/output_element.png)
 
 
 Note that the `oninput` event is not supported by Silk Gen 1. For more on the `<output>` element, see [HTML/Elements/output](http://www.w3.org/wiki/HTML/Elements/output).
@@ -129,7 +129,7 @@ The `<progress>` element represents progress toward completion of some task, lik
 
 The sample code above produces the progress display shown below:
 
-![Progress bar showing File downloading with partial completion.](http://docs.aws.amazon.com/silk/latest/developerguide/images/progress_element.png)
+![Progress bar showing File downloading with partial completion.](https://docs.aws.amazon.com/silk/latest/developerguide/images/progress_element.png)
 
 
 For more information, see [HTML/Elements/progress](http://www.w3.org/wiki/HTML/Elements/progress).
@@ -157,7 +157,7 @@ Scalable Vector Graphics (SVG) is an XML-based format for describing two-dimensi
 </html>
 ```
 
-![Gradient transition from white on the left to blue on the right.](http://docs.aws.amazon.com/silk/latest/developerguide/images/svg-rect2.png)
+![Gradient transition from white on the left to blue on the right.](https://docs.aws.amazon.com/silk/latest/developerguide/images/svg-rect2.png)
 
 
 To learn more about SVG, visit the [W3C SVG Working Group](http://www.w3.org/Graphics/SVG/).
@@ -179,7 +179,7 @@ The `<video>` element makes it possible to embed video files directly in a web p
 
 The sample code above produces the player control shown below:
 
-![Video player control with play button centered on gray background.](http://docs.aws.amazon.com/silk/latest/developerguide/images/video_element.png)
+![Video player control with play button centered on gray background.](https://docs.aws.amazon.com/silk/latest/developerguide/images/video_element.png)
 
 
 For more information, see the [W3C video element wiki](http://www.w3.org/wiki/HTML/Elements/video).

@@ -7,7 +7,7 @@ Each version of Amazon Silk includes a build version and a browser version. In s
 
 From the Silk browser, tap the menu icon. If you see this menu, you have the latest version of Silk. Use the following procedure to locate the build version and browser version. If your menu looks different, you may have an older version of Silk.
 
-![Silk browser menu showing options such as Enter Private Browsing, Bookmarks, and Settings.](http://docs.aws.amazon.com/silk/latest/developerguide/images/Silk_shared-menu.png)
+![Silk browser menu showing options such as Enter Private Browsing, Bookmarks, and Settings.](https://docs.aws.amazon.com/silk/latest/developerguide/images/Silk_shared-menu.png)
 
 
 1. From the Silk menu, tap **Settings**, and then tap **About Silk**.
@@ -18,4 +18,4 @@ From the Silk browser, tap the menu icon. If you see this menu, you have the lat
 
    The second set of numbers, `2403.63.10`, is the build version.
 
-![About Silk screen showing Application version 44.1.54.2403.63.10.](http://docs.aws.amazon.com/silk/latest/developerguide/images/silk-shared-version.png)
+![About Silk screen showing Application version 44.1.54.2403.63.10.](https://docs.aws.amazon.com/silk/latest/developerguide/images/silk-shared-version.png)

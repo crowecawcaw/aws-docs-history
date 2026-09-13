@@ -26,11 +26,11 @@ Amazon Silk is the web browser for the big screen. Silk brings limitless content
 
 With Amazon Silk on your Fire TV, you can 
 + Access limitless web content from your TV.  
-![Image to display video browsing](http://docs.aws.amazon.com/silk/latest/developerguide/images/tv-1.png)
+![Image to display video browsing](https://docs.aws.amazon.com/silk/latest/developerguide/images/tv-1.png)
 + Easily access your favourite websites through your bookmarks and trending videos.  
-![Image to display bookmarks](http://docs.aws.amazon.com/silk/latest/developerguide/images/tv-2.png)
+![Image to display bookmarks](https://docs.aws.amazon.com/silk/latest/developerguide/images/tv-2.png)
 + Browse websites in private browsing mode.  
-![Image to display private browsing](http://docs.aws.amazon.com/silk/latest/developerguide/images/tv-3.png)
+![Image to display private browsing](https://docs.aws.amazon.com/silk/latest/developerguide/images/tv-3.png)
 
 Just Say “Alexa, open Amazon Silk” on your Fire TV to start browsing the web. 
 
@@ -39,10 +39,10 @@ Just Say “Alexa, open Amazon Silk” on your Fire TV to start browsing the web
 
  Amazon Silk can also be used to browse your favorite websites on the Echo Show. For example, 
 + Browse the web for your favorite food recipes.  
-![Image to display recipes](http://docs.aws.amazon.com/silk/latest/developerguide/images/echo-1.png)
+![Image to display recipes](https://docs.aws.amazon.com/silk/latest/developerguide/images/echo-1.png)
 + Search the web for tips and tricks for your projects and hobbies.  
-![Image to display browser](http://docs.aws.amazon.com/silk/latest/developerguide/images/echo-2.png)
+![Image to display browser](https://docs.aws.amazon.com/silk/latest/developerguide/images/echo-2.png)
 + Bookmark your go-to websites and searches.  
-![Image to display bookmarks window](http://docs.aws.amazon.com/silk/latest/developerguide/images/echo-3.png)
+![Image to display bookmarks window](https://docs.aws.amazon.com/silk/latest/developerguide/images/echo-3.png)
 
 Say “Alexa, open Silk” on your Echo Show to get started.
