@@ -12,7 +12,7 @@ For more information about this workshop, see [aws-eda-workshops](https://github
 ## EDA on AWS with IBM Spectrum LSF diagram
 <a name="lsf-diagram"></a>
 
-![Reference architecture diagram showing how to run EDA workloads on AWS with IBM Spectrum LSF Resource Connector, Amazon EC2, and Amazon EFS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/eda-ibm-spectrum-lsf/images/eda-ibm-spectrum-lsf.png)
+![Reference architecture diagram showing how to run EDA workloads on AWS with IBM Spectrum LSF Resource Connector, Amazon EC2, and Amazon EFS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/eda-ibm-spectrum-lsf/images/eda-ibm-spectrum-lsf.png)
 
 
 The following steps describe the data flow and job execution for this architecture:
