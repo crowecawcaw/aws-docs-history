@@ -10,7 +10,7 @@ With this architecture, you can burst Electronic Design Automation (EDA) jobs fr
 ## Cloud bursting EDA with Amazon FSx for NetApp ONTAP diagram
 <a name="burst-eda-diagram"></a>
 
-![Reference architecture diagram showing how to enable EDA cloud bursting by using Amazon FSx for NetApp ONTAP, Amazon EC2, and AWS Direct Connect.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/cloud-bursting-eda-fsx-netapp-ontap/images/cloud-bursting-eda-fsx-netapp-ontap.png)
+![Reference architecture diagram showing how to enable EDA cloud bursting by using Amazon FSx for NetApp ONTAP, Amazon EC2, and AWS Direct Connect.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/cloud-bursting-eda-fsx-netapp-ontap/images/cloud-bursting-eda-fsx-netapp-ontap.png)
 
 
 The following steps describe the data flow and caching configuration for this architecture:
