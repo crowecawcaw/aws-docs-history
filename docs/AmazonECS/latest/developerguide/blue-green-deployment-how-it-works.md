@@ -22,7 +22,7 @@ The Amazon ECS blue/green deployment process follows a structured approach with 
 
 The following diagram illustrates the comprehensive blue/green deployment workflow, showing the interaction between Amazon ECS, and the Application Load Balancer:
 
-![Comprehensive diagram showing the blue/green deployment process in Amazon ECS with detailed component interactions, traffic shifting phases, and monitoring checkpoints](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/blue-green.png)
+![Comprehensive diagram showing the blue/green deployment process in Amazon ECS with detailed component interactions, traffic shifting phases, and monitoring checkpoints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/blue-green.png)
 
 
 The enhanced deployment workflow includes the following detailed steps:

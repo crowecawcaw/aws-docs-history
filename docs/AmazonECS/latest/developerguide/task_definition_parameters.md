@@ -183,7 +183,7 @@ Required: No
 Port mappings expose your container's network ports to the outside world. this allows clients to access your application. It's also used for inter-container communication within the same task.  
 For task definitions that use the `awsvpc` network mode, only specify the `containerPort`. The `hostPort` is always ignored, and the container port is automatically mapped to a random high-numbered port on the host.  
 Port mappings on Windows use the `NetNAT` gateway address rather than `localhost`. There's no loopback for port mappings on Windows, so you can't access a container's mapped port from the host itself.   
-Most fields of this parameter (including `containerPort`, `hostPort`, `protocol`) map to `PortBindings` in thedocker create-container command and the `--publish` option to docker run. If the network mode of a task definition is set to `host`, host ports must either be undefined or match the container port in the port mapping.  
+Most fields of this parameter (including `containerPort`, `hostPort`, `protocol`) map to `PortBindings` in the docker create-container command and the `--publish` option to docker run. If the network mode of a task definition is set to `host`, host ports must either be undefined or match the container port in the port mapping.  
 After a task reaches the `RUNNING` status, manual and automatic host and container port assignments are visible in the following locations:  
 + Console: The **Network Bindings** section of a container description for a selected task.
 + AWS CLI: The `networkBindings` section of the **describe-tasks** command output.

@@ -10,7 +10,7 @@ Amazon Virtual Private Cloud has two main methods for facilitating communication
 ## Public subnet and internet gateway
 <a name="networking-public-subnet"></a>
 
-![Diagram showing architecture of a public subnet connected to an internet gateway.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/public-network.png)
+![Diagram showing architecture of a public subnet connected to an internet gateway.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/public-network.png)
 
 
 When you use a public subnet that has a route to an internet gateway, your containerized application can run on a host inside a VPC on a public subnet. The host that runs your container is assigned a public IP address. This public IP address is routable from the internet. For more information, see [Internet gateways](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) in the *Amazon VPC User Guide*.
@@ -28,7 +28,7 @@ This networking approach is supported both when you use Amazon ECS on Amazon EC2
 ## Private subnet and NAT gateway
 <a name="networking-private-subnet"></a>
 
-![Diagram showing architecture of a private subnet connected to a NAT gateway.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/private-network.png)
+![Diagram showing architecture of a private subnet connected to a NAT gateway.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/private-network.png)
 
 
 When you use a private subnet and a NAT gateway, you can run your containerized application on a host that's in a private subnet. As such, this host has a private IP address that's routable inside your VPC, but isn't routable from the internet. This means that other hosts inside the VPC can connect to the host using its private IP address, but other hosts on the internet can't make any inbound communications to the host.

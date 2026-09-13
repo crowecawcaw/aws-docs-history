@@ -3,7 +3,7 @@
 # Linux containers on Fargate container image pull behavior for Amazon ECS
 <a name="fargate-pull-behavior"></a>
 
-Every Fargate task runs on its own single use, single tenant instance. When you run Linux containers on Fargate, container images or container image layers are not cached on the instance. Therefore, for each container image defined in the task, the whole container image needs to be pulled from the container image registry for each Fargate task. The time it takes to pull the images is directly correlated to the time taken to start an Fargate task. 
+Every Fargate task runs on its own single use, single tenant instance. When you run Linux containers on Fargate, container images or container image layers are not cached on the instance. Therefore, for each container image defined in the task, the whole container image needs to be pulled from the container image registry for each Fargate task. The time it takes to pull the images is directly correlated to the time taken to start a Fargate task. 
 
 Take the following into account to optimize the image pull time.
 

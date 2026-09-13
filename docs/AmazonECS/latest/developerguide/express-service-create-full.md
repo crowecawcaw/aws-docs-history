@@ -15,7 +15,7 @@ Before creating an Express Mode service, ensure you have one of the following:
 + Or a container image stored in a private registry. To use a private registry, configure a Secrets Manager secret. For more information, see [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) in the *AWS Secrets Manager User Guide*.
 
 **Note**  
-IAM Roles are also required, but is covered in the [Console](express-service-first-run.html) and [CLI](express-service-getting-started.html) guides separately. The Amazon ECS Console has automated flows for role creation.
+IAM Roles are also required, but is covered in the [Console](express-service-first-run.md) and [CLI](express-service-getting-started.md) guides separately. The Amazon ECS Console has automated flows for role creation.
 
 ## Walkthroughs
 <a name="express-service-create-options"></a>

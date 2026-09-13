@@ -35,7 +35,7 @@ Tasks that are launched on Fargate only support adding the `SYS_PTRACE` kernel c
 
 The following video shows how to use this feature through the Sysdig [Falco](https://github.com/falcosecurity/falco) project.
 
-[![AWS Videos](http://img.youtube.com/vi/OYGKjmFeLqI/0.jpg)](http://www.youtube.com/watch?v=OYGKjmFeLqI)
+[![AWS Videos](https://img.youtube.com/vi/OYGKjmFeLqI/0.jpg)](https://www.youtube.com/watch?v=OYGKjmFeLqI)
 
 
 The code discussed in the previous video can be found on GitHub [here](https://github.com/paavan98pm/ecs-fargate-pv1.4-falco).

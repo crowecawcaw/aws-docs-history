@@ -110,7 +110,7 @@ When there is an upcoming task retirement, AWS sends a task retirement notificat
 
 The following illustration shows the solution overview.
 
-![Diagram showing the Fargate solution to capture Fargate task retirement notices.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/fargate-task-retirement-solution.png)
+![Diagram showing the Fargate solution to capture Fargate task retirement notices.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/fargate-task-retirement-solution.png)
 
 
 The following information provides details.

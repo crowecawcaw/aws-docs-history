@@ -7,7 +7,7 @@ The `host` network mode is only supported for Amazon ECS tasks hosted on Amazon 
 
 The `host` network mode is the most basic network mode that's supported in Amazon ECS. Using host mode, the networking of the container is tied directly to the underlying host that's running the container.
 
-![Diagram showing architecture of a network with containers using the host network mode.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/networkmode-host.png)
+![Diagram showing architecture of a network with containers using the host network mode.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/networkmode-host.png)
 
 
 Assume that you're running a Node.js container with an Express application that listens on port `3000` similar to the one illustrated in the preceding diagram. When the `host` network mode is used, the container receives traffic on port 3000 using the IP address of the underlying host Amazon EC2 instance. We do not recommend using this mode.

@@ -18,7 +18,7 @@ Amazon Elastic Container Service (Amazon ECS) is a fully managed container orche
 
 The following diagram shows the Amazon ECS layers.
 
-![Diagram showing the capacity, controller, and provisioning layers.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/ecs-layers.png)
+![Diagram showing the capacity, controller, and provisioning layers.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/ecs-layers.png)
 
 
 The capacity is the infrastructure where your containers run. The following is an overview of the capacity options:

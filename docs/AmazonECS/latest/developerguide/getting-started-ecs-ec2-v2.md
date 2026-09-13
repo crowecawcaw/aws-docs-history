@@ -167,7 +167,7 @@ The service is a web-based application so you can view its containers with a web
 1. Choose the **Tasks** tab, and then choose the task in your service.
 
 1. On the task page, in the **Configuration** section, under **Public IP**, choose **Open address**. The screen shot below is the expected output.  
-![Screen shot of the Amazon ECS sample application. The output indicates that "Your application is now running on Amazon ECS".](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/ECS_Sample_Application.png)
+![Screen shot of the Amazon ECS sample application. The output indicates that "Your application is now running on Amazon ECS".](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/ECS_Sample_Application.png)
 
 ## Step 5: Clean Up
 <a name="getting-started-ec2-cleanup-v2"></a>

@@ -7,7 +7,7 @@ Amazon ECS Service Connect provides management of service-to-service communicati
 
 The following diagram shows an example Service Connect network with 2 subnets in the VPC and 2 services. A client service that runs WordPress with 1 task in each subnets. A server service that runs MySQL with 1 task in each subnet. Both services are highly available and resilient to task and Availability Zone issues because each service runs multiple tasks that are spread out over 2 subnets. The solid arrows show a connection from WordPress to MySQL. For example, a `mysql --host=mysql` CLI command that is run from inside the WordPress container in the task with the IP address `172.31.16.1`. The command uses the short name `mysql` on the default port for MySQL. This name and port connects to the Service Connect proxy in the same task. The proxy in the WordPress task uses round-robin load balancing and any previous failure information in outlier detection to pick which MySQL task to connect to. As shown by the solid arrows in the diagram, the proxy connects to the second proxy in the MySQL task with the IP Address `172.31.16.2`. The second proxy connects to the local MySQL server in the same task. Both proxies report connection performance that is visible in graphs in the Amazon ECS and Amazon CloudWatch consoles so that you can get performance metrics from all kinds of applications in the same way.
 
-![Example Service Connect network showing minimal HA services](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/serviceconnect.png)
+![Example Service Connect network showing minimal HA services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/serviceconnect.png)
 
 
 The following terms are used with Service Connect.

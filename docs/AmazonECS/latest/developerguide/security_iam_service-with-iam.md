@@ -172,7 +172,7 @@ Amazon ECS supports the following service-specific condition keys that you can u
 | aws:ResourceTag/${TagKey} | The context key is formatted `"aws:ResourceTag/{{tag-key}}":"{{tag-value}}"` where {{tag-key}}and {{tag-value}} are a tag key and value pair.<br />Checks that the tag attached to the identity resource (user or role) matches the specified key name and value. | String | 
 | aws:TagKeys | This context key is formatted `"aws:TagKeys":"{{tag-key}}"` where {{tag-key}} is a list of tag keys without values (for example, `["Dept","Cost-Center"]`).<br />Checks the tag keys that are present in an AWS request. | String | 
 | ecs:ResourceTag/${TagKey} | The context key is formatted `"ecs:ResourceTag/{{tag-key}}":"{{tag-value}}"` where {{tag-key}}and {{tag-value}} are a tag key and value pair.<br />Checks that the tag attached to the identity resource (user or role) matches the specified key name and value. | String | 
-| ecs:account-setting | he context key is formatted `"ecs:account-setting":"{{account-setting}}"` where {{account-setting}} is the name of the account setting. | String | 
+| ecs:account-setting | The context key is formatted `"ecs:account-setting":"{{account-setting}}"` where {{account-setting}} is the name of the account setting. | String | 
 | ecs:auto-assign-public-ip | The context key is formatted "ecs:auto-assign-public-ip":"{{value}}" where {{value-}} is "true" or "false". | String | 
 | ecs:capacity-provider | The context key is formatted `"ecs:capacity-provider":"{{capacity-provider-arn}}"` where {{capacity-provider-arn}} is the ARN for the capacity provider. | ARN, Null | 
 | ecs:cluster | The context key is formatted `"ecs:cluster":"{{cluster-arn}}"` where {{cluster-arn}} is the ARN for the Amazon ECS cluster. | ARN, Null | 

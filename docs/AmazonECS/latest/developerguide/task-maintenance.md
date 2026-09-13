@@ -24,7 +24,7 @@ When AWS marks a platform version revision as needing to be retired, we identify
 
 The following illustration shows the lifecycle of a Fargate platform version revision from a new revision launch to the platform revision retirement.
 
-![Diagram showing the Fargate task retirement lifecycle.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/fargate-task-retirement.png)
+![Diagram showing the Fargate task retirement lifecycle.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/fargate-task-retirement.png)
 
 
 The following information provides details.

@@ -16,7 +16,7 @@ You are responsible for managing the following resources:
 + Container images. For more information, see [Amazon ECS task and container security best practices](security-tasks-containers.md).
 + IAM permissions for the applications by using the task role. For more information, see [Amazon ECS task IAM role](task-iam-roles.md).
 
-![Diagram showing the shared responsibility model for Fargate on Amazon ECS.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/fargate-shared-responsibility.png)
+![Diagram showing the shared responsibility model for Fargate on Amazon ECS.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/fargate-shared-responsibility.png)
 
 
 ## EC2
@@ -34,4 +34,4 @@ The following illustration shows the shared responsibility for EC2. When you run
 
 The following diagram illustrates the shared responsibility model for EC2, showing which security responsibilities are managed by AWS and which are yours.
 
-![Diagram showing the shared responsibility model for EC2 on Amazon ECS.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/ec2-shared-responsibility.png)
+![Diagram showing the shared responsibility model for EC2 on Amazon ECS.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/ec2-shared-responsibility.png)

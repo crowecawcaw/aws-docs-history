@@ -12,7 +12,7 @@ We recommend Service Connect, which provides Amazon ECS configuration for servic
 
 When you use Service Connect, Amazon ECS manages all of the parts of service discovery: creating the names that can be discovered, dynamically managing entries for each task as the tasks start and stop, running an agent in each task that is configured to discover the names. Your application can look up the names by using the standard functionality for DNS names and making connections. If your application does this already, you don't need to modify your application to use Service Connect.
 
-![Diagram showing architecture of a network using service connect.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/serviceconnect.png)
+![Diagram showing architecture of a network using service connect.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/serviceconnect.png)
 
 
 **Changes only happen during deployments**  
@@ -23,7 +23,7 @@ You provide the complete configuration inside each service and task definition. 
 
 Another approach for service-to-service communication is direct communication using service discovery. In this approach, you can use the AWS Cloud Map service discovery integration with Amazon ECS. Using service discovery, Amazon ECS syncs the list of launched tasks to AWS Cloud Map, which maintains a DNS hostname that resolves to the internal IP addresses of one or more tasks from that particular service. Other services in the Amazon VPC can use this DNS hostname to send traffic directly to another container using its internal IP address. For more information, see [Service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html).
 
-![Diagram showing architecture of a network using service discovery.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/servicediscovery.png)
+![Diagram showing architecture of a network using service discovery.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/servicediscovery.png)
 
 
 In the preceding diagram, there are three services. `service-a-local` has one container and communicates with `service-b-local`, which has two containers. `service-b-local` must also communicate with `service-c-local`, which has one container. Each container in all three of these services can use the internal DNS names from AWS Cloud Map to find the internal IP addresses of a container from the downstream service that it needs to communicate to.
@@ -41,7 +41,7 @@ The main disadvantage of direct service-to-service communication using service d
 
 Another approach to service-to-service communication is to use an internal load balancer. An internal load balancer exists entirely inside of your VPC and is only accessible to services inside of your VPC.
 
-![Diagram showing architecture of a network using an internal load balancer.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/loadbalancer-internal.png)
+![Diagram showing architecture of a network using an internal load balancer.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/loadbalancer-internal.png)
 
 
 The load balancer maintains high availability by deploying redundant resources into each subnet. When a container from `serviceA` needs to communicate with a container from `serviceB`, it opens a connection to the load balancer. The load balancer then opens a connection to a container from `service B`. The load balancer serves as a centralized place for managing all connections between each service.

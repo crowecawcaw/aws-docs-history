@@ -47,7 +47,7 @@ The console validates that the selected task definition family and revision are 
    1. Depending on the choice of **Deployment strategy**, do the following:    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/update-service-console-v2.html)
 
-   1. To run Lambda functions for a lifecycle stage, under **Deployment lifecyce hooks** do the following for each unique Lambda function:
+   1. To run Lambda functions for a lifecycle stage, under **Deployment lifecycle hooks** do the following for each unique Lambda function:
 
       1. Choose **Add**.
 

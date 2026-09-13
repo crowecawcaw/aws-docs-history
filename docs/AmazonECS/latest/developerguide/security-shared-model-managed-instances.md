@@ -39,4 +39,4 @@ For information about AWS and customer responsibilities for Amazon ECS Managed I
 
 The following diagram illustrates the shared responsibility model for Amazon ECS Managed Instances, showing which security responsibilities are managed by AWS and which are yours.
 
-![Diagram showing the shared responsibility model for Amazon ECS Managed Instances on Amazon ECS.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/managed-instances-shared-responsibility.png)
+![Diagram showing the shared responsibility model for Amazon ECS Managed Instances on Amazon ECS.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/managed-instances-shared-responsibility.png)

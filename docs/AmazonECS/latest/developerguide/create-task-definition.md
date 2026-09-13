@@ -5,7 +5,7 @@
 
 You create a task definition so that you can define the application that you run as a task or service.
 
-When you create a task definition for the external launch type, you need to create the task definition using JSON editor and set the `requireCapabilities` parameter to `EXTERNAL`.
+When you create a task definition for the external launch type, you need to create the task definition using JSON editor and set the `requiresCompatibilities` parameter to `EXTERNAL`.
 
 You can create a task definition by using the console experience, or by specifying a JSON file. You can have Amazon Q provide recommendations when you use the JSON editor. For more information, see [Using Amazon Q Developer to provide task definition recommendations in the Amazon ECS console](using-amazon-q.md)
 

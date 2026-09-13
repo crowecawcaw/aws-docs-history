@@ -10,7 +10,7 @@ For Amazon ECS to function properly, the Amazon ECS container agent that runs on
 
 Using a NAT gateway is the easiest way to ensure that your Amazon ECS tasks can access other AWS services. For more information about this approach, see [Private subnet and NAT gateway](networking-outbound.md#networking-private-subnet).
 
-![Diagram showing architecture of a network using a NAT gateway.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/natgateway.png)
+![Diagram showing architecture of a network using a NAT gateway.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/natgateway.png)
 
 
 The following are the disadvantages to using this approach:
@@ -31,7 +31,7 @@ A VPC endpoint allows private connections between your VPC and supported AWS ser
 
 The following diagram shows how communication to AWS services works when you are using VPC endpoints instead of an internet gateway. AWS PrivateLink provisions elastic network interfaces (ENIs) inside of the subnet, and VPC routing rules are used to send any communication to the service hostname through the ENI, directly to the destination AWS service. This traffic no longer needs to use the NAT gateway or internet gateway.
 
-![Diagram showing architecture of a network using AWS PrivateLink](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/endpointaccess-multiple.png)
+![Diagram showing architecture of a network using AWS PrivateLink](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/endpointaccess-multiple.png)
 
 
 The following are some of the common VPC endpoints that are used with the Amazon ECS service.

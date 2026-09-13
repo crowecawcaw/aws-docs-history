@@ -12,7 +12,7 @@ One approach to this problem is to launch your containers on hosts that are in a
 
 An Application Load Balancer functions at the application layer. It's the seventh layer of the Open Systems Interconnection (OSI) model. This makes an Application Load Balancer suitable for public HTTP services. If you have a website or an HTTP REST API, then an Application Load Balancer is a suitable load balancer for this workload. For more information, see [What is an Application Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) in the *User Guide for Application Load Balancers*.
 
-![Diagram showing architecture of a network using an Application Load Balancer.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/alb-ingress.png)
+![Diagram showing architecture of a network using an Application Load Balancer.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/alb-ingress.png)
 
 
 With this architecture, you create an Application Load Balancer in a public subnet so that it has a public IP address and can receive inbound connections from the internet. When the Application Load Balancer receives an inbound connection, or more specifically an HTTP request, it opens a connection to the application using its private IP address. Then, it forwards the request over the internal connection.
@@ -28,7 +28,7 @@ An Application Load Balancer has the following advantages.
 
 A Network Load Balancer functions at the fourth layer of the Open Systems Interconnection (OSI) model. It's suitable for non-HTTP protocols or scenarios where end-to-end encryption is necessary, but doesn’t have the same HTTP-specific features of an Application Load Balancer. Therefore, a Network Load Balancer is best suited for applications that don’t use HTTP. For more information, see [What is a Network Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html) in the *User Guide for Network Load Balancers*.
 
-![Diagram showing architecture of a network using an Network Load Balancer.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/nlbingress.png)
+![Diagram showing architecture of a network using an Network Load Balancer.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/nlbingress.png)
 
 
 When a Network Load Balancer is used as an input, it functions similarly to an Application Load Balancer. This is because it's created in a public subnet and has a public IP address that can be accessed on the internet. The Network Load Balancer then opens a connection to the private IP address of the host running your container, and sends the packets from the public side to the private side.
@@ -51,7 +51,7 @@ The methods to close connections will vary by application, however one way is to
 
 Amazon API Gateway is suitable for HTTP applications with sudden bursts in request volumes or low request volumes. For more information, see [What is Amazon API Gateway?](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) in the *API Gateway Developer Guide*.
 
-![Diagram showing architecture of a network using API Gateway.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/apigateway-ingress.png)
+![Diagram showing architecture of a network using API Gateway.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/apigateway-ingress.png)
 
 
 The pricing model for both Application Load Balancer and Network Load Balancer include an hourly price to keep the load balancers available for accepting incoming connections at all times. In contrast, API Gateway charges for each request separately. This has the effect that, if no requests come in, there are no charges. Under high traffic loads, an Application Load Balancer or Network Load Balancer can handle a greater volume of requests at a cheaper per-request price than API Gateway. However, if you have a low number of requests overall or have periods of low traffic, then the cumulative price for using the API Gateway should be more cost effective than paying a hourly charge to maintain a load balancer that's being underutilized. The API Gateway can also cache API responses, which might result in lower backend request rates.

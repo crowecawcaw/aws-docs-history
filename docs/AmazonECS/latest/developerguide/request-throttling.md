@@ -41,9 +41,9 @@ The following table shows the bucket capacity (or burst) and refill rate (or sus
 | --- | --- | --- | --- | 
 | Cluster modify actions |  +   `CreateCluster` <br />+   `DeleteCluster` <br />+   `PutClusterCapacityProviders` <br />+   `UpdateCluster` <br />+   `UpdateClusterSettings`   | 20 | 1 | 
 | Cluster read actions |  +   `DescribeClusters` <br />+   `ListClusters`   | 50 | 20 | 
-| Task definition modify actions |  +   `DeregisterTaskDefinition` <br />+   `RegisterTaskDefinition`   | 20 | 1 | 
-| Task definition read actions |  +   `DescribeTaskDefinition` <br />+   `ListTaskDefinitions` <br />+   `ListTaskDefinitionFamilies`   | 50 | 20 | 
-| Task definition deletion actions |  +  `DeleteTaskDefinitions`   | 5 | 1 | 
+| Task definition modify actions |  +   `DeregisterTaskDefinition` <br />+   `RegisterDaemonTaskDefinition` <br />+   `RegisterTaskDefinition`   | 20 | 1 | 
+| Task definition read actions |  +   `DescribeDaemonTaskDefinition` <br />+   `DescribeTaskDefinition` <br />+   `ListDaemonTaskDefinitions` <br />+   `ListTaskDefinitions` <br />+   `ListTaskDefinitionFamilies`   | 50 | 20 | 
+| Task definition deletion actions |  +  `DeleteDaemonTaskDefinition` <br />+  `DeleteTaskDefinitions`   | 5 | 1 | 
 | Capacity provider modify actions |  +   `CreateCapacityProvider` <br />+   `DeleteCapacityProvider` <br />+   `UpdateCapacityProvider`   | 10 | 1 | 
 | Capacity provider read actions |  +   `DescribeCapacityProviders`   | 50 | 20 | 
 | Tag modify actions |  +   `TagResource` <br />+   `UntagResource`   | 20 | 10 | 
@@ -53,10 +53,10 @@ The following table shows the bucket capacity (or burst) and refill rate (or sus
 | Cluster resource modify actions |  +  `DeleteAttributes` <br />+  `DeregisterContainerInstance` <br />+  `ExecuteCommand` <br />+  `PutAttributes` <br />+  `RunTask`[1](#note-1) <br />+  `StartTask` <br />+  `StopTask` <br />+  `UpdateContainerAgent` <br />+  `UpdateContainerInstancesStates`   | 100 | 40 | 
 | Cluster resource read actions |  +  `DescribeContainerInstances` <br />+  `DescribeTasks` <br />+  `ListAttributes` <br />+  `ListContainerInstances` <br />+  `ListTasks`   | 100 | 20 | 
 | Agent modify actions |  +  `RegisterContainerInstance` <br />+  `SubmitAttachmentStateChanges` <br />+  `SubmitContainerStateChange` <br />+  `SubmitTaskStateChange`   | 200 | 120 | 
-| Service modify actions |  +  `CreateService` <br />+  `DeleteService` <br />+  `UpdateService`   | 50 | 5 | 
-| Service read actions |  +  `DescribeServices` <br />+  `ListServices`   | 100 | 20 | 
-| Service deployment actions |  +  `DescribeServiceDeployments` <br />+  `ListServiceDeployments`   | 50 | 20 | 
-| Service revision actions |  +  `DescribeServiceRevisions`   | 50 | 20 | 
+| Service modify actions |  +  `CreateDaemon` <br />+  `CreateExpressGatewayService` <br />+  `CreateService` <br />+  `DeleteDaemon` <br />+  `DeleteExpressGatewayService` <br />+  `DeleteService` <br />+  `UpdateDaemon` <br />+  `UpdateExpressGatewayService` <br />+  `UpdateService`   | 50 | 5 | 
+| Service read actions |  +  `DescribeDaemon` <br />+  `DescribeExpressGatewayService` <br />+  `DescribeServices` <br />+  `ListDaemons` <br />+  `ListServices`   | 100 | 20 | 
+| Service deployment actions |  +  `DescribeDaemonDeployments` <br />+  `DescribeServiceDeployments` <br />+  `ListDaemonDeployments` <br />+  `ListServiceDeployments`   | 50 | 20 | 
+| Service revision actions |  +  `DescribeDaemonRevisions` <br />+  `DescribeServiceRevisions`   | 50 | 20 | 
 | Task protection actions |  +  `UpdateTaskProtection` <br />+  `GetTaskProtection`   | 200 | 80 | 
 | Cluster service resource read actions |  +  `ListServicesByNamespace`   | 10 | 1 | 
 

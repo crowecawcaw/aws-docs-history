@@ -76,7 +76,7 @@ For more information about updating a service's deployment controller, see [Upda
 
    1. For **Bake time**, enter the time that both the blue and green service revisions run.
 
-   1. To run Lambda functions for a lifecycle stage, under **Deployment lifecyce hooks** do the following for each unique Lambda function:
+   1. To run Lambda functions for a lifecycle stage, under **Deployment lifecycle hooks** do the following for each unique Lambda function:
 
       1. Choose **Add**.
 

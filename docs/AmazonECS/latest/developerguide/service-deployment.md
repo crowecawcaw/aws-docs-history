@@ -65,7 +65,7 @@ A service deployment starts in `PENDING` state.
 
 The following illustration shows the service deployment states that can happen after the `PENDING` state: `IN_PROGRESS`, `ROLLBACK_REQUESTED`, `SUCCESSFUL`, `STOP_REQUESTED`, `ROLLBACK_IN_PROGRESSS`, `ROLLBACK_FAILED`, `ROLLBACK_SUCCESSFUL`, and `STOPPED`.
 
-![Service deployment STOP_REQUESTED, SUCCESSFUL, and ROLLBACK_IN_PROGRESS states that can happen after the IN_PROGRESS state.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/service-deployment-states.png)
+![Service deployment STOP_REQUESTED, SUCCESSFUL, and ROLLBACK_IN_PROGRESS states that can happen after the IN_PROGRESS state.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/service-deployment-states.png)
 
 
 The following information provides details about service deployment states:

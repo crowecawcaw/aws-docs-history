@@ -7,7 +7,7 @@ Amazon ECS Anywhere provides support for registering an *external instance* such
 
 The following provides a high-level system architecture overview of Amazon ECS Anywhere. Your on-premises server has both the Amazon ECS agent and the SSM agent installed.
 
-![Diagram showing the architecture of Amazon ECS Anywhere.](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/overview-ecsanywhere.png)
+![Diagram showing the architecture of Amazon ECS Anywhere.](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/images/overview-ecsanywhere.png)
 
 
 For more information, see [Amazon ECS clusters for external instances](ecs-anywhere.md).
