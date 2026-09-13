@@ -10,7 +10,7 @@ With this architecture, you can transform your retail customer service channel b
 ## Retail contact center diagram
 <a name="rcc-diagram"></a>
 
-![Amazon Connect Customer routing customer calls through IVR, Amazon AppFlow CRM integration, Amazon Kinesis streaming, and Amazon Quick Sight analytics.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/retail-contact-center/images/retail-contact-center.png)
+![Amazon Connect Customer routing customer calls through IVR, Amazon AppFlow CRM integration, Amazon Kinesis streaming, and Amazon Quick Sight analytics.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/retail-contact-center/images/retail-contact-center.png)
 
 
 The following steps describe the architecture:
