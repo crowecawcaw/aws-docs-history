@@ -10,7 +10,7 @@ With this architecture, you can build highly scalable distribution grid manageme
 ## Utility Volt-VAR Management Framework diagram
 <a name="vvo-diagram"></a>
 
-![Reference architecture diagram showing how to build Volt-VAR management applications by using Amazon MSK, Lambda, SageMaker AI, and Amazon EventBridge.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/utility-volt-var-management/images/utility-volt-var-management.png)
+![Reference architecture diagram showing how to build Volt-VAR management applications by using Amazon MSK, Lambda, SageMaker AI, and Amazon EventBridge.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/utility-volt-var-management/images/utility-volt-var-management.png)
 
 
 The following steps describe the data ingestion, processing, and application components for this architecture:
