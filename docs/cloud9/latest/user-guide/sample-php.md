@@ -115,7 +115,7 @@ The preceding code doesn't rely on any external files. However, if you ever incl
    The sum of 5 and 9 is 14.
    ```
 
-![Output of running the PHP code in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-php-simple.png)
+![Output of running the PHP code in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-php-simple.png)
 
 
 ## Step 4: Install and configure the AWS SDK for PHP

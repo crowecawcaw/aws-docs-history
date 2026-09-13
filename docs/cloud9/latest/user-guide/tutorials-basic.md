@@ -40,15 +40,15 @@ In AWS Cloud9, a *development environment*, or *environment*, is somewhere where
    + If you're a student in a classroom, ask your instructor for sign-in instructions.
 
 1. After you sign in to the AWS Cloud9 console, in the top navigation bar choose an AWS Region to create the environment in. For a list of available AWS Regions, see [AWS Cloud9](https://docs.aws.amazon.com/general/latest/gr/rande.html#cloud9_region) in the *AWS General Reference*.  
-![AWS Region selector in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
+![AWS Region selector in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
 
 1. Choose the large **Create environment** button in one of the locations shown.
 
    If you don't already have AWS Cloud9 environments, the button is shown on a welcome page.  
-![Welcome page in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
+![Welcome page in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
 
    If you already have AWS Cloud9 environments, the button is shown as follows.  
-![Create environment button in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
+![Create environment button in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
 
 1. On the **Create environment** page, for **Name**, enter a name for your environment.
 
@@ -89,7 +89,7 @@ Choosing a longer time period might result in more charges to your AWS account.
 If you update these tags after you create them, the changes aren't propagated to the underlying resources. For more information, see [Propagating tag updates to underlying resources](tags.md#tags-propagate) in the advanced information about [tags](tags.md).
 
 1. Choose **Create** to create your environment, and then you're redirected to the home page. If the account is successfully created, a green flash bar appears at the top of the AWS Cloud9 console. You can select the new environment and choose **Open in Cloud9** to launch the IDE.  
-![AWS Cloud9 IDE selector in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/cloud9-ide-open.png)
+![AWS Cloud9 IDE selector in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/cloud9-ide-open.png)
 
    If the account fails to create, a red flash bar appears at the top of the AWS Cloud9 console. Your account might fail to create because of a problem with your web browser, your AWS access permissions, the instance, or the associated network. You can find information about possible fixes in the [AWS Cloud9 Troubleshooting section.](troubleshooting.md#troubleshooting-env-loading)
 **Note**  
@@ -218,7 +218,7 @@ Depending on the programming language that you're using, there might be multiple
 
 1. View the output from your code in the **Run Configuration** window. It is similar to the following.
 
-![Run code in a Run Configuration.](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-run-run-config.png)
+![Run code in a Run Configuration.](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-run-run-config.png)
 
 
 **To run the code using a terminal window**
@@ -233,7 +233,7 @@ Depending on the programming language that you're using, there might be multiple
 
 1. View the output from your code in the terminal window. It is similar to the following.
 
-![Run code in a Run Configuration.](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-run-terminal.png)
+![Run code in a Run Configuration.](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-run-terminal.png)
 
 
 ### Debug your code
@@ -242,24 +242,24 @@ Depending on the programming language that you're using, there might be multiple
 Finally, you can debug your code by using the **Debugger** window.
 
 1. Add a breakpoint to your code at line 10 (`if (input === 'q')`) by choosing the margin next to line 10. A red circle is displayed next to that line number, as follows.  
-![Adding a breakpoint to the code.](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-debug-breakpoint.png)
+![Adding a breakpoint to the code.](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-debug-breakpoint.png)
 
 1. Open the **Debugger** window by choosing the **Debugger** button on the right side of the IDE. Alternatively, choose **Window**, **Debugger** on the menu bar.
 
    Then, put a watch on the `input` variable by choosing **Type an expression here** in the **Watch Expressions** section of the **Debugger** window.  
-![Debugger window, set watch](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-debug-watch.png)
+![Debugger window, set watch](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-debug-watch.png)
 
 1. Go to the **Run Configuration** window that you used earlier to run the code. Choose **Run**.
 
    Alternately, you can open a new **Run Configuration** window and start running the code. Do so by choosing **Run**, **Run With**, **Node.js** from the menu bar.
 
 1. Enter a number at the **Run Configuration** prompt and see that the code pauses at line 10. The **Debugger** window shows the value that you entered in **Watch Expressions**.  
-![Program stops at breakpoint](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-debug-break.png)
+![Program stops at breakpoint](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-debug-break.png)
 
 1. In the **Debugger** window, choose **Resume**. This is the blue arrow icon that's highlighted in the previous screenshot.
 
 1. Select **Stop** in the **Run Configuration** window to stop the debugger.  
-![Deleting an environment in the environment details page](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-debug-stop.png)
+![Deleting an environment in the environment details page](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/basic-ide-debug-stop.png)
 
 ## Step 3: Clean up
 <a name="tutorial-clean-up"></a>
@@ -276,9 +276,9 @@ You cannot restore your environment after you delete it.
 
 1. Do one of the following:
    + Choose the title inside of the **my-demo-environment** card, and then choose **Delete**.  
-![Deleting an environment in the environment details page](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-delete-env.png)
+![Deleting an environment in the environment details page](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-delete-env.png)
    + Select the **my-demo-environment** card, and then choose **Delete**.  
-![Deleting an environment in the environments list](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-delete-env-card.png)
+![Deleting an environment in the environments list](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-delete-env-card.png)
 
 1. In the **Delete** dialog box, enter `Delete`, and then choose **Delete**. The delete operation takes a few minutes.
 

@@ -37,7 +37,7 @@ If you select one of the runtimes with "(Image)," your application is package ty
 
 When the project is created, you can view your application's files in the Environment window. Find it listed in the **Explorer** window.
 
-![Screenshot showing the available runtimes for SAM applications.](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/sam-create-app-explorer.png)
+![Screenshot showing the available runtimes for SAM applications.](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/sam-create-app-explorer.png)
 
 
 ## Running and debugging serverless applications
@@ -122,7 +122,7 @@ The Lambda handlers that are detected by context-aware links depend on the langu
 1. From the application folder (for example, *my-sample-app*), expand the function folder (in this example, *hello-world*) and open the `app.js` file.
 
 1. In the inline action that identifies an eligible Lambda handler function, choose `Add Debug Configuration`. If the add debug configuration option doesn't appear, you must enable code lenses. To enable code lenses, see [Enabling AWS Toolkit code lenses](enable-code-lenses.md).  
-![Access the Add Debug Configuration option in the inline action for a Lambda function handler.](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/direct_invoke_config.png)
+![Access the Add Debug Configuration option in the inline action for a Lambda function handler.](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/direct_invoke_config.png)
 
 1. Select the runtime where your SAM application runs.
 

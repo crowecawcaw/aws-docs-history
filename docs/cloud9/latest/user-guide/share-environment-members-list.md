@@ -12,7 +12,7 @@ A circle next to each member indicates their online status, as follows:
 + Offline members have a gray circle.
 + Idle members have an orange circle.
 
-![Member online status in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-status.png)
+![Member online status in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-status.png)
 
 
 To use code to get a list of environment members, call the AWS Cloud9 describe environment memberships operation, as follows.

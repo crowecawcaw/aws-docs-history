@@ -9,4 +9,4 @@ This step shows how you can open the active file of an environment member.
 
 With the shared environment open, in the menu bar, choose the member name. Then, choose **Open Active File**.
 
-![The Open Active File command in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-active-file.png)
+![The Open Active File command in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-active-file.png)

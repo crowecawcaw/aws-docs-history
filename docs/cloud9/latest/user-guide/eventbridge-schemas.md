@@ -20,7 +20,7 @@ The EventBridge schema that you want to work with must be available in your AWS 
 1. Expand the name of the registry that contains the schema that you want to view. For example, many of the schemas that AWS supplies are in the **aws.events** registry.
 
 1. To view a schema in the editor, open the context (right-click) menu for the schema, and then choose **View Schema**.  
-![View an EventBridge schema.](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/schema-eventbridge.png)
+![View an EventBridge schema.](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/schema-eventbridge.png)
 
 ## Find an available Schema
 <a name="eventbridge-schemas-find"></a>

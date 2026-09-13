@@ -21,4 +21,4 @@ You use the **Collaborate** window to interact with other members, as described 
 **Note**  
 If the **Collaborate** window isn't visible, choose **Collaborate**. If the **Collaborate** button isn't visible, on the menu bar, choose **Window, Collaborate**.
 
-![The Collaborate window in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate.png)
+![The Collaborate window in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate.png)

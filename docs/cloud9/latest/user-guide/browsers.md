@@ -19,4 +19,4 @@ The following table lists the supported browsers for AWS Cloud9.
 **Warning**  
 If you are using Mozilla Firefox as your preferred browser with AWS Cloud9 IDE, there is a 3rd party cookie setting which prevents AWS Cloud9 webview and AWS Toolkits from working correctly in the browser. As a workaround to this issue, you must ensure that you have not blocked *Cookies* in the *Privacy & Security* section of your browser settings, as displayed in the image below.  
 
-![Displaying the cookie settings for Firefox](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/firefox-workaround.png)
+![Displaying the cookie settings for Firefox](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/firefox-workaround.png)

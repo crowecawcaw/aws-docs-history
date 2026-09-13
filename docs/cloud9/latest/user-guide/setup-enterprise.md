@@ -25,7 +25,7 @@ For introductory information that's related to this topic, see the following res
 
 The following conceptual diagram shows what you end up with.
 
-![Conceptual diagram of setting up an enterprise to use AWS Cloud9](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/enterprise_update.png)
+![Conceptual diagram of setting up an enterprise to use AWS Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/enterprise_update.png)
 
 
 To enable one or more AWS account to start using AWS Cloud9 within an enterprise, follow the steps according to the AWS resources that you already have.

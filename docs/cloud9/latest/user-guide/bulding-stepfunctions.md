@@ -43,7 +43,7 @@ For information on editing the ASL file to customize your workflow, see [State M
 1. In the ASL file, choose **Publish to Step Functions** to add your state machine to the AWS Cloud. 
 **Note**  
 You can also choose **Render graph** in the ASL file to display a visual representation of the state machine's workflow.  
-![Diagram that shows how to choose Publish to Step Functions](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/publish-stepfunction.png)
+![Diagram that shows how to choose Publish to Step Functions](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/publish-stepfunction.png)
 
 1. In the command panel, choose an AWS Region to host your step function.
 
@@ -98,4 +98,4 @@ The context menu also offers the options to **Copy Name** and **Copy ARN**.
 1. To display a visual representation of the workflow, choose **Render graph**.
 
    A window displays a flowchart, which shows the sequence of states in your state machine's workflow.  
-![Visual representation of the state machine's workflow](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/render-graph.png)
+![Visual representation of the state machine's workflow](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/render-graph.png)

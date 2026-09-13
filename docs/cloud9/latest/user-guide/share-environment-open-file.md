@@ -13,4 +13,4 @@ This step shows how you can open the open file of an environment member.
 
 1. Open (double-click) the name of the file that you want to open.
 
-![Opening a team member's file in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-open-file.png)
+![Opening a team member's file in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-open-file.png)

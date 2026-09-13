@@ -112,7 +112,7 @@ Use the instructions in this section to share an AWS Cloud9 development environm
 1. In the menu bar in the AWS Cloud9 IDE, do one of the following.
    + Choose **Window, Share**.
    + Choose **Share** (located next to the **Preferences** gear icon).  
-![The Share command in the AWS Cloud9 IDE menu bar](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-share.png)
+![The Share command in the AWS Cloud9 IDE menu bar](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-share.png)
 
 1. In the **Share this environment** dialog box, for **Invite Members**, type one of the following.
    + To invite an **IAM user**, enter the name of the user.

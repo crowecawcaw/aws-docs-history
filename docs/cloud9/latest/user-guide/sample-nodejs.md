@@ -116,7 +116,7 @@ console.log('The sum of ' + process.argv[2] + ' and ' +
    The sum of 5 and 9 is 14.
    ```
 
-![Node.js output after running the code in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-nodejs-simple.png)
+![Node.js output after running the code in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-nodejs-simple.png)
 
 
 ## Step 4: Install and configure the AWS SDK for JavaScript in Node.js

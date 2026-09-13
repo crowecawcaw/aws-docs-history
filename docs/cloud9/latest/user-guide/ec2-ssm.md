@@ -44,7 +44,7 @@ By default, SSM Agent is installed on all instances that are used by EC2 environ
 
 When selecting a subnet for your instance in the **Network settings (advanced)** section, you can select a private or public subnet if the instance for your environment is accessed through Systems Manager.
 
-![Selecting a new no-ingress EC2 instance for your environment](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/private-subnet-option.png)
+![Selecting a new no-ingress EC2 instance for your environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/private-subnet-option.png)
 
 
 **Private subnets**

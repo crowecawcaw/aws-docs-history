@@ -18,7 +18,7 @@ AWS Toolkit support is an integrated feature of AWS Cloud9. Currently, you can't
 **Warning**  
 If you are using Mozilla Firefox as your preferred browser with AWS Cloud9 IDE, there is a 3rd party cookie setting which prevents AWS Cloud9 webview and AWS Toolkits from working correctly in the browser. As a workaround to this issue, you must ensure that you have not blocked *Cookies* in the *Privacy & Security* section of your browser settings, as displayed in the image below.  
 
-![Displaying the cookie settings for Firefox](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/firefox-workaround.png)
+![Displaying the cookie settings for Firefox](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/firefox-workaround.png)
 
 
 At present, the following AWS services and resources can be accessed through the AWS Toolkit extension:
@@ -115,7 +115,7 @@ For more information, see [Using an IAM role to grant permissions to application
 
 The following screenshot shows three key UI components of the AWS Toolkit.
 
-![Labelled screenshot showing key UI components of the AWS Toolkit](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/toolkit-UI-overview-labelled.png)
+![Labelled screenshot showing key UI components of the AWS Toolkit](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/toolkit-UI-overview-labelled.png)
 
 
 1. **AWS Explorer** window: Used to interact with the AWS services that are accessible through the Toolkit. You can toggle between showing and hiding the **AWS Explorer** using the AWS option at the left side of the integrated development environment (IDE). For more about using this interface component and accessing AWS services for different AWS Regions, see [Using AWS Explorer to work with services and resources in multiple Regions](toolkit-navigation.md#working-with-aws-explorer).

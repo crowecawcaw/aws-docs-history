@@ -9,17 +9,17 @@ The Git panel extension for AWS Cloud9 provides convenient user interface access
 
 This section demonstrates how to access key Git features for managing source control. The procedures focus on using the **Git panel** menu to run Git commands against your repository and its content.
 
-![Interface options for initializing and cloning a Git repository](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-panel-menu.png)
+![Interface options for initializing and cloning a Git repository](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-panel-menu.png)
 
 
  You can also access any supported Git command by starting to enter the name in the Git panel search box:
 
-![Interface options for initializing and cloning a Git repository](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-commands-type.png)
+![Interface options for initializing and cloning a Git repository](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-commands-type.png)
 
 
 And you can view the actual Git commands that are run when you interact with the Git panel interface. To view command line activity, go to the **Git panel** menu and choose **Show Git Output**.
 
-![Viewing the Git command output](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-output.png)
+![Viewing the Git command output](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-output.png)
 
 
 ## Initialize or clone a Git repository
@@ -31,7 +31,7 @@ Git panel supports both ways of obtaining a Git repository:
 + Initialize an existing directory as a Git repository.
 + Clone an existing repository and copy it to local directory.
 
-![Interface options for initializing and cloning a Git repository](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/init-clone.png)
+![Interface options for initializing and cloning a Git repository](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/init-clone.png)
 
 
 **Note**  
@@ -52,12 +52,12 @@ You can also open Git panel using the keyboard shortcut **Ctrl\+Shift\+G**.
    + Next, pick a workspace folder where your Git repo will be initialized. You can enter a path to the folder, choose a path, or choose a folder in a dialog box.
    + If you're using a dialog box, select the destination folder and choose **Initialize Repository**.
 
-![Selecting a workspace folder for a Git repo](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/init-dialog-box.png)
+![Selecting a workspace folder for a Git repo](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/init-dialog-box.png)
 
 
    After you initialize the Git repo in the selected folder, the Git panel displays any files already in that folder as untracked and ready to be added to the Git staging area.
 
-![Selecting a workspace folder for a Git repo](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/untracked-changes.png)
+![Selecting a workspace folder for a Git repo](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/untracked-changes.png)
 
 
 ------
@@ -92,7 +92,7 @@ For information about using pattern matching in `.gitignore` to exclude file typ
 
 Untracked files (labeled "U") and modified files (labeled "M") that haven't been added to the staging area are listed under **Changes** in the Git panel pane.
 
-![Untracked content in the git repo's workspace folder](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-unstaged.png)
+![Untracked content in the git repo's workspace folder](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-unstaged.png)
 
 
 Using the Git panel interface, you can add specific files or all untracked and modified files to the staging area:
@@ -101,7 +101,7 @@ Using the Git panel interface, you can add specific files or all untracked and m
 
 Files added to the repository's index are listed under **Staged Changes**. Previously untracked files are labeled "A" to indicate that they've been staged.
 
-![Staged content in the git repo's workspace folder](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/staged-changes.png)
+![Staged content in the git repo's workspace folder](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/staged-changes.png)
 
 
 **Note**  
@@ -129,7 +129,7 @@ You can compare versions of a file that's been modified after it was staged or c
 
 After you choose "M", an IDE window displays the differences between the two versions of the file. One side shows the version that's tracked as current in the repository. The other side shows the modified version that's not yet committed.
 
-![Diffing versioned content in the git repo](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-diff.png)
+![Diffing versioned content in the git repo](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-diff.png)
 
 
 ## Working with branches
@@ -143,7 +143,7 @@ Git greatly facilitates workflow management by allowing you to work on new featu
 Creating a branch involves naming the branch and selecting its starting point. 
 
 1. In the **Git panel** menu, choose **Checkout to**. Alternatively, you can choose the name of the current branch displayed at the bottom of the Git panel.  
-![Selecting the current Git branch](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-current-branch.png)
+![Selecting the current Git branch](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-current-branch.png)
 
 1. Choose an option for creating a new branch:
    + **Create new branch**: The new branch starts from the last commit of the current branch.
@@ -185,7 +185,7 @@ After you've finished working on a feature in a discrete branch, you'll usually 
 1. In the **Search** box for Git panel, start to enter the word "merge".
 
    When **Git: Merge Branch** displays under the list of **Commands**, choose it.  
-![Finding the merge command](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-merge.png)
+![Finding the merge command](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-merge.png)
 
 1. From the list displayed, choose a branch to merge into the target branch.
 
@@ -195,7 +195,7 @@ When [merging branches](#working-with-branches), you may encounter merge conflic
 
 You can use the IDE's code editor window to identify the conflicting content in the two branches and then make changes to resolve the differences.
 
-![IDE window for resolving merge conflicts](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-merge-conflicts.png)
+![IDE window for resolving merge conflicts](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/git-merge-conflicts.png)
 
 
 ## Working with remote repositories
@@ -209,13 +209,13 @@ Remote repositories that are hosted on the Internet or a network facilitate coll
 After you create a branch for a local repository, it's private to you and not available to your collaborators until you push it "upstream" to the remote repository.
 
 1. To publish the current branch, go to the **Git panel** menu and choose **Publish Branch**. Alternatively, click the cloud symbol that's next to the branch name at the bottom of the Git panel.  
-![Option for publishing a branch to a remote repository](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/publish-branch-image.png)
+![Option for publishing a branch to a remote repository](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/publish-branch-image.png)
 
 1. If required, enter your sign-in credentials to access the remote repository.
 
 If the branch is successfully published to the remote repository, a synchronize symbol displays next to the branch name at the bottom of the Git panel. Choose it to synchronize the contents of the local and remote repositories.
 
-![Option for synching local and remote branches](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/sync-branch-local-remote.png)
+![Option for synching local and remote branches](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/sync-branch-local-remote.png)
 
 
 ### Push and pull content between local and remote repositories

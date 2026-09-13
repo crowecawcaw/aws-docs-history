@@ -13,7 +13,7 @@ After the environment is created, you can view the tags that are attached to the
 
 View or update tags using one or more of the following methods.
 + In the [AWS Cloud9 console](https://console.aws.amazon.com/cloud9/), select the environment you're interested in, and then choose **View Details**.  
-![View the details of an environment.](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/view-details.png)
+![View the details of an environment.](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/view-details.png)
 + Use the following AWS Cloud9 CLI commands: [`list-tags-for-resource`](https://docs.aws.amazon.com/cli/latest/reference/cloud9/list-tags-for-resource.html), [`tag-resource`](https://docs.aws.amazon.com/cli/latest/reference/cloud9/tag-resource.html), and [`untag-resource`](https://docs.aws.amazon.com/cli/latest/reference/cloud9/untag-resource.html).
 + Use the following AWS Cloud9 API actions: [ListTagsForResource](https://docs.aws.amazon.com/cloud9/latest/APIReference/API_ListTagsForResource.html), [TagResource](https://docs.aws.amazon.com/cloud9/latest/APIReference/API_TagResource.html), and [UntagResource](https://docs.aws.amazon.com/cloud9/latest/APIReference/API_UntagResource.html).
 

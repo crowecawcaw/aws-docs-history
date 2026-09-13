@@ -272,17 +272,17 @@ To connect to your own server, use SSH. SSH is already installed on the macOS an
 1. Sign in to the AWS Cloud9 console, at [https://console.aws.amazon.com/cloud9/](https://console.aws.amazon.com/cloud9/).
 
 1. After you sign in to the AWS Cloud9 console, in the top navigation bar choose an AWS Region to create the environment in. For a list of available AWS Regions, see [AWS Cloud9](https://docs.aws.amazon.com/general/latest/gr/rande.html#cloud9_region) in the *AWS General Reference*.  
-![Region selector in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
+![Region selector in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
 
 1. If this is the first time that you're creating a development environment, a welcome page is displayed. In the **New AWS Cloud9 environment** panel, choose **Create environment**.
 
    If you've previously created development environments, you can also expand the pane on the left of the screen. Choose **Your environments**, and then choose **Create environment**.
 
    In the **welcome** page:  
-![Choose the Create environment button if the welcome page is displayed](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
+![Choose the Create environment button if the welcome page is displayed](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
 
    Or in the **Your environments** page:  
-![Choose the Create environment button if the welcome page isn't displayed](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
+![Choose the Create environment button if the welcome page isn't displayed](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
 
 1. On the **Create environment** page, enter a name for your environment.
 
@@ -324,7 +324,7 @@ We recommend that the login name is associated with administrative permissions o
 If you update these tags after you create them, the changes aren't propagated to the underlying resources. For more information, see [Propagating tag updates to underlying resources](tags.md#tags-propagate) in the advanced information about [tags](tags.md).
 
 1. Choose **Create** to create your environment, and you're then redirected to the home page. When the account is created successfully, a green flash bar appears at the top of the AWS Cloud9 console. You can select the new environment and choose **Open in Cloud9** to launch the IDE.   
-![AWS Cloud9 IDE selector in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/cloud9-ide-open.png)
+![AWS Cloud9 IDE selector in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/cloud9-ide-open.png)
 
    If the account fails to create, a red flash bar appears at the top of the AWS Cloud9 console. Your account might fail to create due to a problem with your web browser, your AWS access permissions, the instance, or the associated network. You can find information about possible fixes to issues that might cause the account to fail in the [AWS Cloud9 Troubleshooting section.](troubleshooting.md#troubleshooting-env-loading)
 

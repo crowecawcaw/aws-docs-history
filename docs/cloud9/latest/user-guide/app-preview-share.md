@@ -29,7 +29,7 @@ In this step, you note the instance ID and public IP address for the Amazon EC2 
 
      The instance ID is in the following format: `i-12a3b456c789d0123`. Make a note of this instance ID.
    + In the IDE for the environment, on the menu bar, choose your user icon, and then choose **Manage EC2 Instance**.  
-![Choosing to manage the instance from the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-manage-instance.png)
+![Choosing to manage the instance from the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-manage-instance.png)
 
      In the Amazon EC2 console that displays, make a note of the instance ID that displays in the **Instance ID** column. The instance ID is in this format: `i-12a3b456c789d0123`.
 

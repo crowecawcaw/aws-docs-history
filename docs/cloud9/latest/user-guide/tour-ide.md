@@ -39,22 +39,22 @@ Having an AWS Cloud9 development environment might result in charges to your AWS
 
 The *menu bar*, at the top edge of the IDE, contains common commands for working with files and code and changing IDE settings. You can also preview and run code from the menu bar.
 
-![The menu bar in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-menu-bar.png)
+![The menu bar in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-menu-bar.png)
 
 
 You can hide the menu bar by choosing the arrow at its edge, as follows.
 
-![Hiding the menu bar in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-hide-menu-bar.png)
+![Hiding the menu bar in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-hide-menu-bar.png)
 
 
 You can show the menu bar again by choosing the arrow in the middle of where the menu bar was earlier, as follows.
 
-![Showing the menu bar again in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-show-menu-bar.png)
+![Showing the menu bar again in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-show-menu-bar.png)
 
 
 Compare your results to the following.
 
-![Hiding and showing the menu bar in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-hide-show-menu-bar.gif)
+![Hiding and showing the menu bar in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-hide-show-menu-bar.gif)
 
 
 You can use the IDE to work with a set of files in the next several sections in this tutorial. To set up these files, choose **File**, **New File**.
@@ -95,7 +95,7 @@ The *dashboard* gives you quick access to each of your environments. From the da
 
 To open the dashboard, on the menu bar, choose **AWS Cloud9**, **Go To Your Dashboard**.
 
-![Opening the AWS Cloud9 dashboard](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-dashboard.png)
+![Opening the AWS Cloud9 dashboard](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-dashboard.png)
 
 
 To view the settings for your environment, choose the title inside of the **my-demo-environment** card. To go back to the dashboard, use your web browser's back button or the navigation breadcrumb called **Environments**.
@@ -114,12 +114,12 @@ To show or hide the contents of the **Environment** window, choose the **Environ
 
 To show or hide the **Environment** window and the **Environment** button, choose **Window**, **Environment** on the menu bar.
 
-![The Environment window in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-environment-window.png)
+![The Environment window in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-environment-window.png)
 
 
 To show or hide hidden files, in the **Environment** window, choose the gear icon, and then choose **Show Hidden Files**.
 
-![Showing hidden files using the Environment window](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-show-hidden-files.png)
+![Showing hidden files using the Environment window](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-show-hidden-files.png)
 
 
 ## Step 4: Editor, tabs, and panes
@@ -127,24 +127,24 @@ To show or hide hidden files, in the **Environment** window, choose the gear ico
 
 The *editor* is where you can do things such as write code, run a terminal session, and change IDE settings. Each instance of an open file, terminal session, and so on is represented by a *tab*. Tabs can be grouped into *panes*. Tabs are shown at the edge of their pane.
 
-![Tabs at the edge of a pane in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-tab-buttons.png)
+![Tabs at the edge of a pane in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-tab-buttons.png)
 
 
 To show or hide tabs, choose **View**, **Tab Buttons** on the menu bar.
 
 To open a new tab, choose the **\+** icon at the edge of the row of tabs. Then choose one of the available commands, for example, **New File**, as follows.
 
-![New tab with commands to choose, such as New File](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-new-file.png)
+![New tab with commands to choose, such as New File](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-new-file.png)
 
 
 To display two panes, choose the icon that looks like a drop-down menu, which is at the edge of the row of tabs. Then choose **Split Pane in Two Rows**, as follows.
 
-![Showing two panes by splitting one pane into two rows](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-split-pane-two-rows.png)
+![Showing two panes by splitting one pane into two rows](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-split-pane-two-rows.png)
 
 
 To return to a single pane, choose the drop-down menu icon again, and then choose the single square icon, as follows.
 
-![Showing a single pane](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-single-pane-view.png)
+![Showing a single pane](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-single-pane-view.png)
 
 
 ## Step 5: Console
@@ -152,14 +152,14 @@ To return to a single pane, choose the drop-down menu icon again, and then choos
 
 The *console* is an alternate place for creating and managing tabs. By default, it contains a Terminal tab, but can also contain other types of tabs.
 
-![AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-console.png)
+![AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-console.png)
 
 
 To show or hide the console, choose **View**, **Console** on the menu bar.
 
 To expand or shrink the console, choose the resize icon, which is at the edge of the console, as follows.
 
-![Expanding the size of the console display](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-console-resize.png)
+![Expanding the size of the console display](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-console-resize.png)
 
 
 ## Step 6: Open files section
@@ -167,7 +167,7 @@ To expand or shrink the console, choose the resize icon, which is at the edge of
 
 The **Open Files** section shows a list of all files that are currently open in the editor. **Open Files** is part of the **Environment** window.
 
-![Open Files section in the Environment window](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-open-files.png)
+![Open Files section in the Environment window](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-open-files.png)
 
 
 To show or hide the **Open Files** section, choose **View**, **Open Files** on the menu bar.
@@ -179,7 +179,7 @@ To switch between open files, choose the file of interest from the list.
 
 The *gutter*, at the edge of each file in the editor, shows things like line numbers and contextual symbols as you work with files.
 
-![Gutter in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-gutter.png)
+![Gutter in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-gutter.png)
 
 
 To show or hide the gutter, choose **View**, **Gutter** on the menu bar.
@@ -189,25 +189,25 @@ To show or hide the gutter, choose **View**, **Gutter** on the menu bar.
 
 The *status bar*, at the edge of each file in the editor, shows things like line and character numbers, file type preference, space and tab settings, and related editor settings.
 
-![Status bar in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-status-bar.png)
+![Status bar in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-status-bar.png)
 
 
 To show or hide the status bar, choose **View**, **Status Bar** on the menu bar.
 
 To go to a specific line number, choose a tab with the file of interest. Then in the status bar, choose the line and character number (it should be something like **7:45**). Type a line number (like `4`), and then press `Enter`, as follows.
 
-![Going to specific line numbers using the AWS Cloud9 IDE status bar](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-to-line.png)
+![Going to specific line numbers using the AWS Cloud9 IDE status bar](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-to-line.png)
 
 
-![Going to specific line numbers using the AWS Cloud9 IDE status bar](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-to-line.gif)
+![Going to specific line numbers using the AWS Cloud9 IDE status bar](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-to-line.gif)
 
 
 To change the file type preference, in the status bar, choose a different file type. For example, for **cat.txt**, choose **Ruby** to see the syntax colors change. To go back to plain text colors, choose **Plain Text**, as follows.
 
-![Changing file type preference in the AWS Cloud9 IDE status bar](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-text-color.png)
+![Changing file type preference in the AWS Cloud9 IDE status bar](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-text-color.png)
 
 
-![Changing file type preference in the AWS Cloud9 IDE status bar](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-text-color.gif)
+![Changing file type preference in the AWS Cloud9 IDE status bar](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-text-color.gif)
 
 
 ## Step 9: Outline window
@@ -240,10 +240,10 @@ To show or hide the contents of the **Outline** window, choose the **Outline** b
 
 In the **Outline** window, choose **say\_hello(i)**, and then choose **say\_goodbye(i)**, as follows.
 
-![Outline window in AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-outline.png)
+![Outline window in AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-outline.png)
 
 
-![Outline window in AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-outline.gif)
+![Outline window in AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-outline.gif)
 
 
 ## Step 10: Go window
@@ -251,7 +251,7 @@ In the **Outline** window, choose **say\_hello(i)**, and then choose **say\_good
 
 You can use the **Go** window to open a file in the editor, go to a symbol's definition, run a command, or go to a line in the active file in the editor.
 
-![Go window.](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-window-first.png)
+![Go window.](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-window-first.png)
 
 
 To show the contents of the **Go** window, choose the **Go** button (the magnifying glass icon).
@@ -268,7 +268,7 @@ If the active file in the editor is part of a supported language project, symbol
 + Type a dot (`.`) followed by the name of a command. In the list of commands that displays, choose a command to run it. For example, typing `.closetab` and then pressing `Enter` closes the current tab in the editor. For a list of available commands, see the [Commands reference for the AWS Cloud9 IDE](commands.md).
 + Type a colon (`:`) followed by a number to go to that line number in the active file in the editor. For example, with the `hello.rb` file open and active in the editor, type `:11` to go to line 11 in that file.
 
-![Go window in AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-window.png)
+![Go window in AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-window.png)
 
 
 To see the keybindings for each of these actions based on the current keyboard mode and operating system, see each of the available **Go To** commands on the **Go** menu in the menu bar.
@@ -287,7 +287,7 @@ The **Immediate** tab enables you to test small snippets of JavaScript code. To 
      console.log(i)            // Press Shift-Enter after typing this line.
    }                           // Press Enter after typing this line. The numbers 0 to 10 will be printed.
    ```  
-![Running code in the Immediate tab](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-immediate.png)
+![Running code in the Immediate tab](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-immediate.png)
 
 ## Step 12: Process list
 <a name="tour-ide-process-list"></a>
@@ -300,7 +300,7 @@ The **Process List** shows all of the running processes. You can stop or even fo
 
 1. Stop or forcibly stop a process. In the list of processes, choose the process, and then choose **Kill** or **Force Kill**.
 
-![Process list in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-process-list.png)
+![Process list in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-process-list.png)
 
 
 ## Step 13: Preferences
@@ -314,7 +314,7 @@ The **Process List** shows all of the running processes. You can stop or even fo
 
 To show preferences, choose **AWS Cloud9**, **Preferences** on the menu bar. Something like the following is displayed.
 
-![Showing preferences in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-preferences.png)
+![Showing preferences in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-preferences.png)
 
 
 ## Step 14: Terminal
@@ -329,7 +329,7 @@ You can also try running additional commands. For example, try commands such as 
 +  ** `aws --version` ** to print version information about the AWS CLI.
 +  ** `ls -l` ** to print information about the current directory.
 
-![Using the terminal in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-terminal.gif)
+![Using the terminal in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-terminal.gif)
 
 
 ## Step 15: Debugger window
@@ -409,32 +409,32 @@ For this tutorial, you can experiment with the **Debugger** window and some Java
    ```
 
 1. Add some breakpoints to the code. For example, in the gutter, choose the margin next to lines 6 and 10. A red circle is displayed next to each of these line numbers, as follows.  
-![Adding breakpoints to code in the Debugger window](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-breakpoints.png)
+![Adding breakpoints to code in the Debugger window](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-breakpoints.png)
 
 1. Now you're ready to debug the JavaScript code. To try this, do the following.
 
    1. To show or hide the contents of the **Debugger** window, choose the **Debugger** button, as shown in the next step.
 
    1. Watch the value of the variable named `i` while the code is running. In the **Debugger** window, for **Watch Expressions**, choose **Type an expression here**. Type the letter `i`, and then press `Enter`, as follows.  
-![Debugger window](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-watch-expression.png)
+![Debugger window](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-watch-expression.png)
 
    1. Begin running the code. Choose **Run**, **Run With**, **Node.js**, as follows.  
-![Debugger window](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-run-with.png)
+![Debugger window](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-run-with.png)
 
    1. The code pauses running on line 6. The **Debugger** window shows the value of `i` in **Watch Expressions**, which is currently `10`.  
-![Debugger window](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-breakpoint-hit.png)
+![Debugger window](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-breakpoint-hit.png)
 
    1. In the **Debugger** window, choose **Resume**, which is the blue arrow icon, as follows.  
-![Resuming debugging in the Debugger window](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-resume.png)
+![Resuming debugging in the Debugger window](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-resume.png)
 
    1. The code pauses running on line 10. The **Debugger** window now shows the new value of `i`, which is currently `11`.
 
    1. Choose **Resume** again. The code runs to the end. The output is printed to the console's **hello.js** tab, as follows.  
-![hello.js tab with debug output](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-debugger-output.png)
+![hello.js tab with debug output](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-debugger-output.png)
 
 Compare your results to the following.
 
-![Using the debugger](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-debugger.gif)
+![Using the debugger](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-debugger.gif)
 
 
 ## Final thoughts

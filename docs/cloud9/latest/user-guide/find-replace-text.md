@@ -119,10 +119,10 @@ The replace operation happens immediately across all files in scope. This operat
 
 Choose any of the following buttons on the find and replace bar to modify find and replace operations.
 
-![Searching in a single file](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-search-single.png)
+![Searching in a single file](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-search-single.png)
 
 
-![Searching in multiple files](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-search-multiple.png)
+![Searching in multiple files](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-search-multiple.png)
 
 +  **Regular Expressions**: Find text matching the specified regular expression in **Find** or **Find in Files**. See [Writing a regular expression pattern](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Writing_a_regular_expression_pattern) in the *JavaScript Regular Expressions* topic on the Mozilla Developer Network.
 +  **Match Case**: Find text matching the specified casing in **Find** or **Find in Files**.

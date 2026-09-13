@@ -21,7 +21,7 @@ The option to activate enhanced support for Java is automatically displayed if t
 
 If these conditions are met, a dialog box displays to ask you whether you want to activate the extra productivity features for coding and debugging Java. If you choose **Activate**, you can start using the features in the IDE.
 
-![Code completion with](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/working_with_java_rework.png)
+![Code completion with](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/working_with_java_rework.png)
 
 
 **Note**  
@@ -29,7 +29,7 @@ Amazon EC2 instances which are launched when you create an AWS Cloud9 environmen
 
 You can also manually activate and deactivate enhanced language and debugging support using the AWS Cloud9 interface. Choose **Preferences**, **Java Support**, **Enhanced Java Support**.
 
-![Manually activating and deactivating enhanced Java support](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/activate_java_extensions_update.png)
+![Manually activating and deactivating enhanced Java support](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/activate_java_extensions_update.png)
 
 
 The enhanced support for Java development in AWS Cloud9 is provided by two extensions to the IDE: 
@@ -51,28 +51,28 @@ After you've activated enhanced Java support, you can use a range of productivit
 
 With code completion, the editor makes context-aware suggestions based on the code you're typing. For example, if you type the dot (".") operator after an object name, the editor displays the methods or properties available for that object. 
 
-![Code completion with](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/code-complete-java.png)
+![Code completion with](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/code-complete-java.png)
 
 
 **Code lenses**
 
 Code lens allow you to access context-specific actions directly in the source code. For Java development, code lenses facilitate unit testing by allowing you to run and debug specific methods. 
 
-![Accessing code lenses](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/context-specific-actions.png)
+![Accessing code lenses](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/context-specific-actions.png)
 
 
 **Code linting**
 
 Code linting describes how the editor highlights potential errors in your code before you've even built it. For example, the linting tool call out if you're trying to use an uninitialized variable or trying to assign a value to a variable that's expecting a different type. 
 
-![Linting highlight errors before you build your code](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/linting.png)
+![Linting highlight errors before you build your code](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/linting.png)
 
 
 **Debugging options**
 
 You can implement breakpoints and watch expressions. Set your breakpoints in the source code and display the debugger pane to define relevant conditions. 
 
-![Debugging options](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/debugging_options.png)
+![Debugging options](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/debugging_options.png)
 
 
 **Debugging using configuration files**
@@ -83,28 +83,28 @@ You can also control your debugging configuration by using launch configurations
 
 You can run commands from the AWS Cloud9 command panel by pressing **Ctrl\+.** or **F1**. Then filter the relevant commands by entering "java".
 
-![Listing available Java commands](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/java_commands.png)
+![Listing available Java commands](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/java_commands.png)
 
 
 **Quick fixes**
 
 With quick fixes, you can resolve errors caused by using undeclared variables or undefined methods by creating stubs for the missing elements. 
 
-![Implementing a quick fix](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/quick_fix_java.png)
+![Implementing a quick fix](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/quick_fix_java.png)
 
 
 **Refactoring**
 
 Refactoring allows you to restructure your code without changing its behavior. To access options such as organizing imports or creating constructors, open the context (right-click) menu for the item and choose **Refactoring**.
 
-![Refactoring feature](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/refactoring_java.png)
+![Refactoring feature](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/refactoring_java.png)
 
 
 **Renaming**
 
 Renaming is a refactoring feature that allows you to easily modify the names of selected variables, functions, and classes everywhere that they appear in the code with a single action. To change a name, open the context (right-click) menu for the item and choose **Rename**. Renaming affects every instance of the name in your code. 
 
-![Renaming a class name](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/renaming_refactoring_java.png)
+![Renaming a class name](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/renaming_refactoring_java.png)
 
 
 ## Optional tools for Java development
@@ -119,7 +119,7 @@ The extensions that provide enhanced Java support include features that allow yo
 
 You can view and troubleshoot issues with your java project within your AWS Cloud9 environment in the Problems tab of the AWS Cloud9 IDE. To display the Problems tab from the AWS Cloud9 IDE, select **View** and choose **Problems** from the menu bar.
 
-![Opening the problems tab](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/problems-panel.png)
+![Opening the problems tab](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/problems-panel.png)
 
 
 You can also open the Problems tab by selecting the **\+** icon within the console and choosing **Open Problems**. When you select a problem from the tab, it opens the affected file and displays the issue details.

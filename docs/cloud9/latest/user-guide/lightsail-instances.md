@@ -40,12 +40,12 @@ On the Lightsail console, you can back up, reboot, stop, or delete the instance 
 1. If prompted, choose **Let's get started**.
 
 1. On the home page, with the **Instances** tab already selected, choose **Create instance**.  
-![Choosing the Create instance button in the Lightsail console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-create-instance.png)
+![Choosing the Create instance button in the Lightsail console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-create-instance.png)
 
 1. For **Instance location**, make sure that the location is an AWS Region AWS Cloud9 is available that you want to create the instance in. For more information, see [AWS Cloud9](https://docs.aws.amazon.com/general/latest/gr/rande.html#cloud9_region) in the *Amazon Web Services General Reference*. To change the AWS Region, Availability Zone, or both, choose **Change AWS Region and Availability Zone**, and then follow the onscreen instructions.
 
 1. For **Pick your instance image**, with **Linux/Unix** already chosen for **Select a platform**, and **Apps \+ OS** already chosen for **Select a blueprint**, choose a blueprint.  
-![Choosing an instance platform and blueprint in the Lightsail console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-pick-instance-image.png)
+![Choosing an instance platform and blueprint in the Lightsail console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-pick-instance-image.png)
 **Note**  
 If you want to create an instance with no app, choose **OS Only** instead of **Apps \+ OS**, and then choose a distribution.  
 To learn about the available choices, see [Choosing an Amazon Lightsail instance image](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image) on the Lightsail website.
@@ -67,10 +67,10 @@ In this step, you connect to the running instance and then set it up so that AWS
 The following instructions assume you chose **Apps \+ OS** in the previous step. If you chose **OS Only** and a distribution other than **Ubuntu** instead, you might need to adapt the following instructions accordingly.
 
 1. With the Lightsail console still open from the previous step, on the **Instances** tab, in the card for the instance, choose the instance's name.  
-![Choosing to show instance details in the Lightsail console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-show-instance-details.png)
+![Choosing to show instance details in the Lightsail console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-show-instance-details.png)
 
 1. On the **Connect** tab, for **Connect using your own SSH client**, note the **Public IP** and **User name** values, as you need them later.  
-![Instance public address and user name showing in the Lightsail console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-instance-ip-user.png)
+![Instance public address and user name showing in the Lightsail console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-instance-ip-user.png)
 
 1. Choose **Connect using SSH**.
 
@@ -107,13 +107,13 @@ In this step, you use the AWS Cloud9 console and the instance's terminal to crea
 For this step, you will work with two different AWS services at the same time. Now, suppose that you signed in to the Lightsail console as an IAM administrator user, but you want a different entity to own the new SSH environment. For this case, we suggest opening a different web browser and signing in to the AWS Cloud9 console as that entity.
 
 1. In the AWS Cloud9 console, choose the AWS Region that matches the one you created the instance in frameworks.  
-![AWS Region selector in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
+![AWS Region selector in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
 
 1. If a welcome page is displayed, for **New AWS Cloud9 environment**, choose **Create environment**. Otherwise, choose **Create environment**.  
-![Choosing the Next step button if welcome page is displayed](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
+![Choosing the Next step button if welcome page is displayed](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
 
    Or:  
-![Choosing the Create environment button if welcome page isn't displayed](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
+![Choosing the Create environment button if welcome page isn't displayed](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
 
 1. On the **Name environment** page, for **Name**, enter a name for your environment.
 
@@ -148,7 +148,7 @@ To see the public SSH key value that was copied, expand **View public SSH key**.
    1. Add two carriage returns to the end of the file by pressing `Enter` twice.
 
    1. Paste the contents of your system clipboard, which contains the public SSH key value you just copied, to the terminal session clipboard. To do this, in the bottom corner of the terminal session window, choose the clipboard button, then paste the contents of your system clipboard into the box.  
-![Opening the Lightsail terminal session clipboard](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-terminal-clipboard.png)
+![Opening the Lightsail terminal session clipboard](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-lightsail-terminal-clipboard.png)
 
    1. Paste the contents of the terminal session clipboard into the vi editor. To do this, at the insertion point in the vi editor, press `Ctrl + Shift + V`.
 

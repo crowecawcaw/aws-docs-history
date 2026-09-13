@@ -20,13 +20,13 @@ When you delete an environment, AWS Cloud9 deletes the environment permanently. 
    + If your organization uses AWS IAM Identity Center, ask your AWS account administrator for sign-in instructions.
 
 1. In the top navigation bar, choose the AWS Region where the environment is located.  
-![AWS Region selector in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
+![AWS Region selector in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
 
 1. In the list of environments, for the environment that you want to delete, do one of the following actions.
    + Choose the title of the card for the environment. Then, choose **Delete** on the next page.  
-![Deleting an environment from the environment details page](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-delete-env.png)
+![Deleting an environment from the environment details page](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-delete-env.png)
    + Select the card for the environment, and then choose the **Delete** button.  
-![Deleting an environment from the environments list](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-delete-env-card.png)
+![Deleting an environment from the environments list](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/console-delete-env-card.png)
 
 1. In the **Delete** dialog box, type `Delete`, and then choose **Delete**.
    + **EC2 environment**

@@ -43,7 +43,7 @@ The **AWS Toolkit** provides access for options to create and deploy [serverless
 
 To access the **Toolkit** menu, choose the scroll icon opposite the **AWS: Explorer** title in the **AWS Explorer** window.
 
-![Labelled screenshot showing the location of the Toolkit menu for the AWS Toolkit](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/toolkit-UI-menu-location.png)
+![Labelled screenshot showing the location of the Toolkit menu for the AWS Toolkit](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/toolkit-UI-menu-location.png)
 
 
 The following tables provides an overview of the options available on the **Toolkit** menu.
@@ -71,7 +71,7 @@ The following tables provides an overview of the options available on the **Tool
 
 To access the **AWS Configuration** pane, choose **AWS Cloud9**, **Preferences**. Next, in the **Preferences** window, under **Project Settings**, choose **AWS Configuration.** 
 
-![Labelled screenshot showing the location of the AWS Configuration menu for the AWS Toolkit](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/toolkit-UI-aws-config-location.png)
+![Labelled screenshot showing the location of the AWS Configuration menu for the AWS Toolkit](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/toolkit-UI-aws-config-location.png)
 
 
 The following table provides an overview of the options available on the **AWS Configuration** pane.

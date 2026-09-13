@@ -12,7 +12,7 @@ This topic shows how you can chat with other environment members, view chat mess
 
 With the shared environment open, at the bottom of the **Collaborate** window, for **Enter your message here**, enter your chat message, and then press `Enter`.
 
-![The chat area in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-chat.png)
+![The chat area in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-collaborate-chat.png)
 
 
 ## View chat messages in a shared Environment

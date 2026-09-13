@@ -19,7 +19,7 @@ To access and interact with the interface, choose **Window**, **Source Control**
 
 The key combination **Ctrl-Shift-G** can also be used to toggle the display of Git panel.
 
-![Displaying the Git panel interface](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/select-git-panel.png)
+![Displaying the Git panel interface](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/select-git-panel.png)
 
 
 **Note**  

@@ -45,7 +45,7 @@ The following steps outline how to update the timeout period for an Amazon EC2 e
    + If your organization uses AWS IAM Identity Center, see your AWS account administrator for sign-in instructions.
 
 1. In the top navigation bar, choose the AWS Region where the environment is located.  
-![AWS Region selector in the AWS Cloud9 console](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
+![AWS Region selector in the AWS Cloud9 console](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
 
 1. In the list of environments, for the environment whose settings you want to change, do one of the following.
    + Choose the title of the card for the environment. Then choose **View details** on the next page.

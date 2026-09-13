@@ -128,7 +128,7 @@ On the **[New] - Idle** tab, choose **Runner: Auto**, and then choose **Go**.
 Choose the **hello.go** tab to make it active.
 
 1. For **Command**, type `hello.go 5 9`. In the code, `5` represents `os.Args[1]`, and `9` represents `os.Args[2]`.  
-![Output of running the Go code in the AWS Cloud9 IDE](http://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-simple.png)
+![Output of running the Go code in the AWS Cloud9 IDE](https://docs.aws.amazon.com/cloud9/latest/user-guide/images/ide-go-simple.png)
 
 1. Choose the **Run** button, and compare your output.
 
