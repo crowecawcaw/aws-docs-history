@@ -10,7 +10,7 @@ This architecture shows on-premises connectivity to VMware Cloud on AWS Software
 ## VMware Cloud on AWS networking with Direct Connect to VGW architecture
 <a name="vmvgw-diagram1"></a>
 
-![Architecture diagram showing on-premises connectivity to VMware Cloud on AWS using AWS Direct Connect private VIF to a virtual private gateway with Site-to-Site VPN backup.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/vmware-cloud-networking/images/vmware-cloud-networking-1.png)
+![Architecture diagram showing on-premises connectivity to VMware Cloud on AWS using AWS Direct Connect private VIF to a virtual private gateway with Site-to-Site VPN backup.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/vmware-cloud-networking/images/vmware-cloud-networking-1.png)
 
 
 The following numbered items describe the key components in this architecture:

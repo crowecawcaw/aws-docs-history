@@ -10,7 +10,7 @@ This architecture shows highly resilient on-premises connectivity to VMware Clou
 ## Highly resilient connectivity with VMware Transit Connect architecture
 <a name="vmtc-diagram1"></a>
 
-![Architecture diagram showing highly resilient on-premises connectivity to VMware Cloud on AWS using Direct Connect, Transit Gateway, and VMware Transit Connect with cross-Region peering.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/vmware-cloud-networking/images/vmware-cloud-networking-3.png)
+![Architecture diagram showing highly resilient on-premises connectivity to VMware Cloud on AWS using Direct Connect, Transit Gateway, and VMware Transit Connect with cross-Region peering.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/vmware-cloud-networking/images/vmware-cloud-networking-3.png)
 
 
 The following numbered items describe the key components in this architecture:

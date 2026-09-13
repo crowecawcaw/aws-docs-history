@@ -10,7 +10,7 @@ This architecture shows on-premises connectivity to VMware Cloud on AWS using AW
 ## VMware Cloud on AWS networking with Direct Connect gateway and Transit Gateway architecture
 <a name="vmdxg-diagram1"></a>
 
-![Architecture diagram showing on-premises connectivity to VMware Cloud on AWS using AWS Direct Connect with Direct Connect gateway and Transit Gateway in multiple Regions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/vmware-cloud-networking/images/vmware-cloud-networking-2.png)
+![Architecture diagram showing on-premises connectivity to VMware Cloud on AWS using AWS Direct Connect with Direct Connect gateway and Transit Gateway in multiple Regions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/vmware-cloud-networking/images/vmware-cloud-networking-2.png)
 
 
 The following numbered items describe the key components in this architecture:

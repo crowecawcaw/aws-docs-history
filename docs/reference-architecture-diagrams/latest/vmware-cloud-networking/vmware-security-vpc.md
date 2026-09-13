@@ -10,7 +10,7 @@ This architecture shows how to use a security [Amazon VPC](https://docs.aws.amaz
 ## Security VPC inspection for VMware Cloud on AWS traffic architecture
 <a name="vmsec-diagram1"></a>
 
-![Architecture diagram showing a security VPC with AWS Transit Gateway inspecting north-south and east-west traffic to and from VMware Cloud on AWS SDDCs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/vmware-cloud-networking/images/vmware-cloud-networking-4.png)
+![Architecture diagram showing a security VPC with AWS Transit Gateway inspecting north-south and east-west traffic to and from VMware Cloud on AWS SDDCs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/vmware-cloud-networking/images/vmware-cloud-networking-4.png)
 
 
 The following numbered items describe the key components in this architecture:
