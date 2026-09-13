@@ -11,7 +11,7 @@ The following topics describe how to scale Amazon DCV Connection Gateway using a
 
 The simplified [high-level overview](what-is-gw.md#how-gw-works) includes a single Connection Gateway which forwards connections to a fleet of Amazon DCV server hosts. In this architecture the Connection Gateway is a single point of failure. To increase robustness and scalability, we can use a fleet of Connection Gateway hosts and front them with a Network Load Balancer, in order to preserve the ability for clients to target a single entry point to the server-side infrastructure.
 
-![Amazon DCV Connection Gateway with NLB](http://docs.aws.amazon.com/dcv/latest/gw-admin/images/gw-nlb.png)
+![Amazon DCV Connection Gateway with NLB](https://docs.aws.amazon.com/dcv/latest/gw-admin/images/gw-nlb.png)
 
 
 With this architecture, gateway nodes can be added or removed according to the system load without any disruption for the clients.

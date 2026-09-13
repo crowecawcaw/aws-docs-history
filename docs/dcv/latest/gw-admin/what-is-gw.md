@@ -22,7 +22,7 @@ This guide explains how to install and configure the Amazon DCV Connection Gatew
 
 The following diagram shows the high-level view of how the Amazon DCV Connection Gateway routes traffic to a fleet of Amazon DCV servers.
 
-![Amazon DCV Connection Gateway architecture](http://docs.aws.amazon.com/dcv/latest/gw-admin/images/connection-gw.png)
+![Amazon DCV Connection Gateway architecture](https://docs.aws.amazon.com/dcv/latest/gw-admin/images/connection-gw.png)
 
 
 When using the Amazon DCV Connection Gateway, clients connect to the gateway rather than connecting directly to a Amazon DCV server. Clients specify a *session ID*, which uniquely identifies the server they want to connect to. The Connection Gateway in turn consults a *Session Resolver* to map the session ID received by the client to a specific server and then forwards the connection to the correct destination.
