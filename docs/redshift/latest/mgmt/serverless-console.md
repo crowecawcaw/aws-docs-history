@@ -7,7 +7,7 @@
 
 To learn how to get started with the Amazon Redshift Serverless console, watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/eq4o26Hpuac/0.jpg)](http://www.youtube.com/watch?v=eq4o26Hpuac)
+[![AWS Videos](https://img.youtube.com/vi/eq4o26Hpuac/0.jpg)](https://www.youtube.com/watch?v=eq4o26Hpuac)
 
 
 ## Serverless dashboard

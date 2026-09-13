@@ -7,7 +7,7 @@
 
 After you run a query and the results display, you can turn on **Chart** to display a graphic visualization of the current page of results. You can use the following controls to define the content, structure, and appearance of your chart:
 
-![Plus sign icon representing an addition or new item action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png) Trace  
+![Plus sign icon representing an addition or new item action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png) Trace  
 Represents a set of related graphical marks in a chart. You can define multiple traces in a chart.
 
 Type  
@@ -97,7 +97,7 @@ order by 3;
 
 1. Under **Colorscales**, choose **Categorical** and then **Pastel2**.
 
-![Pie chart](http://docs.aws.amazon.com/redshift/latest/mgmt/images/pie-chart.png)
+![Pie chart](https://docs.aws.amazon.com/redshift/latest/mgmt/images/pie-chart.png)
 
 
 ## Example: Create a combination chart for comparing revenue and sales
@@ -144,7 +144,7 @@ order by total_price desc;
 
 1. Under **Structure**, choose **Traces**.
 
-1. Choose ![Plus sign icon representing an addition or new item action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png) **Trace**.
+1. Choose ![Plus sign icon representing an addition or new item action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png) **Trace**.
 
    The trace 1 options display.
 
@@ -154,7 +154,7 @@ order by total_price desc;
 
 1. For **Y**, choose *total\_qty\_sold*.
 
-1. Under **Axes To Use**, for **Y Axis** choose ![Plus sign icon representing an addition or new item action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png). 
+1. Under **Axes To Use**, for **Y Axis** choose ![Plus sign icon representing an addition or new item action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png). 
 
    The **Y Axis** displays *Y2*.
 
@@ -168,7 +168,7 @@ order by total_price desc;
 
 1. Under **Axis Line**, choose **Show** and for **Position**, choose **Right**.
 
-![Revenue and sales chart](http://docs.aws.amazon.com/redshift/latest/mgmt/images/chart-revenue-sales.png)
+![Revenue and sales chart](https://docs.aws.amazon.com/redshift/latest/mgmt/images/chart-revenue-sales.png)
 
 
 ## Demo: Build visualizations using Amazon Redshift query editor v2
@@ -176,4 +176,4 @@ order by total_price desc;
 
 For a demo of how to build visualizations, watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/-FYqTIER-6U/0.jpg)](http://www.youtube.com/watch?v=-FYqTIER-6U)
+[![AWS Videos](https://img.youtube.com/vi/-FYqTIER-6U/0.jpg)](https://www.youtube.com/watch?v=-FYqTIER-6U)

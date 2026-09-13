@@ -9,7 +9,7 @@ You can create a schedule to run a SQL statement with Amazon Redshift query edit
 
 **To create a schedule to run a SQL statement**
 
-1. On the **Editor** ![Editor](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-align-left.png) view, choose ![Schedule](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-calendar.png) **Schedule** to create a schedule to run a SQL statement.
+1. On the **Editor** ![Editor](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-align-left.png) view, choose ![Schedule](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-calendar.png) **Schedule** to create a schedule to run a SQL statement.
 
 1. When you define the schedule, you provide the following information.
    + The IAM role that assumes the required permissions to run the query. This IAM role is also attached to your cluster or workgroup.
@@ -23,7 +23,7 @@ You can create a schedule to run a SQL statement with Amazon Redshift query edit
 
 1. Choose **Schedule query** to save and activate the schedule and add the schedule to the list of queries in the **Scheduled queries** view.
 
-The **Scheduled queries** ![Scheduled queries](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-calendar.png) view lists all the scheduled queries for your clusters and workgroups. With this view, you can display schedule query details, activate or deactivate the schedule, edit the schedule, and delete the scheduled query. When you view query details, you can also view the history of running the query with the schedule.
+The **Scheduled queries** ![Scheduled queries](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-calendar.png) view lists all the scheduled queries for your clusters and workgroups. With this view, you can display schedule query details, activate or deactivate the schedule, edit the schedule, and delete the scheduled query. When you view query details, you can also view the history of running the query with the schedule.
 
 **Note**  
 A schedule query run is only available in the **Schedule history** list for 24 hours. Queries that run on a schedule don't appear in the **Query history** view of query editor v2.
@@ -33,4 +33,4 @@ A schedule query run is only available in the **Schedule history** list for 24 h
 
 For a demo of scheduling a query, watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/gTw0XUpO8sw/0.jpg)](http://www.youtube.com/watch?v=gTw0XUpO8sw)
+[![AWS Videos](https://img.youtube.com/vi/gTw0XUpO8sw/0.jpg)](https://www.youtube.com/watch?v=gTw0XUpO8sw)

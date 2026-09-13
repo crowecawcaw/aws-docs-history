@@ -163,7 +163,7 @@ Query profiler uses the following pages to display information about your query:
 ### Query details page
 <a name="using-query-plan-profiler-ui-query-details"></a>
 
-![Query details page showing execution breakdown with planning time taking majority of 42 seconds.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/metrics_qp_query_details.png)
+![Query details page showing execution breakdown with planning time taking majority of 42 seconds.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/metrics_qp_query_details.png)
 
 
 The Query details page has the following components:
@@ -182,7 +182,7 @@ The Query details page has the following components:
 ### Child query page
 <a name="using-query-plan-profiler-ui-child-query"></a>
 
-![Query execution plan showing scan, hash, distribute, hashjoin, and aggregate operations with row counts.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/metrics_qp_child_query_plan.png)
+![Query execution plan showing scan, hash, distribute, hashjoin, and aggregate operations with row counts.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/metrics_qp_child_query_plan.png)
 
 
 The Child query page has the following components:
@@ -205,7 +205,7 @@ Query profiler displays the child query in the **Child query** pane as a graphic
 
 The **Child query** pane displays the run order and the relationships between the steps. For example, if a step joins the output from two other steps, the **Child query** pane shows the step as a tree node with two nodes feeding into it:
 
-![Hashjoin step with two input nodes: Scan-Item with 18,000 rows and Hash step.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/metrics_qp_hashjoin.png)
+![Hashjoin step with two input nodes: Scan-Item with 18,000 rows and Hash step.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/metrics_qp_hashjoin.png)
 
 
 The **Child query** pane doesn't show the streams that contain the steps by default. To show the streams that Amazon Redshift uses to logically partition the steps in the child query, choose **View streams**. When you choose **View streams**, the **Child query** pane shows the steps contained by the query's streams.
@@ -228,7 +228,7 @@ You can choose nodes, pan, and zoom in the **Child query** plan using the follow
 When you choose a step, either in the workspace or a different pane, the workspace attempts to zoom and pan such that the selected step is best visible.   
 When you choose a stream or step from either the workspace or another pane, the workspace will only zoom and pan to that stream or step if you have **Pan & Zoom** selected in the upper right control in the workspace. You can restrict this behavior to panning and zooming, panning only, or no movement by choosing the appropriate setting in the pulldown.  
 
-![Pan and zoom dropdown menu with options: Pan and zoom, Pan only, and No motion.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/metrics_qp_pan_zoom.png)
+![Pan and zoom dropdown menu with options: Pan and zoom, Pan only, and No motion.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/metrics_qp_pan_zoom.png)
 
 
 ## Troubleshooting queries with Query profiler

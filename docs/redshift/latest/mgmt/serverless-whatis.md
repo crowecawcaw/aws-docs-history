@@ -18,4 +18,4 @@ With Amazon Redshift Serverless, you use a console interface to reach a serverle
 
 This video shows you how Amazon Redshift Serverless makes it easy to run and scale analytics without having to manage data warehouse infrastructure:
 
-[![AWS Videos](http://img.youtube.com/vi/XcRJjXudIf8/0.jpg)](http://www.youtube.com/watch?v=XcRJjXudIf8)
+[![AWS Videos](https://img.youtube.com/vi/XcRJjXudIf8/0.jpg)](https://www.youtube.com/watch?v=XcRJjXudIf8)

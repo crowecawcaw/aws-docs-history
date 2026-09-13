@@ -180,6 +180,7 @@ The RG node types are available only in the following AWS Regions:
 + Asia Pacific (Thailand) Region (ap-southeast-7)
 + Canada (Central) Region (ca-central-1)
 + Europe (Frankfurt) Region (eu-central-1)
++ Europe (Zurich) Region (eu-central-2)
 + Europe (Stockholm) Region (eu-north-1)
 + Europe (Milan) Region (eu-south-1) (rg.xlarge and rg.4xlarge only)
 + Europe (Spain) Region (eu-south-2)

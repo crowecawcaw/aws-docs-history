@@ -29,7 +29,7 @@ You can use SQL commands or the query editor v2 tree-view panel to create the da
 
 **To use the query editor v2 tree-view panel**
 
-1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Database**.
+1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Database**.
 
 1. Enter a **Database name**.
 
@@ -41,7 +41,7 @@ You can use SQL commands or the query editor v2 tree-view panel to create the da
 
 1. Choose **Create database**.
 
-   The new ![datashare](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-datashare.png)**datashare** database displays in the query editor v2 tree-view panel.
+   The new ![datashare](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-datashare.png)**datashare** database displays in the query editor v2 tree-view panel.
 
 1. Set permissions so that users can access the database and the schema. For example:
 

@@ -14,7 +14,7 @@ This example is to illustrate a conversation. The responses from generative SQL 
 
 1. In the **Editor**, connect to a cluster or workgroup that contains the TICKIT sample data.
 
-1. Create an empty notebook and choose the ![Generative SQL](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-amazon-q.png) Generative SQL icon to open the chat panel.
+1. Create an empty notebook and choose the ![Generative SQL](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-amazon-q.png) Generative SQL icon to open the chat panel.
 
 1. Enter the following prompt to generate SQL to verify the number of records in the `VENUE` table:
 

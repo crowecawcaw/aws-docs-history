@@ -35,7 +35,7 @@ For instructions on how to use native identity provider federation to connect to
 
 To learn how to integrate Amazon Redshift native IdP federation with Azure AD, using Power BI Desktop and JDBC Client-SQL Workbench/J, watch the following video:
 
-[![AWS Videos](http://img.youtube.com/vi/S3MQLvZ-NiI/0.jpg)](http://www.youtube.com/watch?v=S3MQLvZ-NiI)
+[![AWS Videos](https://img.youtube.com/vi/S3MQLvZ-NiI/0.jpg)](https://www.youtube.com/watch?v=S3MQLvZ-NiI)
 
 
 For instructions on how to use native identity provider federation to connect to Amazon Redshift with a SQL client, specifically DBeaver or SQL Workbench/J, see the blog post [Integrate Amazon Redshift native IdP federation with Microsoft Azure AD using a SQL client](https://aws.amazon.com/blogs/big-data/integrate-amazon-redshift-native-idp-federation-with-microsoft-azure-ad-using-a-sql-client/).

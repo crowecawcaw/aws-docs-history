@@ -12,13 +12,13 @@ The query editor v2 is available in commercial AWS Regions. For a list of AWS Re
 
 For a demo of query editor v2, watch the following videos. 
 
-[![AWS Videos](http://img.youtube.com/vi/IwZNIroJUnc/0.jpg)](http://www.youtube.com/watch?v=IwZNIroJUnc)
+[![AWS Videos](https://img.youtube.com/vi/IwZNIroJUnc/0.jpg)](https://www.youtube.com/watch?v=IwZNIroJUnc)
 
 
-[![AWS Videos](http://img.youtube.com/vi/4EIV4XTE9iI/0.jpg)](http://www.youtube.com/watch?v=4EIV4XTE9iI)
+[![AWS Videos](https://img.youtube.com/vi/4EIV4XTE9iI/0.jpg)](https://www.youtube.com/watch?v=4EIV4XTE9iI)
 
 
-[![AWS Videos](http://img.youtube.com/vi/7y-f1wlyVhI/0.jpg)](http://www.youtube.com/watch?v=7y-f1wlyVhI)
+[![AWS Videos](https://img.youtube.com/vi/7y-f1wlyVhI/0.jpg)](https://www.youtube.com/watch?v=7y-f1wlyVhI)
 
 
 The query editor v2 has a rich set of features to manage and run your SQL statements. The topics in the following sections get you started with many of these features. Explore the query editor v2 on your own to familiarize yourself with its capabilities. 

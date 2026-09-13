@@ -16,7 +16,7 @@ You can use query editor v2 to create databases in your cluster or workgroup.
 
 For information about databases, see [CREATE DATABASE](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_DATABASE.html) in the *Amazon Redshift Database Developer Guide*. 
 
-1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Database**.
+1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Database**.
 
 1. Enter a **Database name**.
 
@@ -64,7 +64,7 @@ The following example describes a specific scenario that was used to create a da
        + Schema: `public`
          + Tables: `category2`
 
-1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Database**.
+1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Database**.
 
 1. Enter `see_datashare_base` for **Database name**.
 
@@ -90,7 +90,7 @@ In the query editor v2 editor view, the selected cluster is `cluster-view`. The 
 
 The following example describes a specific scenario that was used to create a database from an AWS Glue Data Catalog using query editor v2. Review this scenario to learn how you can create a database from an AWS Glue Data Catalog in your environment. This scenario uses one cluster, `cluster-view` to contain the database you create.
 
-1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Database**.
+1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Database**.
 
 1. Enter `data_catalog_database` for **Database name**.
 
@@ -123,7 +123,7 @@ You can use query editor v2 to create schemas in your cluster or workgroup.
 
 For information about schemas, see [Schemas](https://docs.aws.amazon.com/redshift/latest/dg/r_Schemas_and_tables.html) in the *Amazon Redshift Database Developer Guide*. 
 
-1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Schema**.
+1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Schema**.
 
 1. Enter a **Schema name**.
 
@@ -151,13 +151,13 @@ You can create a table based on a comma-separated value (CSV) file that you spec
 
 Choose **Open query in editor** to view and edit the CREATE TABLE statement before you run the query to create the table. 
 
-1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and choose **Table**.
+1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and choose **Table**.
 
 1. Choose a schema.
 
 1. Enter a table name.
 
-1. Choose ![Plus sign icon representing an addition or new item action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png) **Add field** to add a column. 
+1. Choose ![Plus sign icon representing an addition or new item action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png) **Add field** to add a column. 
 
 1. Use a CSV file as a template for the table definition:
 
@@ -193,7 +193,7 @@ You can use query editor v2 to create functions in your cluster or workgroup.
 
 **To create a function**
 
-1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and choose **Function**.
+1. Choose ![Plus sign icon inside a circle, indicating an add or create action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and choose **Function**.
 
 1. For **Type**, choose **SQL** or **Python**.
 

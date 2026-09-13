@@ -12,7 +12,7 @@ You can query data in an Amazon S3 data lake by following the set of tasks in th
 
 To learn how to query a data lake, watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/-pyy0qNmEKo/0.jpg)](http://www.youtube.com/watch?v=-pyy0qNmEKo)
+[![AWS Videos](https://img.youtube.com/vi/-pyy0qNmEKo/0.jpg)](https://www.youtube.com/watch?v=-pyy0qNmEKo)
 
 
 ## Prerequisites
@@ -31,7 +31,7 @@ Before you work with your data lake in query editor v2, confirm the following wa
 
 To query data in an Amazon S3 data lake, first create an external schema. The external schema references the external database in the [AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/components-overview.html#data-catalog-intro).
 
-1. In the **Editor** view of query editor v2, choose ![Create](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Schema**.
+1. In the **Editor** view of query editor v2, choose ![Create](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-add.png)**Create**, and then choose **Schema**.
 
 1. Enter a **Schema** name.
 

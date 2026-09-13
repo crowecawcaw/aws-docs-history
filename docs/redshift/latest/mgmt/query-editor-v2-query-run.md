@@ -15,7 +15,7 @@ To save a query to the **Queries** folder, choose **Save**.
 
 For a successful query, a success message appears. If the query returns information, the results display in the **Results** section. If the number of results exceeds the display area, numbers appear at the top of the results area. You can choose the numbers to display successive pages of results.
 
-You can filter and sort **Result** for each column. To enter filter criteria in the result column header, hover over the column to see a menu (![Filter menu](http://docs.aws.amazon.com/redshift/latest/mgmt/images/menu.png)) where you can enter criteria to filter the column.
+You can filter and sort **Result** for each column. To enter filter criteria in the result column header, hover over the column to see a menu (![Filter menu](https://docs.aws.amazon.com/redshift/latest/mgmt/images/menu.png)) where you can enter criteria to filter the column.
 
 If the query contains an error, the query editor v2 displays an error message in the results area. The message provides information on how to correct the query.
 
@@ -28,7 +28,7 @@ You can also choose **Export** in the results area, then choose either **JSON** 
 
 You can also use the shortcut Ctrl\+C on Windows or Cmd\+C on macOS to copy data from the current results page to the clipboard. If no rows are selected, then the cell with focus is copied to the clipboard. If rows are selected, then the selected rows are copied to the clipboard.
 
-To add a new query tab, choose the ![New query tab](http://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png) icon, then **Editor**, which appears in the row with the query tabs. The query tab is either using an `Isolated session` or not. With an isolated session, the results of a SQL command, such as creating a temporary table in one editor tab, are not visible in another editor tab. When you open an editor tab in query editor v2, the default is an isolated session. 
+To add a new query tab, choose the ![New query tab](https://docs.aws.amazon.com/redshift/latest/mgmt/images/add-plus.png) icon, then **Editor**, which appears in the row with the query tabs. The query tab is either using an `Isolated session` or not. With an isolated session, the results of a SQL command, such as creating a temporary table in one editor tab, are not visible in another editor tab. When you open an editor tab in query editor v2, the default is an isolated session. 
 
 **To run a query**
 
@@ -82,7 +82,7 @@ The SQL editor supports the following features:
 
 For a demo of editor features, watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/9JAq0yDs0YE/0.jpg)](http://www.youtube.com/watch?v=9JAq0yDs0YE)
+[![AWS Videos](https://img.youtube.com/vi/9JAq0yDs0YE/0.jpg)](https://www.youtube.com/watch?v=9JAq0yDs0YE)
 
 
 ## Query examples

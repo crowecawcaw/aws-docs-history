@@ -9,9 +9,9 @@ A user with the right IAM permissions can view and change **Generative SQL setti
 
 **For an administrator to turn on generative SQL chat for all users in the account**
 
-1. Choose the ![Settings](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-cog.png) **Settings** icon to show a menu of the different settings screens.
+1. Choose the ![Settings](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-cog.png) **Settings** icon to show a menu of the different settings screens.
 
-1. Then choose the ![Generative SQL settings](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-amazon-q.png) Generative SQL settings icon to show the **Q generative SQL settings** page.
+1. Then choose the ![Generative SQL settings](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-amazon-q.png) Generative SQL settings icon to show the **Q generative SQL settings** page.
 
 1. Select **Q generative SQL settings** to turn on the generative SQL capability for users in the account.
 

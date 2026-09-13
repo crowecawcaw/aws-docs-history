@@ -9,7 +9,7 @@ The Amazon Redshift service manages all of the work of setting up, operating, an
 
 The following video shows you how to create a cluster and query data using the Amazon Redshift query editor v2.
 
-[![AWS Videos](http://img.youtube.com/vi/8b58xGDHIog/0.jpg)](http://www.youtube.com/watch?v=8b58xGDHIog)
+[![AWS Videos](https://img.youtube.com/vi/8b58xGDHIog/0.jpg)](https://www.youtube.com/watch?v=8b58xGDHIog)
 
 
 ## Cluster management

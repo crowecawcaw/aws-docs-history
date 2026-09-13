@@ -25,12 +25,12 @@ For example, the following graph in the Amazon Redshift console shows the amount
 
 Following, is an example of the workload execution breakdown chart. In the chart, the y-axis value is the average duration of each stage at the specified time shown as a stacked bar graph.
 
-![Vertical bar graph showing duration of query processing stages in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-workload-execution-breakdown.png)
+![Vertical bar graph showing duration of query processing stages in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-workload-execution-breakdown.png)
 
 
 The following diagram illustrates how Amazon Redshift aggregates query processing for concurrent sessions. 
 
-![Horizonal bar graph showing session number on the x-axis and time on the y-axis. Each session is a horizontal bar that's divided into different query statuses.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/querybreakdownschematic.png)
+![Horizonal bar graph showing session number on the x-axis and time on the y-axis. Each session is a horizontal bar that's divided into different query statuses.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/querybreakdownschematic.png)
 
 
 **To view the cluster workload breakdown chart**

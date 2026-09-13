@@ -7,9 +7,9 @@
 
 Within a database, you can manage schemas, tables, views, functions, and stored procedures in the tree-view panel. Each object in the view has actions associated with it in a context (right-click) menu.
 
-The hierarchical tree-view panel displays database objects. To refresh the tree-view panel to display database objects that might have been created after the tree-view was last displayed, choose the ![Circular arrow icon representing a refresh or reload action.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-refresh.png) icon. Open the context (right-click) menu for an object to see what actions you can perform.
+The hierarchical tree-view panel displays database objects. To refresh the tree-view panel to display database objects that might have been created after the tree-view was last displayed, choose the ![Circular arrow icon representing a refresh or reload action.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-refresh.png) icon. Open the context (right-click) menu for an object to see what actions you can perform.
 
-![Tree-view icons](http://docs.aws.amazon.com/redshift/latest/mgmt/images/sqlworkbench-tree-view.png)
+![Tree-view icons](https://docs.aws.amazon.com/redshift/latest/mgmt/images/sqlworkbench-tree-view.png)
 
 After you choose a table, you can do the following:
 + To start a query in the editor with a SELECT statement that queries all columns in the table, use **Select table**.

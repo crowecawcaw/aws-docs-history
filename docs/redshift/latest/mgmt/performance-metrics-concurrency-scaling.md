@@ -31,10 +31,10 @@ By using concurrency scaling metrics in Amazon Redshift, you can do the followin
 
 The following examples show graphs that are displayed in the new Amazon Redshift console. To create similar graphs in Amazon CloudWatch, you can use the concurrency scaling and WLM CloudWatch metrics. For more information about CloudWatch metrics for Amazon Redshift, see [Performance data in Amazon Redshift](metrics-listing.md).
 + **Queued vs. Running queries on the cluster**   
-![Vertical bar graph in increments of days, with each bar divided into two different colors, one showing the average queued queries on a cluster, and the other showing the average running queries on the same cluster.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/workload-concurrency-queued-vs-running-cluster.png)
+![Vertical bar graph in increments of days, with each bar divided into two different colors, one showing the average queued queries on a cluster, and the other showing the average running queries on the same cluster.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/workload-concurrency-queued-vs-running-cluster.png)
 + **Queued vs. Running queries per queue**   
-![Vertical bar graph in increments of days showing the number of queries running compared to the number of queries waiting in each queue.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/workload-concurrency-queued-vs-running-per-queue.png)
+![Vertical bar graph in increments of days showing the number of queries running compared to the number of queries waiting in each queue.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/workload-concurrency-queued-vs-running-per-queue.png)
 + **Concurrency scaling activity**   
-![Horizontal dot graph in increments of days showing the number of concurrency scaling clusters that are actively processing queries.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/workload-concurrency-concurrency-scaling-activity.png)
+![Horizontal dot graph in increments of days showing the number of concurrency scaling clusters that are actively processing queries.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/workload-concurrency-concurrency-scaling-activity.png)
 + **Concurrency scaling usage**   
-![Horizontal line graph in increments of days showing the usage of concurrency scaling clusters that have active query processing activity.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/workload-concurrency-concurrency-scaling-usage.png)
+![Horizontal line graph in increments of days showing the usage of concurrency scaling clusters that have active query processing activity.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/workload-concurrency-concurrency-scaling-usage.png)

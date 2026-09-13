@@ -73,7 +73,7 @@ You can determine your RPU usage levels in one of two ways: You can use the Reds
 
 To start, in the Redshift console, choose **Serverless**, and then **Serverless reservations** from the menu.
 
-![Serverless reservations menu item highlighted in the Amazon Redshift navigation panel.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-menu-selection.png)
+![Serverless reservations menu item highlighted in the Amazon Redshift navigation panel.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-menu-selection.png)
 
 
 The console shows a description of the feature and a list of existing reservations. From here you can purchase a reservation, or you can use the reports and monitoring tools available to check your current usage. These help you determine your RPU levels and how many RPUs are appropriate to reserve.
@@ -81,19 +81,19 @@ The console shows a description of the feature and a list of existing reservatio
 To purchase a reservation, complete the following steps:
 
 1. Choose **Purchase serverless reservations**.  
-![Reservation overview page showing 1 RPU total with Purchase Serverless reservations button.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-list-purchase.png)
+![Reservation overview page showing 1 RPU total with Purchase Serverless reservations button.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-list-purchase.png)
 
 1. A walk through appears, which has a series of selections. Enter the **Serverless reservation** RPU level to reserve. If you are unsure what this level should be, you can use the tools described further along in this section.  
-![Serverless reservation input field for entering reserved RPU capacity with validation message.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-RPU-level.png)
+![Serverless reservation input field for entering reserved RPU capacity with validation message.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-RPU-level.png)
 
 1. Set the payment type. You can choose to pay upfront for your reserved RPUs, or you can pay monthly. If you choose to pay up front, you get a bigger discount.  
-![Payment type options: All Upfront with 24% discount or No Upfront with 20% discount.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-payment-type.png)
+![Payment type options: All Upfront with 24% discount or No Upfront with 20% discount.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-payment-type.png)
 
 1. When you finish making the selections, choose **Purchase serverless reservations** and then **Confirm**.
 
 After you confirm the reservation, it appears in the list of reservations.
 
-![Serverless reservations table showing one payment-pending reservation with expiration date and costs.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-list-created.png)
+![Serverless reservations table showing one payment-pending reservation with expiration date and costs.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservations-list-created.png)
 
 
 ## Usage notes
@@ -118,7 +118,7 @@ You want to optimize the costs for these workgroups, so you purchase a one-year 
 
 See the following diagram for workgroup usage evolution, and on-demand and serverless reservation rates billing details:
 
-![Stacked area chart showing RPU usage over time with workgroup and reservation metrics.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservation-example.png)
+![Stacked area chart showing RPU usage over time with workgroup and reservation metrics.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/capacity-reservation-example.png)
 
 
 ## Purchasing a serverless reservation using the AWS CLI or Amazon Redshift API

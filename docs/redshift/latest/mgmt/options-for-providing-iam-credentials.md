@@ -104,7 +104,7 @@ To support multi-factor authentication (MFA), Amazon Redshift provides browser-b
 
 With the browser SAML plugin, OAuth authentication flows like this:
 
-![OAuth workflows for how the plugin, local server, web browser, and endpoint work together to authenticate a user with SAML authentication.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/BrowserSAML_plugin.png)
+![OAuth workflows for how the plugin, local server, web browser, and endpoint work together to authenticate a user with SAML authentication.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/BrowserSAML_plugin.png)
 
 
 1. A user tries to log in.
@@ -123,7 +123,7 @@ With the browser SAML plugin, OAuth authentication flows like this:
 
 With the browser Azure AD plugin, SAML authentication flows like this:
 
-![Azure workflows for how the plugin, local server, web browser, and endpoint work together to authenticate a user with SAML authentication.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/BrowserAzure_plugin.png)
+![Azure workflows for how the plugin, local server, web browser, and endpoint work together to authenticate a user with SAML authentication.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/BrowserAzure_plugin.png)
 
 
 1. A user tries to log in.

@@ -11,7 +11,7 @@ When you view performance data in the Amazon Redshift console, you view it by cl
 
 To learn how to monitor, isolate, and optimize your queries using the query monitoring features on the Amazon Redshift console, watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/Wdvb5iYVnLg/0.jpg)](http://www.youtube.com/watch?v=Wdvb5iYVnLg)
+[![AWS Videos](https://img.youtube.com/vi/Wdvb5iYVnLg/0.jpg)](https://www.youtube.com/watch?v=Wdvb5iYVnLg)
 
 
 **Topics**

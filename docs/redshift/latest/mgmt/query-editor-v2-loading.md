@@ -12,7 +12,7 @@ You can use query editor v2 to load data into a database in an Amazon Redshift c
 
 The query editor v2 comes with sample data and notebooks available to be loaded into a sample database and corresponding schema. 
 
-To load sample data, choose the ![External](http://docs.aws.amazon.com/redshift/latest/mgmt/images/external.png) icon associated with the sample data you want to load. The query editor v2 then loads the data into a schema in database `sample_data_dev` and creates a folder of saved notebooks. 
+To load sample data, choose the ![External](https://docs.aws.amazon.com/redshift/latest/mgmt/images/external.png) icon associated with the sample data you want to load. The query editor v2 then loads the data into a schema in database `sample_data_dev` and creates a folder of saved notebooks. 
 
 The following sample datasets are available.
 

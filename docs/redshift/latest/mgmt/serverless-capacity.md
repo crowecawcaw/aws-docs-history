@@ -131,12 +131,12 @@ You can use the price-performance slider to choose your desired price-performanc
 
 For this example, assume a query that takes seven minutes and costs $7. The following figure shows the query runtimes and cost with no scaling.
 
-![Graph for example query for Amazon Redshift Serverless autoscaling.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/autoscale_example_query.png)
+![Graph for example query for Amazon Redshift Serverless autoscaling.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/autoscale_example_query.png)
 
 
 A given query might scale in a few different ways, as shown below. Based on the price-performance target you choose, AI-driven scaling predicts how the query trades off performance and cost, and scales it accordingly. Choosing the different slider options yields the following results: 
 
-![Graph for example query for Amazon Redshift Serverless autoscaling.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/autoscale_example_scaling.png)
+![Graph for example query for Amazon Redshift Serverless autoscaling.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/autoscale_example_scaling.png)
 
 + **Optimizes for Cost** — With the **Optimizes for Cost** option, your data warehouse scales favoring choices that lower your costs. In the preceding example, the super linear scaling approach demonstrates this behavior. Scaling will only occur if it can be done in a cost-effective manner according to the scaling model predictions. If the scaling models predict that cost-optimized scaling isn’t possible for the given workload, then the data warehouse won't scale.
 + **Balanced** — With the **Balanced** option, the system scales while balancing both cost and performance considerations, with a potential limited increase in cost. The **Balanced** option performs superlinear, linear, and possibly sublinear workload scaling. 
@@ -185,6 +185,6 @@ Consider the following when using AI-driven scaling and optimization:
 
 To learn more about AI-driven optimizations and resource scaling, watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/U3f2FObbvKc/0.jpg)](http://www.youtube.com/watch?v=U3f2FObbvKc)
+[![AWS Videos](https://img.youtube.com/vi/U3f2FObbvKc/0.jpg)](https://www.youtube.com/watch?v=U3f2FObbvKc)
 
 

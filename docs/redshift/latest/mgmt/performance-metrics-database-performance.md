@@ -40,18 +40,18 @@ You can use database performance metrics in Amazon Redshift to do the following:
 
 The following examples show graphs that are displayed in the new Amazon Redshift console. 
 + **Workload execution breakdown**   
-![Vertical bar graph showing duration of query processing stages in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-workload-execution-breakdown.png)
+![Vertical bar graph showing duration of query processing stages in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-workload-execution-breakdown.png)
 + **Queries by duration range**   
-![Vertical bar graph showing number of queries in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-queries-by-duration.png)
+![Vertical bar graph showing number of queries in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-queries-by-duration.png)
 + **Query throughput**   
-![Line graph showing the average query throughput in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-query-throughput.png)
+![Line graph showing the average query throughput in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-query-throughput.png)
 + **Query duration**   
-![Line graph showing the average query duration in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-query-duration.png)
+![Line graph showing the average query duration in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-query-duration.png)
 + **Average queue wait time by priority**   
-![Line graph showing the average queue wait time in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-queue-wait-by-priority.png)
+![Line graph showing the average queue wait time in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-queue-wait-by-priority.png)
 + **Query duration by queue**   
-![Line graph showing the average query duration by queue in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-query-duration-by-queue.png)
+![Line graph showing the average query duration by queue in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-query-duration-by-queue.png)
 + **Query throughput by queue**   
-![Line graph showing the average query throughput by queue in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-query-throughput-by-queue.png)
+![Line graph showing the average query throughput by queue in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-query-throughput-by-queue.png)
 + **Query wait time by queue**   
-![Line graph showing the average query wait time by queue in increments of days.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-queue-wait-by-queue.png)
+![Line graph showing the average query wait time by queue in increments of days.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/database-performance-queue-wait-by-queue.png)

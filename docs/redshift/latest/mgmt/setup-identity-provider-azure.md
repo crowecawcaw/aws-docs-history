@@ -9,7 +9,7 @@ You can use Microsoft Azure AD as an identity provider (IdP) to access your Amaz
 
 To learn how to federate Amazon Redshift access with Microsoft Azure AD single sign-on, watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/aXs9hEgJCss/0.jpg)](http://www.youtube.com/watch?v=aXs9hEgJCss)
+[![AWS Videos](https://img.youtube.com/vi/aXs9hEgJCss/0.jpg)](https://www.youtube.com/watch?v=aXs9hEgJCss)
 
 
 ## Step 1: Set up Azure and your AWS account to trust each other

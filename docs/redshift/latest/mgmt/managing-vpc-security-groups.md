@@ -13,7 +13,7 @@ Each cluster you provision on the EC2-VPC platform has one or more Amazon VPC se
 
 The following screenshot shows the default rules for the default VPC security group.
 
-![The table shows inbound and outbound rules for security groups. Each rule has a source or destination, a protocol, a port range, and comments.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/security_groups.png)
+![The table shows inbound and outbound rules for security groups. Each rule has a source or destination, a protocol, a port range, and comments.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/security_groups.png)
 
 
 You can change the rules for the default VPC security group as needed.

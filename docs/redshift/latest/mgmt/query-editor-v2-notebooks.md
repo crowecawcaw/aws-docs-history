@@ -17,4 +17,4 @@ You can export and import notebooks to files created with query editor v2. The f
 
 For a demo of notebooks, watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/GNahyu7j98M/0.jpg)](http://www.youtube.com/watch?v=GNahyu7j98M)
+[![AWS Videos](https://img.youtube.com/vi/GNahyu7j98M/0.jpg)](https://www.youtube.com/watch?v=GNahyu7j98M)

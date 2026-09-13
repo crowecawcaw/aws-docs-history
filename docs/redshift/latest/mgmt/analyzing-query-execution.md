@@ -21,16 +21,16 @@ You can also navigate to the **Query details** page from a **Cluster details** p
 
 The **Query details** page contains the following sections:
 + A list of **Rewritten queries**, as shown in the following screenshot.  
-![Table showing a list of rewritten queries, with attributes such as start time, duration, status, and query ID as the column names.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-rewritten-queries.png)
+![Table showing a list of rewritten queries, with attributes such as start time, duration, status, and query ID as the column names.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-rewritten-queries.png)
 + A **Query details** section, as shown in the following screenshot.  
-![The query details section in the console showing attributes for a specific query.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-query.png)
+![The query details section in the console showing attributes for a specific query.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-query.png)
 + A **Query details** tab that contains the **SQL** that was run and **Execution details** about the run. 
 + A **Query plan** tab that contains the **Query plan** steps and other information about the query plan. This table also contains graphs about the cluster when the query ran. 
   + **Cluster health status**   
-![The cluster health status section of the console showing the cluster health during the workload.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-cluster-health-status.png)
+![The cluster health status section of the console showing the cluster health during the workload.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-cluster-health-status.png)
   + **CPU utilization**   
-![The CPU utilization section in the console showing a line graph of CPU utilization of the cluster in increments of minutes.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-cpu-utilization.png)
+![The CPU utilization section in the console showing a line graph of CPU utilization of the cluster in increments of minutes.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-cpu-utilization.png)
   + **Storage capacity used**   
-![The storage capacity used section in the console showing a line graph of the percent of stoage capacity used in increments of minutes.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-storage-capacity-used.png)
+![The storage capacity used section in the console showing a line graph of the percent of stoage capacity used in increments of minutes.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-storage-capacity-used.png)
   + **Active database connections**   
-![The active database connections section in the console showing a line graph of the number of active database connections to the cluster over time.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-active-database-connections.png)
+![The active database connections section in the console showing a line graph of the number of active database connections to the cluster over time.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-details-active-database-connections.png)

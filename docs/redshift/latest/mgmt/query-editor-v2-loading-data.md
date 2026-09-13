@@ -15,7 +15,7 @@ The COPY command is used by query editor v2 to load data from Amazon S3. The COP
 
 1. Confirm that you are connected to the target database in the tree-view panel of query editor v2 before continuing. You can create a connection using the context menu (right-click) to the cluster or workgroup where the data will be loaded.
 
-   Choose ![Load](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-upload.png)**Load data**.
+   Choose ![Load](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-upload.png)**Load data**.
 
 1. For **Data source**, choose **Load from S3 bucket**.
 
@@ -57,7 +57,7 @@ The COPY command is used by query editor v2 to load data from Amazon S3. The COP
 
 1. Confirm that you are connected to the target database in the tree-view panel of query editor v2 before continuing. You can create a connection using the context menu (right-click) to the cluster or workgroup where the data will be loaded.
 
-   Choose ![Load](http://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-upload.png)**Load data**.
+   Choose ![Load](https://docs.aws.amazon.com/redshift/latest/mgmt/images/qev2-upload.png)**Load data**.
 
 1. For **Data source**, choose **Load from S3 bucket**.
 

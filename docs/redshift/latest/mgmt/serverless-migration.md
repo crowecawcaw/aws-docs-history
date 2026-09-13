@@ -222,7 +222,7 @@ Driver= {Amazon Redshift ODBC Driver (x64)}; IAM=true; isServerless=true; Cluste
 
 Following is an example ODBC DSN configuration in Windows:
 
-![The Connection tab in the Amazon Redshift ODBC Driver for Windows. Fields corresponding to the sample syntax above are filled out.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/GetClusterCredentials-odbc-windows.png)
+![The Connection tab in the Amazon Redshift ODBC Driver for Windows. Fields corresponding to the sample syntax above are filled out.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/GetClusterCredentials-odbc-windows.png)
 
 
 ## Using the Amazon Redshift Serverless SDK

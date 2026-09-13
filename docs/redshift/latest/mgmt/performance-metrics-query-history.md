@@ -48,12 +48,12 @@ The following examples show graphs that are displayed in the new Amazon Redshift
 **Note**  
 The Amazon Redshift console graphs only contain data for the latest 100,000 queries. 
 + **Query runtime**   
-![Graph showing the query activity on a timeline to illustrate which queries are running in the same timeframe.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-query-runtime.png)
+![Graph showing the query activity on a timeline to illustrate which queries are running in the same timeframe.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-query-runtime.png)
 + **Queries and loads**   
-![Table showing a list of queries and loads, with attributes such as start time, duration, status, and query ID as the columns.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-queries-and-loads.png)
+![Table showing a list of queries and loads, with attributes such as start time, duration, status, and query ID as the columns.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-queries-and-loads.png)
 + **CPU utilization**   
-![Line graph showing the CPU utilization in increments of 15 minutes.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-cpu-utilization.png)
+![Line graph showing the CPU utilization in increments of 15 minutes.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-cpu-utilization.png)
 + **Storage capacity used**   
-![Line graph showing the percentage of storage capacity used in increments of 15 minutes.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-storage-capacity-used.png)
+![Line graph showing the percentage of storage capacity used in increments of 15 minutes.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-storage-capacity-used.png)
 + **Active database connections**   
-![Line graph showing the number of active database connections in increments of 15 minutes.](http://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-active-database-connections.png)
+![Line graph showing the number of active database connections in increments of 15 minutes.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/query-history-active-database-connections.png)
