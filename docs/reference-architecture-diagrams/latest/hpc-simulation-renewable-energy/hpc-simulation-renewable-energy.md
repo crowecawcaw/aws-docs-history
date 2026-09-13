@@ -10,7 +10,7 @@ With this architecture, you can ingest data from on-premises renewable energy as
 ## HPC simulation workload diagram
 <a name="hpc-re-diagram"></a>
 
-![Reference architecture diagram showing how to run HPC simulation workloads for renewable energy data by using AWS IoT Core, AWS ParallelCluster, and Amazon Quick Sight.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hpc-simulation-renewable-energy/images/hpc-simulation-renewable-energy.png)
+![Reference architecture diagram showing how to run HPC simulation workloads for renewable energy data by using AWS IoT Core, AWS ParallelCluster, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hpc-simulation-renewable-energy/images/hpc-simulation-renewable-energy.png)
 
 
 The following steps describe the data ingestion, compute, and visualization pipeline for this architecture:
