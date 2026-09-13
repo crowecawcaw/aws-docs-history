@@ -77,10 +77,10 @@ Before authenticating with the Slurm REST API, ensure you have:
 1. Create a JWT with the following required claims:
    + `exp` – Expiration time in seconds since 1970 for the JWT
    + `iat` – Current time in seconds since 1970
-   + `sun` – The username for authentication
    + `uid` – The POSIX user ID
    + `gid` – The POSIX group ID
-   + `id` – Additional POSIX identity properties
+   + `id` – POSIX identity properties
+     + `name` – The username for authentication
      + `gecos` – User comment field, often used to store a human-readable name
      + `dir` – User's home directory
      + `shell` – User's default shell
@@ -91,10 +91,13 @@ Before authenticating with the Slurm REST API, ensure you have:
 1. Set an appropriate expiration time for the token.
 
 **Note**  
-As an alternative to the `sun` claim, you can provide any of the following:  
+Provide the username in the `name` field within the `id` claim. AWS PCS accepts this claim on every supported Slurm version.  
+You can also set the username in one of the following top-level claims:  
+`sun`
 `username`
-A custom field name that you define via the `userclaimfield` in the `AuthAltParameters Slurm custom settings`
-A `name` field within the `id` claim
+A custom claim name that you define with `userclaimfield` in the `AuthAltParameters` Slurm custom setting
+Slurm 26.05 reads the username from the `name` field within the `id` claim. The top-level claims are deprecated from Slurm 26.05, and AWS PCS might stop accepting them in a future Slurm version. Existing tokens that use a top-level claim continue to authenticate on all supported versions. If your tokens use one, update the code that generates them to provide the username in the `name` field within the `id` claim.  
+Provide the username in only one location. If a token sets both the `name` field within the `id` claim and a top-level claim, the claim that takes precedence depends on the Slurm version of your cluster: on Slurm 26.05 and later, the `name` field within the `id` claim takes precedence. On earlier versions, the top-level claim takes precedence.
 
 **To authenticate API requests**
 
@@ -155,10 +158,10 @@ signing_key = jwk_from_dict({
 message = {
     "exp": int(time.time() + EXPIRATION_TIME),
     "iat": int(time.time()),
-    "sun": "ec2-user",
     "uid": 1000,
     "gid": 1000,
     "id": {
+        "name": "ec2-user",
         "gecos": "EC2 User",
         "dir": "/home/ec2-user",
         "gids": [1000],

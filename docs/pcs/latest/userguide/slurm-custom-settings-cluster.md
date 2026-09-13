@@ -24,6 +24,8 @@ AWS PCS disables the HTTP endpoint by default. To enable it, specify `enable_htt
 + [FirstJobId](https://slurm.schedmd.com/slurm.conf.html#OPT_FirstJobId)
 + [HealthCheckInterval](https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckInterval)
 + [HealthCheckNodeState](https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckNodeState)
+**Note**  
+AWS PCS supports the `REBOOT_ONLY` value, which runs the `HealthCheckProgram` only after a node reboot, on Slurm version 26.05 and later. `REBOOT_ONLY` is mutually exclusive with any other value.
 + [HealthCheckProgram](https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckProgram)
 + [JobRequeue](https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue)
 + [LaunchParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters)
@@ -52,6 +54,7 @@ AWS PCS supports a minimum value of 5 seconds for `MinJobAge`.
 + [PriorityWeightPartition](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightPartition)
 + [PriorityWeightQOS](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightQOS)
 + [PriorityWeightTRES](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightTRES)
++ [PrivateData](https://slurm.schedmd.com/slurm.conf.html#OPT_PrivateData)
 + [Prolog](https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1)
 + [PrologFlags](https://slurm.schedmd.com/slurm.conf.html#OPT_PrologFlags)
 **Note**  
@@ -62,6 +65,9 @@ To use `X11` forwarding (that is, when you enable the `X11` flag on PrologFlags)
 + [SelectTypeParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters)
 **Note**  
 AWS PCS supports the `CR_Socket` and `CR_Socket_Memory` values on Slurm version 25.11 and later.
++ [SlurmctldParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SlurmctldParameters)
+**Note**  
+AWS PCS supports the `enable_stepmgr` value. It requires `PrologFlags` to be unset or to include `Contain`.
 + [SrunPortRange](https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange)
 + [TaskEpilog](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskEpilog)
 + [TaskPluginParam](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskPluginParam)

@@ -20,14 +20,18 @@ Compute node groups configured with AWS PCS sample AMIs and multiple network int
  AWS PCS sample AMIs have the following naming convention: 
 
 ```
-aws-pcs-sample_ami-{{OS}}-{{architecture}}-{{scheduler}}-{{scheduler-major-version}}
+aws-pcs-sample_ami-{{OS}}-{{architecture}}
 ```
 
 **Accepted values**
 +  {{OS}} – `al2023` 
 +  {{architecture}} – `x86_64` or `arm64` 
-+  {{scheduler}} – `slurm` 
-+  {{scheduler-major-version}} – `25.11` 
+
+A sample AMI supports every Slurm version that is not EOL. The AMI name doesn't identify a Slurm version. Instead, the AMI description lists the versions the AMI supports, for example `Slurm: 25.05, 25.11, 26.05.`
+
+**Note**  
+Sample AMIs released before the Slurm 26.05 release support a single Slurm version and include the scheduler and its major version in the name, for example `aws-pcs-sample_ami-al2023-arm64-slurm-25.11`. Those AMIs remain available for Slurm 25.11 and earlier.  
+The single-version sample AMIs for Slurm 25.05 use Amazon Linux 2 (`amzn2`) instead of Amazon Linux 2023 (`al2023`).
 
 **To find AWS PCS sample AMIs**
 
@@ -40,42 +44,44 @@ aws-pcs-sample_ami-{{OS}}-{{architecture}}-{{scheduler}}-{{scheduler-major-versi
 1. In **Find AMI by attribute or tag**, search for an AMI using the templated name.
 
 **Examples**
-   + Sample AMI for Slurm 25.11 on Arm64 instances
+   + Sample AMI for Arm64 instances
 
      ```
-     aws-pcs-sample_ami-al2023-arm64-slurm-25.11
+     aws-pcs-sample_ami-al2023-arm64
      ```
-   + Sample AMI for Slurm 25.11 on x86 instances
+   + Sample AMI for x86 instances
 
      ```
-     aws-pcs-sample_ami-al2023-x86_64-slurm-25.11
+     aws-pcs-sample_ami-al2023-x86_64
      ```
 **Note**  
 If there are multiple AMIs, use the AMI with the most recent time stamp.
 **Note**  
-Sample AMIs for Slurm 25.05 use Amazon Linux 2 (`amzn2`) instead of Amazon Linux 2023 (`al2023`).
+Check the AMI description to confirm that the AMI supports the Slurm version of your cluster.
 
 1. Use the AMI ID when you create or update a compute node group.
 
 ------
 #### [ AWS CLI ]
 
-You can find the latest AWS PCS sample AMI with the commands that follow. Replace {{region-code}} with the AWS Region where you use AWS PCS, such as `us-east-1`.
+You can find the latest AWS PCS sample AMI with the commands that follow. Replace {{region-code}} with the AWS Region where you use AWS PCS, such as `us-east-1`, and {{slurm-version}} with the Slurm major version of your cluster, such as `26.05`. The description filter selects an AMI that supports that version.
 + **x86\_64**
 
   ```
   aws ec2 describe-images --region {{region-code}} --owners amazon \
-  --filters 'Name=name,Values=aws-pcs-sample_ami-al2023-x86_64-slurm-25.11*' \
+  --filters 'Name=name,Values=aws-pcs-sample_ami-al2023-x86_64*' \
+              'Name=description,Values=*{{slurm-version}}*' \
               'Name=state,Values=available' \
-  --query 'sort_by(Images, &CreationDate)[-1].[Name,ImageId]' --output text
+  --query 'sort_by(Images, &CreationDate)[-1].[Name,ImageId,Description]' --output text
   ```
 + **Arm64**
 
   ```
   aws ec2 describe-images --region {{region-code}} --owners amazon \
-  --filters 'Name=name,Values=aws-pcs-sample_ami-al2023-arm64-slurm-25.11*' \
+  --filters 'Name=name,Values=aws-pcs-sample_ami-al2023-arm64*' \
+              'Name=description,Values=*{{slurm-version}}*' \
               'Name=state,Values=available' \
-  --query 'sort_by(Images, &CreationDate)[-1].[Name,ImageId]' --output text
+  --query 'sort_by(Images, &CreationDate)[-1].[Name,ImageId,Description]' --output text
   ```
 
 Use the AMI ID when you create or update a compute node group.

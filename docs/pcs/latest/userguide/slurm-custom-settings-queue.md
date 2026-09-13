@@ -13,7 +13,12 @@ QOS values referenced in `AllowQos`, `DenyQos`, or `QOS` settings must already e
 + [DefaultTime](https://slurm.schedmd.com/slurm.conf.html#OPT_DefaultTime)
 + [DenyAccounts](https://slurm.schedmd.com/slurm.conf.html#OPT_DenyAccounts)
 + [DenyQos](https://slurm.schedmd.com/slurm.conf.html#OPT_DenyQoS)
++ [Exclusive](https://slurm.schedmd.com/slurm.conf.html#OPT_Exclusive)
+**Note**  
+`Exclusive` replaces `ExclusiveUser` and `OverSubscribe=EXCLUSIVE`. `Exclusive=NODE` and `Exclusive=TOPO` imply `OverSubscribe=NO`.
 + [ExclusiveUser](https://slurm.schedmd.com/slurm.conf.html#OPT_ExclusiveUser)
+**Note**  
+Slurm deprecates `ExclusiveUser` from version 26.05 in favor of `Exclusive`. AWS PCS continues to support it, but we recommend that you migrate to `Exclusive`.
 + [GraceTime](https://slurm.schedmd.com/slurm.conf.html#OPT_GraceTime)
 + [MaxTime](https://slurm.schedmd.com/slurm.conf.html#OPT_MaxTime)
 + [OverSubscribe](https://slurm.schedmd.com/slurm.conf.html#OPT_OverSubscribe)

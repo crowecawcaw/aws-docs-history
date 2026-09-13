@@ -5,6 +5,27 @@
 
 This topic describes important changes for each Slurm version currently supported in AWS PCS. We recommend you review the changes between the old and new versions when you upgrade your cluster.
 
+## Slurm 26.05
+<a name="slurm-versions_release-notes_26.05"></a>
+
+**Changes implemented in AWS PCS**
++ You can configure `gres.conf` records for a compute node group with the `gresCustomSettings` property, and declare the schedulable GRES with the `Gres` custom Slurm setting. This lets you configure GPU topology, MIG devices, MPS, shards, and your own generic resources. For more information, see [Configuring custom GRES settings in AWS PCS](gres-custom-settings.md).
++ AWS PCS enables Slurm GRES autodetection by default on compute node groups that have GPUs. AWS PCS enables autodetection only when the socket layout of the node is known. For more information, see [Configuring custom GRES settings in AWS PCS](gres-custom-settings.md).
++ AWS PCS configures the CPU topology of a compute node group by default. It determines the number of NUMA domains from the instance type and sets `Sockets`, `CoresPerSocket`, and `Parameters=numa_node_as_socket` on each node. For more information, see [Configuring hardware topology in AWS PCS](hardware-topology.md).
++ `CommitDelay=1` is set by default in `slurmdbd.conf`. [CommitDelay](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_CommitDelay) controls how long `slurmdbd` batches commits to the accounting database, and setting it improves `slurmdbd` performance. To use a different value, set `CommitDelay` in the `slurmdbd.conf` custom settings for your cluster.
++ The Slurm REST API reads the username from the `name` field within the `id` claim of a JWT. The top-level `sun`, `username`, and custom `userclaimfield` claims are deprecated. Existing tokens continue to authenticate. For more information, see [Authenticating with Slurm REST API in AWS PCS](slurm-rest-api-authenticate.md).
++ A single sample AMI now supports every Slurm version that is not EOL, and the AMI name no longer contains a Slurm version. For more information, see [Using sample AMIs](working-with_ami_samples.md).
++ Clusters that use SPANK plugins support rolling updates when you update to 26.05 or later. Clusters that use Slurm CLI Filter Plugins support rolling updates when you update from 25.11 or later. For more information, see [Updating the scheduler version of a cluster in AWS PCS](working-with_clusters_version_update.md).
++ New custom settings are available: the `Exclusive` queue setting, the `PurgeJobEnvAfter` and `PurgeJobScriptAfter` custom slurmdbd settings, the `PreserveCaseResource` value of the slurmdbd `Parameters` setting, and the `REBOOT_ONLY` value of `HealthCheckNodeState`.
+
+**Deprecations and removals**
++ Slurm deprecates the `ExclusiveUser` queue setting and the `OverSubscribe=EXCLUSIVE` value in favor of the new `Exclusive` queue setting. AWS PCS continues to support `ExclusiveUser` and `OverSubscribe=EXCLUSIVE` on 26.05, but we recommend that you migrate to `Exclusive`.
++ Slurm removes `SchedulerParameters=enable_job_state_cache`. Remove it from the custom Slurm settings of your cluster before you update to 26.05.
+
+For more information about Slurm 26.05, see the following publications:
++ SchedMD release notes: [https://github.com/SchedMD/slurm/blob/slurm-26.05/RELEASE\_NOTES.md](https://github.com/SchedMD/slurm/blob/slurm-26.05/RELEASE_NOTES.md)
++ SchedMD changelog: [https://github.com/SchedMD/slurm/blob/master/CHANGELOG/slurm-26.05.md](https://github.com/SchedMD/slurm/blob/master/CHANGELOG/slurm-26.05.md)
+
 ## Slurm 25.11
 <a name="slurm-versions_release-notes_25.11"></a>
 

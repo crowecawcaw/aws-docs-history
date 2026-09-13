@@ -15,11 +15,11 @@ If you have an AMI with a previous version of the Slurm software installed on it
 1.  Download the Slurm installer software. The Slurm installer is packaged into a compressed tarball (`.tar.gz`) file. To download the latest *stable* version, use the following command. Substitute {{region}} with the AWS Region of your temporary instance, such as `us-east-1`. 
 
    ```
-   curl https://aws-pcs-repo-{{region}}.s3.{{region}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz \
-        -o aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz
+   curl https://aws-pcs-repo-{{region}}.s3.{{region}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz \
+        -o aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz
    ```
 
-   You can also get the latest version by replacing the version number with `latest` in the preceding command (for example: `aws-pcs-slurm-25.11-installer-latest.tar.gz`). For a complete list of available versions with checksums, see [Verify installers using a checksum](working-with_ami_installers.md#working-with_ami_installers_verify).
+   You can also get the latest version by replacing the version number with `latest` in the preceding command (for example: `aws-pcs-slurm-26.05-installer-latest.tar.gz`). For a complete list of available versions with checksums, see [Verify installers using a checksum](working-with_ami_installers.md#working-with_ami_installers_verify).
 **Note**  
 This might change in future releases of the Slurm installer software. 
 
@@ -49,15 +49,15 @@ Don't run the Slurm installation script if the fingerprint doesn't match. Contac
    1. Download the signature file and verify the signature of the Slurm installer tarball file. Replace {{region}} with the AWS Region where you launched your temporary instance, such as `us-east-1`.
 
       ```
-      wget https://aws-pcs-repo-{{region}}.s3.{{region}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz.sig && \
-           gpg --verify ./aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz.sig
+      wget https://aws-pcs-repo-{{region}}.s3.{{region}}.amazonaws.com/aws-pcs-slurm/aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz.sig && \
+           gpg --verify ./aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz.sig
       ```
 
       The output should be similar to the following:
 
       ```
-      gpg: assuming signed data in './aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz'
-      gpg: Signature made Thu 26 Mar 2026 08:57:11 AM UTC using RSA key ID ECC0AE5C
+      gpg: assuming signed data in './aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz'
+      gpg: Signature made Thu 03 Sep 2026 09:05:02 AM UTC using RSA key ID ECC0AE5C
       gpg: Good signature from "AWS PCS Packages (AWS PCS Packages)"
       gpg: WARNING: This key is not certified with a trusted signature!
       gpg:          There is no indication that the signature belongs to the owner.
@@ -72,8 +72,8 @@ Don't run the Slurm installation script if the fingerprint doesn't match. Contac
 1. Extract the files from the compressed `.tar.gz` file and navigate into the extracted directory.
 
    ```
-   tar -xf aws-pcs-slurm-25.11-installer-25.11.7-3.tar.gz && \
-       cd aws-pcs-slurm-25.11-installer
+   tar -xf aws-pcs-slurm-26.05-installer-26.05.4-1.tar.gz && \
+       cd aws-pcs-slurm-26.05-installer
    ```
 
 1. Install Slurm. The installer downloads, compiles, and installs Slurm and its dependencies. It takes several minutes, depending on the specifications of the temporary instance you selected.
@@ -85,13 +85,13 @@ Don't run the Slurm installation script if the fingerprint doesn't match. Contac
 1. Check the scheduler version file to confirm the installation.
 
    ```
-   cat /opt/aws/pcs/scheduler/slurm-25.11/version
+   cat /opt/aws/pcs/scheduler/slurm-26.05/version
    ```
 
    The output should be similar to the following:
 
    ```
-   SLURM_INSTALL_DATE='Thu Mar 26 15:15:37 UTC 2026'
-   SLURM_VERSION='25.11.7'
-   PCS_SLURM_RELEASE='3'
+   SLURM_INSTALL_DATE='Thu Sep  3 15:15:37 UTC 2026'
+   SLURM_VERSION='26.05.4'
+   PCS_SLURM_RELEASE='1'
    ```

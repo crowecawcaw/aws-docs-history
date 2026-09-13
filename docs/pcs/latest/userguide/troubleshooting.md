@@ -10,6 +10,7 @@ The following topics provide guidance to troubleshoot some problems you might en
 + [Custom Slurm settings](slurm-custom-settings-troubleshooting.md)
 + [EC2 instances terminated after reboot](troubleshooting_instance-terminated-after-reboot.md)
 + [Identity and access](security_iam_troubleshoot.md)
++ [Invalid node registration (INVALID\_REG)](troubleshooting-invalid-registration.md)
 + [Job submission MaxJobCount limit](troubleshooting-job-submission-maxjobcount.md)
 + [Missing accounting records](troubleshooting-missing-accounting-records.md)
 + [Slurm reboot issues](slurm-reboot-troubleshooting.md)

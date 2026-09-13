@@ -5,7 +5,7 @@
 
 This is a tutorial to create a simple cluster that you can use to try AWS PCS. The following figure shows the design of the cluster.
 
-![An architecture diagram of the tutorial cluster: The 2 compute node groups are resources in your AWS account and connect to the Slurm cluster controller that runs in a service-owned AWS account. The EC2 instances in both compute node groups connect to shared storage in Amazon EFS and Amazon FSx for Lustre.](http://docs.aws.amazon.com/pcs/latest/userguide/images/aws-pcs-tutorial-environment-diagram.png)
+![An architecture diagram of the tutorial cluster: The 2 compute node groups are resources in your AWS account and connect to the Slurm cluster controller that runs in a service-owned AWS account. The EC2 instances in both compute node groups connect to shared storage in Amazon EFS and Amazon FSx for Lustre.](https://docs.aws.amazon.com/pcs/latest/userguide/images/aws-pcs-tutorial-environment-diagram.png)
 
 
 The tutorial cluster design has the following key components:

@@ -41,5 +41,6 @@ Our user data can perform common configuration scenarios, including but not limi
 + [Example: Install software from a package repository](working-with_ec2-user-data_repo.md)
 + [Example: Run scripts from an S3 bucket](working-with_ec2-user-data_s3.md)
 + [Example: Set global environment variables](working-with_ec2-user-data_env.md)
++ [Example: Run early boot operations](working-with_ec2-user-data_early-boot.md)
 + [Using network file systems with AWS PCS](working-with_file-systems.md)
 + [Example: Use an EFS file system as a shared home directory](working-with_ec2-user-data_efs.md)

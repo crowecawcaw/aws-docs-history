@@ -57,6 +57,8 @@ The following custom slurmdbd settings are supported at the cluster level:
 + [PrivateData](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_PrivateData)
 + [PurgeEventAfter](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_PurgeEventAfter)
 + [PurgeJobAfter](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_PurgeJobAfter)
++ [PurgeJobEnvAfter](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_PurgeJobEnvAfter)
++ [PurgeJobScriptAfter](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_PurgeJobScriptAfter)
 + [PurgeResvAfter](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_PurgeResvAfter)
 + [PurgeStepAfter](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_PurgeStepAfter)
 + [PurgeSuspendAfter](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_PurgeSuspendAfter)

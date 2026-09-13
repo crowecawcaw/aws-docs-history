@@ -17,6 +17,7 @@ The following table shows the supported Slurm versions and important dates and i
 
 | Slurm version | SchedMD release date | AWS PCS release date | AWS PCS EOL date | Minimum compatible AWS PCS agent version | Supported AWS PCS sample AMIs | 
 | --- | --- | --- | --- | --- | --- | 
+| 26.05 | 5/26/2026 | 9/10/2026 | 11/30/2027 | 1.0.0-1 | +  `aws-pcs-sample_ami-al2023-x86_64` <br />+  `aws-pcs-sample_ami-al2023-arm64` Starting with 26.05, a single sample AMI supports every Slurm version that is not EOL, and the AMI name no longer contains a Slurm version. For how to find these AMIs, see [Using sample AMIs](working-with_ami_samples.md). | 
 | 25.11 | 11/6/2025 | 4/9/2026 | 5/31/2027 | 1.0.0-1 |  +  `aws-pcs-sample_ami-al2023-x86_64-slurm-25.11` <br />+  `aws-pcs-sample_ami-al2023-arm64-slurm-25.11`   | 
 | 25.05 | 5/29/2025 | 10/16/2025 | 11/30/2026 | 1.0.0-1 |  +  `aws-pcs-sample_ami-amzn2-x86_64-slurm-25.05` <br />+  `aws-pcs-sample_ami-amzn2-arm64-slurm-25.05`   | 
 

@@ -32,8 +32,8 @@ Before starting, ensure all compute nodes are on the latest patch of Slurm versi
 
 ## Limitations
 <a name="version_update-cluster-limitations"></a>
-+ If your cluster uses [SPANK plugins](spank.md) (plugstack configuration), AWS PCS doesn't support Option 1. A rolling update might cause a plugstack configuration version mismatch and plugin failures.
-+ If your cluster uses [Slurm CLI Filter Plugins](slurm-cli-filter-plugins.md), AWS PCS doesn't support Option 1. During a rolling update, compute nodes that run an earlier Slurm version might not be able to parse the updated cluster configuration and might fail to start.
++ If your cluster uses [SPANK plugins](spank.md) (plugstack configuration), AWS PCS doesn't support Option 1. A rolling update might cause a plugstack configuration version mismatch and plugin failures. This limitation doesn't apply when you update to Slurm 26.05 or later, because AWS PCS stores the plugstack configuration in a location that is independent of the Slurm version.
++ If your cluster uses [Slurm CLI Filter Plugins](slurm-cli-filter-plugins.md), AWS PCS doesn't support Option 1. During a rolling update, compute nodes that run an earlier Slurm version might not be able to parse the updated cluster configuration and might fail to start. This limitation doesn't apply when you update from Slurm 25.11 or later, because AWS PCS stores the plugin script in a location that is independent of the Slurm version.
 
 ## Version compatibility
 <a name="version_update-cluster-compatibility"></a>
@@ -45,9 +45,10 @@ Cluster and all compute nodes must always run the same Slurm version before init
 
 | Current cluster version | Compatible target versions | 
 | --- | --- | 
-| 25.11 | N/A | 
-| 25.05 | 25.11 | 
-| 24.11 (EOL) | 25.11, 25.05 | 
+| 26.05 | Not applicable | 
+| 25.11 | 26.05 | 
+| 25.05 | 26.05, 25.11 | 
+| 24.11 (EOL) | 26.05, 25.11, 25.05 | 
 | 24.05 (EOL) | 25.11, 25.05, 24.11 | 
 | 23.11 (EOL) | (via Option 2 only) 25.05, 24.11, 24.05 | 
 

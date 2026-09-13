@@ -7,12 +7,12 @@ Slurm is an open-source workload manager designed for Linux clusters that provid
 
 **Topics**
 + [Slurm versions in AWS PCS](slurm-versions.md)
++ [Slurm configuration in AWS PCS](slurm-configuration.md)
 + [Slurm accounting in AWS PCS](slurm-accounting.md)
 + [Slurm REST API in AWS PCS](slurm-rest-api.md)
 + [Rebooting compute nodes with Slurm in AWS PCS](slurm-reboot.md)
-+ [Configuring custom Slurm settings in AWS PCS](slurm-custom-settings.md)
-+ [Configuring custom cgroup settings in AWS PCS](cgroup-custom-settings.md)
-+ [Configuring custom SlurmDBD settings in AWS PCS](slurmdbd-custom-settings.md)
++ [Configuring hardware topology in AWS PCS](hardware-topology.md)
++ [Configuring Multi-Instance GPU (MIG) in AWS PCS](mig-configuration.md)
 + [Extend Slurm functionality on AWS PCS with SPANK plugins](spank.md)
 + [Use Slurm CLI Filter Plugins to customize job submission in AWS PCS](slurm-cli-filter-plugins.md)
 + [Slurm metrics in AWS PCS](slurm-metrics.md)
