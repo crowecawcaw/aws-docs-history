@@ -8,7 +8,7 @@ This architecture shows how to migrate from MongoDB to Amazon DocumentDB using t
 ## Migration from MongoDB to Amazon DocumentDB: Hybrid Approach
 <a name="diagram3"></a>
 
-![Architecture diagram showing the hybrid migration approach from MongoDB to Amazon DocumentDB using MongoDB utilities and AWS DMS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/migration-mongodb-documentdb/images/migration-mongodb-documentdb-3.png)
+![Architecture diagram showing the hybrid migration approach from MongoDB to Amazon DocumentDB using MongoDB utilities and AWS DMS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/migration-mongodb-documentdb/images/migration-mongodb-documentdb-3.png)
 
 
 The following steps describe the architecture:

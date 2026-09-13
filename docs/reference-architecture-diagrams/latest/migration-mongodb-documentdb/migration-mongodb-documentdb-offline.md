@@ -10,7 +10,7 @@ This architecture shows how to migrate from MongoDB to [Amazon DocumentDB](https
 ## Migration from MongoDB to Amazon DocumentDB: Offline Approach
 <a name="diagram1"></a>
 
-![Architecture diagram showing the offline migration approach from MongoDB to Amazon DocumentDB using MongoDB utilities.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/migration-mongodb-documentdb/images/migration-mongodb-documentdb-1.png)
+![Architecture diagram showing the offline migration approach from MongoDB to Amazon DocumentDB using MongoDB utilities.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/migration-mongodb-documentdb/images/migration-mongodb-documentdb-1.png)
 
 
 The following steps describe the architecture:
