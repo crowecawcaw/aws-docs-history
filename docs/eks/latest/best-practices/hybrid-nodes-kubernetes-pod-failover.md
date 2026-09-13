@@ -19,7 +19,7 @@ For additional context on upstream Kubernetes pod failover behavior during netwo
 ## Components
 <a name="_components"></a>
 
-![Kubernetes components involved in pod failover behavior](http://docs.aws.amazon.com/eks/latest/best-practices/images/hybrid/k8s-components-pod-failover.png)
+![Kubernetes components involved in pod failover behavior](https://docs.aws.amazon.com/eks/latest/best-practices/images/hybrid/k8s-components-pod-failover.png)
 
 
 

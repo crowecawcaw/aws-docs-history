@@ -39,7 +39,7 @@ Amazon EKS clusters support both IPv4 and IPv6. By default, EKS clusters use IPv
 
 For detailed information please see the [Running IPv6 EKS Clusters](ipv6.md) section and for hands-on experience please see the [Understanding IPv6 on Amazon EKS](https://catalog.workshops.aws/ipv6-on-aws/en-US/lab-6) section of the [Get hands-on with IPv6 workshop](https://catalog.workshops.aws/ipv6-on-aws/en-US).
 
-![EKS Cluster in IPv6 Mode](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/opt_ipv6.gif)
+![EKS Cluster in IPv6 Mode](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/opt_ipv6.gif)
 
 
 ### Optimize IP consumption in IPv4 clusters
@@ -68,7 +68,7 @@ If you are about to exhaust the RFC1918 IP space, you can use the [Custom Networ
 
 For detailed information please see the dedicated section for [Custom Networking](custom-networking.md).
 
-![Custom Networking](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/opt_custom-networking.gif)
+![Custom Networking](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/opt_custom-networking.gif)
 
 
 #### Enhanced Subnet Discovery
@@ -86,7 +86,7 @@ If your cluster’s current subnets are running out of IP addresses, you can sim
 
 Once Enhanced Subnet Discovery is enabled on your VPC and Amazon EKS clusters, new Elastic Network Interfaces (ENIs) will be attached to your Amazon EKS nodes as described in the following diagram:
 
-![Enhanced Subnet Discovery](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/opt_enhanced-subnet-discovery.gif)
+![Enhanced Subnet Discovery](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/opt_enhanced-subnet-discovery.gif)
 
 
 For more information, see [Amazon VPC CNI introduces Enhanced Subnet Discovery](https://aws.amazon.com/blogs/containers/amazon-vpc-cni-introduces-enhanced-subnet-discovery/) on the AWS containers blog.

@@ -5,28 +5,28 @@
 
 EKS in IPv6 mode solves the IPv4 exhaustion challenge often manifested in large scale EKS clusters. EKS’s support for IPv6 is focused on resolving the IPv4 exhaustion problem, which stems from the limited size of the IPv4 address space. This is a significant concern raised by a number of our customers and is distinct from Kubernetes [IPv4/IPv6 dual-stack](https://kubernetes.io/docs/concepts/services-networking/dual-stack/) feature. EKS/IPv6 will also provide the flexability to inter-connect network boundaries using IPv6 CIDRs hence minimizing the chances to suffer from CIDR overlap, therefor solving a 2-Fold problem (In-Cluster, Cross-Cluster). When deploying EKS clusters in IPv6 mode (--ip-family ipv6), the action is not a reversible. In simple words EKS IPv6 support is enabled for the entire lifetime of your cluster.
 
-[![AWS Videos](http://img.youtube.com/vi/zdXpTT0bZXo?rel=0/0.jpg)](http://www.youtube.com/watch?v=zdXpTT0bZXo?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/zdXpTT0bZXo?rel=0/0.jpg)](https://www.youtube.com/watch?v=zdXpTT0bZXo?rel=0)
 
 
 In an IPv6 EKS cluster, Pods and Services will receive IPv6 addresses while maintaining compatibility with legacy IPv4 Endpoints. This includes the ability for external IPv4 endpoints to access in-cluster services, and Pods to access external IPv4 endpoints.
 
 Amazon EKS IPv6 support leverages the native VPC IPv6 capabilities. Each VPC is allocated with an IPv4 address prefix (CIDR block size can be from /16 to /28) and a unique /56 IPv6 address prefix (fixed) from within Amazon’s GUA (Global Unicast Address); you can assign a /64 address prefix to each subnet in your VPC. IPv4 features, like Route Tables, Network Access Control Lists, Peering, and DNS resolution, work the same way in an IPv6 enabled VPC. The VPC is then referred as dual-stack VPC, following dual-stack subnets, the following diagram depict the IPV4IPv6 VPC foundation pattern that support EKS/IPv6 based clusters:
 
-![Dual Stack VPC](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-ipv6-foundation.png)
+![Dual Stack VPC](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-ipv6-foundation.png)
 
 
 In the IPv6 world, every address is internet routable. By default, VPC allocates IPv6 CIDR from the public GUA range. However since [August 2024](https://aws.amazon.com/about-aws/whats-new/2024/08/aws-private-ipv6-addressing-vpcs-subnets/) you can also use private IPv6 addressing for VPCs and subnets with Amazon VPC IP Address Manager (IPAM). Please see the [this AWS Networking blog post](https://aws.amazon.com/blogs/networking-and-content-delivery/understanding-ipv6-addressing-on-aws-and-designing-a-scalable-addressing-plan) and [VPC documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#vpc-ipv6-addresses) for more information.
 
 The following diagram depict a Pod IPv6 Internet egress flow inside an EKS/IPv6 cluster:
 
-![Dual Stack VPC](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-egress-ipv6.png)
+![Dual Stack VPC](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-egress-ipv6.png)
 
 
 Best practices for implementing IPv6 subnets can be found in the [VPC user guide](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/IPv6-on-AWS.html).
 
 In an IPv6 EKS cluster, nodes and Pods receive public IPv6 addresses. EKS assigns IPv6 addresses to services based on Unique Local IPv6 Unicast Addresses (ULA). The ULA Service CIDR for an IPv6 cluster is automatically assigned during the cluster creation stage and cannot be specified, unlike IPv4. The following diagram depict an EKS/IPv6 based cluster control-plane data-plan foundation pattern:
 
-![Dual Stack VPC](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-cluster-ipv6-foundation.png)
+![Dual Stack VPC](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-cluster-ipv6-foundation.png)
 
 
 ## Overview
@@ -42,14 +42,14 @@ IPv6 prefix assignment only occurs at the EKS worker-node bootstrap time. This b
 
 The following diagram zooms into an IPv6 worker-node Elastic Network Interface (ENI):
 
-![illustration of worker subnet](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_image-2.png)
+![illustration of worker subnet](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_image-2.png)
 
 
 Every EKS worker-node is assigned with IPv4 and IPv6 addresses, along with corresponding DNS entries. For a given worker-node, only a single IPv4 address from the dual-stack subnet is consumed. EKS support for IPv6 enables you to communicate with IPv4 endpoints (AWS, on-premise, internet) through a highly opinionated egress-only IPv4 model. EKS implements a host-local CNI plugin, secondary to the VPC CNI plugin, which allocates and configures an IPv4 address for a Pod. The CNI plugin configures a host-specific non-routable IPv4 address for a Pod from the 169.254.172.0/22 range. The IPv4 address assigned to the Pod is *unique to the worker-node* and is *not advertised beyond the worker-node*. 169.254.172.0/22 provides up to 1024 unique IPv4 addresses which can support large instance types.
 
 The following diagram depict the flow of an IPv6 Pod connecting to an IPv4 endpoint outside the cluster boundary (non-internet):
 
-![EKS/IPv6](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-ipv4-snat-cni.png)
+![EKS/IPv6](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-ipv4-snat-cni.png)
 
 
 In the above diagram Pods will perform a DNS lookup for the endpoint and, upon receiving an IPv4 "A" response, Pod’s node-only unique IPv4 address is translated through source network address translation (SNAT) to the Private IPv4 (VPC) address of the primary network interface attached to the EC2 Worker-node.
@@ -59,7 +59,7 @@ The above pattern requires DNS64 being disabled on subnets where EKS/IPv6 Pods a
 
 EKS/IPv6 Pods will also need to connect to IPv4 endpoints over the internet using public IPv4 Addresses, to achieve that a similar flow exists. The following diagram depict the flow of an IPv6 Pod connecting to an IPv4 endpoint outside the cluster boundary (internet routable):
 
-![EKS/IPv6](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-ipv4-snat-cni-internet.png)
+![EKS/IPv6](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_eks-ipv4-snat-cni-internet.png)
 
 
 In the above diagram Pods will perform a DNS lookup for the endpoint and, upon receiving an IPv4 "A" response, Pod’s node-only unique IPv4 address is translated through source network address translation (SNAT) to the Private IPv4 (VPC) address of the primary network interface attached to the EC2 Worker-node. The Pod IPv4 Address (Source IPv4: EC2 Primary IP) is then routed to the IPv4 NAT Gateway where the EC2 Primary IP is translated (SNAT) into a valid internet routable IPv4 Public IP Address (NAT Gateway Assigned Public IP).
@@ -68,14 +68,14 @@ Any Pod-to-Pod communication across the nodes always uses an IPv6 address. VPC C
 
 Kubernetes services will receive only IPv6 addresses (ClusterIP) from Unique [Local IPv6 Unicast Addresses (ULA)](https://datatracker.ietf.org/doc/html/rfc4193). The ULA Service CIDR for an IPv6 cluster is automatically assigned during EKS cluster creation stage and cannot be modified. The following diagram depict the Pod to Kubernetes Service flow:
 
-![EKS/IPv6](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_Pod-to-service-ipv6.png)
+![EKS/IPv6](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_Pod-to-service-ipv6.png)
 
 
 Services are exposed to the internet using an AWS load balancer. The load balancer receives public IPv4 and IPv6 addresses, a.k.a dual-stack load balancer. For IPv4 clients accessing IPv6 cluster kubernetes services, the load balancer does IPv4 to IPv6 translation.
 
 Amazon EKS recommends running worker nodes and Pods in private subnets. You can create public load balancers in the public subnets that load balance traffic to Pods running on nodes that are in private subnets. The following diagram depict an internet IPv4 user accessing an EKS/IPv6 Ingress based service:
 
-![Internet IPv4 user to EKS/IPv6 Ingress service](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_ipv4-internet-to-eks-ipv6.png)
+![Internet IPv4 user to EKS/IPv6 Ingress service](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_ipv4-internet-to-eks-ipv6.png)
 
 
 **Note**  
@@ -86,7 +86,7 @@ The above pattern requires to deploy the [most recent version](https://kubernete
 
 EKS will provision Cross-Account ENIs (X-ENIs) in dual stack mode (IPv4/IPv6). Kubernetes node components such as kubelet and kube-proxy are configured to support dual stack. Kubelet and kube-proxy run in a hostNetwork mode and bind to both IPv4 and IPv6 addresses attached to the primary network interface of a node. The Kubernetes api-server communicates to Pods and node components via the X-ENIs is IPv6 based. Pods communicate with the api-servers via the X-ENIs, and Pod to api-server communication always uses IPv6 mode.
 
-![illustration of cluster including X-ENIs](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_image-5.png)
+![illustration of cluster including X-ENIs](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/ipv6_image-5.png)
 
 
 ## Recommendations

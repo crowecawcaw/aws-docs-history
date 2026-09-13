@@ -27,7 +27,7 @@ In the following blog post, you will find a detailed step-by-step on how to impl
 
 In this setup, the Windows worker node isn’t joined in the Active Directory domain, and a "portable" identity (user/password) is used to authenticate against Active Directory and retrieve the gMSA identity to be used with the pod.
 
-![domainless gmsa](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/domainless_gmsa.png)
+![domainless gmsa](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/domainless_gmsa.png)
 
 
 The portable identity is an Active Directory user; the identity (user/password) is stored on AWS Secrets Manager or AWS System Manager Parameter Store, and an AWS-developed plugin called ccg\_plugin will be used to retrieve this identity from AWS Secrets Manager or AWS System Manager Parameter Store and pass it to containerd to retrieve the gMSA identity and made it available for the pod.

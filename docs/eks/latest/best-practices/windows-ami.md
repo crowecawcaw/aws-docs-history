@@ -33,7 +33,7 @@ Using the same version across the Amazon EKS cluster reduces the time during tro
 
 Use Amazon EC2 Image Builder to select between Windows Server versions, AWS Windows Server AMI release dates, and/or OS build version. The build components step, allows you to select between existing EKS Optimized Windows Artifacts as well as the kubelet versions. For more information: https://docs.aws.amazon.com/eks/latest/userguide/eks-custom-ami-windows.html
 
-![build components](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/build-components.png)
+![build components](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/build-components.png)
 
 
  **NOTE:** Prior to selecting a base image, consult the [Windows Server Version and License](windows-licensing.md) section for important details pertaining to release channel updates.
@@ -78,7 +78,7 @@ phases:
 
 To make sure the following component works as expected, check if the IAM role used by EC2 Image builder (EC2InstanceProfileForImageBuilder) has the attached policies:
 
-![permissions policies](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/permissions-policies.png)
+![permissions policies](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/permissions-policies.png)
 
 
 ## Blog post

@@ -22,14 +22,14 @@ When it comes to infrastructure security, AWS will assume additional responsibil
 
  **Shared Responsibility Model - Fargate** 
 
-![Shared Responsibility Model - Fargate](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/SRM-EKS.jpg)
+![Shared Responsibility Model - Fargate](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/SRM-EKS.jpg)
 
 
 AWS will also assume responsibility of keeping the EKS optimized AMI up to date with Kubernetes patch versions and security patches. Customers using Managed Node Groups (MNG) are responsible for upgrading their Nodegroups to the latest AMI via EKS API, CLI, Cloudformation or AWS Console. Also unlike Fargate, MNGs will not automatically scale your infrastructure/cluster. That can be handled by the [cluster-autoscaler](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md) or other technologies such as [Karpenter](https://karpenter.sh/), native AWS autoscaling, SpotInst’s [Ocean](https://spot.io/product/ocean), or Atlassian’s [Escalator](https://github.com/atlassian/escalator).
 
  **Shared Responsibility Model - MNG** 
 
-![Shared Responsibility Model - MNG](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/SRM-MNG.jpg)
+![Shared Responsibility Model - MNG](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/SRM-MNG.jpg)
 
 
 Before designing your system, it is important to know where the line of demarcation is between your responsibilities and the provider of the service (AWS).

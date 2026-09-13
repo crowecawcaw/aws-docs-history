@@ -8,7 +8,7 @@
 
 Windows containers are fundamentally different than Linux containers. Linux containers use Linux constructs like namespaces, the union file system, and cgroups. On Windows, those constructs are abstracted from containerd by the [Host Compute Service (HCS)](https://github.com/microsoft/hcsshim). HCS acts as an API layer that sits above the container implementation on Windows. Windows containers also leverage the Host Network Service (HNS) that defines the network topology on a node.
 
-![windows networking](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/windows-networking.png)
+![windows networking](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/windows-networking.png)
 
 
 From a networking perspective, HCS and HNS make Windows containers function like virtual machines. For example, each container has a virtual network adapter (vNIC) that is connected to a Hyper-V virtual switch (vSwitch) as shown in the diagram above.
@@ -83,7 +83,7 @@ In order to utilize DSR in Windows Server 2019 and above, you will need to speci
 
 DSR enablement can be verified following the instructions in the [Microsoft Networking blog](https://techcommunity.microsoft.com/t5/networking-blog/direct-server-return-dsr-in-a-nutshell/ba-p/693710) and the [Windows Containers on AWS Lab](https://catalog.us-east-1.prod.workshops.aws/workshops/1de8014a-d598-4cb5-a119-801576492564/en-US/module1-eks/lab3-handling-mixed-clusters).
 
-![dsr](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/dsr.png)
+![dsr](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/dsr.png)
 
 
 If preserving your available IPv4 addresses and minimizing wastage is crucial for your subnet, it is generally recommended to avoid using prefix delegation mode as mentioned in [Prefix Mode for Windows - When to avoid](prefix-mode-win.md#windows-prefix-avoid). If using prefix delegation is still desired, you can take steps to optimize IPv4 address utilization in your subnet. See [Configuring Parameters for Prefix Delegation](prefix-mode-win.md#windows-network-conserve) for detailed instructions on how to fine-tune the IPv4 address request and allocation process. Adjusting these configurations can help you strike a balance between conserving IPv4 addresses and pod density benefits of prefix delegation.

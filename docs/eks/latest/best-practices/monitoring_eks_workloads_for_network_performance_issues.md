@@ -240,24 +240,24 @@ Let’s visualize the metrics within the Amazon Managed Grafana and build a dash
 
 Let’s explore the metrics in Amazon Managed Grafana now: Click the explore button, and search for ethtool:
 
-![Node_ethtool metrics](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/mon_explore_metrics.png)
+![Node_ethtool metrics](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/mon_explore_metrics.png)
 
 
 Let’s build a dashboard for the linklocal\_allowance\_exceeded metric by using the query `rate(node_net_ethtool{device="eth0",type="linklocal_allowance_exceeded"}[30s])`. It will result in the below dashboard.
 
-![linklocal_allowance_exceeded dashboard](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/mon_linklocal.png)
+![linklocal_allowance_exceeded dashboard](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/mon_linklocal.png)
 
 
 We can clearly see that there were no packets dropped as the value is zero.
 
 Let’s build a dashboard for the conntrack\_allowance\_exceeded metric by using the query `rate(node_net_ethtool{device="eth0",type="conntrack_allowance_exceeded"}[30s])`. It will result in the below dashboard.
 
-![conntrack_allowance_exceeded dashboard](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/mon_conntrack.png)
+![conntrack_allowance_exceeded dashboard](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/mon_conntrack.png)
 
 
 The metric `conntrack_allowance_exceeded` can be visualized in CloudWatch, provided you run a cloudwatch agent as described [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-network-performance.html). The resulting dashboard in CloudWatch will look like below:
 
-![CW_NW_Performance](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/mon_cw_metrics.png)
+![CW_NW_Performance](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/mon_cw_metrics.png)
 
 
 We can clearly see that there were no packets dropped as the value is zero. If you are using Nitro-based instances, you can create a similar dashboard for `conntrack_allowance_available` and pro-actively monitor the connections in your EC2 instance. You can further extend this by configuring alerts in Amazon Managed Grafana to send notifications to Slack, SNS, Pagerduty etc.

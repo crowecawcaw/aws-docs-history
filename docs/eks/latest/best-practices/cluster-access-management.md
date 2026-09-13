@@ -20,7 +20,7 @@ ConfigMap-based access management (aws-auth ConfigMap) is deprecated and replace
 ### EKS cluster authentication flow:
 <a name="_eks_cluster_authentication_flow"></a>
 
-![EKS cluster authentication flow](http://docs.aws.amazon.com/eks/latest/best-practices/images/eks-auth-flow.jpg)
+![EKS cluster authentication flow](https://docs.aws.amazon.com/eks/latest/best-practices/images/eks-auth-flow.jpg)
 
 
 1. Principals(human users) or automated processes authenticate via AWS IAM by presenting appropriate AWS account permissions. In this step, they are mapped to appropriate AWS IAM principal (role or user).

@@ -65,7 +65,7 @@ An AWS Elastic Load Balancer: Network & Application, sends received traffic to r
 + Because the Load Balancer registers the Worker Node as its target this means its health check which gets sent to the target will not be directly received by the pod but by the Worker Node on its NodePort and health check traffic will follow the same path described above.
 + Monitoring and Troubleshooting is more complex since traffic forwarded by the Load Balancer isn’t directly sent to the pods and you’d have to carefully correlate the packet received on the Worker Node to to the Service ClusterIP and eventually the pod to have full end-to-end visibility into the packet’s path for proper troubleshooting.
 
-![Diagram illustrating the instance target type for load balancers](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/lb_target_type_instance.png)
+![Diagram illustrating the instance target type for load balancers](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/lb_target_type_instance.png)
 
 
 By contrast if you configure the target type as "IP" as we recommend the implication will be the following:
@@ -73,7 +73,7 @@ By contrast if you configure the target type as "IP" as we recommend the implica
 + The Load Balancer’s health check is directly received and responded to by the pod, this means the target status "healthy" or "unhealthy" are a direct representation of the pod’s health status.
 + Monitoring and Troubleshooting is easier and any tool used that captures packet IP address will directly reveal the bi-directional traffic between the Load Balancer and the pod in its source and destination fields.
 
-![Diagram illustrating the IP address target type for load balancers](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/lb_target_type_ip.png)
+![Diagram illustrating the IP address target type for load balancers](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/lb_target_type_ip.png)
 
 
 To create an AWS Elastic Load Balancing that uses IP Targets you add:
@@ -132,7 +132,7 @@ If your application is unable to shutdown gracefully upon receipt of a SIGTERM s
 
 The overall sequence of events is shown in the diagram below. Note: regardless of the result of graceful shutdown procedure of the application, or the result of the PreStop hook, the application containers are eventually terminated at the end of the grace period via SIGKILL.
 
-![Process sequence diagram for pod termination](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/lb_podterminationlifecycle.png)
+![Process sequence diagram for pod termination](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/lb_podterminationlifecycle.png)
 
 
 Please see the [Pod Deletion](#lb-pod-delete) in the Appendix section below to revisit the sequence of events in Pod deletion process.
@@ -142,7 +142,7 @@ Please see the [Pod Deletion](#lb-pod-delete) in the Appendix section below to r
 
 The sequence of events in Pod deletion is different than Pod creation. When a Pod is created `kubelet` updates the Pod IP in Kubernetes API and only then the EndpointSlice object is updated. On the other hand when a Pod is being terminated Kubernetes API notifies both the kubelet and EndpointSlice controller at the same time. Carefully inspect the following diagram which shows the sequence of events.
 
-![Diagram illustrating process for updating kubelet](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/lb_statepropagation.png)
+![Diagram illustrating process for updating kubelet](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/lb_statepropagation.png)
 
 
 The way the state propagates all the way from API server down to the iptables rules on the nodes explained above creates an interesting race condition. Because there is a high chance that the container receives the SIGKILL signal much earlier than the kube-proxy on each node updates the local iptables rules. In such an event two scenarios worth mentioning are :

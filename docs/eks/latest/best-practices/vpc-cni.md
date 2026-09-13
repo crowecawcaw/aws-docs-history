@@ -6,7 +6,7 @@
 **Tip**  
  [Explore](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el) best practices through Amazon EKS workshops.
 
-[![AWS Videos](http://img.youtube.com/vi/RBE3yk2UlYA?rel=0/0.jpg)](http://www.youtube.com/watch?v=RBE3yk2UlYA?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/RBE3yk2UlYA?rel=0/0.jpg)](https://www.youtube.com/watch?v=RBE3yk2UlYA?rel=0)
 
 
 Amazon EKS implements cluster networking through the [Amazon VPC Container Network Interface](https://github.com/aws/amazon-vpc-cni-k8s) plugin, also known as VPC CNI. The CNI plugin allows Kubernetes Pods to have the same IP address as they do on the VPC network. More specifically, all containers inside the Pod share a network namespace, and they can communicate with each-other using local ports.
@@ -21,7 +21,7 @@ When an instance is created, EC2 creates and attaches a primary ENI associated w
 
 The CNI plugin manages [Elastic Network Interfaces (ENI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) on the node. When a node is provisioned, the CNI plugin automatically allocates a pool of slots (IPs or Prefix’s) from the node’s subnet to the primary ENI. This pool is known as the *warm pool*, and its size is determined by the node’s instance type. Depending on CNI settings, a slot may be an IP address or a prefix. When a slot on an ENI has been assigned, the CNI may attach additional ENIs with warm pool of slots to the nodes. These additional ENIs are called Secondary ENIs. Each ENI can only support a certain number of slots, based on instance type. The CNI attaches more ENIs to instances based on the number of slots needed, which usually corresponds to the number of Pods. This process continues until the node can no longer support additional ENI. The CNI also pre-allocates "warm" ENIs and slots for faster Pod startup. Note each instance type has a maximum number of ENIs that may be attached. This is one constraint on Pod density (number of Pods per node), in addition to compute resources.
 
-![flow chart illustrating procedure when new ENI delegated prefix is needed](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image.png)
+![flow chart illustrating procedure when new ENI delegated prefix is needed](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image.png)
 
 
 The maximum number of network interfaces, and the maximum number of slots that you can use varies by the type of EC2 Instance. Since each Pod consumes an IP address on a slot, the number of Pods you can run on a particular EC2 Instance depends on how many ENIs can be attached to it and how many slots each ENI supports. We suggest setting the maximum Pods per EKS user guide to avoid exhaustion of the instance’s CPU and memory resources. Pods using `hostNetwork` are excluded from this calculation. For more information, see [How maxPods is determined](https://docs.aws.amazon.com/eks/latest/userguide/choosing-instance-type.html#max-pods-precedence) in the Amazon EKS User Guide.
@@ -49,19 +49,19 @@ The warm ENIs still consume IP addresses from the CIDR of your VPC. IP addresses
 
 This project includes a [Subnet Calculator Excel Document](https://github.com/aws/aws-eks-best-practices/blob/master/latest/bpg/networking/subnet-calc/subnet-calc.xlsx). This calculator document simulates the IP address consumption of a specified workload under different ENI configuration options, such as `WARM_IP_TARGET` and `WARM_ENI_TARGET`.
 
-![illustration of components involved in assigning an IP address to a pod](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image-2.png)
+![illustration of components involved in assigning an IP address to a pod](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image-2.png)
 
 
 When Kubelet receives an add Pod request, the CNI binary queries ipamd for an available IP address, which ipamd then provides to the Pod. The CNI binary wires up the host and Pod network.
 
 Pods deployed on a node are, by default, assigned to the same security groups as the primary ENI. Alternatively, Pods may be configured with different security groups.
 
-![second illustration of components involved in assigning an IP address to a pod](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image-3.png)
+![second illustration of components involved in assigning an IP address to a pod](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image-3.png)
 
 
 As the pool of IP addresses is depleted, the plugin automatically attaches another elastic network interface to the instance and allocates another set of secondary IP addresses to that interface. This process continues until the node can no longer support additional elastic network interfaces.
 
-![third illustration of components involved in assigning an IP address to a pod](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image-4.png)
+![third illustration of components involved in assigning an IP address to a pod](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image-4.png)
 
 
 When a Pod is deleted, VPC CNI places the Pod’s IP address in a 30-second cool down cache. The IPs in a cool down cache are not assigned to new Pods. When the cooling-off period is over, VPC CNI moves Pod IP back to the warm pool. The cooling-off period prevents Pod IP addresses from being recycled prematurely and allows kube-proxy on all cluster nodes to finish updating the iptables rules. When the number of IPs or ENIs exceeds the number of warm pool settings, the ipamd plugin returns IPs and ENIs to the VPC.
@@ -103,7 +103,7 @@ Keep in mind that infrastructure pods, often running as daemon sets, each contri
 
 We suggest that you plan your infrastructure by combining these Pods' capacities. For a list of the maximum number of Pods supported by each instance type, see [eni-max-pods.txt](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/misc/eni-max-pods.txt) on GitHub.
 
-![illustration of multiple ENIs attached to a node](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image-5.png)
+![illustration of multiple ENIs attached to a node](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/cni_image-5.png)
 
 
 ## Recommendations

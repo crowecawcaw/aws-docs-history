@@ -24,7 +24,7 @@ Kubernetes sets the following requirements on cluster networking:
 
 See [the Kubernetes network model](https://kubernetes.io/docs/concepts/services-networking/#the-kubernetes-network-model) for details on what Kubernetes expects from compatible networking implementations. The following figure illustrates the relationship between Pod network namespaces and the host network namespace.
 
-![illustration of host network and 2 pod network namespaces](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/image.png)
+![illustration of host network and 2 pod network namespaces](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/image.png)
 
 
 ## Container Networking Interface (CNI)

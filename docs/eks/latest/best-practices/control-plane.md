@@ -21,7 +21,7 @@ When you create a new cluster, Amazon EKS creates a highly-available endpoint fo
 
 EKS Data plane network connectivity
 
-![Connectivity](http://docs.aws.amazon.com/eks/latest/best-practices/images/reliability/eks-data-plane-connectivity.jpeg)
+![Connectivity](https://docs.aws.amazon.com/eks/latest/best-practices/images/reliability/eks-data-plane-connectivity.jpeg)
 
 
 You can [configure whether your Kubernetes cluster’s API server](https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html) is reachable from the public internet (using the public endpoint) or through your VPC (using the EKS-managed ENIs) or both.

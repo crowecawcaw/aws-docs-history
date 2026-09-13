@@ -10,7 +10,7 @@ Amazon EKS Auto Mode introduces enhanced security capabilities by extending AWSâ
 
  **Shared Responsibility Model - EKS Auto Mode** 
 
-![Shared Responsibility Model - Amazon EKS Auto Mode](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/SRM-AUTO.png)
+![Shared Responsibility Model - Amazon EKS Auto Mode](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/SRM-AUTO.png)
 
 
 Key security enhancements in EKS Auto Mode include:

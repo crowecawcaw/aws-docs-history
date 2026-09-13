@@ -56,7 +56,7 @@ A new cluster will come pre-configured with two NodePools
 #### general-purpose
 <a name="_general_purpose"></a>
 
-![General Purpose NodePool](http://docs.aws.amazon.com/eks/latest/best-practices/images/autoscaling/gp_nodepool.png)
+![General Purpose NodePool](https://docs.aws.amazon.com/eks/latest/best-practices/images/autoscaling/gp_nodepool.png)
 
 
 This NodePool instructs Karpenter to launch nodes with the following characteristics:
@@ -76,7 +76,7 @@ It also defines what the scale down logic is by declaring that only 10% of all n
 #### system
 <a name="_system"></a>
 
-![System NodePool](http://docs.aws.amazon.com/eks/latest/best-practices/images/autoscaling/system_nodepool.png)
+![System NodePool](https://docs.aws.amazon.com/eks/latest/best-practices/images/autoscaling/system_nodepool.png)
 
 
 This NodePool is similar to “general-purpose” except for the following differences:

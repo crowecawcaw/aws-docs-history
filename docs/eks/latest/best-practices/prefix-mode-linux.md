@@ -12,7 +12,7 @@ Prefix mode is enabled by default on IPv6 clusters and is the only option suppor
 
 With prefix assignment mode, the maximum number of elastic network interfaces per instance type remains the same, but you can now configure Amazon VPC CNI to assign /28 (16 IP addresses) IPv4 address prefixes, instead of assigning individual IPv4 addresses to the slots on network interfaces. When `ENABLE_PREFIX_DELEGATION` is set to true VPC CNI allocates an IP address to a Pod from the prefix assigned to an ENI. Please follow the instructions mentioned in the [EKS user guide](https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html) to enable Prefix IP mode.
 
-![illustration of two worker subnets](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/pm_image.png)
+![illustration of two worker subnets](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/pm_image.png)
 
 
 The maximum number of IP addresses that you can assign to a network interface depends on the instance type. Each prefix that you assign to a network interface counts as one IP address. For example, a `c5.large` instance has a limit of `10` IPv4 addresses per network interface. Each network interface for this instance has a primary IPv4 address. If a network interface has no secondary IPv4 addresses, you can assign up to 9 prefixes to the network interface. For each additional IPv4 address that you assign to a network interface, you can assign one less prefix to the network interface. Review the AWS EC2 documentation on [IP addresses per network interface per instance type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) and [assigning prefixes to network interfaces.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) 
@@ -25,7 +25,7 @@ During worker node initialization, the VPC CNI assigns one or more prefixes to t
 
 As more Pods scheduled additional prefixes will be requested for the existing ENI. First, the VPC CNI attempts to allocate a new prefix to an existing ENI. If the ENI is at capacity, the VPC CNI attempts to allocate a new ENI to the node. New ENIs will be attached until the maximum ENI limit (defined by the instance type) is reached. When a new ENI is attached, ipamd will allocate one or more prefixes needed to maintain the `WARM_PREFIX_TARGET`, `WARM_IP_TARGET`, and `MINIMUM_IP_TARGET` setting.
 
-![flow chart of procedure for assigning IP to pod](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/pm_image-2.jpeg)
+![flow chart of procedure for assigning IP to pod](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/pm_image-2.jpeg)
 
 
 ## Recommendations

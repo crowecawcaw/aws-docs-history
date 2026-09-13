@@ -42,12 +42,12 @@ If you run self-managed nodes, you can use [Amazon EKS-optimized Linux AMI](http
 
  **Shared Responsibility Model - Fargate** 
 
-![Shared Responsibility Model - Fargate](http://docs.aws.amazon.com/eks/latest/best-practices/images/reliability/SRM-Fargate.jpeg)
+![Shared Responsibility Model - Fargate](https://docs.aws.amazon.com/eks/latest/best-practices/images/reliability/SRM-Fargate.jpeg)
 
 
  **Shared Responsibility Model - MNG** 
 
-![Shared Responsibility Model - MNG](http://docs.aws.amazon.com/eks/latest/best-practices/images/reliability/SRM-MNG.jpeg)
+![Shared Responsibility Model - MNG](https://docs.aws.amazon.com/eks/latest/best-practices/images/reliability/SRM-MNG.jpeg)
 
 
 This guide includes a set of recommendations that you can use to improve the reliability of your EKS data plane, Kubernetes core components, and your applications.

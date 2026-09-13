@@ -29,7 +29,7 @@ In a multi workload account strategy for multi tenant cluster, AWS accounts typi
 
 It is possible to have multiple `Cluster Accounts` in your AWS organization, and it is a best practice to have multiple `Cluster Accounts` that align with your software development lifecycle needs. For workloads operating at a very large scale, you may require multiple `Cluster Accounts` to ensure that there are enough kubernetes and AWS service quotas available to all your workloads.
 
-![multi-account-eks](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/multi-account-eks.jpg)
+![multi-account-eks](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/multi-account-eks.jpg)
 
 
 \|In the above diagram, AWS RAM is used to share subnets from a cluster account into a workload account. Then workloads running in EKS pods use IRSA or EKS Pod Identities and role chaining to assume a role in their workload account and access their AWS resources.
@@ -146,7 +146,7 @@ IRSA and EKS Pod Identities both support multi-account strategies. You can use e
 
 In this approach, EKS clusters are deployed to respective workload AWS Accounts and live along side with other AWS resources like Amazon S3 buckets, VPCs, Amazon DynamoDB tables, etc., Each workload account is independent, self-sufficient, and operated by respective Business Unit/Application teams. This model allows the creation of reusuable blueprints for various cluster capabilities — AI/ML cluster, Batch processing, General purpose, etc, — and vend the clusters based on the application team requirements. Both application and platform teams operate out of their respective [GitOps](https://opengitops.dev/) repositories to manage the deployments to the workload clusters.
 
-![De-centralized EKS Cluster Architecture](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/multi-account-eks-decentralized.png)
+![De-centralized EKS Cluster Architecture](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/multi-account-eks-decentralized.png)
 
 
 In the above diagram, Amazon EKS clusters and other AWS resources are deployed to respective workload accounts. Then workloads running in EKS pods use IRSA or EKS Pod Identities to access their AWS resources.
@@ -160,7 +160,7 @@ You would utilize [IAM roles for Service Accounts (IRSA)](https://docs.aws.amazo
 
 You can also utilize AWS RAM to share the VPC Subnets to workload accounts and launch Amazon EKS clusters and other AWS resources in them. This enables centralized network managment/administration, simplified network connectivity, and de-centralized EKS clusters. Refer this [AWS blog](https://aws.amazon.com/blogs/containers/use-shared-vpcs-in-amazon-eks/) for a detailed walkthrough and considerations of this approach.
 
-![De-centralized EKS Cluster Architecture using VPC Shared Subnets](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/multi-account-eks-shared-subnets.png)
+![De-centralized EKS Cluster Architecture using VPC Shared Subnets](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/multi-account-eks-shared-subnets.png)
 
 
 In the above diagram, AWS RAM is used to share subnets from a central networking account into a workload account. Then EKS cluster and other AWS resources are launched in those subnets in respective workload accounts. EKS pods use IRSA or EKS Pod Identities to access their AWS resources.

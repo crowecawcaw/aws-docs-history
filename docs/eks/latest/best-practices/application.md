@@ -100,7 +100,7 @@ Similar to pod anti-affinity rules, pod topology spread constraints allow you to
 In addition to these above, there are other fields that you can read about further in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/).
 
 **Pod topology spread constraints across 3 AZs**  
- ![Pod topology spread constraints across 3 AZs](http://docs.aws.amazon.com/eks/latest/best-practices/images/reliability/pod-topology-spread-constraints.jpg) 
+ ![Pod topology spread constraints across 3 AZs](https://docs.aws.amazon.com/eks/latest/best-practices/images/reliability/pod-topology-spread-constraints.jpg) 
 
 ```
 apiVersion: apps/v1

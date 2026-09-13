@@ -9,7 +9,7 @@ Using [EC2 Image Builder](https://aws.amazon.com/image-builder/) you can automat
 
 The following example shows **components**, which can be pre-existing ones built by AWS (Amazon-managed) as well as the components you create (Owned by me). Pay close attention to the Amazon-managed component called **update-windows**, this updates Windows Server before generating the AMI through the EC2 Image Builder pipeline.
 
-![associated components](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/associated-components.png)
+![associated components](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/associated-components.png)
 
 
 EC2 Image Builder allows you to build AMI’s based off Amazon Managed Public AMIs and customize them to meet your business requirements. You can then associate those AMIs with Launch Templates which allows you to link a new AMI to the Auto Scaling Group created by the EKS Nodegroup. After that is complete, you can begin terminating the existing Windows Nodes and new ones will be launched based on the new updated AMI.
@@ -24,7 +24,7 @@ mcr.microsoft.com/windows/servercore
 mcr.microsoft.com/windows/nanoserver
 ```
 
-![images](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/images.png)
+![images](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/images.png)
 
 
 Cached images are updated following the updates on the main OS. When Microsoft releases a new Windows update that directly affects the Windows container base image, the update will be launched as an ordinary Windows Update on the main OS. Keeping the environment up-to-date offers a more secure environment at the Node and Container level.
@@ -35,7 +35,7 @@ The following example shows that on the Amazon ECR the **fluentd-windows-sac2004
 
 The following example shows a [fluentd Windows ltsc](https://github.com/fluent/fluentd-docker-image/blob/master/v1.14/windows-ltsc2019/Dockerfile) image pushed to an Amazon ECR repository. The size of the layer stored in ECR is **533.05MB**.
 
-![ecr image](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/ecr-image.png)
+![ecr image](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/ecr-image.png)
 
 
 The output below from `docker image ls` , the size of the fluentd v1.14-windows-ltsc2019-1 is **6.96GB** on disk, but that doesn’t mean it downloaded and extracted that amount of data.

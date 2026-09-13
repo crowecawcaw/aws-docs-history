@@ -56,7 +56,7 @@ spec:
 
  **default-deny** 
 
-![default-deny](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/default-deny.jpg)
+![default-deny](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/default-deny.jpg)
 
 
 **Note**  
@@ -93,7 +93,7 @@ spec:
 
  **allow-dns-access** 
 
-![allow-dns-access](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/allow-dns-access.jpg)
+![allow-dns-access](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/allow-dns-access.jpg)
 
 
 #### Incrementally add rules to selectively allow the flow of traffic between namespaces/pods
@@ -125,7 +125,7 @@ spec:
 
  **allow-ingress-app-one** 
 
-![allow-ingress-app-one](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/allow-ingress-app-one.png)
+![allow-ingress-app-one](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/allow-ingress-app-one.png)
 
 
 ### Monitoring network policy enforcement
@@ -464,7 +464,7 @@ To get this identity from Istio, the `istio-agent` sends a request known as a ce
 
 Default flow for Istio Certificate Signing Requests:
 
-![Default flow for Istio Certificate Signing Requests](http://docs.aws.amazon.com/eks/latest/best-practices/images/security/default-istio-csr-flow.png)
+![Default flow for Istio Certificate Signing Requests](https://docs.aws.amazon.com/eks/latest/best-practices/images/security/default-istio-csr-flow.png)
 
 
 #### How Certificate Signing Works in Istio with ACM Private CA

@@ -9,7 +9,7 @@ In order to increase the pod density on Windows hosts, especially when using sma
 
 Please follow the instructions mentioned in the [EKS user guide](https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html) to enable Prefix Delegation mode for Windows nodes.
 
-![illustration of two worker subnets](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/pm_windows-1.jpg)
+![illustration of two worker subnets](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/pm_windows-1.jpg)
 
 
 Figure: Comparison of Secondary IP mode with Prefix Delegation mode
@@ -24,7 +24,7 @@ During worker node initialization, the VPC Resource Controller assigns one or mo
 
 As more Pods are scheduled on the node, additional prefixes will be requested for the existing ENI. When a Pod is scheduled on the node, VPC Resource Controller would first try to assign an IPv4 address from the existing prefixes on the node. If that is not possible, then a new IPv4 prefix will be requested as long as the subnet has the required capacity.
 
-![flow chart of procedure for assigning IP to pod](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/pm_windows-2.jpg)
+![flow chart of procedure for assigning IP to pod](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/pm_windows-2.jpg)
 
 
 Figure: Workflow during assignment of IPv4 address to the Pod

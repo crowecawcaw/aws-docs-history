@@ -73,7 +73,7 @@ Amazon Inspector can be used to run CIS Benchmark assessment on the Windows work
 
 Below is the ouput after the first run. As you can see, it generated findings based on the [CVE](https://cve.mitre.org/) database. You can use this to harden your Worker nodes or create an AMI based on the hardened configurations.
 
-![inspector agent](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/inspector-agent.png)
+![inspector agent](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/inspector-agent.png)
 
 
 For more information on Amazon Inspector, including how to install Amazon Inspector agents, set up the CIS Benchmark assessment, and generate reports, watch the [Improving the security and compliance of Windows Workloads with Amazon Inspector](https://www.youtube.com/watch?v=nIcwiJ85EKU) video.

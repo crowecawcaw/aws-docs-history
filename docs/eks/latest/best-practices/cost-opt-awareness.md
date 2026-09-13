@@ -18,12 +18,12 @@ Expenditure awareness is understanding who, where and what is causing expenditur
 
 Using the filters, we can query the costs incurred for the EKS costs at the Control Plane and Fargate Pod as shown in the diagram below:
 
-![Cost Explorer - EKS Control Plane](http://docs.aws.amazon.com/eks/latest/best-practices/images/eks-controlplane-costexplorer.png)
+![Cost Explorer - EKS Control Plane](https://docs.aws.amazon.com/eks/latest/best-practices/images/eks-controlplane-costexplorer.png)
 
 
 Using the filters, we can query the aggregate costs incurred for the Fargate Pods across regions in EKS - which includes both vCPU-Hours per CPU and GB Hrs as shown in the diagram below:
 
-![Cost Explorer - EKS Fargate](http://docs.aws.amazon.com/eks/latest/best-practices/images/eks-fargate-costexplorer.png)
+![Cost Explorer - EKS Fargate](https://docs.aws.amazon.com/eks/latest/best-practices/images/eks-fargate-costexplorer.png)
 
 
 #### Tagging of Resources
@@ -172,14 +172,14 @@ NOTE: If you are using Cloud 9 or have a need to forward it to a different port 
 $ kubectl port-forward --namespace kubecost deployment/kubecost-cost-analyzer 8080:9090
 ```
 
-Kubecost Dashboard - ![Kubernetes Cluster Auto Scaler logs](http://docs.aws.amazon.com/eks/latest/best-practices/images/kube-cost.png) 
+Kubecost Dashboard - ![Kubernetes Cluster Auto Scaler logs](https://docs.aws.amazon.com/eks/latest/best-practices/images/kube-cost.png) 
 
 ### Use Kubernetes Cost Allocation and Capacity Planning Analytics Tool
 <a name="_use_kubernetes_cost_allocation_and_capacity_planning_analytics_tool"></a>
 
  [Kubernetes Opex Analytics](https://github.com/rchakode/kube-opex-analytics) is a tool to help organizations track the resources being consumed by their Kubernetes clusters to prevent overpaying. To do so it generates, short- (7 days), mid- (14 days) and long-term (12 months) usage reports showing relevant insights on what amount of resources each project is spending over time.
 
-![Kubernetes Opex Analytics](http://docs.aws.amazon.com/eks/latest/best-practices/images/kube-opex-analytics.png)
+![Kubernetes Opex Analytics](https://docs.aws.amazon.com/eks/latest/best-practices/images/kube-opex-analytics.png)
 
 
 ### Yotascale

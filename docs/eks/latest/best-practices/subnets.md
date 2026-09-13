@@ -26,7 +26,7 @@ The nodes in the customer VPC need the ability to connect to the managed API ser
 
 The nodes connect to the EKS control plane through (a) an EKS public endpoint or (b) a Cross-Account [elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) (X-ENI) managed by EKS. When a cluster is created, you need to specify at least two VPC subnets. EKS places a X-ENI in each subnet specified during cluster create (also called cluster subnets). The Kubernetes API server uses these Cross-Account ENIs to communicate with nodes deployed on the customer-managed cluster VPC subnets.
 
-![general illustration of cluster networking](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/subnet_image.png)
+![general illustration of cluster networking](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/subnet_image.png)
 
 
 As the node starts, the EKS bootstrap script is executed and Kubernetes node configuration files are installed. As part of the boot process on each instance, the container runtime agents, kubelet, and Kubernetes node agents are launched.
@@ -101,12 +101,12 @@ There are many scenarios when you require multiple VPCs and separate EKS cluster
 
 You can use [Amazon VPC Lattice](https://aws.amazon.com/vpc/lattice/) to consistently and securely connect services across multiple VPCs and accounts (without requiring additional connectivity to be provided by services like VPC peering, AWS PrivateLink or AWS Transit Gateway). Learn more [here](https://aws.amazon.com/blogs/networking-and-content-delivery/build-secure-multi-account-multi-vpc-connectivity-for-your-applications-with-amazon-vpc-lattice/).
 
-![Amazon VPC Lattice](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/subnet_vpc-lattice.gif)
+![Amazon VPC Lattice](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/subnet_vpc-lattice.gif)
 
 
 Amazon VPC Lattice operates in the link-local address space in IPv4 and IPv6, providing connectivity between services that may have overlapping IPv4 addresses. For operational efficiency, we strongly recommend deploying EKS clusters and nodes to IP ranges that do not overlap. In case your infrastructure includes VPCs with overlapping IP ranges, you need to architect your network accordingly. We suggest [Private NAT Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-basics), or VPC CNI in [custom networking](custom-networking.md) mode in conjunction with [transit gateway](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-transit-gateway.html) to integrate workloads on EKS to solve overlapping CIDR challenges while preserving routable RFC1918 IP addresses.
 
-![Private Nat Gateway with Custom Networking](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/subnet_private-nat-gw.gif)
+![Private Nat Gateway with Custom Networking](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/subnet_private-nat-gw.gif)
 
 
 Consider utilizing [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-share-your-services.html), also known as an endpoint service, if you are the service provider and would want to share your Kubernetes service and ingress (either ALB or NLB) with your customer VPC in separate accounts.
@@ -118,7 +118,7 @@ Many enterprises adopted shared Amazon VPCs as a means to streamline network adm
 
 You can deploy Amazon EKS clusters, managed node groups and other supporting AWS resources (like LoadBalancers, security groups, end points, etc.,) in shared VPC Subnets from an another AWS Account using AWS RAM. Below figure depicts an example highlevel architecture. This allows central networking teams control over the networking constructs like VPCs, Subnets, etc., while allowing application or platform teams to deploy Amazon EKS clusters in their respective AWS Accounts. A complete walkthrough of this scenario is available at this [github repository](https://github.com/aws-samples/eks-shared-subnets).
 
-![Deploying Amazon EKS in VPC Shared Subnets across AWS Accounts.](http://docs.aws.amazon.com/eks/latest/best-practices/images/networking/subnet_eks-shared-subnets.png)
+![Deploying Amazon EKS in VPC Shared Subnets across AWS Accounts.](https://docs.aws.amazon.com/eks/latest/best-practices/images/networking/subnet_eks-shared-subnets.png)
 
 
 #### Considerations when using Shared Subnets

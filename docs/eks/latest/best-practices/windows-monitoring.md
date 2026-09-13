@@ -7,7 +7,7 @@ Prometheus, a [graduated CNCF project](https://www.cncf.io/projects/) is by far 
 
 The high level architecture of Prometheus metrics collection is shown below:
 
-![Prometheus Metrics collection](http://docs.aws.amazon.com/eks/latest/best-practices/images/windows/prom.png)
+![Prometheus Metrics collection](https://docs.aws.amazon.com/eks/latest/best-practices/images/windows/prom.png)
 
 
 Prometheus uses a pull mechanism and scrapes metrics from targets using exporters and from the Kubernetes API using the [kube state metrics](https://github.com/kubernetes/kube-state-metrics). This means applications and services must expose a HTTP(S) endpoint containing Prometheus formatted metrics. Prometheus will then, as per its configuration, periodically pull metrics from these HTTP(S) endpoints.
