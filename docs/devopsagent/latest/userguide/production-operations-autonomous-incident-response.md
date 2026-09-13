@@ -11,7 +11,7 @@ Incident response investigations can be started in one of three ways.
 + **Webhooks** - You can use webhooks to send events to AWS DevOps Agent. For example you can use webhooks to trigger incident response investigations from PagerDuty tickets or Grafana alarms.
 + **Manually** - You can manually start incident response investigations from the Incident Response tab of any DevOps Agent Space web app. You can either enter free form text that describes the incident you want your DevOps Agent to investigate, and it will create an investigation plan, collect findings, determine a root cause, and offer to generate a mitigation plan. You can also choose from several pre-configured starting points to quickly begin your Investigation: Latest alarm to investigate your most recent triggered alarm and analyze the underlying metrics and logs to determine the root cause, High CPU usage to investigate high CPU utilization metrics across your compute resources and identify which processes or services are consuming excessive resources, or Error rate spike to investigate the recent increase in application error rates by analyzing metrics, application logs, and identifying the source of failures.
 
-![Investigation form with description field, suggestion buttons, and Start Investigation button.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/2f22200ef528.png)
+![Investigation form with description field, suggestion buttons, and Start Investigation button.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/2f22200ef528.png)
 
 
 Once you choose "Start Investigation" you'll be asked to provide some additional details to help the agent focus its work. The investigation dialog includes the following fields:
@@ -137,6 +137,8 @@ Investigation and mitigation run as a single automated flow. This eliminates the
 <a name="provide-feedback-on-investigations"></a>
 
 After an investigation completes, you can provide feedback on the root cause analysis. This feedback improves future investigation accuracy and enables reporting across your Agent Space.
+
+When you mark an investigation incorrect and give the actual root cause, AWS DevOps Agent creates a memory in the [reflections](about-aws-devops-agent-devops-agent-memories.md) memory store, so future investigations of the alarm can avoid the same mistake.
 
 ### How to provide feedback
 <a name="how-to-provide-feedback"></a>

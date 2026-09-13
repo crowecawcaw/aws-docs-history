@@ -42,7 +42,7 @@ Private connections are designed with multiple layers of security:
 
 The following diagram shows the network path for a private connection.
 
-![Network architecture showing AWS DevOps Agent connecting through VPC Lattice.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/7cd6182e6b8d.png)
+![Network architecture showing AWS DevOps Agent connecting through VPC Lattice.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/7cd6182e6b8d.png)
 
 
 In this architecture:
@@ -208,7 +208,7 @@ To use a private connection, you can link to it during the registration of a cap
 
 In the AWS DevOps Agent console, private connections can be linked to a capability during registration by selecting the "Connect to endpoint using a private connection" option.
 
-![Connect to endpoint using a private connection checkbox selected.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/a2a7ffb70ffe.png)
+![Connect to endpoint using a private connection checkbox selected.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/a2a7ffb70ffe.png)
 
 
 1. Open the AWS DevOps Agent console and navigate to your Agent Space.

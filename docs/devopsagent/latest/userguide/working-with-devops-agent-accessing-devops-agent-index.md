@@ -7,7 +7,7 @@ AWS DevOps Agent supports several access methods: the web app console, Model Con
 
 The following diagram illustrates these access methods and how they connect to the DevOps Agent service.
 
-![Architecture diagram showing methods for accessing AWS DevOps Agent: Browser connects to Web App, IDE and MCP Client connect to MCP, Agent and Orchestrator connect to A2A and ACP, Monitoring and Ticketing systems connect to Webhooks, and Custom Apps connect to the API.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/engaging-devops-agent.png)
+![Architecture diagram showing methods for accessing AWS DevOps Agent: Browser connects to Web App, IDE and MCP Client connect to MCP, Agent and Orchestrator connect to A2A and ACP, Monitoring and Ticketing systems connect to Webhooks, and Custom Apps connect to the API.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/engaging-devops-agent.png)
 
 
 ## DevOps Agent web app

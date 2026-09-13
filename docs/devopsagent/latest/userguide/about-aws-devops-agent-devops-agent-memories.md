@@ -70,6 +70,13 @@ Examples:
 + "Lambdas are no longer used. The service uses Fargate."
 + "The storage service is called Orders Storage Service."
 
+### reflections
+<a name="reflections"></a>
+
+Lessons taken from previous investigations about what was missed or overlooked. When you submit feedback on an investigation, a memory is created that analyzes why the actual root cause differs from what the investigation found. Future investigations for that alarm use the memory to avoid making the same mistake.
+
+For more information, see [Provide feedback on investigations](production-operations-autonomous-incident-response.md).
+
 ### Agent Space Understanding
 <a name="agent-space-understanding"></a>
 

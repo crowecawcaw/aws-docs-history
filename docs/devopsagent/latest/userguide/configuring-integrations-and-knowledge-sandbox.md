@@ -51,7 +51,7 @@ With Sandbox enabled, the agent reads your [DevOps Agent Skills](about-aws-devop
 
 Sandbox is not configured by default, so until you opt in, the agent cannot run code. The following image shows the **Sandbox** section before you configure it.
 
-![Sandbox section showing "Sandbox is not configured" with empty pip packages, npm packages, and Allowlist entries fields.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/221a777b9eda.png)
+![Sandbox section showing "Sandbox is not configured" with empty pip packages, npm packages, and Allowlist entries fields.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/221a777b9eda.png)
 
 
 Before you configure Sandbox, determine the following:
@@ -93,7 +93,7 @@ Choose **Add entry**, then configure the following for the allowlist entry:
 
 The following image shows a completed allowlist entry.
 
-![Allowlist entry with host pattern *.github.com, GET and OPTIONS methods, and path pattern /**.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/02356ee2008f.png)
+![Allowlist entry with host pattern *.github.com, GET and OPTIONS methods, and path pattern /**.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/02356ee2008f.png)
 
 
 Choose **Add entry** for each additional host the agent's code needs to reach. To remove an entry, choose **Remove**.
@@ -103,7 +103,7 @@ Choose **Add entry** for each additional host the agent's code needs to reach. T
 
 In the **Packages** section, specify the `pip` and `npm` packages to pre-install in the sandbox environment. The agent's code can then import these packages directly, and the environment does not need outbound access to a package registry to use them. The following image shows the **Packages** section with example packages configured.
 
-![Packages section with pip packages requests and pandas and npm package axios, each with a Remove button.](http://docs.aws.amazon.com/devopsagent/latest/userguide/images/8035f788fb71.png)
+![Packages section with pip packages requests and pandas and npm package axios, each with a Remove button.](https://docs.aws.amazon.com/devopsagent/latest/userguide/images/8035f788fb71.png)
 
 + **pip packages** – Choose **Add package** and enter a package name, such as `requests` or `pandas`, for each Python package to pre-install.
 + **npm packages** – Choose **Add package** and enter a package name, such as `axios`, for each Node.js package to pre-install.

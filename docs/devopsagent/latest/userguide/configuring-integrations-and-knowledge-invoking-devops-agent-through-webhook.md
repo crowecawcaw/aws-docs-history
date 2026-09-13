@@ -18,8 +18,10 @@ Before configuring webhook access, ensure you have:
 
 AWS DevOps Agent supports the following types of webhooks:
 + **Integration-specific webhooks** – Automatically generated when you configure third-party integrations like Dynatrace, Splunk, Datadog, New Relic, ServiceNow, or Slack. These webhooks are associated with the specific integration and use authentication methods determined by the integration type
-+ **Generic webhooks** – Can be manually created for triggering investigations from any source not covered by a specific integration. In the AWS DevOps Agent console, a generic webhook is created as an **Agent Space webhook** (scoped to an Agent Space). When you create a generic webhook, you choose its authentication method: **HMAC** or **API key** (bearer token).
++ **Generic webhooks** – Created manually to trigger investigations from any source that a specific integration does not cover. In the AWS DevOps Agent console, create a generic webhook from the **Agent Space Webhook** table on the **Capabilities** tab of your Agent Space. Choose an authentication method: **HMAC** or **API key** (bearer token).
 + **Grafana alert webhooks** – Grafana can send alert notifications directly to AWS DevOps Agent through webhook contact points. For setup instructions including a custom notification template, see [Connecting Grafana](connecting-telemetry-sources-connecting-grafana.md).
+
+Each Agent Space can have one HMAC webhook and one API key webhook. When you add a webhook, the console offers only the authentication types that are not in use. If you choose a type that is in use, the console shows the message "This Agent Space already has a webhook with this authentication type."
 
 ## Webhook authentication methods
 <a name="webhook-authentication-methods"></a>
@@ -85,7 +87,7 @@ Webhooks are automatically generated when you complete the configuration of a th
 
 **For generic webhooks:**
 
-1. Choose **Generate webhook**
+1. In the **Agent Space Webhook** table, choose **Add webhook**.
 
 1. For **Webhook authentication type**, choose **HMAC** or **API key**:
    + **HMAC** – The system generates a webhook signing secret. Your client signs each request and sends the signature in the `x-amzn-event-signature` header (see Version 1 below).
@@ -118,7 +120,7 @@ To rotate a webhook:
 
 1. Go to the **Capabilities** tab, then find the webhook:
    + For an integration webhook, use the **Capability Webhooks** table. Find the integration by its **Identifier**, for example your ServiceNow instance URL or your Grafana endpoint.
-   + For a generic webhook, use the **Agent Space Webhook** section.
+   + For a generic webhook, use the **Agent Space Webhook** table. Select the webhook row. The **Identifier** column shows the association ID, and the **Auth type** column shows **HMAC** or **API key**.
 
 1. Open the webhook editor. For an integration webhook, choose **Edit**. For a generic webhook, choose **Actions**, then **Edit**.
 
@@ -128,7 +130,7 @@ To rotate a webhook:
 
 1. Update the sender with the new secret. For an integration, expand **Service Setup Instructions** for service-specific steps, or see the connection guide for your integration.
 
-To copy the webhook URL without rotating the secret, choose **Copy URL**.
+To copy the webhook URL without rotating the secret, select the webhook row, and then choose **Copy URL**.
 
 ### Webhooks created with infrastructure as code
 <a name="webhooks-created-with-infrastructure-as-code"></a>
@@ -138,7 +140,7 @@ When you create a webhook with AWS CloudFormation, the AWS CDK, or Terraform, th
 ### Removing webhook credentials
 <a name="removing-webhook-credentials"></a>
 
-To delete a generic webhook, open the **Agent Space Webhook** section, choose **Actions**, then choose **Remove**. After you remove the webhook, the endpoint no longer accepts requests until you create a new webhook.
+To delete a generic webhook, open the **Agent Space Webhook** table and select the webhook row. Choose **Actions**, and then choose **Remove**. After you remove the webhook, the endpoint no longer accepts requests until you create a new webhook. If the Agent Space already has both webhook types, remove one webhook before you add another.
 
 ## Using the webhook
 <a name="using-the-webhook"></a>
