@@ -10,7 +10,7 @@ This reference architecture can be used to deploy Oracle E-Business Suite on AWS
 ## Oracle E-Business Suite on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to deploy Oracle E-Business Suite on AWS by showing how to configure high availability for the database and application tier.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/oracle-e-business-suite-on-aws/images/oracle-e-business-suite-on-aws.png)
+![Reference architecture diagram showing how to deploy Oracle E-Business Suite on AWS by showing how to configure high availability for the database and application tier.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/oracle-e-business-suite-on-aws/images/oracle-e-business-suite-on-aws.png)
 
 
 1. The architecture starts with a single Region and single Virtual Private Cloud (VPC) on-par with the on-premises data center. 
