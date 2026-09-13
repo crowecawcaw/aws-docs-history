@@ -23,4 +23,4 @@ For an example application that uses the AWS Data Pipeline Java SDK, see [Data P
 
 The following is the object hierarchy for AWS Data Pipeline.
 
-![AWS Data Pipeline object hierarchy](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/object_hierarchy.png)
+![AWS Data Pipeline object hierarchy](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/object_hierarchy.png)

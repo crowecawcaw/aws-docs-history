@@ -11,7 +11,7 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 The following diagram illustrates how AWS Data Pipeline and a task runner interact to process a scheduled task. A task is a discrete unit of work that the AWS Data Pipeline service shares with a task runner. It differs from a pipeline, which is a general definition of activities and resources that usually yields several tasks.
 
-![AWS Data Pipeline task lifecycle](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-task-lifecycle.png)
+![AWS Data Pipeline task lifecycle](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-task-lifecycle.png)
 
 
 There are two ways you can use Task Runner to process your pipeline: 

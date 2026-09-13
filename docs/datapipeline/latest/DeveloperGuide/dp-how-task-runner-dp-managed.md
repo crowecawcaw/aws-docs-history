@@ -7,7 +7,7 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
  When a resource is launched and managed by AWS Data Pipeline, the web service automatically installs Task Runner on that resource to process tasks in the pipeline. You specify a computational resource (either an Amazon EC2 instance or an Amazon EMR cluster) for the `runsOn` field of an activity object. When AWS Data Pipeline launches this resource, it installs Task Runner on that resource and configures it to process all activity objects that have their `runsOn` field set to that resource. When AWS Data Pipeline terminates the resource, the Task Runner logs are published to an Amazon S3 location before it shuts down.
 
-![Task runner life cycle on an AWS Data Pipeline-managed resource](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-task-runner-managed-emr-jobflow.png)
+![Task runner life cycle on an AWS Data Pipeline-managed resource](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-task-runner-managed-emr-jobflow.png)
 
 
  For example, if you use the `EmrActivity` in a pipeline, and specify an `EmrCluster` resource in the `runsOn` field. When AWS Data Pipeline processes that activity, it launches an Amazon EMR cluster and installs Task Runner onto the master node. This Task Runner then processes the tasks for activities that have their `runsOn` field set to that `EmrCluster` object. The following excerpt from a pipeline definition shows this relationship between the two objects. 

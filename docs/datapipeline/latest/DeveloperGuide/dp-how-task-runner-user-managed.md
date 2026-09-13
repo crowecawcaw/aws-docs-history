@@ -17,7 +17,7 @@ To use Task Runner 2.0, the minimum Java version needed is 1.7.
 
 To connect a Task Runner that you've installed to the pipeline activities it should process, add a `workerGroup` field to the object, and configure Task Runner to poll for that worker group value. You do this by passing the worker group string as a parameter (for example, `--workerGroup=wg-12345`) when you run the Task Runner JAR file. 
 
-![Data Pipeline polling Task Runner on a server using workerGroup parameter wg-12345.](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-task-runner-user-emr-jobflow.png)
+![Data Pipeline polling Task Runner on a server using workerGroup parameter wg-12345.](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-task-runner-user-emr-jobflow.png)
 
 
 ```

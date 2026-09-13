@@ -19,7 +19,7 @@ Make a note of the user name and the password you used for creating the MySQL in
 + Connect to your MySQL database instance, create a table, and then add test data values to the newly created table.
 
   For illustration purposes, we created this tutorial using a MySQL table with the following configuration and sample data. The following screen shot is from MySQL Workbench 5.2 CE:   
-![Sample MySQL table configuration](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-tutorial-rdstos3-sampletable.png)
+![Sample MySQL table configuration](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-tutorial-rdstos3-sampletable.png)
 
   For more information, see [Create a Table](https://dev.mysql.com/doc/refman/8.0/en/creating-tables.html) in the MySQL documentation and the [MySQL Workbench product page](http://www.mysql.com/products/workbench/).
 + Create a topic for sending email notification and make a note of the topic Amazon Resource Name (ARN). For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/gsg/CreateTopic.html) in *Amazon Simple Notification Service Getting Started Guide*.

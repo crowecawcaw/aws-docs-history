@@ -111,7 +111,7 @@ You can view clusters launched by AWS Data Pipeline using the Amazon EMR console
 1. Open the Amazon EMR console.
 
 1. The clusters that were spawned by AWS Data Pipeline have a name formatted as follows: {{<pipeline-identifier>}}\_@{{<emr-cluster-name>}}\_{{<launch-time>}}.  
-![Cluster list showing two running clusters with IDs and names formatted as pipeline identifiers.](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-emr-scenario-starting.png)
+![Cluster list showing two running clusters with IDs and names formatted as pipeline identifiers.](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-emr-scenario-starting.png)
 
 1. After one of the runs is complete, open the Amazon S3 console and check that the time-stamped output folder exists and contains the expected results of the cluster.  
-![S3 bucket folder list showing three timestamped folders from June 29, 2014.](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-emr-scenario-output.png)
+![S3 bucket folder list showing three timestamped folders from June 29, 2014.](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/images/dp-emr-scenario-output.png)
