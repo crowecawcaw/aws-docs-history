@@ -13,7 +13,7 @@ As depicted in the following illustration, Incident Manager provides tools and b
 + [Investigation and mitigation](#investigation-mitigation)
 + [Post-incident analysis](#lifecycle-post-incident-analysis)
 
-![The incident lifecycle includes alerting, engagement, triage, investigation, and analysis.](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/incident-lifecycle.png)
+![The incident lifecycle includes alerting, engagement, triage, investigation, and analysis.](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/incident-lifecycle.png)
 
 
 ## Alerting and engagement

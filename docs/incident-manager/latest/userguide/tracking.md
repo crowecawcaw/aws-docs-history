@@ -25,7 +25,7 @@ The **Incident details** page provides detailed insights and tools you can use t
 
 As shown in the following image, the **Incident details** page includes several sections: Top banner, **Incident notes**, and seven tabs that contain additional information and resources. By default, the Top banner and **Incident notes** sections are displayed on all **Incident details** pages.
 
-![The Incident details page includes 7 tabs with information related to an incident.](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/incident-details.png)
+![The Incident details page includes 7 tabs with information related to an incident.](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/incident-details.png)
 
 
 This topic explains elements of the **Incident details** page and actions that you can perform from the page. 

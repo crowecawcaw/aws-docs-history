@@ -97,7 +97,7 @@ For information about managing your contacts and contacts notification options, 
 
 1. Choose **Confirm**.
 
-1. To change a contact's position in the order, select the radio button for that user and use the Up (![)The Up button](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-Up.png)) and Down (![)The Down button](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-Down.png)) buttons to update the contact order.
+1. To change a contact's position in the order, select the radio button for that user and use the Up (![)The Up button](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-Up.png)) and Down (![)The Down button](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-Down.png)) buttons to update the contact order.
 
 1. Continue by [specifying individual shift recurrence and length](#on-call-schedule-rotation-recurrence-and-tags) for the rotation.
 

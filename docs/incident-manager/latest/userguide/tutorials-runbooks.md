@@ -306,7 +306,7 @@ To verify that the CloudWatch alarm creates an incident and then processes the r
 1. View the actions performed on your Amazon EC2 instance in the **Runbook steps** section. 
 
    The following image demonstrates how the steps taken by the runbook you created in this tutorial are reported in the console. Each step is listed with a timestamp and a status message.  
-![Steps from an Automation runbook are reported with timestamps and status reports, such as "Success".](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/tutorial-runbooks-1.png)
+![Steps from an Automation runbook are reported with timestamps and status reports, such as "Success".](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/tutorial-runbooks-1.png)
 
    To view all of the details in the CloudWatch alarm, expand the **JsonDecode2** step, and then expand **Output**.
 

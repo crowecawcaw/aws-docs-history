@@ -14,7 +14,7 @@ Tags don't have any semantic meaning. They are interpreted strictly as a string 
 
 You can add or remove tags by using the Incident Manager console. The following screenshot displays the **Tags** area of a console page, with fields for adding tag keys and values, and buttons for adding and removing tags.
 
-![A Tags section in Incident Manager console pages lets you add multiple tag key-value pairs to a resource.](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/tags.png)
+![A Tags section in Incident Manager console pages lets you add multiple tag key-value pairs to a resource.](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/tags.png)
 
 
 To work with tags programmatically, use the following API actions:

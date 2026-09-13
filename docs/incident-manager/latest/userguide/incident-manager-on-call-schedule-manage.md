@@ -31,11 +31,11 @@ You can access an at-a-glance summary of an on-call schedule on the **View on-ca
      -or-
 
      Select the radio button for the row, and then choose **View**.
-   + To open a calendar view of the schedule, choose **View calendar** ![The View calendar button](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-calendar.png)
+   + To open a calendar view of the schedule, choose **View calendar** ![The View calendar button](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-calendar.png)
 
      In calendar view, choose the name of a contact on a specific date in the schedule to see details about the assigned shift or create an override,.
    + To turn on or turn off the display of a specific rotation in the calendar, choose the toggle next to the rotation's name.  
-![Toggle buttons shown in on and off position in an on-call calendar preview.](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-calendar-toggles.png)
+![Toggle buttons shown in on and off position in an on-call calendar preview.](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-calendar-toggles.png)
 
 ## Editing an on-call schedule
 <a name="on-call-schedule-edit"></a>
@@ -98,7 +98,7 @@ You can only assign contacts to an override that are already assigned to the rot
 
 In the calendar preview, overridden shifts are shown with a striped background instead of a solid background. The following image demonstrates that the contact named Zhang Wei is on call in an override. The override include parts of the shifts for John Doe and Martha Rivera, starting May 5th and ending May 11th.
 
-![A schedule calendar demonstrates an override shift covering parts of two other shifts.](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-rotation-override-example.png)
+![A schedule calendar demonstrates an override shift covering parts of two other shifts.](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-rotation-override-example.png)
 
 
 **To create an override for an on-call schedule**
@@ -109,7 +109,7 @@ In the calendar preview, overridden shifts are shown with a striped background i
 
 1. In the row for the on-call schedule to view, do one of the following:
    + Choose the schedule alias, then choose the **Schedule calendar** tab.
-   + Choose **View calendar** ![)The Calendar button](http://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-calendar.png).
+   + Choose **View calendar** ![)The Calendar button](https://docs.aws.amazon.com/incident-manager/latest/userguide/images/on-call-calendar.png).
 
 1. Do one of the following:
    + Choose **Create override**.
