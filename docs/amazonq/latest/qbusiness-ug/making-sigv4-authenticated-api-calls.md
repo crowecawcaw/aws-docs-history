@@ -20,7 +20,7 @@ This page provides an overview of the workflows needed to obtain AWS Sig V4 cred
 
 The following diagram shows how your custom application components interact with AWS services to make authenticated API calls:
 
-![Sequence diagram showing a 12-step authentication flow for Amazon Q Business custom applications. The flow shows an end user accessing a custom app frontend, which requests Amazon Q Business data from the trusted backend. The backend exchanges tokens with an external IdP, IAM Identity Center, and AWS STS to obtain SigV4 credentials for authenticated API calls to Amazon Q Business APIs.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/qbusiness-sigv4-authentication-flow.png)
+![Sequence diagram showing a 12-step authentication flow for Amazon Q Business custom applications. The flow shows an end user accessing a custom app frontend, which requests Amazon Q Business data from the trusted backend. The backend exchanges tokens with an external IdP, IAM Identity Center, and AWS STS to obtain SigV4 credentials for authenticated API calls to Amazon Q Business APIs.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/qbusiness-sigv4-authentication-flow.png)
 
 
 **Key components:**

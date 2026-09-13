@@ -19,7 +19,7 @@ The following tabs provide a procedure for retrieving XPaths required for your A
 1. Make sure you're on the web page you want to crawl. Then, either select or click on the web page element you want to retrieve the XPath for. This could be the username or password fields, or the username and password buttons.
 
 1. Then, open the context (right-click) menu and then choose the **Inspect** option.  
-![Screenshot showing how to use browser developer tools to inspect an HTML element for extracting its XPath. The image highlights the element selection process in the developer tools interface.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/xpath-1.png)
+![Screenshot showing how to use browser developer tools to inspect an HTML element for extracting its XPath. The image highlights the element selection process in the developer tools interface.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/xpath-1.png)
 
    In the **Developer Tools** window that opens, the details for the element you've chosen will be highlighted.
 
@@ -28,7 +28,7 @@ The following tabs provide a procedure for retrieving XPaths required for your A
 1. Choose **Copy**.
 
 1. Then, choose **Copy XPath**.  
-![Screenshot showing the context menu in browser developer tools with the "Copy XPath" option highlighted, demonstrating how to copy the XPath of a selected HTML element.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/xpath-2.png)
+![Screenshot showing the context menu in browser developer tools with the "Copy XPath" option highlighted, demonstrating how to copy the XPath of a selected HTML element.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/xpath-2.png)
 
 1. Then, open a text editor of your choice and paste the XPath you copied. The format of the XPath will look like this: `//tagname[@Attribute='Value']`.
 
@@ -42,7 +42,7 @@ The following tabs provide a procedure for retrieving XPaths required for your A
 1. Make sure you're on the web page you want to crawl. Then, either select or click on the web page element you want to retrieve the XPath for. This could be the username or password fields, or the username and password buttons.
 
 1. Then, open the context (right-click) menu and then choose the **Inspect** option.  
-![Screenshot showing another example of using browser developer tools to inspect an HTML element, with the element properties panel visible on the right side.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/xpath-3.png)
+![Screenshot showing another example of using browser developer tools to inspect an HTML element, with the element properties panel visible on the right side.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/xpath-3.png)
 
    In the **Developer Tools** window that opens, the details for the element you've chosen will be highlighted.
 
@@ -51,7 +51,7 @@ The following tabs provide a procedure for retrieving XPaths required for your A
 1. Choose **Copy**.
 
 1. Then, choose **Copy XPath**.  
-![Screenshot showing the context menu in browser developer tools with various options including "Copy XPath" for extracting the XPath of a selected HTML element.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/xpath-4.png)
+![Screenshot showing the context menu in browser developer tools with various options including "Copy XPath" for extracting the XPath of a selected HTML element.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/xpath-4.png)
 
 1. Then, open a text editor of your choice and paste the XPath you copied. The format of the XPath will look like this: `//tagname[@Attribute='Value']`.
 

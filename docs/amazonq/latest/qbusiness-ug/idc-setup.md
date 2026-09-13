@@ -100,4 +100,4 @@ When you create a cross-region IAM Identity Center and Amazon Q Business integra
 
 Once you opt-in, you will see the option to create a cross-region connection during the [Amazon Q Business application creation process](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/create-application.html), as in the following image:
 
-![An console screenshot of the cross-region IDC enabling option.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/cross-region-idc.png)
+![An console screenshot of the cross-region IDC enabling option.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/cross-region-idc.png)

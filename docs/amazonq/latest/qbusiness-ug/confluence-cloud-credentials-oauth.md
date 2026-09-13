@@ -36,42 +36,42 @@ To connect Confluence (Cloud) to Amazon Q using OAuth 2.0 authentication, you ne
 1. Log in to your account from the [Atlassian Developer page](https://developer.atlassian.com/).
 
 1. Select the profile icon from the top-right corner. Then, from the dropdown menu that opens, select **Developer Console**.  
-![Screenshot of the Atlassian Developer Console showing the "Create" button and options for creating a new integration.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-4.png)
+![Screenshot of the Atlassian Developer Console showing the "Create" button and options for creating a new integration.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-4.png)
 
 1. From the **Welcome** page, select **Create** and then select **OAuth 2.0 integration**.  
-![Screenshot of the Atlassian Developer Console welcome page showing the "Create" dropdown menu with the "OAuth 2.0 integration" option highlighted.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-5.png)
+![Screenshot of the Atlassian Developer Console welcome page showing the "Create" dropdown menu with the "OAuth 2.0 integration" option highlighted.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-5.png)
 
 1. On the **Create a new OAuth 2.0 (3LO) integration** page, for **Name**, enter a name for the OAuth 2.0 application you are creating. Then, select the **I agree to be bound by Atlassian's developer terms** checkbox, and select **Create**.  
-![Screenshot of the "Create a new OAuth 2.0 (3LO) integration" page where users enter a name for the OAuth application and agree to the Atlassian developer terms.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-6.png)
+![Screenshot of the "Create a new OAuth 2.0 (3LO) integration" page where users enter a name for the OAuth application and agree to the Atlassian developer terms.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-6.png)
 
    The console will display a summary page outlining the details of the OAuth 2.0 app created.   
-![Screenshot of the OAuth 2.0 app summary page showing details of the created application including name, ID, and other configuration information.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-7.png)
+![Screenshot of the OAuth 2.0 app summary page showing details of the created application including name, ID, and other configuration information.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-7.png)
 
 1. From the left navigation menu, choose **Authorization**.
 
 1. From the **Authorization** page, choose **Add** to add **OAuth 2.0 (3LO)** to your app.  
-![Screenshot of the OAuth 2.0 app's Authorization page showing the "Add callback URL" button that users need to click to configure the callback URL for the OAuth flow.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-8.png)
+![Screenshot of the OAuth 2.0 app's Authorization page showing the "Add callback URL" button that users need to click to configure the callback URL for the OAuth flow.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-8.png)
 
 1. On the **OAuth 2.0 authorization code grants (3LO) for apps**, enter the Confluence (Cloud) URL you copied as the **Callback URL** and then choose **Save changes**.  
-![Screenshot of the "OAuth 2.0 authorization code grants (3LO) for apps" section showing the Callback URL field where users enter the Confluence URL for the OAuth redirect.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-9.png)
+![Screenshot of the "OAuth 2.0 authorization code grants (3LO) for apps" section showing the Callback URL field where users enter the Confluence URL for the OAuth redirect.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-9.png)
 
 1. From the **Authorization URL generator** section that appears, choose **Add APIs** to add APIs to your app. This will redirect you to the **Permissions** page.
 
 1. On the **Permissions** page, for **Scopes**, navigate to **User Identity API**. Select **Add**, and then select **Configure**.  
-![Screenshot of the Permissions page showing the "User Identity API" option that needs to be selected to configure user identity permissions for the OAuth app.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-10.png)
+![Screenshot of the Permissions page showing the "User Identity API" option that needs to be selected to configure user identity permissions for the OAuth app.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-10.png)
 
 1. On the **User Identity API** page, choose **Edit Scopes**, and the add the following `read` scopes:
    + **`read:me`** – View active user profile
    + **`read:account`** – View user profiles  
-![Screenshot of the User Identity API permissions page showing the available scopes that can be selected for the OAuth application, with read scopes highlighted.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-12.png)
+![Screenshot of the User Identity API permissions page showing the available scopes that can be selected for the OAuth application, with read scopes highlighted.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-12.png)
 
    Then, select **Save**.
 
 1. Return to the **Permissions** page. From **Scopes**, navigate to **Confluence API**. Select **Add**, and the select **Configure**.  
-![Screenshot of the Permissions page showing the Confluence API option that needs to be selected to configure API permissions for accessing Confluence content.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-11.png)
+![Screenshot of the Permissions page showing the Confluence API option that needs to be selected to configure API permissions for accessing Confluence content.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-11.png)
 
 1. Navigate to the **Granular scopes** page.  
-![Screenshot of the Confluence API Granular scopes page showing the available API permission scopes that can be configured for the OAuth application.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-14.png)
+![Screenshot of the Confluence API Granular scopes page showing the available API permission scopes that can be configured for the OAuth application.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-14.png)
 
    Then, choose **Edit Scopes**, and the add the following `read` scopes:
    + **`read:content:confluence`** – View detailed contents 
@@ -202,7 +202,7 @@ You must create an OAuth 2.0 app before you can retrieve the client ID and clien
 + From the left navigation menu, choose **Settings**. Then, scroll down to **Authentication details** section and copy and save the following in a text editor of your choice:
   + Client ID – You will enter this as **App key** in the Amazon Q console.
   + Client Secret – You will enter this as **App secret** in the Amazon Q console.  
-![Screenshot of the OAuth application details page showing the client ID and client secret that need to be copied for API authentication with Confluence.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-15.png)
+![Screenshot of the OAuth application details page showing the client ID and client secret that need to be copied for API authentication with Confluence.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-15.png)
 
   You will need these to generate your Confluence (Cloud) OAuth 2.0 token and also to connect Amazon Q to Confluence (Cloud).
 
@@ -222,7 +222,7 @@ To connect Confluence (Cloud) to Amazon Q, you need to generate an access token.
 1. From the left navigation menu, choose **Authorization** again. Then, for **OAuth 2.0 (3LO)**, choose **Configure**.
 
 1. From the **Authorization** page, from **Authorization URL generator**, from **Granular Confluence API authorization URL**, copy the URL and save it in a text editor of your choice.  
-![Authorization page with Granular Confluence API authorization URL field highlighted.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-16.png)
+![Authorization page with Granular Confluence API authorization URL field highlighted.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-16.png)
 
    The URL is of the following format:
 
@@ -242,7 +242,7 @@ To connect Confluence (Cloud) to Amazon Q, you need to generate an access token.
    For more information, see [What is the state parameter used for?](https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/#what-is-the-state-parameter-used-for-) in Atlassian Support.
 
 1. Open a web browser of your choice. Then, paste the authorization URL you copied into the browser URL. On the page that opens up, make sure everything is correct and then select **Accept**.  
-![Atlassian OAuth consent screen showing app permissions and Accept button highlighted.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-17.png)
+![Atlassian OAuth consent screen showing app permissions and Accept button highlighted.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-17.png)
 
    You will be returned to your Confluence (Cloud) home page.
 
@@ -265,7 +265,7 @@ To connect Confluence (Cloud) to Amazon Q, you need to generate an access token.
 1. On the Postman home page, select `POST` as the method, and then enter the following URL in the **Enter URL or paste text** box: `https://auth.atlassian.com/oauth/token`.
 
 1. Then, select **Body** from the menu, and select **raw** **JSON**.  
-![Postman interface showing JSON body with OAuth token request parameters including grant_type and client_id.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-18.png)
+![Postman interface showing JSON body with OAuth token request parameters including grant_type and client_id.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-18.png)
 
 1. In the text box, enter the following code extract, replacing the fields with your credential values:
 
@@ -297,7 +297,7 @@ To do this, you add a `%20offline_access` parameter to the end of the `scope` va
 1. From the left navigation menu, choose **Authorization** again. Then, for **OAuth 2.0 (3LO)**, choose **Configure**.
 
 1. From the **Authorization** page, from **Authorization URL generator**, from **Granular Confluence API authorization URL**, copy the URL and save it in a text editor of your choice.  
-![Authorization page with Granular Confluence API authorization URL field highlighted.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-16.png)
+![Authorization page with Granular Confluence API authorization URL field highlighted.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-16.png)
 
 1. In the saved authorization URL, update the `state=${YOUR_USER_BOUND_VALUE}` parameter value to any text of your choice. For example, `state=`{{sample\_text}}.
 
@@ -317,7 +317,7 @@ To do this, you add a `%20offline_access` parameter to the end of the `scope` va
    ```
 
 1. Open a web browser of your choice and paste the modified authorization URL you copied into the browser URL. On the page that opens up, make sure everything is correct and then select **Accept**.  
-![Atlassian OAuth consent screen showing app permissions and Accept button highlighted.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-17.png)
+![Atlassian OAuth consent screen showing app permissions and Accept button highlighted.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-17.png)
 
    You will be returned to the Confluence (Cloud) console.
 
@@ -340,7 +340,7 @@ To do this, you add a `%20offline_access` parameter to the end of the `scope` va
 1. On the Postman home page, select `POST` as the method, and then enter the following URL in the **Enter URL or paste text** box: `https://auth.atlassian.com/oauth/token`.
 
 1. Then, select **Body** from the menu, and select **raw** **JSON**.  
-![Postman interface showing JSON body with OAuth token request parameters including grant_type and client_id.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-18.png)
+![Postman interface showing JSON body with OAuth token request parameters including grant_type and client_id.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-18.png)
 
 1. In the text box, enter the following code extract, replacing the fields with your credential values:
 
@@ -383,7 +383,7 @@ You can use the refresh token you generated to create a new access token-refresh
 1. On the Postman home page, select `POST` as the method, and then enter the following URL in the **Enter URL or paste text** box: `https://auth.atlassian.com/oauth/token`.
 
 1. Then, select **Body** from the menu, and select **raw** **JSON**.  
-![Screenshot of the Postman interface showing how to set up a POST request to refresh an access token using the refresh token.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-20.png)
+![Screenshot of the Postman interface showing how to set up a POST request to refresh an access token using the refresh token.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-20.png)
 
 1. In the text box, enter the following code extract, replacing the fields with your credential values:
 

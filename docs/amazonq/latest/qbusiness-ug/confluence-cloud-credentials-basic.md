@@ -16,13 +16,13 @@ You can connect Amazon Q to Confluence (Cloud) using basic authentication creden
 1. Then, go to [Security]( https://id.atlassian.com/manage-profile/security/api-tokens.) page in Confluence (Cloud).
 
 1. From the **API tokens** page, select **Create API token**.  
-![Screenshot of the Atlassian account settings page showing where to access API tokens.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-1.png)
+![Screenshot of the Atlassian account settings page showing where to access API tokens.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-1.png)
 
 1. In the **Create an API token** dialog box that opens, for **Label**, add a name for your API token. Then, select **Create**.  
-![Screenshot of the "Create an API token" dialog box where users enter a label for their API token.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-2.png)
+![Screenshot of the "Create an API token" dialog box where users enter a label for their API token.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-2.png)
 
 1. From the **Your new API token** dialog box, copy the API token and save it in a text editor of your choice. You can't retrieve the API token once you close the dialog box.  
-![Screenshot of the "Your new API token" dialog box displaying the generated API token that needs to be copied and saved.](http://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-3.png)
+![Screenshot of the "Your new API token" dialog box displaying the generated API token that needs to be copied and saved.](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/images/confluence-3.png)
 
 1. Select **Close**.
 
