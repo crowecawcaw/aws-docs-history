@@ -10,7 +10,7 @@ This architecture connects AWS GovCloud (US) and commercial Regions using [AWS S
 ## GovCloud hybrid connectivity with AWS Site-to-Site VPN architecture
 <a name="gvpn-diagram1"></a>
 
-![Architecture diagram showing hybrid connectivity between AWS GovCloud and commercial Regions using AWS Site-to-Site VPN with Transit Gateway and a VPN concentrator.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/govcloud-hybrid-connectivity/images/govcloud-hybrid-connectivity-2.png)
+![Architecture diagram showing hybrid connectivity between AWS GovCloud and commercial Regions using AWS Site-to-Site VPN with Transit Gateway and a VPN concentrator.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/govcloud-hybrid-connectivity/images/govcloud-hybrid-connectivity-2.png)
 
 
 The following steps describe the data flow in this architecture:

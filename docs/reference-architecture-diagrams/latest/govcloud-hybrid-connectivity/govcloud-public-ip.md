@@ -10,7 +10,7 @@ This architecture connects AWS GovCloud (US) and commercial Regions using public
 ## GovCloud hybrid connectivity with public IP addressing architecture
 <a name="gpub-diagram1"></a>
 
-![Architecture diagram showing hybrid connectivity between AWS GovCloud and commercial Regions using public IP addresses with traffic staying on the AWS global network.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/govcloud-hybrid-connectivity/images/govcloud-hybrid-connectivity-1.png)
+![Architecture diagram showing hybrid connectivity between AWS GovCloud and commercial Regions using public IP addresses with traffic staying on the AWS global network.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/govcloud-hybrid-connectivity/images/govcloud-hybrid-connectivity-1.png)
 
 
 The following steps describe the data flow in this architecture:

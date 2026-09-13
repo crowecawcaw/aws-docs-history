@@ -10,7 +10,7 @@ This architecture connects AWS GovCloud (US) and commercial Regions using [AWS T
 ## GovCloud hybrid connectivity with Transit Gateway connect attachment architecture
 <a name="gtgw-diagram1"></a>
 
-![Architecture diagram showing hybrid connectivity between AWS GovCloud and commercial Regions using Transit Gateway connect attachments with GRE tunneling and SD-WAN appliances.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/govcloud-hybrid-connectivity/images/govcloud-hybrid-connectivity-4.png)
+![Architecture diagram showing hybrid connectivity between AWS GovCloud and commercial Regions using Transit Gateway connect attachments with GRE tunneling and SD-WAN appliances.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/govcloud-hybrid-connectivity/images/govcloud-hybrid-connectivity-4.png)
 
 
 The following steps describe the data flow in this architecture:
