@@ -5,7 +5,7 @@
 
 Third-party services follow this process in the Connect Customer agent workspace:
 
-![Agent workspace third-party service lifecycle flow chart.](http://docs.aws.amazon.com/agentworkspace/latest/devguide/images/building-3p-services-startup-process-1.png)
+![Agent workspace third-party service lifecycle flow chart.](https://docs.aws.amazon.com/agentworkspace/latest/devguide/images/building-3p-services-startup-process-1.png)
 
 
 1. **Agent workspace startup**: When an agent logs in and the agent workspace starts loading, all configured services will begin their startup process.

@@ -113,4 +113,4 @@ Create a new third-party service by creating a third-party application with the 
 + Set a `InitializationTimeout` in milliseconds up to 10000 (10 seconds)
   + The InitializationTimeout parameter controls the maximum time allowed for the initial handshake/connection between the service and the agent workspace. This is required to be set for applications configured with isService to true.
 
-![Screenshot of the AWS console that shows third-party application service selected.](http://docs.aws.amazon.com/agentworkspace/latest/devguide/images/building-3p-services-aws-console-setup-1.png)
+![Screenshot of the AWS console that shows third-party application service selected.](https://docs.aws.amazon.com/agentworkspace/latest/devguide/images/building-3p-services-aws-console-setup-1.png)

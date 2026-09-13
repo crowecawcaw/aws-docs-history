@@ -30,7 +30,7 @@ AppManager provides APIs to discover, launch, and manage AWS-managed application
 
 The following diagram illustrates the components and integration flow for AWS-managed applications using Streams and AppManager.
 
-![Integration architecture diagram showing AWS-managed applications with Streams and AppManager.](http://docs.aws.amazon.com/agentworkspace/latest/devguide/images/integrate-aws-managed-apps-with-streams.png)
+![Integration architecture diagram showing AWS-managed applications with Streams and AppManager.](https://docs.aws.amazon.com/agentworkspace/latest/devguide/images/integrate-aws-managed-apps-with-streams.png)
 
 
 Application launch follows this sequence:
