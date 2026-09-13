@@ -73,7 +73,7 @@ This section provides step by step instructions on how to collect the necessary 
 1. Determine row size
 
    Row size is important for determining the read capacity and write capacity utilization in Amazon Keyspaces. The following diagram shows the typical data distribution over a Cassandra token range.   
-![A diagram showing the typical data distribution over a Cassandra token range using the murmur3 partitioner.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-data-distribution.png)
+![A diagram showing the typical data distribution over a Cassandra token range using the murmur3 partitioner.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-data-distribution.png)
 
    You can use a row size sampler script available on [GitHub](https://github.com/aws-samples/amazon-keyspaces-toolkit/blob/master/bin/row-size-sampler.sh) to collect row size metrics for each table in your Cassandra cluster. 
 
@@ -137,7 +137,7 @@ This section provides step by step instructions on how to collect the necessary 
     To gather the most accurate utilization metrics from your existing Cassandra cluster, capture the average requests per second (RPS) for coordinator-level read and write operations over an extended period of time for a table that is aggregated over all nodes in a single data center. 
 
    Capturing the average RPS over a period of at least several weeks captures peaks and valleys in your traffic patterns, as shown in the following diagram.  
-![A diagram showing the average rate of requests per second per day over a period of two weeks.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-rps.png)
+![A diagram showing the average rate of requests per second per day over a period of two weeks.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-rps.png)
 
    You have two options to determine the read and write request rate of your Cassandra table.
    + Use existing Cassandra monitoring

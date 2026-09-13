@@ -17,4 +17,4 @@ Only data models that have been created with `SimpleStrategy` or `NetworkTopolog
 
 1. Choose **Commit** to update the Apache Cassandra cluster with the data model.
 
-![Console screenshot that shows a connection to Apache Cassandra.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_cassandra.png)
+![Console screenshot that shows a connection to Apache Cassandra.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_cassandra.png)

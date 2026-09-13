@@ -52,7 +52,7 @@ To create data in your `book_awards` table, use the `INSERT` statement to add a 
 **To insert multiple records from a file using cqlsh**
 
 1. Download the sample CSV file (`keyspaces_sample_table.csv`) contained in the archive file [samplemigration.zip](samples/samplemigration.zip). Unzip the archive and take note of the path to `keyspaces_sample_table.csv`.  
-![Screenshot of a CSV file showing the output of the table after importing the csv file.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces-awards.png)
+![Screenshot of a CSV file showing the output of the table after importing the csv file.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces-awards.png)
 
 1. Open AWS CloudShell in the AWS Management Console and connect to Amazon Keyspaces using the following command. Make sure to update {{us-east-1}} with your own Region.
 

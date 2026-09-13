@@ -24,7 +24,7 @@ Depending on your data retention requirements, for example how much historical d
   Consider the following example of a migration from Cassandra to Amazon Keyspaces using TTL data expiration. In this example we set TTL for both databases to 60 days and show how the migration process progresses over a period of 90 days. Both databases receive the same newly written data during this period using the dual writes method. We're going to look at three different phases of the migration, each phase is 30 days long. 
 
   How the migration process works for each phase is shown in the following images.   
-![Using TTL to expire historical data when migrating from Apache Cassandra to Amazon Keyspaces.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/online-migration-TTL.png)
+![Using TTL to expire historical data when migrating from Apache Cassandra to Amazon Keyspaces.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/online-migration-TTL.png)
 
   1. After the first 30 days, the Cassandra cluster and Amazon Keyspaces have been receiving new writes. The Cassandra cluster also contains historical data that has not yet reached 60 days of retention, which makes up 50% of the data in the cluster. 
 

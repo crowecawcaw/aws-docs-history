@@ -23,4 +23,4 @@ In cases where writes are not idempotent, you also need to compare your writes w
 
 The following diagram shows the typical architecture of a CDC pipeline using Debezium and Amazon MSK. 
 
-![Using a change data capture pipeline to migrate data from Apache Cassandra to Amazon Keyspaces.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/hybrid-migration-CDC.png)
+![Using a change data capture pipeline to migrate data from Apache Cassandra to Amazon Keyspaces.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/hybrid-migration-CDC.png)

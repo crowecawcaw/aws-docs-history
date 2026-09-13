@@ -208,15 +208,15 @@ You can use the AWS CLI to execute the following steps to create a scheduled aut
 
 The following picture shows a sample workload that always keeps the 70% target utilization. Notice how the auto scaling rules are still applying and the throughput is not getting reduced.
 
-![A graph that shows write usage in units per second comparing provisioned to consumed capacity over the period of one day.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/AutoScalingSettings3.png)
+![A graph that shows write usage in units per second comparing provisioned to consumed capacity over the period of one day.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/AutoScalingSettings3.png)
 
 
 Zooming in, we can see there was a spike in the application that triggered the 70% auto scaling threshold, forcing the autoscaling to kick in and provide the extra capacity required for the table. The scheduled auto scaling action will affect maximum and minimum values, and it's your responsibility to set them up.
 
-![A more detailed view of the graph that shows write usage in units per second comparing provisioned to consumed capacity, zooming in on a specific time.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/AutoScalingSettings4.png)
+![A more detailed view of the graph that shows write usage in units per second comparing provisioned to consumed capacity, zooming in on a specific time.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/AutoScalingSettings4.png)
 
 
-![Showing the detailed view of the graph that shows write usage in units per second comparing provisioned to consumed capacity over the period of one day.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/AutoScalingSettings5.png)
+![Showing the detailed view of the graph that shows write usage in units per second comparing provisioned to consumed capacity over the period of one day.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/AutoScalingSettings5.png)
 
 
 ## How to address spiky workloads with unknown patterns

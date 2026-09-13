@@ -25,4 +25,4 @@ This section shows how to use IAM credentials to commit the data model created o
 
 1. Choose **Commit** to update Amazon Keyspaces with the data model.
 
-![Console screenshot that shows a connection to Amazon Keyspaces using IAM credentials.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_IAM.png)
+![Console screenshot that shows a connection to Amazon Keyspaces using IAM credentials.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_IAM.png)

@@ -19,7 +19,7 @@ A client program accesses Cassandra by connecting to one of the nodes and issuin
 
 The following diagram shows a simple Apache Cassandra cluster, consisting of four nodes.
 
-![Diagram of an Apache Cassandra cluster containing 4 nodes and interacting with client application.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_cassandra-hi-level.png)
+![Diagram of an Apache Cassandra cluster containing 4 nodes and interacting with client application.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_cassandra-hi-level.png)
 
 
 A production Cassandra deployment might consist of hundreds of nodes, running on hundreds of physical computers across one or more physical data centers. This can cause an operational burden for application developers who need to provision, patch, and manage servers in addition to installing, maintaining, and operating software. 
@@ -36,7 +36,7 @@ Amazon Keyspaces (for Apache Cassandra) stores three copies of your data in mult
 
 The following diagram shows the architecture of Amazon Keyspaces.
 
-![Diagram of Amazon Keyspaces interacting with client application.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces-hi-level.png)
+![Diagram of Amazon Keyspaces interacting with client application.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces-hi-level.png)
 
 
 A client program accesses Amazon Keyspaces by connecting to a predetermined endpoint (hostname and port number) and issuing CQL statements. For a list of available endpoints, see [Service endpoints for Amazon Keyspaces](programmatic.endpoints.md).

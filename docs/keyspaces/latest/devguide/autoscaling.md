@@ -17,7 +17,7 @@ To get started with Amazon Keyspaces automatic scaling quickly, see [Configure a
 
 The following diagram provides a high-level overview of how Amazon Keyspaces automatic scaling manages throughput capacity for a table.
 
-![A diagram showing the different services involved when a user makes a change to an Amazon Keyspaces table. The services are Amazon CloudWatch, Amazon SNS, and Application Auto Scaling, which issues the ALTER TABLE statement to change the capacity based on the users read or write usage.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_auto-scaling.png)
+![A diagram showing the different services involved when a user makes a change to an Amazon Keyspaces table. The services are Amazon CloudWatch, Amazon SNS, and Application Auto Scaling, which issues the ALTER TABLE statement to change the capacity based on the users read or write usage.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_auto-scaling.png)
 
 
 

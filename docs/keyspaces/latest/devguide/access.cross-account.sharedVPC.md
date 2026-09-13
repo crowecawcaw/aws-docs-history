@@ -12,7 +12,7 @@ In this example we use the following three accounts in a shared VPC:
 + `Account B:222222222222` – This account contains an application in a development environment that needs to connect to the Amazon Keyspaces table in `Account A:111111111111`. 
 + `Account C:333333333333` – This account contains an application in a production environment that needs to connect to the Amazon Keyspaces table in `Account A:111111111111`.
 
-![Diagram showing three different accounts in owned by the same organization in the same AWS Region that use a shared VPC.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_cross-account_sharedVPC.png)
+![Diagram showing three different accounts in owned by the same organization in the same AWS Region that use a shared VPC.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_cross-account_sharedVPC.png)
 
 
 `Account A:111111111111` is the account that contains the resources (an Amazon Keyspaces table) that `Account B:222222222222` and `Account C:333333333333` need to access, so `Account A:111111111111` is the *trusting* account. `Account B:222222222222` and `Account C:333333333333` are the accounts with the principals that need access to the resources (an Amazon Keyspaces table) in `Account A:111111111111`, so `Account B:222222222222` and `Account C:333333333333` are the *trusted* accounts. The trusting account grants the permissions to the trusted accounts by sharing an IAM role. The following procedure outlines the configuration steps required in `Account A:111111111111`.

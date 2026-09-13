@@ -36,7 +36,7 @@ These factors contribute to this type of workload:
 + Variable volume of requests (resulting from batch workloads)
 + Drops to zero or below 18% of the peak for a given hour (resulting from development or test environments)
 
-![Image showing a spiky workload with random peaks in traffic.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/TableCapacityModeOnDemand.png)
+![Image showing a spiky workload with random peaks in traffic.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/TableCapacityModeOnDemand.png)
 
 
 For workloads with the above characteristics, using Application Auto Scaling to maintain enough capacity for the table to respond to spikes in traffic may lead to undesirable outcomes. Either the table could be over-provisioned and costing more than necessary, or the table could be under provisioned and requests are leading to unnecessary low capacity throughput errors. In cases like this, on-demand tables are the better choice.
@@ -52,7 +52,7 @@ The following factors contribute to a predictable workload:
 + Predicable/cyclical traffic for a given hour or day
 + Limited short term bursts of traffic
 
-![Image showing a fairly predictable workload with limited peaks in traffic.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/TableCapacityModeProvisioned.png)
+![Image showing a fairly predictable workload with limited peaks in traffic.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/TableCapacityModeProvisioned.png)
 
 
 Since the traffic volumes within a given time or day are more stable, you can set the provisioned capacity relatively close to the actual consumed capacity of the table. Cost optimizing a provisioned capacity table is ultimately an exercise in getting the provisioned capacity (blue line) as close to the consumed capacity (orange line) as possible without increasing `ThrottledRequests` events for the table. The space between the two lines is both, wasted capacity as well as insurance against a bad user experience due to insufficient throughput capacity errors.

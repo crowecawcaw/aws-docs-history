@@ -19,4 +19,4 @@ This section shows how to use service-specific credentials to commit the data mo
 
 1. Choose **Commit** to update Amazon Keyspaces with the data model.
 
-![Console screenshot that shows a connection to Amazon Keyspaces using service-specific credentials.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_SSC.png)
+![Console screenshot that shows a connection to Amazon Keyspaces using service-specific credentials.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_SSC.png)

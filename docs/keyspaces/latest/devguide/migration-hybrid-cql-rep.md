@@ -15,7 +15,7 @@ The following diagram shows the typical architecture of a CQLReplicator job usin
 
 1. The CQLReplicator job streams verified source database changes directly to Amazon Keyspaces.
 
-![Using CQLReplicator to migrate data from Apache Cassandra to Amazon Keyspaces.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/hybrid-migration-CQLRep.png)
+![Using CQLReplicator to migrate data from Apache Cassandra to Amazon Keyspaces.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/hybrid-migration-CQLRep.png)
 
 
 For more information about the migration process using CQLReplicator, see the following post on the AWS Database blog [ Migrate Cassandra workloads to Amazon Keyspaces using CQLReplicator](https://aws.amazon.com/blogs/database/migrate-cassandra-workloads-to-amazon-keyspaces-using-cqlreplicator/) and the AWS prescriptive guidance [ Migrate Apache Cassandra workloads to Amazon Keyspaces by using AWS Glue](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/migrate-apache-cassandra-workloads-to-amazon-keyspaces-using-aws-glue.html).

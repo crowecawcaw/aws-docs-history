@@ -21,7 +21,7 @@ You can select the type of information or the *view type* that the CDC stream co
 
 Every CDC stream consists of records. Each record represents a single row modification in an Amazon Keyspaces table. Records are logically organized into groups known as *shards*. These groups are logically organized by ranges of the primary key (combination of partition key, clustering key ranges) and are an internal construct of Amazon Keyspaces. Each shard acts as a container for multiple records, and contains information required for accessing and iterating through these records.
 
-![An Amazon Keyspaces CDC stream consists of shards that represent a CDC record of a collection of row mutations.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_cdc.png)
+![An Amazon Keyspaces CDC stream consists of shards that represent a CDC record of a collection of row mutations.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_cdc.png)
 
 
 Each CDC record is assigned a sequence number, reflecting the order in which the record was published within the shard. The sequence number is guaranteed to be increasing and unique within each shard.

@@ -5,4 +5,4 @@
 
 If you have previously set up a connection to Amazon Keyspaces, you can use that as the default connection to commit data model changes. Choose the **Use saved connections** tab and continue to commit the updates.
 
-![Console screenshot that shows the default connection to Amazon Keyspaces.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_connection.png)
+![Console screenshot that shows the default connection to Amazon Keyspaces.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_connection.png)

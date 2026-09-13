@@ -18,7 +18,7 @@ You select the KMS key for a table when you create or update the table. You can 
 Amazon Keyspaces uses a key hierarchy to encrypt data. In this key hierarchy, the KMS key is the root key. It's used to encrypt and decrypt the Amazon Keyspaces table encryption key. The table encryption key is used to encrypt the encryption keys used internally by Amazon Keyspaces to encrypt and decrypt data when performing read and write operations.   
 With the encryption key hierarchy, you can make changes to the KMS key without having to reencrypt data or impacting applications and ongoing data operations.   
 
-![Key hierarchy showing the root key, the table encryption key, and the data encryption key used for encryption at rest.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_encryption.png)
+![Key hierarchy showing the root key, the table encryption key, and the data encryption key used for encryption at rest.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_encryption.png)
 
 
 **Table key**  

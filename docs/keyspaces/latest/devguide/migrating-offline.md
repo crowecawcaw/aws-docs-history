@@ -22,14 +22,14 @@ The offline migration process from Apache Cassandra to Amazon Keyspaces using Am
 1. First you use AWS Glue to export table data from Cassandra in Parquet format and save it to an Amazon S3 bucket. You need to run an AWS Glue job using a AWS Glue connector to a VPC where the Amazon EC2 instance running Cassandra resides. Then, using the Amazon S3 private endpoint, you can save data to the Amazon S3 bucket. 
 
    The following diagram illustrates these steps.  
-![Migrating Apache Cassandra data from Amazon EC2 running in a VPC to a Amazon S3 bucket using AWS Glue.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-export.png)
+![Migrating Apache Cassandra data from Amazon EC2 running in a VPC to a Amazon S3 bucket using AWS Glue.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-export.png)
 
 1. Shuffle the data in the Amazon S3 bucket to improve data randomization. Evenly imported data allows for more distributed traffic in the target table. 
 
    This step is required when exporting data from Cassandra with large partitions (partitions with more than 1000 rows) to avoid hot key patterns when inserting the data into Amazon Keyspaces. Hot key issues cause `WriteThrottleEvents` in Amazon Keyspaces and result in increased load time.   
-![A AWS Glue job shuffles data from a Amazon S3 bucket and returns it into another Amazon S3 bucket.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-shuffle.png)
+![A AWS Glue job shuffles data from a Amazon S3 bucket and returns it into another Amazon S3 bucket.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-shuffle.png)
 
 1. Use another AWS Glue job to import data from the Amazon S3 bucket into Amazon Keyspaces. The shuffled data in the Amazon S3 bucket is stored in Parquet format.  
-![The AWS Glue import job takes shuffled data from the Amazon S3 bucket and moves it into an Amazon Keyspaces table.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-import.png)
+![The AWS Glue import job takes shuffled data from the Amazon S3 bucket and moves it into an Amazon Keyspaces table.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/migration/migration-import.png)
 
 For more information about the offline migration process, see the workshop [ Amazon Keyspaces with AWS Glue](https://catalog.workshops.aws/unlocking-amazonkeyspaces/en-US/keyspaces-with-glue)

@@ -5,7 +5,7 @@
 
 This section shows you how to commit completed data models to Amazon Keyspaces and Apache Cassandra clusters. This process automatically creates the server-side resources for keyspaces and tables based on the settings that you defined in the data model. 
 
-![Console screenshot that shows the commit options.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_commit.png)
+![Console screenshot that shows the commit options.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_commit.png)
 
 
 **Topics**

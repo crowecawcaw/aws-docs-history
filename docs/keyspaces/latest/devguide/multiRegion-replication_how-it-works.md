@@ -24,7 +24,7 @@ Every replica has the same table name and the same primary key schema. When an a
 
 After the data is written, you can read it from the multi-Region table in another replication Region with the `LOCAL_ONE/LOCAL_QUORUM` consistency levels. For more information about supported configurations and features, see [Amazon Keyspaces multi-Region replication usage notes](multiRegion-replication_usage-notes.md). 
 
-![Users are reading and writing data stored in an Amazon Keyspaces table locally in their respective AWS Region while Amazon Keyspaces asynchronously replicates writes between tables in all available Regions.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_multi_Region_replication.png)
+![Users are reading and writing data stored in an Amazon Keyspaces table locally in their respective AWS Region while Amazon Keyspaces asynchronously replicates writes between tables in all available Regions.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces_multi_Region_replication.png)
 
 
 ## Multi-Region replication conflict resolution

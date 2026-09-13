@@ -13,7 +13,7 @@ You can use the NoSQL Workbench data modeler to design new data models based on 
    + **Keyspaces tags** – Resource tags are optional and let you categorize your resources in different ways—for example, by purpose, owner, environment, or other criteria. To learn more about tags for Amazon Keyspaces resources, see [Working with tags and labels for Amazon Keyspaces resources](tagging-keyspaces.md).
 
 1. Choose **Add keyspace definition** to create the keyspace.  
-![Console screenshot that shows how to create a keyspace.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_addkey.png)
+![Console screenshot that shows how to create a keyspace.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_addkey.png)
 
 1. To create a new table, choose the plus sign next to **Tables**. In this step, you define the following properties and settings.
    + **Table name** – The name of the new table.
@@ -29,4 +29,4 @@ You can use the NoSQL Workbench data modeler to design new data models based on 
 
 1. Continue to [Visualizing data models with NoSQL Workbench](workbench.vizualizer.md#workbench.datamodel.visualize) to visualize the data model that you created.
 
-![Console screenshot that shows how to create a new table.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_tableadd.png)
+![Console screenshot that shows how to create a new table.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_tableadd.png)

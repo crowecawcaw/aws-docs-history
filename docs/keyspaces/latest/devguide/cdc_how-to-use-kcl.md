@@ -28,7 +28,7 @@ To process Amazon Keyspaces CDC streams, you can use the design patterns found i
 
 The following diagram shows how these libraries interact with each other.
 
-![Interaction between a client applications and Kinesis Data Streams, KCL, the Amazon Keyspaces Streams Kinesis Adapter, and Amazon Keyspaces APIs when processing Amazon Keyspaces CDC stream records.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces-streams-kinesis-adapter.png)
+![Interaction between a client applications and Kinesis Data Streams, KCL, the Amazon Keyspaces Streams Kinesis Adapter, and Amazon Keyspaces APIs when processing Amazon Keyspaces CDC stream records.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/keyspaces-streams-kinesis-adapter.png)
 
 
 KCL is frequently updated to incorporate newer versions of underlying libraries, security improvements, and bug fixes. We recommend that you use the latest version of KCL to avoid known issues and benefit from all latest improvements. To find the latest KCL version, see [KCL GitHub repository](https://github.com/awslabs/amazon-kinesis-client).

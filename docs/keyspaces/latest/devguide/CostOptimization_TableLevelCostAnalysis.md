@@ -24,7 +24,7 @@ If the table is using provisioned capacity mode, the current read capacity unit 
 
 The default view in Cost Explorer provides charts showing the cost of consumed resources, for example throughput and storage. You can choose to group these costs by period, such as totals by month or by day. The costs of storage, reads, writes, and other categories can be broken out and compared as well.
 
-![Image showing the cost of consumed resources in the Cost Explorer view.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/CostExplorerView.png)
+![Image showing the cost of consumed resources in the Cost Explorer view.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/CostOptimization/CostExplorerView.png)
 
 
 ## How to use and apply table tags in Cost Explorer

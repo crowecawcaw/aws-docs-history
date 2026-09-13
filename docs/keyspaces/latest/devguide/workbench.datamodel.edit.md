@@ -13,7 +13,7 @@ You can use the data modeler to import and modify existing data models created u
    + **Keyspaces tags** – Resource tags are optional and let you categorize your resources in different ways—for example, by purpose, owner, environment, or other criteria. To learn more about tags for Amazon Keyspaces resources, see [Working with tags and labels for Amazon Keyspaces resources](tagging-keyspaces.md).
 
 1. Choose **Save edits** to update the keyspace.  
-![Console screenshot that shows how to edit an existing table.](http://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_table.png)
+![Console screenshot that shows how to edit an existing table.](https://docs.aws.amazon.com/keyspaces/latest/devguide/images/workbench/key_nosql_table.png)
 
 1. To edit a table, choose **Edit** next to the table name. In this step, you can update the following properties and settings.
    + **Table name** – The name of the new table.
