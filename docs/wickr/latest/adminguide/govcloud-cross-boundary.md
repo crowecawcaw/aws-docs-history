@@ -10,7 +10,7 @@ AWS Wickr offers WickrGov client tailored for GovCloud users. The GovCloud Feder
 + An unclassified acknowledgment on the message screen
 + An unclassified banner on top of the conversation
 
-![Three mobile screens showing a chat room interface with message threads and security warnings.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/gov-cloud-cross-boundary.png)
+![Three mobile screens showing a chat room interface with message threads and security warnings.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/gov-cloud-cross-boundary.png)
 
 
 **Note**  

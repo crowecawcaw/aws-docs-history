@@ -16,7 +16,7 @@ Complete the following procedure to send a file.
 1. When you find the user that you want to send a file, select their name.
 
 1. On the **Send File** screen, select **Choose File**, and then navigate to the file that you want to send.  
-![Menu pane for users.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/atak-choose-file.png)
+![Menu pane for users.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/atak-choose-file.png)
 
 1. On the browser window, choose the desired file.
 

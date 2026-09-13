@@ -29,7 +29,7 @@ Refer to the Microsoft Entra documentation for detailed screenshots and troubles
 1. Choose **Register**.
 
 1. After registration, copy/save the Application (Client) ID generated.  
-![Client application ID image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/application-client-id.png)
+![Client application ID image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/application-client-id.png)
 
 1. Select the **Endpoints** tab to make a note of the following:
 
@@ -47,12 +47,12 @@ Complete the following procedure to setup authentication in Microsoft Entra.
 1. In the navigation pane, choose **Authentication**.
 
 1. On the **Authentication** page, make sure that the **Web Redirect URI** is the same as entered previously (in *Register AWS Wickr as an Application*).  
-![Client authentication image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/authentication.png)
+![Client authentication image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/authentication.png)
 
 1. Select **Access tokens used for implicit flows** and **ID tokens used for implicit and hybrid flows**.
 
 1. Choose **Save**.  
-![Request an access token image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/access-tokens.png)
+![Request an access token image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/access-tokens.png)
 
 ## Step 3: Setup certificates and secrets
 <a name="step-3-entra-setup-certificates"></a>
@@ -68,10 +68,10 @@ Complete the following procedure to setup certificates and secrets in Microsoft 
 1. Enter a description and select an expiration period for the secret.
 
 1. Choose **Add**.  
-![Add client secret image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-create-client-secret.png)
+![Add client secret image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-create-client-secret.png)
 
 1. After the certificate is created, copy the **Client secret value**.  
-![An example of a client secret value.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-client-secret-value.png)
+![An example of a client secret value.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-client-secret-value.png)
 **Note**  
 The client secret value (not Secret ID) will be required for your client application code. You may not be able to view or copy the secret value after leaving this page. If you do not copy it now, you will have to go back to create a new client secret.
 
@@ -89,7 +89,7 @@ Complete the following procedure to setup token configuration in Microsoft Entra
 1. After selecting **ID**, under **Claim**, select **email** and **upn**.
 
 1. Choose **Add**.  
-![Token type image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-token-type.png)
+![Token type image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-token-type.png)
 
 ## Step 5: Setup API permissions
 <a name="step-5-entra-setup-api-permissions"></a>
@@ -99,7 +99,7 @@ Complete the following procedure to setup API permissions in Microsoft Entra.
 1. In the navigation pane, choose **API permissions**.
 
 1. On the **API permissions** page, choose **Add a permission**.  
-![Add an permission image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-api-permissions.png)
+![Add an permission image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-api-permissions.png)
 
 1. Select **Microsoft Graph ** and then select **Delegated Permissions **.
 
@@ -115,10 +115,10 @@ Complete the following procedure to expose an API for each of the 4 scopes in Mi
 1. In the navigation pane, choose **Expose an API**.
 
 1. On the **Expose an API** page, choose **Add a scope**.  
-![Expose an API image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-expose-an-api.png)
+![Expose an API image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-expose-an-api.png)
 
    **Application ID URI** should auto populate, and the ID that follows the URI should match the **Application ID** (created in *Register AWS Wickr as an application*).  
-![Add a scope image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-add-scope.png)
+![Add a scope image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-add-scope.png)
 
 1. Choose **Save and continue**.
 
@@ -129,7 +129,7 @@ Complete the following procedure to expose an API for each of the 4 scopes in Mi
 1. Choose **Add scope**.
 
 1. Repeat steps 1—6 of this section to add the following scopes: **email**, **openid**, and **profile**.  
-![Add scopes image.](http://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-scopes-api.png)
+![Add scopes image.](https://docs.aws.amazon.com/wickr/latest/adminguide/images/entra-scopes-api.png)
 
 1. Under **Authorized client applications**, choose **Add a client application**.
 

@@ -16,7 +16,7 @@ Complete the following procedure to install the Wickr plugin for ATAK on an Andr
 
 1. Open the ATAK application on your Android device.
 
-1. In the ATAK application, choose the menu icon (![Menu icon](http://docs.aws.amazon.com/wickr/latest/adminguide/images/atak_hamburger_icon.png)) at the top-right of the screen, and then choose **Plugins**.
+1. In the ATAK application, choose the menu icon (![Menu icon](https://docs.aws.amazon.com/wickr/latest/adminguide/images/atak_hamburger_icon.png)) at the top-right of the screen, and then choose **Plugins**.
 
 1. Choose **Import**.
 
@@ -35,7 +35,7 @@ The Wickr plugin for ATAK is now installed. Continue to the following Pair ATAK 
 
 Complete the following procedure to pair the ATAK application with Wickr after you successfully installed the Wickr plugin for ATAK.
 
-1. In the ATAK application, choose the menu icon (![Menu icon](http://docs.aws.amazon.com/wickr/latest/adminguide/images/atak_hamburger_icon.png)) at the top-right of the screen, and then choose **Wickr Plugin**.
+1. In the ATAK application, choose the menu icon (![Menu icon](https://docs.aws.amazon.com/wickr/latest/adminguide/images/atak_hamburger_icon.png)) at the top-right of the screen, and then choose **Wickr Plugin**.
 
 1. Choose **Pair Wickr**.
 

@@ -39,6 +39,9 @@ The following client versions have been validated with AWS PrivateLink:
 + Desktop clients 6.60
 + Bots 6.60
 
+**Important**  
+To use the Messaging and Calling AWS PrivateLink endpoints in `us-east-1`, clients and bots must be on version 6.74 or later.
+
 ## Features requiring additional configuration
 <a name="privatelink-additional-configuration"></a>
 

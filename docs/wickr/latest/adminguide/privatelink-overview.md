@@ -28,7 +28,6 @@ Wickr VPC Endpoints supports FIPS in regions where the public Wickr endpoints su
 
 **Not Currently Supported**
 + VPC endpoint policies for Messaging and Calling endpoints
-+ Messaging and Calling endpoints are not available in `us-east-1`.
 
 **Topics**
 + [Prerequisites](#privatelink-prerequisites)
