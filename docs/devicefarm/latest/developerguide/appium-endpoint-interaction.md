@@ -219,7 +219,7 @@ Here are the steps to access the session's Appium endpoint from the console, the
 #### [ Console ]
 
 1. Open your remote access session page in your web browser:  
-![The remote access session page](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-appium-endpoint.png)
+![The remote access session page](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-appium-endpoint.png)
 
 1. For running a session by using Appium Inspector, do the following:
 

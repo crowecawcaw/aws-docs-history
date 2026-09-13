@@ -16,7 +16,7 @@ In AWS Device Farm, you can request an additional private device instances to be
 1. To request a new private device instance, choose **Request device instance** or [contact us](mailto:aws-devicefarm-support@amazon.com). Private devices require additional setup with help from the Device Farm team.
 
 1. In the table of device instances, choose the toggle option next to the instance that you want to view information about or manage, then choose **Edit**.  
-![Settings for a device instance](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-edit-device-instance.png)
+![Settings for a device instance](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-edit-device-instance.png)
 
 1. To attach an instance profile to the device instance, choose it from the **Profile** drop-down list. Attaching an instance profile can be helpful if you want to always exclude a specific app package from cleanup tasks, for example. For more information about using instance profiles with devices, see [Creating an instance profile in AWS Device Farm](set-up-private-devices-account-settings.md).
 

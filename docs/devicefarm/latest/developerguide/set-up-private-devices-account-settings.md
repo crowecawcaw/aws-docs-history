@@ -16,7 +16,7 @@ You can set up a fleet that contains one or more private devices. These devices 
 1. Choose **Create instance profile**.
 
 1. Enter a name for the instance profile.  
-![Settings for an instance profile](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-private-devices-create-new-instance-profile.png)
+![Settings for an instance profile](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-private-devices-create-new-instance-profile.png)
 
 1. (Optional) Enter a description for the instance profile.
 

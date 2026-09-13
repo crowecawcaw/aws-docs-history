@@ -13,7 +13,7 @@ Once you've [started an Appium session](appium-endpoint-interaction.md), you can
 1. Start an Appium endpoint session with the device from your local IDE or Appium Inspector
 
 1. Then, the Appium server log will appear alongside the device in the remote access session page, with the "session information" available at the bottom of the page below the device:  
-![The Appium server logs appear as your Appium session starts](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-appium-endpoint-logs.gif)
+![The Appium server logs appear as your Appium session starts](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-appium-endpoint-logs.gif)
 
 ------
 #### [ AWS CLI ]

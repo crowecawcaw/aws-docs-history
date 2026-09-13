@@ -24,7 +24,7 @@ You can use the Device Farm console, AWS CLI, or API to stop a run.
 1. On the **Automated tests** page, choose the test run.
 
    The pending or running icon should appear to the left of the device name.  
-![Device Farm - Stop a test run](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-stop-run.png)
+![Device Farm - Stop a test run](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-stop-run.png)
 
 1. Choose **Stop run**.
 
@@ -33,7 +33,7 @@ You can use the Device Farm console, AWS CLI, or API to stop a run.
 If a test has already been run, Device Farm cannot stop it. If a test is in progress, Device Farm stops the test. The total minutes for which you will be billed appears in the **Devices** section. In addition, you will also be billed for the total minutes that Device Farm takes to run the setup suite and the teardown suite. For more information, see [Device Farm Pricing](http://aws.amazon.com/device-farm/faq/#pricing).
 
    The following image shows an example **Devices** section after a test run was successfully stopped.  
-![Device Farm - Details page of a stopped run](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-stop-run-view-details.png)
+![Device Farm - Details page of a stopped run](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-stop-run-view-details.png)
 
 ## Stop a run (AWS CLI)
 <a name="how-to-stop-test-run-cli"></a>

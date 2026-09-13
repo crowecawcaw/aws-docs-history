@@ -21,4 +21,4 @@ The YAML file used in the test run.
 
 For more information, see [Downloading artifacts in Device Farm](artifacts.md).
 
-![Device Farm hierarchy of operations in a custom test environment](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/hierarchy.png)
+![Device Farm hierarchy of operations in a custom test environment](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/hierarchy.png)

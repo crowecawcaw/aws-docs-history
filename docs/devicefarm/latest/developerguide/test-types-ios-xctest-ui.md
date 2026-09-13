@@ -157,10 +157,10 @@ Make sure that your .ipa file is built for an iOS device and not for a simulator
 
 The job results include a **Test report** tab. Choose it to see a summary of the test results, including the total number of tests, how many passed and failed, the total test execution time, and the median test execution time. Below the summary, the **Tests** table shows a per-test breakdown.
 
-![The first set of columns on the Test report tab for a completed XCTest UI job.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-column-start.png)
+![The first set of columns on the Test report tab for a completed XCTest UI job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-column-start.png)
 
 
-![The remaining columns on the Test report tab for a completed XCTest UI job.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-column-end.png)
+![The remaining columns on the Test report tab for a completed XCTest UI job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-column-end.png)
 
 
 Each row in the **Tests** table includes the following columns:
@@ -176,7 +176,7 @@ Each row in the **Tests** table includes the following columns:
 
 You can search for a test by name, class, or status. To choose which columns appear, choose the **Settings** icon. In the settings, you can select the columns to display and turn **Group by class** on or off. **Group by class** is on by default, which groups the tests by their test class. Expand a class to see its individual tests, as shown in the following screenshot.
 
-![The Test report tab with tests grouped by class, showing each class expanded to its individual tests.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-grouped.png)
+![The Test report tab with tests grouped by class, showing each class expanded to its individual tests.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-xctest-ui-insights-enabled-test-report-grouped.png)
 
 
 To download the full test report as a JSON file, choose **Download full summary** at the top of the job details.
@@ -186,7 +186,7 @@ To download the full test report as a JSON file, choose **Download full summary*
 
 The job results show the standard test output and artifacts, such as the **Suites**, **Logs**, and **Screenshots** tabs, but no **Test report** tab. To generate a test report, schedule a new run with test insights enabled.
 
-![The job results for a completed XCTest UI job without test insights enabled, showing the standard tabs and no Test report tab.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/passing.png)
+![The job results for a completed XCTest UI job without test insights enabled, showing the standard tabs and no Test report tab.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/passing.png)
 
 
 ## View a test report (AWS CLI)

@@ -12,7 +12,7 @@ You can connect both Device Farm mobile devices and their host machines to an Am
 
 If your private endpoint or VPC is not in the `us-west-2` Region, you can link it with a VPC in the `us-west-2` Region using solutions such as a [Transit Gateway](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-gateway.html) or [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html). In such situations, Device Farm will create an ENI in a subnet you provide for your `us-west-2` Region VPC, and you'll be responsible for ensuring that a connection can be established between the `us-west-2` Region VPC and the VPC in the other Region.
 
-![Architecture diagram showing Device Farm connecting devices to VPCs in us-west-2 and other regions.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/VPC-ENI-Customer-Flow.jpg)
+![Architecture diagram showing Device Farm connecting devices to VPCs in us-west-2 and other regions.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/VPC-ENI-Customer-Flow.jpg)
 
 
 For information on using AWS CloudFormation to automatically create and peer VPCs, see the [VPCPeering templates](https://github.com/awslabs/aws-cloudformation-templates/tree/master/aws/solutions/VPCPeering) in the AWS CloudFormation template repository on GitHub. 

@@ -76,7 +76,7 @@ If you have private devices, configuration specific to private devices is also d
 
 1. At the bottom of the page, choose **Confirm and start run** to schedule the run.
 
-Device Farm starts the run as soon as devices are available, typically within a few minutes. During your test run, the Device Farm console displays a pending icon ![Device Farm scheduled a job.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-calendar.png) in the run table. Each device in the run will also start with the pending icon, then switch to the running icon ![Device Farm progress indicator.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-progress.png) when the test begins. As each test finishes, a test result icon is displayed next to the device name. When all tests have been completed, the pending icon next to the run changes to a test result icon.
+Device Farm starts the run as soon as devices are available, typically within a few minutes. During your test run, the Device Farm console displays a pending icon ![Device Farm scheduled a job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-calendar.png) in the run table. Each device in the run will also start with the pending icon, then switch to the running icon ![Device Farm progress indicator.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-progress.png) when the test begins. As each test finishes, a test result icon is displayed next to the device name. When all tests have been completed, the pending icon next to the run changes to a test result icon.
 
 If you want to stop the test run, see [Stopping a run in AWS Device Farm](how-to-stop-test-runs.md).
 
@@ -502,6 +502,6 @@ For information about using the Device Farm API, see [Automating Device Farm](ap
 ## Next steps
 <a name="how-to-create-test-run-console-next-steps"></a>
 
-In the Device Farm console, the clock icon ![Device Farm scheduled a job.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-calendar.png) changes to a result icon such as success ![The test succeeded.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-success.png) when the run is complete. A report for the run appears as soon as tests are complete. For more information, see [Reports in AWS Device Farm](reports.md).
+In the Device Farm console, the clock icon ![Device Farm scheduled a job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-calendar.png) changes to a result icon such as success ![The test succeeded.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-success.png) when the run is complete. A report for the run appears as soon as tests are complete. For more information, see [Reports in AWS Device Farm](reports.md).
 
 To use the report, follow the instructions in [Viewing test reports in Device Farm](how-to-use-reports.md).

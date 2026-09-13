@@ -17,7 +17,7 @@ Set up a test run and verify that it is complete.
 
 1.  To create a run, see [Creating a test run in Device Farm](how-to-create-test-run.md), and then return to this page.
 
-1. Verify that the run is complete. During your test run, the Device Farm console displays a pending icon ![Device Farm scheduled a job.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-calendar.png) for runs that are in progress. Each device in the run will also start with the pending icon, then switch to the running ![Device Farm progress indicator.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-progress.png) icon when the test begins. As each test finishes, a test result icon is displayed next to the device name. When all tests have been completed, the pending icon next to the run changes to a test result icon. For more information, see [Device Farm test result statuses](how-to-use-reports-displaying-results.md).
+1. Verify that the run is complete. During your test run, the Device Farm console displays a pending icon ![Device Farm scheduled a job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-calendar.png) for runs that are in progress. Each device in the run will also start with the pending icon, then switch to the running ![Device Farm progress indicator.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-progress.png) icon when the test begins. As each test finishes, a test result icon is displayed next to the device name. When all tests have been completed, the pending icon next to the run changes to a test result icon. For more information, see [Device Farm test result statuses](how-to-use-reports-displaying-results.md).
 
 ## View reports
 <a name="how-to-use-reports-viewing-reports"></a>
@@ -49,7 +49,7 @@ To filter the project list by name, use the search bar.
    + The **Unique problems** section lists unique warnings and failures. To view unique problems, follow the instructions in [View unique problem reports](#how-to-use-reports-console-unique-problems).
    + The **Devices** section displays the total number of tests, by outcome, for each device.
 
-     ![Device Farm device summary results.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-device-summary-results-bar.png)
+     ![Device Farm device summary results.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/df-run-device-summary-results-bar.png)
 
      In this example, there are several devices. In the first table entry, the Google Pixel 4 XL device running Android version 10 reports three successful tests that took 02:36 minutes to run.
 

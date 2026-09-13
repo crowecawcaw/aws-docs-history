@@ -20,4 +20,4 @@ In AWS Device Farm, after you set up a private device fleet, you can create test
    + To start a remote access session, choose **Remote access**, and then choose **Start a new session**. On the **Choose a device** page, select **Private device instances only** to limit the list to only those private devices that the Device Farm team set up and associated with your AWS account. Then, choose the device that you want to access, enter a name for the remote access session, and choose **Confirm and start session**.
 
        
-![Private instances in a remote access session](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-use-private-device-instances-only-remote-access-session.png)
+![Private instances in a remote access session](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-use-private-device-instances-only-remote-access-session.png)

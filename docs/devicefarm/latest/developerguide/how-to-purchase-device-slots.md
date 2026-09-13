@@ -25,11 +25,11 @@ If you change the number of device slots but see a **contact us** or **contact u
 These options prompt you to send an email to the Device Farm support team. In the email, specify the number of each device type that you want to purchase and for which billing cycle.
 **Note**  
 Changes to the device slots apply to your entire account and affect all projects.  
-![Device slots page on the Device Farm console](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-console-device-slots-default-view.png)
+![Device slots page on the Device Farm console](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-console-device-slots-default-view.png)
 
 1. Choose **Purchase**. A **Confirm purchase** window will appear. Review the information. When you are ready, type **confirm** and then choose **Confirm** to complete the transaction.
 
-![Purchase confirmation page on the Device Farm console](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-console-device-slots-purchase-confirm.png)
+![Purchase confirmation page on the Device Farm console](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-console-device-slots-purchase-confirm.png)
 
 
 On the **Device slots** page, you can see the number of device slots that you currently have, as well as the number of device slots you will have for your next billing period.

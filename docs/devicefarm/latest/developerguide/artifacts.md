@@ -16,7 +16,7 @@ Output from each test in the test run.
 **Screenshots**  
 Screen images recorded for each test in the test run.
 
-![Diagram showing AWS Device Farm workflow from Project to Run to Job on device to Test suite to Test.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/hierarchy.png)
+![Diagram showing AWS Device Farm workflow from Project to Run to Job on device to Test suite to Test.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/hierarchy.png)
 
 
 ## Download artifacts (console)

@@ -12,15 +12,15 @@ This section contains a series of procedures to set up and use the Jenkins CI pl
 
 The following images show the features of the Jenkins CI plugin.
 
-![Integration with Jenkins CI Hello World application](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-jenkins-plugin-continuous-integration-project-hello-world-app.png)
+![Integration with Jenkins CI Hello World application](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-jenkins-plugin-continuous-integration-project-hello-world-app.png)
 
 
-![Integration with Jenkins CI post-build actions](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-jenkins-plugin-continuous-integration-post-build-actions.png)
+![Integration with Jenkins CI post-build actions](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-jenkins-plugin-continuous-integration-post-build-actions.png)
 
 
 The plugin can also pull down all the test artifacts (logs, screenshots, etc.) locally:
 
-![Integration with Jenkins CI test artifacts](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-jenkins-plugin-continuous-integration-test-artifacts.png)
+![Integration with Jenkins CI test artifacts](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-jenkins-plugin-continuous-integration-test-artifacts.png)
 
 
 **Topics**

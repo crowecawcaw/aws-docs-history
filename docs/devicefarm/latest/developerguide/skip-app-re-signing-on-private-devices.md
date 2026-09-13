@@ -17,7 +17,7 @@ You can skip app re-signing when you create a remote access session or a test ru
 
 To skip app re-signing for a test run, select **Skip app re-signing** under **Additional configuration**. This option is only available for private devices.
 
-![Select Skip app re-signing when using private device instances on a test run](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-skip-app-re-signing.png)
+![Select Skip app re-signing when using private device instances on a test run](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-skip-app-re-signing.png)
 
 
 
@@ -73,7 +73,7 @@ Before you start your remote access session, follow the steps in [Creating an in
 You can upload the placeholder app to the device by using a remote access session, which allows you to launch the app and trust the developer.
 
 1. Follow the instructions in [Creating a session](how-to-create-session.md) to create a remote access session that uses the private device instance profile that you created. When you create your session, be sure to select **Skip app re-signing**.  
-![Skip app re-signing when creating a remote access session](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-reomte-access-session-skip-app-resigning.png)
+![Skip app re-signing when creating a remote access session](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-reomte-access-session-skip-app-resigning.png)
 
    
 **Important**  

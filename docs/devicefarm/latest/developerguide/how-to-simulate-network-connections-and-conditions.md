@@ -28,7 +28,7 @@ When you schedule a run, you can choose from any of the Device Farm-curated prof
 1. Select your devices, and then choose **Next**.
 
 1. In the **Location and network settings** section, choose a network profile or choose **Create network profile** to create your own.  
-![Network profile for a test run](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-set-up-network-profile.png)
+![Network profile for a test run](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-set-up-network-profile.png)
 
 1. Choose **Next**.
 
@@ -40,7 +40,7 @@ When you schedule a run, you can choose from any of the Device Farm-curated prof
 When you create a test run, you can create a network profile.
 
 1. Choose **Create network profile**.  
-![Create a new network profile](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-a-new-network-profile.png)
+![Create a new network profile](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-a-new-network-profile.png)
 
 1. Enter a name and settings for your network profile.
 
@@ -50,7 +50,7 @@ When you create a test run, you can create a network profile.
 
 After you have created a network profile, you'll be able to see and manage it on the **Project settings** page.
 
-![Network profiles in Project settings](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-network-profiles-in-project-settings.png)
+![Network profiles in Project settings](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-network-profiles-in-project-settings.png)
 
 
 ## Change network conditions during your test

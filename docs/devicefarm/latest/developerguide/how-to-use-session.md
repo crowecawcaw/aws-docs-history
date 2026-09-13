@@ -23,7 +23,7 @@ As soon as the device that you requested for a remote access session becomes ava
 
 All actions you can take with the device and your session reside in the menu on the left-hand side of the device. The available actions are explained in detail below. 
 
-![The remote access session page](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/actions_menu.png)
+![The remote access session page](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/actions_menu.png)
 
 
 ## Navigating the device
@@ -31,7 +31,7 @@ All actions you can take with the device and your session reside in the menu on 
 
 You can interact with the device displayed in the console as you would with a real physical device, by using your mouse or a pointer device like touchpad for touch and your local keyboard. The swipe action works based on starting and ending coordinates of your click. This means a three or more point swipe does not work. On an Android device, you have the **Home**, **Back**, and **Switch apps** buttons. On an iOS device, you have the **Home** button. These buttons on both function just as real device controls. 
 
-![Navigating the device](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/navigating_device.png)
+![Navigating the device](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/navigating_device.png)
 
 
 ## Taking a screenshot
@@ -44,7 +44,7 @@ A common pattern while doing manual testing is to take a device screenshot. You 
 
 You can switch between portrait (vertical) and landscape (horizontal) view on the device using the **Rotate** option. The orientation of the device display only changes if the active view on the device supports it. For example, the home page on a smaller iPhone does not support orientation change. Thus, you will not see the orientation change when using **Rotate**. 
 
-![Change orientation](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/change_orientation_remote_access.gif)
+![Change orientation](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/change_orientation_remote_access.gif)
 
 
 ## Changing network
@@ -52,7 +52,7 @@ You can switch between portrait (vertical) and landscape (horizontal) view on th
 
 You can change the network behavior by changing parameters such as upload/download speeds, bandwidth, packet loss for the device under test. Click the **Network** button in the left side menu. This opens up a right hand side overlay where you can choose from a list of curated network settings or create your own network profile.
 
-![Change network](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/network_settings.gif)
+![Change network](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/network_settings.gif)
 
 
 ## Mocking location
@@ -60,7 +60,7 @@ You can change the network behavior by changing parameters such as upload/downlo
 
 You can mock a location on the device by providing the latitude and longitude of your desired location. This does not physically get a device in that region but when an app queries the OS for its location, the device returns the location you entered. If your app uses multiple data points such as Wi-Fi, cellular signal, and other methods rather than just querying the OS for location then this feature will most likely not work for your app. Click the **Set location** button in the left-side menu. This opens up a right hand side overlay where you can input the latitude and longitude of your desired location. 
 
-![Mock location](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/mock_location.gif)
+![Mock location](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/mock_location.gif)
 
 
 ## Installing an application
@@ -71,7 +71,7 @@ You can install apps in a remote access session in two ways: 1) During session l
 **Note**  
 When you upload an app, the service first uploads the app to a secure Amazon S3 bucket and then installs it which takes a few seconds depending on the size of the app. A confirmation message will appear to let you know if the app was successfully installed or not.
 
-![Install app in remote access session](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/install_app_remote_access.gif)
+![Install app in remote access session](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/install_app_remote_access.gif)
 
 
 ## Installing a recently uploaded application
@@ -82,7 +82,7 @@ To install an application recently uploaded, select **Recent apps** in the left 
 **Note**  
 When you select a recent app, the service first downloads the previously uploaded app from a secure service managed S3 bucket to the host machine running your session and then installs it which takes a few seconds depending on the size of the app. A confirmation message will appear to let you know if the app was successfully installed or not.
 
-![Install recent apps in remote access](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/install_recent_apps_remote_access.gif)
+![Install recent apps in remote access](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/install_recent_apps_remote_access.gif)
 
 
 ## View device details
@@ -90,7 +90,7 @@ When you select a recent app, the service first downloads the previously uploade
 
 You can view device details such as the ARN, Model ID, CPU, Resolution, Memory, and Heap Size of the device being used in your session by clicking on the **Device details** button. This action displays the device details in a new tab. For a public device, the details do not include UDID as that can change across every session. For private devices, the device details page displays the Instance and Device ARN along with UDID and Labels assigned to the private device instance. 
 
-![Public device details page](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/public_device_details.gif)
+![Public device details page](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/public_device_details.gif)
 
 
 ## Appium Session
@@ -98,7 +98,7 @@ You can view device details such as the ARN, Model ID, CPU, Resolution, Memory, 
 
 You can get the Appium Session details attached to your remote access session by clicking on the **Appium Session** button.
 
-![Set up Appium session](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/appium_session_remote_access.gif)
+![Set up Appium session](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/appium_session_remote_access.gif)
 
 
 ## Session ARN
@@ -116,7 +116,7 @@ You can copy the Appium URL for your remote access session using the **Appium UR
 
 You can get a minimized icons-only version of all the actions in the left-hand side menu of remote access session using the **Minimize** button.
 
-![Minimize actions menu](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/minimize_actions_menu.gif)
+![Minimize actions menu](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/minimize_actions_menu.gif)
 
 
 ## Next steps

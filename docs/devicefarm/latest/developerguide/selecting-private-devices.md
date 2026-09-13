@@ -74,13 +74,13 @@ When creating a device pool with private devices in the console, you can only us
 1. Choose **Create device pool**, and enter a name and optional description for your device pool.
 
    1. To use device ARN rules for your device pool, choose **Create static device pool**, then select the specific device types from the list that you would like to use in the device pool. Do not select **Private device instances only** because this option causes the device pool to be created with device instance ARN rules (instead of device ARN rules).  
-![Create static device pool option selected with See private device instances only checkbox.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-new-device-pool-private-devices.png)
+![Create static device pool option selected with See private device instances only checkbox.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-new-device-pool-private-devices.png)
 
    1. To use device instance label rules for your device pool, choose **Create dynamic device pool**. Then, for each label you would like to use in the device pool, choose **Add a rule**. For each rule, choose **Instance Labels** as the `Field`, choose **Contains** as the `Operator`, and specify your desired device instance label as the `Value`.  
-![Device selection method section with dynamic pool option selected and filter rule configured.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-new-device-pool-private-devices-add-rule.png)
+![Device selection method section with dynamic pool option selected and filter rule configured.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-new-device-pool-private-devices-add-rule.png)
 
    1. To use device instance ARN rules for your device pool, choose **Create static device pool**, then select **Private device instances only** to limit the list of devices to only those private device instances that Device Farm has associated with your AWS account.  
-![Create static device pool option selected with See private device instances only checkbox.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-new-device-pool-private-device-instance-only.png)
+![Create static device pool option selected with See private device instances only checkbox.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-create-new-device-pool-private-device-instance-only.png)
 
 1. Choose **Create**.
 

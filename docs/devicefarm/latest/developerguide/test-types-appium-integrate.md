@@ -625,7 +625,7 @@ What you see in the job results depends on the test framework and whether you en
 
 The job results include a **Test report** tab. Choose it to see a per-test breakdown. The following screenshot shows the **Test report** tab.
 
-![The Test report tab for a completed Appium Java TestNG job.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/appium-testng-insights-enabled-test-report-column.png)
+![The Test report tab for a completed Appium Java TestNG job.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/appium-testng-insights-enabled-test-report-column.png)
 
 
 The tab shows the following fields for each test:
@@ -661,12 +661,12 @@ To download the full test report as a JSON file, choose **Download full summary*
 
 To choose which columns appear, choose the gear icon. In the settings, you can select the columns to display and turn **Group by class** on or off. **Group by class** is on by default, which groups the tests by their test class. Turn it off to see a flat list of all tests, as shown in the following screenshot.
 
-![The Test report tab with Group by class turned off, showing a flat list of tests.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/appium-testng-insights-enabled-test-report-without-grouping.png)
+![The Test report tab with Group by class turned off, showing a flat list of tests.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/appium-testng-insights-enabled-test-report-without-grouping.png)
 
 
 The job results show the standard test output and artifacts, but no **Test report** tab. To generate a test report, schedule a new run with test insights enabled.
 
-![The job results for a completed Appium Java TestNG job without test insights enabled.](http://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-instrumentation-insights-disabled-test-report.png)
+![The job results for a completed Appium Java TestNG job without test insights enabled.](https://docs.aws.amazon.com/devicefarm/latest/developerguide/images/aws-device-farm-test-insights/console-instrumentation-insights-disabled-test-report.png)
 
 
 Run **get-job** and specify the job ARN:
