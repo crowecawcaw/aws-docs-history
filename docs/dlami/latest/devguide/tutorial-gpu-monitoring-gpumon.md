@@ -224,7 +224,7 @@ You can change the namespace by modifying gpumon.py. You can also modify the rep
 
 The following is an example CloudWatch chart reporting on a run of gpumon.py monitoring a training job on p2.8xlarge instance. 
 
-![GPU monitoring on CloudWatch](http://docs.aws.amazon.com/dlami/latest/devguide/images/gpumon.png)
+![GPU monitoring on CloudWatch](https://docs.aws.amazon.com/dlami/latest/devguide/images/gpumon.png)
 
 
 You might be interested in these other topics on GPU monitoring and optimization:

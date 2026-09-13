@@ -7,7 +7,7 @@ To make the most of your GPUs, you can optimize your data pipeline and tune your
 
 The following chart shows the cumulative performance gains when applying different optimizations. Your results will depend on the data you are processing and the network you are optimizing.
 
-![Performance enhancements for GPUs](http://docs.aws.amazon.com/dlami/latest/devguide/images/performance-enhancements.png)
+![Performance enhancements for GPUs](https://docs.aws.amazon.com/dlami/latest/devguide/images/performance-enhancements.png)
 
 
 The following guides introduce options that will work with your DLAMI and help you boost GPU performance.

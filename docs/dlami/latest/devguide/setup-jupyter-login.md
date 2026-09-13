@@ -10,10 +10,10 @@ After you [connect your client to the Jupyter Notebook server on your DLAMI inst
 1. In the address bar of your browser, enter the following URL, or choose this link: [https://localhost:8888](https://localhost:8888)
 
 1. With a self-signed SSL certificate, your browser will warn you and prompt you to avoid continuing to visit the website.  
-![SSL warning](http://docs.aws.amazon.com/dlami/latest/devguide/images/ssl-warning1.png)
+![SSL warning](https://docs.aws.amazon.com/dlami/latest/devguide/images/ssl-warning1.png)
 
    Since you set this up yourself, it is safe to continue. Depending your browser you will get an "advanced", "show details", or similar button.  
-![SSL warning confirmation](http://docs.aws.amazon.com/dlami/latest/devguide/images/ssl-warning2.png)
+![SSL warning confirmation](https://docs.aws.amazon.com/dlami/latest/devguide/images/ssl-warning2.png)
 
    Choose this, then choose the "proceed to localhost" link. If the connection is successful, you see the Jupyter Notebook server webpage. At this point, you will be asked for the password you previously set up.
 

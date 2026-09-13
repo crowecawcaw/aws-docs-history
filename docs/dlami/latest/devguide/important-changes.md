@@ -23,7 +23,7 @@ We split DLAMIs into two separate groups:
 
 As a result, we created new DLAMIs for each of the two categories with new names and new AMI IDs. These DLAMIs are *not* interchangeable. That is, DLAMIs from one group don't support instances that the other group supports. For example, the DLAMI that supports P5 doesn't support G3, and the DLAMI that supports G3 doesn't support P5.
 
-![DLAMI fork](http://docs.aws.amazon.com/dlami/latest/devguide/images/dlami-fork.jpg)
+![DLAMI fork](https://docs.aws.amazon.com/dlami/latest/devguide/images/dlami-fork.jpg)
 
 
 ### Why was this change required?

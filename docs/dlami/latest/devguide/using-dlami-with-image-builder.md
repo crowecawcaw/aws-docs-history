@@ -14,10 +14,10 @@ The following DLAMIs are available as Amazon-managed images found under the **Im
 + [ARM64 Base AMI with Single CUDA (Amazon Linux 2023)](https://docs.aws.amazon.com/dlami/latest/devguide/aws-deep-learning-arm64-base-with-single-cuda-ami-amazon-linux-2023.html)
 + [ARM64 Base AMI with Single CUDA (Ubuntu 22.04)](https://docs.aws.amazon.com/dlami/latest/devguide/aws-deep-learning-arm64-base-with-single-cuda-ami-ubuntu-22-04.html)
 
-![Amazon Managed Deep Learning Base X86 AMI](http://docs.aws.amazon.com/dlami/latest/devguide/images/deep-learning-base.png)
+![Amazon Managed Deep Learning Base X86 AMI](https://docs.aws.amazon.com/dlami/latest/devguide/images/deep-learning-base.png)
 
 
-![Amazon Managed Deep Learning Base ARM64 AMI](http://docs.aws.amazon.com/dlami/latest/devguide/images/deep-learning-arm.png)
+![Amazon Managed Deep Learning Base ARM64 AMI](https://docs.aws.amazon.com/dlami/latest/devguide/images/deep-learning-arm.png)
 
 
 ## Using DLAMIs as Base Image
@@ -37,8 +37,8 @@ DLAMIs can be used as Base Image during Image Recipe creation.
    + If **Amazon Linux** is selected:
      + Deep Learning Base AMI with Single CUDA Amazon Linux 2023
      + Deep Learning ARM64 Base AMI with Single CUDA Amazon Linux 2023  
-![Image Builder recipe creation for Amazon Linux](http://docs.aws.amazon.com/dlami/latest/devguide/images/image-recipe-creation-al2023.png)
+![Image Builder recipe creation for Amazon Linux](https://docs.aws.amazon.com/dlami/latest/devguide/images/image-recipe-creation-al2023.png)
    + If **Ubuntu** is selected:
      + Deep Learning Base AMI with Single CUDA Ubuntu 22-04
      + Deep Learning ARM64 Base AMI with Single CUDA Ubuntu 22-04  
-![Image Builder recipe creation for Ubuntu](http://docs.aws.amazon.com/dlami/latest/devguide/images/image-recipe-creation-ul22.png)
+![Image Builder recipe creation for Ubuntu](https://docs.aws.amazon.com/dlami/latest/devguide/images/image-recipe-creation-ul22.png)

@@ -58,7 +58,7 @@ neuron-top
 
  When an application is using four NeuronCores, the output should look similar to the following image: 
 
-![The output of the neuron-top command, with information for one of four NeuronCores highlighted.](http://docs.aws.amazon.com/dlami/latest/devguide/images/neuron-top-output.png)
+![The output of the neuron-top command, with information for one of four NeuronCores highlighted.](https://docs.aws.amazon.com/dlami/latest/devguide/images/neuron-top-output.png)
 
 
 For more information on resources to monitor and optimize Neuron-based inference applications, see [Neuron Tools](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-tools/index.html).
