@@ -22,7 +22,7 @@ This guide explains how to install and configure the Session Manager Agent and B
 
 The following diagram shows the high-level components of Session Manager.
 
-![Amazon DCV Session Manager components](http://docs.aws.amazon.com/dcv/latest/sm-admin/images/session-mgr.png)
+![Amazon DCV Session Manager components](https://docs.aws.amazon.com/dcv/latest/sm-admin/images/session-mgr.png)
 
 
 ****Broker****  
