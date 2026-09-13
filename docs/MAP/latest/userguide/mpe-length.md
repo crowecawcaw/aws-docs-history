@@ -18,4 +18,4 @@ Refer to the first page below the title of your migration plan to find your proj
 
 
 
-![Screenshot showing the location of the project number in a MAP agreement](http://docs.aws.amazon.com/MAP/latest/userguide/images/MAP-agreement.png)
+![Screenshot showing the location of the project number in a MAP agreement](https://docs.aws.amazon.com/MAP/latest/userguide/images/MAP-agreement.png)

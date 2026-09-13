@@ -17,7 +17,7 @@ Use the tagging decision tree shown in the following diagram to help you assign 
 
 The following diagram shows the decision tree for selecting the appropriate tag value:
 
-![Decision tree flowchart for selecting MAP 2.0 tag values based on migration source, destination, and workload type](http://docs.aws.amazon.com/MAP/latest/userguide/images/MAP-tagging-flowchart.png)
+![Decision tree flowchart for selecting MAP 2.0 tag values based on migration source, destination, and workload type](https://docs.aws.amazon.com/MAP/latest/userguide/images/MAP-tagging-flowchart.png)
 
 
 

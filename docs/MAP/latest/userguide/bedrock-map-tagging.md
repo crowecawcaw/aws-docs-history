@@ -5,7 +5,7 @@
 
  This guide explains how to tag Amazon Bedrock and Amazon Bedrock AgentCore workloads to report MAP spend and generate any appropriate incentives using the AWS CLI. 
 
-![MAP tagging flowchart: Projects for bedrock-mantle; IAM principal or resource tagging for bedrock-runtime/AgentCore.](http://docs.aws.amazon.com/MAP/latest/userguide/images/bedrock-tagging-flowchart.png)
+![MAP tagging flowchart: Projects for bedrock-mantle; IAM principal or resource tagging for bedrock-runtime/AgentCore.](https://docs.aws.amazon.com/MAP/latest/userguide/images/bedrock-tagging-flowchart.png)
 
 
  The flowchart shows how to choose a tagging method. If you use the bedrock-mantle endpoint (Responses API, Chat Completions API, or Messages API), use Projects tagging. If you use bedrock-runtime or AgentCore (InvokeModel, Converse, AgentCore APIs), choose either IAM principal tagging (recommended) or resource tagging with application inference profiles. 
@@ -101,7 +101,7 @@ MAP spend tracking recognizes the `map-migrated` tag on any IAM principal that a
 ### Introducing inference profiles
 <a name="introducing-inference-profiles"></a>
 
-![Diagram showing Amazon Bedrock inference profile architecture with cross-region routing](http://docs.aws.amazon.com/MAP/latest/userguide/images/inference-profile-diagram.png)
+![Diagram showing Amazon Bedrock inference profile architecture with cross-region routing](https://docs.aws.amazon.com/MAP/latest/userguide/images/inference-profile-diagram.png)
 
 
  Inference profiles are a resource of Amazon Bedrock that enable model invocation and cost management. 
