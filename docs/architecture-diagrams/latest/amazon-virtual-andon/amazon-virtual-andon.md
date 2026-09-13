@@ -10,7 +10,7 @@ This architecture provides a scalable Andon system to help optimize processes, s
 ## Amazon Virtual Andon
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing a scalable Andon system to help optimize processes, support the transition to predictive maintenance, and prevent future equipment issues.](http://docs.aws.amazon.com/architecture-diagrams/latest/amazon-virtual-andon/images/amazon-virtual-andon.png)
+![Reference architecture diagram showing a scalable Andon system to help optimize processes, support the transition to predictive maintenance, and prevent future equipment issues.](https://docs.aws.amazon.com/architecture-diagrams/latest/amazon-virtual-andon/images/amazon-virtual-andon.png)
 
 
 1. An **Amazon CloudFront** web interface deploys into an **Amazon Simple Storage Service** (Amazon S3) bucket configured for web hosting.
@@ -35,7 +35,7 @@ To customize this reference architecture diagram based on your business needs, [
 ## Create a free AWS account
 <a name="create-a-free-aws-account"></a>
 
-[![Sign up for a free AWS account](http://docs.aws.amazon.com/architecture-diagrams/latest/amazon-virtual-andon/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
+[![Sign up for a free AWS account](https://docs.aws.amazon.com/architecture-diagrams/latest/amazon-virtual-andon/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
 
 Sign up for an AWS account. New accounts include 12 months of [AWS Free Tier](https://aws.amazon.com/free/) access, including the use of Amazon EC2, Amazon S3, and Amazon DynamoDB.
 
