@@ -3,7 +3,7 @@
 # Reference architecture
 <a name="reference-architecture-4"></a>
 
-![Diagram showing QuickSight dashboard end-to-end design](http://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/images/quicksight-dashboard-design.png)
+![Diagram showing QuickSight dashboard end-to-end design](https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/images/quicksight-dashboard-design.png)
 
 
 

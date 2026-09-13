@@ -9,7 +9,7 @@
 
  As shown in the following diagram, with a modern data architecture, organizations can store their data in a data lake and use purpose-built data stores that work with the data lake. This approach allows access to all of the data to make better decisions with agility. 
 
-![Diagram showing a modern data architecture](http://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/images/modern-data-architecture.png)
+![Diagram showing a modern data architecture](https://docs.aws.amazon.com/wellarchitected/latest/analytics-lens/images/modern-data-architecture.png)
 
 
 
