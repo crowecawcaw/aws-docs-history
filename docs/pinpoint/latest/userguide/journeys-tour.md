@@ -45,7 +45,7 @@ A person who is traveling through the activities in a journey.
 
 This section contains information about the components of the journeys interface. When you create or edit a journey, you see the journey workspace. The following image shows an example of the journey workspace.
 
-![A diagram showing the user interface and placement of buttons in the journey workspace.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-workspace.png)
+![A diagram showing the user interface and placement of buttons in the journey workspace.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-workspace.png)
 
 
 The following table includes descriptions of several of the buttons that appear in the journey workspace.
@@ -54,12 +54,12 @@ The following table includes descriptions of several of the buttons that appear 
 
 | Appearance | Button name | Description | 
 | --- | --- | --- | 
-| ![The journey information button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-info-button.png) | **Info** | Opens the help panel, which shows additional information about individual journey activities. | 
-| ![The delete activity button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-delete-action-button.png) | **Delete activity** | Deletes the highlighted activity. | 
-| ![The undo button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-undo-button.png) | **Undo** | Reverts the most recent action. | 
-| ![The redo button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-redo-button.png) | **Redo** | Restores an action that was previously undone by using the **Undo** button. | 
-| ![The center view button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-center-button.png) | **Center** | Moves to the top of the journey and centers the **Journey entry** activity on the journey workspace. | 
-| ![The zoom out button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-zoom-out-button.png) | **Zoom out** | Reduces the size of objects in the journey workspace. | 
-| ![The zoom in button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-zoom-in-button.png) | **Zoom in** | Increases the size of objects in the journey workspace. | 
-| ![The add activity button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-add-activity.png) | **Add activity** | This button appears at every point where you can insert another step in the journey. When you choose this button, you see a menu that lets you choose an activity type. | 
-| ![The send feedback button.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-feedback-button.png) | **Feedback** | A quick way to provide feedback about your experience using journeys. We review all of the feedback that we receive through this button. We might contact you for additional information if we have any questions. | 
+| ![The journey information button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-info-button.png) | **Info** | Opens the help panel, which shows additional information about individual journey activities. | 
+| ![The delete activity button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-delete-action-button.png) | **Delete activity** | Deletes the highlighted activity. | 
+| ![The undo button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-undo-button.png) | **Undo** | Reverts the most recent action. | 
+| ![The redo button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-redo-button.png) | **Redo** | Restores an action that was previously undone by using the **Undo** button. | 
+| ![The center view button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-center-button.png) | **Center** | Moves to the top of the journey and centers the **Journey entry** activity on the journey workspace. | 
+| ![The zoom out button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-zoom-out-button.png) | **Zoom out** | Reduces the size of objects in the journey workspace. | 
+| ![The zoom in button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-zoom-in-button.png) | **Zoom in** | Increases the size of objects in the journey workspace. | 
+| ![The add activity button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-add-activity.png) | **Add activity** | This button appears at every point where you can insert another step in the journey. When you choose this button, you see a menu that lets you choose an activity type. | 
+| ![The send feedback button.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-feedback-button.png) | **Feedback** | A quick way to provide feedback about your experience using journeys. We review all of the feedback that we receive through this button. We might contact you for additional information if we have any questions. | 

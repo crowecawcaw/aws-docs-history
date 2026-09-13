@@ -27,7 +27,7 @@ Complete the following steps to view the **Transactional messaging** charts and 
 1. In the navigation pane, under **Analytics**, choose **Transactional messaging**.
 
 1. Use the menu at the top of the page to choose whether to display data for transactional **Email** or **SMS** messages, as shown in the following image:  
-![The channel selector on the analytics page showing expanded menu for the Email and SMS channel options.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/analytics-transactional-messaging-channel-selector.png)
+![The channel selector on the analytics page showing expanded menu for the Email and SMS channel options.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/analytics-transactional-messaging-channel-selector.png)
 
 1. (Optional) To apply a filter that displays the data for a specific date or range of dates, use the date selector at the top of the page to choose the dates for the time period that you want. After you choose new dates, the page updates to show the data for the selected time period.
 

@@ -97,10 +97,10 @@ On the **Alarms** tab, you can create alarms that send you notifications when th
       + **Complaint rate**
 
    1. Configure the values that cause the alarm to be triggered. For example, if you want to be notified when the bounce rate for your account is 5% or greater, choose **>=**. Then enter a value of **5**, as shown in the following image.  
-![An example of an email bounce rate alarm at five percent.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_bounce_alarms_threshold.png)
+![An example of an email bounce rate alarm at five percent.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_bounce_alarms_threshold.png)
 
    1. Specify the amount of time that has to elapse before the alarm is triggered. For example, you can configure the alarm so that it only sends a notification when the bounce rate exceeds a certain rate and stays at that rate for more than 2 hours. In this example, next to **for at least**, enter a value of **2**. Then, next to **consecutive period(s) of**, choose **1 hour**, as shown in the following image.  
-![An example of an email bounce rate alarm for a two hour period.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_deny_list_ip_alarms_period.png)
+![An example of an email bounce rate alarm for a two hour period.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_deny_list_ip_alarms_period.png)
 
    1. Under **Notification method**, choose one of the following options:
       + **Use an existing SNS topic** – Choose this option if you've already created an Amazon SNS topic and subscribed endpoints to it.

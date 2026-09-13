@@ -11,7 +11,7 @@ By monitoring funnels, you can assess whether conversion rates have improved bec
 
 After you specify which steps belong in your funnel, the **Create a funnel** page displays a chart like the following example:
 
-![A bar chart showing metrics for steps in a funnel, receive, start session, open settings, update.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/funnel.png)
+![A bar chart showing metrics for steps in a funnel, receive, start session, open settings, update.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/funnel.png)
 
 
 This example chart shows the percentage of users who completed each step in the process of updating an app. By comparing the values between columns, you can determine the drop-off rates between steps. In this example, there is a 35 percent drop-off between users who receive a notification and those who start an app session. Then there is a 19 percent drop-off between users who start a session and those who open the app settings page.

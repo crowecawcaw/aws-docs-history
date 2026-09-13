@@ -13,7 +13,7 @@ This tutorial shows you how to set up a web form to capture customers' contact i
 
 The following architecture diagram shows the flow of data in this solution.
 
-![The registration workflow for receiveing customer information, validating a phone number, sending the opt-in message, and processing the customers response.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_Architecture.png)
+![The registration workflow for receiveing customer information, validating a phone number, sending the opt-in message, and processing the customers response.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_Architecture.png)
 
 
 ## About double opt-in

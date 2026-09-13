@@ -47,7 +47,7 @@ At a minimum, you only need to create one environment for a single AWS Region, a
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/pinpoint/latest/userguide/tutorials-using-postman-configuration.html)
 
    After you create these variables, the **MANAGE ENVIRONMENTS** window resembles the example shown in the following image.  
-![The Manage Environments window in Postman. The screenshot shows an environment named "US East (N. Virginia)". The environment contains the following variables: A variable named "endpoint" and an initial value of "pinpoint.us-east-1.amazonaws.com". A variable named "region" and an initial value of "us-east-1". A variable named "serviceName" and an initial value of "mobiletargeting". A variable named "accountId" and an initial value of 123456789012 (a fictitious AWS account ID). A variable named "accessKey" and an initial value of AKIAIOSFODNN7EXAMPLE (a fictitious access key ID). A variable named "secretAccessKey" and an initial value of wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY (a fictitious secret access key).](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_2.1_4.png)
+![The Manage Environments window in Postman. The screenshot shows an environment named "US East (N. Virginia)". The environment contains the following variables: A variable named "endpoint" and an initial value of "pinpoint.us-east-1.amazonaws.com". A variable named "region" and an initial value of "us-east-1". A variable named "serviceName" and an initial value of "mobiletargeting". A variable named "accountId" and an initial value of 123456789012 (a fictitious AWS account ID). A variable named "accessKey" and an initial value of AKIAIOSFODNN7EXAMPLE (a fictitious access key ID). A variable named "secretAccessKey" and an initial value of wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY (a fictitious secret access key).](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_2.1_4.png)
 
    When you finish, choose **Save**.
 **Important**  
@@ -91,7 +91,7 @@ After you import the Amazon Pinpoint collection, we recommend that you perform a
 1. Use the **Environment** selector to choose the environment that you created in [Create Postman environments](#tutorials-using-postman-configuration-create-environments).
 
 1. Choose **Send**. If the request is sent successfully, the response pane shows a status of `200 OK`. You see a response that resembles the example in the following image.  
-![The response showing example values for Name, Id, Arn and Tags.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_2.3_3.png)
+![The response showing example values for Name, Id, Arn and Tags.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_2.3_3.png)
 **Note**  
 If you don't have any projects created in the AWS Region then Amazon Pinpoint returns `{ "Item": [] }`.
 

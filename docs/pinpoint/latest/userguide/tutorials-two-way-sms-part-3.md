@@ -21,7 +21,7 @@ The first function takes input from your registration form, which it receives fr
 1. Under **Create a function**, choose **Use a blueprint**.
 
 1. In the search field, enter **hello**, and then press Enter. In the list of results, choose the `hello-world` Node.js function, as shown in the following image.   
-![The Create function page showing Use a blueprint selected.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step1.5.png)
+![The Create function page showing Use a blueprint selected.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step1.5.png)
 
 1. Under **Basic information**, do the following:
    + For **Name**, enter a name for the function, such as **RegistrationForm**.
@@ -169,7 +169,7 @@ Be sure to include the plus sign (\+) and the country code for the phone number.
    + In the third row, create a variable with a key of **region**. Next, set the value to the Region that you use Amazon Pinpoint in, such as **us-east-1** or **us-west-2**.
 
    When you finish, the **Environment Variables** section should resemble the example shown in the following image.  
-![The Environment Variables for originationNumber, projectId, and region.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step1.7.png)
+![The Environment Variables for originationNumber, projectId, and region.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step1.7.png)
 
 1. At the top of the page, choose **Save**.
 
@@ -214,7 +214,7 @@ After you create the function, you should test it to make sure that it's configu
 1. For **Choose a user attribute**, choose **FirstName**. Then, for **Choose values**, choose the first name that you specified in the test event.
 
    The **Segment estimate** section should show that there are zero eligible endpoints, and one total endpoint, as shown in the following image. This result is expected. When the function creates a new endpoint, the endpoint is opted out. Segments in Amazon Pinpoint automatically exclude opted-out endpoints.  
-![The segment group showing zero endpoints.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step8.9.png)
+![The segment group showing zero endpoints.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step8.9.png)
 
 ## Create the function that opts in customers to your communications
 <a name="tutorials-two-way-sms-part-3-create-optin-function"></a>
@@ -313,7 +313,7 @@ If the customer doesn't respond, or responds with anything other than the design
 The keyword isn't case sensitive. This function converts the incoming message to lowercase letters.
 
    When you finish, the **Environment Variables** section should resemble the example shown in the following image.  
-![The Environment Variables for projectId, region, and confirmKeyword.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step2.7.png)
+![The Environment Variables for projectId, region, and confirmKeyword.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step2.7.png)
 
 1. At the top of the page, choose **Save**.
 

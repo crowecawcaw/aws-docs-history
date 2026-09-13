@@ -19,7 +19,7 @@ Because 10DLC campaigns exist outside of a specific project, information about t
 1. In the navigation pane, choose **Campaigns**.
 
 1. On the **Campaigns** page, choose the campaign that you want to manage. Then, on the **Actions** menu, select the action that you want to take, as shown in the following image.  
-![The Actions menu shows the following options: View details, View analytics, Change settings, Duplicate, and Delete.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/campaigns_actions_menu.png)
+![The Actions menu shows the following options: View details, View analytics, Change settings, Duplicate, and Delete.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/campaigns_actions_menu.png)
 
    On the **Actions** menu, you can do the following:
    + **View details** – Shows the details page for the selected campaign. On this page, you can see information about the campaign, such as the campaign type, the status of the campaign, and the number of endpoints targeted by the campaign.

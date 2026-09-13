@@ -12,7 +12,7 @@ The **IP address reputation** page contains information about the denylist activ
 
 The **Overview** tab lists every dedicated IP address that's associated with your Amazon Pinpoint and Amazon SES accounts, as shown in the following image.
 
-![An example of your dedicated IP addresses and their reputation status.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-ip-address.png)
+![An example of your dedicated IP addresses and their reputation status.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-ip-address.png)
 
 
 If the value in the **Reputation** column is *High*, then there are no denylist activities that impact the reputation of that IP address. If the IP address appears on a denylist, the name of that denylist is shown in the **Blacklist name** column.
@@ -46,10 +46,10 @@ On the **Alarms** tab, you can create alarms that send you notifications when yo
    1. For **Alarm name**, enter a name to help you identify the alarm.
 
    1. Configure the values that cause the alarm to be triggered. For example, if you want to be notified when the denylisted IP rate for your account is 5% or greater, choose **>=**. Then enter a value of **5**, as shown in the following image.  
-![An example of an alarm for of the denylisted IP rate for your account is 5% or greater.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_deny_list_ip_alarms_threshold.png)
+![An example of an alarm for of the denylisted IP rate for your account is 5% or greater.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_deny_list_ip_alarms_threshold.png)
 
    1. Specify the amount of time that has to elapse before the alarm is triggered. For example, you can configure the alarm so that it only sends a notification when the denylisted IP rate exceeds a certain rate and stays at that rate for more than 2 hours. In this example, next to **for at least**, enter a value of **2**. Then, next to **consecutive period(s) of**, choose **1 hour**, as shown in the following image.  
-![An alarm for the denylisted IP rate that exceeds your specified threshold for two hours.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_deny_list_ip_alarms_period.png)
+![An alarm for the denylisted IP rate that exceeds your specified threshold for two hours.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_deny_list_ip_alarms_period.png)
 
    1. Under **Notification method**, choose one of the following options:
       + **Use an existing SNS topic** – Choose this option if you've already created an Amazon SNS topic and subscribed endpoints to it.

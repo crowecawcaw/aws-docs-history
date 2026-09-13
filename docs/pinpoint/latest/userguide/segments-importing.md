@@ -123,7 +123,7 @@ You can also drag files from your computer's file explorer and drop them directl
 1. When you upload files to Amazon Pinpoint, you have to provide a segment name for each file that you import. Under **Segment names**, enter a segment name for each file that you want to import.
 
    By default, Amazon Pinpoint provides a segment name that is equal to the name of the imported file, but without the file name extension. You can change these default values to any name.  
-![Shows the Segment names section on the segment creation page. The user has uploaded two files: High Value Customers.csv and Top Users by Activity.json.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments-import-names.png)
+![Shows the Segment names section on the segment creation page. The user has uploaded two files: High Value Customers.csv and Top Users by Activity.json.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments-import-names.png)
 **Note**  
 You can use the same name for multiple segments. If you do, Amazon Pinpoint creates a distinct segment for each file, and assigns a unique ID to each file. The creation date is also slightly different for each file that you import. You can use these factors to distinguish between segments that have the same name.
 

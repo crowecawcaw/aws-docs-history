@@ -18,7 +18,7 @@ In Amazon Pinpoint, segments and endpoints are unique to each project. The proje
 1. Choose **Create journey**. The journey workspace appears.
 
 1. On the **Actions** menu, choose **Settings**. The **Journey Settings** dialog box appears. An example of this dialog box is shown in the following image.  
-![A journey schedule with start and end date times and when to schedule with a recipients local time.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-settings.png)
+![A journey schedule with start and end date times and when to schedule with a recipients local time.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-settings.png)
 
 1. In the **Journey Settings** dialog box, do the following:
 
@@ -57,22 +57,22 @@ Postal code estimation is only supported in the United States, United Kingdom, A
 
 1. Under **Journey limits (advanced)**, set options for message processing. For example, this might be changing the number of journey messages per second or changing the number of entries per endpoint. Endpoints will only re-enter a journey if allowed by limits. 
    + **Maximum daily messages per endpoint** – Choose **Override default setting** to override the maximum daily message setting for the project that contains this journey. If you specify a value in this section, Amazon Pinpoint limits the number of messages that are sent to each individual endpoint.  
-![The text box for the Maximum daily messages per endpoint value and how to override it.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-daily-endpoint.png)
+![The text box for the Maximum daily messages per endpoint value and how to override it.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-daily-endpoint.png)
    + **Maximum number of messages an endpoint can receive from this journey** – Choose **Override default setting** to override the maximum messages an endpoint can receive from this journey. The default setting is 0, which means that there's no limit on the number of messages that endpoints in the journey can receive. When you enable this feature, other limits (such as **Maximum daily messages per endpoint**) still apply.  
-![The text box for the maximum number of messages an endpoint can receive and how to override it.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-messages-per-endpoint.png)
+![The text box for the maximum number of messages an endpoint can receive and how to override it.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-messages-per-endpoint.png)
    + **Maximum number of journey messages per second** – Choose **Override default setting** to override the maximum messages per second setting for the project that contains this journey. If you specify a value in this section, Amazon Pinpoint limits the number of messages that the journey can send each second. The value that you specify should be less than or equal to the maximum sending rate for your account. You can find the maximum sending rate for your account on the Email settings page on the Amazon Pinpoint console.  
-![The text box for the Maximum number of journey messages per second value and how to override it.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-journey-second.png)
+![The text box for the Maximum number of journey messages per second value and how to override it.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-journey-second.png)
    + **Maximum entries per endpoint** – Choose this setting to override the maximum entry setting for the project that contains this journey. If you specify a value in this section, Amazon Pinpoint limits the number of times that a participant can enter the journey. For example, if you specify a value greater than 1, a participant could enter a journey, complete several activities in the journey, arrive at an **End** activity, and start the journey again. If a participant is eligible for a journey, but they've already entered the journey the maximum number of times, they are prevented from entering the journey again. For example, if you have a maximum entry endpoint limit of **2**, and a participant has already entered and exited the journey two times, they will not re-enter that journey again.
 
      If you choose a value greater than **1** for the default, you can then choose **Endpoint re-entry interval**, setting how long to wait before an endpoint re-enters a journey. For example, you might set a re-entry interval if you want to space out messages sent to your users, thus preventing your users from being spammed.  
-![The text box for the maximum entries per endpoint value, Endpoint re-entry interval and how to override it.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-entries-endpoint.png)
+![The text box for the maximum entries per endpoint value, Endpoint re-entry interval and how to override it.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-entries-endpoint.png)
    + **Maximum number of messages across all journeys within a time frame**
 
      Use this setting to specify the maximum number of times a message can be sent to a single endpoint within the specified **Timeframe**. For example, if you want to send a maximum of 3 messages within a **Timeframe** of 7 days to each endpoint. The default setting is 0, which means that there's no limit on the number of messages that endpoints in the journey can receive. 
    + **Timeframe**
 
      The number of days applied to the **Maximum number of messages across all journeys within a time frame** if not set to 0. The default setting is 0, which means that there's no limit on the number of days that endpoints in the journey can receive.   
-![The text box for the Maximum number of messages across all journeys within a time frame value.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-message-time-frame.png)
+![The text box for the Maximum number of messages across all journeys within a time frame value.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-max-message-time-frame.png)
 
 1. Choose **Confirm**
 

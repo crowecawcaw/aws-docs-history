@@ -22,7 +22,7 @@ This event-triggered journey type adds participants based on a chosen event. You
  **To add participants when they perform an activity** 
 
 1. Choose **Add participants when they perform an activity** if it's not already chosen.  
-![The journey entry page to add a participant if they perform the given activity in the journey.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-entry-activity-event.png)
+![The journey entry page to add a participant if they perform the given activity in the journey.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-entry-activity-event.png)
 
 1. For **Events**, choose an event from a list of events or type a new event to add it. For example, you might want to trigger a journey when a user downloads a particular artist from your music service. Let's call this event {{artist.download}}. A journey can include only one event.
 
@@ -66,14 +66,14 @@ For this type of journey, you choose a segment to participate in the journey. Yo
  **To add participants from a segment** 
 
 1. Choose **Add participants from a segment**.   
-![The journey entry window to add a segment activity and how often to refresh the segment for new members.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-entry-activity.png)
+![The journey entry window to add a segment activity and how often to refresh the segment for new members.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-entry-activity.png)
 
 1. For **Segments**, choose the segment that you want to add to a journey.
 **Tip**  
 You can include only one segment in the **Journey entry** activity. If you need to add more segments, you can create a new segment that includes all of the segments that you want to add to the journey. Then, later in the journey, you can use a multivariate split activity to divide journey participants into separate groups based on their segment membership.
 
 1. (Optional) For **Specify how often to add new segment members**, choose how often the segment membership should be evaluated and refreshed. You can choose **Never**, or you can choose to check on a schedule. For example, if you choose **Once every 12 hours**, Amazon Pinpoint checks for new segment members every 12 hours. If new segment members are found during one of these checks, they are added to the journey. Existing endpoints are also re-evaluated. If the **Maximum entries per interval** is greater than 1, then existing endpoints also re-enter the journey.  
-![An example of how often to add participants from a segment.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-entry-activity-add.png)
+![An example of how often to add participants from a segment.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-entry-activity-add.png)
 
    You can also optionally choose **Refresh on segment update**. If you enable this feature, new endpoints are added to the journey when the segment is updated. For this feature to work as expected, you must also choose a refresh interval.
 

@@ -33,7 +33,7 @@ Each type of journey activity has separate components that you must configure. T
 When a journey participant arrives on a **Send email** activity, Amazon Pinpoint sends them an email immediately. Before you can configure an email activity, you must create an email template. For more information about creating email templates, see [Creating email templates](message-templates-creating-email.md).
 
 **To set up an email activity**  
-![An example setting up an email activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-email-activity.png)
+![An example setting up an email activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-email-activity.png)
 
 1. Choose **Add activity**.
 
@@ -74,7 +74,7 @@ You can send yourself a preview of the message, even if your Amazon Pinpoint acc
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![An example of setting up a push activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-push.png)
+![An example of setting up a push activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-push.png)
 
 ### Set up an SMS message activity
 <a name="journeys-add-activities-procedures-sms"></a>
@@ -113,7 +113,7 @@ For more information about the regulatory requirements for sending SMS messages 
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![The send an SMS message window to set up an SMS activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-sms.png)
+![The send an SMS message window to set up an SMS activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-sms.png)
 
 ### Set up a contact center activity
 <a name="journeys-add-activities-procedures-contact-center"></a>
@@ -183,7 +183,7 @@ Note the following considerations when using contact center activities in Amazon
 1. (Optional) In **Description**, describe the purpose of the activity. When you save the activity, this text appears as the activity's label. 
 
 1. When you finish, choose **Save**.  
-![The send through a contact center window to set up an Connect Customer activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-contact-center-option-1.png)
+![The send through a contact center window to set up an Connect Customer activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-contact-center-option-1.png)
 
 ### Set up a custom message channel activity
 <a name="journeys-add-activities-procedures-custom"></a>
@@ -215,7 +215,7 @@ Other endpoint types that arrive at this activity are sent through it, but only 
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![An example of setting up a Lambda activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-custom-lambda.png)
+![An example of setting up a Lambda activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-custom-lambda.png)
 
 **To set up a custom message channel activity that uses a webhook URL**
 
@@ -236,7 +236,7 @@ Other endpoint types that arrive at this activity are sent through it, but only 
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![An example of setting up a webhook activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-custom-webhook.png)
+![An example of setting up a webhook activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-create-step-3-add-activities-procedures-custom-webhook.png)
 
 ### Set up a wait activity
 <a name="journeys-add-activities-procedures-wait"></a>
@@ -256,7 +256,7 @@ When a journey participant arrives on a **Wait** activity, they remain on that a
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![An example of setting up a wait activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-wait-activity.png)
+![An example of setting up a wait activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-wait-activity.png)
 
 ### Set up a yes/no split activity
 <a name="journeys-add-activities-procedures-yes-no-split"></a>
@@ -327,7 +327,7 @@ For Amazon Pinpoint to capture an **Email open** event, the recipient's email cl
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![The yes/no split window to set up a yes or no split activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-yes-no-split-activity.png)
+![The yes/no split window to set up a yes or no split activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-yes-no-split-activity.png)
 
 ### Set up a multivariate split activity
 <a name="journeys-add-activities-procedures-multivariate-split"></a>
@@ -403,7 +403,7 @@ For Amazon Pinpoint to capture an **Email open** event, the recipient's email cl
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![The multivariate split window to set up a multivariate split activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-multivariate-split-activity.png)
+![The multivariate split window to set up a multivariate split activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-multivariate-split-activity.png)
 
 ### Set up a holdout activity
 <a name="journeys-add-activities-procedures-holdout"></a>
@@ -424,7 +424,7 @@ Amazon Pinpoint uses a probability-based algorithm to determine which journey pa
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![The holdout window to set up a holdout activity to 25%.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-holdout-activity.png)
+![The holdout window to set up a holdout activity to 25%.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-holdout-activity.png)
 
 ### Set up a random split activity
 <a name="journeys-add-activities-procedures-random-split"></a>
@@ -447,6 +447,6 @@ Amazon Pinpoint uses a probability-based algorithm to determine which journey pa
 1. (Optional) For **Description**, enter text that describes the purpose of the activity. When you save the activity, this text appears as its label.
 
 1. When you finish, choose **Save**.  
-![The random split window to set up a random split activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-random-split-activity.png)
+![The random split window to set up a random split activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-random-split-activity.png)
 
 **Next**: [Review and test a journey](journeys-review-test.md)

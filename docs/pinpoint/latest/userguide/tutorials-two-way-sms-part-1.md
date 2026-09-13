@@ -29,7 +29,7 @@ These steps describe the process of creating a new Amazon Pinpoint project if yo
 1. Sign in to the AWS Management Console and open the Amazon Pinpoint console at [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/).
 
 1. Use the Region selector to choose the AWS Region that you want to use, as shown in the following image. If you're unsure, choose the Region that's located closest to you.  
-![The Region drop down showing US East (N. Virginia) selected.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/Region_Selector.png)
+![The Region drop down showing US East (N. Virginia) selected.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/Region_Selector.png)
 
 1. Under **Get started**, for **Name**, enter a name for the campaign (such as **SMSRegistration**), and then choose **Create project**.
 
@@ -51,7 +51,7 @@ These steps describe the process of creating a new Amazon Pinpoint project if yo
 1. Sign in to the AWS Management Console and open the Amazon Pinpoint console at [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/).
 
 1. Use the Region selector to choose the AWS Region that you want to use, as shown in the following image. If you're unsure, choose the Region that's located closest to you.  
-![The region drop down showing US East (N. Virginia) selected.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/Region_Selector.png)
+![The region drop down showing US East (N. Virginia) selected.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/Region_Selector.png)
 
 1. On the **All projects** page, choose **Create a project**.
 

@@ -41,7 +41,7 @@ It takes approximately 24 hours for the test to complete. When the test is finis
 1. In the navigation pane of the Deliverability dashboard, choose **Inbox placement tests**.
 
 1. Confirm that the value in the **Test status** column is **Complete** for the test that you want to review. If it is, choose the test, and then choose **View test results**, as shown in the following image.  
-![An example showing predictive inbox placement with one test completed.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-pipt-view-results.png)
+![An example showing predictive inbox placement with one test completed.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-pipt-view-results.png)
 
 Each inbox placement test contains two sections: **Deliverability overview** and **ISP overview**.
 
@@ -72,7 +72,7 @@ Inbox placement tests contain two sections: a **Deliverability overview** and an
 
  The following is an example of what the **Deliverability Overview** might look like for a test.
 
-![An example summary of an inbox placement test in the Deliverability dashboard.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-pipt-results.png)
+![An example summary of an inbox placement test in the Deliverability dashboard.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-pipt-results.png)
 
 
 This section contains a summary of the inbox placement test. It includes the following information:

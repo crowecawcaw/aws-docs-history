@@ -9,7 +9,7 @@ The **Domain reputation** page contains information about the domains that you u
 
 Choose a domain from the **Domain** menu to see information about that domain, as shown in the following image.
 
-![The domain menu where you choose which domain you want.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-overview.png)
+![The domain menu where you choose which domain you want.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-overview.png)
 
 
 ## Summary
@@ -49,10 +49,10 @@ On the **Alarms** tab, you can create alarms that send you notifications for any
       + **Inbox placement rate** – When you choose this option, the alarm considers the inbox placement rate for specific email providers, such as Gmail or Yahoo. When you choose this option, you also have to choose the email provider that the alarm applies to.
 
    1. Configure the values that cause the alarm to be triggered. For example, if you want to be notified when the inbox placement rate for your account is 75% or less, choose **<=**. Then enter a value of **75**, as shown in the following image.  
-![An example of an alarm if the inbox placement rate is below 75 percent.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_domain_alarms_threshold.png)
+![An example of an alarm if the inbox placement rate is below 75 percent.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_domain_alarms_threshold.png)
 
    1. Specify the amount of time that has to elapse before the alarm is triggered. For example, you can configure the alarm so that it only sends a notification when the inbox placement rate goes below a certain rate and stays below that rate for more than two days. In this example, next to **for at least**, enter a value of **2**. Then, next to **consecutive period(s) of**, choose **1 day**, as shown in the following image.  
-![An example of an email bounce rate alarm if inbox placement stays below a threshold for two days.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_domain_alarms_period.png)
+![An example of an email bounce rate alarm if inbox placement stays below a threshold for two days.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/deliverability_dashboard_domain_alarms_period.png)
 
    1. Under **Notification method**, choose one of the following options:
       + **Use an existing SNS topic** – Choose this option if you've already created an Amazon SNS topic and subscribed endpoints to it.
@@ -74,7 +74,7 @@ This section includes average rates for inbox placement and spam folder placemen
 **Note**  
 You can use the date filter to choose a date range that contains up to 30 days.
 
-![An example of an inbox placement rate over 30 days with the five email providers.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-domain-reputation.png)
+![An example of an inbox placement rate over 30 days with the five email providers.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-email-deliverability-dashboard-domain-reputation.png)
 
 
 ## Denylist activities

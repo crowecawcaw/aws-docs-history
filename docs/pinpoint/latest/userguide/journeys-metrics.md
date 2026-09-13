@@ -25,7 +25,7 @@ These metrics are divided into several sections, which are discussed in detail i
 
 The first section in the list of journey execution metrics shows how many participants entered your journey. An example of this section is shown in the following image.
 
-![An example graph of participant execution metrics.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-execution-entries.png)
+![An example graph of participant execution metrics.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-execution-entries.png)
 
 
 This section contains the following information:
@@ -38,7 +38,7 @@ This section contains the following information:
 
 This section shows the refresh metrics for the journey. It includes information about the number of segments refreshed, how many times a segment has been refreshed, and whether the segment is set to refresh on update or not. An example of this section is shown in the following image.
 
-![An example graph of journey refresh metrics for segments.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-refresh.png)
+![An example graph of journey refresh metrics for segments.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-refresh.png)
 
 
 This section contains the following information:
@@ -54,7 +54,7 @@ This section contains the following information:
 
 The next section in the list of journey execution metrics includes information about the reasons why messages weren't sent to journey participants. An example of this section is shown in the following image.
 
-![An example graph of journey unsent message exclusion metrics.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-execution-unsent.png)
+![An example graph of journey unsent message exclusion metrics.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-execution-unsent.png)
 
 
 This section contains the following information:
@@ -79,7 +79,7 @@ These metrics are divided into several sections, which are discussed in detail i
 
 The first section in the list of activity execution metrics shows how many endpoints entered your activity. An example of this section is shown in the following image.
 
-![An example graph of endpoint sent metrics.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-execution-activity-sent.png)
+![An example graph of endpoint sent metrics.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-execution-activity-sent.png)
 
 
 This section contains the following information:
@@ -91,7 +91,7 @@ This section contains the following information:
 
 Each activity in your journey includes a list of execution metrics that indicates information about the number of messages that couldn't be delivered because of system issues, Amazon Pinpoint account configuration, or end user preferences such as an opt-out. An example of this section is shown in the following image.
 
-![An example graph of undelivered journey messages metrics.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-execution-activity-unsent.png)
+![An example graph of undelivered journey messages metrics.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-execution-activity-unsent.png)
 
 
 This section contains the following information:
@@ -131,7 +131,7 @@ The engagement metrics for each journey provide the number of message activities
 
 If there are multiple activity types in the journey, the engagement metrics are broken down by type, as seen in the following image.
 
-![An example graph of unsent email and Lambda messages.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-number.png)
+![An example graph of unsent email and Lambda messages.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-number.png)
 
 
 ## Activity-level engagement metrics
@@ -151,7 +151,7 @@ Email activities provide the following engagement metrics.
 
 These metrics provide information about participants' interactions with the messages that were sent from the email message activity.
 
-![An example of participant email activity metrics.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-response.png)
+![An example of participant email activity metrics.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-response.png)
 
 
 This section contains the following information: 
@@ -170,7 +170,7 @@ If a message recipient clicks multiple links in a message or clicks the same lin
 
 The final section in the list of engagement metrics provides additional email response metrics. An example of this section is shown in the following image.
 
-![An example graph of journey email engagement metrics.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-message.png)
+![An example graph of journey email engagement metrics.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-message.png)
 
 
 This section contains the following information: 
@@ -198,7 +198,7 @@ SMS message activities provide the following engagement metrics.
 
 These metrics provide information about participants' interactions with the messages that were sent from the SMS message activity.
 
-![An example of participants SMS response activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-activity-sms-delivery.png)
+![An example of participants SMS response activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-activity-sms-delivery.png)
 
 
 This section contains the following information: 
@@ -217,7 +217,7 @@ Push notification activities provide the following engagement metrics.
 
 These metrics provide information about participants' interactions with the messages that were sent from the push notification activity.
 
-![An example of participants push message interaction activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-activity-push-response.png)
+![An example of participants push message interaction activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-activity-push-response.png)
 
 
 This section contains the following information: 
@@ -230,7 +230,7 @@ This section contains the following information:
 
 The push notification engagement metrics also provide the time to live (TTL) value for the push notification activity. The TTL is the amount of time, in seconds, during which Amazon Pinpoint can deliver the message. After this time elapses, Amazon Pinpoint drops the message and doesn't attempt to re-deliver it.
 
-![An example of a custom time to live.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-activity-push-ttl.png)
+![An example of a custom time to live.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-activity-push-ttl.png)
 
 
 When the default TTL value is used, the metric displays a “-”. For custom TTL values, the metric displays the exact number and unit of time that you chose.
@@ -245,7 +245,7 @@ Custom channel activities provide the following engagement metrics.
 
 These metrics provide information about participants' interactions with the messages that were sent from the custom channel activity.
 
-![An example of participants custom channel message activity.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-activity-custom-success.png)
+![An example of participants custom channel message activity.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-metrics-engagement-activity-custom-success.png)
 
 
 This section contains the following information: 

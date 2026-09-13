@@ -15,7 +15,7 @@ The review feature provides information about configuration errors in your journ
 **To review a journey**
 
 1. In the upper-right corner of the journey workspace, choose **Review**. The **Review your journey** pane appears in the journey workspace. The following image shows the journey workspace with the **Review your journey** pane opened.  
-![An example of how to review a journey.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-review-pane.png)
+![An example of how to review a journey.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/journeys-review-pane.png)
 
 1. Review the error messages that are shown on the first page of the **Review your journey** pane. You can't publish your journey until you resolve all the issues that are shown on this page. If there aren't any issues with your journey, you see a message stating that your journey doesn't contain any errors. When you're ready to proceed, choose **Next**.
 **Tip**  

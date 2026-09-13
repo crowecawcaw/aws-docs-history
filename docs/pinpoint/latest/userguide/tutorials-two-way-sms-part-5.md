@@ -184,7 +184,7 @@ After you publish the form, you should submit some test events to make sure that
 **To test the registration form**
 
 1. In a web browser, go to the location where you uploaded the registration form. If you used the code example from [Create the JavaScript form handler](#tutorials-two-way-sms-part-5-create-form), you see a form that resembles the example in the following image.  
-![The customer request form created in step 5.1.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_Form_Step5.3.1.png)
+![The customer request form created in step 5.1.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_Form_Step5.3.1.png)
 
 1. Enter your contact information in the **First name**, **Last name**, and **Phone number** fields.
 **Note**  
@@ -204,7 +204,7 @@ If you tested the Lambda function in [Create Lambda functions](tutorials-two-way
 1. For **Choose a user attribute**, choose **FirstName**. Then, for **Choose values**, choose the first name that you specified when you submitted the form.
 
    The **Segment estimate** section should show that there are zero eligible endpoints, and one endpoint (under Total endpoints), as shown in the following example. This result is expected. When the Lambda function creates a new endpoint, the endpoint is opted out by default.  
-![A segment with zero opted in endpoints.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step8.9.png)
+![A segment with zero opted in endpoints.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/SMS_Reg_Tutorial_LAM_Step8.9.png)
 
 1. On the device that received the message, reply to the message with the two-way SMS keyword that you specified in [Enable two-way SMS](tutorials-two-way-sms-part-1.md#tutorials-two-way-sms-part-1-enable-two-way). Amazon Pinpoint sends a response message immediately.
 

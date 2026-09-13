@@ -94,6 +94,6 @@ In-app messages are highly customizable. They can include buttons that open webs
    As you add messages to the carousel, the **Preview** page updates by displaying icons at the bottom of the page showing the number of messages included in the carousel.
 
    The following image shows a carousel with two messages:  
-![An example carousel showing two products and messages.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-inapp-carousel.png)
+![An example carousel showing two products and messages.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/channels-inapp-carousel.png)
 
 1. When you finish, choose **Create**.

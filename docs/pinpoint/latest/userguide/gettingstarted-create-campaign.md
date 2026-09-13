@@ -59,7 +59,7 @@ You can quickly save this file to your computer by right-clicking the link, and 
 **Tip**  
 You can use Design view to edit the content of the message without having to edit the HTML code. To use this view, choose **Design** from the view selector above the message editor, as shown in the following image.  
 
-![Switching from HTML to Design view for your message.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/gettingstarted-create-campaign-design-menu.png)
+![Switching from HTML to Design view for your message.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/gettingstarted-create-campaign-design-menu.png)
 
 
 1. In **Email settings** for **Sender email address** choose the verified email address that you created while creating the project.

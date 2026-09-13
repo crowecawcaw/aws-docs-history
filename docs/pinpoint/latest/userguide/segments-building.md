@@ -42,7 +42,7 @@ The following steps describe creating and configuring a segment:
 1. Choose **Create a segment**.
 
 1. Under **Create a segment**, choose **Build a segment**.  
-![The Create a segment page with the Build a segment option selected.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_build.png)
+![The Create a segment page with the Build a segment option selected.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_build.png)
 
 1. For **Segment name**, enter a name for the segment.
 
@@ -55,7 +55,7 @@ You will first choose how you want to define the audience segments for the segme
 + Under **Segment group 1**, for **Base segments**, choose one of the following options:
   + **Include any audiences** – If you use more than one segment as a base segment, your new segment contains endpoints that are in at least one of the segments you choose. For example, you might have two dynamic segments, {{Older than 18}} and {{Lives in New York City}}. Your target audience when choosing this option is any audience older than 18 *or* who live in New York City. 
   + **Include all audiences** – If you use more than one segment as a base segment, your new segment only contains endpoints common to all of the selected segments. For example, you might have two dynamic segments, {{Older than 18}} and {{Lives in New York City}}. Your target audience when choosing this option is all audiences older than 18 *and* who live in New York City.   
-![The Segment group 1 section showing Include any audiences.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_any_all.png)
+![The Segment group 1 section showing Include any audiences.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_any_all.png)
 
 ### Step 3: Choose the segments to include in the group
 <a name="choosesegments"></a>
@@ -65,10 +65,10 @@ The next step is to choose which segments you will include in the group. These s
 1. For the dropdown list, select one or more segments to include in the segment group. Each segment that you add displays in the section. 
 **Note**  
 The segments dropdown list doesn't close when you choose a segment. It remains open, with a check mark by each segment you're including in the group. You can clear the checkbox by any segment that you want to remove. When you're done choosing segments, choose an area outside of the dropdown list to close it.  
-![The Segment group 1 dropdown list showing available segments.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_any_drop_down_selected.png)
+![The Segment group 1 dropdown list showing available segments.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_any_drop_down_selected.png)
 
 1. As you add or remove segments, the Segment estimate section updates to display the eligible and total endpoints set to receive the campaign. Eligible endpoints are those endpoints determined by the any/and relationship for the segment group, while the total is the sum of all endpoints regardless of the relationship connector.  
-![The segment estimate showing available endpoints and eligible endpoints.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_estimate.png)
+![The segment estimate showing available endpoints and eligible endpoints.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_estimate.png)
 
 ### Step 4: Choose and configure the segment criteria
 <a name="choosecriteria"></a>
@@ -121,7 +121,7 @@ Optionally add criteria groups to further refine your results. You will create a
    + **AND** – The segment contains only that audiences who meet the criteria for both criteria groups.
    + **OR** – The segment contains audiences who meet the criteria in either one of the criteria groups.
    + **NOR** – The segment excludes the audiences that fits the criteria from the results.   
-![Relationship connector used to set the relationship between two groups of criteria.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_and_or_nor.png)
+![Relationship connector used to set the relationship between two groups of criteria.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_and_or_nor.png)
 
 1. (Optional) To add another group of criteria, choose **Add criteria** or, to add a second segment group, choose **Add another segment group**. For more information, see [Step 6: Add segment group 2](#addsegmentgroup).
 
@@ -142,7 +142,7 @@ If you use an imported segment as the base segment for your first segment group,
 1. Choose **Add another segment group**.
 
 1.  Create the relationship with the first segment group. If you choose **AND**, the segment contains only those customers who meet the criteria for both segment groups. If you choose **OR**, the segment contains those customers who meet the criteria in either one of the segment groups. Within segment group 2, you have a third option to **Exclude audiences**. Segments that are excluded will not be included in the results. You can only exclude audiences in segment group 2.  
-![Segment group 2 showing the relationship connector to Exclude audiences.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_groups_logic.png)
+![Segment group 2 showing the relationship connector to Exclude audiences.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/segments_groups_logic.png)
 
 1. Choose the segments that you want to include in segment group 2. See [Step 3: Choose the segments to include in the group](#choosesegments).
 

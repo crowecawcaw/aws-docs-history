@@ -38,7 +38,7 @@ Before you create segments and campaigns in Amazon Pinpoint, you first have to c
 **To create a project by sending a CreateApp API request**
 
 1. On the **Environments** menu, choose the AWS Region that you want to create the project in.  
-![The open Environments menu showing available Regions.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_Environments.png)
+![The open Environments menu showing available Regions.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_Environments.png)
 
     In this example, Postman has been configured so that the **Environments** menu shows the following four options:
    + US East (N. Virginia)
@@ -47,7 +47,7 @@ Before you create segments and campaigns in Amazon Pinpoint, you first have to c
    + Europe (Ireland)
 
 1. In the **Apps** folder, choose the **CreateApp** operation>.  
-![The Apps folder in the Amazon Pinpoint Postman collection.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_3.2_2.png)
+![The Apps folder in the Amazon Pinpoint Postman collection.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_3.2_2.png)
 
    The **Apps** folder in the Amazon Pinpoint Postman collection are expanded and show the following requests:
    + `GetApp`
@@ -100,7 +100,7 @@ To complete the procedure in this section, you must verify and email address
    + Europe (Ireland)
 
 1. In the **Messages** folder, choose the **SendMessages** operation.  
-![The Messages folder in the Amazon Pinpoint Postman collection. The folder contents are expanded, and the SendMessages and SendUsersMessages requests are shown.](http://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_3.3_3.png)
+![The Messages folder in the Amazon Pinpoint Postman collection. The folder contents are expanded, and the SendMessages and SendUsersMessages requests are shown.](https://docs.aws.amazon.com/pinpoint/latest/userguide/images/Postman_Tutorial_3.3_3.png)
 
 1. On the **Pre-request Script** tab, replace the value of the `projectId` variable with the ID of a project that already exists in the Region that you selected in step 2 of this section.
 
