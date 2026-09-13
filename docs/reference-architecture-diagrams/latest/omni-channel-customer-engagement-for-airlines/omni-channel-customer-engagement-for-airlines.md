@@ -10,7 +10,7 @@ This reference architecture provides a unified user interface for customer servi
 ## Omni-channel Customer Engagement for Airlines Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services together to create a user interface to provide a personalized customer experience.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/omni-channel-customer-engagement-for-airlines/images/omni-channel-customer-engagement-for-airlines.png)
+![Reference architecture diagram showing how you can use AWS services together to create a user interface to provide a personalized customer experience.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/omni-channel-customer-engagement-for-airlines/images/omni-channel-customer-engagement-for-airlines.png)
 
 
 1. Use **Amazon Simple Storage Service** (Amazon S3) to store website, configuration files, and **Amazon CloudFront** to serve a unified user interface. 
