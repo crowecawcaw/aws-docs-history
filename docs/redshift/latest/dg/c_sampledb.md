@@ -9,7 +9,7 @@ This section describes TICKIT, a sample database that Amazon Redshift documentat
 
 This small database consists of seven tables: two fact tables and five dimensions. You can load the TICKIT dataset by following the steps in [Step 4: Load data from Amazon S3 to Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-create-sample-db.html) in the Amazon Redshift Getting Started Guide.
 
-![The seven tables in the TICKIT sample database and their relationships to one another.](http://docs.aws.amazon.com/redshift/latest/dg/images/tickitdb.png)
+![The seven tables in the TICKIT sample database and their relationships to one another.](https://docs.aws.amazon.com/redshift/latest/dg/images/tickitdb.png)
 
 
 This sample database application helps analysts track sales activity for the fictional TICKIT web site, where users buy and sell tickets online for sporting events, shows, and concerts. In particular, analysts can identify ticket movement over time, success rates for sellers, and the best-selling events, venues, and seasons. Analysts can use this information to provide incentives to buyers and sellers who frequent the site, to attract new users, and to drive advertising and promotions.

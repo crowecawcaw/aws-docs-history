@@ -34,7 +34,7 @@ As part of generating a query plan, the query optimizer breaks down the plan int
 
 The following illustration shows the preceding query and associated query plan. It displays how the query operations involved map to steps that Amazon Redshift uses to generate compiled code for the compute node slices. Each query plan operation maps to multiple steps within the segments, and sometimes to multiple segments within the streams.
 
-![A query and its associated query plan mapped to three streams.](http://docs.aws.amazon.com/redshift/latest/dg/images/map-plan-to-streams.png)
+![A query and its associated query plan mapped to three streams.](https://docs.aws.amazon.com/redshift/latest/dg/images/map-plan-to-streams.png)
 
 
 In this illustration, the query optimizer runs the query plan as follows:

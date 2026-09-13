@@ -15,4 +15,4 @@ With RBAC, you can create roles with permissions to run commands that used to re
 
 To learn how Amazon Redshift RBAC works, watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/IhHQ7mZ-tp4/0.jpg)](http://www.youtube.com/watch?v=IhHQ7mZ-tp4)
+[![AWS Videos](https://img.youtube.com/vi/IhHQ7mZ-tp4/0.jpg)](https://www.youtube.com/watch?v=IhHQ7mZ-tp4)

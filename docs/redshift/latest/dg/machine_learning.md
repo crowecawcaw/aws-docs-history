@@ -25,7 +25,7 @@ Amazon Redshift works with Amazon SageMaker AI Autopilot to automatically obtain
 
 The following diagram illustrates how Amazon Redshift ML works.
 
-![Workflow for Amazon Redshift ML integrating with Amazon SageMaker AI Autopilot.](http://docs.aws.amazon.com/redshift/latest/dg/images/machine_learning_overview.png)
+![Workflow for Amazon Redshift ML integrating with Amazon SageMaker AI Autopilot.](https://docs.aws.amazon.com/redshift/latest/dg/images/machine_learning_overview.png)
 
 
 The general workflow is as follows:

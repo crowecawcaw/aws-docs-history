@@ -13,14 +13,14 @@ The following series of illustrations describe how columnar data storage impleme
 
 This first illustration shows how records from database tables are typically stored into disk blocks by row.
 
-![Records from a database table stored in disk blocks by row.](http://docs.aws.amazon.com/redshift/latest/dg/images/03a-Rows-vs-Columns.png)
+![Records from a database table stored in disk blocks by row.](https://docs.aws.amazon.com/redshift/latest/dg/images/03a-Rows-vs-Columns.png)
 
 
 In a typical relational database table, each row contains field values for a single record. In row-wise database storage, data blocks store values sequentially for each consecutive column making up the entire row. If block size is smaller than the size of a record, storage for an entire record may take more than one block. If block size is larger than the size of a record, storage for an entire record may take less than one block, resulting in an inefficient use of disk space. In online transaction processing (OLTP) applications, most transactions involve frequently reading and writing all of the values for entire records, typically one record or a small number of records at a time. As a result, row-wise storage is optimal for OLTP databases.
 
 The next illustration shows how with columnar storage, the values for each column are stored sequentially into disk blocks.
 
-![Records from a database table stored in disk blocks by column.](http://docs.aws.amazon.com/redshift/latest/dg/images/03b-Rows-vs-Columns.png)
+![Records from a database table stored in disk blocks by column.](https://docs.aws.amazon.com/redshift/latest/dg/images/03b-Rows-vs-Columns.png)
 
 
 Using columnar storage, each data block stores values of a single column for multiple rows. As records enter the system, Amazon Redshift transparently converts the data to columnar storage for each of the columns.

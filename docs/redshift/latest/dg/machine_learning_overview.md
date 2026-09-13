@@ -11,7 +11,7 @@ By using Amazon Redshift ML, you can train machine learning models using SQL sta
 
 To help you learn how to use Amazon Redshift ML, you can watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/pJF2kYGtO4A/0.jpg)](http://www.youtube.com/watch?v=pJF2kYGtO4A)
+[![AWS Videos](https://img.youtube.com/vi/pJF2kYGtO4A/0.jpg)](https://www.youtube.com/watch?v=pJF2kYGtO4A)
 
 
 For information about the prerequisites for setting up your Redshift cluster or Serverless workgroup, permissions, and ownership for using Amazon Redshift ML, read the following sections. These sections also describe how simple training and predictions work in Amazon Redshift ML.
@@ -43,7 +43,7 @@ Preprocessing the data is important for K-Means, as it ensures that the features
 
 To help you learn how to perform unsupervised training with K-Means clustering, you can watch the following video. 
 
-[![AWS Videos](http://img.youtube.com/vi/TFKgl5d0U_0/0.jpg)](http://www.youtube.com/watch?v=TFKgl5d0U_0)
+[![AWS Videos](https://img.youtube.com/vi/TFKgl5d0U_0/0.jpg)](https://www.youtube.com/watch?v=TFKgl5d0U_0)
 
 
 ## Terms and concepts for Amazon Redshift ML

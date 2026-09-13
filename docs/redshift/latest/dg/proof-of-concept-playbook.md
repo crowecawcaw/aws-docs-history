@@ -12,7 +12,7 @@ For a copy of this information as a PDF, choose the link **Run your own Redshift
 
 When doing a POC of Amazon Redshift, you test, prove out, and adopt features ranging from best-in-class security capabilities, elastic scaling, easy integration and ingestion, and flexible decentralized data architecture options.
 
-![Shows a depiction of the steps in the proof of concept flow.](http://docs.aws.amazon.com/redshift/latest/dg/images/poc-steps-overview.png)
+![Shows a depiction of the steps in the proof of concept flow.](https://docs.aws.amazon.com/redshift/latest/dg/images/poc-steps-overview.png)
 
 
 Follow the these steps to conduct a successful POC.
@@ -20,7 +20,7 @@ Follow the these steps to conduct a successful POC.
 ## Step 1: Scope your POC
 <a name="proof-of-concept-scope"></a>
 
-![Shows that the scope step is the current step in the proof of concept flow.](http://docs.aws.amazon.com/redshift/latest/dg/images/poc-step1.png)
+![Shows that the scope step is the current step in the proof of concept flow.](https://docs.aws.amazon.com/redshift/latest/dg/images/poc-step1.png)
 
 
 When conducting a POC, you can either choose to use your own data, or you can choose to use benchmarking datasets. When you choose your own data you run your own queries against the data. With benchmarking data, sample queries are provided with the benchmark. See [Use sample datasets](#use-sample-datasets) for more details if you are not ready to conduct a POC with your own data just yet.
@@ -48,7 +48,7 @@ Start by doing the following:
 ## Step 2: Launch Amazon Redshift
 <a name="proof-of-concept-launch"></a>
 
-![Shows that the Amazon Redshift launch step is the current step in the proof of concept flow.](http://docs.aws.amazon.com/redshift/latest/dg/images/poc-step2.png)
+![Shows that the Amazon Redshift launch step is the current step in the proof of concept flow.](https://docs.aws.amazon.com/redshift/latest/dg/images/poc-step2.png)
 
 
 Amazon Redshift accelerates your time to insights with fast, easy, and secure cloud data warehousing at scale. You can start quickly by launching your warehouse on the [Redshift Serverless console](https://console.aws.amazon.com/redshiftv2/home?#serverless-dashboard) and get from data to insights in seconds. With Redshift Serverless, you can focus on delivering on your business outcomes without worrying about managing your data warehouse.
@@ -65,7 +65,7 @@ If you are bringing your own data instead of loading the sample data set, see [S
 ## Step 3: Load your data
 <a name="proof-of-concept-load-data"></a>
 
-![Shows that the load step is the current step in the proof of concept flow.](http://docs.aws.amazon.com/redshift/latest/dg/images/poc-step3.png)
+![Shows that the load step is the current step in the proof of concept flow.](https://docs.aws.amazon.com/redshift/latest/dg/images/poc-step3.png)
 
 
 After launching Redshift Serverless, the next step is to load your data for the POC. Whether you are uploading a simple CSV file, ingesting semi-structured data from S3, or streaming data directly, Amazon Redshift provides the flexibility to quickly and easily move the data into Amazon Redshift tables from the source.
@@ -98,7 +98,7 @@ Streaming ingestion provides low-latency, high-speed ingestion of stream data fr
 ## Step 4: Analyze your data
 <a name="proof-of-concept-analyze"></a>
 
-![Shows that the analyze step is the current step in the proof of concept flow.](http://docs.aws.amazon.com/redshift/latest/dg/images/poc-step4.png)
+![Shows that the analyze step is the current step in the proof of concept flow.](https://docs.aws.amazon.com/redshift/latest/dg/images/poc-step4.png)
 
 
 After creating your Redshift Serverless workgroup and namespace, and loading your data, you can immediately run queries by opening the **Query editor v2** from the navigation panel of the [Redshift Serverless console](https://console.aws.amazon.com/redshiftv2/home?#serverless-dashboard). You can use query editor v2 to test query functionality or query performance against your own datasets.
@@ -121,18 +121,18 @@ After you complete customizing your SQL statements and finalizing your test plan
 
 For performance metrics, choose the **Database performance** tab on the Redshift Serverless console, to monitor metrics such as **Database Connections** and **CPU utilization**. Here you can view a graph to monitor the RPU capacity used and observe how Redshift Serverless automatically scales to meet concurrent workload demands while the load test is running on your workgroup.
 
-![Example graph showing average RPU capacity used.](http://docs.aws.amazon.com/redshift/latest/dg/images/poc-rpu-capacity-used.png)
+![Example graph showing average RPU capacity used.](https://docs.aws.amazon.com/redshift/latest/dg/images/poc-rpu-capacity-used.png)
 
 
 Database connections is another useful metric to monitor while running the load test to see how your workgroup is handling numerous concurrent connections at a given time to meet the increasing workload demands.
 
-![Example graph showing database connections.](http://docs.aws.amazon.com/redshift/latest/dg/images/poc-database-connections.png)
+![Example graph showing database connections.](https://docs.aws.amazon.com/redshift/latest/dg/images/poc-database-connections.png)
 
 
 ## Step 5: Optimize
 <a name="proof-of-concept-optimize"></a>
 
-![Shows that the optimize step is the current step in the proof of concept flow.](http://docs.aws.amazon.com/redshift/latest/dg/images/poc-step5.png)
+![Shows that the optimize step is the current step in the proof of concept flow.](https://docs.aws.amazon.com/redshift/latest/dg/images/poc-step5.png)
 
 
 Amazon Redshift empowers tens of thousands of users to process exabytes of data every day and power their analytics workloads by offering a variety of configurations and features to support individual use cases. When choosing between these options, customers are looking for tools that help them determine the most optimal data warehouse configuration to support their Amazon Redshift workload.

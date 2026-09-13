@@ -5,9 +5,6 @@
 # Create an S3 event integration to automatically copy files from Amazon S3 buckets
 <a name="loading-data-copy-job"></a>
 
-**Note**  
-The preview release for auto-copy has ended. Consequently, preview clusters will be automatically removed 30 days after the end of the preview period. If you plan to continue using auto-copy, we recommend re-creating your existing auto-copy jobs on another Amazon Redshift cluster. Upgrading a preview cluster to the latest Amazon Redshift version is not supported.
-
 You can use an auto-copy job to load data into your Amazon Redshift tables from files that are stored in Amazon S3. Amazon Redshift detects when new Amazon S3 files are added to the path specified in your COPY command. A COPY command is then automatically run without you having to create an external data ingestion pipeline. Amazon Redshift keeps track of which files have been loaded. Amazon Redshift determines the number of files batched together per COPY command. You can see the resulting COPY commands in system views.
 
 The first step to create an automatic COPY JOB is to create an S3 event integration. When a new file appears in the Amazon S3 source bucket, Amazon Redshift then manages loading the files into your database using the COPY command.

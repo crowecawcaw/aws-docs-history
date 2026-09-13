@@ -19,7 +19,7 @@ This approach is especially useful for reusing precomputed joins for different a
 
 When you create a materialized view, Amazon Redshift runs the user-specified SQL statement to gather the data from the base table or tables and stores the result set. The following illustration provides an overview of the materialized view `tickets_mv` that an SQL query defines by using two base tables, `events` and `sales`.
 
-![A materialized view defined using data from two base tables.](http://docs.aws.amazon.com/redshift/latest/dg/images/materialized-view.png)
+![A materialized view defined using data from two base tables.](https://docs.aws.amazon.com/redshift/latest/dg/images/materialized-view.png)
 
 
 You can then use these materialized views in queries to speed them up. In addition, Amazon Redshift can automatically rewrite these queries to use materialized views, even when the query doesn't explicitly reference a materialized view. Automatic rewrite of queries is especially powerful in enhancing performance when you can't change your queries to use materialized views.

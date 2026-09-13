@@ -95,7 +95,7 @@ You will use the IP address for each cluster node to configure the host security
 1. Locate the **SSH Ingestion Settings** group. 
 
    Note the **Cluster Public Key** and **Node IP addresses**. You will use them in later steps.   
-![Screenshot from the SSH Ingestion Settings group showing the Cluster Public Key and Node IP addresses.](http://docs.aws.amazon.com/redshift/latest/dg/images/copy-from-ssh-console-2.png)
+![Screenshot from the SSH Ingestion Settings group showing the Cluster Public Key and Node IP addresses.](https://docs.aws.amazon.com/redshift/latest/dg/images/copy-from-ssh-console-2.png)
 
    You will use the private IP addresses in Step 3 to configure the Amazon EC2 host to accept the connection from Amazon Redshift. 
 

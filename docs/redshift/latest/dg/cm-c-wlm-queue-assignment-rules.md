@@ -17,7 +17,7 @@ When a user runs a query, WLM assigns the query to the first matching queue, bas
 
 The following diagram illustrates how these rules work.
 
-![Flowchart illustrating the rules WLM uses to assign queries to queues.](http://docs.aws.amazon.com/redshift/latest/dg/images/queue-assignment-rules-with-rbac.png)
+![Flowchart illustrating the rules WLM uses to assign queries to queues.](https://docs.aws.amazon.com/redshift/latest/dg/images/queue-assignment-rules-with-rbac.png)
 
 
 ## Queue assignments example
@@ -36,7 +36,7 @@ The following table shows a WLM configuration with the superuser queue and four 
 
 The following illustration shows how queries are assigned to the queues in the previous table according to user groups and query groups. For information about how to assign queries to user groups and query groups at runtime, see [Assigning queries to queues](cm-c-executing-queries.md) later in this section.
 
-![Sample list of queries assigned to queues according to user groups and query groups.](http://docs.aws.amazon.com/redshift/latest/dg/images/queues-assignment-2.png)
+![Sample list of queries assigned to queues according to user groups and query groups.](https://docs.aws.amazon.com/redshift/latest/dg/images/queues-assignment-2.png)
 
 
 In this example, WLM makes the following assignments:

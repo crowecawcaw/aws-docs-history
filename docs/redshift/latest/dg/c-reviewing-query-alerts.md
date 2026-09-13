@@ -23,7 +23,7 @@ To use the [STL\_ALERT\_EVENT\_LOG](r_STL_ALERT_EVENT_LOG.md) system table to id
    ```
    Select * from stl_alert_event_log where query = MyQueryID;               
    ```  
-![A sample query result from STL_ALERT_EVENT_LOG.](http://docs.aws.amazon.com/redshift/latest/dg/images/stl_alert_event_log_results.png)
+![A sample query result from STL_ALERT_EVENT_LOG.](https://docs.aws.amazon.com/redshift/latest/dg/images/stl_alert_event_log_results.png)
 
 1. Evaluate the results for your query. Use the following table to locate potential solutions for any issues that you have identified.
 **Note**  

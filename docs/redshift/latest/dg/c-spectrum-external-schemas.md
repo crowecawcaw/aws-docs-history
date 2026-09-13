@@ -143,7 +143,7 @@ To display the security group, do the following:
 1. Open your Amazon EMR cluster. For more information, see [Use security configurations to set up cluster security](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html) in the *Amazon EMR Management Guide*.
 
 1. Under **Security and access**, make a note of the Amazon EMR master node security group name.  
-![A screenshot highlighting the Amazon EMR master node security group name in the Amazon EMR console.](http://docs.aws.amazon.com/redshift/latest/dg/images/spectrum-emr-security-groups.png)
+![A screenshot highlighting the Amazon EMR master node security group name in the Amazon EMR console.](https://docs.aws.amazon.com/redshift/latest/dg/images/spectrum-emr-security-groups.png)
 
 **To create or modify an Amazon EC2 security group to allow connection between Amazon Redshift and Amazon EMR**
 
@@ -194,7 +194,7 @@ The default port for an EMR HMS is 9083. If your HMS uses a different port, spec
 1. Under **Hardware**, choose the link for the Master node. 
 
 1. Choose the link in the **EC2 instance ID** column.   
-![A screenshot highlighting an Amazon EC2 instance ID value in the Amazon EMR console.](http://docs.aws.amazon.com/redshift/latest/dg/images/spectrum-emr-add-security-group.png)
+![A screenshot highlighting an Amazon EC2 instance ID value in the Amazon EMR console.](https://docs.aws.amazon.com/redshift/latest/dg/images/spectrum-emr-add-security-group.png)
 
 1. For **Actions**, choose **Security**, **Change security groups**. 
 

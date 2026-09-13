@@ -25,7 +25,7 @@ To analyze query summary information by stream using [SVL\_QUERY\_SUMMARY](r_SVL
    ```
 
    The following is an example result.  
-![A sample result for rows in SVL_QUERY_SUMMARY matching a given query.](http://docs.aws.amazon.com/redshift/latest/dg/images/svl_query_summary_results.png)
+![A sample result for rows in SVL_QUERY_SUMMARY matching a given query.](https://docs.aws.amazon.com/redshift/latest/dg/images/svl_query_summary_results.png)
 
 1. Map the steps to the operations in the query plan using the information in [Mapping the query plan to the query summary](query-plan-summary-map.md). They should have approximately the same values for rows and bytes (rows \* width from the query plan). If they don’t, see [Table statistics missing or out of date](query-performance-improvement-opportunities.md#table-statistics-missing-or-out-of-date) for recommended solutions.
 
@@ -53,7 +53,7 @@ A high `maxtime` value doesn't necessarily indicate a problem with the segment. 
    For example, in the following sample query summary, the third PROJECT step provides a `rows` value, but not a `bytes` value. By looking through the preceding steps for one with the same `rows` value, you find the SCAN step that provides both rows and bytes information.
 
     The following is a sample result.   
-![A row in the query summary results that is a SCAN step with both rows and bytes information.](http://docs.aws.amazon.com/redshift/latest/dg/images/rows_and_bytes.png)
+![A row in the query summary results that is a SCAN step with both rows and bytes information.](https://docs.aws.amazon.com/redshift/latest/dg/images/rows_and_bytes.png)
 
    If you are returning an unusually large volume of data, see [Very large result set](query-performance-improvement-opportunities.md#very-large-result-set) for recommended solutions.
 

@@ -63,4 +63,4 @@ Following are limitations for working with automated materialized views:
 
  This video begins with an explanation of materialized views and shows how they improve performance and conserve resources. It then provides an in-depth explanation of automated materialized views with a process-flow animation and a live demonstration. 
 
-[![AWS Videos](http://img.youtube.com/vi/-85GSBQOBTA/0.jpg)](http://www.youtube.com/watch?v=-85GSBQOBTA)
+[![AWS Videos](https://img.youtube.com/vi/-85GSBQOBTA/0.jpg)](https://www.youtube.com/watch?v=-85GSBQOBTA)

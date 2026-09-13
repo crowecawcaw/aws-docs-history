@@ -171,7 +171,7 @@ The Amazon Redshift COPY command must have access to read the file objects in th
 
 For this tutorial, you use a set of tables based on the Star Schema Benchmark (SSB) schema. The following diagram shows the SSB data model. 
 
-![The SSB schema's five tables and their relationships to one another.](http://docs.aws.amazon.com/redshift/latest/dg/images/tutorial-optimize-tables-ssb-data-model.png)
+![The SSB schema's five tables and their relationships to one another.](https://docs.aws.amazon.com/redshift/latest/dg/images/tutorial-optimize-tables-ssb-data-model.png)
 
 
 The SSB tables might already exist in the current database. If so, drop the tables to remove them from the database before you create them using the CREATE TABLE commands in the next step. The tables used in this tutorial might have different attributes than the existing tables.
@@ -774,7 +774,7 @@ Even files that contain 15 million records and occupy about 1.2 GB are very smal
 
 The following image shows the data files for LINEORDER.
 
-![The data in the LINEORDER table split into nine files.](http://docs.aws.amazon.com/redshift/latest/dg/images/tutorial-load-lineorder-files.png)
+![The data in the LINEORDER table split into nine files.](https://docs.aws.amazon.com/redshift/latest/dg/images/tutorial-load-lineorder-files.png)
 
 
 **To evaluate the performance of COPY with multiple files**

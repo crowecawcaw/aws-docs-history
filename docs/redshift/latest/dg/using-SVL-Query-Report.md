@@ -25,9 +25,9 @@ To analyze query summary information by slice using [SVL\_QUERY\_REPORT](r_SVL_Q
    ```
 
 1. For each step, check to see that all slices are processing approximately the same number of rows:  
-![A list of data slices used to run a query. Each slice processes approximately the same number of rows.](http://docs.aws.amazon.com/redshift/latest/dg/images/SVL_QUERY_REPORT_rows.png)
+![A list of data slices used to run a query. Each slice processes approximately the same number of rows.](https://docs.aws.amazon.com/redshift/latest/dg/images/SVL_QUERY_REPORT_rows.png)
 
    Also check to see that all slices are taking approximately the same amount of time:  
-![A list of data slices used to run a query. Each slice takes approximately the same amount of time..](http://docs.aws.amazon.com/redshift/latest/dg/images/SVL_QUERY_REPORT_elapsed_time.png)
+![A list of data slices used to run a query. Each slice takes approximately the same amount of time..](https://docs.aws.amazon.com/redshift/latest/dg/images/SVL_QUERY_REPORT_elapsed_time.png)
 
    Large discrepancies in these values can indicate data distribution skew due to a suboptimal distribution style for this particular query. For recommended solutions, see [Suboptimal data distribution](query-performance-improvement-opportunities.md#suboptimal-data-distribution).

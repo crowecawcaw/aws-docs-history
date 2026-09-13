@@ -7,7 +7,7 @@
 
 This section explains the components that make up the Amazon Redshift data warehouse architecture, as shown in the following figure.
 
-![Amazon Redshift data warehouse architecture components.](http://docs.aws.amazon.com/redshift/latest/dg/images/architecture.png)
+![Amazon Redshift data warehouse architecture components.](https://docs.aws.amazon.com/redshift/latest/dg/images/architecture.png)
 
 
  **Client applications** 

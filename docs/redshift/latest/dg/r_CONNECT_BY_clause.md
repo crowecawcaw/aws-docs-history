@@ -129,4 +129,4 @@ INSERT INTO employee(id, name, manager_id)  VALUES
 
 Following is an organization chart for John's department.
 
-![A diagram of an organization chart for John's department.](http://docs.aws.amazon.com/redshift/latest/dg/images/org-chart.png)
+![A diagram of an organization chart for John's department.](https://docs.aws.amazon.com/redshift/latest/dg/images/org-chart.png)

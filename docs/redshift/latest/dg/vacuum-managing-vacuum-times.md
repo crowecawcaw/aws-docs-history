@@ -77,7 +77,7 @@ Before a vacuum, a table consists of a sorted region at the head of the table, f
 
 The following diagram illustrates the unsorted region after two successive COPY operations, where the sort key is CUSTID. For simplicity, this example shows a compound sort key, but the same principles apply to interleaved sort keys, except that the impact of the unsorted region is greater for interleaved tables. 
 
-![An unsorted table holding records from two COPY operations.](http://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-unsorted-region.png)
+![An unsorted table holding records from two COPY operations.](https://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-unsorted-region.png)
 
 
 A vacuum restores the table's sort order in two stages:
@@ -94,12 +94,12 @@ The extent to which the new sort key range overlaps the existing sort keys deter
 
 The following diagram shows how a vacuum would sort and merge rows that are added to a table where CUSTID is the sort key. Because each copy operation adds a new set of rows with key values that overlap the existing keys, almost the entire table needs to be rewritten. The diagram shows single sort and merge, but in practice, a large vacuum consists of a series of incremental sort and merge steps. 
 
-![A VACUUM operation on the example table in two steps. First the new rows are sorted, then they are merged with the existing rows.](http://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-unsorted-region-sort-merge.png)
+![A VACUUM operation on the example table in two steps. First the new rows are sorted, then they are merged with the existing rows.](https://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-unsorted-region-sort-merge.png)
 
 
 If the range of sort keys in a set of new rows overlaps the range of existing keys, the cost of the merge stage continues to grow in proportion to the table size as the table grows while the cost of the sort stage remains proportional to the size of the unsorted region. In such a case, the cost of the merge stage overshadows the cost of the sort stage, as the following diagram shows.
 
-![Diagram showing how the merge stage becomes more costly when new rows have sort keys overlapping with existing rows.](http://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-example-merge-region-grows.png)
+![Diagram showing how the merge stage becomes more costly when new rows have sort keys overlapping with existing rows.](https://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-example-merge-region-grows.png)
 
 
 To determine what proportion of a table was remerged, query SVV\_VACUUM\_SUMMARY after the vacuum operation completes. The following query shows the effect of six successive vacuums as CUSTSALES grew larger over time.
@@ -139,7 +139,7 @@ For example, suppose you have a table that records customer events using a custo
 
 If you set your sort key to a timestamp column, your new rows will be appended in sort order at the end of the table, as the following diagram shows, reducing or even removing the need to vacuum.
 
-![A table that uses a timestamp column as the sort key, getting new records that don't need to be sorted.](http://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-unsorted-region-date-sort.png)
+![A table that uses a timestamp column as the sort key, getting new records that don't need to be sorted.](https://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-unsorted-region-date-sort.png)
 
 
 ## Use time series tables to reduce stored data
@@ -147,7 +147,7 @@ If you set your sort key to a timestamp column, your new rows will be appended i
 
 If you maintain data for a rolling time period, use a series of tables, as the following diagram illustrates.
 
-![Five tables with data from five quarters. The oldest table is deleted to maintain a year of rolling time.](http://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-example-unsorted-region-copy-time-series.png)
+![Five tables with data from five quarters. The oldest table is deleted to maintain a year of rolling time.](https://docs.aws.amazon.com/redshift/latest/dg/images/vacuum-example-unsorted-region-copy-time-series.png)
 
 
 Create a new table each time you add a set of data, then delete the oldest table in the series. You gain a double benefit: 

@@ -57,7 +57,7 @@ Before upgrading to Iceberg v3, review the [Limitations](#iceberg-v3-limitations
 
 ## Limitations
 <a name="iceberg-v3-limitations"></a>
-+ You can use Iceberg v3 only on Amazon Redshift Serverless clusters and on provisioned clusters that use RG instance types.
++ You can use Iceberg v3 only on Amazon Redshift Serverless clusters (except the 4 RPU one) and on provisioned clusters that use RG instance types.
 + You can't read or write complex types (struct, list, map, variant) in Iceberg v3 tables.
 + You can't use the following data types in Iceberg v3 tables: struct, list, map, variant, geometry, geography, binary, uuid, time, timestamp\_ns, timestamptz\_ns, and unknown.
 + You can't use Iceberg v3 tables that contain equality deletes.
