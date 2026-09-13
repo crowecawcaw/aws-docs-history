@@ -32,7 +32,7 @@ The following diagrams demonstrate the effect of cross-zone load balancing with 
 
 If cross-zone load balancing is enabled, each of the 10 targets receives 10% of the traffic. This is because each load balancer node can route its 50% of the client traffic to all 10 targets.
 
-![When cross-zone load balancing is enabled](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/cross_zone_load_balancing_enabled.png)
+![When cross-zone load balancing is enabled](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/cross_zone_load_balancing_enabled.png)
 
 
 If cross-zone load balancing is disabled:
@@ -41,7 +41,7 @@ If cross-zone load balancing is disabled:
 
 This is because each load balancer node can route its 50% of the client traffic only to targets in its Availability Zone.
 
-![When cross-zone load balancing is disabled](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/cross_zone_load_balancing_disabled.png)
+![When cross-zone load balancing is disabled](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/cross_zone_load_balancing_disabled.png)
 
 
 With Application Load Balancers, cross-zone load balancing is always enabled at the load balancer level. At the target group level, cross-zone load balancing can be disabled. For more information, see [Turn off cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html#cross_zone_console_disable) in the *User Guide for Application Load Balancers*.
@@ -167,10 +167,10 @@ The following table describes the IP address types supported for each load balan
 
 | Load balancer type | IPv4 only | Dualstack | Dualstack without public IPv4 | 
 | --- | --- | --- | --- | 
-| Application Load Balancer | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
-| Network Load Balancer | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/negative_icon.png) No | 
-| Gateway Load Balancer | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/negative_icon.png) No | 
-| Classic Load Balancer | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/negative_icon.png) No | 
+| Application Load Balancer | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
+| Network Load Balancer | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/negative_icon.png) No | 
+| Gateway Load Balancer | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/negative_icon.png) No | 
+| Classic Load Balancer | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/negative_icon.png) No | 
 
 The IP address type that you specify for your target group determines how the load balancer can communicate with targets.
 + **IPv4 only** – The load balancer communicates using private IPv4 addresses. You must register targets with IPv4 addresses with an IPv4 target group.
@@ -181,10 +181,10 @@ The following table describes IP address types supported for each target group p
 
 | Target group protocol | IPv4 only | IPv6 only | 
 | --- | --- | --- | 
-| HTTP and HTTPS | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
-| TCP | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
-| TLS | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
-| UDP and TCP\_UDP | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
+| HTTP and HTTPS | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
+| TCP | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
+| TLS | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
+| UDP and TCP\_UDP | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/images/success_icon.png) Yes | 
 | GENEVE | - | - | 
 
 ## Network MTU for your load balancer
