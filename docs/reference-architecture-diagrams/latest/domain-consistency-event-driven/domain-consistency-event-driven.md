@@ -10,7 +10,7 @@ This architecture shows how to increase the resilience of your event-driven arch
 ## Domain Consistency in Event-Driven Architectures
 <a name="diagram1"></a>
 
-![Architecture diagram showing domain consistency in event-driven architectures using Amazon EventBridge, AWS Lambda, Amazon DynamoDB, Amazon Kinesis, and Amazon Simple Queue Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/domain-consistency-event-driven/images/domain-consistency-event-driven.png)
+![Architecture diagram showing domain consistency in event-driven architectures using Amazon EventBridge, AWS Lambda, Amazon DynamoDB, Amazon Kinesis, and Amazon Simple Queue Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/domain-consistency-event-driven/images/domain-consistency-event-driven.png)
 
 
 The following steps describe the architecture:
