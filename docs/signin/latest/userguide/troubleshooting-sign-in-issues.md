@@ -134,7 +134,7 @@ If you are an IAM user with access to the AWS Management Console, your account I
 
 After you sign in to the AWS Management Console, you can find your account information located in the navigation bar next to your Region. For example in the following screenshot, the IAM user Carlos has an AWS account of 1111-2222-3333.
 
-![Account information drop-down box with account ID highlighted](http://docs.aws.amazon.com/signin/latest/userguide/images/find-account-id.png)
+![Account information drop-down box with account ID highlighted](https://docs.aws.amazon.com/signin/latest/userguide/images/find-account-id.png)
 
 
 
@@ -156,15 +156,15 @@ To reset the password for an account that you created using AWS Organizations, s
 **To reset your root user password**
 
 1. Use your AWS email address to begin signing in to the [AWS Management Console](http://signin.aws.amazon.com/console/) as the **root user**. Then, choose **Next**.   
-![Root user entering their email address in to the AWS Management Console.](http://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-1.png)
+![Root user entering their email address in to the AWS Management Console.](https://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-1.png)
 **Note**  
 If you are signed in to the [AWS Management Console](http://signin.aws.amazon.com/console/) with IAM user credentials, then you must sign out before you can reset the root user password. If you see the account-specific IAM user sign-in page, choose **Sign-in using root account credentials** near the bottom of the page. If necessary, provide your account email address and choose **Next** to access the **Root user sign in** page. 
 
 1. Choose **Forgot password?**  
-![Forgot password link highlighted on AWS Management Console page.](http://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-2.png)
+![Forgot password link highlighted on AWS Management Console page.](https://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-2.png)
 
 1. Complete the password recovery steps. If you can't complete the security check, try listening to the audio or refreshing the security check for a new set of characters. An example of a password recovery page is shown in the following image.  
-![Password recovery steps to reset root user user password.](http://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-3.png)
+![Password recovery steps to reset root user user password.](https://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-3.png)
 
 1. After you complete the password recovery steps, you receive a message that further instructions have been sent to the email address associated with your AWS account.
 
@@ -175,10 +175,10 @@ The email will come from an address ending in @signin.aws or @verify.signin.aws.
 1. Select the link provided in the AWS email to reset your AWS root user password.
 
 1. The link directs you to a new webpage to create a new root user password.  
-![Creating a new root user user password.](http://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-6.png)
+![Creating a new root user user password.](https://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-6.png)
 
    You receive a confirmation that your password reset was successful. A successful password reset is shown in the following image.  
-![Confirmation for successfully resetting root user user password.](http://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-7.png)
+![Confirmation for successfully resetting root user user password.](https://docs.aws.amazon.com/signin/latest/userguide/images/reset-root-user-pswd-step-7.png)
 
 For more information on resetting your root user password, see [How do I recover a lost or forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/)
 
@@ -189,7 +189,7 @@ To change your IAM user password, you must have the proper permissions. For more
 
 If you do not have the permission to reset your password, then only your IAM administrator can reset the IAM user password. IAM users should contact their IAM administrator to reset their password. Your administrator is typically an Information Technology (IT) personnel who has a higher level of permissions to the AWS account than other members of your organization. This individual created your account and provides users with their access credentials to sign in.
 
-![AWS Management Console showing the IAM user forgot password link.](http://docs.aws.amazon.com/signin/latest/userguide/images/iam-user-reset-pswd-message.png)
+![AWS Management Console showing the IAM user forgot password link.](https://docs.aws.amazon.com/signin/latest/userguide/images/iam-user-reset-pswd-message.png)
 
 
 For security purposes, Support doesn't have access to view, provide, or change your credentials.
@@ -258,16 +258,16 @@ If you are a user in IAM Identity Center and you have lost or forgotten the pass
 **To reset your user in IAM Identity Center password**
 
 1. Use your AWS access portal URL link and enter your username. Then, choose **Next**.  
-![user in IAM Identity Center signing in to AWS access portal.](http://docs.aws.amazon.com/signin/latest/userguide/images/iam-identity-center-user-reset-pswd-step-1.png)
+![user in IAM Identity Center signing in to AWS access portal.](https://docs.aws.amazon.com/signin/latest/userguide/images/iam-identity-center-user-reset-pswd-step-1.png)
 
 1. Select **Forgot password** as shown in the following image.  
-![Forgot password link highlighted on your AWS access portal.](http://docs.aws.amazon.com/signin/latest/userguide/images/iam-identity-center-user-reset-pswd-step-2.png)
+![Forgot password link highlighted on your AWS access portal.](https://docs.aws.amazon.com/signin/latest/userguide/images/iam-identity-center-user-reset-pswd-step-2.png)
 
 1. Complete the password recovery steps.  
-![Password recovery step for user in IAM Identity Center to reset their password.](http://docs.aws.amazon.com/signin/latest/userguide/images/iam-identity-center-user-reset-pswd-step-3.png)
+![Password recovery step for user in IAM Identity Center to reset their password.](https://docs.aws.amazon.com/signin/latest/userguide/images/iam-identity-center-user-reset-pswd-step-3.png)
 
 1. After you complete the password recovery steps, you receive the following message confirming that you've been sent an email message that you can use to reset your password.  
-![Confirmation for successfully completing the password recovery step for user in IAM Identity Center.](http://docs.aws.amazon.com/signin/latest/userguide/images/iam-identity-center-user-reset-pswd-step-4.png)
+![Confirmation for successfully completing the password recovery step for user in IAM Identity Center.](https://docs.aws.amazon.com/signin/latest/userguide/images/iam-identity-center-user-reset-pswd-step-4.png)
 
    An email with a link to reset your password is sent to the email associated with the IAM Identity Center user account. Select the link provided in the AWS email to reset your password. The link directs you to a new web page to create a new password. After creating a new password, you receive confirmation that the password reset was successful.
 

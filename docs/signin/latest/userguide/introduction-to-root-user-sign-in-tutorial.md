@@ -10,6 +10,9 @@ We strongly recommend that you don't use the root user for your everyday tasks. 
 
 This sign-in method is only supported for accounts created with Sign up for AWS (advanced). For more information, see [Compare sign-up options](https://docs.aws.amazon.com/accounts/latest/reference/sign-up-for-aws.html).
 
+**Note**  
+AWS root user sign-in is now served across US East (N. Virginia), US East (Ohio), and US West (Oregon), with sign-in traffic distributed across all three Regions. This change reduces reliance on US East (N. Virginia) and improves resiliency during service disruptions.
+
 ## To sign in as the root user
 <a name="root-user-sign-in-tutorial"></a>
 
@@ -78,3 +81,6 @@ If you want more information about the AWS account root user, refer to the follo
 + For an overview of the root user, see [AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html).
 + For details about using the root user, see [Using the AWS account root user](https://docs.aws.amazon.com/accounts/latest/reference/root-user.html).
 + For step-by-step directions on how to reset your root user password, see [I forgot my root user password for my AWS account](troubleshooting-sign-in-issues.md#troubleshoot-forgot-root-password).
+
+**Note**  
+In AWS CloudTrail, `ConsoleLogin` events for root user sign-ins are recorded in the Region that processed the request—US East (N. Virginia), US East (Ohio), or US West (Oregon). To maintain full visibility into root user sign-in activity, make sure your monitoring and alerting cover all three Regions. For more information, see [AWS Management Console sign-in events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-aws-console-sign-in-events.html#cloudtrail-event-reference-aws-console-sign-in-events-root) in the *AWS CloudTrail User Guide*.

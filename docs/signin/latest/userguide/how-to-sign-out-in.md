@@ -50,10 +50,10 @@ You can sign out of AWS Settings if you signed up for AWS using our new AWS expe
 **To sign out of the AWS Management Console**
 
 1. After you're signed in to the AWS Management Console, you arrive at a page similar to the one shown in the following image. Your account name or IAM user name is shown in the upper right corner.  
-![User signed in to the AWS Management Console.](http://docs.aws.amazon.com/signin/latest/userguide/images/console-signing-out-step-1.png)
+![User signed in to the AWS Management Console.](https://docs.aws.amazon.com/signin/latest/userguide/images/console-signing-out-step-1.png)
 
 1. In the navigation bar on the upper right, choose your user name.  
-![Signed in user's account name is highlighted in the AWS Management Console.](http://docs.aws.amazon.com/signin/latest/userguide/images/console-signing-out-step-2.png)
+![Signed in user's account name is highlighted in the AWS Management Console.](https://docs.aws.amazon.com/signin/latest/userguide/images/console-signing-out-step-2.png)
 
 1. Choose a **Sign out** option. The button options differ based on how many accounts you are signed in to.
    + Select **Sign out** if you are signed in to only one account.
@@ -72,7 +72,7 @@ For more information about signing in to multiple accounts, see [Signing in to m
 1. In the navigation bar on the upper right, choose your user name.
 
 1. Select **Sign out** as shown in the following image.  
-![User signed in to your AWS access portal.](http://docs.aws.amazon.com/signin/latest/userguide/images/sign-out-access-portal-screenshot.png)
+![User signed in to your AWS access portal.](https://docs.aws.amazon.com/signin/latest/userguide/images/sign-out-access-portal-screenshot.png)
 
 1. If you successfully sign out, you now see your AWS access portal sign in page.
 
@@ -88,6 +88,6 @@ To sign out of an AWS service that you've accessed using your AWS Builder ID, yo
 1. After you have signed in to your AWS Builder ID profile at [https://profile.aws.amazon.com/](https://profile.aws.amazon.com/), you arrive at **My details**.
 
 1. In the top right of your AWS Builder ID profile page, choose **Sign out**.  
-![AWS Builder ID profile page that highlights Sign out in top right corner.](http://docs.aws.amazon.com/signin/latest/userguide/images/sign-out.png)
+![AWS Builder ID profile page that highlights Sign out in top right corner.](https://docs.aws.amazon.com/signin/latest/userguide/images/sign-out.png)
 
 1. You're signed out when you no longer see your AWS Builder ID profile.

@@ -47,7 +47,7 @@ https://{{your_subdomain}}.awsapps.com/start
 
 The specific sign-in URL varies because your administrator can customize it. The specific sign-in URL might begin with the letter D followed by 10 randomized numbers and letters. Your subdomain might also be used in the sign-in URL and may include your company name like the following example:
 
-![AWS access portal URL example.](http://docs.aws.amazon.com/signin/latest/userguide/images/URL-example-aws-access-portal-AnyCompany.png)
+![AWS access portal URL example.](https://docs.aws.amazon.com/signin/latest/userguide/images/URL-example-aws-access-portal-AnyCompany.png)
 
 
 **Note**  
@@ -68,7 +68,7 @@ https://{{account_alias_or_id}}.signin.aws.amazon.com/console/
 
 If your account ID is 111122223333, your sign-in URL would be:
 
-![IAM user sign-in URL example.](http://docs.aws.amazon.com/signin/latest/userguide/images/URL-example-IAM-user-sign-in.png)
+![IAM user sign-in URL example.](https://docs.aws.amazon.com/signin/latest/userguide/images/URL-example-IAM-user-sign-in.png)
 
 
 If you're experiencing issues accessing your AWS account with your IAM user sign-in URL, see [Resilience in AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/disaster-recovery-resiliency.html) for more information.
