@@ -46,14 +46,14 @@ Figure 1 presents how different modes are offered through the foundational OUs i
 
 MALZ architecture and associated AMS modes
 
-![Organizational structure showing Management Account at top, four account types in middle, and application accounts with customer stacks at bottom.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/MALZ-high-level-(Mar2021).png)
+![Organizational structure showing Management Account at top, four account types in middle, and application accounts with customer stacks at bottom.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/MALZ-high-level-(Mar2021).png)
 
 
 AMS leverages the foundational OUs based on AWS best practices as a way to logically manage accounts using Service Control Policies (SCPs). This serves as a way to enforce the governance framework with each AMS mode. Any governance and security guardrails (in the form of SCPs) applied to the foundational OUs also get applied to the custom/child OUs automatically. Additional SCPs can be requested for the child OUs. It is important to understand that application accounts are not the same as modes. Modes are applied to the infrastructure provisioned within the accounts and define the operational responsibilities between AMS and customers.
 
 Figure 1: MALZ architecture and associated AMS modes
 
-![Table showing AMS modes with preventative and detective controls and customer governance support.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/ams-modes-guardrails-dcm.png)
+![Table showing AMS modes with preventative and detective controls and customer governance support.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/ams-modes-guardrails-dcm.png)
 
 
 **Note**  

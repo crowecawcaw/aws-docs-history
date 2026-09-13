@@ -41,7 +41,7 @@ Make sure that you're in the delegated administrator account.
 
 The following is an example of the AWS AppConfig console showing Trusted Remediator configurations:
 
-![An example of Trusted Remediator configurations in the AWS AppConfig console.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/trusted-remediator-appconfig.png)
+![An example of Trusted Remediator configurations in the AWS AppConfig console.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/trusted-remediator-appconfig.png)
 
 
 ## Choose the checks and recommendations to remediate

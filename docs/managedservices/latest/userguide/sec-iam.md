@@ -21,12 +21,12 @@ This model allows both organizations to automate their respective lifecycles and
 
 MALZ Identity Provider Integration for access to the AWS/AMS console, CLI, SDK.
 
-![The relationships between the identity provider and AWS IAM, the AWS Management Console, and AMS change management.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/malz-access-prereqs-1.png)
+![The relationships between the identity provider and AWS IAM, the AWS Management Console, and AMS change management.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/malz-access-prereqs-1.png)
 
 
 One-way trust for Amazon EC2 instances in your AMS account.
 
-![The direction of trust goes one-way: from your Amazon EC2 instances to your organization's Active Directory Domain.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/malz-access-prereqs-2.png)
+![The direction of trust goes one-way: from your Amazon EC2 instances to your organization's Active Directory Domain.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/malz-access-prereqs-2.png)
 
 
 ## Amazon Inspector security

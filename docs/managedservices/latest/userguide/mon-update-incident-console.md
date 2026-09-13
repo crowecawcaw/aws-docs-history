@@ -10,8 +10,8 @@ You can update, monitor, and review incident reports and service requests, both 
 To monitor a case, incident or service request, using the AMS console, follow these steps.
 
 1. In the AMS console **Incident reports** or **Service requests** dashboard, browse to a case and choose the **Subject** to open a details page with current status and correspondences.  
-![Incident detail page showing type, created date, status as Resolved, subject, ID, and priority.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/guiIncidentDetail.png)  
-![](http://docs.aws.amazon.com/managedservices/latest/userguide/images/guiSRdetail.png)
+![Incident detail page showing type, created date, status as Resolved, subject, ID, and priority.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/guiIncidentDetail.png)  
+![](https://docs.aws.amazon.com/managedservices/latest/userguide/images/guiSRdetail.png)
 
    When a reported incident or service request case is updated by the AMS operations team, you receive an email and a link to the incident in the AMS console so you can respond. You can't respond to incident correspondence by replying to the email.
 **Important**  

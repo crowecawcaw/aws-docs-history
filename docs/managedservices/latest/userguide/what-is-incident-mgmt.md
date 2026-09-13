@@ -13,12 +13,12 @@ Examples of incidents include (but are not restricted to) loss of or degradation
 
 The following graphic depicts the workflow of an incident reported by you to AMS.
 
-![Incident management workflow between AMS operations and the customer with a customer-reported incident.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/incident-mgmt-workflow-customer.png)
+![Incident management workflow between AMS operations and the customer with a customer-reported incident.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/incident-mgmt-workflow-customer.png)
 
 
 This graphic depicts the workflow of an incident reported by AMS to you.
 
-![Incident management workflow between AMS operations and the customer with a CloudWatch-detected incident.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/incident-mgmt-workflow-ams.png)
+![Incident management workflow between AMS operations and the customer with a CloudWatch-detected incident.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/incident-mgmt-workflow-ams.png)
 
 
 ## Incident priority

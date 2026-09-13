@@ -36,7 +36,7 @@ Notes on bulk update tags:
 **Important**  
 The Tag Editor export populates a matrix of all tags against all resources, missing tags are populated with a value of 'not tagged'. Re-using this export CSV as input to the RFC results in all the previously missing tags being created, with literal values of 'not tagged'.
 
-![Spreadsheet showing AWS resource details including service types, regions, IDs, and tags.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/bulkUpdateTagCsvEx.png)
+![Spreadsheet showing AWS resource details including service types, regions, IDs, and tags.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/bulkUpdateTagCsvEx.png)
 
 
 **Note**  

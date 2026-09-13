@@ -169,7 +169,7 @@ RFC failures and related messages differ in the output messages on the AMS conso
 + Validation Failures reasons are available in Status Field only
 + Execution Failures reasons are available in Execution Output as well as Status Fields.
 
-![Request for change details showing rejected status due to no domain trust found.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/rfcReason.png)
+![Request for change details showing rejected status due to no domain trust found.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/rfcReason.png)
 
 
 ## RFC error messages
@@ -189,7 +189,7 @@ Validation tools for both Windows and Linux can be downloaded and run directly o
 + Make sure EC2 instance exists in target AMS account. For example, if you have shared your AMI from a non-AMS account to an AMS account, you'll have to create an EC2 instance in your AMS account with the shared AMI before you can submit a Workload Ingest RFC.
 + Check to see if the security groups attached to the instance have egress traffic allowed. The SSM Agent needs to be able to connect to its public endpoint.
 + Check to see if the instance has the right permissions to connect with the SSM agent. These permissions come with the `customer-mc-ec2-instance-profile`, you can check for this in the EC2 console:  
-![EC2 instance details showing IAM role field with customer-mc-ec2-instance-profile value.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/ec2ConsoleWCircle.png)
+![EC2 instance details showing IAM role field with customer-mc-ec2-instance-profile value.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/ec2ConsoleWCircle.png)
 
 ### EC2 instance stack stop errors
 <a name="rfc-valid-execute-ec2-stop"></a>

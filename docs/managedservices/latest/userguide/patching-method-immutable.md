@@ -9,7 +9,7 @@ AMI-replacement patching is done on immutable infrastructures by updating the AM
 
 Amazon Machine Images (AMIs) are released on a regular basis for the supported operating systems. Operating system vendors release new patches on a periodic basis. AMS takes the Amazon-provided AMI, updates it with the latest patches, and then adds the appropriate components to enable it to operate in the AMS environment. Then, it makes the new AMS AMI available to all AMS customers by sharing the AMI to the accounts. Your Auto Scaling group stacks can be refreshed on a monthly basis with these newly released AMS AMIs. The following graphic illustrates how AMIs are used in AMS your environments.
 
-![AMI updates patching (using patched AMIs for Auto Scaling groups).](http://docs.aws.amazon.com/managedservices/latest/userguide/images/AMIsInCustEnviros.png)
+![AMI updates patching (using patched AMIs for Auto Scaling groups).](https://docs.aws.amazon.com/managedservices/latest/userguide/images/AMIsInCustEnviros.png)
 
 
 Auto Scaling groups create their instances based on the configured AMI for the Auto Scaling group. When AMS shares updated AMIs, you have the following options depending on how you are managing AMI updates:

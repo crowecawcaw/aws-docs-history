@@ -9,7 +9,7 @@ AMS multi-account landing zone utilizes the AWS Config aggregator service to cre
 
 The following is a sample of the AWS Config aggregator showcasing central compliance status of AWS Config Rules across accounts.
 
-![AWS Config dashboard showing compliant rules across regions and accounts.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/ams-malz-dd-agg-rules.png)
+![AWS Config dashboard showing compliant rules across regions and accounts.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/ams-malz-dd-agg-rules.png)
 
 
 For more information, see the AWS documentation for [Config Aggregator](https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html).
@@ -23,7 +23,7 @@ For more information, see the AWS documentation for [Config Aggregator](https://
 
 The following is a sample of AWS Config Rules and their compliance evaluation results is shown below:
 
-![AWS Config Rules dashboard showing compliant status for multiple security-related rules.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/ams-malz-dd-rules-2.png)
+![AWS Config Rules dashboard showing compliant status for multiple security-related rules.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/ams-malz-dd-rules-2.png)
 
 
 To learn more about AWS Config, see:

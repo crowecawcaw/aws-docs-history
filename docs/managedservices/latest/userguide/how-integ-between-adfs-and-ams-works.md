@@ -12,7 +12,7 @@ AMS can federate to many federation services, Ping, Okta, and so on. You aren't 
 
 Information here is duplicated from this blog post: [ Enabling Federation to AWS Using Windows Active Directory, AD FS, and SAML 2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/).
 
-![There are several steps involved in secure authentication within your enterprise and between your enterprise and the AWS cloud.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/AD1.png)
+![There are several steps involved in secure authentication within your enterprise and between your enterprise and the AWS cloud.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/AD1.png)
 
 
 1. The flow is initiated when a user (let’s call him Bob) browses to the AD FS sample site (https://Fully.Qualified.Domain.Name.Here/adfs/ls/IdpInitiatedSignOn.aspx) inside his domain. When you install AD FS, you get a new virtual directory named **adfs** for your default website, which includes this page.

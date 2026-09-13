@@ -9,10 +9,10 @@ The following diagram depicts the AMS multi-account landing zone environment, sh
 
  
 
-![AWS network architecture diagram showing multiple accounts, VPCs, and connectivity components.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_MALZ_NET_FLOW-2.png)
+![AWS network architecture diagram showing multiple accounts, VPCs, and connectivity components.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_MALZ_NET_FLOW-2.png)
 
 
-![Network traffic flow diagram showing seven steps from egress through various AWS networking components to application instances.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_MALZ_NET_FLOW_LEGEND.png)
+![Network traffic flow diagram showing seven steps from egress through various AWS networking components to application instances.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_MALZ_NET_FLOW_LEGEND.png)
 
 
 AMS configures all aspects of networking for you based on our standard templates and your selected options provided during onboarding. A standard AWS network design is applied to your AWS account, and a VPC is created for you and connected to AMS by either VPN or Direct Connect. For more information about Direct Connect, see [AWS Direct Connect](https://aws.amazon.com/directconnect/). Standard VPCs include the DMZ, shared services, and an application subnet. During the onboarding process, additional VPCs might be requested and created to match your needs (for example, customer divisions, partners). After onboarding, you are provided with a network diagram: an environment document that explains how your network has been set up.

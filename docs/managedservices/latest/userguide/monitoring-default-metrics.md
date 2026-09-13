@@ -101,4 +101,4 @@ AMS takes pro-active actions (scaling the cluster) when this alert is triggered.
 
 For information on remediation efforts, see [AMS automatic remediation of alerts](auto-remediation.md).
 
-[![AWS Videos](http://img.youtube.com/vi/e9hbG-FAeFM/0.jpg)](http://www.youtube.com/watch?v=e9hbG-FAeFM)
+[![AWS Videos](https://img.youtube.com/vi/e9hbG-FAeFM/0.jpg)](https://www.youtube.com/watch?v=e9hbG-FAeFM)

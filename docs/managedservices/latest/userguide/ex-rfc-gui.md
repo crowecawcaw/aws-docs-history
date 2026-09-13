@@ -16,7 +16,7 @@ The AMS console **RFCs** list page provides you with the following options:
 + Viewing RFC details with the RFC **Subject**. Choosing this link opens the details page for that RFC.
 + Viewing RFC status. For information, see [Understand RFC status codes](ex-rfc-status-codes.md)
 
-![RFC list page.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/guiRfcListTable.png)
+![RFC list page.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/guiRfcListTable.png)
 
 
 ## Use RFC quick create (console)
@@ -49,15 +49,15 @@ To add correspondence and attachments to an RFC, follow these steps:
 1. In the AMS console, on the RFC details page for an RFC, find the **Correspondence** section at the bottom of the page.
 
    Before any correspondence:  
-![Empty correspondence section.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/correspondence-rfc-detail-new.png)
+![Empty correspondence section.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/correspondence-rfc-detail-new.png)
 
    After some correspondence:  
-![Correspondence section showing reply form and received correspondence.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/correspondence-reply-form2.png)
+![Correspondence section showing reply form and received correspondence.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/correspondence-reply-form2.png)
 
 1. To add a new correspondence, type your message in the **Reply** text box. To attach files related to the correspondence, choose **Add Attachment**, and then choose the files you want.  
-![Correspondence section showing comment box and attachments.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/correspondence-add-attachments.png)
+![Correspondence section showing comment box and attachments.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/correspondence-add-attachments.png)
 
 1. When you're finished, choose **Submit**.
 
    The new correspondence, along with links to the attached files, appear in the correspondence list on the RFC details page.  
-![List of received correspondence.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/correspondence-list2.png)
+![List of received correspondence.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/correspondence-list2.png)

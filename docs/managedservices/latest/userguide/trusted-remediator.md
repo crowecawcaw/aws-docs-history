@@ -24,7 +24,7 @@ Trusted Remediator empowers you to proactively address identified issues in your
 
 The following is an illustration of the Trusted Remediator workflow:
 
-![An illustration of the Trusted Remediator workflow.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/trusted-remediator-workflow.png)
+![An illustration of the Trusted Remediator workflow.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/trusted-remediator-workflow.png)
 
 
 Trusted Remediator assesses Trusted Advisor, Security Hub CSPM, and Compute Optimizer recommendations for your AWS accounts and creates AWS Systems Manager [OpsItems](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html) in OpsCenter. Then, you can use Trusted Remediator automation documents to remediate the OpsItems automatically or manually. The following are details for each type of remediation:

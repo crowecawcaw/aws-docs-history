@@ -9,7 +9,7 @@ See the following graphics on monitoring architecture in AWS Managed Services (A
 
 The following diagram provides a high-level overview of the **AMS multi-account landing zone** and **AMS single-account landing zone** monitoring workflow.
 
-![AMS Multi-Account Landing Zone monitoring architecture.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/monitoringNew3.png)
+![AMS Multi-Account Landing Zone monitoring architecture.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/monitoringNew3.png)
 
 + Generation: At the time of account onboarding, AMS configures baseline monitoring (a combination of CloudWatch (CW) alarms, and CW event rules) for all your resources created in a managed account. The baseline monitoring configuration generates an alert when a CW alarm is triggered or a CW event is generated.
 + Aggregation:

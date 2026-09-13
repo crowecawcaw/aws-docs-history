@@ -14,12 +14,12 @@ While both manual and automated processes aim to uphold our security standards, 
 
 **Validation flow**
 
-![Validation flow](http://docs.aws.amazon.com/managedservices/latest/userguide/images/Validation-Flow.png)
+![Validation flow](https://docs.aws.amazon.com/managedservices/latest/userguide/images/Validation-Flow.png)
 
 
 **Validation and provisioning flow**
 
-![Validation and provisioning flow](http://docs.aws.amazon.com/managedservices/latest/userguide/images/Validation-and-Provisioning-Flow.png)
+![Validation and provisioning flow](https://docs.aws.amazon.com/managedservices/latest/userguide/images/Validation-and-Provisioning-Flow.png)
 
 
 **Note**  

@@ -29,4 +29,4 @@ For information about troubleshooting RFC failures, see [Troubleshooting RFC err
 
 The following graphic depicts the workflow of an RFC submitted by you.
 
-![The workflow of a customer-submitted RFC.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/requestForChange-v5g.png)
+![The workflow of a customer-submitted RFC.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/requestForChange-v5g.png)

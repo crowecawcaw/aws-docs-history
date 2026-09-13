@@ -7,10 +7,10 @@ End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. 
 
 The following diagram depicts the AWS Managed Services (AMS) single-account landing zone (SALZ) VPC network layout and is an example of the highly available setup.
 
-![AMS SALZ architecture with two availability zones, each containing DMZ, application, and shared services subnets.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_VPC_No_Controllers_diagram.png)
+![AMS SALZ architecture with two availability zones, each containing DMZ, application, and shared services subnets.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_VPC_No_Controllers_diagram.png)
 
 
-![Diagram showing three ingress paths: DirectConnect for external users, Internet Gateway for AMS operators, and DirectConnect for internal administrators.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_VPC_No_Controllers_legend.png)
+![Diagram showing three ingress paths: DirectConnect for external users, Internet Gateway for AMS operators, and DirectConnect for internal administrators.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_VPC_No_Controllers_legend.png)
 
 
 AMS configures all aspects of networking for you based on our standard templates and your selected options provided during onboarding. A standard AWS network design is applied to your AWS account, and a virtual private cloud (VPC) is created for you and connected to AMS by either VPN or Direct Connect. Learn more about Direct Connect at [AWS Direct Connect](https://aws.amazon.com/directconnect/). Standard VPCs include the DMZ, shared services, and an application subnet. During the onboarding process, additional VPCs might be requested and created to match your needs (for example, customer divisions, partners). After onboarding, you're provided with a network diagram. an environment document that explains how your network has been set up.

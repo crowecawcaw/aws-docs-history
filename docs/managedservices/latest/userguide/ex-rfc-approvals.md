@@ -12,7 +12,7 @@ When using manual CTs, AMS recommends that you use the ASAP **Scheduling** optio
 
 If an approval-required RFC is successfully submitted by AMS, then it must be explicitly approved by you. Or, iff you submit an approval-required RFC, then it must be approved by AMS. If you're required to approve an RFC that AMS submitted, then an email or other predetermined communication is sent to you requesting the approval. The communication includes the RFC ID. After the communication is sent, do one of the followings:
 + Console Approve or Reject: Use the RFC details page for the relevant RFC:  
-![RFC details page.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_Console-App-Rej.png)
+![RFC details page.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/AMS_Console-App-Rej.png)
 + API / CLI Approve: [ApproveRfc](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_ApproveRfc.html) marks a change as approved. The action must be taken by both the owner and operator, if both are required. The following is an example CLI approve command. In the following example, replace RFC\_ID with the appropriate RFC ID.
 
   ```

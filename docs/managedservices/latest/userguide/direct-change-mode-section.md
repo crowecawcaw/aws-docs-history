@@ -17,4 +17,4 @@ AWS Managed Services (AMS) Direct Change mode (DCM) extends AMS Advanced change 
 **Note**  
 Direct Change mode does not remove AMS change management RFCs. You have full access to AMS RFCs with DCM.
 
-[![AWS Videos](http://img.youtube.com/vi/Qu1aKIUPT28?si=KrOqr8pniwfh7Nob/0.jpg)](http://www.youtube.com/watch?v=Qu1aKIUPT28?si=KrOqr8pniwfh7Nob)
+[![AWS Videos](https://img.youtube.com/vi/Qu1aKIUPT28?si=KrOqr8pniwfh7Nob/0.jpg)](https://www.youtube.com/watch?v=Qu1aKIUPT28?si=KrOqr8pniwfh7Nob)

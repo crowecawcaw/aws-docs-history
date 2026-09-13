@@ -9,7 +9,7 @@ You can add email addresses to receive RFC state changes to an RFC that you crea
 
 In the AMS console, use the **Email notifications** option, on the second page of the Create RFC wizard:
 
-![Email notification options are under general configurations.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/emailNoticeOption2.png)
+![Email notification options are under general configurations.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/emailNoticeOption2.png)
 
 
 In the AMS API/CLI, add a line like this to the RFC parameters section of your RFC (do not add the line to the run parameters section):

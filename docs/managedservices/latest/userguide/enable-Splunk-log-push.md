@@ -13,4 +13,4 @@ Refer to this Splunk blog post [ How to stream AWS CloudWatch Logs to Splunk (Hi
 
 Here’s how the data input settings might look:
 
-![Review page showing input configuration with name vpcFlowLogsViaLambdaInput and source type aws:cloudwatchlogs:vpcflow.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/configure-Splunk-HEC.png)
+![Review page showing input configuration with name vpcFlowLogsViaLambdaInput and source type aws:cloudwatchlogs:vpcflow.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/configure-Splunk-HEC.png)

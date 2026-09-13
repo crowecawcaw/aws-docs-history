@@ -26,7 +26,7 @@ Your AMS cloud architect (CA) will work with you as part of your Well-Architecte
 
 HA DR utilizes application and AWS-native services and features, as illustrated in the following graphic:
 
-![Architecture diagram showing prod and HA/DR instances with data replication via Route 53 and CloudFront.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-ha.png)
+![Architecture diagram showing prod and HA/DR instances with data replication via Route 53 and CloudFront.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-ha.png)
 
 
 The DR site can be in the same or different AWS Region.
@@ -53,7 +53,7 @@ Your AMS Cloud Architect (CA) will work with you as part of your Well-Architecte
 
 Warm Standby DR utilizes application and AWS-native services and features, as illustrated in the following graphic:
 
-![DNS routes users to prod subnet with ELB and instances, or DR site subnet during failover.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-warm-standby.png)
+![DNS routes users to prod subnet with ELB and instances, or DR site subnet during failover.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-warm-standby.png)
 
 
 DR site can be in the same or different AWS Region.
@@ -86,7 +86,7 @@ Your AMS Cloud Architect will work with you as part of your Well-Architected-Rev
 
 Pilot Light DR utilizes application and AWS-native services and features, as illustrated in the following graphic:
 
-![Prod subnet with ELB and instances replicating data to DR site subnet with ELB and instances.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-pilot-light.png)
+![Prod subnet with ELB and instances replicating data to DR site subnet with ELB and instances.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-pilot-light.png)
 
 
 DR site can be in the same or different AWS Region.
@@ -123,7 +123,7 @@ Your AMS Cloud Architect works with you as part of your Backup and DR planning.
 
 Backup and Restore DR utilizes AMS automated tooling and processes, as illustrated in the following graphic:
 
-![The backup and restore process using AMS automated tooling.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-backup-and-restore.png)
+![The backup and restore process using AMS automated tooling.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-backup-and-restore.png)
 
 
 Two backup and replication methods can be used:
@@ -167,7 +167,7 @@ Snapshot replication solution:
 
 The following diagram represents the EC2 restore process from EBS snapshots on AMS:
 
-![Snapshot replication from prod subnet to DR site with placeholder instance restoration steps.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-ebs-snapshots.png)
+![Snapshot replication from prod subnet to DR site with placeholder instance restoration steps.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/dr-ebs-snapshots.png)
 
 
 **EC2 DR steps on AMS**:

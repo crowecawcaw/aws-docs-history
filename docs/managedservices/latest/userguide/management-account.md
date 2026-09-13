@@ -11,7 +11,7 @@ For more information on using a management account, see [Best practices for the 
 
 The following diagram provides a high-level overview of the resources contained in the management account. 
 
-![Management account overview showing AMS Customer Region and various AWS services and features.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/management-account.png)
+![Management account overview showing AMS Customer Region and various AWS services and features.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/management-account.png)
 
 
 ## Resources in the management account

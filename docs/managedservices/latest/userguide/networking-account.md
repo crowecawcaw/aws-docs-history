@@ -7,4 +7,4 @@ End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. 
 
 The Networking account serves as the central hub for network routing between AMS multi-account landing zone accounts, your on-premises network, and egress traffic out to the Internet. In addition, this account contains public DMZ bastions that are the entry point for AMS engineers to access hosts in the AMS environment. For details, see the following high-level diagram of the networking account below.
 
-![Network architecture diagram showing Egress and DMZ VPCs with availability zones, NAT gateways, DMZ bastions, and routing to internet and on-premises networks.](http://docs.aws.amazon.com/managedservices/latest/userguide/images/malzNetworkAccount.png)
+![Network architecture diagram showing Egress and DMZ VPCs with availability zones, NAT gateways, DMZ bastions, and routing to internet and on-premises networks.](https://docs.aws.amazon.com/managedservices/latest/userguide/images/malzNetworkAccount.png)
