@@ -16,7 +16,7 @@ Model variable importance provides the following set of values for each [Variabl
 
 In the Amazon Fraud Detector console, the model variable importance values are displayed as follows for either an Online Fraud Insights (OFI) or an Transaction Fraud Insights (TFI) model. An Account Takeover Insight (ATI) model will provide aggregated variable importance values in addition to the raw variable's importance values. The visual chart makes it easy to see the relative importance between variables with the vertical dotted line providing reference to the importance value of the highest ranked variable. 
 
-![Model variable importance chart.](http://docs.aws.amazon.com/frauddetector/latest/ug/images/hawksnest-console-mvi-pane.png)
+![Model variable importance chart.](https://docs.aws.amazon.com/frauddetector/latest/ug/images/hawksnest-console-mvi-pane.png)
 
 
 Amazon Fraud Detector generates variable importance values for every Fraud Detector model version at no additional cost. 

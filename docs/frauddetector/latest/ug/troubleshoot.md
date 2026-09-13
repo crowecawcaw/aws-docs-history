@@ -13,9 +13,9 @@ The following sections help you troubleshoot issues that you might encounter whe
 Use information in this section to help diagnose and resolve issues you might see in the **Model training diagnostic** pane in the Amazon Fraud Detector console when you train your model. 
 
 The issues displayed in the **Model training diagnostic** pane are categorized as follows. The requirement to address the issue is dependent on the category of the issue. 
-+  ![Error icon](http://docs.aws.amazon.com/frauddetector/latest/ug/images/Error icon.png) **Error**- causes the model training to fail. These issues must be addressed for the model to train successfully.
-+  ![Warning icon](http://docs.aws.amazon.com/frauddetector/latest/ug/images/Warning icon.png) **Warning**- causes the model training to continue, however, some of the variables might be getting excluded in the training process. Check for the relevant guidance in this section to improve the quality of your dataset.
-+  ![Information icon](http://docs.aws.amazon.com/frauddetector/latest/ug/images/Info icon.png) **Information (Info)**- has no impact on model training and all the variables are used for training. We recommend that you check the relevant guidance in this section to further improve the quality of your dataset and model performance. 
++  ![Error icon](https://docs.aws.amazon.com/frauddetector/latest/ug/images/Error icon.png) **Error**- causes the model training to fail. These issues must be addressed for the model to train successfully.
++  ![Warning icon](https://docs.aws.amazon.com/frauddetector/latest/ug/images/Warning icon.png) **Warning**- causes the model training to continue, however, some of the variables might be getting excluded in the training process. Check for the relevant guidance in this section to improve the quality of your dataset.
++  ![Information icon](https://docs.aws.amazon.com/frauddetector/latest/ug/images/Info icon.png) **Information (Info)**- has no impact on model training and all the variables are used for training. We recommend that you check the relevant guidance in this section to further improve the quality of your dataset and model performance. 
 
 **Topics**
 + [Unstable fraud rate in the given dataset](#unstable-fraud-rate)

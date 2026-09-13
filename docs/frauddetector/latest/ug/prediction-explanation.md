@@ -30,7 +30,7 @@ Provides raw, uninterpreted value represented as log-odds of the fraud. These va
 
 In the Amazon Fraud Detector console, the prediction explanation values are displayed as follows. The colored star ratings and the corresponding raw numerical values make it easy to see the relative influence between variables. 
 
-![Prediction explanation chart: variables that increased risk and variables that decreased fraud risk with relative impact and raw explanation value for each variable.](http://docs.aws.amazon.com/frauddetector/latest/ug/images/PredictionExplanationPane.png)
+![Prediction explanation chart: variables that increased risk and variables that decreased fraud risk with relative impact and raw explanation value for each variable.](https://docs.aws.amazon.com/frauddetector/latest/ug/images/PredictionExplanationPane.png)
 
 
 ## Viewing prediction explanations

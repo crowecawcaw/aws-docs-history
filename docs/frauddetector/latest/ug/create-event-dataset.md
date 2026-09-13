@@ -36,7 +36,7 @@ Amazon Fraud Detector requires that you provide your event dataset in a text fil
 
 The following is an example of a CSV file containing data from an account registration event. The header row contains both event metadata in uppercase and event variables in lowercase followed by the event data. Each row in the dataset contains data elements associated with single account registration with each data element corresponding with the header. 
 
-![CSV file with header row showing event metadata and variables, followed by rows of event data.](http://docs.aws.amazon.com/frauddetector/latest/ug/images/SampleEventDataset.png)
+![CSV file with header row showing event metadata and variables, followed by rows of event data.](https://docs.aws.amazon.com/frauddetector/latest/ug/images/SampleEventDataset.png)
 
 
 ## Get event dataset requirements using the Data models explorer

@@ -19,4 +19,4 @@ The following diagram provides a high-level view of how event orchestration work
 
 
 
-![Image of event orchestration flow.](http://docs.aws.amazon.com/frauddetector/latest/ug/images/event-orchestration-high-level.png)
+![Image of event orchestration flow.](https://docs.aws.amazon.com/frauddetector/latest/ug/images/event-orchestration-high-level.png)
