@@ -12,7 +12,7 @@ This scenario uses Bluetooth Low Energy (BLE) tagged asset locations in a wareho
 ## Geofencing with Amazon Location Service diagram
 <a name="geofence-diagram"></a>
 
-![Reference architecture diagram showing how to track assets and generate geofence alerts by using Amazon Location Service, AWS IoT Core, Lambda, and EventBridge.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/geofencing-amazon-location-service-iot/images/geofencing-amazon-location-service-iot.png)
+![Reference architecture diagram showing how to track assets and generate geofence alerts by using Amazon Location Service, AWS IoT Core, Lambda, and EventBridge.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/geofencing-amazon-location-service-iot/images/geofencing-amazon-location-service-iot.png)
 
 
 The following steps describe the architecture:
