@@ -39,7 +39,7 @@ Execution environment level metrics provide visibility into resource utilization
 For Lambda Managed Instances (LMI), the `Resource` dimension supports function versions only. The format is `<FunctionName>:<FunctionVersion>`.
 
 **Available execution environment metrics:**
-+ **ExecutionEnvironmentConcurrency** - The maximum concurrency over a 5-minute sample period
++ **ExecutionEnvironmentConcurrency** - The maximum concurrency over a 1-minute sample period
 + **ExecutionEnvironmentConcurrencyLimit** - The maximum concurrency limit per execution environment
 + **ExecutionEnvironmentCPUUtilization** - The percentage of CPU utilization for the function's execution environments
 + **ExecutionEnvironmentMemoryUtilization** - The percentage of memory utilization for the function's execution environments
@@ -58,7 +58,7 @@ Lambda always emits the standard `Throttles` metric alongside these sub-metrics.
 ## Metric frequency and retention
 <a name="lambda-managed-instances-metric-frequency"></a>
 
-Lambda Managed Instances metrics are published at 5-minute intervals and retained for 15 months.
+Lambda Managed Instances metrics are published at 1-minute intervals and retained for 15 months.
 
 ## Viewing metrics in CloudWatch
 <a name="lambda-managed-instances-viewing-metrics"></a>

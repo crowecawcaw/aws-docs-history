@@ -13,7 +13,7 @@ Lambda automatically captures runtime logs and streams them to Amazon CloudWatch
 
 [Lambda extensions](runtimes-extensions-api.md) can use the Lambda Runtime Logs API to subscribe to log streams directly from within the Lambda [execution environment](lambda-runtime-environment.md). Lambda streams the logs to the extension, and the extension can then process, filter, and send the logs to any preferred destination.
 
-![The Extensions API and the Logs API connect Lambda and external extensions.](http://docs.aws.amazon.com/lambda/latest/dg/images/logs-api-concept-diagram.png)
+![The Extensions API and the Logs API connect Lambda and external extensions.](https://docs.aws.amazon.com/lambda/latest/dg/images/logs-api-concept-diagram.png)
 
 
 The Logs API allows extensions to subscribe to three different logs streams:

@@ -10,22 +10,22 @@ Event source mappings are useful for durable functions that process streams or q
 ## How event source mappings invoke durable functions
 <a name="durable-esm-invocation-behavior"></a>
 
-Event source mappings invoke durable functions synchronously, waiting for the complete durable execution to finish before processing the next batch or marking records as processed. If the total durable execution time exceeds 15 minutes, the execution times out and fails. The event source mapping receives a timeout exception and handles it according to its retry configuration.
+Event source mappings invoke durable functions synchronously, waiting for the complete durable execution to finish before processing the next batch or marking records as processed. If the total durable execution time exceeds the applicable timeout limit (15 minutes by default, or up to 90 minutes for functions running on Lambda Managed Instances), the execution times out and fails. The event source mapping receives a timeout exception and handles it according to its retry configuration.
 
-## 15-minute execution limit
+## Execution duration limit
 <a name="durable-esm-duration-limit"></a>
 
-When durable functions are invoked by event source mappings, the total durable execution duration cannot exceed 15 minutes. This limit applies to the entire durable execution from start to completion, not just individual function invocations.
+When durable functions are invoked by event source mappings, the total durable execution duration cannot exceed the maximum function timeout: 15 minutes for functions running on the default (on-demand) capacity mode, or up to 90 minutes for functions running on [Lambda Managed Instances](lambda-managed-instances.md) (except Amazon MQ and Amazon DocumentDB event source mappings, which remain limited to 15 minutes). This limit applies to the entire durable execution from start to completion, not just individual function invocations.
 
-This 15-minute limit is separate from the Lambda function timeout (also 15 minutes maximum). The function timeout controls how long each individual invocation can run, while the durable execution timeout controls the total elapsed time from execution start to completion.
+This limit is separate from the per-invocation Lambda function timeout, though both share the same maximum (15 minutes by default, or up to 90 minutes on Lambda Managed Instances for asynchronous and event source mapping invocations). The function timeout controls how long each individual invocation can run, while the durable execution timeout controls the total elapsed time from execution start to completion.
 
 **Example scenarios:**
-+ **Valid:** A durable function processes an Amazon SQS message with three steps, each taking 2 minutes, then waits 5 minutes before completing a final step. Total execution time: 11 minutes. This works because the total is under 15 minutes.
-+ **Invalid:** A durable function processes an Amazon SQS message, completes initial processing in 2 minutes, then waits 20 minutes for an external callback before completing. Total execution time: 22 minutes. This exceeds the 15-minute limit and fails.
-+ **Invalid:** A durable function processes a Kinesis record with multiple wait operations totaling 30 minutes between steps. Even though each individual invocation completes quickly, the total execution time exceeds 15 minutes.
++ **Valid (any capacity mode):** A durable function processes an Amazon SQS message with three steps, each taking 2 minutes, then waits 5 minutes before completing a final step. Total execution time: 11 minutes. This works on both capacity modes because it is under the 15-minute default limit.
++ **Valid on Lambda Managed Instances only:** A durable function processes an Amazon SQS message, completes initial processing in 2 minutes, then waits 20 minutes for an external callback before completing. Total execution time: 22 minutes. This exceeds the 15-minute default limit, but is within the 90-minute limit for functions running on Lambda Managed Instances.
++ **Invalid (any capacity mode):** A durable function processes a Kinesis record with multiple wait operations totaling two hours between steps. This exceeds even the 90-minute Lambda Managed Instances limit, so the execution fails regardless of capacity mode. Use the intermediary function pattern for workflows this long.
 
 **Important**  
-Configure your durable execution timeout to 15 minutes or less when using event source mappings, otherwise creation of the event source mapping fails. If your workflow requires longer execution times, use the intermediary function pattern described below.
+Configure your durable execution timeout within the applicable limit when using event source mappings, or creation of the event source mapping fails. The limit is 15 minutes by default, or up to 90 minutes on Lambda Managed Instances. If your workflow requires longer execution times, use the intermediary function pattern described below.
 
 ## Configuring event source mappings
 <a name="durable-esm-configuration"></a>
@@ -59,7 +59,7 @@ For complete information about event source mapping error handling, see [event s
 ## Using an intermediary function for long-running workflows
 <a name="durable-esm-intermediary-function"></a>
 
-If your workflow requires more than 15 minutes to complete, use an intermediary standard Lambda function between the event source mapping and your durable function. The intermediary function receives events from the event source mapping and invokes the durable function asynchronously, removing the 15-minute execution limit.
+If your workflow requires more than the applicable event source mapping limit (15 minutes by default, or 90 minutes on Lambda Managed Instances), use an intermediary standard Lambda function between the event source mapping and your durable function. The intermediary function receives events from the event source mapping and invokes the durable function asynchronously, removing the execution-duration limit.
 
 This pattern decouples the event source mapping's synchronous invocation model from the durable function's long-running execution model. The event source mapping invokes the intermediary function, which quickly returns after starting the durable execution. The durable function then runs independently for as long as needed (up to 1 year).
 
@@ -72,7 +72,7 @@ The intermediary function pattern uses three components:
 
 1. **Intermediary function:** A standard Lambda function that receives events from the event source mapping, validates and transforms the data if needed, and invokes the durable function asynchronously. This function completes quickly (typically under 1 second) and returns control to the event source mapping.
 
-1. **Durable function:** Processes the event with complex, multi-step logic that can run for extended periods. Invoked asynchronously, so it's not constrained by the 15-minute limit.
+1. **Durable function:** Processes the event with complex, multi-step logic that can run for extended periods. Invoked asynchronously, so it's not constrained by the event source mapping execution-duration limit.
 
 ### Implementation
 <a name="durable-esm-intermediary-implementation"></a>
@@ -240,7 +240,7 @@ def lambda_handler(payload, context: DurableContext):
 ### Key considerations
 <a name="durable-esm-intermediary-tradeoffs"></a>
 
-This pattern removes the 15-minute execution limit by decoupling the event source mapping from the durable execution. The intermediary function returns immediately after starting the durable execution, allowing the event source mapping to continue processing. The durable function then runs independently for as long as needed.
+This pattern removes the event source mapping execution-duration limit by decoupling the event source mapping from the durable execution. The intermediary function returns immediately after starting the durable execution, allowing the event source mapping to continue processing. The durable function then runs independently for as long as needed.
 
 The intermediary function succeeds when it invokes the durable function, not when the durable execution completes. If the durable execution fails later, the event source mapping won't retry because it already processed the batch successfully. Implement error handling in the durable function and configure dead-letter queues for failed executions.
 
@@ -258,4 +258,4 @@ Durable functions support all Lambda event sources that use event source mapping
 + Amazon MQ (ActiveMQ and RabbitMQ)
 + Amazon DocumentDB change streams
 
-All event source types are subject to the 15-minute durable execution limit when invoking durable functions.
+All event source types are subject to the durable execution limit described earlier (15 minutes by default) when invoking durable functions. On Lambda Managed Instances, the limit increases to 90 minutes for these event sources, except Amazon MQ and Amazon DocumentDB, which remain limited to 15 minutes.

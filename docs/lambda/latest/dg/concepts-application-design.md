@@ -90,12 +90,12 @@ While you can run [cron](https://en.wikipedia.org/wiki/Cron) tasks in serverless
 
 For example, it's not best practice to use a batch process that triggers a Lambda function to fetch a list of new Amazon S3 objects. This is because the service might receive more new objects in between batches than can be processed within a 15-minute Lambda function.
 
-![Diagram showing an Amazon S3 bucket polling pattern that creates unnecessary load on the system.](http://docs.aws.amazon.com/lambda/latest/dg/images/event-driven-architectures-figure-10.png)
+![Diagram showing an Amazon S3 bucket polling pattern that creates unnecessary load on the system.](https://docs.aws.amazon.com/lambda/latest/dg/images/event-driven-architectures-figure-10.png)
 
 
 Instead, Amazon S3 should invoke the Lambda function each time a new object is put into the bucket. This approach is significantly more scalable and works in near-real time.
 
-![Diagram showing Amazon S3 invoking a Lambda function each time a new object is added to the bucket.](http://docs.aws.amazon.com/lambda/latest/dg/images/event-driven-architectures-figure-11.png)
+![Diagram showing Amazon S3 invoking a Lambda function each time a new object is added to the bucket.](https://docs.aws.amazon.com/lambda/latest/dg/images/event-driven-architectures-figure-11.png)
 
 
 ## Choose an orchestration option for complex workflows
@@ -133,7 +133,7 @@ An effective way to solve this issue is to use multiple AWS accounts, dedicating
 
 One common approach is to provide each developer with an AWS account, and then use separate accounts for a beta deployment stage and production:
 
-![Diagram showing per-developer AWS accounts with isolated resources and separate concurrency limits.](http://docs.aws.amazon.com/lambda/latest/dg/images/application-design-figure-3.png)
+![Diagram showing per-developer AWS accounts with isolated resources and separate concurrency limits.](https://docs.aws.amazon.com/lambda/latest/dg/images/application-design-figure-3.png)
 
 
 In this model, each developer has their own set of limits for the account, so their usage does not impact your production environment. This approach also allows developers to test Lambda functions locally on their development machines against live cloud resources in their individual accounts.

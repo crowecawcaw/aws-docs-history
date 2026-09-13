@@ -14,7 +14,7 @@ See the [Testing functions](testing-guide.md) chapter for a complete introductio
 
  Continue reading this short guide to learn about testing strategies for serverless applications, or visit the [Serverless Test Samples repository](https://github.com/aws-samples/serverless-test-samples) to dive in with practical examples, specific to your chosen language and runtime. 
 
- ![Illustration showing the relationship between types of tests.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-type-illustration2.png) 
+ ![Illustration showing the relationship between types of tests.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-type-illustration2.png) 
 
  For serverless testing, you still write *unit*, *integration* and *end-to-end* tests. 
 + **Unit tests** - Tests that run against an isolated block of code. For example, verifying the business logic to calculate the delivery charge given a particular item and destination.

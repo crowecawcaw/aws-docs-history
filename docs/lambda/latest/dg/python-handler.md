@@ -201,7 +201,8 @@ Optionally, a handler can return a value, which must be JSON serializable. Commo
 
 What happens to the returned value depends on the [invocation type](lambda-invocation.md) and the [service](lambda-services.md) that invoked the function. For example:
 + If you use the `RequestResponse` invocation type to [invoke a Lambda function synchronously](invocation-sync.md), Lambda returns the result of the Python function call to the client invoking the Lambda function (in the HTTP response to the invocation request, serialized into JSON). For example, AWS Lambda console uses the `RequestResponse` invocation type, so when you invoke the function on the console, the console displays the returned value.
-+ If the handler returns objects that can't be serialized by `json.dumps`, the runtime returns an error.
++ If the handler returns objects that can't be serialized by `json.dumps`, the runtime returns an error. An exception to this is if the handler returns a `bytes` object.
++ If the handler returns a `bytes` object, the runtime passes it through as-is as raw binary data without JSON serialization, using a content type of `application/unknown`.
 + If the handler returns `None`, as Python functions without a `return` statement implicitly do, the runtime returns `null`.
 + If you use the `Event` invocation type (an [asynchronous invocation](invocation-async.md)), the value is discarded.
 

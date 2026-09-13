@@ -50,7 +50,7 @@ Use the console's built-in code editor to replace the Hello world code that Lamb
 1. Choose the **Code** tab.
 
    In the console's built-in code editor, you should see the function code that Lambda created. If you don't see the **index.mjs** tab in the code editor, select **index.mjs** in the file explorer as shown on the following diagram.  
-![Diagram showing the console code editor and the index.mjs file in the file explorer.](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/nodejs_code_editor.png)
+![Diagram showing the console code editor and the index.mjs file in the file explorer.](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/nodejs_code_editor.png)
 
 1. Paste the following code into the **index.mjs** tab, replacing the code that Lambda created.
 
@@ -76,7 +76,7 @@ Use the console's built-in code editor to replace the Hello world code that Lamb
    ```
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 **Understanding your function code**  
 Before you move to the next step, let's take a moment to look at the function code and understand some key Lambda concepts.
@@ -115,7 +115,7 @@ Before you move to the next step, let's take a moment to look at the function co
 1. Choose the **Code** tab.
 
    In the console's built-in code editor, you should see the function code that Lambda created. If you don't see the **lambda\_function.py** tab in the code editor, select **lambda\_function.py** in the file explorer as shown on the following diagram.  
-![Diagram showing the console code editor and the lambda_function.py file in the file explorer.](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/python_code_editor.png)
+![Diagram showing the console code editor and the lambda_function.py file in the file explorer.](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/python_code_editor.png)
 
 1. Paste the following code into the **lambda\_function.py** tab, replacing the code that Lambda created.
 
@@ -147,7 +147,7 @@ Before you move to the next step, let's take a moment to look at the function co
    ```
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 **Understanding your function code**  
 Before you move to the next step, let's take a moment to look at the function code and understand some key Lambda concepts.
@@ -188,7 +188,7 @@ To invoke your function using the Lambda console code editor, create a test even
 **To create the test event**
 
 1. In the **TEST EVENTS** section of the console code editor, choose **Create test event**.  
-![Create test event button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/test-event.png)
+![Create test event button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/test-event.png)
 
 1. For **Event Name**, enter **myTestEvent**.
 
@@ -207,7 +207,7 @@ To invoke your function using the Lambda console code editor, create a test even
 
 In the **TEST EVENTS** section of the console code editor, choose the run icon next to your test event:
 
-![Run test event button in the Lambda console code editor.](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/run-test-event.png)
+![Run test event button in the Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/run-test-event.png)
 
 
 When your function finishes running, the response and function logs are displayed in the **OUTPUT** tab. You should see results similar to the following:
@@ -265,7 +265,7 @@ When you invoke your function outside of the Lambda console, you must use CloudW
 1. Choose the log group for your function (`/aws/lambda/myLambdaFunction`). This is the log group name that your function printed to the console.
 
 1. Scroll down and choose the **Log stream** for the function invocations you want to look at.  
-![List of log streams for a Lambda function.](http://docs.aws.amazon.com/lambda/latest/dg/images/log-stream.png)
+![List of log streams for a Lambda function.](https://docs.aws.amazon.com/lambda/latest/dg/images/log-stream.png)
 
    You should see output similar to the following:
 

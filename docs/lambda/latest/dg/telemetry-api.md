@@ -9,7 +9,7 @@ Within the Lambda execution environment, you can subscribe your Lambda extension
 
 The following diagram shows how the Extensions API and Telemetry API link extensions to Lambda from within the execution environment. Additionally, the Runtime API connects your runtime and function to Lambda.
 
-![The Extensions, Telemetry, and Runtime APIs connecting to processes in the execution environment.](http://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
+![The Extensions, Telemetry, and Runtime APIs connecting to processes in the execution environment.](https://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
 
 
 **Important**  
@@ -47,7 +47,7 @@ Lambda extensions run as independent processes in the execution environment. Ext
 
 The following diagram illustrates a four-step process to create an extension that receives and processes telemetry data using the Telemetry API.
 
-![Register your extension, create a listener, subscribe to a stream, and then get telemetry.](http://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-creation-steps.png)
+![Register your extension, create a listener, subscribe to a stream, and then get telemetry.](https://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-creation-steps.png)
 
 
 Here is each step in more detail:

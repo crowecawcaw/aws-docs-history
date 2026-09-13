@@ -12,7 +12,7 @@ In this example, you create an app which automatically encrypts PDF files when t
 
 You also create an AWS Identity and Access Management (IAM) policy to give your Lambda function permission to perform read and write operations on your S3 buckets.
 
-![Diagram showing flow of data between an S3 bucket, a Lambda function and another S3 bucket.](http://docs.aws.amazon.com/lambda/latest/dg/images/ExampleApps/file_process_resources.png)
+![Diagram showing flow of data between an S3 bucket, a Lambda function and another S3 bucket.](https://docs.aws.amazon.com/lambda/latest/dg/images/ExampleApps/file_process_resources.png)
 
 
 **Tip**  
@@ -136,7 +136,7 @@ First create two S3 buckets. The first bucket is the source bucket you upload yo
 1. Open the [General purpose buckets](https://console.aws.amazon.com/s3/buckets) page of the Amazon S3 console.
 
 1. Select the AWS Region closest to your geographical location. You can change your region using the drop-down list at the top of the screen.  
-![Image showing drop down region menu in S3 console.](http://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
+![Image showing drop down region menu in S3 console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
 
 1. Choose **Create bucket**.
 
@@ -287,7 +287,7 @@ To ensure that your function doesn't time out when encrypting large PDF files, y
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Make sure you're working in the same AWS Region you created your S3 bucket in. You can change your region using the drop-down list at the top of the screen.  
-![Image showing drop down region menu in Lambda console.](http://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
+![Image showing drop down region menu in Lambda console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
 
 1. Choose **Create function**.
 

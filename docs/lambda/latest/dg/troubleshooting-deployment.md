@@ -119,7 +119,7 @@ Alternatively, you can configure your functions and layers to use [self-managed 
 
 You can view your total storage usage in the Lambda console, under the **Dashboard** submenu:
 
-![Lambda console Dashboard page showing total code storage usage across all functions and layers.](http://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-26.png)
+![Lambda console Dashboard page showing total code storage usage across all functions and layers.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-26.png)
 
 
 

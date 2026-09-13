@@ -271,19 +271,19 @@ Your function needs permission to upload trace data to X-Ray. When you activate 
 
 After you've configured active tracing, you can observe specific requests through your application. The [ X-Ray service graph](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html#xray-concepts-servicegraph) shows information about your application and all its components. The following example shows an application with two functions. The primary function processes events and sometimes returns errors. The second function at the top processes errors that appear in the first's log group and uses the AWS SDK to call X-Ray, Amazon Simple Storage Service (Amazon S3), and Amazon CloudWatch Logs.
 
-![A diagram that shows two separate applications and their respective service maps in X-Ray](http://docs.aws.amazon.com/lambda/latest/dg/images/sample-errorprocessor-servicemap.png)
+![A diagram that shows two separate applications and their respective service maps in X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/images/sample-errorprocessor-servicemap.png)
 
 
 X-Ray doesn't trace all requests to your application. X-Ray applies a sampling algorithm to ensure that tracing is efficient, while still providing a representative sample of all requests. The sampling rate is 1 request per second and 5 percent of additional requests. You can't configure the X-Ray sampling rate for your functions.
 
 In X-Ray, a *trace* records information about a request that is processed by one or more *services*. Lambda records 2 segments per trace, which creates two nodes on the service graph. The following image highlights these two nodes:
 
-![An X-Ray service map with a single function.](http://docs.aws.amazon.com/lambda/latest/dg/images/xray-servicemap-function.png)
+![An X-Ray service map with a single function.](https://docs.aws.amazon.com/lambda/latest/dg/images/xray-servicemap-function.png)
 
 
 The first node on the left represents the Lambda service, which receives the invocation request. The second node represents your specific Lambda function. The following example shows a trace with these two segments. Both are named **my-function**, but one has an origin of `AWS::Lambda` and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
 
-![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](http://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
+![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](https://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
 
 
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.

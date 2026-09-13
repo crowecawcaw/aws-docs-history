@@ -292,7 +292,7 @@ Callback-based function handlers must use the event, context, and callback argum
 export const handler = {{(event, context, callback)}} => { };
 ```
 
-The callback function expects an `Error` and a response, which must be JSON-serializable. The function continues to execute until the [event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/) is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](nodejs-context.md) to false.
+The callback function expects an `Error` and a response, which must be JSON-serializable. The function continues to execute until the [event loop](https://nodejs.org/learn/asynchronous-work/event-loop-timers-and-nexttick) is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](nodejs-context.md) to false.
 
 **Example – HTTP request with callback**  
 The following example function checks a URL and returns the status code to the invoker.  

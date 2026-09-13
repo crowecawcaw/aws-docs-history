@@ -83,7 +83,7 @@ Now that you've read about the criteria for selecting between Lambda function UR
 1. Open the [functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Open the help panel by choosing the icon in the top right corner of the screen.  
-![Diagram showing the Lambda console toolbar and the help panel icon in the top right hand corner](http://docs.aws.amazon.com/lambda/latest/dg/images/console_help_screenshot.png)
+![Diagram showing the Lambda console toolbar and the help panel icon in the top right hand corner](https://docs.aws.amazon.com/lambda/latest/dg/images/console_help_screenshot.png)
 
 1. Select **Tutorials**.
 

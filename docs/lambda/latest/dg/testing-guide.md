@@ -11,7 +11,7 @@
 
  Continue reading this short guide to learn about testing strategies for serverless applications, or visit the [Serverless Test Samples repository](https://github.com/aws-samples/serverless-test-samples) to dive in with practical examples, specific to your chosen language and runtime. 
 
- ![Illustration showing the relationship between types of tests.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-type-illustration2.png) 
+ ![Illustration showing the relationship between types of tests.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-type-illustration2.png) 
 
  For serverless testing, you still write *unit*, *integration* and *end-to-end* tests. 
 + **Unit tests** - Tests that run against an isolated block of code. For example, verifying the business logic to calculate the delivery charge given a particular item and destination.
@@ -244,7 +244,7 @@ LocalStack is an AWS Cloud emulator that you can use to test serverless applicat
 
  For example, the system under test could be an application that uses API Gateway, Lambda and DynamoDB. A test could make a synthetic HTTP call to an API Gateway endpoint and validate that the response included the expected payload. This test validates that the AWS Lambda code is correct, and that each service is correctly configured to handle the request, including the IAM permissions between them. Further, you could design the test to write records of various sizes to verify your service quotas, such as max record size in DynamoDB, are set up correctly. 
 
-![Diagram showing a system under test comprised of three services.](http://docs.aws.amazon.com/lambda/latest/dg/images/testing-system-under-test.png)
+![Diagram showing a system under test comprised of three services.](https://docs.aws.amazon.com/lambda/latest/dg/images/testing-system-under-test.png)
 
 
 ### Create isolated test environments

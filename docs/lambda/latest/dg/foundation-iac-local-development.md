@@ -156,13 +156,13 @@ For details on using AWS in your IDE, see the *[AWS Toolkit for Visual Studio Co
 After opening your function in your preferred IDE, follow these steps to access and manage your functions. For the example below we have used Visual Studio Code.
 
 1. Select the AWS icon in the sidebar to open the AWS Explorer:  
-![AWS Toolkit icon in Visual Studio Code sidebar.](http://docs.aws.amazon.com/lambda/latest/dg/images/console-to-ide-awsIcon.png)
+![AWS Toolkit icon in Visual Studio Code sidebar.](https://docs.aws.amazon.com/lambda/latest/dg/images/console-to-ide-awsIcon.png)
 
 1. In the AWS Explorer, select the region with your Lambda function:  
-![AWS Explorer showing region selection.](http://docs.aws.amazon.com/lambda/latest/dg/images/console-to-ide-lambdaTreeView.png)
+![AWS Explorer showing region selection.](https://docs.aws.amazon.com/lambda/latest/dg/images/console-to-ide-lambdaTreeView.png)
 
 1. Under your selected region, expand the Lambda section to view and manage your functions:  
-![Lambda functions with action icons for deploy, invoke, and more.](http://docs.aws.amazon.com/lambda/latest/dg/images/console-to-ide-lambdaActions.png)
+![Lambda functions with action icons for deploy, invoke, and more.](https://docs.aws.amazon.com/lambda/latest/dg/images/console-to-ide-lambdaActions.png)
 
 With your function opened in your IDE, you can:
 + Edit function code with full language support and code completion.

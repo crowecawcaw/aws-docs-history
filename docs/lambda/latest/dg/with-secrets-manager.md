@@ -410,10 +410,10 @@ Choose your preferred runtime and follow the steps to create a function that ret
 1. Choose the **Configuration** tab, and then choose **Permissions**.
 
 1. Under **Role name**, choose the link to your execution role. This link opens the role in the IAM console.  
-![Link to execution role.](http://docs.aws.amazon.com/lambda/latest/dg/images/execution-role-console.png)
+![Link to execution role.](https://docs.aws.amazon.com/lambda/latest/dg/images/execution-role-console.png)
 
 1. Choose **Add permissions**, and then choose **Create inline policy**.  
-![Attach policies in IAM console.](http://docs.aws.amazon.com/lambda/latest/dg/images/create-inline-policy.png)
+![Attach policies in IAM console.](https://docs.aws.amazon.com/lambda/latest/dg/images/create-inline-policy.png)
 
 1. Choose the **JSON** tab and add the following policy. For `Resource`, enter the ARN of your secret.
 
@@ -453,7 +453,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 1. Select the **Test** tab.
 
 1. Choose **Test**. You should see the following response:  
-![Successful test result.](http://docs.aws.amazon.com/lambda/latest/dg/images/execution-results-secret.png)
+![Successful test result.](https://docs.aws.amazon.com/lambda/latest/dg/images/execution-results-secret.png)
 
 ### Environment variables
 <a name="lambda-secrets-manager-env-vars"></a>

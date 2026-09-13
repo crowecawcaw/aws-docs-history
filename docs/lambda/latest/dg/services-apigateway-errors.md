@@ -10,7 +10,7 @@ API Gateway does not retry any Lambda invocations. If Lambda returns an error, A
 
 The following example shows an X-Ray trace map for a request that resulted in a function error and a 502 from API Gateway. The client receives the generic error message.
 
-![Trace map for a function error with API Gateway.](http://docs.aws.amazon.com/lambda/latest/dg/images/tracemap-apig-502.png)
+![Trace map for a function error with API Gateway.](https://docs.aws.amazon.com/lambda/latest/dg/images/tracemap-apig-502.png)
 
 
 To customize the error response, you must catch errors in your code and format a response in the required format.
@@ -34,4 +34,4 @@ var formatError = function(error){
 
 API Gateway converts this response into an HTTP error with a custom status code and body. In the trace map, the function node is green because it handled the error.
 
-![Trace map for a formatted error with API Gateway.](http://docs.aws.amazon.com/lambda/latest/dg/images/tracemap-apig-404.png)
+![Trace map for a formatted error with API Gateway.](https://docs.aws.amazon.com/lambda/latest/dg/images/tracemap-apig-404.png)

@@ -34,7 +34,7 @@ You can configure ephemeral storage in the Lambda console.
 1. Choose a function.
 
 1. Choose the **Configuration** tab and then choose **General configuration**.  
-![The Configuration tab in the Lambda console.](http://docs.aws.amazon.com/lambda/latest/dg/images/configuration-tab.png)
+![The Configuration tab in the Lambda console.](https://docs.aws.amazon.com/lambda/latest/dg/images/configuration-tab.png)
 
 1. Under **General configuration**, choose **Edit**.
 

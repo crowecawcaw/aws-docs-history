@@ -5,7 +5,7 @@
 
 In this tutorial, you create a Lambda function that consumes messages from an [Amazon Simple Queue Service (Amazon SQS)](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) queue. The Lambda function runs whenever a new message is added to the queue. The function writes the messages to an Amazon CloudWatch Logs stream. The following diagram shows the AWS resources you use to complete the tutorial.
 
-![Diagram showing Amazon SQS message, Lambda function, and CloudWatch Logs stream.](http://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_resources.png)
+![Diagram showing Amazon SQS message, Lambda function, and CloudWatch Logs stream.](https://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_resources.png)
 
 
 To complete this tutorial, you carry out the following steps:
@@ -34,7 +34,7 @@ In Windows, some Bash CLI commands that you commonly use with Lambda (such as `z
 ## Create the execution role
 <a name="with-sqs-create-execution-role"></a>
 
-![Step 1 create the execution role.](http://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps1.png)
+![Step 1 create the execution role.](https://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps1.png)
 
 
 An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Access Management (IAM) role that grants a Lambda function permission to access AWS services and resources. To allow your function to read items from Amazon SQS, attach the **AWSLambdaSQSQueueExecutionRole** permissions policy.
@@ -62,7 +62,7 @@ After role creation, note down the Amazon Resource Name (ARN) of your execution 
 ## Create the function
 <a name="with-sqs-create-function"></a>
 
-![Step 2 create the Lambda function.](http://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps2.png)
+![Step 2 create the Lambda function.](https://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps2.png)
 
 
 Create a Lambda function that processes your Amazon SQS messages. The function code logs the body of the Amazon SQS message to CloudWatch Logs.
@@ -421,7 +421,7 @@ The Lambda function and the Amazon SQS queue must be in the same AWS Region.
 ## Test the function
 <a name="with-sqs-create-test-function"></a>
 
-![Step 3 test the Lambda function.](http://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps3.png)
+![Step 3 test the Lambda function.](https://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps3.png)
 
 
 Invoke your Lambda function manually using the `invoke` AWS CLI command and a sample Amazon SQS event.
@@ -475,7 +475,7 @@ Invoke your Lambda function manually using the `invoke` AWS CLI command and a sa
 ## Create an Amazon SQS queue
 <a name="with-sqs-configure-sqs"></a>
 
-![Step 4 create the Amazon SQS queue.](http://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps4.png)
+![Step 4 create the Amazon SQS queue.](https://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps4.png)
 
 
 Create an Amazon SQS queue that the Lambda function can use as an event source. The Lambda function and the Amazon SQS queue must be in the same AWS Region.
@@ -495,7 +495,7 @@ After creating the queue, note down its ARN. You need this in the next step when
 ## Configure the event source
 <a name="with-sqs-attach-notification-configuration"></a>
 
-![Step 5 configure event source mapping.](http://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps5.png)
+![Step 5 configure event source mapping.](https://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps5.png)
 
 
 Connect the Amazon SQS queue to your Lambda function by creating an [event source mapping](invocation-eventsourcemapping.md). The event source mapping reads the Amazon SQS queue and invokes your Lambda function when a new message is added.
@@ -516,7 +516,7 @@ aws lambda list-event-source-mappings --function-name ProcessSQSRecord
 ## Send a test message
 <a name="with-sqs-test-message"></a>
 
-![Step 6: Send a test Amazon SQS message to invoke the Lambda function using the Amazon SQS console.](http://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps6.png)
+![Step 6: Send a test Amazon SQS message to invoke the Lambda function using the Amazon SQS console.](https://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps6.png)
 
 
 **To send an Amazon SQS message to the Lambda function**
@@ -536,7 +536,7 @@ Lambda polls the queue for updates. When there is a new message, Lambda invokes 
 ## Check the CloudWatch logs
 <a name="with-sqs-check-logs"></a>
 
-![Step 7: Verify that the Lambda function processed the Amazon SQS message by checking the CloudWatch Logs log group.](http://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps7.png)
+![Step 7: Verify that the Lambda function processed the Amazon SQS message by checking the CloudWatch Logs log group.](https://docs.aws.amazon.com/lambda/latest/dg/images/sqs_tut_steps7.png)
 
 
 **To confirm that the function processed the message**

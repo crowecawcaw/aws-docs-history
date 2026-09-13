@@ -44,7 +44,7 @@ Because you can only change `MaximumBatchingWindowInSeconds` in increments of se
 
 The following diagram illustrates these three conditions. Suppose a batching window begins at `t = 7` seconds. In the first scenario, the batching window reaches its 40 second maximum at `t = 47` seconds after accumulating 5 records. In the second scenario, the batch size reaches 10 before the batching window expires, so the batching window ends early. In the third scenario, the maximum payload size is reached before the batching window expires, so the batching window ends early.
 
-![Batching window expires when max time reached, batch size met, or payload hits 6 MB.](http://docs.aws.amazon.com/lambda/latest/dg/images/batching-window.png)
+![Batching window expires when max time reached, batch size met, or payload hits 6 MB.](https://docs.aws.amazon.com/lambda/latest/dg/images/batching-window.png)
 
 
 We recommend that you test with different batch and record sizes so that the polling frequency of each event source is tuned to how quickly your function is able to complete its task. The [CreateEventSourceMapping](https://docs.aws.amazon.com/lambda/latest/api/API_CreateEventSourceMapping.html) `BatchSize` parameter controls the maximum number of records that can be sent to your function with each invoke. A larger batch size can often more efficiently absorb the invoke overhead across a larger set of records, increasing your throughput.

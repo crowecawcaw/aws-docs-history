@@ -5,7 +5,7 @@
 
 In this tutorial, you create a REST API through which you invoke a Lambda function using an HTTP request. Your Lambda function performs create, read, update, and delete (CRUD) operations on a DynamoDB table. This function is provided here for demonstration, but you learn to configure an API Gateway REST API that can invoke any Lambda function.
 
-![Services and resources used in this tutorial.](http://docs.aws.amazon.com/lambda/latest/dg/images/APIG_tut_resources.png)
+![Services and resources used in this tutorial.](https://docs.aws.amazon.com/lambda/latest/dg/images/APIG_tut_resources.png)
 
 
 Using API Gateway provides users with a secure HTTP endpoint to invoke your Lambda function and can help manage large volumes of calls to your function by throttling traffic and automatically validating and authorizing API calls. API Gateway also provides flexible security controls using AWS Identity and Access Management (IAM) and Amazon Cognito. This is useful for use cases where advance authorization is required for calls to your application.
@@ -244,7 +244,7 @@ An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Acces
 In this example, the name of the DynamoDB table is defined as a variable in your function code. In a real application, best practice is to pass this parameter as an environment variable and to avoid hardcoding the table name. For more information see [Using AWS Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 ## Test the function
 <a name="services-apigateway-tutorial-test-function"></a>
@@ -252,7 +252,7 @@ In this example, the name of the DynamoDB table is defined as a variable in your
 Before integrating your function with API Gateway, confirm that you have deployed the function successfully. Use the Lambda console to send a test event to your function.
 
 1. On the Lambda console page for your function, choose the **Test** tab.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
 
 1. Scroll down to the **Event JSON** section and replace the default event with the following. This event matches the structure expected by the Lambda function.
 
@@ -384,7 +384,7 @@ You're now ready to test the integration of your API Gateway API method with you
 1. Open the [Tables page](https://console.aws.amazon.com/dynamodbv2#tables) of the DynamoDB console and choose the `lambda-apigateway` table.
 
 1. Chose **Explore table items**. In the **Items returned** pane, you should see one item with the **id** `1234ABCD` and the **number** `5`. Example:  
-![Test item with id 1234ABCD and number 5 added to DynamoDB table.](http://docs.aws.amazon.com/lambda/latest/dg/images/items-returned.png)
+![Test item with id 1234ABCD and number 5 added to DynamoDB table.](https://docs.aws.amazon.com/lambda/latest/dg/images/items-returned.png)
 
 **Test 2: To update the item in your DynamoDB table**
 
@@ -419,7 +419,7 @@ You're now ready to test the integration of your API Gateway API method with you
 1. Open the [Tables page](https://console.aws.amazon.com/dynamodbv2#tables) of the DynamoDB console and choose the `lambda-apigateway` table.
 
 1. Chose **Explore table items**. In the **Items returned** pane, you should see one item with the **id** `1234ABCD` and the **number** `10`.  
-![Test item changed to number 10.](http://docs.aws.amazon.com/lambda/latest/dg/images/items-returned-2.png)
+![Test item changed to number 10.](https://docs.aws.amazon.com/lambda/latest/dg/images/items-returned-2.png)
 
 ## Deploy the API
 <a name="services-apigateway-tutorial-deploy-api"></a>

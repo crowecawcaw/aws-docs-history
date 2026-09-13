@@ -35,6 +35,21 @@
 
 Note that execution environments with very low concurrency might experience throttles and difficulty scaling.
 
+## Long-running functions
+<a name="lambda-managed-instances-bp-long-running"></a>
+
+Functions on AWS Lambda Managed Instances can run for up to 90 minutes (5,400 seconds) per invocation for asynchronous invocations and for event source mapping invocations, except Amazon MQ and Amazon DocumentDB event source mappings, which remain limited to 15 minutes. Synchronous invocations and the function initialization phase also remain limited to 15 minutes. For more information about setting the timeout, see [Configure Lambda function timeout](configuration-timeout.md). Because your function can run longer, review the following considerations for components that are ephemeral in nature, such as network connections and credentials.
+
+**Accommodate idle connection timeouts.** Ensure that idle connection timeouts on downstream services such as Amazon RDS, Amazon ElastiCache, and external APIs accommodate the full function duration. If your function routes traffic through a NAT gateway, send keep-alive packets to prevent idle connections from being dropped after the NAT gateway's 350-second idle timeout.
+
+**Respect DNS TTL values.** Respect DNS TTL values when you resolve external hostnames. The AWS SDKs handle this automatically, but custom HTTP clients might cache DNS resolutions beyond their TTL.
+
+**Refresh temporary credentials.** If your function acquires temporary credentials or tokens, verify that they remain valid for the full execution duration, or refresh them in the background.
+
+**Design for idempotency.** Lambda does not guarantee exactly-once processing. As functions run longer, the window for retries and duplicate deliveries increases. Use Powertools for AWS Lambda to implement idempotency for operations such as payments or database writes, so that they produce the same result even if they run more than once. If you use Lambda durable functions, steps have at-least-once execution semantics: the durable execution SDK skips completed steps during replay, but steps that fail before checkpointing can run again. You can use execution names as idempotency keys.
+
+**Tune event source mappings for longer processing.** For Amazon SQS, set the queue's visibility timeout to at least six times the function timeout, so that Lambda has enough time to retry a batch if the function is throttled. Lambda validates this when you create the event source mapping, but does not prevent later changes to the queue or function that create a mismatch. For Amazon Kinesis Data Streams and Amazon DynamoDB Streams, configure the maximum batching window and parallelization factor to account for longer processing times per batch, and enable partial batch failure reporting so that only failed records are retried instead of the entire batch.
+
 ## Scaling configuration
 <a name="lambda-managed-instances-bp-scaling"></a>
 

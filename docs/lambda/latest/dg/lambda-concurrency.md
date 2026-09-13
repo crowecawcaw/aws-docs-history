@@ -23,7 +23,7 @@ This topic explains concurrency concepts and function scaling in Lambda. By the 
 
 Lambda invokes your function in a secure and isolated [execution environment](lambda-runtime-environment.md). To handle a request, Lambda must first initialize an execution environment (the [Init phase](lambda-runtime-environment.md#runtimes-lifecycle-ib)), before using it to invoke your function (the [Invoke phase](lambda-runtime-environment.md#runtimes-lifecycle-invoke)):
 
-![Typical lifecycle of an execution environment, showing Init and Invoke phases.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-1-environment.png)
+![Typical lifecycle of an execution environment, showing Init and Invoke phases.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-1-environment.png)
 
 
 **Note**  
@@ -33,7 +33,7 @@ The previous diagram uses a rectangle to represent a single execution environmen
 
 When Lambda finishes processing the first request, this execution environment can then process additional requests for the same function. For subsequent requests, Lambda doesn't need to re-initialize the environment.
 
-![An execution environment handling two requests in succession.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-2-two-requests.png)
+![An execution environment handling two requests in succession.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-2-two-requests.png)
 
 
 In the previous diagram, Lambda reuses the execution environment to handle the second request (represented by the yellow circle with label `2`).
@@ -44,7 +44,7 @@ So far, we've focused on just a single instance of your execution environment (t
 
 For example, let's explore what happens when your function receives 10 requests:
 
-![A Lambda function provisioning multiple environments to handle 10 requests.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-3-ten-requests.png)
+![A Lambda function provisioning multiple environments to handle 10 requests.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-3-ten-requests.png)
 
 
 In the previous diagram, each horizontal plane represents a single execution environment instance (labeled from `A` through `F`). Here's how Lambda handles each request:
@@ -65,12 +65,12 @@ In the previous diagram, each horizontal plane represents a single execution env
 
 As your function receives more concurrent requests, Lambda scales up the number of execution environment instances in response. The following animation tracks the number of concurrent requests over time:
 
-![An animation illustrating concurrent requests over time.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-4-animation.gif)
+![An animation illustrating concurrent requests over time.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-4-animation.gif)
 
 
 By freezing the previous animation at six distinct points in time, we get the following diagram:
 
-![Function concurrency at six distinct points in time.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-5-animation-summary.png)
+![Function concurrency at six distinct points in time.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-5-animation-summary.png)
 
 
 In the previous diagram, we can draw a vertical line at any point in time and count the number of environments that intersect this line. This gives us the number of concurrent requests at that point in time. For example, at time `t1`, there are three active environments serving three concurrent requests. The maximum number of concurrent requests in this simulation occurs at time `t4`, when there are six active environments serving six concurrent requests.
@@ -150,7 +150,7 @@ Configuring reserved concurrency counts towards your overall account concurrency
 
 To better understand reserved concurrency, consider the following diagram:
 
-![Function scaling behavior when you configure reserved concurrency on critical functions.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-6-reserved-concurrency.png)
+![Function scaling behavior when you configure reserved concurrency on critical functions.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-6-reserved-concurrency.png)
 
 
 In this diagram, your account concurrency limit for all the functions in this Region is at the default limit of 1,000. Suppose you have two critical functions, `function-blue` and `function-orange`, that routinely expect to get high invocation volumes. You decide to give 400 units of reserved concurrency to `function-blue`, and 400 units of reserved concurrency to `function-orange`. In this example, all other functions in your account must share the remaining 200 units of unreserved concurrency.
@@ -183,7 +183,7 @@ When using provisioned concurrency, Lambda still recycles execution environments
 
 In contrast, when using reserved concurrency, Lambda might completely terminate an environment after a period of inactivity. The following diagram illustrates this by comparing the lifecycle of a single execution environment when you configure your function using reserved concurrency compared to provisioned concurrency.
 
-![Comparison of reserved concurrency and provisioned concurrency behavior.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-7-reserved-vs-provisioned.png)
+![Comparison of reserved concurrency and provisioned concurrency behavior.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-7-reserved-vs-provisioned.png)
 
 
 The diagram has four points of interest:
@@ -198,7 +198,7 @@ The diagram has four points of interest:
 
 To better understand provisioned concurrency, consider the following diagram:
 
-![Function scaling behavior when you configure provisioned concurrency on a critical function.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-8-provisioned-concurrency.png)
+![Function scaling behavior when you configure provisioned concurrency on a critical function.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-8-provisioned-concurrency.png)
 
 
 In this diagram, you have an account concurrency limit of 1,000. You decide to give 400 units of provisioned concurrency to `function-orange`. All functions in your account, *including* `function-orange`, can use the remaining 600 units of unreserved concurrency.
@@ -212,7 +212,7 @@ The diagram has five points of interest:
 
 The previous example considered only provisioned concurrency. In practice, you can set both provisioned concurrency and reserved concurrency on a function. You might do this if you had a function that handles a consistent load of invocations on weekdays, but routinely sees spikes of traffic on weekends. In this case, you could use provisioned concurrency to set a baseline amount of environments to handle request during weekdays, and use reserved concurrency to handle the weekend spikes. Consider the following diagram:
 
-![Function scaling behavior when you use both reserved and provisioned concurrency.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-9-reserved-and-provisioned.png)
+![Function scaling behavior when you use both reserved and provisioned concurrency.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-9-reserved-and-provisioned.png)
 
 
 In this diagram, suppose that you configure 200 units of provisioned concurrency and 400 units of reserved concurrency for `function-orange`. Because you configured reserved concurrency, `function-orange` cannot use any of the 600 units of unreserved concurrency.

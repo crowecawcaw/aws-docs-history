@@ -24,7 +24,7 @@ You should see the following output:
 
 The following diagram shows clients invoking a Lambda function synchronously. Lambda sends the events directly to the function and sends the function's response back to the invoker.
 
-![Clients invoke a function synchronously and wait for a response.](http://docs.aws.amazon.com/lambda/latest/dg/images/invocation-sync.png)
+![Clients invoke a function synchronously and wait for a response.](https://docs.aws.amazon.com/lambda/latest/dg/images/invocation-sync.png)
 
 
 The `payload` is a string that contains an event in JSON format. The name of the file where the AWS CLI writes the response from the function is `response.json`. If the function returns an object or error, the response body is the object or error in JSON format. If the function exits without error, the response body is `null`.

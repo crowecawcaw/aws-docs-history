@@ -46,7 +46,7 @@ Lambda can detect only recursive loops that include certain supported AWS servic
 
 Lambda currently detects recursive loops between your functions, Amazon SQS, Amazon S3, and Amazon SNS. Lambda also detects loops comprised only of Lambda functions, which might invoke each other synchronously or asynchronously. The following diagrams show some examples of loops that Lambda can detect:
 
-![Diagrams of recursive loops between a Lambda function, Amazon SNS, Amazon S3, and an Amazon SQS queue.](http://docs.aws.amazon.com/lambda/latest/dg/images/RunawayWorkloadDetected_v3.png)
+![Diagrams of recursive loops between a Lambda function, Amazon SNS, Amazon S3, and an Amazon SQS queue.](https://docs.aws.amazon.com/lambda/latest/dg/images/RunawayWorkloadDetected_v3.png)
 
 
 When another AWS service such as Amazon DynamoDB forms part of the loop, Lambda can't currently detect and stop it.

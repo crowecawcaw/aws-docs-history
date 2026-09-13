@@ -46,7 +46,7 @@ If your function has an event source, make sure that event source points to the 
 
 You can configure up to the **Unreserved account concurrency** in your account, minus 100. The remaining 100 units of concurrency are for functions that aren't using reserved concurrency. For example, if your account has a concurrency limit of 1,000, and you haven't assigned any reserved or provisioned concurrency to any of your other functions, you can configure a maximum of 900 provisioned concurrency units for a single function.
 
-![An error occurs if you try to allocate too much provisioned concurrency.](http://docs.aws.amazon.com/lambda/latest/dg/images/provisioned-concurrency-over-limit.png)
+![An error occurs if you try to allocate too much provisioned concurrency.](https://docs.aws.amazon.com/lambda/latest/dg/images/provisioned-concurrency-over-limit.png)
 
 
 Configuring provisioned concurrency for a function has an impact on the concurrency pool available to other functions. For instance, if you configure 100 units of provisioned concurrency for `function-a`, other functions in your account must share the remaining 900 units of concurrency. This is true even if `function-a` doesn't use all 100 units.
@@ -85,7 +85,7 @@ You should see output that looks like the following:
 
 You can view any active function's concurrency metrics using [CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html). Specifically, the `ConcurrentExecutions` metric shows you the number of concurrent invocations for functions in your account.
 
-![Graph showing concurrency for a function over time.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-concurrent-executions-metrics.png)
+![Graph showing concurrency for a function over time.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-concurrent-executions-metrics.png)
 
 
 The previous graph suggests that this function serves an average of 5 to 10 concurrent requests at any given time, and peaks at 20 requests. Suppose that there are many other functions in your account. ** If this function is critical to your application and you need a low-latency response on every invocation**, configure at least 20 units of provisioned concurrency.
@@ -204,14 +204,14 @@ Lambda emits the `ProvisionedConcurrencyUtilization` metric only when your funct
 
 In the following example, a function scales between a minimum and maximum amount of provisioned concurrency based on utilization.
 
-![Autoscaling provisioned concurrency with Application Auto Scaling target tracking.](http://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned-auto.png)
+![Autoscaling provisioned concurrency with Application Auto Scaling target tracking.](https://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned-auto.png)
 
 
 **Legend**
-+ ![Orange line = function instances.](http://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned.instances.png) Function instances
-+ ![Gray line = open requests.](http://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned.open.png) Open requests
-+ ![Diagonal orange stripes = provisioned concurrency.](http://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned.provisioned.png) Provisioned concurrency
-+ ![Vertical orange stripes = standard concurrency.](http://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned.standard.png) Standard concurrency
++ ![Orange line = function instances.](https://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned.instances.png) Function instances
++ ![Gray line = open requests.](https://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned.open.png) Open requests
++ ![Diagonal orange stripes = provisioned concurrency.](https://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned.provisioned.png) Provisioned concurrency
++ ![Vertical orange stripes = standard concurrency.](https://docs.aws.amazon.com/lambda/latest/dg/images/features-scaling-provisioned.standard.png) Standard concurrency
 
 When the number of open requests increase, Application Auto Scaling increases provisioned concurrency in large steps until it reaches the configured maximum. After this, the function can continue to scale on standard, unreserved concurrency if you haven't reached your account concurrency limit. When utilization drops and stays low, Application Auto Scaling decreases provisioned concurrency in smaller periodic steps.
 

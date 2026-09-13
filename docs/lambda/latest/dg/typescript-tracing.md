@@ -284,4 +284,4 @@ To complete the steps in this section, you must have the following:
 
 After you've configured active tracing, you can observe specific requests through your application. The [ X-Ray trace map](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-servicemap.html) provides information about your application and all its components. The following example shows a trace from the sample application:
 
-![The X-Ray service map for the sample application.](http://docs.aws.amazon.com/lambda/latest/dg/images/sample-typescript-servicemap.png)
+![The X-Ray service map for the sample application.](https://docs.aws.amazon.com/lambda/latest/dg/images/sample-typescript-servicemap.png)

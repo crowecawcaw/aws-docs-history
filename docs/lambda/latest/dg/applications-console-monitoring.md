@@ -12,7 +12,7 @@ The **Applications** section of the Lambda console includes a **Monitoring** tab
 1. Choose **Monitoring**.
 
 1. To see more details about the metrics in any graph, choose **View in metrics** from the drop-down menu.  
-![A monitoring widget.](http://docs.aws.amazon.com/lambda/latest/dg/images/applications-monitoring-widget.png)
+![A monitoring widget.](https://docs.aws.amazon.com/lambda/latest/dg/images/applications-monitoring-widget.png)
 
    The graph appears in a new tab, with the relevant metrics listed below the graph. You can customize your view of this graph, changing the metrics and resources shown, the statistic, the period, and other factors to get a better understanding of the current situation.
 

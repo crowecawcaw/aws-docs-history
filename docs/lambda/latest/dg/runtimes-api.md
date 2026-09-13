@@ -8,7 +8,7 @@ AWS Lambda provides an HTTP API for [custom runtimes](runtimes-custom.md) to rec
 **Lambda Managed Instances support concurrent requests**  
 Lambda Managed Instances use the same runtime API as Lambda (default) functions. The key difference is that Managed Instances can accept concurrent `/next` and `/response` requests up to the configured `AWS_LAMBDA_MAX_CONCURRENCY` limit. This enables multiple invocations to be processed simultaneously within a single execution environment. For more information about Managed Instances, see [Understanding the Lambda Managed Instances execution environment](lambda-managed-instances-execution-environment.md).
 
-![Architecture diagram of the execution environment.](http://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
+![Architecture diagram of the execution environment.](https://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
 
 
 The OpenAPI specification for the runtime API version **2018-06-01** is available in [runtime-api.zip](samples/runtime-api.zip)
@@ -222,7 +222,7 @@ curl "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID
 
 **Method** – **GET**
 
-After the pre-snapshot hooks complete, the runtime calls `GET /runtime/restore/next`. This is an iterator-style blocking call, similar to `/runtime/invocation/next`, that signals to Lambda that the runtime is ready for the execution environment to be snapshotted. The request blocks until Lambda restores the execution environment from a snapshot, then returns an HTTP 200 response with an empty body.
+After the before-snapshot hooks complete, the runtime calls `GET /runtime/restore/next`. This is an iterator-style blocking call, similar to `/runtime/invocation/next`, that signals to Lambda that the runtime is ready for the execution environment to be snapshotted. The request blocks until Lambda restores the execution environment from a snapshot, then returns an HTTP 200 response with an empty body.
 
 **Headers**
 
@@ -266,15 +266,11 @@ If an after-restore hook fails or the runtime encounters an error during restore
 + 404 – SnapStart is not enabled for this function.
 + 500 – Container error. The execution environment is in a non-recoverable state. Exit the runtime process.
 
-**Example request**  
-
 ```
 POST /2018-06-01/runtime/restore/error HTTP/1.1
 Host: ${AWS_LAMBDA_RUNTIME_API}
 Lambda-Runtime-Function-Error-Type: Runtime.AfterRestoreError
 ```
-
-**Example response**  
 
 ```
 HTTP/1.1 202 Accepted

@@ -5,7 +5,7 @@
 
 Lambda function authors use extensions to integrate Lambda with their preferred tools for monitoring, observability, security, and governance. Function authors can use extensions from AWS, [AWS Partners](extensions-api-partners.md), and open-source projects. For more information on using extensions, see [Introducing AWS Lambda Extensions](https://aws.amazon.com/blogs/aws/getting-started-with-using-your-favorite-operational-tools-on-aws-lambda-extensions-are-now-generally-available/) on the AWS Compute Blog. This section describes how to use the Lambda Extensions API, the Lambda execution environment lifecycle, and the Lambda Extensions API reference. 
 
-![The Extensions API and the Telemetry API connect Lambda and external extensions.](http://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
+![The Extensions API and the Telemetry API connect Lambda and external extensions.](https://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
 
 
 As an extension author, you can use the Lambda Extensions API to integrate deeply into the Lambda [execution environment](lambda-runtime-environment.md). Your extension can register for function and execution environment lifecycle events. In response to these events, you can start new processes, run logic, and control and participate in all phases of the Lambda lifecycle: initialization, invocation, and shutdown. In addition, you can use the [Runtime Logs API](runtimes-logs-api.md) to receive a stream of logs.
@@ -37,7 +37,7 @@ The lifecycle of the execution environment includes the following phases:
 
 Each phase starts with an event from Lambda to the runtime and to all registered extensions. The runtime and each extension signal completion by sending a `Next` API request. Lambda freezes the execution environment when each process has completed and there are no pending events.
 
-![Lambda execution environment lifecycle for extensions.](http://docs.aws.amazon.com/lambda/latest/dg/images/Overview-Full-Sequence.png)
+![Lambda execution environment lifecycle for extensions.](https://docs.aws.amazon.com/lambda/latest/dg/images/Overview-Full-Sequence.png)
 
 
  
@@ -64,7 +64,7 @@ The `Init` phase completes after the runtime and each registered extension indic
 **Note**  
 Extensions can complete their initialization at any point in the `Init` phase.
 
-![Sequence of events in the Lambda Init phase.](http://docs.aws.amazon.com/lambda/latest/dg/images/Init-Phase.png)
+![Sequence of events in the Lambda Init phase.](https://docs.aws.amazon.com/lambda/latest/dg/images/Init-Phase.png)
 
 
 ### Invoke phase
@@ -81,7 +81,7 @@ After receiving the function response from the runtime, Lambda returns the respo
 
 The `Invoke` phase ends after the runtime and all extensions signal that they are done by sending a `Next` API request. 
 
-![Sequence of events in the Lambda Invoke phase.](http://docs.aws.amazon.com/lambda/latest/dg/images/Invoke-Phase.png)
+![Sequence of events in the Lambda Invoke phase.](https://docs.aws.amazon.com/lambda/latest/dg/images/Invoke-Phase.png)
 
 
 **Event payload**: The event sent to the runtime (and the Lambda function) carries the entire request, headers (such as `RequestId`), and payload. The event sent to each extension contains metadata that describes the event content. This lifecycle event includes the type of the event, the time that the function times out (`deadlineMs`), the `requestId`, the invoked function's Amazon Resource Name (ARN), and tracing headers.
@@ -126,7 +126,7 @@ When Lambda is about to shut down the runtime, it sends a `Shutdown` to each reg
 
 If the runtime or an extension does not respond to the `Shutdown` event within the limit, Lambda ends the process using a `SIGKILL` signal.
 
-![Sequence of events in the Lambda Shutdown phase.](http://docs.aws.amazon.com/lambda/latest/dg/images/Shutdown-Phase.png)
+![Sequence of events in the Lambda Shutdown phase.](https://docs.aws.amazon.com/lambda/latest/dg/images/Shutdown-Phase.png)
 
 
 **Event payload**: The `Shutdown` event contains the reason for the shutdown and the time remaining in milliseconds.
@@ -178,7 +178,7 @@ Because the function code directory is read-only, extensions cannot modify the f
 
 If there is a failure (such as a function timeout or runtime error) during `Invoke`, the Lambda service performs a reset. The reset behaves like a `Shutdown` event. First, Lambda shuts down the runtime, then it sends a `Shutdown` event to each registered external extension. The event includes the reason for the shutdown. If this environment is used for a new invocation, the extension and runtime are re-initialized as part of the next invocation.
 
-![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown.](http://docs.aws.amazon.com/lambda/latest/dg/images/Overview-Invoke-with-Error.png)
+![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown.](https://docs.aws.amazon.com/lambda/latest/dg/images/Overview-Invoke-with-Error.png)
 
 
 For a more detailed explanation of the previous diagram, see [Failures during the invoke phase](lambda-runtime-environment.md#runtimes-lifecycle-invoke-with-errors).

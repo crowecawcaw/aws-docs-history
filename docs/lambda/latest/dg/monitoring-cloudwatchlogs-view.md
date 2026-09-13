@@ -65,7 +65,7 @@ The Live Tail session automatically stops after 15 minutes of inactivity or when
 1. Choose **View CloudWatch logs** to open the CloudWatch console.
 
 1. Scroll down and choose the **Log stream** for the function invocations you want to look at.  
-![List of log streams for a Lambda function.](http://docs.aws.amazon.com/lambda/latest/dg/images/log-stream.png)
+![List of log streams for a Lambda function.](https://docs.aws.amazon.com/lambda/latest/dg/images/log-stream.png)
 
 Each instance of a Lambda function has a dedicated log stream. If a function scales up, each concurrent instance has its own log stream. Each time a new execution environment is created in response to an invocation, this generates a new log stream. The naming convention for log streams is:
 
@@ -75,7 +75,7 @@ YYYY/MM/DD[Function version][Execution environment GUID]
 
 A single execution environment writes to the same log stream during its lifetime. The log stream contains messages from that execution environment and also any output from your Lambda function's code. Every message is timestamped, including your custom logs. Even if your function does not log any output from your code, there are three minimal log statements generated per invocation (START, END and REPORT):
 
-![CloudWatch log stream showing START, END, and REPORT lines for a Lambda function invocation.](http://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-3.png)
+![CloudWatch log stream showing START, END, and REPORT lines for a Lambda function invocation.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-3.png)
 
 
 These logs show:
@@ -214,7 +214,7 @@ exports.handler = async (event) => {
 
 The resulting CloudWatch log file contains a separate field specifying the log level:
 
-![CloudWatch log entry showing a log level field that distinguishes ERROR from INFO messages.](http://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-10.png)
+![CloudWatch log entry showing a log level field that distinguishes ERROR from INFO messages.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-10.png)
 
 
 A CloudWatch Logs Insights query can then filter on log level. For example, to query for errors only, you can use the following query:
@@ -230,7 +230,7 @@ fields @timestamp, @message
 
 JSON is commonly used to provide structure for application logs. In the following example, the logs have been converted to JSON to output three distinct values:
 
-![CloudWatch log entries showing JSON-structured output with distinct fields for file size, upload time, and invocation count.](http://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-11.png)
+![CloudWatch log entries showing JSON-structured output with distinct fields for file size, upload time, and invocation count.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-11.png)
 
 
 The CloudWatch Logs Insights feature automatically discovers values in JSON output and parses the messages as fields, without the need for custom glob or regular expression. By using the JSON-structured logs, the following query finds invocations where the uploaded file was larger than 1 MB, the upload time was more than 1 second, and the invocation was not a cold start:
@@ -245,7 +245,7 @@ fields @message
 
 This query might produce the following result:
 
-![CloudWatch Logs Insights query results filtered by JSON fields showing matching log entries.](http://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-12.png)
+![CloudWatch Logs Insights query results filtered by JSON fields showing matching log entries.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-12.png)
 
 
 The discovered fields in JSON are automatically populated in the *Discovered fields* menu on the right side. Standard fields emitted by the Lambda service are prefixed with '@', and you can query on these fields in the same way. Lambda logs always include the fields @timestamp, @logStream, @message, @requestId, @duration, @billedDuration, @type, @maxMemoryUsed, @memorySize. If X-Ray is enabled for a function, logs also include @xrayTraceId and @xraySegmentId.
@@ -381,9 +381,9 @@ fields @message
 
 We included these aggregates because it might be more useful to visualize minimum, maximum, and average file sizes to find outliers. You can view the results in the **Visualization** tab:
 
-![CloudWatch Logs Insights visualization tab showing a time-series graph of minimum, average, and maximum file sizes.](http://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-14.png)
+![CloudWatch Logs Insights visualization tab showing a time-series graph of minimum, average, and maximum file sizes.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-14.png)
 
 
 After you have finished building the visualization, you can optionally add the graph to a CloudWatch dashboard. To do this, choose **Add to dashboard** above the visualization. This adds the query as a widget and you can select automatic refresh intervals, making it easier to continuously monitor the results:
 
-![CloudWatch dashboard with a Logs Insights query widget added, showing the Add to dashboard option.](http://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-15.png)
+![CloudWatch dashboard with a Logs Insights query widget added, showing the Add to dashboard option.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-15.png)

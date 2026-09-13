@@ -168,7 +168,7 @@ When you publish new Lambda functions in the console or using AWS SAM, the lates
 
 If you use specific function versions or aliases, these are immutable published versions of a function in addition to `$LATEST`. When troubleshooting these functions, first determine that the caller has invoked the intended version or alias. You can do this by checking your function logs. The version of the function that was invoked is always shown in the START log line:
 
-![CloudWatch log showing the START line with the function version number highlighted.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-1.png)
+![CloudWatch log showing the START line with the function version number highlighted.](https://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-1.png)
 
 
 ## Lambda: Detecting infinite loops
@@ -180,7 +180,7 @@ There are two types of infinite loops in Lambda functions. The first is within t
 
 The second type of loop is between Lambda functions and other AWS resources. These occur when an event from a resource like an S3 bucket invokes a Lambda function, which then interacts with the same source resource to trigger another event. This invokes the function again, which creates another interaction with the same S3 bucket, and so on. These types of loops can be caused by a number of different AWS event sources, including Amazon SQS queues and DynamoDB tables. You can use [recursive loop detection](invocation-recursion.md) to identify these patterns.
 
-![Diagram showing an infinite loop between a Lambda function and an S3 bucket, where each invocation triggers another event.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-2.png)
+![Diagram showing an infinite loop between a Lambda function and an S3 bucket, where each invocation triggers another event.](https://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-2.png)
 
 
 You can avoid these loops by ensuring that Lambda functions write to resources that are not the same as the consuming resource. If you must publish data back to the consuming resource, ensure that the new data doesn't trigger the same event. Alternatively, use [event filtering](invocation-eventfiltering.md). For example, here are two proposed solutions to infinite loops with S3 and DynamoDB resources:

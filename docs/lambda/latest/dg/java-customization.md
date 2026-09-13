@@ -41,7 +41,7 @@ This improves performance for SnapStart and Provisioned concurrency without incu
 1. Choose **Add environment variable**.
 
 1.  For the key, enter `JAVA_TOOL_OPTIONS`. For the value, enter `-XX:+TieredCompilation -XX:TieredStopAtLevel=1`.   
-![Add JAVA_TOOL_OPTIONS environment variable using the Lambda console.](http://docs.aws.amazon.com/lambda/latest/dg/images/java-tool-options-tiered-compilation.png)
+![Add JAVA_TOOL_OPTIONS environment variable using the Lambda console.](https://docs.aws.amazon.com/lambda/latest/dg/images/java-tool-options-tiered-compilation.png)
 
 1. Choose **Save**.
 

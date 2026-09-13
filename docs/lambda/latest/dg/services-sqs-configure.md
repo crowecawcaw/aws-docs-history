@@ -48,15 +48,15 @@ To configure your function to read from Amazon SQS, attach the [ AWSLambdaSQSQue
 1. Choose the **Configuration** tab, and then choose **Permissions**.
 
 1. Under **Role name**, choose the link to your execution role. This link opens the role in the IAM console.  
-![Link to execution role](http://docs.aws.amazon.com/lambda/latest/dg/images/execution-role.png)
+![Link to execution role](https://docs.aws.amazon.com/lambda/latest/dg/images/execution-role.png)
 
 1. Choose **Add permissions**, and then choose **Attach policies**.  
-![Attach policies in IAM console](http://docs.aws.amazon.com/lambda/latest/dg/images/attach-policies.png)
+![Attach policies in IAM console](https://docs.aws.amazon.com/lambda/latest/dg/images/attach-policies.png)
 
 1. In the search field, enter `AWSLambdaSQSQueueExecutionRole`. Add this policy to your execution role. This is an AWS managed policy that contains the permissions your function needs to read from an Amazon SQS queue. For more information about this policy, see [ AWSLambdaSQSQueueExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaSQSQueueExecutionRole.html) in the *AWS Managed Policy Reference*.
 
 1. Go back to your function in the Lambda console. Under **Function overview**, choose **Add trigger**.  
-![Function overview section of the Lambda console](http://docs.aws.amazon.com/lambda/latest/dg/images/add-trigger.png)
+![Function overview section of the Lambda console](https://docs.aws.amazon.com/lambda/latest/dg/images/add-trigger.png)
 
 1. Choose a trigger type.
 

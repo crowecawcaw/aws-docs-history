@@ -128,7 +128,7 @@ To remove customer managed key encryption, or to use a different key, you must u
 1. In the **Code source** pane, choose **Upload from**.
 
 1. Choose **.zip file** or **Amazon S3 location**.  
-![Upload .zip file from code source pane.](http://docs.aws.amazon.com/lambda/latest/dg/images/upload-zip.png)
+![Upload .zip file from code source pane.](https://docs.aws.amazon.com/lambda/latest/dg/images/upload-zip.png)
 
 1. Upload the file or enter the Amazon S3 location.
 

@@ -228,7 +228,7 @@ Wait for Lambda to complete the initialization process. Lambda launches three in
 
 **Problem:** You don't see expected metrics in CloudWatch for your capacity provider or functions.
 
-**Cause:** Metrics are published at 5-minute intervals. New capacity providers or functions might not have metrics available immediately.
+**Cause:** Metrics are published at 1-minute intervals. New capacity providers or functions might not have metrics available immediately.
 
 **Solution:**
 

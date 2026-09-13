@@ -43,7 +43,7 @@ Use two Lambda functions: one to validate the order and one to process the payme
 
 **Example workflow graph**  
 
-![Step Functions workflow graph showing order validation, a choice state, and payment processing with success and failure paths.](http://docs.aws.amazon.com/lambda/latest/dg/images/sequential_workflow.png)
+![Step Functions workflow graph showing order validation, a choice state, and payment processing with success and failure paths.](https://docs.aws.amazon.com/lambda/latest/dg/images/sequential_workflow.png)
 
 
 **Note**  
@@ -76,7 +76,7 @@ Use a single Lambda function focused solely on payment processing. Step Function
 
 **Example workflow graph**  
 
-![Step Functions workflow graph for payment processing with three outcomes: payment succeeded, payment invalid, and payment failed.](http://docs.aws.amazon.com/lambda/latest/dg/images/error_handling_workflow.png)
+![Step Functions workflow graph for payment processing with three outcomes: payment succeeded, payment invalid, and payment failed.](https://docs.aws.amazon.com/lambda/latest/dg/images/error_handling_workflow.png)
 
 
 **Note**  
@@ -110,7 +110,7 @@ Use three Lambda functions: one to evaluate the risk of each request, one to app
 
 **Example workflow graph**  
 
-![Step Functions workflow graph showing credit request evaluation branching to automatic or manager approval based on risk.](http://docs.aws.amazon.com/lambda/latest/dg/images/conditional_workflow.png)
+![Step Functions workflow graph showing credit request evaluation branching to automatic or manager approval based on risk.](https://docs.aws.amazon.com/lambda/latest/dg/images/conditional_workflow.png)
 
 
 **Note**  
@@ -144,7 +144,7 @@ Use three Lambda functions: one to create a thumbnail image, one to add a waterm
 
 **Example workflow graph**  
 
-![Step Functions workflow graph with three parallel Lambda functions: create thumbnail, add watermark, and extract metadata.](http://docs.aws.amazon.com/lambda/latest/dg/images/parallel_workflow.png)
+![Step Functions workflow graph with three parallel Lambda functions: create thumbnail, add watermark, and extract metadata.](https://docs.aws.amazon.com/lambda/latest/dg/images/parallel_workflow.png)
 
 
 **Note**  

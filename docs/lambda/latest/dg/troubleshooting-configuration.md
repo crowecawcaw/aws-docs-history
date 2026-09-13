@@ -31,7 +31,7 @@ While Lambda doesn't allow you to modify CPU configuration directly, CPU is indi
 ## Timeouts
 <a name="timeouts"></a>
 
- [Timeouts](https://docs.aws.amazon.com/lambda/latest/dg/configuration-console.html) for Lambda functions can be set between 1 and 900 seconds (15 minutes). By default, the Lambda console sets this to 3 seconds. The timeout value is a safety valve that ensures functions do not run indefinitely. After the timeout value is reached, Lambda stops the function invocation.
+ [Timeouts](https://docs.aws.amazon.com/lambda/latest/dg/configuration-console.html) for Lambda functions can be set between 1 and 900 seconds (15 minutes). For functions using AWS Lambda Managed Instances, asynchronous invocations and event source mapping invocations (except Amazon MQ and Amazon DocumentDB) support a maximum allowed value of 5,400 seconds (90 minutes). By default, the Lambda console sets this to 3 seconds. The timeout value is a safety valve that ensures functions do not run indefinitely. After the timeout value is reached, Lambda stops the function invocation.
 
 If a timeout value is set close to the average duration of a function, this increases the risk that the function times out unexpectedly. The duration of a function can vary based on the amount of data transfer and processing, and the latency of any services the function interacts with. Common causes of timeout include:
 + When downloading data from S3 buckets or other data stores, the download is larger or takes longer than average.
@@ -61,7 +61,7 @@ exports.handler = async (event) => {
 
 Configured with 128 MB of memory, after invoking this function 1000 times, the **Monitoring** tab of the Lambda function shows the typical changes in invocations, duration, and error counts when a memory leak occurs:
 
-![Lambda console Monitoring tab showing invocations dropping, duration increasing, and error count rising during a memory leak.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-4.png)
+![Lambda console Monitoring tab showing invocations dropping, duration increasing, and error count rising during a memory leak.](https://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-4.png)
 
 
 1.  **Invocations** – A steady transaction rate is interrupted periodically as the invocations take longer to complete. During the steady state, the memory leak is not consuming all of the function's allocated memory. As performance degrades, the operating system is paging local storage to accommodate the growing memory required by the function, which results in fewer transactions being completed.
@@ -72,7 +72,7 @@ Configured with 128 MB of memory, after invoking this function 1000 times, the *
 
 After the error, Lambda restarts the execution environment, which explains why all three graphs show a return to the original state. Expanding the CloudWatch metrics for duration provides more detail for the minimum, maximum and average duration statistics:
 
-![CloudWatch duration metrics showing minimum, maximum, and average statistics with a spike during the memory leak period.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-5.png)
+![CloudWatch duration metrics showing minimum, maximum, and average statistics with a spike during the memory leak period.](https://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-5.png)
 
 
 To find the errors generated across the 1000 invocations, you can use the CloudWatch Insights query language. The following query excludes informational logs to report only the errors:
@@ -90,7 +90,7 @@ fields @timestamp, @message
 
 When run against the log group for this function, this shows that timeouts were responsible for the periodic errors:
 
-![CloudWatch Logs Insights query results showing timeout errors from the Lambda function.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-6.png)
+![CloudWatch Logs Insights query results showing timeout errors from the Lambda function.](https://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-6.png)
 
 
 ## Asynchronous results returned to a later invocation
@@ -115,7 +115,7 @@ function doWork(id, callback) {
 
 When invoked several times in succession, the results of the callbacks occur in subsequent invocations:
 
-![CloudWatch logs showing callback results from one invocation appearing in subsequent invocations.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-7.png)
+![CloudWatch logs showing callback results from one invocation appearing in subsequent invocations.](https://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-7.png)
 
 
 1. The code calls the `doWork` function, providing a callback function as the last parameter.
@@ -147,7 +147,7 @@ function doWork(id) {
 
 Using this syntax prevents the handler from exiting before the asynchronous function is finished. In this case, if the callback takes longer than the Lambda function's timeout, the function throws an error, instead of returning the callback result in a later invocation:
 
-![CloudWatch logs showing the function timing out when using await, preventing callback leaking to later invocations.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-8.png)
+![CloudWatch logs showing the function timing out when using await, preventing callback leaking to later invocations.](https://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-8.png)
 
 
 1. The code calls the asynchronous `doWork` function using the await keyword in the handler.
@@ -179,7 +179,7 @@ function doWork(id, callback) {
 }
 ```
 
-![CloudWatch logs showing the function detecting and logging when a callback originated from a different invocation.](http://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-9.png)
+![CloudWatch logs showing the function detecting and logging when a callback originated from a different invocation.](https://docs.aws.amazon.com/lambda/latest/dg/images/debugging-ops-figure-9.png)
 
 
 1. The Lambda function handler takes the context parameter, which provides access to a unique invocation request ID.

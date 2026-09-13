@@ -89,7 +89,7 @@ To use SnapStart, activate SnapStart on a new or existing Lambda function. Then,
 
 1. Create a function by running the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html) command with the **--snap-start** option. For **--role**, specify the Amazon Resource Name (ARN) of your [execution role](lambda-intro-execution-role.md).
 **Note**  
-If you are using SnapStart with an OCI-based function that uses base images other than Lambda's AWS base images for Java (version 11\+), Python (version 3.12\+), and .NET (version 8\+), follow the instructions at [Implementing SnapStart hooks for container images](snapstart-runtime-hooks-custom.md) to make your image compatible with SnapStart.
+If you are using SnapStart with an container image function that uses base images other than Lambda's AWS base images for Java (version 11\+), Python (version 3.12\+), and .NET (version 8\+), follow the instructions at [Implementing SnapStart hooks for container images](snapstart-runtime-hooks-custom.md) to make your image compatible with SnapStart.
 
    ```
    aws lambda create-function \

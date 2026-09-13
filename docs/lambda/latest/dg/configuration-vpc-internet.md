@@ -109,7 +109,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 #### [ Node.js ]
 
 1. In the **Code source** pane on the Lambda console, paste the following code into the **index.mjs** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.  
-![Lambda console code editor.](http://docs.aws.amazon.com/lambda/latest/dg/images/code-source-nodejs.png)  
+![Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/code-source-nodejs.png)  
 **Example — HTTP request with async/await**  
 
    ```
@@ -129,15 +129,15 @@ Use the following sample code to confirm that your VPC-connected function can re
    ```
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 1. Choose the **Test** tab.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
 
 1. Choose **Test**.
 
 1. The function returns a `200` status code. This means that the function has outbound internet access.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-successful-200.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-successful-200.png)
 
    If the function can't reach the public internet, you get an error message like this:
 
@@ -151,7 +151,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 #### [ Python ]
 
 1. In the **Code source** pane on the Lambda console, paste the following code into the **lambda\_function.py** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.  
-![Lambda console code editor.](http://docs.aws.amazon.com/lambda/latest/dg/images/code-source-python.png)
+![Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/code-source-python.png)
 
    ```
    import urllib.request
@@ -168,15 +168,15 @@ Use the following sample code to confirm that your VPC-connected function can re
    ```
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 1. Choose the **Test** tab.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
 
 1. Choose **Test**.
 
 1. The function returns a `200` status code. This means that the function has outbound internet access.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-successful-200.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-successful-200.png)
 
    If the function can't reach the public internet, you get an error message like this:
 
@@ -199,22 +199,22 @@ If you already have a VPC but you need to configure public internet access for a
 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 
 1. Choose the **VPC ID**.  
-![VPC console list of VPCs.](http://docs.aws.amazon.com/lambda/latest/dg/images/vpc-id.png)
+![VPC console list of VPCs.](https://docs.aws.amazon.com/lambda/latest/dg/images/vpc-id.png)
 
 1. Scroll down to the **Resource map** section. Note the route table mappings. Open each route table that is mapped to a subnet.  
-![VPC console resource map section.](http://docs.aws.amazon.com/lambda/latest/dg/images/route-table-associations.png)
+![VPC console resource map section.](https://docs.aws.amazon.com/lambda/latest/dg/images/route-table-associations.png)
 
 1. Scroll down to the **Routes** tab. Review the routes to determine if your VPC has both of the following route tables. Each of these requirements must be satisfied by a separate route table.
    + Internet-bound traffic (`0.0.0.0/0` for IPv4, `::/0` for IPv6) is routed to an internet gateway (`igw-xxxxxxxxxx`). This means that the subnet associated with the route table is a public subnet.
 **Note**  
 If your subnet doesn't have an IPv6 CIDR block, you will only see the IPv4 route (`0.0.0.0/0`).  
 **Example public subnet route table**    
-![Public subnet route table with route to internet gateway.](http://docs.aws.amazon.com/lambda/latest/dg/images/routes-public.png)
+![Public subnet route table with route to internet gateway.](https://docs.aws.amazon.com/lambda/latest/dg/images/routes-public.png)
    + Internet-bound traffic for IPv4 (`0.0.0.0/0`) is routed to a NAT gateway (`nat-xxxxxxxxxx`) that is associated with a public subnet. This means that the subnet is a private subnet that can access the internet through the NAT gateway.
 **Note**  
 If your subnet has an IPv6 CIDR block, the route table must also route internet-bound IPv6 traffic (`::/0`) to an egress-only internet gateway (`eigw-xxxxxxxxxx`). If your subnet doesn't have an IPv6 CIDR block, you will only see the IPv4 route (`0.0.0.0/0`).  
 **Example private subnet route table**    
-![Private subnet route table with route to NAT gateway.](http://docs.aws.amazon.com/lambda/latest/dg/images/routes-private.png)
+![Private subnet route table with route to NAT gateway.](https://docs.aws.amazon.com/lambda/latest/dg/images/routes-private.png)
 
 1. Repeat the previous step until you have reviewed each route table associated with a subnet in your VPC and confirmed that you have a route table with an internet gateway and a route table with a NAT gateway.
 
@@ -242,7 +242,7 @@ Follow these steps to create a route table and associate it with a subnet.
 1. Choose **Create route table**.
 
 1. On the **Subnet associations** tab, choose **Edit subnet associations**.  
-![Attach internet gateway to VPC.](http://docs.aws.amazon.com/lambda/latest/dg/images/route-table-subnet.png)
+![Attach internet gateway to VPC.](https://docs.aws.amazon.com/lambda/latest/dg/images/route-table-subnet.png)
 
 1. Select the check box for the subnet to associate with the route table.
 
@@ -268,31 +268,31 @@ Follow these steps to create an internet gateway, attach it to your VPC, and add
 1. Choose **Create internet gateway**.
 
 1. Choose **Attach to a VPC** from the banner at the top of the screen, select an available VPC, and then choose **Attach internet gateway**.  
-![Attach internet gateway to VPC.](http://docs.aws.amazon.com/lambda/latest/dg/images/igw-attach-vpc.png)
+![Attach internet gateway to VPC.](https://docs.aws.amazon.com/lambda/latest/dg/images/igw-attach-vpc.png)
 
 1. Choose the **VPC ID**.  
-![Internet gateway details page.](http://docs.aws.amazon.com/lambda/latest/dg/images/igw-subnet-1.png)
+![Internet gateway details page.](https://docs.aws.amazon.com/lambda/latest/dg/images/igw-subnet-1.png)
 
 1. Choose the **VPC ID** again to open the VPC details page.  
-![Filtered VPC list in Amazon VPC Console.](http://docs.aws.amazon.com/lambda/latest/dg/images/igw-your-vpcs.png)
+![Filtered VPC list in Amazon VPC Console.](https://docs.aws.amazon.com/lambda/latest/dg/images/igw-your-vpcs.png)
 
 1. Scroll down to the **Resource map** section and then choose a subnet. The subnet details are displayed in a new tab.  
-![VPC console Resource map with list of subnets.](http://docs.aws.amazon.com/lambda/latest/dg/images/vpc-subnets.png)
+![VPC console Resource map with list of subnets.](https://docs.aws.amazon.com/lambda/latest/dg/images/vpc-subnets.png)
 
 1. Choose the link under **Route table**.  
-![Link to route table on subnet details page.](http://docs.aws.amazon.com/lambda/latest/dg/images/subnet-route-table.png)
+![Link to route table on subnet details page.](https://docs.aws.amazon.com/lambda/latest/dg/images/subnet-route-table.png)
 
 1. Choose the **Route table ID** to open the route table details page.  
-![Filtered route table list.](http://docs.aws.amazon.com/lambda/latest/dg/images/route-table-id.png)
+![Filtered route table list.](https://docs.aws.amazon.com/lambda/latest/dg/images/route-table-id.png)
 
 1. Under **Routes**, choose **Edit routes**.  
-![Routes list with Edit routes button.](http://docs.aws.amazon.com/lambda/latest/dg/images/edit-routes.png)
+![Routes list with Edit routes button.](https://docs.aws.amazon.com/lambda/latest/dg/images/edit-routes.png)
 
 1. Choose **Add route**, and then enter `0.0.0.0/0` in the **Destination** box.  
-![Add destination for new route.](http://docs.aws.amazon.com/lambda/latest/dg/images/create-route-1.png)
+![Add destination for new route.](https://docs.aws.amazon.com/lambda/latest/dg/images/create-route-1.png)
 
 1. For **Target**, select **Internet gateway**, and then choose the internet gateway that you created earlier. If your subnet has an IPv6 CIDR block, you must also add a route for `::/0` to the same internet gateway.  
-![Add target for new route.](http://docs.aws.amazon.com/lambda/latest/dg/images/create-route-2.png)
+![Add target for new route.](https://docs.aws.amazon.com/lambda/latest/dg/images/create-route-2.png)
 
 1. Choose **Save changes**.
 
@@ -324,19 +324,19 @@ NAT gateways are associated with a public subnet, but the route table entry is i
 1. Select a private subnet in your VPC. (A private subnet is a subnet that doesn't have a route to an internet gateway in its route table.)
 
 1. Choose the link under **Route table**.  
-![Link to route table on subnet details page.](http://docs.aws.amazon.com/lambda/latest/dg/images/subnet-route-table.png)
+![Link to route table on subnet details page.](https://docs.aws.amazon.com/lambda/latest/dg/images/subnet-route-table.png)
 
 1. Choose the **Route table ID** to open the route table details page.  
-![Filtered route table list.](http://docs.aws.amazon.com/lambda/latest/dg/images/route-table-id.png)
+![Filtered route table list.](https://docs.aws.amazon.com/lambda/latest/dg/images/route-table-id.png)
 
 1. Scroll down and choose the **Routes** tab, then choose **Edit routes**  
-![Routes tab on route table details page.](http://docs.aws.amazon.com/lambda/latest/dg/images/route-table-edit-routes.png)
+![Routes tab on route table details page.](https://docs.aws.amazon.com/lambda/latest/dg/images/route-table-edit-routes.png)
 
 1. Choose **Add route**, and then enter `0.0.0.0/0` in the **Destination** box.  
-![Add destination for new route.](http://docs.aws.amazon.com/lambda/latest/dg/images/create-route-1.png)
+![Add destination for new route.](https://docs.aws.amazon.com/lambda/latest/dg/images/create-route-1.png)
 
 1. For **Target**, select **NAT gateway**, and then choose the NAT gateway that you created earlier.  
-![Add target for new route.](http://docs.aws.amazon.com/lambda/latest/dg/images/create-route-nat.png)
+![Add target for new route.](https://docs.aws.amazon.com/lambda/latest/dg/images/create-route-nat.png)
 
 1. Choose **Save changes**.
 
@@ -358,27 +358,27 @@ Follow these steps to create an egress-only internet gateway and add it to your 
 1. Choose **Create egress only internet gateway**.
 
 1. Choose the link under **Attached VPC ID**.  
-![Egress-only internet gateway details page.](http://docs.aws.amazon.com/lambda/latest/dg/images/eigw-details.png)
+![Egress-only internet gateway details page.](https://docs.aws.amazon.com/lambda/latest/dg/images/eigw-details.png)
 
 1. Choose the link under **VPC ID** to open the VPC details page.
 
 1. Scroll down to the **Resource map** section and then choose a private subnet. (A private subnet is a subnet that doesn't have a route to an internet gateway in its route table.) The subnet details are displayed in a new tab.  
-![VPC console Resource map with list of subnets.](http://docs.aws.amazon.com/lambda/latest/dg/images/vpc-subnet-private.png)
+![VPC console Resource map with list of subnets.](https://docs.aws.amazon.com/lambda/latest/dg/images/vpc-subnet-private.png)
 
 1. Choose the link under **Route table**.  
-![Link to route table on subnet details page.](http://docs.aws.amazon.com/lambda/latest/dg/images/private-subnet-route-table.png)
+![Link to route table on subnet details page.](https://docs.aws.amazon.com/lambda/latest/dg/images/private-subnet-route-table.png)
 
 1. Choose the **Route table ID** to open the route table details page.  
-![Filtered route table list.](http://docs.aws.amazon.com/lambda/latest/dg/images/route-table-id.png)
+![Filtered route table list.](https://docs.aws.amazon.com/lambda/latest/dg/images/route-table-id.png)
 
 1. Under **Routes**, choose **Edit routes**.  
-![Routes list with Edit routes button.](http://docs.aws.amazon.com/lambda/latest/dg/images/edit-routes.png)
+![Routes list with Edit routes button.](https://docs.aws.amazon.com/lambda/latest/dg/images/edit-routes.png)
 
 1. Choose **Add route**, and then enter `::/0` in the **Destination** box.  
-![Add destination for new route.](http://docs.aws.amazon.com/lambda/latest/dg/images/create-route-1.png)
+![Add destination for new route.](https://docs.aws.amazon.com/lambda/latest/dg/images/create-route-1.png)
 
 1. For **Target**, select **Egress Only Internet Gateway**, and then choose the gateway that you created earlier.  
-![Add target for new route.](http://docs.aws.amazon.com/lambda/latest/dg/images/eigw-route.png)
+![Add target for new route.](https://docs.aws.amazon.com/lambda/latest/dg/images/eigw-route.png)
 
 1. Choose **Save changes**.
 
@@ -442,7 +442,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 #### [ Node.js ]
 
 1. In the **Code source** pane on the Lambda console, paste the following code into the **index.mjs** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.  
-![Lambda console code editor.](http://docs.aws.amazon.com/lambda/latest/dg/images/code-source-nodejs.png)  
+![Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/code-source-nodejs.png)  
 **Example — HTTP request with async/await**  
 
    ```
@@ -462,15 +462,15 @@ Use the following sample code to confirm that your VPC-connected function can re
    ```
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 1. Choose the **Test** tab.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
 
 1. Choose **Test**.
 
 1. The function returns a `200` status code. This means that the function has outbound internet access.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-successful-200.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-successful-200.png)
 
    If the function can't reach the public internet, you get an error message like this:
 
@@ -484,7 +484,7 @@ Use the following sample code to confirm that your VPC-connected function can re
 #### [ Python ]
 
 1. In the **Code source** pane on the Lambda console, paste the following code into the **lambda\_function.py** file. The function makes an HTTP GET request to a public endpoint and returns the HTTP response code to test if the function has access to the public internet.  
-![Lambda console code editor.](http://docs.aws.amazon.com/lambda/latest/dg/images/code-source-python.png)
+![Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/code-source-python.png)
 
    ```
    import urllib.request
@@ -501,15 +501,15 @@ Use the following sample code to confirm that your VPC-connected function can re
    ```
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 1. Choose the **Test** tab.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
 
 1. Choose **Test**.
 
 1. The function returns a `200` status code. This means that the function has outbound internet access.  
-![Lambda console Test tab.](http://docs.aws.amazon.com/lambda/latest/dg/images/test-successful-200.png)
+![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-successful-200.png)
 
    If the function can't reach the public internet, you get an error message like this:
 

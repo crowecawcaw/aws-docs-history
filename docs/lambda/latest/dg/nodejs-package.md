@@ -227,7 +227,7 @@ Function code for functions with container image deployment packages cannot be e
 1. In the **Code source** pane, select your source code file and edit it in the integrated code editor.
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 ### Creating and updating functions with .zip files using the AWS CLI
 <a name="nodejs-package-create-cli"></a>

@@ -43,7 +43,7 @@ Your Anthropic organization API key never reaches AWS compute. The launcher only
 ## Deploying the reference implementation
 <a name="microvms-integrations-claude-deploy"></a>
 
-![Architecture diagram showing the Claude Self-Hosted Sandboxes on Lambda MicroVMs reference implementation.](http://docs.aws.amazon.com/lambda/latest/dg/images/microvms-claude-managed-agents-architecture.png)
+![Architecture diagram showing the Claude Self-Hosted Sandboxes on Lambda MicroVMs reference implementation.](https://docs.aws.amazon.com/lambda/latest/dg/images/microvms-claude-managed-agents-architecture.png)
 
 
 The [Claude Managed Agents Self-Hosted Sandboxes on Lambda MicroVMs](https://github.com/aws-samples/sample-lambda-microvm-claude-managed-agents) repository provides a minimal, working deployment. It includes:

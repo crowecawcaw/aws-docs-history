@@ -47,7 +47,7 @@ Your Cursor service-account API key is stored in AWS Systems Manager Parameter S
 ## Deploying the reference implementation
 <a name="microvms-integrations-cursor-self-hosted-machines-deploy"></a>
 
-![Architecture diagram showing Cursor Self-hosted machines on Lambda MicroVMs](http://docs.aws.amazon.com/lambda/latest/dg/images/microvms-cursor-cloud-agents-architecture.png)
+![Architecture diagram showing Cursor Self-hosted machines on Lambda MicroVMs](https://docs.aws.amazon.com/lambda/latest/dg/images/microvms-cursor-cloud-agents-architecture.png)
 
 
 The [anysphere/aws-lambda-workers](https://github.com/anysphere/aws-lambda-workers) repository provides a minimal, working deployment. It includes:

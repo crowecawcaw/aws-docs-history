@@ -268,7 +268,7 @@ Here is the valid signature for the callback handler pattern:
 export const handler = {{(event: S3Event, context: Context, callback: Callback<void>)}}: void => { };
 ```
 
-The function continues to execute until the [event loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/) is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](typescript-context.md) to false.
+The function continues to execute until the [event loop](https://nodejs.org/learn/asynchronous-work/event-loop-timers-and-nexttick) is empty or the function times out. The response isn't sent to the invoker until all event loop tasks are finished. If the function times out, an error is returned instead. You can configure the runtime to send the response immediately by setting [context.callbackWaitsForEmptyEventLoop](typescript-context.md) to false.
 
 **Example TypeScript function with callback**  
 The following example uses `APIGatewayProxyCallback`, which is a specialized callback type specific to API Gateway integrations. Most AWS event sources use the generic `Callback` type shown in the signatures above.  

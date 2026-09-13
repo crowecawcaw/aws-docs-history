@@ -16,7 +16,7 @@ If you're working with Lambda functions in Go or Rust, we recommend against usin
 
 The following diagram illustrates the high-level architectural differences between two functions that share dependencies. One uses Lambda layers, and the other does not.
 
-![Comparison of two functions that don't use layers, and two functions that share a layer.](http://docs.aws.amazon.com/lambda/latest/dg/images/lambda-layers-diagram.png)
+![Comparison of two functions that don't use layers, and two functions that share a layer.](https://docs.aws.amazon.com/lambda/latest/dg/images/lambda-layers-diagram.png)
 
 
 When you add a layer to a function, Lambda extracts the layer contents into the `/opt` directory in your function's [execution environment](lambda-runtime-environment.md). All natively supported Lambda runtimes include paths to specific directories within the `/opt` directory. This gives your function access to your layer content. For more information about these specific paths and how to properly package your layers, see [Packaging your layer content](packaging-layers.md).

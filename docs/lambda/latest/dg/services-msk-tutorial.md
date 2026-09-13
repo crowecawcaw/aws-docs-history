@@ -63,7 +63,7 @@ In Windows, some Bash CLI commands that you commonly use with Lambda (such as `z
 
 When a Amazon MSK event source mapping runs on the behalf of a Lambda function, it assumes the Lambda function's execution role. This IAM role authorizes the mapping to access resources secured by IAM, such as your Amazon MSK cluster. Although the components share an execution role, the Amazon MSK mapping and your Lambda function have separate connectivity requirements for their respective tasks, as shown in the following diagram.
 
-![A Lambda function polls a cluster and communicates with Lambda using AWS STS.](http://docs.aws.amazon.com/lambda/latest/dg/images/msk_tut_network.png)
+![A Lambda function polls a cluster and communicates with Lambda using AWS STS.](https://docs.aws.amazon.com/lambda/latest/dg/images/msk_tut_network.png)
 
 
 Your event source mapping belongs to your Amazon MSK cluster security group. In this networking step, create Amazon VPC endpoints from your Amazon MSK cluster VPC to connect the event source mapping to the Lambda and STS services. Secure these endpoints to accept traffic from your Amazon MSK cluster security group. Then, adjust the Amazon MSK cluster security groups to allow the event source mapping to communicate with the Amazon MSK cluster.
@@ -667,7 +667,7 @@ You can provide function code to your Lambda using the console.
 1. In the **Code source** pane, select your source code file and edit it in the integrated code editor.
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 ## Test your Lambda function to verify it is connected to your Amazon MSK topic
 <a name="w2aac15c59c25c15c35c31"></a>
@@ -687,4 +687,4 @@ You can now verify whether or not your Lambda is being invoked by the event sour
 1. Identify the **CloudWatch log group** under **Logging configuration**. The log group should start with `/aws/lambda`. Choose the link to the log group.
 
 1. In the CloudWatch console, inspect the **Log events** for the log events Lambda has sent to the log stream. Identify if there are log events containing the message from your Kafka event, as in the following image. If there are, you have successfully connected a Lambda function to Amazon MSK with a Lambda event source mapping.  
-![A log event in CloudWatch showing event information extracted by the provided code.](http://docs.aws.amazon.com/lambda/latest/dg/images/msk_tut_log.png)
+![A log event in CloudWatch showing event information extracted by the provided code.](https://docs.aws.amazon.com/lambda/latest/dg/images/msk_tut_log.png)

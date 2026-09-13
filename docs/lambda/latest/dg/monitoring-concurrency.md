@@ -31,7 +31,7 @@ Use the following metrics to monitor Lambda functions using provisioned concurre
 
 `ProvisionedConcurrencyInvocations` differs from `ProvisionedConcurrentExecutions` in that `ProvisionedConcurrencyInvocations` counts total number of invocations, while `ProvisionedConcurrentExecutions` counts number of active environments. To understand this distinction, consider the following scenario:
 
-![Comparison of ProvisionedConcurrencyInvocations and ProvisionedConcurrentExecutions.](http://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-metrics-pc-executions-vs-invocations.png)
+![Comparison of ProvisionedConcurrencyInvocations and ProvisionedConcurrentExecutions.](https://docs.aws.amazon.com/lambda/latest/dg/images/concurrency-metrics-pc-executions-vs-invocations.png)
 
 
 In this example, suppose that you receive 1 invocation per minute, and each invocation takes 2 minutes to complete. Each orange horizontal bar represents a single request. Suppose that you allocate 10 units of provisioned concurrency to this function, such that each request runs on provisioned concurrency.
@@ -69,7 +69,7 @@ Lambda uses the `ClaimedAccountConcurrency` metric, rather than `ConcurrentExecu
 
 To illustrate `ClaimedAccountConcurrency`, consider a scenario where you configure a lot of reserved concurrency and provisioned concurrency across your functions that go largely unused. In the following example, assume that your account concurrency limit is 1,000, and you have two main functions in your account: `function-orange` and `function-blue`. You allocate 600 units of reserved concurrency for `function-orange`. You allocate 200 units of provisioned concurrency for `function-blue`. Suppose that over time, you deploy additional functions and observe the following traffic pattern:
 
-![A graph showing how Lambda determines ClaimedAccountConcurrency.](http://docs.aws.amazon.com/lambda/latest/dg/images/claimed-account-concurrency.png)
+![A graph showing how Lambda determines ClaimedAccountConcurrency.](https://docs.aws.amazon.com/lambda/latest/dg/images/claimed-account-concurrency.png)
 
 
 In the previous diagram, the black lines indicate the actual concurrency use over time, and the red line indicates the value of `ClaimedAccountConcurrency` over time. Throughout this scenario, `ClaimedAccountConcurrency` is 800 at minimum, despite low actual concurrency utilization across your functions. This is because you allocated 800 total units of concurrency for `function-orange` and `function-blue`. From Lambda's perspective, you have "claimed" this concurrency for use, so you effectively have only 200 units of concurrency remaining for other functions.
@@ -90,7 +90,7 @@ Utilization = (ClaimedAccountConcurrency/SERVICE_QUOTA(ConcurrentExecutions)) * 
 
 The following screenshot illustrates how you can graph this formula in CloudWatch. The green `claim_utilization` line represents the concurrency utilization in this account, which is at around 40%:
 
-![Using the ClaimedAccountConcurrency metric in CloudWatch.](http://docs.aws.amazon.com/lambda/latest/dg/images/claimed-account-concurrency-cloudwatch-graph.png)
+![Using the ClaimedAccountConcurrency metric in CloudWatch.](https://docs.aws.amazon.com/lambda/latest/dg/images/claimed-account-concurrency-cloudwatch-graph.png)
 
 
 The previous screenshot also includes a CloudWatch alarm that goes into `ALARM` state when the concurrency utilization exceeds 70%. You can use the `ClaimedAccountConcurrency` metric along with similar alarms to proactively determine when you might need to request a higher account concurrency limit.

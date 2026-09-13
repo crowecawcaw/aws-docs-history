@@ -51,10 +51,10 @@ You can generate a list of environment variables in the Lambda code editor. This
 1. Choose the **Code** tab.
 
 1. Scroll down to the **ENVIRONMENT VARIABLES** section of the code editor. Existing environment variables are listed here:  
-![Environment variables section of the Lambda console code editor.](http://docs.aws.amazon.com/lambda/latest/dg/images/env-var.png)
+![Environment variables section of the Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/env-var.png)
 
-1. To create new environment variables, choose the choose the plus sign (![Plus sign.](http://docs.aws.amazon.com/lambda/latest/dg/images/add-plus.png)):  
-![Add environment variables in the Lambda console code editor.](http://docs.aws.amazon.com/lambda/latest/dg/images/create-env-var.png)
+1. To create new environment variables, choose the choose the plus sign (![Plus sign.](https://docs.aws.amazon.com/lambda/latest/dg/images/add-plus.png)):  
+![Add environment variables in the Lambda console code editor.](https://docs.aws.amazon.com/lambda/latest/dg/images/create-env-var.png)
 
 Environment variables remain encrypted when listed in the console code editor. If you enabled encryption helpers for encryption in transit, then those settings remain unchanged. For more information, see [Securing Lambda environment variables](configuration-envvars-encryption.md).
 
@@ -160,7 +160,7 @@ You can use environment variables to customize function behavior in your test en
 
 The following example shows how to define the database host and database name as environment variables.
 
-![Environment variables in the Lambda console.](http://docs.aws.amazon.com/lambda/latest/dg/images/console-env.png)
+![Environment variables in the Lambda console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console-env.png)
 
 
 If you want your test environment to generate more debug information than the production environment, you could set an environment variable to configure your test environment to use more verbose logging or more detailed tracing.

@@ -37,7 +37,7 @@ X-Ray doesn't trace all requests to your application. X-Ray applies a sampling a
 
 In X-Ray, a *trace* records information about a request that is processed by one or more *services*. Lambda records 2 segments per trace, which creates two nodes on the service graph. The following image highlights these two nodes:
 
-![An X-Ray service map with a single function.](http://docs.aws.amazon.com/lambda/latest/dg/images/xray-servicemap-function.png)
+![An X-Ray service map with a single function.](https://docs.aws.amazon.com/lambda/latest/dg/images/xray-servicemap-function.png)
 
 
 The first node on the left represents the Lambda service, which receives the invocation request. The second node represents your specific Lambda function.
@@ -54,7 +54,7 @@ These changes will be implemented during the coming weeks, and all functions in 
 **Old-style AWS X-Ray Lambda segment structure**  
 The old-style X-Ray structure for the `AWS::Lambda` segment looks like the following:
 
-![Diagram showing the structure of an old-style X-Ray trace containing invocation segment.](http://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/v1_XRay_structure.png)
+![Diagram showing the structure of an old-style X-Ray trace containing invocation segment.](https://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/v1_XRay_structure.png)
 
 
 In this format, the function segment has subsegments for `Initialization`, `Invocation`, and `Overhead`. For [SnapStart](snapstart.md) only, there is also a `Restore` subsegment (not shown on this diagram). 
@@ -74,7 +74,7 @@ For more information about Lambda execution environment phases, see [Understandi
 
 An example trace using the old-style X-Ray structure is shown in the following diagram.
 
-![Diagram showing an example old-style X-Ray trace containing invocation segment.](http://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
+![Diagram showing an example old-style X-Ray trace containing invocation segment.](https://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
 
 
 Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda` and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
@@ -85,7 +85,7 @@ Occasionally, you might notice a large gap between the function initialization a
 **New-style AWS X-Ray Lambda segment structure**  
 The new-style X-Ray structure for the `AWS::Lambda` segment looks like the following:
 
-![Diagram showing the structure of an new-style X-Ray trace without invocation segment.](http://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/v2_XRay_structure.png)
+![Diagram showing the structure of an new-style X-Ray trace without invocation segment.](https://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/v2_XRay_structure.png)
 
 
 In this new format, The `Init` subsegment represents the init phase of the Lambda execution environment lifecycle as before.
@@ -98,7 +98,7 @@ There is no invocation segment in the new format. Instead, customer subsegments 
 
 An example trace using the new-style X-Ray structure is shown in the following diagram.
 
-![Diagram showing an example new-style X-Ray trace without the invocation segment.](http://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v2.png)
+![Diagram showing an example new-style X-Ray trace without the invocation segment.](https://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v2.png)
 
 
 Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda` and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.

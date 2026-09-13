@@ -724,7 +724,7 @@ Consuming a Amazon DocumentDB event with Lambda using Rust.
 1. In the **Code source** pane on the Lambda console, paste the code into the code editor, replacing the code that Lambda created.
 
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
-![Deploy button in the Lambda console code editor](http://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
+![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
 ## Create the Lambda event source mapping
 <a name="docdb-create-the-lambda-event-source-mapping"></a>
@@ -780,7 +780,7 @@ db.products.insertOne({"name":"Pencil", "price": 1.00})
 
 Verify that your function successfully processed this event by [checking CloudWatch Logs](monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console). You should see a log entry like this:
 
-![CloudWatch log stream for database record insertion.](http://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-insert-log.png)
+![CloudWatch log stream for database record insertion.](https://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-insert-log.png)
 
 
 ### Update a record
@@ -797,7 +797,7 @@ db.products.updateOne(
 
 Verify that your function successfully processed this event by [checking CloudWatch Logs](monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console). You should see a log entry like this:
 
-![CloudWatch log stream for database record update.](http://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-update-log.png)
+![CloudWatch log stream for database record update.](https://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-update-log.png)
 
 
 ### Delete a record
@@ -811,7 +811,7 @@ db.products.deleteOne( { "name": "Pencil" } )
 
 Verify that your function successfully processed this event by [checking CloudWatch Logs](monitoring-cloudwatchlogs-view.md#monitoring-cloudwatchlogs-console). You should see a log entry like this:
 
-![CloudWatch log stream for database record deletion.](http://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-delete-log.png)
+![CloudWatch log stream for database record deletion.](https://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-delete-log.png)
 
 
 ## Troubleshooting
@@ -821,9 +821,9 @@ If you don't see any database events in your function's CloudWatch logs, check t
 + Make sure that the Lambda event source mapping (also known as a trigger) is in the **Enabled** state. Event source mappings can take several minutes to create.
 + If the event source mapping is **Enabled** but you still don't see database events in CloudWatch:
   + Make sure that the **Database name** in the event source mapping is set to `docdbdemo`.  
-![Lambda event source mapping details.](http://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-trigger.png)
+![Lambda event source mapping details.](https://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-trigger.png)
   + Check the event source mapping **Last processing result** field for the following message "PROBLEM: Connection error. Your VPC must be able to connect to Lambda and STS, as well as Secrets Manager if authentication is required." If you see this error, make sure that you [created the Lambda and Secrets Manager VPC interface endpoints](#docdb-create-interface-vpc-endpoints), and that the endpoints use the same VPC and subnets that your Amazon DocumentDB cluster uses.  
-![Lambda event source mapping details.](http://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-lastprocessingresult.png)
+![Lambda event source mapping details.](https://docs.aws.amazon.com/lambda/latest/dg/images/documentdb-lastprocessingresult.png)
 
 ## Clean up your resources
 <a name="docdb-cleanup"></a>

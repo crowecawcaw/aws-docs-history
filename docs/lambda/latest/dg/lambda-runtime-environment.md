@@ -20,7 +20,7 @@ The function's runtime communicates with Lambda using the [Runtime API](runtimes
 
 
 
-![Architecture diagram of the execution environment.](http://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
+![Architecture diagram of the execution environment.](https://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
 
 
 When you create your Lambda function, you specify configuration information, such as the amount of memory available and the maximum execution time allowed for your function. Lambda uses this information to set up the execution environment.
@@ -36,7 +36,7 @@ The function's runtime and each external extension are processes that run within
 ## Lambda execution environment lifecycle
 <a name="runtimes-lifecycle"></a>
 
-![Lambda lifecycle phases: Init, Invoke, Shutdown.](http://docs.aws.amazon.com/lambda/latest/dg/images/Overview-Successful-Invokes.png)
+![Lambda lifecycle phases: Init, Invoke, Shutdown.](https://docs.aws.amazon.com/lambda/latest/dg/images/Overview-Successful-Invokes.png)
 
 
 Each phase starts with an event that Lambda sends to the runtime and to all registered extensions. The runtime and each extension indicate completion by sending a `Next` API request. Lambda freezes the execution environment when the runtime and each extension have completed and there are no pending events.
@@ -133,7 +133,7 @@ The invoke phase ends after the runtime and all extensions signal that they are 
 
 If the Lambda function crashes or times out during the `Invoke` phase, Lambda resets the execution environment. The following diagram illustrates Lambda execution environment behavior when there's an invoke failure:
 
-![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown.](http://docs.aws.amazon.com/lambda/latest/dg/images/Overview-Invoke-with-Error.png)
+![Execution environment example: Init, Invoke, Invoke with Error, Invoke, Shutdown.](https://docs.aws.amazon.com/lambda/latest/dg/images/Overview-Invoke-with-Error.png)
 
 
 In the previous diagram:
@@ -225,7 +225,7 @@ When the function is invoked again, Lambda thaws the environment for reuse. Reus
 
 When Lambda receives a request to run a function through the Lambda API, the service first prepares an execution environment. During this initialization phase, the service downloads your code, starts the environment, and runs any initialization code outside of the main handler. Finally, Lambda runs the handler code.
 
-![Diagram showing the steps of a Lambda cold start including downloading code and setting up the execution environment.](http://docs.aws.amazon.com/lambda/latest/dg/images/perf-optimize-figure-1.png)
+![Diagram showing the steps of a Lambda cold start including downloading code and setting up the execution environment.](https://docs.aws.amazon.com/lambda/latest/dg/images/perf-optimize-figure-1.png)
 
 
 In this diagram, the first two steps of downloading the code and setting up the environment are frequently referred to as a "cold start". You are [charged for this time](https://aws.amazon.com/blogs/compute/aws-lambda-standardizes-billing-for-init-phase/), and it adds latency to your overall invocation duration.
@@ -241,7 +241,7 @@ If you need predictable function start times for your workload, [provisioned con
 
 For example, a function with a provisioned concurrency of 6 has 6 execution environments pre-warmed.
 
-![Diagram showing Lambda execution environment optimization with reduced initialization overhead.](http://docs.aws.amazon.com/lambda/latest/dg/images/perf-optimize-figure-4.png)
+![Diagram showing Lambda execution environment optimization with reduced initialization overhead.](https://docs.aws.amazon.com/lambda/latest/dg/images/perf-optimize-figure-4.png)
 
 
 ## Optimizing static initialization

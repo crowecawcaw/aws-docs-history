@@ -86,7 +86,7 @@ After you enable Application Signals for your function, you can visualize your a
 
 For example, the following screenshot shows metrics for latency, number of requests, availability, fault rate, and error rate for a function across a 10 minute time window.
 
-![An Application Signals dashboard for a Lambda function depicting latency, requests, availability, fault rate, and error rate.](http://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-application-signals-dashboard.png)
+![An Application Signals dashboard for a Lambda function depicting latency, requests, availability, fault rate, and error rate.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-application-signals-dashboard.png)
 
 
 To make the most out of your integration with Application Signals, you can create service-level objectives (SLOs) for your aplication. For example, you can create latency SLOs to ensure your application responds quickly to user requests, and availability SLOs to track uptime. SLOs can help you detect performance degradation or outages before they impact your users. For more information, see [Service level objectives (SLOs)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html) in the Amazon CloudWatch User Guide.

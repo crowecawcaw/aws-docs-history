@@ -17,7 +17,7 @@ AWS SAM is an open-source framework built on top of CloudFormation. It provides 
 **AWS Cloud Development Kit (AWS CDK)**  
 The CDK is a code-first approach to IaC. You can define your Lambda-based architecture using TypeScript, JavaScript, Python, Java, C\#/.Net, or Go. Choose your preferred language and use programming elements like parameters, conditionals, loops, composition, and inheritance to define the desired outcome of your infrastructure. The CDK then generates the underlying CloudFormation templates for deployment. For an example of how to use Lambda with CDK, see [Deploying Lambda functions with AWS CDK](lambda-cdk-tutorial.md).
 
-![Diagram showing how AWS SAM and AWS CDK deploy AWS resources and code using CloudFormation.](http://docs.aws.amazon.com/lambda/latest/dg/images/IaC_tools.png)
+![Diagram showing how AWS SAM and AWS CDK deploy AWS resources and code using CloudFormation.](https://docs.aws.amazon.com/lambda/latest/dg/images/IaC_tools.png)
 
 
 AWS also provides a service called AWS Infrastructure Composer to develop IaC templates using a simple graphical interface. With Infrastructure Composer, you design an application architecture by dragging, grouping, and connecting AWS services in a visual canvas. Infrastructure Composer then creates an AWS SAM template or an CloudFormation template from your design that you can use to deploy your application.

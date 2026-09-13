@@ -22,7 +22,7 @@ The [event source mapping](invocation-eventsourcemapping.md) is the intermediary
 
 The network configuration requirements for your event source mapping depends on whether it uses [provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode) or on-demand mode, as shown in the following diagram:
 
-![Comparison of network calls for on-demand versus provisioned mode Kafka ESMs.](http://docs.aws.amazon.com/lambda/latest/dg/images/MSK-esm-network-overview.png)
+![Comparison of network calls for on-demand versus provisioned mode Kafka ESMs.](https://docs.aws.amazon.com/lambda/latest/dg/images/MSK-esm-network-overview.png)
 
 
 The way that the Lambda event source mapping polls your MSK cluster for new messages is the same in both modes. To establish a connection between your event source mapping and your MSK cluster, Lambda creates a [hyperplane ENI](configuration-vpc.md#configuration-vpc-enis) (or reuses an existing one, if available) in your private subnet to establish a secure connection. As illustrated in the diagram, this hyperplane ENI uses the subnet and security group configuration of your MSK cluster, not your Lambda function.
@@ -57,7 +57,7 @@ A [NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway
 
 After you configure your NAT gateway, you must configure the appropriate route tables. This allows traffic from your private subnet to route to the public internet through the NAT gateway.
 
-![Diagram of a customer-managed VPC using a NAT Gateway to route traffic from the private subnet to the public internet.](http://docs.aws.amazon.com/lambda/latest/dg/images/MSK-NAT-Gateway.png)
+![Diagram of a customer-managed VPC using a NAT Gateway to route traffic from the private subnet to the public internet.](https://docs.aws.amazon.com/lambda/latest/dg/images/MSK-NAT-Gateway.png)
 
 
 The following steps guide you through configuring a NAT gateway using the console. Repeat these steps as necessary for each Availability Zone (AZ).
@@ -107,7 +107,7 @@ PrivateLink endpoints allow secure, private access to AWS services over AWS Priv
 
 After you configure your VPC endpoints, your MSK cluster should have direct and private access to Lambda, STS, and optionally, Secrets Manager.
 
-![Diagram of a customer-managed VPC using AWS PrivateLink endpoints to access AWS services.](http://docs.aws.amazon.com/lambda/latest/dg/images/MSK-PrivateLink-Endpoints.png)
+![Diagram of a customer-managed VPC using AWS PrivateLink endpoints to access AWS services.](https://docs.aws.amazon.com/lambda/latest/dg/images/MSK-PrivateLink-Endpoints.png)
 
 
 The following steps guide you through configuring a PrivateLink endpoint using the console. Repeat these steps as necessary for each endpoint (Lambda, STS, Secrets Manager).
