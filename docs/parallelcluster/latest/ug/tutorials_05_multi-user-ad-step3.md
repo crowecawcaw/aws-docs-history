@@ -190,7 +190,7 @@ $ pcluster create-cluster --cluster-name {{"ad-cluster"}} --cluster-configuratio
     "cloudformationStackStatus": "CREATE_IN_PROGRESS",
     "cloudformationStackArn": "arn:aws:cloudformation:region-id:123456789012:stack/ad-cluster/1234567-abcd-0123-def0-abcdef0123456",
     "region": "region-id",
-    "version": 3.15.1,
+    "version": 3.16.1,
     "clusterStatus": "CREATE_IN_PROGRESS"
   }
 }

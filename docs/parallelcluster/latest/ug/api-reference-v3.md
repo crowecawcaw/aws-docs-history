@@ -11,7 +11,7 @@ AWS ParallelCluster API is distributed as a self-contained [CloudFormation](http
 
 The following image shows a high-level architecture diagram of the AWS ParallelCluster API infrastructure.
 
- ![a high-level architecture diagram of the ParallelCluster API infrastructure](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/API-Architecture-r2.png) 
+ ![a high-level architecture diagram of the ParallelCluster API infrastructure](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/API-Architecture-r2.png) 
 
 ## AWS ParallelCluster API Documentation
 <a name="api-reference-documentation-v3"></a>
@@ -34,7 +34,7 @@ The template used to deploy the API is available at the following URL:
 https://{{<REGION>}}-aws-parallelcluster.s3.{{<REGION>}}.amazonaws.com/parallelcluster/{{<VERSION>}}/api/parallelcluster-api.yaml
 ```
 
-where `{{<REGION>}}` is the AWS Region where the API needs to be deployed to and `{{<VERSION>}}` is the AWS ParallelCluster version (e.g. 3.15.1). 
+where `{{<REGION>}}` is the AWS Region where the API needs to be deployed to and `{{<VERSION>}}` is the AWS ParallelCluster version (e.g. 3.16.1). 
 
 AWS Lambda uses a Lambda layer interface with the [AWS ParallelCluster Python library API](pc-py-library-v3.md) to process the API invoked features.
 

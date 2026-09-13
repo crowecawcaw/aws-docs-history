@@ -321,7 +321,7 @@ $ pcluster create-cluster --cluster-name {{test-cluster}} --cluster-configuratio
     "cloudformationStackStatus": "CREATE_IN_PROGRESS",
     "cloudformationStackArn": "arn:aws:cloudformation:eu-west-1:xxx:stack/test-cluster/abcdef0-f678-890a-5abc-021345abcdef",
     "region": "eu-west-1",
-    "version": "3.15.1",
+    "version": "3.16.1",
     "clusterStatus": "CREATE_IN_PROGRESS"
   },
   "validationMessages": []

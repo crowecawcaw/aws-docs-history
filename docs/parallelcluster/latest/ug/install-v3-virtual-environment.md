@@ -65,7 +65,7 @@ Example Node.js installation command:
    ```
    $ pcluster version
    {
-     "version": "3.15.1"
+     "version": "3.16.1"
    }
    ```
 

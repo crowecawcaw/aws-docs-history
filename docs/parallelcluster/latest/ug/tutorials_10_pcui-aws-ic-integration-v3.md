@@ -43,14 +43,14 @@ If you do not already have an identity center connected to an AWS Managed Micros
 **Syncing users and groups to Identity Center**
 
 1. In the green banner click **Start Guided Setup** (button in the top right one)  
-![Screenshot highlighting the Start Guided Setup button.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_start_guided_setup_1.png)
+![Screenshot highlighting the Start Guided Setup button.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_start_guided_setup_1.png)
 
 1. In the **Configure Attribute Mappings**, click **Next**
 
 1. In the Configure sync scope section, type in the name of the users you want synced to identity center, then click **Add**
 
 1. Once finished adding users and groups, click **Next**  
-![Screenshot highlighting Next button.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_guided_setup_add_users_groups_2.png)
+![Screenshot highlighting Next button.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_guided_setup_add_users_groups_2.png)
 
 1. Review your changes, then click **Save configuration**
 
@@ -59,7 +59,7 @@ If you do not already have an identity center connected to an AWS Managed Micros
 1. Next, to enable users, In the **Users** tab on the left, select a user and then click **Enable user access** > **Enable user access** 
 
    **Note**: You may need to select Resume sync if you have a warning banner at the top and then wait for users to sync (try the refresh button to see if they are synced yet).  
-![Screenshot highlighting Users tab.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_enable_user_access_3.png)
+![Screenshot highlighting Users tab.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_enable_user_access_3.png)
 
 ## Adding your Application to IAM Identity Center
 <a name="adding-apps-to-iam-identity-center-v3"></a>
@@ -91,12 +91,12 @@ The next step will add the AWS ParallelCluster UI as an application in IAM Ident
    1. **Important**: Make sure to replace the domain-prefix, region, and userpool-id values with information that's specific to your environment.
 
    1. The domain prefix, region and userpool-id can be obtained by opening the **Amazon Cognito** > **User pools console**  
-![Screenshot highlighting User Pool Name under Cognito user pools](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_user_pools_4.png)
+![Screenshot highlighting User Pool Name under Cognito user pools](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_user_pools_4.png)
 
    1. Select the user pool that corresponds to PCUI (which will have a User pool name like pcui-cd8a2-Cognito-153EK3TO45S98-userpool)
 
    1. Navigate to **App Integration**  
-![Screenshot highlighting the Cognito Domain in the App Integration tab](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_app_integration_5.png)
+![Screenshot highlighting the Cognito Domain in the App Integration tab](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_app_integration_5.png)
 
 1. Application Assertion Consumer Service (ACS) URL: https://<domain-prefix>.auth.<region>.amazoncognito.com/saml2/idpresponse
 
@@ -109,17 +109,17 @@ The next step will add the AWS ParallelCluster UI as an application in IAM Ident
    1. User attribute in the application: **subject** (Note: **subject** is prefilled.) → Maps to this string value or user attribute in IAM Identity Center: **${user:email}**, Format: **emailAddress**
 
    1. User attribute in the application: **email** → Maps to this string value or user attribute in IAM Identity Center: **${user:email}**, Format: **unspecified**  
-![Screenshot highlighting the Attribute Mappings for PCUI section](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_attribute_mappings_PCUI_6.png)
+![Screenshot highlighting the Attribute Mappings for PCUI section](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_attribute_mappings_PCUI_6.png)
 
 1. Save your changes.
 
 1. Choose the **Assign Users** button and then assign your user to the application. These are the users in your Active Directory that will have access to the PCUI interface.  
-![Screenshot highlighting Assign users for the application.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_PCUI_App_7.png)
+![Screenshot highlighting Assign users for the application.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/IAC_PCUI_App_7.png)
 
 **Configure IAM Identity Center as a SAML IdP in your user pool**
 
 1. In your user pool settings, select **Sign-in experience** > **Add identity provider**  
-![Screenshot highlighting Sign-in experience tab](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_sign_in_expereince_8.png)
+![Screenshot highlighting Sign-in experience tab](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_sign_in_expereince_8.png)
 
 1. Choose a SAML IdP
 
@@ -128,14 +128,14 @@ The next step will add the AWS ParallelCluster UI as an application in IAM Ident
 1. Under **Metadata document source** choose **Enter metadata document endpoint URL** and provide the URL copied during the Application setup of Identity Center
 
 1. Under the **Attributes**, for email choose email  
-![Screenshot highlighting Sign-in experience tab](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazonw_cognito_SAML_9.png)
+![Screenshot highlighting Sign-in experience tab](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazonw_cognito_SAML_9.png)
 
 1. Select **Add identity provider**.
 
 **Integrate the IdP with the user pool app client**
 
 1. Next, under the **App Integration** section of your user pool, choose the client listed under **App client list**  
-![Screenshot highlighting Sign-in experience tab](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_user_pool_app_client_10.png)
+![Screenshot highlighting Sign-in experience tab](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_user_pool_app_client_10.png)
 
 1. Under **Hosted UI** choose **Edit**
 
@@ -146,17 +146,17 @@ The next step will add the AWS ParallelCluster UI as an application in IAM Ident
 **Validate your setup**
 
 1. Next we will validate the setup that we just created by logging in to PCUI. Sign in to your PCUI portal and you should now see an option to sign in with your Corporate ID:  
-![Screenshot highlighting Sign-in experience tab](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_validate_step_11.png)
+![Screenshot highlighting Sign-in experience tab](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_validate_step_11.png)
 
 1. Clicking the **IdentityCenter** button should take you to the IAM Identity Center IdP login followed by a page with your applications on it which includes PCUI, open that application.
 
 1. Once you get to the following screen, your user will have been added to the Cognito user pool.  
-![Screenshot highlighting Sign-in experience tab](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_continue_with_IC_12.png)
+![Screenshot highlighting Sign-in experience tab](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_continue_with_IC_12.png)
 
 **Make your user an administrator**
 
 1. Now navigate to the **Amazon Cognito** > **User pools console** and select the newly created user which should have a prefix of identitycenter  
-![Screenshot highlighting Sign-in experience tab](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_user_pools_new_created_user_13.png)
+![Screenshot highlighting Sign-in experience tab](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/tutorials/pcui_awsic_integration/Amazon_cognito_user_pools_new_created_user_13.png)
 
 1. Under **Group memberships** select **Add user to group**, choose **admin** and click **Add**.
 

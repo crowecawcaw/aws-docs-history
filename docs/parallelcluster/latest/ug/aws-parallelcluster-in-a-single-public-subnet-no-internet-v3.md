@@ -7,7 +7,7 @@ A subnet without internet access doesn't allow inbound or outbound connections t
 
 In this section, you learn about how to configure the cluster. You also learn about limitations in running clusters without internet access.
 
-![AWS ParallelCluster using one subnet and no internet](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/networking_single_subnet_no_internet.png)
+![AWS ParallelCluster using one subnet and no internet](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/networking_single_subnet_no_internet.png)
 
 
 **Configuring VPC endpoints**

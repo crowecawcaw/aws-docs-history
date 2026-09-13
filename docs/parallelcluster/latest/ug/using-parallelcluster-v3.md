@@ -28,3 +28,4 @@
 + [Launch instances with Capacity Blocks (CB)](launch-instances-capacity-blocks.md)
 + [AMI patching and Amazon EC2 instance replacement](instance-updates-ami-patch-v3.md)
 + [Operating systems](operating-systems-v3.md)
++ [Patch the operating system of a cluster](patching-cluster-v3.md)

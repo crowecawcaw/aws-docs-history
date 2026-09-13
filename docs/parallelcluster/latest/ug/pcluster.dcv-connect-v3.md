@@ -46,4 +46,4 @@ Prints the URL that would be used for the DCV connection and exits.
 $ pcluster dcv-connect -n {{cluster-3Dcv}} --login-node-ip {{198.51.100.44}} -r {{us-east-1}} --key-path {{/home/user/.ssh/key.pem}}
 ```
 
- ![A screenshot of the DCV console.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/Dcv-image.png) 
+ ![A screenshot of the DCV console.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/Dcv-image.png) 

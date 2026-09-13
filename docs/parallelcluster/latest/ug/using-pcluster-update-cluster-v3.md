@@ -89,7 +89,7 @@ These settings can be changed, but if the change would reduce the size of the qu
       "cloudformationStackStatus": "UPDATE_IN_PROGRESS",
       "cloudformationStackArn": {{stack_arn}},
       "region": "us-east-1",
-      "version": "3.15.1",
+      "version": "3.16.1",
       "clusterStatus": "UPDATE_IN_PROGRESS"
     },
     "changeSet": [

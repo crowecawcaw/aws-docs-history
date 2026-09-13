@@ -40,7 +40,7 @@ Specify credentials by using any of the standard ways that are valid for boto3. 
 
 You can deploy a Lambda layer and runtime to access to the AWS ParallelCluster Python library. We host AWS ParallelCluster zip files that you can use by entering the link to the zip file as described in the following steps. Lambda uses the zip files to prepare the runtime environment to support access to the Python library. The AWS ParallelCluster Python library is added with AWS ParallelCluster version 3.5.0. You can only use the library for versions 3.5.0 and later.
 
-The hosted zip file URL is in the format: `s3://{{aws-region-id}}-aws-parallelcluster/parallelcluster/{{3.15.1}}/layers/aws-parallelcluster/lambda-layer.zip`. (Replace {{3.15.1}} with the AWS ParallelCluster version you want to use in the following step.)
+The hosted zip file URL is in the format: `s3://{{aws-region-id}}-aws-parallelcluster/parallelcluster/{{3.16.1}}/layers/aws-parallelcluster/lambda-layer.zip`. (Replace {{3.16.1}} with the AWS ParallelCluster version you want to use in the following step.)
 
 ### Get started accessing the AWS ParallelCluster Python library with AWS Lambda
 <a name="lambda-py-get-started-v3"></a>
@@ -53,7 +53,7 @@ The hosted zip file URL is in the format: `s3://{{aws-region-id}}-aws-parallelcl
 
 1. Enter a name for your layer and select **Upload a file from Amazon S3**.
 
-1. Enter the URL to the zip file: s3://{{aws-region-id}}-aws-parallelcluster/parallelcluster/{{3.15.1}}/layers/aws-parallelcluster/lambda-layer.zip.
+1. Enter the URL to the zip file: s3://{{aws-region-id}}-aws-parallelcluster/parallelcluster/{{3.16.1}}/layers/aws-parallelcluster/lambda-layer.zip.
 
 1. For **Compatible architectures**, choose the **x86\_64** architecture.
 

@@ -24,13 +24,13 @@ In this tutorial, you use a quick-create stack to deploy a CloudFormation templa
 
 1. Sign in to the AWS Management Console.
 
-1. Open the CloudFormation [quick-create link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=mycluster&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.15.1/templates/1-click/cluster-example.yaml) to create the following resources in the CloudFormation console:
+1. Open the CloudFormation [quick-create link](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=mycluster&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.1/templates/1-click/cluster-example.yaml) to create the following resources in the CloudFormation console:
    + A nested CloudFormation stack with a VPC with a public and private subnet for running the cluster head node and compute nodes, respectively.
    + A nested CloudFormation stack with an AWS ParallelCluster custom resource for managing the cluster.
    + A nested CloudFormation stack with the default policies for managing the cluster.
    + A root CloudFormation stack for the nested stacks.
    + An AWS ParallelCluster cluster with the Slurm scheduler and a defined number of compute nodes.  
-![The console CloudFormation quick-create user interface.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/cfn-quick-create.png)
+![The console CloudFormation quick-create user interface.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/cfn-quick-create.png)
 
 1. In the **Quick create stack** **Parameters** section, enter values for the following parameters:
 
@@ -78,7 +78,7 @@ Replace {{inputs highlighted in red}}, such as {{keypair}}, with your own values
    Mappings:
      ParallelCluster:
        Constants:
-         Version: 3.15.1
+         Version: 3.16.1
    
    Resources:
      PclusterClusterProvider:
@@ -147,7 +147,7 @@ View the CloudFormation cluster output to obtain useful cluster details. The add
 1. Navigate to the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home) and select the stack that includes your AWS ParallelCluster custom resource.
 
 1. Choose **Stack details**, and select the **Outputs** tab.  
-![The console CloudFormation outputs table showing values for HeadNodeIp and ValidationMessages.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/cfn-outputs.png)
+![The console CloudFormation outputs table showing values for HeadNodeIp and ValidationMessages.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/cfn-outputs.png)
 
    Validation messages might be truncated. For more information about how to retrieve logs, see [AWS ParallelCluster troubleshooting](troubleshooting-v3.md).
 

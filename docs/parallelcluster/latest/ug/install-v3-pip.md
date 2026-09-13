@@ -39,7 +39,7 @@ If your Node.js installation isn't working on your platform, you can install an 
    ```
    $ pcluster version
    {
-     "version": "3.15.1"
+     "version": "3.16.1"
    }
    ```
 

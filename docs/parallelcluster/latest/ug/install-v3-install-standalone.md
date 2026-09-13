@@ -18,7 +18,7 @@ Install AWS ParallelCluster as a standalone application on your environment. Fol
 
 **Install AWS ParallelCluster on your environment.**
 
-1. Download the latest [ pcluster installer](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.0/installer/pcluster-installer-bundle-3.16.0.1644-node-v22.22.0-Linux_x86_64-signed.zip) ([ checksum](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.0/installer/pcluster-installer-bundle-3.16.0.1644-node-v22.22.0-Linux_x86_64-signed.zip-sha256sum)).
+1. Download the latest [ pcluster installer](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.1/installer/pcluster-installer-bundle-3.16.1.1671-node-v22.22.0-Linux_x86_64-signed.zip) ([ checksum](https://us-east-1-aws-parallelcluster.s3.amazonaws.com/parallelcluster/3.16.1/installer/pcluster-installer-bundle-3.16.1.1671-node-v22.22.0-Linux_x86_64-signed.zip-sha256sum)).
 
 1. Unzip the installer bundle and install AWS ParallelCluster by using the following commands:
 
@@ -39,7 +39,7 @@ Install AWS ParallelCluster as a standalone application on your environment. Fol
    ```
    $ pcluster version
    {
-       "version": "3.15.1"
+       "version": "3.16.1"
    }
    ```
 

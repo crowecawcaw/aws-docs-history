@@ -75,7 +75,7 @@ Resources:
     Properties:
       TemplateURL: !Sub
         - https://${AWS::Region}-aws-parallelcluster.s3.${AWS::Region}.${AWS::URLSuffix}/parallelcluster/${Version}/templates/custom_resource/cluster.yaml
-        - { Version: 3.15.1 }
+        - { Version: 3.16.1 }
 
   PclusterCluster:
     Type: Custom::PclusterCluster

@@ -7,7 +7,7 @@ The AWS ParallelCluster UI (PCUI) is a web-based user interface that serves as a
 
 To install the PCUI and get started, see [Installing the PCUI](install-pcui-v3.md) and [Configure and create a cluster with the PCUI](configure-create-pcui-v3.md).
 
-![In the PCUI home page, you can create, edit, and delete a cluster You can also view your list of clusters and selected cluster details, and navigate to clusters, official images, custom images, and users.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/ui-image.png)
+![In the PCUI home page, you can create, edit, and delete a cluster You can also view your list of clusters and selected cluster details, and navigate to clusters, official images, custom images, and users.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/ui-image.png)
 
 
 **The PCUI supports the following features:**

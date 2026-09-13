@@ -30,7 +30,7 @@ You are responsible to manage the Slurm database accounting entities.
 
 The architecture of the AWS ParallelCluster external SlurmDB support feature enables multiple clusters sharing the same SlurmDB and the same database.
 
- ![A flowchart depicting the Database Stack, Slurmdbd stack, PC Cluster Stack 1, and PC Cluster Stack 2. Containing components such as Slurmdbd instance, RDS Aurora MySQL Database, and Login nodes.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/External_Slurmdbd_Architecture_ASG.png)
+ ![A flowchart depicting the Database Stack, Slurmdbd stack, PC Cluster Stack 1, and PC Cluster Stack 2. Containing components such as Slurmdbd instance, RDS Aurora MySQL Database, and Login nodes.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/External_Slurmdbd_Architecture_ASG.png)
 
 **Warning**  
 Traffic between AWS ParallelCluster and the external SlurmDB is not encrypted. It is recommended to run the cluster and the external SlurmDB in a trusted network.
@@ -57,7 +57,7 @@ If Slurm accounting is enabled on the head node of a cluster, we recommend using
 
 In the current architecture of the AWS ParallelCluster Slurm accounting feature, each cluster has its own instance of the `slurmdbd` daemon as shown in the following diagram example configurations.
 
- ![A configuration with two clusters that are connected to a MySQL server. Each cluster has their own slurmdbd daemon instance. Moreover, each cluster is connected to its own database through the server. Another configuration with a single cluster that has its own slurmdbd daemon instance. This configuration is connected to a MySQL server and is also connected to its own database through the server.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/slurm-acct-arch.png)
+ ![A configuration with two clusters that are connected to a MySQL server. Each cluster has their own slurmdbd daemon instance. Moreover, each cluster is connected to its own database through the server. Another configuration with a single cluster that has its own slurmdbd daemon instance. This configuration is connected to a MySQL server and is also connected to its own database through the server.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/slurm-acct-arch.png)
 
 If you're adding custom Slurm multi-cluster or federation functionalities to your cluster environment, all clusters must reference the same `slurmdbd` instance. For this alternative, we recommend that you enable AWS ParallelCluster Slurm accounting on one cluster and manually configure the other clusters to connect to the `slurmdbd` that are hosted on the first cluster.
 

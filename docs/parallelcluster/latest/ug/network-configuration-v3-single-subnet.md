@@ -12,7 +12,7 @@ In this configuration, all instances of the cluster must be assigned a public IP
 
 For more information, see [ Enabling internet access](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html#vpc-igw-internet-access) in *Amazon VPC User Guide*.
 
- ![ParallelCluster in a single public subnet](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/single-public-subnet.png) 
+ ![ParallelCluster in a single public subnet](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/single-public-subnet.png) 
 
  The configuration for this architecture requires the following settings:
 

@@ -9,7 +9,7 @@ If you define a p4d instance type or another instance type that has multiple net
 
 This configuration requires a [NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) or an internal proxy in the subnet used for the queues, to give internet access to the compute instances.
 
- ![ParallelCluster using two subnets](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/two-subnets.png) 
+ ![ParallelCluster using two subnets](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/two-subnets.png) 
 
  The configuration to use an existing private subnet for compute instances requires the following settings:
 

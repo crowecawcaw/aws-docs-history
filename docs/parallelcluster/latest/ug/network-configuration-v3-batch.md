@@ -15,7 +15,7 @@ When using Amazon ECS Task Networking, the `awsvpc` network mode doesn't provide
 
 You must configure a [NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in order to enable the cluster to run multi-node parallel jobs.
 
- ![ParallelCluster with a NAT Gateway](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/two-subnets-batch.png) 
+ ![ParallelCluster with a NAT Gateway](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/two-subnets-batch.png) 
 
 All the previous configuration and considerations are valid for AWS Batch, too. The following is an example of a AWS Batch networking configuration.
 

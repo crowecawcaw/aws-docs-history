@@ -7,7 +7,7 @@ An Amazon CloudWatch dashboard is created when a cluster is created. This makes 
 
 The following image shows an example CloudWatch dashboard for a cluster.
 
- ![Dashboard graphs of the status of cluster resources.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/CW-dashboard.png) 
+ ![Dashboard graphs of the status of cluster resources.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/CW-dashboard.png) 
 
 **Head Node Instance Metrics**
 

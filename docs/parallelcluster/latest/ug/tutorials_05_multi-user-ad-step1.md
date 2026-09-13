@@ -33,7 +33,7 @@ Choose the *Manual* tab to manually create the AD infrastructure.
 1. Choose **Create stack**.
 
 1. After the CloudFormation stack has reached the `CREATE_COMPLETE` state, choose the **Outputs** tab of the stack. Make a note of the output resource names and IDs because you need to use them in later steps. The outputs provide the information that's needed to create the cluster.  
-![A diagram that shows the created stack outputs in the AWS Management Console.](http://docs.aws.amazon.com/parallelcluster/latest/ug/images/ad-cfn.png)
+![A diagram that shows the created stack outputs in the AWS Management Console.](https://docs.aws.amazon.com/parallelcluster/latest/ug/images/ad-cfn.png)
 
 1. To complete the exercises [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md), you need the directory ID. Choose **Resources** and scroll down to make note of the directory ID.
 

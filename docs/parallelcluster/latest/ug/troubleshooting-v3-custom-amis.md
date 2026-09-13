@@ -24,10 +24,10 @@ When you use a custom AMI, you can see the following warnings:
 
 If you're sure that the correct AMI is being used, you can ignore these warnings.
 
-If you don't want to see these warnings in the future, tag the custom AMI with the following tags, where `{{my-os}}` is one of `alinux2023`, `ubuntu2404`, `ubuntu2204`, `rhel8`, or `rhel9` and {{"3.15.1"}} is the `pcluster` version in use:
+If you don't want to see these warnings in the future, tag the custom AMI with the following tags, where `{{my-os}}` is one of `alinux2023`, `ubuntu2404`, `ubuntu2204`, `rhel8`, or `rhel9` and {{"3.16.1"}} is the `pcluster` version in use:
 
 ```
 $ aws ec2 create-tags \
   --resources {{ami-yourcustomAmi}} \
-  --tags Key="parallelcluster:version",Value={{"3.15.1"}} Key="parallelcluster:os",Value={{"my-os"}}
+  --tags Key="parallelcluster:version",Value={{"3.16.1"}} Key="parallelcluster:os",Value={{"my-os"}}
 ```
