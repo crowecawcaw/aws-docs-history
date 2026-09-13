@@ -10,7 +10,7 @@ With this architecture, you can connect your on-premises 4G/5G network to the To
 ## Totogi Charging-as-a-Service diagram
 <a name="totogi-diagram"></a>
 
-![Reference architecture diagram showing how to connect on-premises 4G/5G to Totogi charging on AWS by using AWS Direct Connect, Amazon EC2 Auto Scaling, DynamoDB, and Amazon Cognito.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/totogi-charging-as-a-service/images/totogi-charging-as-a-service.png)
+![Reference architecture diagram showing how to connect on-premises 4G/5G to Totogi charging on AWS by using AWS Direct Connect, Amazon EC2 Auto Scaling, DynamoDB, and Amazon Cognito.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/totogi-charging-as-a-service/images/totogi-charging-as-a-service.png)
 
 
 The following steps describe the charging flow and network connectivity for this architecture:
