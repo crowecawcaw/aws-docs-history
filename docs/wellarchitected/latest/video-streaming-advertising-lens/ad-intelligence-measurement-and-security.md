@@ -12,10 +12,10 @@
 
  For additional details, see [Guidance for Contextual Intelligence Advertising Using Generative AI on AWS](https://aws.amazon.com/solutions/guidance/contextual-intelligence-advertising-using-generative-ai-on-aws). 
 
-![Guidance for contextual intelligence advertising using generative AI on AWS - 1](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/contextual-intelligence-advertising-1.png)
+![Guidance for contextual intelligence advertising using generative AI on AWS - 1](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/contextual-intelligence-advertising-1.png)
 
 
-![Guidance for contextual intelligence advertising using generative AI on AWS - 2](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/contextual-intelligence-advertising-2.png)
+![Guidance for contextual intelligence advertising using generative AI on AWS - 2](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/contextual-intelligence-advertising-2.png)
 
 
 ## Generative AI-generated ad creative and moderation
@@ -23,7 +23,7 @@
 
  The solution guidance demonstrates the Intelligent Ad QC solution leveraging the power of AWS AI and generative AI to enable media publishers to efficiently manage advertising content at scale, facilitate alignment with brand and audience requirements, and deliver a high-quality viewer experience - ultimately improving the monetization of their ad-supported streaming services. 
 
-![Ad creative generation and QC](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/ad-creative-gen-ai.png)
+![Ad creative generation and QC](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/ad-creative-gen-ai.png)
 
 
 ## Fraud protection using the HUMAN AWS Marketplace
@@ -41,7 +41,7 @@
 +  **Increase trust in the digital marketplace:** By protecting against phishing, malvertising, and other ad fraud, HUMAN provides DSPs, SSPs, publishers, and advertisers with a way to verify the experience is consistent with expectation, restoring trust and transparency to digital advertising in every industry. 
 +  **Take advantage of the latest technology:** With the visibility of HUMAN into the internet and through its network effect, customers know they are receiving the latest abuse protection techniques for their technology solutions—one that keeps pace with the speed of innovation. 
 
-![Diagram displaying how the HUMAN AWS solution works](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/HUMAN-AWS.png)
+![Diagram displaying how the HUMAN AWS solution works](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/HUMAN-AWS.png)
 
 
  For additional details, see [How HUMAN Advertising Intelligence Solutions Help Protect Against Ad Fraud in the Ad Tech Industry](https://aws.amazon.com/blogs/apn/how-human-advertising-intelligence-solutions-help-protect-against-ad-fraud-in-the-ad-tech-industry/). 

@@ -40,11 +40,11 @@ Publication date: **December 9, 2025** ([Document revisions](document-revisions.
   +  Effectively using AI/ML technologies for fraud detection, content moderation, and cross-system measurement while maintaining transparency and human oversight 
 +  Three main categories of digital advertising fraud: placement fraud, traffic fraud, and action fraud. These fraudulent activities employ both automated and manual methods, targeting different aspects of the advertising solution. 
   +  *Placement fraud* involves manipulating ad placements through techniques like malvertising, ad stacking, fake websites, domain spoofing, and ad injection.   
-![Graph describing how placement fraud works](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/placement-fraud.png)
+![Graph describing how placement fraud works](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/placement-fraud.png)
   +  *Traffic fraud* focuses on artificially inflating visitor numbers and clicks using bots or human labor.   
-![Graph describing how traffic fraud works](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/traffic-fraud.png)
+![Graph describing how traffic fraud works](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/traffic-fraud.png)
   +  *Action fraud* includes falsifying conversions, manipulating re-targeting data, and various forms of affiliate fraud.   
-![Graph describing how action fraud works](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/action-fraud.png)
+![Graph describing how action fraud works](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/action-fraud.png)
 
  This lens specifies best practices that address the unique characteristics of building and operating advertising workloads in the cloud. They are based on our experience with industry developers and operations teams. It provides guidance on how to design and operate your environment addressing the operational challenges. 
 

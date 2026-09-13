@@ -5,14 +5,14 @@
 
  The section expands on ad decision service (ADS) invoked by the publisher ad insertion workflow provided in the following diagrams. This comprises of SSP, ad network, Ad exchange, DSP, and DMP systems as part of the direct and programmatic ad serving process. 
 
-![AWS Elemental MediaLive tailor ad insertion in live workflow](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/aws-elemental-media-tailor-ad.png)
+![AWS Elemental MediaLive tailor ad insertion in live workflow](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/aws-elemental-media-tailor-ad.png)
 
 
 ## ADS intake traffic distribution
 <a name="ADS-intake-traffic-distribution"></a>
 
 1.  Using Route 53 geolocation or geo proximity routing policies, the intake traffic from publisher can be routed to the ADS regional workloads with a continent based on data residency requirements for that continent. The example referenced in the following diagram shows intake traffic routed to US, Europe, and Asia based on the geolocation of the intake origin from the publisher.   
-![Displays the intake traffic routing to different regions](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/intake-traffic-routing.png)
+![Displays the intake traffic routing to different regions](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/intake-traffic-routing.png)
 
 1.  Furthermore, for traffic routing within a content across the various AWS Regions, you can use the weighted routing policy of Amazon Route 53. This can be also combined with the failover routing policy of Route 53 to implement resiliency feature. 
 
@@ -21,7 +21,7 @@
    1.  Traffic is distributed between us-east and us-west regions in ratio of 70:30. In case of a Regional failure, traffic will be routed 100 % to the other region. 
 
    1.  The same combination of weighted is implemented to split traffic between us-east-1 and us-east-2 in the ratio of 40:60, & between us-west-1 and us-west-2 in the ratio of 50:50.   
-![Displays the intake traffic routing to different regions within North America](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/america-traffic-routing.png)
+![Displays the intake traffic routing to different regions within North America](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/america-traffic-routing.png)
 
    1.  Traffic pattern between an ad network and DSP for programmatic bidding is local within the boundaries of a Region due to latency concerns. 
 
@@ -42,4 +42,4 @@
 
  The ad serving workload is replicated in each Region with data stores for local and global storage. 
 
-![Ad serving workload at a Regional level with interaction with 1: many DSPs at a region](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/ad-serving-workload-regional.png)
+![Ad serving workload at a Regional level with interaction with 1: many DSPs at a region](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/ad-serving-workload-regional.png)

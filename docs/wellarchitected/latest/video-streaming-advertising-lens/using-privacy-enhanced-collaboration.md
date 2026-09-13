@@ -10,7 +10,7 @@
 
  This guidance shows you how to use customer data platforms (CDPs) to set up a collaboration between first-party marketing data and third-party data from a publishing partner. By using an AWS Clean Rooms collaboration, CDPs can facilitate the connection between separate data lakes on AWS. Marketers can upload their data to the CDP application, then use the application to run reports from the compiled data, and activate their audiences. 
 
-![AWS Clean Rooms guidance for connecting CDPs to data lakes](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/aws-clean-rooms.png)
+![AWS Clean Rooms guidance for connecting CDPs to data lakes](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/aws-clean-rooms.png)
 
 
 ## Browser and OS-mediated campaigns
@@ -26,7 +26,7 @@
 
  This guidance demonstrates how to deploy the Google Chrome Privacy Sandbox Key or value service within a trusted execution environment (TEE) on AWS. The key or value service allows implementers to fetch real-time signals to inform remarketing to custom audiences through the protected audience API (PAAPI). This real-time data assists ad buyers determine how to bid and assists sellers to pick winning bids in a privacy-enhanced way. This guidance intends to simplify the implementation of the Key/Value service while optimizing cost and latency. 
 
-![Guidance for implementing the Google privacy sandbox key/value service on AWS](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/protected-audience-api.png)
+![Guidance for implementing the Google privacy sandbox key/value service on AWS](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/protected-audience-api.png)
 
 
  For additional details, see [Guidance for Implementing Google Privacy Sandbox Key/Value Service on AWS](https://aws.amazon.com/solutions/guidance/implementing-google-privacy-sandbox-key-value-service-on-aws). 
@@ -36,7 +36,7 @@
 
  This guidance demonstrates how to deploy the Google Privacy Sandbox Aggregation Service within a trusted execution environment (TEE) using AWS services. The Aggregation Service can be used to produce event or aggregate campaign measurement data through the Privacy Sandbox Attribution Reporting API (ARA) or Private Aggregation API. 
 
-![Guidance for implementation Google privacy sandbox aggregation service on AWS](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/measurement-api.png)
+![Guidance for implementation Google privacy sandbox aggregation service on AWS](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/measurement-api.png)
 
 
  For additional details, see [Guidance for Implementing the Google Privacy Sandbox Aggregation Service on AWS](https://aws.amazon.com/solutions/guidance/implementing-the-google-privacy-sandbox-aggregation-service-on-aws/). 
@@ -46,10 +46,10 @@
 
  This guidance shows how to activate publisher first-party data from software as a service (SaaS) environments that support seller-defined audiences (SDA). It uses page content without personally identifiable information (PII) to automatically map to industry standard taxonomies, returning the associated SDA identifications for activation through real-time bidding (RTB). 
 
-![Guidance for activating seller-defined audiences on AWS (image 1)](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/seller-defined-audiences-1.png)
+![Guidance for activating seller-defined audiences on AWS (image 1)](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/seller-defined-audiences-1.png)
 
 
-![Guidance for activating seller-defined audiences on AWS (image 2)](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/seller-defined-audiences-2.png)
+![Guidance for activating seller-defined audiences on AWS (image 2)](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/seller-defined-audiences-2.png)
 
 
  For additional details, see [Guidance for Activating Seller Defined Audiences on AWS](https://aws.amazon.com/solutions/guidance/activating-seller-defined-audiences-on-aws). 

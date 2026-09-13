@@ -7,7 +7,7 @@
 
  The following programmatic advertising lifecycle describes the complex end-to-end interaction between a user, the publication used, the selling and buying platforms, and the advertiser. 
 
-![Online video advertising ecosystem](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/online-advertising-ecosystem.png)
+![Online video advertising ecosystem](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/online-advertising-ecosystem.png)
 
 
  On the Buy Side (or the advertiser), the personas are: 

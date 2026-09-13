@@ -5,7 +5,7 @@
 
  The typical analytical logical architecture is depicted as follows: 
 
-![Image describing the typical analytical stack of a data pipelines architecture](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/analytical-stack.png)
+![Image describing the typical analytical stack of a data pipelines architecture](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/analytical-stack.png)
 
 
  The key objectives and best practices for this architecture are as follows: 
@@ -18,7 +18,7 @@
 ## Data pipeline solution guidance
 <a name="data-pipeline-solution-guidance"></a>
 
-![Data pipelines solution overview](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/data-pipeline-guidance.jpeg)
+![Data pipelines solution overview](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/data-pipeline-guidance.jpeg)
 
 
  This solution provides the implementation details for a data pipline that uses AWS services. 
@@ -50,7 +50,7 @@
 
  Clickstream analytics on AWS collects, ingests, analyzes, and visualizes clickstream data from your websites and mobile applications. Clickstream data is critical for analyzing user behavior, customer data, and marketing campaigns. This data derives insights into the patterns of user interactions on a website or application, better understanding of user navigation, preferences, and engagement levels to drive product innovation and optimize marketing investments. 
 
-![Clickstream analytics on AWS](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/clickstream-analytics.png)
+![Clickstream analytics on AWS](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/clickstream-analytics.png)
 
 +  **Step 1:** [Amazon CloudFront](https://aws.amazon.com/cloudfront/) distributes the frontend web user interface (UI) assets hosted in the [Amazon Simple Storage Service](https://aws.amazon.com/s3/) (Amazon S3) bucket and the backend APIs hosted with [Amazon API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/). 
 +  **Step 2:** The [Amazon Cognito](https://aws.amazon.com/cognito/) user pool, or OpenID Connect (OIDC), is used for authentication. 
@@ -65,7 +65,7 @@
 
  This guidance assists ad-tech companies capture open real-time bidding (OpenRTB) events and establish a foundation for near real-time and batch analytics. During a programmatic advertising transaction, a demand-side platform (DSP) service generates a series of events. Capturing these events assists ad-tech companies keep their budgets updated and understand signals for optimizing the bid response. By tracking events, such as a successful win bid, advertisers can better measure the effectiveness of their campaigns. They can also analyze these events to make informed decisions for future bids. 
 
-![OpenRTB solution architecture](http://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/openrtb.png)
+![OpenRTB solution architecture](https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/images/openrtb.png)
 
 +  **Step 1:** The supply-side platform (SSP) receives an ad request from a publisher and launches an auction. 
 +  **Step 2:** An OpenRTB bid request is sent to a DSP public endpoint that is configured on an [Elastic Load Balancer](https://aws.amazon.com/elasticloadbalancing/). 
