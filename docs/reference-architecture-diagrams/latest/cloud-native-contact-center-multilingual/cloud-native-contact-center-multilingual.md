@@ -10,7 +10,7 @@ This reference architecture diagram shows how to modernize the IT service desk w
 ## Cloud-native Contact Center for Multilingual IT Service Desk
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing a cloud-native contact center for a multilingual IT service desk by using Amazon Connect, Amazon Lex, AWS Lambda, and Amazon Simple Storage Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/cloud-native-contact-center-multilingual/images/cloud-native-contact-center-multilingual.png)
+![Reference architecture diagram showing a cloud-native contact center for a multilingual IT service desk by using Amazon Connect, Amazon Lex, AWS Lambda, and Amazon Simple Storage Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/cloud-native-contact-center-multilingual/images/cloud-native-contact-center-multilingual.png)
 
 
 1. End users contact the IT Service Desk through voice (PSTN or softphone), web chat, or smartphone. SD agents connect through a web-based softphone (CCP) from a browser.
