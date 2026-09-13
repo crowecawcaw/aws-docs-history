@@ -5,7 +5,7 @@
 
  This scenario covers situations where regulations allow data storage outside the country with user consent as data subjects or the permission or notification of the regulators (or both). 
 
-![Scenario diagram covering user and audit consent for data storage outside the country](http://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-A.jpg)
+![Scenario diagram covering user and audit consent for data storage outside the country](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-A.jpg)
 
 
  The use case diagram depicts the following: 

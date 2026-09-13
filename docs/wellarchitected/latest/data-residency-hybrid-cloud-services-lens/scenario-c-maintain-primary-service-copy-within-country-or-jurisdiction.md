@@ -9,7 +9,7 @@
 
  For your deployment needs, you have two options depending on the availability of Local Zones in your [location](https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/) and the specific workloads you need to deploy, as outlined in the following diagrams: 
 
-![Reference architecture that uses Local Zones to navigate maintaining a primary service copy of data within a country or jurisdiction](http://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-C-local-zones.png)
+![Reference architecture that uses Local Zones to navigate maintaining a primary service copy of data within a country or jurisdiction](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-C-local-zones.png)
 
 
 The first option for deploying AWS services specifically focuses on the use of AWS Local Zones and AWS Outposts:
@@ -24,7 +24,7 @@ The first option for deploying AWS services specifically focuses on the use of A
 
 1.  Deploy regulated workloads on AWS Local Zones and AWS Outposts. Optionally, you can configure backups and snapshots to be stored within the Region and synchronize your Amazon S3 data accordingly. 
 
-![Reference architecture that uses Outposts to navigate maintaining a primary service copy of data within a country or jurisdiction](http://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-C-outposts.png)
+![Reference architecture that uses Outposts to navigate maintaining a primary service copy of data within a country or jurisdiction](https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/images/scenario-C-outposts.png)
 
 
  The second option for deploying AWS services focuses on the use of AWS Outposts: 
