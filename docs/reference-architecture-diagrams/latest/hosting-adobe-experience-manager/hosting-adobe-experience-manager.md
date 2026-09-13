@@ -10,7 +10,7 @@ With this architecture, you can deploy Adobe Experience Manager (AEM) on AWS. Th
 ## Hosting Adobe Experience Manager on AWS diagram
 <a name="aem-diagram"></a>
 
-![Reference architecture diagram showing how to deploy Adobe Experience Manager on AWS by using Route 53, AWS WAF, CloudFront, AWS Certificate Manager, Amazon EC2, Lambda, and Amazon S3.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hosting-adobe-experience-manager/images/hosting-aem-aws-ra.png)
+![Reference architecture diagram showing how to deploy Adobe Experience Manager on AWS by using Route 53, AWS WAF, CloudFront, AWS Certificate Manager, Amazon EC2, Lambda, and Amazon S3.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hosting-adobe-experience-manager/images/hosting-aem-aws-ra.png)
 
 
 The following steps describe the architecture:
