@@ -12,7 +12,7 @@ Consumers lose patience with brands that cannot support seamless transitions bet
 
 Publication date: July 8, 2021
 
-![Data flowing from batch and real-time clickstream sources through AWS Glue DataBrew, Amazon Kinesis, and Amazon Data Firehose into Amazon Simple Storage Service, with Amazon Personalize providing recommendations and Amazon Pinpoint delivering personalized notifications.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/predictive-consumer-engagement-cpg/images/predictive-consumer-engagement-cpg.png)
+![Data flowing from batch and real-time clickstream sources through AWS Glue DataBrew, Amazon Kinesis, and Amazon Data Firehose into Amazon Simple Storage Service, with Amazon Personalize providing recommendations and Amazon Pinpoint delivering personalized notifications.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/predictive-consumer-engagement-cpg/images/predictive-consumer-engagement-cpg.png)
 
 
 **Download:** [Architecture diagram (PDF)](samples/predictive-consumer-engagement-cpg.zip)
