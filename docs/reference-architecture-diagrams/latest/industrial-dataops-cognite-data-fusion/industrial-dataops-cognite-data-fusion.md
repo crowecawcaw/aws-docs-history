@@ -10,7 +10,7 @@ With this architecture, you can use AWS Cloud and [Cognite Data Fusion](https://
 ## Industrial DataOps architecture diagram
 <a name="idcdf-diagram"></a>
 
-![Reference architecture for industrial DataOps on AWS using Cognite Data Fusion.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-dataops-cognite-data-fusion/images/industrial-dataops-on-aws-using-cognite-data-fusion.png)
+![Reference architecture for industrial DataOps on AWS using Cognite Data Fusion.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-dataops-cognite-data-fusion/images/industrial-dataops-on-aws-using-cognite-data-fusion.png)
 
 
 The following steps describe the architecture:
