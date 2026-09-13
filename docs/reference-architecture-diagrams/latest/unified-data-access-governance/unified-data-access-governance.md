@@ -10,7 +10,7 @@ PrivaceraCloud provides federated computation governance for consistent data acc
 ## Unified Data Access Governance in a Data Mesh Using PrivaceraCloud on AWS
 <a name="diagram1"></a>
 
-![Architecture diagram showing unified data access governance in a data mesh using PrivaceraCloud with Amazon S3, AWS Glue, Amazon Redshift, and Athena.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/unified-data-access-governance/images/unified-data-access-governance.png)
+![Architecture diagram showing unified data access governance in a data mesh using PrivaceraCloud with Amazon S3, AWS Glue, Amazon Redshift, and Athena.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/unified-data-access-governance/images/unified-data-access-governance.png)
 
 
 The following steps describe the architecture:
