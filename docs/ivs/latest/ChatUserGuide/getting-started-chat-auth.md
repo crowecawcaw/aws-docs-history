@@ -7,7 +7,7 @@ For a chat participant to connect to a room and start sending and receiving mess
 
 This diagram illustrates the workflow for creating an IVS chat token:
 
-![Authenticate and authorize your clients for your newly created chat room.](http://docs.aws.amazon.com/ivs/latest/ChatUserGuide/images/Chat_Getting_Started_Auth.png)
+![Authenticate and authorize your clients for your newly created chat room.](https://docs.aws.amazon.com/ivs/latest/ChatUserGuide/images/Chat_Getting_Started_Auth.png)
 
 
 As shown above, a client application asks your server-side application for a token, and the server-side application calls CreateChatToken using an AWS SDK or [SigV4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html) signed requests. Since AWS credentials are used to call the API, the token should be generated in a secure server-side application, not the client-side application.

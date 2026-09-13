@@ -19,7 +19,7 @@ Also optionally, you can set up a room so that messages are logged. For example,
 1. From the navigation bar, use the **Select a Region** drop-down to choose a region. Your new room will be created in this region.
 
 1. In the **Get started** box (top right), choose **Amazon IVS Chat Room**. The **Create room** window appears.  
-![Creating a Chat Room.](http://docs.aws.amazon.com/ivs/latest/ChatUserGuide/images/Chat_Create_Room.png)
+![Creating a Chat Room.](https://docs.aws.amazon.com/ivs/latest/ChatUserGuide/images/Chat_Create_Room.png)
 
 1. Under **Setup**, optionally specify a **Room name**. Room names are not unique, but they provide a way for you to distinguish rooms other than the room ARN (Amazon Resource Name).
 

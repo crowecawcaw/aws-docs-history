@@ -58,4 +58,4 @@ To use the `AmazonIVSChatMessaging` library in a Swift Package Manager project, 
 1. Extract the contents of the archive. `AmazonIVSChatMessaging.xcframework` contains the SDK for both device and simulator.
 
 1. Embed the extracted `AmazonIVSChatMessaging.xcframework` by dragging it into the **Frameworks, Libraries, and Embedded Content** section of the **General** tab for your application target:  
-![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](http://docs.aws.amazon.com/ivs/latest/ChatUserGuide/images/Chat_SDK_iOS_Manual_Installation.png)
+![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](https://docs.aws.amazon.com/ivs/latest/ChatUserGuide/images/Chat_SDK_iOS_Manual_Installation.png)

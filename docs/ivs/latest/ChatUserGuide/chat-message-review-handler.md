@@ -13,7 +13,7 @@ Before setting up a message review handler for a room, you must create a lambda 
 ### Workflow
 <a name="create-lambda-function-workflow"></a>
 
-![Workflow to create a lambda function with a resource-based IAM policy.](http://docs.aws.amazon.com/ivs/latest/ChatUserGuide/images/Chat_Message_Review_Handler_Workflow.png)
+![Workflow to create a lambda function with a resource-based IAM policy.](https://docs.aws.amazon.com/ivs/latest/ChatUserGuide/images/Chat_Message_Review_Handler_Workflow.png)
 
 
 ### Request Syntax
