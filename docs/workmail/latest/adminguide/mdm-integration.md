@@ -16,14 +16,14 @@ In proxy mode, mobile devices use the Exchange Active Sync (EAS) protocol via yo
 
 The following image shows a typical proxy mode configuration.
 
-![A typical MDM solution in proxy mode. This solution uses device posture to control access.](http://docs.aws.amazon.com/workmail/latest/adminguide/images/mdm-proxy.png)
+![A typical MDM solution in proxy mode. This solution uses device posture to control access.](https://docs.aws.amazon.com/workmail/latest/adminguide/images/mdm-proxy.png)
 
 
 In direct mode, mobile devices use EAS to access Amazon WorkMail directly. Your MDM solution receives device posture changes and continually assesses whether each device meets those requirements. When the MDM solution detects a posture changes, such as a device going out of compliance, it can take several actions and typically emits notifications or events. An Amazon WorkMail administrator can set up a system to listen to these compliance status events and automatically create mobile device access overrides that allow or deny access to devices when they go in or out of compliance with the MDM device requirements. 
 
 The following image shows a typical direct mode configuration.
 
-![A typical MDM solution in direct mode. This solution uses EAS to access Amazon WorkMail.](http://docs.aws.amazon.com/workmail/latest/adminguide/images/mdm-direct.png)
+![A typical MDM solution in direct mode. This solution uses EAS to access Amazon WorkMail.](https://docs.aws.amazon.com/workmail/latest/adminguide/images/mdm-direct.png)
 
 
 ## Configuring a WorkMail organization to integrate with a third-party MDM solution in direct mode

@@ -39,7 +39,7 @@ To protect the contents of the mailboxes in your Amazon WorkMail organizations, 
 
 Each message is encrypted under a unique data encryption key. The message key is protected by a mailbox key, which is a unique encryption key that is used only for that mailbox. The mailbox key is encrypted under an AWS KMS customer master key (CMK) for the organization that never leaves AWS KMS unencrypted. The following diagram shows the relationship of the encrypted messages, encrypted message keys, encrypted mailbox key, and the CMK for the organization in AWS KMS.
 
-![Encrypting your Amazon WorkMail mailboxes](http://docs.aws.amazon.com/workmail/latest/adminguide/images/service-workmail.png)
+![Encrypting your Amazon WorkMail mailboxes](https://docs.aws.amazon.com/workmail/latest/adminguide/images/service-workmail.png)
 
 
 #### Setting a CMK for the organization
