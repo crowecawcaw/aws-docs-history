@@ -10,7 +10,7 @@ This architecture provides an overview of [AWS Outposts](https://docs.aws.amazon
 ## AWS Outposts Rack networking architecture
 <a name="diagram1"></a>
 
-![Architecture diagram showing AWS Outposts Rack connectivity for LAN, WAN, and Amazon VPC with Direct Connect and service link.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/outposts-networking/images/outposts-networking.png)
+![Architecture diagram showing AWS Outposts Rack connectivity for LAN, WAN, and Amazon VPC with Direct Connect and service link.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/outposts-networking/images/outposts-networking.png)
 
 
 The following components describe this architecture:
