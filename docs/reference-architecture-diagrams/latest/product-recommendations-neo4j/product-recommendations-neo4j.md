@@ -10,7 +10,7 @@ With this architecture, you can deliver personalized product recommendations in 
 ## Product recommendations diagram
 <a name="neo4j-rec-diagram"></a>
 
-![Reference architecture diagram showing how to deliver personalized product recommendations by using Neo4j, Amazon EMR, SageMaker AI, and Amazon Kinesis.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/product-recommendations-neo4j/images/product-recommendations-neo4j.png)
+![Reference architecture diagram showing how to deliver personalized product recommendations by using Neo4j, Amazon EMR, SageMaker AI, and Amazon Kinesis.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/product-recommendations-neo4j/images/product-recommendations-neo4j.png)
 
 
 The following steps describe the data pipeline and recommendation engine for this architecture:
