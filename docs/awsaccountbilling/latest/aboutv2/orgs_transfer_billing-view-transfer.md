@@ -12,7 +12,7 @@ The following are the statuses for transfers:
 + **Transfer accepted** (`ACCEPTED`): Invitation was accepted by the recipient. The transfer begins on the start date.
 + **Transfer withdrawn** (`WITHDRAWN`): Transfer has been withdrawn. The transfer ends on the end date.
 
-![Status panel showing Transfer accepted in green and Transfer withdrawn in gray.](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/transfer-billing-relationship-statuses.png)
+![Status panel showing Transfer accepted in green and Transfer withdrawn in gray.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/transfer-billing-relationship-statuses.png)
 
 
 *Figure 1: Transfer statuses as displayed in the AWS Billing and Cost Management console.*

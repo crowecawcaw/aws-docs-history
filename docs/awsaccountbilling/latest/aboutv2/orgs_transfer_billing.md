@@ -155,7 +155,7 @@ Either account *(bill-source account* or *bill-transfer account)* can withdraw t
 | When the transfer starts | + Consolidated bills for charges accrued before the start date are managed and paid for by the organization's own management account *(bill-source account)*.<br />+ Consolidated bills for charges accrued after the start date are managed and paid for by the *bill-transfer account*. | 
 | When the transfer ends | + Consolidated bills for charges accrued between the start and end date are managed and paid for by the *bill-transfer account*.<br />+ Consolidated bills for charges accrued after the end date are managed and paid for by the organization's own management account *(bill-source account)*. | 
 
-![Billing transfer flow showing management accounts, bill-transfer and bill-source accounts, consolidated bill, and pricing configuration.](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/transfer-billing-how-it-works.jpg)
+![Billing transfer flow showing management accounts, bill-transfer and bill-source accounts, consolidated bill, and pricing configuration.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/transfer-billing-how-it-works.jpg)
 
 
 *Figure 1: Diagram depicting how billing transfer works between two organizations.*

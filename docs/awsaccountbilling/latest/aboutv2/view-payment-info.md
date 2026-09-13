@@ -58,4 +58,8 @@ You can search and filter the **Payments due**, **Unapplied funds**, and **Payme
 
 1. Choose the **Transactions** tab to view the **Transactions** table. 
 
-   The **Transactions** table lists all completed transactions with AWS.
+   With the **Transactions** table, you get a single, real-time view to reconcile your payments and understand your account balances. In one place, you can view the status and amounts for your invoices, payments, refunds, credit memos, and unapplied funds (payments not yet applied to an invoice). You can also view adjustments (including adjustment sub-types), enterprise Advance Pay summary, and scheduled payment status. Forgiven invoices and credit memo transactions are also included.
+
+   For each invoice, you can view the payment method used and download the invoice PDF. You can select an invoice to complete a payment. To find specific records, you can filter and sort the table, including by purchase order. If you use transfer billing, the table also reflects your transfer billing activity.
+
+   To see detailed settlement information, choose an ID in the table to open its details page. Details pages are available for invoices, payments, and credit memos. On an invoice details page, you can see all the payments, adjustments, and credit memos, and how each was applied to the invoice.

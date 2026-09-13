@@ -65,7 +65,7 @@ During the current billing period (monthly), AWS generates an estimated cost all
 
 The following example tracks the charges for several cost centers and applications. Resources (such as Amazon EC2 instances and Amazon S3 buckets) are assigned tags like "Cost Center"="78925" and "Application"="Widget1". In the cost allocation report, the user-defined tag keys have the prefix `user`, such as `user:Cost Center` and `user:Application`. AWS-generated tag keys have the prefix `aws`. The keys are column headings identifying each tagged line item's value, such as "78925".
 
-![Keys in the Downloadable Report](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/CostAllocationPartExampleReport.png)
+![Keys in the Downloadable Report](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/CostAllocationPartExampleReport.png)
 
 
 Pick your keys carefully so that you have a consistent hierarchy of values. Otherwise, your report won't group costs effectively, and you will have many line items.

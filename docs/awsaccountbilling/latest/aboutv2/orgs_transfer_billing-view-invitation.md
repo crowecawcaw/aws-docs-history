@@ -14,7 +14,7 @@ The following are the statuses for invitations:
 + **Invitation canceled** (`CANCELED`): Invitation canceled by the sender.
 + **Invitation expired** (`EXPIRED`): Invitation has expired.
 
-![Status list showing invitation sent, invitation declined, invitation canceled, and invitation expired.](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/transfer-billing-invitation-statuses.png)
+![Status list showing invitation sent, invitation declined, invitation canceled, and invitation expired.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/transfer-billing-invitation-statuses.png)
 
 
 *Figure 1: Invitation statues as displayed in the AWS Billing and Cost Management console.*

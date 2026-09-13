@@ -59,7 +59,7 @@ For more information about these cost types, see [Exploring your data using Cost
 
 1. Under the **Cost category** column, choose a cost category name. Currently, you can change the cost type for a cost category one at a time.
 
-1. On the upper-right corner of the page, choose the preferences icon (![Gear icon on the Cost category console.](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/preferences-gear.png)).
+1. On the upper-right corner of the page, choose the preferences icon (![Gear icon on the Cost category console.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/preferences-gear.png)).
 
 1. In the **Cost category preferences** dialog box, choose how to aggregate your costs.
 

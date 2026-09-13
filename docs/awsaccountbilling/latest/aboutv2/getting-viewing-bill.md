@@ -206,7 +206,7 @@ You can view your AWS invoices in the Billing and Cost Management console. You c
 
    From here, you can view a list of AWS invoices for the chosen billing period.
 
-1. (Optional) To download the invoice and review details, choose the vertical ellipsis icon (![3 vertical ellipsis on the Billing and Cost Management console.](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/vertical-ellipsis.png)) next to the invoice and choose **Download invoice**.
+1. (Optional) To download the invoice and review details, choose the vertical ellipsis icon (![3 vertical ellipsis on the Billing and Cost Management console.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/vertical-ellipsis.png)) next to the invoice and choose **Download invoice**.
 
 **To correct your AWS invoices**
 
@@ -218,7 +218,7 @@ You can view your AWS invoices in the Billing and Cost Management console. You c
 
 1. Choose the **Invoices** tab.
 
-1. Choose the vertical ellipsis icon (![3 vertical ellipsis on the Billing and Cost Management console.](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/vertical-ellipsis.png)) next to the invoice that you want to edit.
+1. Choose the vertical ellipsis icon (![3 vertical ellipsis on the Billing and Cost Management console.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/vertical-ellipsis.png)) next to the invoice that you want to edit.
 
 1. Do one of the following:
    + Choose **Update company and address for account**.

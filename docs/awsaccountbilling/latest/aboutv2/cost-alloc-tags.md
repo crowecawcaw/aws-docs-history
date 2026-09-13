@@ -16,14 +16,14 @@ AWS, or AWS Marketplace ISV defines, creates, and applies the AWS-generated tags
 
 The following diagram illustrates the concept. In the example, you've assigned and activated tags on two Amazon EC2 instances, one tag called Cost Center and another tag called Stack. Each of the tags has an associated value. You also activated the AWS-generated tags, `createdBy` before creating these resources. The `createdBy` tag tracks who created the resource. The user-defined tags use the `user` prefix, and the AWS-generated tag uses the `aws:` prefix.
 
-![Example tag keys for two Amazon EC2 instances.](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/Tag_Example.png)
+![Example tag keys for two Amazon EC2 instances.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/Tag_Example.png)
 
 
 After you or AWS applies tags to your AWS resources (such as Amazon EC2 instances or Amazon S3 buckets) and you activate the tags in the Billing and Cost Management console, AWS generates a cost allocation report as a comma-separated value (CSV file) with your usage and costs grouped by your active tags. You can apply tags that represent business categories (such as cost centers, application names, or owners) to organize your costs across multiple services.
 
 The cost allocation report includes all of your AWS costs for each billing period. The report includes both tagged and untagged resources, so that you can clearly organize the charges for resources. For example, if you tag resources with an application name, you can track the total cost of a single application that runs on those resources. The following screenshot shows a partial report with columns for each tag.
 
-![Partial cost allocation report showing your tag names, which are also called keys, as columns.](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/CostAllocationPartExampleReport.png)
+![Partial cost allocation report showing your tag names, which are also called keys, as columns.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/images/CostAllocationPartExampleReport.png)
 
 
 At the end of the billing cycle, the total charges (tagged and untagged) on the billing report with cost allocation tags reconciles with the total charges on your [**Bills**](https://console.aws.amazon.com/billing/home#/bill) page total and other billing reports for the same period. 
