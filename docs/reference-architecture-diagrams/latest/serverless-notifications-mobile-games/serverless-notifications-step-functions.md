@@ -10,7 +10,7 @@ This architecture creates a serverless data flow to ingest, store, process, and 
 ## Serverless Notifications with Step Functions diagram
 <a name="notif-sf-diagram"></a>
 
-![Reference architecture diagram showing how to build a serverless notification pipeline for mobile games by using AWS Step Functions, Amazon SNS, and Amazon Translate.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-notifications-mobile-games/images/serverless-notifications-mobile-games-1.png)
+![Reference architecture diagram showing how to build a serverless notification pipeline for mobile games by using AWS Step Functions, Amazon SNS, and Amazon Translate.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-notifications-mobile-games/images/serverless-notifications-mobile-games-1.png)
 
 
 The following steps describe the architecture:

@@ -10,7 +10,7 @@ This architecture provides an alternative notification flow that uses [Amazon Pi
 ## Serverless Notifications with Amazon Pinpoint diagram
 <a name="notif-pin-diagram"></a>
 
-![Reference architecture diagram showing how to build a serverless notifications pipeline for mobile games by using Amazon Pinpoint for campaigns and segmented messaging.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-notifications-mobile-games/images/serverless-notifications-mobile-games-2.png)
+![Reference architecture diagram showing how to build a serverless notifications pipeline for mobile games by using Amazon Pinpoint for campaigns and segmented messaging.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-notifications-mobile-games/images/serverless-notifications-mobile-games-2.png)
 
 
 The following steps describe the architecture:
