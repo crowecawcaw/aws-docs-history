@@ -10,7 +10,7 @@ With this architecture, you can integrate your applications with [Infor CloudSui
 ## Consuming data from InforOS architecture diagram
 <a name="cdi-diagram"></a>
 
-![Architecture diagram for consuming data from Infor CloudSuite over SFTP with AWS Transfer Family on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/consuming-data-from-inforos/images/consuming-data-from-infor-over-sftp-ra.png)
+![Architecture diagram for consuming data from Infor CloudSuite over SFTP with AWS Transfer Family on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/consuming-data-from-inforos/images/consuming-data-from-infor-over-sftp-ra.png)
 
 
 The following steps describe the architecture:
