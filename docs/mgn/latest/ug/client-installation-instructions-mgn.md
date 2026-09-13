@@ -18,10 +18,10 @@ To install the MGN vCenter Client, follow these steps:
    This is an example of the installer hash link for us-east-1: `https://aws-application-migration-service-hashes-us-east-1.s3.us-east-1.amazonaws.com/latest/vcenter-client/linux/aws-vcenter-client-installer-init.py.sha512`
 
 1. In command prompt, navigate to the directory where you downloaded the MGN vCenter Client installer and run the installer with this command: `sudo python3 aws-vcenter-client-installer-init.py`  
-![Command prompt showing execution of Python script for AWS vCenter Client installer.](http://docs.aws.amazon.com/mgn/latest/ug/images/agentless3.png)
+![Command prompt showing execution of Python script for AWS vCenter Client installer.](https://docs.aws.amazon.com/mgn/latest/ug/images/agentless3.png)
 
 1. The installer prompts you for your credentials, enter the required info in each field and then press **Enter**:   
-![Terminal window displaying AWS access key details and endpoint information.](http://docs.aws.amazon.com/mgn/latest/ug/images/agentless4.png)
+![Terminal window displaying AWS access key details and endpoint information.](https://docs.aws.amazon.com/mgn/latest/ug/images/agentless4.png)
    + AWS Access Key ID – Enter the AWS Access Key ID you generated in the previous section.
    + AWS Secret Access Key – Enter the AWS Secret Access Key you generated in the previous section.
    + AWS Region name – The AWS Region of your account (for example, eu-west-1).
@@ -29,7 +29,7 @@ To install the MGN vCenter Client, follow these steps:
    + The VPC endpoint for Amazon S3 (optional, leave blank if not using a VPC endpoint).
 
 1. The installer then prompts you to enter your vCenter information, enter the required info in each field and then press **Enter**:   
-![Command line interface prompting for vCenter connection details including IP, port, and credentials.](http://docs.aws.amazon.com/mgn/latest/ug/images/agentless5.png)
+![Command line interface prompting for vCenter connection details including IP, port, and credentials.](https://docs.aws.amazon.com/mgn/latest/ug/images/agentless5.png)
 
    
    + vCenter IP or hostname
@@ -50,7 +50,7 @@ It's a security best practice to use certificates. Customers that do not use cer
      KEY=VALUE [KEY=VALUE ...] add resource tags to the source servers added by discovery; use a space to separate each tag (e.g., --vcenter-client-tags tag1=val1 tag2=val2 tag3=val3)
 
 1. The installer downloads and installs the AWS vCenter client and registers it with AWS Transform MGN.  
-![Terminal output showing successful download and installation of AWS vCenter client.](http://docs.aws.amazon.com/mgn/latest/ug/images/agentless6.png)
+![Terminal output showing successful download and installation of AWS vCenter client.](https://docs.aws.amazon.com/mgn/latest/ug/images/agentless6.png)
 
 1. Once the AWS vCenter client has been installed, all of the VMs in your vCenter are added to AWS Transform MGN. The VMs are added in the DISCOVERED state.
 **Note**  

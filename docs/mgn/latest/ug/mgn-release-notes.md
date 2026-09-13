@@ -8,6 +8,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 ## September 2026
 <a name="release-notes-sep-2026"></a>
 + Added support for local snapshots in the Istanbul, Türkiye Local Zone (eu-central-1-ist-1a), with the Europe (Frankfurt) Region as its parent Region. For more information, see [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots).
++ You can now configure the **Volume initialization rate** and **Delete on termination** Amazon EBS volume settings in the default EC2 launch template. For more information, see [Default EC2 launch template settings](launch-template.md#default-ec2-launch-template).
 
 ## August 2026
 <a name="release-notes-aug-2026"></a>

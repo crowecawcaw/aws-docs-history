@@ -28,7 +28,7 @@ Agentless replication does not work in IPv6-only source environments.
 
 This diagram illustrates the high level interaction between the different agentless replication system components: 
 
-![Architecture showing data flow from corporate data center through MGN Connector to staging area and migrated resources in AWS.](http://docs.aws.amazon.com/mgn/latest/ug/images/agentless-architecture.png)
+![Architecture showing data flow from corporate data center through MGN Connector to staging area and migrated resources in AWS.](https://docs.aws.amazon.com/mgn/latest/ug/images/agentless-architecture.png)
 
 
 ## Prerequisites

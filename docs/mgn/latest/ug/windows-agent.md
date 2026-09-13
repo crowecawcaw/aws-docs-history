@@ -343,21 +343,21 @@ This flag may only be used when adding new source servers to MGN. You cannot use
      This parameter enables the agent to run in a dual-stack MGN configuration.
 
    The installer confirms that the installation of the AWS Replication Agent has started.   
-![Command prompt window showing the start of AWS Replication Agent installation.](http://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows1.png)
+![Command prompt window showing the start of AWS Replication Agent installation.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows1.png)
 
 1. The installer prompts you to enter your **AWS Region Name**, the **AWS Access Key ID**, the **AWS Secret Access Key** (and the **AWS Session Token** if appropriate) that you previously generated. Enter the complete AWS Region name (for example: eu-central-1), and the full AWS Access Key ID and AWS Secret Access Key.   
-![AWS Replication Agent installation window prompting for AWS Region Name and access keys.](http://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows2.png)
+![AWS Replication Agent installation window prompting for AWS Region Name and access keys.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows2.png)
 **Note**  
 You can also enter these values as part of the installation script command parameters. If you do not enter these parameters as part of the installation script, you are prompted to enter them one by one as described above. (for example: ` AwsReplicationWindowsInstaller.exe --region regionname --aws-access-key-id AKIAIOSFODNN7EXAMPLE --aws-secret-access-key wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY)`
 
 1. Once you have entered your credentials, the installer verifies that the source server has enough free disk space for Agent installation and identifies volumes for replication. The installer displays the identified disks and prompts you to choose the disks you want to replicate.   
-![AWS Replication Agent installation window showing region, access key, and disk space verification.](http://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows3.png)
+![AWS Replication Agent installation window showing region, access key, and disk space verification.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows3.png)
 
    To replicate some of the disks, type the path of the disks, separated by a comma, as illustrated in the installer (for example: C: or D:). To replicate all of the disks, press **Enter**. The installer identifies the selected disks and print their size.  
-![AWS Replication Agent installer showing region, access key, and disk selection options.](http://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows4.png)
+![AWS Replication Agent installer showing region, access key, and disk selection options.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows4.png)
 
    The installer confirms that all of the disks were successfully identified.   
-![AWS Replication Agent installation progress showing disk selection and successful identification.](http://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows5.png)
+![AWS Replication Agent installation progress showing disk selection and successful identification.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows5.png)
 **Note**  
 When identifying specific disks for replication, do not use apostrophes, brackets, or disk paths that do not exist. Type only existing disk paths. Each disk that you selected for replication is displayed with the caption **Disk to replicate identified**. However, the displayed list of identified disks for replication may differ from the data you entered. This difference can be due to several reasons:  
 The root disk of the source server is always replicated, whether you select it or not. Therefore, it always appears on the list of identified disks for replication.
@@ -368,9 +368,9 @@ If disks are disconnected from a server, AWS Transform MGN can no longer replica
 Note that the returned disks need be replicated from the beginning. Any disk size changes are automatically identified, but also cause a resync. Perform a test after installing the Agent to ensure that the correct disks have been added.
 
 1. After all of the disks to be replicated have been successfully identified, the installer downloads and installs the AWS Replication Agent on the source server.  
-![AWS Replication Agent installation progress showing region, disk selection, and completion status.](http://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows6.png)
+![AWS Replication Agent installation progress showing region, disk selection, and completion status.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows6.png)
 
 1. Once the AWS Replication Agent is installed, the server is added to the AWS Transform MGN console and undergoes the initial sync process. The installer provides the source server's ID.   
-![Command prompt showing successful installation of AWS Replication Agent with disk replication details.](http://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows7.png)
+![Command prompt showing successful installation of AWS Replication Agent with disk replication details.](https://docs.aws.amazon.com/mgn/latest/ug/images/new-soureservers-windows7.png)
 
    You can review this process in real time on the **Source servers** page. [Learn more about the initial sync process](migration-dashboard.md#initiation).

@@ -144,7 +144,7 @@ You should use this option if you want to:
 
  The following diagram illustrates the high-level interaction between the different replication system components when using private IP or VPC endpoint. 
 
-![MGN network architecture diagram featuring a private link/VPC](http://docs.aws.amazon.com/mgn/latest/ug/images/AWS-MGN-Network-Architecture-Private-Link.png)
+![MGN network architecture diagram featuring a private link/VPC](https://docs.aws.amazon.com/mgn/latest/ug/images/AWS-MGN-Network-Architecture-Private-Link.png)
 
 
 #### Create public IP

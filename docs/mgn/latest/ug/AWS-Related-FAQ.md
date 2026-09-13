@@ -158,17 +158,17 @@ You can monitor AWS Transform MGN using CloudWatch, which collects raw data and 
 
 You can see MGN in CloudWatch automatic dashboards: 
 
-![CloudWatch cross service dashboard showing metrics for MGN and EC2.](http://docs.aws.amazon.com/mgn/latest/ug/images/cw1.png)
+![CloudWatch cross service dashboard showing metrics for MGN and EC2.](https://docs.aws.amazon.com/mgn/latest/ug/images/cw1.png)
 
 
 
 
-![MGN dashboard showing metric graphs for lag duration, backlog, duration since last test, elapsed replication duration, and server counts.](http://docs.aws.amazon.com/mgn/latest/ug/images/cw2.png)
+![MGN dashboard showing metric graphs for lag duration, backlog, duration since last test, elapsed replication duration, and server counts.](https://docs.aws.amazon.com/mgn/latest/ug/images/cw2.png)
 
 
 MGN events can be selected when defining a rule from the EventBridge console:
 
-![Event source dropdown showing MGN filter with three MGN event types listed below.](http://docs.aws.amazon.com/mgn/latest/ug/images/EB-cw3.jpg)
+![Event source dropdown showing MGN filter with three MGN event types listed below.](https://docs.aws.amazon.com/mgn/latest/ug/images/EB-cw3.jpg)
 
 
 [Learn more about monitoring MGN](monitoring-overview.md). 

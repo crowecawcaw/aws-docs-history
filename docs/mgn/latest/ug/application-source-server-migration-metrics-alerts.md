@@ -7,7 +7,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 The source server **Alerts** migration metric presents an aggregated overview of the application associated servers alerts. You can look up an individual source server **Alerts** status at the **Source servers** table at the bottom of the page. 
 
-![Pie chart showing server alerts: 2 servers healthy (66.7%), 1 server launched (33.3%).](http://docs.aws.amazon.com/mgn/latest/ug/images/app-7.png)
+![Pie chart showing server alerts: 2 servers healthy (66.7%), 1 server launched (33.3%).](https://docs.aws.amazon.com/mgn/latest/ug/images/app-7.png)
 
 + A healthy server for which a test or cutover instance has not been launched will display a **Healthy** status. 
 + A healthy server for which a test or cutover instance has been launched will display a **Healthy** status. 

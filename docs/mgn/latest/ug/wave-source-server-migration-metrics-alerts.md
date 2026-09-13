@@ -7,7 +7,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 The source server **Alerts** metric provides an aggregated overview of the alerts related to the wave's associated servers. You can look up an individual source server **Alerts** status in the **Source servers** table.
 
-![Pie chart showing server alerts: 2 servers healthy (66.7%), 1 server launched (33.3%).](http://docs.aws.amazon.com/mgn/latest/ug/images/app-7.png)
+![Pie chart showing server alerts: 2 servers healthy (66.7%), 1 server launched (33.3%).](https://docs.aws.amazon.com/mgn/latest/ug/images/app-7.png)
 
 + A healthy server for which a test or cutover instance has not been launched will display a **Healthy** status. 
 + A healthy server for which a test or cutover instance has been launched will display a **Healthy** status. 

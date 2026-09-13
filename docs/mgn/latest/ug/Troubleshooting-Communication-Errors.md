@@ -179,7 +179,7 @@ To check and set the route rules on the staging area subnet in AWS:
 
 Firewall issues may have several causes. Check the following if you experience any firewall issues, such as Windows Firewall connection issues:
 
-![Windows Defender Firewall overview showing Domain, Private, and Public profiles are on.](http://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-24-re.png)
+![Windows Defender Firewall overview showing Domain, Private, and Public profiles are on.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-24-re.png)
 
 + Ensure that the subnet you assigned for the replication servers still exists. 
 

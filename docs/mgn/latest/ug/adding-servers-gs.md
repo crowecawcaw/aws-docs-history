@@ -16,7 +16,7 @@ The following is the MGN agent network architecture diagram:
 
 
 
-![Data replication from corporate data center through AWS Replication Agent to staging area and migrated resources in AWS.](http://docs.aws.amazon.com/mgn/latest/ug/images/AWSMGNArchitecture.png)
+![Data replication from corporate data center through AWS Replication Agent to staging area and migrated resources in AWS.](https://docs.aws.amazon.com/mgn/latest/ug/images/AWSMGNArchitecture.png)
 
 
 ## Migration lifecycle

@@ -88,7 +88,7 @@ If the installation failed on a Linux Source server, check the following:
    Free disk space on the /tmp directory – for the duration of the installation process only, verify that you have at least 1 GB of free disk on the /tmp directory. To check the available disk space on the /tmp directory run the following command: df -h /tmp 
 
    After you have entered the above commands for checking the available disk space, the results will be displayed as follows:   
-![Terminal output showing disk space usage with root filesystem at 19% and tmp at 19% usage.](http://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-25-re.png)
+![Terminal output showing disk space usage with root filesystem at 19% and tmp at 19% usage.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-25-re.png)
 
 1. **The format of the list of disks to replicate** 
 
@@ -107,7 +107,7 @@ If the installation failed on a Linux Source server, check the following:
       To identify the version of your running kernel, run the following command:
 
       uname -r   
-![Terminal output showing kernel version 4.4.41-36.55.amzn1.x86_64 from uname command.](http://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-26-re.png)
+![Terminal output showing kernel version 4.4.41-36.55.amzn1.x86_64 from uname command.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-26-re.png)
 
       The 'uname -r' output version should match the version of one of the installed kernel headers packages (kernel-devel-<version number> / linux-headers-<version number>). 
 
@@ -118,12 +118,12 @@ If the installation failed on a Linux Source server, check the following:
       On RHEL/CENTOS/Oracle/SUSE:
 
       rpm -qa \| grep kernel  
-![Terminal output showing three installed kernel packages with version 4.4.41-36.55.amzn1.x86_64.](http://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-27-re.png)
+![Terminal output showing three installed kernel packages with version 4.4.41-36.55.amzn1.x86_64.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-27-re.png)
 
       **Note**: This command looks for kernel-devel.
 
       On Debian/Ubuntu: apt-cache search linux-headers  
-![Terminal output showing apt-cache search results for linux-headers packages.](http://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-28-re.png)
+![Terminal output showing apt-cache search results for linux-headers packages.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-28-re.png)
 
    1. **Verifying that the folder that contains the kernel-devel/linux-headers is not a symbolic link.**
 
@@ -138,7 +138,7 @@ If the installation failed on a Linux Source server, check the following:
       On Debian/Ubuntu:
 
       ls -l /usr/src  
-![Terminal output showing directory listing of /usr/src where linux-headers directories are real directories, not symbolic links.](http://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-29-re.png)
+![Terminal output showing directory listing of /usr/src where linux-headers directories are real directories, not symbolic links.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-29-re.png)
 
       In the above example, the results show that the linux-headers are not a symbolic link.  
 
@@ -196,7 +196,7 @@ If the installation failed on a Linux Source server, check the following:
    For Example, to locate the make package:
 
    which make  
-![Terminal command output showing the result of the 'which make' command.](http://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-30-re.png)
+![Terminal command output showing the result of the 'which make' command.](https://docs.aws.amazon.com/mgn/latest/ug/images/troubleshooting-30-re.png)
 
 1. **Error: urlopen error [Errno 10060] Connection times out.**
 

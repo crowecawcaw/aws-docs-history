@@ -87,12 +87,17 @@ This flag may only be used when adding new source servers to MGN. You cannot use
    + --dualstack 
 
      This parameter enables the agent to run in a dual-stack MGN configuration. When using this flag, you must also use the `--endpoint` flag to specify a MGN dual-stack endpoint.
+   + --proxy-address
+
+     Linux Installer only.
+
+     Use this parameter to configure the agent to use a specific proxy server: `--proxy-address https://PROXY:PORT/`. Make sure the proxy configuration has the trailing forward slash (/).
 
    The installer confirms that the installation of the AWS Replication Agent has started.   
-![Terminal output showing successful start of AWS Replication Agent installation.](http://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent1.png)
+![Terminal output showing successful start of AWS Replication Agent installation.](https://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent1.png)
 
 1. The installer prompts you to enter your **AWS Region Name**, the **AWS Access Key ID**, the **AWS Secret Access Key**, and the **AWS Session Token** that you previously generated. Enter the complete AWS Region name (for example, eu-central-1) and the full credentials.   
-![Terminal window showing AWS Replication Agent installation with region and credential inputs.](http://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent2.png)
+![Terminal window showing AWS Replication Agent installation with region and credential inputs.](https://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent2.png)
 
    If you want to install the Agent without answering the interactive prompts, you can pass your credentials to the installer through environment variables instead. We recommend that you use temporary credentials from AWS Security Token Service (AWS STS). First, set the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` environment variables. Then, run the installer with the `sudo -E` command (to preserve the environment variables) and the `--no-prompt` option. For example:
 
@@ -115,13 +120,13 @@ If you do not enter these parameters as part of the installation script, you are
 The AWS Access Key ID and AWS Secret Access Key values are hidden when entered into the installer.
 
 1. After you enter your credentials, the installer identifies volumes for replication. The installer displays the identified disks and prompts you to choose the disks you want to replicate.   
-![Terminal window showing disk selection prompt listing identified volumes for replication.](http://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent3.png)
+![Terminal window showing disk selection prompt listing identified volumes for replication.](https://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent3.png)
 
    To replicate some of the disks, type the path of the disks, separated by a comma, as illustrated in the installer (such as: /dev/sda, /dev/sdb, and more). To replicate all of the disks, press **Enter**. The installer identifies the selected disks and prints their size.  
-![Terminal output showing selected disks with their reported sizes.](http://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent4.png)
+![Terminal output showing selected disks with their reported sizes.](https://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent4.png)
 
    The installer confirms that all disks were successfully identified.   
-![Terminal output confirming all disks were successfully identified.](http://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent5.png)
+![Terminal output confirming all disks were successfully identified.](https://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent5.png)
 **Note**  
 When identifying specific disks for replication, do not use apostrophes, brackets, or disk paths that do not exist. Type only existing disk paths. Each disk you selected for replication is displayed with the caption **Disk to replicate identified**. However, the displayed list of identified disks for replication may differ from the data you entered. This difference can be due to several reasons:  
 The root disk of the source server is always replicated, whether you select it or not. Therefore, it always appears on the list of identified disks for replication.
@@ -132,9 +137,9 @@ If disks are disconnected from a server, AWS Transform MGN can no longer replica
 Note that the returned disks need be replicated from the beginning. Any disk size changes are automatically identified, but this also causes a resync. Perform a test after installing the Agent to ensure that the correct disks have been added.
 
 1. After all of the disks that are to be replicated have been successfully identified, the installer downloads and installs the AWS Replication Agent on the source server.  
-![Terminal output showing agent download and installation progress.](http://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent6.png)
+![Terminal output showing agent download and installation progress.](https://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent6.png)
 
 1. Once the AWS Replication Agent is installed, the server is added to the AWS Transform MGN console and undergoes the initial sync process. The installer provides you with the source server's ID.  
-![Terminal output showing installation complete with the source server ID displayed.](http://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent7.png)
+![Terminal output showing installation complete with the source server ID displayed.](https://docs.aws.amazon.com/mgn/latest/ug/images/sourceservers-linuxagent7.png)
 
    You can review this process in real time on the **Source servers** page. [Learn more about the initial sync process](migration-dashboard.md#initiation).

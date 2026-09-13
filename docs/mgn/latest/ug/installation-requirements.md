@@ -42,7 +42,7 @@ Ensure that your Linux source server meets these installation requirements prior
   +  If `/boot` is a separate partition, ensure that it has a minimum of 50 MB free space needed for the installation. To check the available disk space on the /boot directory run the `df -h /boot` command.
 
     After you have entered the commands for checking the available disk space, the results are displayed as:   
-![Terminal output showing disk space usage with /dev/xvda1 having 6.0G available space.](http://docs.aws.amazon.com/mgn/latest/ug/images/agent1.png)
+![Terminal output showing disk space usage with /dev/xvda1 having 6.0G available space.](https://docs.aws.amazon.com/mgn/latest/ug/images/agent1.png)
 + Ensure that you have Python installed on the source server (version 2.4\+, version 3.0\+) for Agent installation.
 + Only servers using the GRUB bootloader (GRUB 1 or 2) are supported.
 + Machines that boot off a disk configured with GPT partitioning must have the package 'grub2-pc-modules' installed
@@ -63,7 +63,7 @@ Ensure that your Linux source server meets these installation requirements prior
   To fix and remove the *noexec* option from the mounted */tmp* directory, run this command: `sudo mount -o remount,exec /tmp`
 
   This example illustrates the troubleshooting procedure:  
-![Terminal commands showing mount output filtered for tmp, then remounting and verifying.](http://docs.aws.amazon.com/mgn/latest/ug/images/agent66.png)
+![Terminal commands showing mount output filtered for tmp, then remounting and verifying.](https://docs.aws.amazon.com/mgn/latest/ug/images/agent66.png)
 + The AWS Transform MGN user needs to be either a root user or a user in the sudoers list. 
 + Ensure that the dhclient package is installed. If not, install the package using:
 
@@ -93,7 +93,7 @@ Ensure that your Linux source server meets these installation requirements prior
   1. Identify the version of your running kernel.
 
      `uname -r`  
-![Terminal output showing kernel version 4.14.177-107.254.amzn1.x86_64 from uname command.](http://docs.aws.amazon.com/mgn/latest/ug/images/agent2.jpg)
+![Terminal output showing kernel version 4.14.177-107.254.amzn1.x86_64 from uname command.](https://docs.aws.amazon.com/mgn/latest/ug/images/agent2.jpg)
 
      The *uname -r* output version should match the version of one of the installed kernel headers packages (kernel-devel-<version number> / linux-headers-<version number>). 
 
@@ -104,12 +104,12 @@ Ensure that your Linux source server meets these installation requirements prior
      On RHEL/CENTOS/Oracle/SUSE:
 
      `rpm -qa | grep kernel`  
-![Terminal output showing four installed kernel packages listed by rpm command.](http://docs.aws.amazon.com/mgn/latest/ug/images/agent3.jpg)
+![Terminal output showing four installed kernel packages listed by rpm command.](https://docs.aws.amazon.com/mgn/latest/ug/images/agent3.jpg)
 **Note**  
 This command looks for kernel related packages. The kernel-devel package is the specific package to look for.
 
      On Debian/Ubuntu: `apt-cache search linux-headers`  
-![Terminal output showing apt-cache search results for linux-headers packages.](http://docs.aws.amazon.com/mgn/latest/ug/images/agent4.png)
+![Terminal output showing apt-cache search results for linux-headers packages.](https://docs.aws.amazon.com/mgn/latest/ug/images/agent4.png)
 
   1. Verify that the folder that contains the *kernel-devel/linux-headers* is not a symbolic link. 
 
@@ -128,7 +128,7 @@ This command looks for kernel related packages. The kernel-devel package is the 
      ```
      ls -l /usr/src
      ```  
-![Terminal output showing directory listing of /usr/src with Linux kernel header files.](http://docs.aws.amazon.com/mgn/latest/ug/images/agent5.png)
+![Terminal output showing directory listing of /usr/src with Linux kernel header files.](https://docs.aws.amazon.com/mgn/latest/ug/images/agent5.png)
 
      In the above example, the results show that the actual **linux-headers-\*** folders are not symbolic links. 
 

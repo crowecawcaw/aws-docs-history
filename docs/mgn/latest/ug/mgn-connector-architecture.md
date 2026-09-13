@@ -7,4 +7,4 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 The following diagram describes the architecture overview when using AWS Transform MGN with MGN connector.
 
-![Architecture diagram showing MGN Connector in local network connecting to AWS MGN service.](http://docs.aws.amazon.com/mgn/latest/ug/images/mgn-connector-architecture.png)
+![Architecture diagram showing MGN Connector in local network connecting to AWS MGN service.](https://docs.aws.amazon.com/mgn/latest/ug/images/mgn-connector-architecture.png)

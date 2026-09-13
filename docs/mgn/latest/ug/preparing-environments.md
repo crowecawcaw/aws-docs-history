@@ -20,7 +20,7 @@ Watch the [AWS Transform MGN - Service architecture and network architecture vid
 
 This is the MGN network diagram:
 
-![MGN network architecture modernization diagram](http://docs.aws.amazon.com/mgn/latest/ug/images/AWS-MGN-Network-Architecture-Modernization.png)
+![MGN network architecture modernization diagram](https://docs.aws.amazon.com/mgn/latest/ug/images/AWS-MGN-Network-Architecture-Modernization.png)
 
 
 ## Network setting preparations
@@ -289,13 +289,13 @@ These instructions are intended for the default OS firewall and allow outbound c
 1. On the source server, open the **Windows Firewall** console.
 
 1. On the console, select the **Outbound Rules** option from the tree.  
-![Windows Defender Firewall with Advanced Security console with Outbound Rules option highlighted in the tree.](http://docs.aws.amazon.com/mgn/latest/ug/images/network-requirements-1-re.png)
+![Windows Defender Firewall with Advanced Security console with Outbound Rules option highlighted in the tree.](https://docs.aws.amazon.com/mgn/latest/ug/images/network-requirements-1-re.png)
 
 1. On the **Outbound Rules** table, select the rule that relates to the connectivity to Remote Port - 443. Check if the **Enabled** status is **Yes**.  
-![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted showing Enabled status and Remote Port 443.](http://docs.aws.amazon.com/mgn/latest/ug/images/network-requirements-2-re.png)
+![Outbound Rules table with BranchCache Hosted Cache Client rule highlighted showing Enabled status and Remote Port 443.](https://docs.aws.amazon.com/mgn/latest/ug/images/network-requirements-2-re.png)
 
 1. If the Enabled status of the rule is **No**, open the context menu for it and select **Enable Rule** from the pop-up menu.  
-![Context menu showing Enable Rule option highlighted for a disabled outbound rule.](http://docs.aws.amazon.com/mgn/latest/ug/images/network-requirements-3-re.png)
+![Context menu showing Enable Rule option highlighted for a disabled outbound rule.](https://docs.aws.amazon.com/mgn/latest/ug/images/network-requirements-3-re.png)
 
 ### Enabling Linux Firewall for TCP port 443 connectivity
 <a name="Linux-Firewall-TCP-443"></a>
