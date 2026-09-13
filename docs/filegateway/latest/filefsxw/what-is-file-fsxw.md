@@ -27,7 +27,7 @@ When the file shares are connected, you can read and write your files locally, w
 
 The following diagram provides an overview of file storage deployment for Storage Gateway.
 
-![Storage Gateway connecting SMB clients through Active Directory to Amazon FSx cloud storage.](http://docs.aws.amazon.com/filegateway/latest/filefsxw/images/file-fsx-architecture.png)
+![Storage Gateway connecting SMB clients through Active Directory to Amazon FSx cloud storage.](https://docs.aws.amazon.com/filegateway/latest/filefsxw/images/file-fsx-architecture.png)
 
 
 Note the following in the diagram:

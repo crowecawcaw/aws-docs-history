@@ -15,7 +15,7 @@ Follow these instructions to create a VPC endpoint. If you already have a VPC en
 
 1. On the **Create Endpoint** page, choose **AWS Services** for **Service category**.
 
-1. For **Service Name**, choose `com.amazonaws.{{region}}.storagegateway`. For example `com.amazonaws.us-east-2.storagegateway`.
+1. For **Service Name**, choose `com.amazonaws.{{region}}.storagegateway`. For example `com.amazonaws.us-east-2.storagegateway`. 
 
 1. For **VPC**, choose your VPC and note its Availability Zones and subnets.
 
