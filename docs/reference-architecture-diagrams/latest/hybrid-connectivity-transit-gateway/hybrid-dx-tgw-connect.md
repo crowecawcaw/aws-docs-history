@@ -10,7 +10,7 @@ This architecture shows how to use [AWS Transit Gateway](https://docs.aws.amazon
 ## AWS Direct Connect with Transit Gateway Connect attachments architecture
 <a name="hc7-diagram1"></a>
 
-![Architecture diagram showing AWS Direct Connect with Transit Gateway Connect attachments using GRE tunneling and BGP for simplified route management.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-7.png)
+![Architecture diagram showing AWS Direct Connect with Transit Gateway Connect attachments using GRE tunneling and BGP for simplified route management.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-7.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:

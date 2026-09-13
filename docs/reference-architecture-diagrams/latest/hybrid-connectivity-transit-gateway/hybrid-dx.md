@@ -10,7 +10,7 @@ You can use a Transit VIF and a [Direct Connect](https://docs.aws.amazon.com/dir
 ## Hybrid connectivity with AWS Direct Connect architecture
 <a name="hc2-diagram1"></a>
 
-![Architecture diagram showing hybrid connectivity to AWS Transit Gateway using AWS Direct Connect with a Transit VIF and Direct Connect gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-2.png)
+![Architecture diagram showing hybrid connectivity to AWS Transit Gateway using AWS Direct Connect with a Transit VIF and Direct Connect gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-2.png)
 
 
 The following steps describe the on-premises to AWS traffic flow:

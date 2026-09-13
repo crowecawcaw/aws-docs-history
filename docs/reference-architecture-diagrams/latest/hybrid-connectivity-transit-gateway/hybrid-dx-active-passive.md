@@ -10,7 +10,7 @@ You can use a Transit VIF and a [Direct Connect](https://docs.aws.amazon.com/dir
 ## AWS Direct Connect active/passive configuration architecture
 <a name="hc5-diagram1"></a>
 
-![Architecture diagram showing two AWS Direct Connect connections in active/passive configuration with AWS Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-5.png)
+![Architecture diagram showing two AWS Direct Connect connections in active/passive configuration with AWS Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-5.png)
 
 
 The following steps describe the on-premises to AWS traffic flow:

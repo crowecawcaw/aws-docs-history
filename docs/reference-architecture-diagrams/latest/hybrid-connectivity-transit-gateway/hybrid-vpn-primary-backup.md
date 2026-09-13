@@ -10,7 +10,7 @@ You can create a [Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svp
 ## AWS Site-to-Site VPN primary and backup architecture
 <a name="hc3-diagram1"></a>
 
-![Architecture diagram showing AWS Site-to-Site VPN primary and backup configuration with AWS Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-3.png)
+![Architecture diagram showing AWS Site-to-Site VPN primary and backup configuration with AWS Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-3.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:

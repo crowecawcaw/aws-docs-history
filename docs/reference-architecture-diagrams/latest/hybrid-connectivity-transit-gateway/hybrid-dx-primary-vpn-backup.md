@@ -10,7 +10,7 @@ You can use a Transit VIF and a [Direct Connect](https://docs.aws.amazon.com/dir
 ## AWS Direct Connect primary and VPN backup architecture
 <a name="hc4-diagram1"></a>
 
-![Architecture diagram showing AWS Direct Connect as primary with AWS Site-to-Site VPN as backup to AWS Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-4.png)
+![Architecture diagram showing AWS Direct Connect as primary with AWS Site-to-Site VPN as backup to AWS Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-4.png)
 
 
 The following steps describe the on-premises to AWS traffic flow:

@@ -10,7 +10,7 @@ When transitive communication is not needed in the connection between on-premise
 ## Private VIFs for on-premises and AWS Transit Gateway for inter-VPC architecture
 <a name="hc8-diagram1"></a>
 
-![Architecture diagram showing AWS Direct Connect private VIFs for on-premises connectivity with AWS Transit Gateway used only for inter-VPC communication.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-8.png)
+![Architecture diagram showing AWS Direct Connect private VIFs for on-premises connectivity with AWS Transit Gateway used only for inter-VPC communication.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-8.png)
 
 
 The following steps describe the AWS to AWS traffic flow:

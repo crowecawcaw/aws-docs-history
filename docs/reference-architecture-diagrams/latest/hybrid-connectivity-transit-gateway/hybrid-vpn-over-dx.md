@@ -10,7 +10,7 @@ If you require traffic encryption in your [AWS Direct Connect](https://docs.aws.
 ## AWS Site-to-Site VPN on top of AWS Direct Connect architecture
 <a name="hc6-diagram1"></a>
 
-![Architecture diagram showing AWS Site-to-Site VPN on top of AWS Direct Connect using a public VIF for encrypted connectivity to AWS Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-6.png)
+![Architecture diagram showing AWS Site-to-Site VPN on top of AWS Direct Connect using a public VIF for encrypted connectivity to AWS Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-connectivity-transit-gateway/images/hybrid-connectivity-transit-gateway-6.png)
 
 
 The following steps describe the on-premises to AWS traffic flow:
