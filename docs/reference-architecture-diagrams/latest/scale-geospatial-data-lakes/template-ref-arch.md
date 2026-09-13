@@ -10,7 +10,7 @@ Repositories of geospatial data are becoming [increasingly important](https://ww
 ## Scale Geospatial Data Lakes on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to build scalable geospatial data repositories on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/scale-geospatial-data-lakes/images/scale-geospatial-data-lakes.png)
+![Reference architecture diagram showing how to build scalable geospatial data repositories on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/scale-geospatial-data-lakes/images/scale-geospatial-data-lakes.png)
 
 
 1. Initiate a data ingestion pipeline based on new scene detection.  Subscribe to **Amazon Simple Notification Service** (Amazon SNS) topics for managed datasets with appropriate filters. 
