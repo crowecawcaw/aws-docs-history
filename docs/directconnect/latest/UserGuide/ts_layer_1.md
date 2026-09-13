@@ -23,4 +23,4 @@ If you or your network provider are having difficulty establishing physical conn
 
 The following flow chart contains the steps to diagnose issues with the physical connection.
 
-![Troubleshoot Direct Connect](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/layer1-ts.png)
+![Troubleshoot Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/layer1-ts.png)

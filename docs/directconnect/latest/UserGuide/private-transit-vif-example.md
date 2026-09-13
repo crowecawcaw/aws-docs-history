@@ -10,10 +10,10 @@ The VIFs have the following configurations:
 + VIF B (in us-east-1) advertises 172.16.0.0/16 and has an AS\_PATH attribute of 65001, 65001
 + VIF C (in us-west-1) advertises 172.16.0.0/16 and has an AS\_PATH attribute of 65001
 
-![Private VIF Routing no AS_PATH](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/private-vif-as-path-1.png)
+![Private VIF Routing no AS_PATH](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/private-vif-as-path-1.png)
 
 
 If you change the CIDR range configuration of VIF C, routes that fall in to the VIF C CIDR range use VIF C because it has the longest prefix length. 
 + VIF C (in us-west-1) advertises 172.16.0.0/24 and has an AS\_PATH attribute of 65001
 
-![Private VIF Routing](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/private-vif-as-path-2.png)
+![Private VIF Routing](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/private-vif-as-path-2.png)

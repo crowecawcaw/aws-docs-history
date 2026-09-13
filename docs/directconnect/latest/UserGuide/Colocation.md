@@ -19,11 +19,11 @@ If the cross connect is not completed within 90 days, the authority granted by t
 
 The options available to connect to a Direct Connect location might vary by Partner and AWS Region. You can work with one of the partners in the AWS Partner Network (APN) who can provide one or more of the following connectivity options:
 + If you have resources deployed in the same data center/colocation facility as the Direct Connect location, the facility can provide a cross-connect between the Direct Connect equipment and your resources. You must first provide LOA-CFA to the facility for this. See [Letter of Authorization and Connecting Facility Assignment (LOA-CFA)](dedicated_connection.md#create-connection-loa-cfa) for more information. The following shows an example of this Direct Connect connectivity option:  
-![Image showing Direct Connect connectivity with resources deployed in the same data center as the Direct Connect location.](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-connectivity-1.png)
+![Image showing Direct Connect connectivity with resources deployed in the same data center as the Direct Connect location.](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-connectivity-1.png)
 + Extend the Direct Connect connection at Layer 2 (data link layer) via a "circuit" from the Direct Connect location to the customer location by working with Direct Connect Partners. The router installed at the customer location will directly form a BGP session with the AWS equipment. For example, technologies that can be used are Metro Ethernet, Dark Fibre, or Wavelength. The following shows an example of this Direct Connect connectivity option.  
-![Image showing Direct Connect Layer 2 connectivity.](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-connectivity-2.png)
+![Image showing Direct Connect Layer 2 connectivity.](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-connectivity-2.png)
 + Extend the Direct Connect connection at Layer 3 (Network layer) from the Direct Connect location to your location by working with Direct Connect Partners. For this connectivity option, the Direct Connect Partner provides a router within the Direct Connect location that forms a Border Gateway Protocol (BGP) session with the AWS equipment. The Direct Connect partner then established another BGP with you; for example, this might be over Multiprotocol Label Switching (MPLS). The following shows an example of this Direct Connect connectivity option.  
-![Image showing Direct Connect Layer 3 connectivity.](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-connectivity-3.png)
+![Image showing Direct Connect Layer 3 connectivity.](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-connectivity-3.png)
 
 ## US East (Ohio)
 <a name="cross-connect-us-east-2"></a>

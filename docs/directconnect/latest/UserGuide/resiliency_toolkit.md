@@ -51,7 +51,7 @@ Note the following information before you begin your configuration:
 
 You can achieve maximum resiliency for critical workloads by using separate connections that terminate on separate devices in more than one location (as shown in the following figure). This model provides resiliency against device, connectivity, and complete location failures. The following figure shows both connections from each customer data center going to the same Direct Connect locations. You can optionally have each connection from a customer data center going to different locations.
 
-![Maximum resiliency model](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dc-max-resiliency.png)
+![Maximum resiliency model](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dc-max-resiliency.png)
 
 
 For the procedure for using the AWS Direct Connect Resiliency Toolkit to configure a maximum resiliency model, see [Configure maximum resiliency](max-resiliency-set-up.md).
@@ -61,7 +61,7 @@ For the procedure for using the AWS Direct Connect Resiliency Toolkit to configu
 
 You can achieve high resiliency for critical workloads by using two single connections to multiple locations (as shown in the following figure). This model provides resiliency against connectivity failures caused by a fiber cut or a device failure. It also helps prevent a complete location failure.
 
-![High resiliency model](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dc-high-resiliency.png)
+![High resiliency model](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dc-high-resiliency.png)
 
 
 For the procedure for using the AWS Direct Connect Resiliency Toolkit to configure a high resiliency model, see [Configure high resiliency](high-resiliency-set-up.md).
@@ -71,7 +71,7 @@ For the procedure for using the AWS Direct Connect Resiliency Toolkit to configu
 
 You can achieve development and test resiliency for non-critical workloads by using separate connections that terminate on separate devices in one location (as shown in the following figure). This model provides resiliency against device failure, but does not provide resiliency against location failure.
 
-![Development and Test Model](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dc-devtest.png)
+![Development and Test Model](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dc-devtest.png)
 
 
 For the procedure for using the AWS Direct Connect Resiliency Toolkit to configure a maximum resiliency model, see [Configure development and test resiliency](devtest-resiliency-set-up.md).

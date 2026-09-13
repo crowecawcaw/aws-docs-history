@@ -10,7 +10,7 @@ In the following diagram, the Direct Connect cross-connect must be connected to 
 **Note**  
 MACsec provides point-to-point security on Ethernet links; therefore it does not provide end-to-end encryption across multiple sequential Ethernet or other network segments.
 
-![MACsec overview](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/macsec-overview.png)
+![MACsec overview](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/macsec-overview.png)
 
 
 ## MACsec concepts

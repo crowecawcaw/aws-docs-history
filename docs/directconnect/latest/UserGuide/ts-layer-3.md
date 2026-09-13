@@ -21,7 +21,7 @@ Consider a situation where your Direct Connect physical connection is up and you
 
 The following flow chart contains the steps to diagnose issues with the BGP peering session.
 
-![Troubleshoot Direct Connect](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/troubleshooting-chart-layer-3-4.png)
+![Troubleshoot Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/troubleshooting-chart-layer-3-4.png)
 
 
 If the BGP peering session is established but you are experiencing routing issues, see [Troubleshoot routing issues](ts-routing.md).

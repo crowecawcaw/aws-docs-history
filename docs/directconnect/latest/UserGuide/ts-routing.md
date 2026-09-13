@@ -16,4 +16,4 @@ Consider a situation where your virtual interface is up and you've established a
 
 The following flow chart contains the steps to diagnose routing issues.
 
-![Troubleshoot Direct Connect](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/troubleshooting-chart-routing.png)
+![Troubleshoot Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/troubleshooting-chart-routing.png)

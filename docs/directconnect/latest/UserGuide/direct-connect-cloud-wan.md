@@ -12,7 +12,7 @@ The association between a core network and a Direct Connect gateway is created, 
 
 The following example shows a Cloud WAN global network with three Regions within the Cloud WAN core network. Each Region has its own VPC connected to a core network Development segment shared across those three Regions. Using Cloud WAN, a Direct Connect gateway attachment is created within Cloud WAN using a Direct Connect gateway, which was created using Direct Connect. The attachment is associated with two of the three Regions, ap-southeast-2 and us-west-2 and is allowed access to the Development segment. Even though us-east-1 shares the same Development segment, the Direct Connect gateway attachment is not shared with that Region and is therefore not available. 
 
-![A Direct Connect gateway attachment association with an AWS Cloud WAN core network.](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dxattachment-cloudwan.png)
+![A Direct Connect gateway attachment association with an AWS Cloud WAN core network.](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dxattachment-cloudwan.png)
 
 
 **Topics**

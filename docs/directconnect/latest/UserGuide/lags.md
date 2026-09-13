@@ -10,7 +10,7 @@ Multi-chassis LAG (MLAG) is not supported by AWS.
 
 In the following diagram, you have four connections, with two connections to each location. You can create a LAG for connections that terminate on the same AWS device and in the same location, and then use the two LAGs instead of the four connections for configuration and management.
 
-![Link Aggregation Group](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/LAG_description.png)
+![Link Aggregation Group](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/LAG_description.png)
 
 
 You can create a LAG from existing connections, or you can provision new connections. After you've created the LAG, you can associate existing connections (whether standalone or part of another LAG) with the LAG.

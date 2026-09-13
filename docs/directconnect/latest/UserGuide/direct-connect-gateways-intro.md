@@ -46,7 +46,7 @@ In the following diagram, the Direct Connect gateway enables you to use your Dir
 
 Each VPC has a virtual private gateway that connects to the Direct Connect gateway using a virtual private gateway association. The Direct Connect gateway uses a private virtual interface for the connection to the Direct Connect location. There is an Direct Connect connection from the location to the customer data center.
 
-![A Direct Connect gateway that connects VPCs in two AWS Regions and your data center.](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-gateway.png)
+![A Direct Connect gateway that connects VPCs in two AWS Regions and your data center.](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-gateway.png)
 
 
 ### Scenario: Virtual private gateway associations across accounts
@@ -54,7 +54,7 @@ Each VPC has a virtual private gateway that connects to the Direct Connect gatew
 
 Consider this scenario of a Direct Connect gateway owner (Account Z) who owns the Direct Connect gateway. Account A and Account B want to use the Direct Connect gateway. Account A and Account B each send an association proposal to Account Z. Account Z accepts the association proposals and can optionally update the prefixes that are allowed from Account A's virtual private gateway or Account B's virtual private gateway. After Account Z accepts the proposals, Account A and Account B can route traffic from their virtual private gateway to the Direct Connect gateway. Account Z also owns the routing to the customers because Account Z owns the gateway.
 
-![A Direct Connect gateway that connects three AWS accounts and your data center.](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-gateway-shared.png)
+![A Direct Connect gateway that connects three AWS accounts and your data center.](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-gateway-shared.png)
 
 
 ### Scenario: Transit Gateway associations
@@ -62,7 +62,7 @@ Consider this scenario of a Direct Connect gateway owner (Account Z) who owns th
 
 The following diagram illustrates how the Direct Connect gateway enables you to create a single connection to your Direct Connect connection that all of your VPCs can use.
 
-![A Direct Connect gateway associated with a Transit Gateway with multiple VPC attachments.](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/direct-connect-tgw.png)
+![A Direct Connect gateway associated with a Transit Gateway with multiple VPC attachments.](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/direct-connect-tgw.png)
 
 
 The solution involves the following components:
@@ -82,4 +82,4 @@ For information about configuring Transit Gateways, see [Working with Transit Ga
 
 Consider this scenario of a Direct Connect gateway owner (Account Z) who owns the Direct Connect gateway. Account A owns the Transit Gateway and wants to use the Direct Connect gateway. Account Z accepts the association proposals and can optionally update the prefixes that are allowed from Account A's Transit Gateway. After Account Z accepts the proposals, the VPCs attached to the Transit Gateway can route traffic from the Transit Gateway to the Direct Connect gateway. Account Z also owns the routing to the customers because Account Z owns the gateway.
 
-![A Direct Connect gateway from an AWS account associated with a Transit Gateway from another AWS account.](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/direct-connect-ma-tgw.png)
+![A Direct Connect gateway from an AWS account associated with a Transit Gateway from another AWS account.](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/direct-connect-ma-tgw.png)

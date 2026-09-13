@@ -9,7 +9,7 @@ Direct Connect links your internal network to a Direct Connect location over a s
 
 The following diagram shows a high-level overview of how Direct Connect interfaces with your network. 
 
-![Direct Connect](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-vifs.png)
+![Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/dx-vifs.png)
 
 
 **Topics**

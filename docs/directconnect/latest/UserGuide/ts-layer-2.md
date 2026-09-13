@@ -17,7 +17,7 @@ If your Direct Connect physical connection is up but your virtual interface is d
 
 The following flow chart contains the steps to diagnose issues with the data link.
 
-![Troubleshoot Direct Connect](http://docs.aws.amazon.com/directconnect/latest/UserGuide/images/troubleshooting-chart-layer-2.png)
+![Troubleshoot Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/images/troubleshooting-chart-layer-2.png)
 
 
 If the BGP session is still not established after verifying these steps, see [Troubleshoot layer 3/4 (Network/Transport) issues](ts-layer-3.md). If the BGP session is established but you are experiencing routing issues, see [Troubleshoot routing issues](ts-routing.md).
