@@ -10,7 +10,7 @@ This architecture shows how to create a searchable, paginated list on domain agg
 ## Paginated Search with Purpose-Built Databases
 <a name="diagram1"></a>
 
-![Architecture diagram showing paginated search with purpose-built databases using EventBridge, Step Functions, Lambda, and Amazon Aurora.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/paginated-search-databases/images/paginated-search-databases.png)
+![Architecture diagram showing paginated search with purpose-built databases using EventBridge, Step Functions, Lambda, and Amazon Aurora.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/paginated-search-databases/images/paginated-search-databases.png)
 
 
 The following steps describe the architecture:
