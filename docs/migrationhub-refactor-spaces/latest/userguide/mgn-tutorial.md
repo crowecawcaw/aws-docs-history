@@ -29,10 +29,10 @@ To use AWS MGN, you must first set it up in the AWS Region in which you plan to 
 1. Choose the Region that you want to work in.
 
 1. Choose the **Get started** button that appears in the following image.  
-![AWS Transform MGN page with "Start migrating" box and "Get started" button.](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/mgn-get-started.png)
+![AWS Transform MGN page with "Start migrating" box and "Get started" button.](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/mgn-get-started.png)
 
 1. If this is your first time using AWS MGN in the Region you chose, you will see the following screen. Choose the **Set up service** button.  
-![Service initialization page with View roles, Cancel, and Set up service buttons.](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/set-up-mgn.png)
+![Service initialization page with View roles, Cancel, and Set up service buttons.](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/set-up-mgn.png)
 
 For more information, see [Initializing AWS MGN via the console](https://docs.aws.amazon.com/mgn/latest/ug/mandatory-setup.html).
 
@@ -64,12 +64,12 @@ In this step you create a service role that the automation script of the MGN pos
 1. Choose **Create role**.
 
 1. When you see a success message like the one in the following image, choose **View role**.  
-![IAM Roles page showing success message for role creation with "View role" option.](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/role-created.png)
+![IAM Roles page showing success message for role creation with "View role" option.](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/role-created.png)
 
 1. Choose **Add permissions**, then choose **Create inline policy**.
 
 1. Choose the **JSON** button that appears in the following image.  
-![Policy editor interface showing service selection and JSON toggle button highlighted.](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/json-policy.png)
+![Policy editor interface showing service selection and JSON toggle button highlighted.](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/json-policy.png)
 
 1. Replace the JSON in the policy editor with the first block of JSON in the following section: [Extra required permissions for Refactor Spaces](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AWSMigrationHubRefactorSpacesFullAccess).
 
@@ -103,10 +103,10 @@ Now you must enable post-launch actions. If you've already enabled post-launch a
 1. In the left navigation pane, choose **Post-launch template**.
 
 1. Choose the edit button that appears in the following image.  
-![Post-launch template interface showing settings for configuring actions after server launch in AWS.](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/enable-post-launch-actions.png)
+![Post-launch template interface showing settings for configuring actions after server launch in AWS.](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/enable-post-launch-actions.png)
 
 1. Turn on **Install the Systems Manager agent and allow executing actions on launched servers**, as shown in the following image.  
-![Post-launch actions section with toggle enabled for installing Systems Manager agent.](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/install-ssm.png)
+![Post-launch actions section with toggle enabled for installing Systems Manager agent.](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/install-ssm.png)
 
 1. Choose **Save template**.
 
@@ -117,7 +117,7 @@ Now you must enable post-launch actions. If you've already enabled post-launch a
 1. In the **Actions** section, choose the action with the title **Enable Refactor Spaces**.
 
 1. In the **Actions** section, choose the **Edit** button that appears in the following image.  
-![Actions section with Edit button highlighted among other options.](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/edit-post-launch-actions.png)
+![Actions section with Edit button highlighted among other options.](https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/images/edit-post-launch-actions.png)
 
 1. Specify the following values in the form:    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/userguide/mgn-tutorial.html)
