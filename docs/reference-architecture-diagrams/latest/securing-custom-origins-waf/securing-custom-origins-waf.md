@@ -10,7 +10,7 @@ This architecture shows how to protect any endpoint against common web vulnerabi
 ## Securing Custom Origins with AWS WAF
 <a name="diagram1"></a>
 
-![Architecture diagram showing how to secure custom origins with AWS WAF and Amazon CloudFront.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/securing-custom-origins-waf/images/securing-custom-origins-waf.png)
+![Architecture diagram showing how to secure custom origins with AWS WAF and Amazon CloudFront.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/securing-custom-origins-waf/images/securing-custom-origins-waf.png)
 
 
 1. Users make a request to the web application. DNS records direct the user to the closest CloudFront edge location.
