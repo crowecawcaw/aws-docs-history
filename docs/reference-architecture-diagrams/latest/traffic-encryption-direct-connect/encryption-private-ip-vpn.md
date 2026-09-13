@@ -12,7 +12,7 @@ For more information about Private IP VPNs, see [Introducing AWS Site-to-Site Pr
 ## Private IP VPN over Direct Connect transit VIF to Transit Gateway architecture
 <a name="tepip-diagram1"></a>
 
-![Architecture diagram showing traffic encryption using AWS Site-to-Site VPN Private IP VPN over an AWS Direct Connect transit VIF and Direct Connect gateway to reach multiple VPCs through AWS Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-encryption-direct-connect/images/traffic-encryption-direct-connect-3.png)
+![Architecture diagram showing traffic encryption using AWS Site-to-Site VPN Private IP VPN over an AWS Direct Connect transit VIF and Direct Connect gateway to reach multiple VPCs through AWS Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-encryption-direct-connect/images/traffic-encryption-direct-connect-3.png)
 
 
 **Configuration steps:**

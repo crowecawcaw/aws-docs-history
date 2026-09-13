@@ -10,7 +10,7 @@ This method achieves traffic encryption by combining the benefits of the end-to-
 ## Site-to-Site VPN over Direct Connect public VIF to Transit Gateway architecture
 <a name="tetgw-diagram1"></a>
 
-![Architecture diagram showing traffic encryption using AWS Site-to-Site VPN over a Direct Connect public VIF to reach multiple VPCs through AWS Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-encryption-direct-connect/images/traffic-encryption-direct-connect-2.png)
+![Architecture diagram showing traffic encryption using AWS Site-to-Site VPN over a Direct Connect public VIF to reach multiple VPCs through AWS Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-encryption-direct-connect/images/traffic-encryption-direct-connect-2.png)
 
 
 **Configuration steps:**

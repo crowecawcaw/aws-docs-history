@@ -10,7 +10,7 @@ This method achieves traffic encryption by combining the benefits of the end-to-
 ## Site-to-Site VPN over Direct Connect public VIF to a VPC architecture
 <a name="tevpc-diagram1"></a>
 
-![Architecture diagram showing traffic encryption using AWS Site-to-Site VPN over an AWS Direct Connect public VIF to reach resources in an Amazon VPC.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-encryption-direct-connect/images/traffic-encryption-direct-connect-1.png)
+![Architecture diagram showing traffic encryption using AWS Site-to-Site VPN over an AWS Direct Connect public VIF to reach resources in an Amazon VPC.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-encryption-direct-connect/images/traffic-encryption-direct-connect-1.png)
 
 
 **Configuration steps:**

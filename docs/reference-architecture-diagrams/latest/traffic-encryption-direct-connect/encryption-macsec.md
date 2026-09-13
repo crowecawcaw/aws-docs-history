@@ -15,7 +15,7 @@ The connection between the customer or partner device at the AWS Direct Connect 
 ## MACsec encryption in Direct Connect architecture
 <a name="temac-diagram1"></a>
 
-![Architecture diagram showing traffic encryption using MACsec security on an AWS Direct Connect dedicated connection with transit VIF and Transit Gateway to reach multiple VPCs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-encryption-direct-connect/images/traffic-encryption-direct-connect-4.png)
+![Architecture diagram showing traffic encryption using MACsec security on an AWS Direct Connect dedicated connection with transit VIF and Transit Gateway to reach multiple VPCs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-encryption-direct-connect/images/traffic-encryption-direct-connect-4.png)
 
 
 **Configuration steps:**
