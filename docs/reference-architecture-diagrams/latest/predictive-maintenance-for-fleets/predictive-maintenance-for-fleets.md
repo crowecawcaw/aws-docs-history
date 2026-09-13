@@ -10,7 +10,7 @@ With this architecture, you can predict battery failures in your vehicle fleet. 
 ## Fleet predictive maintenance diagram
 <a name="fleet-diagram"></a>
 
-![Reference architecture diagram showing how to predict fleet battery failures by using AWS IoT Core, SageMaker AI, Lambda, and Amazon Aurora.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/predictive-maintenance-for-fleets/images/predictive-maintenance-for-fleets.png)
+![Reference architecture diagram showing how to predict fleet battery failures by using AWS IoT Core, SageMaker AI, Lambda, and Amazon Aurora.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/predictive-maintenance-for-fleets/images/predictive-maintenance-for-fleets.png)
 
 
 The following steps describe the ML pipeline and notification flow for this architecture:
