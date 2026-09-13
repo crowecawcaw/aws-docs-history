@@ -32,12 +32,12 @@ In this step, you will create an IAM user and grant access for the user to use A
 1. Open the IAM Console
 
    Open the [AWS Identity and Access Management (IAM) console](https://console.aws.amazon.com/iam/home). In the navigation pane on the left, select **Users**.   
-![The AWS Identity and Access Management (IAM) dashboard, with the 'Users' section highlighted in red on the left sidebar. The dashboard displays IAM resources, security status, and additional information links.](http://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/iam-dashboard-users-highlighted-iamlong.png)
+![The AWS Identity and Access Management (IAM) dashboard, with the 'Users' section highlighted in red on the left sidebar. The dashboard displays IAM resources, security status, and additional information links.](https://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/iam-dashboard-users-highlighted-iamlong.png)
 
 1. Add a new user
 
    Select **Add user**.   
-![The AWS Identity and Access Management (IAM) console highlighting the 'Add user' button on the Users page.](http://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/iam-user-screen-bce-iamlong-console.png)
+![The AWS Identity and Access Management (IAM) console highlighting the 'Add user' button on the Users page.](https://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/iam-user-screen-bce-iamlong-console.png)
 
 1. Configure users
 
@@ -50,12 +50,12 @@ In this step, you will create an IAM user and grant access for the user to use A
    Leave **AWS Management Console access** unchecked. 
 
    Select **Next: Permissions**.   
-![The AWS Management Console showing how to add a new user named 'eb-admin' with programmatic access selected. The 'Next: Permissions' button is highlighted to proceed to the next step.](http://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/user-admin-programmatic-access-console-how.png)
+![The AWS Management Console showing how to add a new user named 'eb-admin' with programmatic access selected. The 'Next: Permissions' button is highlighted to proceed to the next step.](https://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/user-admin-programmatic-access-console-how.png)
 
 1. Add user to group
 
    Select **Add user to group** then select **Create group**.   
-![The AWS Management Console showing the step to add a user to a group when setting permissions, highlighting the 'Add user to group' option and the 'Create group' button during the IAM user creation process.](http://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/user-group-permissions-console-when.png)
+![The AWS Management Console showing the step to add a user to a group when setting permissions, highlighting the 'Add user to group' option and the 'Create group' button during the IAM user creation process.](https://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/user-group-permissions-console-when.png)
 
 1. Configure group
 
@@ -64,14 +64,14 @@ In this step, you will create an IAM user and grant access for the user to use A
    In the policy search box, type **AWSElasticBeanstalkFullAccess**. 
 
    Select **AWSElasticBeanstalkFullAccess**and select **Create group**.   
-![The AWS Identity and Access Management (IAM) console showing how to create a group named 'eb-admins' with the 'AWSElasticBeanstalkFullAccess' policy selected, granting full access to AWS Elastic Beanstalk and its underlying services.](http://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/iam-group-elastic-beanstalk-full-access.png)
+![The AWS Identity and Access Management (IAM) console showing how to create a group named 'eb-admins' with the 'AWSElasticBeanstalkFullAccess' policy selected, granting full access to AWS Elastic Beanstalk and its underlying services.](https://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/iam-group-elastic-beanstalk-full-access.png)
 
 1. Verify the policy is attached
 
    You will see **eb-admin** created with the **AWSElasticBeanstalkFullAccess**policy attached to the group. 
 
    Select **Next: Review**.   
-![The AWS IAM console showing the process of setting permissions for a user by adding them to a group with AWSElasticBeanstalkFullAccess policy attached.](http://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/user-permissions-elastic-beanstalk-full.png)
+![The AWS IAM console showing the process of setting permissions for a user by adding them to a group with AWSElasticBeanstalkFullAccess policy attached.](https://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/user-permissions-elastic-beanstalk-full.png)
 
 1. Review configuration
 
@@ -82,7 +82,7 @@ In this step, you will create an IAM user and grant access for the user to use A
    In a later step, you will need to use **eb-admin's** access key from this page. 
 
    Save the access key and secret access key on your workstation by selecting **Download .csv**. Select **Close**.   
-![The AWS Management Console showing the final step in adding a new user, with a success message, downloadable credentials (.csv), and user information including access key ID and secret access key.](http://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/user-success-download-credentials.png)
+![The AWS Management Console showing the final step in adding a new user, with a success message, downloadable credentials (.csv), and user information including access key ID and secret access key.](https://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/user-success-download-credentials.png)
 
 ### Step 2: Install the EB CLI
 <a name="install-the-eb-cli"></a>
@@ -120,7 +120,7 @@ In this step, you will install the EB command line interface. Follow the OS spec
    eb --version
    ```
 
-![The Python 3.6.4 (32-bit) Windows setup advanced options, highlighting the 'Add Python to environment variables' option. Intended for a tutorial on setting up the command line environment for AWS Elastic Beanstalk on Windows.](http://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/ahthjxd-setup-command-line-elastic.png)
+![The Python 3.6.4 (32-bit) Windows setup advanced options, highlighting the 'Add Python to environment variables' option. Intended for a tutorial on setting up the command line environment for AWS Elastic Beanstalk on Windows.](https://docs.aws.amazon.com/hands-on/latest/set-up-command-line-elastic-beanstalk/images/ahthjxd-setup-command-line-elastic.png)
 
 
 ------
