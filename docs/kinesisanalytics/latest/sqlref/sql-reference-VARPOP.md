@@ -90,7 +90,7 @@ SELECT STREAM ticker_symbol, VAR_POP(price) AS var_pop_price
 
 The preceding examples output a stream similar to the following:
 
-![Table with columns ROWTIME, TICKER_SYMBOL, and VAR_POP_PRICE showing stock data entries.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-varpop-1.png)
+![Table with columns ROWTIME, TICKER_SYMBOL, and VAR_POP_PRICE showing stock data entries.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-varpop-1.png)
 
 
 ### Example 2: Determine the population variance of the values in a columm in a sliding window query
@@ -113,7 +113,7 @@ WINDOW TEN_SECOND_SLIDING_WINDOW AS (
 
 The preceding example outputs a stream similar to the following:
 
-![Table showing ROWTIME, TICKER_SYMBOL, and VAR_POP_PRICE columns with sample data rows.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-varpop-2.png)
+![Table showing ROWTIME, TICKER_SYMBOL, and VAR_POP_PRICE columns with sample data rows.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-varpop-2.png)
 
 
 ## See Also

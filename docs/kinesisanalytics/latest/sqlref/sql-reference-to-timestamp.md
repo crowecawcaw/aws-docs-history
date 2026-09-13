@@ -68,7 +68,7 @@ FROM "SOURCE_SQL_STREAM_001"
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock data with columns for time, ticker symbol, sector, change, and price.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-to-timestamp.png)
+![Table showing stock data with columns for time, ticker symbol, sector, change, and price.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-to-timestamp.png)
 
 
 ## Notes

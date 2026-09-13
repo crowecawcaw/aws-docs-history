@@ -85,7 +85,7 @@ SELECT STREAM ticker_symbol, STDDEV_POP(price) AS stddev_pop_price
 
 The preceding examples output a stream similar to the following:
 
-![Table showing ROWTIME, TICKER_SYMBOL, and STDDEV_POP_PRICE columns with sample data entries.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-stddev-pop-1.png)
+![Table showing ROWTIME, TICKER_SYMBOL, and STDDEV_POP_PRICE columns with sample data entries.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-stddev-pop-1.png)
 
 
 ### Example 2: Determine the standard deviation of the population of the values in a column in a sliding window query
@@ -108,7 +108,7 @@ WINDOW TEN_SECOND_SLIDING_WINDOW AS (
 
 The preceding example outputs a stream similar to the following:
 
-![Table showing ROWTIME, TICKER_SYMBOL, and STDEV_POP_PRICE columns with sample data entries.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-stddev-pop-2.png)
+![Table showing ROWTIME, TICKER_SYMBOL, and STDEV_POP_PRICE columns with sample data entries.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-stddev-pop-2.png)
 
 
 ## See Also

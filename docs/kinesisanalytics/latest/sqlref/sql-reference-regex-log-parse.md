@@ -48,7 +48,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS INSERT INTO "DESTINATION_SQL_STREAM"
 
 The preceding code example produces results similar to the following:
 
-![Table with ROWTIME, MATCH1, and MATCH2 columns showing timestamp and matching values.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-regex-log-parse-example-1.png)
+![Table with ROWTIME, MATCH1, and MATCH2 columns showing timestamp and matching values.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-regex-log-parse-example-1.png)
 
 
 ### Example 2: Return a stream field and results from two capture groups
@@ -69,7 +69,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS INSERT INTO "DESTINATION_SQL_STREAM"
 
 The preceding code example produces results similar to the following:
 
-![Table with columns for ROWTIME, SECTOR, MATCH1, and MATCH2 showing healthcare and energy records.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-regex-log-parse-example-2.png)
+![Table with columns for ROWTIME, SECTOR, MATCH1, and MATCH2 showing healthcare and energy records.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-regex-log-parse-example-2.png)
 
 
 ## 

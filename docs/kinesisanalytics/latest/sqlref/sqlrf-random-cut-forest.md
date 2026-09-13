@@ -25,7 +25,7 @@ The following is an example of anomaly detection. The diagram shows three clust
 
  
 
-![Scatter plot showing three clusters of blue data points and several red outlier points.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/rcf-10.png)
+![Scatter plot showing three clusters of blue data points and several red outlier points.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/rcf-10.png)
 
 
 
@@ -147,7 +147,7 @@ Consider this stylized one-dimensional stream represented as a sine wave, intend
 
  
 
-![Sine wave graph showing regular oscillations with an anomaly spike in the third cycle.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/rcf-20.png)
+![Sine wave graph showing regular oscillations with an anomaly spike in the third cycle.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/rcf-20.png)
 
 
 
@@ -156,7 +156,7 @@ We ran the `RANDOM_CUT_FOREST` function with a shingle size of four records. The
 
  
 
-![Graph showing sine wave with anomaly and anomaly score over time, with a spike in both lines.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/rcf-30.png)
+![Graph showing sine wave with anomaly and anomaly score over time, with a spike in both lines.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/rcf-30.png)
 
 
 When you use this function, we recommend that you investigate the highest scoring points as potential anomalies.  

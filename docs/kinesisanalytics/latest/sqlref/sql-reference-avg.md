@@ -114,7 +114,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing rowtime, ticker symbols such as NFS and WAS, and average prices.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-avg-example-1.png)
+![Table showing rowtime, ticker symbols such as NFS and WAS, and average prices.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-avg-example-1.png)
 
 
 ### Example 2: Return the Average of Values Using the OVER Clause
@@ -137,7 +137,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing rowtime, ticker symbols such as AAPL and TGT, and average prices.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-avg-example-2.png)
+![Table showing rowtime, ticker symbols such as AAPL and TGT, and average prices.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-avg-example-2.png)
 
 
 ## Usage Notes

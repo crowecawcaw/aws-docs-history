@@ -153,4 +153,4 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 This example outputs a stream similar to the following.
 
-![Results of SQL code showing rowtime, hotspot, and hotspot_results.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/hotspots-example-1.png)
+![Results of SQL code showing rowtime, hotspot, and hotspot_results.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/hotspots-example-1.png)

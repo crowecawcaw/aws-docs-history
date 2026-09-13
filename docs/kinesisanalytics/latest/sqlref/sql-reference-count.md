@@ -112,7 +112,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing stock trades with columns for row time, ticker symbol, and count price.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-count-example-1.png)
+![Table showing stock trades with columns for row time, ticker symbol, and count price.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-count-example-1.png)
 
 
 ### Example 2: Return the Number of Values Using the OVER Clause
@@ -135,7 +135,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing rowtime, ticker symbols such as WMT and DFG, and count price values.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-count-example-2.png)
+![Table showing rowtime, ticker symbols such as WMT and DFG, and count price values.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-count-example-2.png)
 
 
 ## Usage Notes

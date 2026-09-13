@@ -104,7 +104,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing rowtime, ticker symbol, and max price for four stock entries.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-max-example-1.png)
+![Table showing rowtime, ticker symbol, and max price for four stock entries.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-max-example-1.png)
 
 
 ### Example 2: Return the Maximum Value Using the OVER Clause
@@ -127,7 +127,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing rowtime, ticker symbols such as QAZ and QXZ, and corresponding max prices.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-max-example-2.png)
+![Table showing rowtime, ticker symbols such as QAZ and QXZ, and corresponding max prices.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-max-example-2.png)
 
 
 ## Usage Notes

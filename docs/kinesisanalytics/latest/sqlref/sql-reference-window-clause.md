@@ -118,7 +118,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock ticker data with columns for rowtime, ticker symbol, min price, max price, and avg price.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-analytic-functions-example-1.png)
+![Table showing stock ticker data with columns for rowtime, ticker symbol, min price, max price, and avg price.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-analytic-functions-example-1.png)
 
 
 ### Example 2: Row-Based Sliding Window That References a Named Window Specification
@@ -153,7 +153,7 @@ WINDOW
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock data with columns for rowtime, ticker symbol, price, and averages.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-analytic-functions-example-2.png)
+![Table showing stock data with columns for rowtime, ticker symbol, price, and averages.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-analytic-functions-example-2.png)
 
 
 ### Example 3: Time-Based Sliding Window with Inline Window Specification
@@ -179,7 +179,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing stock data with columns for rowtime, ticker symbol, price, and average price.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-analytic-functions-example-3.png)
+![Table showing stock data with columns for rowtime, ticker symbol, price, and average price.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-analytic-functions-example-3.png)
 
 
 ## Usage Notes

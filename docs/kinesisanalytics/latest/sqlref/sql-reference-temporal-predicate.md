@@ -8,23 +8,23 @@ The following table shows a graphic representation of temporal predicates suppor
 
 | Predicate | Covered Relationships | 
 | --- | --- | 
-| CONTAINS |  ![Blue rectangular shapes arranged in horizontal rows, resembling a simplified layout or structure.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_contains.png)  | 
-| OVERLAPS |  ![Blue rectangular boxes arranged in rows, representing a structured layout or diagram.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_overlaps.png)  | 
-| EQUALS |  ![Two horizontal blue rectangles with orange borders, stacked vertically.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_equals.png)  | 
-| PRECEDES |  ![Four blue rectangular buttons or containers arranged in a staggered layout.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_precedes.png)  | 
-| SUCCEEDS |  ![Four blue rectangular shapes arranged horizontally with gaps between them.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_succeeds.png)  | 
-| IMMEDIATELY PRECEDES |  ![Two horizontal progress bars with blue fill and orange borders at different stages.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_immediately_precedes.png)  | 
-| IMMEDIATELY SUCCEEDS |  ![Two horizontal blue rectangular shapes against a white background.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_immediately_succeeds.png)  | 
-| **LEADS** |  ![Four blue rectangular buttons with orange outlines, arranged horizontally.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_leads.png)  | 
-| **LAGS** |  ![Four horizontal progress bars or loading indicators of varying lengths.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_lags.png)  | 
-| **STRICTLY CONTAINS** |  ![Two blue rectangular buttons with orange borders, one larger than the other.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_contains.png)  | 
-| **STRICTLY OVERLAPS** |  ![Two blue rectangular buttons or UI elements of different sizes.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_overlaps.png)  | 
-| **STRICTLY PRECEDES** |  ![Two horizontal blue bars representing placeholder elements in a user interface.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_precedes.png)  | 
-| **STRICTLY SUCCEEDS** |  ![Two blue rectangular shapes representing UI elements or buttons.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_succeeds.png)  | 
-| **STRICTLY LEADS** |  ![Two blue rectangular buttons with orange borders, one smaller above and one larger below.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_leads.png)  | 
-| **STRICTLY LAGS** |  ![Two horizontal blue rectangular shapes, one above the other, against a white background.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_lags.png)  | 
-| **IMMEDIATELY LEADS** |  ![Two blue rectangular buttons with orange borders, one larger above and one smaller below.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_immediately_leads.png)  | 
-| **IMMEDIATELY LAGS** |  ![Two blue rectangular buttons with orange borders, one larger than the other.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_immediately_lags.png)  | 
+| CONTAINS |  ![Blue rectangular shapes arranged in horizontal rows, resembling a simplified layout or structure.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_contains.png)  | 
+| OVERLAPS |  ![Blue rectangular boxes arranged in rows, representing a structured layout or diagram.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_overlaps.png)  | 
+| EQUALS |  ![Two horizontal blue rectangles with orange borders, stacked vertically.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_equals.png)  | 
+| PRECEDES |  ![Four blue rectangular buttons or containers arranged in a staggered layout.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_precedes.png)  | 
+| SUCCEEDS |  ![Four blue rectangular shapes arranged horizontally with gaps between them.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_succeeds.png)  | 
+| IMMEDIATELY PRECEDES |  ![Two horizontal progress bars with blue fill and orange borders at different stages.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_immediately_precedes.png)  | 
+| IMMEDIATELY SUCCEEDS |  ![Two horizontal blue rectangular shapes against a white background.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_immediately_succeeds.png)  | 
+| **LEADS** |  ![Four blue rectangular buttons with orange outlines, arranged horizontally.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_leads.png)  | 
+| **LAGS** |  ![Four horizontal progress bars or loading indicators of varying lengths.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_lags.png)  | 
+| **STRICTLY CONTAINS** |  ![Two blue rectangular buttons with orange borders, one larger than the other.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_contains.png)  | 
+| **STRICTLY OVERLAPS** |  ![Two blue rectangular buttons or UI elements of different sizes.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_overlaps.png)  | 
+| **STRICTLY PRECEDES** |  ![Two horizontal blue bars representing placeholder elements in a user interface.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_precedes.png)  | 
+| **STRICTLY SUCCEEDS** |  ![Two blue rectangular shapes representing UI elements or buttons.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_succeeds.png)  | 
+| **STRICTLY LEADS** |  ![Two blue rectangular buttons with orange borders, one smaller above and one larger below.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_leads.png)  | 
+| **STRICTLY LAGS** |  ![Two horizontal blue rectangular shapes, one above the other, against a white background.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_strictly_lags.png)  | 
+| **IMMEDIATELY LEADS** |  ![Two blue rectangular buttons with orange borders, one larger above and one smaller below.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_immediately_leads.png)  | 
+| **IMMEDIATELY LAGS** |  ![Two blue rectangular buttons with orange borders, one larger than the other.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sqlrf_immediately_lags.png)  | 
 
 To enable concise expressions, Amazon Kinesis Data Analytics also supports the following extensions: 
 + Optional PERIOD keyword – The PERIOD keyword can be omitted.

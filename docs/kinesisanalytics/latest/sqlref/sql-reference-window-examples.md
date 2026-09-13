@@ -28,7 +28,7 @@ WINDOW
 
 As shown on the right side of the figure below, the time-based lastHour window contains varying numbers of rows, because window membership is defined by time range.
 
-![Time-based window example showing lastHour windows at different times containing varying row counts.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/window-examples.png)
+![Time-based window example showing lastHour windows at different times containing varying row counts.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/window-examples.png)
 
 
 ## Examples of windows containing rows
@@ -46,7 +46,7 @@ Figure 2: Examples of zero-width windows shows row-based and time-based windows 
 
 The time-based window lastZeroSeconds contains all rows with the same timestamp, of which there may be several. Note that RANGE CURRENT ROW is equivalent to RANGE INTERVAL '0' SECOND PRECEDING.
 
-![Table showing ticker data with time windows: lastZeroRows groups by row, lastZeroSeconds by timestamp.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/window-examples2.png)
+![Table showing ticker data with time windows: lastZeroRows groups by row, lastZeroSeconds by timestamp.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/window-examples2.png)
 
 
 ## Third Example: Partitioning applied to row-based and time-based windows
@@ -54,4 +54,4 @@ The time-based window lastZeroSeconds contains all rows with the same timestamp,
 
 Figure 3 shows windows that are similar to those in Figure 1 but with a PARTITION BY clause. For time-based window lastTwoSameTicker and the row-based window lastHourSameTicker, the window contains rows that meet the window criteria and have the same value of the ticker column. Note: Partitions are evaluated before windows.
 
-![Table showing rowtime, ticker, and amount columns with partitioned windows highlighted for rows.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/window-examples3.png)
+![Table showing rowtime, ticker, and amount columns with partitioned windows highlighted for rows.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/window-examples3.png)

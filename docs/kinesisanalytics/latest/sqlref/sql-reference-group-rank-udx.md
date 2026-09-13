@@ -115,7 +115,7 @@ CREATE OR REPLACE PUMP DESTINATION_SQL_STREAM_PUMP AS
 
 The preceding examples output a stream similar to the following.
 
-![Table showing ROWTIME, group_time, ticker, ticker_count, and group_rank columns with sample data.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-group-rank-example-01.png)
+![Table showing ROWTIME, group_time, ticker, ticker_count, and group_rank columns with sample data.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-group-rank-example-01.png)
 
 
 ## Operational Overview

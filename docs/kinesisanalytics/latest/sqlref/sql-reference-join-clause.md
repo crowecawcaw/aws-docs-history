@@ -160,7 +160,7 @@ INSERT INTO "OUTPUT_STREAM"
 
 The following diagram represents a query that returns all orders with shipments that executed in the last minute.
 
-![Diagram of the join between all orders (orders_stream) and the shipments (shipments_stream) that occurred in the last minute.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex1-graph.png)
+![Diagram of the join between all orders (orders_stream) and the shipments (shipments_stream) that occurred in the last minute.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex1-graph.png)
 
 
 ##### Triggering of Results
@@ -223,7 +223,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 The following diagram represents a query that returns all orders that executed in the last minute, with shipments that executed in the last minute.
 
-![Diagram of the join between all orders occurring in last minute (orders_stream) and the shipments occurring in last minute (shipments_stream).](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex2-graph.png)
+![Diagram of the join between all orders occurring in last minute (orders_stream) and the shipments occurring in last minute (shipments_stream).](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex2-graph.png)
 
 
 ##### Triggering of Results
@@ -286,7 +286,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 The following diagram represents a query that returns all shipments that executed in the last minute, whether or not there are corresponding orders in the last minute.
 
-![Diagram of a query returning all shipments (shipments_stream) occurring in the last minute, whether or not there are corresponding orders (orders_stream) in the last minute](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex3-graph.png)
+![Diagram of a query returning all shipments (shipments_stream) occurring in the last minute, whether or not there are corresponding orders (orders_stream) in the last minute](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex3-graph.png)
 
 
 ##### Triggering of Results
@@ -349,7 +349,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 The following diagram represents a query that returns all shipments that executed in the last minute, whether or not they have corresponding orders.
 
-![Diagram of a query returning all shipments (shipments_stream) in the last minute, whether or not there are corresponding orders (orders_stream).](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex4-graph.png)
+![Diagram of a query returning all shipments (shipments_stream) in the last minute, whether or not there are corresponding orders (orders_stream).](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex4-graph.png)
 
 
 ##### Triggering of Results
@@ -416,7 +416,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 The following diagram represents a query that returns all orders that executed in the last minute, whether or not there are corresponding shipments in the last minute.
 
-![Diagram of a query returning all orders (orders_stream) that executed in the last minute, whether or not there are corresponding shipments (shipments_stream) in the last minute.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex5-graph.png)
+![Diagram of a query returning all orders (orders_stream) that executed in the last minute, whether or not there are corresponding shipments (shipments_stream) in the last minute.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex5-graph.png)
 
 
 ##### Triggering of Results
@@ -482,7 +482,7 @@ CREATE OR REPLACE PUMP "OUTPUT_STREAM_PUMP" AS INSERT INTO "OUTPUT_STREAM"
 
 The following diagram represents a query that returns all orders that executed in the last minute, whether or not they have corresponding shipments.
 
-![Diagram of a query returning all orders (orders_stream) that executed in the last minute, whether or not they have corresponding shipments (shipments_stream).](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex6-graph.png)
+![Diagram of a query returning all orders (orders_stream) that executed in the last minute, whether or not they have corresponding shipments (shipments_stream).](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/select-join-ex6-graph.png)
 
 
 ##### Triggering of Results

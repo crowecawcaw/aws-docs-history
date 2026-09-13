@@ -90,7 +90,7 @@ SELECT STREAM ticker_symbol, VAR_SAMP(price) AS var_samp_price
 
 The preceding examples output a stream similar to the following:
 
-![Table with columns for ROWTIME, TICKER_SYMBOL, and VAR_SAMP_PRICE showing sample data rows.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-varsamp-1.png)
+![Table with columns for ROWTIME, TICKER_SYMBOL, and VAR_SAMP_PRICE showing sample data rows.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-varsamp-1.png)
 
 
 ### Example 2: Determine the sample variance of the values in a column in a sliding window query
@@ -113,7 +113,7 @@ WINDOW TEN_SECOND_SLIDING_WINDOW AS (
 
 The preceding example outputs a stream similar to the following:
 
-![Table with columns ROWTIME, TICKER_SYMBOL, and VAR_SAMP_PRICE showing stock data rows.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-varsamp-2.png)
+![Table with columns ROWTIME, TICKER_SYMBOL, and VAR_SAMP_PRICE showing stock data rows.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-varsamp-2.png)
 
 
 ## See Also

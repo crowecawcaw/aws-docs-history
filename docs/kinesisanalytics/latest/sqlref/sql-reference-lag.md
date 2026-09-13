@@ -85,7 +85,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Data table showing stock ticker symbols with corresponding price values and timestamps.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-lag.png)
+![Data table showing stock ticker symbols with corresponding price values and timestamps.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-lag.png)
 
 
 ## Notes

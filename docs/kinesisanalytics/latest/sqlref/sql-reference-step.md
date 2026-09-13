@@ -93,7 +93,7 @@ CREATE OR REPLACE PUMP "STREAM_PUMP" AS
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing rowtime, ticker symbol, and sum price columns with four rows of financial data.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-step-example-1.png)
+![Table showing rowtime, ticker symbol, and sum price columns with four rows of financial data.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-step-example-1.png)
 
 
 ## STEP in an OVER clause (sliding window)
@@ -126,7 +126,7 @@ WINDOW w1 AS (
 
 The preceding example outputs a stream similar to the following.
 
-![Table showing rowtime, ingest time, ticker symbols such as CRM and BAC, and symbol counts.](http://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-step-example-2.png)
+![Table showing rowtime, ingest time, ticker symbols such as CRM and BAC, and symbol counts.](https://docs.aws.amazon.com/kinesisanalytics/latest/sqlref/images/sql-reference-step-example-2.png)
 
 
 ## Notes
