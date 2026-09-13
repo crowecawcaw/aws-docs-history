@@ -10,7 +10,7 @@ With this architecture, you can build a content delivery network (CDN) platform 
 ## Search and booking metrics diagram
 <a name="sbm-diagram"></a>
 
-![How to gather traffic data in real time by using Amazon CloudFront, Amazon Kinesis, and Amazon OpenSearch Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/search-booking-metrics/images/search-booking-metrics.png)
+![How to gather traffic data in real time by using Amazon CloudFront, Amazon Kinesis, and Amazon OpenSearch Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/search-booking-metrics/images/search-booking-metrics.png)
 
 
 The following steps describe the architecture:
