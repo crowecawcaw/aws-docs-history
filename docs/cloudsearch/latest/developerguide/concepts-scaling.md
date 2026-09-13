@@ -9,7 +9,7 @@ Amazon CloudSearch can determine the size and number of search instances require
 
 When you create a search domain, a single instance is deployed for the domain. As the following illustration shows, you always have at least one instance for your domain. Amazon CloudSearch automatically scales the domain by adding instances as the volume of data or traffic increases. 
 
-![Scaling for Data and Traffic](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-scaling-diagram.png)
+![Scaling for Data and Traffic](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-scaling-diagram.png)
 
 
 ## Scaling for Data

@@ -26,13 +26,13 @@ Adjusting field weights only affects result ranking if the expression references
 1. Choose **Run**.
 
 1. The search results for the two expressions are shown side-by-side. (If the expression is empty, the results are sorted according to the default relevance `_score`.) Four icons highlight the differences:  
-![Green upward-pointing arrow icon indicating an increase or positive trend.](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-console-green-up-arrow.png) Green up arrow  
+![Green upward-pointing arrow icon indicating an increase or positive trend.](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-console-green-up-arrow.png) Green up arrow  
  The document is ranked higher in the search results using the second expression.   
-![Red downward-pointing arrow icon indicating a decrease or lower ranking.](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-console-red-down-arrow.png) Red down arrow  
+![Red downward-pointing arrow icon indicating a decrease or lower ranking.](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-console-red-down-arrow.png) Red down arrow  
  The document is ranked lower in the search results using the second expression.   
-![Yellow plus sign icon typically used to indicate an add or create action.](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-console-yellow-plus.png) Yellow plus  
+![Yellow plus sign icon typically used to indicate an add or create action.](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-console-yellow-plus.png) Yellow plus  
  The document is included in the search results using the second expression, but was omitted from the search results using the first expression.  
-![Red circular sign with a white horizontal bar, indicating prohibition or restriction.](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-console-red-minus.png) Red minus  
+![Red circular sign with a white horizontal bar, indicating prohibition or restriction.](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/images/cloudsearch-console-red-minus.png) Red minus  
  The document was omitted from the search results using the second expression, but was included in the search results using the first expression. 
 
 **Note**  
