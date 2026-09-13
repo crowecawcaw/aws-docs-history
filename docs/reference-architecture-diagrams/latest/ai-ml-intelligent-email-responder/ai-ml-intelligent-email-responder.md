@@ -10,7 +10,7 @@ This architecture shows how to improve customer experience and agent productivit
 ## AI/ML Based Intelligent Email Responder
 <a name="diagram1"></a>
 
-![Architecture diagram showing an AI/ML based intelligent email responder with Amazon SES, SageMaker AI, and Amazon Comprehend.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ai-ml-intelligent-email-responder/images/ai-ml-intelligent-email-responder.png)
+![Architecture diagram showing an AI/ML based intelligent email responder with Amazon SES, SageMaker AI, and Amazon Comprehend.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ai-ml-intelligent-email-responder/images/ai-ml-intelligent-email-responder.png)
 
 
 The following steps describe the architecture:
