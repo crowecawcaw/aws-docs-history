@@ -16,7 +16,7 @@ This topic provides an overview of dashboard features and shortcuts, and describ
 
 You can use dashboards to customize the presentation of your data. The following image shows the dashboard interface in the Amazon Managed Grafana workspace.
 
-![An image showing the interface for dashboards in an Amazon Managed Grafana workspace, with highlights for the buttons for different features.](http://docs.aws.amazon.com/grafana/latest/userguide/images/AMG-dashboard-overview-v10.png)
+![An image showing the interface for dashboards in an Amazon Managed Grafana workspace, with highlights for the buttons for different features.](https://docs.aws.amazon.com/grafana/latest/userguide/images/AMG-dashboard-overview-v10.png)
 
 
 

@@ -47,7 +47,7 @@ Lastly, if none of the notification policies are selected the default notificati
 
 Here is an example of a relatively simple notification policy tree and some alert instances.
 
-![An image showing a set of notification policies in a tree structure, and a set of alert instances with different labels to match to the policies.](http://docs.aws.amazon.com/grafana/latest/userguide/images/notification-routing.png)
+![An image showing a set of notification policies in a tree structure, and a set of alert instances with different labels to match to the policies.](https://docs.aws.amazon.com/grafana/latest/userguide/images/notification-routing.png)
 
 
 Here’s a breakdown of how these policies are selected:
@@ -82,7 +82,7 @@ The example below shows how the notification policy tree from our previous examp
 
 In this way, we can avoid having to specify the same contact point multiple times for each child policy.
 
-![An image showing a set of notification policies in a tree structure, with contact points assigned to some of the policies, but with some child policies inheriting the contact points of their parents, rather than defining their own.](http://docs.aws.amazon.com/grafana/latest/userguide/images/notification-inheritance.png)
+![An image showing a set of notification policies in a tree structure, with contact points assigned to some of the policies, but with some child policies inheriting the contact points of their parents, rather than defining their own.](https://docs.aws.amazon.com/grafana/latest/userguide/images/notification-inheritance.png)
 
 
 ## Additional configuration options

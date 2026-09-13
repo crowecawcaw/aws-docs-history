@@ -11,7 +11,7 @@ For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana
 
 Bar charts allow you to graph categorical data.
 
-![An image showing examples of bar chart visualizations in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/barchart_example.png)
+![An image showing examples of bar chart visualizations in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/barchart_example.png)
 
 
 ## Supported data formats

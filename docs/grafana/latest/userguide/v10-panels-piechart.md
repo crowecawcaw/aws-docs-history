@@ -9,7 +9,7 @@ For Grafana workspaces that support Grafana version 12.x, see [Working in Grafan
 For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
 For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
-![An image showing an example of a pie chart visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/pie_chart_example.png)
+![An image showing an example of a pie chart visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/pie_chart_example.png)
 
 
 The pie chart displays reduced series, or values in a series, from one or more queries, as they relate to each other, in the form of slices of a pie. The arc length, area and central angle of a slice are all proportional to the slices value, as it relates to the sum of all values. This type of chart is best used when you want a quick comparison of a small set of values in an aesthetically pleasing form.

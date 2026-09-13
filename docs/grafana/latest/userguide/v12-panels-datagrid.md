@@ -14,7 +14,7 @@ The data grid visualization is currently in preview by Grafana Labs. Support is 
 
 Datagrids offer you the ability to create, edit, and fine-tune data within Grafana. As such, this panel can act as a data source for other panels inside a dashboard.
 
-![An image showing an example of a datagrid visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/datagrid-panel-example.png)
+![An image showing an example of a datagrid visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/datagrid-panel-example.png)
 
 
 Through it, you can manipulate data queried from any data source, you can start from a blank slate, or you can pull data from a dragged and dropped file. You can then use the panel as a simple tabular visualization, or you can modify the data—and even remove it altogether—to create a blank slate.

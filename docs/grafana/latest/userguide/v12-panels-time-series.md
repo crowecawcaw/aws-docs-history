@@ -9,7 +9,7 @@ For Grafana workspaces that support Grafana version 10.x, see [Working in Grafan
 For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
 For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
 
-![An image showing examples of times series visualizations in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/time_series_example.png)
+![An image showing examples of times series visualizations in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/time_series_example.png)
 
 
 Time series visualizations are the default and primary way to visualize time series data as a graph. They can render series as lines, points, or bars. They're versatile enough to display almost any time-series data.

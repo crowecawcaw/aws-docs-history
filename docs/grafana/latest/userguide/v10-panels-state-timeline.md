@@ -11,7 +11,7 @@ For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana
 
 State timelines show discrete state changes over time. Each field or series is rendered as its unique horizontal band. State regions can either be rendered with or without values. This panel works well with string or boolean states but can also be used with time series. When used with time series, the thresholds are used to turn the numerical values into discrete state regions.
 
-![An image showing an example of a state timeline visualizations in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/state_timeline_example.png)
+![An image showing an example of a state timeline visualizations in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/state_timeline_example.png)
 
 
 ## State timeline options

@@ -5,7 +5,7 @@
 
 XY charts provide a way to visualize arbitrary x and y values in a graph so that you can easily show the relationship between two variables. XY charts are typically used to create scatter plots. you can also use them to create bubble charts, where field values determine the size of each bubble.
 
-![An image showing an example of an XY chart visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/xy-chart-example.png)
+![An image showing an example of an XY chart visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/xy-chart-example.png)
 
 
 ## Supported data formats

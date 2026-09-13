@@ -15,7 +15,7 @@ When you configure network access control, you must include at least one prefix 
 
 Amazon Managed Grafana uses the prefix lists and VPC endpoints to decide which requests to the Grafana workspace are allowed to connect. The following diagram shows this filtering.
 
-![An image showing Amazon Managed Grafana network access control allowing some requests and blocking others trying to access an Amazon Managed Grafana workspace.](http://docs.aws.amazon.com/grafana/latest/userguide/images/grafana-nac.png)
+![An image showing Amazon Managed Grafana network access control allowing some requests and blocking others trying to access an Amazon Managed Grafana workspace.](https://docs.aws.amazon.com/grafana/latest/userguide/images/grafana-nac.png)
 
 
 Configuring network access control (**1**) for an Amazon Managed Grafana workspace specifies which requests should be allowed to access the workspace. Network access control can allow or block traffic by IP address (**2**), or by which interface endpoint is being used (**3**).

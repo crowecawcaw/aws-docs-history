@@ -29,7 +29,7 @@ Before you configure the CloudWatch PromQL data source, verify the following req
 
 After you save the data source, you can use PromQL queries in Explore and dashboards to query CloudWatch metrics that are ingested through OTLP.
 
-![Amazon Managed Grafana Explore view showing a PromQL query for container CPU usage rate with enriched AWS labels available as filters](http://docs.aws.amazon.com/grafana/latest/userguide/images/grafana-cloudwatch-promql.png)
+![Amazon Managed Grafana Explore view showing a PromQL query for container CPU usage rate with enriched AWS labels available as filters](https://docs.aws.amazon.com/grafana/latest/userguide/images/grafana-cloudwatch-promql.png)
 
 
 For more information about OpenTelemetry metrics ingestion and PromQL queries in Amazon CloudWatch, see [Introducing OpenTelemetry and PromQL support in Amazon CloudWatch](https://aws.amazon.com/blogs/mt/introducing-opentelemetry-promql-support-in-amazon-cloudwatch/) on the AWS Cloud Operations Blog.

@@ -11,7 +11,7 @@ For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana
 
 The Candlestick visualization allows you to visualize data that includes a number of consistent dimensions focused on price movement. The Candlestick panel includes an Open-High-Low-Close (OHLC) mode, as well as support for additional dimensions based on time series data.
 
-![An image showing an example of a candlestick visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/candlestick-panel-example.png)
+![An image showing an example of a candlestick visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/candlestick-panel-example.png)
 
 
 Candlestick visualizations build upon the foundation of the [Time series](v12-panels-time-series.md) and includes many common configuration settings.

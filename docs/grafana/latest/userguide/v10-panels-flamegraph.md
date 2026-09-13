@@ -11,7 +11,7 @@ For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana
 
 Flame graphs let you visualize profiling data. Using this visualization, the profile can be represented as a flame graph, table, or both.
 
-![An image showing an example of a flame graph visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/flamegraph-panel-example.png)
+![An image showing an example of a flame graph visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/flamegraph-panel-example.png)
 
 
 ## Flame graph mode

@@ -11,7 +11,7 @@ For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana
 
 The Sankey panel shows Sankey diagrams, which are good for visualizing flow data, with the width of the flow being proportional to the selected metric. The following image shows a Sankey diagram with two groups of source and destinations.
 
-![Sankey diagram showing flow from source organizations through science disciplines to projects.](http://docs.aws.amazon.com/grafana/latest/userguide/images/sankey-panel.png)
+![Sankey diagram showing flow from source organizations through science disciplines to projects.](https://docs.aws.amazon.com/grafana/latest/userguide/images/sankey-panel.png)
 
 
 **How it works**

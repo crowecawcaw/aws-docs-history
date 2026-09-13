@@ -22,7 +22,7 @@ If you want your Amazon Managed Grafana workspace to connect to data outside of 
 
 To use Amazon Managed Grafana with resources in a VPC, you must create a connection to that VPC for the Amazon Managed Grafana workspace. After you set up the connection, Amazon Managed Grafana connects your workspace to each provided subnet in each Availability Zone in that VPC, and all traffic to or from the Amazon Managed Grafana workspace flows through the VPC. The following diagram shows how this connectivity looks, logically.
 
-![An image showing Amazon Managed Grafana connecting to a VPC across multiple Availability Zones.](http://docs.aws.amazon.com/grafana/latest/userguide/images/grafana-vpc-connection.png)
+![An image showing Amazon Managed Grafana connecting to a VPC across multiple Availability Zones.](https://docs.aws.amazon.com/grafana/latest/userguide/images/grafana-vpc-connection.png)
 
 
 Amazon Managed Grafana creates a connection (**1**) per subnet (using an [elastic network interface](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html), or ENI) to connect to the VPC (**2**). The Amazon Managed Grafana VPC connection is associated with a set of security groups (**3**) that control the traffic between the VPC and your Amazon Managed Grafana workspace. All traffic is routed through the configured VPC, including alert destination and data source connectivity. To connect to data sources and alert destinations in other VPCs or the public Internet (**4**), create a [gateway](https://docs.aws.amazon.com/vpc/latest/userguide/extend-intro.html) (**5**) between the other network and your VPC.

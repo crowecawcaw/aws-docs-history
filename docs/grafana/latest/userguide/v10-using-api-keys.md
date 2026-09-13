@@ -81,7 +81,7 @@ aws grafana create-workspace-api-key --key-name "{{key_name}}" --key-role "{{key
 
 The following is a sample CLI response:
 
-![create-workspace-api-key output example](http://docs.aws.amazon.com/grafana/latest/userguide/images/APICLI.png)
+![create-workspace-api-key output example](https://docs.aws.amazon.com/grafana/latest/userguide/images/APICLI.png)
 
 
 You can find the {{workspace\_id}} of your workspace by running the following command:

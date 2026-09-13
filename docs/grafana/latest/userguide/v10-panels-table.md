@@ -11,7 +11,7 @@ For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana
 
 Tables are very flexible, supporting multiple modes for time series and for tables, annotation, and raw JSON data. This visualization also provides date formatting, value formatting, and coloring options.
 
-![An image showing an example of a table visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/table_example.png)
+![An image showing an example of a table visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/table_example.png)
 
 
 **Note**  

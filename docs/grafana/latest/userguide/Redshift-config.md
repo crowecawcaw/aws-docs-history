@@ -39,9 +39,9 @@
 
 The following is an example of the ** Temporary Credentials** settings.
 
-![Temporary Credentials example](http://docs.aws.amazon.com/grafana/latest/userguide/images/redshift.png)
+![Temporary Credentials example](https://docs.aws.amazon.com/grafana/latest/userguide/images/redshift.png)
 
 
 The following is an example of the **AWS Secrets Manager** menu.
 
-![Secrets Manager example](http://docs.aws.amazon.com/grafana/latest/userguide/images/secretsmanager.png)
+![Secrets Manager example](https://docs.aws.amazon.com/grafana/latest/userguide/images/secretsmanager.png)

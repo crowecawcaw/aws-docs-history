@@ -35,19 +35,19 @@ The solution provides both anticipatory and corrective capabilities:
 
 The following image shows a sample of the dashboard folder for the solution.
 
-![An image showing an example of a Grafana dashboard folder built using this solution.](http://docs.aws.amazon.com/grafana/latest/userguide/images/eks-solution-dashboard-folder.png)
+![An image showing an example of a Grafana dashboard folder built using this solution.](https://docs.aws.amazon.com/grafana/latest/userguide/images/eks-solution-dashboard-folder.png)
 
 
 You can choose a dashboard to see more details, for example, choosing to view the Compute Resources for workloads will show a dashboard, such as that shown in the following image.
 
-![An image showing an example of a Grafana dashboard showing CPU usage built using this solution.](http://docs.aws.amazon.com/grafana/latest/userguide/images/eks-solution-dashboard-resource-usage.png)
+![An image showing an example of a Grafana dashboard showing CPU usage built using this solution.](https://docs.aws.amazon.com/grafana/latest/userguide/images/eks-solution-dashboard-resource-usage.png)
 
 
 The metrics are scraped with a 1 minute scrape interval. The dashboards show metrics aggregated to 1 minute, 5 minutes, or more, based on the specific metric.
 
 Logs are shown in dashboards, as well, so that you can query and analyze logs to find root causes of issues. The following image shows a log dashboard.
 
-![An image showing an example of a Grafana dashboard with logs, built using this solution.](http://docs.aws.amazon.com/grafana/latest/userguide/images/eks-solution-dashboard-logs.png)
+![An image showing an example of a Grafana dashboard with logs, built using this solution.](https://docs.aws.amazon.com/grafana/latest/userguide/images/eks-solution-dashboard-logs.png)
 
 
 For a list of metrics tracked by this solution, see [List of metrics tracked](#solution-eks-metrics).

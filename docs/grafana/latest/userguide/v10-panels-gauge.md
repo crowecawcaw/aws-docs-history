@@ -11,7 +11,7 @@ For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana
 
 Gauges are single-value visualizations that can repeat a gauge for every series, column or row.
 
-![An image showing an example of a gauge visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/gauge_example.png)
+![An image showing an example of a gauge visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/gauge_example.png)
 
 
 ## Value options

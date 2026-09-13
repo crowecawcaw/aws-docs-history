@@ -28,4 +28,4 @@
 
 The following is an example of the **Athena Details** settings.
 
-![Athena Details example](http://docs.aws.amazon.com/grafana/latest/userguide/images/athena.png)
+![Athena Details example](https://docs.aws.amazon.com/grafana/latest/userguide/images/athena.png)

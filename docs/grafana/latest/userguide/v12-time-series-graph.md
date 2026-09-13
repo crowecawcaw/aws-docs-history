@@ -18,9 +18,9 @@ Use this option to define how to display your time series data. You can use over
 <a name="v12-time-series-graph-bar"></a>
 
 Set the position of the bar relative to a data point.where the point would be drawn on the graph. Because a bar has a width, it can be placed before, after, or centered on the point. The choices for this option are:
-+ ![An image showing a bar graph aligned before a point.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar-alignment-before.png) **Before** – The bar is drawn before the point. The point is placed on the trailing corner of the bar.
-+ ![An image showing a bar graph aligned around a point.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar-alignment-center.png) **Center** – The bar is drawn around the point. The point is placed in the center of the bar. This is the default.
-+ ![An image showing a bar graph aligned after a point.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar-alignment-after.png) **After** – The bar is drawn after the point. the point is placed on the leading corner of the bar.
++ ![An image showing a bar graph aligned before a point.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar-alignment-before.png) **Before** – The bar is drawn before the point. The point is placed on the trailing corner of the bar.
++ ![An image showing a bar graph aligned around a point.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar-alignment-center.png) **Center** – The bar is drawn around the point. The point is placed in the center of the bar. This is the default.
++ ![An image showing a bar graph aligned after a point.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar-alignment-after.png) **After** – The bar is drawn after the point. the point is placed on the leading corner of the bar.
 
 ## Line width
 <a name="v12-time-series-graph-linewidth"></a>
@@ -63,7 +63,7 @@ Sets the size of the points, from 1 to 40 pixels in diameter.
 
 Choose how Grafana interpolates the series line.
 
-![An image showing different ways of drawing lines between points in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/line-interpolation.png)
+![An image showing different ways of drawing lines between points in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/line-interpolation.png)
 
 
 The options are:

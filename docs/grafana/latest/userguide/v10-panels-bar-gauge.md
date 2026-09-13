@@ -13,7 +13,7 @@ Bar gauges simplify your data by reducing every field to a single value. You cho
 
 This panel can show one or more bar gauges depending on how many series, rows, or columns your query returns.
 
-![An image showing an example of a bar gauge visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar_gauge_example.png)
+![An image showing an example of a bar gauge visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar_gauge_example.png)
 
 
 ## Value options

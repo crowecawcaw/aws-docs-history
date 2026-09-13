@@ -11,7 +11,7 @@ For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana
 
 Stats show one large stat value with an optional graph sparkline. You can control the background or value color using thresholds or overrides.
 
-![An image showing an example of a stat visualization in Grafana.](http://docs.aws.amazon.com/grafana/latest/userguide/images/viz/stat_panel_example.png)
+![An image showing an example of a stat visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/stat_panel_example.png)
 
 
 By default, a Stat displays one of the following:

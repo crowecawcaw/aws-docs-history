@@ -23,7 +23,7 @@ This solution configures an Amazon Managed Grafana workspace to provide metrics 
 
 The following image shows a sample of one of the dashboards created by this solution.
 
-![An image showing an example of a Grafana dashboard folder built using this solution.](http://docs.aws.amazon.com/grafana/latest/userguide/images/jvm-solution-overview.png)
+![An image showing an example of a Grafana dashboard folder built using this solution.](https://docs.aws.amazon.com/grafana/latest/userguide/images/jvm-solution-overview.png)
 
 
 The metrics are scraped with a 1 minute scrape interval. The dashboards show metrics aggregated to 1 minute, 5 minutes, or more, based on the specific metric.

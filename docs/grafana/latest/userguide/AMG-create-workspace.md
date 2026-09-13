@@ -32,7 +32,7 @@ The following steps take you through the process of creating a new Amazon Manage
 
    Optionally, add the tags you want to associate with this workspace. Tags help identify and organize workspaces and also can be used for controlling access to AWS resources. For example, you can assign a tag to the workspace and only a limited groups or roles can have the permission to access the workspace using the tag. For more information on tag-based access control, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in IAM User Guide.
 
-   ![Workspace details form showing name field with bigbankplatform, optional description field, and Tags section with owner key and user@amazon.com value.](http://docs.aws.amazon.com/grafana/latest/userguide/images/tagworkspace.png)
+   ![Workspace details form showing name field with bigbankplatform, optional description field, and Tags section with owner key and user@amazon.com value.](https://docs.aws.amazon.com/grafana/latest/userguide/images/tagworkspace.png)
 
 1. Choose a **Grafana version** for the workspace. You can choose version 9, 10, or 12. To understand the differences between the versions, see [Differences between Grafana versions](version-differences.md).
 
