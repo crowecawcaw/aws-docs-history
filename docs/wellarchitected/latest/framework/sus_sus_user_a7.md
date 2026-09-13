@@ -18,14 +18,14 @@ Buffering and throttling flatten the demand curve and reduce the provisioned cap
 
  Flattening the workload demand curve can help you to reduce the provisioned capacity for a workload and reduce its environmental impact. Assume a workload with the demand curve shown in below figure. This workload has two peaks, and to handle those peaks, the resource capacity as shown by orange line is provisioned. The resources and energy used for this workload is not indicated by the area under the demand curve, but the area under the provisioned capacity line, as provisioned capacity is needed to handle those two peaks. 
 
-![Provisioned capacity waveform with two distinct peaks that require high provisioned capacity.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/provisioned-capacity-1.png)
+![Provisioned capacity waveform with two distinct peaks that require high provisioned capacity.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/provisioned-capacity-1.png)
 
 
  
 
  You can use buffering or throttling to modify the demand curve and smooth out the peaks, which means less provisioned capacity and less energy consumed. Implement throttling when your clients can perform retries. Implement buffering to store the request and defer processing until a later time. 
 
-![Waveform diagram displaying a workload with smoothed-out peaks created using buffering or throttling.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/provisioned-capacity-2.png)
+![Waveform diagram displaying a workload with smoothed-out peaks created using buffering or throttling.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/provisioned-capacity-2.png)
 
 
  

@@ -17,14 +17,14 @@ From a finance and procurement organization perspective, the process for capital
 + Various finance teams act as approvers and procurers
 + Operations teams rack, stack, and hand off ready-to-use infrastructure
 
-![Circular workflow showing Technology teams requesting from Procurement, then Supply chain procuring, Operations managing rack and stack, connecting back to Technology teams.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/cost01-bp02-finance-and-procurement-workflow.png)
+![Circular workflow showing Technology teams requesting from Procurement, then Supply chain procuring, Operations managing rack and stack, connecting back to Technology teams.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/cost01-bp02-finance-and-procurement-workflow.png)
 
 
 With the adoption of cloud, infrastructure procurement and consumption are no longer beholden to a chain of dependencies. In the cloud model, technology and product teams are no longer just builders, but operators and owners of their products, responsible for most of the activities historically associated with finance and operations teams, including procurement and deployment.
 
 All it really takes to provision cloud resources is an account, and the right set of permissions. This is also what reduces IT and finance risk; which means teams are always a just few clicks or API calls away from terminating idle or unnecessary cloud resources. This is also what allows technology teams to innovate faster – the agility and ability to spin up and then tear down experiments. While the variable nature of cloud consumption may impact predictability from a capital budgeting and forecasting perspective, cloud provides organizations with the ability to reduce the cost of over-provisioning, as well as reduce the opportunity cost associated with conservative under-provisioning.
 
-![Triangle diagram showing Technology and Product teams deploy, Finance and Business teams operate, and both optimize.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/cost01-bp02-deploy-operate-optimize.png)
+![Triangle diagram showing Technology and Product teams deploy, Finance and Business teams operate, and both optimize.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/cost01-bp02-deploy-operate-optimize.png)
 
 
 Establish a partnership between key finance and technology stakeholders to create a shared understanding of organizational goals and develop mechanisms to succeed financially in the variable spend model of cloud computing. Relevant teams within your organization must be involved in cost and usage discussions at all stages of your cloud journey, including: 

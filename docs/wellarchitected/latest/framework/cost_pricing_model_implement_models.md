@@ -16,7 +16,7 @@
 
  For example, let’s look at this Web Application Architecture on AWS. This sample workload consists of multiple AWS services, such as Amazon Route 53, AWS WAF, Amazon CloudFront, Amazon EC2 instances, Amazon RDS instances, Load Balancers, Amazon S3 storage, and Amazon Elastic File System (Amazon EFS). You need to review each of these services, and identify potential cost saving opportunities with different pricing models. Some of them may be eligible for RIs or SPs, while some of them may be available only on-demand. As the following image shows, some of the AWS services can be committed using RIs or SPs. 
 
-![Chart of AWS services committed using Reserved Instances and Savings Plans](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/ri-sp-services.png)
+![Chart of AWS services committed using Reserved Instances and Savings Plans](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/ri-sp-services.png)
 
 
 ### Implementation steps

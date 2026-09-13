@@ -26,7 +26,7 @@
 
  Construct a matrix or worksheet to help guide your disaster recovery planning. In your matrix, create different workload categories or tiers based on their business impact (such as critical, high, medium, and low) and the associated RTOs and RPOs to target for each one. The following matrix provides an example (note that your RTO and RPO values may differ) you can follow: 
 
-![Chart showing the disaster recovery matrix](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/disaster-recovery-matrix.png)
+![Chart showing the disaster recovery matrix](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/disaster-recovery-matrix.png)
 
 
  For each workload, investigate and understand the impact of downtime and lost data on your business. The impact typically grows with downtime and data loss, but the shape of the impact can differ based on the workload type. For example, downtime for up to an hour might have low impact, but after that, the impact could quickly intensify. Impact can take many forms, including financial impact (such as lost revenue), reputational impact (including loss of customer trust), operational impact (such as a missed payroll or decreased productivity), and regulatory risk. Once completed, assign the workload to the appropriate tier. 
@@ -57,7 +57,7 @@
 
  The following worksheet can aid your evaluation of each workload. You may modify this worksheet to suit your specific needs, such as adding additional questions. 
 
-<a name="worksheet"></a>![Worksheet](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/worksheet.png)
+<a name="worksheet"></a>![Worksheet](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/worksheet.png)
 
 
 ### Implementation steps

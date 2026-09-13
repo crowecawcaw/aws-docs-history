@@ -36,7 +36,7 @@ Implement a standardized process across your organization to identify and remove
 
  The following simple decommissioning process flowchart outlines the decommissioning steps. Before decommissioning resources, verify that resources you have identified for decommissioning are not being used by the organization. 
 
-![Flow chart depicting the steps of decommissioning a resource.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/decommissioning-process-flowchart.png)
+![Flow chart depicting the steps of decommissioning a resource.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/decommissioning-process-flowchart.png)
 
 
 ## Resources

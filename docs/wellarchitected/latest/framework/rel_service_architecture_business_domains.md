@@ -24,7 +24,7 @@ Service-oriented architectures (SOA) define services with well-delineated functi
 
  Domain-driven design (DDD) is the foundational approach of designing and building software around business domains. It’s helpful to work with an existing framework when building services focused on business domains. When working with existing monolithic applications, you can take advantage of decomposition patterns that provide established techniques to modernize applications into services. 
 
-![Flow chart depicting the approach of domain-driven design.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/domain-driven-decision.png)
+![Flow chart depicting the approach of domain-driven design.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/domain-driven-decision.png)
 
 
  

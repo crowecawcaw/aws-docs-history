@@ -28,7 +28,7 @@ Throttle requests to mitigate resource exhaustion due to unexpected increases in
 
  When your service requires a throttling implementation, consider implementing the token bucket algorithm, where a token counts for a request. Tokens are refilled at a throttle rate per second and emptied asynchronously by one token per request. 
 
-![Diagram describing the token bucket algorithm.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/token-bucket-algorithm.png)
+![Diagram describing the token bucket algorithm.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/token-bucket-algorithm.png)
 
 
  

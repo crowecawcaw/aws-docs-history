@@ -44,7 +44,7 @@ Chaos engineering is the discipline of experimenting on a system in order to bui
 
  AWS Fault Injection Service (AWS FIS) is a fully managed service for running fault injection experiments that can be used as part of your CD pipeline, or outside of the pipeline. AWS FIS is a good choice to use during chaos engineering game days. It supports simultaneously introducing faults across different types of resources including Amazon EC2, Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), and Amazon RDS. These faults include termination of resources, forcing failovers, stressing CPU or memory, throttling, latency, and packet loss. Since it is integrated with Amazon CloudWatch Alarms, you can set up stop conditions as guardrails to rollback an experiment if it causes unexpected impact. 
 
-![Diagram showing AWS Fault Injection Service integrates with AWS resources to allow you to run fault injection experiments for your workloads.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/fault-injection-simulator.png)
+![Diagram showing AWS Fault Injection Service integrates with AWS resources to allow you to run fault injection experiments for your workloads.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/fault-injection-simulator.png)
 
 
 There are also several third-party options for fault injection experiments. These include open-source tools such as [Chaos Toolkit](https://chaostoolkit.org/), [Chaos Mesh](https://chaos-mesh.org/), and [Litmus Chaos](https://litmuschaos.io/), as well as commercial options like Gremlin. To expand the scope of faults that can be injected on AWS, AWS FIS [integrates with Chaos Mesh and Litmus Chaos](https://aws.amazon.com/about-aws/whats-new/2022/07/aws-fault-injection-simulator-supports-chaosmesh-litmus-experiments/), allowing you to coordinate fault injection workflows among multiple tools. For example, you can run a stress test on a pod’s CPU using Chaos Mesh or Litmus faults while terminating a randomly selected percentage of cluster nodes using AWS FIS fault actions. 
@@ -69,7 +69,7 @@ There are also several third-party options for fault injection experiments. Thes
     Use the assigned priority to determine which faults to experiment with first and the order with which to develop new fault injection experiments. 
 
 1.  For each experiment that you perform, follow the chaos engineering and continuous resilience flywheel in the following figure.   
-![Diagram of the chaos engineering and continuous resilience flywheel, showing the Improvement, Steady state, Hypothesis, Run experiment, and Verify phases.](http://docs.aws.amazon.com/wellarchitected/latest/framework/images/chaos-engineering-flywheel.png)
+![Diagram of the chaos engineering and continuous resilience flywheel, showing the Improvement, Steady state, Hypothesis, Run experiment, and Verify phases.](https://docs.aws.amazon.com/wellarchitected/latest/framework/images/chaos-engineering-flywheel.png)
 
     
 
