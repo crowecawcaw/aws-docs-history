@@ -16,7 +16,7 @@
 
  There are also scenarios where you can use specific AWS configurations to configure the consumption profile of a tenant tiers. For example, in AWS Lambda, you can use reserve concurrency to limit the consumption of a given tenant tier. The diagram in Figure 24 provides an example of how this could be realized. 
 
-![Three Lambda tier configurations showing Basic with 100, Advanced with 300, and Premium with all unreserved concurrency.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image25.png)
+![Three Lambda tier configurations showing Basic with 100, Advanced with 300, and Premium with all unreserved concurrency.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image25.png)
 
 
 * Figure 24: Controlling tenant performance with reserve concurrency *

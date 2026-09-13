@@ -5,7 +5,7 @@
 
  While SaaS providers are often focused on the value of sharing resources, there are still scenarios where a SaaS provider might choose to have some (or all) of their tenants deployed in a model where each tenant is running a fully siloed stack of resources. Some would say that this full-stack model does not represent a SaaS environment. However, if you’ve surrounded these separate stacks with shared identity, onboarding, metering, metrics, deployment, analytics, and operations, then this is a valid variant of SaaS that trades economies of scale and operational efficiency for compliance, business, or domain considerations. With this approach, isolation is an end-to-end construct that spans an entire customer stack. The diagram in Figure 16 provides a conceptual view of this view of isolation. 
 
-![Three tenants each with isolated stacks containing Web App, Microservices, and databases.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image17.png)
+![Three tenants each with isolated stacks containing Web App, Microservices, and databases.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image17.png)
 
 
 * Figure 16: Silo isolation model *

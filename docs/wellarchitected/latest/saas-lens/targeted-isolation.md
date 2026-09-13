@@ -13,7 +13,7 @@
 
  Finally, at the bottom is the Account microservice which represents a silo model but only at the storage level. The compute of the microservice is shared by all tenants but each tenant has a dedicated *database* that holds its account data. In this scenario, the isolation concern is focused exclusively on separating the data. The compute is still enabled to be shared. 
 
-![Microservices architecture showing tenant data isolation models from fully siloed to shared compute with dedicated databases.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image21.png)
+![Microservices architecture showing tenant data isolation models from fully siloed to shared compute with dedicated databases.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image21.png)
 
 
 * Figure 20: Targeted isolation *

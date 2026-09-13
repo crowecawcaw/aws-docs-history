@@ -11,7 +11,7 @@
 
  You can imagine having various dashboards for the different roles that would consume this data. A product manager, for example, might want insights into feature-oriented metrics. Meanwhile, an operations person might be using this data to assess the health and consumption trends of individual tenants and tiers. 
 
-![Data flow from system and application events through Kinesis Data Firehose to Redshift to QuickSight.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image12.png)
+![Data flow from system and application events through Kinesis Data Firehose to Redshift to QuickSight.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image12.png)
 
 
 * Figure 11: Ingest and visualize SaaS metrics *

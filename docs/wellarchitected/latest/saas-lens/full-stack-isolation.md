@@ -13,7 +13,7 @@
 
  You’ll also notice that this model use Amazon Route 53 to route the incoming traffic to the appropriate VPC. The routing relies on a model where subdomains are assigned to each tenant. This is a very common pattern in SaaS environments. This routing can also be achieved by inspecting the contents of a tenant JWT token, determining their tenant context, and triggering routing rules through an injected tenant header. This approach, however, can push account limits and might require tuning to address the latency of a runtime resolution of a tenant’s identity. Still, it is a valid option for some SaaS environments. 
 
-![Multi-tenant architecture using Amazon Route 53 to direct traffic to separate VPCs with availability zones and auto scaling groups.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image8.png)
+![Multi-tenant architecture using Amazon Route 53 to direct traffic to separate VPCs with availability zones and auto scaling groups.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image8.png)
 
 
 * Figure 7: Full stack (silo) isolation *
@@ -27,7 +27,7 @@
 
  The diagram in Figure 8 provides a view of these extra layers of services. What we introduce here is an entirely separate set of services that are built around the needs of the SaaS provider’s administration and management experience. 
 
-![SaaS management architecture with API Gateway, service layers, and tenant VPCs.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image9.png)
+![SaaS management architecture with API Gateway, service layers, and tenant VPCs.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image9.png)
 
 
 * Figure 8: Managing full stack isolated environments *

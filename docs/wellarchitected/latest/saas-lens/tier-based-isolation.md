@@ -9,7 +9,7 @@
 
  While SaaS providers generally try to limit offering a silo model to their customers, many SaaS businesses have this notion of a private pricing where these tenants offer to pay a premium to be deployed in this model. In fact, SaaS companies will not publish this as an option or identify it as a tier to limit the number of customers that chose this option. If too many of your tenants fall into this model, you’ll begin to fall back to a fully siloed model and inherit many of the challenges that are outlined previously. 
 
-![Pool model with shared resources for multiple tenants versus silo model with dedicated resources for one tenant.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image20.png)
+![Pool model with shared resources for multiple tenants versus silo model with dedicated resources for one tenant.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image20.png)
 
 
 * Figure 19: Tier-based isolation *

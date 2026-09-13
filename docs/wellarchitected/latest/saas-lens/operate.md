@@ -16,7 +16,7 @@
 
  The simplified view in this diagram highlights a few samples of operational views that would add value in multi-tenant environment. At the top-left of the page, you’ll see a view of health for the most active tenants. The color indicators shown could focus attention to tenants that might be experiencing issues that, when looking at a global view of health, have not been surfaced. This allows operations to react and respond proactively to any issues that might not be entirely apparent to a tenant. 
 
-![Tenant-aware operations views](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image13.png)
+![Tenant-aware operations views](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image13.png)
 
 
 * Figure 12: Tenant-aware operations views *
@@ -47,7 +47,7 @@ The numbering of the questions in this whitepaper has been changed to match the 
 
  The next step in this process is to create a new user. This new user will represent the administrator for this new tenant. To support this process, we’ve included a user management service. This service doesn’t hold data about the user, but it creates the user in an identity provider (in this case Amazon Cognito). It also creates any IAM policies that are needed to support the isolation requirements of this tenant. 
 
-![Flowchart showing registration process with user management, tenant management, and billing integration.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image14.png)
+![Flowchart showing registration process with user management, tenant management, and billing integration.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image14.png)
 
 
 * Figure 13: Frictionless tenant onboarding *
@@ -77,7 +77,7 @@ The numbering of the questions in this whitepaper has been changed to match the 
 
  The diagram in Figure 14 provides a conceptual view of how these flags would be applied. A series of flags will be turned on and off for individual tenants, determining which capabilities are enabled for a tenant. These configuration options would be changed as a tenant signs up for new features of a SaaS offering. In some cases, these flags can be associated with tiers (instead of individual tenants). 
 
-![Tenant configuration diagram showing feature enablement for different tenants using on/off switches.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image15.png)
+![Tenant configuration diagram showing feature enablement for different tenants using on/off switches.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image15.png)
 
 
 * Figure 14: Managing tenant needs with feature flags *

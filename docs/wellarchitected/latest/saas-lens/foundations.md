@@ -24,7 +24,7 @@
 
  While this model relies on API Gateway to implement a throttling policy, this core concept can be applied to other infrastructure constructs. The fundamental goal of this approach is to have some ability to monitor and manage access at the entry point to your application, detecting and throttling any tenant that may impose load that could impact the overall reliability of your environment. 
 
-![API Gateway receiving requests from tenants using JWT tokens and API keys with usage plans.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image22.png)
+![API Gateway receiving requests from tenants using JWT tokens and API keys with usage plans.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image22.png)
 
 
 * Figure 21: Throttling tenants by tier *

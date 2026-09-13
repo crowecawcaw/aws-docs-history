@@ -13,7 +13,7 @@
 
  First, you’ll notice that we have the foundational elements that are part of any highly available, highly scalable AWS architecture. The environment includes a VPC that consists of three Availability Zones. Routing of inbound traffic from tenants is managed by Amazon Route 53, which is configured to direct incoming application requests to the endpoint defined by our NGINX ingress controller. The controller enables selected routing within our Amazon EKS cluster that is essential to the multi-tenant routing that you’ll see below. 
 
-![VPC with three Availability Zones containing public and private subnets with microservices.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image5.png)
+![VPC with three Availability Zones containing public and private subnets with microservices.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image5.png)
 
 
 * Figure 4: Amazon EKS SaaS shared services architecture *
@@ -22,7 +22,7 @@
 
  This architecture only represents the foundational elements of our SaaS environment. We now need to look at what it means to introduce tenants into this environment. Given the isolation considerations described previously, our Amazon EKS environment will create separate namespaces for each tenant and secure those namespaces to ensure that we have a robust tenant isolation model. 
 
-![VPC with three availability zones, each containing public and private subnets with tenant namespaces.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image6.png)
+![VPC with three availability zones, each containing public and private subnets with tenant namespaces.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image6.png)
 
 
 * Figure 5: Deploying tenant environments in Amazon EKS *
@@ -35,7 +35,7 @@
 
  To enhance the isolation story of our Amazon EKS environment, we’ll need to introduce different security constructs that can restrict the access of any tenant running in a given namespace. The diagram in Figure 6 provides a high-level illustration of an approach you can take to control the experience of each tenant. 
 
-![Multi-tenant namespace isolation with pod security policies, IAM policies, and separate database tables per tenant.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image7.jpeg)
+![Multi-tenant namespace isolation with pod security policies, IAM policies, and separate database tables per tenant.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image7.jpeg)
 
 
 * Figure 6: Isolating tenant resources *

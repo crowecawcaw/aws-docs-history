@@ -16,7 +16,7 @@
 
  The diagram in Figure 15 provides an example of how this is commonly achieved using AWS services. This example includes the common components and technologies that would be used to inject tenant context into a SaaS environment. This is illustrated on the left side of the diagram, where a tenant completes a sign-up form, and triggers a call to your application’s registration service. 
 
-![Multi-tenant SaaS architecture flow from registration through authentication to microservices.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image16.png)
+![Multi-tenant SaaS architecture flow from registration through authentication to microservices.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image16.png)
 
 
 * Figure 15: Injecting tenant content *

@@ -18,7 +18,7 @@
 
  Let’s start by looking at the simplest model for approximating tenant consumption. The diagram in Figure 25 provides a conceptual view of one way you could capture tenant activity in a minimally invasive model. The basic approach here is to inspect each call that is made to the API using as AWS Lambda authorizer. The authorizer would extract the tenant context from the incoming JWT and publish an event that records this activity for the tenant. An alternate approach to this would be to use AWS X-Ray to capture this data (instead of the Amazon API Gateway). 
 
-![Architecture showing API Gateway with Lambda authorizer extracting tenant context from JWT to record activity.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image26.png)
+![Architecture showing API Gateway with Lambda authorizer extracting tenant context from JWT to record activity.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image26.png)
 
 
 * Figure 25: Minimally invasive capture of tenant consumption *
@@ -29,7 +29,7 @@
 
  A more granular view of consumption can be created by introducing more specialized instrumentation into the details of your application. The diagram in Figure 26 provides a view of how you might introduce metrics instrumentation into the microservices of your SaaS application. 
 
-![Application metrics flow from CloudWatch through Lambda and Kinesis to S3 and aggregation service.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image27.png)
+![Application metrics flow from CloudWatch through Lambda and Kinesis to S3 and aggregation service.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image27.png)
 
 
 * Figure 26: Instrumenting microservices with tenant consumption events *
@@ -47,7 +47,7 @@
 
  To understand the business value of having better insights into how tenants are influencing costs for the business, let’s look at one example of how cost data could be applied in a SaaS environment. The graph in Figure 27 provides an example of a scenario where the costs of a SaaS environment were correlated with revenue from those tenants and the size of the ecommerce catalog being managed by these tenants. 
 
-![Stacked bar chart comparing infrastructure costs, tenant revenue, and catalog size across three tiers.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image28.png)
+![Stacked bar chart comparing infrastructure costs, tenant revenue, and catalog size across three tiers.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image28.png)
 
 
 * Figure 27: Costs per tenant by tier *
@@ -62,7 +62,7 @@
 
  The high-level view of this experience is captured in Figure 28. You’ll see that we have two distinct sets of data that we need to collect. One process will aggregate and ingest the data from your AWS bill summarizing the costs in a manner that aligns with the granularity of costs that are relevant to your cost per tenant model. Next, you’ll see the tenant consumption aggregation which analyzed tenant activity and assigns a percentage of consumption to each tenant. Finally, these consumption percentages are applied to the infrastructure costs to arrive at the cost per tenant. 
 
-![Cost aggregation and tenant consumption data combined to calculate per-tenant costs.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image29.png)
+![Cost aggregation and tenant consumption data combined to calculate per-tenant costs.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image29.png)
 
 
 * Figure 28: Calculating cost per tenant *

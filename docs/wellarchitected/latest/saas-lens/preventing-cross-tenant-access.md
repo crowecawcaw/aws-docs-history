@@ -9,7 +9,7 @@
 
  The other option here aligns more with the pool model. Here, functions are deployed with an execution role that has a scope that’s broad enough to accepts calls from all tenants. In this mode, you must apply isolation scoping at runtime in the implementation of your multi-tenant functions. The diagram in Figure 2 provides an example of how this would be addressed.
 
-![Runtime-acquired tenant scope flow showing IAM, isolation context, Lambda functions, and access context layers.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image3.png)
+![Runtime-acquired tenant scope flow showing IAM, isolation context, Lambda functions, and access context layers.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image3.png)
 
 
 * Figure 2: Isolation in a serverless environment *

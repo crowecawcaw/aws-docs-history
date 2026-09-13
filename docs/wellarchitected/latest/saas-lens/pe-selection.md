@@ -16,7 +16,7 @@
 
  In the simplest and most extreme case, you might consider creating tenant-specific deployments for parts of your application. The diagram in Figure 22 illustrates one way that you might decompose your system to address performance challenges. 
 
-![Diagram showing isolated tenant-specific microservices on left and shared microservices on right.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image23.png)
+![Diagram showing isolated tenant-specific microservices on left and shared microservices on right.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image23.png)
 
 
 * Figure 22: Addressing performance with siloed services *
@@ -44,7 +44,7 @@
 
  The graph in Figure 23 provides a hypothetical example of an environment that has aligned infrastructure consumption and tenant activity. Here the blue solid line represents the actual activity trends of tenants spanning a window of time. The red dashed line represents the actual infrastructure that’s being provisioned to address the load of tenants. 
 
-![Graph showing tenant consumption and cost lines closely aligned over time with similar peaks and valleys.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image24.png)
+![Graph showing tenant consumption and cost lines closely aligned over time with similar peaks and valleys.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image24.png)
 
 
 * Figure 23: Aligning tenant activity and consumption *

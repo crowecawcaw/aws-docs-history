@@ -13,7 +13,7 @@
 
  This theme continues across the rest of the experience here. Our call to getProducts() first gets the tenant identifier from the Token Manager. It then uses this context to get tenant-scoped credentials from an isolation manager before using these credentials to get the product data from DynamoDB. 
 
-![Architecture diagram showing multi-tenant microservice flow with JWT authentication and AWS services.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image11.png)
+![Architecture diagram showing multi-tenant microservice flow with JWT authentication and AWS services.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image11.png)
 
 
 * Figure 10: Developing multi-tenant microservices *

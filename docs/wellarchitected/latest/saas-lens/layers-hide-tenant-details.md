@@ -7,7 +7,7 @@
 
  The diagram in Figure 3 provides an example of how Lambda layers can be used to address these multi-tenant concepts. Here you’ll see that we have two separate microservices (Product and Order) that have a need to publish log and metrics data. The key detail here is that both services need to inject tenant context into their log messages and metric events. However, it would be less than ideal to have each service implementing these policies on their own. Instead, we’ve introduced a layer that includes code that manages the publishing of this data. 
 
-![Product and Order services with Lambda functions sending JWT tokens to a layer with Logging manager, Metrics manager, and Token manager components.](http://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image4.png)
+![Product and Order services with Lambda functions sending JWT tokens to a layer with Logging manager, Metrics manager, and Token manager components.](https://docs.aws.amazon.com/wellarchitected/latest/saas-lens/images/image4.png)
 
 
 * Figure 3: Lambda layers hide away tenant details *
