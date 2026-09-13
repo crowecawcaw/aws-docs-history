@@ -14,7 +14,7 @@ This reference architecture demonstrates how to build a mechanism to monitor [Am
 ## Cross-Account Amazon EC2 Status Monitoring for HPC Clusters Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to build a mechanism to monitor Amazon EC2 state changes for HPC clusters across multiple AWS accounts. It includes a dashboard to help monitor the cluster status as well as each individual Amazon EC2 instance's status.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hpc-cluster-monitoring/images/hpc-cluster-monitoring.png)
+![Reference architecture diagram showing how to build a mechanism to monitor Amazon EC2 state changes for HPC clusters across multiple AWS accounts. It includes a dashboard to help monitor the cluster status as well as each individual Amazon EC2 instance's status.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hpc-cluster-monitoring/images/hpc-cluster-monitoring.png)
 
 
 1.  In this diagram, there are two types of AWS accounts: 
