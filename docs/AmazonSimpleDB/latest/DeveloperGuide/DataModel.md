@@ -7,7 +7,7 @@ When using Amazon SimpleDB, you organize your structured data in domains within 
 
 Domains consist of items which are described by attribute name-value pairs. Consider the spreadsheet model shown in the following image.
 
-![Spreadsheet with items in rows and attributes in columns, showing query domains at bottom.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/spreadsheet3.png)
+![Spreadsheet with items in rows and attributes in columns, showing query domains at bottom.](https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/spreadsheet3.png)
 
 
 The components correspond to each part of a spreadsheet:

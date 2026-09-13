@@ -31,7 +31,7 @@ In this example, both W1 (write 1) and W2 (write 2) complete (receive a successf
 
  
 
-![Timeline diagram showing two clients with write operations W1 and W2, and read operations R1 and R2.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/consistency1.png)
+![Timeline diagram showing two clients with write operations W1 and W2, and read operations R1 and R2.](https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/consistency1.png)
 
 
  
@@ -45,7 +45,7 @@ For a consistent read, R2 returns `color = garnet`. For an eventually consistent
 
  
 
-![Timeline diagram showing two clients with write operations W1 and W2, and read operations R1 and R2.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/consistency2.png)
+![Timeline diagram showing two clients with write operations W1 and W2, and read operations R1 and R2.](https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/consistency2.png)
 
 
  
@@ -54,7 +54,7 @@ In the last example, Client 2 submits W2 before Amazon SimpleDB completes W1, so
 
  
 
-![Diagram showing two clients, two write operations W1 and W2, and two read operations R1 and R2 on a timeline.](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/consistency3.png)
+![Diagram showing two clients, two write operations W1 and W2, and two read operations R1 and R2 on a timeline.](https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/images/consistency3.png)
 
 
  
