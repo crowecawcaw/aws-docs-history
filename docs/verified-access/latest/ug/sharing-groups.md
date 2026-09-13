@@ -7,7 +7,7 @@ When you share a Verified Access group that you own with other AWS accounts, you
 
 The following diagram illustrates the benefit of sharing a Verified Access group. The central security team owns Account A. They manage users and groups in AWS IAM Identity Center, and manage the Verified Access resources required to provide access to internal applications, such as Verified Access trust providers, Verified Access instances, Verified Access groups, and Verified Access policies. The application team owns Account B. They manage the resources required to run their internal application, such as the load balancer, Auto Scaling group, DNS configuration in Amazon Route 53, and TLS certificates from AWS Certificate Manager (ACM). After the central security team shares a Verified Access group with Account B, the application team can create Verified Access endpoints using the shared group. Access to the application is allowed or denied based on the policies that the central security team created for the Verified Access group.
 
-![Sharing a Verified Access group between accounts in an organization.](http://docs.aws.amazon.com/verified-access/latest/ug/images/shared-groups.png)
+![Sharing a Verified Access group between accounts in an organization.](https://docs.aws.amazon.com/verified-access/latest/ug/images/shared-groups.png)
 
 
 ## Considerations

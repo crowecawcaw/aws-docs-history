@@ -16,7 +16,7 @@ In addition, Verified Access logs every access attempt, to help you respond quic
 
 The following diagram provides a high-level overview of Verified Access. Users send requests to access an application. Verified Access evaluates the request against the access policy for the group and any application-specific endpoint policies. If access is allowed, the request is sent to the application through the endpoint. 
 
-![Using Verified Access to authenticate an application request from a user.](http://docs.aws.amazon.com/verified-access/latest/ug/images/verified-access-components.png)
+![Using Verified Access to authenticate an application request from a user.](https://docs.aws.amazon.com/verified-access/latest/ug/images/verified-access-components.png)
 
 + **Verified Access instances** – An instance evaluates application requests and grants access only when your security requirements are met.
 + **Verified Access endpoints** – Each endpoint represents an application. In the diagram above, the application is hosted on EC2 instances that are targets of a load balancer.

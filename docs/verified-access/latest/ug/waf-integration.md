@@ -7,8 +7,6 @@ In addition to the authentication and authorization rules enforced by Verified A
 
 You can integrate AWS WAF with Verified Access by associating an AWS WAF web access control list (ACL) with a Verified Access instance. A web ACL is a AWS WAF resource that gives you fine-grained control over all of the HTTP web requests that your protected resource responds to. While the AWS WAF association or disassociation request is being processed, the status of any Verified Access endpoints attached to the instance are shown as `updating`. After the request is complete, the status returns to `active`. You can view the status in the AWS Management Console or by describing the endpoint with the AWS CLI.
 
-The user-identity trust provider determines when AWS WAF inspects the traffic. If you use IAM Identity Center, AWS WAF inspects the traffic before user authentication. If you use OpenID Connect (OIDC), AWS WAF inspects the traffic after user authentication.
-
 **Topics**
 + [Required IAM permissions](#waf-permissions)
 + [Associate an AWS WAF web ACL](#associate-web-acl)
