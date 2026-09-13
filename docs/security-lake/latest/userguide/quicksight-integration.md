@@ -14,7 +14,7 @@ To visualize your Amazon Security Lake data in Quick, to create the required AWS
 
 For more information about visualizing Security Lake data with Quick, see the following resources.
 
-[![AWS Videos](http://img.youtube.com/vi/vxvMHnfCCGw/0.jpg)](http://www.youtube.com/watch?v=vxvMHnfCCGw)
+[![AWS Videos](https://img.youtube.com/vi/vxvMHnfCCGw/0.jpg)](https://www.youtube.com/watch?v=vxvMHnfCCGw)
 
 
-[![AWS Videos](http://img.youtube.com/vi/qPYOsMsHDEM/0.jpg)](http://www.youtube.com/watch?v=qPYOsMsHDEM)
+[![AWS Videos](https://img.youtube.com/vi/qPYOsMsHDEM/0.jpg)](https://www.youtube.com/watch?v=qPYOsMsHDEM)

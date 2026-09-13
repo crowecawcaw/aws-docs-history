@@ -14,7 +14,7 @@ Other AWS services and third-party services can subscribe to the data that's sto
 ## Overview of Security Lake
 <a name="securitylake-diagram"></a>
 
-![Overview diagram of the Amazon Security Lake data lake which shows how Security Lake automatically builds a security data lake into your account.](http://docs.aws.amazon.com/security-lake/latest/userguide/images/Product-Page-Diagram_Amazon-Security-Lake.png)
+![Overview diagram of the Amazon Security Lake data lake which shows how Security Lake automatically builds a security data lake into your account.](https://docs.aws.amazon.com/security-lake/latest/userguide/images/Product-Page-Diagram_Amazon-Security-Lake.png)
 
 
 ## Features of Security Lake

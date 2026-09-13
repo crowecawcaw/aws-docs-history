@@ -12,7 +12,7 @@ When you continue using Security Lake after the 15-day free trial ends, you will
 
 To understand the methodology behind Security Lake pricing, watch the following video: 
 
-[![AWS Videos](http://img.youtube.com/vi/CbzLCntmgiY/0.jpg)](http://www.youtube.com/watch?v=CbzLCntmgiY)
+[![AWS Videos](https://img.youtube.com/vi/CbzLCntmgiY/0.jpg)](https://www.youtube.com/watch?v=CbzLCntmgiY)
 
 
 **Data ingestion**  

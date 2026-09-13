@@ -14,4 +14,4 @@ OpenSearch Service uses a OpenSearch Serverless collection to directly query the
 For more information about using OpenSearch Service with Security Lake, use the following resources.
 + [Introducing Amazon OpenSearch Service and Amazon Security Lake integration to simplify security analytics](https://aws.amazon.com/blogs/aws/introducing-amazon-opensearch-service-zero-etl-integration-for-amazon-security-lake/)
 + Introduction to zero-ETL on OpenSearch Service with Amazon Security Lake  
-[![AWS Videos](http://img.youtube.com/vi/1k9ASeoKCus/0.jpg)](http://www.youtube.com/watch?v=1k9ASeoKCus)
+[![AWS Videos](https://img.youtube.com/vi/1k9ASeoKCus/0.jpg)](https://www.youtube.com/watch?v=1k9ASeoKCus)
