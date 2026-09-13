@@ -6628,6 +6628,7 @@ For information about extensions and modules, see [Extensions supported for Auro
 This release of Aurora PostgreSQL is compatible with PostgreSQL 14.6. For more information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 14.6](https://www.postgresql.org/docs/14/release-14-6.html).
 
 **Topics**
++ [Aurora PostgreSQL 14.6.16, August 07, 2026](#aurorapostgresql-versions-version146x-14616)
 + [Aurora PostgreSQL 14.6.13, June 18, 2025](#aurorapostgresql-versions-version14613x-14613)
 + [Aurora PostgreSQL 14.6.12, April 29, 2025](#aurorapostgresql-versions-version14612x-14612)
 + [Aurora PostgreSQL 14.6.10, November 18, 2024](#aurorapostgresql-versions-version146x-14610)
@@ -6641,16 +6642,50 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.6. For more i
 + [Aurora PostgreSQL 14.6.1, February 17, 2023](#AuroraPostgreSQL.Updates.20180305.1461)
 + [Aurora PostgreSQL 14.6.0, January 20, 2023](#AuroraPostgreSQL.Updates.20180305.1460)
 
+#### Aurora PostgreSQL 14.6.16, August 07, 2026
+<a name="aurorapostgresql-versions-version146x-14616"></a>
+
+**Critical stability enhancements**
++ Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
++ Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+
+**High priority enhancements**
++ Backported fixes for the following PostgreSQL community security issues:
+  + [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003).
+  + [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004).
+  + [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005).
+  + [CVE-2026-2006](https://www.postgresql.org/support/security/CVE-2026-2006).
+  + [CVE-2026-2007](https://www.postgresql.org/support/security/CVE-2026-2007).
+  + [CVE-2026-3172](https://www.postgresql.org/support/security/CVE-2026-3172).
+  + [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472).
+  + [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473).
+  + [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474).
+  + [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475).
+  + [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476).
+  + [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477).
+  + [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478).
+  + [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479).
+  + [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575).
+  + [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637).
+  + [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638).
+
+**Security enhancements**
++ Improved permission validation in the babelfish\_set\_role function when setting roles.
+
+**General enhancements**
++ Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
++ Fixed an issue where ALTER FUNCTION might fail with "routine name is not unique."
+
 #### Aurora PostgreSQL 14.6.13, June 18, 2025
 <a name="aurorapostgresql-versions-version14613x-14613"></a>
 
 **Critical stability enhancements**
-+ Fixed an issue related to the interaction between Aurora Serverless scaling and the improved reader availability functionality that might result in longer recover times and impact availability.
++ Fixed an issue related to the interaction between Aurora Serverless scaling and the improved reader availability functionality that might result in longer recovery times and impact availability.
 + Fixed an issue in the `rds_activity_stream` extension that could cause brief periods of unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
-+ Added support of newly released Regions for the aws\_s3 extension.
-+ Fixed an issue where unexpected internal communication channel re-establishments may cause increased latency on data processing.
++ Added support for newly released AWS Regions in the aws\_s3 extension.
++ Fixed an issue where unexpected internal communication channel re-establishments might cause increased latency on data processing.
 
 #### Aurora PostgreSQL 14.6.12, April 29, 2025
 <a name="aurorapostgresql-versions-version14612x-14612"></a>
@@ -6664,9 +6699,9 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.6. For more i
 
 **High priority enhancements**
 + Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed. 
-+ Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries. 
++ Fixed issues where the replication of vacuum operations might cause a restart when handling conflicts with user queries. 
 + Backported fixes for the following PostgreSQL community security issue:
-  + [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348)
+  + [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348).
 
 #### Aurora PostgreSQL 14.6.9, August 7, 2024
 <a name="AuroraPostgreSQL.Updates.20180305.1469"></a>
@@ -6685,60 +6720,60 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.6. For more i
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issue:
-  + [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985)
+  + [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985).
 
 **Critical stability enhancements**
 + Fixed an issue related to `apg_plan_mgmt`.
 + Fixed a deadlock issue in Aurora Storage which can result in writer failover.
-+ Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
++ Fixed an issue where the slot might partially replicate active transactions during logical replication slot creation.
 
 #### Aurora PostgreSQL 14.6.7, December 15, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1467"></a>
 
 **Critical stability enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
-  + [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870)
-  + [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869)
-  + [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868)
+  + [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870).
+  + [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869).
+  + [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868).
 
 **General stability enhancements**
-+ Fixed an issue with logical replication actions being performed by someone other than the table owner
++ Fixed an issue where someone other than the table owner performed logical replication actions.
 
 #### Aurora PostgreSQL 14.6.6, November 17, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1466"></a>
 
 **Critical stability enhancements**
 + Backported a fix for the following security issue:
-  + [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545)
-+ Fixed an issue related to `pg_cron` background worker processes
+  + [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545).
++ Fixed an issue related to `pg_cron` background worker processes.
 
 #### Aurora PostgreSQL 14.6.5, October 04, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1465"></a>
 
 **Critical stability enhancements**
 + Backported a fix for the following PostgreSQL community security issue:
-  + [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455)
-  + [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454)
+  + [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455).
+  + [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454).
 
 **High priority stability enhancements**
 + Fixed an issue which blocked vacuum operations after the restart of an Aurora replica.
-+ Fixed an issue which can cause a database instance to restart while executing IO intensive read workloads
-+ Fixed an issue that would cause high CPU usage and prevent new connections
++ Fixed an issue which can cause a database instance to restart while executing IO intensive read workloads.
++ Fixed an issue that would cause high CPU usage and prevent new connections.
 
 **General enhancements**
-+ Introduced diagnostics for the transient metadata used for I/O
++ Introduced diagnostics for the transient metadata used for I/O.
 
 #### Aurora PostgreSQL 14.6.4, September 13, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1464"></a>
 
 **General enhancements**
-+ Added Aurora Serverless v2 scaling enhancements
-+ Fixed an issue in `pg_cron` which can prevent scaling in Aurora Serverless v2
-+ Fixed an issue with the calculation of the `AuroraReplicaLag` metric
-+ Fixed a bug which can cause unavailability during ZDP
-+ Fixed an issue preventing `pglogical` from logging conflicting rows during the apply phase
-+ Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots
-+ Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters, customers will now be able to change the connect and request timeouts for AWS Lambda integration:
++ Added Aurora Serverless v2 scaling enhancements.
++ Fixed an issue in `pg_cron` which can prevent scaling in Aurora Serverless v2.
++ Fixed an issue with the calculation of the `AuroraReplicaLag` metric.
++ Fixed a bug which can cause unavailability during ZDP.
++ Fixed an issue preventing `pglogical` from logging conflicting rows during the apply phase.
++ Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots.
++ Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters, you can now change the connect and request timeouts for AWS Lambda integration:
   + `aws_lambda.connect_timeout_ms`
   + `aws_lambda.request_timeout_ms`
 
@@ -6747,14 +6782,14 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.6. For more i
 
 **Critical stability enhancements**
 + Backported a fix for the following PostgreSQL community security issue:
-  + [CVE-2022-41862](https://nvd.nist.gov/vuln/detail/CVE-2022-41862)
+  + [CVE-2022-41862](https://nvd.nist.gov/vuln/detail/CVE-2022-41862).
 
 **General stability enhancements**
-+ Fixed an issue where the approved plans for joins with partitioned tables weren't being enforced
-+ Fixed an issue in `PostGIS` where the `GDAL` data wasn't loading
-+ Fixed an issue that increased the amount of recovery work during startup if logical replication is enabled 
-+ Fixed an issue with the `aws_s3` extension where loading a large number of records can time out 
-+ Fixed an issue that causes logical replication to fail when using write-through cache
++ Fixed an issue where the approved plans for joins with partitioned tables weren't being enforced.
++ Fixed an issue in `PostGIS` where the `GDAL` data wasn't loading.
++ Fixed an issue that increased the amount of recovery work during startup if logical replication is enabled. 
++ Fixed an issue with the `aws_s3` extension where loading a large number of records can time out. 
++ Fixed an issue that causes logical replication to fail when using write-through cache.
 
 #### Aurora PostgreSQL 14.6.1, February 17, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1461"></a>
@@ -6766,19 +6801,19 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.6. For more i
 <a name="AuroraPostgreSQL.Updates.20180305.1460"></a>
 
 **High priority stability enhancements**
-+  Fixed an issue where an upgrade fails because the oldest `MultiXactId` is updated incorrectly 
-+  Fixed an issue that could lead to a brief period of unavailability 
++  Fixed an issue where an upgrade fails because the oldest `MultiXactId` is updated incorrectly. 
++  Fixed an issue that could lead to a brief period of unavailability. 
 
 **General stability enhancements**
-+  Fixed an issue that caused DB instance migration failures 
-+  Fixed an issue where the DB fails to start because of an inconsistency in the metadata 
-+  Improved the error handling and diagnosability 
-+  Upgraded the `RDKit` extension to version 4.2 
-+  Upgraded the `GDAL` library to version 3.4.3 
-+  Fixed an issue where the cluster cache management process doesn't shutdown gracefully 
-+  Fixed an issue that can cause certain processes to linger in an inconsistent state during a clean shutdown 
-+  Fixed an issue with the `pg_repack` extension 
-+  Improved the collation library, `glibc`, handling with a new independent default collation library 
++  Fixed an issue that caused DB instance migration failures. 
++  Fixed an issue where the DB fails to start because of an inconsistency in the metadata. 
++  Improved the error handling and diagnosability. 
++  Upgraded the `RDKit` extension to version 4.2. 
++  Upgraded the `GDAL` library to version 3.4.3. 
++  Fixed an issue where the cluster cache management process doesn't shutdown gracefully. 
++  Fixed an issue that can cause certain processes to linger in an inconsistent state during a clean shutdown. 
++  Fixed an issue with the `pg_repack` extension. 
++  Improved the collation library, `glibc`, handling with a new independent default collation library. 
 
 ### PostgreSQL 14.5 (Deprecated)
 <a name="AuroraPostgreSQL.Updates.20180305.145X"></a>
@@ -8838,6 +8873,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.10. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.9. For more information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 13.9](https://www.postgresql.org/docs/13/release-13-9.html).
 
 **Topics**
++ [Aurora PostgreSQL 13.9.16, August 07, 2026](#aurorapostgresql-versions-version139x-13916)
 + [Aurora PostgreSQL 13.9.13, June 18, 2025](#aurorapostgresql-versions-version13913x-13913)
 + [Aurora PostgreSQL 13.9.12, April 29, 2025](#aurorapostgresql-versions-version13912x-13912)
 + [Aurora PostgreSQL 13.9.10, November 18, 2024](#aurorapostgresql-versions-version139x-13910)
@@ -8850,16 +8886,50 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.9. For more i
 + [Aurora PostgreSQL 13.9.2, March 3, 2023](#AuroraPostgreSQL.Updates.20180305.1392)
 + [Aurora PostgreSQL 13.9.0, January 20, 2023](#AuroraPostgreSQL.Updates.20180305.1390)
 
+#### Aurora PostgreSQL 13.9.16, August 07, 2026
+<a name="aurorapostgresql-versions-version139x-13916"></a>
+
+**Critical stability enhancements**
++ Fixed a bug in the aws\_s3 extension which, in rare circumstances, can cause database unavailability.
++ Fixed an issue in Babelfish where table-valued parameters would store only the last row N times, where N is the total number of rows provided.
+
+**High priority enhancements**
++ Backported fixes for the following PostgreSQL community security issues:
+  + [CVE-2026-2003](https://www.postgresql.org/support/security/CVE-2026-2003).
+  + [CVE-2026-2004](https://www.postgresql.org/support/security/CVE-2026-2004).
+  + [CVE-2026-2005](https://www.postgresql.org/support/security/CVE-2026-2005).
+  + [CVE-2026-2006](https://www.postgresql.org/support/security/CVE-2026-2006).
+  + [CVE-2026-2007](https://www.postgresql.org/support/security/CVE-2026-2007).
+  + [CVE-2026-3172](https://www.postgresql.org/support/security/CVE-2026-3172).
+  + [CVE-2026-6472](https://www.postgresql.org/support/security/CVE-2026-6472).
+  + [CVE-2026-6473](https://www.postgresql.org/support/security/CVE-2026-6473).
+  + [CVE-2026-6474](https://www.postgresql.org/support/security/CVE-2026-6474).
+  + [CVE-2026-6475](https://www.postgresql.org/support/security/CVE-2026-6475).
+  + [CVE-2026-6476](https://www.postgresql.org/support/security/CVE-2026-6476).
+  + [CVE-2026-6477](https://www.postgresql.org/support/security/CVE-2026-6477).
+  + [CVE-2026-6478](https://www.postgresql.org/support/security/CVE-2026-6478).
+  + [CVE-2026-6479](https://www.postgresql.org/support/security/CVE-2026-6479).
+  + [CVE-2026-6575](https://www.postgresql.org/support/security/CVE-2026-6575).
+  + [CVE-2026-6637](https://www.postgresql.org/support/security/CVE-2026-6637).
+  + [CVE-2026-6638](https://www.postgresql.org/support/security/CVE-2026-6638).
+
+**Security enhancements**
++ Improved permission validation in the babelfish\_set\_role function when setting roles.
+
+**General enhancements**
++ Fixed an issue to reduce CPU overhead while establishing Encryption in Transit between the database engine and the storage layer.
++ Fixed an issue where ALTER FUNCTION might fail with "routine name is not unique."
+
 #### Aurora PostgreSQL 13.9.13, June 18, 2025
 <a name="aurorapostgresql-versions-version13913x-13913"></a>
 
 **Critical stability enhancements**
-+ Fixed an issue related to the interaction between Aurora Serverless scaling and the improved reader availability functionality that might result in longer recover times and impact availability.
++ Fixed an issue related to the interaction between Aurora Serverless scaling and the improved reader availability functionality that might result in longer recovery times and impact availability.
 + Fixed an issue in the `rds_activity_stream` extension that could cause brief periods of unavailability during configuration reloads and when maximum connections are consumed.
 
 **General enhancements**
-+ Added support of newly released Regions for the aws\_s3 extension.
-+ Fixed an issue where unexpected internal communication channel re-establishments may cause increased latency on data processing.
++ Added support for newly released AWS Regions in the aws\_s3 extension.
++ Fixed an issue where unexpected internal communication channel re-establishments might cause increased latency on data processing.
 
 #### Aurora PostgreSQL 13.9.12, April 29, 2025
 <a name="aurorapostgresql-versions-version13912x-13912"></a>
@@ -8873,9 +8943,9 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.9. For more i
 
 **High priority enhancements**
 + Fixed an issue that would cause a longer restart time when `rds.enable_plan_management` is turned on, but apg\_plan\_mgmt extension is not installed. 
-+ Fixed issues where the replication of vacuum operations may cause a restart when handling conflicts with user queries. 
++ Fixed issues where the replication of vacuum operations might cause a restart when handling conflicts with user queries. 
 + Backported fixes for the following PostgreSQL community security issue:
-  + [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348)
+  + [CVE-2024-7348](https://nvd.nist.gov/vuln/detail/CVE-2024-7348).
 
 #### Aurora PostgreSQL 13.9.9, August 7, 2024
 <a name="AuroraPostgreSQL.Updates.20180305.1399"></a>
@@ -8895,40 +8965,40 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.9. For more i
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issue:
-  + [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985)
+  + [CVE-2024-0985](https://nvd.nist.gov/vuln/detail/CVE-2024-0985).
 
 **Critical stability enhancements**
 + Fixed an issue related to `apg_plan_mgmt`.
 + Fixed a deadlock issue in Aurora Storage which can result in writer failover.
-+ Fixed an issue where active transactions during logical replication slot creation may be partially replicated by the slot.
++ Fixed an issue where the slot might partially replicate active transactions during logical replication slot creation.
 
 #### Aurora PostgreSQL 13.9.7, December 15, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1397"></a>
 
 **Critical stability enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
-  + [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870)
-  + [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869)
-  + [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868)
+  + [CVE-2023-5870](https://nvd.nist.gov/vuln/detail/CVE-2023-5870).
+  + [CVE-2023-5869](https://nvd.nist.gov/vuln/detail/CVE-2023-5869).
+  + [CVE-2023-5868](https://nvd.nist.gov/vuln/detail/CVE-2023-5868).
 
 **General stability enhancements**
-+ Fixed an issue with logical replication actions being performed by someone other than the table owner
++ Fixed an issue where someone other than the table owner performed logical replication actions.
 
 #### Aurora PostgreSQL 13.9.6, November 17, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1396"></a>
 
 **Critical stability enhancements**
 + Backported a fix for the following security issue:
-  + [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545)
-+ Fixed an issue related to `pg_cron` background worker processes
+  + [CVE-2023-38545](https://nvd.nist.gov/vuln/detail/CVE-2023-38545).
++ Fixed an issue related to `pg_cron` background worker processes.
 
 #### Aurora PostgreSQL 13.9.5, October 04, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1395"></a>
 
 **Critical stability enhancements**
-+ Backported a fix for the following PostgreSQl community security issue:
-  + [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455)
-  + [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454)
++ Backported a fix for the following PostgreSQL community security issue:
+  + [CVE-2023-2455](https://nvd.nist.gov/vuln/detail/CVE-2023-2455).
+  + [CVE-2023-2454](https://nvd.nist.gov/vuln/detail/CVE-2023-2454).
 
 **High priority stability enhancements**
 + Fixed an issue which blocked vacuum operations after the restart of an Aurora replica.
@@ -8948,7 +9018,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.9. For more i
 + Fixed a bug which can cause unavailability during ZDP.
 + Fixed an issue preventing `pglogical` from logging conflicting rows during the apply phase.
 + Fixed an issue where, in rare cases, the `aws_s3` extension could fail to import from an Amazon S3 bucket with a name containing dots.
-+ Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters, customers will now be able to change the connect and request timeouts for AWS Lambda integration: 
++ Provided options to configure the timeouts within the `aws_lambda` extension. By setting the following parameters, you can now change the connect and request timeouts for AWS Lambda integration: 
   + `aws_lambda.connect_timeout_ms`.
   + `aws_lambda.request_timeout_ms`.
 
@@ -8957,14 +9027,14 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.9. For more i
 
 **Critical stability enhancements**
 + Backported a fix for the following PostgreSQL community security issue:
-  + [CVE-2022-41862](https://nvd.nist.gov/vuln/detail/CVE-2022-41862)
+  + [CVE-2022-41862](https://nvd.nist.gov/vuln/detail/CVE-2022-41862).
 
 **General stability enhancements**
 + Fixed an issue where the approved plans for joins with partitioned tables weren't being enforced. 
 + Fixed an issue in `PostGIS` where the `GDAL` data wasn't loading. 
 + Fixed an issue that increased the amount of recovery work during startup if logical replication is enabled. 
 + Fixed an issue with the `aws_s3` extension where loading a large number of records can time out. 
-+ Fixed an issue that causes logical replication to fail when using write-through cache
++ Fixed an issue that causes logical replication to fail when using write-through cache.
 
 #### Aurora PostgreSQL 13.9.0, January 20, 2023
 <a name="AuroraPostgreSQL.Updates.20180305.1390"></a>
