@@ -10,7 +10,7 @@ With this architecture, you can use IBM Maximo Visual Inspection (MVI) in a mode
 ## IBM Maximo quality insights architecture diagram
 <a name="imq-diagram"></a>
 
-![Architecture diagram for computer vision quality insights with IBM Maximo on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ibm-maximo-quality-insights/images/ibm-maximo-quality-insights-ra.png)
+![Architecture diagram for computer vision quality insights with IBM Maximo on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ibm-maximo-quality-insights/images/ibm-maximo-quality-insights-ra.png)
 
 
 The following steps describe the architecture:
