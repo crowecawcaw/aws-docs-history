@@ -9,7 +9,7 @@ Dashboard statistics include data for key security metrics such as the number of
 
 If automated sensitive data discovery is enabled, the **Summary** dashboard includes additional statistics. The statistics capture the status and results of automated discovery activities that Macie has performed thus far for your Amazon S3 data. The following image shows an example of these statistics. 
 
-![Sensitive data discovery statistics on the Summary dashboard. Each statistic has example data.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-summary-dashboard-sensitivity.png)
+![Sensitive data discovery statistics on the Summary dashboard. Each statistic has example data.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-summary-dashboard-sensitivity.png)
 
 
 The statistics are organized primarily into two sections, **Automated discovery** and **Coverage issues**. Statistics in the **Automated discovery** section provide a snapshot of the current status and results of automated sensitive data discovery activities. Statistics in the **Coverage issues** section indicate whether issues prevented Macie from analyzing objects in individual S3 buckets. The statistics don't include data for sensitive data discovery jobs that you create and run. However, remediating coverage issues for automated sensitive data discovery is likely to also increase coverage by jobs that you subsequently run.
@@ -50,7 +50,7 @@ Individual statistics in each section are as follows. For information about stat
 
 At the top of the dashboard, statistics indicate how much data you store in Amazon S3, and how much of that data Amazon Macie can analyze to detect sensitive data. The following image shows an example of these statistics for an organization with seven accounts.
 
-![The Storage and sensitive data discovery section of the dashboard. Each field contains example data.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-summary-dashboard-storage.png)
+![The Storage and sensitive data discovery section of the dashboard. Each field contains example data.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-summary-dashboard-storage.png)
 
 
 Individual statistics in this section are:
@@ -75,7 +75,7 @@ Note that **Storage** and **Objects** statistics don't include data about object
 
 This section captures the status and results of automated sensitive data discovery activities that Amazon Macie has performed thus far for your Amazon S3 data. The following image shows an example of the statistics that this section provides.
 
-![The Automated discovery section of the dashboard. A chart and related fields contain example data.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-summary-dashboard-asdd.png)
+![The Automated discovery section of the dashboard. A chart and related fields contain example data.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-summary-dashboard-asdd.png)
 
 
 Individual statistics in this section are as follows.
@@ -109,7 +109,7 @@ Note that statistics in the **Automated discovery** section don't include the re
 
 In this section, statistics indicate whether certain types of issues prevented Amazon Macie from analyzing objects in individual S3 buckets. The following image shows an example of the statistics that this section provides.
 
-![The Coverage issues section of the dashboard. Each field contains example data.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-summary-dashboard-coverage.png)
+![The Coverage issues section of the dashboard. Each field contains example data.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-summary-dashboard-coverage.png)
 
 
 Individual statistics in this section are:

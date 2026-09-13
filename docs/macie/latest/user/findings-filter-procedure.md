@@ -21,7 +21,7 @@ How you define and apply filter conditions depends on whether you use the Amazon
 
 If you use the Amazon Macie console to filter findings, Macie provides options to help you choose fields, operators, and values for individual conditions. You access these options by using filter settings on **Findings** pages, as shown in the following image.
 
-![The filter settings on a Findings page, the Finding status menu and the Filter criteria box.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-empty.png)
+![The filter settings on a Findings page, the Finding status menu and the Filter criteria box.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-empty.png)
 
 
 By using the **Finding status** menu, you can specify whether to include findings that were suppressed (automatically archived) by a [suppression rule](findings-suppression.md). By using the **Filter criteria** box, you can enter filter conditions.
@@ -34,15 +34,15 @@ Depending on the field that you choose, Macie displays different options. The op
 
 After you add a condition, Macie applies the criteria for the condition and adds the condition to a filter token in the **Filter criteria** box, as shown in the following image. 
 
-![The Filter criteria box with a token for a condition that specifies values for the Severity field.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-severity.png)
+![The Filter criteria box with a token for a condition that specifies values for the Severity field.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-severity.png)
 
 
 In this example, the condition is configured to include all medium-severity and high-severity findings, and to exclude all low-severity findings. It returns findings where the value for the **Severity** field *equals* **Medium** or **High**.
 
 **Tip**  
-For many fields, you can change a condition's operator from *equals* to *not equals* by choosing the equals icon (![The equals icon, which is a solid gray circle.](http://docs.aws.amazon.com/macie/latest/user/images/icon-operator-equals.png)) in the filter token for the condition. If you do this, Macie changes the operator to *not equals* and displays the not equals icon (![The not equals icon, which is an empty gray circle that has a backslash in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-operator-not-equals.png)) in the token. To switch to the *equals* operator again, choose the not equals icon. 
+For many fields, you can change a condition's operator from *equals* to *not equals* by choosing the equals icon (![The equals icon, which is a solid gray circle.](https://docs.aws.amazon.com/macie/latest/user/images/icon-operator-equals.png)) in the filter token for the condition. If you do this, Macie changes the operator to *not equals* and displays the not equals icon (![The not equals icon, which is an empty gray circle that has a backslash in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-operator-not-equals.png)) in the token. To switch to the *equals* operator again, choose the not equals icon. 
 
-As you add more conditions, Macie applies their criteria and adds them to tokens in the **Filter criteria** box. You can refer to the box at any time to determine which criteria you've applied. To remove a condition, choose the remove condition icon (![The remove filter condition icon, which is a circle that has an X in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-filter-remove.png)) in the token for the condition.
+As you add more conditions, Macie applies their criteria and adds them to tokens in the **Filter criteria** box. You can refer to the box at any time to determine which criteria you've applied. To remove a condition, choose the remove condition icon (![The remove filter condition icon, which is a circle that has an X in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-filter-remove.png)) in the token for the condition.
 
 **To filter findings by using the console**
 
@@ -83,9 +83,9 @@ Note that values are case sensitive. In addition, you can’t use partial values
 
 1. Repeat step 5 for each additional condition that you want to add.
 
-1. To remove a condition, choose the remove condition icon (![The remove filter condition icon, which is a circle that has an X in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-filter-remove.png)) in the filter token for the condition.
+1. To remove a condition, choose the remove condition icon (![The remove filter condition icon, which is a circle that has an X in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-filter-remove.png)) in the filter token for the condition.
 
-1. To change a condition, remove the condition by choosing the remove condition icon (![The remove filter condition icon, which is a circle that has an X in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-filter-remove.png)) in the filter token for the condition. Then repeat step 5 to add a condition with the correct settings.
+1. To change a condition, remove the condition by choosing the remove condition icon (![The remove filter condition icon, which is a circle that has an X in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-filter-remove.png)) in the filter token for the condition. Then repeat step 5 to add a condition with the correct settings.
 
 **Tip**  
 If you want to subsequently use this set of conditions again, you can save the set as a filter rule. To do this, choose **Save rule** in the **Filter criteria** box. Then enter a name and, optionally, a description for the rule. When you finish, choose **Save**.

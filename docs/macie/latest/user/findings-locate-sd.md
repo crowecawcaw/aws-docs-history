@@ -34,12 +34,12 @@ You can quickly display all the findings from a particular sensitive data discov
 1. In the details panel, scroll to the **Sensitive data** section. This section provides information about the categories and types of sensitive data that Macie found in the affected S3 object. It also indicates the number of occurrences of each type of sensitive data that Macie found.
 
    For example, the following image shows some details of a finding that reports 30 occurrences of credit card numbers, 20 occurrences of names, and 29 occurrences of US Social Security numbers.  
-![The finding details fields that show the number of occurrences of three types of sensitive data.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-sdf-csv-occurrences.png)
+![The finding details fields that show the number of occurrences of three types of sensitive data.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-sdf-csv-occurrences.png)
 
    If the finding includes details about the location of one or more occurrences of a specific type of sensitive data, the number of occurrences is a link. Choose the link to show the details. Macie opens a new window and displays the details in JSON format.
 
    For example, the following image shows the location of two occurrences of credit card numbers in an affected S3 object.  
-![The location data, in JSON format, for two occurrences of credit card numbers in an S3 object.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-sdf-csv-occurrences-json.png)
+![The location data, in JSON format, for two occurrences of credit card numbers in an S3 object.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-sdf-csv-occurrences-json.png)
 
    To save the details as a JSON file, choose **Download**, and then and specify a name and location for the file.
 

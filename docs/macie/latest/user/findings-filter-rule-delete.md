@@ -19,7 +19,7 @@ Follow these steps to delete a filter rule by using the Amazon Macie console.
 
 1. In the navigation pane, choose **Findings**.
 
-1. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](http://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the filter rule that you want to delete.
+1. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](https://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the filter rule that you want to delete.
 
 1. Under **Filter rule**, choose **Delete**.
 

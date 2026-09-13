@@ -75,7 +75,7 @@ With custom severity settings, you specify which severity to assign based on the
 
 For example, the following image shows severity settings that specify three occurrences thresholds, one for each severity level that Macie supports.
 
-![Severity settings that specify occurrences thresholds for Low, Medium, and High severity levels.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-cdi-severity.png)
+![Severity settings that specify occurrences thresholds for Low, Medium, and High severity levels.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-cdi-severity.png)
 
 
 The following table indicates the severity of the findings that the custom data identifier produces.

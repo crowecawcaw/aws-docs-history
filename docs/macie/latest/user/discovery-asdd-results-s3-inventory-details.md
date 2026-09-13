@@ -27,11 +27,11 @@ Follow these steps to review data sensitivity and other details for an S3 bucket
 
 1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/).
 
-1. In the navigation pane, choose **S3 buckets**. The **S3 buckets** page displays an interactive map of your bucket inventory. Optionally choose table (![The table view button, which is a button that displays three black horizontal lines.](http://docs.aws.amazon.com/macie/latest/user/images/btn-s3-table-view.png)) at the top of the page to display your inventory in tabular format instead.
+1. In the navigation pane, choose **S3 buckets**. The **S3 buckets** page displays an interactive map of your bucket inventory. Optionally choose table (![The table view button, which is a button that displays three black horizontal lines.](https://docs.aws.amazon.com/macie/latest/user/images/btn-s3-table-view.png)) at the top of the page to display your inventory in tabular format instead.
 
    By default, the page doesn't display data for buckets that are currently excluded from automated sensitive data discovery. If you're the Macie administrator for an organization, it also doesn't display data for accounts that automated sensitive data discovery is currently disabled for. To display this data, choose **X** in the **Is monitored by automated discovery** filter token below the filter box.
 
-1. To retrieve the latest bucket metadata from Amazon S3, choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) at the top of the page.
+1. To retrieve the latest bucket metadata from Amazon S3, choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) at the top of the page.
 
 1. Choose the bucket whose details you want to review. The details panel displays data sensitivity statistics and other information about the bucket.
 

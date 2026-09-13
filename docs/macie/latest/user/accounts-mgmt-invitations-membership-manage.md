@@ -48,7 +48,7 @@ Follow these steps to respond to a membership invitation by using the Amazon Mac
 1. In the navigation pane, choose **Accounts**.
 
 1. Under **Administrator account**, do one of the following:
-   + To accept the invitation, turn on **Accept** (![A toggle switch with a gray background and the toggle positioned to the left.](http://docs.aws.amazon.com/macie/latest/user/images/tgl-gray-off.png)) next to the invitation. Then choose **Accept invitation** or **Update**, depending on whether you previously accepted another invitation.
+   + To accept the invitation, turn on **Accept** (![A toggle switch with a gray background and the toggle positioned to the left.](https://docs.aws.amazon.com/macie/latest/user/images/tgl-gray-off.png)) next to the invitation. Then choose **Accept invitation** or **Update**, depending on whether you previously accepted another invitation.
    + To decline the invitation, choose **Decline invitation** next to the invitation, and then confirm that you want to decline the invitation.
 
 If you received and want to respond to the invitation in additional Regions, repeat the preceding steps in each additional Region.
@@ -103,7 +103,7 @@ Follow these steps to disassociate your account from its Macie administrator acc
 
 1. In the navigation pane, choose **Accounts**.
 
-1. Under **Administrator account**, turn off **Accept** (![A toggle switch with a blue background and the toggle positioned to the right.](http://docs.aws.amazon.com/macie/latest/user/images/tgl-blue-on.png)) next to the invitation, and then choose **Update**.
+1. Under **Administrator account**, turn off **Accept** (![A toggle switch with a blue background and the toggle positioned to the right.](https://docs.aws.amazon.com/macie/latest/user/images/tgl-blue-on.png)) next to the invitation, and then choose **Update**.
 
 The account continues to appear on the **Accounts** page. If you decide to re-join the organization, you can use this page to accept the original invitation again. Alternatively, you can decline and delete the invitation, which also deletes the association between your account and the other account. To do this, choose **Decline invitation**.
 

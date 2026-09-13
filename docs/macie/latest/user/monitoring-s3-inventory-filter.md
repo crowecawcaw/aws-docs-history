@@ -21,7 +21,7 @@ How you define and apply filter conditions depends on whether you use the Amazon
 
 If you use the Amazon Macie console to filter your S3 bucket inventory, Macie provides options to help you choose fields, operators, and values for individual conditions. You access these options by using the filter box on the **S3 buckets** page, as shown in the following image.
 
-![The filter box on the S3 buckets page.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-buckets-filter-bar-empty.png)
+![The filter box on the S3 buckets page.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-buckets-filter-bar-empty.png)
 
 
 When you place your cursor in the filter box, Macie displays a list of fields that you can use in filter conditions. The fields are organized by logical category. For example, the **Common fields** category includes fields that store general information about an S3 bucket. **Public access** categories include fields that store data about the various types of public access settings that can apply to a bucket. The fields are sorted alphabetically within each category.
@@ -32,7 +32,7 @@ Depending on the field that you choose, Macie displays different options. The op
 
 After you add a condition, Macie applies the criteria for the condition and displays the condition in a filter token below the filter box, as shown in the following image.
 
-![The filter box with a filter token for a condition.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-buckets-filter-bar-public.png)
+![The filter box with a filter token for a condition.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-buckets-filter-bar-public.png)
 
 
 In this example, the condition is configured to include all buckets that are publicly accessible, and to exclude all other buckets. It returns buckets where the value for the **Effective permission** field *equals* **Public**.
@@ -47,7 +47,7 @@ As you add more conditions, Macie applies their criteria and displays them below
 
    If automated sensitive data discovery is enabled, the default view doesn't display data for buckets that are currently excluded from automated discovery. If you're the Macie administrator for an organization, it also doesn't display data for accounts that automated discovery is currently disabled for. To display this data, choose **X** in the **Is monitored by automated discovery** filter token below the filter box.
 
-1. At the top of the page, optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the latest bucket metadata from Amazon S3.
+1. At the top of the page, optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the latest bucket metadata from Amazon S3.
 
 1. Place your cursor in the filter box, and then choose the field to use for the condition. 
 

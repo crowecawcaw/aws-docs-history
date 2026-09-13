@@ -11,7 +11,7 @@ You can tailor the analyses to focus on specific types of sensitive data. By def
 
 As the analysis progresses each day, Macie produces records of the sensitive data that it finds and the analysis that it performs: *sensitive data findings*, which report sensitive data that Macie finds in individual S3 objects, and *sensitive data discovery results*, which log details about the analysis of individual S3 objects. Macie also updates statistics, inventory data, and other information that it provides about your Amazon S3 data. For example, an interactive heat map on the console provides a visual representation of data sensitivity across your data estate:
 
-![The S3 buckets map. It shows different colored squares, one for each S3 bucket, grouped by account.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-s3-map-small.png)
+![The S3 buckets map. It shows different colored squares, one for each S3 bucket, grouped by account.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-s3-map-small.png)
 
 
 These features are designed to help you evaluate data sensitivity across your Amazon S3 data estate, and drill down to investigate and assess individual accounts, buckets, and objects. They can also help you determine where to perform deeper, more immediate analysis by [running sensitive data discovery jobs](discovery-jobs.md). Combined with information that Macie provides about the security and privacy of your Amazon S3 data, you can also use these features to identify cases where immediate remediation might be necessary—for example, a publicly accessible bucket that Macie found sensitive data in.

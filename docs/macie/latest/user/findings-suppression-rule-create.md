@@ -37,7 +37,7 @@ To use an existing suppression or filter rule as a starting point, choose the ru
 You can also streamline creation of a rule by first pivoting and drilling down on findings by a predefined logical group. If you do this, Macie automatically creates and applies the appropriate filter conditions, which can be a helpful starting point for creating a rule. To do this, choose **By bucket**, **By type**, or **By job** in the navigation pane (under **Findings**). Then choose an item in the table. In the details panel, choose the link for the field to pivot on. 
 
 1. In the **Filter criteria** box, add filter conditions that specify attributes of the findings that you want the rule to suppress.  
-![The Filter criteria box on the Findings page.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-empty-conditions.png)
+![The Filter criteria box on the Findings page.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-empty-conditions.png)
 
    To learn how to add filter conditions, see [Creating and applying filters to Macie findings](findings-filter-procedure.md).
 

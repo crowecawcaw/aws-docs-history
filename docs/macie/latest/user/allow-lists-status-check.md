@@ -37,7 +37,7 @@ Follow these steps to check the status of your allow lists by using the Amazon M
 
 1. In the navigation pane, under **Settings**, choose **Allow lists**.
 
-1. On the **Allow lists** page, choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)). Macie tests the settings for all of your allow lists and updates the **Status** field to indicate the current status of each list.
+1. On the **Allow lists** page, choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)). Macie tests the settings for all of your allow lists and updates the **Status** field to indicate the current status of each list.
 
    If a list specifies a regular expression, its status is typically **OK**. This means that Macie can compile the expression. If a list specifies predefined text, its status can be any of the following values.
 
@@ -49,7 +49,7 @@ Macie isn't allowed to access the S3 object that stores the list. Amazon S3 deni
 To address this error, review the bucket policy and other permissions settings for the bucket and the object. Ensure that Macie is allowed to access and retrieve the object. If the object is encrypted with a customer managed AWS KMS key, also review the key policy and ensure that Macie is allowed to use the key.   
 **Error**  
 A transient or internal error occurred when Macie attempted to retrieve or parse the contents of the list. An allow list can also have this status if it's encrypted with an encryption key that Amazon S3 and Macie can't access or use.  
-To address this error, wait a few minutes and then choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) again. If the status continues to be **Error**, check the encryption settings for the S3 object. Ensure that the object is encrypted with a key that Amazon S3 and Macie can access and use.  
+To address this error, wait a few minutes and then choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) again. If the status continues to be **Error**, check the encryption settings for the S3 object. Ensure that the object is encrypted with a key that Amazon S3 and Macie can access and use.  
 **Object is empty**  
 Macie can retrieve the list from Amazon S3 but the list doesn't contain any content.  
 To address this error, download the object from Amazon S3 and ensure that it contains the correct entries. If the entries are correct, review the list's settings in Macie. Ensure that the specified bucket and object names are correct.  
@@ -61,7 +61,7 @@ Macie can access the list in Amazon S3. However, the number of entries in the li
 To address this error, break the list into multiple files. Ensure that each file contains fewer than 100,000 entries. Also ensure that the size of each file is less than 35 MB. Then, upload each file to Amazon S3. When you finish, configure allow list settings in Macie for each file. You can have as many as five lists of predefined text in each supported AWS Region.  
 **Throttled**  
 Amazon S3 throttled the request to retrieve the list.  
-To address this error, wait a few minutes and then choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) again.  
+To address this error, wait a few minutes and then choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) again.  
 **User access denied**  
 Amazon S3 denied the request to retrieve the object. If the specified object exists, you're not allowed to access it or it's encrypted with an AWS KMS key that you're not allowed to use.  
 To address this error, work with your AWS administrator to ensure that the list's settings specify the correct bucket and object names, and you have read access to the bucket and the object. If the object is encrypted, also ensure that it's encrypted with a key that you're allowed to use.

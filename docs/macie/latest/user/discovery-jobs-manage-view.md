@@ -13,7 +13,7 @@ Follow these steps to review your job inventory by using the Amazon Macie consol
 
 1. In the navigation pane, choose **Jobs**. The **Jobs** page opens and displays the number of jobs in your inventory and a table of those jobs.
 
-1. At the top of the page, optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the current status of each job.
+1. At the top of the page, optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the current status of each job.
 
 1. In the **Jobs** table, review summary information for your jobs:
    + **Job name** – The name of the job.
@@ -25,7 +25,7 @@ Follow these steps to review your job inventory by using the Amazon Macie consol
 1. To analyze your inventory or find a specific job more quickly, do any of the following:
    + To sort the table by a specific field, choose the column heading for the field. To change the sort order, choose the column heading again.
    + To show only those jobs that have a specific value for a field, place your cursor in the filter box. In the menu that appears, choose the field to use for the filter, and enter the value for the filter. Then choose **Apply**.
-   + To hide jobs that have a specific value for a field, place your cursor in the filter box. In the menu that appears, choose the field to use for the filter, and enter the value for the filter. Then choose **Apply**. In the filter box, choose the equals icon (![The equals icon, which is a solid gray circle.](http://docs.aws.amazon.com/macie/latest/user/images/icon-operator-equals.png)) for the filter. This changes the filter's operator from *equals* to *not equals* (![The not equals icon, which is an empty gray circle that has a backslash in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-operator-not-equals.png)).
-   + To remove a filter, choose the remove filter icon (![The remove filter condition icon, which is a circle that has an X in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-filter-remove.png)) for the filter to remove.
+   + To hide jobs that have a specific value for a field, place your cursor in the filter box. In the menu that appears, choose the field to use for the filter, and enter the value for the filter. Then choose **Apply**. In the filter box, choose the equals icon (![The equals icon, which is a solid gray circle.](https://docs.aws.amazon.com/macie/latest/user/images/icon-operator-equals.png)) for the filter. This changes the filter's operator from *equals* to *not equals* (![The not equals icon, which is an empty gray circle that has a backslash in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-operator-not-equals.png)).
+   + To remove a filter, choose the remove filter icon (![The remove filter condition icon, which is a circle that has an X in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-filter-remove.png)) for the filter to remove.
 
 1. To review additional settings and details for a particular job, choose the job's name. Then refer to the details panel. For information about these details, see [Reviewing configuration settings for a job](discovery-jobs-manage-settings.md).

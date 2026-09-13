@@ -39,12 +39,12 @@ Follow these steps to review a resource's tags by using the Amazon Macie console
 1. Depending on the type of resource whose tags you want to review, do one of the following:
    + For an allow list, choose **Allow lists** in the navigation pane. In the table, select the checkbox for the list. Then choose **Manage tags** on the **Actions** menu.
    + For a custom data identifier, choose **Custom data identifiers** in the navigation pane. In the table, select the checkbox for the custom data identifier. Then choose **Manage tags** on the **Actions** menu.
-   + For a filter or suppression rule, choose **Findings** in the navigation pane. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](http://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the rule. Then choose **Manage tags**.
+   + For a filter or suppression rule, choose **Findings** in the navigation pane. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](https://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the rule. Then choose **Manage tags**.
    + For a member account in your organization, choose **Accounts** in the navigation pane. In the table, select the checkbox for the account. Then choose **Manage tags** on the **Actions** menu.
    + For a sensitive data discovery job, choose **Jobs** in the navigation pane. In the table, select the checkbox for the job. Then choose **Manage tags** on the **Actions** menu.
 
    The **Manage tags** window lists all the tags that are currently assigned to the resource. For example, the following image shows the tags that are assigned to a custom data identifier.  
-![The Manage tags window. It has a table that lists the tag key and tag value for each of three tags.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-tags-manage-review.png)
+![The Manage tags window. It has a table that lists the tag key and tag value for each of three tags.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-tags-manage-review.png)
 
    In this example, three tags are assigned to the custom data identifier: the **CostCenter** tag key with **12345** as an associated tag value; the **Owner** tag key with no associated tag value (–); and, the **Stack** tag key with **Production** as an associated tag value.
 
@@ -110,7 +110,7 @@ Follow these steps to edit a resource's tags by using the Amazon Macie console.
 1. Depending on the type of resource whose tags you want to edit, do one of the following:
    + For an allow list, choose **Allow lists** in the navigation pane. In the table, select the checkbox for the list. Then choose **Manage tags** on the **Actions** menu.
    + For a custom data identifier, choose **Custom data identifiers** in the navigation pane. In the table, select the checkbox for the custom data identifier. Then choose **Manage tags** on the **Actions** menu.
-   + For a filter or suppression rule, choose **Findings** in the navigation pane. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](http://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the rule. Then choose **Manage tags**.
+   + For a filter or suppression rule, choose **Findings** in the navigation pane. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](https://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the rule. Then choose **Manage tags**.
    + For a member account in your organization, choose **Accounts** in the navigation pane. In the table, select the checkbox for the account. Then choose **Manage tags** on the **Actions** menu.
    + For a sensitive data discovery job, choose **Jobs** in the navigation pane. In the table, select the checkbox for the job. Then choose **Manage tags** on the **Actions** menu.
 

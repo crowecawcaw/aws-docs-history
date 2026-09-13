@@ -16,7 +16,7 @@ Follow these steps to check the status of a job by using the Amazon Macie consol
 
 1. In the navigation pane, choose **Jobs**. The **Jobs** page opens and displays the number of jobs in your inventory and a table of those jobs.
 
-1. At the top of the page, choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the current status of each job.
+1. At the top of the page, choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the current status of each job.
 
 1. In the **Jobs** table, locate the job whose status you want to check. To find the job more quickly, you can filter the table by using the filter options above the table. You can also sort the table in ascending or descending order by certain fields.
 

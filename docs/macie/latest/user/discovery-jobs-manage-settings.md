@@ -36,14 +36,14 @@ To show the complete list of accounts and buckets in JSON format, choose the num
 
 **S3 bucket criteria**  
 This section appears in the panel if the job uses runtime criteria to determine which buckets to analyze. It lists the criteria that the job is configured to use. To show the criteria in JSON format, choose **Details**. Then choose the **Criteria** tab in the window that appears.  
-To review a list of buckets that currently match the criteria, choose **Details**. Then choose the **Matching buckets** tab in the window that appears. Optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the latest data. The tab lists up to 25 buckets that currently match the criteria.  
+To review a list of buckets that currently match the criteria, choose **Details**. Then choose the **Matching buckets** tab in the window that appears. Optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the latest data. The tab lists up to 25 buckets that currently match the criteria.  
 If the job has already run, you can also determine whether any buckets matched the criteria when the job ran and, if so, the names of those buckets. To do this, review log events for the job: choose **Show results** at the top of the panel, and then choose **Show CloudWatch logs**. Macie opens the Amazon CloudWatch console and displays a table of log events for the job. The events include a `BUCKET_MATCHED_THE_CRITERIA` event for each bucket that matched the criteria and was included in the job's analysis. For more information, see [Monitoring jobs with CloudWatch Logs](discovery-jobs-monitor-cw-logs.md).
 
 **Custom data identifiers**  
 This section appears in the panel if the job is configured to use one or more [custom data identifiers](custom-data-identifiers.md). It specifies the names of those custom data identifiers.
 
 **Allow lists**  
-This section appears in the panel if the job is configured to use one or more [allow lists](allow-lists.md). It specifies the names of those lists. To review the settings and status of a list, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-view-resource-blue.png)) next to the list's name.
+This section appears in the panel if the job is configured to use one or more [allow lists](allow-lists.md). It specifies the names of those lists. To review the settings and status of a list, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-view-resource-blue.png)) next to the list's name.
 
 **Managed data identifiers**  
 This section indicates which [managed data identifiers](managed-data-identifiers.md) the job is configured to use. This is determined by the managed data identifier selection type for the job:  

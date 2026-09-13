@@ -69,7 +69,7 @@ Follow these steps to review sample findings by using the Amazon Macie console.
 
 1. On the **Findings** page, do any of the following:
    + In the **Finding type** column, locate findings whose type begins with **[SAMPLE]**, as shown in the following image.  
-![The Finding type column on the Findings page. It lists findings that have the [SAMPLE] prefix.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-samples-all.png)
+![The Finding type column on the Findings page. It lists findings that have the [SAMPLE] prefix.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-samples-all.png)
    + By using the **Filter criteria** box above the table, filter the table to display only sample findings. To do this, place your cursor in the box. In the list of fields that appears, choose **Sample**. Then choose **True**, and then choose **Apply**.
 
 1. To review the details of a specific sample finding, choose the finding. The details panel displays information for the finding.

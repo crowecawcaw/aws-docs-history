@@ -23,7 +23,7 @@ Follow these steps to assign tags or change the settings for a suppression rule 
 
 1. In the navigation pane, choose **Findings**.
 
-1. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](http://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the suppression rule that you want to change or assign tags to. 
+1. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](https://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the suppression rule that you want to change or assign tags to. 
 
 1. Do any of the following:
    + To change the criteria of the rule, use the **Filter criteria** box. In the box, enter conditions that specify attributes of the findings that you want the rule to suppress. To learn how, see [Creating and applying filters to Macie findings](findings-filter-procedure.md).

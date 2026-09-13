@@ -7,12 +7,12 @@ On the Amazon Macie console, the **S3 buckets** heat map provides an interactive
 
 If you're the Macie administrator for an organization, the map includes results for S3 buckets that your member accounts own. The data is grouped by AWS account and sorted by account ID, as shown in the following image.
 
-![The S3 buckets map. It shows different colored squares, one for each bucket, grouped by account.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-s3-map-small.png)
+![The S3 buckets map. It shows different colored squares, one for each bucket, grouped by account.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-s3-map-small.png)
 
 
 The map displays data for up to 100 S3 buckets for each account. To display data for all buckets, you can [switch to table view](discovery-asdd-results-s3-inventory-table.md) and review the data in tabular format instead.
 
-To display the map, choose **S3 buckets** in the navigation pane on the console. Then choose map (![The map view button, which is a button that displays four black squares.](http://docs.aws.amazon.com/macie/latest/user/images/btn-s3-map-view.png)) at the top of the page. The map is available only if automated sensitive data discovery is currently enabled. It doesn't include the results of sensitive data discovery jobs that you create and run.
+To display the map, choose **S3 buckets** in the navigation pane on the console. Then choose map (![The map view button, which is a button that displays four black squares.](https://docs.aws.amazon.com/macie/latest/user/images/btn-s3-map-view.png)) at the top of the page. The map is available only if automated sensitive data discovery is currently enabled. It doesn't include the results of sensitive data discovery jobs that you create and run.
 
 **Topics**
 + [Interpreting data in the S3 buckets map](#discovery-asdd-results-s3-inventory-map-legend)
@@ -23,7 +23,7 @@ To display the map, choose **S3 buckets** in the navigation pane on the console.
 
 In the **S3 buckets** map, each square represents an S3 general purpose bucket in your bucket inventory. The color of a square represents a bucket's current sensitivity score, which measures the intersection of two primary dimensions: the amount of sensitive data that Macie has found in the bucket, and the amount of data that Macie has analyzed in the bucket. The intensity of the color's hue represents where a score falls in a range of data sensitivity values, as shown in the following image.
 
-![The color spectrum for sensitivity scores: blue hues for 1-49, red hues for 51-100, and gray for -1.](http://docs.aws.amazon.com/macie/latest/user/images/sensitivity-scoring-spectrum.png)
+![The color spectrum for sensitivity scores: blue hues for 1-49, red hues for 51-100, and gray for -1.](https://docs.aws.amazon.com/macie/latest/user/images/sensitivity-scoring-spectrum.png)
 
 
 In general, you can interpret color and hue intensity as follows:
@@ -39,10 +39,10 @@ In the map, the square for an S3 bucket might also contain a symbol. The symbol 
 
 | Symbol | Definition | Description | 
 | --- | --- | --- | 
-|  ![The Access denied symbol, which is a gray exclamation point.](http://docs.aws.amazon.com/macie/latest/user/images/icon-map-access-denied.png)  | Access denied | Macie isn't allowed to access the bucket or the bucket's objects. Consequently, Macie can't analyze any objects in the bucket. <br />This issue typically occurs because a bucket has a restrictive bucket policy. For information about how to address this issue, see [Allowing Macie to access S3 buckets and objects](monitoring-restrictive-s3-buckets.md). | 
-|  ![The Publicly accessible symbol, which is a solid, gray, upward-facing arrow.](http://docs.aws.amazon.com/macie/latest/user/images/icon-map-publicly-accessible.png)  | Publicly accessible | The general public has read or write access to the bucket.<br />To make this determination, Macie analyzes a combination of settings for each bucket, such as the block public access settings for the account and the bucket, and the bucket policy for the bucket. Macie can do this for up to 10,000 buckets for an account. For more information, see [How Macie monitors Amazon S3 data security](monitoring-s3-how-it-works.md). | 
-|  ![The Unclassifiable symbol, which is a gray question mark.](http://docs.aws.amazon.com/macie/latest/user/images/icon-map-unclassifiable.png)  | Unclassifiable | Macie can't analyze any objects in the bucket. All the bucket's objects use Amazon S3 storage classes that Macie doesn't support, or they have file name extensions for file or storage formats that Macie doesn't support.<br />For Macie to analyze an object, the object must use a supported storage class and have a file name extension for a supported file or storage format. For more information, see [Supported storage classes and formats](discovery-supported-storage.md). | 
-|  ![The Zero bytes symbol, which is the number zero.](http://docs.aws.amazon.com/macie/latest/user/images/icon-map-zero-bytes.png)  | Zero bytes | The bucket doesn't store any objects for Macie to analyze. The bucket is empty or all the objects in the bucket contain zero (0) bytes of data. | 
+|  ![The Access denied symbol, which is a gray exclamation point.](https://docs.aws.amazon.com/macie/latest/user/images/icon-map-access-denied.png)  | Access denied | Macie isn't allowed to access the bucket or the bucket's objects. Consequently, Macie can't analyze any objects in the bucket. <br />This issue typically occurs because a bucket has a restrictive bucket policy. For information about how to address this issue, see [Allowing Macie to access S3 buckets and objects](monitoring-restrictive-s3-buckets.md). | 
+|  ![The Publicly accessible symbol, which is a solid, gray, upward-facing arrow.](https://docs.aws.amazon.com/macie/latest/user/images/icon-map-publicly-accessible.png)  | Publicly accessible | The general public has read or write access to the bucket.<br />To make this determination, Macie analyzes a combination of settings for each bucket, such as the block public access settings for the account and the bucket, and the bucket policy for the bucket. Macie can do this for up to 10,000 buckets for an account. For more information, see [How Macie monitors Amazon S3 data security](monitoring-s3-how-it-works.md). | 
+|  ![The Unclassifiable symbol, which is a gray question mark.](https://docs.aws.amazon.com/macie/latest/user/images/icon-map-unclassifiable.png)  | Unclassifiable | Macie can't analyze any objects in the bucket. All the bucket's objects use Amazon S3 storage classes that Macie doesn't support, or they have file name extensions for file or storage formats that Macie doesn't support.<br />For Macie to analyze an object, the object must use a supported storage class and have a file name extension for a supported file or storage format. For more information, see [Supported storage classes and formats](discovery-supported-storage.md). | 
+|  ![The Zero bytes symbol, which is the number zero.](https://docs.aws.amazon.com/macie/latest/user/images/icon-map-zero-bytes.png)  | Zero bytes | The bucket doesn't store any objects for Macie to analyze. The bucket is empty or all the objects in the bucket contain zero (0) bytes of data. | 
 
 ## Interacting with the S3 buckets map
 <a name="discovery-asdd-results-s3-inventory-map-use"></a>
@@ -53,11 +53,11 @@ As you review the **S3 buckets** map, you can interact with it in different ways
 
 1. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/).
 
-1. In the navigation pane, choose **S3 buckets**. The **S3 buckets** page displays a map of your bucket inventory. If the page displays your inventory in tabular format instead, choose map (![The map view button, which is a button that displays four black squares.](http://docs.aws.amazon.com/macie/latest/user/images/btn-s3-map-view.png)) at the top of the page.
+1. In the navigation pane, choose **S3 buckets**. The **S3 buckets** page displays a map of your bucket inventory. If the page displays your inventory in tabular format instead, choose map (![The map view button, which is a button that displays four black squares.](https://docs.aws.amazon.com/macie/latest/user/images/btn-s3-map-view.png)) at the top of the page.
 
    By default, the map doesn't display data for buckets that are currently excluded from automated sensitive data discovery. If you're the Macie administrator for an organization, it also doesn't display data for accounts that automated sensitive data discovery is currently disabled for. To display this data, choose **X** in the **Is monitored by automated discovery** filter token below the filter box.
 
-1. At the top of the page, optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the latest bucket metadata from Amazon S3.
+1. At the top of the page, optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the latest bucket metadata from Amazon S3.
 
 1. In the **S3 buckets** map, do any of the following:
    + To determine how many buckets have a specific sensitivity label, refer to the colored badges immediately below an AWS account ID. The badges display aggregated bucket counts, broken down by sensitivity label.
@@ -71,4 +71,4 @@ As you review the **S3 buckets** map, you can interact with it in different ways
 
 1. To review data sensitivity statistics and other information for a particular bucket, choose the bucket's square. Then refer to the details panel. For information about these details, see [Reviewing data sensitivity details for S3 buckets](discovery-asdd-results-s3-inventory-details.md).
 **Tip**  
-On the **Bucket details** tab of the panel, you can pivot and drill down on many of the fields. To show buckets that have the same value for a field, choose ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-magnifying-glass-plus-sign.png) in the field. To show buckets that have other values for a field, choose ![The zoom out icon, which is a magnifying glass that has a minus sign in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-magnifying-glass-minus-sign.png) in the field.
+On the **Bucket details** tab of the panel, you can pivot and drill down on many of the fields. To show buckets that have the same value for a field, choose ![The zoom in icon, which is a magnifying glass that has a plus sign in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-magnifying-glass-plus-sign.png) in the field. To show buckets that have other values for a field, choose ![The zoom out icon, which is a magnifying glass that has a minus sign in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-magnifying-glass-minus-sign.png) in the field.

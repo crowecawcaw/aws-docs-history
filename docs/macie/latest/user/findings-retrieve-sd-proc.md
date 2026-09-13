@@ -83,7 +83,7 @@ Follow these steps on the Amazon Macie console to determine whether sensitive da
 1. In the details panel, scroll to the **Sensitive data** section. Then refer to the **Reveal samples** field.
 
    If sensitive data samples are available for the finding, a **Review** link appears in the field, as shown in the following image.  
-![The Reveal samples field in the finding details panel. The field contains a link labeled Review.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-reveal-samples.png)
+![The Reveal samples field in the finding details panel. The field contains a link labeled Review.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-reveal-samples.png)
 
    If sensitive data samples aren't available for the finding, the **Reveal samples** field displays text indicating why:
    + **Account not in organization** – You're not allowed to access the affected S3 object by using Macie. The affected account isn't currently part of your organization. Or the account is part of your organization but Macie isn't currently enabled for the account in the current AWS Region.
@@ -149,7 +149,7 @@ Follow these steps to retrieve and reveal sensitive data samples for a finding b
 1. On the **Findings** page, choose the finding. The details panel displays information for the finding.
 
 1. In the details panel, scroll to the **Sensitive data** section. Then, in the **Reveal samples** field, choose **Review**:  
-![The Reveal samples field in the finding details panel. The field contains a link labeled Review.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-reveal-samples.png)
+![The Reveal samples field in the finding details panel. The field contains a link labeled Review.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-reveal-samples.png)
 **Note**  
 If the **Review** link doesn't appear in the **Reveal samples** field, sensitive data samples aren't available for the finding. To determine why this is the case, see the [preceding topic](#findings-retrieve-sd-proc-criteria).
 
@@ -158,7 +158,7 @@ If the **Review** link doesn't appear in the **Reveal samples** field, sensitive
 1. In the **Sensitive data** section of the page, choose **Reveal samples**. Macie then retrieves and reveals samples of the first 1–10 occurrences of sensitive data reported by the finding. Each sample contains the first 1–128 characters of an occurrence of sensitive data. It can take several minutes to retrieve and reveal the samples.
 
    If the finding reports multiple types of sensitive data, Macie retrieves and reveals samples for up to 100 types. For example, the following image shows samples that span multiple categories and types of sensitive data—AWS credentials, US phone numbers, and people's names.  
-![The samples table. It lists nine samples and each sample's sensitive data category and type.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-sd-samples.png)
+![The samples table. It lists nine samples and each sample's sensitive data category and type.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-sd-samples.png)
 
    The samples are organized first by sensitive data category, and then by sensitive data type.
 

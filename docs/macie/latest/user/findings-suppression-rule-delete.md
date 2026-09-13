@@ -21,7 +21,7 @@ Follow these steps to delete a suppression rule by using the Amazon Macie consol
 
 1. In the navigation pane, choose **Findings**.
 
-1. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](http://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the suppression rule that you want to delete.
+1. In the **Saved rules** list, choose the edit icon (![The edit icon, which is a blue pencil.](https://docs.aws.amazon.com/macie/latest/user/images/icon-edit-resource-blue.png)) next to the suppression rule that you want to delete.
 
 1. Under **Suppression rule**, choose **Delete**.
 

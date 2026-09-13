@@ -261,7 +261,7 @@ Follow these steps to add or remove a custom data identifier by using the Amazon
    + To add one or more custom data identifiers, select the checkbox for each custom data identifier to add. If a checkbox is already selected, you already added that identifier.
    + To remove one or more custom data identifiers, clear the checkbox for each custom data identifier to remove. If a checkbox is already cleared, Macie doesn't currently use that identifier.
 **Tip**  
-To review or test the settings for a custom data identifier before you add or remove it, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-external-link.png)) next to the identifier's name. Macie opens a page that displays the identifier's settings. To also test the identifier with sample data, enter up to 1,000 characters of text in the **Sample data** box on that page. Then choose **Test**. Macie evaluates the sample data and reports the number of matches.
+To review or test the settings for a custom data identifier before you add or remove it, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-external-link.png)) next to the identifier's name. Macie opens a page that displays the identifier's settings. To also test the identifier with sample data, enter up to 1,000 characters of text in the **Sample data** box on that page. Then choose **Test**. Macie evaluates the sample data and reports the number of matches.
 
 1. When you finish, choose **Save**.
 
@@ -336,7 +336,7 @@ Follow these steps to add or remove an allow list by using the Amazon Macie cons
    + To add one or more allow lists, select the checkbox for each allow list to add. If a checkbox is already selected, you already added that list.
    + To remove one or more allow lists, clear the checkbox for each allow list to remove. If a checkbox is already cleared, Macie doesn't currently use that list.
 **Tip**  
-To review the settings for an allow list before you add or remove it, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-external-link.png)) next to the list's name. Macie opens a page that displays the list's settings. If the list specifies a regular expression (*regex*), you can also use this page to test the regex with sample data. To do this, enter up to 1,000 characters of text in the **Sample data** box, and then choose **Test**. Macie evaluates the sample data and reports the number of matches.
+To review the settings for an allow list before you add or remove it, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-external-link.png)) next to the list's name. Macie opens a page that displays the list's settings. If the list specifies a regular expression (*regex*), you can also use this page to test the regex with sample data. To do this, enter up to 1,000 characters of text in the **Sample data** box, and then choose **Test**. Macie evaluates the sample data and reports the number of matches.
 
 1. When you finish, choose **Save**.
 

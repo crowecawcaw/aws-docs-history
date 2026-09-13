@@ -32,12 +32,12 @@ To use an existing filter rule as a starting point, choose the rule from the **S
 You can also streamline creation of a rule by first pivoting and drilling down on findings by a predefined logical group. If you do this, Macie automatically creates and applies the appropriate filter conditions, which can be a helpful starting point for creating a rule. To do this, choose **By bucket**, **By type**, or **By job** in the navigation pane (under **Findings**). Then choose an item in the table. In the details panel, choose the link for the field to pivot on. 
 
 1. In the **Filter criteria** box, add conditions that define the filter criteria for the rule.  
-![The Filter criteria box on the Findings page.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-empty-conditions.png)
+![The Filter criteria box on the Findings page.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-empty-conditions.png)
 
    To learn how to add filter conditions, see [Creating and applying filters to Macie findings](findings-filter-procedure.md).
 
 1. When you finish defining filter criteria for the rule, choose **Save rule** in the **Filter criteria** box.  
-![The Save rule link in the Filter criteria box on the Findings page.](http://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-save-rule.png)
+![The Save rule link in the Filter criteria box on the Findings page.](https://docs.aws.amazon.com/macie/latest/user/images/scrn-findings-filter-bar-save-rule.png)
 
 1. Under **Filter rule**, enter a name and, optionally, a description of the rule.
 

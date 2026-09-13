@@ -66,9 +66,9 @@ If you're the Macie administrator for an organization, the inventory includes bu
 
 1. On the **Choose S3 buckets** page, choose **Select specific buckets**. Macie displays a table of all the general purpose buckets for your account in the current Region. 
 
-1. In the **Select S3 buckets** section, optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the latest bucket metadata from Amazon S3.
+1. In the **Select S3 buckets** section, optionally choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) to retrieve the latest bucket metadata from Amazon S3.
 
-   If the information icon (![The information icon, which is a blue circle that has a lowercase letter i in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-info-blue.png)) appears next to any bucket names, we recommend that you do this. This icon indicates that a bucket was created during the past 24 hours, possibly after Macie last retrieved bucket and object metadata from Amazon S3 as part of the [daily refresh cycle](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh).
+   If the information icon (![The information icon, which is a blue circle that has a lowercase letter i in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-info-blue.png)) appears next to any bucket names, we recommend that you do this. This icon indicates that a bucket was created during the past 24 hours, possibly after Macie last retrieved bucket and object metadata from Amazon S3 as part of the [daily refresh cycle](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh).
 
 1. In the table, select the checkbox for each bucket that you want the job to analyze. 
 **Tip**  
@@ -199,7 +199,7 @@ For this step, select any custom data identifiers that you want the job to use w
 
 1. On the **Select custom data identifiers** page, select the checkbox for each custom data identifier that you want the job to use. You can select as many as 30 custom data identifiers.
 **Tip**  
-To review or test the settings for a custom data identifier before you select it, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-external-link.png)) next to the identifier's name. Macie opens a page that displays the identifier's settings.  
+To review or test the settings for a custom data identifier before you select it, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-external-link.png)) next to the identifier's name. Macie opens a page that displays the identifier's settings.  
 You can also use this page to test the identifier with sample data. To do this, enter up to 1,000 characters of text in the **Sample data** box, and then choose **Test**. Macie evaluates the sample data by using the identifier, and then reports the number of matches.
 
 1. When you finish selecting custom data identifiers, choose **Next**.
@@ -213,7 +213,7 @@ For this step, select any allow lists that you want the job to use when it analy
 
 1. On the **Select allow lists** page, select the checkbox for each allow list that you want the job to use. You can select as many as 10 lists.
 **Tip**  
-To review the settings for an allow list before you select it, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](http://docs.aws.amazon.com/macie/latest/user/images/icon-external-link.png)) next to the list's name. Macie opens a page that displays the list's settings.  
+To review the settings for an allow list before you select it, choose the link icon (![The link icon, which is a blue box that has an arrow in it.](https://docs.aws.amazon.com/macie/latest/user/images/icon-external-link.png)) next to the list's name. Macie opens a page that displays the list's settings.  
 If the list specifies a regular expression (*regex*), you can also use this page to test the regex with sample data. To do this, enter up to 1,000 characters of text in the **Sample data** box, and then choose **Test**. Macie evaluates the sample data by using the regex, and then reports the number of matches.
 
 1. When you finish selecting allow lists, choose **Next**.
@@ -246,7 +246,7 @@ Depending on the job's settings, you can also review the total estimated cost (i
 
 1. When you finish verifying the settings, choose **Submit** to create and save the job. Macie checks the settings and notifies you of any issues to address.
 **Note**  
-If you haven’t configured a repository for your sensitive data discovery results, Macie displays a warning and doesn't save the job. To address this issue, choose **Configure** in the **Repository for sensitive data discovery results** section. Then enter the configuration settings for the repository. To learn how, see [Storing and retaining sensitive data discovery results](discovery-results-repository-s3.md). After you enter the settings, return to the **Review and create** page and choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](http://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) in the **Repository for sensitive data discovery results** section of the page.  
+If you haven’t configured a repository for your sensitive data discovery results, Macie displays a warning and doesn't save the job. To address this issue, choose **Configure** in the **Repository for sensitive data discovery results** section. Then enter the configuration settings for the repository. To learn how, see [Storing and retaining sensitive data discovery results](discovery-results-repository-s3.md). After you enter the settings, return to the **Review and create** page and choose refresh (![The refresh button, which is a button that displays an empty blue circle with an arrow.](https://docs.aws.amazon.com/macie/latest/user/images/btn-refresh-data.png)) in the **Repository for sensitive data discovery results** section of the page.  
 Although we don't recommend it, you can temporarily override the repository requirement and save the job. If you do this, you risk losing discovery results from the job—Macie retains the results for only 90 days. To temporarily override the requirement, select the checkbox for the override option.
 
 1. If Macie notifies you of issues to address, address the issues, and then choose **Submit** again to create and save the job.
