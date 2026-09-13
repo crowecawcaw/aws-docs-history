@@ -57,7 +57,7 @@ aws logs start-live-tail --log-group-identifiers arn:{{aws:logs:us-east-1:111111
 
 The Live Tail session begins. The following video shows part of an example session.
 
-![A short video that shows log events appearing on the screen during a Live Tail session.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/LiveTailCLIStartVideo.gif)
+![A short video that shows log events appearing on the screen during a Live Tail session.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/LiveTailCLIStartVideo.gif)
 
 
 To highlight a term in the streaming logs, press **h** and then enter the term. The following shows the screen after the term `latency` has been highlighted. 
@@ -70,7 +70,7 @@ You can use the up arrow and down arrow keys to scroll, and use `CTRL+u` and `CT
 
 The following image displays the highlighting of the `latency` term during a Live Tail session.
 
-![A screenshot of an interactive Live Tail session, with log events listed on the screen and every occurrence of 'latency' highlighted.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/LiveTailCLIHighlighted.jpg)
+![A screenshot of an interactive Live Tail session, with log events listed on the screen and every occurrence of 'latency' highlighted.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/LiveTailCLIHighlighted.jpg)
 
 
 ## Start a Live Tail session in the console

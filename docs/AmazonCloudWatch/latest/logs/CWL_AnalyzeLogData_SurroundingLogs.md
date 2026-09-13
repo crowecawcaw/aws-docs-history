@@ -32,10 +32,10 @@ Surrounding logs are useful in the following scenarios:
 1. In the query results, locate the log record that you want to investigate.
 
 1. Choose **Surrounding logs**.  
-![The Surrounding logs option on a query result record in CloudWatch Logs Insights.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/surrounding-logs-button.png)
+![The Surrounding logs option on a query result record in CloudWatch Logs Insights.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/surrounding-logs-button.png)
 
 1. In the **Number of events** dropdown, choose the number of log events to display above and below the selected record. You can choose 5, 10, 20, 50, or 100.  
-![Configuring the number of surrounding log events to display above and below the selected record.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/surrounding-logs-configure-events.png)
+![Configuring the number of surrounding log events to display above and below the selected record.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/surrounding-logs-configure-events.png)
 
 ## Search within surrounding logs
 <a name="CWL_AnalyzeLogData_SurroundingLogs_Search"></a>
@@ -50,4 +50,4 @@ After you open the surrounding logs panel, you can search for specific keywords 
 
 1. Use the navigation controls to move between matches.
 
-![Searching for keywords within the surrounding logs panel, with highlighted matches and navigation controls.](http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/surrounding-logs-keyword-search.png)
+![Searching for keywords within the surrounding logs panel, with highlighted matches and navigation controls.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/images/surrounding-logs-keyword-search.png)
