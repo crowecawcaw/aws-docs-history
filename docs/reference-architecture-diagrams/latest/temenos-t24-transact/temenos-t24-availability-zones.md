@@ -10,7 +10,7 @@ With this architecture, you can deploy Temenos T24 with high availability across
 ## Temenos T24 Availability Zones diagram
 <a name="t24-az-diagram"></a>
 
-![Reference architecture diagram showing Temenos T24 high availability across Availability Zones by using AWS Fargate, Amazon MQ, and Amazon RDS Multi-AZ.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-t24-transact/images/temenos-t24-availability-zones.png)
+![Reference architecture diagram showing Temenos T24 high availability across Availability Zones by using AWS Fargate, Amazon MQ, and Amazon RDS Multi-AZ.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-t24-transact/images/temenos-t24-availability-zones.png)
 
 
 The following steps describe the high availability components for this architecture:

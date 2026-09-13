@@ -10,7 +10,7 @@ With this architecture, you can deploy Temenos T24 with Amazon VPC isolation and
 ## Temenos T24 Amazon VPC and networking diagram
 <a name="t24-vpc-diagram"></a>
 
-![Reference architecture diagram showing Temenos T24 Amazon VPC and networking by using Amazon API Gateway, AWS Fargate, and Amazon VPC endpoints.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-t24-transact/images/temenos-t24-vpc-networking.png)
+![Reference architecture diagram showing Temenos T24 Amazon VPC and networking by using Amazon API Gateway, AWS Fargate, and Amazon VPC endpoints.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-t24-transact/images/temenos-t24-vpc-networking.png)
 
 
 The following steps describe the networking and access components for this architecture:

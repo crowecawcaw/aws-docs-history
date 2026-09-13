@@ -10,7 +10,7 @@ With this architecture, you can deploy the Temenos T24 Transact core banking sol
 ## Temenos T24 Transact service diagram
 <a name="t24-svc-diagram"></a>
 
-![Reference architecture diagram showing how to deploy Temenos T24 Transact by using Amazon API Gateway, Amazon ECS, Lambda, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-t24-transact/images/temenos-t24-service.png)
+![Reference architecture diagram showing how to deploy Temenos T24 Transact by using Amazon API Gateway, Amazon ECS, Lambda, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-t24-transact/images/temenos-t24-service.png)
 
 
 The following steps describe the service components and data flow for this architecture:
