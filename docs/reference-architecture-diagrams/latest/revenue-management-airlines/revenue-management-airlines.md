@@ -14,7 +14,7 @@ This migration architecture builds on the [Airlines Data Platform](../airlines-d
 ## Revenue management architecture diagram
 <a name="revenue-management-airlines-diagram"></a>
 
-![Architecture for airline revenue management using Amazon S3, Amazon EC2, Amazon Redshift, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/revenue-management-airlines/images/migration-arch-revenue-management-ra.png)
+![Architecture for airline revenue management using Amazon S3, Amazon EC2, Amazon Redshift, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/revenue-management-airlines/images/migration-arch-revenue-management-ra.png)
 
 
 The following steps describe the architecture:
