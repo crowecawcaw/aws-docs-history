@@ -10,7 +10,7 @@ This architecture creates an environment where a buyer can consume a seller’s 
 ## Embedded ML models using Amazon SageMaker AI on AWS Marketplace Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use Amazon SageMaker AI on AWS Marketplace.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/embedded-ml-models-using-sagemaker-on-aws-marketplace/images/embedded-ml-models-using-sagemaker-on-aws-marketplace.png)
+![Reference architecture diagram showing how you can use Amazon SageMaker AI on AWS Marketplace.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/embedded-ml-models-using-sagemaker-on-aws-marketplace/images/embedded-ml-models-using-sagemaker-on-aws-marketplace.png)
 
 
 1. Seller writes and packages their model code as a docker image and pushes the image into **Amazon Elastic Container Registry** (Amazon ECR). 
