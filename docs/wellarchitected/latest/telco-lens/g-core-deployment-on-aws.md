@@ -10,15 +10,15 @@
 ## Reference architecture
 <a name="reference-architecture"></a>
 
-![Figure 1. 5G core on globally available AWS infrastructure.](http://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/image1.png)
+![Figure 1. 5G core on globally available AWS infrastructure.](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/image1.png)
 
 
-![Figure 1. 5G core on globally available AWS infrastructure.](http://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/image2.png)
+![Figure 1. 5G core on globally available AWS infrastructure.](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/image2.png)
 
 
  This reference architecture shows standard telecommunication architecture to deploy and manage virtual network functions (VNFs) or containerized network functions (CNFs). The set of AWS services can deliver the capabilities on the infrastructure and management layer. The part shown in green is provided by the ISV, which deploys these VNFs and CNFs using listed AWS services. 
 
-![Figure 2. Bringing the cloud where the network needs it.](http://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/image3.png)
+![Figure 2. Bringing the cloud where the network needs it.](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/image3.png)
 
 
  The network functions (NFs) in a telco core network can be split into control and user plane. The user plane NFs are throughput intensive and depend heavily on packet forwarding mechanisms. However, the control plane functions are compute intensive and require higher levels of resiliency and reliability. In a distributed architecture, these control plane NFs are deployed in AWS Regions to offer better scalability and resilience. On the other hand, the user plane NFs are moved closer to the end user for better experience and low latency, using the higher throughput capabilities of Local Zones or AWS Outpost Racks. Outpost servers can be used to deploy the RAN part of the network as shown in the previous diagram. 

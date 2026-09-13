@@ -8,4 +8,4 @@
 ## Reference architecture
 <a name="reference-architecture-2"></a>
 
-![Fujitsu 5G network deployment using AWS TNB](http://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/image5.png)
+![Fujitsu 5G network deployment using AWS TNB](https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/images/image5.png)
