@@ -7,7 +7,7 @@ AWS CloudShell is a browser-based, pre-authenticated shell that you can launch d
 
 You can run AWS CLI commands using your preferred shell, such as Bash, PowerShell, or Z shell. And you can do this without downloading or installing command line tools.
 
-![AWS CloudShell interface after launch](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/WhatisAWSCloudShell_updated.png)
+![AWS CloudShell interface after launch](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/WhatisAWSCloudShell_updated.png)
 
 
 When you launch AWS CloudShell, a [compute environment](vm-specs.md#vm-configuration) that's based on Amazon Linux 2023 is created. Within this environment, you can access an [extensive range of pre-installed development tools](vm-specs.md#pre-installed-software), options for [uploading](getting-started.md#folder-upload) and [downloading](getting-started.md#download-file) files, and [file storage that persists between sessions](#persistent-storage). You can use CloudShell in the most recent versions of Google Chrome, Mozilla Firefox, Microsoft Edge, and Apple Safari browsers.

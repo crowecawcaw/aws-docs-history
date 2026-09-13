@@ -51,7 +51,7 @@ Safe Paste is a security feature that prompts you to verify that the multiline t
 
 The Safe Paste dialog displays the complete text that you copied to your clipboard. If you're satisfied that there's no security risk, choose **Paste**.
 
-![Safe page dialog displays text to be verified before pasting.](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/safe-paste-warning.png)
+![Safe page dialog displays text to be verified before pasting.](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/safe-paste-warning.png)
 
 
 We recommend that you enable Safe Paste to catch potential security risks in scripts. You can switch this feature on or off by choosing **Preferences**, **Enable Safe Paste** and **Disable Safe Paste**.

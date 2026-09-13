@@ -32,7 +32,7 @@ The following tutorial outlines how to deploy a Docker container-based Lambda fu
    ```
    npm install aws-cdk aws-cdk-lib
    ```  
-![Image of the command used to install the AWS CDK dependencies.](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cdk-tutorial%20-%201-setup.png)
+![Image of the command used to install the AWS CDK dependencies.](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cdk-tutorial%20-%201-setup.png)
 
 1. Create a skeleton AWS CDK project in the folder that you created.
 
@@ -114,7 +114,7 @@ The following tutorial outlines how to deploy a Docker container-based Lambda fu
    npx cdk synth
    npx cdk deploy --require-approval never
    ```  
-![Image of the command to use the AWS CDK CLI to synthesize the project and deploy the resources.](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cdk-tutorial%20-%203-cdk-deploy-build.png)
+![Image of the command to use the AWS CDK CLI to synthesize the project and deploy the resources.](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cdk-tutorial%20-%203-cdk-deploy-build.png)
 
 1. Invoke the Lambda function to confirm and verify it.
 
@@ -122,7 +122,7 @@ The following tutorial outlines how to deploy a Docker container-based Lambda fu
    aws lambda invoke --function-name DockerTutorialFunction out.json
    jq . out.json
    ```  
-![Image of the command used to invoke the Lambda function.](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cdk-tutorial%20-%205-lambda-invoke.png)
+![Image of the command used to invoke the Lambda function.](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cdk-tutorial%20-%205-lambda-invoke.png)
 
    You have now successfully deployed a Docker container-based Lambda function using the AWS CDK. For more information on AWS CDK, see the [AWS CDKv2 Developer Guide](https://docs.aws.amazon.com/cdk/v2/guide/hello_world.html). If you encounter errors or run into issues when trying to complete this tutorial, see the [Troubleshooting](https://docs.aws.amazon.com/cloudshell/latest/userguide/troubleshooting.html) section of this guide for help.
 

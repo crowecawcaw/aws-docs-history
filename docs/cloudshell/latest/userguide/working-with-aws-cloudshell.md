@@ -19,7 +19,7 @@ You can navigate CloudShell interface features from the AWS Management Console a
 
 The following screenshot indicates several key AWS CloudShell interface features.
 
-![Key features of the AWS CloudShell interface.](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/Widget_CS_customization_updated.png)
+![Key features of the AWS CloudShell interface.](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/Widget_CS_customization_updated.png)
 
 
 1. AWS CloudShell command line interface that you use to run commands by using [your preferred shell](getting-started.md#launch-region-shell). The current shell type is indicated by the command prompt.

@@ -57,14 +57,14 @@ The following tutorial outlines how to use the CloudShell interface to build a D
    ```
 
    Make sure to include the trailing period (`.`).  
-![Image of the docker build command run inside AWS CloudShell.](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%201-docker-build.png)
+![Image of the docker build command run inside AWS CloudShell.](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%201-docker-build.png)
 
 1. You can now test the container to check that it is running correctly in AWS CloudShell.
 
    ```
    docker container run test-container
    ```  
-![Image of the docker container run command inside AWS CloudShell](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%202-docker-run.png)
+![Image of the docker container run command inside AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%202-docker-run.png)
 
 1. Now that you have a functioning Docker container, you need to push it to an Amazon ECR repository. If you have an existing Amazon ECR repository, you can skip this step. 
 
@@ -74,7 +74,7 @@ The following tutorial outlines how to use the CloudShell interface to build a D
    ECR_REPO_NAME=docker-tutorial-repo
    aws ecr create-repository --repository-name ${ECR_REPO_NAME}
    ```  
-![Image of the command used to create an Amazon ECR repository inside AWS CloudShell](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%203-ecr-create-repo%20(redacted).png)
+![Image of the command used to create an Amazon ECR repository inside AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%203-ecr-create-repo%20(redacted).png)
 
 1. After you create the Amazon ECR repository, you can push the Docker container to it.
 
@@ -85,7 +85,7 @@ The following tutorial outlines how to use the CloudShell interface to build a D
    ECR_URL=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
    aws ecr get-login-password | docker login --username AWS --password-stdin ${ECR_URL}
    ```  
-![Image of the command used to get the Amazon ECR sign-in credentials for Docker.](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%204-docker-login.png)
+![Image of the command used to get the Amazon ECR sign-in credentials for Docker.](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%204-docker-login.png)
 **Note**  
 If the **AWS\_REGION** environment variable is not set in your CloudShell or you want to interact with resources in other AWS Regions, run the following command:  
 
@@ -99,7 +99,7 @@ If the **AWS\_REGION** environment variable is not set in your CloudShell or you
    docker tag test-container ${ECR_URL}/${ECR_REPO_NAME}
    docker push ${ECR_URL}/${ECR_REPO_NAME}
    ```  
-![Image of the command used to tag the image with the target Amazon ECR repository.](http://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%205-docker-push%20(redacted).png)
+![Image of the command used to tag the image with the target Amazon ECR repository.](https://docs.aws.amazon.com/cloudshell/latest/userguide/images/docker-cli-tutorial%20-%205-docker-push%20(redacted).png)
 
    If you encounter errors or run into issues when trying to complete this tutorial, see the [Troubleshooting](https://docs.aws.amazon.com/cloudshell/latest/userguide/troubleshooting.html) section of this guide for help.
 
