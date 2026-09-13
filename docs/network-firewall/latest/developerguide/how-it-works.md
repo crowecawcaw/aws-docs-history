@@ -7,7 +7,7 @@ AWS Network Firewall is a stateful, managed, network firewall and intrusion dete
 
 The firewall protects the subnets within your VPC by filtering traffic going between the subnets and locations outside of your VPC. The following example figure depicts the placement of a firewall in a very simple architecture. 
 
-![An AWS Region has a VPC in a single Availability Zone with an internet gateway. A VPC spans the Region and contains a Network Firewall firewall subnet and a customer subnet. The firewall subnet is between the customer subnet and an internet gateway and is filtering traffic in both directions.](http://docs.aws.amazon.com/network-firewall/latest/developerguide/images/arch-igw-simple.png)
+![An AWS Region has a VPC in a single Availability Zone with an internet gateway. A VPC spans the Region and contains a Network Firewall firewall subnet and a customer subnet. The firewall subnet is between the customer subnet and an internet gateway and is filtering traffic in both directions.](https://docs.aws.amazon.com/network-firewall/latest/developerguide/images/arch-igw-simple.png)
 
 
 To enable the firewall's protection, you modify your Amazon VPC route tables to send your network traffic through the Network Firewall firewall endpoints. For information about managing route tables for your VPC, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon Virtual Private Cloud User Guide*. 

@@ -19,4 +19,4 @@ The following are considerations to keep in mind to prevent asymmetric routing:
 + **Stateless rules** - If your Network Firewall firewall uses stateless rules:
   + Be aware that unidirectional `pass` rules can create asymmetric forwarding when the policy’s stateless default action is **forward to stateful rules**.
   + Ensure that your stateless rules forward traffic symmetrically to the stateful engine using the **forward to stateful rule groups** action. Often this means writing pairs of rules to match both forward and return direction traffic. For information about the foward to stateful rule groups option, see [Creating a firewall policy in AWS Network Firewall](firewall-policy-creating.md). The following example shows a pair of rules that match both forward and return direction traffic:  
-![A pair of rules is shown in the console with mirrored source and destination ports.](http://docs.aws.amazon.com/network-firewall/latest/developerguide/images/paired-rule.png)
+![A pair of rules is shown in the console with mirrored source and destination ports.](https://docs.aws.amazon.com/network-firewall/latest/developerguide/images/paired-rule.png)

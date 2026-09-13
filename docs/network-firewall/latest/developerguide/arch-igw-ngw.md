@@ -7,4 +7,4 @@ You can add a network address translation (NAT) gateway to your AWS Network Fire
 
 The following figure depicts a VPC configuration for Network Firewall with an internet gateway and a NAT gateway. 
 
-![VPC configuration with an internet gateway and a NAT gateway, showing firewall subnet, NAT gateway subnet, and customer workload subnets.](http://docs.aws.amazon.com/network-firewall/latest/developerguide/images/arch-igw-natgw.png)
+![VPC configuration with an internet gateway and a NAT gateway, showing firewall subnet, NAT gateway subnet, and customer workload subnets.](https://docs.aws.amazon.com/network-firewall/latest/developerguide/images/arch-igw-natgw.png)
