@@ -21,7 +21,7 @@ Each instance of a KEY\_VALUE\_SET `Block` object is a child of the PAGE `Block`
 
 The following diagram shows how the key-value pair *Name: Ana Carolina* is represented by `Block` objects.
 
-![Diagram depicting the structure of a database table with a page containing keys and values, where keys are the words "Name:", "Ana", and "Carolina".](http://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-key-value-set.png)
+![Diagram depicting the structure of a database table with a page containing keys and values, where keys are the words "Name:", "Ana", and "Carolina".](https://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-key-value-set.png)
 
 
 The following examples show how the key-value pair *Name: Ana Carolina* is represented by JSON.

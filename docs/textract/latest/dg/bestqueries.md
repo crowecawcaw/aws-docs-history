@@ -26,7 +26,7 @@ Query 2: Who is the manufacturer of the 1st dose?
 
 Answer 2: Pfizer
 
-![Sample vaccination record card showing personal details like name, date of birth, ID number, and entries for multiple vaccine doses with product name, date, and healthcare professional initials.](http://docs.aws.amazon.com/textract/latest/dg/images/best-practice-cells.png)
+![Sample vaccination record card showing personal details like name, date of birth, ID number, and entries for multiple vaccine doses with product name, date, and healthcare professional initials.](https://docs.aws.amazon.com/textract/latest/dg/images/best-practice-cells.png)
 
 
 ## Extracting Tables using Queries
@@ -54,7 +54,7 @@ Query 2: Social Security Number.
 
 Answer 2: 999-99-9999
 
-![Form field for borrower details including name, social security number, marital status, and address.](http://docs.aws.amazon.com/textract/latest/dg/images/best-practice-hints.png)
+![Form field for borrower details including name, social security number, marital status, and address.](https://docs.aws.amazon.com/textract/latest/dg/images/best-practice-hints.png)
 
 
 ## General Phrasing of Questions

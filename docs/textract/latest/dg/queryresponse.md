@@ -9,7 +9,7 @@ Detected queries are returned as Block objects in the responses from AnalyzeDocu
 
 The following shows a diagram of how a query response is represented in `Block` objects.
 
-![Diagram showing a query and two responses flowing from a page, with one response redirecting to an answer.](http://docs.aws.amazon.com/textract/latest/dg/images/query-response-image.png)
+![Diagram showing a query and two responses flowing from a page, with one response redirecting to an answer.](https://docs.aws.amazon.com/textract/latest/dg/images/query-response-image.png)
 
 
 Following is an example for a query response as part of a full response of document analysis.

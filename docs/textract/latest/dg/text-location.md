@@ -49,7 +49,7 @@ The JSON for a `Block` object looks similar to the following. Note the `Bounding
 
 You can use geometry information to draw bounding boxes around detected items. For an example that uses `BoundingBox` and `Polygon` information to draw boxes around lines and vertical lines at the start and end of each word, see [Detecting Document Text with Amazon Textract](detecting-document-text.md). The example output is similar to the following.
 
-![Form with fields for Name, Address, and Birthdate displaying personal information of Jane Doe with address 123 Any Street, Anytown, USA and birthdate 12-26-1980.](http://docs.aws.amazon.com/textract/latest/dg/images/janedoe.png)
+![Form with fields for Name, Address, and Birthdate displaying personal information of Jane Doe with address 123 Any Street, Anytown, USA and birthdate 12-26-1980.](https://docs.aws.amazon.com/textract/latest/dg/images/janedoe.png)
 
 
 ## Bounding Box
@@ -65,7 +65,7 @@ Each BoundingBox property has a value between 0 and 1. The value is a ratio of t
 
 The following diagram shows the range of a document page that each BoundingBox property covers.
 
-![Diagram showing Left, Top, Width, and Height properties defining a bounding box on a page.](http://docs.aws.amazon.com/textract/latest/dg/images/bounding-box.png)
+![Diagram showing Left, Top, Width, and Height properties defining a bounding box on a page.](https://docs.aws.amazon.com/textract/latest/dg/images/bounding-box.png)
 
 
 To display the bounding box with the correct location and size, you multiply the BoundingBox values by the document page width or height (depending on the value you want) to get the pixel values. You use the pixel values to display the bounding box. An example is using a document page of 608 pixels width x 588 pixels height, and the following bounding box values for analyzed text: 

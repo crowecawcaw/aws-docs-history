@@ -74,14 +74,14 @@ Amazon Textract has a product specific [Service Quotas Calculator](https://conso
 **To use the Textract Service Quotas Calculator**
 
 1. **Selecting Regions**  
-![Dropdown menu showing the AWS Region 'US East (N. Virginia)' selected, with information explaining that quota requirements will be forecast for the specified region.](http://docs.aws.amazon.com/textract/latest/dg/images/region-example.png)
+![Dropdown menu showing the AWS Region 'US East (N. Virginia)' selected, with information explaining that quota requirements will be forecast for the specified region.](https://docs.aws.amazon.com/textract/latest/dg/images/region-example.png)
 
    Select your account's region
 
    The service calculator can estimate quotas in any region, and different regions have different default quotas. As such, make sure you match your account's region to the region you're calculating for. If you want to calculate a quota for a different region, change your account's region in the console first.
 
 1. **Processing type**  
-![Option for processing documents using synchronous API operations, suitable for single-page documents in near real-time, or asynchronous operations for large, multipage documents.](http://docs.aws.amazon.com/textract/latest/dg/images/processing-example.png)
+![Option for processing documents using synchronous API operations, suitable for single-page documents in near real-time, or asynchronous operations for large, multipage documents.](https://docs.aws.amazon.com/textract/latest/dg/images/processing-example.png)
 
    Select *Synchronous* or *Asynchronous*.
 
@@ -90,7 +90,7 @@ Amazon Textract has a product specific [Service Quotas Calculator](https://conso
    For example, if your use case is processing single page customer receipts, you'll select Synchronous 
 
 1. **Use case type**  
-![Drop-down selection for "Choose a use case type" with options to forecast requirement quotas associated with different use cases.](http://docs.aws.amazon.com/textract/latest/dg/images/type-example.png)
+![Drop-down selection for "Choose a use case type" with options to forecast requirement quotas associated with different use cases.](https://docs.aws.amazon.com/textract/latest/dg/images/type-example.png)
 
    Select the operation best suited for your use case.
 
@@ -99,7 +99,7 @@ Amazon Textract has a product specific [Service Quotas Calculator](https://conso
    For example, if your use case is primarily related to processing receipts, you'll select *Expense Analysis* from the list of operations.
 
 1. **Usage values**  
-![Interface showing fields to input maximum number of documents to process per day or per hour, and maximum number of pages per document, with note stating synchronous API operations are for single-page documents only.](http://docs.aws.amazon.com/textract/latest/dg/images/sync-input-example.png)
+![Interface showing fields to input maximum number of documents to process per day or per hour, and maximum number of pages per document, with note stating synchronous API operations are for single-page documents only.](https://docs.aws.amazon.com/textract/latest/dg/images/sync-input-example.png)
 
     Specify your usage values.
 
@@ -110,7 +110,7 @@ For asynchronous operations you also can enter the expected number of hours proc
    For example, if you process an average of a million receipts a day, you'll enter 1,000,000 into the *Documents to be processed tab* to estimate the quota value needed.
 
 1. **Review results**  
-![Service quota value display showing the AnalyzeExpense quota requires 12 but the current value is 5, indicating a quota increase is needed.](http://docs.aws.amazon.com/textract/latest/dg/images/output-example.png)
+![Service quota value display showing the AnalyzeExpense quota requires 12 but the current value is 5, indicating a quota increase is needed.](https://docs.aws.amazon.com/textract/latest/dg/images/output-example.png)
 
    Check step 3 of the calculator page and review the calculator's output. The calculator pulls your current quotas information and compares them to the quotas required for your use case. This will tell you if your current quotas are too low for your processing needs. If this is the case, you can click on the link provided by the calculator which will directly link you to a quota increase request for the operation you estimated for in the region you selected in Service quotas.
 **Note**  

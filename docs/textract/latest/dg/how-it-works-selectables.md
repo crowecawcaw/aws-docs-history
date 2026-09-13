@@ -24,8 +24,8 @@ Below is a table that provides examples of the different selectable types suppor
 | Radio Button | Yes ○ No ● | 
 | Checkbox | Yes ☐ No ☑ | 
 | Underlined Words | Yes *No* | 
-| Circled Words |  ![Two buttons labeled "Yes" and "No" for making a binary choice.](http://docs.aws.amazon.com/textract/latest/dg/images/circleclickable.png) | 
-| Crossed Out Words | ![Two buttons labeled "Yes" and "No", with "No" crossed out in blue.](http://docs.aws.amazon.com/textract/latest/dg/images/cutclickable.png) | 
+| Circled Words |  ![Two buttons labeled "Yes" and "No" for making a binary choice.](https://docs.aws.amazon.com/textract/latest/dg/images/circleclickable.png) | 
+| Crossed Out Words | ![Two buttons labeled "Yes" and "No", with "No" crossed out in blue.](https://docs.aws.amazon.com/textract/latest/dg/images/cutclickable.png) | 
 
 Additionally Amazon Textract can detect implicit clickables, or clickables that are structured as questions and answered by marking one of several answers. These are returned the same way clickables are.
 
@@ -41,7 +41,7 @@ A `SELECTION_ELEMENT` `Block` object is associated with either a key-value pair 
 
 A key-value pair is used to represent a selection element that's detected on a form. The `KEY` block contains the text for the selection element. The `VALUE` block contains the SELECTION\_ELEMENT block. The following diagram shows how selection elements are represented by [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects.
 
-![Diagram depicting the representation of a selection element on a form using a key-value pair data structure, with KEY containing the text, VALUE containing the SELECTION_ELEMENT, and PAGE as the parent object.](http://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-key-value-set-selectable.png)
+![Diagram depicting the representation of a selection element on a form using a key-value pair data structure, with KEY containing the text, VALUE containing the SELECTION_ELEMENT, and PAGE as the parent object.](https://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-key-value-set-selectable.png)
 
 
 For more information about key-value pairs, see [Form Data (Key-Value Pairs)](how-it-works-kvp.md).
@@ -236,7 +236,7 @@ Amazon Textract can detect selection elements inside a table cell. For example, 
 
 A `CELL` block can contain child `SELECTION_ELEMENT` objects for selection elements and child `WORD` blocks for detected text.
 
-![Diagram showing a hierarchical structure of a page layout with components: page, table, cell, word, and selection element.](http://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-table-cell-selectable.png)
+![Diagram showing a hierarchical structure of a page layout with components: page, table, cell, word, and selection element.](https://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-table-cell-selectable.png)
 
 
 For more information about tables, see [Tables](how-it-works-tables.md).

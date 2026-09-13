@@ -5,7 +5,7 @@
 
 A document consists of one or more pages. A [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) object of type `PAGE` exists for each page of the document. A `PAGE` block object contains a list of the child IDs for the lines of text, key-value pairs, tables, Queries, and Query Results that are detected on the document page. 
 
-![Document structure diagram showing Page containing Line, Table, Key-Value Set, Query, and Queries Result components.](http://docs.aws.amazon.com/textract/latest/dg/images/pages-image.png)
+![Document structure diagram showing Page containing Line, Table, Key-Value Set, Query, and Queries Result components.](https://docs.aws.amazon.com/textract/latest/dg/images/pages-image.png)
 
 
 The JSON for a `PAGE` block looks similar to the following.

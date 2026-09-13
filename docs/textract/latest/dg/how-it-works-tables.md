@@ -9,12 +9,12 @@ Detected tables are returned as [Block](https://docs.aws.amazon.com/textract/lat
 
 The following is an example of a table that could be detected by Amazon Textract.
 
-![Balance sheet table showing transactions from 2022-12-24 to 2023-01-15, with starting balance of $11,000, credits of $1,040, debits of $1,040, and ending balance of $11,000 as of 2023-01-20.](http://docs.aws.amazon.com/textract/latest/dg/images/example_table.png)
+![Balance sheet table showing transactions from 2022-12-24 to 2023-01-15, with starting balance of $11,000, credits of $1,040, debits of $1,040, and ending balance of $11,000 as of 2023-01-20.](https://docs.aws.amazon.com/textract/latest/dg/images/example_table.png)
 
 
 The following diagram shows how a single cell in a table is represented by `Block` objects.
 
-![Diagram depicting the structure of a table with cells, including a merged cell spanning 5 columns for the table title. The table comprises nested components like pages, cells, words, and a merged title cell.](http://docs.aws.amazon.com/textract/latest/dg/images/updated_table_diagram.png)
+![Diagram depicting the structure of a table with cells, including a merged cell spanning 5 columns for the table title. The table comprises nested components like pages, cells, words, and a merged title cell.](https://docs.aws.amazon.com/textract/latest/dg/images/updated_table_diagram.png)
 
 
 A cell contains `WORD` blocks for detected words, and where applicable, `TABLE_TITLE` blocks for table titles, `TABLE_FOOTER` blocks for table footers, and `SELECTION_ELEMENT` blocks for selection elements such as check boxes. 

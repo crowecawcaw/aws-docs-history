@@ -33,7 +33,7 @@ For an example that uses AWS Lambda functions, see [Large scale document process
 
 The following diagram shows the process for detecting document text in a document image stored in an Amazon S3 bucket. In the diagram, an Amazon SQS queue gets the completion status from the Amazon SNS topic. 
 
-![Diagram showing an Amazon Textract workflow with key steps: start and return job ID, process document in S3 bucket, publish completion status to SNS topic, monitor SQS queue for completion status, call GetDocumentTextDetection to get analysis results.](http://docs.aws.amazon.com/textract/latest/dg/images/asynchronous.png)
+![Diagram showing an Amazon Textract workflow with key steps: start and return job ID, process document in S3 bucket, publish completion status to SNS topic, monitor SQS queue for completion status, call GetDocumentTextDetection to get analysis results.](https://docs.aws.amazon.com/textract/latest/dg/images/asynchronous.png)
 
 
 The process displayed by the preceeding diagram is the same for analyzing text and invoices/receipts. You start analyzing text by calling [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html) and start analyzing invoices/receipts by calling [StartExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartExpenseAnalysis.html) You get the results by calling [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html) or [GetExpenseAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetExpenseAnalysis.html) respectively.

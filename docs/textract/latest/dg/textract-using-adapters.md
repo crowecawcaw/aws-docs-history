@@ -53,4 +53,4 @@ To apply your custom adapter, provide its ID when calling the [AnalyzeDocument](
 
 **Video demonstration and tutorial**
 
-[![AWS Videos](http://img.youtube.com/vi/we-bv-NXgL0?si=K1mDHrncKLz918ZC/0.jpg)](http://www.youtube.com/watch?v=we-bv-NXgL0?si=K1mDHrncKLz918ZC)
+[![AWS Videos](https://img.youtube.com/vi/we-bv-NXgL0?si=K1mDHrncKLz918ZC/0.jpg)](https://www.youtube.com/watch?v=we-bv-NXgL0?si=K1mDHrncKLz918ZC)

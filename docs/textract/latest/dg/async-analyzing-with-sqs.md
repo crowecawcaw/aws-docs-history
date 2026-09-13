@@ -44,7 +44,7 @@ The example code for this procedure is provided in Java, Python, and the AWS CLI
 
    For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*.
 
-1. Use the following AWS SDK for Java, SDK for Python (Boto3), or AWS CLI code to either detect text or analyze text in a multipage document. In the `main` function:
+1. Use the following AWS SDK for Java, AWS SDK for Python (Boto3), or AWS CLI code to either detect text or analyze text in a multipage document. In the `main` function:
    + Replace the value of `roleArn` with the IAM role ARN that you saved in [Giving Amazon Textract Access to Your Amazon SNS Topic](api-async-roles.md#api-async-roles-all-topics). 
    + Replace the values of `bucket` and `document` with the bucket and document file name that you specified in step 2. 
    + Replace the value of the `type` input parameter of the `ProcessDocument` function with the type of processing that you want to do. Use `ProcessType.DETECTION` to detect text. Use `ProcessType.ANALYSIS` to analyze text. 
