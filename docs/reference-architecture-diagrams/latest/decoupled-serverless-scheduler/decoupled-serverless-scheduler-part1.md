@@ -10,7 +10,7 @@ This architecture shows how to deploy a decoupled serverless scheduler to run an
 ## Decoupled Serverless Scheduler, Part 1
 <a name="diagram1"></a>
 
-![Architecture diagram showing the decoupled serverless scheduler Part 1 using Amazon Simple Queue Service, AWS Step Functions, AWS Lambda, Amazon DynamoDB, and Amazon Elastic Compute Cloud.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/decoupled-serverless-scheduler/images/decoupled-serverless-scheduler-1.png)
+![Architecture diagram showing the decoupled serverless scheduler Part 1 using Amazon Simple Queue Service, AWS Step Functions, AWS Lambda, Amazon DynamoDB, and Amazon Elastic Compute Cloud.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/decoupled-serverless-scheduler/images/decoupled-serverless-scheduler-1.png)
 
 
 The following steps describe the architecture:

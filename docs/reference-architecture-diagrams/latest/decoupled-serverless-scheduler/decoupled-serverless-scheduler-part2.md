@@ -8,7 +8,7 @@ This architecture shows how to extend the decoupled serverless scheduler by usin
 ## Decoupled Serverless Scheduler, Part 2
 <a name="diagram2"></a>
 
-![Architecture diagram showing the decoupled serverless scheduler Part 2 using Amazon Simple Storage Service, AWS Lambda, and Amazon Elastic Compute Cloud Auto Scaling Groups.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/decoupled-serverless-scheduler/images/decoupled-serverless-scheduler-2.png)
+![Architecture diagram showing the decoupled serverless scheduler Part 2 using Amazon Simple Storage Service, AWS Lambda, and Amazon Elastic Compute Cloud Auto Scaling Groups.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/decoupled-serverless-scheduler/images/decoupled-serverless-scheduler-2.png)
 
 
 The following steps describe the architecture:
