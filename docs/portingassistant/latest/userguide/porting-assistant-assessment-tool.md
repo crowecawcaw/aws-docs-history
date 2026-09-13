@@ -69,7 +69,7 @@ A small number of APIs might show an "Incompatible" status. This can happen when
 
 The following example shows the sample .csv output for a NuGet assessment report, as part of the larger compatibility assessment report. 
 
-![Sample .csv output for a NuGet assessment report, as part of the larger compatibility assessment report.](http://docs.aws.amazon.com/portingassistant/latest/userguide/images/nuget-packages-assessment.PNG)
+![Sample .csv output for a NuGet assessment report, as part of the larger compatibility assessment report.](https://docs.aws.amazon.com/portingassistant/latest/userguide/images/nuget-packages-assessment.PNG)
 
 
 ## Assess a new solution using the Porting Assistant CLI console application
