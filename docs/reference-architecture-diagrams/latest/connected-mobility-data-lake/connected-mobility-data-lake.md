@@ -10,7 +10,7 @@ This architecture enables you to create connected mobility data products and dem
 ## Connected Mobility Data Lake Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to create connected mobility data products and democratize data access with a serverless data mesh architecture](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-mobility-data-lake/images/connected-mobility-data-lake.png)
+![Reference architecture diagram showing how to create connected mobility data products and democratize data access with a serverless data mesh architecture](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-mobility-data-lake/images/connected-mobility-data-lake.png)
 
 
 1. Ingest vehicle data through a network provider to **AWS IoT Core**. Ingest factory data through **Direct Connect** and **[Amazon Kinesis Data Streams](https://docs.aws.amazon.com/streams/latest/dev/building-producers.html)**. Sync a customer relationship management (CRM) database to **Amazon Simple Storage Service** (Amazon S3) with **[AWS DataSync](https://aws.amazon.com/blogs/storage/synchronizing-your-data-to-amazon-s3-using-aws-datasync/)**.
