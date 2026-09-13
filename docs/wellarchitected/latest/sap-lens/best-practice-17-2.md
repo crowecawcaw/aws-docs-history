@@ -55,7 +55,7 @@ Distributing SAP components across Availability Zones can reduce the costs incur
 
 For example, if 100% capacity is an availability requirement for failure scenarios including the loss of an Availability Zone, instead of provisioning 200% capacity across two Availability Zones, provision 150% capacity across three.
 
-![Three availability zones each with subnets, application instances at 50% capacity, and database instances.](http://docs.aws.amazon.com/wellarchitected/latest/sap-lens/images/example-three-availability-zone-architecture.png)
+![Three availability zones each with subnets, application instances at 50% capacity, and database instances.](https://docs.aws.amazon.com/wellarchitected/latest/sap-lens/images/example-three-availability-zone-architecture.png)
 
 
  **Suggestion 17.2.7 – Evaluate the use of storage-only based recovery options** 

@@ -28,7 +28,7 @@ SAP workloads are generally stable, with known usage patterns and hours of opera
 
 Establish a plan to match workload capacity requirements with commitment duration to maximize discount.
 
-![Timeline showing SAP workload capacity allocation over 3 years with different commitment types.](http://docs.aws.amazon.com/wellarchitected/latest/sap-lens/images/example-timeline-of-planning-sap-on-aws-compute-commitments.png)
+![Timeline showing SAP workload capacity allocation over 3 years with different commitment types.](https://docs.aws.amazon.com/wellarchitected/latest/sap-lens/images/example-timeline-of-planning-sap-on-aws-compute-commitments.png)
 
 
  **Suggestion 20.2.3 – Evaluate whether fixing compute types for greater discounts is appropriate** 
