@@ -67,7 +67,7 @@ Once the Amazon SNS topic is created, you will receive an email requesting that 
    The email will list the Amazon Resource Name for the Amazon SNS topic, and a confirmation link.
 
 1. Choose the **confirm subscription** link.  
-![Illustrative screenshot of a subscription confirmation email.](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-sub-conf.png)
+![Illustrative screenshot of a subscription confirmation email.](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-sub-conf.png)
 
 ## Step 4: Run the state machine
 <a name="human-approval-run"></a>
@@ -97,7 +97,7 @@ Step Functions accepts names for state machines, executions, activities, and lab
    1. The Step Functions console directs you to a page that's titled with your execution ID. This page is known as the *Execution Details* page. On this page, you can review the execution results as the execution progresses or after it's complete.
 
       To review the execution results, choose individual states on the **Graph view**, and then choose the individual tabs on the [Step details](concepts-view-execution-details.md#exec-details-intf-step-details) pane to view each state's details including input, output, and definition respectively. For details about the execution information you can view on the *Execution Details* page, see [Execution details overview](concepts-view-execution-details.md#exec-details-interface-overview).  
-![Execution waiting for callback](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-pause.png)
+![Execution waiting for callback](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-pause.png)
 
 1. In the email account you used for the Amazon SNS topic earlier, open the message with the subject **Required approval from AWS Step Functions**. 
 
@@ -106,7 +106,7 @@ Step Functions accepts names for state machines, executions, activities, and lab
 1. Choose the **Approve** URL.
 
    The workflow continues based on your choice.  
-![Execution waiting for callback](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-continue.png)
+![Execution waiting for callback](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-continue.png)
 
 ## CloudFormation Template Source Code
 <a name="human-approval-yaml"></a>

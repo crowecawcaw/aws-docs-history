@@ -16,7 +16,7 @@ Your first state machine will start with *flow states*. Flow states are used to 
 
 The following diagram shows a visual of the complete state machine that you will build. When you first create the Hello World state machine, it will not need additional resources to run. The Step Functions console will create all the states and an IAM role in a single click. Later, when you add the service integration, you will need to create a role with a custom permission policy.
 
-![Visual representation of the Hello World workflow.](http://docs.aws.amazon.com/step-functions/latest/dg/images/hello-world-arch.png)
+![Visual representation of the Hello World workflow.](https://docs.aws.amazon.com/step-functions/latest/dg/images/hello-world-arch.png)
 
 
 ## Step 1 - Create your state machine
@@ -27,10 +27,10 @@ The following diagram shows a visual of the complete state machine that you will
 1. Go to the **Step Functions console.**
 
 1. In the Step Functions console, choose "**Step Functions**" from the upper left navigation, or the breadcrumbs, then choose **Get started**:  
-![Illustrative screenshot showing how to get started with the Hello World workflow](http://docs.aws.amazon.com/step-functions/latest/dg/images/get-started-hello-world.png)
+![Illustrative screenshot showing how to get started with the Hello World workflow](https://docs.aws.amazon.com/step-functions/latest/dg/images/get-started-hello-world.png)
 
 1. From the options, choose **Run Hello World**:  
-![Illustrative screenshot showing how to choose the Hello World workflow](http://docs.aws.amazon.com/step-functions/latest/dg/images/create-hello-world.png)
+![Illustrative screenshot showing how to choose the Hello World workflow](https://docs.aws.amazon.com/step-functions/latest/dg/images/create-hello-world.png)
 
 **Tip**  
 We recommend stepping through the short in-console walk through to become familiar with the UI.
@@ -42,7 +42,7 @@ We recommend stepping through the short in-console walk through to become famili
 
  You can add and edit states, configure steps, transform results, and set up error handling. The following screenshot shows four important areas of the interface that you will use to build your state machines. 
 
-![Illustrative screenshot of the four important areas of the Workflow Studio interface](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfs-panel-overview.png)
+![Illustrative screenshot of the four important areas of the Workflow Studio interface](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfs-panel-overview.png)
 
 
 **Modes** - Workflow Studio provides three modes of operation and defaults to the visual design mode. 
@@ -70,7 +70,7 @@ We recommend stepping through the short in-console walk through to become famili
 
  Parallel states can run multiple processes on your data. Perhaps the workflow will print an order ticket, update inventory, and increase a daily sales report simultaneously. 
 
-![Illustrative image of the getting started Hello World workflow](http://docs.aws.amazon.com/step-functions/latest/dg/images/workflow-1-hello-world.png)
+![Illustrative image of the getting started Hello World workflow](https://docs.aws.amazon.com/step-functions/latest/dg/images/workflow-1-hello-world.png)
 
 
 ### View the workflow code (ASL)
@@ -88,7 +88,7 @@ We recommend stepping through the short in-console walk through to become famili
 
 1. Select some states on the canvas to review. For example, pick the **Choice state**.
 
-![Illustrative image of code view](http://docs.aws.amazon.com/step-functions/latest/dg/images/hello-code-view.png)
+![Illustrative image of code view](https://docs.aws.amazon.com/step-functions/latest/dg/images/hello-code-view.png)
 
 
  Did you notice how the state's definition is highlighted in the code view? 
@@ -127,7 +127,7 @@ You **cannot rename** a state machine after you create it. Choose a name **befor
 
  You will be automatically presented with the option to start the state machine. You'll do that in the next step\! 
 
-![Illustrative image of the getting started Hello World workflow](http://docs.aws.amazon.com/step-functions/latest/dg/images/workflow-created.png)
+![Illustrative image of the getting started Hello World workflow](https://docs.aws.amazon.com/step-functions/latest/dg/images/workflow-created.png)
 
 
 **Workflow creation achieved\!**  
@@ -142,7 +142,7 @@ Step Functions created your workflow and IAM role. Now, you are ready to start y
 
 The **Hello World** state machine is self-contained and does not need input.
 
-![Illustrative image of getting started](http://docs.aws.amazon.com/step-functions/latest/dg/images/start_283486381.jpg)
+![Illustrative image of getting started](https://docs.aws.amazon.com/step-functions/latest/dg/images/start_283486381.jpg)
 
 
  **To start the state machine**
@@ -153,7 +153,7 @@ The **Hello World** state machine is self-contained and does not need input.
 
 1. Choose the **Start execution** button.
 
-![Illustrative image for starting a workflow.](http://docs.aws.amazon.com/step-functions/latest/dg/images/hello001.png)
+![Illustrative image for starting a workflow.](https://docs.aws.amazon.com/step-functions/latest/dg/images/hello001.png)
 
 
 ### Review the execution details
@@ -173,12 +173,12 @@ The **Hello World** state machine is self-contained and does not need input.
 
  You should see that **State input** is blank, but **State output** contains JSON that sets the value of `IsHelloWorldExample` to `true`. 
 
-![Execution 001](http://docs.aws.amazon.com/step-functions/latest/dg/images/hello001-graph-view.png)
+![Execution 001](https://docs.aws.amazon.com/step-functions/latest/dg/images/hello001-graph-view.png)
 
 
  Switch from the **Graph view** to the **Table view** to see a list of states by name, type, and status. 
 
-![Execution 001 table view](http://docs.aws.amazon.com/step-functions/latest/dg/images/hello001-table.png)
+![Execution 001 table view](https://docs.aws.amazon.com/step-functions/latest/dg/images/hello001-table.png)
 
 
 **Tip**  
@@ -190,12 +190,12 @@ Take note of the **Duration** and **Timeline** fields in the previous screenshot
 
  Expand the first **PassStateEntered** and **PassStateExited** events in the **Event View** table to see how the state takes no input, assigns a variable called `CheckpointCount` the value of zero, and produces the output you saw previously. 
 
-![Execution 001 event view](http://docs.aws.amazon.com/step-functions/latest/dg/images/hello001-event-view.png)
+![Execution 001 event view](https://docs.aws.amazon.com/step-functions/latest/dg/images/hello001-event-view.png)
 
 
  Lastly, you have the **State view** which is similar to the **Table view**. In the **State view** table, you can selectively expand **states** to see just the Inputs and Outputs for each state: 
 
-![Execution 001 state view](http://docs.aws.amazon.com/step-functions/latest/dg/images/hello001-state-view.png)
+![Execution 001 state view](https://docs.aws.amazon.com/step-functions/latest/dg/images/hello001-state-view.png)
 
 
 **Congratulations\! You've run your first Step Functions state machine\!**  
@@ -209,7 +209,7 @@ Take note of the **Duration** and **Timeline** fields in the previous screenshot
 
  In this step, we'll show you how external JSON data can be used as input to your workflow: 
 
-![Process external input](http://docs.aws.amazon.com/step-functions/latest/dg/images/process-external-input.png)
+![Process external input](https://docs.aws.amazon.com/step-functions/latest/dg/images/process-external-input.png)
 
 
 ### Remove the hard-coded input
@@ -274,7 +274,7 @@ What do you expect if you run a new execution with *hello\_world* set to **false
 
  In the **Executions** tab, you should see a list of executions, similar to the following screenshot: 
 
-![Illustrative screenshot that shows a sample list of hello workflow executions.](http://docs.aws.amazon.com/step-functions/latest/dg/images/hello-executions.png)
+![Illustrative screenshot that shows a sample list of hello workflow executions.](https://docs.aws.amazon.com/step-functions/latest/dg/images/hello-executions.png)
 
 
  One final note: workflow execution names must be unique and **cannot** be reused. Although we suggested a short name (`hello001`) in this tutorial, we recommend using a naming convention that will always be unique for your production workloads. 
@@ -300,7 +300,7 @@ The Amazon Comprehend `DetectSentiment` API that is used in this tutorial is not
 
 1. **Wait for Callback** (*.waitForTaskToken*) - pause a workflow until a task token is returned by an external process.
 
-![Illustrative screenshot depicting a service integration.](http://docs.aws.amazon.com/step-functions/latest/dg/images/AdobeStock_513621530_integration_1000.jpg)
+![Illustrative screenshot depicting a service integration.](https://docs.aws.amazon.com/step-functions/latest/dg/images/AdobeStock_513621530_integration_1000.jpg)
 
 
  For your first integration, you will use the **Request Response** (default) integration pattern. 
@@ -332,7 +332,7 @@ Note that API actions will be *camelCase* (lowercase initial), but *ParameterNam
 
  When Step Functions calls another service using the `Task` state, the default pattern is [Request Response](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-default). With the **Request Response** integration pattern, Step Functions calls a service, receives a response, and ***immediately*** proceeds to the next state. 
 
-![Sentiment detection integration](http://docs.aws.amazon.com/step-functions/latest/dg/images/integrate_sentiment_592194331.png)
+![Sentiment detection integration](https://docs.aws.amazon.com/step-functions/latest/dg/images/integrate_sentiment_592194331.png)
 
 
 ### Step 4.1 - Add sentiment analysis state

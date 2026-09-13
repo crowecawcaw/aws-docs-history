@@ -79,7 +79,7 @@ Filter by property or value box to search for a specific version.
 
 The following image shows the *Version Details* console page. This page lists executions started by the version *4* of a state machine named `{{MathAddDemo}}`. This list also displays an execution that was started by an alias named `{{PROD}}`. This alias routed the execution traffic to version *4*.
 
-![Illustrative screenshot of the state machine version details console page.](http://docs.aws.amazon.com/step-functions/latest/dg/images/view-version-executions.png)
+![Illustrative screenshot of the state machine version details console page.](https://docs.aws.amazon.com/step-functions/latest/dg/images/view-version-executions.png)
 
 
 ### Using CloudWatch metrics

@@ -165,7 +165,7 @@ To review the execution results, choose individual states on the **Graph view**,
 
 Your state machine invokes the Lambda function, which throws a `CustomError`. Choose the **CreateAccount** step in the **Graph view** to see the state output. Your state machine output should look similar to the following illustration: 
 
-![Illustrative screenshot of the workflow catching the custom error.](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-console-retry-state-machine-error-output.png)
+![Illustrative screenshot of the workflow catching the custom error.](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-console-retry-state-machine-error-output.png)
 
 
 **Congratulations\!**

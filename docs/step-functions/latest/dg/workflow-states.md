@@ -22,7 +22,7 @@ Individual states can make decisions based on their input, perform actions from 
 
 The following screenshot shows some of the most popular **Actions** and the seven **Flow** states from Workflow Studio:
 
-![Illustrative screenshot showing popular Actions and Flow states in Workflow Studio](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfs-actions-flow-panel.png)
+![Illustrative screenshot showing popular Actions and Flow states in Workflow Studio](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfs-actions-flow-panel.png)
 
 
 States share many common features:

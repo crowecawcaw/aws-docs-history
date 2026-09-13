@@ -208,9 +208,9 @@ Step Functions accepts names for state machines, executions, activities, and lab
 1. Choose **Start Execution**.
 
    A new execution of your state machine starts, showing your running execution.  
-![State machine graph showing blue iterator state indicating in progress status.](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-create-iterate-running.png)
+![State machine graph showing blue iterator state indicating in progress status.](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-create-iterate-running.png)
 
    The execution increments in steps, tracking the count using your Lambda function. On each iteration, it performs the example work referenced in the `ExampleWork` state in your state machine. 
 
    When the count reaches the number specified in the `ConfigureCount` state in your state machine, the execution quits iterating and ends.   
-![State machine graph showing Iterator and Done state in green to indicate both have succeeded.](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-create-iterate-done.png)
+![State machine graph showing Iterator and Done state in green to indicate both have succeeded.](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-create-iterate-done.png)

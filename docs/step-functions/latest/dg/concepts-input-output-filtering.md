@@ -22,7 +22,7 @@ With JSONata expressions, you can select and transform data. In the `Arguments` 
 
 The following diagram shows how JSON information moves through a JSONata task state.
 
-![Flow diagram showing State Input passing through Arguments in Task state JSONata to Action and then to State Output or Variables.](http://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonata.png)
+![Flow diagram showing State Input passing through Arguments in Task state JSONata to Action and then to State Output or Variables.](https://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonata.png)
 
 
 **Processing input and output with JSONPath**
@@ -36,7 +36,7 @@ JSONPath fields can use [paths](amazon-states-language-paths.md) to select porti
 
 The following diagram shows how JSON information moves through a JSONPath task state. The `InputPath` selects the parts of the JSON input to pass to the task of the `Task` state (for example, an AWS Lambda function). You can adjust the data that is sent to your action in the `Parameters` field. Then, with `ResultSelector`, you can select portions of the action result to carry forward. `ResultPath` then selects the combination of state input and task results to pass to the output. `OutputPath` can filter the JSON output to further limit the information that's passed to the output.
 
-![Order of filters: InputPath, Parameters, ResultSelector, ResultPath, and OutputPath.](http://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonpath.png)
+![Order of filters: InputPath, Parameters, ResultSelector, ResultPath, and OutputPath.](https://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonpath.png)
 
 
 **Topics**

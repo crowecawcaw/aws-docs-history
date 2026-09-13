@@ -233,11 +233,11 @@ Step Functions accepts names for state machines, executions, activities, and lab
    +  **Red** for server faults (500 series errors) 
    +  **Yellow** for client errors (400 series errors) 
    +  **Purple** for throttling errors (429 Too Many Requests)   
-![Illustrative example screenshot of X-Ray trace nodes for three test functions.](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-xray-service.png)
+![Illustrative example screenshot of X-Ray trace nodes for three test functions.](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-xray-service.png)
 
    You can also choose a service node to view requests for that node, or an edge between two nodes to view requests that traveled that connection. 
 
 1. View the X-Ray trace map to see what has happened for each execution. The Timeline view shows a hierarchy of segments and subsegments. The first entry in the list is the segment, which represents all data recorded by the service for a single request. Below the segment are subsegments. This example shows subsegments recorded by the Lambda functions.  
-![Illustrative example screenshot of X-Ray timeline segments and subsegments for test functions.](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-xray-trace.png)
+![Illustrative example screenshot of X-Ray timeline segments and subsegments for test functions.](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-xray-trace.png)
 
    For more information on understanding X-Ray traces and using X-Ray with Step Functions, see the [Trace Step Functions request data in AWS X-Ray](concepts-xray-tracing.md) 

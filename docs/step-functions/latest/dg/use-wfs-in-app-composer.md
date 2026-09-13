@@ -31,7 +31,7 @@ When you use Workflow Studio in Infrastructure Composer, you can switch back and
 1. Choose **Edit in Workflow Studio** to edit your state machine resource.
 
    The following animation shows how you can switch to the Workflow Studio for editing your state machine definition.  
-![An animation that illustrates how you can use Workflow Studio in Infrastructure Composer.](http://docs.aws.amazon.com/step-functions/latest/dg/images/use-wfs-in-app-composer.gif)
+![An animation that illustrates how you can use Workflow Studio in Infrastructure Composer.](https://docs.aws.amazon.com/step-functions/latest/dg/images/use-wfs-in-app-composer.gif)
 
    The integration with Workflow Studio to edit state machines resources created in Infrastructure Composer is only available for [`AWS::Serverless::StateMachine`](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html) resource. This integration is not available for templates that use the [`AWS::StepFunctions::StateMachine`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html) resource.
 
@@ -42,7 +42,7 @@ In Workflow Studio, you can use CloudFormation definition substitutions in your 
 
 The following animation shows how you can add placeholder substitutions for the resources in your state machine definition.
 
-![Animation showing how to add placeholder substitutions for resources in your state machine.](http://docs.aws.amazon.com/step-functions/latest/dg/images/use-def-sub-wfs-app-composer.gif)
+![Animation showing how to add placeholder substitutions for resources in your state machine.](https://docs.aws.amazon.com/step-functions/latest/dg/images/use-def-sub-wfs-app-composer.gif)
 
 
 ## Connect service integration tasks to enhanced component cards
@@ -54,7 +54,7 @@ If you map optimized service integration tasks with [standard component cards](h
 
 The following animation shows how you can connect an optimized task to an enhanced component card and view the changes in [**Change Inspector**](https://docs.aws.amazon.com/application-composer/latest/dg/using-change-inspector.html).
 
-![Animation showing how to connect tasks and optimized service integrations.](http://docs.aws.amazon.com/step-functions/latest/dg/images/make-connections-wfs-app-composer.gif)
+![Animation showing how to connect tasks and optimized service integrations.](https://docs.aws.amazon.com/step-functions/latest/dg/images/make-connections-wfs-app-composer.gif)
 
 
 You can't connect [AWS SDK integrations](supported-services-awssdk.md) in your Task state with enhanced component cards or optimized service integrations with standard component cards. For these tasks, you can map the substitutions in the **Resource properties** panel in Infrastructure Composer canvas, and add policies in the AWS SAM template.
@@ -64,7 +64,7 @@ Alternatively, you can also map placeholder substitutions for your state machine
 
 The following animation shows how you can manually update the placeholder substitution mapping in the **Resource properties** panel.
 
-![Animation showing how to update placeholder substitution mapping in the resource properties panel.](http://docs.aws.amazon.com/step-functions/latest/dg/images/manual-update-placeholder-mapping.gif)
+![Animation showing how to update placeholder substitution mapping in the resource properties panel.](https://docs.aws.amazon.com/step-functions/latest/dg/images/manual-update-placeholder-mapping.gif)
 
 
 ## Import existing projects and sync them locally

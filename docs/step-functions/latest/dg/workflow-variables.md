@@ -26,7 +26,7 @@ Learn more in the blog post [Simplifying developer experience with variables and
 
  With variables, you can store data and use it in any future step. You can also modify, rearrange, or add steps without disrupting the flow of your data. Given the flexibility of variables, you might only need to use **Output** to return data from Parallel and Map sub-workflows, and at the end of your state machine execution. 
 
- ![Diagram showing step 1 assigning a value to $x, used in step 5.](http://docs.aws.amazon.com/step-functions/latest/dg/images/vars-diag-opt1.png)
+ ![Diagram showing step 1 assigning a value to $x, used in step 5.](https://docs.aws.amazon.com/step-functions/latest/dg/images/vars-diag-opt1.png)
 
  **States that support variables **
 
@@ -117,7 +117,7 @@ Workflow-local scope includes all states inside a state machine's **States** fie
 
  When using **JSONata** as the query language, the following diagram shows how **Assign** and **Output** fields are processed in parallel. Note the implication: *assigning variable values will not affect state Output. *
 
- ![Diagram showing a comparison of JSONPath and JSONata flow.](http://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonata.png)
+ ![Diagram showing a comparison of JSONPath and JSONata flow.](https://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonata.png)
 
  The following JSONata example retrieves `order.product` from the state input. The variable `currentPrice` is set to a value from the result of the task. 
 
@@ -198,7 +198,7 @@ Let's go through the example in detail. Assume that in a previous state, `$x` wa
 
  The following digram illustrates how the assign step in a **JSONPath** task occurs in at the same time as the ResultSelector: 
 
- ![Logical diagram of a state that uses JSONPath query language.](http://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonpath.png)
+ ![Logical diagram of a state that uses JSONPath query language.](https://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonpath.png)
 
  **Assigning variables in JSONPath**
 

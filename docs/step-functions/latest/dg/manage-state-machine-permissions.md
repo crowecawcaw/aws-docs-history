@@ -51,7 +51,7 @@ Workflow Studio can't generate IAM policies for Task states that call other AWS 
    1. For **Execution role**, make sure you keep the default selection of **Create new role**.
 
       Workflow Studio automatically generates all the required IAM policies for every valid state in your state machine definition. It displays a banner in with the message, **An execution role will be created with full permissions.**  
-![Illustrative screenshot of the Config tab with preview of auto-generated permissions.](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfs-full-permissions-role.png)
+![Illustrative screenshot of the Config tab with preview of auto-generated permissions.](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfs-full-permissions-role.png)
 **Tip**  
 To review the permissions that Workflow Studio automatically generates for your state machine, choose **Review auto-generated permissions**.
 **Note**  

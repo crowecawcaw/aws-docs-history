@@ -54,7 +54,7 @@ To view the complete example that discusses the state machine development with T
 Because the ASL definition file can contain lengthy blocks of text, we recommend you avoid the inline EOF method. This makes it easier to substitute parameters into your state machine definition.
 
 1. (Optional) Update the ASL definition within your IDE and visualize your changes using the AWS Toolkit for Visual Studio Code.  
-![Screenshot of the ASL definition of a workflow in Visual Studio Code and its visual representation.](http://docs.aws.amazon.com/step-functions/latest/dg/images/visualize-sm-terraform-iac.png)
+![Screenshot of the ASL definition of a workflow in Visual Studio Code and its visual representation.](https://docs.aws.amazon.com/step-functions/latest/dg/images/visualize-sm-terraform-iac.png)
 
    To avoid continuously exporting your definition and refactoring it into your project, we recommend that you make updates locally in you IDE and track these updates with [Git](https://git-scm.com/). 
 

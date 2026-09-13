@@ -40,7 +40,7 @@ The following image shows how Step Functions handles authorization for HTTPS API
 **Timeouts for connections**  
 HTTP task requests will timeout after 60 seconds.
 
-![Step Functions uses authorization and network configuration in EventBridge connections for calls to HTTPS endpoints.](http://docs.aws.amazon.com/step-functions/latest/dg/images/connections-overview_step-functions_conceptual.png)
+![Step Functions uses authorization and network configuration in EventBridge connections for calls to HTTPS endpoints.](https://docs.aws.amazon.com/step-functions/latest/dg/images/connections-overview_step-functions_conceptual.png)
 
 
 ## HTTP Task definition
@@ -607,7 +607,7 @@ You can use the [TestState](https://docs.aws.amazon.com/step-functions/latest/ap
    1. Choose the **Reveal secrets** checkbox. In combination with **TRACE**, this setting lets you see the sensitive data that the EventBridge connection inserts, such as API keys. The IAM user identity that you use to access the console must have permission to perform the `states:RevealSecrets` action. Without this permission, Step Functions throws an access denied error when you start the test. For an example of an IAM policy that sets the `states:RevealSecrets` permission, see [IAM permissions for using TestState API](test-state-isolation.md#test-state-permissions).
 
       The following image shows a test for an HTTP Task that succeeds. The **Inspection level** for this state is set to **TRACE**. The **HTTP request & response** tab in the following image shows the result of the HTTPS API call.  
-![Output of a selected state which succeeds the test for the TRACE level.](http://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-trace-success.png)
+![Output of a selected state which succeeds the test for the TRACE level.](https://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-trace-success.png)
 
    1. Choose **Start test**.
 

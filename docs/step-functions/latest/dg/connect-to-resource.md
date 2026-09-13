@@ -153,7 +153,7 @@ To see a list of what integrated services support waiting for a task token (`.wa
 
 In this example, a Step Functions workflow needs to integrate with an external microservice to perform a credit check as a part of an approval workflow. Step Functions publishes an Amazon SQS message that includes a task token as a part of the message. An external system integrates with Amazon SQS, and pulls the message off the queue. When that's finished, it returns the result and the original task token. Step Functions then continues with its workflow.
 
-![SQS task waiting for a task token to be returned](http://docs.aws.amazon.com/step-functions/latest/dg/images/wait-for-task-token.png)
+![SQS task waiting for a task token to be returned](https://docs.aws.amazon.com/step-functions/latest/dg/images/wait-for-task-token.png)
 
 
 The `"Resource"` field of the task definition that references Amazon SQS includes `.waitForTaskToken` appended to the end.

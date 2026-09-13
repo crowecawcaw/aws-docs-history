@@ -7,7 +7,7 @@ In this guide, you download, build, and deploy a sample AWS SAM application that
 
 The following diagram shows the components of this application:
 
-![Diagram showing the workflow for this tutorial.](http://docs.aws.amazon.com/step-functions/latest/dg/images/sam-starter-template-docs.png)
+![Diagram showing the workflow for this tutorial.](https://docs.aws.amazon.com/step-functions/latest/dg/images/sam-starter-template-docs.png)
 
 
 The following is a preview of commands that you run to create your sample application. For more details about each of these commands, see the sections later in this page

@@ -66,14 +66,14 @@ Step Functions implements JSONata based on the 2.0.6 specification. All built-in
 
  In the next diagram, you can see a graphical representation showing how converting JSONPath (left) to JSONata (right) will reduce the complexity of the steps in your state machines: 
 
-![Side-by-side comparison showing how JSONPath states require separate InputPath, Parameters, ResultSelector, ResultPath, and OutputPath fields, while JSONata states simplify this to Arguments, Output, and Assign fields.](http://docs.aws.amazon.com/step-functions/latest/dg/images/compare-jsonpath-jsonata.png)
+![Side-by-side comparison showing how JSONPath states require separate InputPath, Parameters, ResultSelector, ResultPath, and OutputPath fields, while JSONata states simplify this to Arguments, Output, and Assign fields.](https://docs.aws.amazon.com/step-functions/latest/dg/images/compare-jsonpath-jsonata.png)
 
 
  You can (optionally) select and transform data from the state input into **Arguments** to send to your integrated action. With JSONata, you can then (optionally) select and transform the **results** from the action for assigning to variables and for state **Output**. 
 
  Note: **Assign** and **Output** steps occur in **parallel**. If you choose to transform data during variable assignment, that transformed data will **not** be available in the Output step. You must reapply the JSONata transformation in the Output step. 
 
-![Data flow diagram showing a JSONata state: input data flows into Arguments for the integrated action, then the action's results flow in parallel to both the Assign step for variable assignment and the Output step for state output.](http://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonata.png)
+![Data flow diagram showing a JSONata state: input data flows into Arguments for the integrated action, then the action's results flow in parallel to both the Assign step for variable assignment and the Output step for state output.](https://docs.aws.amazon.com/step-functions/latest/dg/images/vars-jsonata.png)
 
 
 ## QueryLanguage field
@@ -278,7 +278,7 @@ Test state or state machine execution will return the following JSON output:
 }
 ```
 
-![Step Functions console TestState view showing the JSON input with customer and order data on the left, and the transformed JSON output with lastName and orderValue fields on the right.](http://docs.aws.amazon.com/step-functions/latest/dg/images/jsonata-basic-io.png)
+![Step Functions console TestState view showing the JSON input with customer and order data on the left, and the transformed JSON output with lastName and orderValue fields on the right.](https://docs.aws.amazon.com/step-functions/latest/dg/images/jsonata-basic-io.png)
 
 
 ### Example: Filtering with JSONata
@@ -358,7 +358,7 @@ Test state or state machine execution will return the following JSON output:
 }
 ```
 
-![Step Functions console TestState view showing JSONata filtering results, with the output containing only zero-calorie products filtered from the input product list.](http://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-jsonata.png)
+![Step Functions console TestState view showing JSONata filtering results, with the output containing only zero-calorie products filtered from the input product list.](https://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-jsonata.png)
 
 
 ### Example: Using previous state output in a Map state

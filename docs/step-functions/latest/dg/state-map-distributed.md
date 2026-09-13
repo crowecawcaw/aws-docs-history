@@ -12,7 +12,7 @@ To set up a large-scale parallel workload in your workflows, include a `Map` sta
 
 The following illustration explains how you can set up large-scale parallel workloads in your workflows.
 
-![Diagram to illustrate the concept of orchestrating large-scale parallel workloads.](http://docs.aws.amazon.com/step-functions/latest/dg/images/autobahn-concept.png)
+![Diagram to illustrate the concept of orchestrating large-scale parallel workloads.](https://docs.aws.amazon.com/step-functions/latest/dg/images/autobahn-concept.png)
 
 
 **Learn in a workshop**  

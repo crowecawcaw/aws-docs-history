@@ -7,7 +7,7 @@ The **Orchestrate Lambda functions** template uses several Lambda functions in a
 
 To implement the human approval step, the workflow execution pauses until a unique TaskToken is returned. In this project, the workflow passes a message with the task token to an Amazon SQS queue. The message triggers another Lambda function that's configured to handle a callback based on the payload of the message. The workflow pauses until it receives the task token back from a [`SendTaskSuccess`](https://docs.aws.amazon.com/step-functions/latest/apireference/API_SendTaskSuccess.html) API call. For more information about task tokens, see [Wait for a Callback with Task Token](connect-to-resource.md#connect-wait-token).
 
-![Illustrative view of the state machine](http://docs.aws.amazon.com/step-functions/latest/dg/images/sample-lambda-orchestration.png)
+![Illustrative view of the state machine](https://docs.aws.amazon.com/step-functions/latest/dg/images/sample-lambda-orchestration.png)
 
 
 ## Step 1: Create the state machine

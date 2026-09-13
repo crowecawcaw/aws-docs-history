@@ -11,7 +11,7 @@ arn:{{partition}}:states:{{region}}:{{account-id}}:stateMachine:{{myStateMachine
 
 To start using state machine versions, you must publish the first version. After you publish a version, you can invoke the [StartExecution](https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html) API action with the version ARN. You can't edit a version, but you can update a state machine and publish a new version. You can also publish multiple versions of your state machine.
 
-![Fuzzy illustrative diagram showing how versions are immutable snapshots of state machines.](http://docs.aws.amazon.com/step-functions/latest/dg/images/versioning-concept.png)
+![Fuzzy illustrative diagram showing how versions are immutable snapshots of state machines.](https://docs.aws.amazon.com/step-functions/latest/dg/images/versioning-concept.png)
 
 
 When you publish a new version of your state machine, Step Functions assigns it a version number. Version numbers start at 1 and increase monotonically for each new version. Version numbers aren't reused for a given state machine. If you delete version 10 of your state machine and then publish a new version, Step Functions publishes it as version 11.

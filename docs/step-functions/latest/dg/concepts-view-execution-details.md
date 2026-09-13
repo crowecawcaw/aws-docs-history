@@ -7,7 +7,7 @@ You can view in-progress and past executions of workflows in the *Executions* se
 
 In the *Executions* details, you can view the state machine’s definition, execution status, ARN, number of state transitions, and the inputs and outputs for individual states in the workflow. 
 
-![Illustrative screenshot showing a list of executions.](http://docs.aws.amazon.com/step-functions/latest/dg/images/view-executions.png)
+![Illustrative screenshot showing a list of executions.](https://docs.aws.amazon.com/step-functions/latest/dg/images/view-executions.png)
 
 
 Standard workflow execution details are recorded in Step Functions, but the history of Express workflow executions are not. To record Express workflow executions, you must configure your Express state machines to send logs to Amazon CloudWatch. See [Logging in CloudWatch Logs](cw-logs.md) to set up logging for Step Functions.
@@ -109,7 +109,7 @@ If you add the **Timeline** column, the execution duration of each state is show
 
 For example, if you've defined execution retries for a state in your state machine, these retries are shown in the timeline. Red segments represent the failed `Retry` attempts, while light gray segments represent the `BackoffRate` between each `Retry` attempt.
 
-![Screenshot of the table view with color-coded segments on the timeline.](http://docs.aws.amazon.com/step-functions/latest/dg/images/sm-table-view-timeline-color-codes.png)
+![Screenshot of the table view with color-coded segments on the timeline.](https://docs.aws.amazon.com/step-functions/latest/dg/images/sm-table-view-timeline-color-codes.png)
 
 
 If your state machine contains a `Map` state, `Parallel` state, or both, you can view their names in the workflow in **Table view**. For `Map` and `Parallel` states, the **Table view** mode displays the execution data for their iterations and parallel branches as nodes inside a tree view. You can choose each node in these states to view their individual details in the *[Step details](#exec-details-intf-step-details)* section. For example, you can review the data for a specific **Map** state iteration that caused the state to fail. Expand the node for the **Map** state, and then view the status for each iteration in the **Status** column.
@@ -148,7 +148,7 @@ Shows a filtered list of the events associated with the selected state in an exe
 
 The **Events** table displays the complete history for the selected execution as a list of events spanning multiple pages. Each page contains up to 25 events. This section also displays the total event count, which can help you determine if you exceeded the maximum event history count of 25,000 events.
 
-![Example screenshot showing a partial event history for a workflow execution.](http://docs.aws.amazon.com/step-functions/latest/dg/images/sm-exec-details-event-view.png)
+![Example screenshot showing a partial event history for a workflow execution.](https://docs.aws.amazon.com/step-functions/latest/dg/images/sm-exec-details-event-view.png)
 
 
 By default, the results in the **Events** table are displayed in ascending order based on the **Timestamp** of the events. You can change the execution event history's sorting to descending order by clicking on the **Timestamp** column header.

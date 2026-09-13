@@ -5,7 +5,7 @@
 
 Learn from this guide, workshops, and practical tutorials how to integrate and orchestrate services with Step Functions.
 
-![Visual examples of six common workflow use cases, noted in the following workshops and tutorials.](http://docs.aws.amazon.com/step-functions/latest/dg/images/use-case-examples.png)
+![Visual examples of six common workflow use cases, noted in the following workshops and tutorials.](https://docs.aws.amazon.com/step-functions/latest/dg/images/use-case-examples.png)
 
 
 ## Tutorials for learning Step Functions

@@ -30,7 +30,7 @@ You can mock any service integration using Step Functions Local. However, Step F
 
 You can test Step Functions AWS SDK and optimized service integrations using Step Functions Local. The following image shows the state machine defined in the State machine definition tab:
 
-![Mocked service integration example.](http://docs.aws.amazon.com/step-functions/latest/dg/images/msi-graph.png)
+![Mocked service integration example.](https://docs.aws.amazon.com/step-functions/latest/dg/images/msi-graph.png)
 
 
 To do this, you must create a mock configuration file containing sections as defined in [Mock configuration file structure](#mock-cfg-struct).

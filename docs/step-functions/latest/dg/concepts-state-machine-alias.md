@@ -11,7 +11,7 @@ arn:{{partition}}:states:{{region}}:{{account-id}}:stateMachine:{{myStateMachine
 
 You can use an alias to [route traffic](#alias-routing-config) between one of the two state machine versions. You can also create an alias that points to a single version. Aliases can only point to state machine versions. You can't use an alias to point to another alias. You can also update an alias to point to a different version of the state machine.
 
-![Diagram showing an alias sending 80 percent of requests to v1, and 20 percent to v2.](http://docs.aws.amazon.com/step-functions/latest/dg/images/aliases-concept.png)
+![Diagram showing an alias sending 80 percent of requests to v1, and 20 percent to v2.](https://docs.aws.amazon.com/step-functions/latest/dg/images/aliases-concept.png)
 
 
 **Topics**

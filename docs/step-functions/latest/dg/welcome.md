@@ -12,7 +12,7 @@ Step Functions is based on *state machines* and *tasks*. In Step Functions, stat
 
 The work in your state machine tasks can also be done using [Activities](concepts-activities.md) which are workers that exist outside of Step Functions.
 
-![Illustrative example of a Step Functions workflow diagram.](http://docs.aws.amazon.com/step-functions/latest/dg/images/step-functions-example.png)
+![Illustrative example of a Step Functions workflow diagram.](https://docs.aws.amazon.com/step-functions/latest/dg/images/step-functions-example.png)
 
 
 In the Step Functions' console, you can **visualize**, edit, and debug your application’s workflow. You can examine the state of each step in your workflow to make sure that your application runs in order and as expected. 
@@ -115,7 +115,7 @@ Standard Workflows and Express Workflows support the same **integrations** but n
 
 Step Functions manages your application's components and logic, so you can write less code and focus on building and updating your application quickly. The following image shows six use cases for Step Functions workflows.
 
-![Visual examples of six common workflow use cases, described in the following text.](http://docs.aws.amazon.com/step-functions/latest/dg/images/use-case-examples.png)
+![Visual examples of six common workflow use cases, described in the following text.](https://docs.aws.amazon.com/step-functions/latest/dg/images/use-case-examples.png)
 
 
 

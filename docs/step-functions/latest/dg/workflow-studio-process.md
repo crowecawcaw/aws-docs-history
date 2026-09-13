@@ -8,7 +8,7 @@ Learn about [Passing data between states with variables](workflow-variables.md) 
 
 Each state makes a decision or performs an action based on input that it receives. In most cases, it then passes output to other states. In Workflow Studio, you can configure how a state filters and manipulates its input and output data in the **Input** and **Output** tabs of the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition) panel. Use the **Info** links to access contextual help when configuring inputs and outputs. 
 
-![Illustrative screenshot showing state inputs, outputs, and the info help panel](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfs_input_output_01.png)
+![Illustrative screenshot showing state inputs, outputs, and the info help panel](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfs_input_output_01.png)
 
 
 For detailed information about how Step Functions processes input and output, see [Processing input and output in Step Functions](concepts-input-output-filtering.md). 

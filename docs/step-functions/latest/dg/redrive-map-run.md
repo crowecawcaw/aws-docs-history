@@ -91,7 +91,7 @@ Step Functions needs appropriate permission to redrive a Map Run. The following 
 
 The following image shows the execution graph of a state machine that contains a Distributed Map. This execution failed because the Map Run failed. To redrive the Map Run, you must redrive the parent workflow.
 
-![Graph of a failed state machine execution caused by a failed Map Run.](http://docs.aws.amazon.com/step-functions/latest/dg/images/redrive-eg-failed-maprun.png)
+![Graph of a failed state machine execution caused by a failed Map Run.](https://docs.aws.amazon.com/step-functions/latest/dg/images/redrive-eg-failed-maprun.png)
 
 
 **To redrive a Map Run from the console**

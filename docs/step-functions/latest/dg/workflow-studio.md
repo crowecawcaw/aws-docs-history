@@ -21,7 +21,7 @@ With the AWS toolkit, you can use Workflow Studio from within VS Code to visuali
 
 Design mode provides a graphical interface to visualize your workflows as you build their prototypes. The following image shows the states browser, workflow canvas, inspector, and contextual help panels in the **Design** mode of Workflow Studio.
 
-![Screenshot of Design mode, showing states browser, workflow canvas, inspector, and help panels.](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfs_main_01.png)
+![Screenshot of Design mode, showing states browser, workflow canvas, inspector, and help panels.](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfs_main_01.png)
 
 
 1. Mode buttons switch between the three modes. You cannot switch modes if your ASL workflow definition is invalid.
@@ -46,7 +46,7 @@ Design mode provides a graphical interface to visualize your workflows as you bu
 
 From the States browser, you can select states to drag and drop on to your workflow canvas. The **Actions** tab provides a list of task states that connect to 3rd party HTTP endpoints and AWS APIs. The **Flow** tab provides a list of states with which you can direct and control your workflow. Flow states include: Choice, Parallel, Map, Pass, Wait, Success, and Fail. The **Patterns** tab provides ready-to-use, reusable pre-defined building blocks. You can search among all state types with the search box in the panel.
 
-![Illustrative collection of screen shots showing Actions, Flow, Patterns, and search.](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfe-states-browser-01.png)
+![Illustrative collection of screen shots showing Actions, Flow, Patterns, and search.](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfe-states-browser-01.png)
 
 
 ### Canvas and workflow graph
@@ -59,10 +59,10 @@ After you choose a state to add to your workflow, you can drag it to the canvas 
 
 You can configure any states that you add to your workflow from the **Inspector** panel on the right. Choose the state you want to configure, and you will see its configuration options in the **Inspector** panel. To see the auto-generated [ASL definition](concepts-amazon-states-language.md) for your workflow code, turn on the **Definition** toggle. The ASL definition associated with the state you've selected will appear highlighted.
 
-![Illustrative screenshot of Workflow Studio inspector showing configuration panel](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfe-forms-definitions-01.png)
+![Illustrative screenshot of Workflow Studio inspector showing configuration panel](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfe-forms-definitions-01.png)
 
 
-![Illustrative screenshot of Workflow Studio inspector panel showing code definition](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfe-forms-definitions-02.png)
+![Illustrative screenshot of Workflow Studio inspector panel showing code definition](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfe-forms-definitions-02.png)
 
 
 ## Code mode
@@ -70,7 +70,7 @@ You can configure any states that you add to your workflow from the **Inspector*
 
 In **Code** mode of Workflow Studio, you can use an integrated code editor to view, write, and edit the [Using Amazon States Language to define Step Functions workflows](concepts-amazon-states-language.md) (ASL) definition of your workflows within the Step Functions console. The following screenshot shows the components in the **Code** mode.
 
-![Illustrative screenshot of editing a workflow definition in Code mode.](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfs-code-mode.png)
+![Illustrative screenshot of editing a workflow definition in Code mode.](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfs-code-mode.png)
 
 
 1. Mode buttons switch between the three modes. You cannot switch modes if your ASL workflow definition is invalid.

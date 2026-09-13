@@ -65,7 +65,7 @@ When you know the name of the state you want to add, use the search box at the t
 
 You can reorder states in your workflow by dragging them to a different location in your workflow. As you drag a state onto the canvas, a line appears to show where the state will be inserted into your workflow, as shown in the following screenshot: 
 
-![Illustrative screenshot showing the blue line that indicates the destination for a state.](http://docs.aws.amazon.com/step-functions/latest/dg/images/wfe-design-02.png)
+![Illustrative screenshot showing the blue line that indicates the destination for a state.](https://docs.aws.amazon.com/step-functions/latest/dg/images/wfe-design-02.png)
 
 
 After a state is dropped onto the canvas, its code is auto-generated and added inside the workflow definition. To see the definition, turn on the **Definition** toggle on the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition). You can choose [Code mode](workflow-studio.md#wfs-interface-code-mode) to edit the definition with the built-in code editor.

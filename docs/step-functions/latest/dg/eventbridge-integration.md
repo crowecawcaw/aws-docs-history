@@ -12,7 +12,7 @@ By using EventBridge to deliver Step Functions events to other services, you can
 **How event delivery works**  
 Step Functions generates and sends events to the default EventBridge *event bus *which is automatically provisioned in every AWS account. An event bus is a router that receives events and delivers them to zero or more destinations, or *targets*. Targets are other AWS services. You can specify rules for the event bus that compare events against the rule's *event pattern*. When the event matches a pattern, the event bus sends the event to the specified target(s). The following diagram shows this process:
 
-![AWS services send events to EventBridge where rules match events and send them to targets.](http://docs.aws.amazon.com/step-functions/latest/dg/images/eventbridge-integration_shared_conceptual.png)
+![AWS services send events to EventBridge where rules match events and send them to targets.](https://docs.aws.amazon.com/step-functions/latest/dg/images/eventbridge-integration_shared_conceptual.png)
 
 
 **Standard versus Express workflows**  

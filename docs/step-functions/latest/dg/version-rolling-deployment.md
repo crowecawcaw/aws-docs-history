@@ -272,7 +272,7 @@ echo Done!
 ## Use the AWS SDK to deploy a new state machine version
 <a name="version-deploy-sdk"></a>
 
-The example script at [aws-stepfunctions-examples](https://github.com/aws-samples/aws-stepfunctions-examples/tree/main/gradual-deploy) shows how to use the AWS SDK for Python to gradually shift traffic from a previous version to a new version of a state machine. You can either use this example script or update it according to your requirements.
+The example script at [aws-stepfunctions-examples](https://github.com/aws-samples/aws-stepfunctions-examples/tree/main/gradual-deploy) shows how to use the AWS SDK for Python (Boto3) to gradually shift traffic from a previous version to a new version of a state machine. You can either use this example script or update it according to your requirements.
 
 The script shows the following deployment strategies:
 + **Canary** – Shifts traffic in two increments.

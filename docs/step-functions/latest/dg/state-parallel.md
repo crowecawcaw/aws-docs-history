@@ -83,7 +83,7 @@ A `Parallel` state causes AWS Step Functions to execute each branch, starting wi
 
 In this example, the `LookupAddress` and `LookupPhone` branches are executed in parallel. Here is how the visual workflow looks in the Step Functions console.
 
-![Visual graph of an example parallel workflow.](http://docs.aws.amazon.com/step-functions/latest/dg/images/parallel-state.png)
+![Visual graph of an example parallel workflow.](https://docs.aws.amazon.com/step-functions/latest/dg/images/parallel-state.png)
 
 
 Each branch must be self-contained. A state in one branch of a `Parallel` state must not have a `Next` field that targets a field outside of that branch, nor can any other state outside the branch transition into that branch.

@@ -15,7 +15,7 @@ Each step in a workflow is called a *state*. There are two types of states: Flow
 **Task states**  
 Task states represent a unit of work that another AWS service performs, such as calling another AWS service or API. Tasks states are also known as **Actions**. You can choose hundreds of actions to perform work in AWS and external services. (Note: You can also use workers that run outside of Step Functions to perform tasks. For more info, see [Activities](concepts-activities.md).)
 
-![Illustrative example of the components of a Step Functions workflow.](http://docs.aws.amazon.com/step-functions/latest/dg/images/state-machine-conceptual-jsonata.png)
+![Illustrative example of the components of a Step Functions workflow.](https://docs.aws.amazon.com/step-functions/latest/dg/images/state-machine-conceptual-jsonata.png)
 
 
 **Executions and handling errors**

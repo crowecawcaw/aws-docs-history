@@ -366,9 +366,9 @@ Step Functions accepts names for state machines, executions, activities, and lab
       To review the execution results, choose individual states on the **Graph view**, and then choose the individual tabs on the [Step details](concepts-view-execution-details.md#exec-details-intf-step-details) pane to view each state's details including input, output, and definition respectively. For details about the execution information you can view on the *Execution Details* page, see [Execution details overview](concepts-view-execution-details.md#exec-details-interface-overview).
 
       The **Graph view** displays the first of the four executions. Before it completes, it will pass through the `Restart` state and start a new execution.  
-![Execution diagram showing the first execution out of four.](http://docs.aws.amazon.com/step-functions/latest/dg/images/execution-test1.png)
+![Execution diagram showing the first execution out of four.](https://docs.aws.amazon.com/step-functions/latest/dg/images/execution-test1.png)
 
       As this execution completes, you can look at the next execution that's running. Select the **ContinueAsNew** link at the top to see the list of executions. You should see both the recently closed execution, and an ongoing execution that the `Restart` Lambda function started.
 
       When all the executions are complete, you should see four successful executions in the list. The first execution that was started displays the name you chose, and subsequent executions have a generated name.  
-![Illustrative screenshot showing all executions have completed.](http://docs.aws.amazon.com/step-functions/latest/dg/images/execution-test1-complete.png)
+![Illustrative screenshot showing all executions have completed.](https://docs.aws.amazon.com/step-functions/latest/dg/images/execution-test1-complete.png)

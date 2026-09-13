@@ -56,7 +56,7 @@ If the test succeeds, this level shows the state output. If the test fails, this
 
 The following image shows a test for a Pass state that succeeds. The **Inspection level** for this state is set to **INFO** and the output for the state appears in the **Output** tab.
 
-![Screenshot of output at INFO level for a passed test.](http://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-info-success.png)
+![Screenshot of output at INFO level for a passed test.](https://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-info-success.png)
 
 
 #### Example of test with INFO level that fails
@@ -64,7 +64,7 @@ The following image shows a test for a Pass state that succeeds. The **Inspectio
 
 The following image shows a test that failed for a Task state when the **Inspection level** is set to **INFO**. The **Output** tab shows the error output that includes the error name and a detailed explanation of the cause for that error.
 
-![Screenshot of output at INFO level for a failed test.](http://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-info-failed.png)
+![Screenshot of output at INFO level for a failed test.](https://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-info-failed.png)
 
 
 ### DEBUG inspectionLevel
@@ -84,7 +84,7 @@ The diagnostic information available in this level can help you troubleshoot iss
 
 The following image shows a test for a Pass state that succeeds. The **Inspection level** for this state is set to **DEBUG**. The **Input/output processing** tab in the following image shows the result of the application of [`Parameters`](input-output-inputpath-params.md#input-output-parameters) on the input provided for this state.
 
-![Screenshot of output at DEBUG level for a passed test.](http://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-debug-success.png)
+![Screenshot of output at DEBUG level for a passed test.](https://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-debug-success.png)
 
 
 #### Example of test with DEBUG level that fails
@@ -92,7 +92,7 @@ The following image shows a test for a Pass state that succeeds. The **Inspectio
 
 The following image shows a test that failed for a Task state when the **Inspection level** is set to **DEBUG**. The **Input/output processing** tab in the following image shows the input and output data processing result for the state up to the point of its failure.
 
-![Screenshot of output at DEBUG level for a failed test.](http://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-debug-failed.png)
+![Screenshot of output at DEBUG level for a failed test.](https://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-debug-failed.png)
 
 
 ### TRACE inspectionLevel
@@ -113,7 +113,7 @@ If you set the `revealSecrets` parameter to `false`, Step Functions omits all se
 
 The following image shows a test for an HTTP Task that succeeds. The **Inspection level** for this state is set to **TRACE**. The **HTTP request & response** tab in the following image shows the result of the HTTPS API call.
 
-![Screenshot of output at TRACE level for a passed test.](http://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-trace-success.png)
+![Screenshot of output at TRACE level for a passed test.](https://docs.aws.amazon.com/step-functions/latest/dg/images/test-state-trace-success.png)
 
 
 ## IAM permissions for using TestState API
@@ -292,7 +292,7 @@ In Step Functions, the process of filtering and manipulating JSON data as it pas
 
 All the [state](workflow-states.md) types in the [Amazon States Language](concepts-amazon-states-language.md) (ASL) (Task, Parallel, Map, Pass, Wait, Choice, Succeed, and Fail) share a set of common fields for filtering and manipulating the JSON data that passes through them. These fields are: [InputPath](input-output-inputpath-params.md#input-output-inputpath), [Parameters](input-output-inputpath-params.md#input-output-parameters), [ResultSelector](input-output-inputpath-params.md#input-output-resultselector), [Specifying state output using ResultPath in Step Functions](input-output-resultpath.md), and [Filtering state output using OutputPath](input-output-example.md#input-output-outputpath). Support for each field [varies across states](https://states-language.net/spec.html#state-type-table). At runtime, Step Functions applies each field in a specific order. The following diagram shows the order in which these fields are applied to the data inside a Task state:
 
-![Order of filters: InputPath, Parameters, ResultSelector, ResultPath, and OutputPath.](http://docs.aws.amazon.com/step-functions/latest/dg/images/input-output-processing.png)
+![Order of filters: InputPath, Parameters, ResultSelector, ResultPath, and OutputPath.](https://docs.aws.amazon.com/step-functions/latest/dg/images/input-output-processing.png)
 
 
 The following list describes the order of application of the input and output processing fields shown in the diagram.
@@ -334,7 +334,7 @@ When you call the `TestState` API and set the `inspectionLevel` parameter to `DE
 
 In this example, each field that contains the `after` prefix, shows the data after a particular field was applied. For example, `afterInputPath` shows the effect of applying the `InputPath` field to filter the raw state input. The following diagram maps each [ASL definition](concepts-amazon-states-language.md) field to its corresponding field in the `inspectionData` object:
 
-![Diagram showing the mapping of ASL fields to inspectionData.](http://docs.aws.amazon.com/step-functions/latest/dg/images/inspection-data-after-fields.png)
+![Diagram showing the mapping of ASL fields to inspectionData.](https://docs.aws.amazon.com/step-functions/latest/dg/images/inspection-data-after-fields.png)
 
 
 For examples of using the TestState API to debug input and output processing, see the following:

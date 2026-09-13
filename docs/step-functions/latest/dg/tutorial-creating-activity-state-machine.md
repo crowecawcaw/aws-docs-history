@@ -66,7 +66,7 @@ Create a state machine that determines when your activity is invoked and when yo
    This is a description of your state machine using the [Amazon States Language](concepts-amazon-states-language.md) (ASL). It defines a single `Task` state named `getGreeting`. For more information, see [State Machine Structure](statemachine-structure.md).
 
 1. On the [Graph visualization](workflow-studio.md#wfs-interface-code-graph-viz), make sure the workflow graph for the ASL definition you added looks similar to the following graph.  
-![Graph visualization of state machine with RunActivity task state.](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-create-state-machine-custom-preview.png)
+![Graph visualization of state machine with RunActivity task state.](https://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-create-state-machine-custom-preview.png)
 
 1. Specify a name for your state machine. To do this, choose the edit icon next to the default state machine name of **MyStateMachine**. Then, in **State machine configuration**, specify a name in the **State machine name** box.
 

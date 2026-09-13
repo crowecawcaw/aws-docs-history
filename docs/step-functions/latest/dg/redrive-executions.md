@@ -74,7 +74,7 @@ For example, imagine that you run a state machine and a parallel state fails to 
 
 The following image shows a **Lambda Invoke** step named **Do square number** inside a **Parallel** state has returned and failed. This caused the **Parallel** state to fail as well. The branches whose execution were in progress or not started are stopped and the state machine execution fails.
 
-![Example graph of a failed state machine execution.](http://docs.aws.amazon.com/step-functions/latest/dg/images/redrive-eg-failed-workflow.png)
+![Example graph of a failed state machine execution.](https://docs.aws.amazon.com/step-functions/latest/dg/images/redrive-eg-failed-workflow.png)
 
 
 **To redrive an execution from the console**
@@ -153,4 +153,4 @@ If your redriven execution reruns a [Task workflow state](state-task.md), [Paral
 
 The following image shows an example of the retries performed for a state in the original execution attempt and the redrives of that execution. In this image, three retries are performed in the original and redrive execution attempts. The execution succeeds in the fourth redrive attempt and returns an output of 16.
 
-![Illustrative screenshot showing three failed retries and success on a fourth retry.](http://docs.aws.amazon.com/step-functions/latest/dg/images/task-retry-redrive.png)
+![Illustrative screenshot showing three failed retries and success on a fourth retry.](https://docs.aws.amazon.com/step-functions/latest/dg/images/task-retry-redrive.png)

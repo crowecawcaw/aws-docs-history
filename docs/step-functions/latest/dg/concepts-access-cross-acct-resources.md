@@ -58,7 +58,7 @@ For an example, see [Accessing cross-account AWS resources in Step Functions](tu
 **Note**  
 You can configure your state machine to assume an IAM role for accessing resources from multiple AWS accounts. However, a state machine can assume only one IAM role at a given time.
 
-![Concept to access cross-account resources](http://docs.aws.amazon.com/step-functions/latest/dg/images/cross-account-support-concept.png)
+![Concept to access cross-account resources](https://docs.aws.amazon.com/step-functions/latest/dg/images/cross-account-support-concept.png)
 
 
 ## Cross-account access for .sync integration pattern
