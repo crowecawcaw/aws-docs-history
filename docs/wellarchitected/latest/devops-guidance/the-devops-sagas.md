@@ -14,7 +14,7 @@ The DevOps Sagas are:
 +  **Automated governance:** Facilitates directive, detective, preventive, and responsive measures at all stages of the development process. It emphasizes risk management, business process adherence, and application and infrastructure compliance at scale using automated processes, policies, and guardrails. 
 +  **Observability:** Presents an approach to incorporating observability within environment and workloads, allowing teams to detect and address issues, improve performance, reduce costs, and help ensure alignment with business objectives and customer needs. 
 
-![Diagram showing the five AWS DevOps Sagas.](http://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/images/devops.png)
+![Diagram showing the five AWS DevOps Sagas.](https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/images/devops.png)
 
 
 **Topics**
