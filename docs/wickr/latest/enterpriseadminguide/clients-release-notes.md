@@ -27,3 +27,4 @@ The clients release notes provide details about the client versions that are sup
 + [Clients 6.62 release](clients-release-notes-6.62.md)
 + [Clients 6.66 release](clients-release-notes-6.66.md)
 + [Clients 6.70 release](clients-release-notes-6.70.md)
++ [Clients 6.74 release](clients-release-notes-6.74.md)

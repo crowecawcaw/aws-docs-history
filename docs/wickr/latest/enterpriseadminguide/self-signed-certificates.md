@@ -10,7 +10,7 @@ Super administrators can add self-signed/untrusted certificates in the Wickr adm
 Complete the following procedure to add self-signed/untrusted certificates.
 
 1. Sign in to the Wickr Super Administrator Console.  
-![Global federation navigation.](http://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/images/wickr-ent-global-cert.png)
+![Global federation navigation.](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/images/wickr-ent-global-cert.png)
 
 1. In the navigation pane, choose **Global Federation**.
 

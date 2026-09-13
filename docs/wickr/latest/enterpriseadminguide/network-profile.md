@@ -9,4 +9,4 @@ An Administrator can set the name of the network, which is visible to all users 
 
 The Network ID is needed when using Federation with other networks.
 
-![Network profile menu](http://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/images/wickr-ent-network-id.png)
+![Network profile menu](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/images/wickr-ent-network-id.png)

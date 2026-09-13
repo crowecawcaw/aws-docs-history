@@ -9,7 +9,7 @@ The Wickr guest user feature allows individual guest users to sign in to the Wic
 
 After the feature is enabled, guest users invited to your Wickr network can interact with users in your Wickr network. An add-on fee will apply for guests. 
 
-![Guest user menu.](http://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/images/wickr-ent-guest-user.png)
+![Guest user menu.](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/images/wickr-ent-guest-user.png)
 
 
 **Topics**

@@ -47,7 +47,7 @@ Super Administrator and Network Administrator usernames are separate from normal
 **To sign in as a Super Administrator **
 
 1. Enter your username and password, and then choose **Sign In** to log into the Super Administrator console.  
-![Wickr enterprise admin login.](http://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/images/wickr-ent-admin-login.png)
+![Wickr enterprise admin login.](https://docs.aws.amazon.com/wickr/latest/enterpriseadminguide/images/wickr-ent-admin-login.png)
 **Important**  
 Only one active session per logged in administrator is allowed. If the same administrator logs in again from a different browser, they will be logged out of the original session.
 
