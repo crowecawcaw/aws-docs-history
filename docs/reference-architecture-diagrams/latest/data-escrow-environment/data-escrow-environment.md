@@ -10,7 +10,7 @@ This architecture shows how to build a data escrow environment. You can securely
 ## Data Escrow Environment Reference Architecture
 <a name="diagram1"></a>
 
-![Architecture diagram showing a data escrow environment for publishers and advertisers on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-escrow-environment/images/data-escrow-environment.png)
+![Architecture diagram showing a data escrow environment for publishers and advertisers on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-escrow-environment/images/data-escrow-environment.png)
 
 
 1. The publisher account stores data specific to each advertiser in Amazon S3 object storage.
