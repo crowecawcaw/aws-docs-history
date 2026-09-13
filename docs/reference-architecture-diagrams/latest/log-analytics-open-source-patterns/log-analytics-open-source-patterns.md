@@ -10,7 +10,7 @@ This architecture uses FluentBit and Data Prepper to collect, aggregate, and tra
 ## Log Analytics with Open Source Patterns
 <a name="diagram1"></a>
 
-![Architecture diagram showing log analytics with open source patterns by using FluentBit and Data Prepper.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/log-analytics-open-source-patterns/images/log-analytics-open-source-patterns.png)
+![Architecture diagram showing log analytics with open source patterns by using FluentBit and Data Prepper.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/log-analytics-open-source-patterns/images/log-analytics-open-source-patterns.png)
 
 
 1. The application, container system, and associated services generate logs. These include Docker containers, Kubernetes pods, [Amazon Elastic Compute Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) instances, Elastic Load Balancer logs, [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html), and relational database systems.
