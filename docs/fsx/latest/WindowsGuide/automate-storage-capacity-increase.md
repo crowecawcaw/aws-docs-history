@@ -25,7 +25,7 @@ The solution takes in the following parameters:
 
 Deploying this solution builds the following resources in the AWS Cloud.
 
-![Architecture diagram of the solution to automatically increase the storage capacity of an FSx for Windows File Server file system.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/auto-storage-increase-architecture.png)
+![Architecture diagram of the solution to automatically increase the storage capacity of an FSx for Windows File Server file system.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/auto-storage-increase-architecture.png)
 
 
 The diagram illustrates the following steps:
@@ -89,7 +89,7 @@ Before you start, you must have the ID of the Amazon FSx file system running in 
 Amazon FSx is currently only available in specific AWS Regions. You must launch this solution in an AWS Region where Amazon FSx is available. For more information, see [Amazon FSx endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/fsxn.html) in the *AWS General Reference*.
 
 1. In **Specify stack details**, enter the values for your automatic storage capacity increase solution.  
-![Screenshot showing the values entered for the Specify stack details page for the CloudFormation template.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/dynamic-storage-capacity-increase-cfn-stack.png)
+![Screenshot showing the values entered for the Specify stack details page for the CloudFormation template.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/dynamic-storage-capacity-increase-cfn-stack.png)
 
 1. Enter a **Stack name**.
 

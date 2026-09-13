@@ -12,7 +12,7 @@ You can use Microsoft's Distributed File System (DFS) Namespaces to group file s
 
 DFS Namespaces is a Windows Server role service that you use to group shared folders located on different servers into one or more logically structured namespaces. This makes it possible to give users a virtual view of shared folders, where a single path leads to files located on multiple file systems, as shown in the following diagram. In addition to organizing and unifying access to your file shares across multiple file systems, 
 
-![Diagram displaying the process of creating a single namespace on two namespace servers.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSx-common-namespace.png)
+![Diagram displaying the process of creating a single namespace on two namespace servers.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSx-common-namespace.png)
 
 
 For a step-by-step procedure for grouping FSx for Windows file systems using DFS Namespaces, see [Group multiple file systems under a single namespace](group-fsx-namespace.md).

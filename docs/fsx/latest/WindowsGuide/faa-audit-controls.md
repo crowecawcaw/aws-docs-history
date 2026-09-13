@@ -14,7 +14,7 @@ To use a GUI for setting audit controls on your files and folders, use Windows F
 
 The following audit control example audits successful events for a folder. A Windows event log entry will be emitted whenever that handle is opened for read successfully by the Admin user. 
 
-![The Windows File Explorer Auditing tab used to set audit controls on files and folders for Windows file access auditing.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-audit-control-gui.png)
+![The Windows File Explorer Auditing tab used to set audit controls on files and folders for Windows file access auditing.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-audit-control-gui.png)
 
 
 

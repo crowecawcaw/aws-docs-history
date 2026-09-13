@@ -75,7 +75,7 @@ This section describes the network configuration requirements for joining a file
 + Ensure that your firewall rules will allow ICMP traffic between your Active Directory domain controllers and Amazon FSx.
 + Connectivity must be configured between the Amazon VPC where you want to create the file system and your self-managed Active Directory. You can set up this connectivity using [Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html), [AWS Virtual Private Network](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html), [VPC peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html), or [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/latest/tgw/what-is-transit-gateway.html).
 + The default VPC security group for your default Amazon VPC must be added to your file system using the Amazon FSx console. Ensure that the security group and the VPC Network ACLs for the subnets where you create your file system allow traffic on the ports and in the direction shown in the following diagram.  
-![FSx for Windows File Server port configuration requirements for VPC security groups and network ACLs for the subnets where the file system is created.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/Windows-port-requirements.png)
+![FSx for Windows File Server port configuration requirements for VPC security groups and network ACLs for the subnets where the file system is created.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/Windows-port-requirements.png)
 
   The following table identifies the protocol, ports, and its role.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html)

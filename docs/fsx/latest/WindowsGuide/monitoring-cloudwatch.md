@@ -14,7 +14,7 @@ FSx for Windows File Server publishes CloudWatch metrics in the following domain
 
 The following diagram illustrates an FSx for Windows File Server file system, its components, and the metric domains.
 
-![FSx for Windows File Server reports metrics in CloudWatch that monitor network I/O, file server performance, and storage volume performance.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/metrics-overview-FSxW.png)
+![FSx for Windows File Server reports metrics in CloudWatch that monitor network I/O, file server performance, and storage volume performance.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/metrics-overview-FSxW.png)
 
 
 By default, Amazon FSx for Windows File Server sends metric data to CloudWatch at 1-minute periods, with the following exceptions that are emitted in 5-minute intervals:
@@ -129,7 +129,7 @@ There are two primary architectural components of each Amazon FSx file system:
 
 FSx for Windows File Server reports metrics in CloudWatch that track the performance and resource utilization for your file system's file server and storage volumes. The following diagram illustrates an Amazon FSx file system with its architectural components, and the performance and resource CloudWatch metrics available for monitoring. The key property shown for a set of metrics is the file system property that determines the capacity for those metrics. Adjusting that property modifies the file system's performance for that set of metrics.
 
-![FSx for Windows File Server reports metrics in CloudWatch that monitor network I/O, file server performance, and storage volume performance.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/file-server-metrics-FSxW.png)
+![FSx for Windows File Server reports metrics in CloudWatch that monitor network I/O, file server performance, and storage volume performance.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/file-server-metrics-FSxW.png)
 
 
 Use the **Monitoring & performance** panel in the Amazon FSx console to view the FSx for Windows File Server CloudWatch metrics described in the following table.

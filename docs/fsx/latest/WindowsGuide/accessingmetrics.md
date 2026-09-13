@@ -20,7 +20,7 @@ The following procedures describe how to access your file system's metrics using
 1. Choose the file system whose metrics you want to view.
 
 1. To view graphs of the file system's metrics, choose **Monitoring & performance** on the second panel.  
-![Screen capture image of the Performance & monitoring panel in the Amazon FSx console.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSxW-monitor-perf-panel.png)
+![Screen capture image of the Performance & monitoring panel in the Amazon FSx console.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSxW-monitor-perf-panel.png)
    + The **Summary** metrics are displayed by default, showing any active warnings and CloudWatch alarms along with **File system activity** metrics.
    + Choose **Storage** to view storage capacity and utilization metrics.
    + Choose **Performance** to view file server and storage performance metrics
@@ -33,10 +33,10 @@ The following procedures describe how to access your file system's metrics using
 1. To view a file system metric in the **Metrics** page of the Amazon CloudWatch console, navigate to the metric in the **Monitoring & performance** panel of the Amazon FSx console.
 
 1. Choose **View in metrics** from the actions menu in the upper right of the metric graph, as shown in the following image.  
-![Image of the Total IOPS metric graphic, with the graph actions menu displayed to show the View in metrics action.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/view-metric-in-CW-fsxW.png)
+![Image of the Total IOPS metric graphic, with the graph actions menu displayed to show the View in metrics action.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/view-metric-in-CW-fsxW.png)
 
    This opens the **Metrics** page in the CloudWatch console, showing the metric graph, as shown in the following image.  
-![Image of the Total IOPS metric graphic shown in the CloudWatch console.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/metric-in-CW-console.png)
+![Image of the Total IOPS metric graphic shown in the CloudWatch console.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/metric-in-CW-console.png)
 
 **To add metrics to a CloudWatch dashboard**
 

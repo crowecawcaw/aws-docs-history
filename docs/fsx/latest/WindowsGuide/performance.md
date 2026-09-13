@@ -22,7 +22,7 @@ Each FSx for Windows File Server file system consists of a Windows file server t
 
 The following diagram illustrates how data is accessed from an FSx for Windows File Server file system.
 
-![FSx for Windows File Server architecture, showing the relationship of file server and storage volumes performance metrics and their impact on file system performance.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/performance-metrics-FSxW.png)
+![FSx for Windows File Server architecture, showing the relationship of file server and storage volumes performance metrics and their impact on file system performance.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/performance-metrics-FSxW.png)
 
 
 When a client accesses data that is stored in the in-memory cache, the data is served directly to the requesting client as *network I/O*. The file server doesn't need to read it from or write it into the disk. The performance of this data access is determined by the network I/O limits and the size of the in-memory cache.

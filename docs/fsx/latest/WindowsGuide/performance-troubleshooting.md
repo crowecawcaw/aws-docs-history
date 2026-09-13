@@ -23,7 +23,7 @@ To view a file system's throughput and IOPS limits, refer to the [table showing 
 
 Amazon FSx file systems include one or more file servers that serve data over the network to the clients accessing the file system. This is the network I/O. The file server has a fast, in-memory cache to enhance performance for the most frequently accessed data. The file servers also drives traffic to the storage volumes that host your file system data. This is the disk I/O. The following diagram illustrates network and disk I/O for an Amazon FSx file system.
 
-![FSx for Windows File Server architecture, showing the relationship of file server and storage volumes performance metrics and their impact on file system performance.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/metrics-overview-FSxW.png)
+![FSx for Windows File Server architecture, showing the relationship of file server and storage volumes performance metrics and their impact on file system performance.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/metrics-overview-FSxW.png)
 
 
 For more information, see [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md).

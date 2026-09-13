@@ -5,7 +5,7 @@
 
 The following procedure guides you through creating a DFS solution on Amazon FSx for scale-out performance. In this example, the data stored in the {{corp}} namespace is sharded alphabetically. Data files ‘A-F’, ‘G-M’ and ‘N-Z’ are all stored on different file shares. Based on the type of data, I/O size, and I/O access pattern, you should decide how to best shard your data across multiple file shares. Choose a sharding convention that distributes I/O evenly across all the file shares you plan on using. Keep in mind that each namespace supports up to 50,000 file shares and hundreds of petabytes of storage capacity in aggregate.
 
-![Diagram showing the configuration of a DFS solution on Amazon FSx for scale-out performance.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSx-scale-out-performance.png)
+![Diagram showing the configuration of a DFS solution on Amazon FSx for scale-out performance.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSx-scale-out-performance.png)
 
 
 **To set up DFS Namespaces for scale-out performance**

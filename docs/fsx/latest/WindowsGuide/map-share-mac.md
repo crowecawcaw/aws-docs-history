@@ -21,12 +21,12 @@ You can mount a file share on an Amazon EC2 Mac instance that is either joined t
    1. In the **Connect to Server** dialog box, enter either the file system's DNS name or a DNS alias associated with the file system, and the share name. Then choose **Connect**. 
 
       You can find the file system's DNS name and any associated DNS aliases on the [Amazon FSx console](https://console.aws.amazon.com/fsx) by choosing **Windows File Server**, **Network & security**. Or, you can find them in the response of the [CreateFileSystem](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html) or [DescribeFileSystems](https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html) API operation. For more information about using DNS aliases, see [Managing DNS aliases](managing-dns-aliases.md).   
-![Mac connection screenshot showing the DNS and share names of the file system pane.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/mac-instance-connect1.png)
+![Mac connection screenshot showing the DNS and share names of the file system pane.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/mac-instance-connect1.png)
 
    1. On the next screen, choose **Connect** to continue.
 
    1. Enter your Microsoft Active Directory (AD) credentials for the Amazon FSx service account, as shown in the following example. Then choose **Connect**.  
-![Mac connection screenshot showing how to enter user credentials for the file system pane.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/mac-instance-connect2.png)
+![Mac connection screenshot showing how to enter user credentials for the file system pane.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/mac-instance-connect2.png)
 
    1. If the connection is successful, you can see the Amazon FSx share, under **Locations** in your Finder window.
 

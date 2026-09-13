@@ -24,7 +24,7 @@ The following procedures describe how to associate DNS aliases with your existin
 1. Navigate to **File systems**, and choose the Windows file system that you want to associate your DNS aliases with.
 
 1. On the **Network & security** tab, choose **Manage** for **DNS aliases** to open the **Manage DNS aliases** dialog box.  
-![FSx console Manage DNS aliases window, use this window for associating and disassociating DNS aliases with an FSx for Windows File Server file system.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSxW-manage-aliases.png)
+![FSx console Manage DNS aliases window, use this window for associating and disassociating DNS aliases with an FSx for Windows File Server file system.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSxW-manage-aliases.png)
 
 1. In the **Associate new aliases** box, enter the DNS aliases that you want to associate.
 

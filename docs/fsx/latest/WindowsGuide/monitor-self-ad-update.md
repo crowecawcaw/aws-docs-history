@@ -12,7 +12,7 @@ When you update your file system's self-managed Active Directory configuration, 
 
 In the **Updates** tab in the **File system details** window, you can view the 10 most recent updates for each update type.
 
-![Console screen shot showing recent updates list.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/fs-updates-panel.png)
+![Console screen shot showing recent updates list.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/fs-updates-panel.png)
 
 
 For self-managed Active Directory updates, you can view the following information.

@@ -36,12 +36,12 @@ The following procedures detail how you can manage user sessions and open files 
 
 In the Shared Folders tool, choose **Sessions** to view all the user sessions that are connected to your FSx for Windows File Server file system. If a user or application is accessing a file share on your Amazon FSx file system, this snap-in shows you their session. You can disconnect sessions by opening the context (right-click) menu for a session and choosing **Close Session**. 
 
-![The Shared Folders tool displaying the user sessions that are connected to your FSx for Windows File Server file system.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/usersessions-close.png)
+![The Shared Folders tool displaying the user sessions that are connected to your FSx for Windows File Server file system.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/usersessions-close.png)
 
 
 To disconnect all open sessions, open the context (right-click) menu for **Sessions**, choose **Disconnect All Sessions**, and confirm your action. 
 
-![The Shared Folders tool with the context-menu for Sessions open.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/discnnct-all-sessions.png)
+![The Shared Folders tool with the context-menu for Sessions open.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/discnnct-all-sessions.png)
 
 
 ### To manage open files (GUI)
@@ -49,12 +49,12 @@ To disconnect all open sessions, open the context (right-click) menu for **Sessi
 
 In the Shared Folders tool, choose **Open Files** to view all the files on the system that are currently open. The view also shows which users have the files or folders open. This information can be helpful in tracking down why other users cannot open certain files. You can close any file that any user has open simply by opening the context (right-click) menu for the file's entry in the list and choosing **Close Open File**.
 
-![The Open files tab in the Shared Folders tool.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/clse-opn-file.png)
+![The Open files tab in the Shared Folders tool.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/clse-opn-file.png)
 
 
 To disconnect all open files on the file system, the context (right-click) menu for **Open Files** and choose **Disconnect All Open Files**, and confirm your action.
 
-![The context-menu for Open files in the Shared Folders tool.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/clse-ALL-opn-file.png)
+![The context-menu for Open files in the Shared Folders tool.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/clse-ALL-opn-file.png)
 
 
 ## Using PowerShell to manage user sessions and open files

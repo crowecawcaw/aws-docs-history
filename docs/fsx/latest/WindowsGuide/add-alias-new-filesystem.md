@@ -13,7 +13,7 @@ You can associate DNS aliases when creating a new FSx for Windows File Server fi
 1. Follow the procedure for creating a new file system described in [Step 5. Create your file system](getting-started.md#getting-started-step1) in the Getting Started section. 
 
 1. In the **Access - optional** section of the **Create file system** wizard, enter the DNS aliases that you want to associate with your file system.  
-![The Access section of the Create file system wizard used to enter DNS aliases to associate with the new file system.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSxW-create-fs-Access-aliases.png)
+![The Access section of the Create file system wizard used to enter DNS aliases to associate with the new file system.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/FSxW-create-fs-Access-aliases.png)
 
 1. When the file system is **Available**, you can access it using the DNS alias by configuring service principal names (SPNs) and updating or creating a DNS CNAME record for the alias. For more information, see [Accessing data using DNS aliases](dns-aliases.md).
 

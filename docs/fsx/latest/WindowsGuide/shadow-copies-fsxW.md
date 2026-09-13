@@ -87,9 +87,9 @@ After you configure shadow copies on your Amazon FSx file system, your users can
 
 Users restore files to previous versions using the familiar Windows File Explorer interface. To restore a file, you choose the file to restore, then choose **Restore previous versions** from the context (right-click) menu.
 
-![Restore previous versions in Windows File Explore](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/restore-prev-vers.png)
+![Restore previous versions in Windows File Explore](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/restore-prev-vers.png)
 
 
  Users can then view and restore a previous version from the **Previous Versions** list. 
 
-![Restore previous versions in Windows File Explorer](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/rest-list.png)
+![Restore previous versions in Windows File Explorer](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/rest-list.png)

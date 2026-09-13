@@ -43,7 +43,7 @@ When you increase the storage capacity of your Amazon FSx file system, Amazon FS
 
 The following illustration shows the four main steps of the process that Amazon FSx uses when increasing a file system's storage capacity.
 
-![Diagram showing the 4 steps of the storage scaling process.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/storage-scaling-flow.png)
+![Diagram showing the 4 steps of the storage scaling process.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/storage-scaling-flow.png)
 
 
 You can track the progress of storage optimization, SSD storage capacity increases, or SSD IOPS updates at any time using the Amazon FSx console, CLI, or API. For more information, see [Monitoring storage capacity increases](monitoring-storage-capacity-increase.md).

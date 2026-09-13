@@ -21,7 +21,7 @@ File access auditing is supported only on Amazon FSx for Windows File Server fil
 1. Follow the procedure for creating a new file system described in [Step 5. Create your file system](getting-started.md#getting-started-step1) in the Getting Started section. 
 
 1. Open the **Auditing - optional** section. File access auditing is disabled by default.  
-![The Auditing - optional section of the Create file system wizard, showing that file access auditing is turned off by default.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-create-wizard.png)
+![The Auditing - optional section of the Create file system wizard, showing that file access auditing is turned off by default.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-create-wizard.png)
 
 1. To enable and configure file access auditing, do the following.
    + For **Log access to files and folders**, select the logging of successful and/or failed attempts. Logging is disabled for files and folders if you don't make a selection.
@@ -29,7 +29,7 @@ File access auditing is supported only on Amazon FSx for Windows File Server fil
    + For **Choose an audit event log destination**, choose **CloudWatch Logs** or **Firehose**. Then choose an existing log or delivery stream or create a new one. For CloudWatch Logs, Amazon FSx can create and use a default log stream in the CloudWatch Logs `/aws/fsx/windows` log group.
 
    Following is an example of a file access auditing configuration that will audit successful and failed access attempts of end users for files, folders, and file shares. The audit event logs will be sent to the default CloudWatch Logs `/aws/fsx/windows` log group destination.  
-![An example of a file access auditing configuration for a file system.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-create-advanced.png)
+![An example of a file access auditing configuration for a file system.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-create-advanced.png)
 
 1. Continue with the next section of the file system creation wizard.
 
@@ -62,10 +62,10 @@ When the file system is **Available**, the file access auditing feature is enabl
 1. Choose the **Administration** tab.
 
 1. On the **File Access Auditing** panel, choose **Manage**.  
-![FSx console File access auditing panel, which shows the file access auditing configuration.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-admin-panel.png)
+![FSx console File access auditing panel, which shows the file access auditing configuration.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-admin-panel.png)
 
 1. On the **Manage file access auditing settings** dialog, change the desired settings.  
-![FSx console File access auditing panel, use this panel for modifying the file access auditing configurations.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-update-config.png)
+![FSx console File access auditing panel, use this panel for modifying the file access auditing configurations.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/faa-update-config.png)
    + For **Log access to files and folders**, select the logging of successful and/or failed attempts. Logging is disabled for files and folders if you don't make a selection.
    + For **Log access to file shares**, select the logging of successful and/or failed attempts. Logging is disabled for file shares if you don't make a selection.
    + For **Choose an audit event log destination**, choose **CloudWatch Logs** or **Firehose**. Then choose an existing log or delivery stream or create a new one.

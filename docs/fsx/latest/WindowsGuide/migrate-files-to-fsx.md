@@ -29,7 +29,7 @@ The following table summarizes the source and destination file system accessibil
 **Note**  
 \* For file systems joined to an AWS Managed Microsoft AD, the Amazon FSx file system administrators group is **AWS Delegated FSx Administrators**. In your self-managed Microsoft AD, the Amazon FSx file system administrators group is **Domain Admins** or the custom group that you specified for administration when you created your file system.
 
-![Diagram displaying the configuration of the source and destination file system for data migration using Robocopy.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/fsx-migrate-existing.png)
+![Diagram displaying the configuration of the source and destination file system for data migration using Robocopy.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/fsx-migrate-existing.png)
 
 
 ## Migrating files using Robocopy

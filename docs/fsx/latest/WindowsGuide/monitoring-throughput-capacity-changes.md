@@ -10,7 +10,7 @@ You can monitor the progress of a throughput capacity modification using the Ama
 
 In the **Updates** tab in the **File system details** window, you can view the 10 most recent update actions for each update action type.
 
-![Console screen shot showing the file system updates window.](http://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/fs-updates-panel.png)
+![Console screen shot showing the file system updates window.](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/images/fs-updates-panel.png)
 
 
 For throughput capacity update actions, you can view the following information.
