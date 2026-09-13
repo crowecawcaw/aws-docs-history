@@ -8,7 +8,7 @@ With AWS DMS, you can configure Oracle session parameters and MySQL session vari
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Very limited set of hints in MySQL. Use index hints and optimizer hints as comments. Syntax differences. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Very limited set of hints in MySQL. Use index hints and optimizer hints as comments. Syntax differences. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.tuning.dbhints.oracle"></a>

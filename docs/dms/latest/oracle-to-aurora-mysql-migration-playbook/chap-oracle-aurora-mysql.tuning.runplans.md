@@ -8,7 +8,7 @@ With AWS DMS, you can analyze the performance of your database migration tasks b
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Syntax differences. Completely different optimizer with different operators and rules. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Syntax differences. Completely different optimizer with different operators and rules. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.tuning.runplans.oracle"></a>
@@ -129,7 +129,7 @@ id  select_type  table      partitions  type  possible_keys  key   key_len ref  
 
 The following image demonstrates the MySQL Workbench graphical run plan.
 
-![MySQL Workbench graphical run plan](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-tuning-runplans.png)
+![MySQL Workbench graphical run plan](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-tuning-runplans.png)
 
 
 **Note**  

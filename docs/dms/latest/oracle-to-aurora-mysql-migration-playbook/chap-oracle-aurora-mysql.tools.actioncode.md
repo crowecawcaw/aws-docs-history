@@ -8,12 +8,12 @@ The following table shows the icons we use to describe the automation levels of 
 
 | Automation level icon | Description | 
 | --- | --- | 
-|  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-5.png)  |  **Full automation** — AWS SCT performs fully automatic conversion, no manual conversion needed. | 
-|  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  **High automation** — Minor, simple manual conversions may be needed. | 
-|  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  **Medium automation** — Low-medium complexity manual conversions may be needed. | 
-|  ![Two star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-2.png)  |  **Low automation** — Medium-high complexity manual conversions may be needed. | 
-|  ![One star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-1.png)  |  **Very low automation** — High risk or complex manual conversions may be needed. | 
-|  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  **No automation** — Not currently supported by AWS SCT, manual conversion is required for this feature. | 
+|  ![Five star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-5.png)  |  **Full automation** — AWS SCT performs fully automatic conversion, no manual conversion needed. | 
+|  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  **High automation** — Minor, simple manual conversions may be needed. | 
+|  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  **Medium automation** — Low-medium complexity manual conversions may be needed. | 
+|  ![Two star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-2.png)  |  **Low automation** — Medium-high complexity manual conversions may be needed. | 
+|  ![One star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-1.png)  |  **Very low automation** — High risk or complex manual conversions may be needed. | 
+|  ![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  |  **No automation** — Not currently supported by AWS SCT, manual conversion is required for this feature. | 
 
 The following sections list the AWS Schema Conversion Tool action codes for topics that are covered in this playbook.
 
@@ -23,7 +23,7 @@ The links in the table point to the Oracle topic pages, which are immediately fo
 ## Creating tables
 <a name="chap-oracle-aurora-mysql.tools.actioncode.tables"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
  AWS SCT automatically converts the most commonly used constructs of the `CREATE TABLE` statement because Oracle and Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) support the entry level American National Standards Institute (ANSI) compliance. These items include table names, containing security schema or database, column names, basic column data types, column and table constraints, column default values, primary, UNIQUE, and foreign keys. Some changes may be required for computed columns and global temporary tables.
@@ -51,7 +51,7 @@ The links in the table point to the Oracle topic pages, which are immediately fo
 ## Constraints
 <a name="chap-oracle-aurora-mysql.tools.actioncode.constraints"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
  AWS SCT automatically converts most constraints because Oracle and Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) support the entry level ANSI compliance. These items include primary keys, foreign keys, null constraints, unique constraints, and default constraints with some exceptions. Manual conversions are required for some foreign key cascading options. AWS SCT replaces check constraints with triggers, and some default expressions for `DateTime` columns aren’t supported for automatic conversion. AWS SCT can’t automatically convert complex expressions for other default values.
@@ -72,7 +72,7 @@ For more information, see [Table Constraints](chap-oracle-aurora-mysql.tables.co
 ## Data types
 <a name="chap-oracle-aurora-mysql.tools.actioncode.datatypes"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
 Data type syntax and rules are similar between Oracle and Aurora MySQL. AWS SCT automatically converts most of data type syntax and rules. Date and time handling paradigms are different for Oracle and Aurora MySQL and require manual verification or conversion. Also note that because of differences in data type behavior between Oracle and Aurora MySQL, manual verification and strict testing are highly recommended.
@@ -92,7 +92,7 @@ For more information, see [Data Types](chap-oracle-aurora-mysql.tables.common.md
 ## Common table expressions
 <a name="chap-oracle-aurora-mysql.tools.actioncode.commontableexpressions"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
 
 
  Aurora MySQL version 5.7 doesn’t support common table expressions. AWS SCT can’t automatically convert common table expressions.
@@ -107,7 +107,7 @@ For workarounds using traditional SQL syntax, see [Common Table Expressions](cha
 ## Cursors
 <a name="chap-oracle-aurora-mysql.tools.actioncode.cursors"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 
  AWS SCT automatically converts the most commonly used cursor operations. These operations include forward-only, read only cursors, and the `DECLARE CURSOR`, `CLOSE CURSOR`, and `FETCH NEXT` operations. Modifications through cursors and non-forward-only fetches, which aren’t supported by Aurora MySQL, require manual conversions.
@@ -131,7 +131,7 @@ For more information, see [Cursors](chap-oracle-aurora-mysql.sql.cursors.md).
 ## Transaction isolation
 <a name="chap-oracle-aurora-mysql.tools.actioncode.transactionisolation"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
  Aurora MySQL supports the following four transaction isolation levels specified in the SQL:92 standard: `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, and `SERIALIZABLE`. AWS Schema Conversion Tool (AWS SCT) automatically converts all these transaction isolation levels. AWS SCT also converts `BEGIN`, `COMMIT`, and `ROLLBACK` commands that use slightly different syntax. Manual conversion is required for named, marked, and delayed durability transactions that aren’t supported by Aurora MySQL.
@@ -149,7 +149,7 @@ For more information, see [Transactions](chap-oracle-aurora-mysql.sql.transactio
 ## Stored procedures
 <a name="chap-oracle-aurora-mysql.tools.actioncode.storedprocedures"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
  Aurora MySQL stored procedures provide very similar functionality to Oracle stored procedures. AWS SCT automatically converts Oracle stored procedures. Manual conversion is required for procedures that use `RETURN` values and some less common `EXECUTE` options such as `RECOMPILE` and `RESULTS SETS`.
@@ -177,7 +177,7 @@ For more information, see [Stored Procedures](chap-oracle-aurora-mysql.sql.store
 ## Triggers
 <a name="chap-oracle-aurora-mysql.tools.actioncode.triggers"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 
  Aurora MySQL supports `BEFORE` and `AFTER` triggers for `INSERT`, `UPDATE`, and `DELETE`. Aurora MySQL triggers differ substantially from Oracle triggers. However, for most common use cases, AWS SCT can migrate triggers with minimal code changes. Although AWS SCT can automatically migrate trigger code, manual inspection and potential code modifications may be required because Aurora MySQL triggers run once for each row, not once for each statement such as triggers in Oracle.
@@ -211,7 +211,7 @@ For more information, see [Triggers](chap-oracle-aurora-mysql.tables.triggers.md
 ## Sequences
 <a name="chap-oracle-aurora-mysql.tools.actioncode.sequences"></a>
 
-![One star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-1.png)
+![One star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-1.png)
 
 
 Although the syntax for Oracle `IDENTITY` and Aurora MySQL `AUTO_INCREMENT` auto-enumeration columns differs significantly, AWS SCT can automatically convert it. Some limitations imposed by Aurora MySQL require manual conversion such as explicit `SEED` and `INCREMENT` auto-enumeration columns that aren’t part of the primary key and the table-independent `SEQUENCE` objects.
@@ -226,7 +226,7 @@ For more information, see [Oracle Sequences and Identity Columns and MySQL Seque
 ## Date and time functions
 <a name="chap-oracle-aurora-mysql.tools.actioncode.datetime"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
  AWS SCT automatically converts the most commonly used date and time functions despite the significant difference in syntax. Be aware of differences in data types, time zone awareness, and locale handling as well the functions themselves, and inspect the expression value output carefully. Some less commonly used options such as millisecond, nanosecond, and time zone offsets require manual conversion.
@@ -241,7 +241,7 @@ For more information, see [Oracle Sequences and Identity Columns and MySQL Seque
 ## User-defined types
 <a name="chap-oracle-aurora-mysql.tools.actioncode.udt"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 
  Aurora MySQL 5.7 doesn’t support-user defined types and user-defined table-valued parameters. AWS SCT can convert standard user defined types by replacing it with their base types, but manual conversion is required for user defined table types, which are used for table valued parameters for stored procedures.
@@ -257,7 +257,7 @@ For more information, see [User-Defined Types](chap-oracle-aurora-mysql.tables.u
 ## Synonyms
 <a name="chap-oracle-aurora-mysql.tools.actioncode.synonyms"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
 
 
  Aurora MySQL version 5.7 doesn’t support synonyms. AWS SCT can’t automatically convert synonyms.
@@ -270,7 +270,7 @@ For more information, see [User-Defined Types](chap-oracle-aurora-mysql.tables.u
 ## XML
 <a name="chap-oracle-aurora-mysql.tools.actioncode.xml"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
  Aurora MySQL provides minimal support for XML, but it does offer a native JSON data type and more than 25 dedicated JSON functions. Despite these differences, the most commonly used basic XML functions can be automatically migrated by AWS SCT. Some options such as `EXPLICIT`, used in functions or with subqueries, require manual conversion.
@@ -287,7 +287,7 @@ For more information, see [XML](chap-oracle-aurora-mysql.special.xmldb.md).
 ## MERGE
 <a name="chap-oracle-aurora-mysql.tools.actioncode.merge"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
 
 
  Aurora MySQL version 5.7 doesn’t support the `MERGE` statement. AWS SCT can’t automatically convert `MERGE` statements. Manual conversion is straightforward in most cases.
@@ -300,7 +300,7 @@ For more information, see [XML](chap-oracle-aurora-mysql.special.xmldb.md).
 ## Query hints
 <a name="chap-oracle-aurora-mysql.tools.actioncode.queryhints"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 
  AWS SCT can automatically convert basic query hints such as index hints, except for DML statements. Note that specific optimizations used for Oracle may be completely inapplicable to a new query optimizer. It is recommended to start migration testing with all hints removed. Then, selectively apply hints as a last resort if other means such as schema, index, and query optimizations have failed. Plan guides aren’t supported by Aurora MySQL.
@@ -315,7 +315,7 @@ For more information, see [Database Hints](chap-oracle-aurora-mysql.tuning.dbhin
 ## Indexes
 <a name="chap-oracle-aurora-mysql.tools.actioncode.indexes"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
  AWS SCT automatically converts basic non-clustered indexes, which are the most commonly used type of indexes. User-defined clustered indexes aren’t supported by Aurora MySQL because they are always created for the primary key. In addition, filtered indexes, indexes with included columns, and some Oracle specific index options can’t be migrated automatically and require manual conversion.
@@ -334,7 +334,7 @@ For more information, see [Indexes](chap-oracle-aurora-mysql.tables.indexes.md).
 ## Partitioning
 <a name="chap-oracle-aurora-mysql.tools.actioncode.partitioning"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)
 
 
 Because Aurora MySQL stores each table in its own file, and because file management is performed by AWS and can’t be modified, some of the physical aspects of partitioning in Oracle don’t apply to Aurora MySQL. Because of the vast differences between partition creation, query, and management between Aurora MySQL and Oracle, AWS SCT doesn’t automatically convert table and index partitions. These items require manual conversion.
@@ -350,7 +350,7 @@ For more information, see [Table Partitioning](chap-oracle-aurora-mysql.storage.
 ## Materialized views
 <a name="chap-oracle-aurora-mysql.tools.actioncode.mview"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
 
 
 Aurora MySQL 5.7 doesn’t support materialized views. AWS SCT can’t automatically convert materialized views.
@@ -366,7 +366,7 @@ For more information, see [Oracle Materialized Views and MySQL Summary Tables or
 ## Views
 <a name="chap-oracle-aurora-mysql.tools.actioncode.views"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
 Although the basic syntax for creating a view in Oracle and Aurora MySQL is almost identical, there are some sub-options that can differ significantly, requiring additional manual migration tasks.
@@ -388,7 +388,7 @@ For more information, see [Views](chap-oracle-aurora-mysql.special.views.md).
 ## UTL\_Mail and UTL\_SMTP
 <a name="chap-oracle-aurora-mysql.tools.actioncode.mail"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
 
 
 Aurora MySQL doesn’t provide native support for sending emails from the database.
@@ -404,7 +404,7 @@ For more information, see [Database Mail](chap-oracle-aurora-mysql.sql.mail.md).
 ## Database Links
 <a name="chap-oracle-aurora-mysql.tools.actioncode.links"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
 
 
 Aurora MySQL doesn’t support remote data access. Connectivity between schemas is trivial, but connectivity to other instances requires a custom solution. AWS SCT can’t automatically convert database links.
@@ -419,7 +419,7 @@ For more information, see [Database Links](chap-oracle-aurora-mysql.special.dbli
 ## PLSQL
 <a name="chap-oracle-aurora-mysql.tools.actioncode.plsql"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
  AWS SCT automatically converts the most commonly used SQL statements because Oracle and Aurora MySQL support the entry level ANSI compliance. Some changes may be required for DML related to `ERROR LOG`, subquery, and partitions.
@@ -458,7 +458,7 @@ For more information, see [Database Links](chap-oracle-aurora-mysql.special.dbli
 ## EXECUTE IMMEDIATE
 <a name="chap-oracle-aurora-mysql.tools.actioncode.immediate"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)
 
 
 There is a major difference between Oracle and Aurora MySQL for the `EXECUTE IMMEDIATE` statement. In MySQL, this statement must be used after a `PREPARE` command. Running SQL with results and bind variables, and running anonymous blocks aren’t supported.
@@ -475,7 +475,7 @@ For more information, see [Execute Immediate](chap-oracle-aurora-mysql.sql.immed
 ## DBMS\_OUTPUT
 <a name="chap-oracle-aurora-mysql.tools.actioncode.output"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)
 
 
 Aurora MySQL doesn’t provide native support for the `dbms_output` procedure. Use the `RAISE` command instead.

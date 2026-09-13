@@ -8,7 +8,7 @@ With AWS DMS, you can create a new table in a target database by selecting data 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-5.png)  |  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-5.png)  | N/A | N/A | 
+|  ![Five star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-5.png)  |  ![Five star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-5.png)  | N/A | N/A | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.sql.ctas.oracle"></a>

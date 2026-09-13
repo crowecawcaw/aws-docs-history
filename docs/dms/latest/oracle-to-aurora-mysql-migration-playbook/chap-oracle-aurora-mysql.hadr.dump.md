@@ -8,7 +8,7 @@ With AWS DMS, you can efficiently migrate data from flat files into AWS database
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | The tool isn’t compatible. | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | The tool isn’t compatible. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.hadr.dump.oracle"></a>

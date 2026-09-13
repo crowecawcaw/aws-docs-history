@@ -8,7 +8,7 @@ Oracle and MySQL databases use tablespaces and data files to store data. A table
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Aurora MySQL doesn’t support tablespace for each file only and physical files attributes. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Aurora MySQL doesn’t support tablespace for each file only and physical files attributes. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.tables.tablespaces.oracle"></a>

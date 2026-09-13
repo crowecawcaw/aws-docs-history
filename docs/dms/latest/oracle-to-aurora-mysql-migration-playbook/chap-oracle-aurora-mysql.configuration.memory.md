@@ -8,7 +8,7 @@ With AWS DMS, you can optimize memory utilization for migrated databases by conf
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Different cache names, similar usage. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Different cache names, similar usage. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.configuration.memory.oracle"></a>
@@ -57,7 +57,7 @@ MySQL provides control over how server RAM is allocated. Some of the most import
 |  `innodb_ft_cache_size`  | Very similar to innodb\_buffer\_pool\_size but only for data related to `FULL_TEXT` indexes. | 
 |  `stored_program_cache`  | Cached stored routines per connection. | 
 |  `sort_buffer_size`  | Size of sort buffers used to sort data during creation of an InnoDB index. | 
-| Total memory available for a MySQL cluster | Controlled by selecting the `DB Instance Class` during instance creation:<br /> ![DB Instance Class](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-configuration-memory.png)  | 
+| Total memory available for a MySQL cluster | Controlled by selecting the `DB Instance Class` during instance creation:<br /> ![DB Instance Class](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-configuration-memory.png)  | 
 
 **Note**  
 You can configure cluster-level parameters such as `innodb_buffer_pool_size` and `binlog_cache_size` using parameter groups in the Amazon Relational Database Service console.

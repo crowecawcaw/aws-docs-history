@@ -8,7 +8,7 @@ With AWS DMS, you can migrate databases that use Oracle transparent data encrypt
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | For more information, see [Encrypting Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html). | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | For more information, see [Encrypting Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html). | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.security.encryption.oracle"></a>
@@ -200,7 +200,7 @@ As part of the database settings, you will be prompted to enable encryption and 
 
 You can turn on encryption for an Amazon RDS DB instance only during the instance creation.
 
-![Turn on encryption for an Amazon RDS DB instance](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-encryption.png)
+![Turn on encryption for an Amazon RDS DB instance](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-encryption.png)
 
 
 You can select the default key provided for the account or define a specific key based on an IAM KMS ARN from your account or a different account.

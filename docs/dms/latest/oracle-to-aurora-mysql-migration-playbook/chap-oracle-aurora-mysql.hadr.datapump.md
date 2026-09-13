@@ -8,7 +8,7 @@ With AWS DMS, you can migrate data between different database platforms, includi
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Non-compatible tool. | 
+|  ![No compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Non-compatible tool. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.hadr.datapump.oracle"></a>

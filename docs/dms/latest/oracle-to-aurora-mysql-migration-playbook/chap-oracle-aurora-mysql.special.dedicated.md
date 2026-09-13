@@ -8,7 +8,7 @@ With AWS DMS, you can migrate Oracle Resource Manager databases to dedicated Aur
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, or users across multiple instances. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, or users across multiple instances. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.special.dedicated.oracle"></a>
@@ -77,12 +77,12 @@ Individual Amazon Aurora clusters can be deployed, with varying sizes, each dedi
 
 The following diagram shows the traditional Oracle model where maximizing the usage of each physical Oracle server was essential due to physical hardware constraints and the per-CPU core licensing model.
 
-![Traditional Oracle model](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-traditional-oracle-model.png)
+![Traditional Oracle model](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-traditional-oracle-model.png)
 
 
 With Amazon Aurora, you can deploy separate and dedicated database clusters. Each cluster is dedicated to a specific application or workload creating isolation between multiple connected sessions and applications. The following diagram shows this architecture.
 
-![Separate and dedicated database clusters](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-aurora-dedicated-database-clusters.png)
+![Separate and dedicated database clusters](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-aurora-dedicated-database-clusters.png)
 
 
 Each Amazon Aurora instance (primary or replica) can be scaled independently in terms of CPU and memory resources using the different instance types. Because multiple Amazon Aurora instances can be instantly deployed and much less overhead is associated with the deployment and management of Aurora instances when compared to physical servers, separating different workloads to different instance classes could be a suitable solution for controlling resource management.

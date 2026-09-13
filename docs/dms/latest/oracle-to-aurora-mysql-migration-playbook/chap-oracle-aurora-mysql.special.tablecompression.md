@@ -8,7 +8,7 @@ With AWS DMS, you can optimize storage utilization and improve query performance
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. MySQL doesn’t compress partitions. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. MySQL doesn’t compress partitions. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.special.tablecompression.oracle"></a>

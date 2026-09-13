@@ -8,19 +8,19 @@ With AWS DMS, you can migrate Oracle multitenant databases and MySQL databases t
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, and users across multiple instances. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, and users across multiple instances. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.special.multitenant.oracle"></a>
 
 Oracle 12c introduces a new multitenant architecture that provides the ability to create additional independent pluggable databases under a single Oracle instance. Prior to Oracle 12c, a single Oracle database instance only supported running a single Oracle database as shown in the following diagram.
 
-![A single Oracle database instance runs a single Oracle database](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-oracle-multitenant.png)
+![A single Oracle database instance runs a single Oracle database](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-oracle-multitenant.png)
 
 
 Oracle 12c introduces a new multitenant container database (CDB) that supports one or more pluggable databases (PDB). The CDB can be thought of as a single superset database with multiple pluggable databases. The relationship between an Oracle instance and databases is now 1:N.
 
-![Multitenant container Oracle database](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-multitenant-container-database.png)
+![Multitenant container Oracle database](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-multitenant-container-database.png)
 
 
 Oracle 18c adds following multitenant related features:
@@ -49,7 +49,7 @@ Oracle 19 introduced support to having more than one pluggable database (PDB) in
 + A single Root Container (CDB$ROOT) exists in a CDB and contains the Oracle Instance Redo Logs, undo tablespace (unless Oracle 12.2 local undo mode is enabled), and control files.
 + A single Seed PDB exists in a CDB and is used as a template for creating new PDBs.
 
-![Container Oracle database](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-oracle-container-database.png)
+![Container Oracle database](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-oracle-container-database.png)
 
 
 ### CDB and PDB semantics
@@ -124,14 +124,14 @@ For more information, see [Oracle Multitenant](https://docs.oracle.com/en/databa
 
 You can create multiple MySQL databases under a single Amazon Aurora MySQL cluster.
 
-![DB cluster](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-aurora-mysql-cluster.png)
+![DB cluster](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-aurora-mysql-cluster.png)
 
 
 Each Amazon Aurora cluster contains a primary instance that can accept both reads and writes for all cluster databases.
 
 You can create up to 15 read-only nodes providing scale-out functionality for application reads and high availability.
 
-![DB cluster storage volume](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-aurora-cluster-storage-volume.png)
+![DB cluster storage volume](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-aurora-cluster-storage-volume.png)
 
 
 An Oracle CDB/Instance is a high-level equivalent to an Amazon Aurora cluster, and an Oracle Pluggable Database (PDB) is equivalent to a MySQL database created inside the Amazon Aurora cluster. Not all features are comparable between Oracle 12c PDBs and Amazon Aurora.

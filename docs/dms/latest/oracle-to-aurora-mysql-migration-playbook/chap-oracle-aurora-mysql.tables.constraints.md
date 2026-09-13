@@ -8,7 +8,7 @@ With AWS DMS, you can enforce data integrity rules on tables in Oracle and MySQL
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Constraints](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.constraints)  | MySQL doesn’t support `REF`, `ENABLE`, `DEFERRABLE`, and `DISABLE`. Also, MySQL doesn’t support constraints on views. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Constraints](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.constraints)  | MySQL doesn’t support `REF`, `ENABLE`, `DEFERRABLE`, and `DISABLE`. Also, MySQL doesn’t support constraints on views. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.tables.constraints.oracle"></a>

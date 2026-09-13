@@ -8,7 +8,7 @@ With AWS DMS, you can migrate databases between different database platforms, in
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Two star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-2.png)  |  [EXECUTE IMMEDIATE](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.immediate)  | Make sure that you use the `PREPARE` command in MySQL. MySQL doesn’t support running SQL with results and bind variables or anonymous blocks using `EXECUTE`. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Two star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-2.png)  |  [EXECUTE IMMEDIATE](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.immediate)  | Make sure that you use the `PREPARE` command in MySQL. MySQL doesn’t support running SQL with results and bind variables or anonymous blocks using `EXECUTE`. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.sql.immediate.oracle"></a>

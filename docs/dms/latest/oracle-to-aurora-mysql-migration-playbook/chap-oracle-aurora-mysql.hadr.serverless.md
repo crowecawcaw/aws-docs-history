@@ -31,7 +31,7 @@ You can choose the following capacity units:
 + Configure multi-tenant request routers to route database traffic to the underlying instances.
 + Provision the initial minimum instance capacity.
 
-![Aurora MySQL Serverless](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-hadr-serverless.png)
+![Aurora MySQL Serverless](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-hadr-serverless.png)
 
 
 This option can be easier than using Oracle RAC because with this option you don’t need to add or remove servers from the cluster. Also, you don’t need to spend on unused hardware, it can scale to even more than you thought you will need when the cluster was created.

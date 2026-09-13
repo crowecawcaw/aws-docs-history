@@ -8,7 +8,7 @@ With AWS DMS, you can schedule and automate database tasks using Oracle DBMS\_SC
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Different paradigm and syntax | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Different paradigm and syntax | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.special.scheduler.oracle"></a>

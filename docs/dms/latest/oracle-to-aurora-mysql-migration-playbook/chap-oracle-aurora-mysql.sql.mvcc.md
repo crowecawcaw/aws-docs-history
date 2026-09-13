@@ -8,7 +8,7 @@ With AWS DMS, you can implement Multi-Version Concurrency Control (MVCC) to mana
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-5.png)  | N/A | N/A | N/A | 
+|  ![Five star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-5.png)  | N/A | N/A | N/A | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.sql.mvcc.oracle"></a>

@@ -8,7 +8,7 @@ With AWS DMS, you can manage access control and security for your databases duri
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | There are no roles in MySQL, only privileges. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | There are no roles in MySQL, only privileges. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.security.roles.oracle"></a>

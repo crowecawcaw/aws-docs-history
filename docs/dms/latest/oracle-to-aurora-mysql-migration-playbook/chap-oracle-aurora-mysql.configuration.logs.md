@@ -8,7 +8,7 @@ With AWS DMS, you can capture and analyze Oracle alert log and MySQL error log d
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use [Event Notifications Subscription](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) with [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc). | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use [Event Notifications Subscription](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) with [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc). | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.configuration.logs.oracle"></a>
@@ -31,7 +31,7 @@ In addition, several other Oracle server components have unique log files such a
 
 The following screenshot displays partial contents of the Oracle database alert log file.
 
-![Oracle database alert log file](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-configuration-logs.png)
+![Oracle database alert log file](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-configuration-logs.png)
 
 
 For more information, see [Monitoring Errors and Alerts](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/monitoring-the-database.html#GUID-E5F89E8E-7FBC-47DD-BA5D-96AFD9CE4BC7) in the *Oracle documentation*.
@@ -79,7 +79,7 @@ Access the MySQL error log using the Amazon Relational Database Service or Amazo
 
 1. Choose **Logs & events** and select the log to inspect. For example, select the log during the hour the data was experiencing problems. The following screenshot displays partial contents of a MySQL database error log as viewed from the Amazon Relational Database Service console.
 
-    ![MySQL database error log](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-database-log.png) 
+    ![MySQL database error log](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-database-log.png) 
 
 ### MySQL error log configuration
 <a name="chap-oracle-aurora-mysql.configuration.logs.mysql.configuration"></a>

@@ -8,7 +8,7 @@ With AWS DMS, you can efficiently migrate data from Oracle and MySQL databases t
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [Cursors](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.cursors)  | Minor differences in syntax may require some code rewrite. MySQL doesn’t support `%ISOPEN`, `%ROWTYPE`, and `%BULK_ROWCOUNT`. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  [Cursors](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.cursors)  | Minor differences in syntax may require some code rewrite. MySQL doesn’t support `%ISOPEN`, `%ROWTYPE`, and `%BULK_ROWCOUNT`. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.sql.cursors.oracle"></a>

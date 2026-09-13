@@ -8,7 +8,7 @@ With AWS DMS, you can capture data manipulation language (DML) operations for re
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | MySQL doesn’t support LogMiner, workaround is available. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | MySQL doesn’t support LogMiner, workaround is available. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.special.log.oracle"></a>

@@ -8,7 +8,7 @@ Oracle sequences and identity columns, as well as MySQL Sequences and `AUTO_INCR
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![One star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-1.png)  |  [Sequences](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.sequences)  | MySQL doesn’t support sequences, identity columns have different syntax and options. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-2.png)  |  ![One star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-1.png)  |  [Sequences](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.sequences)  | MySQL doesn’t support sequences, identity columns have different syntax and options. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.sql.identity.oracle"></a>

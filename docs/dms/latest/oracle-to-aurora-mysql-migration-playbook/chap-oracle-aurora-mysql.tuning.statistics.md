@@ -8,7 +8,7 @@ With AWS DMS, you can gather and manage statistics about database tables and ind
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.tuning.statistics.oracle"></a>
@@ -85,12 +85,12 @@ To view statistics metadata, use the `INFORMATION_SCHEMA.STATISTICS` standard vi
 
 The following image demonstrates an example of the `mysql.innodb_table_stats` content.
 
-![Table statistics](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-table-stats.png)
+![Table statistics](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-table-stats.png)
 
 
 The following image demonstrates an example of the `mysql.innodb_index_stats` content.
 
-![Index statistics](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-index-stats.png)
+![Index statistics](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/oracle-aurora-mysql-index-stats.png)
 
 
 Automatic refresh of statistics is controlled by the global parameter `innodb_stats_auto_recalc`, which is set to `ON` in Aurora MySQL. You can set it individually for each table using the `STATS_AUTO_RECALC=1` option.

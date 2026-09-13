@@ -8,7 +8,7 @@ With AWS DMS, you can seamlessly migrate data from Oracle Advanced Queuing to Au
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Use AWS Lambda and Amazon Simple Queue Service with Aurora MySQL. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Use AWS Lambda and Amazon Simple Queue Service with Aurora MySQL. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.special.lambda.oracle"></a>

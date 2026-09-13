@@ -8,7 +8,7 @@ This section provides information about Oracle and MySQL monitoring.
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Make sure to change table names in queries when using MySQL. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Make sure to change table names in queries when using MySQL. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.monitoring.oracle"></a>

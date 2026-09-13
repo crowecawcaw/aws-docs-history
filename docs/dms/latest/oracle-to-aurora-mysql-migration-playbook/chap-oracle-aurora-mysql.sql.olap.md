@@ -8,7 +8,7 @@ The following sections detail the steps for configuring AWS DMS to handle OLAP f
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  | N/A |  `GREATEST` and `LEAST` functions might get different results in MySQL. `CONNECT BY` isn’t supported by MySQL, a workaround is available. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  | N/A |  `GREATEST` and `LEAST` functions might get different results in MySQL. `CONNECT BY` isn’t supported by MySQL, a workaround is available. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.sql.olap.oracle"></a>

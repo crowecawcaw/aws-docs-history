@@ -8,7 +8,7 @@ Triggers are database objects that encapsulate procedural logic, facilitating da
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  | MySQL doesn’t support statement and system event triggers. Also, MySQL doesn’t support `CREATE OR REPLACE`. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-3.png)  |  | MySQL doesn’t support statement and system event triggers. Also, MySQL doesn’t support `CREATE OR REPLACE`. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.tables.triggers.oracle"></a>

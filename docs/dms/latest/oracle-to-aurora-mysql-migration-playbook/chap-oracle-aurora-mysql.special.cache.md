@@ -8,7 +8,7 @@ With AWS DMS, you can leverage performance optimization features such as Oracle 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Syntax and option differences, similar functionality. This is off the MySQL roadmap and suggested not to be used. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-0.png)  | N/A | Syntax and option differences, similar functionality. This is off the MySQL roadmap and suggested not to be used. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.special.cache.oracle"></a>

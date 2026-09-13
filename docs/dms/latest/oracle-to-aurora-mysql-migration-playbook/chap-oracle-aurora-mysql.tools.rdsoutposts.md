@@ -15,7 +15,7 @@ When you deploy Amazon RDS on Outposts, you can run Amazon RDS on premises for l
 
  Amazon RDS on Outposts enables you to run Amazon RDS in your on-premises or co-location site. You can deploy and scale an Amazon RDS database instance in Outposts just as you do in the cloud, using the AWS Management Console, APIs, or CLI. Amazon RDS databases in Outposts are encrypted at rest using AWS KMS keys. Amazon RDS automatically stores all automatic backups and manual snapshots in the AWS Region.
 
-![How RDS on Outposts works](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-rds-outposts-how-it-works.png)
+![How RDS on Outposts works](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-rds-outposts-how-it-works.png)
 
 
 This option is helpful when you need to run Amazon RDS on premises for low latency workloads that need to be run in close proximity to your on-premises data and applications.

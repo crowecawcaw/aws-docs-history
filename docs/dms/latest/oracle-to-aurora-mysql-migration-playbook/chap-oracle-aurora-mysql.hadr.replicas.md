@@ -8,7 +8,7 @@ With AWS DMS, you can create and manage Oracle Active Data Guard and MySQL repli
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, or users across multiple instances. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, or users across multiple instances. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.hadr.replicas.oracle"></a>
@@ -17,7 +17,7 @@ Oracle Active Data Guard (ADG) is a synced database architecture with primary an
 
 The following diagram illustrates the ADG architecture.
 
-![Active Data Guard architecture](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-active-data-guard.png)
+![Active Data Guard architecture](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-active-data-guard.png)
 
 +  **Primary DB** — The main database open to read and write operations.
 +  **Redo/Archive** — The redo files and archives that store the redo entries for recovery operations.

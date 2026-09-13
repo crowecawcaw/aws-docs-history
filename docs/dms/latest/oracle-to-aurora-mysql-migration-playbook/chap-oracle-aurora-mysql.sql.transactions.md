@@ -8,7 +8,7 @@ Oracle Transaction Model and MySQL Transactions provide mechanisms for grouping 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Transaction Isolation](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.transactionisolation)  | In MySQL, the default isolation level is `REPEATABLE READ`. MySQL doesn’t support nested transactions. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-automation-4.png)  |  [Transaction Isolation](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.transactionisolation)  | In MySQL, the default isolation level is `REPEATABLE READ`. MySQL doesn’t support nested transactions. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-mysql.sql.transactions.oracle"></a>

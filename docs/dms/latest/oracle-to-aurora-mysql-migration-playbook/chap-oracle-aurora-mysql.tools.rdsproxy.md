@@ -25,7 +25,7 @@ You can turn on Amazon RDS Proxy for most applications with no code changes. You
 
 The following diagram shows how Amazon RDS Proxy works.
 
-![How Amazon RDS Proxy Works](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-how-rds-proxy-works.png)
+![How Amazon RDS Proxy Works](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-mysql-migration-playbook/images/pb-how-rds-proxy-works.png)
 
 
 For more information, see [Amazon RDS Proxy for Scalable Serverless Applications](https://aws.amazon.com/blogs/aws/amazon-rds-proxy-now-generally-available) and [Amazon RDS Proxy](https://aws.amazon.com/rds/proxy).
