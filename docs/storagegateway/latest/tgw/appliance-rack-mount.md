@@ -23,7 +23,7 @@ Before you perform the following procedure, make sure that you meet all of the r
 1. Unbox your hardware appliance and follow the instructions contained in the box to rack-mount the server.
 
    The following image shows the back of the hardware appliance with ports for connecting power, ethernet, monitor, USB keyboard, and iDRAC.  
-![hardware appliance one rear with network and power connector labels.](http://docs.aws.amazon.com/storagegateway/latest/tgw/images/HWAppliance1Back.png)  
+![hardware appliance one rear with network and power connector labels.](https://docs.aws.amazon.com/storagegateway/latest/tgw/images/HWAppliance1Back.png)  
   
 
 
@@ -36,7 +36,7 @@ The hardware appliance doesn't support VLAN trunking. Set up the switch port to 
 1. Plug in the keyboard and monitor.
 
 1. Power on the server by pressing the **Power** button on the front panel, as shown in the following image.  
-![hardware appliance front with power button label.](http://docs.aws.amazon.com/storagegateway/latest/tgw/images/appliance-front.jpeg)  
+![hardware appliance front with power button label.](https://docs.aws.amazon.com/storagegateway/latest/tgw/images/appliance-front.jpeg)  
   
 
 

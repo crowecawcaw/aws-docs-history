@@ -12,7 +12,7 @@ Tape Gateway offers a durable, cost-effective solution to archive your data in t
 
 The following diagram provides an overview of Tape Gateway deployment.
 
-![Storage Gateway connecting tape backup applications to Amazon S3 and Glacier cloud storage.](http://docs.aws.amazon.com/storagegateway/latest/tgw/images/Gateway-VTL-Architecture2-diagram.png)
+![Storage Gateway connecting tape backup applications to Amazon S3 and Glacier cloud storage.](https://docs.aws.amazon.com/storagegateway/latest/tgw/images/Gateway-VTL-Architecture2-diagram.png)
 
 
 The diagram identifies the following Tape Gateway components:

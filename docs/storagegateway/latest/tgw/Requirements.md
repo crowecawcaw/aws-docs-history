@@ -117,7 +117,7 @@ Tape Gateway requires specific ports to be allowed through your network security
 
 The following illustration shows network traffic flow for a basic Tape Gateway deployment.
 
-![network resources connected to Storage Gateway using various ports.](http://docs.aws.amazon.com/storagegateway/latest/tgw/images/SGWNetworkPorts16-volume-tape2.png)
+![network resources connected to Storage Gateway using various ports.](https://docs.aws.amazon.com/storagegateway/latest/tgw/images/SGWNetworkPorts16-volume-tape2.png)
 
 
 ### Networking and firewall requirements for the Storage Gateway Hardware Appliance
@@ -145,7 +145,7 @@ You can use the iDRAC port for remote server management.
 
 
 
-![network resources connected to hardware appliance using various ports.](http://docs.aws.amazon.com/storagegateway/latest/tgw/images/ApplianceFirewallRules.png)
+![network resources connected to hardware appliance using various ports.](https://docs.aws.amazon.com/storagegateway/latest/tgw/images/ApplianceFirewallRules.png)
 
 
 A hardware appliance requires the following ports to operate.
@@ -172,7 +172,7 @@ All IP addresses on the same network interface (NIC), whether for a gateway or a
 
 
 
-![host IP and service IP on a single subnet sharing one NIC.](http://docs.aws.amazon.com/storagegateway/latest/tgw/images/ApplianceAddressing.png)
+![host IP and service IP on a single subnet sharing one NIC.](https://docs.aws.amazon.com/storagegateway/latest/tgw/images/ApplianceAddressing.png)
 
 
 For more information on activating and configuring a hardware appliance, see [Using the Storage Gateway Hardware Appliance](hardware-appliance.md).

@@ -40,7 +40,7 @@ We strongly recommend that you allocate at least 150 GiB of upload buffer space 
 + Your incoming rate is higher than the outgoing rate.
 + The formula returns a value less than 150 GiB.
 
-![an upload buffer formula based on application and network throughput compression and write duration.](http://docs.aws.amazon.com/storagegateway/latest/tgw/images/WorkingStorageFormula-diagram.png)
+![an upload buffer formula based on application and network throughput compression and write duration.](https://docs.aws.amazon.com/storagegateway/latest/tgw/images/WorkingStorageFormula-diagram.png)
 
 
 For example, assume that your business applications write text data to your gateway at a rate of 40 MB per second for 12 hours per day and your network throughput is 12 MB per second. Assuming a compression factor of 2:1 for the text data, you would allocate approximately 690 GiB of space for the upload buffer.

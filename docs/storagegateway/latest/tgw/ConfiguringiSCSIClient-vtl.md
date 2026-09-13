@@ -12,7 +12,7 @@ The following diagram highlights the iSCSI target in the larger picture of the S
 
  
 
-![Storage Gateway tape drives and media changers as iSCSI targets connected to backup applications.](http://docs.aws.amazon.com/storagegateway/latest/tgw/images/Gateway-VTL-iSCSI-vtl-diagram.png)
+![Storage Gateway tape drives and media changers as iSCSI targets connected to backup applications.](https://docs.aws.amazon.com/storagegateway/latest/tgw/images/Gateway-VTL-iSCSI-vtl-diagram.png)
 
 
 **To connect your Windows client to the VTL devices**
