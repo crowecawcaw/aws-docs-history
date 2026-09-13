@@ -10,7 +10,7 @@ This architecture shows how the ReadForMe web app uses the AWS Cloud to assist t
 ## ReadForMe
 <a name="diagram1"></a>
 
-![Architecture diagram showing the ReadForMe serverless application with Amazon Textract, Amazon Polly, and AWS Step Functions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/readforme/images/readforme.png)
+![Architecture diagram showing the ReadForMe serverless application with Amazon Textract, Amazon Polly, and AWS Step Functions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/readforme/images/readforme.png)
 
 
 The following steps describe the architecture:
