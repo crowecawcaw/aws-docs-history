@@ -108,7 +108,7 @@ sudo dcv create-session --owner {{user}} --user {{user}} my-session --type conso
 
  You can now use the Amazon DCV Client to access your Ubuntu instance using its public IP address. When you launch a Amazon DCV client, a window appears, allowing you to access your Ubuntu instance through a visual display.
 
-![When you launch a Amazon DCV client, a window appears, allowing you to access your Ubuntu instance through a visual display.](http://docs.aws.amazon.com/gameliftstreams/latest/developerguide/images/troubleshoot-compatibility-setup-remote-dcv.png)
+![When you launch a Amazon DCV client, a window appears, allowing you to access your Ubuntu instance through a visual display.](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/images/troubleshoot-compatibility-setup-remote-dcv.png)
 
 
 ## Verify GPU drivers

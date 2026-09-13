@@ -62,7 +62,7 @@ When working with stream sessions in Amazon GameLift Streams, this diagram can h
 + [TerminateStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_TerminateStreamSession.html) initiates termination of the stream, and the stream session transitions to `TERMINATING` state. When the stream session terminates successfully, it transitions to `TERMINATED`.
 + A stream session in any state, except `TERMINATED`, can transition to `ERROR`. When an API call returns `ERROR` as a Status value, check the value of StatusReason for a short description of the cause of the error. You can also call [GetStreamSession](https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamSession.html) to check these values. 
 
-![This diagram shows the different states that a stream session transitions to throughout its lifecycle.](http://docs.aws.amazon.com/gameliftstreams/latest/developerguide/images/stream_session_lifecycle.png)
+![This diagram shows the different states that a stream session transitions to throughout its lifecycle.](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/images/stream_session_lifecycle.png)
 
 
 ## Timeout values affecting stream sessions
