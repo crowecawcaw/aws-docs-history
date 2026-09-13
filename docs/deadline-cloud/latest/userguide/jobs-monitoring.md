@@ -11,7 +11,7 @@ Use the AWS Deadline Cloud monitor to get an overall view of your jobs, includin
 
 To monitor a specific job, select the farm and queue containing the job, then select the job from the list. You can use the search box to locate a specific job or jobs in the queue.
 
-![The job monitor for a queue showing a jobs table with progress, status, duration, and priority, and step and task panels.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/queue-jobs.png)
+![The job monitor for a queue showing a jobs table with progress, status, duration, and priority, and step and task panels.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/queue-jobs.png)
 
 
 Open the context menu for a job, step, or task. You can:

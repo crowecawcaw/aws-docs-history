@@ -15,10 +15,10 @@ The following panels are available to add:
 1. Follow the steps in [View and manage job details in Deadline Cloud](view-a-job.md) to view a list of jobs.
 
 1. Choose **Add panel**, the outlined tile that follows the last panel on the page. You can also choose **Add panel** from the actions menu at the top of the page.  
-![The job monitor showing the Jobs, Steps, and Tasks panels, with an outlined Add panel tile at the end of the page.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-add-panel-tile.png)
+![The job monitor showing the Jobs, Steps, and Tasks panels, with an outlined Add panel tile at the end of the page.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-add-panel-tile.png)
 
 1. In **Add a panel**, choose the panel that you want. The panel is added after the last panel on the page.  
-![The Add a panel dialog box listing the Logs panel with a thumbnail and a description of what the panel shows.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-add-panel-modal.png)
+![The Add a panel dialog box listing the Logs panel with a thumbnail and a description of what the panel shows.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-add-panel-modal.png)
 
 The **Add panel** tile appears only when panels remain to add. After the page shows every available panel, the tile no longer appears.
 
@@ -27,7 +27,7 @@ The **Add panel** tile appears only when panels remain to add. After the page sh
 1. In the header of the panel that you want to remove, choose the **Panel settings** icon.
 
 1. Choose **Remove panel**.  
-![The header of the Logs panel with the Panel settings menu open, showing the Remove panel item.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-remove-panel.png)
+![The header of the Logs panel with the Panel settings menu open, showing the Remove panel item.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-remove-panel.png)
 
 To move a panel, use its drag handle. To resize a panel, use its resize handle. With either handle, select the handle, press Space or Enter, use the arrow keys to move or resize the panel, and then press Space or Enter to confirm the change or Esc to discard it. You can also select and hold either handle to move or resize the panel.
 

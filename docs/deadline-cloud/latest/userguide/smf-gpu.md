@@ -12,6 +12,8 @@ For testing purposes you are limited to one GPU. To request more for your produc
 
 You decide whether your fleet will use GPU accelerators when you specify the worker instance capabilities. If you decide to use GPUs, you can specify the minimum and maximum number of GPUs for each instance, the types of GPU chips to use, and the runtime driver for the GPUs.
 
+Instance capabilities are also how you guarantee the amount of memory each worker has. A step's `amount.worker.memory` host requirement selects compatible fleets and doesn't launch larger instances. For more information about how host requirements and fleet configuration interact, see [Host requirements and fleet capabilities](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/host-requirements-overview.html) in the *Deadline Cloud Developer Guide*.
+
 The available GPU accelerators are:
 + `T4` - NVIDIA T4 Tensor Core GPU
 + `A10G` - NVIDIA A10G Tensor Core GPU

@@ -218,7 +218,7 @@ Before using the Husk example job bundle, you need:
 
 1. Configure your USD file, output settings, frame range, and any other applicable settings to submit.
 
-![Husk example job bundle GUI interface.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/houdini-husk-example-interface.png)
+![Husk example job bundle GUI interface.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/houdini-husk-example-interface.png)
 
 
 ##### Additional resources

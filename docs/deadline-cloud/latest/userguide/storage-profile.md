@@ -71,4 +71,4 @@ On each workstation that will submit jobs to a queue, select the workstation's d
 
 1. Choose the workstation's storage profile from the **Default storage profile** list. The list contains the storage profiles that the queue can use, and only appears after you choose a queue that has storage profiles.
 
-![The job submission settings panel showing a farm, a queue, and a default storage profile.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/submitter/storage-profile-setting.png)
+![The job submission settings panel showing a farm, a queue, and a default storage profile.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/submitter/storage-profile-setting.png)

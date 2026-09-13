@@ -27,14 +27,14 @@ Before you begin, make sure that you have the Deadline Cloud command line interf
    ```
 
    The job bundle browser opens, as shown in the following image:  
-![The Browse Job Bundles window with Source set to Queue, a bundle list, and a preview pane showing parameters and steps.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/bundles/job-bundle-browser.png)
+![The Browse Job Bundles window with Source set to Queue, a bundle list, and a preview pane showing parameters and steps.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/bundles/job-bundle-browser.png)
 
 1. For **Source**, choose **Queue**.
 
 1. Select a bundle from the list. The preview shows the bundle's description, its parameters, and the steps it runs, so you can confirm it's the right one. To narrow a long list, enter part of a name in the filter box.
 
 1. Choose **Select**. The bundle downloads and opens in the job submission dialog.  
-![The Deadline Cloud job submission dialog's Shared job settings tab, showing job name, priority, state, farm, and queue.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/bundles/job-submission-dialog.png)
+![The Deadline Cloud job submission dialog's Shared job settings tab, showing job name, priority, state, farm, and queue.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/bundles/job-submission-dialog.png)
 
 1. Set the parameter values for your job, then choose **Submit**. To go back and pick a different bundle instead, choose **Load Bundle**.
 
@@ -45,9 +45,9 @@ To look inside a bundle without submitting it, choose **Download bundle** in the
 
 As a queue accumulates shared bundles, you can hide the ones you don't use. Open the context menu for a bundle, then choose **Hide bundle**. Hiding a bundle only changes your own view on your workstation. The bundle stays on the queue and your teammates still see it.
 
-![The job bundle browser with a bundle selected and its context menu showing the Hide bundle option.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/bundles/hide-bundle.png)
+![The job bundle browser with a bundle selected and its context menu showing the Hide bundle option.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/bundles/hide-bundle.png)
 
 
 To bring a bundle back, select the **Show hidden** checkbox. Then open the context menu for the bundle and choose **Unhide bundle**.
 
-![The job bundle browser with the Show hidden checkbox selected, revealing hidden bundles in the list.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/bundles/unhide-bundle.png)
+![The job bundle browser with the Show hidden checkbox selected, revealing hidden bundles in the list.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/bundles/unhide-bundle.png)

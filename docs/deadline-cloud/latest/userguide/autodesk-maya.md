@@ -111,7 +111,7 @@ To use the Deadline Cloud submitter for Maya, ensure your farm is configured wit
 ### Shared job settings
 <a name="maya-shared-job-settings"></a>
 
-![Deadline Cloud submitter dialog showing the Shared job settings tab with job properties and queue environment fields.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/maya-submitter-shared.png)
+![Deadline Cloud submitter dialog showing the Shared job settings tab with job properties and queue environment fields.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/maya-submitter-shared.png)
 
 
 Settings that apply to the entire job:
@@ -130,7 +130,7 @@ Settings that apply to the entire job:
 ### Maya-specific settings
 <a name="maya-specific-settings"></a>
 
-![Deadline Cloud submitter dialog showing the Job-specific settings tab with Maya project path, output path, render layers, cameras, and frame range options.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/maya-submitter-job.png)
+![Deadline Cloud submitter dialog showing the Job-specific settings tab with Maya project path, output path, render layers, cameras, and frame range options.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/maya-submitter-job.png)
 
 
 Settings specific to Maya rendering:

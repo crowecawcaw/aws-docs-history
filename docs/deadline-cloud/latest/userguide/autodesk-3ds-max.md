@@ -116,7 +116,7 @@ To use the Deadline Cloud submitter for 3ds Max, make sure that your farm is con
 ### Shared job settings
 <a name="3ds-max-shared-job-settings"></a>
 
-![The shared job settings tab of the Deadline Cloud submitter for 3ds Max, showing job properties, Deadline Cloud settings, and the conda queue environment.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/3ds-max-submitter-main.png)
+![The shared job settings tab of the Deadline Cloud submitter for 3ds Max, showing job properties, Deadline Cloud settings, and the conda queue environment.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/3ds-max-submitter-main.png)
 
 
 The following settings apply to the entire job:
@@ -135,7 +135,7 @@ The following settings apply to the entire job:
 ### 3ds Max-specific settings
 <a name="3ds-max-specific-settings"></a>
 
-![The job-specific settings tab of the Deadline Cloud submitter for 3ds Max, showing project and output paths, renderer, scene tweaks, and render element options.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/3ds-max-submitter-job.png)
+![The job-specific settings tab of the Deadline Cloud submitter for 3ds Max, showing project and output paths, renderer, scene tweaks, and render element options.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/3ds-max-submitter-job.png)
 
 
 The following settings are specific to 3ds Max rendering:

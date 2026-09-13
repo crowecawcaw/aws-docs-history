@@ -23,7 +23,7 @@ The following diagram and table compare the two approaches for connecting additi
 ## Comparison of multi-monitor approaches
 <a name="monitors-multi-region-comparison"></a>
 
-![Diagram comparing cross-Region IAM Identity Center access and IAM Identity Center multi-Region replication for Deadline Cloud monitors.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitors-additional-regions.png)
+![Diagram comparing cross-Region IAM Identity Center access and IAM Identity Center multi-Region replication for Deadline Cloud monitors.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitors-additional-regions.png)
 
 
 

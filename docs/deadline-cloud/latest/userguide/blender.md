@@ -121,14 +121,14 @@ To install the Blender submitter using Blender extensions, you need:
 1. Choose **Get Extensions** on the left side bar.
 
 1. Choose **Repositories**, **\+**, **Add Remote Repository**.  
-![Blender preferences window with an open pop-up for adding an extension repository.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/blender-install-01-adding-repo.png)
+![Blender preferences window with an open pop-up for adding an extension repository.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/blender-install-01-adding-repo.png)
 
 1. For **URL**, enter `https://github.com/aws-deadline/deadline-cloud-for-blender/releases/latest/download/index.json`.
 
 1. Select **Check for Updates on Startup** and choose **Create**.
 
 1. On the **Deadline Cloud** entry under **Available**, choose **Install**.  
-![Blender preferences window with the Deadline Cloud add-on available for installation.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/blender-install-02-repo-added.png)
+![Blender preferences window with the Deadline Cloud add-on available for installation.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/blender-install-02-repo-added.png)
 
 The add-on is now installed. You can use the new **Submit to Deadline Cloud** option in the **Render** menu.
 
@@ -162,7 +162,7 @@ To use the Deadline Cloud for Blender submitter, you need:
 
 The **Job-specific settings** tab has options specific to jobs created in Blender.
 
-![Submitter interface showing Blender-specific job settings.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/blender-job-specific-settings.png)
+![Submitter interface showing Blender-specific job settings.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/blender-job-specific-settings.png)
 
 + *Project Path* - The location where the current project is saved. This value can't be changed.
 + *Output Directory* - The location to save file outputs from the render job.

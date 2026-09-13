@@ -138,7 +138,7 @@ Before you use the Deadline Cloud submitter for VRED, make sure that your farm h
 ### Shared job settings
 <a name="vred-shared-job-settings"></a>
 
-![The Submit to Deadline Cloud dialog showing the Shared job settings tab with Job Properties (Name, Description, Priority, Initial state, Maximum failed tasks count, Maximum retries per task, Maximum worker count), Deadline Cloud settings (Farm, Queue), the BYOL License Forwarding queue environment, and the conda queue environment.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/vred-submitter-main.png)
+![The Submit to Deadline Cloud dialog showing the Shared job settings tab with Job Properties (Name, Description, Priority, Initial state, Maximum failed tasks count, Maximum retries per task, Maximum worker count), Deadline Cloud settings (Farm, Queue), the BYOL License Forwarding queue environment, and the conda queue environment.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/vred-submitter-main.png)
 
 
 These settings apply to the entire job:
@@ -159,7 +159,7 @@ These settings apply to the entire job:
 
 The **Job-specific settings** tab contains render options specific to VRED.
 
-![The Submit to Deadline Cloud dialog showing the Job-specific settings tab with VRED Render Options (Render Output, Render Viewpoint/Camera, Image Size Presets, Image Size, Printing Size, Resolution, Render Quality, DLSS Quality, SS Quality, Render Animation, Use GPU Ray Tracing, Animation Type, Animation Clip, Use Clip Range, Frame Range, Frames Per Task), Tiling Settings (Enable Region Rendering, Tiles In X, Tiles In Y), and the Job Type selector.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/vred-submitter-job.png)
+![The Submit to Deadline Cloud dialog showing the Job-specific settings tab with VRED Render Options (Render Output, Render Viewpoint/Camera, Image Size Presets, Image Size, Printing Size, Resolution, Render Quality, DLSS Quality, SS Quality, Render Animation, Use GPU Ray Tracing, Animation Type, Animation Clip, Use Clip Range, Frame Range, Frames Per Task), Tiling Settings (Enable Region Rendering, Tiles In X, Tiles In Y), and the Job Type selector.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/vred-submitter-job.png)
 
 
 #### Render options

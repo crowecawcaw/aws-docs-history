@@ -59,13 +59,13 @@ The following diagrams show how minimum worker count and standby worker count af
 ------
 #### [ Minimum worker count ]
 
-![Diagram showing how minimum worker count maintains a fixed total of workers regardless of workload.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/auto-scaling-min-worker-count.png)
+![Diagram showing how minimum worker count maintains a fixed total of workers regardless of workload.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/auto-scaling-min-worker-count.png)
 
 
 ------
 #### [ Standby worker count ]
 
-![Diagram showing how standby worker count maintains a fixed number of idle workers, launching replacements as they pick up jobs.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/auto-scaling-standby-worker-count.png)
+![Diagram showing how standby worker count maintains a fixed number of idle workers, launching replacements as they pick up jobs.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/auto-scaling-standby-worker-count.png)
 
 
 ------

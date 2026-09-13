@@ -62,6 +62,7 @@ Conda provides packages from *channels*. A channel is a location where packages 
 + Chaos V-Ray for Maya
   + `maya-vray=2025.7`
   + `maya-vray=2026.7`
+  + `maya-vray=2027.7`
 + Foundry Nuke
   + `nuke=15`
   + `nuke=16`
@@ -73,7 +74,7 @@ Conda provides packages from *channels*. A channel is a location where packages 
   + `cinema4d-openjd`
 + Maxon Redshift for Maya
   + `maya-redshift=2025.4`
-  + `maya-redshift=2026.2`
+  + `maya-redshift=2026.8`
 + SideFX Houdini
   + `houdini=19.5`
   + `houdini=20.0`

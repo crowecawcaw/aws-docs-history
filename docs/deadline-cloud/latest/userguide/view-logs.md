@@ -21,7 +21,7 @@ You can read a task's logs in two places. **View logs** opens the logs on their 
 1. Add the **Logs** panel to the **Job monitor** page. For more information, see [Customize the panels in the job monitor](customize-job-monitor-panels.md).
 
 1. Select a job, select a step, and then select a task. The **Logs** panel shows the logs for the selected task.  
-![The job monitor with the Logs panel beside the Jobs, Steps, and Tasks panels. The panel shows the log events for the selected task, with controls for the log source, session actions, and downloading logs.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-logs-panel.png)
+![The job monitor with the Logs panel beside the Jobs, Steps, and Tasks panels. The panel shows the log events for the selected task, with controls for the log source, session actions, and downloading logs.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/job-monitor-logs-panel.png)
 
 1. (Optional) Choose **Task logs** or **Worker logs**.
 

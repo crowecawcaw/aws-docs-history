@@ -24,7 +24,7 @@ Virtual file system support (VFS) is enabled for each job. A job falls back to t
 1. When submitting a job, choose the **Settings** button to open the **AWS Deadline Cloud workstation configuration panel**.
 
 1. From the **Job attachments filesystem options** dropdown, choose **VIRTUAL**.  
-![The Deadline Cloud submitter showing the options for the job attachments file system.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/submitter-vfs.png)
+![The Deadline Cloud submitter showing the options for the job attachments file system.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/submitter-vfs.png)
 
 1. To save your changes, choose **OK**.
 

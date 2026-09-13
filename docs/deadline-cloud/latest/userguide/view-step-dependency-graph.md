@@ -5,7 +5,7 @@
 
 The **Steps** list can show your steps as a table or as a dependency graph. The graph shows each step as a node and each dependency as an arrow that points from a step to the step that depends on it, so you can see the order in which your steps run. Each node shows the step's name and run status.
 
-![The Steps panel in graph view, with a Table and Graph toggle and five step nodes connected by dependency arrows.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/step-dependency-graph.png)
+![The Steps panel in graph view, with a Table and Graph toggle and five step nodes connected by dependency arrows.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/step-dependency-graph.png)
 
 
 **To view the step dependency graph**

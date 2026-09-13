@@ -5,7 +5,7 @@
 
 With the Deadline Cloud usage explorer, you can see real-time metrics on the activity happening on each farm. You can look at the farm's costs by different variables, such as queue, fleet, job, license product, or instance types. Select various time frames to see usage during a specific period of time, and look at usage trends over the course of time. You can also see a detailed breakdown of selected data points, allowing for a closer look into metrics. Usage can be shown by time (minutes and hours) or by cost ($USD).
 
-![The usage explorer showing filter controls, a donut chart of total cost, and a stacked bar chart of daily costs per queue.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/usage-explorer.png)
+![The usage explorer showing filter controls, a donut chart of total cost, and a stacked bar chart of daily costs per queue.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/usage-explorer.png)
 
 
 The following sections show you the steps for accessing and using the Deadline Cloud usage explorer.
@@ -63,7 +63,7 @@ You can review data in a visual format to identify trends and potential areas th
 **Note**  
 The chart *only* displays the top five results with other results combined in an "others" section. You can view all results in the breakdown section below the chart.
 
-![A pie chart showing a breakdown of the time spent running jobs is three different queues in a farm.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/cost-explorer-graph.png)
+![A pie chart showing a breakdown of the time spent running jobs is three different queues in a farm.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/cost-explorer-graph.png)
 
 
 ### View a breakdown of metrics
@@ -78,4 +78,4 @@ Breakdown is minimized by default. To expand and display the results, select the
 
 You can also view the approximate runtime of your queues or fleets based on different intervals that you specify. The interval options are hourly, daily, weekly, and monthly. After you select an interval, the graph displays the approximate runtime of your queues or fleets. 
 
-![A bar chart showing the approximate runtime of a queue or fleet using a daily interval.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/usage-explorer-approximate-runtime.png)
+![A bar chart showing the approximate runtime of a queue or fleet using a daily interval.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/usage-explorer-approximate-runtime.png)

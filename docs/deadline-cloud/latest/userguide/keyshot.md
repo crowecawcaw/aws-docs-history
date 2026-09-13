@@ -95,7 +95,7 @@ Before submitting a job:
 
 When you run the submitter, a dialog asks how you want to handle file attachments.
 
-![Deadline Cloud Submission Options dialog prompting the user to choose which files to attach to the job.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/keyshot-bundling.png)
+![Deadline Cloud Submission Options dialog prompting the user to choose which files to attach to the job.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/keyshot-bundling.png)
 
 
 Choose one of the following options:
@@ -114,12 +114,12 @@ Choose one of the following options:
 After selecting your submission option, the Deadline Cloud submitter interface appears. Configure your render settings:
 
 1. **Shared job settings**.  
-![Submit to Deadline Cloud submitter window on the Shared job settings tab, showing job properties and farm and queue selection.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/keyshot-shared-job-settings.png)
+![Submit to Deadline Cloud submitter window on the Shared job settings tab, showing job properties and farm and queue selection.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/keyshot-shared-job-settings.png)
    + **Job Name**: Give your job a descriptive name.
    + If you are using the submitter for the first time, you might need to set your farm and queue. To set them, choose the **Settings** button.
 
 1. **Job-specific settings**.  
-![Submit to Deadline Cloud submitter window on the Job-specific settings tab, showing KeyShot frame range, output file path, and output format fields.](http://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/keyshot-job-specific-settings.png)
+![Submit to Deadline Cloud submitter window on the Job-specific settings tab, showing KeyShot frame range, output file path, and output format fields.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/keyshot-job-specific-settings.png)
    + **Frames**: Specify which frames to render (for example, `1-30` for frames 1 through 30).
    + **Output File Path**: Set the location and naming pattern for rendered images. The path must include the file's extension, and the extension must match the output format. Use `%d` as a placeholder for the frame number.
    + **Output Format**: Choose the image format (PNG, JPEG, EXR, TIFF, PSD).
