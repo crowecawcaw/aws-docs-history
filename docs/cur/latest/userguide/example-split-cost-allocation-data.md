@@ -135,9 +135,9 @@ Total cost of Namespace2 = $0.40 \+ $0.19 = $0.59
 
 If you have a Savings Plans covering the entire usage for the EC2 instance in the billing period, amortized costs are computed using savingsPlan/SavingsPlanEffectiveCost.
 
-![Table showing EC2 instance usage details with Savings Plans and cost breakdown.](http://docs.aws.amazon.com/cur/latest/userguide/images/savings-plan-entire-usage.png)
+![Table showing EC2 instance usage details with Savings Plans and cost breakdown.](https://docs.aws.amazon.com/cur/latest/userguide/images/savings-plan-entire-usage.png)
 
 
 If you have a Savings Plans covering partial usage for the EC2 instance in the billing period and the rest of the EC2 instance usage is billed at On-Demand rates, EC2 instance amortized costs are computed using savingsPlan/SavingsPlanEffectiveCost (for SavingsPlanCoveredUsage) \+ lineItem/UnblendedCost (for On-Demand usage).
 
-![Table showing EC2 instance usage details, costs, and savings plan information.](http://docs.aws.amazon.com/cur/latest/userguide/images/savings-plan-partial-usage.png)
+![Table showing EC2 instance usage details, costs, and savings plan information.](https://docs.aws.amazon.com/cur/latest/userguide/images/savings-plan-partial-usage.png)

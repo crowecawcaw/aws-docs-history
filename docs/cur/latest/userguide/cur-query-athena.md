@@ -17,4 +17,4 @@ This section outlines how to use Athena with Cost and Usage Reports. For a full 
 
 For a demonstration of querying reports using Athena, see the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/KEeJEZTYE8E/0.jpg)](http://www.youtube.com/watch?v=KEeJEZTYE8E)
+[![AWS Videos](https://img.youtube.com/vi/KEeJEZTYE8E/0.jpg)](https://www.youtube.com/watch?v=KEeJEZTYE8E)
