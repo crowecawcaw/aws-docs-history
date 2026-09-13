@@ -10,7 +10,7 @@ With this architecture, you can deploy a highly available Alfresco Digital Busin
 ## Alfresco Digital Business Platform on AWS
 <a name="alfresco-diagram"></a>
 
-![Architecture diagram for deploying Alfresco Digital Business Platform on AWS with Amazon S3, Amazon EC2, Amazon Aurora, and Amazon OpenSearch Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/alfresco-digital-business-platform/images/alfresco-digital-business-platform-on-aws-ra.png)
+![Architecture diagram for deploying Alfresco Digital Business Platform on AWS with Amazon S3, Amazon EC2, Amazon Aurora, and Amazon OpenSearch Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/alfresco-digital-business-platform/images/alfresco-digital-business-platform-on-aws-ra.png)
 
 
 The following steps describe the architecture:
