@@ -5,7 +5,7 @@
 
  Doing cell-based requires a lot of automation and a set of very specific tools. As the composition of a cell itself can vary from business to business, many things will have to be built around your business. Observability is one of them. If you had a stack before, now you have many stacks, and to take advantage of all the benefits of a cell-based architecture it is necessary to have some ideas in mind. 
 
-![Diagram showing different dashboards for different cells.](http://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/cell-dashboards.jpg)
+![Diagram showing different dashboards for different cells.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/cell-dashboards.jpg)
 
 
  Your entire observability stack needs to be cell-aware. Best practices like [How do you design telemetry](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/design-telemetry.html) now need to give you a view of each cell in its individuality. It is important to be able to track each request and identify which cell it is destined for. For more information on how we do this on Amazon (though, generally not cell-based) see: 

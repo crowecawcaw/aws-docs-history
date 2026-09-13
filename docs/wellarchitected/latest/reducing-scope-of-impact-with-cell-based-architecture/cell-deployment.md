@@ -9,12 +9,12 @@
 
  In the following diagram, we have an Amazon service pipeline type, where each service is deployed in phases until it reaches general availability for all Regions 
 
-![Diagram showing Amazon service deployment](http://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/amazon-service-deployment.jpg)
+![Diagram showing Amazon service deployment](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/amazon-service-deployment.jpg)
 
 
  This is a great way to reduce the impacts of infrastructure failures, bugs, and other errors that can impact customers. With cell-based architecture, these are also deployed in phases, as in the example in the following diagram: 
 
-![Diagram showing deployment of cells as part of an Amazon service deployment.](http://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/cell-deployment.jpg)
+![Diagram showing deployment of cells as part of an Amazon service deployment.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/cell-deployment.jpg)
 
 
  The benefits of fault isolation and blast radius reduction with cell-based architecture are not only when processing customer traffic, but also when deploying new features and fixing bugs. With your customers or in the partitioning model you chose, your deployment model will also follow this same concept, deploying one or more cells at a time, and when identifying any sign of failure, you can rollback, thus reducing the number of clients that were exposed to this failure. 

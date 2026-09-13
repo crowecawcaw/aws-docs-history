@@ -9,7 +9,7 @@
 
  Defining more than one scale unit dimension will help you handle clients that are much larger than most, true outliers, having a dedicated cell for them or even more than one. However, the latter can still cause other problems, such as the need to have a scather/gather router. *Dedicated cells* are important for the enterprise because the architecture opens up a market for dedicated single tenancy. If a customer really wants it, and is willing to pay for it (and a surprising number are), you can dedicate a cell totally to them. This could be a lot of additional revenue and also could make customers happier, and safer. 
 
-![Diagram showing scaling dimensions](http://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/scaling-dimensions.jpg)
+![Diagram showing scaling dimensions](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/scaling-dimensions.jpg)
 
 
  One last factor that cannot be overlooked is cost. When defining the size of your cells, also calculate how much each cell will cost you. This calculation can help you decide how multi-tenant your system is, which can increase or decrease the economies of scale and margin advantage that your business might have. 

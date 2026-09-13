@@ -7,7 +7,7 @@
 
  The complexity of the access pattern, the cardinality of your partition key, the number of cells, all these factors can influence [what is the best approach to keep your cell router up to date with cell mapping.](https://aws.amazon.com/builders-library/avoiding-overload-in-distributed-systems-by-putting-the-smaller-service-in-control/?did=ba_card&trk=ba_card) Avoiding overload in distributed systems by putting the smaller service in control is a good article with some more alternatives on how we do this synchronization between data plane and control plane in AWS. It can be a basis for the synchronization process of your cell router. 
 
-![Diagram showing using a compute layer](http://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/compute-layer.jpg)
+![Diagram showing using a compute layer](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/compute-layer.jpg)
 
 
  In this example, the cell mapping lives in memory on the router. With each change in the S3 bucket, another process or thread is in listener mode and updates the memory map when necessary. 

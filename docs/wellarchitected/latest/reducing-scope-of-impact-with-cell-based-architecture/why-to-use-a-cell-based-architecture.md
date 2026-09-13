@@ -20,7 +20,7 @@ These are the main advantages of a cell-based architecture.
 
  Breaking a service up into multiple cells reduces the scope of impact. Cells represent bulkheaded units that provide containment for many common failure scenarios. When properly isolated from each other, cells have failure containment similar to what we see with Regions. It's highly unlikely for a service outage to span multiple Regions. It should be similarly unlikely for a service outage to span multiple cells. 
 
-![Diagram showing how a cell-based architecture can reduce the scope of impact.](http://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/scope-of-impact.jpg)
+![Diagram showing how a cell-based architecture can reduce the scope of impact.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/scope-of-impact.jpg)
 
 
 ## Higher scalability or cells as a unit scale
@@ -28,7 +28,7 @@ These are the main advantages of a cell-based architecture.
 
  As recommended in [Manage service quotas and constraints](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/manage-service-quotas-and-constraints.html) in the Well-Architected Framework, for your workloads, defining, testing, and managing the limits and capacity of a cell is also essential. Knowing and monitoring this capacity, it's possible to define limits, and scale your workload by adding new cells to your architecture, thus scaling it out. 
 
-![Diagram showing how scale-out with multiple cells works](http://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/scale-out-with-cells.jpg)
+![Diagram showing how scale-out with multiple cells works](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/scale-out-with-cells.jpg)
 
 
  Cell-based architectures scale-out rather than scale-up, and are inherently more scalable. This is because when scaling up, you can reach the resource limits of a particular service, instance, or AWS account. However, scaling out your workload within an Availability Zone, Region, and AWS account, you can avoid reaching the limits of a specific service or resource. When building cells with a fixed size and known and testable limits, it is possible to add new cells that are in accordance with the limits of the same cited resources. 

@@ -9,7 +9,7 @@
 +  Percentage of usage of each tenant or customer 
 +  Quotas and limits of each cell in their respective AWS account
 
-![Diagram showing importance of cell placement.](http://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/cell-placement.png)
+![Diagram showing importance of cell placement.](https://docs.aws.amazon.com/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/images/cell-placement.png)
 
 
  In an ideal world, it is important to find the percentage of utilization and the limit that each of your cells will work with the greatest possible predictability and stability. It is not because your cell supports 10K TPS that you must constantly be operating [on the threshold of this limit, as already recommended in REL01-BP06](https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/rel_manage_service_limits_suff_buffer_limits.html). Ensure that a sufficient gap exists between the current quotas and the maximum usage to accommodate failover. 
