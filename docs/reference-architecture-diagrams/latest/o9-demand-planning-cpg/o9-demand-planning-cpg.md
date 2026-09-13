@@ -10,7 +10,7 @@ With this architecture, you can review options for ingesting data and using AWS 
 ## o9 demand planning diagram
 <a name="o9-diagram"></a>
 
-![Data flowing from SQL, ERP, CRM, and streaming sources through AWS ingestion services into Amazon Simple Storage Service, with feeds to the o9 SaaS solution and AWS ML services.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/o9-demand-planning-cpg/images/o9-demand-planning-cpg.png)
+![Data flowing from SQL, ERP, CRM, and streaming sources through AWS ingestion services into Amazon Simple Storage Service, with feeds to the o9 SaaS solution and AWS ML services.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/o9-demand-planning-cpg/images/o9-demand-planning-cpg.png)
 
 
 The following steps describe the architecture:
