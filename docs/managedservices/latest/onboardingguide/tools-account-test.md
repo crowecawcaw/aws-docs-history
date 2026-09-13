@@ -37,4 +37,4 @@ End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. 
 
 The AMS ingestion process:
 
-![Flowchart showing AMS ingestion steps from data center replication through AMI creation.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/Ingestion_Process_v1.png)
+![Flowchart showing AMS ingestion steps from data center replication through AMI creation.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/Ingestion_Process_v1.png)

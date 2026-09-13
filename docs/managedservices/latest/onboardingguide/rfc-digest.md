@@ -21,4 +21,4 @@ The topics contained in the RFC digest include the following:
 
 The following is an example RFC digest:
 
-![Example RFC digest](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/RFCDigestExample.png)
+![Example RFC digest](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/RFCDigestExample.png)

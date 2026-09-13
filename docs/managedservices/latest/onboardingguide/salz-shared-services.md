@@ -19,4 +19,4 @@ Shared services subnets contain AMS Directory Services, the Management Host that
 
   Special purpose servers designed to be the primary access point from the Internet and act as a proxy to your other Amazon EC2 instances.
 
-![The Shared Services Subnet includes an active directory, an internal bastion, a management host, an EPS DSM, an EPS relay, and a controller.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/AMS_VPC_Shared_Services_diagram.png)
+![The Shared Services Subnet includes an active directory, an internal bastion, a management host, an EPS DSM, an EPS relay, and a controller.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/AMS_VPC_Shared_Services_diagram.png)

@@ -26,11 +26,11 @@ The relying party trust and claims rules steps are taken from [ Enabling Federat
     + **Role claim**: Configure as follows
 
       ```
-      c:[Type == "http://temp/variable", Value =~ "(?i)^AWS-([^d]{12})-"]
+      c:[Type == "http://temp/variable", Value =~ "(?i)^AWS-([\d]{12})-"]
       ```
 
       ```
-      => issue(Type = "https://aws.amazon.com/SAML/Attributes/Role", Value = RegExReplace(c.Value, "AWS-([^d]{12})-", "arn:aws:iam::$1:saml-provider/customer-readonly-saml,arn:aws:iam::$1:role/"));    
+      => issue(Type = "https://aws.amazon.com/SAML/Attributes/Role", Value = RegExReplace(c.Value, "AWS-([\d]{12})-", "arn:aws:iam::$1:saml-provider/customer-readonly-saml,arn:aws:iam::$1:role/"));    
       ```
 
 ## Web console

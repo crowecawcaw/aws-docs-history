@@ -7,7 +7,7 @@ End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. 
 
 The Shared Services account serves as the central hub for most AMS data plane services. The account contains infrastructure and resources required for access management (AD), end-point security management (Trend Micro), and it contains the customer bastions (SSH/RDP). A high-level overview of the resources contained within Shared Services Account is shown in the following graphic. 
 
-![Shared Services account architecture with three availability zones containing AD, bastions, and security resources.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/malzSharedServicesAccount2.png)
+![Shared Services account architecture with three availability zones containing AD, bastions, and security resources.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/malzSharedServicesAccount2.png)
 
 
 The Shared Services VPC is composed of the AD subnet, the EPS subnet, and the customer bastions subnet in the three availability zones (AZs). The resources created in the Shared Services VPC are listed below and require your input.

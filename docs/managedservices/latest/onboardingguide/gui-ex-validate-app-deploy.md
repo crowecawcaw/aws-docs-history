@@ -13,4 +13,4 @@ http://stack-{{ID-FOR-ELB}}.us-east-1.elb.amazonaws.com/WordPress
 
 You should see a page like this:
 
-![WordPress installation page with fields for site title, username, password, and email.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/wpFirstPage.png)
+![WordPress installation page with fields for site title, username, password, and email.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/wpFirstPage.png)

@@ -10,7 +10,7 @@ You can use your existing Direct Connect connection or create a new Direct Conne
 **Note**  
 For information about using Direct Connect with AWS services, see [Getting Started at an AWS Direct Connect Location](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html).
 
-![Transit Gateway connecting VPCs to Transit Virtual Interface and Direct Connect locations.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/malzEdgeConnect.png)
+![Transit Gateway connecting VPCs to Transit Virtual Interface and Direct Connect locations.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/malzEdgeConnect.png)
 
 
 To use an existing Direct Connect dedicated connection, the connection must not have more than 3 transit virtual interfaces created on it. This is because Direct Connect dedicated connections have a limit of 4 transit virtual interfaces per connection.

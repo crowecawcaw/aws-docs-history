@@ -15,7 +15,7 @@ You can use the AMS console or API/CLI to delete, reboot, start, or stop, an AMS
 
 Screenshot of this change type in the AMS console:
 
-![Change type Delete stack details showing ID, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiStackDeleteCT.png)
+![Change type Delete stack details showing ID, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiStackDeleteCT.png)
 
 
 How it works:
@@ -110,7 +110,7 @@ Deleting stacks can have unwanted and unanticipated consequences. For important 
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing Reboot stack with ID ct-02u0hoaa9grat, version 1.0, automated execution.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiStackRebootCT.png)
+![Change type details showing Reboot stack with ID ct-02u0hoaa9grat, version 1.0, automated execution.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiStackRebootCT.png)
 
 
 How it works:
@@ -202,7 +202,7 @@ aws amscm create-rfc --change-type-id "ct-02u0hoaa9grat" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing Start stack with ID, version 1.0, and Automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiStackStartCT.png)
+![Change type details showing Start stack with ID, version 1.0, and Automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiStackStartCT.png)
 
 
 How it works:
@@ -292,7 +292,7 @@ aws amscm create-rfc --change-type-id "ct-1h5xgl9cr4bzy" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Stop stack change type details showing ID, version 1.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiStackStopCT.png)
+![Stop stack change type details showing ID, version 1.0, and automated execution mode.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiStackStopCT.png)
 
 
 How it works:

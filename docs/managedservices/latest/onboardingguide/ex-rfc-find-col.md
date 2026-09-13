@@ -44,7 +44,7 @@ This procedure applies only to scheduled RFCs, that is, RFCs that did not use th
    + **Change type ID**: Use the identifier for the change type submitted with the RFC.
 
    The search allows you to add the filters, as shown in the following screenshot.  
-![Filter menu showing options such as Subject, RFC ID, Activity state, and Creation time.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/filterRfcAllOptions3.png)
+![Filter menu showing options such as Subject, RFC ID, Activity state, and Creation time.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/filterRfcAllOptions3.png)
 
 1. Click on the Subject link for the RFC you want.
 

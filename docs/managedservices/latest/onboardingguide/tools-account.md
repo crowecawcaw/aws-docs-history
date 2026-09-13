@@ -15,7 +15,7 @@ A tools account provides the following:
 
 High level architecture diagram:
 
-![Multi-account AWS architecture with management, shared services, network, security, log archive, production, tools, and AWS accounts.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/high-level-diagram_v1.png)
+![Multi-account AWS architecture with management, shared services, network, security, log archive, production, tools, and AWS accounts.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/high-level-diagram_v1.png)
 
 
 Use the Deployment \| Managed landing zone \| Management account \| Create tools account (with VPC) change type (ct-2j7q1hgf26x5c), to quickly deploy a tools account and instantiate a Workload Ingestion process within a Multi-Account Landing Zone environment. See [Management account, Tools account: Creating (with VPC)](https://docs.aws.amazon.com/managedservices/latest/ctref/ex-malz-master-acct-create-tools-acct-col.html).

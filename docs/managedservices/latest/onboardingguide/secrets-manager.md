@@ -35,7 +35,7 @@ Sharing secrets with AMS in the plain text of an RFC, service request, or incide
 
 You can use [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) (Secrets Manager) under this namespace, `customer-shared`.
 
-![Secrets Manager workflow.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/secretsManager.png)
+![Secrets Manager workflow.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/secretsManager.png)
 
 
 ### Sharing Keys using Secrets Manager FAQ

@@ -15,7 +15,7 @@ You can use the AMS console or API/CLI to create an Amazon EC2 and an Amazon EC2
 
 The following shows this change type in the AMS console.
 
-![Create EC2 stack page showing ID ct-14027q0sjyt1h, Automated execution mode, and version 4.0.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiEc2CreateCT.png)
+![Create EC2 stack page showing ID ct-14027q0sjyt1h, Automated execution mode, and version 4.0.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiEc2CreateCT.png)
 
 
 How it works:
@@ -145,7 +145,7 @@ If needed, see [EC2 instance stack create fail](https://docs.aws.amazon.com/mana
 
 The following shows this change type in the AMS console.
 
-![Create EC2 Stack With Additional Volumes change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiEc2CreateAddlVolCT.png)
+![Create EC2 Stack With Additional Volumes change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiEc2CreateAddlVolCT.png)
 
 
 How it works:

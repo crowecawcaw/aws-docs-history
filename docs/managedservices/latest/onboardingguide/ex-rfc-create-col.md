@@ -10,12 +10,12 @@ End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. 
 
 The following is the first page of the RFC Create process in the AMS console, with **Quick cards** open and **Browse change types** active:
 
-![](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/quickCreate1.png)
+![](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/quickCreate1.png)
 
 
 The following is the first page of the RFC Create process in the AMS console, with **Select by category** active:
 
-![](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiRfcCreate1-2.png)
+![](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiRfcCreate1-2.png)
 
 
 How it works:

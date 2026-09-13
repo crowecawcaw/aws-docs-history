@@ -7,7 +7,7 @@ End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. 
 
 The AMS console **Requests for Change** create page provides you with an option to add email addresses to receive notifications of RFC state changes:
 
-![Add email addresses to receive notifications of RFC state changes.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/emailNoticeOption2.png)
+![Add email addresses to receive notifications of RFC state changes.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/emailNoticeOption2.png)
 
 
 Additionally, you can add email addresses for notifications to any change type, for example:

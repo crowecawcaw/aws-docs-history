@@ -11,9 +11,9 @@ Trend Micro Endpoint Protection (EPS) is the primary component within AMS for op
 
 1. Navigate to the **Switch Role** screen.
 
-   ![AWS console navigation bar showing the account dropdown menu.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/image5.png)
+   ![AWS console navigation bar showing the account dropdown menu.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/image5.png)
 
-   ![AWS console dropdown menu showing account options and service status indicator.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/image6.png)
+   ![AWS console dropdown menu showing account options and service status indicator.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/image6.png)
    + Account: Provided by AMS
    + Role: `EPSMarketplaceSubscriptionRole`
    + Display Name: EPS Subscription Session

@@ -22,7 +22,7 @@ RFC action states differ depending on whether the change type submitted requires
   + When the scheduled start time of the RFC is reached, the RFC Status changes to **InProgress**, and the **ActionState** automatically changes to **AwsActionPending** to indicate that an operator needs to be assigned for review of the RFC.
   + When an operator begins actively running the RFC, they change the **ActionState** to **AwsOperatorAssigned**.
   + Once completed, the Operator closes the RFC. This automatically changes the **ActionState** to **NoActionPending**.  
-![RFC ActionState changes during the review, approval, and start of a manual change type with deferred scheduling](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/actionStateRfc.png)
+![RFC ActionState changes during the review, approval, and start of a manual change type with deferred scheduling](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/actionStateRfc.png)
 
 **Important**  
 Action states can't be set by you. They are either set automatically based on changes in the RFC, or set manually by AMS operators.

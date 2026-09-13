@@ -31,8 +31,8 @@ After creating the relying party trust as per the blog post, configure the claim
 + Role claim: Follow the blog post, but for the Custom rule, use this:
 
   ```
-  c:[Type == "http://temp/variable", Value =~ "(?i)^AWS-([^d]{12})-"]
-   => issue(Type = "https://aws.amazon.com/SAML/Attributes/Role", Value = RegExReplace(c.Value, "AWS-([^d]{12})-", 
+  c:[Type == "http://temp/variable", Value =~ "(?i)^AWS-([\d]{12})-"]
+   => issue(Type = "https://aws.amazon.com/SAML/Attributes/Role", Value = RegExReplace(c.Value, "AWS-([\d]{12})-", 
    "arn:aws:iam::$1:saml-provider/customer-readonly-saml,arn:aws:iam::$1:role/"));
   ```
 

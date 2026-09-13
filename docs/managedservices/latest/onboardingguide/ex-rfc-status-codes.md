@@ -9,7 +9,7 @@ RFC status codes help you track your requests. You can observe these status code
 
 You can also see the codes for an RFC on the details page for that RFC, which might look like this:
 
-![RFC status codes.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiRfcStatusCodes.png)
+![RFC status codes.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiRfcStatusCodes.png)
 
 
 You might see an RFC in your list that you didn't submit. When AMS operators use an internal-only CT, they submit it in an RFC and it displays in your RFC list. For more information, see [Internal-only change types](ct-internals.md).
@@ -45,4 +45,4 @@ During the `InProgress`, `Success`, or `Failure` change states, the RFC cannot b
 
 The following diagram illustrates the RFC statuses from the CreateRFC call through to resolution.
 
-![The RFC statuses from the CreateRFC call through to resolution.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/RfcStateFlow2.png)
+![The RFC statuses from the CreateRFC call through to resolution.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/RfcStateFlow2.png)

@@ -16,7 +16,7 @@ This configuration offers the following benefits. You can:
 **Note**  
 For information about using a DX with AWS services, see the Resiliency Toolkit section [Classic](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html). For more information, see [Transit Gateway associations](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-transit-gateways.html).
 
-![AWS Transit Gateway network diagram showing connections to VPCs and Direct Connect.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/malz-cent-edge.png)
+![AWS Transit Gateway network diagram showing connections to VPCs and Direct Connect.](https://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/malz-cent-edge.png)
 
 
 To increase the resiliency of your connectivity, we recommend that you attach at least two transit virtual interfaces from different AWS Direct Connect locations to the Direct Connect gateway. For more information, see the [AWS Direct Connect resiliency recommendation](https://aws.amazon.com/directconnect/resiliency-recommendation/).
