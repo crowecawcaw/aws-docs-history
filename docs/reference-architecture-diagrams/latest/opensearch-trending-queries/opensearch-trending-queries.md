@@ -10,7 +10,7 @@ This architecture demonstrates how to use AWS services like [AWS Glue](https://d
 ## Amazon OpenSearch Trending Queries with AWS Glue and Amazon Bedrock
 <a name="diagram1"></a>
 
-![Architecture diagram showing trending query identification using Amazon OpenSearch Service, AWS Glue, Amazon Bedrock, and Step Functions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/opensearch-trending-queries/images/opensearch-trending-queries.png)
+![Architecture diagram showing trending query identification using Amazon OpenSearch Service, AWS Glue, Amazon Bedrock, and Step Functions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/opensearch-trending-queries/images/opensearch-trending-queries.png)
 
 
 The following steps describe the architecture:
