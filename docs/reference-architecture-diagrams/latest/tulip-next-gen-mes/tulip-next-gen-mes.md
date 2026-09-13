@@ -10,7 +10,7 @@ With this architecture, you can build end-to-end data flows between the Tulip Fr
 ## Tulip Next-Gen MES architecture diagram
 <a name="tulip-diagram"></a>
 
-![Reference architecture diagram for Tulip next-generation MES data flows on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/tulip-next-gen-mes/images/tulip-next-gen-mes-ra.png)
+![Reference architecture diagram for Tulip next-generation MES data flows on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/tulip-next-gen-mes/images/tulip-next-gen-mes-ra.png)
 
 
 The following steps describe the architecture:
