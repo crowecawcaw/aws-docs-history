@@ -59,12 +59,12 @@ Accounts created before July 15, 2025 will remain on the [Legacy AWS Free Tier](
 ### Step 1: Explore the AWS Free Tier
 <a name="explore-the-aws-free-tier"></a>
 + Open the AWS Free Tier page, under the AWS Free Tier header, choose **Create a Free Account**.  
-![The Free Tier marketing page.](http://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/aws-free-tier-homepage.png)
+![The Free Tier marketing page.](https://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/aws-free-tier-homepage.png)
 
   When signing up for Free Tier you can choose between two plans:
   + Free Plan: Explore AWS for up to 6 months without cost or commitment. You won't be charged unless you switch to the Paid Plan.
   + Paid Plan: Develop production-ready workloads with access to all AWS services and features.  
-![Choose your account plan.](http://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/free-vs-paid-plan.jpg)
+![Choose your account plan.](https://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/free-vs-paid-plan.jpg)
 
 ### Step 2: Earning AWS credits
 <a name="sign-up-for-aws-or-sign-in"></a>
@@ -74,15 +74,15 @@ You can see the credit details in the **Explore AWS** widget in the [AWS Mana
 These activities are designed to expose you to important building blocks of AWS, including cost and usage that show up in the AWS Billing and Cost Management Console. These charges are deducted from your Free Tier credits and help teach you about selecting the appropriate instance sizes to minimize your costs.
 
 1. Choose **Set up a cost budget using AWS Budgets** to earn your first $20 credits. It redirects to the [AWS Billing and Cost Management console](https://console.aws.amazon.com/billing/home?trk=769a1a2b-8c19-4976-9c45-b6b1226c7d20&sc_channel=el).  
-![AWS Billing and Cost Management console.](http://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/set-up-a-cost-budget.jpg)
+![AWS Billing and Cost Management console.](https://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/set-up-a-cost-budget.jpg)
 
 1. On the **Choose budget type page**, choose Use a template (simplified) and Monthly cost budget.
 
 1. Enter a **name** for your monthly cost budget, set the budgeted amount to **100.00** (credited amount from account creation), and enter your **email address** to receive spend updates.  
-![Choose budget type.](http://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/name-cost-budget.png)
+![Choose budget type.](https://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/name-cost-budget.png)
 
 1. Choose **Create budget**.  
-![Budgets in the AWS Billing and Cost Management console.](http://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/create-budget.jpg)
+![Budgets in the AWS Billing and Cost Management console.](https://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/create-budget.jpg)
 
 **Note**  
 We'll send an email alert when 50 percent, 25 percent, or 10 percent of your AWS credits remain. We'll also send notifications to the AWS console and your email inbox when you have 15 days, 7 days, and 2 days left in your 6-month free period. After your free period ends, we'll send you an email with instructions on how to upgrade to a paid plan. You'll have 90 days to reopen your account by upgrading to a paid plan.
@@ -95,7 +95,7 @@ You can go to the Credits page in the left navigation pane in the [AWS Billin
 **Note**  
 It can take up to 10 minutes for your credits to appear.
 
-![Credits in the AWS Billing and Cost Management console.](http://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/confirm-your-credits.jpg)
+![Credits in the AWS Billing and Cost Management console.](https://docs.aws.amazon.com/hands-on/latest/control-your-costs-free-tier-budgets/images/confirm-your-credits.jpg)
 
 
 You can receive an additional $80 by completing the remaining four activities.
