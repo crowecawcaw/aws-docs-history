@@ -26,7 +26,7 @@ Subnets that are within Outposts will have the word "Outpost" appended after the
 
 Once the Subnet is chosen, you will have to select the replication server instance type. Only instance types that are supported by the chosen Outpost will be shown. 
 
-![EBS volume type dropdown menu showing Faster, general purpose SSD (gp2) selected.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-replicationsettings-outposts.png)
+![EBS volume type dropdown menu showing Faster, general purpose SSD (gp2) selected.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-replicationsettings-outposts.png)
 
 
 Outposts only support GP2 disks. As such, you will not be able to change the default disk type in the replication settings. 
@@ -47,7 +47,7 @@ Subnets that are within Outposts will have the word "Outpost" appended after the
 
 Once the Subnet is chosen, you will have to select the replication server instance type. Only instance types that are supported by the chosen Outpost will be shown. 
 
-![Replication server instance type dropdown showing r5.large selected.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-replicationsettingsmultipleservers-outposts.png)
+![Replication server instance type dropdown showing r5.large selected.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-replicationsettingsmultipleservers-outposts.png)
 
 
 Outposts only support GP2 disks. As such, you will not be able to change the default disk type in the replication settings. 
@@ -75,7 +75,7 @@ You cannot edit the replication settings of multiple source servers if some of t
 
  Outposts only support GP2 disks. As such, you will not be able to change the default disk type per volume in the default launch template. 
 
-![Instance type and EBS volume type fields highlighted in the EC2 launch template settings.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-launchtemplate-default-outposts.png)
+![Instance type and EBS volume type fields highlighted in the EC2 launch template settings.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-launchtemplate-default-outposts.png)
 
 
 ## Source Server Launch Templates
@@ -88,7 +88,7 @@ You cannot edit the replication settings of multiple source servers if some of t
 
  Outposts only support GP2 disks. As such, you will not be able to change the default disk type per volume in the default launch template. 
 
-![Instance type dropdown menu expanded showing options such as c5d.4xlarge and r5.large.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-launchtemplatemultipleservers-outposts.png)
+![Instance type dropdown menu expanded showing options such as c5d.4xlarge and r5.large.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-launchtemplatemultipleservers-outposts.png)
 
 
 **Note**  
@@ -99,13 +99,13 @@ You cannot edit the replication settings of multiple source servers if some of t
 
  You can find which of your servers are replicating into an AWS Outpost rack, as these are marked with the value (Outpost) in the **Replicating to** field. The following are search options for source servers replicating to an Outpost: 
 +  You can enter the text "*Outpost*" in the search field to only display source servers that are replicating to an AWS Outpost rack.   
-![Source servers search field with Outposts entered as the search term.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-keyword-outposts.png)
+![Source servers search field with Outposts entered as the search term.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-keyword-outposts.png)
 +  You can enter the text "*\!Outpost*" to only display source servers that are not replicating to an AWS Outpost rack.   
-![Source servers search field with exclamation mark Outposts filter text entered.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-keyword-notoutposts.png)
+![Source servers search field with exclamation mark Outposts filter text entered.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-keyword-notoutposts.png)
 +  You can enter "*Replicating to: Outpost*" in the search field to only display source servers that are replicating to an AWS Outpost rack.   
-![Search field with Replicating to : Outposts entered as the filter text.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-replicatingto-field-outposts.png)
+![Search field with Replicating to : Outposts entered as the filter text.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-replicatingto-field-outposts.png)
 +  You can enter "*Replicating to \!: Outpost*" in the search field to only display source servers that are not replicating to an AWS Outpost rack.   
-![Search field with text Replicating to !: Outposts in the Source servers interface.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-replicatingto-field-notoutposts.png)
+![Search field with text Replicating to !: Outposts in the Source servers interface.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-replicatingto-field-notoutposts.png)
 
 ## Important Outpost Notes
 <a name="outpost-notes"></a>

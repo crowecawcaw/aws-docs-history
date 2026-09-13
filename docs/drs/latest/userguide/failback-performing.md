@@ -103,21 +103,21 @@ When performing a recovery **for a Windows server**, you must boot the Failback 
     `IPADDR="192.168.10.20" NETMASK="255.255.255.0" GATEWAY="192.168.10.1" DNS="192.168.10.10" CONFIG_NETWORK=1 /usr/bin/start.sh ` 
 
 1. Enter your AWS credentials, including your **AWS Access Key ID** and **AWS Secret Access Key** that you created for Failback Client installation, the **AWS Session Token** (if you are using temporary credentials – users who are not using temporary credentials can leave this field blank), and the **AWS Region** in which your Recovery instance resides. You can attach the Elastic Disaster Recovery Failback Client credentials policy to a user or create a role and attach the policy to that role to obtain temporary credentials. [Learn more about Elastic Disaster Recovery credentials.](#failback-performing-credentials)   
-![Terminal showing Failback Client prompts for AWS Access Key ID, Secret Access Key, Session Token, and Region.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-credentials.png)
+![Terminal showing Failback Client prompts for AWS Access Key ID, Secret Access Key, Session Token, and Region.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-credentials.png)
 
 1. Enter the custom endpoint or press Enter to use the default endpoint. You should enter a custom endpoint if you want to use a VPC Endpoint (PrivateLink).   
-![Command line prompt requesting custom endpoint input or Enter key for default endpoint.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-credentials2.png)
+![Command line prompt requesting custom endpoint input or Enter key for default endpoint.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-credentials2.png)
 
 1. If you are failing back to the original source machine, the Failback Client will automatically choose the correct corresponding recovery instance.   
-![Console output showing recovery instance i-02 matched with Failback Client 4221a.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient1.png)
+![Console output showing recovery instance i-02 matched with Failback Client 4221a.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient1.png)
 
 1. If the Failback Client is unable to automatically map the instance, then you will be prompted to select the recovery instance to fail back from. The Failback Client displays a list with all recovery instances. Select the correct recovery instance by either entering the numerical choice from the list that corresponds to the correct recovery instance or by typing in the full recovery instance ID.   
-![Terminal output showing manual instance mapping prompt with recovery instance i-08b matched to Failback Client.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient3.png)
+![Terminal output showing manual instance mapping prompt with recovery instance i-08b matched to Failback Client.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient3.png)
 **Note**  
 The Failback Client will only display recovery instances whose volume sizes are equal to or smaller than the volume sizes of the server you’re failing back to. If the recovery instance has volume sizes that are larger than that of the server you are failing back to, then these Recovery instances will not be displayed. 
 
 1. If you are failing back to the original source server, then the Failback Client will attempt to automatically map the volumes of the instance.   
-![Terminal output showing local device /dev/sda and remote device /dev/xvda, both 8.0 GB.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient2.png)
+![Terminal output showing local device /dev/sda and remote device /dev/xvda, both 8.0 GB.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient2.png)
 
 1. If the Failback Client is unable to automatically map the volumes, you will need to manually enter a local block device (example /dev/sdg) to replicate to from the remote block device. Enter the `EXCLUDE` command to specifically exclude Recovery Instance volumes from replication. 
 
@@ -126,29 +126,29 @@ The Failback Client will only display recovery instances whose volume sizes are 
    The full volume mapping should be provided as single CSV or JSON line in the format of --device-mapping Failback Client argument.
 
    [Learn more about using --device-mapping program argument](#failback-failover-program-arg-device-mapping)  
-![Terminal output showing manual volume mapping prompt and successful mapping of /dev/sda.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient4.png)
+![Terminal output showing manual volume mapping prompt and successful mapping of /dev/sda.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient4.png)
 **Important**  
 The local volumes must be the same in size or larger than the recovery instance volumes.   
 The valid special case is when original local volume has fractional GiB size (e.g. 9.75 GiB). Then the recovery instance volume size will be larger because of rounding to nearest GiB (e.g. 10 GiB). 
 
 1. The Failback Client will verify connectivity between the recovery instance and AWS Elastic Disaster Recovery.   
-![Console output showing connectivity established message in green text.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient5.png)
+![Console output showing connectivity established message in green text.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient5.png)
 
 1. The Failback Client will download the replication software from a public S3 bucket onto the source server.   
-![Console output showing successful download of AWS Replication Software at 113 MB.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient6.png)
+![Console output showing successful download of AWS Replication Software at 113 MB.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient6.png)
 **Important**  
 You must allow traffic to S3 from the source server for this step to succeed. 
 
 1. The Failback Client will configure the replication software.  
-![Terminal output showing AWS Replication Software configuration completing successfully.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient7.png)
+![Terminal output showing AWS Replication Software configuration completing successfully.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient7.png)
 
 1. The Failback Client will pair with the AWS Replication Agent running on the recovery instance and will establish a connection.   
-![Console output showing pairing completion and connection establishment on port 1500.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient8.png)
+![Console output showing pairing completion and connection establishment on port 1500.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient8.png)
 **Important**  
 TCP Port 1500 inbound must be open on the recovery instance for the pairing to succeed. 
 
 1. Data replication will begin.  
-![Console output showing connection established and replication in progress status.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient9.png)
+![Console output showing connection established and replication in progress status.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-failbackclient9.png)
 
    You can monitor data replication progress on the **Recovery instances** page in the AWS Elastic Disaster Recovery Console. 
 

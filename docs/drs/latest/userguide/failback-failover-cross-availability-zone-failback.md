@@ -22,14 +22,14 @@ You can use DRS to replicate and recover EC2 instances across Availability Zones
 
  **Replication settings** 
 
-![Replication server configuration section with Staging area subnet dropdown showing selected subnet.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-2.png)
+![Replication server configuration section with Staging area subnet dropdown showing selected subnet.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-2.png)
 
 
  **Launch settings** 
 
  Learn how to modify the [ launch template](launching-target-servers.md). 
 
-![Subnet info section showing subnet ID, VPC, owner, availability zone, and IP addresses.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-network-settings.png)
+![Subnet info section showing subnet ID, VPC, owner, availability zone, and IP addresses.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-network-settings.png)
 
 
 ### Launching a Recovery Instance
@@ -51,7 +51,7 @@ You can use DRS to replicate and recover EC2 instances across Availability Zones
 
  **Modify the replication settings to replicate to the original availability zone. ** 
 
-![Staging area subnet dropdown menu showing availability zones AZ-a, AZ-b, and AZ-c options.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-replication-settings.png)
+![Staging area subnet dropdown menu showing availability zones AZ-a, AZ-b, and AZ-c options.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-replication-settings.png)
 
 
  **Modify the launch settings to the original availability zone. ** 
@@ -60,7 +60,7 @@ You can use DRS to replicate and recover EC2 instances across Availability Zones
 
  **Protect your recovered instance.** 
 
-![Replication dropdown menu with Protect recovered instance option highlighted.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-source-service-1.png)
+![Replication dropdown menu with Protect recovered instance option highlighted.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-source-service-1.png)
 
 
  Protecting your recovered instance also stops the replication of the original EC2 instance. For example, if the original EC2 instance is hosted in availability zone "eu-west-1a" and is recovered to a subnet hosted in availability zone eu-west-1b, starting the replication on the recovered instance back to eu-west-1a also stops the replication of the original instance hosted in eu-west-1a. 
@@ -74,4 +74,4 @@ You can use DRS to replicate and recover EC2 instances across Availability Zones
 
  You can view the source environment availability zone from the **Source servers** list. 
 
-![Source servers list showing replication status and source for multiple servers.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-source-service-2.png)
+![Source servers list showing replication status and source for multiple servers.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-cross-az-failback-source-service-2.png)

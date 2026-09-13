@@ -56,7 +56,7 @@ Ensure that your Linux source server meets the following installation requiremen
   To fix and remove the noexec option from the mounted /tmp directory, run the `sudo mount -o remount,exec /tmp` command.
 
   **Example of the troubleshooting procedure:**  
-![Terminal commands showing mount command output filtered for tmp directory entries.](http://docs.aws.amazon.com/drs/latest/userguide/images/agent66.png)
+![Terminal commands showing mount command output filtered for tmp directory entries.](https://docs.aws.amazon.com/drs/latest/userguide/images/agent66.png)
 + The AWS Elastic Disaster Recovery user needs to be a user in the sudoers list - a user who can perform sudo. 
 + Ensure that the dhclient package is installed. The DHCP client is required because AWS Elastic Disaster Recovery configures recovered instances to use DHCP networking. If the package is not installed, use the appropriate command for your distribution:
   + On RHEL/CentOS/Oracle/Amazon Linux: `sudo yum install dhclient` or `sudo yum install dhcp-client`
@@ -79,7 +79,7 @@ Ensure that your Linux source server meets the following installation requiremen
      + On Debian/Ubuntu/SUSE: `ls -l /usr/src`
 
      These results show that the linux-headers are not a symbolic link.   
-![Terminal output showing ls -l command results for /usr/src with linux-headers as directories.](http://docs.aws.amazon.com/drs/latest/userguide/images/agent5.png)
+![Terminal output showing ls -l command results for /usr/src with linux-headers as directories.](https://docs.aws.amazon.com/drs/latest/userguide/images/agent5.png)
 
   1. If the content of the kernel-devel/linux-headers, which match the version of the kernel, is a symbolic link, you need to delete the link using the `rm /usr/src/<LINK NAME>` command. 
 

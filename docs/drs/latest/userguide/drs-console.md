@@ -24,16 +24,16 @@ Use the **Filter source servers by property or value** field to filter servers.
 
 AWS Elastic Disaster Recovery color codes the state of each source server. Use the **Alerts** column to easily determine the state of your server. 
 + A server that is ready to launch Drill or Recovery instances displays the green checkmark and states **Ready**.   
-![Green checkmark icon indicating a server is ready for Drill or Recovery instances.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-ready.png)
+![Green checkmark icon indicating a server is ready for Drill or Recovery instances.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-ready.png)
 
   A server that is ready to launch Drill or Recovery instances, but is experiencing a non-critical issue such as lag displays the blue info sign and states **Ready ** and displays the lag duration to the right. You may need to take action to fix the lag.   
-![Blue info icon with "Ready" status and "lag 2 hr" indication.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-new-ss5-lag.png)
+![Blue info icon with "Ready" status and "lag 2 hr" indication.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-new-ss5-lag.png)
 
   A server that is still undergoing initial sync displays a gray circle with three dots and states **Initial sync**.   
-![Gray circle with three dots indicating a server undergoing initial synchronization.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-initialsync.png)
+![Gray circle with three dots indicating a server undergoing initial synchronization.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-sourceservers-initialsync.png)
 
   A server that is disconnected displays the gray warning sign and states **Disconnected**.   
-![Gray warning icon with "Disconnected" text indicating server status.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-new-ss5-disc.png)
+![Gray warning icon with "Disconnected" text indicating server status.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-new-ss5-disc.png)
 
   A server that is not ready due to a significant error, such as a stall, displays a red **X** and states **Not ready**. The Not Ready state is only shown for servers that are not replicating and do not have any previously created Points in Time. Action must be taken in order to fix the issue. 
 

@@ -7,7 +7,7 @@ AWS Elastic Disaster Recovery (AWS DRS) utilizes EC2 launch templates to launch 
 
 The EC2 launch template is created automatically for each source server that is added to AWS DRS upon the installation of the AWS Replication Agent.
 
-![EC2 launch template info page showing subnet-1, lt-1 template, and right-sizing instance type.](http://docs.aws.amazon.com/drs/latest/userguide/images/ec2launchtemplate.png)
+![EC2 launch template info page showing subnet-1, lt-1 template, and right-sizing instance type.](https://docs.aws.amazon.com/drs/latest/userguide/images/ec2launchtemplate.png)
 
 
 **Topics**

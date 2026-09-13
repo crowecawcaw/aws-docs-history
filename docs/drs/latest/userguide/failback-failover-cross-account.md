@@ -10,7 +10,7 @@
 
  The failback process starts after the failover process ends. During failover, AWS DRS allows you to replace the EC2 source instance (A1) with the EC2 recovered instance (B3). The current AWS resource state is illustrated in this diagram: 
 
-![EC2 source instances in source account replicate to DRS source servers and recovery instances in recovery account.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-after-failover-resources-state-cross-account.png)
+![EC2 source instances in source account replicate to DRS source servers and recovery instances in recovery account.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-after-failover-resources-state-cross-account.png)
 
 
  After performing a recovery, your applications are running on EC2 instances in the recovery account and region. However, these recovered instances (marked B3 in the diagram above) are not protected against other potential outages. In order to avoid data loss, you should start a reversed replication immediately. Starting reversed replication is only possible if the service is initialized in the recovery account and region. See [initialize the AWS DRS](getting-started-initializing.md). 
@@ -40,7 +40,7 @@ Access to EC2 instance metadata is required. If you have a custom network setup 
    1. Select the servers that you want to protect and click **Start reversed replication**. 
 
    1. A Source server (A2) will be created in the source account and region, as shown in this diagram.   
-![DRS architecture showing EC2 instances in source account replicating to recovery account.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-initiate-data-replication-1-cross-account.png)
+![DRS architecture showing EC2 instances in source account replicating to recovery account.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-initiate-data-replication-1-cross-account.png)
 **Note**  
  All server data is transferred over the wire during this step. This process could take some time and possibly result in [cross-Region data transfer costs](https://aws.amazon.com/disaster-recovery/pricing/) if the source region differs from the recovery region. Moreover, starting reversed replication creates additional replication resources (A2). To avoid double billing, you can stop replicating the source instances (A1) by navigating to the AWS DRS source server in the recovery account and region (B1) and clicking **Stop replication** in the replication drop-down menu. Make sure that you only stop the replication after validating the recovery instances because once replication is stopped, all previous points in time are deleted. 
 **Important**  
@@ -59,7 +59,7 @@ Access to EC2 instance metadata is required. If you have a custom network setup 
    1.  If the state is **Ready** (or **Ready with lag**), click **Launch for failback** under **Initiate recovery job**. 
 **Important**  
  Make sure that your applications (A4) are working as expected. If you run into any issues, you can relaunch the instances and try again. Until you opt to failback, your recovery instances (B3) will continue to run in your recovery account and region to ensure business continuity.   
-![Disaster recovery architecture with source and recovery AWS accounts connected via Route 53.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-diagram-2-cross-account.png)
+![Disaster recovery architecture with source and recovery AWS accounts connected via Route 53.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-failback-diagram-2-cross-account.png)
 
    1.  Redirect traffic to failed back instances (A4), which will now become your new primary instances. Traffic redirection is not conducted using DRS -> You need to perform traffic redirection either using your systems, or by utilizing a custom post-launch action. Choose a service according to your preferences (consider using Amazon Route 53). 
 
@@ -72,7 +72,7 @@ Access to EC2 instance metadata is required. If you have a custom network setup 
    1.  Navigate to the recovery instance (A3) in the source account and region. 
 
    1.  Click **Start reversed replication**. This step will replace the Instances that the Source Server (B1) protects (A4 instead of A1).   
-![EC2 instances failing back from Recovery AWS Account to Source AWS Account via Route 53.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-after-failback-resources-state-cross-account.png)
+![EC2 instances failing back from Recovery AWS Account to Source AWS Account via Route 53.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-after-failback-resources-state-cross-account.png)
 
 1.  **Clean your environment.** 
 
@@ -116,7 +116,7 @@ If you have started reversed replication for the recovery instance (A3), you wil
 
  After a successful drill your AWS environment should look like this: 
 
-![Architecture diagram showing EC2 source instances and DRS source servers in source account, with DRS recovery servers and EC2 recovered instances in recovery account.](http://docs.aws.amazon.com/drs/latest/userguide/images/drs-after-drill-resources-state-cross-account.png)
+![Architecture diagram showing EC2 source instances and DRS source servers in source account, with DRS recovery servers and EC2 recovered instances in recovery account.](https://docs.aws.amazon.com/drs/latest/userguide/images/drs-after-drill-resources-state-cross-account.png)
 
 
  The only two AWS resources that need to remain are your actual production environment (A1) and its replication backup (B1). Since DRS protects replication servers, you must stop the replication first. 

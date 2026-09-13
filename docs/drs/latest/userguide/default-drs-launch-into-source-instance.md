@@ -37,7 +37,7 @@ This only happens if:
 
 1.  Source server **S1** was created by calling **Start reversed replication** in region 2 on recovery instance **RI2** (marked by the solid green arrow), replicating the data of EC2 instance **EI2**. 
 
-![DRS replication from EC2 instance in Region 1 to source and recovery servers in Region 2.](http://docs.aws.amazon.com/drs/latest/userguide/images/recover-into-source-instance-cross-regions.png)
+![DRS replication from EC2 instance in Region 1 to source and recovery servers in Region 2.](https://docs.aws.amazon.com/drs/latest/userguide/images/recover-into-source-instance-cross-regions.png)
 
 
 ## Cross Availability Zone
@@ -55,4 +55,4 @@ This only happens if:
 
 1.  Source server **S** was then updated to protect recovery instance **RI** (marked by the solid green arrow), by calling Protect recovered instance, replicating the data of EC2 instance EI2. 
 
-![DRS replication between source server in Availability Zone 1 and recovery instance in Zone 2.](http://docs.aws.amazon.com/drs/latest/userguide/images/recover-into-source-instance-cross-az.png)
+![DRS replication between source server in Availability Zone 1 and recovery instance in Zone 2.](https://docs.aws.amazon.com/drs/latest/userguide/images/recover-into-source-instance-cross-az.png)
