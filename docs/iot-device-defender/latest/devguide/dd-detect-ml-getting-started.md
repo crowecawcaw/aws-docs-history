@@ -48,7 +48,7 @@ The following procedures detail how to set up ML Detect in the console.
    + Under **Security profile name**, enter a name for your Security Profile.
    + (Optional) Under **Description** you can write in a short description for the ML profile.
    + Under **Selected metric behaviors in Security Profile**, choose the metrics you'd like to monitor.  
-![Create ML Security Profile configuration page with all registered things selected as target, metric behaviors listed such as authorization failures and connection attempts, and options to add cloud- or device-side metrics.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-set-basic.png)
+![Create ML Security Profile configuration page with all registered things selected as target, metric behaviors listed such as authorization failures and connection attempts, and options to add cloud- or device-side metrics.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-set-basic.png)
 
    When you're done, choose **Next**.
 
@@ -58,19 +58,19 @@ The following procedures detail how to set up ML Detect in the console.
    + Navigate to the [IAM console](https://console.aws.amazon.com/iam/). In the navigation pane, choose **Roles** and then choose **Create role**.
    + Under **Select type of trusted entity**, select **AWS Service**. Then, under **Choose a use case**, choose **IoT** and under **Select your use case**, choose **IoT - Device Defender Mitigation Actions**. When you're done, choose **Next: Permissions**.
    + Under **Attached permissions policies**, ensure that **AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction** is selected, and then choose **Next: Tags**.  
-![Permissions policies table for an AWS IoT Device Defender role with policy names, descriptions of what each policy provides access for, and options to filter or search policies.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-sns-findings.png)
+![Permissions policies table for an AWS IoT Device Defender role with policy names, descriptions of what each policy provides access for, and options to filter or search policies.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-sns-findings.png)
    + Under **Add tags (optional)**, you can add any tags you'd like to associate with your role. When you're done, choose **Next: Review**.
    + Under **Review**, give your role a name and ensure that **AWSIoTDeviceDefenderPublishFindingsToSNSMitigationAction** is listed under **Permissions** and **AWS service: iot.amazonaws.com** is listed under **Trust relationships**. When you're done, choose **Create role**.  
-![IAM roles summary page showing Sample-SNS-role details like role ARN, description, instance profile ARNs, path, creation time, maximum session duration, and applied AWS IoT Device Defender publish findings to SNS mitigation action policy](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-detect-permissions.png)  
-![IAM Sample-SNS-role summary showing role ARN, role description providing AWS IoT Device Defender write access to publish SNS notifications, path, creation time, and trusted entities](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-detect-trust-relationships.png)
+![IAM roles summary page showing Sample-SNS-role details like role ARN, description, instance profile ARNs, path, creation time, maximum session duration, and applied AWS IoT Device Defender publish findings to SNS mitigation action policy](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-detect-permissions.png)  
+![IAM Sample-SNS-role summary showing role ARN, role description providing AWS IoT Device Defender write access to publish SNS notifications, path, creation time, and trusted entities](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-detect-trust-relationships.png)
 
 1. On the **Edit Metric behavior** page, you can customize your ML behavior settings.   
-![Edit metric behaviors section with Authorization failures, Bytes in, and Connection attempts metrics, allowing configuration of data points for alarm triggers, notifications, and ML Detect confidence levels.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-update-config.png)
+![Edit metric behaviors section with Authorization failures, Bytes in, and Connection attempts metrics, allowing configuration of data points for alarm triggers, notifications, and ML Detect confidence levels.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-update-config.png)
 
 1. When you're done, choose **Next**.
 
 1. On the **Review configuration** page, verify the behaviors you'd like machine learning to monitor, and then choose **Next**.  
-![Edit ML Security Profile page showing Smart_lights_ML_Detect_Security_Profile targeting all registered things, with metric behaviors for authorization failures, bytes out, connection attempts, and disconnects.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-review-config.png)
+![Edit ML Security Profile page showing Smart_lights_ML_Detect_Security_Profile targeting all registered things, with metric behaviors for authorization failures, bytes out, connection attempts, and disconnects.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-review-config.png)
 
    
 
@@ -90,7 +90,7 @@ While your ML models are in the initial training period, you can monitor their p
 1. On the **Behaviors and ML training** page, check the training progress of your ML models.
 
    After your model status is **Active**, it'll start making Detect decisions based on your usage and update the profile every day.  
-![Dashboard showing low confidence machine learning models for monitoring TCP/UDP listening ports and established TCP connections.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-active-state.png)
+![Dashboard showing low confidence machine learning models for monitoring TCP/UDP listening ports and established TCP connections.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-active-state.png)
 
 **Note**  
 If your model doesn't progress as expected, make sure your devices are meeting the [Minimum requirements](dd-detect-ml.md#dd-detect-ml-requirements).
@@ -101,13 +101,13 @@ If your model doesn't progress as expected, make sure your devices are meeting t
 After your ML models are built and ready for data inference, you can regularly view and investigate alarms that are identified by the models.
 
 1. In the [AWS IoT console](https://console.aws.amazon.com/iot), in the navigation pane, expand **Defend**, and then choose **Detect**, **Alarms**.  
-![AWS IoT Device Defender alarms list showing 5 active authorization failure alarms with Thing names, Security Profile, behavior type, behavior name, last emitted time, and verification state columns.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-alarms.png)
+![AWS IoT Device Defender alarms list showing 5 active authorization failure alarms with Thing names, Security Profile, behavior type, behavior name, last emitted time, and verification state columns.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-alarms.png)
 
 1. If you navigate to the **History** tab, you can also view details about your devices that are no longer in alarms.  
-![Line graph showing alarms in alarm, cleared, and invalidated over a two-week period, with number of alarms on the y-axis and dates on the x-axis.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-history-alarm.png)
+![Line graph showing alarms in alarm, cleared, and invalidated over a two-week period, with number of alarms on the y-axis and dates on the x-axis.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-history-alarm.png)
 
    To get more information, under **Manage** choose **Things**, chose the thing you'd like to see more details for, and then navigate to **Defender metrics**. You can access the **Defender metrics graph** and perform your investigation on anything in alarm from the **Active** tab. In this case, the graph shows a spike in message size, which initiated the alarm. You can see the alarm subsequently cleared.  
-![IoT thing dashboard showing message size maximum metric graph with peak at 801 bytes on specified date and time.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-defender-metrics.png)
+![IoT thing dashboard showing message size maximum metric graph with peak at 801 bytes on specified date and time.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-defender-metrics.png)
 
 ### Fine-tune your ML alarms
 <a name="fine-tune-ml-models-console"></a>
@@ -117,17 +117,17 @@ After your ML models are built and ready for data evaluations, you can update yo
 1. In the [AWS IoT console](https://console.aws.amazon.com/iot), in the navigation pane, expand **Defend**, and then choose **Detect**, **Security profiles**.
 
 1. On the **Security Profiles** page, select the check box next to the Security Profile you'd like to review. Then, choose **Actions**, **Edit**.   
-![AWS IoT Device Defender Security Profiles list showing profile name, ML threshold type, behaviors retained, target things, creation date, notifications status](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-fine-tune.png)
+![AWS IoT Device Defender Security Profiles list showing profile name, ML threshold type, behaviors retained, target things, creation date, notifications status](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-fine-tune.png)
 
 1. Under **Set basic configurations**, you can adjust Security Profile target thing groups or change what metrics you want to monitor.  
-![Create ML Security Profile configuration page with all registered things selected as target, metric behaviors listed such as authorization failures and connection attempts, and options to add cloud- or device-side metrics](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-set-basic.png)
+![Create ML Security Profile configuration page with all registered things selected as target, metric behaviors listed such as authorization failures and connection attempts, and options to add cloud- or device-side metrics](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-set-basic.png)
 
 1. You can update any of the following by navigating to **Edit metric behaviors**.
    + Your ML model datapoints required to initiate alarm
    + Your ML model datapoints required to clear alarm
    + Your ML Detect confidence level
    + Your ML Detect notifications (for example, **Not suppressed**, **Suppressed**)  
-![Edit metric behaviors section with options to configure authorization failures, bytes out, and connection attempts metrics for ML security profile.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-update-config-2.png)
+![Edit metric behaviors section with options to configure authorization failures, bytes out, and connection attempts metrics for ML security profile.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-update-config-2.png)
 
 ### Mark your alarm's verification state
 <a name="mark-your-alarms"></a>
@@ -135,12 +135,12 @@ After your ML models are built and ready for data evaluations, you can update yo
 Mark your alarms by setting the verification state and providing a description of that verification state. This helps you and your team identify alarms that you don't have to respond to.
 
 1. In the [AWS IoT console](https://console.aws.amazon.com/iot/), on the navigation pane, expand **Defend**, and then choose **Detect**, **Alarms**. Select an alarm to mark its verification state.  
-![AWS IoT Device Defender Alarms view showing active authorization failure behavior events for IoT console things such as iotconsole-6f8379bc-c245-4ffe-8ef7-b2b52e78975c with fdsa security profile.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-alarm-select.png)
+![AWS IoT Device Defender Alarms view showing active authorization failure behavior events for IoT console things such as iotconsole-6f8379bc-c245-4ffe-8ef7-b2b52e78975c with fdsa security profile.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-alarm-select.png)
 
 1. Choose **Mark verification state**. The verification state modal opens.
 
 1. Choose the appropriate verification state, enter a verification description (optional), and then choose **Mark**. This action assigns a verification state and description to the chosen alarm.  
-![Dialog to mark alarm verification state with options: Unknown, True positive, False positive, Benign positive.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-alarm-state-window.png)
+![Dialog to mark alarm verification state with options: Unknown, True positive, False positive, Benign positive.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-alarm-state-window.png)
 
 ### Mitigate identified device issues
 <a name="mitigate-ml-issues-console"></a>
@@ -168,34 +168,34 @@ Mark your alarms by setting the verification state and providing a description o
    ```
 
 ------  
-![AWS IoT console Create Thing Group page with Create Thing Group button.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-create-thing-group.png)
+![AWS IoT console Create Thing Group page with Create Thing Group button.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-create-thing-group.png)
 
    When you're done, choose **Create thing group**.
 
 1. Now that we've created a thing group, let's create a mitigation action that move devices that in alarm into the `Quarantine_group`.
 
    Under **Defend**, **Mitigation actions**, choose **Create**.  
-![AWS IoT Device Defender mitigation action configuration form with Action name, Action type, Permissions, Action execution role, and Thing groups fields.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-miti-create.png)
+![AWS IoT Device Defender mitigation action configuration form with Action name, Action type, Permissions, Action execution role, and Thing groups fields.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-miti-create.png)
 
 1. On the **Create a new mitigation action** page, enter the following information.
    + **Action name**: Give your mitigation action a name, such as **Quarantine\_action**.
    + **Action type**: Choose the type of action. We'll choose **Add things to thing group (Audit or Detect mitigation)**.
    + **Action execution role**: Create a role or choose an existing role if you created one earlier.
    + **Parameters**: Choose a thing group. We can use `Quarantine_group`, which we created earlier.  
-![AWS IoT Device Defender mitigation action configuration form with Action name, Action type, Permissions, Action execution role, and Thing groups fields.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-miti-create-form.png)
+![AWS IoT Device Defender mitigation action configuration form with Action name, Action type, Permissions, Action execution role, and Thing groups fields.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-miti-create-form.png)
 
    When you're done, choose **Save**. You now have a mitigation action that moves devices in alarm to a quarantine thing group, and a mitigation action to isolate the device while you investigate.
 
 1. Navigate to **Defender**, **Detect**, **Alarms**. You can see which devices are in alarm state under **Active**.  
-![AWS IoT Device Defender alarms list showing 5 active authorization failure alarms with Thing names, Security Profile, behavior type, behavior name, last emitted time, and verification state columns.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-alarms.png)
+![AWS IoT Device Defender alarms list showing 5 active authorization failure alarms with Thing names, Security Profile, behavior type, behavior name, last emitted time, and verification state columns.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-alarms.png)
 
    Select the device you want to move to the quarantine group and choose **Start Mitigation Actions**.
 
 1. Under **Start mitigation actions**, **Start Actions** select the mitigation action you created earlier. For example, we'll choose **Quarantine\_action**, then choose **Start**. The Action Tasks page opens.  
-![Mitigation actions dialog with "udml7" listed as the affected thing, checkbox to confirm irreversible actions, and dropdown to choose action(s) to execute.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-start-action.png)
+![Mitigation actions dialog with "udml7" listed as the affected thing, checkbox to confirm irreversible actions, and dropdown to choose action(s) to execute.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-start-action.png)
 
 1. The device is now isolated in **Quarantine\_group** and you can investigate the root cause of the issue that set off the alarm. After you complete the investigation, you can move the device out of the thing group or take further actions.  
-![AWS IoT Device Defender Detect Action tasks table showing one quarantine action to add things to quarantine_group thing group.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-action-tasks.png)
+![AWS IoT Device Defender Detect Action tasks table showing one quarantine action to add things to quarantine_group thing group.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-ml-action-tasks.png)
 
    
 

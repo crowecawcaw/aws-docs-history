@@ -10,7 +10,7 @@ With metrics export, you can export cloud-side, device-side, or custom metrics f
 
 The following illustration shows how you can configure AWS IoT Device Defender to export metrics. The first diagram demonstrates how to configure export metrics on a Basic Ingest topic. You can then route the exported metrics to various destinations supported by AWS IoT Rules. The second diagram shows how to configure AWS IoT Device Defender to publish data to an MQTT topic. The MQTT client then subscribes to that topic. You can run an MQTT client in a container on Amazon Elastic Container Service, Lambda, or an Amazon EC2 instance that subscribes to the same MQTT topic. Whenever AWS IoT Device Defender publishes data, the MQTT client receives and processes it. For more information, see [MQTT topics.](https://docs.aws.amazon.com/iot/latest/developerguide/topics.html)
 
-![Diagram showing two options for detect metric export process.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-metric-export.png)
+![Diagram showing two options for detect metric export process.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-metric-export.png)
 
 
 ## How detect metric export works

@@ -199,12 +199,12 @@ Each action execution applies a set of actions to a target. That target can be a
 
 The following diagram shows how you can define an audit mitigation task that takes all findings from one audit and applies a set of actions to those findings. A single execution applies one action to one finding. The audit mitigation actions task outputs an execution summary.
 
-![Conceptual image shows an audit mitigation actions task.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/conceptual-mitigation-actions-audit.png)
+![Conceptual image shows an audit mitigation actions task.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/conceptual-mitigation-actions-audit.png)
 
 
 The following diagram shows how you can define an audit mitigation task that takes a list of individual findings from one or more audits and applies a set of actions to those findings. A single execution applies one action to one finding. The audit mitigation actions task outputs an execution summary.
 
-![Conceptual image shows an audit mitigation actions task.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/conceptual-mitigation-actions-findings.png)
+![Conceptual image shows an audit mitigation actions task.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/conceptual-mitigation-actions-findings.png)
 
 
 You can use the AWS IoT console or the AWS CLI to apply mitigation actions.
@@ -244,12 +244,12 @@ If you have not configured actions for your AWS account, the list of actions is 
    A list of action tasks shows when each was started and the current status.
 
 1. Choose the **Name** link to see details for the task. The details include all of the actions that are applied by the task, their target, and their status.  
-![Details for the audit mitigation action task.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-action-execution-task-details.png)
+![Details for the audit mitigation action task.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-action-execution-task-details.png)
 
    You can use the **Show executions for** filters to focus on types of actions or action states.
 
 1. To see details for the task, in **Executions**, choose **Show**.  
-![Execution details for the audit mitigation action task.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-action-execution-task-executions.png)
+![Execution details for the audit mitigation action task.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-action-execution-task-executions.png)
 
 **To use the AWS CLI to list your started tasks**
 

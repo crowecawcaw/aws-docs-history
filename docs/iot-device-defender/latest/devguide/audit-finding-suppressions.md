@@ -29,21 +29,21 @@ The following procedure shows you how to create an audit finding suppression in 
 1. In the [AWS IoT console](https://console.aws.amazon.com/iot), in the navigation pane, expand **Defend**, and then choose **Audit**, **Results**.
 
 1. Select an audit report you'd like to review.  
-![AWS IoT Device Defender audit results table showing compliance status for multiple audits over recent dates, with most audits marked as not compliant.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-results.png)
+![AWS IoT Device Defender audit results table showing compliance status for multiple audits over recent dates, with most audits marked as not compliant.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-results.png)
 
 1. In the **Non-compliant checks** section, under **Check name**, choose the audit check that you're interested in.  
-![Audit report showing one non-compliant check for logging disabled and 13 compliant checks across severity levels critical, high, and medium for an AWS service.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-results-details.png)
+![Audit report showing one non-compliant check for logging disabled and 13 compliant checks across severity levels critical, high, and medium for an AWS service.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-results-details.png)
 
 1. On the audit check details screen, if there are findings you don't want to see, select the option button next to the finding. Next, choose **Actions**, and then choose the amount of time you'd like your audit finding suppression to persist.
 **Note**  
 In the console, you can select *1 week*, *1 month*, *3 months*, *6 months*, or *Indefinitely* as expiration dates for your audit finding suppression. If you want to set a specific expiration date, you can do so only in the CLI or API. Audit finding suppressions can also be canceled anytime regardless of expiration date.  
-![AWS IoT Device Defender audit findings showing logging disabled and 1 non-compliant account with details and mitigation.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/non-compliant-check.png)
+![AWS IoT Device Defender audit findings showing logging disabled and 1 non-compliant account with details and mitigation.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/non-compliant-check.png)
 
 1. Confirm the suppression details, and then choose **Enable suppression**.  
-![Confirm suppression dialog with Logging disabled check name, account settings number, 3 months expiration period, and 2020-10-28 expiration date.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/confirm-suppression.png)
+![Confirm suppression dialog with Logging disabled check name, account settings number, 3 months expiration period, and 2020-10-28 expiration date.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/confirm-suppression.png)
 
 1. After you've created the audit finding suppression, a banner appears confirming your audit finding suppression was created.  
-![AWS IoT Device Defender audit findings page showing one non-compliant account with logging disabled, with mitigation step to enable CloudWatch Logs.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/suppression-created-successfully.png)
+![AWS IoT Device Defender audit findings page showing one non-compliant account with logging disabled, with mitigation step to enable CloudWatch Logs.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/suppression-created-successfully.png)
 
 **To view your suppressed findings in an audit report**
 
@@ -52,11 +52,11 @@ In the console, you can select *1 week*, *1 month*, *3 months*, *6 months*, or *
 1. Select an audit report you'd like to review.
 
 1. In the **Suppressed findings** section, view which audit findings have been suppressed for your chosen audit report.  
-![AWS IoT Device Defender audit report showing compliance checks with severity levels and findings summary.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-report-findings.png)
+![AWS IoT Device Defender audit report showing compliance checks with severity levels and findings summary.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/audit-report-findings.png)
 
 **To list your audit finding suppressions**
 + In the [AWS IoT console](https://console.aws.amazon.com/iot), in the navigation pane, expand **Defend**, and then choose **Audit**, **Finding suppressions**.  
-![AWS IoT Device Defender Audit finding suppressions table with a single suppression for check "Logging disabled" expiring on October 28, 2020.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/list-suppressions.png)
+![AWS IoT Device Defender Audit finding suppressions table with a single suppression for check "Logging disabled" expiring on October 28, 2020.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/list-suppressions.png)
 
 **To edit your audit finding suppression**
 
@@ -65,7 +65,7 @@ In the console, you can select *1 week*, *1 month*, *3 months*, *6 months*, or *
 1. Select the option button next to the audit finding suppression you'd like to edit. Next, choose **Actions**, **Edit**.
 
 1. On the **Edit audit finding suppression** window, you can change the **Suppression duration** or **Description (optional)**.  
-![Edit audit finding suppression dialog with options to suppress "Logging disabled" check for specified resource for 6 months and description field.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/edit-suppression.png)
+![Edit audit finding suppression dialog with options to suppress "Logging disabled" check for specified resource for 6 months and description field.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/edit-suppression.png)
 
 1. After you've made your changes, choose **Save**. The **Finding suppressions** window opens.
 
@@ -76,7 +76,7 @@ In the console, you can select *1 week*, *1 month*, *3 months*, *6 months*, or *
 1. Select the option button next to the audit finding suppression you'd like to delete, and then choose **Actions**, **Delete**.
 
 1. On the **Delete audit finding suppression** window, enter `delete` in the text box to confirm your deletion, and then choose **Delete**. The **Finding suppressions** window opens.  
-![Dialog box to delete audit finding suppression with input field to enter "delete" and Delete button.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/delete-suppression.png)
+![Dialog box to delete audit finding suppression with input field to enter "delete" and Delete button.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/delete-suppression.png)
 
 ## How to use audit finding suppressions in the CLI
 <a name="audit-finding-suppressions-cli"></a>

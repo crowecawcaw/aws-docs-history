@@ -36,21 +36,21 @@ The following walkthrough uses an account with two expired device certificates t
 1. We will first run an on-demand audit to show that the expired device certificate check is non-compliant.
 
    From the [AWS IoT console](https://console.aws.amazon.com/iot), choose **Defend** from the left sidebar, then **Audit**, and then **Results**. On the **Audit Results** page, choose **Create**. The **Create a new audit** window opens. Choose **Create**.  
-![Run an on-demand audit to show that the expired device certificate check is non-compliant.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-afs-noncompliant.png)
+![Run an on-demand audit to show that the expired device certificate check is non-compliant.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-afs-noncompliant.png)
 
    From the on-demand audit results, we can see that "Device certificate expiring" is non-compliant for two resources.
 
 1. Now, we'd like to disable the "Device certificate expiring" non-compliant check warning because our developers are testing new features that will fix the warning.
 
    From the left sidebar under **Defend**, choose **Audit**, and then choose **Finding suppressions**. On the **Audit finding suppressions** page, choose **Create**.  
-![The flow to create Audit finding suppressions in console.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-afs-suppressions.png)
+![The flow to create Audit finding suppressions in console.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-afs-suppressions.png)
 
 1. On the **Create an audit finding suppression** window, we need to fill out the following.
    + **Audit check**: We select `Device certificate expiring`, because that is the audit check we'd like to suppress.
    + **Resource identifier**: We input the device certificate ID of one of the certificates we'd like to suppress audit findings for.
    + **Suppression duration**: We select `1 week`, because that's how long we'd like to suppress the `Device certificate expiring` audit check for.
    + **Description (optional)**: We add a note that describes why we're suppressing this audit finding.  
-![The Create an audit finding suppression page where you need to enter the detailed information.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-afs-create.png)
+![The Create an audit finding suppression page where you need to enter the detailed information.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-afs-create.png)
 
    After we've filled out the fields, choose **Create**. We see a success banner after the audit finding suppression has been created.
 
@@ -59,7 +59,7 @@ The following walkthrough uses an account with two expired device certificates t
    From the left sidebar under **Defend**, choose **Audit**, and then choose **Results**. On the **Audit results** page, choose the audit with the non-compliant resource. Then, select the resource under **Non-compliant checks**. In our case, we select "Device certificate expiring".
 
 1. On the **Device certificate expiring** page, under **Non-compliant policy** choose the option button next to the finding that needs to be suppressed. Next, choose the **Actions** dropdown menu, and then choose the duration for which you'd like finding to be suppressed. In our case, we choose `1 week` as we did for the other certificate. On the **Confirm suppression** window, choose **Enable suppression**.  
-![The Create an audit suppression page where you complete the flow. You will see a success banner after the audit finding suppression has been created.](http://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-afs-noncompliantcerts.png)
+![The Create an audit suppression page where you complete the flow. You will see a success banner after the audit finding suppression has been created.](https://docs.aws.amazon.com/iot-device-defender/latest/devguide/images/dd-afs-noncompliantcerts.png)
 
    We see a success banner after the audit finding suppression has been created. Now, both audit findings have been suppressed for 1 week while our developers work on a solution to address the warning.
 
