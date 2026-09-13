@@ -5,7 +5,7 @@
 
 AWS Batch simplifies running batch jobs across multiple Availability Zones within a Region. You can create AWS Batch compute environments within a new or existing VPC. After a compute environment is up and associated with a job queue, you can define job definitions that specify which Docker container images to run your jobs. Container images are stored in and pulled from container registries, which may exist within or outside of your AWS infrastructure.
 
-![Showing the components of AWS Batch and how they integrated together](http://docs.aws.amazon.com/batch/latest/userguide/images/batch-components.png)
+![Showing the components of AWS Batch and how they integrated together](https://docs.aws.amazon.com/batch/latest/userguide/images/batch-components.png)
 
 
 ## Compute environment

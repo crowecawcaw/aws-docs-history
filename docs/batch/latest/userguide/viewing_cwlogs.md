@@ -13,12 +13,12 @@ It might take a few minutes for data to display in CloudWatch Logs.
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
 1. In the left navigation pane, choose **Logs**, then choose **Log groups**.  
-![CloudWatch console log groups](http://docs.aws.amazon.com/batch/latest/userguide/images/cwl-log-groups.png)
+![CloudWatch console log groups](https://docs.aws.amazon.com/batch/latest/userguide/images/cwl-log-groups.png)
 
 1. Choose a log group to view.  
-![CloudWatch console log streams](http://docs.aws.amazon.com/batch/latest/userguide/images/cw_log_stream.png)
+![CloudWatch console log streams](https://docs.aws.amazon.com/batch/latest/userguide/images/cw_log_stream.png)
 
 1. Choose a log stream to view. By default, the streams are identified by the first 200 characters of the job name and the Amazon ECS task ID.
 **Tip**  
 To download log stream data, choose **Actions**.  
-![CloudWatch console log events](http://docs.aws.amazon.com/batch/latest/userguide/images/cw_log_events.png)
+![CloudWatch console log events](https://docs.aws.amazon.com/batch/latest/userguide/images/cw_log_events.png)

@@ -7,7 +7,7 @@ AWS Batch helps you to run batch computing workloads on the AWS Cloud. Batch com
 
 As a fully managed service, AWS Batch helps you to run batch computing workloads of any scale. AWS Batch automatically provisions compute resources and optimizes the workload distribution based on the quantity and scale of the workloads. With AWS Batch, there's no need to install or manage batch computing software, so you can focus your time on analyzing results and solving problems.
 
-![Showing the layers of AWS Batch for workloads, orchestration, and capacity](http://docs.aws.amazon.com/batch/latest/userguide/images/batch-diagram.png)
+![Showing the layers of AWS Batch for workloads, orchestration, and capacity](https://docs.aws.amazon.com/batch/latest/userguide/images/batch-diagram.png)
 
 
 AWS Batch provides all of the necessary functionality to run high-scale, compute-intensive workloads on top of AWS managed container orchestration services, Amazon ECS and Amazon EKS. AWS Batch is able to scale compute capacity on Amazon EC2 instances, Fargate resources, and Amazon ECS Managed Instances.
@@ -18,7 +18,7 @@ AWS Batch also enables SageMaker Training job queuing, allowing data scientists 
 
 For machine learning workloads, AWS Batch provides queuing capabilities for SageMaker Training jobs. You can configure queues with specific policies to optimize cost, performance, and resource allocation for your ML Training workloads.
 
-![Workflow diagram showing administrator setting up roles, data scientist creating service environment and job queue, submitting SageMaker training jobs, and monitoring jobs in both AWS Batch queue and SageMaker AI execution](http://docs.aws.amazon.com/batch/latest/userguide/images/Batch-SageMaker-Diagram-Light-Mode.png)
+![Workflow diagram showing administrator setting up roles, data scientist creating service environment and job queue, submitting SageMaker training jobs, and monitoring jobs in both AWS Batch queue and SageMaker AI execution](https://docs.aws.amazon.com/batch/latest/userguide/images/Batch-SageMaker-Diagram-Light-Mode.png)
 
 
 This provides a shared responsibility model where administrators set up the infrastructure and permissions, while data scientists can focus on submitting and monitoring their ML training workloads. Jobs are automatically queued and executed based on configured priorities and resource availability.

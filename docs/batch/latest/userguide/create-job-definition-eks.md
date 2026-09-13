@@ -53,34 +53,36 @@ If a DNS policy isn't specified, **Default** isn't the default DNS policy. Inste
 
       1. (Optional) Define a **Claim name** to attach a Kubernetes [Persistent Volume Claim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) to the pod, and whether it is **Read only**.
 
-   1. (Optional) For **Pod labels**, choose **Add pod labels**, then enter a name-value pair. 
+   1. (Optional) For **Image pull secret**, enter the name of the Kubernetes Secret in the namespace where the job pod runs. The Secret contains credentials that Kubernetes uses to pull images from a private registry. The name can be up to 253 characters long. It can contain lowercase letters, numbers, hyphens (-), and periods (.), and must start and end with a letter or number.
 **Important**  
-The prefix for a pod label can't contain `kubernetes.io/`, `k8s.io/`, or `batch.amazonaws.com/`.
+The Secret must exist in the same namespace where the job pod runs.
 
-   1. (Optional) For **Pod annotations**, choose **Add annotations**, then enter a name-value pair. 
-**Important**  
-The prefix for a pod annotation can't contain `kubernetes.io/`, `k8s.io/`, or `batch.amazonaws.com/`.
+   1. (Optional) For **Namespace**, enter the Kubernetes namespace where AWS Batch places the job pod. This can be different from the Compute Environment's namespace. If the namespace provided here is different from the Compute Environment's namespace, you must configure equivalent AWS Batch role-based access control (RBAC) permissions in the job namespace. The namespace can be up to 63 characters long. It can contain lowercase letters, numbers, and hyphens (-), and must start and end with a letter or number. The namespace can't be `default` or start with `kube-`. If you don't specify a namespace, AWS Batch uses the compute environment's namespace.
+
+   1. (Optional) For **Pod labels**, choose **Add pod labels**, then enter a name-value pair. The prefix for a pod label can't contain `kubernetes.io/`, `k8s.io/`, or `batch.amazonaws.com/`.
+
+   1. (Optional) For **Pod annotations**, choose **Add annotations**, then enter a name-value pair. The prefix for a pod annotation can't contain `kubernetes.io/`, `k8s.io/`, or `batch.amazonaws.com/`.
 
    1. Choose **Next page**.
 
-   1. In the **Container configuration** section:
+1. In the **Container configuration** section:
 
-      1. For **Name**, enter a unique name for the container. The name must start with a letter or number, and can be up to 63 characters long. It can contain uppercase and lowercase letters, numbers, and hyphens (-).
+   1. For **Name**, enter a unique name for the container. The name must start with a letter or number, and can be up to 63 characters long. It can contain uppercase and lowercase letters, numbers, and hyphens (-).
 
-      1. For **Image**, choose the Docker image to use for your job. By default, images in the Docker Hub registry are available. You can also specify other repositories with `{{repository-url}}/{{image}}:{{tag}}`. The name can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (\_), colons (:), periods (.), forward slashes (/), and number signs (\#). This parameter maps to `Image` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `IMAGE` parameter of [**docker run**](https://docs.docker.com/engine/reference/commandline/run/)
+   1. For **Image**, choose the Docker image to use for your job. By default, images in the Docker Hub registry are available. You can also specify other repositories with `{{repository-url}}/{{image}}:{{tag}}`. The name can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (\_), colons (:), periods (.), forward slashes (/), and number signs (\#). This parameter maps to `Image` in the [Create a container](https://docs.docker.com/engine/api/v1.38/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.docker.com/engine/api/v1.38/) and the `IMAGE` parameter of [**docker run**](https://docs.docker.com/engine/reference/commandline/run/)
 **Note**  
 Docker image architecture must match the processor architecture of the compute resources that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based compute resources.
-         + Images in Amazon ECR Public repositories use the full `registry/repository[:tag]` or `registry/repository[@digest]` naming conventions (for example, `public.ecr.aws/{{registry_alias}}/{{my-web-app}}:{{latest}}`).
-         + Images in Amazon ECR repositories use the full `registry/repository[:tag]` naming convention (for example, `{{aws_account_id}}.dkr.ecr.{{region}}.amazonaws.com``/{{my-web-app}}:{{latest}}`).
-         + Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo`).
-         + Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent`).
-         + Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu`).
+      + Images in Amazon ECR Public repositories use the full `registry/repository[:tag]` or `registry/repository[@digest]` naming conventions (for example, `public.ecr.aws/{{registry_alias}}/{{my-web-app}}:{{latest}}`).
+      + Images in Amazon ECR repositories use the full `registry/repository[:tag]` naming convention (for example, `{{aws_account_id}}.dkr.ecr.{{region}}.amazonaws.com``/{{my-web-app}}:{{latest}}`).
+      + Images in official repositories on Docker Hub use a single name (for example, `ubuntu` or `mongo`).
+      + Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent`).
+      + Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu`).
 
-      1. (Optional) For **Image pull policy**, choose when images are pulled.
+   1. (Optional) For **Image pull policy**, choose when images are pulled.
 
-      1. (Optional) For **Command**, enter a JSON command to pass to the container.
+   1. (Optional) For **Command**, enter a JSON command to pass to the container.
 
-      1. (Optional) For **Arguments**, enter arguments to pass to the container. If an argument isn't provided, the container image command is used.
+   1. (Optional) For **Arguments**, enter arguments to pass to the container. If an argument isn't provided, the container image command is used.
 
    1. (Optional) You can add parameters to the job definition as name-value mappings to override the job definition defaults. To add a parameter:
 

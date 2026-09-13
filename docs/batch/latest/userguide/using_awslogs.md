@@ -84,7 +84,7 @@ The following log configuration JSON snippets have a `logConfiguration` object s
 
 In the AWS Batch console, the log configuration for the `wordpress` job definition is specified as shown in the following image. 
 
-![Log configuration section with awslogs driver, awslogs-group set to awslogs-wordpress, and awslogs-stream-prefix set to awslogs-example.](http://docs.aws.amazon.com/batch/latest/userguide/images/awslogs-console-config.png)
+![Log configuration section with awslogs driver, awslogs-group set to awslogs-wordpress, and awslogs-stream-prefix set to awslogs-example.](https://docs.aws.amazon.com/batch/latest/userguide/images/awslogs-console-config.png)
 
 
 After you have registered a task definition with the `awslogs` log driver in a job definition log configuration, you can submit a job with that job definition to start sending logs to CloudWatch Logs. For more information, see [Tutorial: submit a job](submit_job.md).

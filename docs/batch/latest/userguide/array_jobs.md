@@ -15,12 +15,12 @@ At runtime, the `AWS_BATCH_JOB_ARRAY_INDEX` environment variable is set to the c
 
 For array job dependencies, you can specify a type for a dependency, such as `SEQUENTIAL` or `N_TO_N`. You can specify a `SEQUENTIAL` type dependency (without specifying a job ID) so that each child array job completes sequentially, starting at index 0. For example, if you submit an array job with an array size of 100, and specify a dependency with type `SEQUENTIAL`, 100 child jobs are spawned sequentially, where the first child job must succeed before the next child job starts. The figure below shows Job A, an array job with an array size of 10. Each job in Job A's child index is dependent on the previous child job. Job A:1 can't start until job A:0 finishes.
 
-![Sequential array job dependency where each child job from A:0 through A:9 runs in order.](http://docs.aws.amazon.com/batch/latest/userguide/images/sequential-dep.png)
+![Sequential array job dependency where each child job from A:0 through A:9 runs in order.](https://docs.aws.amazon.com/batch/latest/userguide/images/sequential-dep.png)
 
 
 You can also specify an `N_TO_N` type dependency with a job ID for array jobs. That way, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. The following figure shows Job A and Job B, two array jobs with an array size of 10,000 each. Each job in Job B's child index is dependent on the corresponding index in Job A. Job B:1 can't start until job A:1 finishes. 
 
-![](http://docs.aws.amazon.com/batch/latest/userguide/images/n-to-n-dep.png)
+![](https://docs.aws.amazon.com/batch/latest/userguide/images/n-to-n-dep.png)
 
 
 If you cancel or terminate a parent array job, all the child jobs are cancelled or terminated with it. You can cancel or terminate individual child jobs (which moves them to a `FAILED` status) without affecting the other child jobs. However, if a child array job fails (on its own, or by manually cancelling or terminating the job), the parent job also fails. In this scenario, the parent job transitions to `FAILED` when all child jobs complete.
