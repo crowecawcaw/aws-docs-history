@@ -10,7 +10,7 @@ AWS HealthLake is a HIPAA eligible service for storing, analyzing, and sharing h
 + **Natural language processing (NLP)** – Utilize integrated NLP models to extract meaningful medical information from unstructured health data.
 + **Multimodal analysis** – Combine HealthLake data with AWS HealthImaging data and AWS HealthOmics data to deliver insights for precision medicine.
 
-![Architecture diagram showing AWS HealthLake processes and integrations with other AWS services.](http://docs.aws.amazon.com/healthlake/latest/devguide/images/healthlake_overview_diagram.png)
+![Architecture diagram showing AWS HealthLake processes and integrations with other AWS services.](https://docs.aws.amazon.com/healthlake/latest/devguide/images/healthlake_overview_diagram.png)
 
 
 **Topics**

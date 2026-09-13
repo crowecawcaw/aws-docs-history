@@ -98,7 +98,7 @@ Next, the IAM administrator must add the user or role created in the previous st
 **Note**  
 If this is your first time visiting Lake Formation, a **Welcome to Lake Formation** dialog box appears asking you to define a Lake Formation administrator.   
 
-![Image of a dialog box asking you to define a lake formation administrator](http://docs.aws.amazon.com/healthlake/latest/devguide/images/lf-landing-page.png)
+![Image of a dialog box asking you to define a lake formation administrator](https://docs.aws.amazon.com/healthlake/latest/devguide/images/lf-landing-page.png)
 
 
 1. Assign the new user or role to be a AWS Lake Formation data lake administrator.

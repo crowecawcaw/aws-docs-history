@@ -15,7 +15,7 @@ A transformation profile is the reusable, versioned definition of how source dat
 + For C-CDA, a profile contains Velocity templates.
 + For CSV, a profile contains a YAML mapping configuration.
 
-![Diagram showing the transformation profile lifecycle from draft to published versions.](http://docs.aws.amazon.com/healthlake/latest/devguide/images/profile_lifecycle_diagram.png)
+![Diagram showing the transformation profile lifecycle from draft to published versions.](https://docs.aws.amazon.com/healthlake/latest/devguide/images/profile_lifecycle_diagram.png)
 
 + A draft (version 0) is a mutable working copy you can edit freely.
 + Publishing creates an immutable, numbered version (v1, v2, ...).
