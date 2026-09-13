@@ -63,7 +63,7 @@ SAP ASE database, SAP ASE backup server, AWS Backint Agent for ASE and AWS Backi
 
 1.  **Backint Agent** streams data to (backup) and from (restore) **Amazon S3**.
 
-![Backint for ASE Architecture](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/ase-backint-architecture.png)
+![Backint for ASE Architecture](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/ase-backint-architecture.png)
 
 
 ## Pricing

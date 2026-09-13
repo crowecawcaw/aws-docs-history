@@ -17,7 +17,7 @@ Figure 2 provides an overview of architecture for IBM Db2 HADR with Pacemaker on
 + In private subnet, Linux servers are configured with Pacemaker to protect the IBM Db2 database.
 + Overlay IP address (similar to a virtual IP address) that is relocatable between the primary and standby Db2 databases.
 
-![IBM Db2 HADR with Pacemaker](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker4.png)
+![IBM Db2 HADR with Pacemaker](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker4.png)
 
 
  *Figure 2 - IBM Db2 HADR with Pacemaker* 

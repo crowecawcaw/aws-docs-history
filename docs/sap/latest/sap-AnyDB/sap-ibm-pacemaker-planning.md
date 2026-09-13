@@ -13,7 +13,7 @@ SAP NetWeaver applications based on IBM Db2 can be installed in three different 
 
  AWS recommends that you deploy primary and standby IBM Db2 databases in different Availability Zones (AZs) within an AWS region. Figure 1 provides a high-level architecture for IBM Db2 high availability in AWS. This option is suited for business-critical applications.
 
-![High-level HA architecture for SAP with IBM Db2](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker3.png)
+![High-level HA architecture for SAP with IBM Db2](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker3.png)
 
 
  *Figure 1 – High-level HA architecture for SAP with IBM Db2 on AWS * 

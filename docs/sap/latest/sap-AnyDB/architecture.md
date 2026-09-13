@@ -8,27 +8,27 @@ See the following tabs for the architecture diagram of each database.
 **Example**  
 The following diagram presents the setup for IBM Db2 system with FSx for ONTAP.  
 
-![SAP System on IBM Db2 database](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/ibmdb2fsx.png)
+![SAP System on IBM Db2 database](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/ibmdb2fsx.png)
 
 The following diagram presents the setup for SAP MaxDB system with FSx for ONTAP.  
 
-![MAP MaxDB running on an EC2 instance in a private subnet.](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/maxdb.png)
+![MAP MaxDB running on an EC2 instance in a private subnet.](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/maxdb.png)
 
 The following diagram presents the setup for SAP ASE system with FSx for ONTAP.  
 
-![SAP ASE on an EC2 instance in a private subnet.](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/ase.jpg)
+![SAP ASE on an EC2 instance in a private subnet.](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/ase.jpg)
 
 The following diagram presents the setup for Oracle with FSx for ONTAP.  
 
-![SAP on Oracle with FSx for ONTAP.](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/oracle.png)
+![SAP on Oracle with FSx for ONTAP.](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/oracle.png)
 
 The following diagram presents the single Availability Zone setup for MSSQL database with FSx for ONTAP.  
 
-![SAP System on MSSQL single AZ](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sqlsingle.png)
+![SAP System on MSSQL single AZ](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sqlsingle.png)
 
 The following diagram presents a high availability setup for MSSQL database with FSx for ONTAP.  
 
-![SAP System on MSSQL multi-AZ HA](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sqlha.png)
+![SAP System on MSSQL multi-AZ HA](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sqlha.png)
 
 FSx for ONTAP supports both, iSCSI and SMB protocol to be used for SQL server deployments on AWS. The iSCSI protocol works at the block level, and is expected to drive higher performance for SQL server with OLTP-type workloads than the same system configured with SMB. We recommend configuring your MSSQL on FSx for ONTAP using the iSCSI protocol.  
 FSx for ONTAP file systems are set up redundant by default. Each file system has a preferred (active) and a standby (passive) file server. FSx for ONTAP file systems provide management and protocol specific endpoints for each file server either within an Availability Zone (single-AZ) or across Availability Zones (Multi-AZ). For more information, see [Availability, durability, and deployment options](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html).  

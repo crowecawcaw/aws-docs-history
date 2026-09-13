@@ -228,7 +228,7 @@ aws ec2 modify-instance-attribute --instance-id <i-xxxxinstidforhost2> --no-sour
 
  AWS Management Console  
 + Ensure that the **Stop** option is checked in https://console.aws.amazon.com/ec2/.  
-![Change Source / destination check.](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sles_stop_option.png)
+![Change Source / destination check.](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sles_stop_option.png)
 
 ### Review automatic recovery and stop protection
 <a name="auto-recovery"></a>

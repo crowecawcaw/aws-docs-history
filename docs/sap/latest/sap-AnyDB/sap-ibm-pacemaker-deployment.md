@@ -147,19 +147,19 @@ Replace the following variables with the appropriate names:
  **SAP application and Db2 software installation (high-level instructions)**:
 
 1. Install SAP ASCS using software provisioning manager (SWPM) on the Amazon EC2 instance. Choose the installation option depending on the scenario; for example, distributed or HA in case you plan to install ERS for app layer high availability.  
-![Install ASCS](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker5.png)
+![Install ASCS](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker5.png)
 
     *Figure 3 – Install ASCS* 
 
 1. Install the primary database using SWPM on the Amazon EC2 instance hosted in AZ1.  
-![Install the primary database](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker6.png)
+![Install the primary database](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker6.png)
 
     *Figure 4 – Install the primary database* 
 
 1. Take a backup of the primary database.
 
 1. Install the PAS instance. This can be the same EC2 instance used in [step 1](#sap-ibm-pacemaker-step-1-db2-virtual-hostname) if you want to install ASCS and PAS on one host.  
-![Install the PAS instance](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker7.png)
+![Install the PAS instance](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker7.png)
 
     *Figure 5 – Install the PAS instance* 
 
@@ -1118,15 +1118,15 @@ To perform post-setup configuration tasks:
         /usr/sap/STJ/D00/exe/sapcontrol -prot NI_HTTP -nr 00 -function Start
         Instance on host sappas01 started
    ```  
-![SAP system status information](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker8.png)
+![SAP system status information](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker8.png)
 
     *Figure 6 – SAP system status information* 
 
    You can check get the status/information of HADR in the transaction **DB02/dbacockpit** > **Configuration** > **Overview**.  
-![Transaction DB02 database instance information](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker9.png)
+![Transaction DB02 database instance information](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker9.png)
 
     *Figure 7 – Transaction DB02 database instance information*   
-![Transaction DB02 HADR information](http://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker10.png)
+![Transaction DB02 HADR information](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/images/sap-ibm-pacemaker10.png)
 
     *Figure 8 – Transaction DB02 HADR information* 
 
