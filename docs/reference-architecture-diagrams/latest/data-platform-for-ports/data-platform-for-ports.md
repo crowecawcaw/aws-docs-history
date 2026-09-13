@@ -10,7 +10,7 @@ With this architecture, you can eliminate data silos across port terminals and l
 ## Data platform for ports diagram
 <a name="ports-diagram"></a>
 
-![Reference architecture diagram showing a data platform for ports by using AWS IoT Core, SageMaker AI, AWS Step Functions, and Amazon Redshift.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-platform-for-ports/images/data-platform-for-ports.png)
+![Reference architecture diagram showing a data platform for ports by using AWS IoT Core, SageMaker AI, AWS Step Functions, and Amazon Redshift.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-platform-for-ports/images/data-platform-for-ports.png)
 
 
 The following steps describe the data ingestion and analytics components for this architecture:
