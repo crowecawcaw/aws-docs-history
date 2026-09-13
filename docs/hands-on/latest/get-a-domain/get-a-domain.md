@@ -50,19 +50,19 @@ Before starting this guide, you will need:
    Once you have logged in, ensure you have selected your desired Region in the upper right hand corner based on your infrastructure requirements. 
 
    **Pro tip:** You can learn about the console through the [Getting Started with the AWS Management Console](https://docs.aws.amazon.com/hands-on/latest/getting-started-with-aws-management-console/) tutorial.   
-![The navigation menu interface for the AWS Management console.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/navigation-menu-interface-management.png)
+![The navigation menu interface for the AWS Management console.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/navigation-menu-interface-management.png)
 
 1. Open Route 53
 
    Enter **Route 53** in the search bar and select **Route 53** to open the service console.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/navigation-interface-1.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/navigation-interface-1.png)
 
 1. Choose Register domain
 
    Choose the **Register domain** button. 
 
    **Dive deeper:** Read the [documentation for registering a new domain](https://docs.aws.amazon.com/Route 53/latest/DeveloperGuide/domain-register.html).   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/selection-interface.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/selection-interface.png)
 
 1. Enter a domain name
 
@@ -73,14 +73,14 @@ Before starting this guide, you will need:
    Choose the **Continue** button at the bottom of the page. 
 
    If the domain you chose is not available, choose one of the related domain suggestions or try again with a different domain name.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/interface-controls-buttons.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/interface-controls-buttons.png)
 
 1. Enter your contact information
 
    Enter the registrant contact detail for your domain. 
 
    Choose the **Continue** button on the bottom of the page.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/interface-controls-buttons-1.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/interface-controls-buttons-1.png)
 
 1. Complete your order
 
@@ -93,7 +93,7 @@ Before starting this guide, you will need:
    Choose **Complete Order**. 
 
    You will receive an email when your domain registration has been approved. To determine the current status of your request, see [Viewing the status of a domain registration](https://docs.aws.amazon.com/Route 53/latest/DeveloperGuide/domain-view-status.html).   
-![The configuration settings interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/configuration-settings-interface.png)
+![The configuration settings interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/configuration-settings-interface.png)
 
 ### Step 2: Configure DNS
 <a name="configure-dns"></a>
@@ -103,29 +103,29 @@ Before starting this guide, you will need:
    After domain registration is complete, return to the AWS console. 
 
    Enter **Route 53** in the search bar and select **Route 53** to open the service console.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/navigation-interface-1.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/navigation-interface-1.png)
 
 1. Choose hosted zones
 
    Choose **Hosted zones** from the left navigation pane.   
-![The AWS Route 53 dashboard showing DNS management, traffic management, domain registration, and routing control options, with one hosted zone and zero policy records, readiness checks, and control panels.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/dashboard-management-traffic-domain.png)
+![The AWS Route 53 dashboard showing DNS management, traffic management, domain registration, and routing control options, with one hosted zone and zero policy records, readiness checks, and control panels.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/dashboard-management-traffic-domain.png)
 
 1. Select your hosted zone
 
    Select the hosted zone with your domain name that Route 53 created for you as part of the domain registration.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/selection-interface-1.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/selection-interface-1.png)
 
 1. Create a record
 
    You can now create DNS records for your domain. In this guide, we will create a simple A record type. Choose the Create record button to get started. 
 
    **Dive deeper:** Read the [Route 53 documentation](https://docs.aws.amazon.com/route53/) for a full overview of the various records you can create.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/resource-creation-interface.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/resource-creation-interface.png)
 
 1. Switch to quick create
 
    Choose **Switch to quick create** if you are currently in the wizard view.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/resource-creation-interface-1.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/resource-creation-interface-1.png)
 
 1. Configure IPv4 record
 
@@ -139,7 +139,7 @@ Before starting this guide, you will need:
    **Pro tip:** You can add multiple record types at one time by using the **Add another record** button before finalizing. 
 
    Your domain is now ready to use with IPv4. Open a browser and enter http://www.<your domain name>. (Make sure you have your application load balancer and target EC2 instance properly set up as a web server before browsing to your domain URL.)   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/resource-creation-interface-2.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/resource-creation-interface-2.png)
 
 1. Configure IPv6 record
 
@@ -153,7 +153,7 @@ Before starting this guide, you will need:
    **Pro tip:** You can add multiple record types at one time by using the **Add another record** button before finalizing. 
 
    Your domain is now ready to use with IPv6. Open a browser and enter http://www.<your domain name>. (Please make sure you have your ALB and target EC2 instance properly set up as a web server before browsing to your domain URL).   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/resource-creation-interface-3.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/get-a-domain/images/resource-creation-interface-3.png)
 
 ## Conclusion
 <a name="conclusion"></a>
