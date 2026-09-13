@@ -10,7 +10,7 @@ With this architecture, you can build end-to-end data flows using AWS services a
 ## 42Q Cloud MES architecture diagram
 <a name="42q-diagram"></a>
 
-![Reference architecture diagram for 42Q cloud MES data flows on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/42q-cloud-mes/images/42q-cloud-mes-ra.png)
+![Reference architecture diagram for 42Q cloud MES data flows on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/42q-cloud-mes/images/42q-cloud-mes-ra.png)
 
 
 The following steps describe the architecture:
