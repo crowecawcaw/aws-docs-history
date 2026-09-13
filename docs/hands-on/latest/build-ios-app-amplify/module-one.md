@@ -32,17 +32,17 @@ In this module, you will:
 1. Start Xcode
 
    Start **Xcode** and create a new project by going to **File > New > Project...** or by pressing **Shift \+ Cmd \+ N**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-new-project-resource-creation.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-new-project-resource-creation.png)
 
 1. Choose your app template
 
    Choose **App** under **iOS**, **Application**, and then choose **Next**.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/alpm-dle-fae-aafc-selection-interface.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/alpm-dle-fae-aafc-selection-interface.png)
 
 1. Name and configure the project
 
    Type a name for your project, for example, **Getting Started.** Make sure the **Interface** is **SwiftUI** and **Language** is **Swift**, then choose **Next.**   
-![The configuration settings interface.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-project-configuration-settings.png)
+![The configuration settings interface.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-project-configuration-settings.png)
 
 1. Finalize the project
 
@@ -155,7 +155,7 @@ Only the name is a mandatory parameter in its initializer.
    This view will use the NoteView view to display all the notes in the notes array. If the array is empty, it will show a "No notes" message, as you can see in the **Canvas**. 
 **Note**  
 If you do not see the canvas, you can enable it by going to **Editor > Canvas**. If you see a **Preview paused** message, you can resume it by pressing the **↻** button next to it.  
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-notes-debe-resource-creation-1.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-notes-debe-resource-creation-1.png)
 
 1. Set and view Notes arguments
 
@@ -180,7 +180,7 @@ If you do not see the canvas, you can enable it by going to **Editor > Canvas**
        ])
    }
    ```  
-![The configuration settings interface.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-notes-arguments-configuration.png)
+![The configuration settings interface.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-notes-arguments-configuration.png)
 
 1. Configure the App instance
 
@@ -208,7 +208,7 @@ Build and launch the app in the simulator by pressing the **►** button in th
 
 The iOS simulator will open and the app will run. As we are not setting a notes array, the default empty array is used and the "No notes" message is displayed. 
 
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-notes-debe-resource-creation-1.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/xcode-notes-debe-resource-creation-1.png)
 
 
 ## Conclusion

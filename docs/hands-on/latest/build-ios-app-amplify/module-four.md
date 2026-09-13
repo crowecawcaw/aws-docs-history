@@ -147,17 +147,17 @@ Amplify generates client-side code.  
 1. Open the general tab
 
    Navigate to the  **General**  tab of your Target application (Your Project > Targets > General), and select the **plus (\+)** in the  **Frameworks, Libraries, and Embedded Content**  section.    
-![The Xcode project 'GettingStarted' showing the General tab for configuring frameworks, libraries, embedded content, and app settings as part of an AWS Amplify iOS app build tutorial.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/general-tab-xcode-project-gettingstarted.png)
+![The Xcode project 'GettingStarted' showing the General tab for configuring frameworks, libraries, embedded content, and app settings as part of an AWS Amplify iOS app build tutorial.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/general-tab-xcode-project-gettingstarted.png)
 
 1. Choose the plugin
 
    Choose the **AWSAPIPlugin** , and select  **Add**.    
-![The selection of AWS Amplify plugins, including AWSAPIPlugin, in the process of building an iOS app. The image demonstrates the frameworks and libraries list within the Amplify Package manager used in an AWS Amplify tutorial for iOS development.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/plugin-api-selection-amplifylong-plugins.png)
+![The selection of AWS Amplify plugins, including AWSAPIPlugin, in the process of building an iOS app. The image demonstrates the frameworks and libraries list within the Amplify Package manager used in an AWS Amplify tutorial for iOS development.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/plugin-api-selection-amplifylong-plugins.png)
 
 1. Verify the dependency created
 
    You have now added **AWSAPIPlugin** as a dependency for your project.   
-![A table that lists frameworks, libraries, and embedded content for an iOS app using Amplify, AWSAPIPlugin, and AWSCognitoAuthPlugin, as part of an Amplify tutorial module with API integration.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/prdza-api-added-dce-table-that-lists.png)
+![A table that lists frameworks, libraries, and embedded content for an iOS app using Amplify, AWSAPIPlugin, and AWSCognitoAuthPlugin, as part of an Amplify tutorial module with API integration.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/prdza-api-added-dce-table-that-lists.png)
 
 ### Step 5: Configure the Amplify API library at runtime
 <a name="configure-the-amplify-api-library-at-runtime"></a>
@@ -318,22 +318,22 @@ Amplify generates client-side code.  
 1. Create a new note
 
    Choose the " **⨁ New Note** " button at the bottom to create a new list.   
-![An iPhone 15 Pro simulator displaying the Notes screen for Module 5 of the Build iOS App with Amplify tutorial, showing no notes and options to sign out or create a new note.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/notes-aef-iphone-pro-simulator-displaying.png)
+![An iPhone 15 Pro simulator displaying the Notes screen for Module 5 of the Build iOS App with Amplify tutorial, showing no notes and options to sign out or create a new note.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/notes-aef-iphone-pro-simulator-displaying.png)
 
 1. Enter details
 
    Enter details for the note and choose **Save Note**.   
-![An iOS app tutorial showing the 'Create Note' screen using AWS Amplify. The image displays an input form with fields for note details and picture, along with a 'Save Note' button, running in an iPhone simulator.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/hnlu-note-screen-using-amplifylong-image.png)
+![An iOS app tutorial showing the 'Create Note' screen using AWS Amplify. The image displays an input form with fields for note details and picture, along with a 'Save Note' button, running in an iPhone simulator.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/hnlu-note-screen-using-amplifylong-image.png)
 
 1. View note
 
    View the note in the list.   
-![An iPhone 15 Pro simulator showing a simple notes app. The app displays a section titled 'Notes' with a single note entry labeled 'New Note' and the description 'This is an example description.' UI elements include a 'Sign Out' link and a button to add a new note.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/displayed-note-cba-dfa-iphone-pro.png)
+![An iPhone 15 Pro simulator showing a simple notes app. The app displays a section titled 'Notes' with a single note entry labeled 'New Note' and the description 'This is an example description.' UI elements include a 'Sign Out' link and a button to add a new note.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/displayed-note-cba-dfa-iphone-pro.png)
 
 1. Delete the note
 
    You can delete a note by swiping from the left of its row.   
-![An iOS app tutorial showing the user interface for deleting a note using AWS Amplify. The screen displays a note with an example description and a red 'Delete' button, within an iPhone 15 Pro simulator.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/delete-note-aeb-user-interface-deleting.png)
+![An iOS app tutorial showing the user interface for deleting a note using AWS Amplify. The screen displays a note with an example description and a red 'Delete' button, within an iPhone 15 Pro simulator.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/delete-note-aeb-user-interface-deleting.png)
 
 ## Conclusion
 <a name="conclusion"></a>

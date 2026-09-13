@@ -89,17 +89,17 @@ Storage services like Amazon S3 exist to make this as easy, performant, and inex
 1. Open the general tab
 
    Navigate to the **General** tab of your Target application (Your Project > Targets > General), and select the **plus (\+)** in the **Frameworks, Libraries, and Embedded Content** section.   
-![The Xcode General tab, illustrating framework and dependency setup for the 'GettingStarted' iOS app in the AWS Amplify tutorial, Module 5. Shows sections for app icons, supported intents, frameworks/libraries (Amplify, AWSAPIPlugin, AWSCognitoAuthPlugin), and package dependencies on the left panel.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/dqux-general-tab-xcode-illustrating.png)
+![The Xcode General tab, illustrating framework and dependency setup for the 'GettingStarted' iOS app in the AWS Amplify tutorial, Module 5. Shows sections for app icons, supported intents, frameworks/libraries (Amplify, AWSAPIPlugin, AWSCognitoAuthPlugin), and package dependencies on the left panel.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/dqux-general-tab-xcode-illustrating.png)
 
 1. Choose the plugin
 
    Choose **AWSS3StoragePlugin**, and select **Add**.   
-![The selection of frameworks and libraries, including AWS Amplify plugins such as AWSS3StoragePlugin, for an iOS app tutorial using AWS Amplify. The dialog highlights choosing plugins to add to an iOS project in Xcode, as part of Module 5 of the build iOS app tutorial.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/evor-choose-plugin-dddaefa-selection.png)
+![The selection of frameworks and libraries, including AWS Amplify plugins such as AWSS3StoragePlugin, for an iOS app tutorial using AWS Amplify. The dialog highlights choosing plugins to add to an iOS project in Xcode, as part of Module 5 of the build iOS app tutorial.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/evor-choose-plugin-dddaefa-selection.png)
 
 1. Verify dependency
 
    You will see **AWSS3StoragePlugin** as a dependency for your project.   
-![The 'Frameworks, Libraries, and Embedded Content' section in Xcode with AWS Amplify dependencies including Amplify, AWSAPIPlugin, AWSCognitoAuthPlugin, and AWSS3StoragePlugin, used in the 'Build an iOS App with Amplify' tutorial, Module 5: Verify Dependency.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/verify-dependency-afc-frameworks-libraries.png)
+![The 'Frameworks, Libraries, and Embedded Content' section in Xcode with AWS Amplify dependencies including Amplify, AWSAPIPlugin, AWSCognitoAuthPlugin, and AWSS3StoragePlugin, used in the 'Build an iOS App with Amplify' tutorial, Module 5: Verify Dependency.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/verify-dependency-afc-frameworks-libraries.png)
 
 ### Step 3: Configure the Amplify Storage library at runtime
 <a name="configure-the-amplify-storage-library-at-runtime"></a>
@@ -441,25 +441,25 @@ Storage services like Amazon S3 exist to make this as easy, performant, and inex
 #### List of notes
 <a name="list-of-notes"></a>
 
-![An iPhone 15 Pro simulator displaying a 'Notes' app interface with no notes, as part of the AWS Amplify iOS app build tutorial for module 5.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/notes-iphone-pro-simulator-displaying.png)
+![An iPhone 15 Pro simulator displaying a 'Notes' app interface with no notes, as part of the AWS Amplify iOS app build tutorial for module 5.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/notes-iphone-pro-simulator-displaying.png)
 
 
 #### Create a note
 <a name="create-a-note"></a>
 
-![An iPhone 15 Pro with an iOS app interface for creating a new note with a picture, as part of the AWS Amplify tutorial (Module 5). The screen displays fields for note details, options to choose a picture, and a button to save the note.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/note-cfda-dfa-iphone-pro-interface.png)
+![An iPhone 15 Pro with an iOS app interface for creating a new note with a picture, as part of the AWS Amplify tutorial (Module 5). The screen displays fields for note details, options to choose a picture, and a button to save the note.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/note-cfda-dfa-iphone-pro-interface.png)
 
 
 #### Select a picture
 <a name="select-a-picture"></a>
 
-![An iOS app running on an iPhone 15 Pro simulator showing a photo picker interface with several nature images, as part of an AWS Amplify tutorial for building an iOS app.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/duew-select-picture-running-iphone-pro.png)
+![An iOS app running on an iPhone 15 Pro simulator showing a photo picker interface with several nature images, as part of an AWS Amplify tutorial for building an iOS app.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/duew-select-picture-running-iphone-pro.png)
 
 
 #### Note with picture
 <a name="note-with-picture"></a>
 
-![An iOS app running on iPhone 15 Pro (iOS 17), showing a tutorial example where a new note with a picture can be created, as part of an AWS Amplify getting started guide.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/tjez-note-picture-cceba-running-iphone-pro.png)
+![An iOS app running on iPhone 15 Pro (iOS 17), showing a tutorial example where a new note with a picture can be created, as part of an AWS Amplify getting started guide.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/tjez-note-picture-cceba-running-iphone-pro.png)
 
 
 ### (Optional) Step 7: Share your backend among multiple projects

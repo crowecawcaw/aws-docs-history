@@ -114,14 +114,14 @@ To create the basic structure of our backend, we first need to initialize the Am
 1. Add dependencies
 
    Switch back to **Xcode**. Select **File** and choose **Add Package Dependencies...**   
-![The File menu in an iOS development environment with the 'Add Package Dependencies...' option highlighted, part of the Amplify getting started tutorial for building iOS apps.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/nahx-dependencies-ecad-file-menu.png)
+![The File menu in an iOS development environment with the 'Add Package Dependencies...' option highlighted, part of the Amplify getting started tutorial for building iOS apps.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/nahx-dependencies-ecad-file-menu.png)
 
 1. Search for the Amplify library
 
    Enter the **Amplify Libraries for Swift GitHub repo URL** ([https://github.com/aws-amplify/amplify-swift](https://github.com/aws-amplify/amplify-swift) ) into the search bar, and press **Enter**. 
 
    Make sure that  **Up to Next Major Version**  is selected from the  **Dependency Rule**  dropdown, and select **Add Package**.   
-![The AWS Amplify Library for Swift documentation and setup within a 'Getting Started' tutorial for building an iOS app, showing amplify-swift package details and introductory information.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/swift-amplifylong-library-documentation.png)
+![The AWS Amplify Library for Swift documentation and setup within a 'Getting Started' tutorial for building an iOS app, showing amplify-swift package details and introductory information.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/swift-amplifylong-library-documentation.png)
 
 1. Select the library
 
@@ -130,7 +130,7 @@ To create the basic structure of our backend, we first need to initialize the Am
    In the drop down, next to **Amplify**, choose **GettingStarted**. 
 
    Select **None**  in for the rest of the Package Products in the Add to Target section, and choose **Add Package**.   
-![The 'Choose Package Products for amplify-swift' dialog in Xcode, showing a list of AWS Amplify and CoreML plugin packages to add to an iOS project as part of the AWS Amplify tutorial for building iOS apps.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/choose-package-products-swift-dialog-xcode.png)
+![The 'Choose Package Products for amplify-swift' dialog in Xcode, showing a list of AWS Amplify and CoreML plugin packages to add to an iOS project as part of the AWS Amplify tutorial for building iOS apps.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/choose-package-products-swift-dialog-xcode.png)
 
 ### Step 4: Initialize Amplify at runtime
 <a name="initialize-amplify-at-runtime"></a>

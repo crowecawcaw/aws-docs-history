@@ -93,12 +93,12 @@ Do not forget to type the redirect URIs. They are needed for the redirection for
    To add the Amplify Authentication library to the dependencies of your project, navigate to the **General** tab of your Target application (Your Project > Targets > General). 
 
    Select the **plus (\+)** in the **Frameworks, Libraries, and Embedded Content** section.   
-![The General tab in Xcode for an iOS app project named GettingStarted, highlighting project setup steps in the Amplify tutorial including package dependencies, supported device orientations, and adding frameworks or libraries.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/general-tab-xcode-project-named.png)
+![The General tab in Xcode for an iOS app project named GettingStarted, highlighting project setup steps in the Amplify tutorial including package dependencies, supported device orientations, and adding frameworks or libraries.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/general-tab-xcode-project-named.png)
 
 1. Select the plugin
 
    Select **AWSCognitoAuthPlugin**,and choose **Add**.   
-![The 'Choose frameworks and libraries to add' dialog in Xcode, highlighting the AWSCognitoAuthPlugin in the Amplify Package for an iOS app using AWS Amplify authentication.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/pxkqu-auth-plugin-choose-frameworks.png)
+![The 'Choose frameworks and libraries to add' dialog in Xcode, highlighting the AWSCognitoAuthPlugin in the Amplify Package for an iOS app using AWS Amplify authentication.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/pxkqu-auth-plugin-choose-frameworks.png)
 
 ### Step 3: Configure the Amplify Authentication library at runtime
 <a name="configure-the-amplify-authentication-library-at-runtime"></a>
@@ -311,28 +311,28 @@ Once you've finished that process, the Notes view will display with a **Sign Ou
 #### Landing view
 <a name="landing-view"></a>
 
-![An iPhone 15 Pro simulator displaying a blank landing view with a loading spinner and 'Sign in' text, as part of an AWS Amplify tutorial for building iOS apps.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/landing-view-iphone-pro-simulator.png)
+![An iPhone 15 Pro simulator displaying a blank landing view with a loading spinner and 'Sign in' text, as part of an AWS Amplify tutorial for building iOS apps.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/landing-view-iphone-pro-simulator.png)
 
 
 #### Hosted UI: Sign in
 <a name="hosted-ui-sign-in"></a>
 
-![An iPhone displaying the Amazon Cognito hosted UI sign-in screen as seen during an AWS Amplify tutorial for building an iOS app. The screen includes fields for username and password, a sign-in button, and options to reset the password or sign up.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/wrli-hosted-sign-dba-iphone-displaying.png)
+![An iPhone displaying the Amazon Cognito hosted UI sign-in screen as seen during an AWS Amplify tutorial for building an iOS app. The screen includes fields for username and password, a sign-in button, and options to reset the password or sign up.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/wrli-hosted-sign-dba-iphone-displaying.png)
 
 
 #### Hosted UI: Sign up
 <a name="hosted-ui-sign-up"></a>
 
-![An iPhone 15 Pro displaying a hosted UI sign up screen from Amazon Cognito, showing fields for username, email, and password. Part of the 'build iOS app with Amplify' tutorial.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/uvq-hosted-sign-iphone-pro-displaying.png)
+![An iPhone 15 Pro displaying a hosted UI sign up screen from Amazon Cognito, showing fields for username, email, and password. Part of the 'build iOS app with Amplify' tutorial.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/uvq-hosted-sign-iphone-pro-displaying.png)
 
 
 #### Hosted UI: Confirmation
 <a name="hosted-ui-confirmation"></a>
 
-![An iPhone displaying the account confirmation page from an AWS Amplify tutorial, showing a form to enter a verification code for account confirmation using Amazon Cognito Hosted UI.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/hosted-confirmation-iphone-displaying.png)
+![An iPhone displaying the account confirmation page from an AWS Amplify tutorial, showing a form to enter a verification code for account confirmation using Amazon Cognito Hosted UI.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/hosted-confirmation-iphone-displaying.png)
 
 
 #### List of notes
 <a name="list-of-notes"></a>
 
-![An iOS app running in an iPhone 15 Pro simulator, displaying a 'Notes' screen with the message 'No notes.' Part of an AWS Amplify tutorial for building an iOS app with a hosted UI.](http://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/vfnmrvtl-hosted-notes-ebf-running-iphone.png)
+![An iOS app running in an iPhone 15 Pro simulator, displaying a 'Notes' screen with the message 'No notes.' Part of an AWS Amplify tutorial for building an iOS app with a hosted UI.](https://docs.aws.amazon.com/hands-on/latest/build-ios-app-amplify/images/vfnmrvtl-hosted-notes-ebf-running-iphone.png)
