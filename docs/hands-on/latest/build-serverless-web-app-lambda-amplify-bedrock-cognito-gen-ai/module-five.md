@@ -35,7 +35,7 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
   ```
   npm install aws-amplify @aws-amplify/ui-react
   ```  
-![Terminal commands to install AWS Amplify libraries for a serverless web app project in the 'ai-recipe-generator' directory. The output indicates successful installation with no vulnerabilities found. Used in Module 5 of a generative AI web app tutorial.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/lxi-luk-serverless-gen-install-libraries.png)
+![Terminal commands to install AWS Amplify libraries for a serverless web app project in the 'ai-recipe-generator' directory. The output indicates successful installation with no vulnerabilities found. Used in Module 5 of a generative AI web app tutorial.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/lxi-luk-serverless-gen-install-libraries.png)
 
 ### Step 2: Style the App UI
 <a name="style-the-app-ui"></a>
@@ -81,7 +81,7 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
      grid-column: 3;
    }
    ```  
-![The file structure for an 'ai-recipe-generator' project, highlighting the 'index.css' file within the 'src/assets' directory. This image is used in Module 5 of the tutorial to show how to modify CSS for the project.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-modify-fdbba-file-structure.png)
+![The file structure for an 'ai-recipe-generator' project, highlighting the 'index.css' file within the 'src/assets' directory. This image is used in Module 5 of the tutorial to show how to modify CSS for the project.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-modify-fdbba-file-structure.png)
 
 1. Modify the App CSS
 
@@ -190,7 +190,7 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
      text-align: left; /* Align text to the left */
    }
    ```  
-![The file structure for an 'ai-recipe-generator' project, highlighting the 'App.css' file within the 'src/assets' directory. This image is used in Module 5 of the tutorial to show how to modify CSS for the project.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/app-css.png)
+![The file structure for an 'ai-recipe-generator' project, highlighting the 'App.css' file within the 'src/assets' directory. This image is used in Module 5 of the tutorial to show how to modify CSS for the project.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/app-css.png)
 
 ### Step 3: Implement the UI
 <a name="implement-the-ui"></a>
@@ -215,13 +215,13 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
      </React.StrictMode>
    );
    ```  
-![The file structure of the 'ai-recipe-generator' project with the 'main.tsx' file highlighted within the 'src' folder, as part of a tutorial step for building a serverless web app using generative AI.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-modify-main-feb-file.png)
+![The file structure of the 'ai-recipe-generator' project with the 'main.tsx' file highlighted within the 'src' folder, as part of a tutorial step for building a serverless web app using generative AI.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-modify-main-feb-file.png)
 
 1. Configure the Amplify library
 
    **Open** the ****ai-recipe-generator/src/App.tsx**** file, and **update** it with [this code](https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/getting-started/approved/assets/build-serverless-web-app-gen-ai-mod-5-tutorial-app-tsx.pdf). Then, **save** the file. 
    + The code starts by configuring the Amplify library with the client configuration file (**amplify\_outputs.json)**. It then generates a data client using the **generateClient() **function. The app presents a form to users for submitting a list of ingredients. Once submitted, it will use the data client to pass the list to the **askBedrock** query and retrieve the generated recipe then display it to the user.   
-![The file structure of the ai-recipe-generator project with the App.tsx file highlighted. This image is used in the serverless web app with generative AI tutorial to illustrate which file to modify in the src directory.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-modify-efae-file-structure.png)
+![The file structure of the ai-recipe-generator project with the App.tsx file highlighted. This image is used in the serverless web app with generative AI tutorial to illustrate which file to modify in the src directory.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-modify-efae-file-structure.png)
 
 1. Launch the app
 
@@ -234,24 +234,24 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
 1. Open the app
 
    Select the **Local host link** to open the Vite \+ React application.   
-![The terminal output after running a local server for a serverless web app generative AI tutorial (Module 5). The text highlights the local server address (http://localhost:5173/) indicating the app is running locally.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/mpfgqcj-serverless-gen-local-host-terminal.png)
+![The terminal output after running a local server for a serverless web app generative AI tutorial (Module 5). The text highlights the local server address (http://localhost:5173/) indicating the app is running locally.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/mpfgqcj-serverless-gen-local-host-terminal.png)
 
 1. Create an account
 
    Choose the **Create Account** tab, and use the authentication flow to create a new user by entering your **email address** and a **password**. 
 
    Then, choose **Create Account**.   
-![A web form for creating an account, showing fields for email, password, and confirm password, with 'Create Account' button highlighted.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/form-creating-account-fields-email.png)
+![A web form for creating an account, showing fields for email, password, and confirm password, with 'Create Account' button highlighted.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/form-creating-account-fields-email.png)
 
 1. Enter verification code
 
    You will get a verification code sent to your email. Enter the **verification code** to log in to the app.   
-![A web interface prompting users to enter a confirmation code sent via email to complete login. The interface includes a field to input the code, a 'Confirm' button, and a 'Resend Code' option.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/interface-prompting-users-enter.png)
+![A web interface prompting users to enter a confirmation code sent via email to complete login. The interface includes a field to input the code, a 'Confirm' button, and a 'Resend Code' option.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/interface-prompting-users-enter.png)
 
 1. Generate recipes
 
    When signed in, you can start **inputting ingredients** and **generating recipes. **   
-![A web app titled 'Meet Your Personal Recipe AI' showing an input box for typing ingredients such as chicken, white rice, yellow squash, and onion, with a 'Generate' button for creating recipes using AI.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/uba-serverless-gen-generate-ingredients.png)
+![A web app titled 'Meet Your Personal Recipe AI' showing an input box for typing ingredients such as chicken, white rice, yellow squash, and onion, with a 'Generate' button for creating recipes using AI.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/uba-serverless-gen-generate-ingredients.png)
 
 1. Push changes
 
@@ -262,14 +262,14 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
    git commit -m 'connect to bedrock'
    git push origin main
    ```  
-![A command-line terminal showing git commands used to add, commit, and push changes to a repository for the 'ai-recipe-generator' project as part of a serverless web app with generative AI tutorial. The output displays files changed and push confirmation to GitHub.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-push-changes-command-line.png)
+![A command-line terminal showing git commands used to add, commit, and push changes to a repository for the 'ai-recipe-generator' project as part of a serverless web app with generative AI tutorial. The output displays files changed and push confirmation to GitHub.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-push-changes-command-line.png)
 
 1. View your changes
 
    **Sign in** to the AWS Management console in a new browser window, and **open** the AWS Amplify console at [https://console.aws.amazon.com/amplify/apps](https://console.aws.amazon.com/amplify/apps). 
 
    AWS Amplify automatically builds your source code and deployed your app at ****https://...amplifyapp.com****, and on every git push your deployment instance will update. Select the **Visit deployed URL** button to see your web app up and running live.   
-![The AWS Amplify console showing the overview page for the 'ai-recipe-generator' app, with a highlighted 'Visit deployed URL' button, production branch deployment status, and branch details. Used in a tutorial for building a serverless web app with generative AI.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/hna-ueoi-serverless-gen-view-changes.png)
+![The AWS Amplify console showing the overview page for the 'ai-recipe-generator' app, with a highlighted 'Visit deployed URL' button, production branch deployment status, and branch details. Used in a tutorial for building a serverless web app with generative AI.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/hna-ueoi-serverless-gen-view-changes.png)
 
 ## Conclusion
 <a name="conclusion"></a>

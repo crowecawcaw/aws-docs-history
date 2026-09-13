@@ -31,7 +31,7 @@ In this tutorial, you will:
 1. Create a Lambda function
 
    On your local machine, navigate to the **ai-recipe-generator/amplify/data** folder, and **create** a file named **bedrock.js**.   
-![A file directory for the ai-recipe-generator project, showing folders amplify, auth, data, and files such as resource.ts, backend.ts, package.json. The file bedrock.js is highlighted in the data folder.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/file-directory-recipe-generator-project.png)
+![A file directory for the ai-recipe-generator project, showing folders amplify, auth, data, and files such as resource.ts, backend.ts, package.json. The file bedrock.js is highlighted in the data folder.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/file-directory-recipe-generator-project.png)
 
 1. Add the function code
 
@@ -124,7 +124,7 @@ In this tutorial, you will:
   );
   ```
   + The code adds an HTTP data source for Amazon Bedrock to your API and grant it permissions to invoke the Claude model.   
-![The 'ai-recipe-generator' project directory structure, highlighting the backend.ts file located in the amplify/auth folder.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/recipe-generator-project-directory.png)
+![The 'ai-recipe-generator' project directory structure, highlighting the backend.ts file located in the amplify/auth folder.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/recipe-generator-project-directory.png)
 
 ## Conclusion
 <a name="conclusion"></a>

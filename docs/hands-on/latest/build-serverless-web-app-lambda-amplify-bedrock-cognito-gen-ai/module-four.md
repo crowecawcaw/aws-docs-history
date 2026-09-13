@@ -65,7 +65,7 @@ In this tutorial, you will:
      },
    });
    ```  
-![The folder structure of the 'ai-recipe-generator' project, with the 'resource.ts' file highlighted in the data directory.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/recipe-generator-folder-structure-resource.png)
+![The folder structure of the 'ai-recipe-generator' project, with the 'resource.ts' file highlighted in the data directory.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/recipe-generator-folder-structure-resource.png)
 
 1. Deploy resources
 
@@ -74,17 +74,17 @@ In this tutorial, you will:
    ```
    npx ampx sandbox
    ```  
-![Result of running the npx ampx sandbox command.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/sandbox.png)
+![Result of running the npx ampx sandbox command.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/sandbox.png)
 
 1. View confirmation message
 
    After the cloud sandbox has been fully deployed, your terminal will display a confirmation message.  
-![The confirmation message.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/confirmation-message.png)
+![The confirmation message.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/confirmation-message.png)
 
 1. Verify outputs file creation
 
    Verify that the *amplify\_outputs.json* file was **generated** and **added** to your project.  
-![Showing the amplify_outputs.json file in Finder.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplify-outputs-json.png)
+![Showing the amplify_outputs.json file in Finder.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplify-outputs-json.png)
 
 ## Conclusion
 <a name="conclusion"></a>

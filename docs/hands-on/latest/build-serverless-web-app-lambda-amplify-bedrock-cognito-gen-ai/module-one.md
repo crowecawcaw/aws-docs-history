@@ -40,12 +40,12 @@ In this tutorial, you will:
    npm install
    npm run dev
    ```  
-![A terminal window showing shell commands for creating a Vite project using React and TypeScript template, including commands: create vite@latest ai-recipe-generator -- --template react-ts -y, cd ai-recipe-generator, npm install, and npm run dev, along with output and scaffold instructions.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/terminal-window-shell-commands-creating.png)
+![A terminal window showing shell commands for creating a Vite project using React and TypeScript template, including commands: create vite@latest ai-recipe-generator -- --template react-ts -y, cd ai-recipe-generator, npm install, and npm run dev, along with output and scaffold instructions.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/terminal-window-shell-commands-creating.png)
 
 1. Open the application
 
    In the terminal window, select and open the Local link to view the Vite \+ React application.   
-![A terminal running 'npm run dev' for a Vite project, showing the local development server available at http://localhost:5173/.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/terminal-running-run-dev-vite-project.png)
+![A terminal running 'npm run dev' for a Vite project, showing the local development server available at http://localhost:5173/.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/terminal-running-run-dev-vite-project.png)
 
 ### Step 2: Initialize a GitHub repository
 <a name="initialize-a-github-repository"></a>
@@ -58,14 +58,14 @@ If you have never used GitHub on your computer, follow [these steps](https://doc
 1. Sign in to GitHub
 
    **Sign in** to GitHub at [https://github.com/](https://github.com/).   
-![The GitHub sign-in page showing fields for username or email address, password, and a green 'Sign in' button.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/github-sign-page-fields-username-email.png)
+![The GitHub sign-in page showing fields for username or email address, password, and a green 'Sign in' button.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/github-sign-page-fields-username-email.png)
 
 1. Start a new repository
 
    In the **Start a new repository** section, make the following selections: 
    + For **Repository name**, enter **ai-recipe-generator**, and choose the **Public** radio button. 
    + Then select, **Create a new repository**.   
-![The GitHub interface for starting a new repository named 'ai-recipe-generator' for the user janellefowler, with the 'Public' option selected and the 'Create a new repository' button highlighted.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/github-interface-starting-new-repository.png)
+![The GitHub interface for starting a new repository named 'ai-recipe-generator' for the user janellefowler, with the 'Public' option selected and the 'Create a new repository' button highlighted.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/github-interface-starting-new-repository.png)
 
 1. Initialize Git
 
@@ -81,7 +81,7 @@ Replace the **SSH GitHub URL** in the command with your GitHub URL.
    git branch -M main
    git push -u origin main
    ```  
-![A screenshot of a terminal window showing the initialization of a Git repository, adding files, making the first commit, setting the remote origin, and pushing the initial commit for a project named ai-recipe-generator.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/screenshot-terminal-window-initialization.png)
+![A screenshot of a terminal window showing the initialization of a Git repository, adding files, making the first commit, setting the remote origin, and pushing the initial commit for a project named ai-recipe-generator.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/screenshot-terminal-window-initialization.png)
 
 ### Step 3: Install the Amplify packages
 <a name="install-the-amplify-packages"></a>
@@ -93,12 +93,12 @@ Replace the **SSH GitHub URL** in the command with your GitHub URL.
    ```
    npm create amplify@latest -y
    ```  
-![The setup process for a new AWS Amplify project in a terminal using the npm create amplify@latest command. Various dependencies are installed, and the completion message for successfully creating a new project is displayed, along with guidance for next steps using AWS Amplify CLI.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/setup-process-new-amplifylong-project.png)
+![The setup process for a new AWS Amplify project in a terminal using the npm create amplify@latest command. Various dependencies are installed, and the completion message for successfully creating a new project is displayed, along with guidance for next steps using AWS Amplify CLI.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/setup-process-new-amplifylong-project.png)
 
 1. View directory
 
    Running the previous command will scaffold a lightweight Amplify project in the app’s directory.   
-![The directory structure of the 'ai-recipe-generator' project, highlighting the 'amplify' folder with 'auth' and 'data' subfolders, and files such as resource.ts, backend.ts, package.json, and tsconfig.json.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/directory-structure-recipe-generator.png)
+![The directory structure of the 'ai-recipe-generator' project, highlighting the 'amplify' folder with 'auth' and 'data' subfolders, and files such as resource.ts, backend.ts, package.json, and tsconfig.json.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/directory-structure-recipe-generator.png)
 
 ### Step 4: Deploy your app with AWS Amplify
 <a name="manage-users"></a>
@@ -106,12 +106,12 @@ Replace the **SSH GitHub URL** in the command with your GitHub URL.
 1. **Sign in** to the AWS Management Console in a new browser window, and **open** the AWS Amplify console at [https://console.aws.amazon.com/amplify/apps](https://console.aws.amazon.com/amplify/apps). 
 
    Choose **Create new app**.   
-![The AWS Amplify Console displaying the 'All apps' view with the 'wildrydes-site' app deployed, and the 'Create new app' button highlighted for a serverless web application and generative AI tutorial.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-amplifylong-console.png)
+![The AWS Amplify Console displaying the 'All apps' view with the 'wildrydes-site' app deployed, and the 'Create new app' button highlighted for a serverless web application and generative AI tutorial.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-amplifylong-console.png)
 
 1. Select GitHub to deploy your app
 
    On the **Start building with Amplify** page, for **Deploy your app**, select **GitHub**, and select **Next**.   
-![The AWS Amplify setup page showing options to deploy an app using GitHub, BitBucket, CodeCommit, or GitLab, with GitHub highlighted. Manual deployment without Git is also available. The 'Next' button is highlighted at the bottom right.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplifylong-setup-page-options-using.png)
+![The AWS Amplify setup page showing options to deploy an app using GitHub, BitBucket, CodeCommit, or GitLab, with GitHub highlighted. Manual deployment without Git is also available. The 'Next' button is highlighted at the bottom right.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplifylong-setup-page-options-using.png)
 
 1. Authenticate with GitHub
 
@@ -120,24 +120,24 @@ Replace the **SSH GitHub URL** in the command with your GitHub URL.
    Choose the **repository** and **main branch** you created earlier. 
 
    Then select **Next**.   
-![The 'Add repository and branch' screen in AWS Amplify showing repository selection, branch selection, and navigation options such as Cancel, Previous, and Next.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/repository-screen-amplifylong-selection.png)
+![The 'Add repository and branch' screen in AWS Amplify showing repository selection, branch selection, and navigation options such as Cancel, Previous, and Next.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/repository-screen-amplifylong-selection.png)
 
 1. Select Next
 
    Leave the default **build settings**, and select **Next**.   
-![The AWS Amplify 'App settings' configuration page showing the setup for an application named 'ai-recipe-generator.' The screen includes sections for build settings, detected frameworks (Amplify Gen 2), frontend build command (npm run build), build output directory (dist), service role options, and navigation buttons for Previous, Cancel, and a highlighted Next button.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplifylong-settings-configuration-page.png)
+![The AWS Amplify 'App settings' configuration page showing the setup for an application named 'ai-recipe-generator.' The screen includes sections for build settings, detected frameworks (Amplify Gen 2), frontend build command (npm run build), build output directory (dist), service role options, and navigation buttons for Previous, Cancel, and a highlighted Next button.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplifylong-settings-configuration-page.png)
 
 1. Review configuration
 
    Review the inputs selected, and choose **Save and deploy**.   
-![The AWS Amplify Gen 2 app deployment interface showing review sections for repository details, app settings, and advanced settings, with a highlighted 'Save and deploy' button.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplifylong-gen-deployment-interface.png)
+![The AWS Amplify Gen 2 app deployment interface showing review sections for repository details, app settings, and advanced settings, with a highlighted 'Save and deploy' button.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplifylong-gen-deployment-interface.png)
 
 1. View your app
 
    AWS Amplify will now **build** your source code and **deploy** your app at ****https://...amplifyapp.com****, and on every git push your deployment instance will update. It may take up to 5 minutes to deploy your app. 
 
    Once the build completes, select the **Visit deployed URL** button to see your web app up and running live.   
-![The AWS Amplify dashboard showing the deployed 'ai-recipe-generator' app. Highlights include the production branch labeled as 'main', its deployed status, domain URL, last updated time, last commit (auto-build), repository link, and a prominent 'Visit deployed URL' button in the top right.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplifylong-dashboard-deployed-recipe.png)
+![The AWS Amplify dashboard showing the deployed 'ai-recipe-generator' app. Highlights include the production branch labeled as 'main', its deployed status, domain URL, last updated time, last commit (auto-build), repository link, and a prominent 'Visit deployed URL' button in the top right.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/amplifylong-dashboard-deployed-recipe.png)
 
 ## Conclusion
 <a name="conclusion"></a>

@@ -20,7 +20,7 @@ In this task, you will go through the steps to delete all the resources you crea
 1. Delete the app
 
    In the **General settings** section, choose **Delete app**.   
-![The AWS Amplify Console showing the General settings for a serverless web app with the option to delete the app highlighted. The left navigation displays 'App settings' and 'General settings', while the main section contains details about the app and a 'Delete app' button.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-bedrock-delete-amplifylong.png)
+![The AWS Amplify Console showing the General settings for a serverless web app with the option to delete the app highlighted. The left navigation displays 'App settings' and 'General settings', while the main section contains details about the app and a 'Delete app' button.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-bedrock-delete-amplifylong.png)
 
 ## Congratulations
 <a name="congratulations"></a>

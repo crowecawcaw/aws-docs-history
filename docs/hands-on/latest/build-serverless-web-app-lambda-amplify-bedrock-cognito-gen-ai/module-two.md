@@ -50,12 +50,12 @@ The app uses email as the default login mechanism. When the users sign up, they 
      },
    });
    ```  
-![The file structure of the ai-recipe-generator project, highlighting the resource.ts file inside the auth folder. This is part of a tutorial for building a serverless web app with generative AI, specifically demonstrating where to modify the resource file.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-modify-resource-file.png)
+![The file structure of the ai-recipe-generator project, highlighting the resource.ts file inside the auth folder. This is part of a tutorial for building a serverless web app with generative AI, specifically demonstrating where to modify the resource file.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-modify-resource-file.png)
 
 1. View the customized email
 
    The following image is an example of the customized verification email.  
-![A customized verification email](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/customized-email.png)
+![A customized verification email](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/customized-email.png)
 
 ### Step 2: Set up Amazon Bedrock Model Access
 <a name="set-up-amazon-bedrock-model-access"></a>
@@ -67,34 +67,34 @@ Amazon Bedrock enables users to request access to a variety of Generative AI mod
    **Sign in** to the AWS Management console in a new browser window, and **open** the AWS Amazon Bedrock console at  [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/). 
 
    **Verify** that you are in the ****N. Virginia us-east-1**** region, and choose **Get started**.   
-![The Amazon Bedrock console showing the welcome screen to build and scale generative AI applications with foundation models (FMs), featuring a 'Get started' button as part of a serverless web app tutorial (Module 2).](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-bedrock-console-welcome.png)
+![The Amazon Bedrock console showing the welcome screen to build and scale generative AI applications with foundation models (FMs), featuring a 'Get started' button as part of a serverless web app tutorial (Module 2).](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-bedrock-console-welcome.png)
 
 1. Select the Claude model
 
    In the **Foundation models** section, choose the **Claude model**.   
-![The Amazon Bedrock overview interface showing supported foundation models, including AI21 Labs Jamba-Instruct, Amazon Titan, Anthropic Claude, Cohere Command, Meta Llama 3, Mistral AI Mistral, and Stability AI Stable Diffusion.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-foundation-models-cda.png)
+![The Amazon Bedrock overview interface showing supported foundation models, including AI21 Labs Jamba-Instruct, Amazon Titan, Anthropic Claude, Cohere Command, Meta Llama 3, Mistral AI Mistral, and Stability AI Stable Diffusion.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-foundation-models-cda.png)
 
 1. Request access to Claude 3 Sonnet
 
    Scroll down to the **Claude models** section, and choose the **Claude 3 Sonnet** tab, and select **Request model access**. 
 **Note**  
 If you already have access to some models, then the button will display **Manage model access**.  
-![The Claude models selection interface for Anthropic's Haiku, Sonnet, and Opus models, displaying options such as Claude 3 Opus, Claude 3 Sonnet, Claude 3 Haiku, and Claude 2.1. The image highlights the 'Request model access' button and shows a notification stating that the account does not currently have access to this model.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-claude-models-selection.png)
+![The Claude models selection interface for Anthropic's Haiku, Sonnet, and Opus models, displaying options such as Claude 3 Opus, Claude 3 Sonnet, Claude 3 Haiku, and Claude 2.1. The image highlights the 'Request model access' button and shows a notification stating that the account does not currently have access to this model.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-claude-models-selection.png)
 
 1. Request model access
 
    In the Base models section, for **Claude 3 Sonnet**, choose **Available to request,** and select **Request model access**.   
-![The 'Base models' selection panel from the AWS Management Console, displaying options for base model providers (AI21 Labs, Amazon, Anthropic) and access status. The panel highlights model access options such as 'Unavailable' and 'Available to request' with an example for Claude 3 Sonnet, as seen in a tutorial for building serverless web apps with generative AI.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-base-models-selection-panel.png)
+![The 'Base models' selection panel from the AWS Management Console, displaying options for base model providers (AI21 Labs, Amazon, Anthropic) and access status. The panel highlights model access options such as 'Unavailable' and 'Available to request' with an example for Claude 3 Sonnet, as seen in a tutorial for building serverless web apps with generative AI.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/serverless-gen-base-models-selection-panel.png)
 
 1. Choose Next
 
    On the **Edit model access** page, choose **Next**.   
-![The 'Edit model access' screen in an AWS GenAI tutorial, showing options to select and request access to different foundational models such as Claude 3 Sonnet. The Claude 3 Sonnet model is selected and the Next button is highlighted.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/fug-serverless-gen-edit-model-access-dffce-1.png)
+![The 'Edit model access' screen in an AWS GenAI tutorial, showing options to select and request access to different foundational models such as Claude 3 Sonnet. The Claude 3 Sonnet model is selected and the Next button is highlighted.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/fug-serverless-gen-edit-model-access-dffce-1.png)
 
 1. Submit request
 
    On the **Review and Submit** page, choose **Submit**.   
-![The 'Edit model access' screen in an AWS GenAI tutorial, showing options to select and request access to different foundational models such as Claude 3 Sonnet. The Claude 3 Sonnet model is selected and the Next button is highlighted.](http://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/fug-serverless-gen-edit-model-access-dffce-1.png)
+![The 'Edit model access' screen in an AWS GenAI tutorial, showing options to select and request access to different foundational models such as Claude 3 Sonnet. The Claude 3 Sonnet model is selected and the Next button is highlighted.](https://docs.aws.amazon.com/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/images/fug-serverless-gen-edit-model-access-dffce-1.png)
 
 ## Conclusion
 <a name="conclusion"></a>
