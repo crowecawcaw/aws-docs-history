@@ -10,7 +10,7 @@ This architecture enables you to build a renewable energy data lake that include
 ## Data Lake Architecture for Renewable Energy Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to visualize data and make predictions with machine learning.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-lake-architecture-for-renewable-energy/images/data-lake-architecture-for-renewable-energy.png)
+![Reference architecture diagram showing how you can use AWS services to visualize data and make predictions with machine learning.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-lake-architecture-for-renewable-energy/images/data-lake-architecture-for-renewable-energy.png)
 
 
 1. Renewable energy data is ingested into **AWS IoT Core** with MQ Telemetry Transport (MQTT) protocol. 
