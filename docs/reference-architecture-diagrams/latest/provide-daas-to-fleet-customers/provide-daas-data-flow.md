@@ -10,7 +10,7 @@ With this architecture, you can build a serverless Data as a Service (DaaS) plat
 ## DaaS data flow diagram
 <a name="daas-flow-diagram"></a>
 
-![Reference architecture diagram showing DaaS data flow for fleet customers by using Amazon Kinesis, Amazon EventBridge, and Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/provide-daas-to-fleet-customers/images/provide-daas-data-flow.png)
+![Reference architecture diagram showing DaaS data flow for fleet customers by using Amazon Kinesis, Amazon EventBridge, and Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/provide-daas-to-fleet-customers/images/provide-daas-data-flow.png)
 
 
 The following steps describe the data ingestion and delivery pipeline for this architecture:

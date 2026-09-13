@@ -10,7 +10,7 @@ With this architecture, you can onboard new fleet customers requesting data subs
 ## DaaS subscription flow diagram
 <a name="daas-sub-diagram"></a>
 
-![Reference architecture diagram showing DaaS subscription management by using Amazon API Gateway, Lambda, and AWS Step Functions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/provide-daas-to-fleet-customers/images/provide-daas-subscription.png)
+![Reference architecture diagram showing DaaS subscription management by using Amazon API Gateway, Lambda, and AWS Step Functions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/provide-daas-to-fleet-customers/images/provide-daas-subscription.png)
 
 
 The following steps describe the subscription onboarding workflow for this architecture:
