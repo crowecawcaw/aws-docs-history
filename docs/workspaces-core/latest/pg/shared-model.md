@@ -49,4 +49,4 @@ The following responsibilities belong to your company:
 
 The following images show the shared responsibility model and shared responsibility with AWS and your partner.
 
-![Shared responsibility model](http://docs.aws.amazon.com/workspaces-core/latest/pg/images/shared-core.png)
+![Shared responsibility model](https://docs.aws.amazon.com/workspaces-core/latest/pg/images/shared-core.png)

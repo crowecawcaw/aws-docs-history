@@ -10,7 +10,7 @@ WorkSpaces Core Managed Instances operate with:
 + Native AWS feature support (AMIs, KMS, Systems Manager)
 + WorkSpaces Core SDK for instance lifecycle management
 
-![Instances architecture map](http://docs.aws.amazon.com/workspaces-core/latest/pg/images/architecture-core.png)
+![Instances architecture map](https://docs.aws.amazon.com/workspaces-core/latest/pg/images/architecture-core.png)
 
 
 This model differs significantly from Amazon WorkSpaces Core bundles, which rely on pre-defined infrastructure launched within Amazon WorkSpaces owned accounts. Concepts such as directories, bundles, and images from Amazon WorkSpaces Core bundles do not apply here.
