@@ -12,7 +12,7 @@ Connector for SCEP offers two types of connectors—general-purpose and Connecto
 
 A general-purpose connector is designed to work with mobile device endpoints that support SCEP, except for Microsoft Intune, which has a dedicated connector. With general-purpose connectors, such as Jamf Pro or Omnissa Workspace ONE, you manage the SCEP challenge passwords. The following diagram uses a mobile device management (MDM) system as an example, but the same functionality applies to other SCEP-enabled systems or devices.
 
-![Describes how a Connector for SCEP general-purpose connector works.](http://docs.aws.amazon.com/privateca/latest/userguide/images/GenPurpose.jpg)
+![Describes how a Connector for SCEP general-purpose connector works.](https://docs.aws.amazon.com/privateca/latest/userguide/images/GenPurpose.jpg)
 
 
 1. The MDM system (or other device or system) sends a SCEP profile to the mobile client. A SCEP profile contains configuration parameters that define the certificate profile, such as certificate validity period, challenge password, and other information relevant to the issuance of certificates.
@@ -32,7 +32,7 @@ AWS Private CA Connector for SCEP for Microsoft Intune is designed for use with 
 
 To use Connector for SCEP with Microsoft Intune, you must enable specific functionalities using the Microsoft Intune API, and possess a valid Microsoft Intune license. You should also review the [Microsoft Intune® App Protection Policies](https://learn.microsoft.com/en-us/mem/intune/apps/app-protection-policy).
 
-![How a Connector for SCEP for Microsoft Intune works.](http://docs.aws.amazon.com/privateca/latest/userguide/images/Intune.jpg)
+![How a Connector for SCEP for Microsoft Intune works.](https://docs.aws.amazon.com/privateca/latest/userguide/images/Intune.jpg)
 
 
 1. Microsoft Intune sends a SCEP profile to the mobile client. The profile contains an encrypted challenge password that the mobile client places into the CSR.

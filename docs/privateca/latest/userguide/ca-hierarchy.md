@@ -13,7 +13,7 @@ A well-designed CA hierarchy offers the following benefits:
 
 The following diagram illustrates a simple, three-level CA hierarchy. 
 
-![Diagram of a simple, three-level CA hierarchy.](http://docs.aws.amazon.com/privateca/latest/userguide/images/simple-ca-tree.png)
+![Diagram of a simple, three-level CA hierarchy.](https://docs.aws.amazon.com/privateca/latest/userguide/images/simple-ca-tree.png)
 
 
 Each CA in the tree is backed by an X.509 v3 certificate with signing authority (symbolized by the pen-and-paper icon). This means that as CAs, they can sign other certificates subordinate to them. When a CA signs a lower-level CA's certificate, it confers limited, revocable authority on the signed certificate. The root CA in level 1 signs high-level subordinate CA certificates in level 2. These CAs, in turn, sign certificates for CAs in level 3 that are used by PKI (public key infrastructure) administrators who manage end-entity certificates. 
@@ -41,7 +41,7 @@ The trust store is a library of trusted CAs that the browser or operating system
 
 The next diagram shows the validation path that a browser follows when presented with an end-entity X.509 certificate. Note that the end-entity certificate lacks signing authority and serves only to authenticate the entity that owns it.
 
-![Validation check by a web browser.](http://docs.aws.amazon.com/privateca/latest/userguide/images/chain-of-trust.png)
+![Validation check by a web browser.](https://docs.aws.amazon.com/privateca/latest/userguide/images/chain-of-trust.png)
 
 
 The browser inspects the end-entity certificate. The browser finds that the certificate offers a signature from subordinate CA (level 3) as its trust credential. The certificates for the subordinate CAs must be included in the same PEM file. Alternatively, they can also be in a separate file that contains the certificates that make up the trust chain. Upon finding these, the browser checks the certificate of subordinate CA (level 3) and finds that it offers a signature from subordinate CA (level 2). In turn, subordinate CA (level 2) offers a signature from root CA (level 1) as its trust credential. If the browser finds a copy of the private root CA certificate preinstalled in its trust store, it validates the end-entity certificate as trusted. 
@@ -85,7 +85,7 @@ In this example, a hypothetical technology company manufactures two Internet of 
 
 Consequently, the CA hierarchy closely models these administrative and operational aspects of the business.
 
-![Diagram of a more complex CA hierarchy.](http://docs.aws.amazon.com/privateca/latest/userguide/images/multilevel-ca-tree.png)
+![Diagram of a more complex CA hierarchy.](https://docs.aws.amazon.com/privateca/latest/userguide/images/multilevel-ca-tree.png)
 
 
 This hierarchy contains three roots, one for Internal Operations and two for External Operations (one root CA for each product line). It also illustrates multiple certification path length, with two levels of CA for Internal Operations and three levels for External Operations. 
@@ -110,7 +110,7 @@ Subordinate CAs have `pathLenConstraint` values equal to or greater than zero, d
 
 The following diagram illustrates this propagation of limited authority down the hierarchy.
 
-![Diagram of a simple, three-level CA hierarchy.](http://docs.aws.amazon.com/privateca/latest/userguide/images/path-length.png)
+![Diagram of a simple, three-level CA hierarchy.](https://docs.aws.amazon.com/privateca/latest/userguide/images/path-length.png)
 
 
 In this four-level hierarchy, the root is unconstrained (as always). But the first subordinate CA has a `pathLenConstraint` value of 2, which limits its child CAs from going more than two levels deeper. Consequently, for a valid certification path, the constraint value must decrement to zero in the next two levels. If a web browser encounters an end-entity certificate from this branch that has a path length greater than four, validation fails. Such a certificate could be the result of an accidentally created CA, a misconfigured CA, or a unauthorized issuance.

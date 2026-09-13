@@ -5,6 +5,14 @@
 
 The following topics show how to use AWS Private CA to secure communications in a Kubernetes cluster. For another example, refer to [ Encryption in transit for Kubernetes ](https://github.com/aws-samples/sample-encryption-in-transit-for-kubernetes) on GitHub.
 
+**Note**  
+In the AWS GovCloud (US) Regions, all ARNs on this page use the `aws-us-gov` partition. This includes:  
+The managed policy ARN is `arn:aws-us-gov:iam::aws:policy/AWSPrivateCAConnectorForKubernetesPolicy`.
+The PassRole resource ARN is `arn:aws-us-gov:iam::*:role/CertManagerPrivateCARole`.
+The private CA ARN in `CA_ARN` is `arn:aws-us-gov:acm-pca:REGION:ACCOUNT:certificate-authority/CA_ID`.
+The IAM Roles Anywhere source ARN is `arn:aws-us-gov:rolesanywhere:REGION:ACCOUNT:trust-anchor/ID`.
+Set `REGION` to an AWS GovCloud (US) Region (`us-gov-west-1` or `us-gov-east-1`).
+
 You can use a private certificate authority to secure communications with your Amazon EKS clusters. Before you begin, ensure that you have the following:
 + An AWS account with appropriate permissions scoped to your security policies.
 

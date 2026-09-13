@@ -18,7 +18,7 @@ Three elements are involved in configuring a custom URL for OCSP.
 
 The following diagram illustrates how these elements work together.
 
-![Custom OCSP topology](http://docs.aws.amazon.com/privateca/latest/userguide/images/ocsp.png)
+![Custom OCSP topology](https://docs.aws.amazon.com/privateca/latest/userguide/images/ocsp.png)
 
 
 As shown in the diagram, the customized OCSP validation process involves the following steps:

@@ -46,7 +46,7 @@ The following diagram illustrates the CA lifecycle as an interaction of manageme
 
 
 
-![Interaction of CA management actions and status.](http://docs.aws.amazon.com/privateca/latest/userguide/images/status.png)
+![Interaction of CA management actions and status.](https://docs.aws.amazon.com/privateca/latest/userguide/images/status.png)
 
 
 
@@ -54,7 +54,7 @@ The following diagram illustrates the CA lifecycle as an interaction of manageme
 
 |  |  |  |  | 
 | --- |--- |--- |--- |
-| ![Blue rectangle shape representing a management action in the diagram.](http://docs.aws.amazon.com/privateca/latest/userguide/images/rectangle.png)Management action | ![Blue parallelogram shape with angled sides and sharp corners.](http://docs.aws.amazon.com/privateca/latest/userguide/images/parallelogram.png)CA status | ![Blue arrow pointing to the right, indicating direction or progression.](http://docs.aws.amazon.com/privateca/latest/userguide/images/arrow-solid.png)Action results in a state change | ![Four dots followed by a right-pointing arrow indicating progression or continuation.](http://docs.aws.amazon.com/privateca/latest/userguide/images/arrow-dotted.png)New state enables new action | 
+| ![Blue rectangle shape representing a management action in the diagram.](https://docs.aws.amazon.com/privateca/latest/userguide/images/rectangle.png)Management action | ![Blue parallelogram shape with angled sides and sharp corners.](https://docs.aws.amazon.com/privateca/latest/userguide/images/parallelogram.png)CA status | ![Blue arrow pointing to the right, indicating direction or progression.](https://docs.aws.amazon.com/privateca/latest/userguide/images/arrow-solid.png)Action results in a state change | ![Four dots followed by a right-pointing arrow indicating progression or continuation.](https://docs.aws.amazon.com/privateca/latest/userguide/images/arrow-dotted.png)New state enables new action | 
 
 At the top of the diagram, management actions are applied through the AWS Private CA console, CLI, or API. The actions take the CA through creation, activation, expiration and renewal. The CA status changes in response (as shown by the solid lines) to manual actions or automated updates. In most cases, a new status leads to a new possible action (shown by a dotted line) that the CA administrator can apply. The lower-right inset shows the possible status values permitting delete and restore actions.
 

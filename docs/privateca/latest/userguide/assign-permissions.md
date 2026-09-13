@@ -8,7 +8,7 @@ When the CA administrator (that is, the owner of the CA) and the certificate iss
 **Single-account case 1: Issuing an unmanaged certificate**  
 In this case, the account owner creates a private CA and then creates an IAM user with permission to issue certificates signed by the private CA. The IAM user issues a certificate by calling the AWS Private CA `IssueCertificate` API.
 
-![Issuing an unmanaged certificate](http://docs.aws.amazon.com/privateca/latest/userguide/images/ca_access_1_account_pca_api.png)
+![Issuing an unmanaged certificate](https://docs.aws.amazon.com/privateca/latest/userguide/images/ca_access_1_account_pca_api.png)
 
 
 Certificates issued in this manner are unmanaged, which means that an administrator must export them and install them on devices where they are intended to be used. They also must be manually renewed when they expire. Issuing a certificate using this API requires a certificate signing request (CSR) and key pair that is generated outside of AWS Private CA by [OpenSSL](https://www.openssl.org/) or a similar program. For more information, see the `IssueCertificate` [documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html).
@@ -16,7 +16,7 @@ Certificates issued in this manner are unmanaged, which means that an administra
 **Single-account case 2: Issuing a managed certificate through ACM**  
 This second case involves API operations from both ACM and PCA. The account owner creates a private CA and IAM user as before. The account owner then [grants permission](create-CA.md#PcaCreateAcmPerms) to the ACM service principal to renew automatically any certificates that are signed by this CA. The IAM user again issues the certificate, but this time by calling the ACM `RequestCertificate` API, which handles CSR and key generation. When the certificate expires, ACM automates the renewal workflow.
 
-![Issuing a managed certificate](http://docs.aws.amazon.com/privateca/latest/userguide/images/ca_access_1_account_acm_api.png)
+![Issuing a managed certificate](https://docs.aws.amazon.com/privateca/latest/userguide/images/ca_access_1_account_acm_api.png)
 
 
 The account owner has the option of granting renewal permission through the management console during or after CA creation or using the PCA `CreatePermission` API. The managed certificates created from this workflow are available for use on with AWS services that are integrated with ACM.

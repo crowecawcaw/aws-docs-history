@@ -11,3 +11,12 @@ AWS Private CA has HSM backed keys that can't be exported. If you have regulator
 
 **Note**  
 If you are running on Amazon EKS, we recommend that you use the `cert-manager` and `aws-privateca-connector-for-kubernetes` add-ons for a managed installation experience. For more information, refer to [AWS add-ons](https://docs.aws.amazon.com/eks/latest/userguide/workloads-add-ons-available-eks.html#add-ons-aws-privateca-connector).
+
+## Region availability
+<a name="kubernetes-region-availability"></a>
+
+The AWS Private CA Connector for Kubernetes, including the managed `aws-privateca-connector-for-kubernetes` Amazon EKS add-on, is available in the AWS GovCloud (US) Regions:
++ AWS GovCloud (US-East)
++ AWS GovCloud (US-West)
+
+In the AWS GovCloud (US) Regions, resource ARNs use the `aws-us-gov` partition. See [AWS Private Certificate Authority](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-acmpca.html) in the *AWS GovCloud (US) User Guide* for Region-specific differences.

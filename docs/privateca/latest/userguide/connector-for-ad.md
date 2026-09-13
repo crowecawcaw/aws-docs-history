@@ -8,12 +8,22 @@ AWS Private CA can issue and manage certificates required by AWS Managed Microso
 You can use the Connector for AD with AWS Managed Microsoft AD to eliminate on-premises infrastructure by migrating your AD and public key infrastructure to the cloud. For customers looking to use AWS Private CA with their on-premises AD, this feature also integrates with AWS Managed Microsoft AD Connector.
 
 **Topics**
++ [Region availability](#connector-for-ad-region-availability)
 + [Are You a First-Time Connector for AD User?](#first-time-user)
 + [Set up Connector for AD](connector-for-ad-getting-started-prerequisites.md)
 + [Get started with AWS Private CA Connector for Active Directory](connector-for-ad-getting-started.md)
 + [AWS Private CA connectors for Active Directory](connector-for-ad-procedures.md)
 + [Integrating Connector for AD into event-driven applications using Amazon EventBridge](eventbridge-integration.md)
 + [Troubleshoot issues with AWS Private CA Connector for Active Directory](troubleshoot-connector-ad.md)
+
+## Region availability
+<a name="connector-for-ad-region-availability"></a>
+
+Connector for AD is available in the AWS GovCloud (US) Regions:
++ AWS GovCloud (US-East)
++ AWS GovCloud (US-West)
+
+In the AWS GovCloud (US) Regions, resource ARNs use the `aws-us-gov` partition. For endpoints, ARN patterns, and other Region-specific differences, see [AWS Private Certificate Authority](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-acmpca.html) in the *AWS GovCloud (US) User Guide*.
 
 ## Are You a First-Time Connector for AD User?
 <a name="first-time-user"></a>

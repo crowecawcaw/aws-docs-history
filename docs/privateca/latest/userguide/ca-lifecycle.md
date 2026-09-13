@@ -16,7 +16,7 @@ AWS Private CA and AWS Certificate Manager assist with the configuration of cert
 
 The following diagram shows a typical configuration of nested validity periods. The root certificate is the most long-lived; end-entity certificates are relatively short-lived; and subordinate CAs range between these extremes. 
 
-![Subordinate and validity periods must fall within the validity periods of their parents.](http://docs.aws.amazon.com/privateca/latest/userguide/images/validity.png)
+![Subordinate and validity periods must fall within the validity periods of their parents.](https://docs.aws.amazon.com/privateca/latest/userguide/images/validity.png)
 
 
 When you plan your CA hierarchy, determine the optimal lifetime for your CA certificates. Work backwards from the desired lifetime of the end-entity certificates that you want to issue. 
