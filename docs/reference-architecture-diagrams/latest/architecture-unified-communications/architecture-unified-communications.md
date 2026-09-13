@@ -10,7 +10,7 @@ This reference architecture diagram shows how to deploy the Avaya Aura Unified C
 ## Architecture for Unified Communications
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing the Avaya Aura Unified Communications platform deployed on AWS with Amazon Elastic Compute Cloud, AWS Direct Connect, and Amazon WorkSpaces.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/architecture-unified-communications/images/architecture-unified-communications.png)
+![Reference architecture diagram showing the Avaya Aura Unified Communications platform deployed on AWS with Amazon Elastic Compute Cloud, AWS Direct Connect, and Amazon WorkSpaces.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/architecture-unified-communications/images/architecture-unified-communications.png)
 
 
 1. Users on a corporate network register UC applications and devices by using [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) or AWS Site-to-Site VPN.
