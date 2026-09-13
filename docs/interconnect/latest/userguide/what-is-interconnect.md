@@ -85,7 +85,7 @@ The following diagram shows the high-level physical infrastructure used to provi
 
 At the infrastructure level, AWS and the provider have provisioned multiple logical connections. These connections span multiple network devices across two physical facilities. All the physical connections between the AWS routers and the provider routers in each facility are secured using MACsec.
 
-![Interconnect architecture diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/interconnect-diagram.png)
+![Interconnect architecture diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/interconnect-diagram.png)
 
 
 ### Interconnect Creation Process at High-Level
@@ -97,7 +97,7 @@ The provider receives the request and waits for confirmation from the customer. 
 
  AWS and the provider then begin the provisioning process. No further customer interaction is needed (4). The process is completed with the successful creation of the new Interconnect. The Interconnect attaches to the Direct Connect gateway on the AWS side and to the provider’s attach point on the remote side.
 
-![Interconnect creation process diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/interconnect-diagram-process.png)
+![Interconnect creation process diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/interconnect-diagram-process.png)
 
 
 ## Supported configurations with AWS networking services

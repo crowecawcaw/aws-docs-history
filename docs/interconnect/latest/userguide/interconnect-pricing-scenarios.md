@@ -10,7 +10,7 @@ The following examples show how the Tier structure is applied to your Interconne
 
 You create a new Interconnect that is local to the us-east-1 (N. Virginia) Region and associate it to a VPC in the same Region using a VGW. This Interconnect will be subscribed to Tier 1 as the local path between the N. Virginia Region and an Interconnect provisioned in N. Virginia is Tier 1.
 
-![Example 1 - Local single Interconnect Tier 1 diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-example1.png)
+![Example 1 - Local single Interconnect Tier 1 diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-example1.png)
 
 
 ## Example 2: Global, same continent, single Interconnect
@@ -20,7 +20,7 @@ You create a new Interconnect that is local to the us-east-1 (N. Virginia) Regio
 
 In this case, the path between the Oregon Region and your Interconnect that is local to that Region is Tier 1 and the path between your Interconnect and the N. Virginia Region is Tier 2. This Interconnect will then be subscribed to Tier 2, as it is the lowest Tier that includes all your potential paths.
 
-![Example 2 - Global same continent Tier 2 diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-example2.png)
+![Example 2 - Global same continent Tier 2 diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-example2.png)
 
 
 ## Example 3: Global, intercontinental, single Interconnect
@@ -30,7 +30,7 @@ In this case, the path between the Oregon Region and your Interconnect that is l
 
 In this case, the new path between the Interconnect and the Frankfurt Region is Tier 3. The Interconnect will then be automatically upgraded to Tier 3, as it is the lowest Tier that now includes the local Tier 1 path between the Interconnect and the Oregon Region, the Tier 2 path between the Interconnect and the N. Virginia Region, and the Tier 3 path between the Interconnect and the Frankfurt Region.
 
-![Example 3 - Global intercontinental Tier 3 diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-example3.png)
+![Example 3 - Global intercontinental Tier 3 diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-example3.png)
 
 
 ## Example 4: Global, intercontinental, multiple Interconnects
@@ -43,4 +43,4 @@ In this case, there is no change in Tier to your existing Interconnect as it doe
 
 Your new Interconnect provisioned in Sydney will be automatically subscribed to Tier 4 as it needs to reach your CNEs in Germany and the United States and that is the lowest Tier that now includes the Tier 3 path between the Interconnect in Sydney and the Oregon Region, the Tier 2 path between Sydney and the N. Virginia Region, and the Tier 4 path between Sydney and the Frankfurt Region. You now have two Interconnects subscribed to Tiers 3 and 4, respectively, as those are the lowest possible Tiers that include all the possible paths for the specific Interconnect.
 
-![Example 4 - Global intercontinental multiple Interconnects diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-example4.png)
+![Example 4 - Global intercontinental multiple Interconnects diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-example4.png)

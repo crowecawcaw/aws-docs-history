@@ -67,7 +67,7 @@ For example:
 
 In this configuration, both CNEs can reach your Interconnect using the shortest available path and without routing traffic through a Region.
 
-![Global connectivity to Cloud WAN diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-global-cloud-wan.png)
+![Global connectivity to Cloud WAN diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-global-cloud-wan.png)
 
 
 ### Local connectivity to Virtual gateways or Transit Gateways
@@ -82,14 +82,14 @@ For example:
 
 Valid local architecture:
 
-![Valid local architecture diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-local-valid.png)
+![Valid local architecture diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-local-valid.png)
 
 
 Unsupported architecture when using local networking services in a remote Region:
 
-![Unsupported architecture diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-local-unsupported.png)
+![Unsupported architecture diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-local-unsupported.png)
 
 
 Note that architectures that use TGW peering across Regions are fully supported. Following the example above, your TGW in the remote Region, us-west-2 (Oregon), can reach your Interconnect in us-east-1 (N. Virginia) by peering to your TGW in that Region. Cross-region data transfer charges and TGW data processing charges would apply. For more information, review the TGW documentation.
 
-![Cross-region TGW peering architecture diagram](http://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-tgw-peering.png)
+![Cross-region TGW peering architecture diagram](https://docs.aws.amazon.com/interconnect/latest/userguide/images/pricing-tgw-peering.png)
