@@ -37,10 +37,10 @@ You will also learn how to use the [Amplify Authenticator](https://ui.docs.ampli
    ```
 
 1. Now the Amplify Auth category is ready. Run the command **amplify push** to create the resources in the cloud.  
-![Fetching wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-run-amplify-push-command.png)
+![Fetching wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-run-amplify-push-command.png)
 
 1. Press **Enter**. The Amplify CLI will deploy the authentication resources and display a confirmation, as shown in the screenshot.  
-![Deployment wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-authentication-resources-confirmation.png)
+![Deployment wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-authentication-resources-confirmation.png)
 
 ### Step 2: Implement the app authentication flow using Amplify Authenticator
 <a name="implement-the-app-authentication-flow-using-amplify-authenticator"></a>
@@ -51,7 +51,7 @@ You will also learn how to use the [Amplify Authenticator](https://ui.docs.ampli
 10 minutes
 
 1. Create a new folder inside the** lib/features/trip/ui **folder, name it **trips\_list**, and then create the file **trips\_list\_page.dart** inside it.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-create-trips-list-page-dart-file.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-create-trips-list-page-dart-file.png)
 
 1. Open the **trips\_list\_page.dart** file and update it with the following code. This will be the app’s homepage.
 
@@ -62,7 +62,7 @@ You will also learn how to use the [Amplify Authenticator](https://ui.docs.ampli
    ```
 
 1. Create a new file inside the **lib/common/navigation/router** folder and call it **router.dart**.  
-![los screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-create-router-dart-file.png)
+![los screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-create-router-dart-file.png)
 
 1. Open the **router.dart** file and update it with the following code to create the routes for the app.
 
@@ -75,7 +75,7 @@ You will also learn how to use the [Amplify Authenticator](https://ui.docs.ampli
    ```
 
 1. Create a new dart file inside the **lib** folder and call it **trips\_planner\_app.dart**.  
-![ios screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-create-trips-planner-app-file.png)
+![ios screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m2-create-trips-planner-app-file.png)
 
 1. Open the **trips\_planner\_app.dart** file and update it with the following code to wrap the **MaterialApp** in an Amplify Authenticator widget.
 
@@ -102,7 +102,7 @@ You will also learn how to use the [Amplify Authenticator](https://ui.docs.ampli
 1. Run the app in the simulator and use the authentication flow to create a user. The
 
    following is an example using an iPhone simulator.  
-![Sign screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/amplifytripplanner-login.gif)
+![Sign screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/amplifytripplanner-login.gif)
 
 ## Conclusion
 <a name="conclusion"></a>

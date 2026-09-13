@@ -46,13 +46,13 @@ The Amplify Storage category comes with default built-in support for Amazon Simp
    ```
 
 1. Run the command **amplify push** to create the resources in the cloud.  
-![Current wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-create-resources.png)
+![Current wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-create-resources.png)
 
 1. Press **Enter. **The Amplify CLI will deploy the resources and display a confirmation.  
-![Deployed wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-confirmation-of-resources-deployed-2.png)
+![Deployed wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-confirmation-of-resources-deployed-2.png)
 
 1. For iOS, open the file **ios/Runner/info.plist**. There are no configurations required for Android to access the phone camera and photo library.  
-![Info.plist in ios/Runner](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/ios-info-plist.png)
+![Info.plist in ios/Runner](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/ios-info-plist.png)
 
    Add the following keys and values.
 
@@ -180,7 +180,7 @@ The Amplify Storage category comes with default built-in support for Amazon Simp
    ```
 
 1. Create a new dart file inside the folder **lib/common/services** and name it **storage\_service.dart.**  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-storage-service-dart-file.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-storage-service-dart-file.png)
 
 1. Open **storage\_service.dart** file and update it with the following code to create the **StorageService**. In this service, you will find the **uploadFile** function, which uses the Amplify storage library to upload an image into an Amazon S3 bucket. Additionally, the service provides a **ValueNotifier** object to track the progress of the image upload.
 
@@ -249,7 +249,7 @@ The Amplify Storage category comes with default built-in support for Amazon Simp
    ```
 
 1. Create a new dart file inside the folder **lib/common/ui** and name it **upload\_progress\_dialog.dart.**  
-![lib screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-upload-progress-dialog.png)
+![lib screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-upload-progress-dialog.png)
 
 1. Open the **upload\_progress\_dialog.dart** file and update it with the following code to create a dialog that uses a progress indicator for the image upload.
 **Note**  
@@ -305,7 +305,7 @@ VSCode will show an error about missing the **trip\_controller.dart** file. You 
 <a name="add-the-trip-details-page-to-the-app"></a>
 
 1. Create a new dart file inside the folder **lib/features/trip/controller** and name it **trip\_controller.dart.**  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-trip-controller-file.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-trip-controller-file.png)
 
 1. Open the **trip\_controller.dart** file and update it with the following code. The UI will use this controller for editing and deleting a trip using its ID. The UI will also use the controller for uploading an image for the trip.
 **Note**  
@@ -369,10 +369,10 @@ VSCode will show errors due to the missing the **trip\_controller.g.dart** fil
    ```
 
    This will generate the **trip\_controller.g.dart** file in the **lib/feature/trip/controller** folder  
-![features text](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/trip-controller-g-dart-file.png)
+![features text](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/trip-controller-g-dart-file.png)
 
 1. Create a new folder inside the **lib/features/trip/ui** folder and name it **trip\_page** and then create the file **delete\_trip\_dialog.dart** inside it.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-delete-trip-dialog-dart-file.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-delete-trip-dialog-dart-file.png)
 
 1. Open the **delete\_trip\_dialog.dart** file and update it with the following code. This will display a dialog for the user to confirm deleting the selected trip.
 
@@ -409,7 +409,7 @@ VSCode will show errors due to the missing the **trip\_controller.g.dart** fil
    ```
 
 1. Create a new dart file inside the **lib/features/trip/ui/trip\_page** folder and name it **selected\_trip\_card.dart**.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-selected-trip-card-dart-file.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-selected-trip-card-dart-file.png)
 
 1. Open the **selected\_trip\_card.dart** file and update it with the following code. Here we check if there is an image for the trip and display it in a card widget. We use the placeholder image from the app assets if there is no image. We are also introducing three icon buttons for the user to choose to upload a photo, edit the trip, and delete the trip.
 
@@ -580,7 +580,7 @@ VSCode will show errors due to the missing the **trip\_controller.g.dart** fil
    ```
 
 1. Create a new dart file inside the **lib/features/trip/ui/trip\_page** folder and name it **trip\_details.dart**.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-trip-details-dart-file.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-trip-details-dart-file.png)
 
 1. Open the **trip\_details.dart** file and update it with the following code to create a column that uses the **SelectedTripCard** widget you created to display the details of the trip.
 
@@ -664,7 +664,7 @@ VSCode will show errors due to the missing the **trip\_controller.g.dart** fil
    ```
 
 1. Create a new dart file in the **lib/features/trip/ui/trip\_page** folder and name it **trip\_page.dart**.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-trip-page-dart-file.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-trip-page-dart-file.png)
 
 1. Open the **trip\_page.dart** file and update it with the following code to create the **TripPage**, which will get the trip details using the **tripId**. The **TripPage** will use the **TripDetails** you created previously to display the data.
 
@@ -765,7 +765,7 @@ VSCode will show errors due to the missing the **trip\_controller.g.dart** fil
 <a name="add-the-edit-trip-page-to-the-app"></a>
 
 1. Create a new folder inside the **lib/features/trip/ui** folder and name it **edit\_trip\_page** and then create the file **edit\_trip\_page.dart** inside it.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-edit-trip-page.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m4-edit-trip-page.png)
 
 1. Open the **edit\_trip\_page.dart** file and update it with the following code to create the UI for the user to edit the selected trip.
 
@@ -1016,7 +1016,7 @@ VSCode will show errors due to the missing the **trip\_controller.g.dart** fil
    + Delete the trip
 
    The following is an example using an iPhone simulator.  
-![Amplify screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/amplifytripplanner_upload.gif)
+![Amplify screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/amplifytripplanner_upload.gif)
 
 ## Conclusion
 <a name="conclusion"></a>

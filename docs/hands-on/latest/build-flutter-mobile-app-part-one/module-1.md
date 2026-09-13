@@ -39,7 +39,7 @@ In this module, we will start by creating a new Flutter mobile app. Then we will
    cd amplify_trips_planner
    code . -r
    ```  
-![EXPLORER interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-open-flutter.png)
+![EXPLORER interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-open-flutter.png)
 
 ### Step 2: Add the app dependencies
 <a name="add-the-app-dependencies"></a>
@@ -81,7 +81,7 @@ In this module, we will start by creating a new Flutter mobile app. Then we will
    ```
 
 1. The app will use a placeholder image (amplify.png) when creating a new trip. After [downloading the image](https://d1.awsstatic.com/getting-started-guides/build-flutter-mobile-app/amplify%20(1).475c5857281340bb1b377b617fb6101faab4eab6.png), create a new folder in the app root directory, name it **images**, and then add the image to it.  
-![android interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-add-downloaded-image.png)
+![android interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-add-downloaded-image.png)
 
 1. Update the file pubspec.yaml to add it to the assets section.
 
@@ -146,14 +146,14 @@ In this module, we will start by creating a new Flutter mobile app. Then we will
    ```
    platform :ios, '13.5'
    ```  
-![jos wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-change-podfile-to-ios-13.png)
+![jos wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-change-podfile-to-ios-13.png)
 
 1. Update the target Android SDK by navigating to the **android/app/** folder and modifying the **build.gradle** file to update the target Android SDK version to 24 or higher.
 
    ```
    minSdkVersion 24
    ```  
-![android wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-android-app-wide-screenshot-grayscale.png)
+![android wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-android-app-wide-screenshot-grayscale.png)
 
 ### Step 3: Create the app folder structure
 <a name="create-the-app-folder-structure"></a>
@@ -161,30 +161,30 @@ In this module, we will start by creating a new Flutter mobile app. Then we will
 This guide will use the Feature-First approach to structure the app. We will create a folder for every app feature, and inside that folder, we can add the layers as sub-folders.
 
 1. Create a new folder inside the **lib** folder, name it **features,** create a folder inside it, and name it **trip.**  
-![android interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-trip-folder-in-lib-folder.png)
+![android interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-trip-folder-in-lib-folder.png)
 
 1. Create the following new folders inside the **trip** folder:
    + **service:** The layer to connect with the Amplify backend.
    + **data:** This will be the repository layer that abstracts away the networking code, specifically **service.**
    + **controller:** This is an abstract layer to connect the UI with the repository.
    + **ui:** Here, we will create the widgets and the pages that the app will present to the user.  
-![lib screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-new-folders-in-trip-folder.png)
+![lib screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-new-folders-in-trip-folder.png)
 
 1. Create a new folder inside the **lib** folder and name it **common.** We will use this folder for the code shared across the app features.  
-![idea interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-create-common-folder.png)
+![idea interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-create-common-folder.png)
 
 1. Create the following new folders inside the **common** folder:
    + **ui:** Here, we will create the widgets and the pages that the app will present to the user.
    + **navigation:** We will use this folder to define the app routes.
    + **services:** This is where we will create the services to connect with the Amplify backend.
    + **utils:** This folder will contain constants, such as colors, that the app will frequently use.  
-![ios screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-common-folder.png)
+![ios screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-common-folder.png)
 
 ### Step 4: Define the constants for the routes and colors
 <a name="define-the-constants-for-the-routes-and-colors"></a>
 
 1. Create a folder inside the **lib/common/navigation** folder and call it **router,** and then create a new dart file inside it and call it **routes.dart.**  
-![ios wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-create-routes-dart-file.png)
+![ios wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-create-routes-dart-file.png)
 
 1. Open the **routes.dart** file and update it with the following code. We will use this enum to create the routing of the app.
 
@@ -197,7 +197,7 @@ This guide will use the Feature-First approach to structure the app. We will cre
    ```
 
 1. Create a new dart file inside the **lib/common/utils** folder and name it **colors.dart.**  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-create-colors-dart-file.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-create-colors-dart-file.png)
 
 1. Open the **colors.dart** file and update it with the following code to create constant variables to set the app’s colors.
 
@@ -245,10 +245,10 @@ This guide will use the Feature-First approach to structure the app. We will cre
    ```
 
 1. Press **Enter **again to accept the auto-generated options and select the AWS Authentication method. In this example, we are using an AWS profile. Amplify CLI will initialize the backend and connect the project to the cloud.  
-![Initialize interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-select-authentication-method.png)
+![Initialize interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-select-authentication-method.png)
 
    The Amplify CLI will add a new folder named **amplify** to the app's root folder, which contains the amplify project and backend details. It will also add a new dart file **(amplifyconfiguration.dart)** to the **lib/** folder. The app will use this file to know how to reach your provisioned backend resources at runtime.  
-![amplify interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-amplify-backend-details.png)
+![amplify interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m1-amplify-backend-details.png)
 
 ## Conclusion
 <a name="conclusion"></a>

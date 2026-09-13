@@ -48,7 +48,7 @@ In this module, you will add an API to your app using the Amplify CLI to retriev
    ```
 
    The Amplify CLI will add a new folder for the API, including the **schema.graphql** file where you will define the models for the app.  
-![amplify portrait](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-schema-graphql-file.png)
+![amplify portrait](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-schema-graphql-file.png)
 
 1. Open the **schema.graphql** file and update it with the following to define the trip model.
 
@@ -74,13 +74,13 @@ In this module, you will add an API to your app using the Amplify CLI to retriev
    ```
 
    The Amplify CLI will generate the dart files in the **lib/models** folder.  
-![images interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-new-files-in-lib-models-folder.png)
+![images interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-new-files-in-lib-models-folder.png)
 
 1. Run the command **amplify push** to create the resources in the cloud.  
-![Current wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-run-amplify-push-command-2.png)
+![Current wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-run-amplify-push-command-2.png)
 
 1. Press **Enter**. The Amplify CLI will deploy the resources and display a confirmation, as shown in the screenshot.  
-![apiamplifytripsplanner wide-screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-confirmation-of-resources-deployed.png)
+![apiamplifytripsplanner wide-screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-confirmation-of-resources-deployed.png)
 
 1. Open **main.dart** file and update the **\_configureAmplify() **function as shown in the code to add the Amplify API plugin.
 
@@ -135,7 +135,7 @@ In this module, you will add an API to your app using the Amplify CLI to retriev
 <a name="implement-the-crud-operations-and-flow-for-trip-feature"></a>
 
 1. Create a new dart file inside the **lib/features/trip/service** folder and call it **trips\_api\_service.dart.**  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-datastore-service-dart-file.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-datastore-service-dart-file.png)
 
 1. Open the **trips\_api\_service.dart** file and update it with the following code snippet to create the **TripsAPIService, **which contains the following functions:
    + **getTrips** - This function will query the Amplify API for the **active and upcoming** trips and return a list of them.
@@ -271,7 +271,7 @@ In this module, you will add an API to your app using the Amplify CLI to retriev
    ```
 
 1. Create a new dart file inside the **lib/features/trip/data** folder and call it **trips\_repository.dart.**  
-![lib screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-repository-dart-file.png)
+![lib screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-repository-dart-file.png)
 
 1. Open the **trips\_repository.dar**t file and update it with the following code:
 
@@ -317,7 +317,7 @@ In this module, you will add an API to your app using the Amplify CLI to retriev
    ```
 
 1. Create a new dart file inside the **lib/feature/trip/controller** folder and call it **trips\_list\_controller.dart**.  
-![features screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-list-controller-dart-file.png)
+![features screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-list-controller-dart-file.png)
 
 1. Open the **trips\_list\_controller.dart** file and update it with the following code. The UI will use the controller to add a new trip by creating the trip item and passing it as a parameter to the **tripsRepository.add(trip)** function.
 **Note**  
@@ -387,13 +387,13 @@ VSCode will show errors due to the missing the **trips\_list\_controller.g.dart
    ```
 
    This will generate the **trips\_list\_controller.g.dart** file inside the  **lib/feature/trip/controller** folder.  
-![features screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-list-controller-g-dart-file.png)
+![features screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-list-controller-g-dart-file.png)
 
 ### Step 4: Implement the trips listing UI
 <a name="implement-the-trips-listing-ui"></a>
 
 1. Create a new dart file in the **lib/common/ui** folder and call it **bottomsheet\_text\_form\_field.dart**.  
-![lib scoreboard](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/bottomsheet.png)
+![lib scoreboard](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/bottomsheet.png)
 
 1. Open the **bottomsheet\_text\_form\_field.dart** file and update it with the following code to create the **BottomSheetTextFormField** widget to build a **TextFormField** that the App will use in a form to create a new trip.
 
@@ -439,7 +439,7 @@ VSCode will show errors due to the missing the **trips\_list\_controller.g.dart
    ```
 
 1. Create a new dart file in the **lib/common/utils** folder and call it **date\_time\_formatter.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-date-time-formatter.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-date-time-formatter.png)
 
 1. Open the **date\_time\_formatter.dart** file and update it with the following code to create the **DateTimeFormatter** extension to format the DateTime value.
 
@@ -454,7 +454,7 @@ VSCode will show errors due to the missing the **trips\_list\_controller.g.dart
    ```
 
 1. Create a new dart file inside the **lib/features/trip/ui/trips\_list** folder and call it **add\_trip\_bottomsheet.dart**.  
-![lib interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-add-trip-bottomsheet.png)
+![lib interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-add-trip-bottomsheet.png)
 
 1. Open the **add\_trip\_bottomsheet.dart** file and update it with the following code. This will allow us to present a form to the user to submit the required details to create a new trip.
 
@@ -592,7 +592,7 @@ VSCode will show errors due to the missing the **trips\_list\_controller.g.dart
    ```
 
 1. Create a new folder inside the **lib/features/trip/ui** folder, name it **trips\_gridview**, and then create the file **trip\_gridview\_item\_card.dart** inside it.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trip-gridview-item-card-dart-file.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trip-gridview-item-card-dart-file.png)
 
 1. Open the **trip\_gridview\_item\_card.dart **file and update it with the following code. This will create a Card widget to display the trip details in the trips list page.
 
@@ -709,7 +709,7 @@ VSCode will show errors due to the missing the **trips\_list\_controller.g.dart
    ```
 
 1. Create the file **trip\_gridview\_item.dart** in the **lib/features/trip/ui/trips\_gridview** folder.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trip-gridview-item-dart-file.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trip-gridview-item-dart-file.png)
 
 1. Open the **trip\_gridview\_item.dart **file and update it with the following code. The App will use this for the trips list grid.
 
@@ -749,7 +749,7 @@ VSCode will show errors due to the missing the **trips\_list\_controller.g.dart
    ```
 
 1. Create the file **trips\_list\_gridview.dart** inside the **lib/features/trip/ui/trips\_gridview **folder.  
-![features interface](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-list-gridview-dart-file.png)
+![features interface](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/m3-trips-list-gridview-dart-file.png)
 
 1. Open the **trips\_list\_gridview.dart **file and update it with the following code. This will cause the gridview to display the trips list.
 
@@ -864,7 +864,7 @@ VSCode will show errors due to the missing the **trips\_list\_controller.g.dart
    ```
 
 1. Run the app in the simulator and create a trip. The following is an example using an iPhone simulator.  
-![Amplify screenshot](http://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/amplify-trip-planner-api.gif)
+![Amplify screenshot](https://docs.aws.amazon.com/hands-on/latest/build-flutter-mobile-app-part-one/images/amplify-trip-planner-api.gif)
 
 ## Conclusion
 <a name="conclusion"></a>
