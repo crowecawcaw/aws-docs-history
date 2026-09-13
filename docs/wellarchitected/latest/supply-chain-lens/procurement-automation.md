@@ -20,7 +20,7 @@
 ## Reference architecture
 <a name="reference-architecture-1"></a>
 
-![Reference architecture displaying a procurement automation AWS architecture.](http://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image2.png)
+![Reference architecture displaying a procurement automation AWS architecture.](https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image2.png)
 
 
 ## Architecture description

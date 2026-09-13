@@ -16,7 +16,7 @@
 ## Reference architecture
 <a name="reference-architecture-2"></a>
 
-![Reference architecture displaying an AWS architecture that addresses siloed data.](http://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image3.png)
+![Reference architecture displaying an AWS architecture that addresses siloed data.](https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image3.png)
 
 
 ## Architecture description

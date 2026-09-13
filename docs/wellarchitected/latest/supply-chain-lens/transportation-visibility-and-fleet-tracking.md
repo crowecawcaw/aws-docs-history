@@ -20,7 +20,7 @@
 ## Reference architecture
 <a name="reference-architecture-5"></a>
 
-![Reference architecture displaying a transportation visibility and fleet tracking architecture.](http://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image6.png)
+![Reference architecture displaying a transportation visibility and fleet tracking architecture.](https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image6.png)
 
 
 ## Architecture description

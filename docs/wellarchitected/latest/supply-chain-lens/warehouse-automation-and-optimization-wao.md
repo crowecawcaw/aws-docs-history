@@ -14,7 +14,7 @@
 ## Reference architecture
 <a name="reference-architecture-4"></a>
 
-![Reference architecture displaying a warehouse automation and optimization (WAO) architecture.](http://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image5.png)
+![Reference architecture displaying a warehouse automation and optimization (WAO) architecture.](https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image5.png)
 
 
 ## Architecture description

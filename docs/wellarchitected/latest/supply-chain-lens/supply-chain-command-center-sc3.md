@@ -26,7 +26,7 @@
 ## Reference architecture
 <a name="reference-architecture-3"></a>
 
-![Reference architecture depicting the SC3 structure.](http://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image4.png)
+![Reference architecture depicting the SC3 structure.](https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image4.png)
 
 
 ## Architecture description

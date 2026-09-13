@@ -14,7 +14,7 @@
 ## Reference architecture
 <a name="reference-architecture-6"></a>
 
-![Reference architecture depicting an architecture that enables product traceability on AWS.](http://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image7.png)
+![Reference architecture depicting an architecture that enables product traceability on AWS.](https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/images/image7.png)
 
 
 ## Architecture description
