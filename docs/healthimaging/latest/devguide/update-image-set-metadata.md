@@ -22,7 +22,7 @@ When updating a VR=SQ attribute, the entire sequence attribute will be updated. 
 
 The following diagram represents image set metadata being updated in HealthImaging.
 
-![Diagram showing what updating image set metadata looks like in HealthImaging.](http://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-example-update-metadata.png)
+![Diagram showing what updating image set metadata looks like in HealthImaging.](https://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-example-update-metadata.png)
 
 
 **To update image set metadata**  

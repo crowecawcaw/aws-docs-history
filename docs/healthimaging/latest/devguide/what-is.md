@@ -9,7 +9,7 @@ AWS HealthImaging is a HIPAA eligible service that empowers health care provider
 + **AI/ML development** – Run artificial intelligence and machine learning (AI/ML) inference over your imaging archive with support from other tools and services.
 + **Multimodal analysis** – Combine your clinical imaging data with AWS HealthLake (health data) and AWS HealthOmics (omics data) to deliver insights for precision medicine.
 
-![Architecture diagram showing an overview of AWS HealthImaging processes and interactions with related AWS services.](http://docs.aws.amazon.com/healthimaging/latest/devguide/images/hi-overview.png)
+![Architecture diagram showing an overview of AWS HealthImaging processes and interactions with related AWS services.](https://docs.aws.amazon.com/healthimaging/latest/devguide/images/hi-overview.png)
 
 
 AWS HealthImaging provides access to image data (e.g. X-Ray, CT, MRI, Ultrasound) so that medical imaging applications built in the cloud can achieve performance previously only possible on-premises. With HealthImaging, you reduce infrastructure costs by running your medical imaging applications at scale from a single, authoritative copy of each medical image in AWS Cloud.

@@ -50,7 +50,7 @@ Image sets are AWS resources, so they are assigned [ Amazon Resource Names (ARNs
 
 Importing DICOM P10 data results in image sets that contain DICOM metadata and image frames for one or more Service-Object Pair (SOP) instances in the same DICOM Series.
 
-![Diagram showing what an image set is in AWS HealthImaging.](http://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-what-is.png)
+![Diagram showing what an image set is in AWS HealthImaging.](https://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-what-is.png)
 
 
 **Note**  
@@ -136,7 +136,7 @@ The following example shows the structure of image set [metadata](getting-starte
 
 The following example shows how multiple import jobs always create new image sets and *never* add to existing ones.
 
-![Diagram showing what multiple image set import jobs look like in HealthImaging.](http://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-example-multiple-import-jobs.png)
+![Diagram showing what multiple image set import jobs look like in HealthImaging.](https://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-example-multiple-import-jobs.png)
 
 
 ## Image set creation example: single import job with two variants
@@ -144,7 +144,7 @@ The following example shows how multiple import jobs always create new image set
 
 The following example shows a single import job that would fail to merge into a single image set because instances 1 and 3 have different Patient IDs than instances 2 and 4. To resolve this, you can use the `UpdateImageSetMetadata` action to resolve Patient ID conflict with the existing Primary image set. After the conflicts are resolved, you can use the `CopyImageSet` action with the argument `--promoteToPrimary` to add the image set to the Primary image set.
 
-![Diagram showing what two image set variants look like in HealthImaging using a single import job.](http://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-example-import-two-variants.png)
+![Diagram showing what two image set variants look like in HealthImaging using a single import job.](https://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-example-import-two-variants.png)
 
 
 ## Image set creation example: single import job with optimization
@@ -152,4 +152,4 @@ The following example shows a single import job that would fail to merge into a 
 
 The following example shows a single import job creating two image sets to improve throughput, even though the patient names match. 
 
-![Diagram showing what image set optimization looks like in HealthImaging using a single import job.](http://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-example-optimization.png)
+![Diagram showing what image set optimization looks like in HealthImaging using a single import job.](https://docs.aws.amazon.com/healthimaging/latest/devguide/images/image-set-example-optimization.png)
