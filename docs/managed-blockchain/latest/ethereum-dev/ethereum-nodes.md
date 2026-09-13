@@ -111,7 +111,7 @@ Information such as the AMB Access instance type, Availability Zone, and creatio
 1. On the network details page, under **Nodes**, choose the **Node ID**.
 
 1. The following example shows how the node details page displays key properties and metrics for the node.  
-![Ethereum node details in the AMB Access console.](http://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/images/ethereum-node-details.png)
+![Ethereum node details in the AMB Access console.](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/images/ethereum-node-details.png)
 
 ### To view Ethereum node information using the AWS CLI
 <a name="ethereum-node-information.cli"></a>
