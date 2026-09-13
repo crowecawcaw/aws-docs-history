@@ -89,7 +89,7 @@ AWS requires approximately 5 weeks of usage data to generate budget forecasts. I
 
 The following video highlights the importance of setting up budget alerts, which give you control over your spending. It also touches on the use of multi-factor authentication (MFA) to increase the security of your account.
 
-[![AWS Videos](http://img.youtube.com/vi/e6A7z7FqQDE/0.jpg)](http://www.youtube.com/watch?v=e6A7z7FqQDE)
+[![AWS Videos](https://img.youtube.com/vi/e6A7z7FqQDE/0.jpg)](https://www.youtube.com/watch?v=e6A7z7FqQDE)
 
 
 ## Setting budget alerts using Amazon SNS topics
