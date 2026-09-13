@@ -12,10 +12,10 @@ Complete the following procedure to view security groups.
 1. Open the AWS Management Console for Wickr at [https://console.aws.amazon.com/wickr/](https://console.aws.amazon.com/wickr/).
 
 1. On the **Networks** page, choose the **Admin** link, to navigate to Wickr Admin Console for that network.  
-![The Networks page.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-admin-console-network-page-admin-link.png)
+![The Networks page.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-admin-console-network-page-admin-link.png)
 
    You're redirected to the Wickr Admin Console for a specific network.  
-![The Dashboard page.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-network-admin-console-dashboard-page.png)
+![The Dashboard page.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-network-admin-console-dashboard-page.png)
 
 1. In the navigation pane of the Wickr Admin Console, choose **Network Settings**, and then choose **Security Group**.
 

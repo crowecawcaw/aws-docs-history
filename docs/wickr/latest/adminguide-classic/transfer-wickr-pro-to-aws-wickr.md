@@ -65,10 +65,10 @@ When completed, typically within 14 days, an AWS Wickr support representative wi
 1. Navigate to your AWS Wickr service. You can do this from the **Services** menu or by searching for AWS Wickr in the search bar.
 
 1. On the AWS Wickr page, choose **Manage network** to access your Wickr network list.  
-![](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/manage-network-button.png)
+![](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/manage-network-button.png)
 
 1. On the **Networks** page, under the **Wickr admin console** column, select the Admin link to the right of the desired Network name.  
-![](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/admin-console-link.png)
+![](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/admin-console-link.png)
 
 1. The transfer is now complete\! You will see your Wickr network dashboard.
 

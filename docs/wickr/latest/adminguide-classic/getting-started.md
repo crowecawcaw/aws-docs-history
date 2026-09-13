@@ -33,7 +33,7 @@ Complete the following procedure to create a Wickr network for your account.
 If you haven't created a Wickr networking before, you will see the informational page for the Wickr service. After you create one or more Wickr networks, you will see the **Networks** page, which contains a list view of all the Wickr networks you have created.
 
 1. Choose **Create a network**.  
-![The AWS Management Console for Wickr.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-create-a-network-button.png)
+![The AWS Management Console for Wickr.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-create-a-network-button.png)
 
 1. Enter a name for your network in the **Network name** text box. Choose a name that members of your organization will recognize, such as the name of your company or the name of your team.
 
@@ -57,12 +57,12 @@ If you haven't created a Wickr networking before, you will see the informational
 Complete the following procedure to access the Wickr Admin Console, where you can add users, add security groups, configure SSO, configure data retention, and additional network settings.
 
 1. On the **Networks** page, choose the **Admin** link, to navigate to Wickr Admin Console for that network.  
-![The Networks page.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-networks-page.png)
+![The Networks page.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-networks-page.png)
 
    You're redirected to the Wickr Admin Console for the selected network.
 
 1. In the navigation pane of the Wickr Admin Console, choose **Network Settings**.  
-![The Wickr Network Dashboard page of the Wickr Admin Console.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-network-settings.png)
+![The Wickr Network Dashboard page of the Wickr Admin Console.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-network-settings.png)
 
    The following network setting options are available. For more information about configuring these settings, see [Manage your AWS Wickr network](managing-network.md).
    + **Security Group** — Manage security groups and their settings, such as password complexity policies, messaging preferences, calling features, security features and external federation. For more information, see [Security groups for AWS Wickr](security-groups.md).
@@ -103,7 +103,7 @@ As users register for your Wickr network, they are added to the Wickr team direc
 1. Open the AWS Management Console for Wickr at [https://console.aws.amazon.com/wickr/](https://console.aws.amazon.com/wickr/).
 
 1. On the **Networks** page, choose the **Admin** link, to navigate to Wickr Admin Console for that network.  
-![](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-networks-page.png)
+![](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-networks-page.png)
 
    You're redirected to the Wickr Admin Console for a specific network. On the Wickr Admin Console, you can add users, add security groups, configure SSO, configure data retention, and additional settings for the specific network you selected.
 
@@ -114,14 +114,14 @@ As users register for your Wickr network, they are added to the Wickr team direc
 1. Enter the user's first name, last name, country code, phone number, and email address. Email address is the only field that is required. Be sure to choose the appropriate security group for the user. 
 
 1. Choose **Create**.  
-![The New User page of the Wickr Admin Console.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-new-user.png)
+![The New User page of the Wickr Admin Console.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-new-user.png)
 
    Wickr sends an invitation email to the address you specify for the user. The email provides download links for the Wickr client applications, and a link to register for Wickr. For more information about what this end user experience looks like, see [Download the Wickr app and accept your invitation](https://docs.aws.amazon.com/wickr/latest/userguide/getting-started.html#accept-invitation-step1) in the *AWS Wickr User Guide*.
 
    
 
    As users register for Wickr using the link in the email, their status in the Wickr team directory will change from **Pending** to **Active**.  
-![The New User page of the Wickr Admin Console.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-team-directory.png)
+![The New User page of the Wickr Admin Console.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-team-directory.png)
 
 ------
 

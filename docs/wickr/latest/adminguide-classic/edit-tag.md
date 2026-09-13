@@ -12,6 +12,6 @@ Complete the following procedure to edit a tag associated with your Wickr networ
 1. On the **Manage tags** page, edit the value of a tag.
 **Note**  
 You can't edit the key of a tag. Instead, remove the key and value pair, and add a new tag using the new key.  
-![The Manage tags page.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-console-manage-tags-page-edit-tag.png)
+![The Manage tags page.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-console-manage-tags-page-edit-tag.png)
 
 1. Choose **Save changes** to save your edits.

@@ -12,10 +12,10 @@ Complete the following procedure to send a secure voice message.
 1. Open a chat window.
 
 1. Choose the Push-to-Talk icon at the top of the screen, indicated by an icon of a person talking.   
-![Push-to-talk icon.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-wickr-push-to-talk-icon.png)
+![Push-to-talk icon.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-wickr-push-to-talk-icon.png)
 
 1. Select and hold the **Hold Button Down to Record** button.  
-![Record button.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-secure-voice-message.png)
+![Record button.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-secure-voice-message.png)
 
 1. Record your message.
 

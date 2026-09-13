@@ -14,12 +14,12 @@ Complete the following procedure to use the pinwheel.
 1. Choose the user icon to open the pinwheel. 
 
 1. Choose the Wickr icon to view the available options for the selected user.  
-![Wickr icon.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-pinwheel-wickr-icon.png)
+![Wickr icon.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-pinwheel-wickr-icon.png)
 
 1. On the pinwheel, choose one of the following icons:
    + **Phone**: Choose to call.  
-![Pinwheel call icon.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-pinwheel-call.png)
+![Pinwheel call icon.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-pinwheel-call.png)
    + **Message**: Choose to chat.  
-![Pinwheel chat icon.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-pinwheel-message.png)
+![Pinwheel chat icon.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-pinwheel-message.png)
    + **File send**: Choose to send a file.  
-![Pinwheel send a file icon.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-pinwheel-send.png)
+![Pinwheel send a file icon.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/atak-pinwheel-send.png)

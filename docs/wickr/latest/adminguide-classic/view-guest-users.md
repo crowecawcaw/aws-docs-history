@@ -14,4 +14,4 @@ Complete the following procedure to view the guest user count for your Wickr net
 1. On the **Networks** page, choose the **Admin** link, to navigate to the Wickr Admin Console for that network.
 
    You're redirected to the Wickr Admin Console for a specific network. The **Dashboard** page displays a count of guest users in your Wickr network as shown in the following example.  
-![The Dashboard page with a count of guest users in the network.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-network-admin-console-dashboard-page.png)
+![The Dashboard page with a count of guest users in the network.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-network-admin-console-dashboard-page.png)

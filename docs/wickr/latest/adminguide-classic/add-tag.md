@@ -14,4 +14,4 @@ Complete the following procedure to add a tag to your Wickr network. For more in
 1. In the blank **Key** and **Value** fields that appear, enter the new tag key and value.
 
 1. Choose **Save changes** to save the new tags.  
-![The Manage tags page.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-admin-console-manage-tags-page-addtag.png)
+![The Manage tags page.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-admin-console-manage-tags-page-addtag.png)

@@ -14,7 +14,7 @@ Complete the following procedure to edit your Wickr network name.
 1. Choose **Manage network**.
 
 1. On the **Networks** page, select the checkbox next to the network name you want to edit, and then choose **View details**.  
-![Networks page showing a selected network with options to view details or create a new network.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-network-viewdetails.png)
+![Networks page showing a selected network with options to view details or create a new network.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-network-viewdetails.png)
 
 1. In the **Network overview** section, choose **Edit**.
 

@@ -12,13 +12,13 @@ Complete the following procedure to manage network tags for your Wickr network.
 1. Open the AWS Management Console for Wickr at [https://console.aws.amazon.com/wickr/](https://console.aws.amazon.com/wickr/).
 
 1. Select **Networks** from the navigation pane of the AWS Management Console for Wickr.  
-![The AWS Management Console for Wickr.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-console-navpane-networks.png)
+![The AWS Management Console for Wickr.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-console-navpane-networks.png)
 
 1. On the **Networks** page choose the name of the network for which you want to manage tags.  
-![The Networks page.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-networks-example-network.png)
+![The Networks page.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-networks-example-network.png)
 
 1. In the **Network overview** page, choose **Manage tags**.  
-![The Manage tags button.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-admin-console-manage-tags-button.png)
+![The Manage tags button.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/wickr-admin-console-manage-tags-button.png)
 
 1. On the **Manage Tags** page, you can complete one of the following options:
    + **Add new tags** — Enter new tags in the form of a key and a value pair. Choose **Add new tag** to add multiple key value pairs. Tags are case-sensitive. For more information, see [Add a network tag in AWS Wickr](add-tag.md).

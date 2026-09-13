@@ -18,4 +18,4 @@ Complete the following procedure to view guest users a network user communicated
 1. On the **Guest Users** page, choose the **Guest Users** section.
 
 1. To view guest users for a specific month, select the corresponding month from the drop-down menu.   
-![The Guest User drop-down menu.](http://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/guest-user-list-drop-down.png)
+![The Guest User drop-down menu.](https://docs.aws.amazon.com/wickr/latest/adminguide-classic/images/guest-user-list-drop-down.png)
