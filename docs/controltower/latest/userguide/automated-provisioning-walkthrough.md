@@ -151,4 +151,4 @@ Notice that the format of the input string for the value of `ManagedOrganization
 
 This video (6:58) describes how to automate account deployments in AWS Control Tower. For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/LxxQTPdSFgw/0.jpg)](http://www.youtube.com/watch?v=LxxQTPdSFgw)
+[![AWS Videos](https://img.youtube.com/vi/LxxQTPdSFgw/0.jpg)](https://www.youtube.com/watch?v=LxxQTPdSFgw)

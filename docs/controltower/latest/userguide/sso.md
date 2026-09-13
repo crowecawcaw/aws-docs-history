@@ -9,7 +9,7 @@ For more information about selecting an identity provider, see [IAM Identity Cen
 
 For a brief tutorial about how to set up your IAM Identity Center users and permissions in AWS Control Tower, you can view this video (6:23). For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/y_n9xN5mg1g/0.jpg)](http://www.youtube.com/watch?v=y_n9xN5mg1g)
+[![AWS Videos](https://img.youtube.com/vi/y_n9xN5mg1g/0.jpg)](https://www.youtube.com/watch?v=y_n9xN5mg1g)
 
 
 **About setting up AWS Control Tower with IAM Identity Center **

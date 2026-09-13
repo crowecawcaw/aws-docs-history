@@ -12,7 +12,7 @@ The target organizational unit (OU) configured in CfCT must have AWSControlTower
 
  The following video describes best practices for deploying a scalable CfCT pipeline and common CfCT customizations. 
 
-[![AWS Videos](http://img.youtube.com/vi/fDtxiBW_J8I/0.jpg)](http://www.youtube.com/watch?v=fDtxiBW_J8I)
+[![AWS Videos](https://img.youtube.com/vi/fDtxiBW_J8I/0.jpg)](https://www.youtube.com/watch?v=fDtxiBW_J8I)
 
 
 The following section provides architectural considerations and configuration steps for deploying Customizations for AWS Control Tower (CfCT). It includes a link to the [AWS CloudFormation](https://aws.amazon.com/cloudformation) template that launches, configures, and runs the required AWS services, in alignment with AWS best practices for security and availability.

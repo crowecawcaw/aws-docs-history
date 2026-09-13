@@ -27,7 +27,7 @@ When you enable trusted access on the organization that contains your landing zo
 
 This video (4:01) describes how to work with the **Organization** page in AWS Control Tower. For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/FdM6ZyZrHxQ/0.jpg)](http://www.youtube.com/watch?v=FdM6ZyZrHxQ)
+[![AWS Videos](https://img.youtube.com/vi/FdM6ZyZrHxQ/0.jpg)](https://www.youtube.com/watch?v=FdM6ZyZrHxQ)
 
 
 ## Topics

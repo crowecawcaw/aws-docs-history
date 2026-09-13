@@ -41,4 +41,4 @@ The AFT pipeline is not intended for use in deploying resources, such as Amazon 
 
 This video (7:33) describes how to deploy accounts with AWS Control Tower Account Factory for Terraform. For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/eDbNvHz02dk/0.jpg)](http://www.youtube.com/watch?v=eDbNvHz02dk)
+[![AWS Videos](https://img.youtube.com/vi/eDbNvHz02dk/0.jpg)](https://www.youtube.com/watch?v=eDbNvHz02dk)

@@ -12,7 +12,7 @@ You can create your own firewall policies, or you can subscribe to rules from tr
 
 This video (8:02) describes how to set up better network infrastructure security for your resources and workloads in AWS Control Tower. For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/wocz0drq8-8/0.jpg)](http://www.youtube.com/watch?v=wocz0drq8-8)
+[![AWS Videos](https://img.youtube.com/vi/wocz0drq8-8/0.jpg)](https://www.youtube.com/watch?v=wocz0drq8-8)
 
 
 For more information, see the [documentation on how to set up AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/setting-up-waf.html).

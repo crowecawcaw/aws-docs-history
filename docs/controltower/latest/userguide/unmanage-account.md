@@ -37,4 +37,4 @@ An unenrolled account is not closed or deleted. When the account has been unenro
 
 This video (3:25) describes how to remove an account from AWS Control Tower, gain root access to the account, and finally close the AWS account. You also can close an account with [an AWS Organizations API](https://docs.aws.amazon.com/controltower/latest/userguide/delete-account.html). For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/n3eALEKZaHc/0.jpg)](http://www.youtube.com/watch?v=n3eALEKZaHc)
+[![AWS Videos](https://img.youtube.com/vi/n3eALEKZaHc/0.jpg)](https://www.youtube.com/watch?v=n3eALEKZaHc)

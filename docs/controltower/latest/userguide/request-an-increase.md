@@ -24,7 +24,7 @@ As an alternative, you can contact [AWS Support](https://aws.amazon.com/premiums
 
 This video (7:24) describes how to automate service quota increases for related, integrated AWS services, based on deployments in AWS Control Tower. It also shows how to automate enrollment of new accounts into AWS Enterprise support for your organization. For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/3WUShZ4lZGE/0.jpg)](http://www.youtube.com/watch?v=3WUShZ4lZGE)
+[![AWS Videos](https://img.youtube.com/vi/3WUShZ4lZGE/0.jpg)](https://www.youtube.com/watch?v=3WUShZ4lZGE)
 
 
 When provisioning new accounts in this environment, you can use lifecycle events to trigger automated requests for service quota increases in specified AWS Regions. 

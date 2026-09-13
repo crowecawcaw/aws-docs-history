@@ -10,7 +10,7 @@ This chapter lists the expectations and considerations you'll want to be aware o
 
 This video (4:46) describes how to manage nested OU deployments in AWS Control Tower. For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/zisI5ZNO2kk/0.jpg)](http://www.youtube.com/watch?v=zisI5ZNO2kk)
+[![AWS Videos](https://img.youtube.com/vi/zisI5ZNO2kk/0.jpg)](https://www.youtube.com/watch?v=zisI5ZNO2kk)
 
 
 For guidance regarding best practices for nested OUs and your landing zone, see the blog post [Organizing your AWS Control Tower landing zone with nested OUs](https://aws.amazon.com/blogs/mt/organizing-your-aws-control-tower-landing-zone-with-nested-ous/).

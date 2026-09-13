@@ -33,7 +33,7 @@ During set up, AWS Control Tower performs pre-checks to avoid common issues. How
 
 This video (7:48), describes how to set up and enable an AWS Control Tower landing zone in existing AWS Organizations structures. For better viewing, select the icon at the lower right corner of the video to enlarge it to full screen. Captioning is available.
 
-[![AWS Videos](http://img.youtube.com/vi/CwRy0t8nfgM/0.jpg)](http://www.youtube.com/watch?v=CwRy0t8nfgM)
+[![AWS Videos](https://img.youtube.com/vi/CwRy0t8nfgM/0.jpg)](https://www.youtube.com/watch?v=CwRy0t8nfgM)
 
 
 ## Considerations for IAM Identity Center and existing organizations
