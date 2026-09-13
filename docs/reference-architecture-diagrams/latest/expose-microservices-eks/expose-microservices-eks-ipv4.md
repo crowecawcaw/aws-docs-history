@@ -10,7 +10,7 @@ This architecture shows how to expose [Amazon Elastic Kubernetes Service](https:
 ## Expose Microservices in a Hybrid Scenario Using Amazon EKS
 <a name="diagram1"></a>
 
-![Architecture diagram showing Amazon EKS microservices exposed through public and private load balancers in a VPC with public and private subnets.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/expose-microservices-eks/images/expose-microservices-eks-1.png)
+![Architecture diagram showing Amazon EKS microservices exposed through public and private load balancers in a VPC with public and private subnets.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/expose-microservices-eks/images/expose-microservices-eks-1.png)
 
 
 The following steps describe the inbound external flow:

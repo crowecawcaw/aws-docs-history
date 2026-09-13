@@ -8,7 +8,7 @@ This architecture shows how to expose Amazon EKS microservices with IPv6 and con
 ## Expose Amazon EKS Microservices in IPv6 Clusters
 <a name="diagram3"></a>
 
-![Architecture diagram showing Amazon EKS microservices in IPv6 clusters with dual-stack load balancers and egress-only internet gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/expose-microservices-eks/images/expose-microservices-eks-3.png)
+![Architecture diagram showing Amazon EKS microservices in IPv6 clusters with dual-stack load balancers and egress-only internet gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/expose-microservices-eks/images/expose-microservices-eks-3.png)
 
 
 The following steps describe the inbound flow:

@@ -8,7 +8,7 @@ This architecture shows how to deal with pod IP exhaustion by adding secondary C
 ## Deal with Pod IP Exhaustion
 <a name="diagram2"></a>
 
-![Architecture diagram showing Amazon EKS custom networking with secondary CIDR blocks to address pod IP exhaustion.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/expose-microservices-eks/images/expose-microservices-eks-2.png)
+![Architecture diagram showing Amazon EKS custom networking with secondary CIDR blocks to address pod IP exhaustion.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/expose-microservices-eks/images/expose-microservices-eks-2.png)
 
 
 The following steps describe the inbound external flow:
