@@ -10,7 +10,7 @@ This architecture helps you build a virtual, video editing environment on AWS to
 ## Edit in the Cloud on AWS
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to help you build a virtual, video editing environment on AWS to collaborate with your editors and creative professionals.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/edit-in-cloud-on-aws/images/edit-in-cloud-on-aws.png)
+![Reference architecture diagram showing how you can use AWS services to help you build a virtual, video editing environment on AWS to collaborate with your editors and creative professionals.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/edit-in-cloud-on-aws/images/edit-in-cloud-on-aws.png)
 
 
 1. An **Amazon Elastic Compute Cloud** (Amazon EC2) instance for Windows Server 2019 with Teradici Cloud Access Software or NICE DCV and NVIDIA T4 GPU drivers for running your Non-Linear Editor (NLE) software of choice. During deployment, the solution gives you the option to install either Teradici’s Cloud Access Software, or NICE DCV. Users can then access the cloud workstation using either Teradici’s PC-over-IP (PCoIP) client or the NICE DCV client, accordingly.
