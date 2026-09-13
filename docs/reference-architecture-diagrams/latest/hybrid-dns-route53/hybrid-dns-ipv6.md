@@ -10,7 +10,7 @@ This architecture shows how to resolve DNS queries between a corporate data cent
 ## Hybrid DNS resolution architecture (IPv6)
 <a name="hdns6-diagram1"></a>
 
-![Architecture diagram showing hybrid DNS resolution between a corporate data center and an AWS VPC using Amazon Route 53 Resolver endpoints with IPv6-only subnets, DNS64, and NAT64.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-dns-route53/images/hybrid-dns-route53-3.png)
+![Architecture diagram showing hybrid DNS resolution between a corporate data center and an AWS VPC using Amazon Route 53 Resolver endpoints with IPv6-only subnets, DNS64, and NAT64.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-dns-route53/images/hybrid-dns-route53-3.png)
 
 
 The following steps describe the data flow in this architecture:

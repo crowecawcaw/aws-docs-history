@@ -14,7 +14,7 @@ For hybrid environments, see [IPv6 requirements for AWS Site-to-Site VPN](https:
 ## Hybrid DNS resolution architecture (dual-stack)
 <a name="hdnsd-diagram1"></a>
 
-![Architecture diagram showing hybrid DNS resolution between a corporate data center and an AWS VPC using Amazon Route 53 Resolver endpoints in a dual-stack IPv4 and IPv6 configuration.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-dns-route53/images/hybrid-dns-route53-2.png)
+![Architecture diagram showing hybrid DNS resolution between a corporate data center and an AWS VPC using Amazon Route 53 Resolver endpoints in a dual-stack IPv4 and IPv6 configuration.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-dns-route53/images/hybrid-dns-route53-2.png)
 
 
 The following steps describe the data flow in this architecture:

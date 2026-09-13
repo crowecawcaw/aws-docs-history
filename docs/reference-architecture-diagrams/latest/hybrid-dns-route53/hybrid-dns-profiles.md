@@ -17,7 +17,7 @@ You can also share private hosted zones and resolver rules without the use of Ro
 ## Multi-account hybrid DNS resolution with Route 53 Profiles architecture
 <a name="hdnsp-diagram1"></a>
 
-![Architecture diagram showing multi-account and multi-VPC hybrid DNS resolution using Amazon Route 53 Profiles shared across accounts with AWS Resource Access Manager.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-dns-route53/images/hybrid-dns-route53-4.png)
+![Architecture diagram showing multi-account and multi-VPC hybrid DNS resolution using Amazon Route 53 Profiles shared across accounts with AWS Resource Access Manager.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-dns-route53/images/hybrid-dns-route53-4.png)
 
 
 The following steps describe the data flow in this architecture:
