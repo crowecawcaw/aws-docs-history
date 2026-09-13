@@ -25,7 +25,7 @@ Go to your Managed Service for Apache Flink application CloudWatch logs and chec
 
 This can also be found on Flink dashboard where some tasks have entered "FINISHED" state, and checkpointing is not possible anymore.
 
-![Tasks in "FINISHED" state](http://docs.aws.amazon.com/managed-flink/latest/java/images/beam_checkpoint_failure.png)
+![Tasks in "FINISHED" state](https://docs.aws.amazon.com/managed-flink/latest/java/images/beam_checkpoint_failure.png)
 
 
 ## Cause
@@ -40,7 +40,7 @@ One of the causes for tasks entering "FINISHED" state is when shutdownSourcesAft
 
 To prevent tasks from entering "FINISHED" state immediately, set shutdownSourcesAfterIdleMs to Long.MAX\_VALUE. This can be done in two ways:
 + Option 1: If your beam configuration is set in your Managed Service for Apache Flink application configuration page, then you can add a new key value pair to set shutdpwnSourcesAfteridleMs as follows:  
-![Set shutdownSourcesAfterIdleMs to Long.MAX_VALUE](http://docs.aws.amazon.com/managed-flink/latest/java/images/beam_checkpoint_failure_solution.png)
+![Set shutdownSourcesAfterIdleMs to Long.MAX_VALUE](https://docs.aws.amazon.com/managed-flink/latest/java/images/beam_checkpoint_failure_solution.png)
 + Option 2: If your beam configuration is set in your JAR file, then you can set shutdownSourcesAfterIdleMs as follows:
 
   ```

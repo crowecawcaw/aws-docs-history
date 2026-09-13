@@ -26,7 +26,7 @@ If the application doesn’t exist, create the application without CMK.
 
 The following illustration shows how CMK is implemented in Amazon MSF.
 
-![Implementation of customer managed keys in Amazon MSF.](http://docs.aws.amazon.com/managed-flink/latest/java/images/MSF_CMK_architecture.png)
+![Implementation of customer managed keys in Amazon MSF.](https://docs.aws.amazon.com/managed-flink/latest/java/images/MSF_CMK_architecture.png)
 
 
 1. **Customer managed key (CMK)**: Comprises key policy and key material.

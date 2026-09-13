@@ -16,7 +16,7 @@ You have two options for running your Flink jobs with Amazon Managed Service for
 
 You can select which method that best suits your use case. If you are unsure, this section will offer high level guidance to help you. 
 
-![Decision tree for selecting Flink application, Deployed Studio application, or Studio Notebook based on use case and programming experience.](http://docs.aws.amazon.com/managed-flink/latest/java/images/msf-decision-tree.png)
+![Decision tree for selecting Flink application, Deployed Studio application, or Studio Notebook based on use case and programming experience.](https://docs.aws.amazon.com/managed-flink/latest/java/images/msf-decision-tree.png)
 
 
 Before deciding on whether to use Amazon Managed Service for Apache Flink or Amazon Managed Service for Apache Flink Studio you should consider your use case. 
@@ -44,7 +44,7 @@ Flink offers four levels of API abstraction: Flink SQL, Table API, DataStream AP
 + You want to use custom timers (for example to implement custom windowing or late event handling)
 + You want to be able to modify the flow of your application without resetting the state
 
-![Apache Flink APIs diagram showing abstraction levels and programming languages for different APIs.](http://docs.aws.amazon.com/managed-flink/latest/java/images/flink-apis.png)
+![Apache Flink APIs diagram showing abstraction levels and programming languages for different APIs.](https://docs.aws.amazon.com/managed-flink/latest/java/images/flink-apis.png)
 
 
 **Note**  

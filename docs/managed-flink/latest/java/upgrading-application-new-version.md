@@ -41,7 +41,7 @@ aws --region us-east-1 kinesisanalyticsv2 update-application \
 
 **Process flow for running state applications**
 
-![The following diagram represents the recommended workflow to upgrade the application while running. We assume that the application is stateful and that you enabled snapshots. For this workflow, on update, you restore the application from the latest snapshot that was automatically taken by Amazon Managed Service for Apache Flink before updating.](http://docs.aws.amazon.com/managed-flink/latest/java/images/in-place-update-while-running.png)
+![The following diagram represents the recommended workflow to upgrade the application while running. We assume that the application is stateful and that you enabled snapshots. For this workflow, on update, you restore the application from the latest snapshot that was automatically taken by Amazon Managed Service for Apache Flink before updating.](https://docs.aws.amazon.com/managed-flink/latest/java/images/in-place-update-while-running.png)
 
 
 ## Upgrade an application in **READY** state
@@ -63,4 +63,4 @@ aws --region us-east-1 kinesisanalyticsv2 update-application \
 
 **Process flow for ready state applications**
 
-![The following diagram represents the recommended workflow to upgrade the application while in ready state. We assume that the application is stateful and that you enabled snapshots. For this workflow, on update, you restore the application from the latest snapshot that was automatically taken by Amazon Managed Service for Apache Flink when the application was stopped.](http://docs.aws.amazon.com/managed-flink/latest/java/images/in-place-update-while-ready.png)
+![The following diagram represents the recommended workflow to upgrade the application while in ready state. We assume that the application is stateful and that you enabled snapshots. For this workflow, on update, you restore the application from the latest snapshot that was automatically taken by Amazon Managed Service for Apache Flink when the application was stopped.](https://docs.aws.amazon.com/managed-flink/latest/java/images/in-place-update-while-ready.png)

@@ -26,7 +26,7 @@ When following the tutorial, do the following:
 
 If you created an Amazon MSK cluster by following the [Getting Started Using Amazon MSK](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) tutorial, or if your existing Amazon VPC does not already have a NAT gateway for its private subnets, you must add a NAT Gateway to your Amazon VPC. The following diagram shows the architecture. 
 
-![AWS VPC architecture with public and private subnets, NAT gateway, and Glue Data Catalog integration.](http://docs.aws.amazon.com/managed-flink/latest/java/images/vpc_05.png)
+![AWS VPC architecture with public and private subnets, NAT gateway, and Glue Data Catalog integration.](https://docs.aws.amazon.com/managed-flink/latest/java/images/vpc_05.png)
 
 
 To create a NAT gateway for your Amazon VPC, do the following:

@@ -33,7 +33,7 @@ If you are using SQL or Python without any external dependencies, use the follow
 
 **Process flow for upgrading without external dependencies**
 
-![The following diagram represents the recommended workflow to upgrade your notebook without external dependencies.](http://docs.aws.amazon.com/managed-flink/latest/java/images/MSF-Studio-upgrade-without-dependencies.png)
+![The following diagram represents the recommended workflow to upgrade your notebook without external dependencies.](https://docs.aws.amazon.com/managed-flink/latest/java/images/MSF-Studio-upgrade-without-dependencies.png)
 
 
 ### SQL queries or Python code with external dependencies
@@ -64,4 +64,4 @@ Follow this process if you are using SQL or Python and using external dependenci
 
 **Process flow for upgrading with external dependencies**
 
-![The following diagram represents the recommended workflow to upgrade your notebook with external dependencies..](http://docs.aws.amazon.com/managed-flink/latest/java/images/MSF-Studio-upgrade-with-dependencies.png)
+![The following diagram represents the recommended workflow to upgrade your notebook with external dependencies..](https://docs.aws.amazon.com/managed-flink/latest/java/images/MSF-Studio-upgrade-with-dependencies.png)

@@ -36,12 +36,12 @@ If the **Sync Duration** is high then this indicates something is happening duri
 
 A long **Async Duration** would suggest that a lot of time is being spent on uploading the state to Amazon S3. This can occur if the state is large or if there is a lot of state files that are being uploaded. If this is the case it is worth investigating how state is being used by the application and ensuring that the Flink native data structures are being used where possible ([Using Keyed State](https://nightlies.apache.org/flink/flink-docs-master/docs/dev/datastream/fault-tolerance/state/#using-keyed-state)). Managed Service for Apache Flink configures Flink in such a way as to minimize the number of Amazon S3 calls to ensure this doesn’t get too long. Following is an example of an operator's checkpointing statistics. It shows that the **Async Duration** is relatively long compared to the preceding operator checkpointing statistics.
 
-![Investigating checkpointing](http://docs.aws.amazon.com/managed-flink/latest/java/images/checkpoint.png)
+![Investigating checkpointing](https://docs.aws.amazon.com/managed-flink/latest/java/images/checkpoint.png)
 
 
 The **Start Delay** being high would show that the majority of the time is being spent on waiting for the checkpoint barrier to reach the operator. This indicates that the application is taking a while to process records, meaning the barrier is flowing through the job graph slowly. This is usually the case if the Job is backpressured or if an operator(s) is constantly busy. Following is an example of a JobGraph where the second KeyedProcess operator is busy.
 
-![Investigating checkpointing](http://docs.aws.amazon.com/managed-flink/latest/java/images/checkpoint2.png)
+![Investigating checkpointing](https://docs.aws.amazon.com/managed-flink/latest/java/images/checkpoint2.png)
 
 
 You can investigate what is taking so long by either using Flink Flame Graphs or TaskManager thread dumps. Once the bottle-neck has been identified, it can be investigated further using either Flame-graphs or thread-dumps.
@@ -92,7 +92,7 @@ In Flink, a thread dump can be taken by choosing the **Task Managers** option on
 
 To determine which Task Manager to take a thread dump of the **TaskManagers** tab can be used when a particular operator is chosen. This shows that the operator is running on different subtasks of an operator and can run on different Task Managers.
 
-![Using Thread dumps](http://docs.aws.amazon.com/managed-flink/latest/java/images/checkpoint4.png)
+![Using Thread dumps](https://docs.aws.amazon.com/managed-flink/latest/java/images/checkpoint4.png)
 
 
 The dump will be comprised of multiple stack traces. However when investigating the dump the ones related to an operator are the most important. These can easily be found since operator threads have the same name as the operator, as well as an indication of which subtask it is related to. For example the following stack trace is from the *KeyedProcess* operator and is the first subtask. 
@@ -124,7 +124,7 @@ Flame graphs are a useful debugging tool that visualize the stack traces of the 
 
 In Flink, the flame graph for an operator can be accessed via the Web UI by selecting an operator and then choosing the **FlameGraph** tab. Once enough samples have been collected the flamegraph will be displayed. Following is the FlameGraph for the ProcessFunction that was taking a lot of time to checkpoint.
 
-![Using Flame graphs](http://docs.aws.amazon.com/managed-flink/latest/java/images/checkpoint3.png)
+![Using Flame graphs](https://docs.aws.amazon.com/managed-flink/latest/java/images/checkpoint3.png)
 
 
 This is a very simple flame graph and shows that all the CPU time is being spent within a foreach look within the `processElement` of the ExpensiveFunction operator. You also get the line number to help determine where in the code execution is taking place.
