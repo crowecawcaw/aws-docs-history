@@ -74,7 +74,7 @@ In this task, you will use an AWS CloudFormation template to create a custom Ama
 
 1. Select **CustomVPC**, and then select the **Resource map tab** to review the layout of the subnets and route tables.
 
-   ![Resource map showing VPC with subnets in two availability zones connected to route tables and network connections.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/resource-map-tab.png)
+   ![Resource map showing VPC with subnets in two availability zones connected to route tables and network connections.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/resource-map-tab.png)
 
 ### Task 2: Create an Amazon RDS PostgreSQL database hosted in private subnets within an Amazon VPC
 <a name="task-2-create-an-amazon-rds-postgresql-database-hosted-in-private-subnets-within-an-amazon-vpc"></a>
@@ -83,54 +83,54 @@ In this task, you will create an Amazon RDS PostgreSQL database hosted in privat
 
 1. Open the [Amazon RDS](https://console.aws.amazon.com/rds/) console, and select **Create a database**.
 
-   ![Create a database section with two options: Create a database button and Restore from S3 button.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/RDS-create-a-database.png)
+   ![Create a database section with two options: Create a database button and Restore from S3 button.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/RDS-create-a-database.png)
 
 1. For Engine options, select **PostgreSQL** Engine type.
 
-   ![Database creation interface showing Full configuration method selected and PostgreSQL engine type selected.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/engine-options.png)
+   ![Database creation interface showing Full configuration method selected and PostgreSQL engine type selected.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/engine-options.png)
 
 1. For Engine version, select **PostgreSQL 16.8-R2**.
 
-   ![Engine version dropdown showing PostgreSQL 16.8-R2 with RDS Extended Support checkbox.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/engine-versions.png)
+   ![Engine version dropdown showing PostgreSQL 16.8-R2 with RDS Extended Support checkbox.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/engine-versions.png)
 
 1. Select the **Dev/Test** template with the **Single-AZ DB instance deployment** option.
 
-   ![Three RDS deployment options showing Multi-AZ cluster, Multi-AZ instance, and Single-AZ configurations.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/deploy-options.png)
+   ![Three RDS deployment options showing Multi-AZ cluster, Multi-AZ instance, and Single-AZ configurations.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/deploy-options.png)
 
 1. Name your DB instance identifier.
 
    1. For example, **postgresql-demo**
 
-   ![Settings page showing DB instance identifier field with postgresql-demo entered.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/db-instance-identifier.png)
+   ![Settings page showing DB instance identifier field with postgresql-demo entered.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/db-instance-identifier.png)
 
 1. Under Instance Configuration, select **Burstable classes**.
 
 1. Select **db.t3.medium** for DB instance class, and set Allocated Storage to **20GB**.
 
-   ![DB instance class selection showing db.t3.medium with 2 vCPUs and 4 GiB RAM selected.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/instance-config.png)
+   ![DB instance class selection showing db.t3.medium with 2 vCPUs and 4 GiB RAM selected.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/instance-config.png)
 
 1. Under **Connectivity**:
    + Select the **CustomVPC** you created in previous task.
    + Confirm that the **Public access** setting is set to **No**.
    + Select the **default security group**.
 
-   ![VPC configuration showing CustomVPC selected, Public access set to No, and default security group chosen.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/connectivity.png)
+   ![VPC configuration showing CustomVPC selected, Public access set to No, and default security group chosen.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/connectivity.png)
 
 1. Leave all other options as their default settings, and choose **Create database**.
 
 1. After the database instance successfully creates, select **View connection Details**.
 
-   ![Success banner with View connection details button for newly created postgresql-demo database.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/manage-credentials.png)
+   ![Success banner with View connection details button for newly created postgresql-demo database.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/manage-credentials.png)
 
 1. Copy the hostname of the instance, and select **Manage Credentials**.
 
-   ![Connection details dialog showing master username postgres and endpoint URL for RDS database.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/endpoint-info.png)
+   ![Connection details dialog showing master username postgres and endpoint URL for RDS database.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/endpoint-info.png)
 
 1. Retrieve the password by selecting **Retrieve secret value**.
 **Important**  
 Take note of the **username**, **Endpoint**, and **password**. You will need these values for your VPC environment in the next task.
 
-   ![Secret value section with Retrieve secret value button and Resource permissions section with Edit permissions button.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/secret-value.png)
+   ![Secret value section with Retrieve secret value button and Resource permissions section with Edit permissions button.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/secret-value.png)
 
 ### Task 3: Set up an AWS CloudShell Virtual Private Cloud environment and test connectivity
 <a name="task-3-set-up-an-aws-cloudshell-virtual-private-cloud-environment-and-test-connectivity"></a>
@@ -139,7 +139,7 @@ In this task, you will set up an AWS CloudShell VPC environment and test connect
 
 1. Open [AWS CloudShell](https://console.aws.amazon.com/cloudshell/), and select the **\+** button to bring up an option for **Create VPC environment**.
 
-   ![CloudShell interface showing options to open us-west-2 environment or create VPC environment.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/create-vpc-environment.png)
+   ![CloudShell interface showing options to open us-west-2 environment or create VPC environment.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/create-vpc-environment.png)
 
 1. Name the VPC environment.
 
@@ -149,7 +149,7 @@ In this task, you will set up an AWS CloudShell VPC environment and test connect
 
 1. Choose **Create**.
 
-   ![Create a VPC environment form with fields for name, VPC, subnet, and security group.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/custom-vpc.png)
+   ![Create a VPC environment form with fields for name, VPC, subnet, and security group.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/custom-vpc.png)
 **Note**  
 Public IP addresses are not allocated to CloudShell VPC environments by default. VPC environments created in public subnets with routing tables configured to route all traffic to Internet Gateway will not have access to public internet, but private subnets configured with Network Address Translation (NAT) have access to public internet. VPC environments created in such private subnets will have access to public internet.
 
@@ -186,7 +186,7 @@ These are the values at the end of Task 2.
 
 1. Enter your **password** to finish establishing a connection to your database.
 
-   ![CloudShell terminal showing successful psql connection to PostgreSQL database with SSL enabled.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/establish-connection-to-DB.png)
+   ![CloudShell terminal showing successful psql connection to PostgreSQL database with SSL enabled.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/establish-connection-to-DB.png)
 
 1. Validate your setup by running this test command:
 
@@ -194,7 +194,7 @@ These are the values at the end of Task 2.
    CREATE DATABASE demodb;
    ```
 
-   ![CloudShell terminal showing PostgreSQL connection and database creation commands.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/validate-setup.png)
+   ![CloudShell terminal showing PostgreSQL connection and database creation commands.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/validate-setup.png)
 
 ### Task 4: Clean up resources
 <a name="clean-up-resources"></a>
@@ -205,7 +205,7 @@ To avoid unexpected charges, follow these clean-up steps:
 **Note**  
 VPC environments do not have persistent storage. The $HOME directory is deleted when your VPC environment times out (after 20-30 minutes of inactivity), or when you delete or restart your environment.
 
-   ![Actions menu showing environment options such as View details, New tab, Split views, and Delete.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/CloudShell-delete.png)
+   ![Actions menu showing environment options such as View details, New tab, Split views, and Delete.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/CloudShell-delete.png)
 
 1. Enter **delete**, and choose **Delete** to confirm the deletion of the VPC environment.
 
@@ -215,7 +215,7 @@ VPC environments do not have persistent storage. The $HOME directory is deleted 
 
 1. Select **Actions**, and select **Delete.**
 
-   ![Quick Actions menu showing options such as Delete, Set up EC2 connection, and Create read replica.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/enter-delete.png)
+   ![Quick Actions menu showing options such as Delete, Set up EC2 connection, and Create read replica.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/enter-delete.png)
 
 1. Enter **delete me** to remove the PostgreSQL database instance.
 
@@ -223,7 +223,7 @@ VPC environments do not have persistent storage. The $HOME directory is deleted 
 
 1. Select **Delete.**
 
-   ![Stacks table showing custom-vpc stack with CREATE_COMPLETE status and VPC deployment description.](http://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/actions-delete.png)
+   ![Stacks table showing custom-vpc stack with CREATE_COMPLETE status and VPC deployment description.](https://docs.aws.amazon.com/hands-on/latest/connect-to-private-amazon-rds-for-postgresql-from-aws-cloudshell/images/actions-delete.png)
 
 1. Choose **Delete** to remove the CloudFormation stack.
 
