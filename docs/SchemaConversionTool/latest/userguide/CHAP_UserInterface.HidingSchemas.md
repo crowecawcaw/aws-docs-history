@@ -12,7 +12,7 @@ Use tree view settings to specify what schemas and databases you want to see in 
 1. Connect to the data store that you want to show in tree view.
 
 1. Choose **Settings**, **Global settings**, **Tree view**.  
-![The Tree view settings section of the Global settings dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/treeview-hide.png)
+![The Tree view settings section of the Global settings dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/treeview-hide.png)
 
 1. In the **Tree view settings** section, do the following:
    + For **Vendor**, choose database platform.

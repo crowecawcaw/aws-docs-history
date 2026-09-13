@@ -27,10 +27,10 @@ You can create a new database migration project using the new project wizard. Th
 1. Choose your database schema.
 
    1. Select the check box for the name of schemas that you want to assess and then choose the schema itself. The schema name is highlighted in blue when selected and the **Next** button is available.  
-![Choose one database schema in the new project wizard.](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/new-project-wizard-choose-schema.png)
+![Choose one database schema in the new project wizard.](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/new-project-wizard-choose-schema.png)
 
    1. If you want to assess several database schemas, then select the check boxes for all the schemas and then choose the parent node. For a successful assessment, you must choose the parent node. For example, for a source SQL Server database, choose the **Databases** node. The name of the parent node is highlighted in blue and the **Next** button is available.  
-![Choose multiple database schemas in the new project wizard.](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/new-project-wizard-choose-two-schemas.png)
+![Choose multiple database schemas in the new project wizard.](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/new-project-wizard-choose-two-schemas.png)
 
    1. Choose **Next**. AWS SCT analyzes your source database schemas and creates a database migration assessment report. The number of database objects in your source database schemas affects the time it takes to run the assessment. When complete, the **Run the database migration assessment** page opens.
 

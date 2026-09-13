@@ -14,7 +14,7 @@ Following, you can find an outline of the process to convert ETL scripts to AWS 
 
 The following architecture diagram shows an example database migration project that includes the conversion of ETL scripts to AWS Glue.
 
-![A diagram showing the conversion of databases and ETL.](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/glue-conversion.png)
+![A diagram showing the conversion of databases and ETL.](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/glue-conversion.png)
 
 
 ## Prerequisites

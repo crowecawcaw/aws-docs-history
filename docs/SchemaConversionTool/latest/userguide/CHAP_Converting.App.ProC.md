@@ -25,7 +25,7 @@ You can add multiple application conversion projects in a single AWS SCT project
 1. On the **Applications** menu, choose **New Pro\*C application**. 
 
    The **Creating a Pro\*C application conversion project** dialog box appears.   
-![The new Pro*C application conversion project dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/proc-application-new-project.png)
+![The new Pro*C application conversion project dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/proc-application-new-project.png)
 
 1. For **Name**, enter a name for your Pro\*C application conversion project. Because each database schema conversion project can have one or more child application conversion projects, choose a name that makes sense if you add multiple projects. 
 
@@ -63,7 +63,7 @@ After you add your Pro\*C application to the AWS SCT project, convert SQL code f
 1.  Choose **Convert**. AWS SCT analyzes your source code files, determines the application logic, and loads code metadata into the project. This code metadata includes Pro\*C classes, objects, methods, global variables, interfaces, and so on. 
 
    In the target database panel, AWS SCT creates the similar folders structure to your source application project. Here you can review the converted application code.  
-![SQL code to analyze](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/proc-applications-project-analyze.png)
+![SQL code to analyze](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/proc-applications-project-analyze.png)
 
 1. Save your converted application code. For more information, see [Editing and saving your converted application code](#CHAP_Converting.App.ProC.Save).
 
@@ -159,7 +159,7 @@ Use the following procedure to create a Pro\*C application conversion assessment
 1. Review the **Summary** tab.
 
    The **Summary** tab, shown following, displays the executive summary information from the Pro\*C application assessment report. It shows conversion results for all SQL execution points and all source code files.   
-![Pro*C Application Assessment Report summary tab](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/proc-applications-summary.png)
+![Pro*C Application Assessment Report summary tab](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/proc-applications-summary.png)
 
 1. Choose **Save statements to CSV** to save the extracted SQL code from your Pro\*C application as a comma-separated values (CSV) file.
 

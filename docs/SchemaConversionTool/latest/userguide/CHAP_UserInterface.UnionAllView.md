@@ -14,6 +14,6 @@ If a source table is partitioned, AWS SCT creates *n* target tables, where *n* i
 1. Choose a pair of OLAP databases from the list at the top.
 
 1. Turn on **Use Union all view?**  
-![Conversion settings](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/conversion-settings.png)
+![Conversion settings](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/conversion-settings.png)
 
 1. Choose **OK** to save the settings and close the **Conversion settings** dialog box. 

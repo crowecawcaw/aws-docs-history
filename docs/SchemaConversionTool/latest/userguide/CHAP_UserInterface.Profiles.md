@@ -34,7 +34,7 @@ Use the following procedure to store AWS credentials globally.
 1. Choose **Test connection** to verify that your credentials are correct and active. 
 
    The **Test connection** dialog box appears. You can see the status for each of the services connected to your profile. **Pass** indicates that the profile can successfully access the service.   
-![The Test connection dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/AWSServiceProfileSettings-Test.png)
+![The Test connection dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/AWSServiceProfileSettings-Test.png)
 
 1. After you have configured your profile, choose **Save** to save your profile or **Cancel** to cancel your changes. 
 

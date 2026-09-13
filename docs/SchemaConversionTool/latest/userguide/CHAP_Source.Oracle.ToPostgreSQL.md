@@ -126,7 +126,7 @@ If your source database code includes operations with ROWID, which you can't run
 1. Choose a database object that uses dynamic SQL in the Oracle source tree view.
 
 1. Open the context (right-click) menu for the object, choose **Convert schema**, and agree to replace the objects if they exist. The following screenshot shows the converted procedure below the Oracle procedure with dynamic SQL.  
-![Dynamic SQL conversion](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/dynamicsql1.png)
+![Dynamic SQL conversion](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/dynamicsql1.png)
 
 ## Converting Oracle partitions
 <a name="CHAP_Source.Oracle.ToPostgreSQL.PG10Partitioning"></a>

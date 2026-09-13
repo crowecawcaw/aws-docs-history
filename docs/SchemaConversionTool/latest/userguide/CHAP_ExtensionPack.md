@@ -93,7 +93,7 @@ You can apply the AWS SCT extension pack using the extension pack wizard or when
 **To apply the extension pack using the extension pack wizard**
 
 1. In the AWS Schema Conversion Tool, in the target database tree, open the context (right-click) menu, choose **Apply extension pack for**, and then choose your source database platform.  
-![Apply extension pack context menu](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/extension-pack-context.png)
+![Apply extension pack context menu](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/extension-pack-context.png)
 
    The extension pack wizard appears.
 
@@ -189,7 +189,7 @@ The AWS service emulation features are supported only for databases installed an
 **To apply the extension pack using the extension pack wizard**
 
 1. In the AWS Schema Conversion Tool, in the target database tree, open the context (right-click) menu, choose **Apply extension pack for**, and then choose your source database platform.   
-![Apply extension pack context menu](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/extension-pack-context.png)
+![Apply extension pack context menu](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/extension-pack-context.png)
 
    The extension pack wizard appears. 
 

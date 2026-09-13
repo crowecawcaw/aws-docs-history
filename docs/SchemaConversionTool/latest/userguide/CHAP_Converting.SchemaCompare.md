@@ -13,7 +13,7 @@ The following schema comparisons are supported:
 
 You specify settings for the schema comparison on the **Compare Schema** tab of the **Project Settings** page.
 
-![Schema compare settings](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/schema-compare-settings.png)
+![Schema compare settings](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/schema-compare-settings.png)
 
 
 To compare schemas, you select the schemas, and AWS SCT indicates the objects that differ between the two schemas and the objects that don't.
@@ -28,7 +28,7 @@ To compare schemas, you select the schemas, and AWS SCT indicates the objects th
 
  AWS SCT indicates objects that are different between the two schemas by adding a black circle to the object's icon.
 
-![Schema compare result](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/schema-compare-results.png)
+![Schema compare result](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/schema-compare-results.png)
 
 
 You can apply the results of the schema comparison to a single object, to a single category of objects, or to the entire schema. Choose the box next to the category, object, or schema that you want to apply the results to.

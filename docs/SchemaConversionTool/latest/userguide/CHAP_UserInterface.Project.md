@@ -12,7 +12,7 @@ Use the following procedure to create an AWS Schema Conversion Tool project.
 1. Start the AWS Schema Conversion Tool.
 
 1. On the **File** menu, choose **New project**. The **New project** dialog box appears.   
-![New Project dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/file-new-project.png)
+![New Project dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/file-new-project.png)
 
 1.  Enter a name for your project, which is stored locally on your computer. 
 

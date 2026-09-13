@@ -17,7 +17,7 @@ When you use AWS SCT and an AWS Snowball Edge Edge device, you migrate your data
 
 The following diagram shows the supported scenario.
 
-![Extraction agent architecture](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/extraction-agents-art.png)
+![Extraction agent architecture](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/extraction-agents-art.png)
 
 
 Data extraction agents are currently supported for the following source data warehouses:
@@ -295,7 +295,7 @@ To change configuration settings, you can edit the `settings.properties` file us
 
 You can install extraction agents in a configuration that has shared storage and a dedicated copying agent. The following diagram illustrates this scenario. 
 
-![Extractor agents with dedicated copy agent configuration](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/dedicated-copy-agent3.png)
+![Extractor agents with dedicated copy agent configuration](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/dedicated-copy-agent3.png)
 
 
 That configuration can be useful when a source database server supports up to 120 connections, and your network has ample storage attached. Use the procedure following to configure extraction agents that have a dedicated copying agent.
@@ -487,7 +487,7 @@ These benefits have to do with how AWS SCT creates data extraction queries. In s
    + **Never use sorting** – The extraction agent doesn't use the DENSE\_RANK analytic function and restarts from the beginning if a failure occurs.
    + **Use sorting if possible** – The extraction agent uses DENSE\_RANK if the table has a primary key or a unique constraint.
    + **Use sorting after first fail (recommended)** – The extraction agent first tries to get the data without using DENSE\_RANK. If the first attempt fails, the extraction agent rebuilds the query using DENSE\_RANK and preserves its location in case of failure.  
-![The Security tab on the Global Settings dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/local-task-sorting.png)
+![The Security tab on the Global Settings dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/local-task-sorting.png)
 
 1.  Set additional parameters as described following, and then choose **Create **to create your data extraction task. 
 
@@ -543,7 +543,7 @@ Use the following procedures to create, run, and monitor data extraction tasks.
 1. For **View**, choose **Data Migration view**. The **Agents** tab appears. 
 
 1. Choose the **Tasks** tab. Your tasks appear in the grid at the top as shown following. You can see the status of a task in the top grid, and the status of its subtasks in the bottom grid.   
-![Tasks grid](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/TasksGrid.png)
+![Tasks grid](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/TasksGrid.png)
 
 1. Choose a task in the top grid and expand it. Depending on the migration mode you chose, you see the task divided into **Extract**, **Upload**, and **Copy**. 
 
@@ -762,7 +762,7 @@ After your migration tasks complete, your data is ready. Use the following infor
 | Migration mode | Data location | 
 | --- | --- | 
 | **Extract, upload and copy** | The data is already in your Amazon Redshift data warehouse. You can verify that the data is there, and start using it. For more information, see [Connecting to clusters from client tools and code](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-via-client-tools.html).  | 
-| **Extract and upload** | The extraction agents saved your data as files in your Amazon S3 bucket. You can use the Amazon Redshift COPY command to load your data to Amazon Redshift. For more information, see [Loading data from Amazon S3](https://docs.aws.amazon.com/redshift/latest/dg/t_Loading-data-from-S3.html) in the Amazon Redshift documentation. <br />There are multiple folders in your Amazon S3 bucket, corresponding to the extraction tasks that you set up. When you load your data to Amazon Redshift, specify the name of the manifest file created by each task. The manifest file appears in the task folder in your Amazon S3 bucket as shown following. ![File list in Amazon S3 bucket](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/S3FileList.png) | 
+| **Extract and upload** | The extraction agents saved your data as files in your Amazon S3 bucket. You can use the Amazon Redshift COPY command to load your data to Amazon Redshift. For more information, see [Loading data from Amazon S3](https://docs.aws.amazon.com/redshift/latest/dg/t_Loading-data-from-S3.html) in the Amazon Redshift documentation. <br />There are multiple folders in your Amazon S3 bucket, corresponding to the extraction tasks that you set up. When you load your data to Amazon Redshift, specify the name of the manifest file created by each task. The manifest file appears in the task folder in your Amazon S3 bucket as shown following. ![File list in Amazon S3 bucket](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/S3FileList.png) | 
 | **Extract only** | The extraction agents saved your data as files in your working folder. Manually copy your data to your Amazon S3 bucket, and then proceed with the instructions for **Extract and upload**. | 
 
 ## Using virtual partitioning with AWS Schema Conversion Tool

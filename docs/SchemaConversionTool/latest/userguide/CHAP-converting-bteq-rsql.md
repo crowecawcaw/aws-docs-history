@@ -7,7 +7,7 @@ You can use the AWS Schema Conversion Tool (AWS SCT) to convert Teradata Basic T
 
 The following architecture diagram shows the database migration project that includes the conversion of extract, transform, and load (ETL) scripts to Amazon Redshift RSQL.
 
-![A diagram showing the conversion of ETL scripts to RSQL.](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/redshift-rsql-conversion.png)
+![A diagram showing the conversion of ETL scripts to RSQL.](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/redshift-rsql-conversion.png)
 
 
 **Topics**

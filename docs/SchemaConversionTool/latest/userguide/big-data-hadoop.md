@@ -19,7 +19,7 @@ To migrate Apache Hadoop clusters, make sure that you use AWS SCT version 1.0.67
 
 The following image shows the architecture diagram of the migration from Apache Hadoop to Amazon EMR.
 
-![The architecture diagram of the Hadoop migration](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/hadoop-migration-architecture-diagram.png)
+![The architecture diagram of the Hadoop migration](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/hadoop-migration-architecture-diagram.png)
 
 
 AWS SCT migrates data and metadata from your source Hadoop cluster to an Amazon S3 bucket. Next, AWS SCT uses your source Hive metadata to create database objects in the target Amazon EMR Hive service. Optionally, you can configure Hive to use the AWS Glue Data Catalog as its metastore. In this case, AWS SCT migrates your source Hive metadata to the AWS Glue Data Catalog.

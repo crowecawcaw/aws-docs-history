@@ -18,14 +18,14 @@ You can create a database migration assessment report after you add the source d
    Make sure that you selected the check boxes for all schema objects to create an assessment report for.
 
 1. Open the context (right-click) menu for the object, and then choose **Create report**.  
-![Create database migration assessment report](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
+![Create database migration assessment report](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
 
    The assessment report view opens.
 
 1. Choose the **Action items** tab. 
 
    The **Action items** tab displays a list of items that describe the schema that can't be converted automatically. Choose one of the action items in the list. AWS SCT highlights the item from your schema that the action item applies to, as shown following.   
-![Action items tab](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/action_items_tab.png)
+![Action items tab](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/action_items_tab.png)
 
 1. Choose the **Summary** tab. 
 
@@ -34,7 +34,7 @@ You can create a database migration assessment report after you add the source d
    The section **License Evaluation and Cloud Support** contains information about moving your existing on-premises database schema to an Amazon RDS DB instance running the same engine. For example, if you want to change license types, this section of the report tells you which features from your current database to remove. 
 
    An example of an assessment report summary is shown following.   
-![Assessment report summary](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/summary_tab.png)
+![Assessment report summary](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/summary_tab.png)
 
 1. Choose the **Summary** tab, and then choose **Save to PDF**. The database migration assessment report is saved as a PDF file. The PDF file contains both the summary and action item information. 
 
@@ -42,4 +42,4 @@ You can create a database migration assessment report after you add the source d
    + A list of conversion action items with recommended actions.
    + A summary of conversion action items with an estimate of the effort required to convert an occurrence of the action item.
    + An executive summary with a number of action items categorized by the estimated time to convert.  
-![Database migration assessment report](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/assessment_report.png)
+![Database migration assessment report](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/assessment_report.png)

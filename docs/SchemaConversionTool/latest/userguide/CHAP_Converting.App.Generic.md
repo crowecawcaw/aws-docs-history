@@ -32,7 +32,7 @@ Apache Cassandra to Amazon DynamoDB
 1. In the AWS Schema Conversion Tool, choose **New generic application** on the **Applications** menu. 
 
    The **New application conversion project** dialog box appears.   
-![The New application conversion project dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-new-project.png)
+![The New application conversion project dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-new-project.png)
 
 1. Add the following project information.     
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Converting.App.Generic.html)
@@ -82,7 +82,7 @@ Apache Cassandra to Amazon DynamoDB
 1. Choose **OK** to create your application conversion project. 
 
    The project window opens.  
-![The project window](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-project-window.png)
+![The project window](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-project-window.png)
 
 ## Managing application conversion projects in AWS SCT
 <a name="CHAP_Converting.App.Manage"></a>
@@ -121,7 +121,7 @@ Use the following procedure to analyze and convert your SQL code in the AWS Sche
 1. Choose **Convert** to convert the SQL code the **Extracted SQL script** pane. AWS SCT converts the code to a format compatible with your target database. 
 
    You can edit the converted SQL code. For more information, see [Editing and saving your converted SQL code](#CHAP_Converting.App.Edit).  
-![SQL code to analyze](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-project-analyze.png)
+![SQL code to analyze](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-project-analyze.png)
 
 1. When you create an application conversion assessment report, AWS SCT converts all extracted SQL code items. For more information, see [Creating and using the assessment report](#CHAP_Converting.App.AssessmentReport). 
 
@@ -144,7 +144,7 @@ Use the following procedure to create an application conversion assessment repor
 1. Review the **Summary** tab. 
 
    The **Summary** tab, shown following, displays the summary information from the application assessment report. It shows the SQL code items that were converted automatically, and items that were not converted automatically.   
-![Application Assessment Report summary tab](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-summary.png)
+![Application Assessment Report summary tab](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/applications-summary.png)
 
 1. Choose **SQL extraction actions**. 
 

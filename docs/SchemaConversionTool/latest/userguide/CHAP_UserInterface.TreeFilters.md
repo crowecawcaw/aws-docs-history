@@ -22,13 +22,13 @@ For tree filters, keep the following in mind:
 1. Connect to the database that you want to apply the tree filter to.
 
 1. Choose the filter icon.  
-![The filter icon for the schema tree](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/filter-source-tree.png)
+![The filter icon for the schema tree](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/filter-source-tree.png)
 
    The undo filter icon is grayed out because no filter is currently applied.
 
 1. Enter the following information in the **Filter** dialog box. Options in the dialog box are different for each database engine.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_UserInterface.TreeFilters.html)  
-![The filter icon for the schema tree](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/filter-tree-db.png)
+![The filter icon for the schema tree](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/filter-tree-db.png)
 
 1. Choose **Add new clause** to add an additional filter clause. AWS SCT can apply multiple filter clauses using `AND` or `OR` logical operators. 
 

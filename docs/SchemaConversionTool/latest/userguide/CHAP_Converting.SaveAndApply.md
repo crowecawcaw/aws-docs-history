@@ -42,7 +42,7 @@ You can save your converted schema as SQL scripts in a text file. By using this 
 
 When you are ready to apply your converted schema to your target Amazon RDS DB instance, choose the schema element from the right panel of your project. Open the context (right-click) menu for the schema element, and then choose **Apply to database**, as shown following. 
 
-![Apply to database](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/write_to_database.png)
+![Apply to database](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/write_to_database.png)
 
 
 ## The extension pack schema

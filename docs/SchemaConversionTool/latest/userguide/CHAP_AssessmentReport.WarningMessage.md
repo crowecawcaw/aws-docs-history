@@ -5,7 +5,7 @@
 
 To assess the complexity of converting to another database engine, AWS SCT requires access to objects in your source database. When SCT can’t perform an assessment because problems were encountered during scanning, a warning message is issued that indicates overall conversion percentage is reduced.
 
-![Assessment report warning message](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/assessment-report-warning-message.png)
+![Assessment report warning message](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/assessment-report-warning-message.png)
 
 
 Following are reasons why AWS SCT might encounter problems during scanning:

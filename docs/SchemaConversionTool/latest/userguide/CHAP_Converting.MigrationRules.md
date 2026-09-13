@@ -55,7 +55,7 @@ You can create migration rules and save the rules as part of your project. With 
       For char, varchar, nvarchar, and string data types, you can change the data type length using the multiplication operator. For example, the `%*4` value transforms the `varchar(10)` data type into `varchar(40)`.
 
 1. After you have configured your migration rule, choose **Save** to save your rule. You can also choose **Cancel** to cancel your changes.   
-![The transformation rules dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/transformation-rules.png)
+![The transformation rules dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/transformation-rules.png)
 
 1. After you are done adding, editing, and deleting rules, choose **Save All** to save all your changes. 
 

@@ -30,7 +30,7 @@ You can use AWS SCT to automatically update the values and the names of your par
 
 The following image shows the architecture diagram of the Apache Oozie conversion to AWS Step Functions.
 
-![The architecture diagram of the Apache Oozie conversion to AWS Step Functions.](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/aws-sct-oozie-conversion-architecture-diagram.png)
+![The architecture diagram of the Apache Oozie conversion to AWS Step Functions.](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/aws-sct-oozie-conversion-architecture-diagram.png)
 
 
 To start the conversion, create and run your AWS SCT CLI script. This script includes the complete set of commands to run the conversion. You can download and edit a template of the Apache Oozie conversion script. For more information, see [Getting CLI scenarios](CHAP_Reference.md#CHAP_Reference.Scenario).

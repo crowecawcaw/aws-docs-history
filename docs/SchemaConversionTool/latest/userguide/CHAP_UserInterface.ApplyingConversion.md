@@ -15,6 +15,6 @@ The following procedure overwrites the existing target schema. Be careful not to
 1. Choose the schema element in the right panel of your project that displays the planned schema for your target DB instance. 
 
 1. Open the context (right-click) menu for the schema element, and then choose **Apply to database**.   
-![Apply to database](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/write_to_database.png)
+![Apply to database](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/write_to_database.png)
 
    The converted schema is applied to the target DB instance.

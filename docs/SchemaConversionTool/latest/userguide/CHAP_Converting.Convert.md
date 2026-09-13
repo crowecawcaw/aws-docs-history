@@ -12,12 +12,12 @@ You can choose schema items from your source database and then convert the schem
 
 To convert a schema from your source database, select the check box for the name of schema to convert. Next, choose this schema from the left panel of your project. AWS SCT highlights the schema name in blue. Open the context (right-click) menu for the schema, and choose **Convert schema**, as shown following.
 
-![Convert schema](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/transform_schema.png)
+![Convert schema](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/transform_schema.png)
 
 
 After you have converted the schema from your source database, you can choose schema items from the left panel of your project and view the converted schema in the center panels of your project. The lower-center panel displays the properties of and the SQL command to create the converted schema, as shown following. 
 
-![Choose source schema item](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/select_schema_item.png)
+![Choose source schema item](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/select_schema_item.png)
 
 
 After you have converted your schema, you can save your project. The schema information from your source database is saved with your project. This functionality means that you can work offline without being connected to your source database. AWS SCT connects to your source database to update the schema in your project if you choose **Refresh from Database** for your source database. For more information, see [Updating and refreshing converted schemas in AWS SCT](CHAP_Converting.UpdateRefresh.md). 
@@ -38,7 +38,7 @@ You can edit converted schema and save the changes as part of your project.
 1. In the lower-center panel that displays the converted schema for the selected item, choose the **SQL** tab. 
 
 1. In the text displayed for the **SQL** tab, change the schema as needed. The schema is automatically saved with your project as you update it.   
-![Refresh the schema from the target DB instance](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/edit_converted_schema.png)
+![Refresh the schema from the target DB instance](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/edit_converted_schema.png)
 
 The changes that you make to converted schema are stored with your project as you make updates. If you newly convert a schema item from your source database, and you have made updates to previously converted schema for that item, those existing updates are replaced by the newly converted schema item based on your source database. 
 

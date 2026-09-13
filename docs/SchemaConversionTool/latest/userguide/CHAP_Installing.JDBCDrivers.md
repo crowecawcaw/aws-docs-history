@@ -62,9 +62,9 @@ After you have downloaded and installed the required JDBC drivers, you can set t
 **To update the driver file locations**
 
 1. In AWS SCT, choose **Settings**, and then choose **Global Settings**.   
-![Choose global settings](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/select_global_settings.png)
+![Choose global settings](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/select_global_settings.png)
 
 1. For **Global settings**, choose **Drivers**. Add the file path to the JDBC driver for your source database engine and your target Amazon RDS DB instance database engine.   
-![Global settings](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/driver-settings.png)
+![Global settings](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/driver-settings.png)
 
 1. When you are finished adding the driver paths, choose **OK**. 

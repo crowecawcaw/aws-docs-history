@@ -37,7 +37,7 @@ Use the following procedure to perform a multiserver assessment with AWS SCT. Yo
 **To perform a multiserver assessment and create an aggregated summary report**
 
 1. In AWS SCT, choose **File**, **New multiserver assessment**. The **New multiserver assessment** dialog box opens.  
-![New multiuser assessment access](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/new_assess_screen_v3.png)
+![New multiuser assessment access](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/new_assess_screen_v3.png)
 
 1. Choose **Download a connections file example** to download an empty template of a CSV file with database connection parameters.
 
@@ -176,7 +176,7 @@ Aggregated reports show information in four columns about conversion complexity 
 
 The following example shows information for conversion of two Oracle database schemas to Amazon RDS for PostgreSQL. 
 
-![Aggregate report one target](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/aggregate_rpt5.png)
+![Aggregate report one target](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/aggregate_rpt5.png)
 
 
 The same four columns are appended to the reports for each additional target database engine specified.

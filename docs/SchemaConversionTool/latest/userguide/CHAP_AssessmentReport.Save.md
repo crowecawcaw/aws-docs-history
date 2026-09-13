@@ -23,7 +23,7 @@ After you [create a database migration assessment report](CHAP_AssessmentReport.
 
  The PDF file contains both the summary and action item information, as shown in the following example. 
 
-![Database migration assessment report in the PDF file](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/assessment_report.png)
+![Database migration assessment report in the PDF file](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/assessment_report.png)
 
 
  When you choose the **Save to CSV** option, AWS SCT creates three CSV files. 
@@ -43,7 +43,7 @@ After you [create a database migration assessment report](CHAP_AssessmentReport.
 
 In the following example, values in the **Learning curve effort** column indicate the amount of effort needed to design an approach to converting each action item. Values in the **Effort to convert an occurrence of the action item** column indicate the effort needed to convert each action item, following the designed approach. The values used to indicate the level of effort needed are based on a weighted scale, ranging from low (least) to high (most).
 
-![Action item assessment report](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/action-item-cvs.png)
+![Action item assessment report](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/action-item-cvs.png)
 
 
  The third CSV file includes `Summary` in its name and contains the following summary:

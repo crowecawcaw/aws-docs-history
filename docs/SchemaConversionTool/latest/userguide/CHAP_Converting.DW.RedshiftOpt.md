@@ -23,7 +23,7 @@ Use the following procedure to optimize your Amazon Redshift database.
    AWS SCT makes suggestions for sort keys and distribution keys. 
 
 1. To review the suggestions, expand the tables node under your schema in the left panel of your project, and then choose a table. Choose the **Key Management** tab as shown following.   
-![Key management tab](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/key-management.png)
+![Key management tab](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/key-management.png)
 
    The left pane contains key suggestions, and includes the confidence rating for each suggestion. You can choose one of the suggestions, or you can customize the key by editing it in the right pane. 
 

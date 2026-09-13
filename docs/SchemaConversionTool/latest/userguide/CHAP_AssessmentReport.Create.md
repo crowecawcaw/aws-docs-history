@@ -16,4 +16,4 @@ Use the following procedure to create a database migration assessment report.
    Make sure that you selected the check boxes for all schema objects to create an assessment report for.
 
 1. Open the context (right-click) menu for the object, and then choose **Create report**.   
-![Create database migration assessment report](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
+![Create database migration assessment report](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)

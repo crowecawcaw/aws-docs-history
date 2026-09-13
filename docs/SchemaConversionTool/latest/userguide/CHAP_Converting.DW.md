@@ -108,10 +108,10 @@ To optimize how the AWS Schema Conversion Tool converts your data warehouse sche
 1. Open your project and connect to your source database. 
 
 1. Choose a schema object from the left panel of your project, and open the context (right-click) menu for the object. Choose **Collect Statistics** or **Upload Statistics** as shown following.   
-![Context menu with collect statistics](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/collect-statistics.png)
+![Context menu with collect statistics](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/collect-statistics.png)
 
 1. Choose a schema object from the left panel of your project, and then choose the **Statistics** tab. You can review the statistics for the object.   
-![Statistics tab](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/statistics.png)
+![Statistics tab](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/statistics.png)
 
    Later, when you review the suggested keys, if you are not satisfied with the results, you can collect additional statistics and repeat this procedure. For more information, see [Managing and customizing keys in AWS SCT](#CHAP_Converting.DW.Keys). 
 
@@ -168,7 +168,7 @@ You can create migration rules and save the rules as part of your project. With 
    1. Depending on the rule type, enter one or two additional values. For example, to rename an object, enter the new name of the object. To replace a prefix, enter the old prefix and the new prefix. 
 
 1. After you have configured your migration rule, choose **Save** to save your rule. You can also choose **Cancel** to cancel your changes.   
-![The transformation rules dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/transformation-rules.png)
+![The transformation rules dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/transformation-rules.png)
 
 1. After you are done adding, editing, and deleting rules, choose **Save All** to save all your changes. 
 
@@ -203,12 +203,12 @@ You can choose schema items from your source database and then convert the schem
 
 To convert a schema from your source database, select the check box for the name of schema to convert. Next, choose this schema from the left panel of your project. AWS SCT highlights the schema name in blue. Open the context (right-click) menu for the schema, and choose **Convert schema**, as shown following.
 
-![Convert schema](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/transform_schema.png)
+![Convert schema](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/transform_schema.png)
 
 
 After you have converted the schema from your source database, you can choose schema items from the left panel of your project and view the converted schema in the center panels of your project. The lower-center panel displays the properties of and the SQL command to create the converted schema, as shown following. 
 
-![Choose source schema item](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/select_schema_item.png)
+![Choose source schema item](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/select_schema_item.png)
 
 
 After you have converted your schema, you can save your project. The schema information from your source database is saved with your project. This functionality means that you can work offline without being connected to your source database. AWS SCT connects to your source database to update the schema in your project if you choose **Refresh from Database** for your source database. For more information, see [Updating and refreshing your converted schema in AWS SCT](#CHAP_Converting.DW.UpdateRefresh). 
@@ -229,7 +229,7 @@ You can edit converted schema and save the changes as part of your project.
 1. In the lower-center panel that displays the converted schema for the selected item, choose the **SQL** tab. 
 
 1. In the text displayed for the **SQL** tab, change the schema as needed. The schema is automatically saved with your project as you update it.   
-![Refresh the schema from the target database](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/edit_converted_schema.png)
+![Refresh the schema from the target database](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/edit_converted_schema.png)
 
 The changes that you make to converted schema are stored with your project as you make updates. If you newly convert a schema item from your source database, and you have made updates to previously converted schema for that item, those existing updates are replaced by the newly converted schema item based on your source database. 
 
@@ -245,7 +245,7 @@ After you convert your schema with the AWS Schema Conversion Tool, you can manag
 
 To manage keys, select a table in your target database, and then choose the **Key Management** tab as shown following. 
 
-![Key management tab](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/key-management.png)
+![Key management tab](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/key-management.png)
 
 
 The left pane contains key suggestions, and includes the confidence rating for each suggestion. You can choose one of the suggestions, or you can customize the key by editing it in the right pane. 
@@ -272,14 +272,14 @@ Use the following procedure to create a database migration assessment report.
 1. In the left panel that displays the schema from your source database, choose a schema object to create an assessment report for. 
 
 1. Open the context (right-click) menu for the object, and then choose **Create Report**.   
-![Create database migration assessment report](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
+![Create database migration assessment report](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
 
 ### Assessment report summary
 <a name="CHAP_Converting.DW.AssessmentReport.Summary"></a>
 
 After you create an assessment report, the assessment report view opens, showing the **Summary** tab. The **Summary** tab displays the summary information from the database migration assessment report. It shows items that were converted automatically, and items that were not converted automatically. 
 
-![Assessment report summary](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/summary_tab.png)
+![Assessment report summary](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/summary_tab.png)
 
 
 For schema items that can't be converted automatically to the target database engine, the summary includes an estimate of the effort required to create schema items in your target DB instance that are equivalent to those in your source. 
@@ -296,7 +296,7 @@ The assessment report view also includes an **Action Items** tab. This tab conta
 
 The report also contains recommendations for how to manually convert the schema item. For more information about deciding how to handle manual conversions, see [Handling manual conversions in AWS SCT](#CHAP_Converting.DW.Manual). 
 
-![Action items tab](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/action_items_tab.png)
+![Action items tab](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/action_items_tab.png)
 
 
 ### Saving the assessment report
@@ -304,7 +304,7 @@ The report also contains recommendations for how to manually convert the schema 
 
 You can save a local copy of the database migration assessment report as either a PDF file or a comma-separated values (CSV) file. The CSV file contains only action item information. The PDF file contains both the summary and action item information, as shown in the following example. 
 
-![Database migration assessment report](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/assessment_report.png)
+![Database migration assessment report](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/assessment_report.png)
 
 
 ## Handling manual conversions in AWS SCT
@@ -386,7 +386,7 @@ You can save your converted schema as SQL scripts in a text file. By using this 
 
 When you are ready to apply your converted schema to your target database, choose the schema element from the right panel of your project. Open the context (right-click) menu for the schema element, and then choose **Apply to database**, as shown following. 
 
-![Apply to database](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/write_to_database.png)
+![Apply to database](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/write_to_database.png)
 
 
 ### The extension pack schema

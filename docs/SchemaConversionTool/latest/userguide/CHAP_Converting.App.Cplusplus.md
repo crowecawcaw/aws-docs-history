@@ -25,7 +25,7 @@ You can add multiple application conversion projects in a single AWS SCT project
 1. On the **Applications** menu, choose **New C\+\+ application**. 
 
    The **Creating a C\+\+ application conversion project** dialog box appears.   
-![The new C++ application conversion project dialog box](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/cplusplus-application-new-project.png)
+![The new C++ application conversion project dialog box](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/cplusplus-application-new-project.png)
 
 1. For **Name**, enter a name for your C\+\+ application conversion project. Because each database schema conversion project can have one or more child application conversion projects, choose a name that makes sense if you add multiple projects. 
 
@@ -61,7 +61,7 @@ After you add your C\+\+ application to the AWS SCT project, convert SQL code fr
 1.  Choose **Convert**. AWS SCT analyzes your source code files, determines the application logic, and loads code metadata into the project. This code metadata includes C\+\+ classes, objects, methods, global variables, interfaces, and so on. 
 
    In the target database panel, AWS SCT creates the similar folders structure to your source application project. Here you can review the converted application code, as shown following.  
-![SQL code to analyze](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/cplusplus-applications-project-analyze.png)
+![SQL code to analyze](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/cplusplus-applications-project-analyze.png)
 
 1. Save your converted application code. For more information, see [Saving your converted application code](#CHAP_Converting.App.Cplusplus.Save).
 

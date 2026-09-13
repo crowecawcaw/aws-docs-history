@@ -11,7 +11,7 @@ The illustration following is what you see in AWS SCT when you create a schema m
 
 1. In the right panel, the schema from your target DB instance is presented in a tree view. Your database schema is "lazy loaded." That is, at the point when you select an item from the tree view, AWS SCT gets and displays the current schema from your target database. 
 
-![The AWS SCT Project Window](http://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/AWS_Migration_Tool.png)
+![The AWS SCT Project Window](https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/images/AWS_Migration_Tool.png)
 
 
 1. In the lower left panel, when you choose a schema element, properties are displayed. These describe the source schema element and the SQL command to create that element in the source database. 
