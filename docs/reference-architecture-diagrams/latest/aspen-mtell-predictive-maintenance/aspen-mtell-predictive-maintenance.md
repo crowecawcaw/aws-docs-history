@@ -10,7 +10,7 @@ With this architecture, you can deploy AI and ML-powered predictive maintenance 
 ## Aspen Mtell predictive maintenance architecture diagram
 <a name="amp-diagram"></a>
 
-![Architecture diagram for predictive maintenance on AWS using Aspen Mtell.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aspen-mtell-predictive-maintenance/images/aspen-mtell-predictive-maintenance-ra.png)
+![Architecture diagram for predictive maintenance on AWS using Aspen Mtell.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aspen-mtell-predictive-maintenance/images/aspen-mtell-predictive-maintenance-ra.png)
 
 
 The following steps describe the architecture:
