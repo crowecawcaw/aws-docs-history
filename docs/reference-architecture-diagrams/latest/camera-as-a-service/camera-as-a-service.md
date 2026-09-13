@@ -10,7 +10,7 @@ With this architecture, you can use Internet of Things (IoT)-enabled cameras to 
 ## Camera as a service diagram
 <a name="caas-diagram"></a>
 
-![Reference architecture diagram for generating live video feed and machine learning inference from IoT-enabled cameras by using Kinesis Video Streams, Amazon Rekognition, Amazon EKS, API Gateway, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/camera-as-a-service/images/camera-as-a-service-ra.png)
+![Reference architecture diagram for generating live video feed and machine learning inference from IoT-enabled cameras by using Kinesis Video Streams, Amazon Rekognition, Amazon EKS, API Gateway, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/camera-as-a-service/images/camera-as-a-service-ra.png)
 
 
 The following steps describe the architecture:
