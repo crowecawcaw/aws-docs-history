@@ -10,7 +10,7 @@ Moodle is an open source learning management system (LMS) that supports distribu
 ## Moodle for High Availability on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing you how to implement Moodle on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/moodle-for-high-availability-on-aws/images/moodle-for-high-availability-on-aws.png)
+![Reference architecture diagram showing you how to implement Moodle on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/moodle-for-high-availability-on-aws/images/moodle-for-high-availability-on-aws.png)
 
 
 1. **Amazon Route 53** provides highly available routing policies and directs students to the closest **Amazon CloudFront** locations to access static content, reducing latency.
