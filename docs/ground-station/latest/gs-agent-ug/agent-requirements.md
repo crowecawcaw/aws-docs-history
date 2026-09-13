@@ -44,11 +44,11 @@ You may use the same security group as your EC2 instance or specify one with at 
 
 **Diagram: An Elastic IP associated with your EC2 instance in a public subnet**
 
- ![An Elastic IP associated with your EC2 instance in a public subnet.](http://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/images/digif-vpc-public-subnet.png) 
+ ![An Elastic IP associated with your EC2 instance in a public subnet.](https://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/images/digif-vpc-public-subnet.png) 
 
 **Diagram: An Elastic IP associated with an ENI in a public subnet, attached to your EC2 instance in a private subnet**
 
- ![An Elastic IP associated with an ENI in a public subnet, attached to your EC2 instance in a private subnet.](http://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/images/digif-vpc-private-subnet.png) 
+ ![An Elastic IP associated with an ENI in a public subnet, attached to your EC2 instance in a private subnet.](https://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/images/digif-vpc-private-subnet.png) 
 
 ## Supported operating system
 <a name="supported-operating-system"></a>

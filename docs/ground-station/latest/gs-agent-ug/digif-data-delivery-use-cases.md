@@ -28,7 +28,7 @@ You would like to receive two antenna downlinks as DigIF dataflows at the same E
 + 4 cores (8 vCPU) to receive DigIF Dataflow 2 (100MHz lookup in [CPU core planning](agent-instance-selection.md#cpu-core-planning) table).
 + Total Dedicated Agent CPU Space = **11 cores** (22 vCPU) on the same socket.
 
- ![Two AwsGroundStationAgentEndpoint resources, one for each dataflow. Both endpoints will have the same public IP address (ingressAddress.socketAddress.name). The ingress portRange’s should not overlap, as the dataflows are being received at the same EC2 instance. Both egressAddress.socketAddress.port's must be unique.](http://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/images/digif-multi-dataflow-single-receiver.png) 
+ ![Two AwsGroundStationAgentEndpoint resources, one for each dataflow. Both endpoints will have the same public IP address (ingressAddress.socketAddress.name). The ingress portRange’s should not overlap, as the dataflows are being received at the same EC2 instance. Both egressAddress.socketAddress.port's must be unique.](https://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/images/digif-multi-dataflow-single-receiver.png) 
 
 ## Multiple dataflows, multiple receivers
 <a name="multiple-dataflows-multiple-receiver"></a>
@@ -51,4 +51,4 @@ You would like to receive two antenna downlinks as DigIF dataflows at different 
   + 9 cores (18 vCPU) to receive DigIF Dataflow 2 (400MHz lookup in [CPU core planning](agent-instance-selection.md#cpu-core-planning) table).
   + Total Dedicated Agent CPU Space = **10 cores** (20 vCPU) on the same socket.
 
- ![Two AwsGroundStationAgentEndpoint resources, one for each dataflow. The endpoints will have a different public IP address (ingressAddress.socketAddress.name). There is no restriction on the port values for either ingressAddress or egressAddress as the dataflows are received on separate infrastructure and will not conflict with each other.](http://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/images/digif-multi-dataflow-multi-receiver.png) 
+ ![Two AwsGroundStationAgentEndpoint resources, one for each dataflow. The endpoints will have a different public IP address (ingressAddress.socketAddress.name). There is no restriction on the port values for either ingressAddress or egressAddress as the dataflows are received on separate infrastructure and will not conflict with each other.](https://docs.aws.amazon.com/ground-station/latest/gs-agent-ug/images/digif-multi-dataflow-multi-receiver.png) 
