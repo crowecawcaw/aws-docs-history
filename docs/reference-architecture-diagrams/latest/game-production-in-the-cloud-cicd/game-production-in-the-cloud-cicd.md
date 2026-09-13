@@ -10,7 +10,7 @@ This architecture provides an engine-agnostic, high-level approach for offloadin
 ## Game Production in the Cloud: CI/CD diagram
 <a name="cicd-diagram"></a>
 
-![Reference architecture diagram showing how to offload game builds to the AWS Cloud by using Perforce, Jenkins, Amazon EC2 Spot Instances, and Amazon EC2 Mac instances.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/game-production-in-the-cloud-cicd/images/game-production-in-the-cloud-cicd.png)
+![Reference architecture diagram showing how to offload game builds to the AWS Cloud by using Perforce, Jenkins, Amazon EC2 Spot Instances, and Amazon EC2 Mac instances.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/game-production-in-the-cloud-cicd/images/game-production-in-the-cloud-cicd.png)
 
 
 The following steps describe the architecture:
