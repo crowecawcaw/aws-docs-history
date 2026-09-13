@@ -89,7 +89,7 @@ As another example, if you instead have an API key to be provided in an HTTP hea
 Then, configure the authentication instructions: . Enter the following into **Agent Space login prompt**: "Set the X-API-Key header to the provided API key for all requests."
 
 **Important**  
-AWS Security Agent supports TOTP-based 2FA and email-based MFA. It does not support SMS, push notifications, hardware keys, or OAuth authentication. For applications that send a one-time code or verification link by email, see [Configure email MFA](#provide-testing-credentials-email-mfa).
+AWS Security Agent supports TOTP-based 2FA and email-based MFA. It does not support SMS, push notifications, or hardware keys. For applications that send a one-time code or verification link by email, see [Configure email MFA](#provide-testing-credentials-email-mfa).
 
 ### Select available Lambda function to retrieve credentials dynamically
 <a name="_select_available_lambda_function_to_retrieve_credentials_dynamically"></a>

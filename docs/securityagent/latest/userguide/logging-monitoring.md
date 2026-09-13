@@ -133,40 +133,55 @@ You can monitor AWS Security Agent using CloudWatch, which collects raw data and
 ### AWS Security Agent metrics
 <a name="_aws_security_agent_metrics"></a>
 
-AWS Security Agent sends the following metrics to CloudWatch:
+AWS Security Agent publishes metrics to the `AWS/SecurityAgent` namespace. It sends the following metrics to CloudWatch, grouped by capability:
 
 
-| Metric | Description | Unit | 
+| Capability | Metric | Description | 
 | --- | --- | --- | 
-|  `PentestExecutions`  | The number of penetration test executions started | Count | 
-|  `PentestExecutionDuration`  | The duration of penetration test executions | Seconds | 
-|  `FindingsGenerated`  | The number of security findings generated | Count | 
-|  `CriticalFindings`  | The number of critical severity findings | Count | 
-|  `HighFindings`  | The number of high severity findings | Count | 
-|  `MediumFindings`  | The number of medium severity findings | Count | 
-|  `LowFindings`  | The number of low severity findings | Count | 
-|  `CodeReviews`  | The number of code reviews performed | Count | 
-|  `DesignReviews`  | The number of design reviews performed | Count | 
+| Design review |  `DesignReviewsCompleted`  | The number of design reviews completed | 
+| Code review |  `CodeReviewsCompleted`  | The number of code reviews completed | 
+| Code review |  `SucceededCodeReviewJobs`  | The number of code review jobs that completed successfully | 
+| Code review |  `FailedCodeReviewJobs`  | The number of code review jobs that failed | 
+| Code review |  `CodeReviewJobDuration`  | The duration of a code review job, in seconds | 
+| Code review |  `ConcurrentCodeReviewJobs`  | The number of code review jobs running concurrently | 
+| Penetration testing |  `SucceededPentestJobs`  | The number of penetration test jobs that completed successfully | 
+| Penetration testing |  `FailedPentestJobs`  | The number of penetration test jobs that failed | 
+| Penetration testing |  `PentestJobDuration`  | The duration of a penetration test job, in seconds | 
+| Penetration testing |  `ConcurrentPentestJobs`  | The number of penetration test jobs running concurrently | 
+| Threat modeling |  `SucceededThreatModelJobs`  | The number of threat model jobs that completed successfully | 
+| Threat modeling |  `FailedThreatModelJobs`  | The number of threat model jobs that failed | 
+| Threat modeling |  `ThreatModelJobDuration`  | The duration of a threat model job, in seconds | 
+| Threat modeling |  `ConcurrentThreatModelJobs`  | The number of threat model jobs running concurrently | 
 
 ### Dimensions for AWS Security Agent metrics
 <a name="_dimensions_for_aws_security_agent_metrics"></a>
 
-AWS Security Agent metrics use the following dimensions:
+AWS Security Agent metrics use the following dimension:
 
 
 | Dimension | Description | 
 | --- | --- | 
-|  `PentestId`  | Filters metrics by specific penetration test | 
-|  `ExecutionId`  | Filters metrics by specific test execution | 
-|  `Severity`  | Filters findings metrics by severity level (Critical, High, Medium, Low) | 
-|  `FindingType`  | Filters metrics by type of security finding | 
+|  `AgentSpaceId`  | Filters metrics by the Agent Space that produced them | 
+
+### Service Quotas usage metrics
+<a name="_service_quotas_usage_metrics"></a>
+
+For metrics that back a service quota, AWS Security Agent also publishes usage data to the `AWS/Usage` namespace under the metric name `ResourceCount`. You can use these metrics to monitor your usage against your quotas and to create alarms as you approach a limit. Each datapoint carries the following dimensions:
+
+
+| Dimension | Value | 
+| --- | --- | 
+|  `Service`  |  `SecurityAgent`  | 
+|  `Type`  |  `Resource`  | 
+|  `Class`  |  `None`  | 
+|  `Resource`  | One of `CodeReview`, `DesignReview`, `ConcurrentPentestJob`, `ConcurrentCodeReviewJob`, or `ConcurrentThreatModelJob`  | 
 
 ### Creating CloudWatch alarms for AWS Security Agent
 <a name="_creating_cloudwatch_alarms_for_aws_security_agent"></a>
 
 You can create a CloudWatch alarm that sends an Amazon SNS message when the alarm changes state. An alarm watches a single metric over a time period you specify, and performs one or more actions based on the value of the metric relative to a given threshold over a number of time periods.
 
-For example, you can create an alarm that monitors the number of critical findings and sends a notification when the number exceeds a threshold:
+For example, you can create an alarm that monitors the number of failed penetration test jobs and sends a notification when the number exceeds a threshold:
 
 1. Open the CloudWatch console at https://console.aws.amazon.com/cloudwatch/.
 
@@ -176,7 +191,7 @@ For example, you can create an alarm that monitors the number of critical findin
 
 1. Choose **Select metric**.
 
-1. Choose **SecurityAgent**, then choose the metric category you want to monitor.
+1. Choose the **AWS/SecurityAgent** namespace, then choose the dimension grouping you want to monitor.
 
 1. Select the metric you want to monitor, then choose **Select metric**.
 
