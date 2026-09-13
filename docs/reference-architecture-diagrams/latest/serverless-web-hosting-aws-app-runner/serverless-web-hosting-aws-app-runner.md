@@ -10,7 +10,7 @@ This reference architecture details two scenarios for how to run serverless, con
 ## Serverless Web Hosting on AWS App Runner
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to run serverless, containerized web hosting on AWS App Runner using source code and source image scenarios.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-web-hosting-aws-app-runner/images/serverless-web-hosting-aws-app-runner.png)
+![Reference architecture diagram showing how to run serverless, containerized web hosting on AWS App Runner using source code and source image scenarios.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-web-hosting-aws-app-runner/images/serverless-web-hosting-aws-app-runner.png)
 
 
 **Developer experience:** Use **AWS App Runner** to create and manage web services based on two types of service sources: source code and source image.
@@ -40,7 +40,7 @@ This reference architecture details two scenarios for how to run serverless, con
 ## Serverless Web Hosting on AWS App Runner
 <a name="diagram2"></a>
 
-![Reference architecture diagram showing how to run serverless, containerized web hosting on AWS App Runner without provisioning or managing infrastructure.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-web-hosting-aws-app-runner/images/serverless-web-hosting-aws-app-runner-2.png)
+![Reference architecture diagram showing how to run serverless, containerized web hosting on AWS App Runner without provisioning or managing infrastructure.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-web-hosting-aws-app-runner/images/serverless-web-hosting-aws-app-runner-2.png)
 
 
 **AWS App Runner** is a secure, consistent solution for exposing web applications using the public endpoint or service URL.
