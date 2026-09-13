@@ -10,7 +10,7 @@ With this architecture, you can integrate UiPath for running robotics process au
 ## Robotic processing automation and VDI architecture diagram
 <a name="rpa-diagram"></a>
 
-![Architecture diagram for UiPath robotics automation with VMware Cloud on AWS for virtual desktop infrastructure.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/robotic-processing-automation-vdi/images/robotic-processing-uipath-ra.png)
+![Architecture diagram for UiPath robotics automation with VMware Cloud on AWS for virtual desktop infrastructure.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/robotic-processing-automation-vdi/images/robotic-processing-uipath-ra.png)
 
 
 The following steps describe the architecture:
