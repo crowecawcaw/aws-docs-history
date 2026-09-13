@@ -15,7 +15,7 @@ After you create an Snowball Edge large migration plan, you can use the recommen
 **Note**  
 Manual updates that you make to the data size or number of concurrent devices cause the schedule to adjust. The schedule automatically adjusts if a job has not been ordered by the recommended order date or has been ordered before the recommended order date. If a job is returned before the recommended order date, the schedule automatically adjusts.
 
-![The recommended job ordering schedule showing recommended dates to order, device types, and number of ordered devices. There's an Actions button on the upper- right.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/recmnd-job-sched-console.png)
+![The recommended job ordering schedule showing recommended dates to order, device types, and number of ordered devices. There's an Actions button on the upper- right.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/recmnd-job-sched-console.png)
 
 
 ### Placing your next job order
@@ -36,10 +36,10 @@ To place you next order, instead of manually creating a job and then adding it t
 **To create new jobs:**
 
 1. Choose the next order (the first recommendation with a **Not Ordered** status) from the **Recommended job ordering** schedule, then choose **Create New Jobs** from the **Actions** menu. The **Create new jobs** window appears.  
-![Recommended job ordering schedule showing next job chosen. At the top right, the Actions menu is open showing Create New Jobs.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/recmnd-job-sched-action-new-job-console.png)
+![Recommended job ordering schedule showing next job chosen. At the top right, the Actions menu is open showing Create New Jobs.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/recmnd-job-sched-action-new-job-console.png)
 
 1. In the **Device Selection** section, choose the devices you want to order. Choose **Continue**.  
-![Device Selection section shown with two devices chosen and Continue button at lower right.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/recmnd-job-sched-device-selection-console.png)
+![Device Selection section shown with two devices chosen and Continue button at lower right.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/recmnd-job-sched-device-selection-console.png)
 
 1. The **Create new** page appears. Most parameters, such as the job type, shipping address, and the device type are set based on the plan. The system creates the job for each device.
 

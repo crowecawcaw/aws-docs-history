@@ -15,7 +15,7 @@ When your Snow device arrives at your site, you download, install, and launch th
 
 This video provides an overview of AWS OpsHub functionality.
 
-[![AWS Videos](http://img.youtube.com/vi/0Q7s7JiBCf0/0.jpg)](http://www.youtube.com/watch?v=0Q7s7JiBCf0)
+[![AWS Videos](https://img.youtube.com/vi/0Q7s7JiBCf0/0.jpg)](https://www.youtube.com/watch?v=0Q7s7JiBCf0)
 
 
 **Topics**

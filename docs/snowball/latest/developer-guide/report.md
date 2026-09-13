@@ -13,7 +13,7 @@ For deeper visibility into the status of your transferred objects, you can look 
 
 You can download the report and the logs from the AWS Snow Family Management Console. Below is a sample report.
 
-![Sample job completion report including job ID, job type, device type, job state, and data transfer details.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/job-complete-report.png)
+![Sample job completion report including job ID, job type, device type, job state, and data transfer details.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/job-complete-report.png)
 
 
 **To get your job report and logs**

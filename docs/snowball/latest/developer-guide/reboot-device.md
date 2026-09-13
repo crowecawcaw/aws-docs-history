@@ -15,10 +15,10 @@ We highly recommend that you suspend all activities on the device before you reb
 1. On the AWS OpsHub dashboard, find your device under **Devices**. Then choose the device to open the device details page. 
 
 1. Choose the **Device Power** menu, then choose **Reboot**. A dialog box appears.  
-![Device details page showing Device Power menu open with Reboot chosen.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-device-reboot-console.png)
+![Device details page showing Device Power menu open with Reboot chosen.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-device-reboot-console.png)
 
 1. In the dialog box, choose **Reboot**. Your device starts to reboot.  
-![Reboot device window showing Reboot button at lower right.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-reboot-window-console.png)
+![Reboot device window showing Reboot button at lower right.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-reboot-window-console.png)
 
    While the device shuts down, the LCD screen displays a message indicating the device is shutting down.  
-![Shutdown message on LCD screen.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/shutdown-screen.png)
+![Shutdown message on LCD screen.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/shutdown-screen.png)

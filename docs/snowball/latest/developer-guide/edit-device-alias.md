@@ -12,7 +12,7 @@ Use these steps to edit your device alias using AWS OpsHub.
 1. On the AWS OpsHub dashboard, find your device under **Devices**. Choose the device to open the device details page. 
 
 1. Choose the **Edit device alias** tab.  
-![Device details page showing Edit device alias tab at top right.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-edit-device-alias-button-console.png)
+![Device details page showing Edit device alias tab at top right.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-edit-device-alias-button-console.png)
 
 1. For **Device alias**, enter a new name, and choose **Save alias**.  
-![Edit device alias window showing Save alias button at lower right.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-edit-device-alias-window-console.png)
+![Edit device alias window showing Save alias button at lower right.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-edit-device-alias-window-console.png)

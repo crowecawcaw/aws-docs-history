@@ -40,7 +40,7 @@ Use the simple setup option if your network uses DHCP. With this option, the VNI
 This takes a few minutes to complete and depends on the number of devices you're using.
 
    After the service starts, the Service state is active, and there are endpoints.   
-![The Amazon S3 compatible storage on Snowball Edge resources screen, showing a service state of Active and its active endpoints.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/s3-snow/s3-snow-active-service.png)
+![The Amazon S3 compatible storage on Snowball Edge resources screen, showing a service state of Active and its active endpoints.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/s3-snow/s3-snow-active-service.png)
 
 ## Using the Amazon S3 compatible storage on Snowball Edge advanced setup option using AWS OpsHub
 <a name="s3-edge-snow-opshub-advanced-setup"></a>
@@ -79,7 +79,7 @@ This takes a few minutes to complete and depends on the number of devices you're
    This takes you to the Amazon S3 compatible storage on Snowball Edge landing page.
 
 1. In **Amazon S3 compatible storage on Snow resources**, choose **Enable service auto-start**. The system configures the service to automatically start in the future.  
-![Amazon S3 compatible storage on Snow resources area with Enable service auto-start at top right.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-autostart-s3compatible-console.png)
+![Amazon S3 compatible storage on Snow resources area with Enable service auto-start at top right.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-autostart-s3compatible-console.png)
 
 ## Creating a bucket in Amazon S3 compatible storage on Snowball Edge using AWS OpsHub
 <a name="s3compatible-create-bucket"></a>
@@ -91,7 +91,7 @@ Use the AWS OpsHub interface to create an Amazon S3 bucket on your Snowball Edge
 1. In **Manage storage**, choose **Get started**. The **Amazon S3 compatible storage on Snow** page appears.
 
 1. In **Buckets**, choose **Create bucket**. The **Create bucket** screen appears.  
-![Create bucket page.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-create-bucket-s3compatible-console.png)
+![Create bucket page.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-create-bucket-s3compatible-console.png)
 
 1. In **Bucket name**, enter a name for the bucket.
 **Note**  
@@ -109,7 +109,7 @@ Use the AWS OpsHub interface to upload files and folders to Amazon S3 compatible
 1. In **Manage storage**, in **Buckets**, choose a bucket in which to upload files. The page for that bucket appears.
 
 1. In the bucket page, choose **Upload files**. The **Upload** page appears.  
-![Upload page with drag-and-drop area surrounded with a dashed, blue line.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-upload-s3compatible-console.png)
+![Upload page with drag-and-drop area surrounded with a dashed, blue line.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-upload-s3compatible-console.png)
 
 1. Upload files or folders by dragging them from an operating system file manager to the AWS OpsHub window or do the following:
 
@@ -144,7 +144,7 @@ Before you can delete a bucket from a device, the bucket must be empty. Either r
 1. In **Manage storage**, in **Buckets**, select the radio button of the bucket to empty.
 
 1. Select **Empty**. The **Empty bucket** page appears.  
-![Empty bucket page with warning that emptying a bucket cannot be undone.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-empty-bucket-s3compatible-console.png)
+![Empty bucket page with warning that emptying a bucket cannot be undone.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-empty-bucket-s3compatible-console.png)
 
 1. In the text box in the **Empty bucket** page, type **permanently delete**.
 
@@ -155,7 +155,7 @@ Before you can delete a bucket from a device, the bucket must be empty. Either r
 1. In **Manage storage**, in **Buckets**, select the radio button of the bucket to delete.
 
 1. Select **Delete**. The **Delete bucket** page appears.  
-![Delete bucket page showing text box for bucket name and delete button.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-delete-bucket-s3compatible-console.png)
+![Delete bucket page showing text box for bucket name and delete button.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-delete-bucket-s3compatible-console.png)
 
 1. In the text box in the **Delete bucket** page, type the name of the bucket.
 

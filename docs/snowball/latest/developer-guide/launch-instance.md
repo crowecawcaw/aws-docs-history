@@ -9,7 +9,7 @@ Follow these steps to launch an Amazon EC2-compatible instance using AWS OpsHub.
 
 This video shows how to launch an Amazon EC2-compatible instance using AWS OpsHub.
 
-[![AWS Videos](http://img.youtube.com/vi/0Q7s7JiBCf0?start=88&end=97/0.jpg)](http://www.youtube.com/watch?v=0Q7s7JiBCf0?start=88&end=97)
+[![AWS Videos](https://img.youtube.com/vi/0Q7s7JiBCf0?start=88&end=97/0.jpg)](https://www.youtube.com/watch?v=0Q7s7JiBCf0?start=88&end=97)
 
 
 **To launch an Amazon EC2-compatible instance**
@@ -23,7 +23,7 @@ This video shows how to launch an Amazon EC2-compatible instance using AWS OpsHu
 1. Choose **Launch instance**. The launch instance wizard opens.
 
 1. For **Device**, choose the Snow device that you want to launch the Amazon EC2-compatible.   
-![AWS OpsHub launch instance wizard](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-launch-ec2-console.png)
+![AWS OpsHub launch instance wizard](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-launch-ec2-console.png)
 
 1. For **Image (AMI)**, choose an Amazon Machine Image (AMI) from the list. This AMI is used to launch your instance.
 

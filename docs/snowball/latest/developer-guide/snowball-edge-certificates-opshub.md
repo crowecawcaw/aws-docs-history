@@ -41,4 +41,4 @@ Before renewing the public key certificate, stop all data transfers to or from t
 1. In the device details page, choose the **Manage certificate** menu. From the menu, choose **Renew certificate**.
 
 1. In the **Renew certificate** window, enter **Renew** in the field and choose **Renew**. The Snowball Edge device deletes the existing public key certificate and reboots the device or cluster.  
-![Renew certificate window with field at bottom of window and Renew button at bottom right.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/renew-certificate-opshub.png)
+![Renew certificate window with field at bottom of window and Renew button at bottom right.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/renew-certificate-opshub.png)

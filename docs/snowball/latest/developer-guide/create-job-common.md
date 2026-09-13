@@ -35,7 +35,7 @@ The first step in creating a job is to determine the type of job that you need a
    + **Import into Amazon S3** – Choose this option to have AWS ship an empty Snowball Edge device to you. You connect the device to your local network and run the Snowball Edge client. You copy data onto the device using NFS share or the S3 adapter, ship it back to AWS, and your data is uploaded to AWS.
    + **Export from Amazon S3** – Choose this option to export data from your Amazon S3 bucket to your device. AWS loads your data on the device and ships it to you. You connect the device to your local network and run the Snowball Edge client. You copy data from your device to your servers. When you are done, ship the device to AWS, and your data is erased from the device.
    + **Local compute and storage only** – Perform compute and storage workloads on the device without transferring data.   
-![Choose job type panel showing Import into Amazon S3 job type selected.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/choose-job-type-console.png)
+![Choose job type panel showing Import into Amazon S3 job type selected.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/choose-job-type-console.png)
 
 1. Choose **Next** to continue.
 
@@ -73,7 +73,7 @@ Storage type options available depend on the job type and Snow device you chose.
      1. Choose the **Create a new S3 bucket** to create a new S3 bucket. The new bucket name appears in the **Bucket name** list. Choose it.
 
      You can include one or more S3 buckets. These buckets appear on your device as local S3 buckets.  
-![Select your S3 buckets panel showing Create a new S3 bucket button, search filed, and S3 bucket names.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/select-s3-buckets-console.png)
+![Select your S3 buckets panel showing Create a new S3 bucket button, search filed, and S3 bucket names.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/select-s3-buckets-console.png)
 
 1. If you selected *Amazon S3 compatible storage* as the storage type, in the **S3 storage capacity** section, do the following:
 
@@ -82,7 +82,7 @@ Storage type options available depend on the job type and Snow device you chose.
    1. Select the amount of device storage to use for Amazon S3 compatible storage on Snowball Edge.
 **Note**  
 When using Amazon S3 compatible storage on Snowball Edge, you can manage and create Amazon S3 buckets after you receive the device, so you don't need to choose them while ordering. See [Amazon S3 compatible storage on Snowball Edge](https://docs.aws.amazon.com/snowball/latest/developer-guide/s3compatible-on-snow.html) in this guide.  
-![S3 storage capacity panel showing single device selected as the device type and storage amount.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/S3-storage-capacity-console.png)
+![S3 storage capacity panel showing single device selected as the device type and storage amount.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/S3-storage-capacity-console.png)
 
 1. If you selected *NFS based data transfer* as the storage type, in the **Select your S3 buckets** section, do one or more of the following to select one or more S3 buckets:
 
@@ -95,7 +95,7 @@ When using Amazon S3 compatible storage on Snowball Edge, you can manage and cre
    1. After choosing S3 buckets to use with NFS data transfer, also choose an S3 bucket to use as block storage for AMIs. See the steps to choose an [S3](#s3-adapter) bucket.
 
    You can include one or more S3 buckets. These buckets appear on your device as local S3 buckets.  
-![Choose your NFS storage panel showing Create a new S3 bucket button, search filed, and S3 bucket names.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/choose-nfs-storage-console.png)
+![Choose your NFS storage panel showing Create a new S3 bucket button, search filed, and S3 bucket names.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/choose-nfs-storage-console.png)
 
 1. In the **Compute using EC2-compatible instances - *optional*** section, choose Amazon EC2-compatible AMIs from your account to include on the device. Or, in the search field, enter all or part the name of an AMI to filter the list of available AMIs on your entry, then choose the AMI.
 

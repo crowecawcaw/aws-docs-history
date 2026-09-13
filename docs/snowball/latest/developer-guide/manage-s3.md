@@ -29,14 +29,14 @@ Snowball Edge use Amazon S3 buckets to store and manage files on your device.
    If your device has been ordered with the Amazon S3 transfer mechanism, they appear in the **Buckets** section of the **File & object storage** page. On the **File & object storage** page, you can see details of each bucket.
 **Note**  
 If the device was ordered with the NFS transfer mechanism, the bucket name will appear under the mount points section after NFS service is configure and activated. For more information on using the NFS interface, see [Managing the NFS interface with AWS OpsHub](manage-nfs.md).   
-![File and object storage page showing Amazon S3 buckets on the Snowball Edge device](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-access-s3-console.png)
+![File and object storage page showing Amazon S3 buckets on the Snowball Edge device](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-access-s3-console.png)
 
 ## Uploading files to Amazon S3 storage with AWS OpsHub
 <a name="upload-file"></a>
 
 This video shows how to upload files to Amazon S3 storage using AWS OpsHub.
 
-[![AWS Videos](http://img.youtube.com/vi/Bw8rzQhT1nM?start=472/0.jpg)](http://www.youtube.com/watch?v=Bw8rzQhT1nM?start=472)
+[![AWS Videos](https://img.youtube.com/vi/Bw8rzQhT1nM?start=472/0.jpg)](https://www.youtube.com/watch?v=Bw8rzQhT1nM?start=472)
 
 
 **To upload a file**
@@ -46,7 +46,7 @@ This video shows how to upload files to Amazon S3 storage using AWS OpsHub.
 1. Choose the bucket that you want to upload files into.
 
 1. Choose **Upload** then **Upload files** or drag and drop the files in the bucket, and choose **OK**.  
-![Amazon S3 bucket with Upload files chosen from the Upload menu](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-upload-s3-console.png)
+![Amazon S3 bucket with Upload files chosen from the Upload menu](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-upload-s3-console.png)
 **Note**  
 To upload larger files, you can use the multipart upload feature in Amazon S3 using the AWS CLI. For more information about configuring S3 CLI settings, see [CLI S3 Configuration](https://docs.aws.amazon.com/cli/latest/topic/s3-config.html). For more information on multipart upload, see [Multipart Upload Overview](https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html) in the Amazon Simple Storage Service User Guide  
 Uploading a folder from a local machine to Snowball Edge using the AWS OpsHub is supported. If the folder size is very large, it takes some time for OpsHub to read the file/folder selection. While OpsHub is reading the files and folders, it does not display a progress tracker. However, it does display a progress tracker is displayed once the upload process begins.
@@ -61,7 +61,7 @@ Uploading a folder from a local machine to Snowball Edge using the AWS OpsHub is
 1. In the **Manage file storage** section of the dashboard, choose **Get started**. If you have S3 buckets on your device, they appear in the **Buckets** section on the **File storage** page. You can see details of each bucket on the page.
 
 1. Choose the bucket that you want to download files from and navigate to the file that you want to download. Choose one or more files.  
-![File and object storage page showing one file selected and the actions menu open showing Download file option.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-download-file-console.png)
+![File and object storage page showing one file selected and the actions menu open showing Download file option.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-download-file-console.png)
 
 1. In the **Actions** menu, choose **Download**.
 

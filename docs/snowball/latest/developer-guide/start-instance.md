@@ -18,4 +18,4 @@ Use these steps to start an Amazon EC2-compatible instance using AWS OpsHub.
 1. In the **Instance name** column, under **Instances**, find the instance that you want to start.
 
 1. Choose the instance, and then choose **Start**. The **State** changes to **Pending**, and then changes to **Running** when done.  
-![Instances tab showing an instance chosen and the Actions menu open with Start chosen.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-instance-start-console.png)
+![Instances tab showing an instance chosen and the Actions menu open with Start chosen.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-instance-start-console.png)

@@ -58,20 +58,20 @@ First, determine the maximum theoretical throughput for copying data from your s
    For **Unit**, choose the unit of measurement (GB or TB) for the amount of data you plan to migrate.
 
 1. For **Number of active network interfaces**, enter the number of active network interfaces that you have available for data migration from the storage source.  
-![The Number of active network interfaces field showing the default entry of 1.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-active-interfaces-console.png)
+![The Number of active network interfaces field showing the default entry of 1.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-active-interfaces-console.png)
 
 1. For **Network interface speed**, choose the speed of the network interface for the storage source. Network speeds are in Gb/s.  
-![Network interface speed showing the default speed of 10 Gb/s.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-interface-speed-console.png)
+![Network interface speed showing the default speed of 10 Gb/s.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-interface-speed-console.png)
 
 1. For **Maximum network throughput**, enter the maximum tested network throughput to your storage source that you determined during the proof of concept. Throughput is in MB/S.  
-![Maximum network throughput, which is blank by default.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-network-throughput-console.png)
+![Maximum network throughput, which is blank by default.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-network-throughput-console.png)
 
 1. For **Storage backend network usage**, indicate whether the storage source shares a network with the back-end storage.
    + Choose **Yes** if the network is not shared. You don't need to enter the speed of the storage interconnection for a single stream.
    + Choose **No** if the network is shared. Enter the speed of the storage interconnection for a single stream in MB/s.
 
    Based on your choice, the wizard updates the **Max migration throughput for the data source (MB/s)** value at the bottom of the page.  
-![Storage back-end network usage showing the default value of yes.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-network-backend-console.png)
+![Storage back-end network usage showing the default value of yes.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-network-backend-console.png)
 
 1. Choose **Next**.
 
@@ -83,29 +83,29 @@ You can connect yourSnowball Edge directly to your storage source (a Microsoft W
 1. For **Migration workstation usage**, indicate your workstation usage choice.
    + Choose **None - Use data source directly** to transfer data directly from a data source without using a workstation, and then choose **Next**.
    + Choose **Other - Use copy workstation(s)** to use one or more workstations for transferring data.  
-![Migration workstation usage showing the default value of Other - Use copy workstation(s).](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-migration-workstation-console.png)
+![Migration workstation usage showing the default value of Other - Use copy workstation(s).](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-migration-workstation-console.png)
 
 1. For **Number of active network interfaces**, enter the number of ports to use for data migration.  
-![Number of active network interfaces showing default value of 1.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-active-interfaces-wkstn-console.png)
+![Number of active network interfaces showing default value of 1.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-active-interfaces-wkstn-console.png)
 
 1. For **Network interface speed**, choose the speed in Gb/s of the network interfaces.  
-![Network interface speed showing the default value of 10.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-network-speed-wkstn-console.png)
+![Network interface speed showing the default value of 10.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-network-speed-wkstn-console.png)
 
 1. In **Storage backend network usage**, indicate whether the network that the workstations are on is shared with back-end storage.
    + Choose **Yes** if it's shared.
    + Choose **No** if it's not shared. Enter the speed of the storage interconnection for a single stream in MB/s.  
-![Storage backed network usage showing default value of yes.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-network-backend-wkstn-console.png)
+![Storage backed network usage showing default value of yes.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-network-backend-wkstn-console.png)
 
 Based on your input, the wizard displays a recommendation in **Number of migration workstations**. You can manually change the number if you disagree with the recommendation. This number will appear in **Concurrent devices** in the large data migration plan.
 
-![Number of migration workstations showing default entry of 0.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-number-workstations-console.png)
+![Number of migration workstations showing default entry of 0.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-number-workstations-console.png)
 
 
 #### Step 3: Input average transfer throughput of Snowball Edge
 <a name="input-average-snow-throughput"></a>
 
 1. In the **Average Snow device transfer throughput** field, enter the transfer throughput in MB/s that you saw during your proof of concept.  
-![Average Snow device transfer throughput, which is blank by default](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-average-snow-throughput.png)
+![Average Snow device transfer throughput, which is blank by default](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/concurrent_devices-average-snow-throughput.png)
 
    Based on your average throughput, the wizard updates the **Recommended number of concurrent Snow devices** and **Maximum number of concurrent devices** in the migration plan details.
 

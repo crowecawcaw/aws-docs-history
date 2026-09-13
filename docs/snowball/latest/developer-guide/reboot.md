@@ -10,11 +10,11 @@ Before you reboot a Snowball Edge device, make sure that all data transfer to th
 **To reboot the device using the power button:**
 
 1. When all communication with the device has ended, turn it off by pressing the power button located above the LCD screen. It takes about 20 seconds for the device to shut down. While the device is shutting down, the LCD screen displays a message indicating the device is shutting down.  
-![Shutdown message on LCD screen.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/shutdown-screen.png)
+![Shutdown message on LCD screen.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/shutdown-screen.png)
 **Note**  
 If the LCD screen is displaying the shutdown message when the device is not actually being shut down, press the **Restart display** button on the screen to return the screen to normal operation.  
 
-![Shutdown message on LCD screen with Restart display button near bottom center.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/shutdown-screen-restart.png)
+![Shutdown message on LCD screen with Restart display button near bottom center.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/shutdown-screen-restart.png)
 
 
 1. Press the power button. When the device is ready, the LCD display shows a short video while the device is getting ready to start. After about 10 minutes, the device is ready to be unlocked. 

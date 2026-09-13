@@ -33,7 +33,7 @@ AWS Snowball Edge is no longer available to new customers. New customers should 
 1. Choose **Update time servers** on the **Time sources** table.
 
 1. Provide the DNS name or the IP address of the time servers you would like your device to synchronize time with, and choose **Update**.  
-![Update time servers showing NTP time server IP address field and Update button.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-update-time-console.png)
+![Update time servers showing NTP time server IP address field and Update button.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-update-time-console.png)
 
 **Supported NTP device types and software versions**  
 NTP isn't available on any version 2 storage and compute device types. Snowball Edge version 3 storage and compute device types with software version 77 or later support NTP, however. To check if NTP is enabled, use the Snowball Edge CLI command `describe-time-sources`.

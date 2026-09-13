@@ -41,7 +41,7 @@ When your snapshot is uploaded to Amazon S3, you can import it to your device. A
 
 This video shows how to import and register a snapshot as an Amazon EC2-compatible AMI, including creating a policy for an IAM user.
 
-[![AWS Videos](http://img.youtube.com/vi/GDDJgQCtPRg?start=192&end=348/0.jpg)](http://www.youtube.com/watch?v=GDDJgQCtPRg?start=192&end=348)
+[![AWS Videos](https://img.youtube.com/vi/GDDJgQCtPRg?start=192&end=348/0.jpg)](https://www.youtube.com/watch?v=GDDJgQCtPRg?start=192&end=348)
 
 
 **To import the snapshot to your device**
@@ -124,7 +124,7 @@ The process of creating an Amazon EC2-compatible AMI from an image imported as a
 
 This video shows how to register a snapshot as an Amazon EC2-compatible AMI.
 
-[![AWS Videos](http://img.youtube.com/vi/GDDJgQCtPRg?start=222&end=255/0.jpg)](http://www.youtube.com/watch?v=GDDJgQCtPRg?start=222&end=255)
+[![AWS Videos](https://img.youtube.com/vi/GDDJgQCtPRg?start=222&end=255/0.jpg)](https://www.youtube.com/watch?v=GDDJgQCtPRg?start=222&end=255)
 
 
 **To register an image imported as a snapshot**
@@ -136,7 +136,7 @@ This video shows how to register a snapshot as an Amazon EC2-compatible AMI.
 1. Choose the **Images** tab. You can filter the images by name, ID, or state to find a specific image.
 
 1. Choose the image that you want to register, and choose **Register image**.   
-![Image chosen with Register image button highlighted.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-register-image-console.png)
+![Image chosen with Register image button highlighted.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-register-image-console.png)
 
 1. On the **Register image** page, provide a **Name** and **Description**.
 

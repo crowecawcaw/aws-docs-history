@@ -20,6 +20,6 @@ Follow these steps to use AWS OpsHub to update your Snow device.
 1. Choose the **Check for updates** tab.
 
    The **Check for updates** page displays the current software version on your device and the latest software version, if there is one.  
-![Check for updates page](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-check-updates-console.png)
+![Check for updates page](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-check-updates-console.png)
 
 1. If there is an update, choose **Download update**. Otherwise, choose **Close**.

@@ -12,6 +12,6 @@ AWS Snowball Edge is no longer available to new customers. New customers should 
 1. Open the **Updates** tab.
 
 1. Verify that **Automatic updates enabled** is selected. Automatic update is enabled by default.  
-![Updates tab showing automatic updates enabled](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-auto-update-console.png)
+![Updates tab showing automatic updates enabled](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-auto-update-console.png)
 
    If **Automatic updates enabled** is not selected, you will not get the latest version of the AWS OpsHub application.

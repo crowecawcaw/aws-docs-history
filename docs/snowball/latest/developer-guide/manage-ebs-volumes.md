@@ -16,7 +16,7 @@ Amazon EC2-compatible instances use Amazon EBS volumes for storage. In this proc
 1. Choose the **Storage volumes** tab. If you have storage volumes on your device, the details about the volumes appear under **Storage volumes**.
 
 1. Choose **Create volume** to open the **Create volume** page.  
-![Create Volume page](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-create-volume-console.png)
+![Create Volume page](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-create-volume-console.png)
 
 1. Choose the device that you want to create the volume on, enter the size (in GiBs) that you want to create, and choose the type of volume.
 
@@ -25,7 +25,7 @@ Amazon EC2-compatible instances use Amazon EBS volumes for storage. In this proc
 **To attach a storage volume to your instance**
 
 1. Choose the volume that you created, and then choose **Attach volume**.  
-![Attach volume window showing Compute Instance Id and Volume Device Name](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-attach-volume-console.png)
+![Attach volume window showing Compute Instance Id and Volume Device Name](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-attach-volume-console.png)
 
 1. For **Compute instance Id**, choose the instance you want to attach the volume to.
 

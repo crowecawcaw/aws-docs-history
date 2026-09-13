@@ -54,7 +54,7 @@ To turn Windows features on, you may need to provide an admin user name and pass
 The NFS interface is not running on the Snowball Edge device by default, so you need to start it to enable data transfer on the device. With a few clicks, your Snowball Edge can quickly and automatically configure the NFS interface for you. You can also configure the NFS interface yourself. For more information, see [Configuring the NFS interface manually with AWS OpsHub](#configure-with-snowcone).
 
 1. In the **Transfer data** section on the dashboard, choose **Enable & start**. This could take a minute or two to complete.  
-![File storage dashboard showing Enable and start button.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub_enable_start_nfs_console.png)
+![File storage dashboard showing Enable and start button.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub_enable_start_nfs_console.png)
 
 1. When the NFS service is started, the IP address of the NFS interface is shown on the dashboard and the **Transfer data** section indicates that the service is active.
 
@@ -70,9 +70,9 @@ The NFS interface is not running on the Snowball Edge device by default, so you 
 You can also have the Snowball Edge device configure the NFS interface automatically. For more information, see [Configuring the NFS interface automatically with AWS OpsHub](#auto-configure-nfs).
 
 1. At the bottom of **Transfer data** section, on the dashboard, choose **Configure manually**.   
-[![AWS Videos](http://img.youtube.com/vi/StMa2A7X2yA?start=78&end=119/0.jpg)](http://www.youtube.com/watch?v=StMa2A7X2yA?start=78&end=119)
+[![AWS Videos](https://img.youtube.com/vi/StMa2A7X2yA?start=78&end=119/0.jpg)](https://www.youtube.com/watch?v=StMa2A7X2yA?start=78&end=119)
 
-1. Choose **Enable & start** to open the **Start NFS** wizard. The **Physical network interface** field is populated. ![The Start NFS wizard](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-nfs-console.png) 
+1. Choose **Enable & start** to open the **Start NFS** wizard. The **Physical network interface** field is populated. ![The Start NFS wizard](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-nfs-console.png) 
 
 1. Choose **Create IP address (VNI)** or choose **Use existing IP address**.
 

@@ -10,7 +10,7 @@ With AWS OpsHub, you can use and manage AWS services on your Snowball Edge. Curr
 + Network File System (NFS) – Use file shares to move data to your device. You can ship the device to AWS to transfer your data to the AWS Cloud, or use DataSync to transfer to other AWS Cloud locations.
 + Amazon S3 compatible storage on Snowball Edge – Delivers secure object storage with increased resiliency, scale, and an expanded Amazon S3 API feature-set to rugged, mobile edge, and disconnected environments. Using Amazon S3 compatible storage on Snowball Edge, you can store data and run highly available applications on Snowball Edge for edge computing.
 
-![AWS OpsHub dashboard](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/cone-opshub-dashboard.png)
+![AWS OpsHub dashboard](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/cone-opshub-dashboard.png)
 
 
 **Topics**

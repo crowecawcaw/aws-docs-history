@@ -122,7 +122,7 @@ To use the AWS Snowball Edge device, you need your own network cables. For RJ45 
 
 After you open the back panel of the AWS Snowball Edge device, you see the network ports similar to the ports shown in the following screenshot.
 
-![The available network ports](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/snowball-edge-back-connectors.png)
+![The available network ports](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/snowball-edge-back-connectors.png)
 
 
 Only one network interface on the AWS Snowball Edge device can be used at a time. Hence use any one of the ports to support the following network hardware.
@@ -138,7 +138,7 @@ This port provides a 10G/25G SFP28 interface compatible with SFP28 and SFP\+ tra
   + 25Gbase-SR (multi-mode fiber) transceiver
   + SFP28 DAC cable
 
-![SFP+ Copper](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/sfp.png)
+![SFP+ Copper](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/sfp.png)
 
 
 **QSFP**  
@@ -147,7 +147,7 @@ This port provides a 40G QSFP\+ interface on storage optimized devices and a 40/
 + 40Gbase-SR4 (multi-mode fiber) transceiver
 + QSFP\+ DAC
 
-![QSFP+](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/qsfp.png)
+![QSFP+](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/qsfp.png)
 
 
 **RJ45**  
@@ -157,4 +157,4 @@ This port provides 1Gbase-TX/10Gbase-TX operation. It is connected via UTP cable
 
 10G operation is indicated by a blinking green light. It requires a Cat6A UTP cable with a maximum operating distance of 180 feet (55 meters).
 
-![RJ45](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/rj45.png)
+![RJ45](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/rj45.png)

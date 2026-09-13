@@ -14,7 +14,7 @@ AWS Snowball Edge is no longer available to new customers. New customers should 
 1. Choose the **Images** tab. All your images are listed. You can filter the images by name, ID, or state to find a specific image.
 
 1. Choose the image that you want to deregister, and choose **Deregister**.  
-![Image tab showing image chosen and Deregister image button at top right.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-image-deregister-console.png)
+![Image tab showing image chosen and Deregister image button at top right.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-image-deregister-console.png)
 
 1. In the **Confirm deregister image** window, confirm the image ID and choose **Deregister image**. When deregistering is successful, the image is removed from the list of images.   
-![Confirm deregister image window showing image name and Deregister image button.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-confirm-deregister-image-console.png)
+![Confirm deregister image window showing image name and Deregister image button.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-confirm-deregister-image-console.png)

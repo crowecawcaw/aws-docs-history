@@ -18,4 +18,4 @@ Use the following steps to use AWS OpsHub to stop an Amazon EC2-compatible insta
 1. If you have Amazon EC2-compatible instances running on your device, they appear in the **Instance name** column under **Instances**.
 
 1. Choose the instance that you want to stop, choose the **Actions** menu, and choose **Stop**. The **State** changes to **Stopping**, and then to **Stopped** when done.  
-![Instance selection and Action menu showing Stop option](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-stop-ec2-console.png)
+![Instance selection and Action menu showing Stop option](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-stop-ec2-console.png)

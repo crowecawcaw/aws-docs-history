@@ -17,7 +17,7 @@ The following information can help you troubleshoot certain issues you might hav
 Sometimes, after powering on a Snowball Edge device, the LCD display may encounter a problem.
 + The LCD screen is black and does not display an image after you connect the Snowball Edge device to power and press the power button above the LCD screen.
 + The LCD screen does not advance past the **Setting you your Snowball Edge, this may take a number of minutes.** message and the network configuration screen does not appear.  
-![Message on LCD screen indicating the Snowball Edge is starting.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/starting-up-lcd-screen.png)
+![Message on LCD screen indicating the Snowball Edge is starting.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/starting-up-lcd-screen.png)
 
 **Action to take when the LCD screen is black after pressing the power button**
 
@@ -32,7 +32,7 @@ Sometimes, after powering on a Snowball Edge device, the LCD display may encount
 1. Let the screen stay on the **Setting you your Snowball Edge, this may take a number of minutes.** message for 10 minutes.
 
 1. On the screen, choose the **Restart display** button. The **Shutting down…** message will appear, then the **Setting you your Snowball Edge, this may take a number of minutes.** message will appear and the device will start normally.  
-![Message on LCD screen indicating the LCD screen is restarting.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/power-off-lcd-screen.png)
+![Message on LCD screen indicating the LCD screen is restarting.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/power-off-lcd-screen.png)
 
 If the LCD screen does not advance past the **Setting you your Snowball Edge, this may take a number of minutes.** message after using the **Restart display** button, use the following procedure.
 

@@ -12,7 +12,7 @@ The AWS Snowball Edge device is the property of AWS. Tampering with an AWS Snowb
 
 The device looks like the following image.
 
-![Device with front and top covers closed. Case of device is gray and handles on top are orange. E Ink display visble on top.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/SnowballEdgeAppliance.png)
+![Device with front and top covers closed. Case of device is gray and handles on top are orange. E Ink display visble on top.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/SnowballEdgeAppliance.png)
 
 
 If you're ready to connect the device to your internal network, see the next section.

@@ -93,7 +93,7 @@ For non-ICMS taxpayer declaration, we recommend that you generate four copies of
 
 In Australia, if you're shipping an AWS Snowball Edge device back to AWS, place the return transport label (found in the pouch containing these instructions) over the E Ink label on the Snow device.
 
-![Transport Label to Consignee](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/PlaceTransportLabel2Consignee.png)
+![Transport Label to Consignee](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/PlaceTransportLabel2Consignee.png)
 
 
 **Note**  
@@ -101,7 +101,7 @@ If you didn't receive a return label with your device, email knau.snowball\_retu
 
 To arrange the return of the Snowball Edge, scan the QR code on the return instructions with your mobile device. On your device, a hyperlink to an email message appears. The message contains information such as email address, subject, and control number or consignment number. Fill in the pickup date, name, and contact details, or provide a new pickup address if there are any changes.
 
-![Example QR Code](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/AUS_QR.png)
+![Example QR Code](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/AUS_QR.png)
 
 
 ### Snowball Edge pickups in India
@@ -155,7 +155,7 @@ The device will be delivered to AWS by S.F. Express. The S.F. Express tracking n
 
 In Singapore, Japan, and Indonesia, when you are ready to return your device, scan the QR code displayed on the return E Ink label with your mobile phone. This will take you directly onto an email template. Please fill in pick up date/time and contact details.
 
-![Snowball Pickup Request](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/SnowballPickupRequest.png)
+![Snowball Pickup Request](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/SnowballPickupRequest.png)
 
 
 **Note**  

@@ -16,10 +16,10 @@ After you terminate an Amazon EC2-compatible instance, you can't restart the ins
 1. In the **Instance name** column, under **Instances**, find the instance that you want to terminate.
 
 1. Choose the instance, and choose the **Actions**menu. From the **Actions** menu, choose **Terminate**.  
-![Instances tab showing instance chose and Actions menu showing Terminate chosen.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-instance-terminate-console.png)
+![Instances tab showing instance chose and Actions menu showing Terminate chosen.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-instance-terminate-console.png)
 
 1. In the **Terminate instances window, choose **Confirm terminate****.  
-![Terminate instances window showing instance name and Confirm terminate button.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-instance-terminate-instances-console.png)
+![Terminate instances window showing instance name and Confirm terminate button.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-instance-terminate-instances-console.png)
 **Note**  
 After the instance is terminated, you can't restart it.
 

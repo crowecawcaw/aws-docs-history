@@ -20,7 +20,7 @@ When your device arrives at your site, the first step is to connect and unlock i
 
 This video shows how to unlock a Snowball Edge device locally using AWS OpsHub.
 
-[![AWS Videos](http://img.youtube.com/vi/StMa2A7X2yA?start=36&end=70/0.jpg)](http://www.youtube.com/watch?v=StMa2A7X2yA?start=36&end=70)
+[![AWS Videos](https://img.youtube.com/vi/StMa2A7X2yA?start=36&end=70/0.jpg)](https://www.youtube.com/watch?v=StMa2A7X2yA?start=36&end=70)
 
 
 **To connect and unlock your device locally**
@@ -32,12 +32,12 @@ This video shows how to unlock a Snowball Edge device locally using AWS OpsHub.
 1. Open the AWS OpsHub application. If you are a first-time user, you are prompted to choose a language. Then choose **Next**.
 
 1. On the **Get started with OpsHub** page, choose **Sign in to local devices**, and then choose **Sign in**.  
-![Get started with AWS OpsHub page](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-unlock-local-console.png)
+![Get started with AWS OpsHub page](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-unlock-local-console.png)
 
 1. On the **Sign in to local devices** page, choose your Snowball Edge type, and then choose **Sign in**.
 
 1. On the **Sign in** page, enter the **Device IP address** and **Unlock code**. To select the device manifest, choose **Choose file**, and then choose **Sign in**.  
-![AWS OpsHub sign in page](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-sign-in-local-console.png)
+![AWS OpsHub sign in page](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-sign-in-local-console.png)
 
 1. (Optional) Save your device's credentials as a *profile*. Name the profile and choose **Save profile name**. For more information about profiles, see [Managing profiles with AWS OpsHub](aws-opshub.md#manage-profile).
 
@@ -61,15 +61,15 @@ To be unlocked remotely, your device must be able to connect to `{{device-order-
 1. Open the AWS OpsHub application. If you are a first-time user, you are prompted to choose a language. Then choose **Next**.
 
 1. On the **Get started with OpsHub** page, choose **Sign into remote devices**, and then choose **Sign in**.  
-![Get started with AWS OpsHub page with Sign into remote devices chosen.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-unlock-remote-console.png)
+![Get started with AWS OpsHub page with Sign into remote devices chosen.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-unlock-remote-console.png)
 
 1. On the **Sign in to remote devices** page, enter the AWS Identity and Access Management (IAM) credentials (access key and secret key) for the AWS account that is linked to your device, and then choose **Sign in**.  
-![Sign in to remote devices page](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-remote-unlock-console.png)
+![Sign in to remote devices page](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-remote-unlock-console.png)
 
 1. At the top of the **Remote devices** tab, choose the region of the Snow device to unlock remotely.  
-![Remote devices tab with region menu highlighted.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-remote-region-console.png)
+![Remote devices tab with region menu highlighted.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-remote-region-console.png)
 
 1. On the **Remote devices** tab, choose your device to see its details, such as its state and network interfaces. Then choose **Unlock** to unlock the device.   
-![Device information details](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-remote-console.png)
+![Device information details](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-remote-console.png)
 
    From the remote device's details page, you can also reboot your devices and manage them just as you do with the AWS Command Line Interface (AWS CLI). To view remote devices in different AWS Regions, choose the current Region on the navigation bar, and then choose the Region that you want to view. For more information, see [Managing AWS services on the Snowball Edge with AWS OpsHub](manage-services.md).

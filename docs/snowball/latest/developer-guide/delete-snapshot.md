@@ -16,6 +16,6 @@ If you no longer need a snapshot, you can delete it from your device. The image 
 1. Choose the **Snapshot** tab to see all snapshots that have been imported. You can filter by snapshot ID or state of the snapshot to find specific snapshots. 
 
 1. Choose the snapshot that you want to delete, and choose **Delete**. You can choose multiple snapshots.  
-![Snapshots tab showing instance and Delete button](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-delete-snapshot-console.png)
+![Snapshots tab showing instance and Delete button](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/opshub-delete-snapshot-console.png)
 
 1. In the **Delete snapshot confirmation** box, choose **Delete snapshot**. If your deletion is successful, the snapshot is removed from the list under the **Snapshots** tab. 

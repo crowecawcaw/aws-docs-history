@@ -14,7 +14,7 @@ Using Amazon EKS Anywhere on AWS Snow provides you with these capabilities:
 
 This diagram illustrates an Amazon EKS Anywhere cluster deployed on a Snowball Edge device.
 
-![Diagram depicting Amazon EKS Anywhere on AWS Snow cluster deployed on a Snowball Edge device and relationships between components.](http://docs.aws.amazon.com/snowball/latest/developer-guide/images/eskaarch.jpg)
+![Diagram depicting Amazon EKS Anywhere on AWS Snow cluster deployed on a Snowball Edge device and relationships between components.](https://docs.aws.amazon.com/snowball/latest/developer-guide/images/eskaarch.jpg)
 
 
 We recommend that you create your Kubernetes cluster with the latest available Kubernetes version supported by Amazon EKS Anywhere. For more information, see [Amazon EKS-Anywhere Versioning](https://anywhere.eks.amazonaws.com/docs/concepts/support-versions/). If your application requires a specific version of Kubernetes, use any version of Kubernetes offered in standard or extended support by Amazon EKS. Consider the release and support dates of Kubernetes versions when planning the lifecycle of your deployment. This will help you avoid the potential loss of support for the version of Kubernetes you intend to use. For more information, see [Amazon EKS Kubernetes release calendar](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar).
