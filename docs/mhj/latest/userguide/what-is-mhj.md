@@ -9,7 +9,7 @@ AWS Migration Hub Journeys is a service that you can use to plan, perform, and t
 
 A core concept in Migration Hub Journeys is the migration journey, which is a pipeline of migration-related tasks that you can assign to different teams or individuals. You can create a journey from scratch or from one of the templates that Migration Hub Journeys provides. These templates represent common migration scenarios and follow best practices. If you create your journey from a template, you can customize the journey to better match your particular scenario. The following diagram provides an overview of how Migration Hub Journeys journeys work. 
 
-![alt_text](http://docs.aws.amazon.com/mhj/latest/userguide/images/migops-logical-flow.png)
+![alt_text](https://docs.aws.amazon.com/mhj/latest/userguide/images/migops-logical-flow.png)
 
 
 ## Are you a first-time Migration Hub Journeys user?

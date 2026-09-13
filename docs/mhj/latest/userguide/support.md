@@ -11,4 +11,4 @@ You can also look for answers on [AWS re:Post](https://repost.aws/tags), which d
 
 To send us feedback, choose **Support**, as shown in the following image, then choose **Feedback**.
 
-![alt_text](http://docs.aws.amazon.com/mhj/latest/userguide/images/support.png)
+![alt_text](https://docs.aws.amazon.com/mhj/latest/userguide/images/support.png)
