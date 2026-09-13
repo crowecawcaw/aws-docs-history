@@ -56,13 +56,13 @@ agentcore add harness --name myagent --no-memory
 Run `agentcore` in a project directory, select **add** , then choose **Harness** . The wizard includes a memory step.  
 
 1. On the **Memory** step, choose **No persistent memory** or **Enabled** to create persistent memory for the harness.  
-![Memory step: No persistent memory or Enabled](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-01-memory.png)
+![Memory step: No persistent memory or Enabled](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-01-memory.png)
 
 1. When memory is **Enabled** , an extra **Memory tuning** option appears in **Advanced settings** . Enable it with **Space** and press **Enter** to tune retrieval.  
-![Advanced settings: Memory tuning option](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-02-advanced-memory-tuning.png)
+![Advanced settings: Memory tuning option](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-02-advanced-memory-tuning.png)
 
 1. Optionally set the messages count, retrieval top K, and relevance score (each can be skipped).  
-![Memory tuning: messages count, top K, relevance score](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-03-messages-count.png)
+![Memory tuning: messages count, top K, relevance score](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-memory-03-messages-count.png)
 Confirm the wizard, then run `agentcore deploy` to apply.
 
 Managed memory is fully managed by the harness:

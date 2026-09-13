@@ -30,4 +30,4 @@ Pipecat voice agent with Daily
 Deploys a Pipecat voice agent to AgentCore Runtime using Daily as the WebRTC transport. Users join by visiting a Daily room URL in their browser. The pipeline orchestrates Deepgram (speech-to-text), Amazon Nova (LLM), and Cartesia (text-to-speech). See [Pipecat on AgentCore with Daily](https://github.com/pipecat-ai/pipecat-examples/tree/main/deployment/aws-agentcore-daily) on GitHub.
 
 LiveKit voice agent on AgentCore Runtime  
-Deploys a LiveKit voice agent to AgentCore Runtime with KVS managed TURN or third-party TURN for WebRTC NAT traversal. See [LiveKit on AgentCore Runtime](https://github.com/livekit-examples/agent-deployment/tree/main/bedrock-agentcore) on GitHub.
+Deploys a LiveKit voice agent to AgentCore Runtime with KVS managed TURN or third-party TURN for WebRTC NAT traversal. See [LiveKit on AgentCore Runtime](https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agentic-frameworks/livekit) on GitHub.

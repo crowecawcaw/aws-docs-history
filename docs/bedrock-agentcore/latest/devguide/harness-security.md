@@ -205,19 +205,19 @@ See [inbound JWT authorizer](https://docs.aws.amazon.com/bedrock-agentcore/lates
 Run `agentcore` in a project directory, select **add** , choose **Harness** , and advance to **Advanced settings** . Enable **Authentication** (and **Network** for VPC access) with **Space** , then press **Enter** .  
 
 1. Choose the authorizer type: ** AWS IAM** (default) or **Custom JWT** for OIDC bearer-token auth.  
-![Select the harness authorizer type](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-02-auth-type.png)
+![Select the harness authorizer type](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-02-auth-type.png)
 
 1. For **Custom JWT** , enter the OIDC discovery URL.  
-![Configure Custom JWT: discovery URL](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-03-jwt.png)
+![Configure Custom JWT: discovery URL](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-03-jwt.png)
 
 1. Select which token constraints to validate - allowed audiences, allowed clients, allowed scopes, or custom claims.  
-![Select JWT constraints to configure](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-04-jwt-constraints.png)
+![Select JWT constraints to configure](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-04-jwt-constraints.png)
 
 1. Choose how the harness reaches the IdP discovery endpoint: **None** (publicly reachable), a **VPC Lattice resource** , or a **Managed VPC endpoint** (PrivateLink).  
-![PrivateLink options for the IdP discovery endpoint](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-05-privatelink.png)
+![PrivateLink options for the IdP discovery endpoint](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-05-privatelink.png)
 
 1. For **Network** , choose VPC mode and provide the subnet IDs and security group IDs.  
-![Enter VPC subnet IDs](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-06-network-subnets.png)
+![Enter VPC subnet IDs](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-security-06-network-subnets.png)
 Confirm the wizard, then run `agentcore deploy` to apply.
 
 Learn more: [AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html) · [inbound JWT authorizer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/inbound-jwt-authorizer.html) · [outbound credentials](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-outbound-credential-provider.html) 

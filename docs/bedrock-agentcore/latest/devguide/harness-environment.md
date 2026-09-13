@@ -131,22 +131,22 @@ For prerequisites (VPC networking, IAM permissions, security groups), type compa
 Run `agentcore` in a project directory to open the TUI, select **add** , then choose **Harness** . The wizard walks you through the execution environment and, in **Advanced settings** , the persistent filesystem.  
 
 1. On the **Custom environment** step, keep the default environment or choose a pre-built container image (ECR URI) or a Dockerfile.  
-![Add Harness wizard: custom environment](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-01-custom-environment.png)
+![Add Harness wizard: custom environment](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-01-custom-environment.png)
 
 1. Filesystem mounts require VPC mode, so on **Advanced settings** enable both **Network** and **Filesystem Storage** with **Space** , then press **Enter** .  
-![Advanced settings with Network and Filesystem Storage enabled](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-02-advanced.png)
+![Advanced settings with Network and Filesystem Storage enabled](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-02-advanced.png)
 
 1. Choose **VPC** network mode, then provide the subnets and security groups for the harness.  
-![Select VPC network mode](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-03-network.png)
+![Select VPC network mode](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-03-network.png)
 
 1. Set the session storage mount path (under `/mnt`).  
-![Enter the session storage mount path](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-04-fs-type.png)
+![Enter the session storage mount path](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-04-fs-type.png)
 
 1. To attach an Amazon EFS file system, enter the EFS access point ARN (and its mount path on the next step).  
-![Enter the EFS access point ARN](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-05-efs.png)
+![Enter the EFS access point ARN](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-05-efs.png)
 
 1. To attach Amazon S3 Files, enter the S3 Files access point ARN (and its mount path).  
-![Enter the S3 Files access point ARN](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-06-s3.png)
+![Enter the S3 Files access point ARN](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-env-06-s3.png)
 Confirm the wizard, then run `agentcore deploy` to apply.
 
 ### Session storage

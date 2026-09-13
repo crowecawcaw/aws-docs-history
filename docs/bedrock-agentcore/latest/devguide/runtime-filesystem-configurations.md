@@ -221,6 +221,8 @@ Like session storage, capacity provider volumes are isolated per session and per
 
 The volume is retained across these stops, including when a session reaches its maximum lifetime. It is deleted only when you delete the session, or when you delete the capacity provider (which deletes its sessions and their volumes).
 
+For information about managing the data on these volumes, see [Manage your data on Runtime Instances](runtime-instances-data-management.md).
+
 Agents can share a volume, but sharing is not automatic. For a volume to be mounted for an agent runtime, that runtime must configure the same `capacityProviderVolume` (by `volumeName`) in its own `filesystemConfigurations`. When two such runtimes are invoked with the same `runtimeSessionId`, they run on the same instance and each mounts the shared volume, so they can collaborate on the same files. Configuring `capacityProviderVolume` controls which volumes AgentCore mounts for a runtime; it does not, by itself, isolate data between agents in a session. The isolation boundary is the session. For the session and agent isolation model, see [Security model and permissions for Runtime Instances](runtime-instances-security.md).
 
 The managed session storage and bring-your-own types are not supported on Instances runtimes. These types are `sessionStorage`, `s3FilesAccessPoint`, and `efsAccessPoint`. Specifying any of them alongside `capacityProviderConfiguration` fails with a `ValidationException`. For how to define volumes on a capacity provider and mount them, see [Get started with Instances using the AWS CLI](runtime-instances-get-started-cli.md) and [Persistent storage across sessions](runtime-instances-how-it-works.md#runtime-instances-persistent-volumes).

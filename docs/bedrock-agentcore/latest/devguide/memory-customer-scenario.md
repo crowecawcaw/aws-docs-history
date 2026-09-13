@@ -7,7 +7,7 @@ In this section you learn how to build a customer support AI agent that uses Age
 
 Consider a customer, Sarah, who engages with your shopping website’s support AI agent to inquire about a delayed order. The interaction flow through the AgentCore Memory APIs would look like this:
 
-![Memory AgentCore Memory](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-short-long-term.png)
+![Memory AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-short-long-term.png)
 
 
 **Topics**
@@ -37,10 +37,10 @@ The AgentCore CLI provides memory resource management. For event operations (cre
 1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
 
 1. Select the **Semantic** strategy:  
-![Memory wizard: select SEMANTIC strategy](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
+![Memory wizard: select SEMANTIC strategy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
 
 1. Review the configuration and press Enter to confirm:  
-![Memory wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
+![Memory wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
 
 1. 
 

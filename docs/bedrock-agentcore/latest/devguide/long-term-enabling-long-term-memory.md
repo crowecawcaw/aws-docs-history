@@ -22,10 +22,10 @@ The most direct method is to include strategies when you create a new AgentCore 
 1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
 
 1. Select the **User preference** strategy:  
-![Memory wizard: select USER_PREFERENCE strategy](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
+![Memory wizard: select USER_PREFERENCE strategy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
 
 1. Review the configuration and press Enter to confirm:  
-![Memory wizard: confirm memory configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
+![Memory wizard: confirm memory configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
 
    Then run `agentcore deploy` to provision the memory in AWS.
 

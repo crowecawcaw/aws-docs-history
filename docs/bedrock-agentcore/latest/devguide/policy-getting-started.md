@@ -71,16 +71,16 @@ Create a gateway with no inbound authorization (for simplicity in this tutorial)
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** :
 
 1. Enter the gateway name:  
-![Gateway wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
+![Gateway wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
 
 1. Select the authorizer type. For this tutorial, choose **NONE** :  
-![Gateway wizard: select NONE authorizer](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-none.png)
+![Gateway wizard: select NONE authorizer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-none.png)
 
 1. Configure advanced options or accept the defaults:  
-![Gateway wizard: advanced configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
+![Gateway wizard: advanced configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
 
 1. Review the configuration and press **Enter** to confirm:  
-![Gateway wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
  **Add a Lambda function target with a refund tool** 
 
@@ -124,7 +124,7 @@ Register your Lambda function as a gateway target with a tool schema that define
 1. Enter the target name.
 
 1. Select **Lambda function** as the target type:  
-![Gateway target wizard: select Lambda function](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png)
+![Gateway target wizard: select Lambda function](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png)
 
 1. Enter the Lambda ARN and tool schema file path, then confirm.
 
@@ -145,13 +145,13 @@ Create a policy engine and attach it to the gateway in ENFORCE mode:
 1. Run `agentcore` to open the TUI, then select **add** and choose **Policy Engine** :
 
 1. Enter the policy engine name:  
-![Policy engine wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/policy-engine-name.png)
+![Policy engine wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/policy-engine-name.png)
 
 1. Select the gateways to attach the policy engine to:  
-![Policy engine wizard: attach gateways](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/policy-engine-gateways.png)
+![Policy engine wizard: attach gateways](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/policy-engine-gateways.png)
 
 1. Choose the enforcement mode. Select **ENFORCE** :  
-![Policy engine wizard: select enforcement mode](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/policy-engine-mode.png)
+![Policy engine wizard: select enforcement mode](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/policy-engine-mode.png)
 
  **Create a Cedar policy** 
 

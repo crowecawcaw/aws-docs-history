@@ -78,23 +78,23 @@ Add a gateway and a target to your project using the AgentCore CLI:
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** :
 
 1. Enter the gateway name:  
-![Gateway wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
+![Gateway wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
 
 1. Select the authorizer type. For this quickstart, choose **NONE** :  
-![Gateway wizard: select NONE authorizer](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-none.png)
+![Gateway wizard: select NONE authorizer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-none.png)
 
 1. Configure advanced options or accept the defaults:  
-![Gateway wizard: advanced configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
+![Gateway wizard: advanced configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
 
 1. Review the configuration and press **Enter** to confirm:  
-![Gateway wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
    Next, select **add** again and choose **Gateway Target** to add a Lambda function target:
 
 1. Enter the target name.
 
 1. Select **Lambda function** as the target type:  
-![Gateway target wizard: select Lambda function](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png)
+![Gateway target wizard: select Lambda function](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png)
 
 1. Enter the Lambda ARN and tool schema file path, then confirm.
 
@@ -115,18 +115,18 @@ To use JWT-based authorization instead, specify `--authorizer-type CUSTOM_JWT` w
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** . When prompted for the authorizer type, select **Custom JWT** :
 
 1. Enter the gateway name:  
-![Gateway wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
+![Gateway wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
 
 1. Select **Custom JWT** as the authorizer type:  
-![Gateway wizard: select Custom JWT authorizer](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
+![Gateway wizard: select Custom JWT authorizer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
 
 1. Enter the OAuth discovery URL and allowed audience when prompted.
 
 1. Configure advanced options or accept the defaults:  
-![Gateway wizard: advanced configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
+![Gateway wizard: advanced configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
 
 1. Review the configuration and press **Enter** to confirm:  
-![Gateway wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
 ## Step 3: Run the setup
 <a name="gateway-quick-start-run-setup"></a>

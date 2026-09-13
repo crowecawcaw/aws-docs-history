@@ -40,7 +40,7 @@ The episodic strategy includes memory extraction and consolidation steps (shared
 
 The following image schematizes the episodic memory strategy:
 
-![Schema of episodic memory strategy.](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory/episodic-memory-strategy.png)
+![Schema of episodic memory strategy.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory/episodic-memory-strategy.png)
 
 
 By referencing stored episodes, your agent can retrieve relevant past experiences through semantic search and review reflections to avoid repeating failed approaches and to adapt successful strategies to new contexts. This strategy is useful for agents that benefit from identifying patterns, need to continually update information, maintain consistency across interactions, and require context and reasoning rather than static knowledge to make decisions.

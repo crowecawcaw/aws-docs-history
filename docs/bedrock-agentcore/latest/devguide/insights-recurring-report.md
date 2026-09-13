@@ -27,22 +27,22 @@ agentcore deploy -y --json
 ```
 
 1. Run `agentcore` to open the TUI, then select **add** and choose **Online Insights**:  
-![Insights wizard: select agent to monitor](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-agent.png)
+![Insights wizard: select agent to monitor](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-agent.png)
 
 1. Select the insights to enable:  
-![Insights wizard: select insights](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-insights.png)
+![Insights wizard: select insights](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-insights.png)
 
 1. Set the sampling rate:  
-![Insights wizard: set sampling rate](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-sampling-rate.png)
+![Insights wizard: set sampling rate](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-sampling-rate.png)
 
 1. Choose clustering frequencies:  
-![Insights wizard: select clustering frequency](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-clustering.png)
+![Insights wizard: select clustering frequency](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-clustering.png)
 
 1. Enter a config name:  
-![Insights wizard: enter config name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-name.png)
+![Insights wizard: enter config name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-name.png)
 
 1. Review the configuration and press Enter to confirm:  
-![Insights wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-confirm.png)
+![Insights wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-add-confirm.png)
 
 ```
 import boto3

@@ -36,7 +36,7 @@ If the evaluator is referenced by an online evaluation configuration, you must f
 Run this from inside an AgentCore project directory (created with `agentcore create` ).
 
 1. \* Run `agentcore remove` and select **Evaluator** from the resource type menu.  
-![Remove resource type selection](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-remove-select.png)
+![Remove resource type selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-remove-select.png)
 
 1. 
 

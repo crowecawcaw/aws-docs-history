@@ -30,7 +30,7 @@ The **Create gateway** wizard creates both the gateway and its target in the sam
 
  **To add a Memory connector target (console)** 
 
-![The Add targets step of the Create gateway wizard](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-connector-target-console.png)
+![The Add targets step of the Create gateway wizard](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-connector-target-console.png)
 
 
 1. Under **Add targets**, for **Select a target protocol**, choose **Custom target**.

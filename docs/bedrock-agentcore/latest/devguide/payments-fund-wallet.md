@@ -40,7 +40,7 @@ wallet_hub_url = instrument["paymentInstrumentDetails"]["redirectUrl"]
 print(f"Open the WalletHub: {wallet_hub_url}")
 ```
 
-![Coinbase WalletHub for funding and granting permissions](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/grant-permission.png)
+![Coinbase WalletHub for funding and granting permissions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/grant-permission.png)
 
 
 Alternatively, you can deploy the [Coinbase AgentCore template on GitHub](https://github.com/coinbase/cdp-agentcore-template) as a self-hosted Next.js frontend that provides the same funding and permissions functionality with a customizable UI. See [(Alternative) Deploy the self-hosted frontend](#payments-fund-wallet-coinbase-self-hosted) for setup instructions.
@@ -120,7 +120,7 @@ The [Privy AgentCore SDK on GitHub](https://github.com/privy-io/aws-agentcore-sd
 
 1. Allowlist the localhost endpoint in the Privy dashboard under **App Settings** > **Basics** > **Domains** 
 
-![Privy dashboard showing the Domains field under App Settings where localhost is added to the allowed origins list](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/privy-allowlist.png)
+![Privy dashboard showing the Domains field under App Settings where localhost is added to the allowed origins list](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/privy-allowlist.png)
 
 
 1. Clone the repository:

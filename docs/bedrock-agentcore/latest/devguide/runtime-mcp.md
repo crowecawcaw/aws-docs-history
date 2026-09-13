@@ -39,6 +39,8 @@ The payload of the [InvokeAgentRuntime](https://docs.aws.amazon.com/bedrock-agen
 
 ## Prerequisites
 <a name="runtime-mcp-prerequisites"></a>
+
+Before you deploy an MCP server, make sure you have the following:
 + Python 3.10 or higher installed and basic understanding of Python
 + An AWS account with appropriate permissions and local credentials configured
 
@@ -88,6 +90,8 @@ if __name__ == "__main__":
 
 ### Understanding the code
 <a name="runtime-mcp-code-explanation"></a>
+
+The example uses the following components:
 +  **FastMCP** : Creates an MCP server that can host your tools
 +  **@mcp.tool()** : Decorator that turns your Python functions into MCP tools
 +  **Tools** : Three simple tools that demonstrate different types of operations

@@ -27,13 +27,13 @@ First, create a memory with all three long-term strategies. You can do this with
 1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
 
 1. Enter the memory name:  
-![Memory wizard: enter ComprehensiveAgentMemory name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-name.png)
+![Memory wizard: enter ComprehensiveAgentMemory name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-name.png)
 
 1. Select all three strategies (Semantic, Summarization, User preference):  
-![Memory wizard: select all three memory strategies](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-strategies.png)
+![Memory wizard: select all three memory strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-strategies.png)
 
 1. Review the configuration and press Enter to confirm:  
-![Memory wizard: confirm ComprehensiveAgentMemory with all strategies](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-confirm.png)
+![Memory wizard: confirm ComprehensiveAgentMemory with all strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/strands-memory-add-confirm.png)
 
    Then run `agentcore deploy` to provision the memory in AWS.
 

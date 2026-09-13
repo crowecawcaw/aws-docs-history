@@ -12,7 +12,7 @@ AgentCore optimization builds on [AgentCore Evaluations](evaluations.md) and int
 
 Together, these capabilities form a continuous improvement loop:
 
-![AgentCore optimization improvement loop](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/optimization-loop.png)
+![AgentCore optimization improvement loop](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/optimization-loop.png)
 
 
 **Topics**

@@ -53,15 +53,15 @@ To use Coinbase as a payment provider, you must also subscribe to the **Coinbase
 
    1.  Generate an **API Key** and note the following values:    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-prerequisites.html)  
-![Coinbase CDP API key generation](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/coinbase-api-key.png)
+![Coinbase CDP API key generation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/coinbase-api-key.png)
 
    1.   Under Project > Wallets > Non-custodial Wallet > Security, generate a **Wallet secret** and note the following value:    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-prerequisites.html)  
-![Coinbase CDP Wallet secret generation](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/coinbase-wallet-secret.png)
+![Coinbase CDP Wallet secret generation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/coinbase-wallet-secret.png)
 
 1. Under **Project** > **Wallets** > **Non-custodial Wallet** > **Security**, enable **Delegated signing**.
 
-![Coinbase dashboard for Delegation](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/coinbase-delegation.png)
+![Coinbase dashboard for Delegation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/coinbase-delegation.png)
 
 
 ### Privy credentials
@@ -76,7 +76,7 @@ If you plan to use Privy for user-owned embedded wallet flows, obtain the follow
 1. In your Privy app, navigate to **Wallet Infrastructure** > **Authorization** and choose **New Key** to generate a P-256 key pair. Note the following values:    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/payments-prerequisites.html)
 
-![Privy key dialog for AgentCore payments](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/privy-keys.png)
+![Privy key dialog for AgentCore payments](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/privy-keys.png)
 
 
 #### Security best practices for Privy credentials

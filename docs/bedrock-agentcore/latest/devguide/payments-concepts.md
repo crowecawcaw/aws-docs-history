@@ -8,7 +8,7 @@
 
 Personas that interact with AgentCore payments can vary from organization to organization. The following are the general personas found across organizations.
 
-![Key personas for AgentCore payments](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/key-personas.jpg)
+![Key personas for AgentCore payments](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/key-personas.jpg)
 
 
 1.  **Agent developer**: Agent developers build AI agents that execute microtransaction payments to access paid APIs, MCP servers, and web content. They handle administrative tasks such as configuring spending guardrails, monitoring payment activity, and managing wallet credential policies. They perform one-time control plane setup (creating PaymentManagers and PaymentConnectors) and integrate their agent code with the AgentCore payments SDK or data plane APIs to enable autonomous payment execution.
@@ -22,7 +22,7 @@ Personas that interact with AgentCore payments can vary from organization to org
 
 The following diagram shows how PaymentManager, PaymentConnector, payment sessions, and payment instruments relate in AgentCore payments.
 
-![How PaymentManager](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/core-concept.png)
+![How PaymentManager](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/payments/core-concept.png)
 
 
 ### PaymentManager

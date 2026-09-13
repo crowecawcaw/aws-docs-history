@@ -15,7 +15,7 @@ The following table shows which AWS Regions have support for guardrails in polic
 
 |  | US East (N. Virginia) | US East (Ohio) | US West (N. California) | US West (Oregon) | Asia Pacific (Hyderabad) | Asia Pacific (Malaysia) | Asia Pacific (Mumbai) | Asia Pacific (Seoul) | Asia Pacific (Singapore) | Asia Pacific (Sydney) | Asia Pacific (Thailand) | Asia Pacific (Tokyo) | Canada (Central) | Europe (Frankfurt) | Europe (Ireland) | Europe (London) | Europe (Milan) | Europe (Paris) | Europe (Spain) | Europe (Stockholm) | South America (São Paulo) |  AWS GovCloud (US-West) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| Guardrails Support | ✓ Yes | No | No | No | No | No | No | No | No | ✓ Yes | No | ✓ Yes | No | No | No | ✓ Yes | No | No | No | ✓ Yes | No | No | 
+| Guardrails Support | ✓ Yes | ✓ Yes | No | ✓ Yes | No | No | No | No | No | ✓ Yes | No | ✓ Yes | No | No | No | ✓ Yes | No | No | No | ✓ Yes | No | No | 
 
 ## Before you begin
 <a name="policy-guardrails-before-you-begin"></a>

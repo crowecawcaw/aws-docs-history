@@ -22,6 +22,7 @@ Tags don’t have any semantic meaning to AgentCore and are interpreted strictly
 The following AgentCore resources support tagging:
 + Agent runtime
 + Agent runtime endpoint
++ Capacity provider
 + Code interpreter
 + Browser
 + Browser Profile
@@ -113,6 +114,7 @@ You can add, edit, or delete tags for AgentCore resources using the console, API
    You can add tags when you create resources using the following API operations:
    +  [CreateAgentRuntime](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntime.html) – Include tags in the `tags` parameter.
    +  [CreateAgentRuntimeEndpoint](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateAgentRuntimeEndpoint.html) – Include tags in the `tags` parameter.
+   +  [CreateCapacityProvider](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateCapacityProvider.html) – Include tags in the `tags` parameter.
    +  [CreateCodeInterpreter](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateCodeInterpreter.html) – Include tags in the `tags` parameter.
    +  [CreateBrowser](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateBrowser.html) – Include tags in the `tags` parameter.
    +  [CreateBrowserProfile](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateBrowserProfile.html) – Include tags in the `tags` parameter.

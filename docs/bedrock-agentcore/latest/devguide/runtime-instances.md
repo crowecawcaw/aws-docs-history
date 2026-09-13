@@ -3,10 +3,16 @@
 # Runtime Instances and capacity providers
 <a name="runtime-instances"></a>
 
-The **Instances** compute type runs your agents on AWS managed Amazon EC2 infrastructure in your own AWS account, provisioned through a [capacity provider](runtime-instances-how-it-works.md#runtime-instances-capacity-provider). Because these instances run in your account, the security and encryption model differs from the serverless microVM compute type. The following topics describe that model: the shared responsibility between you and AgentCore, the IAM roles involved, multi-tenant session isolation, and how the EC2 resources are encrypted at rest.
+The **Instances** compute type runs your agents on AWS managed Amazon EC2 infrastructure in your own AWS account, provisioned through a [capacity provider](runtime-instances-how-it-works.md#runtime-instances-capacity-provider). Because these instances run in your account, the security and encryption model differs from the serverless microVM compute type. The following topics describe the parts of that model:
++ The shared responsibility between you and AgentCore
++ The AWS Identity and Access Management (IAM) roles involved
++ Multi-tenant session isolation
++ How the Amazon EC2 resources are encrypted at rest
++ How you manage the data that Instances stores in your account
 
 For a broader overview of the Instances compute type and how to use it, see [Instances](runtime-instances-how-it-works.md) and [Get started with Instances](runtime-instances-getting-started.md).
 
 **Topics**
 + [Security model and permissions for Runtime Instances](runtime-instances-security.md)
 + [Encryption at rest for Runtime Instances](runtime-instances-encryption.md)
++ [Manage your data on Runtime Instances](runtime-instances-data-management.md)

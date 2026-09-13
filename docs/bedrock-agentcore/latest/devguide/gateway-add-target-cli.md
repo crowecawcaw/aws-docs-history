@@ -57,10 +57,10 @@ You can use the AgentCore CLI to add targets to an existing gateway with simplif
 1. You can also use the AgentCore CLI interactive terminal UI. Run `agentcore` to open the TUI, then select **add** and choose **Gateway Target** :
 
 1. In the **Add Resource** menu, select **Gateway Target** and press **Enter**.  
-![TUI Add Resource menu with Gateway Target option visible](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-resource.png)
+![TUI Add Resource menu with Gateway Target option visible](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-resource.png)
 
 1. Select the target type for your gateway. The wizard shows the available target types, including MCP Server endpoint, API Gateway REST API, OpenAPI Schema, Smithy Model, and Lambda function.  
-![TUI target type selection showing MCP Server endpoint](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-mcp.png)
+![TUI target type selection showing MCP Server endpoint](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-mcp.png)
 
 1. Follow the remaining wizard prompts to provide the target name, endpoint or schema details, and outbound authorization configuration. The specific fields depend on the target type you selected.
 

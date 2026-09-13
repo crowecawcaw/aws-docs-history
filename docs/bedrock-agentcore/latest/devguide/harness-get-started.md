@@ -89,29 +89,29 @@ agentcore create
 ```
 
 1. Enter your project name:  
-![Create wizard: enter project name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-01-create-project-name.png)
+![Create wizard: enter project name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-01-create-project-name.png)
 
 1. Select **Harness** as the project type:  
-![Create wizard: select project type](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-02-create-project-type.png)
+![Create wizard: select project type](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-02-create-project-type.png)
 
 1. Choose your model provider:  
-![Create wizard: select model provider](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-04-model-provider.png)
+![Create wizard: select model provider](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-04-model-provider.png)
 
 1. Choose your environment (default, container URI, or Dockerfile):  
-![Create wizard: select environment](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-05-custom-environment.png)
+![Create wizard: select environment](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-05-custom-environment.png)
 
 1. Configure memory:  
-![Create wizard: configure memory](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-06-memory.png)
+![Create wizard: configure memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-06-memory.png)
 
 1. Optionally configure advanced settings (tools, auth, network, lifecycle, limits, truncation, session storage):  
-![Create wizard: advanced settings](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-07-advanced-settings.png)
+![Create wizard: advanced settings](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-07-advanced-settings.png)
 
 1. Review your configuration and confirm:  
-![Create wizard: review and confirm](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-08-confirm.png)
+![Create wizard: review and confirm](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-08-confirm.png)
 After confirmation, the wizard scaffolds your project. Deploy with `agentcore deploy`, then invoke with `agentcore invoke`.  
 Check project status at any time with `agentcore status`:  
 
-![AgentCore status dashboard](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-13-status.png)
+![AgentCore status dashboard](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-13-status.png)
 
 
 1. Local development
@@ -122,15 +122,15 @@ agentcore dev
 ```
 When you run `agentcore dev`, the CLI first deploys your harness resources to AWS, creating the IAM role, harness, and any memory or credentials configured in your project:  
 
-![Deploy progress: CloudFormation resource creation](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/common-deploy-progress.png)
+![Deploy progress: CloudFormation resource creation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/common-deploy-progress.png)
 
 Once deployment completes, it starts a local server and opens the agent inspector in your browser where you can chat with the harness, inspect traces, and browse project resources:  
 
-![Agent inspector: chat with your harness](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-agent-inspector.png)
+![Agent inspector: chat with your harness](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-agent-inspector.png)
 
 Expand **Harness Settings** to view and override the harness configuration for the current session:  
 
-![Agent inspector: harness settings and configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-agent-inspector-settings.png)
+![Agent inspector: harness settings and configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-agent-inspector-settings.png)
 
 
 That’s all you need to get a harness running. The following sections cover everything you can configure.

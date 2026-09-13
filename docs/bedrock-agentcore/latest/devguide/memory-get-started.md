@@ -62,10 +62,10 @@ Create memory with semantic strategy:
 1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
 
 1. Enter the memory name:  
-![Memory wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-name.png)
+![Memory wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-name.png)
 
 1. Select the **Semantic** strategy, then confirm:  
-![Memory wizard: select SEMANTIC strategy](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
+![Memory wizard: select SEMANTIC strategy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
 
    Then run `agentcore deploy` to provision the memory in AWS.
 

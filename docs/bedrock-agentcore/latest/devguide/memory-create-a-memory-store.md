@@ -51,16 +51,16 @@ When creating an AgentCore Memory, consider the following factors to maintain it
 1. Run `agentcore` to open the TUI, then select **add** and choose **Memory** :
 
 1. Enter the memory name:  
-![Memory wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-name.png)
+![Memory wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-name.png)
 
 1. Select the event expiry duration:  
-![Memory wizard: select event expiry duration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-expiry.png)
+![Memory wizard: select event expiry duration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-expiry.png)
 
 1. Choose memory strategies for long-term memory extraction:  
-![Memory wizard: select memory strategies](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
+![Memory wizard: select memory strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-strategies.png)
 
 1. Review the configuration and press Enter to confirm:  
-![Memory wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
+![Memory wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/memory-add-confirm.png)
 
 1. For more information, see [AWS SDK](aws-sdk-memory.md).
 

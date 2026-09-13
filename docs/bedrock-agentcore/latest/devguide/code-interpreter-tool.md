@@ -32,7 +32,7 @@ The AgentCore Code Interpreter is a capability that allows AI agents to write, e
 
 The AgentCore Code Interpreter runs in a containerized environment within Amazon Bedrock AgentCore, ensuring that code execution remains isolated and secure.
 
-![Architecture showing the built-in tools offering and Browser and CI tools.](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/code-interpreter.png)
+![Architecture showing the built-in tools offering and Browser and CI tools.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/code-interpreter.png)
 
 
 ## Why use Code Interpreter in agent development

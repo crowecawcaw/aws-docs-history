@@ -34,13 +34,13 @@ agentcore run insights --online-eval-config-arn <arn> --json
 ```
 
 1. Run `agentcore` to open the TUI, then select **run** and choose **Insights**:  
-![Run menu: select Insights](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-select.png)
+![Run menu: select Insights](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-select.png)
 
 1. Choose the session source:  
-![Run Insights wizard: select session source](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-source.png)
+![Run Insights wizard: select session source](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-source.png)
 
 1. Select the insights to run:  
-![Run Insights wizard: select insights](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-insights.png)
+![Run Insights wizard: select insights](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-insights.png)
 
    Continue through the remaining wizard steps (sessions, lookback period, name) and confirm.
 

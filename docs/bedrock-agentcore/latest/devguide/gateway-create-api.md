@@ -151,16 +151,16 @@ Select one of the following methods:
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** :
 
 1. Enter the gateway name:  
-![Gateway wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
+![Gateway wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
 
 1. Select **Custom JWT** as the authorizer type and press **Enter** :  
-![Gateway wizard: select Custom JWT authorizer](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
+![Gateway wizard: select Custom JWT authorizer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
 
 1. Configure advanced options:  
-![Gateway wizard: advanced configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
+![Gateway wizard: advanced configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
 
 1. Review the configuration summary and press **Enter** to confirm:  
-![Gateway wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
 1. Run the following code in a terminal to create a basic gateway with the AWS CLI:
 
@@ -272,16 +272,16 @@ Select one of the following methods:
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** :
 
 1. Enter the gateway name:  
-![Gateway wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
+![Gateway wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
 
 1. Select **NONE** as the authorizer type and press **Enter** :  
-![Gateway wizard: select NONE authorizer](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-none.png)
+![Gateway wizard: select NONE authorizer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-none.png)
 
 1. Configure advanced options:  
-![Gateway wizard: advanced configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
+![Gateway wizard: advanced configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
 
 1. Review the configuration summary and press **Enter** to confirm:  
-![Gateway wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
 1. Run the following code in a terminal to create a gateway with NONE authorizer type using the AWS CLI:
 
@@ -386,16 +386,16 @@ Select one of the following methods:
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** . Semantic search is enabled by default in the advanced options:
 
 1. Enter the gateway name:  
-![Gateway wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
+![Gateway wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
 
 1. Select the authorizer type and press **Enter** :  
-![Gateway wizard: select authorizer type](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
+![Gateway wizard: select authorizer type](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
 
 1. In advanced options, verify that semantic search is enabled (this is the default):  
-![Gateway wizard: advanced configuration with semantic search enabled](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
+![Gateway wizard: advanced configuration with semantic search enabled](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
 
 1. Review the configuration summary and press **Enter** to confirm:  
-![Gateway wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
 1. Turn on semantic search when creating a gateway in the AWS CLI by specifying `searchType` as `SEMANTIC` in the `--protocol-configuration` object, as in the following example:
 
@@ -472,16 +472,16 @@ Select one of the following methods:
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** . In advanced options, you can enable debugging messages by setting the exception level to `DEBUG` :
 
 1. Enter the gateway name:  
-![Gateway wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
+![Gateway wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
 
 1. Select the authorizer type and press **Enter** :  
-![Gateway wizard: select authorizer type](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
+![Gateway wizard: select authorizer type](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
 
 1. In advanced options, set the exception level to `DEBUG` :  
-![Gateway wizard: advanced configuration with debug mode enabled](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
+![Gateway wizard: advanced configuration with debug mode enabled](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
 
 1. Review the configuration summary and press **Enter** to confirm:  
-![Gateway wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
 1. Run the following code in a terminal to create a gateway with debugging messages turned on in the AWS CLI:
 
@@ -558,16 +558,16 @@ Select one of the following methods:
 1. Run `agentcore` to open the TUI, then select **add** and choose **Gateway** . After creating the gateway, configure interceptors using the AWS CLI or AWS Python SDK (Boto3):
 
 1. Enter the gateway name:  
-![Gateway wizard: enter name](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
+![Gateway wizard: enter name](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-name.png)
 
 1. Select **Custom JWT** as the authorizer type and press **Enter** :  
-![Gateway wizard: select Custom JWT authorizer](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
+![Gateway wizard: select Custom JWT authorizer](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-jwt.png)
 
 1. Configure advanced options:  
-![Gateway wizard: advanced configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
+![Gateway wizard: advanced configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-advanced.png)
 
 1. Review the configuration summary and press **Enter** to confirm:  
-![Gateway wizard: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
+![Gateway wizard: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-add-confirm.png)
 
    After the gateway is created and deployed, configure interceptors using the AWS CLI `update-gateway` command or the AWS Python SDK (Boto3) as shown in the other tabs.
 

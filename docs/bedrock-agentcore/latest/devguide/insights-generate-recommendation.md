@@ -31,7 +31,7 @@ agentcore run recommendation --batch-evaluation-arn <arn> --type system-prompt -
 ```
 
 1. Run `agentcore` to open the TUI, then select **run** and choose **Recommendation**:  
-![Run menu: select Recommendation](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-select.png)
+![Run menu: select Recommendation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/insights-run-select.png)
 
    The wizard guides you through selecting a trace source (insights run or batch evaluation ARN), recommendation type, and config bundle.
 

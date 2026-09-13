@@ -56,7 +56,7 @@ For outbound authorization from AgentCore Gateway to AgentCore Runtime, two auth
 +  [Specify the authorization type and credentials to access the gateway target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building-adding-targets-authorization.html) 
 +  [Authenticate and authorize with Inbound Auth and Outbound Auth](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html) 
 
-![Architecture diagram showing AgentCore Gateway cannot connect to Private Link endpoint.](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/gateway-runtime-vpc-access.png)
+![Architecture diagram showing AgentCore Gateway cannot connect to Private Link endpoint.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/gateway-runtime-vpc-access.png)
 
 
  **Example CreateGatewayTarget with AgentCore Runtime as a the target** 

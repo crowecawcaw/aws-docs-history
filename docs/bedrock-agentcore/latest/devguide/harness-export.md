@@ -75,16 +75,16 @@ agentcore export harness --name MyHarness --build Container
 Run `agentcore export harness` without `--name` to launch the interactive export wizard.  
 
 1. If the project has more than one harness, select the harness to export. (With a single harness, the wizard skips this step.)  
-![Select the harness to export](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-01-select.png)
+![Select the harness to export](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-01-select.png)
 
 1. Enter a name for the generated runtime agent, or accept the default `<harness>Agent` .  
-![Name the generated runtime agent](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-02-name.png)
+![Name the generated runtime agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-02-name.png)
 
 1. Choose the build type: **CodeZip** (package Python source as a zip, the default) or **Container** (build a Docker image via ECR and CodeBuild).  
-![Select the build type](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-03-build.png)
+![Select the build type](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-03-build.png)
 
 1. Review the export configuration and confirm.  
-![Review and confirm the export](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-04-confirm.png)
+![Review and confirm the export](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-export-04-confirm.png)
 After export, review `EXPORT_NOTES.md` , then run `agentcore deploy` to deploy the generated agent.
 
 ### After export

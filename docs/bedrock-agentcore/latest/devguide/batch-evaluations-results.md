@@ -85,6 +85,9 @@ The `outputConfig` field in the `GetBatchEvaluation` response specifies a CloudW
 }
 ```
 
+**Note**  
+The `logGroupName` returned here reflects the destination you chose for the job. For the available `outputConfig` options, see [Start batch evaluation](batch-evaluations-start.md).
+
 Each event in the log stream contains per-turn, per-evaluator detail:
 
 

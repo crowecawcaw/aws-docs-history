@@ -12,7 +12,7 @@ However, since a user may accidentally send the authorization URL to another use
 
 The following flow diagram and corresponding steps show the OAuth 2.0 authorization URL session binding process:
 
-![OAuth 2.0 authorization URL session binding flow diagram](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/identity-session-binding.png)
+![OAuth 2.0 authorization URL session binding flow diagram](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/identity-session-binding.png)
 
 
 1.  **Invoke agent** – Your agent code invokes `GetResourceOauth2Token` API to retrieve an authorization URL, when an originating agent user wants to access some application or resource that he/she owns.

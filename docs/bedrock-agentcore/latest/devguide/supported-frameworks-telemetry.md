@@ -47,7 +47,7 @@ AgentCore Evaluations reads both modes. You do not choose between them in the ev
 
 With unified telemetry, all of your agent’s telemetry goes to one log group. Spans go to the `spans` log stream in that log group, next to the agent’s own logs and console output. The span keeps the attributes that carry the model payloads and the tool requests and responses, so the service reads everything it needs from the span itself.
 
-![Unified telemetry: ADOT sends each span with its content to one log group](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/evaluations-unified-telemetry.png)
+![Unified telemetry: ADOT sends each span with its content to one log group](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/evaluations-unified-telemetry.png)
 
 
 Which log group holds the spans depends on where you host the agent:
@@ -63,7 +63,7 @@ With split telemetry, ADOT takes the large payloads off the span. As it exports 
 
 Each event record links back to its span through a shared `traceId` and `spanId`, and the content sits in the record `body`, for example in `body.input.messages` and `body.output.messages`.
 
-![Split telemetry: ADOT sends spans to aws/spans and conversation content to the agent log group as event records](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/evaluations-split-telemetry.png)
+![Split telemetry: ADOT sends spans to aws/spans and conversation content to the agent log group as event records](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/evaluations-split-telemetry.png)
 
 
 The two kinds of record then go to different places:

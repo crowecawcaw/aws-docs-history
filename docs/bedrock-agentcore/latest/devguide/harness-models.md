@@ -68,13 +68,13 @@ To change defaults permanently, edit `app/<name>/harness.json` and run `agentcor
 Run `agentcore` in a project directory to open the TUI, select **add**, then choose **Harness** . The wizard walks you through model and instruction configuration step by step.  
 
 1. Choose your model provider. Amazon Bedrock, OpenAI, Google Gemini, and any LiteLLM-compatible provider are supported, each with a default model.  
-![Add Harness wizard: select model provider](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-model-01-provider.png)
+![Add Harness wizard: select model provider](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-model-01-provider.png)
 
 1. Choose the API format. For Amazon Bedrock and OpenAI, select **Converse Stream** (default), **Responses** , or **Chat Completions** . Responses and Chat Completions are served by Bedrock Mantle.  
-![Add Harness wizard: select API format](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-model-03-api-format.png)
+![Add Harness wizard: select API format](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-model-03-api-format.png)
 
 1. If you select **LiteLLM** , the wizard prompts for the LiteLLM-specific fields - an optional API key ARN, an optional API base URL for OpenAI-compatible gateways, and optional additional parameters passed through to the provider.  
-![Add Harness wizard: LiteLLM API key ARN, API base, and additional params steps](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-model-02-litellm-flow.png)
+![Add Harness wizard: LiteLLM API key ARN, API base, and additional params steps](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-model-02-litellm-flow.png)
 Continue through the remaining steps (environment, memory, advanced settings) and confirm. Then run `agentcore deploy` to apply.
 
 ## Use any model, switch mid-session

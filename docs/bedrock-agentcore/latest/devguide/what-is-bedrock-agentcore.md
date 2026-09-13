@@ -8,7 +8,7 @@
 
 Amazon Bedrock AgentCore is an agentic platform for building, deploying, and operating highly effective agents securely at scale using any framework and foundation model. With AgentCore, you can enable agents to take actions across tools and data with the right permissions and governance, run agents securely at scale, and monitor agent performance and quality in production - all without any infrastructure management. AgentCore services work together or independently with any open-source framework such as CrewAI, LangGraph, LlamaIndex, and Strands Agents and with any foundation model, so you don’t have to choose between open-source flexibility and enterprise-grade security and reliability.
 
-![What is AgentCore?](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/agentcore_all_components_final.png)
+![What is AgentCore?](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/agentcore_all_components_final.png)
 
 
 ## Core services in Amazon Bedrock AgentCore

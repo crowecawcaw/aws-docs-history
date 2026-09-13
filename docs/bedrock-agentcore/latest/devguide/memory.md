@@ -7,7 +7,7 @@ AgentCore Memory is a fully managed service that gives your AI agents the abilit
 
 AgentCore Memory addresses a fundamental challenge in agentic AI: statelessness. Without memory capabilities, AI agents treat each interaction as a new instance with no knowledge of previous conversations. AgentCore Memory provides this critical capability, allowing your agent to build a coherent understanding of users over time.
 
-![Memory AgentCore Memory](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-overview.png)
+![Memory AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-overview.png)
 
 
 AgentCore Memory supports a variety of SDKs and agent frameworks. For examples, see [Amazon Bedrock AgentCore Memory examples](memory-examples.md).

@@ -170,16 +170,16 @@ agentcore invoke --harness research-agent --tools agentcore_browser "Find the la
 Run `agentcore` in a project directory, select **add** , choose **Harness** , and advance to **Advanced settings** . Enable **Tools** with **Space** , then press **Enter** .  
 
 1. Select the tools for your harness: **AgentCore Browser** , **AgentCore Code Interpreter** , **AgentCore Gateway** , or **Remote MCP Server** . Use **Space** to toggle each, then press **Enter** .  
-![Select tools: Browser, Code Interpreter, Gateway, Remote MCP Server](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-02-picker.png)
+![Select tools: Browser, Code Interpreter, Gateway, Remote MCP Server](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-02-picker.png)
 
 1. For a **Remote MCP Server** , the wizard prompts for the server name, URL, and optional request headers.  
-![Enter the MCP server URL](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-04-mcp-url.png)
+![Enter the MCP server URL](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-04-mcp-url.png)
 
 1. For an **AgentCore Gateway** , enter the gateway ARN and choose its outbound authentication: ** AWS IAM** (default), **None** , or **OAuth** .  
-![Select gateway outbound authentication](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-07-gateway-auth.png)
+![Select gateway outbound authentication](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-07-gateway-auth.png)
 
 1. Review the configuration summary and confirm.  
-![Review the harness tool configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-08-confirm.png)
+![Review the harness tool configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-tools-08-confirm.png)
 Then run `agentcore deploy` to apply.
 
 ## Web search

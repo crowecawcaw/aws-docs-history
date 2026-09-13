@@ -5,6 +5,13 @@
 
 When you host agents on the **Instances** compute type, your data at rest lives on the Amazon EBS volumes that a capacity provider attaches to your sessions. Amazon EBS creates these volumes in your own AWS account, so EBS encryption protects them.
 
+A session uses three kinds of volume, and EBS encryption protects all of them:
++  **Root volume** – The instance boot volume, configured through `rootVolume`. It is ephemeral: AgentCore deletes it when the instance terminates.
++  **Ephemeral volumes** – Storage that lasts only as long as the instance. AgentCore deletes these when the instance terminates.
++  **Persistent volumes** – Named volumes that you define in `volumes`. They survive instance termination and persist until you delete the session. A capacity provider can define up to five.
+
+Only persistent volumes keep your data across a session stop. Treat anything written to the root volume or an ephemeral volume as temporary.
+
 ## Options for encryption at rest
 <a name="runtime-instances-encryption-options"></a>
 
@@ -15,7 +22,9 @@ You can also provide a customer managed AWS KMS key on the capacity provider’s
 ## Encrypting capacity provider volumes with a customer managed KMS key
 <a name="runtime-instances-encryption-cmk"></a>
 
-A capacity provider defines its persistent storage as EBS volume configurations. Each volume configuration accepts an `encrypted` flag and a `kmsKeyId`. When AgentCore creates the volume on the session’s first launch, EBS encrypts it with the key you specified. Because the encryption is EBS encryption in your account, the same key protects the volume’s data, any snapshots that EBS creates from it, and any volumes that EBS restores from those snapshots. EBS encryption uses symmetric KMS keys.
+A capacity provider defines its persistent storage as EBS volume configurations. Each volume configuration accepts an `encrypted` flag and a `kmsKeyId`. When AgentCore creates the volume on the session’s first launch, EBS encrypts it with the key you specified. EBS encryption uses symmetric KMS keys.
+
+A volume configuration also accepts an optional `snapshotId`. AgentCore initializes the volume from that snapshot the first time it creates the volume. With this behavior, you can start a session from a prepared dataset. On later restarts, AgentCore reuses the existing volume and ignores the snapshot. You can’t take a snapshot of a capacity provider volume, because AgentCore creates and operates these volumes as managed resources. For information about exporting data from a volume, see [Manage your data on Runtime Instances](runtime-instances-data-management.md).
 
 ### Configuring permissions to use a customer managed KMS key
 <a name="runtime-instances-encryption-permissions"></a>

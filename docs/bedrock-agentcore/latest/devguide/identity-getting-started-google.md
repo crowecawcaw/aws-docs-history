@@ -124,7 +124,7 @@ asyncio.run(write_to_google_drive(access_token=""))
 
 Behind the scenes, the `@requires_access_token` decorator runs through the following sequence:
 
-![Flow diagram showing the sequence of API calls made by the @requires_access_token decorator](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/identity_access_token_flow.png)
+![Flow diagram showing the sequence of API calls made by the @requires_access_token decorator](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/identity_access_token_flow.png)
 
 
 1. The SDK makes API calls to `CreateWorkloadIdentity` , `GetWorkloadAccessToken` , and `GetResourceOauth2Token`.

@@ -128,10 +128,10 @@ Run this from inside an AgentCore project directory (created with `agentcore cre
 1. Run `agentcore` to open the TUI, then select **run** and choose **On-demand Evaluation** :
 
 1. Select evaluators to run against agent traces:  
-![On-demand evaluation: select evaluators](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-run-evaluators.png)
+![On-demand evaluation: select evaluators](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-run-evaluators.png)
 
 1. Review the configuration and press Enter to confirm:  
-![On-demand evaluation: review configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-run-confirm.png)
+![On-demand evaluation: review configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-run-confirm.png)
 
 1. 
 

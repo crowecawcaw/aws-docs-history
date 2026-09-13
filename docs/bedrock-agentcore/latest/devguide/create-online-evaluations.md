@@ -3,12 +3,13 @@
 # Create online evaluation
 <a name="create-online-evaluations"></a>
 
-The `CreateOnlineEvaluationConfig` API creates a new online evaluation configuration that continuously monitors your agent’s performance using live traffic. This asynchronous operation sets up the service to evaluate agent traces as they are generated during normal operation.
+The `CreateOnlineEvaluationConfig` API creates a new online evaluation configuration that continuously monitors your agent’s performance using live traffic. This asynchronous operation tells the service to evaluate agent traces as they are generated during normal operation.
 
-When you create an online evaluation, you specify a unique configuration name, the data source to monitor (either a list of CloudWatch log groups or an agent endpoint), and a list of evaluators to apply (up to 10, combining built-in and custom evaluators). You also provide an IAM service role ARN for execution. The `enableOnCreate` parameter is required and determines whether the evaluation starts running immediately upon creation ( `executionStatus` = true) or remains disabled until explicitly enabled ( `executionStatus` = false).
+To create an online evaluation, provide a unique configuration name, choose what to monitor, select up to 10 evaluators, and provide an IAM service role ARN for execution. The data source can be CloudWatch Logs, selected by exact log group names or log group name prefixes, or an agent endpoint. The required `enableOnCreate` parameter controls the initial `executionStatus`: `true` starts the configuration in `ENABLED`, and `false` starts it in `DISABLED`.
 
 **Topics**
 + [Execution status control](#execution-status-control)
++ [Select input log groups](#select-input-log-groups)
 + [Evaluator protection](#evaluator-protection)
 + [Code samples for AgentCore CLI, AgentCore SDK, and AWS SDK](#create-online-evaluation-code-samples)
 + [Console](#create-online-evaluation-console)
@@ -29,6 +30,29 @@ agentcore pause online-eval "your_config_name"
 # Resume a paused online evaluation
 agentcore resume online-eval "your_config_name"
 ```
+
+## Select input log groups
+<a name="select-input-log-groups"></a>
+
+If your data source is CloudWatch Logs, configure `dataSourceConfig.cloudWatchLogs` in exactly one of these ways:
++  `logGroupNames` – Provide an explicit list of log group names.
++  `logGroupNamePrefixes` – Provide 1–5 log group *name prefixes*. The service evaluates traces from any log group whose name starts with one of those prefixes, including matching log groups that are created later.
+
+In either case, set `serviceNames` so the service can identify your agent’s traces in the selected log groups.
+
+If you use `logGroupNamePrefixes` to match Amazon Bedrock AgentCore Runtime log groups, make sure your runtime sends spans to the agent’s own log group. For agents that still use the shared `aws/spans` log group, set `UNIFIED_TRACES_DESTINATION_ENABLED=true` on the runtime. For more information, see [Span destination for agents hosted in Amazon Bedrock AgentCore runtime](observability-configure.md#observability-configure-unified-traces).
+
+```
+# Match input log groups by prefix instead of exact names
+dataSourceConfig={
+    "cloudWatchLogs": {
+        "logGroupNamePrefixes": ["/aws/agentcore/my-agent-"],
+        "serviceNames": ["my_agent.DEFAULT"]
+    }
+}
+```
+
+For more information about where results and score metrics are written, including dedicated, custom, and source log groups, see [Results and output](results-and-output.md).
 
 ## Evaluator protection
 <a name="evaluator-protection"></a>
@@ -61,19 +85,19 @@ The following code samples demonstrate how to create online evaluation configura
 Run this from inside an AgentCore project directory (created with `agentcore create` ).
 
 1. Enter a name for your online evaluation configuration.  
-![Online eval config name input](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-name.png)
+![Online eval config name input](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-name.png)
 
 1. Select the evaluators to include. You can choose from built-in evaluators and any custom evaluators you have created.  
-![Evaluator multi-select list](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-evaluators.png)
+![Evaluator multi-select list](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-evaluators.png)
 
 1. Set the sampling rate — the percentage of agent requests that will be evaluated.  
-![Sampling rate input](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-sampling-rate.png)
+![Sampling rate input](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-sampling-rate.png)
 
 1. Choose whether to enable evaluation automatically after deployment.  
-![Enable on deploy selection](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-enable.png)
+![Enable on deploy selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-enable.png)
 
 1. Review the configuration and press Enter to confirm.  
-![Review online eval configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-confirm.png)
+![Review online eval configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/online-eval-add-confirm.png)
 
 1. 
 

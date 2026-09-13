@@ -13,7 +13,7 @@ Amazon Bedrock AgentCore Browser supports routing browser traffic through your o
 
 When you create a browser session with proxy configuration, AgentCore Browser configures the browser to route HTTP and HTTPS traffic through your specified proxy servers.
 
-![Browser proxies request flow showing traffic routing from the browser session through a customer-managed proxy server to destination websites.](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/browser-proxies-flow.png)
+![Browser proxies request flow showing traffic routing from the browser session through a customer-managed proxy server to destination websites.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/browser-proxies-flow.png)
 
 
 Request flow:

@@ -145,9 +145,10 @@ response = client.start_batch_evaluation(
 | Parameter | Type | Required | Description | 
 | --- | --- | --- | --- | 
 |  `batchEvaluationName`  | String | Yes | A name for the batch evaluation job. Pattern: starts with a letter, alphanumeric and underscores, max 48 characters. | 
-|  `dataSourceConfig`  | Object | Yes | Where to find agent sessions. Specify a `cloudWatchLogs` source with the log groups and service name for your agent. See [Session source](#start-batch-eval-session-source) below. | 
+|  `dataSourceConfig`  | Object | Yes | Where to find agent sessions. Specify a `cloudWatchLogs` source with your agent’s service name and either exact log group names or log group name prefixes. See [Session source](#start-batch-eval-session-source) below. | 
 |  `evaluators`  | List | Yes | List of evaluators. Each entry has an `evaluatorId` field (for example, `Builtin.GoalSuccessRate`). Maximum 10 evaluators. | 
 |  `evaluationMetadata`  | Object | No | Contains `sessionMetadata`, a list of per-session ground truth and metadata. Maximum 500 entries. | 
+|  `outputConfig`  | Object | No | Optional CloudWatch destination for per-session results and score metrics. Specify a `cloudWatchConfig` to choose the result log group and metrics namespace. See [Result output](#start-batch-eval-output) below. | 
 |  `clientToken`  | String | No | Idempotency token. If you retry a request with the same client token, the service returns the existing job instead of creating a new one. | 
 
 ## Session source
@@ -162,7 +163,22 @@ The `dataSourceConfig` parameter specifies the CloudWatch Logs location where th
 | Field | Type | Description | 
 | --- | --- | --- | 
 |  `cloudWatchLogs.serviceNames`  | List of strings (exactly 1) | The service name that identifies your agent’s traces in CloudWatch. Convention: `{RuntimeName}.DEFAULT`. | 
-|  `cloudWatchLogs.logGroupNames`  | List of strings (1–5) | CloudWatch log group names where agent telemetry is stored. Convention: `/aws/bedrock-agentcore/runtimes/{agentId}-DEFAULT`. | 
+|  `cloudWatchLogs.logGroupNames`  | List of strings (1–5) | One way to select input log groups. Specify the exact CloudWatch log group names where agent telemetry is stored. Mutually exclusive with `logGroupNamePrefixes`. | 
+|  `cloudWatchLogs.logGroupNamePrefixes`  | List of strings (1–5) | One way to select input log groups. The service discovers sessions from every log group whose name starts with one of these prefixes, so newly created matching log groups are picked up automatically. Mutually exclusive with `logGroupNames`. | 
+
+Specify exactly one of `logGroupNames` or `logGroupNamePrefixes`. In both cases, `serviceNames` is required to identify your agent’s traces within the selected log groups.
+
+If you use `logGroupNamePrefixes` to match Amazon Bedrock AgentCore Runtime log groups, make sure your runtime sends spans to the agent’s own log group. For agents that still use the shared `aws/spans` log group, set `UNIFIED_TRACES_DESTINATION_ENABLED=true` on the runtime. For more information, see [Span destination for agents hosted in Amazon Bedrock AgentCore runtime](observability-configure.md#observability-configure-unified-traces).
+
+```
+# Match input log groups by prefix instead of exact names
+dataSourceConfig={
+    "cloudWatchLogs": {
+        "logGroupNamePrefixes": ["/aws/bedrock-agentcore/runtimes/MyAgent-"],
+        "serviceNames": ["MyAgent.DEFAULT"]
+    }
+}
+```
 
 ### Optional fields
 <a name="start-batch-eval-session-source-optional"></a>
@@ -173,6 +189,51 @@ The `dataSourceConfig` parameter specifies the CloudWatch Logs location where th
 |  `cloudWatchLogs.filterConfig.sessionIds`  | List of strings | Evaluate only these specific session IDs. When omitted, the service discovers all sessions in the log group. | 
 |  `cloudWatchLogs.filterConfig.timeRange.startTime`  | ISO 8601 datetime | Filter sessions created after this time. | 
 |  `cloudWatchLogs.filterConfig.timeRange.endTime`  | ISO 8601 datetime | Filter sessions created before this time. | 
+
+## Result output
+<a name="start-batch-eval-output"></a>
+
+By default, batch evaluation results go to a dedicated, service-managed log group. Use `outputConfig.cloudWatchConfig` to control where per-session results are written and which CloudWatch metrics namespace receives evaluation scores.
+
+### Choose where results are written
+<a name="start-batch-eval-output-destination"></a>
++  `DEDICATED_LOG_GROUP` (default) – Writes results to a dedicated result log group. If you don’t set `logGroupName`, the service manages the group for you. To use your own group, set `logGroupName` (see [Use a custom output log group](#start-batch-eval-custom-output-log-group)).
++  `SOURCE_LOG_GROUP` – Writes results back to the same log group the agent traces were read from. When you use this value, don’t set `logGroupName`.
+
+### Use a custom output log group
+<a name="start-batch-eval-custom-output-log-group"></a>
+
+For `DEDICATED_LOG_GROUP`, set `logGroupName` to write results to a log group you choose. An existing log group is used as-is; if it doesn’t exist, the service creates it, which requires the execution role to grant `logs:CreateLogGroup`. The name can’t be under the service-reserved `/aws/bedrock-agentcore/evaluations/` namespace, apart from the service-managed default group.
+
+```
+# Write results back to the trace source log group
+outputConfig={
+    "cloudWatchConfig": {
+        "resultDestination": "SOURCE_LOG_GROUP"
+    }
+}
+
+# Write results to a custom dedicated log group
+outputConfig={
+    "cloudWatchConfig": {
+        "resultDestination": "DEDICATED_LOG_GROUP",
+        "logGroupName": "/my/team/batch-evaluation-results"
+    }
+}
+```
+
+### Publish metrics to a custom namespace
+<a name="start-batch-eval-custom-metrics-namespace"></a>
+
+Set `metricsNamespace` to publish score metrics under your own CloudWatch namespace instead of `Bedrock-AgentCore/Evaluations`. The value can’t begin with `AWS/`.
+
+```
+outputConfig={
+    "cloudWatchConfig": {
+        "metricsNamespace": "MyTeam/Evaluations"
+    }
+}
+```
 
 ## Response
 <a name="start-batch-eval-response"></a>
@@ -186,7 +247,7 @@ The `dataSourceConfig` parameter specifies the CloudWatch Logs location where th
 |  `status`  | String | Initial status. One of: `PENDING`, `IN_PROGRESS`. | 
 |  `evaluators`  | List | The evaluators used. | 
 |  `createdAt`  | Timestamp | When the job was created. | 
-|  `outputConfig`  | Object | CloudWatch Logs destination for per-session results. | 
+|  `outputConfig`  | Object | CloudWatch destination for per-session results and score metrics. | 
 
 ## Errors
 <a name="start-batch-eval-errors"></a>

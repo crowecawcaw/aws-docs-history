@@ -151,13 +151,13 @@ Remove a skill with `agentcore remove skill` using the same source flags. To ove
 In the TUI, add a Git skill to a harness through the **add** → **Harness** wizard.  
 
 1. Advance to **Advanced settings** , move to **Skills** , and press **Space** to enable it, then press **Enter** .  
-![Advanced settings with Skills enabled](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-01-advanced.png)
+![Advanced settings with Skills enabled](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-01-advanced.png)
 
 1. Select **Git** as the skill source.  
-![Skill source type: Path, S3, or Git](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-02-source-type.png)
+![Skill source type: Path, S3, or Git](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-02-source-type.png)
 
 1. Enter the HTTPS repository URL. The wizard then prompts for an optional subdirectory path, an optional credential for private repositories, and an optional username.  
-![Enter the Git repository URL](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-05-git-url.png)
+![Enter the Git repository URL](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-05-git-url.png)
 Confirm the wizard, then run `agentcore deploy` to apply.
 +  `url` (required) - HTTPS URL of the Git repository.
 +  `path` (optional) - subdirectory within the repo containing the skill. If omitted, the repository root is used.
@@ -194,7 +194,7 @@ The execution role needs `s3:GetObject` and `s3:ListBucket` on the bucket. See [
 In the TUI, add an S3 skill to a harness through the **add** → **Harness** wizard. Advance to **Advanced settings** , enable **Skills** with **Space** , and choose **S3** as the source (see the [Git](#harness-skills-git) Interactive tab for those shared steps).  
 
 1. Enter the S3 URI of the skill directory.  
-![Enter the S3 URI for the skill](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-04-s3-uri.png)
+![Enter the S3 URI for the skill](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/harness-skills-04-s3-uri.png)
 Confirm the wizard, then run `agentcore deploy` to apply.
 +  `uri` (required) - S3 URI pointing to the skill directory (e.g., `s3://bucket/prefix/`).
 + The execution role must have `s3:GetObject` and `s3:ListBucket` permissions on the bucket. See [Security and access controls](harness-security.md).

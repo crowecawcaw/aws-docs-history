@@ -146,22 +146,22 @@ Using either configuration, you can create the custom evaluator through the API 
 Run this from inside an AgentCore project directory (created with `agentcore create` ).
 
 1. Enter a name for your custom evaluator.  
-![Evaluator name input](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-name.png)
+![Evaluator name input](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-name.png)
 
 1. Select the evaluation level: Session, Trace, or Tool Call.  
-![Evaluation level selection](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-level.png)
+![Evaluation level selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-level.png)
 
 1. Choose the LLM judge model for evaluation.  
-![Model selection](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-model.png)
+![Model selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-model.png)
 
 1. Enter your evaluation instructions. The prompt must include at least one placeholder: `{context}` for conversation history or `{available_tools}` for the tool list.  
-![Evaluation instructions input](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-instructions.png)
+![Evaluation instructions input](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-instructions.png)
 
 1. Select a rating scale preset or define a custom scale.  
-![Rating scale selection](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-rating-scale.png)
+![Rating scale selection](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-rating-scale.png)
 
 1. Review the evaluator configuration and press Enter to confirm.  
-![Review evaluator configuration](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-confirm.png)
+![Review evaluator configuration](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/eval-add-confirm.png)
 
 1. 
 

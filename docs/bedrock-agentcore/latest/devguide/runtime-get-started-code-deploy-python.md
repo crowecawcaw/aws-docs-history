@@ -106,7 +106,7 @@ Deploy your agent using one of the following methods:
    The configuration file allows you to update deployment parameters such as your VPC configuration, execution roles, session timeouts, and OAuth authorizer settings.
 
 1. Run `agentcore` to open the TUI, then select **deploy** . The deploy screen shows real-time progress as it validates your project, synthesizes CloudFormation, and provisions AWS resources:  
-![AgentCore deploy progress showing CloudFormation stack updates](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/code-deploy-progress.png)
+![AgentCore deploy progress showing CloudFormation stack updates](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/code-deploy-progress.png)
 
    After deployment completes, use `agentcore invoke` to test your agent.
 

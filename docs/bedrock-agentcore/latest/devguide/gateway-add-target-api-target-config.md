@@ -160,7 +160,7 @@ Select one of the following methods:
    ```
 
 1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **Lambda function** :  
-![TUI target type selection with Lambda function highlighted](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png)
+![TUI target type selection with Lambda function highlighted](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png)
 
    The wizard then prompts you for the target name, Lambda function ARN, tool schema file, and outbound authorization configuration.
 
@@ -277,7 +277,7 @@ Select one of the following methods:
    ```
 
 1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **API Gateway REST API** :  
-![TUI target type selection showing API Gateway REST API option](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-apigw.png)
+![TUI target type selection showing API Gateway REST API option](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-apigw.png)
 
    The wizard then prompts you for the target name, REST API ID, stage, and outbound authorization configuration.
 
@@ -338,7 +338,7 @@ Select one of the following methods:
    ```
 
 1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **OpenAPI Schema** :  
-![TUI target type selection showing OpenAPI Schema option](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-openapi.png)
+![TUI target type selection showing OpenAPI Schema option](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-openapi.png)
 
    The wizard then prompts you for the target name, path to the OpenAPI specification file, and outbound authorization configuration.
 
@@ -391,7 +391,7 @@ Select one of the following methods:
    ```
 
 1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **Smithy Model** :  
-![TUI target type selection showing Smithy Model option](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-smithy.png)
+![TUI target type selection showing Smithy Model option](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-smithy.png)
 
    The wizard then prompts you for the target name, path to the Smithy model file, and outbound authorization configuration.
 
@@ -494,7 +494,7 @@ Select one of the following methods:
    ```
 
 1. In the AgentCore CLI interactive terminal UI, run `agentcore` , select **add** , choose **Gateway Target** , and then select **MCP Server endpoint** :  
-![TUI target type selection with MCP Server endpoint highlighted](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-mcp.png)
+![TUI target type selection with MCP Server endpoint highlighted](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-mcp.png)
 
    The wizard then prompts you for the target name, MCP server endpoint URL, and outbound authorization configuration.
 
@@ -799,7 +799,7 @@ The connector supports only managed knowledge bases. Connector targets support o
    ```
 
 1. In the AgentCore CLI interactive terminal UI, run `agentcore add gateway-target`, then select **Amazon Bedrock Knowledge Bases** from the target type picker:  
-![Add Gateway Target menu with Amazon Bedrock Knowledge Bases highlighted in interactive terminal.](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/knowledge-base-add.png)
+![Add Gateway Target menu with Amazon Bedrock Knowledge Bases highlighted in interactive terminal.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/knowledge-base-add.png)
 
    The wizard prompts you for a name, description, and allow you to select one or more source types & sources.
 
@@ -1011,7 +1011,7 @@ You can optionally pin the target to a specific connector version by including `
    ```
 
 1. In the AgentCore CLI interactive terminal UI, run `agentcore add gateway-target`, then select **Amazon Web Search** from the target type picker:  
-![Add Gateway Target menu with Amazon Web Search highlighted in interactive terminal.](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/web-search-add.png)
+![Add Gateway Target menu with Amazon Web Search highlighted in interactive terminal.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/web-search-add.png)
 
    The wizard prompts you for a target name, the gateway to attach to, and an optional list of domains to exclude from search results.
 
@@ -1106,7 +1106,7 @@ The following examples create a Web Search Tool target pinned to version `1.2.0`
    ```
 
 1. In the AgentCore CLI interactive terminal UI, the Add Gateway Target wizard prompts for an optional comma-separated list of domains to exclude from search results after you select **Amazon Web Search** and choose a gateway. Leaving the prompt empty creates the target with no domain filtering.  
-![Domain filtering prompt for Web Search Tool in interactive terminal.](http://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/web-search-domain-filter.png)
+![Domain filtering prompt for Web Search Tool in interactive terminal.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/tui/web-search-domain-filter.png)
 
 You can also update an existing target to add or modify domain filtering using `UpdateGatewayTarget`.
 
