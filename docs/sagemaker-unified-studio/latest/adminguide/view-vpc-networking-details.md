@@ -8,7 +8,7 @@ After configuring VPC networking for your Amazon SageMaker Unified Studio domain
 ## View VPC configuration
 <a name="view-vpc-config-section"></a>
 
-![View VPC networking details in Amazon SageMaker Unified Studio](http://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/vpc/VPC_Details.png)
+![View VPC networking details in Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/vpc/VPC_Details.png)
 
 
 To view VPC configurations, complete the following steps:

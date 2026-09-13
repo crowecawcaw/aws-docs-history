@@ -20,7 +20,7 @@ Projects within IAM-based domains require a project member and an Execution IAM 
 + When you provide your own role, [SageMakerStudioUserIAMConsolePolicy](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/security-iam-awsmanpol-SageMakerStudioUserIAMConsolePolicy.html) must be attached. An inline policy is needed to allow this role to pass itself to other services. A trust policy is needed to allow Amazon SageMaker Unified Studio and related services to assume this execution IAM role.
 + During project creation, the Amazon SageMaker Unified Studio service creates the project IAM role as a group profile and adds the group as a project member. An IAM role session user profile is created for the project IAM role. Any logic that depends on the project role being present as a user profile must be updated to handle its presence as a group profile. For more information about user profiles, see [Managing users in Amazon SageMaker Unified Studio](user-management.md).
 
-![Create a project in Amazon SageMaker Unified Studio](http://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/AdminPortal/ProjectDetail.png)
+![Create a project in Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/AdminPortal/ProjectDetail.png)
 
 
 To create a project, complete the following procedure:

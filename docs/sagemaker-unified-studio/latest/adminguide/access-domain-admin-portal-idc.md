@@ -16,7 +16,7 @@ From the domain administration page, you can access:
 + **Users** — Manage user access and permissions
 + **Settings** — Configure network settings and account associations
 
-![Domain administration portal in Amazon SageMaker Unified Studio](http://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/AdminPortal/AdminPortal.png)
+![Domain administration portal in Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/AdminPortal/AdminPortal.png)
 
 
 **Topics**

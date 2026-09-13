@@ -8,7 +8,7 @@ Updating the VPC configuration for the domain will apply to new projects created
 ## Update VPC
 <a name="update-vpc-settings"></a>
 
-![Update VPC configuration in Amazon SageMaker Unified Studio](http://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/vpc/VPC_Edit.png)
+![Update VPC configuration in Amazon SageMaker Unified Studio](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/vpc/VPC_Edit.png)
 
 
 To update a VPC, complete the following steps:

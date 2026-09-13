@@ -103,4 +103,4 @@ In IAM Identity Center (IdC) domains, you can also disable the SageMaker Data Ag
 
 The following image shows the domain configuration option for disabling the SageMaker Data Agent.
 
-![Screenshot of the domain configuration page showing the toggle option to disable the SageMaker Data Agent.](http://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/data-agent/disable-data-agent.png)
+![Screenshot of the domain configuration page showing the toggle option to disable the SageMaker Data Agent.](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/images/data-agent/disable-data-agent.png)
