@@ -10,7 +10,7 @@ This architecture shows how to use IBM Instana on AWS for automated observabilit
 ## IBM Instana Observability on AWS
 <a name="diagram1"></a>
 
-![Architecture diagram showing IBM Instana observability on AWS for automated application performance management.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ibm-instana-observability/images/ibm-instana-observability.png)
+![Architecture diagram showing IBM Instana observability on AWS for automated application performance management.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ibm-instana-observability/images/ibm-instana-observability.png)
 
 
 1. Site reliability engineers (SREs) and developers access IBM Instana dashboards to troubleshoot and identify optimization opportunities.
