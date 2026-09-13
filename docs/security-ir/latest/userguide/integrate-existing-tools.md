@@ -19,7 +19,7 @@
 **To review GuardDuty suppression rules**
 
 1. Open the GuardDuty console.  
-![The GuardDuty console.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/guardduty-console.png)
+![The GuardDuty console.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/guardduty-console.png)
 
 1. Choose **Findings**.
 
@@ -50,16 +50,16 @@
 1. For **Event type**, select the event or API call you want to match. You can edit the pattern manually to include multiple events.
 
 1. Choose **Next**.  
-![Event pattern configuration showing AWS Security Incident Response as the selected service.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/event-pattern.png)
+![Event pattern configuration showing AWS Security Incident Response as the selected service.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/event-pattern.png)
 
 1. Select one or more targets for your events, such as Amazon SNS, AWS Lambda, an SSM document, or Step Functions. Configure cross-account targets if needed.  
-![Event pattern configuration showing targets.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/event-pattern-target.png)
+![Event pattern configuration showing targets.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/event-pattern-target.png)
 
 1. Review and create the rule.
 
  To use pre-built partner integrations, check **Partner Event Sources** in the EventBridge console. Available partners include Atlassian (Jira), Datadog, New Relic, PagerDuty, Symantec, and Zendesk. 
 
-![EventBridge partner integrations page showing available third-party partners.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/Amazon_EventBridge_Partners.png)
+![EventBridge partner integrations page showing available third-party partners.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/Amazon_EventBridge_Partners.png)
 
 
 ## Jira, Slack, and ServiceNow integrations

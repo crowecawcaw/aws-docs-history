@@ -36,7 +36,7 @@
 
  Both case types use the same data fields. You can escalate a self-managed case to Security Incident Response Engineering at any time by choosing **Get help from AWS** in the upper-right corner of the case. 
 
-![Create case screen showing options for reactive cases.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/reactive-cases.png)
+![Create case screen showing options for reactive cases.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/reactive-cases.png)
 
 
  For detailed instructions, see [Cases](cases.md). 
@@ -53,10 +53,10 @@
 1. Open the case you want to share.
 
 1. Choose the **Permissions** tab, then choose **Add**.  
-![Case overview page with Permissions tab.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/Overview.png)
+![Case overview page with Permissions tab.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/Overview.png)
 
 1. Copy the pre-populated IAM policy and apply it to the appropriate IAM roles or users.  
-![Watchers configuration page showing IAM policy.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/Watchers.png)
+![Watchers configuration page showing IAM policy.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/Watchers.png)
 
 **Note**  
  Each case includes a pre-populated IAM policy scoped to that specific case. This maintains least-privilege access for third-party MDR partners and investigation teams. 

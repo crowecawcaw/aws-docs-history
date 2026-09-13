@@ -20,11 +20,11 @@
    1. Select the checkboxes for communications you want to receive
 
    1. Clear the checkboxes for communications you do not want to receive  
-![Communications preferences panel with checkboxes for case, membership, and administrator notifications.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/CommPref.png)
+![Communications preferences panel with checkboxes for case, membership, and administrator notifications.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/CommPref.png)
 
 1. Save your changes
 
-![Incident Response Team page showing two teammates and communications preferences table.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/CommPreferencesDashboard.png)
+![Incident Response Team page showing two teammates and communications preferences table.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/CommPreferencesDashboard.png)
 
 
  By default, incident response team members will have all communications enabled. You can modify these settings at any time using the steps above. 

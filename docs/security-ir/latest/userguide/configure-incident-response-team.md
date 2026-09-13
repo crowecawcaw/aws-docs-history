@@ -12,6 +12,6 @@
 1. In the left navigation pane, choose **Incident Response Team**.
 
 1. Add up to 10 team members. For each member, provide their name, title, and email address.  
-![Incident response team configuration page showing team member details.](http://docs.aws.amazon.com/security-ir/latest/userguide/images/Teamates.png)
+![Incident response team configuration page showing team member details.](https://docs.aws.amazon.com/security-ir/latest/userguide/images/Teamates.png)
 
  Your team can include organization leadership, legal counsel, managed detection and response (MDR) partners, cloud engineers, and other stakeholders who need to be notified during security events. 
