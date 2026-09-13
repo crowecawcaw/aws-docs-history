@@ -9,4 +9,4 @@ The subscriber must set up their flow in MediaConnect in the same Region as the 
 
 This following illustration shows how to share content in a transport stream flow with another AWS subscriber. The output of the originator's flow can be used as the source of the subscriber's flow.
 
-![This illustration shows how to share content with another AWS subscriber. The output of the originator's flow can be used as the source of the subscriber's flow.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-entitlementv2.png)
+![This illustration shows how to share content with another AWS subscriber. The output of the originator's flow can be used as the source of the subscriber's flow.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-entitlementv2.png)

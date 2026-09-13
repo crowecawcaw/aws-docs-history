@@ -43,7 +43,7 @@ The router matrix view shows your available outputs and inputs in a grid format:
 + Columns represent router outputs (your available destinations)
 + Each cell represents a potential output assignment
 
-![MediaConnect router matrix showing a routing grid with inputs as rows and outputs as columns. Active routes are marked with blue dots.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-matrix-editor.png)
+![MediaConnect router matrix showing a routing grid with inputs as rows and outputs as columns. Active routes are marked with blue dots.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-matrix-editor.png)
 <a name="bulk-take-update-procedure"></a>
 
 **To perform a bulk take update**
@@ -53,7 +53,7 @@ The router matrix view shows your available outputs and inputs in a grid format:
    + To remove an existing route, select a populated cell.
 
 1. Choose **Apply route matrix** to save your changes.  
-![MediaConnect routing matrix grid, with the "Apply route matrix" button highlighted in the top-right corner.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-matrix-editor-apply-changes.png)
+![MediaConnect routing matrix grid, with the "Apply route matrix" button highlighted in the top-right corner.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-matrix-editor-apply-changes.png)
 
 1. Review the outcome:
 

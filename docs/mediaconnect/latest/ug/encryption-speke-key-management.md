@@ -7,7 +7,7 @@ With a SPEKE implementation, a conditional access (CA) system provides keys to A
 
 The following illustration shows how AWS Elemental MediaConnect obtains the encryption or decryption key using SPEKE. In the originator's flow, the service obtains the encryption key and uses it to encrypt the content before sending it through the entitlement. In the subscriber's flow, the service obtains the decryption key when the content is received from the entitlement.
 
-![The figure shows an AWS account with an AWS Elemental MediaConnect flow and an instance of API Gateway in the same AWS Region. An arrow shows that AWS Elemental MediaConnect sends a request for the encryption key. The request is sent to the CA platform key provider through API Gateway. A second arrow shows that the key provider returns the encryption key through API Gateway.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/speke-encryption.png)
+![The figure shows an AWS account with an AWS Elemental MediaConnect flow and an instance of API Gateway in the same AWS Region. An arrow shows that AWS Elemental MediaConnect sends a request for the encryption key. The request is sent to the CA platform key provider through API Gateway. A second arrow shows that the key provider returns the encryption key through API Gateway.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/speke-encryption.png)
 
 
 These are the main services and components:

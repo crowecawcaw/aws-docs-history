@@ -10,7 +10,7 @@ An AWS Elemental MediaConnect router I/O transitions through different states fr
 
  The following illustration shows the I/O lifecycle and the transitions between I/O states. Note that depending on the type of I/O, it may begin its lifecycle directly in the **Standby** state, bypassing the **Creating** state.
 
-![State diagram showing MediaConnect router I/O lifecycle. Main states are Creating, Standby, and Active, with transition states (Starting/Stopping) between them. The Updating state branches from both Standby and Active, returning to its origin state. The Migrating state branches from Active only, returning to Active after maintenance completes. The lifecycle ends with Deleting state. Black arrows show transitions, blue arrows indicate returns.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-io-state-diagram.png)
+![State diagram showing MediaConnect router I/O lifecycle. Main states are Creating, Standby, and Active, with transition states (Starting/Stopping) between them. The Updating state branches from both Standby and Active, returning to its origin state. The Migrating state branches from Active only, returning to Active after maintenance completes. The lifecycle ends with Deleting state. Black arrows show transitions, blue arrows indicate returns.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-io-state-diagram.png)
 
 
 ## State definitions

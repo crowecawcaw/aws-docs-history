@@ -5,7 +5,7 @@
 
 You can set up two AWS Elemental MediaConnect flows to distribute content from one AWS Region to another. In this scenario, you create one flow in the Region that is closest to your contribution encoder and a second flow in the Region that is closest to your receiver. The following illustration shows this process.
 
-![This illustration shows the workflow for distributing content from one AWS Region to another.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-distribution-regions.png)
+![This illustration shows the workflow for distributing content from one AWS Region to another.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-distribution-regions.png)
 
 
 This topic assumes that you already know how to [create a flow](flows-create.md) and [add outputs to a flow](outputs-add.md).

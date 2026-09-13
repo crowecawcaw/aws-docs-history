@@ -12,4 +12,4 @@ Because CDI outputs don't support inter-Availability Zone transfers, use ST 2110
 
 The following illustration shows a workflow that creates a bridge between your on-premises live video infrastructure and the AWS Cloud.
 
-![This illustration shows an on-premises contribution encoder that uploads content to MediaConnect via AWS Direct Connect in the AWS Cloud. MediaConnect converts the content to CDI so that it can be consumed by other services for production and playout. The content is then sent back to MediaConnect where it is converted to JPEG XS and sent to an on-premises receiver via AWS Direct Connect.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-cdi1.png)
+![This illustration shows an on-premises contribution encoder that uploads content to MediaConnect via AWS Direct Connect in the AWS Cloud. MediaConnect converts the content to CDI so that it can be consumed by other services for production and playout. The content is then sent back to MediaConnect where it is converted to JPEG XS and sent to an on-premises receiver via AWS Direct Connect.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-cdi1.png)

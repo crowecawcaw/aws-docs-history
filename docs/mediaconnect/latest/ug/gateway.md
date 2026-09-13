@@ -9,7 +9,7 @@
 
 The following graphic depicts a workflow where AWS Elemental MediaConnect Gateway runs on-premises and sends multicast feeds as unicast. This process transmits live video between the on-premises operations center and the AWS Cloud. From there, AWS Elemental MediaConnect Gateway distributes that same content to a different on-premises location.
 
-![MediaConnect Gateway running on-premises and sending multicast feeds as unicast.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/gateway-basic.png)
+![MediaConnect Gateway running on-premises and sending multicast feeds as unicast.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/gateway-basic.png)
 
 
 **Contents**
@@ -33,7 +33,7 @@ AWS Elemental MediaConnect Gateway is made up of four major components: *gateway
 
 The following graphic depicts the interactions of each component in a common workflow scenario. In this workflow, multicast from the data center is ingested into a gateway instance and contributed across a bridge to MediaConnect in the AWS Cloud. From the AWS Cloud, the multicast is distributed to a different data center's gateway instance.
 
-![MediaConnect Gateway on-premises content sent to the cloud, then to another on-premises location.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/gateway-ingress-egress-detail-lrg.png)
+![MediaConnect Gateway on-premises content sent to the cloud, then to another on-premises location.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/gateway-ingress-egress-detail-lrg.png)
 
 
 ### MediaConnect Gateway terminology

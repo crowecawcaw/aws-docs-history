@@ -9,9 +9,9 @@ For redundancy, you can set up your flow to have two outputs that point to your 
 
 The following illustration shows an on-premises contribution encoder that uploads content to MediaConnect in the AWS Cloud. The flow output points to an MediaLive channel.
 
-![This illustration shows an on-premises contribution encoder that uploads content to MediaConnect in the AWS Cloud. The flow output points to an MediaLive channel.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-contribution1.png)
+![This illustration shows an on-premises contribution encoder that uploads content to MediaConnect in the AWS Cloud. The flow output points to an MediaLive channel.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-contribution1.png)
 
 
 The following illustration shows two on-premises contribution encoders, a primary and a backup, that upload the same content to MediaConnect in the AWS Cloud. There are two flows, each with one output. Both outputs point to a single MediaLive channel. 
 
-![This illustration shows two on-premises contribution encoders, a primary and a backup, that upload the same content to MediaConnect in the AWS Cloud. There are two flows, each with one output. Both outputs point to a single MediaLive channel.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-contribution2.png)
+![This illustration shows two on-premises contribution encoders, a primary and a backup, that upload the same content to MediaConnect in the AWS Cloud. There are two flows, each with one output. Both outputs point to a single MediaLive channel.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-contribution2.png)

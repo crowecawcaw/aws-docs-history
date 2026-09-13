@@ -9,4 +9,4 @@ For example, you can switch between multiple live events that are happening at d
 
 The following illustration shows how you can use MediaConnect CDI workflows to replicate and distribute video to multiple destinations. You can create a single output broadcast from video content coming from multiple events, and also send the output from multiple signals for monitoring in real time.
 
-![MediaConnect CDI workflows for replicating, monitoring, and distributing multiple video signals.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-cdi-replication.png)
+![MediaConnect CDI workflows for replicating, monitoring, and distributing multiple video signals.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-cdi-replication.png)

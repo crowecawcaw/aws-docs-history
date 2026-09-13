@@ -49,7 +49,7 @@ Be careful when enabling real-time control. All changes take effect immediately,
 
 The following image shows the control panel with no active routes.
 
-![MediaConnect router control panel showing input tiles and output tiles in the us-east-1 and us-west-2 Regions. All tiles show the I/O state ("Active" or "Standby").](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-control-panel-no-active-routes.png)
+![MediaConnect router control panel showing input tiles and output tiles in the us-east-1 and us-west-2 Regions. All tiles show the I/O state ("Active" or "Standby").](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-control-panel-no-active-routes.png)
 <a name="make-changes-control-panel-procedure"></a>
 
 **To make changes on the router control panel**
@@ -78,4 +78,4 @@ The following image shows the control panel with no active routes.
 
 In the following image, the blue highlight shows an active route between an input (`SportsCam-Main`) and an output (`ControlRoom-Monitor`).
 
-![MediaConnect router control panel showing an active route between an input and output, with the route highlighted in blue.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-control-panel-active-routes.png)
+![MediaConnect router control panel showing an active route between an input and output, with the route highlighted in blue.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-control-panel-active-routes.png)

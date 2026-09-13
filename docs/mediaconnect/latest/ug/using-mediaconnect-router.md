@@ -94,7 +94,7 @@ You can do these steps manually in the console, or programmatically using the Me
 
 The following diagram shows the anatomy of the MediaConnect router. The router system consists of a collection of different sources and destinations. These external endpoints are connected to router inputs and outputs. As you add or delete router I/Os, the size and shape of the routing matrix adjusts accordingly.
 
-![Diagram of MediaConnect router architecture showing data flow from source endpoints through inputs, a central routing matrix, and outputs, to destination endpoints, with a global control plane managing operations.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-anatomy.png)
+![Diagram of MediaConnect router architecture showing data flow from source endpoints through inputs, a central routing matrix, and outputs, to destination endpoints, with a global control plane managing operations.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/router-anatomy.png)
 
 
 ### Stream Adaptive Multipath Routing

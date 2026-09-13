@@ -12,7 +12,7 @@ If you grant an entitlement and later [disable](entitlements-disable.md) it (to 
 
 After you grant an entitlement, you provide information about the entitlement (name, AWS Region, and encryption details) to the subscriber. The subscriber uses this information to create a MediaConnect flow that uses your flow as the source. The subscriber's flow must be in the same AWS Region as your flow. If the subscriber wants a flow in a different Region, they must create a second flow in the new Region. The following illustration shows this process.
 
-![This illustration shows the setup for sharing content across AWS Regions.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/entitlement-different-regions.png)
+![This illustration shows the setup for sharing content across AWS Regions.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/entitlement-different-regions.png)
 
 
 **Note**  

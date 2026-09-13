@@ -8,7 +8,7 @@ Content originators can grant entitlements to share their content with other AWS
 **Note**  
 MediaConnect doesn't support entitlements on CDI flows. You can only grant entitlements on transport stream flows, with the exception of TR-07 sources.
 
-![This illustration shows how content originators can grant entitlements to share their content with other AWS accounts (subscriber accounts). Subscribers can then set up their own MediaConnect flows using the originator's flow as their source.](http://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-entitlement.png)
+![This illustration shows how content originators can grant entitlements to share their content with other AWS accounts (subscriber accounts). Subscribers can then set up their own MediaConnect flows using the originator's flow as their source.](https://docs.aws.amazon.com/mediaconnect/latest/ug/images/use-case-entitlement.png)
 
 
 **Topics**
