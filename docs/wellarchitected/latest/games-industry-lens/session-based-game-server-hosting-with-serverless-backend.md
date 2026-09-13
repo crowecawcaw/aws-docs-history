@@ -7,7 +7,7 @@
 
  Hosting a session-based multiplayer game requires having server infrastructure to host the game server processes as well as a scalable backend for matchmaking and session management. The following reference architecture shows how Amazon GameLift managed hosting and a serverless backend can be used to manage your session-based games. 
 
-![Amazon GameLift managed hosting for session-based games](http://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image2.png)
+![Amazon GameLift managed hosting for session-based games](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image2.png)
 
 
  The diagram describes the process of getting players into games running on GameLift managed game hosting. It includes the following steps: 

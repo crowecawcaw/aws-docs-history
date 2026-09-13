@@ -5,7 +5,7 @@
 
  CI/CD infrastructure is important when developing games regardless of team size to improve iteration times, build reliability, efficient deployment, and better control over the development and release process to deliver a high-quality game experience to players. A game development CI/CD pipeline is typically comprised of highly available source control servers and storage, compute resources to run your builds, and software to perform automated testing, along with the proper network connectivity from your development machines. The following reference architecture demonstrates how to offload game builds from remote or on-premises game development environments to the AWS Cloud to aid developers in migrating or building new build farms. 
 
-![Offload game builds to the cloud](http://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image6.png)
+![Offload game builds to the cloud](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image6.png)
 
 
 1.  AWS Direct Connect provides a low latency, private, dedicated connection to AWS for in-office developers. Remote developers use zero-trust technologies like AWS Verified Access, or virtual private networks (VPN) like AWS Client VPN. 

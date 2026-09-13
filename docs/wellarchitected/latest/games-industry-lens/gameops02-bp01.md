@@ -46,4 +46,4 @@
 
  In addition to these game-centric environment OUs, there are also the shared services OU and security OU. These OUs should be organization-wide, not for each individual game. That way the games would consume the shared services for development tools and data and analytics as in this example. Then, send application and system logs to the AWS account set up for logs in the security OU.  
 
-![Example of account structure for game environments](http://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image9.jpeg)
+![Example of account structure for game environments](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image9.jpeg)

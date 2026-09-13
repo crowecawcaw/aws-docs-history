@@ -11,7 +11,7 @@
 +  Game analytics pipelines provide support for ingesting and processing high volumes of real-time data to scale as a game grows. 
 +  Provide support for both real-time and batch reporting use cases. For example, real-time dashboards and alerts are typically used by live ops teams to monitor game infrastructure and player behavior to detect issues. Data analyst teams typically rely on as-necessary and batch reporting to understand trends over time. 
 
-![Serverless game analytics pipeline for gameplay telemetry](http://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image8.jpeg)
+![Serverless game analytics pipeline for gameplay telemetry](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image8.jpeg)
 
 
  Game data is ingested from game clients, game servers, and other applications. The streaming data is ingested into Amazon S3 for data lake integration and interactive analytics. Streaming analytics processes real-time events and generates metrics. Data consumers analyze metrics data in Amazon CloudWatch and raw events in Amazon S3. 

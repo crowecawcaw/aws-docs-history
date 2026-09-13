@@ -7,7 +7,7 @@
 
  The following reference architecture demonstrates how to use AWS for hosting remote game development workstations using the Amazon DCV protocol. 
 
-![Stream game development from anywhere with Amazon DCV](http://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image7.jpeg)
+![Stream game development from anywhere with Amazon DCV](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image7.jpeg)
 
 
 1.  Amazon DCV is a streaming protocol that supports 4K, 60-FPS streaming. Developers using a browser connect through TCP connections, whereas desktop clients can use QUIC UDP over port 8443 for increased performance. 

@@ -5,7 +5,7 @@
 
  This section outlines a container-based game backend architecture. 
 
-![Hosting a game backend using containers](http://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image4.jpeg)
+![Hosting a game backend using containers](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image4.jpeg)
 
 +  Players access the game using game client software, which can be distributed to them through a gaming system, a digital storefront, or a direct download from a content delivery network (CDN), such as Amazon CloudFront. CDNs provide caching at edge locations to accelerate the performance for users downloading content. For example, CloudFront can be used to distribute the game client software to your players as well as the game assets and other content. 
 +  AWS Global Accelerator provides traffic acceleration and customizable controls for routing traffic from player game clients to your load balancers as well as routing traffic across Regions for multi-Region and failover purposes. The custom domain names for your game backend REST APIs are configured in Amazon Route 53 to route traffic to Global Accelerator endpoints. Not shown in the diagram, AWS Shield Advanced can provide additional DDoS mitigation for your accelerator and game backend. 

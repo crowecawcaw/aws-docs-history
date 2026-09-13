@@ -5,7 +5,7 @@
 
  Many game developers do not want to manage infrastructure, and instead prefer to build their games using technologies that allow them to focus on software. A serverless architecture is recommended in this scenario because it allows you to build and release features more quickly, and with less operational overhead. Serverless architectures are designed using cloud services that can scale dynamically based on demand without needing to set up, manage, and scale servers. The following reference architecture illustrates how to build a game using a serverless architecture. 
 
-![Serverless-based game backend reference architecture](http://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image5.png)
+![Serverless-based game backend reference architecture](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/image5.png)
 
 
  This reference architecture illustrates a web-based trivia game that provides single player and multiplayer features. 

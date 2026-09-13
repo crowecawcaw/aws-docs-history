@@ -16,7 +16,7 @@
 
  For a fully managed solution to network routing, [AWS Global Accelerator](https://aws.amazon.com/global-accelerator) improves your application's network performance using the AWS global network, which can be used to accelerate your gameplay traffic, voice chat, and real-time messaging traffic, as well as other latency-sensitive applications while providing fast failover to your game servers. Global Accelerator [custom routing accelerators](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-global-accelerator-custom-routing-accelerators/) can be integrated with your matchmaking service to provide deterministic routing of multiple players to the same game session using static anycast IP addresses and ports. 
 
-![alt text](http://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/custom-routing-port-mapping.png)
+![alt text](https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/images/custom-routing-port-mapping.png)
 
 
  Your game development teams may be distributed around the world and require performant access to shared content or assets. To improve the performance for shared content stored in Amazon S3 buckets, you can setup bi-directional replication of your data across Regions using [S3 Cross-Region Replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html) so that users can access data from buckets closer to them. To simplify this access pattern, use [S3 Multi-](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html) [Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html) which accelerates requests to S3 over the global network using Global Accelerator.  
