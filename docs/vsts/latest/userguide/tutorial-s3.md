@@ -17,15 +17,15 @@ The following tutorial demonstrates how to use the *AWS S3 Upload* task to uploa
 
 Create a new Azure DevOps project and add a new pipeline to the project based on the *ASP.NET Core* template. To follow along with the screenshots shown below, use the classic editor (that is, without YAML).
 
-![New build pipeline using classic editor](http://docs.aws.amazon.com/vsts/latest/userguide/images/use-classic-editor.png)
+![New build pipeline using classic editor](https://docs.aws.amazon.com/vsts/latest/userguide/images/use-classic-editor.png)
 
 
-![New build pipeline based on ASP.NET Core template](http://docs.aws.amazon.com/vsts/latest/userguide/images/select-template-s3.png)
+![New build pipeline based on ASP.NET Core template](https://docs.aws.amazon.com/vsts/latest/userguide/images/select-template-s3.png)
 
 
 The build process page for this pipeline contains the following default tasks.
 
-![New build pipeline](http://docs.aws.amazon.com/vsts/latest/userguide/images/startingbuilddefinition.png)
+![New build pipeline](https://docs.aws.amazon.com/vsts/latest/userguide/images/startingbuilddefinition.png)
 
 
 ### Add the S3 Upload task to the build definition
@@ -35,14 +35,14 @@ To capture the build output produced by the *Publish* task and upload it to Amaz
 
 Select the **"\+" icon** at the top of the task list. In the right hand panel, optionally enter something in the search box, for example "Amazon", and scroll through the available tasks until you see the *Amazon S3 Upload* task. Select the **Add** button to add it to the build definition.
 
-![AWS S3 Upload Task](http://docs.aws.amazon.com/vsts/latest/userguide/images/tasklist-s3.png)
+![AWS S3 Upload Task](https://docs.aws.amazon.com/vsts/latest/userguide/images/tasklist-s3.png)
 
 
 If the new task was not added immediately after the *Publish* task, drag it into that position.
 
 Click on the new task to see its properties in the right pane.
 
-![AWS S3 Upload Task in Position](http://docs.aws.amazon.com/vsts/latest/userguide/images/s3taskstart.png)
+![AWS S3 Upload Task in Position](https://docs.aws.amazon.com/vsts/latest/userguide/images/s3taskstart.png)
 
 
 ### Configure the task properties
@@ -87,14 +87,14 @@ Azure DevOps provides a [number of variables](https://go.microsoft.com/fwlink/?L
 
 With the new task configured, you are ready to run the build. Choose **Save & queue**.
 
-![Save and Queue the Build](http://docs.aws.amazon.com/vsts/latest/userguide/images/s3taskfinal.png)
+![Save and Queue the Build](https://docs.aws.amazon.com/vsts/latest/userguide/images/s3taskfinal.png)
 
 
 During the build you can view the log by clicking the build number in the queue message.
 
-![Save and Queue the Build](http://docs.aws.amazon.com/vsts/latest/userguide/images/click-on-build-number-to-view-log.png)
+![Save and Queue the Build](https://docs.aws.amazon.com/vsts/latest/userguide/images/click-on-build-number-to-view-log.png)
 
 
 When the build has completed, you will be able to see S3 upload logs similar to the following.
 
-![Task Log](http://docs.aws.amazon.com/vsts/latest/userguide/images/tasklog.png)
+![Task Log](https://docs.aws.amazon.com/vsts/latest/userguide/images/tasklog.png)

@@ -19,15 +19,15 @@ Create a new Azure DevOps project and upload your *ASP.NET Web Application (.NET
 
 Then, add a new pipeline to the project based on the *ASP.NET Core (.NET Framework)* template, which will produce a Web Deploy archive for deployment. To follow the screenshots shown, use the classic editor (that is, without YAML).
 
-![New build pipeline using classic editor](http://docs.aws.amazon.com/vsts/latest/userguide/images/use-classic-editor.png)
+![New build pipeline using classic editor](https://docs.aws.amazon.com/vsts/latest/userguide/images/use-classic-editor.png)
 
 
-![New build pipeline based on ASP.NET Core (.NET Framework) template](http://docs.aws.amazon.com/vsts/latest/userguide/images/choose-template.png)
+![New build pipeline based on ASP.NET Core (.NET Framework) template](https://docs.aws.amazon.com/vsts/latest/userguide/images/choose-template.png)
 
 
 The build process page for this pipeline contains the following default tasks.
 
-![Build Definition](http://docs.aws.amazon.com/vsts/latest/userguide/images/build-definition.png)
+![Build Definition](https://docs.aws.amazon.com/vsts/latest/userguide/images/build-definition.png)
 
 
 ### Add the AWS Elastic Beanstalk Deploy Application task to the build definition
@@ -35,12 +35,12 @@ The build process page for this pipeline contains the following default tasks.
 
 Select the **"\+"** icon at the top of the task list. Optionally, in the panel on the right, enter something in the search box, for example "AWS", and scroll through the available tasks until you see the *AWS Elastic Beanstalk Deploy Application* task. Select **Add** to add it to the bottom of the build definition.
 
-![AWS Elastic Beanstalk Deploy Application Task](http://docs.aws.amazon.com/vsts/latest/userguide/images/elastic-beanstalk-task-in-list.png)
+![AWS Elastic Beanstalk Deploy Application Task](https://docs.aws.amazon.com/vsts/latest/userguide/images/elastic-beanstalk-task-in-list.png)
 
 
 Click the new task to see its properties in the right pane.
 
-![AWS Elastic Beanstalk Deploy Application Task in Position](http://docs.aws.amazon.com/vsts/latest/userguide/images/build-process-list-eb.png)
+![AWS Elastic Beanstalk Deploy Application Task in Position](https://docs.aws.amazon.com/vsts/latest/userguide/images/build-process-list-eb.png)
 
 
 ### Configure the task properties
@@ -80,9 +80,9 @@ Azure DevOps provides a [number of variables](https://go.microsoft.com/fwlink/?L
 
 With the new task configured, you are ready to run the build. Choose **Save & queue**.
 
-![Save and Queue the Build](http://docs.aws.amazon.com/vsts/latest/userguide/images/ebtaskfinal.png)
+![Save and Queue the Build](https://docs.aws.amazon.com/vsts/latest/userguide/images/ebtaskfinal.png)
 
 
 When the build has completed running, you should see a log similar to the following.
 
-![Build Log](http://docs.aws.amazon.com/vsts/latest/userguide/images/build-succeeded-log.png)
+![Build Log](https://docs.aws.amazon.com/vsts/latest/userguide/images/build-succeeded-log.png)
