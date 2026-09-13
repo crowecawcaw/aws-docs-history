@@ -93,4 +93,4 @@ The space creation is set up by integrating with AWS tools that support identity
 
 You cannot directly add or remove users in your space in CodeCatalyst. You must work with your Identity federation administrator to manage SSO users and groups in IAM Identity Center. CodeCatalyst syncs on a regular basis with the IAM Identity Center identity store with the latest directory status for your space members.
 
-![Flow for creating a space that supports identity federation](http://docs.aws.amazon.com/codecatalyst/latest/adminguide/images/sign-up-types-federation.png)
+![Flow for creating a space that supports identity federation](https://docs.aws.amazon.com/codecatalyst/latest/adminguide/images/sign-up-types-federation.png)

@@ -21,7 +21,7 @@ The company directory will authorize users to federate through SAML with IAM Ide
 
 The following diagram illustrates the flow of tasks for setting up your space.
 
-![Administrator tasks in managing a space that supports identity federation](http://docs.aws.amazon.com/codecatalyst/latest/adminguide/images/administrator-tasks-federation.png)
+![Administrator tasks in managing a space that supports identity federation](https://docs.aws.amazon.com/codecatalyst/latest/adminguide/images/administrator-tasks-federation.png)
 
 
 **Topics**
