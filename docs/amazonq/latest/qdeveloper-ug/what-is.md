@@ -28,10 +28,10 @@ Add the [necessary permissions](security_iam_id-based-policy-examples.md) to you
 
 **IDEs**  
 Download the Amazon Q extension and use your AWS Builder ID (no AWS account required) to sign in for free.   
-![Visual Studio Code logo, a stylized blue square with rounded corners and angled edges.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/vs-code.png) [Download Amazon Q in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-q-vscode)  
-![The JetBrains logo.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/jetbrains.png) [Download Amazon Q in JetBrains IDEs](https://plugins.jetbrains.com/plugin/24267-amazon-q/)  
-![The Visual Studio logo.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/visual-studio.png) [Download Amazon Q in the AWS Toolkit for Visual Studio](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2022)  
-![The Eclipse logo.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/eclipse-logo.png) [Download Amazon Q in Eclipse IDEs (Preview)](https://marketplace.eclipse.org/content/amazon-q)  
+![Visual Studio Code logo, a stylized blue square with rounded corners and angled edges.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/vs-code.png) [Download Amazon Q in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-q-vscode)  
+![The JetBrains logo.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/jetbrains.png) [Download Amazon Q in JetBrains IDEs](https://plugins.jetbrains.com/plugin/24267-amazon-q/)  
+![The Visual Studio logo.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/visual-studio.png) [Download Amazon Q in the AWS Toolkit for Visual Studio](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2022)  
+![The Eclipse logo.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/eclipse-logo.png) [Download Amazon Q in Eclipse IDEs (Preview)](https://marketplace.eclipse.org/content/amazon-q)  
 From your IDE, choose the Amazon Q icon to start chatting or initiate a development workflow. For more information, see [Installing the Amazon Q Developer extension or plugin in your IDE](q-in-IDE-setup.md).
 
 **Amazon Q Developer in chat applications**  

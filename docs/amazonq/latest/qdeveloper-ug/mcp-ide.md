@@ -38,7 +38,7 @@ To access the MCP configuration UI in Q Developer in the IDE:
 
 1. Open the **Chat** panel.
 
-1. Choose the tools icon. ![tools icon](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/tools-icon-full.png) 
+1. Choose the tools icon. ![tools icon](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/tools-icon-full.png) 
 
 ## Adding an MCP server
 <a name="mcp-ide-configuration-add-mcp-server"></a>

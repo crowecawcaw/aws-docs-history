@@ -38,7 +38,7 @@ To automatically fix a code issue in your file:
 1. Choose the wrench icon.
 
    The following image shows the wrench icon for a code issue in Visual Studio Code.  
-![The wrench icon for a code issue in Visual Studio Code, used to generate a code fix.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/code-review-fix-vsc.png)
+![The wrench icon for a code issue in Visual Studio Code, used to generate a code fix.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/code-review-fix-vsc.png)
 
 1. In the chat panel, Amazon Q provides a brief explanation of the fix and then applies an in-place fix in your code file.
 
@@ -74,7 +74,7 @@ To get an explanation of a code issue:
 1. Choose the magnifying glass icon.
 
    The following image shows the magnifying glass icon for a code issue in Visual Studio Code.  
-![The magnifying glass icon for a code issue in Visual Studio Code, used to explain a code issue.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/code-review-view-details-vsc.png)
+![The magnifying glass icon for a code issue in Visual Studio Code, used to explain a code issue.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/code-review-view-details-vsc.png)
 
 1. In the chat panel, Amazon Q provides details about the issue and suggests how to fix it, with code that you can insert into your file.
 
@@ -106,7 +106,7 @@ To ignore a code issue:
 1. Choose the ignore icon.
 
    The following image shows the ignore icon for a code issue in Visual Studio Code.  
-![The ignore icon for a code issue in Visual Studio Code, used to ignore and close a code issue.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/code-review-ignore-issue-vsc.png)
+![The ignore icon for a code issue in Visual Studio Code, used to ignore and close a code issue.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/code-review-ignore-issue-vsc.png)
 
 1. The code issue is removed from the Code Issue panel.
 

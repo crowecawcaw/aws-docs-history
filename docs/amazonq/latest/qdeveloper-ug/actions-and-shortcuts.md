@@ -123,7 +123,7 @@ To change the key bindings, use the following procedure.
 
 1. In the keybindings search box, enter Amazon Q.
 
-![Keybindings settings panel with Amazon CodeWhisperer highlighted in the table.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/CWSPR-Lambda-keybinding-settings.png)
+![Keybindings settings panel with Amazon CodeWhisperer highlighted in the table.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/CWSPR-Lambda-keybinding-settings.png)
 
 
 ------
@@ -146,7 +146,7 @@ To change the key bindings, use the following procedure.
 
 1. Enter the keys that you want to bind the function to.
 
-![Keybindings section selected in User Settings with keyboard mode dropdown highlighted.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/CWSPR-C9-keybinding-settings.png)
+![Keybindings section selected in User Settings with keyboard mode dropdown highlighted.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/CWSPR-C9-keybinding-settings.png)
 
 
 ------

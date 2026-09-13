@@ -65,4 +65,4 @@ Now you should be logged into Amazon Q in JupyterLab with Builder ID.
 
 To begin coding, see [Using shortcut keys](actions-and-shortcuts.md).
 
-![An example of Amazon Q in use with JupyterLab.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/qdev-demo-example.png)
+![An example of Amazon Q in use with JupyterLab.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/qdev-demo-example.png)

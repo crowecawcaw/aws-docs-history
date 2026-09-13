@@ -34,7 +34,7 @@ To display the Amazon Q reference log in VS Code, use the following procedure.
 
 The following image shows the open Amazon Q task bar and code reference log tab.
 
-![The Amazon Q code reference log in Visual Studio Code.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/VSC-coderef.png)
+![The Amazon Q code reference log in Visual Studio Code.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/VSC-coderef.png)
 
 
 ------
@@ -54,7 +54,7 @@ To display the Amazon Q reference log in JetBrains IDEs, use the following proce
 
 The following image shows the open Amazon Q task bar and code reference log tab.
 
-![The Amazon Q code reference log in JetBrains.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/JB-coderef.png)
+![The Amazon Q code reference log in JetBrains.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/JB-coderef.png)
 
 
 ------
@@ -69,7 +69,7 @@ To display the Amazon Q reference log in Eclipse IDEs, use the following procedu
 1. With the Amazon Q chat tab open, choose the ellipsis icon in the chat panel header. The Amazon Q task bar opens.
 
    The following image shows the Amazon Q task bar in an Eclipse IDE.  
-![The Amazon Q task bar in an Eclipse IDE.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/eclipse-taskbar.png)
+![The Amazon Q task bar in an Eclipse IDE.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/eclipse-taskbar.png)
 
 1. Choose **Open Code Reference Log**.
 
@@ -80,7 +80,7 @@ To display the Amazon Q reference log in Eclipse IDEs, use the following procedu
 
 When Amazon Q suggests code that contains a reference in the Toolkit for Visual Studio, the reference type appears in the suggestion description.
 
-![Code snippet showing a function to create a DynamoDB table with 'Products' as the table name.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/visual-studio-view-code-suggestions.png)
+![Code snippet showing a function to create a DynamoDB table with 'Products' as the table name.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/visual-studio-view-code-suggestions.png)
 
 
 All accepted suggestions that contain references are captured in the reference log.
@@ -93,7 +93,7 @@ A list of accepted suggestions that contain references will appear. This list in
 + The referenced source code
 + The fragment of code attributed to the reference
 
-![CodeWhisperer Reference Log output showing accepted recommendation with MIT license.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/vstudio-reference-log2.png)
+![CodeWhisperer Reference Log output showing accepted recommendation with MIT license.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/vstudio-reference-log2.png)
 
 
 ------

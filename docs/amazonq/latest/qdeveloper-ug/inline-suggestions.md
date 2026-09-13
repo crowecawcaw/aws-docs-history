@@ -38,7 +38,7 @@ Choose your IDE to see steps for pausing and resuming inline code suggestions in
 
 The following image shows the Amazon Q task bar in VS Code.
 
-![The Amazon Q task bar in VS Code.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/VSC-taskbar.png)
+![The Amazon Q task bar in VS Code.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/VSC-taskbar.png)
 
 
 ------
@@ -52,7 +52,7 @@ The following image shows the Amazon Q task bar in VS Code.
 
 The following image shows the Amazon Q task bar in a JetBrains IDE.
 
-![The Amazon Q task bar in a JetBrains IDE.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/JB-taskbar.png)
+![The Amazon Q task bar in a JetBrains IDE.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/JB-taskbar.png)
 
 
 ------
@@ -63,7 +63,7 @@ The following image shows the Amazon Q task bar in a JetBrains IDE.
 1. With the Amazon Q chat tab open, choose the ellipsis icon in the chat panel header. The Amazon Q task bar opens.
 
    The following image shows the Amazon Q task bar in an Eclipse IDE.  
-![The Amazon Q task bar in an Eclipse IDE.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/eclipse-taskbar.png)
+![The Amazon Q task bar in an Eclipse IDE.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/eclipse-taskbar.png)
 
 1. Choose **Pause Auto-Suggestions** or **Resume Auto-Suggestions**.
 
@@ -76,7 +76,7 @@ The following image shows the Amazon Q task bar in a JetBrains IDE.
 
 The following image shows the Amazon Q task bar in a Visual Studio.
 
-![The Developer Tools menu in Visual Studio.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/vstudio-toggle-suggestions.png)
+![The Developer Tools menu in Visual Studio.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/vstudio-toggle-suggestions.png)
 
 
 ------
@@ -133,42 +133,42 @@ This section demonstrates how Amazon Q can help you write a complete application
 
 Here, Amazon Q helps the developer choose which libraries to import. Using the arrow keys, the developer toggles through multiple suggestions.
 
-![An example of the block completion feature.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-1.gif)
+![An example of the block completion feature.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-1.gif)
 
 
 Here, the developer enters a comment, describing the code they intend to write on the next line.
 
 Amazon Q correctly anticipates the method to be called. The developer can accept the suggestion with the tab key.
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-2.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-2.png)
 
 
 Here, the developer prepares to define constants.
 
 Amazon Q correctly anticipates that the first constant will be `REGION` and that its value will be `us-east-1`, which is the default.
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-3.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-3.png)
 
 
 Here, the developer prepares to write code that will open sessions between the user and both Amazon S3 and DynamoDB.
 
 Amazon Q, familiar with AWS APIs and SDKs, suggests the correct format.
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-4.1.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-4.1.png)
 
 
 The developer has merely written the name of the function that will create the bucket. But based on that (and the context), Amazon Q offers a full function, complete with try/except clauses.
 
 Notice the use of `TEST_BUCKET_NAME, which is a constant declared earlier in the same file.`
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-5.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-5.png)
 
 
 The developer has only just begun to type in the name of the function that will create a DynamoDB table. But Amazon Q can tell where this is going.
 
 Notice that the suggestion accounts for the DynamoDB session created earlier, and even mentions it in a comment.
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-6.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-6.png)
 
 
 The developer has done little more than write the name of the unit test class, when Amazon Q offers to complete it.
@@ -179,21 +179,21 @@ The developer has only just begun to type in the name of the function that will 
 
 Notice that the suggestion accounts for the DynamoDB session created earlier, and even mentions it in a comment.
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-7.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-7.png)
 
 
 Based only on a comment and the context, Amazon Q supplies the entire main function.
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-8.1.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-8.1.png)
 
 
 All that's left is the main guard, and Amazon Q knows it.
 
 Based only on a comment and the context, Amazon Q supplies the entire main function.
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-9.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-9.png)
 
 
 Finally, the developer runs the unit test from the terminal of the same IDE where the coding took place.
 
-![alt_text](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-10.png)
+![alt_text](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/whatis-demo-10.png)

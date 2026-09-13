@@ -7,4 +7,4 @@ MCP (Model Context Protocol) is an open protocol that standardizes how AI assist
 
 Think of MCP like a universal connector for AI models, enabling them to interact with external systems, fetch live data, and integrate with various tools seamlessly. This allows Amazon Q to provide more contextually relevant assistance by accessing the information it needs in real-time.
 
-![MCP architecture showing how Amazon Q Developer CLI connects to external data sources through MCP servers](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/mcp-response-diagram.png)
+![MCP architecture showing how Amazon Q Developer CLI connects to external data sources through MCP servers](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/mcp-response-diagram.png)

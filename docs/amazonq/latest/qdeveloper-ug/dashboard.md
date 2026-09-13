@@ -5,7 +5,7 @@
 
 Available only for Amazon Q Developer administrators, the Amazon Q Developer dashboard summarizes useful data about how your Pro tier subscribers use the service.
 
-![The Amazon Q dashboard that shows total subscriptions, active subscriptions, pending subscriptions, a suggested lines of code widget, an active users widget, and filters.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/q-dev-dashboard.png)
+![The Amazon Q dashboard that shows total subscriptions, active subscriptions, pending subscriptions, a suggested lines of code widget, an active users widget, and filters.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/q-dev-dashboard.png)
 
 
 Amazon Q generates and displays new metrics on an hourly basis for the most part. The only section that is not updated hourly is the **Active users** widget, which is updated daily according to the coordinated universal time (UTC) clock.
@@ -31,4 +31,4 @@ The **Active users** widget only displays information from the account that you'
 **Notes**:
 + If the **Dashboard** link is not available in the navigation pane, see [Troubleshooting the dashboard](dashboard-troubleshooting.md).
 + If you’d like to send user metrics to a daily report with a per-user breakdown of their Amazon Q Developer usage, see [Viewing the activity of specific users in Amazon Q Developer](q-admin-user-telemetry.md).
-+ For information about specific metrics, see [Descriptions of Amazon Q Developer dashboard usage metrics](dashboard-metrics-descriptions.md) or choose the help link (![The help link.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/help-icon.png)) on the dashboard page.
++ For information about specific metrics, see [Descriptions of Amazon Q Developer dashboard usage metrics](dashboard-metrics-descriptions.md) or choose the help link (![The help link.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/help-icon.png)) on the dashboard page.

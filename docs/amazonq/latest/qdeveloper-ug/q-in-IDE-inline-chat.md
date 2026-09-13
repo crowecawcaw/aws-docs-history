@@ -22,13 +22,13 @@ An inline chat session unfolds as follows.
    + Alternatively, you can right-click the selection and choose **Amazon Q** and then **Inline chat**
 
    This launches an input field in the editor where you can enter a prompt, such as **Fix this code**.  
-![The inline chat input screen.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/inline-chat-input-screen.png)
+![The inline chat input screen.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/inline-chat-input-screen.png)
 
 1. Amazon Q generates code and presents it in a diff.  
-![The inline chat diff.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/inline-chat-diff.png)
+![The inline chat diff.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/inline-chat-diff.png)
 
 1. You accept or reject the change by choosing **Accept** or **Reject**, or by pressing the keyboard equivalents (`Enter` or `Esc`).  
-![The inline chat accept and reject buttons.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/inline-chat-accept.png)
+![The inline chat accept and reject buttons.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/inline-chat-accept.png)
 
 ## Example topics and questions
 <a name="q-in-IDE-inline-chat-questions"></a>

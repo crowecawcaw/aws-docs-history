@@ -19,7 +19,7 @@ To set the key used for encryption, complete the following procedure.
 1. Choose **Settings**. 
 
 1. Choose **Edit** in the Amazon Q Developer account details panel.  
-![The Amazon Q Developer console settings page](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/q-dev-console-settings-3.png)
+![The Amazon Q Developer console settings page](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/q-dev-console-settings-3.png)
 
 1. On the **Edit details** page, expand the **Encryption key - optional** section.
 

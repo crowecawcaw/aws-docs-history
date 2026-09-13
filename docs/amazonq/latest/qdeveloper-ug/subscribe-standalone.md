@@ -70,7 +70,7 @@ You might want to subscribe other team members so that they can try out Amazon Q
 IAM Identity Center was set up on your behalf when you subscribed yourself. For more information about the IAM Identity Center that was set up, see [What resources were created?](#subscribe-standalone-resources).
 
 1. Add users and groups. For instructions, see [Add users to your IAM Identity Center directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/addusers.html) in the *AWS IAM Identity Center User Guide*.  
-![The IAM Identity Center page showing two users.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/subscribe/Sub-8.png)
+![The IAM Identity Center page showing two users.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/subscribe/Sub-8.png)
 
 1. Go to the next procedure to subscribe team members.
 

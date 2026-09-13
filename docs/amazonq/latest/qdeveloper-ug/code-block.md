@@ -8,13 +8,13 @@ Block completion is used to complete your `if/for/while/try` code blocks.
 ------
 #### [ C ]
 
-![An example of the block completion feature using C](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/block-completion-c.gif)
+![An example of the block completion feature using C](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/block-completion-c.gif)
 
 
 ------
 #### [ C\+\+ ]
 
-![An example of the block completion feature using C++.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/block-completion-c-plus.gif)
+![An example of the block completion feature using C++.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/block-completion-c-plus.gif)
 
 
 ------
@@ -22,7 +22,7 @@ Block completion is used to complete your `if/for/while/try` code blocks.
 
 In the example below, a user enters the signature of an `if` statement. The body of the statement is a suggestion from Amazon Q.
 
-![An example of the block completion feature.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/cw-c9-block-completion.gif)
+![An example of the block completion feature.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/cw-c9-block-completion.gif)
 
 
 ------
@@ -30,7 +30,7 @@ In the example below, a user enters the signature of an `if` statement. The body
 
 In the image below, Amazon Q recommends a way to complete the function.
 
-![An example of the block completion feature.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/c-sharp-block.gif)
+![An example of the block completion feature.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/c-sharp-block.gif)
 
 
 ------
@@ -38,7 +38,7 @@ In the image below, Amazon Q recommends a way to complete the function.
 
 In the image below, Amazon Q recommends a way to complete the function.
 
-![An example of the block completion feature.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/typescript_vscode_block-completion.gif)
+![An example of the block completion feature.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/typescript_vscode_block-completion.gif)
 
 
 ------
@@ -46,7 +46,7 @@ In the image below, Amazon Q recommends a way to complete the function.
 
 In this example, Amazon Q recommends a block of code, based on the context. 
 
-![An example of the code block feature.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/python_sagemakerstudio_codeblock.gif)
+![An example of the code block feature.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/python_sagemakerstudio_codeblock.gif)
 
 
 ------

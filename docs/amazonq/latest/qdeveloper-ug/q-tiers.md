@@ -21,9 +21,9 @@ The Free tier is available to users with [personal accounts](getting-started-bui
   <tr><th>Interface</th><th>Personal account (Builder ID)</th><th>IAM Identity Center</th><th>IAM credentials</th></tr>
 </thead>
 <tbody>
-  <tr><td><a href="q-on-aws.md">AWS Management Console, and AWS apps and websites</a></td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td></tr>
-  <tr><td><a href="q-in-IDE.md">IDE</a></td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td></tr>
-  <tr><td><a href="command-line.md">Command line</a></td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td></tr>
+  <tr><td><a href="q-on-aws.md">AWS Management Console, and AWS apps and websites</a></td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td></tr>
+  <tr><td><a href="q-in-IDE.md">IDE</a></td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td></tr>
+  <tr><td><a href="command-line.md">Command line</a></td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td></tr>
 </tbody>
 </table>
 
@@ -46,8 +46,8 @@ The Pro tier is available to users with [personal accounts](getting-started-buil
   <tr><th>Interface</th><th>Personal account (Builder ID)</th><th>IAM Identity Center</th><th></th></tr>
 </thead>
 <tbody>
-  <tr><td><a href="q-on-aws.md">AWS Management Console, and AWS apps and websites</a></td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td></td></tr>
-  <tr><td><a href="q-in-IDE.md">IDE</a></td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td></td></tr>
-  <tr><td><a href="command-line.md">Command line</a></td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td></td></tr>
+  <tr><td><a href="q-on-aws.md">AWS Management Console, and AWS apps and websites</a></td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-no.png" alt="" /> No</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td></td></tr>
+  <tr><td><a href="q-in-IDE.md">IDE</a></td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td></td></tr>
+  <tr><td><a href="command-line.md">Command line</a></td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td><img src="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/icon-yes.png" alt="" /> Yes</td><td></td></tr>
 </tbody>
 </table>

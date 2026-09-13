@@ -20,7 +20,7 @@ To filter code issues:
 1. A pop-up menu with Severity levels opens.
 
    The following image shows the Severity menu in the Code Issues tab in IntelliJ IDEA.  
-![The severity filter menu in IntelliJ IDEA.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/jb-filter-issues.png)
+![The severity filter menu in IntelliJ IDEA.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/jb-filter-issues.png)
 
 1. Select or deselect the the severity levels you want to filter for, and then choose **OK**. Only the issues with the severity you selected will appear in the **Amazon Q Code Issues** panel. 
 
@@ -30,7 +30,7 @@ To filter code issues:
 1. From the **Code Issues** panel, choose the filter icon. 
 
    The following image shows the filter icon in the Code Issues tab in Visual Studio Code.  
-![The filter icon in the Code Issues tab in Visual Studio Code.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/filter-issues-vsc.png)
+![The filter icon in the Code Issues tab in Visual Studio Code.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/filter-issues-vsc.png)
 
 1. The **Filter Issues** menu opens. 
 
@@ -55,7 +55,7 @@ To group code issues:
 1. From the **Code Issues** panel, choose the grouping icon. 
 
    The following image shows the grouping icon in the Code Issues tab in Visual Studio Code.  
-![The grouping icon in the Code Issues tab in Visual Studio Code.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/group-issues-vsc.png)
+![The grouping icon in the Code Issues tab in Visual Studio Code.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/group-issues-vsc.png)
 
 1. The **Group Issues** menu opens. 
 

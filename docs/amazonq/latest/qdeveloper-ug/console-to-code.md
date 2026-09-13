@@ -105,7 +105,7 @@ To start recording with Console-to-Code, use the following procedure.
 
 1. Go to the console of one of the integrated services (Amazon VPC, Amazon RDS, or Amazon EC2).
 
-1. Choose the Console-to-Code icon: ![The console-to-code icon.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/c2c-icon.png) 
+1. Choose the Console-to-Code icon: ![The console-to-code icon.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/c2c-icon.png) 
 
 1. In the Console-to-Code side panel, choose **Start recording**.
 
@@ -136,7 +136,7 @@ To use Console-to-Code to generate CLI commands based on your actions, use the f
 
 1. Do one of the following:
    + To copy an individual CLI command, choose the copy button to the left of the command.
-   + To run an individual CLI command in AWS CloudShell, choose the CloudShell icon ![The console-to-code icon.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/cloudshell-icon.png) to the left of the command. This opens CloudShell and populates it with the CLI command ready for you to execute.
+   + To run an individual CLI command in AWS CloudShell, choose the CloudShell icon ![The console-to-code icon.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/cloudshell-icon.png) to the left of the command. This opens CloudShell and populates it with the CLI command ready for you to execute.
    + To view or run a set of CLI commands, select the commands and choose either **Copy CLI** to copy all selected commands, or **Run CLI** to open CloudShell and populate it with all commands.
 
 To learn more about the AWS CLI, see [What is the AWS Command Line Interface?](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) in the *AWS Command Line Interface User Guide.*

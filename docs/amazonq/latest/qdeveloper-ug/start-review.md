@@ -101,7 +101,7 @@ To start a file or project review, complete the following steps for your IDE:
 1. From the task bar, choose **Run Security Scan**. Amazon Q begins scanning your project. 
 
    In the following image, in Visual Studio, the user chooses the **Amazon Q** icon, prompting a task bar from which the user may choose **Run Security Scan**.  
-![Visual Studio with the Amazon Q task bar showing "Run Security Scan" as a choice](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/VS-scans.png)
+![Visual Studio with the Amazon Q task bar showing "Run Security Scan" as a choice](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/VS-scans.png)
 
 1. The status of your scan is updated in the Visual Studio output pane. You're notified when the scan is complete.
 

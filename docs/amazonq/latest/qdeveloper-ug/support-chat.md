@@ -45,14 +45,14 @@ To create an Support case with Amazon Q, use the following steps.
    1. If an Amazon Q response didn’t help you, choose the thumbs-down icon on the response and then choose a reason that you're providing the feedback. To contact Support, choose **Create a support case**.
 
       The following image shows the **Create a support case** button in the Amazon Q chat panel that appears after you leave feedback.  
-![The Create a support case button in the Amazon Q chat panel.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/support-feedback.png)
+![The Create a support case button in the Amazon Q chat panel.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/support-feedback.png)
 
 1. A support case appears in the chat panel. If you had a conversation with Amazon Q before requesting support, it will use the context of your conversation to autopopulate the fields in the case. To update any field in the support case, choose **Edit**. You can also attach files that help explain your issue. 
 
    If you didn't chat with Amazon Q before requesting support or Amazon Q otherwise can’t complete the fields in the support case, you can input your support case information into the case manually. 
 
    The following image is an example of a filled-out support case in the Amazon Q chat panel.  
-![A filled-out support case in an Amazon Q chat panel.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/support-edit.png)
+![A filled-out support case in an Amazon Q chat panel.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/support-edit.png)
 
 1. After confirming that the support case describes your needs, choose **Submit** to create the support case. If you no longer want to create the case, choose **Cancel**. 
 

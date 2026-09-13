@@ -167,7 +167,7 @@ To disable MCP for your account or organization:
 
  When users launch Q Developer, it checks whether a registry URL is defined in the profile. If so, it retrieves the registry JSON at that URL and enforces that users can only use the MCP servers defined in the registry. When users add an MCP server, Q Developer displays a list of servers from the registry. 
 
-![Screenshot showing the addition of MCP servers defined in the registry.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/q-mcp-registry-add-server.png)
+![Screenshot showing the addition of MCP servers defined in the registry.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/q-mcp-registry-add-server.png)
 
 
  Registry MCP server parameters (URL, package identifier, runtimeArguments, and so forth) are read-only. However, users can: 

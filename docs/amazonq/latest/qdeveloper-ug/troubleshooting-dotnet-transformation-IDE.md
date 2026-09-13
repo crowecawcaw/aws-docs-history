@@ -14,7 +14,7 @@ To check the outputs, choose the **Output** tab in Visual Studio. In the **Show 
 
 The following screenshot shows an example of the outputs Amazon Q generates during a transformation.
 
-![Screenshot of the Amazon Q Developer Code Transformation Hub, showing the output from the Amazon Q Language Client.](http://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/code-transform-troubleshoot4.png)
+![Screenshot of the Amazon Q Developer Code Transformation Hub, showing the output from the Amazon Q Language Client.](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/images/code-transform-troubleshoot4.png)
 
 
 ## Why are some projects not selected for transformation?
