@@ -12,7 +12,7 @@ This architecture enables you to use AWS IoT Core to modernize workloads, proces
 
  Use AWS IoT Core and MQTT5 to modernize your broker to gather, collect, and distribute data with your connected vehicle workloads. 
 
-![Reference architecture diagram showing how to use AWS IoT Core and MQTT5 to modernize your broker to gather, collect, and distribute data with your connected vehicle workloads.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/1-modernization.png)
+![Reference architecture diagram showing how to use AWS IoT Core and MQTT5 to modernize your broker to gather, collect, and distribute data with your connected vehicle workloads.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/1-modernization.png)
 
 
 1.  Embedded in-vehicle devices with a unique identity principal (X.509 certificate) publish telemetry data to **AWS IoT Core** by using MQTT. To minimize in-vehicle software, only libraries necessary to connect to AWS IoT Core are implemented. All traffic is sent over MQTT protocol secured using mTLS. 
@@ -36,7 +36,7 @@ This architecture enables you to use AWS IoT Core to modernize workloads, proces
 
  Gather, process, analyze, and act on connected vehicle data using AWS IoT Core. 
 
-![Reference architecture diagram showing how to gather, process, analyze, and act on connected vehicle data using AWS IoT Core.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/2-gather-process-analyze-data.png)
+![Reference architecture diagram showing how to gather, process, analyze, and act on connected vehicle data using AWS IoT Core.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/2-gather-process-analyze-data.png)
 
 
 1. The connected vehicle, acting as an IoT device, with a unique identity principal (X.509 certificate), uses sensors to collect, analyze and act upon data using **AWS IoT Core** as an edge-to-cloud communication mechanism. 
@@ -62,7 +62,7 @@ This architecture enables you to use AWS IoT Core to modernize workloads, proces
 
  Secure your connected vehicles with provisioning, OCSP, and certificate rotation. 
 
-![Reference architecture diagram showing how to secure your connected vehicles with provisioning, OCSP, and certificate rotation.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/3-operational-certificate-lifecycle.png)
+![Reference architecture diagram showing how to secure your connected vehicles with provisioning, OCSP, and certificate rotation.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/3-operational-certificate-lifecycle.png)
 
 
 1. A subordinate CA is created in **AWS Private Certificate Authority** (AWS Private CA) with a CA certificate signed by the offline root CA. The subordinate CA certificate is registered with **AWS IoT Core**. 
@@ -86,7 +86,7 @@ This architecture enables you to use AWS IoT Core to modernize workloads, proces
 
  Secure your connected vehicles with AWS encryption and monitoring services. 
 
-![Reference architecture diagram showing how to secure your connected vehicles with AWS encryption and monitoring services.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/4-encryption-and-monitoring-security.png)
+![Reference architecture diagram showing how to secure your connected vehicles with AWS encryption and monitoring services.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/4-encryption-and-monitoring-security.png)
 
 
 1. An ECU with a unique identity principal (X.509 operational certificate) publishes telemetry by using MQTT to **AWS IoT Core**. The ECU can either run a generic HTTP or MQTT stack or accelerate development using the **AWS IoT** Device SDK. 
@@ -112,7 +112,7 @@ This architecture enables you to use AWS IoT Core to modernize workloads, proces
 
  Build a connected vehicle companion application to control your vehicle with AWS IoT Core and AWS AppSync. 
 
-![Reference architecture diagram showing how to secure your connected vehicles with AWS encryption and monitoring services.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/5-companion-application.png)
+![Reference architecture diagram showing how to secure your connected vehicles with AWS encryption and monitoring services.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-connected-vehicle/images/5-companion-application.png)
 
 
 1.  The vehicle establishes an MQTT connection to the **AWS IoT Core** endpoint, and then subscribes to the control plane request topics to receive any cloud-side request commands. The vehicle also will publish automatically to the **AWS IoT** lifecycle events topic, indicating that connectivity is established. 
