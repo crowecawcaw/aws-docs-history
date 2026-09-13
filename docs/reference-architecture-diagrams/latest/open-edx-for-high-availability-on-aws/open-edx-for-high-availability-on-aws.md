@@ -10,7 +10,7 @@ Publication date: **April 14, 2023 ([Diagram history](#diagram-history))**
 ## Open edX on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing Open edX on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/open-edx-for-high-availability-on-aws/images/open-edx-for-high-availability-on-aws.png)
+![Reference architecture diagram showing Open edX on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/open-edx-for-high-availability-on-aws/images/open-edx-for-high-availability-on-aws.png)
 
 
 1. **Amazon Route 53** provides highly-available routing policies and reduces latency by directing students to the closest **Amazon CloudFront** locations for accessing static content. 
