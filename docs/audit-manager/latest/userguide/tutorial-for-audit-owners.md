@@ -111,4 +111,4 @@ Automated evidence is available 24 hours after you create the assessment. Audit 
 + **[Using the control library to manage controls in AWS Audit Manager](control-library.md) – **Introduces the control library and explains how to [create a custom control](https://docs.aws.amazon.com/audit-manager/latest/userguide/create-controls.html) for use in your custom framework.
 + **[Understanding AWS Audit Manager concepts and terminology](concepts.md) – **Provides definitions for the concepts and terminology used in Audit Manager. 
 + [Video] Collect Evidence and Manage Audit Data Using AWS Audit Manager – Shows the assessment creation process that's described in this tutorial, and other tasks such as reviewing a control and generating an assessment report.   
-[![AWS Videos](http://img.youtube.com/vi/G4yRj4nLwFI/0.jpg)](http://www.youtube.com/watch?v=G4yRj4nLwFI)
+[![AWS Videos](https://img.youtube.com/vi/G4yRj4nLwFI/0.jpg)](https://www.youtube.com/watch?v=G4yRj4nLwFI)

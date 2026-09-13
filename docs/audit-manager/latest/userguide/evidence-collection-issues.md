@@ -190,7 +190,7 @@ To start collecting evidence again for a pre-existing assessment, [edit the asse
 ## On my assessment details page, I’m prompted to recreate my assessment
 <a name="recreate-assessment-post-common-controls"></a>
 
-![Screenshot of the pop-up message that prompts you to recreate your assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/troubleshooting-recreate-assessment-post-common-controls-console.png)
+![Screenshot of the pop-up message that prompts you to recreate your assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/troubleshooting-recreate-assessment-post-common-controls-console.png)
 
 
 If you see a message that says **Create new assessment to collect more comprehensive evidence**, this indicates that Audit Manager now provides a new definition of the standard framework that your assessment was created from.

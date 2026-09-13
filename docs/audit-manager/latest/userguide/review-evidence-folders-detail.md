@@ -52,7 +52,7 @@ Keep in mind that it takes up to 24 hours for an assessment to start collecting 
 
 You can use the **Summary** section of the page to see a high-level overview of the evidence in the evidence folder. To learn more about different evidence types, see [Evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/concepts.html#evidence).
 
-![Screenshot of the evidence folder with labels that relate to the following definitions.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-summary-console.png)
+![Screenshot of the evidence folder with labels that relate to the following definitions.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-summary-console.png)
 
 
 In this section, you can review the following information:

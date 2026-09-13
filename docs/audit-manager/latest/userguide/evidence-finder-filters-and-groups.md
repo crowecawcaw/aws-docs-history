@@ -64,7 +64,7 @@ When you specify more than one criteria, Audit Manager applies the `AND` operato
 **Example**  
 In the following filter setup, evidence finder returns non-compliant resources from the last 7 days for the assessment that’s called **MySOC2Assessment**. Additionally, the results relate to both an IAM policy and the specified control.
 
-![A selection of applied filters, with the AND operator highlighted.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-filter_description-console.png)
+![A selection of applied filters, with the AND operator highlighted.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-filter_description-console.png)
 
 
 #### Criteria value behavior
@@ -75,7 +75,7 @@ When you specify more than one criteria value, the values are linked with an `OR
 **Example**  
 In the following filter setup, evidence finder returns search results that come from either AWS CloudTrail, AWS Config, or AWS Security Hub CSPM.
 
-![An example filter setup that shows multiple values defined for a single criteria.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-filter_description-multiple_values-console.png)
+![An example filter setup that shows multiple values defined for a single criteria.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-filter_description-multiple_values-console.png)
 
 
 ## Grouping reference

@@ -128,7 +128,7 @@ The [StartQuery](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/A
 
 When you apply a control domain filter in evidence finder, you might notice that some available control domains are described as **Outdated**. 
 
-![Screenshot of an outdated control domain filter in evidence finder.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/troubleshooting-outdated-control-domain-filter-console.png)
+![Screenshot of an outdated control domain filter in evidence finder.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/troubleshooting-outdated-control-domain-filter-console.png)
 
 
 As of June 6, 2024, Audit Manager supports a new set of control domains provided by AWS Control Catalog. To fetch a list of these control domains, see [ListDomains](https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html) in the *AWS Control Catalog API Reference*. 

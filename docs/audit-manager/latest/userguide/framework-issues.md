@@ -22,7 +22,7 @@ You can use the information on this page to resolve common framework issues in A
 ## On my custom framework details page, I’m prompted to recreate my custom framework
 <a name="recreate-framework-post-common-controls"></a>
 
-![Screenshot of the pop-up message that prompts you to recreate your assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/troubleshooting-recreate-framework-post-common-controls-console.png)
+![Screenshot of the pop-up message that prompts you to recreate your assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/troubleshooting-recreate-framework-post-common-controls-console.png)
 
 
 If you see a message that says **Updated control definitions are available**, this indicates that Audit Manager now provides newer definitions for some of the standard controls that are in your custom framework. 
@@ -122,15 +122,15 @@ You can use the following procedure to check for any expiring share requests, an
 1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home).
 
 1. If you have a share request notification, Audit Manager displays a red dot next to the navigation menu icon.  
-![Screenshot of the minimized navigation menu icon, with a red dot that indicates a notification.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png)
+![Screenshot of the minimized navigation menu icon, with a red dot that indicates a notification.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png)
 
 1. Expand the navigation pane and look next to **Share requests**. A notification badge indicates the number of share requests that need attention.   
-![Screenshot of the expanded navigation menu, with Shared framework requests highlighted and a notification badge showing 1 notification.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_expanded_notification-console.png)
+![Screenshot of the expanded navigation menu, with Shared framework requests highlighted and a notification badge showing 1 notification.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_expanded_notification-console.png)
 
 1. Choose **Share requests**, and then choose the **Sent requests** tab. 
 
 1. Look for the blue dot to identify share requests that expire within the next 30 days. Alternatively, you can also view expiring share requests by selecting **Expiring** from the **All statuses** filter dropdown.  
-![Screenshot of a received share request with a blue dot next to the framework name.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-sent_requests-console.png)
+![Screenshot of a received share request with a blue dot next to the framework name.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-sent_requests-console.png)
 
 1. (Optional) Remind the recipient that they need to take action on the share request before it expires. This step is optional, as Audit Manager sends a notification in the console to inform the recipient when a share request is active or expiring. However, you can also send your own reminder to the recipient using your preferred communication channel.
 
@@ -146,15 +146,15 @@ You can use the following procedure to check for active and expiring share reque
 1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home).
 
 1. If you have a share request notification, Audit Manager displays a red dot next to the navigation menu icon.  
-![Screenshot of the minimized navigation menu icon, with a red dot that indicates a notification.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png)
+![Screenshot of the minimized navigation menu icon, with a red dot that indicates a notification.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png)
 
 1. Expand the navigation pane and look next to **Share requests**. A notification badge indicates the number of share requests that need your attention.   
-![Screenshot of the expanded navigation menu, with Share requests highlighted and a notification badge showing one notification.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_expanded_notification-console.png)
+![Screenshot of the expanded navigation menu, with Share requests highlighted and a notification badge showing one notification.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_expanded_notification-console.png)
 
 1. Choose **Share requests**. By default, this page opens on the **Received requests** tab. 
 
 1. Identify the share requests that need your action by looking for items with a blue dot.   
-![Screenshot of a received share request with a blue dot next to the framework name.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-console.png)
+![Screenshot of a received share request with a blue dot next to the framework name.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-console.png)
 
 1. (Optional) To view only requests that expire in the next 30 days, find the **All statuses** dropdown list and select **Expiring**.
 

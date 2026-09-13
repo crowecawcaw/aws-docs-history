@@ -58,7 +58,7 @@ Make sure your IAM identity has appropriate permissions to view an assessment in
 
  You can use the **Assessment details** section to see a summary of your assessment. 
 
-![Screenshot of the assessment details section, with labels that relate to the following definitions.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/assessment-details-console.png)
+![Screenshot of the assessment details section, with labels that relate to the following definitions.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/assessment-details-console.png)
 
 
 In the assessment details section, you can review the following information:

@@ -77,4 +77,4 @@ Previously, it was time consuming to review individual evidence details. If you 
 
 To get started, follow the steps to [search for evidence](https://docs.aws.amazon.com/audit-manager/latest/userguide/search-for-evidence-in-evidence-finder.html). Then, select the radio button next to a result to see a resource summary in the current page. You can preview each individual resource that relates to an evidence item. To see the full evidence details for any resource, choose the evidence name. For more information, see [Previewing resource summaries](viewing-search-results-in-evidence-finder.md#preview-evidence). 
 
-![An example of a search result and the on-screen resource summary for that result.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-preview-console.png)
+![An example of a search result and the on-screen resource summary for that result.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-preview-console.png)

@@ -42,7 +42,7 @@ If you didn't group results, evidence finder doesn’t display the **Group by re
 
 Use the **Group by results** table to learn the breadth of the matching evidence and how it's distributed across a specific dimension. Results are grouped by the value that you selected. For example, if you grouped by **Resource type**, the table shows a list of AWS resource types. The **Total evidence** column shows the number of matching results for each resource type.
 
-![The group by results table in evidence finder.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-group_by_table-console.png)
+![The group by results table in evidence finder.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-group_by_table-console.png)
 
 
 **To get the results for a group**
@@ -91,7 +91,7 @@ To see details about manual evidence, choose the evidence name to open the evide
 
 1. Choose (**x**) to close the resource summary pane.
 
-![An example resource summary on the view results page in evidence finder.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-preview-console.png)
+![An example resource summary on the view results page in evidence finder.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-preview-console.png)
 
 
 ## Next steps

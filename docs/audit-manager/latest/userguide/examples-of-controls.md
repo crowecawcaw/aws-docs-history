@@ -52,7 +52,7 @@ This example shows a control that uses AWS Security Hub CSPM as a data source ty
 
 In the following example, this control appears in an Audit Manager assessment that was created from the FSBP framework.
 
-![Screenshot that shows the Security Hub CSPM control in an assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-automated_securityhub-console.png)
+![Screenshot that shows the Security Hub CSPM control in an assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-automated_securityhub-console.png)
 
 
 The assessment shows the control status. It also shows how much evidence was collected for this control so far. From here, you can delegate the control set for review or complete the review yourself. Choosing the control name opens a detail page with more information, including the evidence for that control.
@@ -90,7 +90,7 @@ This example shows a control that uses AWS Config as a data source type. This is
 
 In the following example, this control appears in an Audit Manager assessment that was created from the AWS Control Tower Guardrails framework.
 
-![Screenshot that shows the AWS Config control in an assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-automated_config-console.png)
+![Screenshot that shows the AWS Config control in an assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-automated_config-console.png)
 
 
 The assessment shows the control status. It also shows how much evidence was collected for this control so far. From here, you can delegate the control set for review or complete the review yourself. Choosing the control name opens a detail page with more information, including the evidence for that control.
@@ -128,7 +128,7 @@ This example shows a custom control that uses AWS API calls as a data source typ
 
 In the following example, this control appears in an Audit Manager assessment that was created from a custom framework.
 
-![Screenshot that shows the API control in an assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-automated_api-console.png)
+![Screenshot that shows the API control in an assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-automated_api-console.png)
 
 
 The assessment shows the control status. It also shows how much evidence was collected for this control so far. From here, you can delegate the control set for review or complete the review yourself. Choosing the control name opens a detail page with more information, including the evidence for that control.
@@ -166,7 +166,7 @@ This example shows a control that uses AWS CloudTrail as a data source type. Thi
 
 Here’s this control shown within an Audit Manager assessment that was created from the HIPAA framework:
 
-![Screenshot that shows the CloudTrail control in an assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-automated_cloudtrail-console.png)
+![Screenshot that shows the CloudTrail control in an assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-automated_cloudtrail-console.png)
 
 
 The assessment shows the control status. It also shows how much evidence was collected for this control so far. From here, you can delegate the control set for review or complete the review yourself. Choosing the control name opens a detail page with more information, including the evidence for that control.
@@ -210,7 +210,7 @@ This example shows a manual control taken from the [NIST 800-53 (Rev. 5) framewo
 
 Here’s this control shown within an Audit Manager assessment that was created from the NIST 800-53 (Rev. 5) Low-Moderate-High framework:
 
-![Screenshot that shows the control in an assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-manual-console.png)
+![Screenshot that shows the control in an assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-manual-console.png)
 
 
 The assessment shows the control status. It also shows how much evidence was collected for this control so far. From here, you can delegate the control set for review or complete the review yourself. Choosing the control name opens a detail page with more information, including the evidence for that control.
@@ -244,7 +244,7 @@ This example shows a control that uses a combination of manual evidence and auto
 
 Here’s this control shown within an Audit Manager assessment that was created from the NIST 800-53 (Rev. 5) framework:
 
-![Screenshot that shows the control in an assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-mixed-console.png)
+![Screenshot that shows the control in an assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-example-mixed-console.png)
 
 
 The assessment shows the control status. It also shows how much evidence was collected for this control so far. From here, you can delegate the control set for review or complete the review yourself. Choosing the control name opens a detail page with more information, including the evidence for that control.

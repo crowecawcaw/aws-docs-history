@@ -55,7 +55,7 @@ Keep in mind that it takes up to 24 hours for an assessment to start collecting 
 
 You can use the **Summary** section to see an overview of the evidence. 
 
-![Screenshot of the evidence details with labels that relate to the following definitions.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-detail-console.png)
+![Screenshot of the evidence details with labels that relate to the following definitions.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-detail-console.png)
 
 
 In this section, you can review the following information:

@@ -77,7 +77,7 @@ Customer
 
 In this step, the customer creates an IAM role for their account. The customer then gives the vendor permissions to assume the role. 
 
-![A diagram that shows how the IAM role grants access for the vendor account.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/vendor-role-access.png)
+![A diagram that shows how the IAM role grants access for the vendor account.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/vendor-role-access.png)
 
 
 ### Procedure
@@ -226,7 +226,7 @@ Customer
 
 Vendors maintain a curated list of enterprise controls that customers can use in an assessment. To integrate with Audit Manager, vendors must create an interface that enables customers to map their enterprise controls to the corresponding Audit Manager controls. You can map to [](concepts.md#common-control)s (preferred), or [](concepts.md#standard-control)s. You must complete this mapping before you start any assessments in the vendor’s GRC application.
 
-![A diagram that shows how enterprise controls are mapped to Audit Manager controls.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-mapping.png)
+![A diagram that shows how enterprise controls are mapped to Audit Manager controls.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/control-mapping.png)
 
 
 ### Option 1: Map enterprise controls to common controls (recommended)

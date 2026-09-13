@@ -73,7 +73,7 @@ You can use the assessment filter to focus on a specific active assessment.
 
 By default, the dashboard displays aggregated data for all your active assessments. If you want to view data for a specific assessment, you apply an assessment filter. This is a page-level filter that applies to all widgets on the dashboard. 
 
-![Screenshot of the assessment filter dropdown on the Audit Manager dashboard.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-assessment_filter-console.png)
+![Screenshot of the assessment filter dropdown on the Audit Manager dashboard.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-assessment_filter-console.png)
 
 
 To apply the assessment filter, select an assessment from the drop-down list at the top of the dashboard. This list shows up to 10 of your active assessments. The most recently created assessments appear first. If you have many active assessments, you can start typing the name of an assessment to quickly find it. After you select an assessment, the dashboard displays data for that assessment only. 
@@ -93,12 +93,12 @@ By default, the daily snapshot shows the following data for all your active asse
 
 1. **Active assessments** - The total number of your active assessments. Choose this number to see links to these assessments.
 
-![Screenshot of the daily snapshot widget on the Audit Manager dashboard.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-daily_snapshot-console.png)
+![Screenshot of the daily snapshot widget on the Audit Manager dashboard.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-daily_snapshot-console.png)
 
 
 The daily snapshot data changes based on the [Assessment filter](#dashboard-assessment-filters) that you apply. When you specify an assessment, the data reflects the daily counts for that assessment only. In this case, the daily snapshot shows the name of the assessment that you specified. You can choose the name of the assessment to open it.
 
-![Screenshot of the daily snapshot widget when an assessment filter is applied.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-daily_snapshot_with_assessment_filter_applied-console.png)
+![Screenshot of the daily snapshot widget when an assessment filter is applied.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-daily_snapshot_with_assessment_filter_applied-console.png)
 
 
 ### Controls with non-compliant evidence grouped by control domain
@@ -112,24 +112,24 @@ By default, the widget shows the following data for all your active assessments:
 
 1. **Evidence breakdown** – A bar chart that shows a breakdown of the evidence compliance status.
 
-![Screenshot of controls with non-compliant evidence grouped by domain.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-controls_with_noncompliant_evidence_grouped_by_domain_collapsed-console.png)
+![Screenshot of controls with non-compliant evidence grouped by domain.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-controls_with_noncompliant_evidence_grouped_by_domain_collapsed-console.png)
 
 
 To expand a control domain, choose the arrow next to its name. When expanded, the console shows up to 10 controls for each domain. These controls are ranked according to the highest total count of non-compliant evidence. 
 
 The data in this widget changes based on the [Assessment filter](#dashboard-assessment-filters) that you apply. When you specify an assessment, you see data for that assessment only. In addition, you can also download a CSV file for each available control domain in the assessment. 
 
-![Screenshot that shows the CSV download option for a control domain.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-controls_with_noncompliant_evidence_grouped_by_domain-csv-console.png)
+![Screenshot that shows the CSV download option for a control domain.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-controls_with_noncompliant_evidence_grouped_by_domain-csv-console.png)
 
 
 The .csv file includes the full list of controls in the domain that are associated with non-compliant evidence. The following example shows the CSV data columns with fictionalized values.
 
-![Screenshot of a sample .csv file that shows a list of controls that have non-compliant evidence.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-csv-file.png)
+![Screenshot of a sample .csv file that shows a list of controls that have non-compliant evidence.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-csv-file.png)
 
 
 Lastly, when you apply an assessment filter, the control names under each domain are hyperlinked. Choose any control to open the control details page in the specified assessment. 
 
-![Screenshot of controls with non-compliant evidence grouped by domain and filtered by assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-controls_with_noncompliant_evidence_grouped_by_domain-console.png)
+![Screenshot of controls with non-compliant evidence grouped by domain and filtered by assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/dashboard-controls_with_noncompliant_evidence_grouped_by_domain-console.png)
 
 
 **Tip**  

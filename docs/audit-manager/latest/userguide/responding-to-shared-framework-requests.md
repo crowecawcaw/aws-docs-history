@@ -32,15 +32,15 @@ Start by checking your share request notifications. The **Received requests** ta
 1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home).
 
 1. If you have a share request notification, Audit Manager displays a red dot next to the navigation menu icon.  
-![Screenshot of the minimized navigation menu icon with a notification.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png)
+![Screenshot of the minimized navigation menu icon with a notification.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_minimized_notification-console.png)
 
 1. Expand the navigation pane and look next to **Share requests**. A notification badge indicates the number of share requests that need your attention.   
-![Screenshot of the expanded navigation menu, with share requests highlighted and a notification badge.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_expanded_notification-console.png)
+![Screenshot of the expanded navigation menu, with share requests highlighted and a notification badge.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-navigation_expanded_notification-console.png)
 
 1. Choose **Share requests**. By default, this page opens on the **Received requests** tab. 
 
 1. Identify the share requests that need your action by looking for items with a blue dot.   
-![Screenshot of a received request with a blue dot next to the framework name.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-console.png)
+![Screenshot of a received request with a blue dot next to the framework name.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/framework_sharing-blue_dot_notification-console.png)
 
 1. (Optional) To view only requests that expire in the next 30 days, find the **All statuses** dropdown list and select **Expiring**.
 

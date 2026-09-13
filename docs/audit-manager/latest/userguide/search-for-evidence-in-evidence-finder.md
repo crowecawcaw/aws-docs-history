@@ -50,7 +50,7 @@ Follow these steps to perform a search query in evidence finder.
    1. For **Date range**, select a range.
 
    1. For **Resource compliance**, select an evaluation status.  
-![The required assessment, date range, and resource compliance filters in evidence finder.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-required_filters-console.png)
+![The required assessment, date range, and resource compliance filters in evidence finder.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-required_filters-console.png)
 
 1. (Optional) Choose **Additional filters - optional** to narrow the search even further.
 
@@ -59,17 +59,17 @@ Follow these steps to perform a search query in evidence finder.
    1. Continue to build more filters in the same way.
 
    1. To remove an unwanted filter, choose **Remove**.  
-![An additional filter for a specific control in evidence finder.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-additional_filters-console.png)
+![An additional filter for a specific control in evidence finder.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-additional_filters-console.png)
 
 1. Under **Grouping**, specify whether you want to group the search results.
 
    1. If you want to group the results, select a value to group the results by.
 
    1. If you don’t want to group the results, proceed to step 6.  
-![The group results option selected, with a chosen group by value.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-grouping-console.png)
+![The group results option selected, with a chosen group by value.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-grouping-console.png)
 
 1. Choose **Search**.   
-![The search button to start a search query in evidence finder.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-search-console.png)
+![The search button to start a search query in evidence finder.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-search-console.png)
 
 Your search might take a few minutes, depending on the amount of evidence data that you have. Feel free to navigate away from evidence finder while the search is in progress. A flash bar notifies you when the search results are ready.
 
@@ -84,14 +84,14 @@ Stopping a search query can still result in charges. You're charged for the amou
 **To stop an in-progress search query**
 
 1. In the blue progress flash bar at the top of the screen, choose **Stop search**.   
-![The blue flash bar that indicates when a search query is in progress.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/in_progress_search-evidence-finder-console.png)
+![The blue flash bar that indicates when a search query is in progress.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/in_progress_search-evidence-finder-console.png)
 
 1. (Optional) Review the partial results that were returned before you stopped the search query.
 
    1. If you're on the evidence finder page, the partial results are displayed on the screen.
 
    1. If you navigated away from evidence finder, choose **View partial results** in the green confirmation flash bar.  
-![The green flash bar that indicates when a search was stopped.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/stopped_search-evidence-finder-console.png)
+![The green flash bar that indicates when a search was stopped.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/stopped_search-evidence-finder-console.png)
 
 ### Editing search filters
 <a name="editing-a-search"></a>
@@ -104,20 +104,20 @@ When you edit your filters and choose **Search**, this starts a new search query
 **To edit a recent search query**
 
 1. From the **View results** page, choose **Evidence finder** from the breadcrumb navigation menu.   
-![The breadcrumb navigation menu on the console with evidence finder highlighted.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/breadcrumb_menu-evidence-finder-console.png)
+![The breadcrumb navigation menu on the console with evidence finder highlighted.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/breadcrumb_menu-evidence-finder-console.png)
 
 1. Choose **Filters and grouping** to expand the filter selection.   
-![The expandable Filters and grouping section of evidence finder.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/expand_filters-evidence-finder-console.png)
+![The expandable Filters and grouping section of evidence finder.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/expand_filters-evidence-finder-console.png)
 
 1. Next, edit your filters or start a new search.
 
    1. To edit filters, adjust or remove the current filters and grouping selection.
 
    1. To start over, choose **Clear filters** and apply the filters and grouping selection of your choice.  
-![The clear filters button that you can use to start over with a new search query.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-clear_filters-console.png)
+![The clear filters button that you can use to start over with a new search query.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-clear_filters-console.png)
 
 1. When you’re done, choose **Search**.  
-![The search button to start a new search query in evidence finder.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-search-console.png)
+![The search button to start a new search query in evidence finder.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/evidence-finder-search-console.png)
 
 ## Next steps
 <a name="search-for-evidence-in-evidence-finder-next-steps"></a>

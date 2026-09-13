@@ -33,28 +33,28 @@ You can enable Audit Manager using the AWS Management Console, the Audit Manager
 1. Use the credentials of your IAM identity to sign in.
 
 1. Choose **Set up AWS Audit Manager**.   
-![Screenshot of the setup call to action.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-set-up-audit-manager-console.png)
+![Screenshot of the setup call to action.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-set-up-audit-manager-console.png)
 
 1. Under **Permissions**, no action is required. This is because Audit Manager uses a [service-linked role](https://docs.aws.amazon.com/audit-manager/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AWSAuditManagerServiceRolePolicy) to connect to data sources on your behalf. You can review the service-linked role by choosing **View IAM service-linked role permission**.   
-![Screenshot of the permissions section of the Audit Manager setup options.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-permissions-console.png)
+![Screenshot of the permissions section of the Audit Manager setup options.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-permissions-console.png)
 
 1. Under **Data encryption**, the default option is for Audit Manager to create and manage an AWS KMS key for securely storing your data.   
-![Screenshot of the default encryptions setting for Audit Manager setup.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-encryption-default-console.png)
+![Screenshot of the default encryptions setting for Audit Manager setup.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-encryption-default-console.png)
 
    If you want to use your own customer managed key to encrypt data in Audit Manager, select the check box next to **Customize encryption settings (advanced)**. You can then choose an existing KMS key or [create a new one](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html).  
-![Screenshot of the custom encryptions setting for Audit Manager setup.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-encryption-custom-console.png)
+![Screenshot of the custom encryptions setting for Audit Manager setup.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-encryption-custom-console.png)
 
 1. (Optional) Under **Delegated administrator - optional**, you can specify a delegated administrator account if you want Audit Manager to run assessments for multiple accounts. For more information and recommendations, see [Enable and set up AWS Organizations](setup-recommendations.md#enabling-orgs).   
-![Screenshot of the delegated administrator section of the Audit Manager setup options.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-delegated-admin-console.png)
+![Screenshot of the delegated administrator section of the Audit Manager setup options.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-delegated-admin-console.png)
 
 1. (Optional) Under **AWS Config – optional**, we recommend that you enable AWS Config for an optimal experience. This enables Audit Manager to generate evidence using AWS Config rules. For instructions and recommended settings, see [Enable and set up AWS Config](setup-recommendations.md#config-recommendations).  
-![Screenshot of the AWS Config section of the Audit Manager setup options.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-config-console.png)
+![Screenshot of the AWS Config section of the Audit Manager setup options.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-config-console.png)
 
 1. (Optional) Under **Security Hub CSPM – optional**, we recommend that you enable Security Hub CSPM for an optimal experience. This enables Audit Manager to generate evidence using Security Hub CSPM checks. For instructions and recommended settings, see [Enable and set up AWS Security Hub CSPM](setup-recommendations.md#securityhub-recommendations).  
-![Screenshot of the Security Hub CSPM section of the Audit Manager setup options.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-securityhub-console.png)
+![Screenshot of the Security Hub CSPM section of the Audit Manager setup options.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-securityhub-console.png)
 
 1. Choose **Complete setup** to finish the setup process.  
-![Screenshot that shows how to complete Audit Manager setup in the console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-complete-console.png)
+![Screenshot that shows how to complete Audit Manager setup in the console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/setup-complete-console.png)
 
 ------
 #### [ AWS CLI ]

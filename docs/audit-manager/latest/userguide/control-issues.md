@@ -45,7 +45,7 @@ Each AWS account can only manually upload up to 100 evidence files to a control 
 ## What does it mean if a control says “Replacement available”?
 <a name="control-replacement-available"></a>
 
-![Screenshot of the pop-up message that prompts you to recreate your assessment.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/troubleshooting-control-replacement-available-console.png)
+![Screenshot of the pop-up message that prompts you to recreate your assessment.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/troubleshooting-control-replacement-available-console.png)
 
 
 If you see this message, this means that an updated control definition is available for one or more of the standard controls in your custom framework. We recommend that you replace these controls so that you can benefit from the improved evidence sources that Audit Manager now provides.
@@ -91,11 +91,11 @@ For assistance with this issue, we recommend that you contact your AWS Config ad
 If you can't find the rule that you're looking for under the dropdown list of custom rules, it’s possible that the rule is a managed rule.  
 You can use the [AWS Config console](https://console.aws.amazon.com/config/) to verify if a rule is a managed rule. To do so, choose **Rules** in the left navigation menu and look for the rule in the table. If the rule is a managed rule, the **Type** column shows **AWS managed**.  
 
-![A managed rule as shown in the AWS Config console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/rules-managed-console.png)
+![A managed rule as shown in the AWS Config console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/rules-managed-console.png)
 
 After you've confirmed that it's a managed rule, return to Audit Manager and select **Managed rule** as the rule type. Then, look for the managed rule identifier keyword in the dropdown list of managed rules.  
 
-![The same rule that's found in the managed rule dropdown list in the Audit Manager console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/control_data_source-managed_rule-console.png)
+![The same rule that's found in the managed rule dropdown list in the Audit Manager console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/control_data_source-managed_rule-console.png)
 
 
 ## I can’t see the managed rule that I want to use
@@ -103,34 +103,34 @@ After you've confirmed that it's a managed rule, return to Audit Manager and sel
 
 Before you select a rule from the dropdown list in the Audit Manager console, make sure that you selected **Managed rule** as the rule type.
 
-![The managed rule option selected in the Audit Manager console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/ruletype-managed-console.png)
+![The managed rule option selected in the Audit Manager console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/ruletype-managed-console.png)
 
 
 If you still can’t see the managed rule that you’re expecting to find, it’s possible that you’re looking for the rule *name*. Instead, you must look for the rule *identifier*. 
 
 If you're using a default managed rule, the name and the identifier are similar. The name is in lowercase and uses dashes (for example, `iam-policy-in-use`). The identifier is in uppercase and uses underscores (for example, `IAM_POLICY_IN_USE`). To find the identifier for a default managed rule, review the [list of supported AWS Config managed rule keywords](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html#aws-config-managed-rules) and follow the link for the rule that you want to use. This takes you to the AWS Config documentation for that managed rule. From here, you can see both the name and the identifier. Look for the identifier keyword in the Audit Manager dropdown list.
 
-![A managed rule name and identifier as shown in the AWS Config documentation.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/ruleidentifier-configdocs.png)
+![A managed rule name and identifier as shown in the AWS Config documentation.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/ruleidentifier-configdocs.png)
 
 
 If you're using a custom managed rule, you can use the [AWS Config console](https://console.aws.amazon.com/config/) to find the rule identifier. For example, let's say that you want to use the managed rule called `customized-iam-policy-in-use`. To find the identifier for this rule, go to the AWS Config console, choose **Rules** in the left navigation menu, and choose the rule in the table.
 
-![A managed rule with a customized name in the rules table of the AWS Config console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/managedrule-customname-configconsole.png)
+![A managed rule with a customized name in the rules table of the AWS Config console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/managedrule-customname-configconsole.png)
 
 
 Choose **Edit** to open details about the managed rule.
 
-![The edit rule option in the AWS Config console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/editrule-configconsole.png)
+![The edit rule option in the AWS Config console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/editrule-configconsole.png)
 
 
 Under the **Details** section, you can find the source identifier that the managed rule was created from (`IAM_POLICY_IN_USE`).
 
-![The managed rule details in the AWS Config console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/ruledetails-configconsole.png)
+![The managed rule details in the AWS Config console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/ruledetails-configconsole.png)
 
 
 You can now return to the Audit Manager console and select the same identifier keyword from the dropdown list.
 
-![A managed rule identifier as shown in the Audit Manager console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/ruleidentifier-console.png)
+![A managed rule identifier as shown in the Audit Manager console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/ruleidentifier-console.png)
 
 
 ## I want to share a custom framework, but it has controls that use custom AWS Config rules as a data source. Can the recipient collect evidence for these controls?

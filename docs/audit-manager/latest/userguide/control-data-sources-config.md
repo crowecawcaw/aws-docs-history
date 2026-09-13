@@ -24,7 +24,7 @@ In addition to managed rules, you can also map your custom rules to a control da
 
   For example, suppose that you’re creating an assessment for CIS v1.2.0. This framework has a control named [Ensure IAM password policy requires a minimum length of 14 or greater](https://docs.aws.amazon.com/securityhub/latest/userguide/iam-controls.html#iam-15). In AWS Config, the [iam-password-policy](https://docs.aws.amazon.com/config/latest/developerguide/iam-password-policy.html) rule has a `MinimumPasswordLength` parameter that checks password length. The default value for this parameter is 14 characters. As a result, the rule aligns with the control requirements. If you aren’t using the default parameter value, ensure that the value you’re using is equal to or greater than the 14 character requirement from CIS v1.2.0. You can find the default parameter details for each managed rule in the [AWS Config documentation](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html).
 + If you need to verify if an AWS Config rule is a managed rule or a custom rule, you can do this using the [AWS Config console](https://console.aws.amazon.com/config/). From the left navigation menu, choose **Rules** and look for the rule in the table. If it's a managed rule, the **Type** column shows **AWS managed**.  
-![A managed rule as shown in the AWS Config console.](http://docs.aws.amazon.com/audit-manager/latest/userguide/images/rules-managed-console.png)
+![A managed rule as shown in the AWS Config console.](https://docs.aws.amazon.com/audit-manager/latest/userguide/images/rules-managed-console.png)
 
 ## Supported AWS Config managed rules
 <a name="aws-config-managed-rules"></a>
