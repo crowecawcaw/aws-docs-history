@@ -10,7 +10,7 @@ This architecture outlines the process to add or improve search for an existing 
 ## Search-Backed Applications
 <a name="diagram1"></a>
 
-![Architecture diagram showing search-backed applications with Amazon OpenSearch Service, SageMaker AI, Amazon RDS, and Amazon S3.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/search-backed-applications/images/search-backed-applications.png)
+![Architecture diagram showing search-backed applications with Amazon OpenSearch Service, SageMaker AI, Amazon RDS, and Amazon S3.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/search-backed-applications/images/search-backed-applications.png)
 
 
 The following steps describe the architecture:
