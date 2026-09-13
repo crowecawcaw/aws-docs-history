@@ -72,4 +72,4 @@ WHERE request_type = ' GET' AND service_status_code = ' 200'
 
 The following image shows the results of the query of the sample data.
 
-![Example query results in Athena of IIS log file format log files stored in Amazon S3.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-iis-logs-2.png)
+![Example query results in Athena of IIS log file format log files stored in Amazon S3.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-iis-logs-2.png)

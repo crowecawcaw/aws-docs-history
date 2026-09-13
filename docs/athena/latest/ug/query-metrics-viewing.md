@@ -46,7 +46,7 @@ You can view query metrics in the Athena console or in the CloudWatch console.
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home).
 
 1. If the console navigation pane is not visible, choose the expansion menu on the left.  
-![Choose the expansion menu.](http://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
+![Choose the expansion menu.](https://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
 
 1. In the navigation pane, choose **Workgroups**.
 
@@ -57,13 +57,13 @@ You can view query metrics in the Athena console or in the CloudWatch console.
 If you just recently enabled metrics for the workgroup and/or there has been no recent query activity, the graphs on the dashboard may be empty. Query activity is retrieved from CloudWatch depending on the interval that you specify in the next step. 
 
 1. In the **Metrics** section, choose the metrics interval that Athena should use to fetch the query metrics from CloudWatch, or specify a custom interval.  
-![Specifying the metrics retrieval interval for a workgroup in the Athena console.](http://docs.aws.amazon.com/athena/latest/ug/images/wg-custom-interval.png)
+![Specifying the metrics retrieval interval for a workgroup in the Athena console.](https://docs.aws.amazon.com/athena/latest/ug/images/wg-custom-interval.png)
 
 1. To refresh the displayed metrics, choose the refresh icon.  
-![Choose the refresh icon.](http://docs.aws.amazon.com/athena/latest/ug/images/wg-refresh-metrics.png)
+![Choose the refresh icon.](https://docs.aws.amazon.com/athena/latest/ug/images/wg-refresh-metrics.png)
 
 1. Click the arrow next to the refresh icon to choose how frequently you want the metrics display to be updated.  
-![Choosing a refresh interval for the workgroup metrics display in the Athena console.](http://docs.aws.amazon.com/athena/latest/ug/images/wg-choose-refresh-interval.png)
+![Choosing a refresh interval for the workgroup metrics display in the Athena console.](https://docs.aws.amazon.com/athena/latest/ug/images/wg-choose-refresh-interval.png)
 
 ## View query metrics in the CloudWatch console
 <a name="query-metrics-viewing-cw-console"></a>

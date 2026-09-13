@@ -29,7 +29,7 @@ Federated access to the Athena API is supported for a particular type of identit
 
 The following diagram illustrates the authentication process of federated access to the Athena API.
 
-![Diagram of federated access to the Athena API.](http://docs.aws.amazon.com/athena/latest/ug/images/athena-saml-based-federation.png)
+![Diagram of federated access to the Athena API.](https://docs.aws.amazon.com/athena/latest/ug/images/athena-saml-based-federation.png)
 
 
 1. A user in your organization uses a client application with the JDBC or ODBC driver to request authentication from your organization's IdP. The IdP is ADFS 3.0.

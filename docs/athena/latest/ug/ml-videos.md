@@ -10,7 +10,7 @@ The following videos, which use the Preview version of Machine Learning (ML) wit
 
 The following video shows how to combine Athena with the machine learning capabilities of Amazon SageMaker AI to predict customer churn.
 
-[![AWS Videos](http://img.youtube.com/vi/CUHbSpekRVg/0.jpg)](http://www.youtube.com/watch?v=CUHbSpekRVg)
+[![AWS Videos](https://img.youtube.com/vi/CUHbSpekRVg/0.jpg)](https://www.youtube.com/watch?v=CUHbSpekRVg)
 
 
 ## Detecting botnets
@@ -18,4 +18,4 @@ The following video shows how to combine Athena with the machine learning capabi
 
 The following video shows how one company uses Amazon Athena and Amazon SageMaker AI to detect botnets.
 
-[![AWS Videos](http://img.youtube.com/vi/0dUv-jCt2aw/0.jpg)](http://www.youtube.com/watch?v=0dUv-jCt2aw)
+[![AWS Videos](https://img.youtube.com/vi/0dUv-jCt2aw/0.jpg)](https://www.youtube.com/watch?v=0dUv-jCt2aw)

@@ -9,7 +9,7 @@ Each time an Athena principal (user, group, or role) runs a query on data regist
 
 The following diagram shows how credential vending works in Athena on a query-by-query basis for a hypothetical `SELECT` query on a table with an Amazon S3 location or data catalog registered in Lake Formation:
 
-![Credential vending workflow for a query on an Athena table.](http://docs.aws.amazon.com/athena/latest/ug/images/lake-formation-athena-security.png)
+![Credential vending workflow for a query on an Athena table.](https://docs.aws.amazon.com/athena/latest/ug/images/lake-formation-athena-security.png)
 
 
 1. A principal runs a `SELECT` query in Athena.

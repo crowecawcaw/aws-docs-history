@@ -31,7 +31,7 @@ To create a workgroup or update an existing workgroup with managed query results
 1. Choose **Create Workgroup** to create a new workgroup or edit an existing workgroup from the list.
 
 1. Under **Query result configuration**, choose **Athena managed**.   
-![The Query result configuration menu.](http://docs.aws.amazon.com/athena/latest/ug/images/athena-managed.png)
+![The Query result configuration menu.](https://docs.aws.amazon.com/athena/latest/ug/images/athena-managed.png)
 
 1. For **Encrypt query results**, choose the encryption option that you want. For more information, see [Choose query result encryption](#managed-query-results-encryption-at-rest).
 

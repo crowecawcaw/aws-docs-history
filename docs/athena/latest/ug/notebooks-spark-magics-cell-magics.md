@@ -10,7 +10,7 @@ Magics that are written on several lines are preceded by a double percent sign (
 
 This cell magic allows to run SQL statements directly without having to decorate it with Spark SQL statement. The command also displays the output by implicitly calling `.show()` on the returned dataframe.
 
-![Using %%sql.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-1.png)
+![Using %%sql.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-1.png)
 
 
 The `%%sql` command auto truncates column outputs to a width of 20 characters. Currently, this setting is not configurable. To work around this limitation, use the following full syntax and modify the parameters of the `show` method accordingly. 

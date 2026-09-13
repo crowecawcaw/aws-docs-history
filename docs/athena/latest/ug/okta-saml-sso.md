@@ -25,20 +25,20 @@ First, use the Okta dashboard to create and configure a SAML 2.0 app for single 
 1. In the navigation pane, choose **Applications**, **Applications**.
 
 1. On the **Applications** page, choose **Create App Integration**.  
-![Choose Create App Integration.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-1.png)
+![Choose Create App Integration.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-1.png)
 
 1. In the **Create a new app integration** dialog box, for **Sign-in method**, select **SAML 2.0**, and then choose **Next**.  
-![Choose SAML 2.0](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-2.png)
+![Choose SAML 2.0](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-2.png)
 
 1. On the **Create SAML Integration** page, in the **General Settings** section, enter a name for the application. This tutorial uses the name **Athena SSO**.  
-![Enter a name for the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-3.png)
+![Enter a name for the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-3.png)
 
 1. Choose **Next**.
 
 1. On the **Configure SAML** page, in the **SAML Settings** section, enter the following values:
    + For **Single sign on URL**, enter **http://localhost:7890/athena**
    + For **Audience URI**, enter **urn:amazon:webservices**  
-![Enter SAML settings.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-4.png)
+![Enter SAML settings.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-4.png)
 
 1. For **Attribute Statements (optional)**, enter the following two name/value pairs. These are required mapping attributes.
    + For **Name**, enter the following URL:
@@ -51,7 +51,7 @@ First, use the Okta dashboard to create and configure a SAML 2.0 app for single 
      **https://aws.amazon.com/SAML/Attributes/RoleSessionName**
 
      For **Value**, enter **user.email**.  
-![Enter SAML attributes for Athena.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-5.png)
+![Enter SAML attributes for Athena.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-5.png)
 
 1. Choose **Next**, and then choose **Finish**. 
 
@@ -69,13 +69,13 @@ Now that your application has been created, you can obtain its login URL and oth
 1. Choose the application for which you want to find the login URL (for example, **AthenaSSO**).
 
 1. On the page for your application, choose **Sign On**.  
-![Choose Sign On.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-6.png)
+![Choose Sign On.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-6.png)
 
 1. Choose **View Setup Instructions**.  
-![Choose View Setup Instructions.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-7.png)
+![Choose View Setup Instructions.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-7.png)
 
 1. On the **How to Configure SAML 2.0 for Athena SSO** page, find the URL for **Identity Provider Issuer**. Some places in the Okta dashboard refer to this URL as the **SAML issuer ID**.  
-![The value for Identity Provider Issuer.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-8.png)
+![The value for Identity Provider Issuer.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-8.png)
 
 1. Copy or store the value for **Identity Provider Single Sign-On URL**. 
 
@@ -91,13 +91,13 @@ Now you are ready to configure the browser SAML connection to Athena using the O
 1. In Windows, launch the **ODBC Data Sources** program.
 
 1. In the **ODBC Data Source Administrator** program, choose **Add**.  
-![Choose Add.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-9.png)
+![Choose Add.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-9.png)
 
 1. Choose **Simba Athena ODBC Driver**, and then choose **Finish**.  
-![Choose Simba Athena Driver](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-10.png)
+![Choose Simba Athena Driver](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-10.png)
 
 1. In the **Simba Athena ODBC Driver DSN Setup** dialog, enter the values described.  
-![Enter the DSN setup values.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-11.png)
+![Enter the DSN setup values.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-11.png)
    + For **Data Source Name,** enter a name for your data source (for example, **Athena ODBC 64**).
    + For **Description**, enter a description for your data source.
    + For **AWS Region**, enter the AWS Region that you are using (for example, **us-west-1**).
@@ -106,7 +106,7 @@ Now you are ready to configure the browser SAML connection to Athena using the O
 1. Choose **Authentication Options**.
 
 1. In the **Authentication Options** dialog box, choose or enter the following values.  
-![Enter authentication options.](http://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-12.png)
+![Enter authentication options.](https://docs.aws.amazon.com/athena/latest/ug/images/okta-saml-sso-12.png)
    + For **Authentication Type**, choose **BrowserSAML**.
    + For **Login URL**, enter the **Identity Provider Single Sign-On URL** that you obtained from the Okta dashboard.
    + For **Listen Port**, enter **7890**.

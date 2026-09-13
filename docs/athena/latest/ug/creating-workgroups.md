@@ -15,7 +15,7 @@ The following procedure shows how to use the Athena console to create a workgrou
    + Whether the workgroup query results must be encrypted. Because encryption is per-workgroup (not per query), you should create separate workgroups for encrypted and non-encrypted query results. For more information, see [Encrypt Athena query results stored in Amazon S3](encrypting-query-results-stored-in-s3.md).
 
 1. If the console navigation pane is not visible, choose the expansion menu on the left.  
-![Choose the expansion menu.](http://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
+![Choose the expansion menu.](https://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
 
 1. In the Athena console navigation pane, choose **Workgroups**.
 

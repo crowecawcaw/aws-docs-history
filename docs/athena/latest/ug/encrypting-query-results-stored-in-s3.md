@@ -17,14 +17,14 @@ In the console, you can configure the setting for encryption of query results in
 If your workgroup has the **Override client-side settings** field selected, then all queries in the workgroup use the workgroup settings. The encryption configuration and the query results location specified on the **Settings** tab in the Athena console, by API operations and by JDBC and ODBC drivers aren't used. For more information, see [Override client-side settings](workgroups-settings-override.md).
 
 1. In the Athena console, choose **Settings**.  
-![The Settings tab of the Athena query editor.](http://docs.aws.amazon.com/athena/latest/ug/images/settings.png)
+![The Settings tab of the Athena query editor.](https://docs.aws.amazon.com/athena/latest/ug/images/settings.png)
 
 1. Choose **Manage**.
 
 1. For **Location of query result**, enter or choose an Amazon S3 path. This is the Amazon S3 location where query results are stored.
 
 1. Choose **Encrypt query results**.  
-![The Encrypt query results option on the Manage settings page of the Athena console.](http://docs.aws.amazon.com/athena/latest/ug/images/encrypt-query-results.png)
+![The Encrypt query results option on the Manage settings page of the Athena console.](https://docs.aws.amazon.com/athena/latest/ug/images/encrypt-query-results.png)
 
 1. For **Encryption type**, choose **CSE-KMS**, **SSE-KMS**, or **SSE-S3**. Of these three, **CSE-KMS** offers the highest level of encryption and **SSE-S3** the lowest.
 

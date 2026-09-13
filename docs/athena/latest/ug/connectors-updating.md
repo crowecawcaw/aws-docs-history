@@ -102,17 +102,17 @@ In preparation for the upgrade, you must find and note the following information
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home).
 
 1. If the console navigation pane is not visible, choose the expansion menu on the left.  
-![Choose the expansion menu.](http://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
+![Choose the expansion menu.](https://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
 
 1. In the navigation pane, choose **Data sources and catalogs**.
 
 1. In the **Data source name** column, choose the link to the data source for your connector.
 
 1. In the **Data source details** section, under **Lambda function**, choose the link to your Lambda function.  
-![Choose the link to your Lambda function.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-updating-1.png)
+![Choose the link to your Lambda function.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-updating-1.png)
 
 1. On the **Functions** page, in the **Function name** column, note the function name for your connector.  
-![Note the function name.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-updating-2.png)
+![Note the function name.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-updating-2.png)
 
 1. Choose the function name link.
 
@@ -167,7 +167,7 @@ Follow these steps to deploy a new version of your connector.
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home).
 
 1. If the console navigation pane is not visible, choose the expansion menu on the left.  
-![Choose the expansion menu.](http://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
+![Choose the expansion menu.](https://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
 
 1. In the navigation pane, choose **Data sources and catalogs**.
 
@@ -176,7 +176,7 @@ Follow these steps to deploy a new version of your connector.
 1. Choose the data source that you want to upgrade, and then choose **Next**.
 
 1. In the **Connection details** section, choose **Create Lambda function**. This opens the Lambda console where you will be able to deploy your updated application.  
-![Connector page in the AWS Lambda console.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-updating-3.png)
+![Connector page in the AWS Lambda console.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-updating-3.png)
 
 1. Because you are not actually creating a new data source, you can close the Athena console tab.
 
@@ -193,7 +193,7 @@ Follow these steps to deploy a new version of your connector.
 1. To verify that your application has been updated, choose the **Deployments** tab.
 
    The **Deployment history** section shows that your update is complete.  
-![Connector update completed.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-updating-4.png)
+![Connector update completed.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-updating-4.png)
 
 1. To confirm the new version number, you can expand **SAM template** as before, find **CodeUri**, and check the connector version number in the **Key** field.
 

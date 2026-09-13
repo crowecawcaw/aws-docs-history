@@ -106,7 +106,7 @@ When the console informs you that your function has been successfully created, y
 1. From the pane on the left, choose **Environment variables**.
 
 1. In the **Environment variables** section, choose **Edit**.  
-![Choose Edit to edit the environment variables for the Lambda function.](http://docs.aws.amazon.com/athena/latest/ug/images/connect-data-source-hive-existing-iam-role-5.png)
+![Choose Edit to edit the environment variables for the Lambda function.](https://docs.aws.amazon.com/athena/latest/ug/images/connect-data-source-hive-existing-iam-role-5.png)
 
 1. On the **Edit environment variables** page, use the **Add environment variable** option to add the following environment variable keys and values:
    + **HMS\_URIS** – Use the following syntax to enter the URI of your Hive metastore host that uses the Thrift protocol at port 9083.
@@ -115,7 +115,7 @@ When the console informs you that your function has been successfully created, y
      thrift://{{<host_name>}}:9083
      ```
    + **SPILL\_LOCATION** – Specify an Amazon S3 location in your Amazon Web Services account to hold spillover metadata if the Lambda function response size exceeds 4 MB.  
-![Specifying values for the Lambda function environment variables.](http://docs.aws.amazon.com/athena/latest/ug/images/connect-data-source-hive-existing-iam-role-6.png)
+![Specifying values for the Lambda function environment variables.](https://docs.aws.amazon.com/athena/latest/ug/images/connect-data-source-hive-existing-iam-role-6.png)
 
 1. Choose **Save**.
 

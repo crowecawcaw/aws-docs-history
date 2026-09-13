@@ -19,18 +19,18 @@ Now that you have the `cloudfront_logs` table created in Athena based on the dat
 1. Choose **Run**.
 
    The results look like the following:  
-![Viewing query results in the Athena console.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-query-results.png)
+![Viewing query results in the Athena console.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-query-results.png)
 
 1. To save the results of the query to a `.csv` file, choose **Download results**.  
-![Downloading query results in CSV format.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-query-results-download-csv.png)
+![Downloading query results in CSV format.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-query-results-download-csv.png)
 
 1. To view or run previous queries, choose the **Recent queries** tab.  
-![Choose Recent queries to view previous queries.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-recent-queries.png)
+![Choose Recent queries to view previous queries.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-recent-queries.png)
 
 1. To download the results of a previous query from the **Recent queries** tab, select the query, and then choose **Download results**. Queries are retained for 45 days.  
-![Viewing and downloading recent queries in the Athena console.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-recent-queries-tab-download.png)
+![Viewing and downloading recent queries in the Athena console.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-recent-queries-tab-download.png)
 
 1. To download one or more recent SQL query strings to a CSV file, choose **Download CSV**.  
-![Downloading recent query strings to a CSV file.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-recent-queries-tab-download-csv.png)
+![Downloading recent query strings to a CSV file.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-recent-queries-tab-download-csv.png)
 
    For more information, see [Work with query results and recent queries](querying.md).

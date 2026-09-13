@@ -87,7 +87,7 @@ To query the `timeseries` data type, you must configure a view in AWS Glue table
 
 The following image shows an example of AWS Glue table properties configured to set up a view over a time series.
 
-![Configuring table properties in AWS Glue to set up a view over a time series.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-timestream-1.png)
+![Configuring table properties in AWS Glue to set up a view over a time series.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-timestream-1.png)
 
 
 ## Required Permissions

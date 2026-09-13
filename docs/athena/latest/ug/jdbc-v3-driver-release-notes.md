@@ -5,6 +5,17 @@
 
 These release notes provide details of improvements and fixes in the Amazon Athena JDBC 3.x driver.
 
+## 3.8.1
+<a name="jdbc-v3-driver-release-notes-2026-08-28"></a>
+
+Released 2026-08-28
+
+### Improvements
+<a name="jdbc-v3-driver-release-notes-2026-08-28-improvements"></a>
++ **Security update** – This release upgrades the bundled Netty dependency from 4.1.133.Final to 4.1.135.Final, which includes security fixes. To help keep your connections to Athena secure, we recommend upgrading to this driver version.
++ **Proxy support for Amazon DataZone authentication** – The Amazon DataZone IAM and Amazon DataZone IAM Identity Center credential providers now route their network calls through the configured proxy. This resolves connection failures to Amazon DataZone and IAM Identity Center endpoints in environments where a proxy handles DNS resolution.
++ **Trusted identity propagation in AWS GovCloud (US)** – The IAM Identity Center context provider now derives its partition from the resolved access role ARN. This resolves authentication failures for trusted identity propagation in AWS GovCloud (US) Regions.
+
 ## 3.8.0
 <a name="jdbc-v3-driver-release-notes-2026-06-03"></a>
 

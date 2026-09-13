@@ -128,7 +128,7 @@ In the `STRUCT` model, the name of the `STRUCT` field should match the column fa
 
 The following image shows a table configured in AWS Glue that uses a combination of the two approaches.
 
-![Modeling column families in AWS Glue for Apache Hbase.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-hbase-1.png)
+![Modeling column families in AWS Glue for Apache Hbase.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-hbase-1.png)
 
 
 ## Data type support

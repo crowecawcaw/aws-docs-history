@@ -61,7 +61,7 @@ The following considerations apply:
 
 The following video shows how to use partition projection to improve the performance of your queries in Athena.
 
-[![AWS Videos](http://img.youtube.com/vi/iUD5pPpcyZk/0.jpg)](http://www.youtube.com/watch?v=iUD5pPpcyZk)
+[![AWS Videos](https://img.youtube.com/vi/iUD5pPpcyZk/0.jpg)](https://www.youtube.com/watch?v=iUD5pPpcyZk)
 
 
 **Topics**

@@ -85,10 +85,10 @@ Watch the following videos to learn more about using Athena Federated Query.
 **Video: Analyze Results of Federated Query in Amazon Athena in Quick**  
 The following video demonstrates how to analyze results of an Athena Federated Query in Quick.
 
-[![AWS Videos](http://img.youtube.com/vi/HyM5d0TmwAQ/0.jpg)](http://www.youtube.com/watch?v=HyM5d0TmwAQ)
+[![AWS Videos](https://img.youtube.com/vi/HyM5d0TmwAQ/0.jpg)](https://www.youtube.com/watch?v=HyM5d0TmwAQ)
 
 
 **Video: Game Analytics Pipeline**  
 The following video shows how to deploy a scalable serverless data pipeline to ingest, store, and analyze telemetry data from games and services using Amazon Athena federated queries.
 
-[![AWS Videos](http://img.youtube.com/vi/xcS-flUMVbs/0.jpg)](http://www.youtube.com/watch?v=xcS-flUMVbs)
+[![AWS Videos](https://img.youtube.com/vi/xcS-flUMVbs/0.jpg)](https://www.youtube.com/watch?v=xcS-flUMVbs)

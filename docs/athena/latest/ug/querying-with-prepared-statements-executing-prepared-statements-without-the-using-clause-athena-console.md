@@ -10,7 +10,7 @@ If you run an existing prepared statement with the syntax `EXECUTE` {{prepared\_
 1. In the query editor, instead of using the syntax `EXECUTE prepared_statement USING` {{value1}}`,` {{value2}} ` ...`, use the syntax `EXECUTE` {{prepared\_statement}}.
 
 1. Choose **Run**. The **Enter parameters** dialog box appears.  
-![Entering parameter values for a prepared statement in the Athena console.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-with-prepared-statements-2.png)
+![Entering parameter values for a prepared statement in the Athena console.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-with-prepared-statements-2.png)
 
 1. Enter the values in order in the **Execution parameters** dialog box. Because the original text of the query is not visible, you must remember the meaning of each positional parameter or have the prepared statement available for reference.
 

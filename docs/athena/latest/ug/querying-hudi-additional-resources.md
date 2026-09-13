@@ -10,7 +10,7 @@ For additional resources on using Apache Hudi with Athena, see the following res
 
 The following video shows how you can use Amazon Athena to query a read-optimized Apache Hudi dataset in your Amazon S3-based data lake.
 
-[![AWS Videos](http://img.youtube.com/vi/TVcreqxBaGA/0.jpg)](http://www.youtube.com/watch?v=TVcreqxBaGA)
+[![AWS Videos](https://img.youtube.com/vi/TVcreqxBaGA/0.jpg)](https://www.youtube.com/watch?v=TVcreqxBaGA)
 
 
 ## Blog posts

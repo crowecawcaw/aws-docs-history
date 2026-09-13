@@ -50,7 +50,7 @@ The reference implementation is available as the following two AWS SAM applicati
 
 The following diagram shows how Athena interacts with your external Hive metastore.
 
-![How Athena interacts with your external Hive metastore.](http://docs.aws.amazon.com/athena/latest/ug/images/connect-to-data-source-hive-workflow.png)
+![How Athena interacts with your external Hive metastore.](https://docs.aws.amazon.com/athena/latest/ug/images/connect-to-data-source-hive-workflow.png)
 
 
 In this workflow, your database-connected Hive metastore is inside your VPC. You use Hive Server2 to manage your Hive metastore using the Hive CLI.

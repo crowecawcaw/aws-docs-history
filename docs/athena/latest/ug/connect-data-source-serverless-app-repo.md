@@ -43,7 +43,7 @@ Now you are ready to use the Athena console to make the data source connector av
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home).
 
 1. If the console navigation pane is not visible, choose the expansion menu on the left.  
-![Choose the expansion menu.](http://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
+![Choose the expansion menu.](https://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
 
 1. In the navigation pane, choose **Data sources and catalogs**.
 

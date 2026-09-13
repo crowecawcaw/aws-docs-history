@@ -29,23 +29,23 @@ This section describes how to use the Athena console to generate table or column
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home).
 
 1. In the Athena query editor **Tables** list, choose the three vertical dots for the table that you want, and then choose **Generate statistics**.  
-![Context menu for a table in the Athena query editor.](http://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-1.png)
+![Context menu for a table in the Athena query editor.](https://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-1.png)
 
 1. In the **Generate statistics** dialog box, choose **All columns** to generate statistics for all columns in the table, or choose **Selected columns** to select specific columns. **All columns** is the default setting.  
-![The generate statistics dialog box.](http://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-2.png)
+![The generate statistics dialog box.](https://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-2.png)
 
 1. For **AWS Glue service role**, create or select an existing service role to give permission to AWS Glue to generate statistics. The AWS Glue service role also requires [`S3:GetObject`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) permissions to the Amazon S3 bucket that contains the table's data.  
-![Choosing a AWS Glue service role.](http://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-3.png)
+![Choosing a AWS Glue service role.](https://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-3.png)
 
 1. Choose **Generate statistics**. A **Generating statistics for {{table\_name}}** notification banner displays the task status.  
-![The Generating statistics notification banner.](http://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-4.png)
+![The Generating statistics notification banner.](https://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-4.png)
 
 1. To view details in the AWS Glue console, choose **View in Glue**. 
 
    For information about viewing statistics in the AWS Glue console, see [Viewing column statistics](https://docs.aws.amazon.com/glue/latest/dg/view-column-stats.html) in the *AWS Glue Developer Guide*. 
 
 1. After statistics have been generated, the tables and columns that have statistics show the word **Statistics** in parentheses, as in the following image.  
-![A table showing statistics icons in the Athena query editor.](http://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-5.png)
+![A table showing statistics icons in the Athena query editor.](https://docs.aws.amazon.com/athena/latest/ug/images/cost-based-optimizer-5.png)
 
 Now when you run your queries, Athena will perform cost-based optimization on the tables and columns for which statistics were generated.
 
@@ -61,4 +61,4 @@ In contrast, Hive tables in the Glue Data Catalog do not have a similar table pr
 
 For additional information, see the following resource.
 
-[![AWS Videos](http://img.youtube.com/vi/zUHEXJdHUxs?si=rMAhJj3I5IlhN-1R/0.jpg)](http://www.youtube.com/watch?v=zUHEXJdHUxs?si=rMAhJj3I5IlhN-1R)
+[![AWS Videos](https://img.youtube.com/vi/zUHEXJdHUxs?si=rMAhJj3I5IlhN-1R/0.jpg)](https://www.youtube.com/watch?v=zUHEXJdHUxs?si=rMAhJj3I5IlhN-1R)

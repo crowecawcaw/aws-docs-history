@@ -15,14 +15,14 @@ Athena query result files are data files that contain information that can be co
    When the query finishes running, the **Results** pane shows the query results.
 
 1. To download a CSV file of the query results, choose **Download results** above the query results pane. Depending on your browser and browser configuration, you may need to confirm the download.  
-![Saving query results to a .csv file in the Athena console.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-query-results-download-csv.png)
+![Saving query results to a .csv file in the Athena console.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-query-results-download-csv.png)
 
 **To download a query results file for an earlier query**
 
 1. Choose **Recent queries**.  
-![Choose Recent queries to view previous queries.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-recent-queries.png)
+![Choose Recent queries to view previous queries.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-recent-queries.png)
 
 1. Use the search box to find the query, select the query, and then choose **Download results**.
 **Note**  
 You cannot use the **Download results** option to retrieve query results that have been deleted manually, or retrieve query results that have been deleted or moved to another location by Amazon S3 [lifecycle rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html).  
-![Choose Recent queries to find and download previous query results.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-recent-queries-tab-download.png)
+![Choose Recent queries to find and download previous query results.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-recent-queries-tab-download.png)

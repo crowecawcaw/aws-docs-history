@@ -14,6 +14,6 @@ You can use the **Recent queries** tab of the Athena console to export one or mo
 1. (Optional) Use the search box to filter for the recent queries that you want to download.
 
 1. Choose **Download CSV**.  
-![Choose Download CSV.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-recent-queries-csv.png)
+![Choose Download CSV.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-recent-queries-csv.png)
 
 1. At the file save prompt, choose **Save**. The default file name is `Recent Queries` followed by a timestamp (for example, `Recent Queries 2022-12-05T16 04 27.352-08 00.csv`)

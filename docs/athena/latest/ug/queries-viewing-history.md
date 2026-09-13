@@ -12,7 +12,7 @@ You can use the Athena console to see which queries succeeded or failed, and vie
 1. Choose **Recent queries**. The **Recent queries** tab shows information about each query that ran.
 
 1. To open a query statement in the query editor, choose the query's execution ID.  
-![Choose the execution ID of a query to see it in the query editor.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-view-query-statement.png)
+![Choose the execution ID of a query to see it in the query editor.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-view-query-statement.png)
 
 1. To see the details for a query that failed, choose the **Failed** link for the query.  
-![Choose the Failed link for a query to view information about the failure.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-view-query-failure-details.png)
+![Choose the Failed link for a query to view information about the failure.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-view-query-failure-details.png)

@@ -16,12 +16,12 @@ In Athena, you can use the **DataZone environment** selector on the query editor
 1. In the upper right of the Athena console, next to **Workgroup**, choose **DataZone environment**.
 **Note**  
 The **DataZone environment** option is present only when you have one or more domains available in DataZone.   
-![Choose DataZone environment.](http://docs.aws.amazon.com/athena/latest/ug/images/datazone-using-1.png)
+![Choose DataZone environment.](https://docs.aws.amazon.com/athena/latest/ug/images/datazone-using-1.png)
 
 1. Use the **DataZone environment** selector to choose a DataZone environment.  
-![Choose a DataZone environment](http://docs.aws.amazon.com/athena/latest/ug/images/datazone-using-2.png)
+![Choose a DataZone environment](https://docs.aws.amazon.com/athena/latest/ug/images/datazone-using-2.png)
 
 1. In the **Switch to DataZone environment** dialog box, verify that the environment is the one that you want, and then choose **Switch to DataZone environment**.  
-![Verify the change to a DataZone environment.](http://docs.aws.amazon.com/athena/latest/ug/images/datazone-using-3.png)
+![Verify the change to a DataZone environment.](https://docs.aws.amazon.com/athena/latest/ug/images/datazone-using-3.png)
 
 For more information about getting started with DataZone and Athena, see the [Getting started](https://docs.aws.amazon.com/datazone/latest/userguide/getting-started.html) tutorial in the *Amazon DataZone User Guide*.

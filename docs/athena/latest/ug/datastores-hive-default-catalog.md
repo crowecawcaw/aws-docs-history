@@ -21,7 +21,7 @@ When you run DML and DDL queries on external Hive metastores, you can simplify y
    ```
    select * from hms_tpch.customer limit 10:
    ```  
-![A DML query using a default data source.](http://docs.aws.amazon.com/athena/latest/ug/images/datastores-hive-default-catalog-2.png)
+![A DML query using a default data source.](https://docs.aws.amazon.com/athena/latest/ug/images/datastores-hive-default-catalog-2.png)
 
 1. When you use multiple data sources in a query, you can omit only the default data source name, and must specify the full name for any non-default data sources. 
 
@@ -58,7 +58,7 @@ As with DML statements, you can omit the datasource and database prefixes from t
 
 In the following image, the `hms-catalog-1` data source and the `hms_tpch` database are selected in the query editor. The `show create table customer` statement succeeds even though the `hms-catalog-1` prefix and the `hms_tpch` database name are omitted from the query itself.
 
-![A DDL statement using the default catalog.](http://docs.aws.amazon.com/athena/latest/ug/images/datastores-hive-default-catalog-4.png)
+![A DDL statement using the default catalog.](https://docs.aws.amazon.com/athena/latest/ug/images/datastores-hive-default-catalog-4.png)
 
 
 ## Specifying a default data source in a JDBC connection string
@@ -77,4 +77,4 @@ The following connection string specifies the default data source {{hms-catalog-
 
 The following image shows a sample JDBC connection URL as configured in SQL Workbench.
 
-![Configuring a JDBC connection URL in SQL Workbench.](http://docs.aws.amazon.com/athena/latest/ug/images/datastores-hive-default-catalog-jdbc-1.jpg)
+![Configuring a JDBC connection URL in SQL Workbench.](https://docs.aws.amazon.com/athena/latest/ug/images/datastores-hive-default-catalog-jdbc-1.jpg)

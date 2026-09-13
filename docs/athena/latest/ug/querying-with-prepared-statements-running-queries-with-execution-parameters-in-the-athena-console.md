@@ -17,7 +17,7 @@ When you run a parameterized query that has execution parameters (question marks
 1. Choose **Run.**
 
 1. In the **Enter parameters** dialog box, enter a value in order for each of the question marks in the query.  
-![Enter values for the query parameters in order](http://docs.aws.amazon.com/athena/latest/ug/images/querying-with-prepared-statements-1.png)
+![Enter values for the query parameters in order](https://docs.aws.amazon.com/athena/latest/ug/images/querying-with-prepared-statements-1.png)
 
 1. When you are finished entering the parameters, choose **Run**. The editor shows the query results for the parameter values that you entered.
 

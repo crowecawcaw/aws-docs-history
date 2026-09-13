@@ -15,7 +15,7 @@ A view shows in the console only if you have already created it.
 1. In the Athena console, choose **Views**, and then choose a view to expand it and show the columns in the view.
 
 1. Choose the three vertical dots next to the view to show a list of actions for the view.  
-![The actions menu for a view.](http://docs.aws.amazon.com/athena/latest/ug/images/view-options.png)
+![The actions menu for a view.](https://docs.aws.amazon.com/athena/latest/ug/images/view-options.png)
 
 1. Choose actions to preview the view, insert the view name into the query editor, delete the view, see the view's properties, or display and edit the view in the query editor.
 

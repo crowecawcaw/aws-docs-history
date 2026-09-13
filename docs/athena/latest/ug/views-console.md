@@ -13,7 +13,7 @@ You can create a view in the Athena console by using a template or by running an
 **To use a template to create a view**
 
 1. In the Athena console, next to **Tables and views**, choose **Create**, and then choose **Create view**.  
-![Creating a view.](http://docs.aws.amazon.com/athena/latest/ug/images/create-view.png)
+![Creating a view.](https://docs.aws.amazon.com/athena/latest/ug/images/create-view.png)
 
    This action places an editable view template into the query editor. 
 
@@ -28,7 +28,7 @@ You can create a view in the Athena console by using a template or by running an
 1. Use the Athena query editor to run an existing query.
 
 1. Under the query editor window, choose **Create**, and then choose **View from query**.  
-![Choose Create, View from query.](http://docs.aws.amazon.com/athena/latest/ug/images/create-view-from-query.png)
+![Choose Create, View from query.](https://docs.aws.amazon.com/athena/latest/ug/images/create-view-from-query.png)
 
 1. In the **Create View** dialog box, enter a name for the view, and then choose **Create**. View names cannot contain special characters other than underscore `(_)`. See [Name databases, tables, and columns](tables-databases-columns-names.md). Avoid using [Escape reserved keywords in queries](reserved-words.md) for naming views.
 

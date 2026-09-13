@@ -17,7 +17,7 @@ You cannot use the CloudTrail console to create an Athena table for organization
 1. In the navigation pane, choose **Event history**. 
 
 1. Choose **Create Athena table**.  
-![Choose Create Athena table](http://docs.aws.amazon.com/athena/latest/ug/images/cloudtrail-logs-create-athena-table.png)
+![Choose Create Athena table](https://docs.aws.amazon.com/athena/latest/ug/images/cloudtrail-logs-create-athena-table.png)
 
 1. For **Storage location**, use the down arrow to select the Amazon S3 bucket where log files are stored for the trail to query.
 **Note**  

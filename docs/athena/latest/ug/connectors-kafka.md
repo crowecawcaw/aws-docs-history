@@ -381,7 +381,7 @@ After you create a secret in Secrets Manager, you can view it in the Secrets Man
 1. On the details page for your secret, choose **Retrieve secret value**.
 
    The following image shows an example secret with three key/value pairs: `keystore_password`, `truststore_password`, and `ssl_key_password`.  
-![Retrieving an SSL secret in Secrets Manager](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-kafka-setup-1.png)
+![Retrieving an SSL secret in Secrets Manager](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-kafka-setup-1.png)
 
 For more information about using SSL with Kafka, see [Encryption and Authentication using SSL](https://kafka.apache.org/documentation/#security_ssl) in the Apache Kafka documentation.
 
@@ -401,7 +401,7 @@ Set the environment variables as shown in the following table.
 
 The following image shows an example secret in the Secrets Manager console with two key/value pairs: one for `username`, and one for `password`.
 
-![Retrieving a SCRAM secret in Secrets Manager](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-kafka-setup-2.png)
+![Retrieving a SCRAM secret in Secrets Manager](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-kafka-setup-2.png)
 
 
 For more information about using SASL/SCRAM with Kafka, see [Authentication using SASL/SCRAM](https://kafka.apache.org/documentation/#security_sasl_scram) in the Apache Kafka documentation.

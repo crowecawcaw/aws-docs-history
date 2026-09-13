@@ -20,7 +20,7 @@ To deploy an Athena data source connector for Hive, you can use the [AWS Serverl
     The two applications have the same functionality and differ only in their implementation. You can use either one to create a Lambda function that connects Athena to your Hive metastore.
 
 1. Choose the name of the connector that you want to use. This tutorial uses **AthenaHiveMetastoreFunction**.  
-![Choose the name of the Athena data source connector for Hive.](http://docs.aws.amazon.com/athena/latest/ug/images/connect-data-source-sar-hive-1.png)
+![Choose the name of the Athena data source connector for Hive.](https://docs.aws.amazon.com/athena/latest/ug/images/connect-data-source-sar-hive-1.png)
 
 1. Under **Application settings**, enter the parameters for your Lambda function.
    + **LambdaFuncName** – Provide a name for the function. For example, **myHiveMetastore**.

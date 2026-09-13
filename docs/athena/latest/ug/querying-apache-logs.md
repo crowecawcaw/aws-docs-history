@@ -68,7 +68,7 @@ WHERE server_status = '404'
 ```
 The following image shows the results of the query in the Athena Query Editor.  
 
-![Querying an Apache log from Athena for HTTP 404 entries.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-apache-logs-1.png)
+![Querying an Apache log from Athena for HTTP 404 entries.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-apache-logs-1.png)
 
 
 **Example – Filter for successful requests**  
@@ -81,7 +81,7 @@ WHERE server_status = '200'
 ```
 The following image shows the results of the query in the Athena Query Editor.  
 
-![Querying an Apache log from Athena for HTTP 200 entries.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-apache-logs-2.png)
+![Querying an Apache log from Athena for HTTP 200 entries.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-apache-logs-2.png)
 
 
 **Example – Filter by timestamp**  

@@ -36,29 +36,29 @@ To connect Power BI desktop to your Amazon Athena data, perform the following st
 1. In the search box, enter **Athena**.
 
 1. Select **Amazon Athena**, and then choose **Connect**.  
-![Choose the Amazon Athena connector](http://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-1.png)
+![Choose the Amazon Athena connector](https://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-1.png)
 
 1. On the **Amazon Athena** connection page, enter the following information.
    + For **DSN**, enter the name of the ODBC DSN that you want to use. For instructions on configuring your DSN, see the [ODBC driver documentation](connect-with-odbc-driver-and-documentation-download-links.md#connect-with-odbc-driver-documentation).
    + For **Data Connectivity mode**, choose a mode that is appropriate for your use case, following these general guidelines:
      + For smaller datasets, choose **Import**. When using Import mode, Power BI works with Athena to import the contents of the entire dataset for use in your visualizations.
      + For larger datasets, choose **DirectQuery**. In DirectQuery mode, no data is downloaded to your workstation. While you create or interact with a visualization, Microsoft Power BI works with Athena to dynamically query the underlying data source so that you're always viewing current data. For more information about DirectQuery, see [Use DirectQuery in power BI desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-use-directquery) in the Microsoft documentation.  
-![Enter your data connectivity information](http://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-2.png)
+![Enter your data connectivity information](https://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-2.png)
 
 1. Choose **OK**.
 
 1. At the prompt to configure data source authentication, choose either **Use Data Source Configuration** or **AAD Authentication**, and then choose **Connect**.  
-![Choose a data source authentication method](http://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-3.png)
+![Choose a data source authentication method](https://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-3.png)
 
    Your data catalog, databases, and tables appear in the **Navigator** dialog box.  
-![The Navigator displays your data](http://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-4.png)
+![The Navigator displays your data](https://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-4.png)
 
 1. In the **Display Options** pane, select the check box for the dataset that you want to use.
 
 1. If you want to transform the dataset before you import it, go to the bottom of the dialog box and choose **Transform Data**. This opens the Power Query Editor so that you can filter and refine the set of data you want to use.
 
 1. Choose **Load**. After the load is complete, you can create visualizations like the one in the following image. If you selected **DirectQuery** as the import mode, Power BI issues a query to Athena for the visualization that you requested.  
-![A sample data visualization](http://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-5.png)
+![A sample data visualization](https://docs.aws.amazon.com/athena/latest/ug/images/connect-with-odbc-and-power-bi-5.png)
 
 ## Setting up an on-premises gateway
 <a name="connect-with-odbc-and-power-bi-gateway-setup"></a>

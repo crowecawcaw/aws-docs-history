@@ -14,7 +14,7 @@ In each workgroup, you can:
 
 The following video shows how to create custom dashboards and set alarms and triggers on metrics in CloudWatch. You can use pre-populated dashboards directly from the Athena console to consume these query metrics.
 
-[![AWS Videos](http://img.youtube.com/vi/x1V_lhkdKCg/0.jpg)](http://www.youtube.com/watch?v=x1V_lhkdKCg)
+[![AWS Videos](https://img.youtube.com/vi/x1V_lhkdKCg/0.jpg)](https://www.youtube.com/watch?v=x1V_lhkdKCg)
 
 
 **Topics**

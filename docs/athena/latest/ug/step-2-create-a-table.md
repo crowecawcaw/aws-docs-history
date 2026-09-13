@@ -66,13 +66,13 @@ Now you are ready to create the table in the Athena query editor. The `CREATE TA
 1. In the navigation pane, for **Database**, make sure that `mydatabase` is selected.
 
 1. To give yourself more room in the query editor, you can choose the arrow icon to collapse the navigation pane.  
-![Choose the arrow to collapse the navigation pane.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-collapse-nav-pane.png)
+![Choose the arrow to collapse the navigation pane.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-collapse-nav-pane.png)
 
 1. To create a tab for a new query, choose the plus (**\+**) sign in the query editor. You can have up to ten query tabs open at once.  
-![Choose the plus icon to create a new query.](http://docs.aws.amazon.com/athena/latest/ug/images/getting-started-new-query-tab.png)
+![Choose the plus icon to create a new query.](https://docs.aws.amazon.com/athena/latest/ug/images/getting-started-new-query-tab.png)
 
 1. To close one or more query tabs, choose the arrow next to the plus sign. To close all tabs at once, choose the arrow, and then choose **Close all tabs**.  
-![Choose the arrow icon to close one or more query tabs.](http://docs.aws.amazon.com/athena/latest/ug/images/close-all-query-editor-tabs.png)
+![Choose the arrow icon to close one or more query tabs.](https://docs.aws.amazon.com/athena/latest/ug/images/close-all-query-editor-tabs.png)
 
 1. In the query pane, enter the following `CREATE EXTERNAL TABLE` statement. The regex breaks out the operating system, browser, and browser version information from the `ClientInfo` field in the log data.
 **Note**  

@@ -78,12 +78,12 @@ When `encryption_option` and `kms_key` are specified alongside `has_encrypted_da
 
 When you use the Athena console to [create a table using a form](data-sources-glue-manual-table.md) and specify the table location, select the **Encrypted data set** option to add the `has_encrypted_data='true'` property to the table.
 
-![Select Encrypted data set in the add table form](http://docs.aws.amazon.com/athena/latest/ug/images/add-table-form-encrypted-option.png)
+![Select Encrypted data set in the add table form](https://docs.aws.amazon.com/athena/latest/ug/images/add-table-form-encrypted-option.png)
 
 
 In the Athena console list of tables, CSE-KMS encrypted tables with `has_encrypted_data='true'` display a key-shaped icon.
 
-![Encrypted table icon](http://docs.aws.amazon.com/athena/latest/ug/images/tables-list-encrypted-table-icon.png)
+![Encrypted table icon](https://docs.aws.amazon.com/athena/latest/ug/images/tables-list-encrypted-table-icon.png)
 
 
 ## Writing SSE-S3/SSE-KMS/CSE-KMS encrypted data

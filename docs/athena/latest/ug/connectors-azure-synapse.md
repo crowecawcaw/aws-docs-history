@@ -187,15 +187,15 @@ The Amazon Athena Azure Synapse connector supports Microsoft Active Directory Au
 1. Using an account that has administrative privileges, sign in to the Microsoft Azure portal at [https://portal.azure.com/](https://portal.azure.com/).
 
 1. In the search box, enter **Azure Synapse Analytics**, and then choose **Azure Synapse Analytics**.  
-![Choose Azure Synapse Analytics.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-1.png)
+![Choose Azure Synapse Analytics.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-1.png)
 
 1. Open the menu on the left.  
-![Choose the Azure portal menu.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-2.png)
+![Choose the Azure portal menu.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-2.png)
 
 1. In the navigation pane, choose **Azure Active Directory**.
 
 1. On the **Set admin** tab, set **Active Directory admin** to a new or existing user.  
-![Use the Set admin tab](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-3.png)
+![Use the Set admin tab](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-3.png)
 
 1. In AWS Secrets Manager, store the admin username and password credentials. For information on creating a secret in Secrets Manager, see [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html).
 
@@ -208,7 +208,7 @@ The Amazon Athena Azure Synapse connector supports Microsoft Active Directory Au
 1. On the **Secrets** page, choose the link to your secret.
 
 1. On the details page for your secret, choose **Retrieve secret value**.  
-![Viewing secrets in AWS Secrets Manager.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-4.png)
+![Viewing secrets in AWS Secrets Manager.](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-4.png)
 
 ##### Modifying the connection string
 <a name="connectors-azure-synapse-modifying-the-connection-string"></a>

@@ -31,23 +31,23 @@ First, use the Okta dashboard to create and configure a SAML 2.0 app for single 
 1. In the search box, enter **Amazon Web Services Redshift**, and then choose **Amazon Web Services Redshift SAML**.
 
 1. Choose **Add Integration**.  
-![Choose Add integration.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-1.png)
+![Choose Add integration.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-1.png)
 
 1. In the **General Settings Required** section, for **Application label**, enter a name for the application. This tutorial uses the name **Athena-ODBC-Okta.**  
-![Enter a name for the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-2.png)
+![Enter a name for the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-2.png)
 
 1. Choose **Done**.
 
 1. On the page for your Okta application (for example, **Athena-ODBC-Okta**), choose **Sign On**.  
-![Choose the Sign On tab.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-3.png)
+![Choose the Sign On tab.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-3.png)
 
 1. In the **Settings** section, choose **Edit**.  
-![Choose Edit.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-4.png)
+![Choose Edit.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-4.png)
 
 1. In the **Advanced Sign-on Settings** section, configure the following values.
    + For **IdP ARN and Role ARN**, enter your AWS IDP ARN and Role ARN as comma-separated values. For information about the IAM role format, see [Configuring SAML assertions for the authentication response](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html) in the *IAM User Guide*.
    + For **Session Duration**, enter a value between 900 and 43200 seconds. This tutorial uses the default of 3600 (1 hour).  
-![Enter advanced sign-on settings.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-5.png)
+![Enter advanced sign-on settings.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-5.png)
 
    The **DbUser Format**, **AutoCreate**, and **Allowed DBGroups** settings aren't used by Athena. You don't have to configure them.
 
@@ -61,7 +61,7 @@ Now that you created the Okta application, you're ready to retrieve the applicat
 **To retrieve configuration information for ODBC from Okta**
 
 1. Choose the **General** tab of your Okta application, and then scroll down to the **App Embed Link** section.  
-![The embed link URL of the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-6.png)
+![The embed link URL of the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-6.png)
 
    Your **Embed Link** URL is in the following format:
 
@@ -83,12 +83,12 @@ Now you're ready to add a user to your Okta application.
 1. In the left navigation pane, choose **Directory**, and then choose **People**.
 
 1. Choose **Add person**.  
-![Choose Add person.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-7.png)
+![Choose Add person.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-7.png)
 
 1. In the **Add Person** dialog box, enter the following information.
    + Enter values for **First name** and **Last name**. This tutorial uses **test user**.
    + Enter values for **Username** and **Primary email**. This tutorial uses **test@amazon.com** for both. Your security requirements for passwords might vary.  
-![Enter user credentials.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-8.png)
+![Enter user credentials.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-8.png)
 
 1. Choose **Save**.
 
@@ -99,10 +99,10 @@ Now you're ready to assign the user that you created to your application.
 1. In the navigation pane, choose **Applications**, **Applications**, and then choose the name of your application (for example, **Athena-ODBC-Okta**).
 
 1. Choose **Assign,** and then choose **Assign to People**.  
-![Choose Assign to People.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-9.png)
+![Choose Assign to People.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-9.png)
 
 1. Choose the **Assign** option for your user, and then choose **Done**.  
-![Choose Assign, and then choose Done.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-10.png)
+![Choose Assign, and then choose Done.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-10.png)
 
 1. At the prompt, choose **Save and Go Back**. The dialog box shows the user's status as **Assigned**.
 
@@ -117,7 +117,7 @@ Now you're ready to assign the user that you created to your application.
 1. Open the context (right-click) menu for **View IdP metadata**, and then choose the browser option to save the file.
 
 1. Save the file with an `.xml` extension.  
-![Saving IdP metadata to a local XML file.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-11.png)
+![Saving IdP metadata to a local XML file.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-11.png)
 
 ## Create an AWS SAML Identity Provider and Role
 <a name="odbc-okta-plugin-create-an-aws-saml-identity-provider-and-role"></a>
@@ -129,13 +129,13 @@ Now you are ready to upload the metadata XML file to the IAM console in AWS. You
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/IAM/](https://console.aws.amazon.com/IAM/).
 
 1. In the navigation pane, choose **Identity providers**, and then choose **Add provider**.  
-![Choose Add provider.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-12.png)
+![Choose Add provider.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-12.png)
 
 1. On the **Add an Identity provider** page, for **Configure provider**, enter the following information.
    + For **Provider type**, choose **SAML**.
    + For **Provider name**, enter a name for your provider (for example, ** AthenaODBCOkta**).
    + For **Metadata document**, use the **Choose file** option to upload the identity provider (IdP) metadata XML file that you downloaded.  
-![Enter information for the identity provider.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-13.png)
+![Enter information for the identity provider.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-13.png)
 
 1. Choose **Add provider**.
 
@@ -147,20 +147,20 @@ Now you are ready to create an IAM role for Athena and Amazon S3 access. You wil
 **To create an IAM role for your user**
 
 1. In the IAM console navigation pane, choose **Roles**, and then choose **Create role**.  
-![Choose Create role.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-14.png)
+![Choose Create role.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-14.png)
 
 1. On the **Create role** page, choose the following options:
    + For **Select type of trusted entity**, choose **SAML 2.0 Federation.**
    + For **SAML 2.0–based provider**, choose the SAML identity provider that you created (for example, **AthenaODBCOkta**).
    + Select **Allow programmatic and AWS Management Console access**.  
-![Choose options on the Create role page.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-15.png)
+![Choose options on the Create role page.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-15.png)
 
 1. Choose **Next**.
 
 1. On the **Add Permissions** page, for **Filter policies**, enter **AthenaFull**, and then press ENTER.
 
 1. Select the `AmazonAthenaFullAccess` managed policy, and then choose **Next**.  
-![Choose the AmazonAthenaFullAccess managed policy.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-16.png)
+![Choose the AmazonAthenaFullAccess managed policy.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-16.png)
 
 1. On the **Name, review, and create** page, for **Role name**, enter a name for the role (for example, **Athena-ODBC-OktaRole**), and then choose **Create role**.
 
@@ -174,17 +174,17 @@ Now you're ready to configure the Okta ODBC connection to Athena using the ODBC 
 1. In Windows, launch the **ODBC Data Sources** program.
 
 1. In the **ODBC Data Source Administrator** program, choose **Add**.  
-![Choose Add.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-17.png)
+![Choose Add.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-17.png)
 
 1. Choose **Simba Athena ODBC Driver**, and then choose **Finish**.  
-![Choose the Athena ODBC driver.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-18.png)
+![Choose the Athena ODBC driver.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-18.png)
 
 1. In the **Simba Athena ODBC Driver DSN Setup** dialog, enter the values described.
    + For **Data Source Name,** enter a name for your data source (for example, **Athena ODBC 64**).
    + For **Description**, enter a description for your data source.
    + For **AWS Region**, enter the AWS Region that you're using (for example, **us-west-1**).
    + For **S3 Output Location**, enter the Amazon S3 path where you want your output to be stored.  
-![Enter values for the data source name setup.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-19.png)
+![Enter values for the data source name setup.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-19.png)
 
 1. Choose **Authentication Options**.
 
@@ -196,7 +196,7 @@ Now you're ready to configure the Okta ODBC connection to Athena using the ODBC 
    + For **IdP Port**, enter **443**.
    + For **App ID**, enter the value that you recorded earlier (the last two segments of your Okta embed link).
    + For **Okta App Name**, enter **amazon\_aws\_redshift**.  
-![Enter the authentication options.](http://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-20.png)
+![Enter the authentication options.](https://docs.aws.amazon.com/athena/latest/ug/images/odbc-okta-plugin-20.png)
 
 1. Choose **OK**.
 

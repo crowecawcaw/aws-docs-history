@@ -9,7 +9,7 @@ Athena for Spark has a known calculation code block size limit of 68000 characte
 
 The following image shows this error in the Athena console notebook editor.
 
-![Code block size error message in the Athena notebook editor](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-troubleshooting-code-block-size-limit-1.png)
+![Code block size error message in the Athena notebook editor](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-troubleshooting-code-block-size-limit-1.png)
 
 
 The same error can occur when you use the AWS CLI to run a calculation that has a large code block, as in the following example.

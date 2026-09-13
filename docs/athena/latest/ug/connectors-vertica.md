@@ -24,7 +24,7 @@ This connector does not use Glue Connections to centralize configuration propert
 
 The following diagram shows the workflow of a query that uses the Vertica connector.
 
-![Workflow of a Vertica query from Amazon Athena](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-vertica-1.png)
+![Workflow of a Vertica query from Amazon Athena](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-vertica-1.png)
 
 
 1. A SQL query is issued against one or more tables in Vertica.

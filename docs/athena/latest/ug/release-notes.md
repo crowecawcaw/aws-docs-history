@@ -20,6 +20,11 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 ## Athena release notes for 2026
 <a name="release-notes-2026"></a>
 
+### August 28, 2026
+<a name="release-note-2026-08-28"></a>
+
+With Athena, you can now use JDBC driver version 3.8.1. This maintenance release upgrades the bundled Netty dependency to include security fixes, along with additional fixes and improvements. To help keep your connections to Athena secure, we recommend upgrading to this driver version. This driver version is available in all AWS Regions where Athena is supported. For more information about this version of the driver, see [Amazon Athena JDBC 3.x release notes](jdbc-v3-driver-release-notes.md). To download the latest JDBC driver, see [JDBC 3.x driver download](jdbc-v3-driver.md#jdbc-v3-driver-download).
+
 ### August 24, 2026
 <a name="release-note-2026-08-24"></a>
 
@@ -2828,10 +2833,10 @@ Added support for AvroSerDe and OpenCSVSerDe, US East (Ohio) Region, and bulk ed
   + [Open CSV SerDe for processing CSV](csv-serde.md)
 + **US East (Ohio)** Region (**us-east-2**) launch. You can now run queries in this region.
 + You can now use the **Create Table From S3 bucket data** form to define table schema in bulk. In the query editor, choose **Create**, **S3 bucket data**, and then choose **Bulk add columns** in the **Column details** section.  
-![The Bulk add columns option.](http://docs.aws.amazon.com/athena/latest/ug/images/bulk-add.png)
+![The Bulk add columns option.](https://docs.aws.amazon.com/athena/latest/ug/images/bulk-add.png)
 
   Type name value pairs in the text box and choose **Add**.  
-![The Bulk add columns text box.](http://docs.aws.amazon.com/athena/latest/ug/images/bulk_column.png)
+![The Bulk add columns text box.](https://docs.aws.amazon.com/athena/latest/ug/images/bulk_column.png)
 
 #### Improvements
 <a name="release-note-2017-02-20-improvements"></a>

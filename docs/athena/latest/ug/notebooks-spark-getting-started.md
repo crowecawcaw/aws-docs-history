@@ -24,7 +24,7 @@ Apache Spark enabled workgroups can use the Athena notebook editor, but not the 
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home)
 
 1. If the console navigation pane is not visible, choose the expansion menu on the left.  
-![Choose the expansion menu.](http://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
+![Choose the expansion menu.](https://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
 
 1. In the navigation pane, choose **Workgroups**.
 

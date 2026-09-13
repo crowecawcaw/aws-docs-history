@@ -19,7 +19,7 @@ You can get details about a session state change from the Athena notebook editor
 1. View the **Current session** tab. The **Session information** section shows you information like session ID, workgroup, status, and state change reason.
 
    The following screen capture example shows information in the **State change reason** section of the **Session information** dialog box for a Spark session error in Athena.  
-![Viewing session state change information in the Athena for Spark console.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-custom-jar-cfg-1.jpeg)
+![Viewing session state change information in the Athena for Spark console.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-custom-jar-cfg-1.jpeg)
 
 **To view session state information using the Athena API**
 + In the Athena API, you can find session state change information in the `StateChangeReason` field of [SessionStatus](https://docs.aws.amazon.com/athena/latest/APIReference/API_SessionStatus.html) object.

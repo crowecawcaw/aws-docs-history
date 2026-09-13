@@ -12,7 +12,7 @@ You can use the `%table` magic command to display dataframe data in table format
 
 The following example creates a dataframe with two columns and three rows of data, then displays the data in table format.
 
-![Using the %table magic command.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-graphs-1.png)
+![Using the %table magic command.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-graphs-1.png)
 
 
 ## %matplot
@@ -30,7 +30,7 @@ plt.plot(x,y)
 %matplot plt
 ```
 
-![Using the %matplot magic command.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-graphs-2.png)
+![Using the %matplot magic command.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-graphs-2.png)
 
 
 ### Use the matplotlib and seaborn libraries together
@@ -51,7 +51,7 @@ sns.barplot(x, y)
 %matplot plt
 ```
 
-![Using %matplot to render seaborn data.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-graphs-3.png)
+![Using %matplot to render seaborn data.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-graphs-3.png)
 
 
 ## %plotly
@@ -97,4 +97,4 @@ close=df['AAPL.Close'])])
 %plotly fig
 ```
 
-![Using the %ploty magic command.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-graphs-4.png)
+![Using the %ploty magic command.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-graphs-4.png)

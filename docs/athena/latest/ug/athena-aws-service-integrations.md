@@ -96,7 +96,7 @@ Call Athena with AWS Step Functions. AWS Step Functions can control select AWS s
 **Video: Orchestrate Amazon Athena Queries using AWS Step Functions**  
 The following video demonstrates how to use Amazon Athena and AWS Step Functions to run a regularly scheduled Athena query and generate a corresponding report.
 
-[![AWS Videos](http://img.youtube.com/vi/rRr3QfIMTBo/0.jpg)](http://www.youtube.com/watch?v=rRr3QfIMTBo)
+[![AWS Videos](https://img.youtube.com/vi/rRr3QfIMTBo/0.jpg)](https://www.youtube.com/watch?v=rRr3QfIMTBo)
 
 For an example that uses Step Functions and Amazon EventBridge to orchestrate AWS Glue DataBrew, Athena, and Amazon Quick, see [Orchestrating an AWS Glue DataBrew job and Amazon Athena query with AWS Step Functions](https://aws.amazon.com/blogs/big-data/orchestrating-an-aws-glue-databrew-job-and-amazon-athena-query-with-aws-step-functions/) in the AWS Big Data Blog.
 

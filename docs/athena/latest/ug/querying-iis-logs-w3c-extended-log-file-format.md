@@ -69,7 +69,7 @@ WHERE cs_method = 'GET' AND sc_status = '200'
 
 The following image shows the results of the query in the Athena Query Editor.
 
-![Example query results in Athena of W3C extended log files stored in Amazon S3.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-iis-logs-1.png)
+![Example query results in Athena of W3C extended log files stored in Amazon S3.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-iis-logs-1.png)
 
 
 ## Combine the date and time fields
@@ -103,4 +103,4 @@ WHERE cs_method = 'GET' AND sc_status = '200'
 
 The following image shows the results of the query.
 
-![W3C extended log file query results on an table with a derived timestamp column.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-iis-logs-1a.png)
+![W3C extended log file query results on an table with a derived timestamp column.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-iis-logs-1a.png)

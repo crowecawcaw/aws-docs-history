@@ -10,7 +10,7 @@ Magics that are on a single line are preceded by a percent sign (`%`) and are ca
 
 Displays descriptions of the available magic commands.
 
-![Using %help.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-2.png)
+![Using %help.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-2.png)
 
 
 ## %list\_sessions
@@ -18,7 +18,7 @@ Displays descriptions of the available magic commands.
 
 Lists the sessions associated with the notebook. The information for each session includes the session ID, session status, and the date and time that the session started and ended.
 
-![Using %list_sessions.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-3.png)
+![Using %list_sessions.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-3.png)
 
 
 ## %session\_id
@@ -26,7 +26,7 @@ Lists the sessions associated with the notebook. The information for each sessio
 
 Retrieves the current session ID.
 
-![Using session_id.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-4.png)
+![Using session_id.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-4.png)
 
 
 ## %set\_log\_level
@@ -34,7 +34,7 @@ Retrieves the current session ID.
 
 Sets or resets the logger to use the specified log level. Possible values are `DEBUG`, `ERROR`, `FATAL`,`INFO`, and `WARN` or `WARNING`. Values must be uppercase and must not be enclosed in single or double quotes.
 
-![Using %set_log_level.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-5.png)
+![Using %set_log_level.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-5.png)
 
 
 ## %status
@@ -60,4 +60,4 @@ Following are the possible values for status:
 
 **FAILED** – Due to a failure, the session and its resources are no longer running.
 
-![Using %status.](http://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-6.png)
+![Using %status.](https://docs.aws.amazon.com/athena/latest/ug/images/notebooks-spark-magics-6.png)

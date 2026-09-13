@@ -19,7 +19,7 @@ To get started, use the Athena console and choose **Set up auto-scaling** on you
 
 This automated CloudFormation template deploys the Athena Capacity Reservation auto-scaling solution. You must complete the applicable steps in [Prerequisites](#capacity-management-auto-scaling-prerequisites) before launching the stack.
 
-[![CloudFormation launch button for creating the stack.](http://docs.aws.amazon.com/athena/latest/ug/images/launch-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?&templateURL=https:%2F%2Fathena-downloads.s3.us-east-1.amazonaws.com%2Ftemplates%2Fcapacity-reservation-scaling%2Fstate-machine%2Fathena-capacity-reservation-scaling-template-v1.1.yaml) 
+[![CloudFormation launch button for creating the stack.](https://docs.aws.amazon.com/athena/latest/ug/images/launch-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?&templateURL=https:%2F%2Fathena-downloads.s3.us-east-1.amazonaws.com%2Ftemplates%2Fcapacity-reservation-scaling%2Fstate-machine%2Fathena-capacity-reservation-scaling-template-v1.1.yaml) 
 
 **To launch the auto-scaling solution**
 

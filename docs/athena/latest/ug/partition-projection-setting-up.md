@@ -23,7 +23,7 @@ This section shows how to set the table properties for AWS Glue. To set them, yo
    On the **Tables** tab, you can edit existing tables, or choose **Add tables** to create new ones. For information about adding tables manually or with a crawler, see [Working with tables on the AWS Glue console](https://docs.aws.amazon.com/glue/latest/dg/console-tables.html) in the *AWS Glue Developer Guide*.
 
 1. In the list of tables, choose the link for the table that you want to edit.  
-![In the AWS Glue console, choose a table to edit.](http://docs.aws.amazon.com/athena/latest/ug/images/partition-projection-1.png)
+![In the AWS Glue console, choose a table to edit.](https://docs.aws.amazon.com/athena/latest/ug/images/partition-projection-1.png)
 
 1. Choose **Actions**, **Edit table**.
 
@@ -36,7 +36,7 @@ This section shows how to set the table properties for AWS Glue. To set them, yo
 1. Following the guidance in [Supported types for partition projection](partition-projection-supported-types.md), add additional key-value pairs according to your configuration requirements.
 
    The following example table configuration configures the `year` column for partition projection, restricting the values that can be returned to a range from 2010 through 2016.  
-![Configuring partition projection for a partition column in the AWS Glue console table properties.](http://docs.aws.amazon.com/athena/latest/ug/images/partition-projection-3.png)
+![Configuring partition projection for a partition column in the AWS Glue console table properties.](https://docs.aws.amazon.com/athena/latest/ug/images/partition-projection-3.png)
 
 1. Add a key-value pair to enable partition projection. For **Key**, enter `projection.enabled`, and for its **Value**, enter `true`.
 **Note**  
@@ -47,7 +47,7 @@ You can disable partition projection on this table at any time by setting `proje
 1. In the Athena Query Editor, test query the columns that you configured for the table.
 
    The following example query uses `SELECT DISTINCT` to return the unique values from the `year` column. The database contains data from 1987 to 2016, but the `projection.year.range` property restricts the values returned to the years 2010 to 2016.  
-![Querying a column that uses partition projection.](http://docs.aws.amazon.com/athena/latest/ug/images/partition-projection-5.png)
+![Querying a column that uses partition projection.](https://docs.aws.amazon.com/athena/latest/ug/images/partition-projection-5.png)
 **Note**  
 If you set `projection.enabled` to `true` but fail to configure one or more partition columns, you receive an error message like the following:  
 `HIVE_METASTORE_ERROR: Table {{database_name}}.{{table_name}} is configured for partition projection, but the following partition columns are missing projection configuration: [{{column_name}}] (table {{database_name}}.{{table_name}})`.

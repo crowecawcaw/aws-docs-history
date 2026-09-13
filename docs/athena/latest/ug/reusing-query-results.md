@@ -52,7 +52,7 @@ When using the query result reuse feature, keep in mind the following points:
 
 To use the feature, enable the **Reuse query results** option in the Athena query editor.
 
-![Enable Reuse query results in the Athena query editor.](http://docs.aws.amazon.com/athena/latest/ug/images/reusing-query-results-1.png)
+![Enable Reuse query results in the Athena query editor.](https://docs.aws.amazon.com/athena/latest/ug/images/reusing-query-results-1.png)
 
 
 **To configure the reuse query results feature**
@@ -62,7 +62,7 @@ To use the feature, enable the **Reuse query results** option in the Athena quer
 1. In the **Edit reuse time** dialog box, from the box on the right, choose a time unit (minutes, hours, or days).
 
 1. In the box on the left, enter or choose the number of time units that you want to specify. The maximum time you can enter is the equivalent of seven days regardless of the time unit chosen.  
-![Configuring the maximum age for reusing query results.](http://docs.aws.amazon.com/athena/latest/ug/images/reusing-query-results-2.png)
+![Configuring the maximum age for reusing query results.](https://docs.aws.amazon.com/athena/latest/ug/images/reusing-query-results-2.png)
 
 1. Choose **Confirm**.
 

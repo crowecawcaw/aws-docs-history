@@ -53,18 +53,18 @@ In this step, you use the Okta console to perform the following tasks:
 1. In the left navigation pane, choose **Directory**, and then choose **People**.
 
 1. Choose **Add Person** to add a new user who will access Athena through the JDBC driver.  
-![Choose Add Person.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-3.png)
+![Choose Add Person.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-3.png)
 
 1. In the **Add Person** dialog box, enter the required information.
    + Enter values for **First name** and **Last name**. This tutorial uses {{athena-okta-user}}.
    + Enter a **Username** and **Primary email**. This tutorial uses {{athena-okta-user@anycompany.com}}.
    + For **Password**, choose **Set by admin**, and then provide a password. This tutorial clears the option for **User must change password on first login**; your security requirements may vary.  
-![Adding a user to the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4.png)
+![Adding a user to the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4.png)
 
 1. Choose **Save and Add Another**.
 
 1. Enter the information for another user. This example adds the business analyst user {{athena-ba-user@anycompany.com}}.  
-![Adding a user to the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4a.png)
+![Adding a user to the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4a.png)
 
 1. Choose **Save**.
 
@@ -75,12 +75,12 @@ In the following procedure, you provide access for two Okta groups through the A
 1. In the Okta navigation pane, choose **Directory**, and then choose **Groups**.
 
 1. On the **Groups** page, choose **Add Group**.  
-![Choose Add Group.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4c.png)
+![Choose Add Group.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4c.png)
 
 1. In the **Add Group** dialog box, enter the required information.
    + For **Name**, enter {{lf-business-analyst}}.
    + For **Group Description**, enter {{Business Analysts}}.  
-![Adding an Okta group.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4d.png)
+![Adding an Okta group.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4d.png)
 
 1. Choose **Add Group**.
 
@@ -97,16 +97,16 @@ Now that you have two users and two groups, you are ready to add a user to each 
 **To add users to groups**
 
 1. On the **Groups** page, choose the **lf-developer** group that you just created. You will add one of the Okta users that you created as a developer to this group.  
-![Choose lf-developer.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4f.png)
+![Choose lf-developer.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4f.png)
 
 1. Choose **Manage People**.  
-![Choose Manage People.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4g.png)
+![Choose Manage People.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4g.png)
 
 1. From the **Not Members** list, choose **athena-okta-user**.   
-![Choose a user to add to the members list.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4h.png)
+![Choose a user to add to the members list.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4h.png)
 
    The entry for the user moves from the **Not Members **list on the left to the **Members **list on the right.   
-![Okta user added to an Okta group.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4i.png)
+![Okta user added to an Okta group.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4i.png)
 
 1. Choose **Save**.
 
@@ -121,7 +121,7 @@ Now that you have two users and two groups, you are ready to add a user to each 
 1. Choose **Back to Group**, or choose **Directory**, **Groups**.
 
    The **Groups** page now shows that each group has one Okta user.  
-![One user has been added to each Okta group in the Okta console.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4j.png)
+![One user has been added to each Okta group in the Okta console.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-4j.png)
 
 ## Step 3: Set up an Okta application for SAML authentication
 <a name="security-athena-lake-formation-jdbc-okta-tutorial-step-3-set-up-an-okta-application-for-saml-authentication"></a>
@@ -141,13 +141,13 @@ In this step, you use the Okta developer console to perform the following tasks:
 1. In the search box, enter **Redshift**.
 
 1. Choose **Amazon Web Services Redshift**. The Okta application in this tutorial uses the existing SAML integration for Amazon Redshift.  
-![Choose Amazon Web Services Redshift.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-7.png)
+![Choose Amazon Web Services Redshift.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-7.png)
 
 1. On the **Amazon Web Services Redshift** page, choose **Add** to create a SAML-based application for Amazon Redshift.  
-![Choose Add to create a SAML-based application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-8.png)
+![Choose Add to create a SAML-based application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-8.png)
 
 1. For **Application label**, enter `Athena-LakeFormation-Okta`, and then choose **Done**.  
-![Enter a name for the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-9.png)
+![Enter a name for the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-9.png)
 
 Now that you have created an Okta application, you can assign it to the users and groups that you created.
 
@@ -156,12 +156,12 @@ Now that you have created an Okta application, you can assign it to the users an
 1. On the **Applications** page, choose the **Athena-LakeFormation-Okta** application.
 
 1. On the **Assignments** tab, choose **Assign**, **Assign to People**.  
-![Choose Assign, Assign to People.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-10.png)
+![Choose Assign, Assign to People.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-10.png)
 
 1. In the **Assign Athena-LakeFormation-Okta to People** dialog box, find the **athena-okta-user** user that you created previously.
 
 1. Choose **Assign** to assign the user to the application.  
-![Choose Assign.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-11.png)
+![Choose Assign.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-11.png)
 
 1. Choose **Save and Go Back**.
 
@@ -170,20 +170,20 @@ Now that you have created an Okta application, you can assign it to the users an
 1. On the **Assignments** tab for the **Athena-LakeFormation-Okta** application, choose **Assign**, **Assign to Groups**. 
 
 1. For **lf-business-analyst**, choose **Assign** to assign the **Athena-LakeFormation-Okta** application to the **lf-business-analyst** group, and then choose **Done**.  
-![Assigning an Okta application to an Okta user group.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-12b.png)
+![Assigning an Okta application to an Okta user group.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-12b.png)
 
    The group appears in the list of groups for the application.  
-![The Okta application is assigned to the Okta group.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-12c.png)
+![The Okta application is assigned to the Okta group.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-12c.png)
 
 Now you are ready to download the identity provider application metadata for use with AWS.
 
 **To download the application metadata**
 
 1. Choose the Okta application **Sign On** tab, and then right-click **Identity Provider metadata**.  
-![Right-click Identity Provider metadata.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-13.png)
+![Right-click Identity Provider metadata.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-13.png)
 
 1. Choose **Save Link As** to save the identity provider metadata, which is in XML format, to a file. Give it a name that you recognize (for example, `Athena-LakeFormation-idp-metadata.xml`).  
-![Saving the identity provider metadata.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-14.png)
+![Saving the identity provider metadata.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-14.png)
 
 ## Step 4: Create an AWS SAML Identity Provider and Lake Formation access IAM role
 <a name="security-athena-lake-formation-jdbc-okta-tutorial-step-4-create-an-aws-saml-identity-provider-and-lake-formation-access-IAM-role"></a>
@@ -215,7 +215,7 @@ Next, you create an IAM role for AWS Lake Formation access. You add two inline p
 1. In the IAM console navigation pane, choose **Roles**, and then choose **Create role**.
 
 1. On the **Create role** page, perform the following steps:  
-![Configuring an IAM role to use SAML 2.0.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-20.png)
+![Configuring an IAM role to use SAML 2.0.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-20.png)
 
    1. For **Select type of trusted entity**, choose **SAML 2.0 Federation.**
 
@@ -228,12 +228,12 @@ Next, you create an IAM role for AWS Lake Formation access. You add two inline p
 1. On the **Attach Permissions policies** page, for **Filter policies**, enter **Athena**.
 
 1. Select the **AmazonAthenaFullAccess** managed policy, and then choose **Next: Tags**.  
-![Attaching the AmazonAthenaFullAccess managed policy to the IAM role.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-21.png)
+![Attaching the AmazonAthenaFullAccess managed policy to the IAM role.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-21.png)
 
 1. On the **Add tags** page, choose **Next: Review**.
 
 1. On the **Review** page, for **Role name**, enter a name for the role (for example, {{Athena-LakeFormation-OktaRole}}), and then choose **Create role**.  
-![Enter a name for the IAM role.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-22.png)
+![Enter a name for the IAM role.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-22.png)
 
 Next, you add inline policies that allow access to Lake Formation, AWS Glue APIs, and Athena query results in Amazon S3. 
 
@@ -363,10 +363,10 @@ In this step, you return to the Okta developer console and perform the following
 1. Choose the **Applications** tab, and then choose the `Athena-LakeFormation-Okta` application.
 
 1. Choose on the **Sign On** tab for the application, and then choose **Edit**.  
-![Edit the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-24.png)
+![Edit the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-24.png)
 
 1. Choose **Attributes (optional)** to expand it.  
-![Adding a user Lake Formation URL attribute to the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-25.png)
+![Adding a user Lake Formation URL attribute to the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-25.png)
 
 1. For **Attribute Statements (optional)**, add the following attribute:
    + For **Name**, enter **https://lakeformation.amazon.com/SAML/Attributes/Username**.
@@ -376,7 +376,7 @@ In this step, you return to the Okta developer console and perform the following
    + For **Name**, enter **https://lakeformation.amazon.com/SAML/Attributes/Groups**.
    + For **Name format**, enter **Basic**
    + For **Filter**, choose **Matches regex**, and then enter **.\*** in the filter box.  
-![Adding a group Lake Formation URL attribute to the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-25a.png)
+![Adding a group Lake Formation URL attribute to the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-25a.png)
 
 1. Scroll down to the **Advanced Sign-On Settings** section, where you will add the identity provider and IAM Role ARNs to the Okta application.
 
@@ -387,7 +387,7 @@ In this step, you return to the Okta developer console and perform the following
    ```
    arn:aws:iam::{{<account-id>}}:saml-provider/AthenaLakeFormationOkta,arn:aws:iam::{{<account-id>}}:role/Athena-LakeFormation-OktaRole
    ```  
-![Entering the identity provider ARN and IAM role ARN in the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-26.png)
+![Entering the identity provider ARN and IAM role ARN in the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-26.png)
 
 1. Choose **Save**.
 
@@ -396,12 +396,12 @@ Next, you copy the Okta application ID. You will require this later for the JDBC
 **To find and copy the Okta application ID**
 
 1. Choose the **General** tab of the Okta application.  
-![Choose the General tab of the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-27.png)
+![Choose the General tab of the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-27.png)
 
 1. Scroll down to the **App Embed Link** section.
 
 1. From **Embed Link**, copy and securely save the Okta application ID portion of the URL. The Okta application ID is the part of the URL after `amazon_aws_redshift/` but before the next forward slash. For example, if the URL contains `amazon_aws_redshift/aaa/bbb`, the application ID is `aaa`.   
-![Copy the ID of the Okta application.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-28.png)
+![Copy the ID of the Okta application.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-28.png)
 
 **Note**  
 The embed link cannot be used to log directly into the Athena console to view databases. The Lake Formation permissions for SAML users and groups are recognized only when you use the JDBC or ODBC driver to submit queries to Athena. To view the databases, you can use the SQL Workbench/J tool, which uses the JDBC driver to connect to Athena. The SQL Workbench/J tool is covered in [Step 7: Verify access through the Athena JDBC client](#security-athena-lake-formation-jdbc-okta-tutorial-step-7-verify-access-through-athena-jdbc-client).
@@ -421,10 +421,10 @@ In this step, you use the Lake Formation console to grant permissions on a table
 1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/).
 
 1. From the navigation pane, choose **Tables**, and then select the table that you want to grant permissions for. This tutorial uses the `nyctaxi` table from the `tripdb` database.  
-![Choose the table that you want to grant permissions for.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-29.png)
+![Choose the table that you want to grant permissions for.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-29.png)
 
 1. From **Actions**, choose **Grant**.  
-![Choose Grant.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-30.png)
+![Choose Grant.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-30.png)
 
 1. In the **Grant permissions** dialog, enter the following information:
 
@@ -439,7 +439,7 @@ In this step, you use the Lake Formation console to grant permissions on a table
    1. Use the **Choose one or more columns** dropdown under the filter to specify the columns that you want to include or exclude for or from the user.
 
    1. For **Table permissions**, choose **Select**. This tutorial grants only the `SELECT` permission; your requirements may vary.  
-![Granting table and column-level permissions to an Okta user.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-31.png)
+![Granting table and column-level permissions to an Okta user.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-31.png)
 
 1. Choose **Grant**.
 
@@ -464,15 +464,15 @@ Now you perform similar steps for the Okta group.
    1. For **Choose one or more columns**, choose the first three columns of the table.
 
    1. For **Table permissions**, choose the specific access permissions to grant. This tutorial grants only the `SELECT` permission; your requirements may vary.  
-![Granting table permissions to an Okta group.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-31b.png)
+![Granting table permissions to an Okta group.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-31b.png)
 
 1. Choose **Grant**.
 
 1. To verify the permissions that you granted, choose **Actions**, **View permissions**.  
-![Choose View permissions to verify the permissions that were granted.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-32.png)
+![Choose View permissions to verify the permissions that were granted.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-32.png)
 
    The **Data permissions** page for the `nyctaxi` table shows the permissions for **athena-okta-user** and the **lf-business-analyst** group.  
-![Viewing the permissions that were granted to the Okta user and group.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-33.png)
+![Viewing the permissions that were granted to the Okta user and group.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-33.png)
 
 ## Step 7: Verify access through the Athena JDBC client
 <a name="security-athena-lake-formation-jdbc-okta-tutorial-step-7-verify-access-through-athena-jdbc-client"></a>
@@ -496,7 +496,7 @@ In this section, you perform the following tasks:
 1. Download and install the free [SQL Workbench/J](https://www.sql-workbench.eu/index.html) SQL query tool, available under a modified Apache 2.0 license.
 
 1. In SQL Workbench, choose **File**, and then choose **Manage Drivers**.  
-![Choose Manage Drivers.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-1.png)
+![Choose Manage Drivers.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-1.png)
 
 1. In the **Manage Drivers** dialog box, perform the following steps:
 
@@ -507,14 +507,14 @@ In this section, you perform the following tasks:
    1. For **Library**, browse to and choose the Simba Athena JDBC `.jar` file that you just downloaded.
 
    1. Choose **OK**.  
-![Adding the Athena JDBC driver to SQL Workbench.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-2.png)
+![Adding the Athena JDBC driver to SQL Workbench.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-2.png)
 
 You are now ready to create and test a connection for the Athena Okta user.
 
 **To create a connection for the Okta user**
 
 1. Choose **File**, **Connect window**.  
-![Choose Connect window.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-3.png)
+![Choose Connect window.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-3.png)
 
 1. In the **Connection profile** dialog box, create a connection by entering the following information:
    + In the name box, enter **Athena\_Okta\_User\_Connection**.
@@ -559,7 +559,7 @@ You are now ready to create and test a connection for the Athena Okta user.
      Note that these examples are basic representations of the URL needed to connect to Athena. For the full list of parameters supported in the URL, refer to the [JDBC documentation](connect-with-jdbc.md).
 
    The following image shows a SQL Workbench connection profile that uses a connection URL.  
-![A connection profile in SQL Workbench.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-4.png)
+![A connection profile in SQL Workbench.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-4.png)
 
 Now that you have established a connection for the Okta user, you can test it by retrieving some data.
 
@@ -572,14 +572,14 @@ Now that you have established a connection for the Okta user, you can test it by
    ```
    DESCRIBE "tripdb"."nyctaxi"
    ```  
-![All columns displayed.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-5.png)
+![All columns displayed.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-5.png)
 
 1. From the SQL Workbench **Statement** window, run the following SQL `SELECT` command. Verify that all columns are displayed.
 
    ```
    SELECT * FROM tripdb.nyctaxi LIMIT 5
    ```  
-![Verify that all columns are displayed.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-6.png)
+![Verify that all columns are displayed.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-6.png)
 
 Next, you verify that the **athena-ba-user**, as a member of the **lf-business-analyst** group, has access to only the first three columns of the table that you specified earlier in Lake Formation.
 
@@ -630,8 +630,8 @@ Next, you verify that the **athena-ba-user**, as a member of the **lf-business-a
 1. From the **SQL Statement** window, run the same `DESCRIBE` and `SELECT` SQL commands that you did before and examine the results.
 
    Because **athena-ba-user** is a member of the **lf-business-analyst** group, only the first three columns that you specified in the Lake Formation console are returned.  
-![Only the first three columns are returned.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-7.png)  
-![Data from the first three columns.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-8.png)
+![Only the first three columns are returned.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-7.png)  
+![Data from the first three columns.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-8.png)
 
 Next, you return to the Okta console to add the `athena-ba-user` to the `lf-developer` Okta group.
 
@@ -642,7 +642,7 @@ Next, you return to the Okta console to add the `athena-ba-user` to the `lf-deve
 1. Choose **Directory**, and then choose **Groups**.
 
 1. On the Groups page, choose the **lf-developer** group.  
-![Choose the lf-developer group.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-9.png)
+![Choose the lf-developer group.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-9.png)
 
 1. Choose **Manage People**.
 
@@ -681,10 +681,10 @@ Now you can use SQL Workbench to verify the change in permissions for the **lf-d
 1. From the **Statement** window, issue the same SQL statements that you ran previously:
 
    This time, the **trip\_type** column is displayed.  
-![The fourth column is available for query.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-10.png)
+![The fourth column is available for query.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-10.png)
 
    Because **athena-ba-user** is now a member of both the **lf-developer** and **lf-business-analyst** groups, the combination of Lake Formation permissions for those groups determines the columns that are returned.  
-![The fourth column in the data results.](http://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-11.png)
+![The fourth column in the data results.](https://docs.aws.amazon.com/athena/latest/ug/images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-11.png)
 
 ## Conclusion
 <a name="security-athena-lake-formation-jdbc-okta-tutorial-conclusion"></a>

@@ -174,4 +174,4 @@ In the current example, after cross account access is granted to `444455556666,`
 
 In the following example, the SQL Workbench profile `perf-test-1` is for account `444455556666`. The query uses catalog `ehms` to access the Hive metastore and the Amazon S3 data in account `111122223333`.
 
-![Accessing Hive metastore and Amazon S3 data across accounts in SQL Workbench.](http://docs.aws.amazon.com/athena/latest/ug/images/hive-metastore-iam-access-lambda-1.png)
+![Accessing Hive metastore and Amazon S3 data across accounts in SQL Workbench.](https://docs.aws.amazon.com/athena/latest/ug/images/hive-metastore-iam-access-lambda-1.png)

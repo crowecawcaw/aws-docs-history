@@ -12,9 +12,9 @@ You can configure options for the **Recent queries** tab like columns to display
 1. Choose **Recent queries**.
 
 1. Choose the options button (gear icon).  
-![Choose the option button to configure the display of recent queries.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-recent-queries-options.png)
+![Choose the option button to configure the display of recent queries.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-recent-queries-options.png)
 
 1. In the **Preferences** dialog box, choose the number of rows per page, line wrapping behavior, and columns to display.  
-![Configuring the display of recent queries.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-recent-queries-preferences.png)
+![Configuring the display of recent queries.](https://docs.aws.amazon.com/athena/latest/ug/images/querying-recent-queries-preferences.png)
 
 1. Choose **Confirm**.

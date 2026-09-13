@@ -57,7 +57,7 @@ In your AWS Glue table definition, include the `glabel` parameter and set its va
 glabel = Airport
 ```
 
-![Setting the glabel AWS Glue table property to preserve table name casing for a Neptune table](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-neptune-1.png)
+![Setting the glabel AWS Glue table property to preserve table name casing for a Neptune table](https://docs.aws.amazon.com/athena/latest/ug/images/connectors-neptune-1.png)
 
 
 For more information on setting up a AWS Glue Data Catalog to work with Neptune, see [Set up AWS Glue Catalog](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-neptune/docs/aws-glue-sample-scripts) on GitHub.com.

@@ -13,7 +13,7 @@ The following procedure requires that you have permission to create a custom IAM
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home).
 
 1. If the console navigation pane is not visible, choose the expansion menu on the left.  
-![Choose the expansion menu.](http://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
+![Choose the expansion menu.](https://docs.aws.amazon.com/athena/latest/ug/images/nav-pane-expansion.png)
 
 1. Choose **Data sources and catalogs**.
 
@@ -28,7 +28,7 @@ The following procedure requires that you have permission to create a custom IAM
 1. For **Lambda function**, choose **Create Lambda function**, and then choose **Create a new Lambda function in AWS Lambda**
 
    The **AthenaHiveMetastoreFunction** page opens in the AWS Lambda console. The page includes detailed information about the connector.  
-![The AthenaHiveMetastoreFunction page in the AWS Lambda console.](http://docs.aws.amazon.com/athena/latest/ug/images/connect-to-data-source-hive-4.png)
+![The AthenaHiveMetastoreFunction page in the AWS Lambda console.](https://docs.aws.amazon.com/athena/latest/ug/images/connect-to-data-source-hive-4.png)
 
 1. Under **Application settings**, enter the parameters for your Lambda function.
    + **LambdaFuncName** – Provide a name for the function. For example, **myHiveMetastore**.
@@ -40,7 +40,7 @@ The following procedure requires that you have permission to create a custom IAM
    + **VPCSubnetIds** – Enter a comma-separated list of VPC subnet IDs for the Hive metastore.
 
 1. Select **I acknowledge that this app creates custom IAM roles**, and then choose **Deploy**.  
-![Deploying the Lambda function app from the AWS Lambda console.](http://docs.aws.amazon.com/athena/latest/ug/images/connect-to-data-source-hive-4a.png)
+![Deploying the Lambda function app from the AWS Lambda console.](https://docs.aws.amazon.com/athena/latest/ug/images/connect-to-data-source-hive-4a.png)
 
    When the deployment completes, your function appears in your list of Lambda applications. Now that the Hive metastore function has been deployed to your account, you can configure Athena to use it.
 
