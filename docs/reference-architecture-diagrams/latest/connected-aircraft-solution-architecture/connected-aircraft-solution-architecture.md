@@ -10,7 +10,7 @@ This reference architecture shows how you can onboard flight data collection for
 ## Connected Aircraft Solution Architecture Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to onboard flight data collection for fleet-wide analytics and predictive maintenance.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-aircraft-solution-architecture/images/connected-aircraft-solution-architecture.png)
+![Reference architecture diagram showing how you can use AWS services to onboard flight data collection for fleet-wide analytics and predictive maintenance.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-aircraft-solution-architecture/images/connected-aircraft-solution-architecture.png)
 
 
 1. Flight (avionics) and telemetry (sensor) data is collected by **AWS IoT Greengrass**, running on the flight-data acquisition unit on board. 
