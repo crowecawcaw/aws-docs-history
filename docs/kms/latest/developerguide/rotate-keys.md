@@ -13,7 +13,7 @@ Key rotation changes only the *current key material*, which is the cryptographic
 
  The KMS key is the same logical resource, regardless of whether or how many times its key material changes. The properties of the KMS key do not change, as shown in the following image.
 
-![Key rotation process showing key material change while Key ID remains constant.](http://docs.aws.amazon.com/kms/latest/developerguide/images/key-rotation-auto.png)
+![Key rotation process showing key material change while Key ID remains constant.](https://docs.aws.amazon.com/kms/latest/developerguide/images/key-rotation-auto.png)
 
 
 You might decide to create a new KMS key and use it in place of the original KMS key. This has the same effect as rotating the key material in an existing KMS key, so it's often thought of as [manually rotating the key](rotate-keys-manually.md). Manual rotation is a good choice when you want to rotate KMS keys that are not eligible for automatic or on-demand key rotation, including [asymmetric KMS keys](symmetric-asymmetric.md), [HMAC KMS keys](hmac.md) and KMS keys in [custom key stores](key-store-overview.md#custom-key-store-overview).

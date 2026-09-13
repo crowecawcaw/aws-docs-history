@@ -7,14 +7,14 @@ You begin by creating a symmetric or asymmetric [multi-Region primary key](multi
 
 You can [create a multi-Region primary key](create-primary-keys.md) in the AWS KMS console or by using the [CreateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html) API with the `MultiRegion` parameter set to `true`. Notice that multi-Region keys have a distinctive key ID that begins with `mrk-`. You can use the `mrk-` prefix to identify MRKs programmatically.
 
-![Key icon with multi-Region primary key label and example key ID starting with mrk- prefix.](http://docs.aws.amazon.com/kms/latest/developerguide/images/multi-region-primary-key.png)
+![Key icon with multi-Region primary key label and example key ID starting with mrk- prefix.](https://docs.aws.amazon.com/kms/latest/developerguide/images/multi-region-primary-key.png)
 
 
 If you choose, you can [replicate](multi-region-keys-overview.md#replicate) the multi-Region primary key into one or more different AWS Regions in the same [AWS partition](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html), such as Europe (Ireland). When you do, AWS KMS creates a [replica key](multi-region-keys-overview.md#mrk-replica-key) in the specified Region with the same key ID and other [shared properties](multi-region-keys-overview.md#mrk-sync-properties) as the primary key. The result is two *related* multi-Region keys — a primary key and a replica key — that can be used interchangeably.
 
 You can [create a multi-Region replica key](multi-region-keys-replicate.md) in the AWS KMS console or by using the [ReplicateKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReplicateKey.html) API. 
 
-![Multi-Region primary key in US East and replica key in EU West with KMS ARNs displayed.](http://docs.aws.amazon.com/kms/latest/developerguide/images/multi-region-replica-key.png)
+![Multi-Region primary key in US East and replica key in EU West with KMS ARNs displayed.](https://docs.aws.amazon.com/kms/latest/developerguide/images/multi-region-replica-key.png)
 
 
 The resulting [multi-Region replica key](multi-region-keys-overview.md#mrk-replica-key) is a fully-functional KMS key with the same [shared properties](multi-region-keys-overview.md#mrk-sync-properties) as the primary key. In all other respects, it is an independent KMS key with its own description, key policy, grants, aliases, and tags. Enabling or disabling a multi-Region key has no effect on related multi-Region keys. You can use the primary and replica keys independently in cryptographic operations or coordinate their use. For example, you can encrypt data with the primary key in the US East (N. Virginia) Region, move the data to the Europe (Ireland) Region and use the replica key to decrypt the data. 
@@ -30,7 +30,7 @@ Having the same key ID is required for interoperability. When encrypting, AWS KM
 
 As your data needs change, you can replicate the primary key to other AWS Regions in the same partition, such as US West (Oregon) and Asia Pacific (Sydney). The result is four *related* multi-Region keys with the same key material and key IDs, as shown in the following diagram. You manage the keys independently. For multi-region keys with imported key material, you are responsible for importing key material into each related key individually. You can use them independently or in a coordinated fashion. For example, you can encrypt data with the replica key in Asia Pacific (Sydney), move the data to US West (Oregon), and decrypt it with the replica key in US West (Oregon). 
 
-![The primary and replica keys in a multi-Region key](http://docs.aws.amazon.com/kms/latest/developerguide/images/multi-region-keys.png)
+![The primary and replica keys in a multi-Region key](https://docs.aws.amazon.com/kms/latest/developerguide/images/multi-region-keys.png)
 
 
 Other considerations for multi-Region keys include the following.

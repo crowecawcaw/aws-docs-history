@@ -24,7 +24,7 @@ AWS KMS connects to the external key store proxy (XKS proxy) over the internet u
 
 This connectivity option is easier to set up and maintain, and it aligns well with some models of key management. However, it might not fulfill the security requirements of some organizations.
 
-![Public endpoint connectivity](http://docs.aws.amazon.com/kms/latest/developerguide/images/xks-public-endpoint-60.png)
+![Public endpoint connectivity](https://docs.aws.amazon.com/kms/latest/developerguide/images/xks-public-endpoint-60.png)
 
 
 **Requirements**
@@ -51,12 +51,12 @@ This connectivity option is more complicated to set up and maintain. But it uses
 
 You can locate your external key store proxy in your Amazon VPC.
 
-![VPC endpoint service connectivity - XKS proxy in your VPC](http://docs.aws.amazon.com/kms/latest/developerguide/images/xks-proxy-in-vpc-60.png)
+![VPC endpoint service connectivity - XKS proxy in your VPC](https://docs.aws.amazon.com/kms/latest/developerguide/images/xks-proxy-in-vpc-60.png)
 
 
 Alternatively, you can locate your external key store proxy outside of AWS Cloud and use your Amazon VPC endpoint service only for secure communication with AWS KMS.
 
-![VPC endpoint service connectivity - XKS proxy outside of AWS](http://docs.aws.amazon.com/kms/latest/developerguide/images/xks-proxy-via-vpc-60.png)
+![VPC endpoint service connectivity - XKS proxy outside of AWS](https://docs.aws.amazon.com/kms/latest/developerguide/images/xks-proxy-via-vpc-60.png)
 
 
 You can also connect an external key store to an Amazon VPC endpoint service owned by another AWS account. Both AWS accounts need the [necessary permissions](authorize-xks-key-store.md#authorize-xks-managers) to allow communications between AWS KMS and the VPC endpoint service 

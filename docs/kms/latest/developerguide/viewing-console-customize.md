@@ -20,7 +20,7 @@ Sortable columns are indicated by an arrow beside the column name. On the **AWS 
 To sort in ascending order, choose the column heading until the arrow points upward. To sort in descending order, choose the column heading until the arrow points downward. You can sort by only one column at a time.  
 For example, you can sort KMS keys in ascending order by key ID, instead of aliases, which is the default.  
 
-![Aliases column header with filter icon and Key ID column header with sort icon highlighted.](http://docs.aws.amazon.com/kms/latest/developerguide/images/console-sort.png)
+![Aliases column header with filter icon and Key ID column header with sort icon highlighted.](https://docs.aws.amazon.com/kms/latest/developerguide/images/console-sort.png)
 
 When you sort KMS keys on the **Customer managed keys** page in ascending order by **Key type**, all asymmetric keys are displayed before all symmetric keys.
 
@@ -32,7 +32,7 @@ Filterable properties are listed in the filter box. On the **AWS managed keys **
 To filter by a property value, choose the filter, choose the property name, and then choose from the list of actual property values. To filter by a tag, choose the tag key, and then choose from the list of actual tag values. After choosing a property or tag key, you can also type all or part of the property value or tag value. You'll see a preview of the results before you make your choice.   
 For example, to display KMS keys with an alias name that contains `aws/e`, choose the filter box, choose **Alias**, type `aws/e`, and then press `Enter` or `Return` to add the filter.  
 
-![Filter box showing aws/e search with dropdown displaying matching aliases such as aws/elasticfilesystem.](http://docs.aws.amazon.com/kms/latest/developerguide/images/filter-alias.png)
+![Filter box showing aws/e search with dropdown displaying matching aliases such as aws/elasticfilesystem.](https://docs.aws.amazon.com/kms/latest/developerguide/images/filter-alias.png)
 
 
 ### Suggested KMS key table filters
@@ -60,7 +60,7 @@ You can customize the tables that appear on the **AWS managed keys** and **Custo
 
 **To customize your KMS key tables**
 
-1. On the **AWS managed keys** or **Customer managed keys** page, choose the settings icon (![Gear or cog icon representing settings or configuration options.](http://docs.aws.amazon.com/kms/latest/developerguide/images/console-icon-settings-new.png)) in the upper-right corner of the page.
+1. On the **AWS managed keys** or **Customer managed keys** page, choose the settings icon (![Gear or cog icon representing settings or configuration options.](https://docs.aws.amazon.com/kms/latest/developerguide/images/console-icon-settings-new.png)) in the upper-right corner of the page.
 
 1. On the **Preferences** page, choose your preferred settings, and then choose **Confirm**.
 

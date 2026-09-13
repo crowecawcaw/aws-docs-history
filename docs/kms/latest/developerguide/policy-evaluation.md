@@ -11,7 +11,7 @@ When authorizing access to a KMS key, AWS KMS evaluates the following:
 
 AWS KMS evaluates these policy mechanisms together to determine whether access to the KMS key is allowed or denied. To do this, AWS KMS uses a process similar to the one depicted in the following flowchart. The following flowchart provides a visual representation of the policy evaluation process.
 
-![Flowchart that describes the policy evaluation process](http://docs.aws.amazon.com/kms/latest/developerguide/images/updated-kms-authz-diagram.png)
+![Flowchart that describes the policy evaluation process](https://docs.aws.amazon.com/kms/latest/developerguide/images/updated-kms-authz-diagram.png)
 
 
 This flowchart is divided into two parts. The parts appear to be sequential, but they are typically evaluated at the same time.
@@ -33,7 +33,7 @@ Alice is an IAM user in the 111122223333 AWS account. She was denied access to a
 
 In this case, Alice is denied access to the KMS key because there is no key policy, IAM policy, or grant that gives her the required permissions. The key policy of the KMS key allows the AWS account to use IAM policies to control access to the KMS key, but no IAM policy gives Alice permission to use the KMS key.
 
-![Flowchart that describes the policy evaluation process](http://docs.aws.amazon.com/kms/latest/developerguide/images/kms-auth-flow-Alice.png)
+![Flowchart that describes the policy evaluation process](https://docs.aws.amazon.com/kms/latest/developerguide/images/kms-auth-flow-Alice.png)
 
 
 Consider the relevant policies for this example.
@@ -76,7 +76,7 @@ When evaluating cross-account permissions, remember that the key policy is speci
 + Bob, a user in account 1, has permission to assume the `Engineering` role.
 + Bob can trust this KMS key, because even though it is not in his account, an IAM policy in his account gives him explicit permission to use this KMS key.
 
-![Flowchart that describes the policy evaluation process](http://docs.aws.amazon.com/kms/latest/developerguide/images/kms-auth-flow-Bob.png)
+![Flowchart that describes the policy evaluation process](https://docs.aws.amazon.com/kms/latest/developerguide/images/kms-auth-flow-Bob.png)
 
 
 Consider the policies that let Bob, a user in account 1, use the KMS key in account 2.

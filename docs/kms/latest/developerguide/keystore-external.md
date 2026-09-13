@@ -119,7 +119,7 @@ Many cryptographic keys have different types of identifiers. When creating a KMS
 
 The *external key store proxy* ("XKS proxy") is a customer-owned and customer-managed software application that mediates all communication between AWS KMS and your external key manager. It also translates generic AWS KMS requests into a format that your vendor-specific external key manager understand. An external key store proxy is required for an external key store. Each external key store is associated with one external key store proxy.
 
-![External key store proxy](http://docs.aws.amazon.com/kms/latest/developerguide/images/xks-proxy-concept-40.png)
+![External key store proxy](https://docs.aws.amazon.com/kms/latest/developerguide/images/xks-proxy-concept-40.png)
 
 
 AWS KMS cannot create, delete, or manage any external keys. Your cryptographic key material never leaves your external key manager. All communication between AWS KMS and your external key manager is mediated by your external key store proxy. AWS KMS sends requests to the external key store proxy and receives responses from the external key store proxy. The external key store proxy is responsible for transmitting requests from AWS KMS to your external key manager and transmitting responses from your external key manager back to AWS KMS
@@ -191,7 +191,7 @@ Data encrypted by a KMS key in an external key store is encrypted twice. First, 
 
 Double encryption ensures that data encrypted by a KMS key in an external key store is at least as strong as ciphertext encrypted by a standard KMS key. It also protects your plaintext in transit from AWS KMS to your external key store proxy. With double encryption, you retain full control of your ciphertexts. If you permanently revoke AWS access to your external key through your external proxy, any ciphertext remaining in AWS is effectively crypto-shredded.
 
-![Double encryption of data protected by a KMS key in an external key store](http://docs.aws.amazon.com/kms/latest/developerguide/images/xks-double-encrypt-40.png)
+![Double encryption of data protected by a KMS key in an external key store](https://docs.aws.amazon.com/kms/latest/developerguide/images/xks-double-encrypt-40.png)
 
 
 To enable double encryption, each KMS key in an external key store has *two* cryptographic backing keys:
@@ -212,7 +212,7 @@ Your [external key store](#concept-external-key-store), [external key store prox
 
 The encryption methods used by each actual AWS service that integrates with AWS KMS vary. For details, see the "Data protection" topic in the Security chapter of the AWS service documentation.
 
-![How external key stores work](http://docs.aws.amazon.com/kms/latest/developerguide/images/xks-how-it-works-jan26.png)
+![How external key stores work](https://docs.aws.amazon.com/kms/latest/developerguide/images/xks-how-it-works-jan26.png)
 
 
 1. You add a new object to your AWS service resource. To encrypt the object, the AWS service sends a [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) request to AWS KMS using a KMS key in your external key store.

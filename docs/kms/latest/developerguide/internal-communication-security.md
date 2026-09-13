@@ -43,7 +43,7 @@ This protocol performs a mutually authenticated ECDHE key agreement between the 
 
 A service host is a member of the domain and has an identity-signing key pair *(dHOSi, QHOSi)* and an authentic copy of the HSMs' identity public keys. It uses its set of identity-signing keys to securely negotiate a session key that can be used between the service host and any HSM in the domain. The exported key tokens have a validity period associated with them, after which a new key must be negotiated. 
 
-![HSM-service host operator authenticated sessions.](http://docs.aws.amazon.com/kms/latest/developerguide/images/HSM-Host-Operator-Sessions.png)
+![HSM-service host operator authenticated sessions.](https://docs.aws.amazon.com/kms/latest/developerguide/images/HSM-Host-Operator-Sessions.png)
 
 
 The process begins with the service host recognition that it requires a session key to send and receive sensitive communication flows between itself and an HSM member of the domain.

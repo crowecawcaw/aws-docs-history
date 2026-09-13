@@ -5,7 +5,7 @@
 
 You might want to create a new KMS key and use it in place of a current KMS key instead of using automatic or on-demand key rotation. When the new KMS key has different cryptographic material than the current KMS key, using the new KMS key has the same effect as changing the key material in an existing KMS key. The process of replacing one KMS key with another is known as *manual key rotation*.
 
-![Application with key rotated manually from one key ID to a different key ID.](http://docs.aws.amazon.com/kms/latest/developerguide/images/key-rotation-manual.png)
+![Application with key rotated manually from one key ID to a different key ID.](https://docs.aws.amazon.com/kms/latest/developerguide/images/key-rotation-manual.png)
 
 
  Manual rotation is a good choice when you want to rotate KMS keys that are not eligible for automatic or on-demand key rotation, such as asymmetric KMS keys, HMAC KMS keys, and KMS keys in [custom key stores](key-store-overview.md#custom-key-store-overview).

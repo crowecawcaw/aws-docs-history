@@ -80,7 +80,7 @@ The EKT is exported to a highly durable, low-latency storage. For example, suppo
 
 Within the hierarchy of a specific KMS key, the HBK can be thought of as a version of the KMS key. When you want to rotate the KMS key through AWS KMS, a new HBK is created and associated with the KMS key as the active HBK for the KMS key. The older HBKs are preserved and can be used to decrypt and verify previously protected data. But only the active cryptographic key can be used to protect new information. 
 
-![AWS KMS key hierarchy.](http://docs.aws.amazon.com/kms/latest/developerguide/images/CMK-Hierarchy.png)
+![AWS KMS key hierarchy.](https://docs.aws.amazon.com/kms/latest/developerguide/images/CMK-Hierarchy.png)
 
 
 You can make requests through AWS KMS to use your KMS keys to directly protect information or request additional HSM-generated keys that are protected under your KMS key. These keys are called customer data keys, or CDKs. CDKs can be returned encrypted as ciphertext (CT), in plaintext, or both. All objects encrypted under a KMS key (either customer-supplied data or HSM-generated keys) can be decrypted only on an HSM via a call through AWS KMS.

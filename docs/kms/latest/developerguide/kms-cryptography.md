@@ -51,7 +51,7 @@ When you encrypt your data, your data is protected, but you have to protect your
 
 You can even encrypt the data encryption key under another encryption key, and encrypt that encryption key under another encryption key. But, eventually, one key must remain in plaintext so you can decrypt the keys and your data. This top-level plaintext key encryption key is known as the *root key*.
 
-![Envelope encryption](http://docs.aws.amazon.com/kms/latest/developerguide/images/key-hierarchy-root.png)
+![Envelope encryption](https://docs.aws.amazon.com/kms/latest/developerguide/images/key-hierarchy-root.png)
 
 
 AWS KMS helps you to protect your encryption keys by storing and managing them securely. Root key stored in AWS KMS, known as AWS KMS keys, never leave the AWS KMS [FIPS 140-3 Security Level 3 validated hardware security modules](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4884) unencrypted. To use a KMS key, you must call AWS KMS.
@@ -64,7 +64,7 @@ AWS KMS provides the ability to manage these longer-term static keys and automat
 
 In addition to the encryption capabilities provided within the AWS KMS service, the [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) provides client-side envelope encryption libraries. You can use these libraries to protect your data and the encryption keys that are used to encrypt that data.
 
-![Envelope encryption with multiple key encryption keys](http://docs.aws.amazon.com/kms/latest/developerguide/images/key-hierarchy-kms-key.png)
+![Envelope encryption with multiple key encryption keys](https://docs.aws.amazon.com/kms/latest/developerguide/images/key-hierarchy-kms-key.png)
 
 
 Envelope encryption offers several benefits:

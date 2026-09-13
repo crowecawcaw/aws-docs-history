@@ -43,4 +43,4 @@ To connect an custom key store, its connection state must be `DISCONNECTED`. If 
 To view the connection error code:
 + In the [DescribeCustomKeyStores](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html) response, view the value of the `ConnectionErrorCode` element. This element appears in the `DescribeCustomKeyStores` response only when the `ConnectionState` is `FAILED`.
 + To view the connection error code in the AWS KMS console, on detail page for the external key store and hover over the **Failed** value.  
-![Connection error code on the custom key store details page](http://docs.aws.amazon.com/kms/latest/developerguide/images/connection-error-code.png)
+![Connection error code on the custom key store details page](https://docs.aws.amazon.com/kms/latest/developerguide/images/connection-error-code.png)

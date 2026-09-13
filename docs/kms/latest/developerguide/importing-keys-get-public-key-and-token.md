@@ -87,7 +87,7 @@ You can use the AWS KMS console to download the wrapping public key and import t
 
 1. In the navigation pane, choose **Customer managed keys**.
 **Tip**  
-You can import key material only into an KMS key with an **Origin** of **External (Import key material)**. This indicates that the KMS key was created with no key material. To add the **Origin** column to your table, in the upper-right corner of the page, choose the settings icon (![Gear or cog icon representing settings or configuration options.](http://docs.aws.amazon.com/kms/latest/developerguide/images/console-icon-settings-new.png)). Turn on **Origin**, and then choose **Confirm**.
+You can import key material only into an KMS key with an **Origin** of **External (Import key material)**. This indicates that the KMS key was created with no key material. To add the **Origin** column to your table, in the upper-right corner of the page, choose the settings icon (![Gear or cog icon representing settings or configuration options.](https://docs.aws.amazon.com/kms/latest/developerguide/images/console-icon-settings-new.png)). Turn on **Origin**, and then choose **Confirm**.
 
 1. Choose the alias or key ID of the KMS key that is pending import.
 

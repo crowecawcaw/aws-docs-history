@@ -10,12 +10,12 @@ AWS Key Management Service (AWS KMS) is an AWS managed service that makes it eas
 
 When you encrypt data, you need to protect your encryption key. If you encrypt your key, you need to protect its encryption key. Eventually, you must protect the highest level encryption key (known as a *root key*) in the hierarchy that protects your data. That's where AWS KMS comes in.
 
-![Root key protect the data keys that protect your data](http://docs.aws.amazon.com/kms/latest/developerguide/images/key-hierarchy-root.png)
+![Root key protect the data keys that protect your data](https://docs.aws.amazon.com/kms/latest/developerguide/images/key-hierarchy-root.png)
 
 
 AWS KMS protects your root keys. KMS keys are created, managed, used, and deleted entirely within AWS KMS. They never leave the service unencrypted. To use or manage your KMS keys, you call AWS KMS.
 
-![AWS KMS protects your root keys](http://docs.aws.amazon.com/kms/latest/developerguide/images/key-hierarchy-kms-key.png)
+![AWS KMS protects your root keys](https://docs.aws.amazon.com/kms/latest/developerguide/images/key-hierarchy-kms-key.png)
 
 
 Additionally, you can create and manage [key policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in AWS KMS, ensuring that only trusted users have access to KMS keys.

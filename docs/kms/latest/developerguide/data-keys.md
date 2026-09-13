@@ -19,7 +19,7 @@ AWS KMS generates, encrypts, and decrypts data keys. However, AWS KMS does not s
 
 To create a data key, call the [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) operation. AWS KMS generates the data key. Then it encrypts a copy of the data key under a [symmetric encryption KMS key](symm-asymm-choose-key-spec.md#symmetric-cmks) that you specify. The operation returns a plaintext copy of the data key and the copy of the data key encrypted under the KMS key. The following image shows this operation.
 
-![Generate a data key](http://docs.aws.amazon.com/kms/latest/developerguide/images/generate-data-key.png)
+![Generate a data key](https://docs.aws.amazon.com/kms/latest/developerguide/images/generate-data-key.png)
 
 
 AWS KMS also supports the [GenerateDataKeyWithoutPlaintext](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html) operation, which returns only an encrypted data key. When you need to use the data key, ask AWS KMS to [decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) it.
@@ -36,7 +36,7 @@ AWS KMS cannot use a data key to encrypt data. But you can use the data key outs
 
 After using the plaintext data key to encrypt data, remove it from memory as soon as possible. You can safely store the encrypted data key with the encrypted data so it is available to decrypt the data.
 
-![Encrypt user data outside of AWS KMS](http://docs.aws.amazon.com/kms/latest/developerguide/images/encrypt-with-data-key.png)
+![Encrypt user data outside of AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/images/encrypt-with-data-key.png)
 
 
 ### Decrypt data with a data key
@@ -46,4 +46,4 @@ To decrypt your data, pass the encrypted data key to the [Decrypt](https://docs.
 
 The following diagram shows how to use the `Decrypt` operation to decrypt an encrypted data key.
 
-![Decrypting a data key](http://docs.aws.amazon.com/kms/latest/developerguide/images/decrypt.png)
+![Decrypting a data key](https://docs.aws.amazon.com/kms/latest/developerguide/images/decrypt.png)

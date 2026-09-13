@@ -68,7 +68,7 @@ IAM best practices discourage the use of IAM users with long-term credentials. W
 
 The following example shows the key administrators statement in the default view of the AWS KMS console.
 
-![Key administrators in the console's default key policy, default view](http://docs.aws.amazon.com/kms/latest/developerguide/images/console-key-policy-administrators-60.png)
+![Key administrators in the console's default key policy, default view](https://docs.aws.amazon.com/kms/latest/developerguide/images/console-key-policy-administrators-60.png)
 
 
 The following is an example key administrators statement in the policy view of the AWS KMS console. This key administrators statement is for a single-Region symmetric encryption KMS key.
@@ -180,7 +180,7 @@ You can add IAM users, IAM roles, and other AWS accounts to the list of key user
 **Note**  
 IAM best practices discourage the use of IAM users with long-term credentials. Whenever possible, use IAM roles, which provide temporary credentials. For details, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*.
 
-![Key users in the console's default key policy, default view](http://docs.aws.amazon.com/kms/latest/developerguide/images/console-key-policy-users-sm.png)
+![Key users in the console's default key policy, default view](https://docs.aws.amazon.com/kms/latest/developerguide/images/console-key-policy-users-sm.png)
 
 
 The default *key users statements* for a single-Region symmetric allows the following permissions. For detailed information about each permission, see the [AWS KMS permissions](kms-api-permissions-reference.md).

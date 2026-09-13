@@ -16,7 +16,7 @@ For many compliance requirements, the control you have over key access through t
 
 The following table compares the relative operational complexity of the AWS KMS key store options. All of the options are equally secure; the difference is in the operational trade-offs.
 
-![Comparison of four AWS KMS key store options across effort to manage, availability risk, TPS constraints, and latency. The standard key store and imported key material options rate Low with a 99.999% SLA. The AWS CloudHSM key store and external key store options rate Medium to High with no SLA.](http://docs.aws.amazon.com/kms/latest/developerguide/images/key-store-options-comparison.png)
+![Comparison of four AWS KMS key store options across effort to manage, availability risk, TPS constraints, and latency. The standard key store and imported key material options rate Low with a 99.999% SLA. The AWS CloudHSM key store and external key store options rate Medium to High with no SLA.](https://docs.aws.amazon.com/kms/latest/developerguide/images/key-store-options-comparison.png)
 
 
 Consider creating a custom key store only when your organization has regulatory requirements that explicitly mandate key material protection in a single-tenant HSM or in an HSM that you control outside of AWS. Even then, create one only when the risk of not meeting those requirements outweighs the additional cost, operational complexity, and reduced performance of custom key stores.

@@ -31,7 +31,7 @@ To navigate to the key details page for a KMS key.
 
    If the KMS key has multiple aliases, an alias summary (**\+*n* more**) appears beside the name of the one of the aliases. Choosing the alias summary takes you directly to the **Aliases** tab on the key details page.
 
-![KMS key details page showing general configuration and cryptographic settings.](http://docs.aws.amazon.com/kms/latest/developerguide/images/console-key-detail-view-symmetric-sym.png)
+![KMS key details page showing general configuration and cryptographic settings.](https://docs.aws.amazon.com/kms/latest/developerguide/images/console-key-detail-view-symmetric-sym.png)
 
 
 The following list describes the fields in the detailed display, including field in the tabs. Some of these fields are also available as columns in the table display.

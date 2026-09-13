@@ -25,15 +25,15 @@ The AWS KMS console displays the aliases associated with the KMS key.
    To find the alias name and alias ARN of all aliases for the KMS key, use the **Aliases** tab. 
    + To go directly to the **Aliases** tab, in the **Aliases** column, choose the alias summary (**\+*n* more**). An alias summary appears only if the KMS key has more than one alias.
    + Or, choose the alias or key ID of the KMS key (which opens the detail page for the KMS key) and then choose the **Aliases** tab. The tabs are under the **General configuration** section.   
-![Customer managed keys interface showing a list with one key and options to create or filter keys.](http://docs.aws.amazon.com/kms/latest/developerguide/images/find-alias-name-1-sm.png)
+![Customer managed keys interface showing a list with one key and options to create or filter keys.](https://docs.aws.amazon.com/kms/latest/developerguide/images/find-alias-name-1-sm.png)
 
 1. The **Aliases** tab displays the alias name and alias ARN of all aliases for a KMS key. You can also create and delete aliases for the KMS key on this tab.  
-![Aliases tab showing two key aliases with their names and ARNs listed in a table format.](http://docs.aws.amazon.com/kms/latest/developerguide/images/alias-tab-1.png)
+![Aliases tab showing two key aliases with their names and ARNs listed in a table format.](https://docs.aws.amazon.com/kms/latest/developerguide/images/alias-tab-1.png)
 
 **AWS managed keys**  
 You can use the alias to recognize an AWS managed key, as shown in this example **AWS managed keys** page. The aliases for AWS managed keys always have the format: `aws/{{<service-name>}}`. For example, the alias for the AWS managed key for Amazon DynamoDB is `aws/dynamodb`.
 
-![Aliases in the AWS managed keys page of the AWS KMS console](http://docs.aws.amazon.com/kms/latest/developerguide/images/alias-console-aws-managed-sm.png)
+![Aliases in the AWS managed keys page of the AWS KMS console](https://docs.aws.amazon.com/kms/latest/developerguide/images/alias-console-aws-managed-sm.png)
 
 
 ## Using the AWS KMS API

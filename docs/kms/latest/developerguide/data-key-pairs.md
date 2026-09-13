@@ -22,7 +22,7 @@ To create a data key pair, call the [GenerateDataKeyPair](https://docs.aws.amazo
 
 The following image shows the `GenerateDataKeyPair` operation. The `GenerateDataKeyPairWithoutPlaintext` operation omits the plaintext private key.
 
-![Generate a data key pair](http://docs.aws.amazon.com/kms/latest/developerguide/images/generate-data-key-pair.png)
+![Generate a data key pair](https://docs.aws.amazon.com/kms/latest/developerguide/images/generate-data-key-pair.png)
 
 
 ## How cryptographic operations with data key pairs work
@@ -37,7 +37,7 @@ When you encrypt with a data key pair, you use the public key of the pair to enc
 
 The parties with the public key use that key to encrypt data, as shown in the following diagram.
 
-![Encrypt user data with the public key of a data key pair outside of AWS KMS](http://docs.aws.amazon.com/kms/latest/developerguide/images/encrypt-with-data-key-pair.png)
+![Encrypt user data with the public key of a data key pair outside of AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/images/encrypt-with-data-key-pair.png)
 
 
 ### Decrypt data with a data key pair
@@ -49,7 +49,7 @@ To decrypt the encrypted private key, pass it to the [Decrypt](https://docs.aws.
 
 The following diagram shows how to use the private key in a data key pair to decrypt ciphertext.
 
-![Decrypt the data with the private key in a data key pair outside of AWS KMS.](http://docs.aws.amazon.com/kms/latest/developerguide/images/decrypt-with-data-key-pair.png)
+![Decrypt the data with the private key in a data key pair outside of AWS KMS.](https://docs.aws.amazon.com/kms/latest/developerguide/images/decrypt-with-data-key-pair.png)
 
 
 ### Sign messages with a data key pair
@@ -63,7 +63,7 @@ To sign a message, create a message digest using a cryptographic hash function, 
 
 The following diagram shows how to use the private key in a data key pair to sign a message.
 
-![Generate a cryptographic signature with the private key in a data key pair outside of AWS KMS.](http://docs.aws.amazon.com/kms/latest/developerguide/images/sign-with-data-key-pair.png)
+![Generate a cryptographic signature with the private key in a data key pair outside of AWS KMS.](https://docs.aws.amazon.com/kms/latest/developerguide/images/sign-with-data-key-pair.png)
 
 
 ### Verify a signature with a data key pair
@@ -75,7 +75,7 @@ To be successful, the party verifying the signature must generate the same type 
 
 The following diagram shows how to use the public key in a data key pair to verify a message signature.
 
-![Verify a cryptographic signature with the public key in a data key pair outside of AWS KMS.](http://docs.aws.amazon.com/kms/latest/developerguide/images/verify-with-data-key-pair.png)
+![Verify a cryptographic signature with the public key in a data key pair outside of AWS KMS.](https://docs.aws.amazon.com/kms/latest/developerguide/images/verify-with-data-key-pair.png)
 
 
 ### Derive a shared secret with data key pairs

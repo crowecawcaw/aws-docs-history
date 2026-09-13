@@ -63,7 +63,7 @@ In its initialized and operational state, an HSM contains a set of self-generate
 
 After an HSM has joined an initial domain, it is bound to the rules that are defined in that domain. These rules govern the commands that use customer cryptographic keys or make changes to the host or domain state. The authenticated session API operations that use your cryptographic keys have been defined earlier. 
 
-![Domain management.](http://docs.aws.amazon.com/kms/latest/developerguide/images/KMS-Domain-Management.png)
+![Domain management.](https://docs.aws.amazon.com/kms/latest/developerguide/images/KMS-Domain-Management.png)
 
 
 The foregoing image depicts how a domain state gets modified. The process consists of four steps:
