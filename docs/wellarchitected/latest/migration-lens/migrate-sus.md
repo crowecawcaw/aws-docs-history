@@ -62,14 +62,14 @@ Data management is a continuous process and should be implemented during and aft
 
 During a migration, your consumption of resources may increase due to the provisioning of resources in both the source and target environments. The increase in consumption is often referred to as a *double bubble*. In addition, your consumption may also increase due to provisioning of migration resources, such as the networking between your source and target environments, SFTP servers, AWS Application Migration Service (MGN), or AWS Database Migration Service (DMS).
 
-![Typical flow for a migration, which flows from source environment, to migration resources, to target environment](http://docs.aws.amazon.com/wellarchitected/latest/migration-lens/images/migration-process-flow.png)
+![Typical flow for a migration, which flows from source environment, to migration resources, to target environment](https://docs.aws.amazon.com/wellarchitected/latest/migration-lens/images/migration-process-flow.png)
 
 
  
 
 You can reduce the resource consumption during the migration either by reducing the resources deployed or by reducing the duration of their deployment. 
 
-![Additional resource consumption equation (resource target environment times duration of deployment plus resource in migration process times duration of deployment).](http://docs.aws.amazon.com/wellarchitected/latest/migration-lens/images/resource-consumption-equation.png)
+![Additional resource consumption equation (resource target environment times duration of deployment plus resource in migration process times duration of deployment).](https://docs.aws.amazon.com/wellarchitected/latest/migration-lens/images/resource-consumption-equation.png)
 
 
 ## MIG-SUS-BP-8.1: Adopt methods that can reduce interim resource consumption during the migration

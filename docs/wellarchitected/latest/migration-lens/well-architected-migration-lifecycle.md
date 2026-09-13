@@ -5,7 +5,7 @@
 
  The iterative approach to cloud adoption discussed in this guide can be broken out into the three high-level phases of *assess, mobilize,* and *migrate and modernize*. These phases are briefly described below, and each phase could be considered as a separate process. 
 
-![Migration phases](http://docs.aws.amazon.com/wellarchitected/latest/migration-lens/images/migration-lifecycle-phases.png)
+![Migration phases](https://docs.aws.amazon.com/wellarchitected/latest/migration-lens/images/migration-lifecycle-phases.png)
 
 
 ## Assess
@@ -30,4 +30,4 @@ The migrate phase uses the patterns, processes, tools, resources, and methodolog
 
  Regardless of where you are in your migration journey, you can apply the Well-Architected Framework and Migration Lens perspectives. Each pillar of the Migration Lens has specific questions and best practices aligned per migration phase, so you can navigate to the most relevant recommendations related to your current migration phase, or review all recommendations per pillar across all the phases. The Well-Architected migration lifecycle, shown in Figure 2, takes the migration phases described and applies the Well-Architected Framework pillars to each phase. 
 
-![Figure 2- Well-Architected Migration](http://docs.aws.amazon.com/wellarchitected/latest/migration-lens/images/well-architected-migration.png)
+![Figure 2- Well-Architected Migration](https://docs.aws.amazon.com/wellarchitected/latest/migration-lens/images/well-architected-migration.png)
