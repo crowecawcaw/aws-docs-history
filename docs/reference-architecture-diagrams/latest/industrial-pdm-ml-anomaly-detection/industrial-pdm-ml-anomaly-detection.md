@@ -10,7 +10,7 @@ With this architecture, you can create a predictive maintenance (PdM) ML model b
 ## Industrial PdM ML anomaly detection architecture diagram
 <a name="ipa-diagram"></a>
 
-![Architecture diagram for AWS Industrial PdM ML Model and Anomaly Detection.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-pdm-ml-anomaly-detection/images/aws-industrial-PdM-ML-anomaly-RA.png)
+![Architecture diagram for AWS Industrial PdM ML Model and Anomaly Detection.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-pdm-ml-anomaly-detection/images/aws-industrial-PdM-ML-anomaly-RA.png)
 
 
 The following steps describe the architecture:
