@@ -18,7 +18,7 @@ The following diagram shows the workflow for using model package products.
 
 1. You deploy the inference component of the product in SageMaker AI to perform inference (or prediction) in real time or in batches. 
 
-![Diagram of how a buyer uses a model package from AWS Marketplace.](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buyer-ml-model.png)
+![Diagram of how a buyer uses a model package from AWS Marketplace.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buyer-ml-model.png)
 
 
 ## Amazon SageMaker AI algorithm
@@ -38,4 +38,4 @@ The following diagram shows the workflow for using algorithm products.
 
 1. In SageMaker AI, you can then deploy the inference component of the product using those generated model artifacts to perform inference (or prediction) in real time or in batches. 
 
-![Diagram of how a buyer uses a SageMaker AI algorithm from AWS Marketplace.](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buyer-ml-algorithm.png)
+![Diagram of how a buyer uses a SageMaker AI algorithm from AWS Marketplace.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buyer-ml-algorithm.png)

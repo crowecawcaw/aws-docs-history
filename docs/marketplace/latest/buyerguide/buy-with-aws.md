@@ -40,7 +40,7 @@ The following products support Buy with AWS:
 1. Identify the product that you wish to purchase.
 
 1. Choose the **Buy with AWS** CTA button.  
-![AWS Marketplace call-to-action buttons: Buy with AWS, Try free with AWS, Request private offer, and Request demo](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buy-with-aws-cta-buttons.png)
+![AWS Marketplace call-to-action buttons: Buy with AWS, Try free with AWS, Request private offer, and Request demo](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buy-with-aws-cta-buttons.png)
 
 1. Log into your AWS account, if you haven't already. For single sign-on (SSO) users, authenticate with your SSO credentials first. Use the same authentication framework you normally use (such as SAML 2, OIDC, or OAuth 2.0). After logging in, you get access to the Buy with AWS co-branded procurement page.
 

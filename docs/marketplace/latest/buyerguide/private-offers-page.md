@@ -18,7 +18,7 @@ Future-dated private offers are listed as **Early renewals**. For more informati
 
 The following video provides more information about accessing a consolidated view of all your private offers.
 
-[![AWS Videos](http://img.youtube.com/vi/85JYiEwwZBQ/0.jpg)](http://www.youtube.com/watch?v=85JYiEwwZBQ)
+[![AWS Videos](https://img.youtube.com/vi/85JYiEwwZBQ/0.jpg)](https://www.youtube.com/watch?v=85JYiEwwZBQ)
 
 
 For more information about modifying, upgrading, or renewing a private offer, see [Modifying or unsubscribing from a private offer in AWS Marketplace](buyer-private-offers-modifying.md). 

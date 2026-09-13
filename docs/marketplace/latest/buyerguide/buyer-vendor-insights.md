@@ -14,4 +14,4 @@ AWS Marketplace Vendor Insights provides evidence-based information from 10 cont
 
 The following video demonstrates how you can simplify the SaaS risk assessment and use AWS Marketplace Vendor Insights.
 
-[![AWS Videos](http://img.youtube.com/vi/faXhimuvZ2A/0.jpg)](http://www.youtube.com/watch?v=faXhimuvZ2A)
+[![AWS Videos](https://img.youtube.com/vi/faXhimuvZ2A/0.jpg)](https://www.youtube.com/watch?v=faXhimuvZ2A)

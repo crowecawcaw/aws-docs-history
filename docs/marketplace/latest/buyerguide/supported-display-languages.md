@@ -19,7 +19,7 @@ The following steps explain how to switch languages.
 1. Navigate to the [AWS Marketplace website](https://aws.amazon.com/marketplace).
 
 1. On the header, open the language list. The list displays **English** by default, as shown in this image:  
-![A closed list control that displays the word English.](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/language-list.png)
+![A closed list control that displays the word English.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/language-list.png)
 
 1. Select the desired language.
 
@@ -29,7 +29,7 @@ The following steps explain how to switch languages.
 Some pages remain in English.
 To provide feedback about a translation, choose the feedback button on the product detail page. You can provide feedback in any of the supported languages.  
 
-![Image showing a Give us feedback button.](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/feedback.png)
+![Image showing a Give us feedback button.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/feedback.png)
 
 AWS Marketplace sellers can opt out of having their content translated, so you may see text in English and the local language. For information about how sellers can opt out, see [Translation and languages](https://docs.aws.amazon.com/marketplace/latest/userguide/translation.html) in the *AWS Marketplace Seller Guide*.
 

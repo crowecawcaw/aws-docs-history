@@ -77,7 +77,7 @@ In order to verify the email address, make sure that a user with access to the A
 ## Example: Event rule configuration
 <a name="w2aac27c15c45b1"></a>
 
-![Pattern builder section showing AWS Marketplace Agreement Service selected with Purchase Agreement Ending - Acceptor event type and US East N. Virginia region.](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/UNO-Agreement-Ending-example.png)
+![Pattern builder section showing AWS Marketplace Agreement Service selected with Purchase Agreement Ending - Acceptor event type and US East N. Virginia region.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/UNO-Agreement-Ending-example.png)
 
 
 Previously, AWS Marketplace sent buyer email from `no-reply@marketplace.aws` to your root user email address only. This experience is being retired—all accounts move to managed notifications by January 2027. To avoid interruption, opt in to managed notifications and update any email rules to allow `marketplace@aws.com`.

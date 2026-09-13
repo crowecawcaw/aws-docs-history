@@ -38,10 +38,10 @@ The tab's **Expired agreements** section only shows data for agreements that exp
 The following tips can help you use the **Procurement insights** dashboard.
 + The dashboard uses Quick to present your data. The system automatically chooses the charts and other display elements that most logically fit your data. For more information about using Quick dashboards, see [Interacting with Quick dashboards](https://docs.aws.amazon.com/quicksight/latest/user/exploring-dashboards.html), in the *Quick User Guide*.
 + You can download your data. Scroll down to the **Source data** table in either tab. Point to the upper-right corner of the table, then choose the vertical ellipsis to export your data. You can export to a CSV file, or to Microsoft Excel.  
-![The download control in the Source data table.](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/download-dashboard-data.png)
+![The download control in the Source data table.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/download-dashboard-data.png)
 + Both tabs use the same data filters. The filters on a given tab only apply to that tab, but they apply to all the charts and graphs on the tab. The following table lists the filters and their default values.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/marketplace/latest/buyerguide/using-the-dashboard.html)
 + To change the default filter values, select the arrow on the right side of the **Controls** bar.  
-![Image of an arrow pointing down.](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/org-view-filter-arrow.png)
+![Image of an arrow pointing down.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/org-view-filter-arrow.png)
 
 For more information about using Quick filters, see [Using filters on dashboard data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-dashboard-data.html) and [Filtering data during your session](https://docs.aws.amazon.com/quicksight/latest/user/subscriber-dashboards-filtering-your-view-of-the-data.html), both in the *Quick User Guide*.

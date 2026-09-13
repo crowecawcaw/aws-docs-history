@@ -37,7 +37,7 @@ If an error occurs while processing your payment through your payer account, upd
 + Your Amazon Internet Services Private Limited (AISPL) account limits the use of debit or credit cards for new purchases with a contract pricing model. If you have an AISPL account, contact [AWS Customer Service](https://console.aws.amazon.com/support) to update your default payment method. For more details, refer to [Restriction on credit and debit card purchases for AISPL customers using AWS Marketplace](https://aws.amazon.com/blogs/awsmarketplace/restriction-on-credit-and-debit-card-purchases-for-aispl-customers-using-aws-marketplace/) at the AWS Marketplace Blog website.
 + If you need to update your payment method to invoicing terms, contact [Support](https://console.aws.amazon.com/support/home#/case/create). The following video provides information about the process.
 
-[![AWS Videos](http://img.youtube.com/vi/9vupYEGnFDc/0.jpg)](http://www.youtube.com/watch?v=9vupYEGnFDc)
+[![AWS Videos](https://img.youtube.com/vi/9vupYEGnFDc/0.jpg)](https://www.youtube.com/watch?v=9vupYEGnFDc)
 
 
 Updated payment methods can take up to seven days to become available for new purchases. For help with troubleshooting, contact [Support](https://console.aws.amazon.com/support/home#/case/create).

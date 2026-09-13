@@ -17,7 +17,7 @@ To find an AWS Specialization Partner, look for the **AWS Specialization Badge**
 
 For example:
 
-![This image shows an example product listing with the AWS Specialization Par](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buyer-marketplace-specialization-badges-example.png)
+![This image shows an example product listing with the AWS Specialization Par](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buyer-marketplace-specialization-badges-example.png)
 
 
 ## Benefits of working with AWS Specialization Partners

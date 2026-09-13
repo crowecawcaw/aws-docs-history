@@ -21,7 +21,7 @@ If you encounter HTTP status code 404 (Not Found) issues or similar difficulties
 
 The following video provides information about troubleshooting HTTP status code 404 (Not Found) errors.
 
-[![AWS Videos](http://img.youtube.com/vi/XEHgzNZ8vPQ/0.jpg)](http://www.youtube.com/watch?v=XEHgzNZ8vPQ)
+[![AWS Videos](https://img.youtube.com/vi/XEHgzNZ8vPQ/0.jpg)](https://www.youtube.com/watch?v=XEHgzNZ8vPQ)
 
 
 ## None of these suggestions work

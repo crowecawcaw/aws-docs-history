@@ -17,7 +17,7 @@ The following diagram shows an overview of the process to find, subscribe, and d
    + Real-time inference
    + Batch transform job
 
-![Diagram of how a buyer finds, buys and deploys a machine learning product.](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buyer-ml-deploy-model.png)
+![Diagram of how a buyer finds, buys and deploys a machine learning product.](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/buyer-ml-deploy-model.png)
 
 
 You pay only for your usage, with no minimum fees or upfront commitments. AWS Marketplace provides a consolidated bill for algorithms and model packages, and AWS infrastructure usage charges. 

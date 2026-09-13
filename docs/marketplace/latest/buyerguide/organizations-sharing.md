@@ -11,4 +11,4 @@ For more information about sharing licenses with your organization in AWS Licens
 
 The following video provides a walkthrough of the license sharing experience.
 
-[![AWS Videos](http://img.youtube.com/vi/BY3O1p6xHvo/0.jpg)](http://www.youtube.com/watch?v=BY3O1p6xHvo)
+[![AWS Videos](https://img.youtube.com/vi/BY3O1p6xHvo/0.jpg)](https://www.youtube.com/watch?v=BY3O1p6xHvo)

@@ -146,7 +146,7 @@ Linked accounts require the payer account to also review and accept the terms.
 ------
 #### [ Machine learning ]
 
-[![AWS Videos](http://img.youtube.com/vi/-iwF3aE_nYY/0.jpg)](http://www.youtube.com/watch?v=-iwF3aE_nYY)
+[![AWS Videos](https://img.youtube.com/vi/-iwF3aE_nYY/0.jpg)](https://www.youtube.com/watch?v=-iwF3aE_nYY)
 
 
 
@@ -154,12 +154,12 @@ Linked accounts require the payer account to also review and accept the terms.
 ------
 #### [ AMI ]
 
-[![AWS Videos](http://img.youtube.com/vi/MtTrO4LCIeg/0.jpg)](http://www.youtube.com/watch?v=MtTrO4LCIeg)
+[![AWS Videos](https://img.youtube.com/vi/MtTrO4LCIeg/0.jpg)](https://www.youtube.com/watch?v=MtTrO4LCIeg)
 
 
 Without flexible payment schedule:
 
-[![AWS Videos](http://img.youtube.com/vi/h4uHP-ul7Xg/0.jpg)](http://www.youtube.com/watch?v=h4uHP-ul7Xg)
+[![AWS Videos](https://img.youtube.com/vi/h4uHP-ul7Xg/0.jpg)](https://www.youtube.com/watch?v=h4uHP-ul7Xg)
 
 
 ------

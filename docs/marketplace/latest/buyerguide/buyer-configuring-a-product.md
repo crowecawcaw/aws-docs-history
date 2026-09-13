@@ -33,4 +33,4 @@ For a walkthrough on how to subscribe to and deploy a container-based product, y
 [ Deploying AWS Marketplace Containers on Amazon ECS Clusters](https://www.youtube.com/watch?v=XaiUAiQQJtk) (3:34)
 [ Deploying AWS Marketplace Container-based Products using Amazon ECS Anywhere](https://www.youtube.com/watch?v=9SFjG2UaxXs) (5:07)
 
-[![AWS Videos](http://img.youtube.com/vi/9SFjG2UaxXs/0.jpg)](http://www.youtube.com/watch?v=9SFjG2UaxXs)
+[![AWS Videos](https://img.youtube.com/vi/9SFjG2UaxXs/0.jpg)](https://www.youtube.com/watch?v=9SFjG2UaxXs)

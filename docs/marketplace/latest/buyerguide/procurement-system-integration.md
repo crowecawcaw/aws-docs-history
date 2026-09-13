@@ -13,11 +13,11 @@ The integration differs slightly, based on the procurement system:
 
 When the user wants to purchase a subscription that they're browsing in AWS Marketplace, they create a subscription request within AWS Marketplace. On the product's subscription page, instead of completing the purchase, the user requests approval. The request is sent back to a shopping cart in the procurement system to complete the approval process. The following diagram shows the process for a procurement system subscription request.
 
- ![Flow chart for procurement system subscription request](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/procurement-flow-01.png) 
+ ![Flow chart for procurement system subscription request](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/procurement-flow-01.png) 
 
  When the procurement system receives the request from AWS Marketplace, the procurement system starts a workflow to complete the approval process. After the request is approved, the procurement system's purchase order system automatically completes the transaction on AWS Marketplace and notifies the user that their subscription is ready to deploy. The requester doesn't need to return to AWS Marketplace to complete the purchase. However, they may want to return to AWS Marketplace for instructions on how to use the product they have purchased. AWS Marketplace sends an email message to the AWS account used to access AWS Marketplace. The email message informs the recipient that the subscription succeeded and the software is available through AWS Marketplace. The following diagram shows the approval process for a procurement system subscription request.
 
- ![Flowchart for procurement system subscription approval](http://docs.aws.amazon.com/marketplace/latest/buyerguide/images/procurement-flow-02.png) 
+ ![Flowchart for procurement system subscription approval](https://docs.aws.amazon.com/marketplace/latest/buyerguide/images/procurement-flow-02.png) 
 
 Additional notes about integrating with procurement systems include the following:
 + SaaS products with usage-based pricing let you set a budget estimate for your expected usage. You can submit this estimate through your procurement system for approval. If you choose to get pre-approval, your actual charges will be based on your real usage and billed monthly against the approved purchase order. You will be charged based on your actual usage, regardless of your initial estimate. If your actual usage exceeds your estimated amount, you may need to submit an additional purchase requisition to cover the difference.
