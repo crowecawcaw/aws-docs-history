@@ -10,7 +10,7 @@ This reference architecture diagram shows how to add support for digital messagi
 ## Enable Digital Messaging Channels in Amazon Connect
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to enable digital messaging channels in Amazon Connect by using Amazon API Gateway, AWS Lambda, DynamoDB, and Amazon Simple Notification Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/enable-digital-messaging-amazon-connect/images/enable-digital-messaging-amazon-connect.png)
+![Reference architecture diagram showing how to enable digital messaging channels in Amazon Connect by using Amazon API Gateway, AWS Lambda, DynamoDB, and Amazon Simple Notification Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/enable-digital-messaging-amazon-connect/images/enable-digital-messaging-amazon-connect.png)
 
 
 1. Customer sends a message from the digital messaging channel to the webhook hosted on [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html).
