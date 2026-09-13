@@ -34,7 +34,7 @@ Constraints:
 
  The permission matrix is the grid you use to configure what a role can do. It is organized into three sections, each containing one or more permission rows. Each row supports a specific combination of Create, Read, Update, and Delete operations. Not every row supports all four operations. 
 
-![](http://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/overview-of-roles-and-permissions-permission-matrix.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/overview-of-roles-and-permissions-permission-matrix.png)
 
 
 ### Insights

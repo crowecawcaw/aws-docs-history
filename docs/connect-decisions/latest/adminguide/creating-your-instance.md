@@ -13,12 +13,12 @@ Standard configuration creates your Amazon Connect Decisions instance using defa
 To create an Amazon Connect Decisions instance using a standard configuration of preset parameters, follow these steps.
 
 1. Select **Create**.  
-![](http://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/creating-your-instance-standard-create.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/creating-your-instance-standard-create.png)
 
 1. Check your email for the following:
    + An email from the IdC team.
    + An email from Identity Management team.  
-![](http://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/creating-your-instance-email-invite.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/creating-your-instance-email-invite.png)
 
 1. Once you receive the invite email, log on to Amazon Connect Decisions. See [Log on to Amazon Connect Decisions web application](https://docs.aws.amazon.com/aws-supply-chain/latest/adminguide/viewing-homepage.html) .
 
@@ -30,7 +30,7 @@ Advanced configuration allows you to customize your instance by setting your own
 1. Select **Create in advanced setup**.
 
 1. The **Instance properties** page will appear.  
-![](http://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/creating-your-instance-advanced-properties.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/creating-your-instance-advanced-properties.png)
 
 1. Enter the following on the **Instance properties** page:
    + **Name** – Enter an instance name.
@@ -50,7 +50,7 @@ When you delete an instance, information from the Amazon S3 bucket is not automa
 1. Open the Amazon Connect Decisions console at [https://console.aws.amazon.com/scn/home](https://console.aws.amazon.com/scn/home).
 
 1. On the Amazon Connect Decisions console dashboard, from the dropdown, select the instance that you want to delete.  
-![](http://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/creating-your-instance-delete-select.png)
+![](https://docs.aws.amazon.com/connect-decisions/latest/adminguide/images/creating-your-instance-delete-select.png)
 
 1. Choose **Delete**.
 
