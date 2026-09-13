@@ -10,7 +10,7 @@ This architecture enables you to ...
 ## Name of Architecture Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing.....](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/template-ref-arch/images/sample-do-not-use.png)
+![Reference architecture diagram showing.....](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/template-ref-arch/images/sample-do-not-use.png)
 
 
 1. REPLACE WITH DIAGRAM STEPS
@@ -31,7 +31,7 @@ To customize this reference architecture diagram based on your business needs, [
 ## Create a free AWS account
 <a name="create-a-free-aws-account"></a>
 
-[![Sign up for a free AWS account](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/template-ref-arch/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
+[![Sign up for a free AWS account](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/template-ref-arch/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
 
 Sign up for an AWS account. New accounts include 12 months of [AWS Free Tier](https://aws.amazon.com/free/) access, including the use of Amazon EC2, Amazon S3, and Amazon DynamoDB.
 
