@@ -12,7 +12,7 @@ This architecture processes SWIM data through a series of [AWS Lambda](https://d
 ## FAA SWIM data lake diagram
 <a name="faa-swim-diagram"></a>
 
-![Architecture for FAA SWIM data lake using Amazon Kinesis, AWS Lambda, and AWS Glue.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/faa-swim-data-lake/images/FAA-SWIM-Data-Lake.png)
+![Architecture for FAA SWIM data lake using Amazon Kinesis, AWS Lambda, and AWS Glue.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/faa-swim-data-lake/images/FAA-SWIM-Data-Lake.png)
 
 
 The following steps describe the architecture:
