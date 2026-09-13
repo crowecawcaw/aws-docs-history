@@ -7,7 +7,7 @@
 +  AWS is responsible for optimizing the sustainability *of* the cloud – delivering efficient, shared infrastructure, water stewardship, and sourcing renewable power. 
 +  Customers are responsible for sustainability *in* the cloud – optimizing workloads and resource utilization, and minimizing the total resources required to be deployed for your workloads. 
 
-![Diagram showing the AWS shared responsibility model.](http://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/images/sustainability-in-the-cloud.jpeg)
+![Diagram showing the AWS shared responsibility model.](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/images/sustainability-in-the-cloud.jpeg)
 
 
 ## Sustainability of the cloud

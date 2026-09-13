@@ -35,7 +35,7 @@
 
  Using the following formula, divide the provisioned resources by the business outcomes achieved to determine the provisioned resources per unit of work. 
 
-![Diagram showing this formula: Resources provisioned per unit of work = proxy metric for provisioned resource / business metric for outcome](http://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/images/key-performance-indicators-formula.png)
+![Diagram showing this formula: Resources provisioned per unit of work = proxy metric for provisioned resource / business metric for outcome](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/images/key-performance-indicators-formula.png)
 
 
  Use your resources per unit of work as your KPIs. Establish baselines based on provisioned resources as the basis for comparisons. 
