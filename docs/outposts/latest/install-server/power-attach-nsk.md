@@ -14,22 +14,22 @@ If you are installing multiple servers at the same time, ensure that you do not 
 1. On the front right side of the server, open the NSK compartment.
 
    The following image shows the NSK attached to a 2U server.  
-![An image of an NSK attached to a 2U server.](http://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-attach-nsk.png)
+![An image of an NSK attached to a 2U server.](https://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-attach-nsk.png)
 
    The following image shows the NSK attached to a 1U server.  
-![An image of an NSK attached to a 1U server.](http://docs.aws.amazon.com/outposts/latest/install-server/images/cubscout-nsk.png)
+![An image of an NSK attached to a 1U server.](https://docs.aws.amazon.com/outposts/latest/install-server/images/cubscout-nsk.png)
 
 1. Ensure that the serial number (SN) on the NSK matches the SN on the bezel pull-out tab of the NSK compartment on the server.
 
    The following image shows the SN number on the NSK and bezel pull-out tab:  
-![Image shows SN of NSK matches the SN of the bezel pull-out tab.](http://docs.aws.amazon.com/outposts/latest/install-server/images/sn-nsk.png)
+![Image shows SN of NSK matches the SN of the bezel pull-out tab.](https://docs.aws.amazon.com/outposts/latest/install-server/images/sn-nsk.png)
 
 1. Fit the NSK into the slot.
 
 1. Hand tighten using the thumbscrew or tighten with a screwdriver (0.7 Nm / 0.52 lb-ft) until snug. Do not use power tool as it might over-torque and damage the NSK.
 
    The following image shows the location of the thumbscrew.  
-![An image of an NSK showing the location of the thumbscrew.](http://docs.aws.amazon.com/outposts/latest/install-server/images/nsk-thumbscrew.png)
+![An image of an NSK showing the location of the thumbscrew.](https://docs.aws.amazon.com/outposts/latest/install-server/images/nsk-thumbscrew.png)
 
    The following image shows the type of screwdriver you can use to attach the NSK to the server.  
-![Shows the type of screwdriver you can use to attach the NSK to the server. Also shows the type of screwdriver you can't use.](http://docs.aws.amazon.com/outposts/latest/install-server/images/outpost-nsk-attach.jpg)
+![Shows the type of screwdriver you can use to attach the NSK to the server. Also shows the type of screwdriver you can't use.](https://docs.aws.amazon.com/outposts/latest/install-server/images/outpost-nsk-attach.jpg)

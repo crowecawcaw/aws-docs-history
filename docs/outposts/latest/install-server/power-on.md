@@ -22,7 +22,7 @@ The noise level goes down after the server provisions itself.
 1. Verify that the LED power lights above the power ports are lit.
 
    The following image shows the LED power lights on a 2U server  
-![An image of LED power lights on a 2U server.](http://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-power-led.png)
+![An image of LED power lights on a 2U server.](https://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-power-led.png)
 
    The following image shows the LED power lights on a 1U server  
-![An image of LED power lights on a 1U server.](http://docs.aws.amazon.com/outposts/latest/install-server/images/led-on-cubscout.png)
+![An image of LED power lights on a 1U server.](https://docs.aws.amazon.com/outposts/latest/install-server/images/led-on-cubscout.png)

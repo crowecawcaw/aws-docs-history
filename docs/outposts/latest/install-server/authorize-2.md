@@ -24,14 +24,14 @@ Download and install PuTTY from the [PuTTY download page](https://www.chiark.gre
 1. From the Desktop, right-click **Start**, and choose **Device Manager**.
 
 1. In **Device Manager**, expand **Ports (COM & LPT)** to determine the COM port for the USB serial connection. You will see a node named **USB Serial Port (COM{{\#}})**. The value for the COM port depends on your hardware.  
-![An image of a Device Manager on Windows set to COM port 3.](http://docs.aws.amazon.com/outposts/latest/install-server/images/PuTTY-serial01.png)
+![An image of a Device Manager on Windows set to COM port 3.](https://docs.aws.amazon.com/outposts/latest/install-server/images/PuTTY-serial01.png)
 
 1. In PuTTY, from **Session**, choose **Serial** for **Connection type**, and then enter the following information: 
    + Under **Serial line**, enter the COM{{\#}} port from Device Manager.
    + Under **Speed**, enter: `115200`
 
    The following image shows an example on the **PuTTY Configuration** page:  
-![An image of a screen in PuTTY.](http://docs.aws.amazon.com/outposts/latest/install-server/images/PuTTY-serial.png)
+![An image of a screen in PuTTY.](https://docs.aws.amazon.com/outposts/latest/install-server/images/PuTTY-serial.png)
 
 1. Choose **Open**.
 

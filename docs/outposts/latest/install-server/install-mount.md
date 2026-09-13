@@ -26,15 +26,15 @@ Locate and open the box of rack rails that came with the server. Use the followi
 **To identify left from right, front from back**
 
 1.  Look at the markings on the rails to determine which is left and right. These markings determine to which side of the server each rail gets attached.   
-![An image of the left and right markings on the server rails.](http://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-rails-l-r.png)
+![An image of the left and right markings on the server rails.](https://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-rails-l-r.png)
 
 1. Look at the posts on each end of the rails to determine which is front, and which is back. 
 
    The front end has three posts.  
-![An image of the posts on the front of the server rails.](http://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-rails-front.png)
+![An image of the posts on the front of the server rails.](https://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-rails-front.png)
 
    The back end has two posts.  
-![An image of the posts on the back of the server rails.](http://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-rails-back.png)
+![An image of the posts on the back of the server rails.](https://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-rails-back.png)
 
 ## Attach inner rails
 <a name="mount-1"></a>

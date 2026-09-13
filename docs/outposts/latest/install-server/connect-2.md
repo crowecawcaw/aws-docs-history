@@ -7,7 +7,7 @@ With the QSFP breakout cable, you use breakouts to segment traffic.
 
 The following image shows the QSFP breakout cable:
 
-![An image of a QSFP cable showing both ends.](http://docs.aws.amazon.com/outposts/latest/install-server/images/QSFPcable-both-ends.jpg)
+![An image of a QSFP cable showing both ends.](https://docs.aws.amazon.com/outposts/latest/install-server/images/QSFPcable-both-ends.jpg)
 
 
 **Note**  
@@ -17,14 +17,14 @@ One end of the QSFP cable has a single connector. Connect this end to the server
 
 The following image shows the end of the cable with the single connector:
 
-![An image of a QSFP cable showing the single connector.](http://docs.aws.amazon.com/outposts/latest/install-server/images/QSFP-single-end.jpg)
+![An image of a QSFP cable showing the single connector.](https://docs.aws.amazon.com/outposts/latest/install-server/images/QSFP-single-end.jpg)
 
 
 The other end of the QSFP cable has 4 breakout cables labeled 1 through 4. Use the cable labeled 1 for LNI link traffic and the cable labeled 2 for service link traffic.
 
 The following image shows the end of the cable with the 4 breakout cables:
 
-![An image of a QSFP cable showing the 4 breakout cables.](http://docs.aws.amazon.com/outposts/latest/install-server/images/QSFP-4-end.jpg)
+![An image of a QSFP cable showing the 4 breakout cables.](https://docs.aws.amazon.com/outposts/latest/install-server/images/QSFP-4-end.jpg)
 
 
 **To connect the server to the network with the QSFP breakout cable**
@@ -36,18 +36,18 @@ The following image shows the end of the cable with the 4 breakout cables:
    1. Locate the QSFP port.
 
       The following image shows the location of the QSFP port on the 2U server.  
-![An image of the QSFP port on a 2U server.](http://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-network-qfsp-server.png)
+![An image of the QSFP port on a 2U server.](https://docs.aws.amazon.com/outposts/latest/install-server/images/ru2-network-qfsp-server.png)
 
       The following image shows the location of the QSFP port on the 1U server.  
-![An image of the QSFP port on a 1U server.](http://docs.aws.amazon.com/outposts/latest/install-server/images/cubscout-qsfp.png)
+![An image of the QSFP port on a 1U server.](https://docs.aws.amazon.com/outposts/latest/install-server/images/cubscout-qsfp.png)
 
    1. Plug in the QSFP with the pull-tab in the correct orientation.
 
       For the 2U server, plug in the QSFP with the pull-tab on top as the following image shows.  
-![Shows the QSFP cable plugged into a 2U server with the pull-tab on top.](http://docs.aws.amazon.com/outposts/latest/install-server/images/qsfp-on-2U.jpg)
+![Shows the QSFP cable plugged into a 2U server with the pull-tab on top.](https://docs.aws.amazon.com/outposts/latest/install-server/images/qsfp-on-2U.jpg)
 
       For the 1U server, plug in the QSFP with the pull-tab on the bottom as the following image shows.  
-![Shows the QSFP cable plugged into a 1U server with the pull-tab on the bottom.](http://docs.aws.amazon.com/outposts/latest/install-server/images/qsfp-on-1U.jpg)
+![Shows the QSFP cable plugged into a 1U server with the pull-tab on the bottom.](https://docs.aws.amazon.com/outposts/latest/install-server/images/qsfp-on-1U.jpg)
 
    1. Ensure that you feel or hear a click when you plug the cables in. This indicates that you plugged in the cables correctly.
 

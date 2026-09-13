@@ -9,7 +9,7 @@ AWS Outposts supports two versions of NSK: Atlas 2.0 and Atlas 3.0. Both NSK ver
 
 The following image shows the location of the LEDs on the Atlas 2.0 and Atlas 3.0:
 
-![An image of the Atlas 2.0 and 3.0 NSKs with the RGB Status LED on each NSK and the green Power LED on the Atlas 3.0.](http://docs.aws.amazon.com/outposts/latest/install-server/images/nsk-led-status.png)
+![An image of the Atlas 2.0 and 3.0 NSKs with the RGB Status LED on each NSK and the green Power LED on the Atlas 3.0.](https://docs.aws.amazon.com/outposts/latest/install-server/images/nsk-led-status.png)
 
 
 **To verify the Status and Power LEDs on the NSK**
