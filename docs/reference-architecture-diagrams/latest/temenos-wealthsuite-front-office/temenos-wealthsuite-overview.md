@@ -10,7 +10,7 @@ With this architecture, you can deploy the Temenos WealthSuite Front Office plat
 ## Temenos WealthSuite overview diagram
 <a name="tw-ov-diagram"></a>
 
-![Reference architecture diagram showing Temenos WealthSuite Front Office by using Amazon EKS, Amazon API Gateway, Amazon MQ, and Amazon RDS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-wealthsuite-front-office/images/temenos-wealthsuite-overview.png)
+![Reference architecture diagram showing Temenos WealthSuite Front Office by using Amazon EKS, Amazon API Gateway, Amazon MQ, and Amazon RDS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-wealthsuite-front-office/images/temenos-wealthsuite-overview.png)
 
 
 The following steps describe the application layers and data flow for this architecture:

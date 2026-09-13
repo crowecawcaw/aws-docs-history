@@ -10,7 +10,7 @@ With this architecture, you can deploy Temenos WealthSuite with Amazon VPC isola
 ## Temenos WealthSuite Amazon VPC and networking diagram
 <a name="tw-vpc-diagram"></a>
 
-![Reference architecture diagram showing Temenos WealthSuite Amazon VPC and networking by using Amazon API Gateway, Amazon EKS, AWS Fargate, and AWS Direct Connect.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-wealthsuite-front-office/images/temenos-wealthsuite-vpc-networking.png)
+![Reference architecture diagram showing Temenos WealthSuite Amazon VPC and networking by using Amazon API Gateway, Amazon EKS, AWS Fargate, and AWS Direct Connect.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-wealthsuite-front-office/images/temenos-wealthsuite-vpc-networking.png)
 
 
 The following steps describe the networking and access components for this architecture:
