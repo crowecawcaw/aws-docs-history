@@ -47,7 +47,7 @@ To use a different Region for your Kinesis video stream, set the following envir
 
    The sample video GStreamer pipeline looks like this:
 
-![Image of standard test pattern with overlayed date and time stamp.](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/sample-video.png)
+![Image of standard test pattern with overlayed date and time stamp.](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/sample-video.png)
 
 
 ------

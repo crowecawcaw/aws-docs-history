@@ -18,7 +18,7 @@ The following procedure demonstrates how to set up and use the RTSP demo applica
 
 This video shows how to set up a Raspberry Pi to send RTSP feeds to AWS cloud and Amazon Kinesis Video Streams. This is an end-to-end demonstration. 
 
-[![AWS Videos](http://img.youtube.com/vi/YoOYTCD_v3Q?si=ajdNXZpRhNnpAOKk/0.jpg)](http://www.youtube.com/watch?v=YoOYTCD_v3Q?si=ajdNXZpRhNnpAOKk)
+[![AWS Videos](https://img.youtube.com/vi/YoOYTCD_v3Q?si=ajdNXZpRhNnpAOKk/0.jpg)](https://www.youtube.com/watch?v=YoOYTCD_v3Q?si=ajdNXZpRhNnpAOKk)
 
 
 This video demonstrates how to capture images from a feed to use computer vision and Amazon Rekognition to process the images and send alerts.

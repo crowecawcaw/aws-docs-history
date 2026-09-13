@@ -20,7 +20,7 @@ The GStreamer pipeline typically consists of the link between a source (video ca
 
 This topic describes how to construct a GStreamer media pipeline that's capable of streaming video from a video source, such as a web camera or RTSP stream, typically connected through intermediate encoding stages (using H.264 encoding) to Kinesis Video Streams. When your video stream is available as a Kinesis video stream, you can use the [Watch output from cameras using parser library](parser-library.md) for further processing, playback, storage, or analysis of your video stream.
 
-![Functional view of the GStreamer media pipeline for streaming video from a camera to the service.](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/gstreamer-pipeline.png)
+![Functional view of the GStreamer media pipeline for streaming video from a camera to the service.](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/gstreamer-pipeline.png)
 
 
 ## Download, build, and configure the GStreamer element

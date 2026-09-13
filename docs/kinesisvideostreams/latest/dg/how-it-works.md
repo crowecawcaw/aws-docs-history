@@ -15,7 +15,7 @@ The following diagram provides an overview of how Kinesis Video Streams works.
 
 
 
-![Diagram showing interaction of producers and consumers in Kinesis Video Streams.](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/acuity-arch-3a.png)
+![Diagram showing interaction of producers and consumers in Kinesis Video Streams.](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/acuity-arch-3a.png)
 
 
 The diagram demonstrates the interaction among the following components:

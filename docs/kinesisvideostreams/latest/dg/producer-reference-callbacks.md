@@ -11,7 +11,7 @@ There are two callback patterns that the application can use to interact with th
 
 The following diagram illustrates the object model of the callback objects:
 
-![Diagram showing interaction of producers and consumers in Kinesis Video Streams.](http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/callbacks-10.png)
+![Diagram showing interaction of producers and consumers in Kinesis Video Streams.](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/images/callbacks-10.png)
 
 
 In the preceding diagram, `DefaultCallbackProvider` derives from `CallbackProvider` (which exposes all of the callbacks in the PIC) and contains `StreamCallbackProvider` and `ClientCallbackProvider`.
