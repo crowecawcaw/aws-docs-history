@@ -10,7 +10,7 @@ With this architecture, you can review options for ingesting data and using AWS 
 ## Architecture diagram
 <a name="o9-driver-diagram"></a>
 
-![Data flowing from various sources through AWS ingestion services into Amazon S3 and the o9 SaaS solution for demand planning.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/driver-based-demand-planning-o9/images/guidance-for-driver-based-demand-planning-with-o9.png)
+![Data flowing from various sources through AWS ingestion services into Amazon S3 and the o9 SaaS solution for demand planning.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/driver-based-demand-planning-o9/images/guidance-for-driver-based-demand-planning-with-o9.png)
 
 
 The following steps describe the architecture:
