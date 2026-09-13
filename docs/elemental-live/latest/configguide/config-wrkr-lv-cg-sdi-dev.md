@@ -11,7 +11,7 @@
 
 Once you have cabled the SDI cards, make sure that every input that has a cable appears in the **Settings** > **Input Devices** screen. The following image shows input devices in Elemental Live:
 
-![Input Devices screen showing a list of SDI inputs with their status and settings.](http://docs.aws.amazon.com/elemental-live/latest/configguide/images/inputs-shared-png.png)
+![Input Devices screen showing a list of SDI inputs with their status and settings.](https://docs.aws.amazon.com/elemental-live/latest/configguide/images/inputs-shared-png.png)
 
 
 **Naming Inputs**  

@@ -7,7 +7,7 @@ Map each router output to the SDI input on the Elemental Live hardware unit that
 
 In the following example, the four inputs on the SDI card at the top have a path into the router. The one and only input on the second card has a path to the router. And two of the four inputs on the bottom SDI card have a path to the router.
 
-![Three SDI cards with inputs routing to a central router, showing varying path connections.](http://docs.aws.amazon.com/elemental-live/latest/configguide/images/sdi-diagram-shared-png.png)
+![Three SDI cards with inputs routing to a central router, showing varying path connections.](https://docs.aws.amazon.com/elemental-live/latest/configguide/images/sdi-diagram-shared-png.png)
 
 
 **To map the outputs**
