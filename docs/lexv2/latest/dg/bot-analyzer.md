@@ -29,14 +29,14 @@ You can use Bot Analyzer with either the console or the API.
 
 1. Select **Start** to begin the analysis.
 
-![Analyze dropdown with Start option](http://docs.aws.amazon.com/lexv2/latest/dg/images/bot-analyzer/analyze-dropdown-start.jpeg)
+![Analyze dropdown with Start option](https://docs.aws.amazon.com/lexv2/latest/dg/images/bot-analyzer/analyze-dropdown-start.jpeg)
 
 
 The analysis typically completes within minutes. During analysis, the **Start** button changes to **Stop Analyzing** if you need to cancel.
 
 Once analysis completes, recommendations appear in the **Recommendations** panel on the right side.
 
-![Recommendations panel](http://docs.aws.amazon.com/lexv2/latest/dg/images/bot-analyzer/recommendations-panel.jpeg)
+![Recommendations panel](https://docs.aws.amazon.com/lexv2/latest/dg/images/bot-analyzer/recommendations-panel.jpeg)
 
 
 Each recommendation includes:
@@ -53,7 +53,7 @@ To see previous analyses:
 
 1. The **Analysis History** panel displays past analysis requests with their status and timestamps.
 
-![Analysis History panel](http://docs.aws.amazon.com/lexv2/latest/dg/images/bot-analyzer/analysis-history-panel.png)
+![Analysis History panel](https://docs.aws.amazon.com/lexv2/latest/dg/images/bot-analyzer/analysis-history-panel.png)
 
 
 To remove analysis results:
@@ -64,7 +64,7 @@ To remove analysis results:
 
 1. Confirm deletion of the current recommendations.
 
-![Delete confirmation dialog](http://docs.aws.amazon.com/lexv2/latest/dg/images/bot-analyzer/delete-confirmation.png)
+![Delete confirmation dialog](https://docs.aws.amazon.com/lexv2/latest/dg/images/bot-analyzer/delete-confirmation.png)
 
 
 ------

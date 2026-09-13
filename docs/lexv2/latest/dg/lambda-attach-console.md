@@ -28,10 +28,10 @@ You must first attach a Lambda function to your Amazon Lex V2 bot alias before y
 1. There are two options for setting the Lambda code hook:
 
    1. To invoke the Lambda function after every step of the conversation, scroll to the **Code hooks** section at the bottom of the intent editor and select the **Use a Lambda function for initialization and validation** check box, as in the following image:  
-![The code hooks section of the Amazon Lex V2 intent editor.](http://docs.aws.amazon.com/lexv2/latest/dg/images/lambda/lambda-code-hooks-all.png)
+![The code hooks section of the Amazon Lex V2 intent editor.](https://docs.aws.amazon.com/lexv2/latest/dg/images/lambda/lambda-code-hooks-all.png)
 
    1. Alternatively, use the **Dialog code hook** section in the conversation stages at which to invoke the Lambda function. The **Dialog code hook** section appears as follows:  
-![The code hooks section of the Amazon Lex V2 intent editor.](http://docs.aws.amazon.com/lexv2/latest/dg/images/lambda/lambda-code-hook-step.png)
+![The code hooks section of the Amazon Lex V2 intent editor.](https://docs.aws.amazon.com/lexv2/latest/dg/images/lambda/lambda-code-hook-step.png)
 
       There are two ways to control how Amazon Lex V2 calls the code hook for a response:
       + Toggle the **Active** button to mark it as *active* or *inactive*. When a code hook is *active*, Amazon Lex V2 will call the code hook. When the code hook is *inactive*, Amazon Lex V2 does not run the code hook.

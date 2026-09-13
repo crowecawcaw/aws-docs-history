@@ -13,7 +13,7 @@ Total message overhead, including the prelude and both checksums, is 16 bytes.
 
 The following diagram shows the components that make up a message and a header. There are multiple headers per message.
 
-![Message structure showing prelude with byte lengths and CRC, followed by headers and payload sections.](http://docs.aws.amazon.com/lexv2/latest/dg/images/frame-diagram-frame-overview.png)
+![Message structure showing prelude with byte lengths and CRC, followed by headers and payload sections.](https://docs.aws.amazon.com/lexv2/latest/dg/images/frame-diagram-frame-overview.png)
 
 
 Each message contains the following components:

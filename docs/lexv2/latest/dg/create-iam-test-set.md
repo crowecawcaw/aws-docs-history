@@ -8,10 +8,10 @@
 1. Follow the steps at [ Create an IAM user](https://docs.aws.amazon.com/lexv2/latest/dg/gs-account.html#gs-account-user) to create an IAM user which can be used to access test-workbench console.
 
 1. Select the **Create role** button.   
-![The roles screen in the IAM console.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/testworkbench-iam1.png)
+![The roles screen in the IAM console.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/testworkbench-iam1.png)
 
 1. Select the option for **Custom trust policy**.   
-![Select trusted entity](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/testworkbench-iam2.png)
+![Select trusted entity](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/testworkbench-iam2.png)
 
 1. Enter the trust policy below and click **Next**. 
 
@@ -81,7 +81,7 @@
 1. Enter a policy name, for example ‘LexTestWorkbenchPolicy’ and then click on the **Create Policy**. 
 
 1. Return to the previous tab in your browser and Refresh list of policies by clicking the **Refresh** button as shown below.   
-![Refresh the screen to see the new policy.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/testworkbench-iam3.png)
+![Refresh the screen to see the new policy.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/testworkbench-iam3.png)
 
 1. Search in list of policies by entering policy name that you used in the 6th step and choose the policy. 
 

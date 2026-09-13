@@ -20,7 +20,7 @@ Using the Lex console, you can enable the selective conversation log capture set
 Enable text and/or audio logs by selecting the **Selectively log utterances** check box in the **conversation logs settings** (text and/or audio) in build time **BotAlias** settings. You must configure the CloudWatch log group and Amazon S3 bucket to select this option.
 
 1. In the **Audio logs** section, choose whether audio logs are enabled or disable by selecting the radio button. If you choose **Enabled** for audio logs, you need to specify the Amazon S3 bucket location and (optional) the KMS key for encrypting your audio data. Select the check box for **Selectively log utterances** if you are selectively logging audio files.  
-![The panels for managing conversation logs.](http://docs.aws.amazon.com/lexv2/latest/dg/images/logging/selective-manage-logs.png)
+![The panels for managing conversation logs.](https://docs.aws.amazon.com/lexv2/latest/dg/images/logging/selective-manage-logs.png)
 
 1. Select **Save** in the bottom right corner of the panel to save your selective conversation log capture settings.
 
@@ -31,7 +31,7 @@ Enable text and/or audio logs by selecting the **Selectively log utterances** ch
 1. Set the following attributes to based on the intents and slots for which you want to enable selective conversation log capture: 
    + `x-amz-lex:enable-audio-logging:{{intent}}:{{slot}} = "true"`
    + `x-amz-lex:enable-text-logging:{{intent}}:{{slot}} = "true"`  
-![The panels for adding selective session attributes.](http://docs.aws.amazon.com/lexv2/latest/dg/images/logging/selective-session-attributes.png)
+![The panels for adding selective session attributes.](https://docs.aws.amazon.com/lexv2/latest/dg/images/logging/selective-session-attributes.png)
 **Note**  
 Set `x-amz-lex:enable-audio-logging:{{intent}}:{{slot}} = "true"` to capture utterances that contain only a specific slot in the conversation. The action to log an utterance depends on the assessment of {{intent }}:{{slot}} within the utterance, in comparison to the session attribute expressions, and the corresponding flag value. To log an utterance, at least one expression in the session attribute must allow it, with the enable logging flag set to `true`. The value of {{intent}} and {{slot}} can be `"*"` as well. If the slot and/or intent value is `"*"`, it means that any slot and/or intent value of `"*"` will match with it. Similar to `x-amz-lex:enable-audio-logging`, a new session attribute called `x-amz-lex:enable-text-logging` will be used to control text logs.
 

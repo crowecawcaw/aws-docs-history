@@ -5,7 +5,7 @@
 
 You can create a test set to evaluate the performance of your bot. Generate a test set by uploading a test set that is in a CSV file format or by generating a test set from [ conversation logs](https://docs.aws.amazon.com/lexv2/latest/dg/conversation-logs.html). The test set can contain audio or text input.
 
-![Create a test set with the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-create.png)
+![Create a test set with the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-create.png)
 
 
 If a test set creates validation errors, remove the test set and replace it with another list of test set data, or edit the data in the CSV file by using a spreadsheet editing program.

@@ -20,7 +20,7 @@ If the slot is an supported built-in slot, you will have the option to activate 
 If you do not have access to Amazon Bedrock foundation models, you should see **Go to Amazon Bedrock**. Click on **Go to Amazon Bedrock** to go to the Amazon Bedrock page where you can sign up for access to foundation models. Assisted slot resolution currently supports Anthropic Claude. We suggest using Anthropic Claude for best results.
 
 1. If you already have access to Amazon Bedrock Foundation models, you should see a **Configure** button. Click on this button to go the generative AI configuration page to activate generative AI features in Lex.  
-![Image of configure button for generative AI.](http://docs.aws.amazon.com/lexv2/latest/dg/images/assist-slot/assist-slot-genai.png)
+![Image of configure button for generative AI.](https://docs.aws.amazon.com/lexv2/latest/dg/images/assist-slot/assist-slot-genai.png)
 
 1. In the upper right corner of the box, move the slider to the right to choose the **Enabled** setting.
 

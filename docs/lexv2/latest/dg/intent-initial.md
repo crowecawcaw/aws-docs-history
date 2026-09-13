@@ -22,7 +22,7 @@ You can configure the following options within the initial response:
 
 In the absence of a condition or an explicit next step, Amazon Lex V2 moves to the next slot in priority order.
 
-![The advanced options for the initial response to a user's request.](http://docs.aws.amazon.com/lexv2/latest/dg/images/response-initial.png)
+![The advanced options for the initial response to a user's request.](https://docs.aws.amazon.com/lexv2/latest/dg/images/response-initial.png)
 
 
 **Note**  

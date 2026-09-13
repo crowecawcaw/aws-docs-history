@@ -11,7 +11,7 @@ Amazon Chime PSTN audio is integrated with Amazon Lex V2. You can use this integ
 
 The following diagram shows the integration between a contact center using SIP and Amazon Lex V2.
 
-![The information flow between a contact center and Amazon Lex V2 using the Amazon Chime SDK.](http://docs.aws.amazon.com/lexv2/latest/dg/images/chime-sip.flow.png)
+![The information flow between a contact center and Amazon Lex V2 using the Amazon Chime SDK.](https://docs.aws.amazon.com/lexv2/latest/dg/images/chime-sip.flow.png)
 
 
 **Direct telephony support**—You can build customized IVR solutions to directly access Amazon Lex V2 bots using a phone number provisioned in the Amazon Chime SDK.

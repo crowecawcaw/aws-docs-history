@@ -13,7 +13,7 @@ When you define a branch, you define the action that Amazon Lex V2 should take i
 + Session attribute values for the current session.
 + The next step in the conversation. For more information, see [Creating conversation paths](building-paths.md).
 
-![You can choose different options for conditional branching.](http://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-choose.png)
+![You can choose different options for conditional branching.](https://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-choose.png)
 
 
 Each conditional branch has a Boolean expression that must be satisfied for Amazon Lex V2 to follow the branch. There are comparison and Boolean operators, functions, and quantifier operators that you can use for your conditions. For example, the following condition returns true if the {age} slot is less than 24.

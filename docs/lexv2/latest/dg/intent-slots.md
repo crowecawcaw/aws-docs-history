@@ -22,7 +22,7 @@ To define a slot in an intent, you have to configure the following:
 
 After the slot prompt is played, the user provides the slot value as an input. If Amazon Lex V2 does not understand a slot value provided by the user, it retries eliciting the slot until it understands a value or until it exceeds the maximum number of retries that you configured for the slot. Using the advanced retry settings you can configure the timeouts, restrict the type of input, and enable or disable interrupt for the initial prompt and retries. After each attempt at capturing the input, Amazon Lex V2 can call the Lambda function configured for the bot with an invocation label provided for retries. You can use the Lambda function, for example, to apply your business logic to attempt resolving it to a valid value. This Lambda function can be enabled within **Advanced options** for slot prompts.
 
-![Set up slot prompts to have your bot elicit information.](http://docs.aws.amazon.com/lexv2/latest/dg/images/response-slot-prompt.png)
+![Set up slot prompts to have your bot elicit information.](https://docs.aws.amazon.com/lexv2/latest/dg/images/response-slot-prompt.png)
 
 
 You can define responses that the bot should send to the user once the slot value is entered or if the maximum number of retries is exceeded. For example, for a bot for scheduling service for a car, you can send a message to the user when the vehicle identification number (VIN) is entered:
@@ -40,12 +40,12 @@ You can set values, configure the next steps, and apply conditions that correspo
 
 In the absence of a condition or an explicit next step, Amazon Lex V2 moves to the next slot in priority order.
 
-![The advanced options for slot responses.](http://docs.aws.amazon.com/lexv2/latest/dg/images/response-slot.png)
+![The advanced options for slot responses.](https://docs.aws.amazon.com/lexv2/latest/dg/images/response-slot.png)
 
 
 You can use a Lambda function to validate a slot value that a user has entered and determine what the next action should be. For example, you can use the validation function to make sure that the entered value falls in the correct range, or that is correctly formatted. To activate the Lambda function, choose the **Invoke Lambda function** checkbox and the **Active** button in the **Dialog code hook** section. You can specify an invocation label for the dialog code hook. This invocation label can be used in Lambda function to write the business logic corresponding to the slot elicitation.
 
-![The options for dialog code hook.](http://docs.aws.amazon.com/lexv2/latest/dg/images/response-dialog-code-hook.png)
+![The options for dialog code hook.](https://docs.aws.amazon.com/lexv2/latest/dg/images/response-dialog-code-hook.png)
 
 
 Slots that are not required for the intent are not part of the main conversation flow. However, if a user utterance contains a value that your bot identifies as corresponding to an optional slot, it can popluate the slot with that value. For example, if you configure a business intelligence bot to have an optional `City` slot and the user utterance **What is the sales for April in San Diego?**, the bot fills the optional slot with **San Diego**. You can configure the business logic to use the optional slot value, if present.

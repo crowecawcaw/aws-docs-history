@@ -53,11 +53,11 @@ When you create a bot, Amazon Lex V2 creates an alias called `TestBotAlias` that
 
 The following example shows two versions of an Amazon Lex V2 bot, version 1 and version 2. Each of these bot versions has an associated alias, BETA and PROD, respectively. Client applications use the PROD alias to access the bot.
 
-![Point a client application to a version by using an alias.](http://docs.aws.amazon.com/lexv2/latest/dg/images/lex-publish-alias-bot.png) 
+![Point a client application to a version by using an alias.](https://docs.aws.amazon.com/lexv2/latest/dg/images/lex-publish-alias-bot.png) 
 
 When you create a second version of the bot, you can update the alias to point to the new version of the bot using the console or the [UpdateBotAlias](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_UpdateBotAlias.html) operation. When you change the alias, all of your client applications use the new version. If there is a problem with the new version, you can roll back to the previous version by simply changing the alias to point to that version.
 
-![Updating an alias changes the version used by client applications.](http://docs.aws.amazon.com/lexv2/latest/dg/images/lex-publish-alias-bot-v2.png) 
+![Updating an alias changes the version used by client applications.](https://docs.aws.amazon.com/lexv2/latest/dg/images/lex-publish-alias-bot-v2.png) 
 
 When you set up your client applications to call the [Amazon Lex Runtime V2](https://docs.aws.amazon.com/lexv2/latest/APIReference/API_Operations_Amazon_Lex_Runtime_V2.html) APIs to let customers interact with your bot, you use the alias that points the version that you want your customers to use.
 

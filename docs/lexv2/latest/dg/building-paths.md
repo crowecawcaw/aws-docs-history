@@ -7,7 +7,7 @@ Typically, Amazon Lex V2 manages the flow of conversations with your users. For 
 
 For example, in a bot that books car rentals, you might not rent to younger drivers. In this case, you can create a condition that checks to see if a driver is below a certain age, and if so, jump to the closing response. 
 
-![A flowchart showing the conversation flow for a car rental bot that doesn't rent to drivers under 24.](http://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-flowchart.png)
+![A flowchart showing the conversation flow for a car rental bot that doesn't rent to drivers under 24.](https://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-flowchart.png)
 
 
 To design such interactions, you can configure the next step at each point in the conversation, evaluate conditions, set values and invoke code hooks.
@@ -26,7 +26,7 @@ You can also set the next action to dialog code hook to run a Lambda function. F
 
 The following image shows the creation of a path for a slot in the console. In this example, Amazon Lex V2 will elicit the slot "age". If the value of the slot is less than 24, Amazon Lex V2 jumps to the closing response, otherwise Amazon Lex V2 will follow the default path.
 
-![The Amazon Lex V2 console showing the condition editor for a slot.](http://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-slot.png)
+![The Amazon Lex V2 console showing the condition editor for a slot.](https://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-slot.png)
 
 
 **Note**  

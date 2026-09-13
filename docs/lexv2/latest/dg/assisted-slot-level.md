@@ -23,7 +23,7 @@ You must first activate the assisted slot resolution feature on the Generative A
 1. Select the **Advanced Options** button in the **Slots** section.
 
 1. Select the check box for **Enable assisted slot resolution** to enable the feature.  
-![Image of enable button for assisted slot resolution.](http://docs.aws.amazon.com/lexv2/latest/dg/images/assist-slot/assist-slot-enable.png)
+![Image of enable button for assisted slot resolution.](https://docs.aws.amazon.com/lexv2/latest/dg/images/assist-slot/assist-slot-enable.png)
 
 1. Choose the **Update Slot** button in the bottom right corner of the screen. This will activate assisted slot resolution for the slots you have chosen.
 

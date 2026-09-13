@@ -11,12 +11,12 @@ There are two steps to using a Lambda function. First, you must activate the dia
 
 The following image shows the dialog code hook activated.
 
-![Shows that the conditional response code hook is active.](http://docs.aws.amazon.com/lexv2/latest/dg/images/code-hook-active.png)
+![Shows that the conditional response code hook is active.](https://docs.aws.amazon.com/lexv2/latest/dg/images/code-hook-active.png)
 
 
 Next, set the code hook as the next action for the conversation step. You can do this by configuring the next step in conversation to Invoke dialog code hook. The following image shows a conditional branch where invoking the dialog code hook is the next step for the default path of the conversation.
 
-![Conditional branching showing a code hook as the next step in the conversation.](http://docs.aws.amazon.com/lexv2/latest/dg/images/code-hook-choose.png)
+![Conditional branching showing a code hook as the next step in the conversation.](https://docs.aws.amazon.com/lexv2/latest/dg/images/code-hook-choose.png)
 
 
 When code hooks are active, you can set three responses to return to the user:
@@ -24,7 +24,7 @@ When code hooks are active, you can set three responses to return to the user:
 + **Failure** – Sent if there was a problem with running the Lambda function, or the Lambda function returned an `intent.state` value of `Failed`.
 + **Timeout** – Sent if the Lambda function did not complete in its configured timeout period.
 
-![Flowchart showing the options available for messages after a Lambda function runs.](http://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-code-hook.png)
+![Flowchart showing the options available for messages after a Lambda function runs.](https://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-code-hook.png)
 
 
 Choose **Lambda dialog code hook** and then choose **Advanced options** to see the three options for responses that correspond to the Lambda function invocation. You can set values, configure the next steps, and apply conditions corresponding to each response to design the conversation flow. In the absence of a condition or an explicit next step, Amazon Lex V2 decides the next step based on the current state of the conversation. 

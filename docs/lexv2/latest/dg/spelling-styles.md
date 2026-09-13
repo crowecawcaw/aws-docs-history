@@ -12,9 +12,23 @@ Amazon Lex V2 provides three *slot elicitation styles* for you to use. When you 
 **Spell by word** – In voice conversations, especially using the telephone, there are a few letters, such as "t," "b," "p", that sound similar. When capturing alphanumeric values or spelling names results in an incorrect value, you can prompt the user to provide an identifying word along with the letter. For example, if the voice response to a request for a booking ID is "abp123," your bot might instead recognize the phrase "ab**b**123" instead. If this is an incorrect value, you can ask the user to provide the input as "a as in alpha b as in boy p as in peter one two three." The bot will resolve the input to "abp123."
 
 When using spell by word, you can use the following formats:
+
+For English (US), English (UK), and English (Australia):
 + "as in" (a as in apple)
 + "for" (a for apple)
 + "like" (a like apple)
+
+For German (de-DE):
++ "wie" (p wie pizza)
++ "für" (p für pizza)
+
+For French (fr-FR):
++ "comme" (p comme paris)
++ "pour" (p pour paris)
+
+For Spanish (es-419, es-US, es-ES):
++ "como" (u como union)
++ "de" (u de union)
 
 **Default** – This is the natural style of slot capture using word pronunciation. For example, it can capture names such as "John Stiles" naturally. If a slot elicitation style isn't specified, the bot uses the default style. For the `AMAZON.AlphaNumeric` and `AMAZON.UKPostal` code slot types, the default style supports spell by letter input.
 
@@ -22,12 +36,12 @@ If the name "Xiulan" is spoken using a mix of letters and words , such as "x as 
 
 You should create a voice interface that captures slot values with natural conversational style for a better experience. For inputs that are not correctly captured using the natural style, you can re-prompt the user and set the slot elicitation style to spell-by-letter or spell-by-word.
 
-You can use spell-by-word and spell-by-letter styles for the following slot types in the English (US), English (UK), and English (Australia) languages: 
+You can use spell-by-word and spell-by-letter styles for the following slot types in the English (US), English (UK), English (Australia), German (de-DE), French (fr-FR), and Spanish (es-419, es-US, es-ES) languages: 
 +  [AMAZON.AlphaNumeric](built-in-slot-alphanumeric.md) 
 +  [AMAZON.EmailAddress](built-in-slot-email.md) 
 +  [AMAZON.FirstName](built-in-slot-first-name.md) 
 +  [AMAZON.LastName](built-in-slot-last-name.md) 
-+  [AMAZON.UKPostalCode](built-in-slot-uk-postal-code.md) 
++  [AMAZON.UKPostalCode](built-in-slot-uk-postal-code.md) (English (US), English (UK), and English (Australia) only) 
 +  [Custom Slot Types](custom-slot-types.md) 
 
 ## Enabling spelling

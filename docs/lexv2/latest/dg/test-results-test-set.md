@@ -9,7 +9,7 @@ By locating these issues in your test results, you can optimize your bot’s per
 
 You can get a detailed view of intents and slots that had performance discrepancies. Once you have identified intents or slots that have discrepancies, you can further drill down and review the utterances and conversation flow.
 
-![List of completed tests using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-testresults.png)
+![List of completed tests using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-testresults.png)
 
 
 **To review test results:**

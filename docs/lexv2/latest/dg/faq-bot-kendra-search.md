@@ -8,7 +8,7 @@ This example creates an Amazon Lex V2 bot that uses an Amazon Kendra index to pr
 1. Create a bot that your customers will interact with to get answers from your bot.
 
 1. Create a custom intent. Because the `AMAZON.KendraSearchIntent` and `AMAZON.FallbackIntent` are backup intents, your bot requires at least one other intent that must contain least one utterance. This intent enables your bot to build, but is not used otherwise. Your FAQ bot will therefore contain at least three intents, as in the image below:   
-![A Kendra FAQ bot with three intents](http://docs.aws.amazon.com/lexv2/latest/dg/images/kendra-faqbot/kendra-intents.png)
+![A Kendra FAQ bot with three intents](https://docs.aws.amazon.com/lexv2/latest/dg/images/kendra-faqbot/kendra-intents.png)
 
 1. Add the `AMAZON.KendraSearchIntent` intent to your bot and configure it to work with your [Amazon Kendra index](https://docs.aws.amazon.com/kendra/latest/dg/create-index.html). 
 
@@ -69,7 +69,7 @@ Create the intent to search an Amazon Kendra index and the response message that
    ```
    I found a link to a document that could help you: ((x-amz-lex:kendra-search-response-document-link-1)).
    ```  
-![Add the fulfillment response](http://docs.aws.amazon.com/lexv2/latest/dg/images/kendra-faqbot/kendra-fulfillment-response.gif)
+![Add the fulfillment response](https://docs.aws.amazon.com/lexv2/latest/dg/images/kendra-faqbot/kendra-fulfillment-response.gif)
 
     For more information about the Amazon Kendra Search Response, see [ Using the Search Response](https://docs.aws.amazon.com/lexv2/latest/dg/built-in-intent-kendra-search.html#kendra-search-response). 
 

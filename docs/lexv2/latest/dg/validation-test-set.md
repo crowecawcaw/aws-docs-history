@@ -5,7 +5,7 @@
 
 Limited coverage of intents and slots between the test set and the bot can result in expected performance measures. We recommend that you review the test set coverage ahead of running the test.
 
-![Review intents in the validation step with the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-discr1.png)
+![Review intents in the validation step with the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-discr1.png)
 
 
 **To review validation coverage**

@@ -7,7 +7,7 @@ To improve bot performance, you can evaluate the performance of your bots at sca
 
 You can use the Test Workbench to create reference test sets that use existing transcription data. You can test bots to evaluate performance before deployment, and view test result breakdowns at scale.
 
-![The work flow diagram to improve bot accuracy with the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/testworkbench-workflow.png)
+![The work flow diagram to improve bot accuracy with the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/testworkbench-workflow.png)
 
 
 Users can use the Test Workbench to establish baseline performance for bots. This covers intent and slot performance for utterances that are in the form of single-inputs or conversations. Once a test set is successfully loaded, you can run it against your existing pre-production or production bots. The Test Workbench helps you identify opportunities for improved slot filling and intent classification.

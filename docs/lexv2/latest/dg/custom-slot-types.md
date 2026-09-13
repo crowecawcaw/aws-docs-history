@@ -5,7 +5,7 @@
 
 For each intent, you can specify parameters that indicate the information that the intent needs to fulfill the user's request. These parameters, or slots, have a type. A *slot type* is a list of values that Amazon Lex V2 uses to train the machine learning model to recognize values for a slot. For example, you can define a slot type called `Genres` with values such as "comedy," "adventure," "documentary," and so on. You can define synonyms for a slot type value. For example, you can define the synonyms "funny" and "humorous" for the value "comedy." 
 
-![Create a custom slot type.](http://docs.aws.amazon.com/lexv2/latest/dg/images/slots/custom-slot-type.png)
+![Create a custom slot type.](https://docs.aws.amazon.com/lexv2/latest/dg/images/slots/custom-slot-type.png)
 
 
 You can configure the slot type to expand the slot values. Slot values will be used as training data and the model will resolve the slot to the value provided by the user if it is similar to the slot values and synonyms of those values. This is the default behavior. Amazon Lex V2 maintains a list of possible resolutions for a slot. Each entry in the list provides a *resolved value* that Amazon Lex V2 recognized as additional possibilities for the slot. A resolved value is the best effort to match the slot value. The list contains up to five values.

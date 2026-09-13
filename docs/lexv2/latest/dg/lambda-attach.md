@@ -27,7 +27,7 @@ To create a Lambda function for your Amazon Lex V2 bot, access AWS Lambda from y
 
 The following image shows what you see when you create a new function from scratch:
 
-![A new Lambda function.](http://docs.aws.amazon.com/lexv2/latest/dg/images/lambda/lambda-new-function.png)
+![A new Lambda function.](https://docs.aws.amazon.com/lexv2/latest/dg/images/lambda/lambda-new-function.png)
 
 
 The Lambda handler function differs depending on the language you use. It minimally takes an `event` JSON object as an argument. You can see the fields in the `event` that Amazon Lex V2 provides at [AWS Lambda input event format for Lex V2](lambda-input-format.md). Modify the handler function to ultimately return a `response` JSON object that matches the format described in [AWS Lambda response format for Lex V2](lambda-response-format.md).

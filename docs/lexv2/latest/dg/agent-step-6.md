@@ -7,7 +7,7 @@ For demo purposes, you provide input to the bot as the customer and as the agent
 
 Run your web application by opening `index.html` to engage in a conversation with your bot like this:.
 
-![An example conversation between a call center bot and the Agent Assistant.](http://docs.aws.amazon.com/lexv2/latest/dg/images/agent-tutorial-ss.png)
+![An example conversation between a call center bot and the Agent Assistant.](https://docs.aws.amazon.com/lexv2/latest/dg/images/agent-tutorial-ss.png)
 
 
 The `pushChat()` function in the index.html file is explained below.

@@ -16,12 +16,12 @@ The **Conversation count** and **Message count** sections each contain a graph t
 
 See an example of the hovering behavior in the following image.
 
-![A line graph that shows the number of conversations at each hour in a given time grame.](http://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/conversation-count.png)
+![A line graph that shows the number of conversations at each hour in a given time grame.](https://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/conversation-count.png)
 
 
 The **Time of conversations** section presents the number of conversations that took place between your bot and customers over each two hour interval on each day of the week, within the time range that you specify in the filters. More darkly shaded cells indicate times at which more conversations took place. Hover over a cell to display the number of conversations in the 2 hours beginning from that time slot. For example, the action in the following image shows the number of conversations occurring between 4:00PM and 6:00PM UTC.
 
-![A heatmap that visualizes the number of conversations in each two-hour interval over each day of the week.](http://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/time-of-conversations.png)
+![A heatmap that visualizes the number of conversations in each two-hour interval over each day of the week.](https://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/time-of-conversations.png)
 
 
 The **Conversation dashboard** contains two tools, **Conversation flows** and **Conversations**. Access a tool by selecting it under **Conversation dashboard** in the left navigation pane.
@@ -35,7 +35,7 @@ Choose an intent to expand to a new column of branches that shows a list of inte
 
 When you select a node in the conversation flow, you can expand the window below to display a list of conversations that followed that order of intents. Choose the **Session ID** corresponding to a conversation to view details about that conversation. The following image shows a conversation flow and an expanded **Conversations** window at the bottom.
 
-![A flowchart that visualizes the different orders of intents that customers take in conversations with your bot.](http://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/conversation-flow.png)
+![A flowchart that visualizes the different orders of intents that customers take in conversations with your bot.](https://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/conversation-flow.png)
 
 
 ## Conversations

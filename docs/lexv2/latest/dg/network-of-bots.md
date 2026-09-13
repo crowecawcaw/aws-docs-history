@@ -12,7 +12,7 @@ Teams can collaborate to create a network of bots to meet various business needs
 **Note**  
  Currently, a network of bots is limited to one account. You cannot add bots from other accounts. 
 
-![A sample network of bots](http://docs.aws.amazon.com/lexv2/latest/dg/images/nob/nob-main.png)
+![A sample network of bots](https://docs.aws.amazon.com/lexv2/latest/dg/images/nob/nob-main.png)
 
 
 ## Create a network of bots for your Lex V2 bots

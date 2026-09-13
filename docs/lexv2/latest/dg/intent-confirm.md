@@ -15,7 +15,7 @@ You can define 3 types of responses to the confirmation prompt:
 + **Decline response** – This response is sent to the user when the user declines the intent. For example, after the user replies "no" to the prompt "do you want to place the order?"
 + **Failure response** – This response is sent to the user when the confirmation prompt can't be processed. For example, if the user's response couldn't be understood or couldn't be resolved to a yes or a no. 
 
-![A flowchart showing the 3 types of responses for confirmation and decline responses.](http://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-confirmation-flow.png)
+![A flowchart showing the 3 types of responses for confirmation and decline responses.](https://docs.aws.amazon.com/lexv2/latest/dg/images/conditional-confirmation-flow.png)
 
 
 If you don't specify a confirmation prompt, Amazon Lex V2 moves to the fulfillment step or the closing response. 
@@ -27,7 +27,7 @@ You can also enable the dialog code hook to validate the information captured in
 **Note**  
  If you use a code hook to trigger the confirmation step at runtime, you must mark the confirmation step as **Active** at build time. 
 
-![The Amazon Lex V2 console showing the advanced options for confirmation prompts.](http://docs.aws.amazon.com/lexv2/latest/dg/images/response-confirm.png)
+![The Amazon Lex V2 console showing the advanced options for confirmation prompts.](https://docs.aws.amazon.com/lexv2/latest/dg/images/response-confirm.png)
 
 
 **Note**  

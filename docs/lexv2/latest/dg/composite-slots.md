@@ -21,10 +21,10 @@ Slots of singular slot types may be used to add subslots to the composite slot t
 
 The following images are an illustration of a composite slot “Car”, which is a combination of subslots: Color, FuelType, Manufacturer, Model, VIN, and Year.
 
-![Slot type panel shows subslots.](http://docs.aws.amazon.com/lexv2/latest/dg/images/cst-slottype.png)
+![Slot type panel shows subslots.](https://docs.aws.amazon.com/lexv2/latest/dg/images/cst-slottype.png)
 
 
-![Subslots panel.](http://docs.aws.amazon.com/lexv2/latest/dg/images/cst-subslots.png)
+![Subslots panel.](https://docs.aws.amazon.com/lexv2/latest/dg/images/cst-subslots.png)
 
 
 **Expression builder**
@@ -116,28 +116,28 @@ When Amazon Lex sends the prompt to the user, it sends "Would you like me to sch
 
 Each subslot is configured as a slot. You can add slot prompts to elicit the subslot and sample utterances. You can enable wait and continue for a subslot as well as default values. For more information, see [Using default slot values in intents for your Lex V2 bot](context-mgmt-default.md)
 
-![Composite slot settings panel](http://docs.aws.amazon.com/lexv2/latest/dg/images/cst-composite.png)
+![Composite slot settings panel](https://docs.aws.amazon.com/lexv2/latest/dg/images/cst-composite.png)
 
 
 You can use slot obfuscation to mask the whole composite slot in conversation logs. Please note that slot obfuscation is applied at the composite slot level and when enabled, the values for subslots belonging to a composite slot are obfuscated. When you obfuscate slot values, the value of each of the slot values is replaced with the name of the slot. For more information, see [Obscuring slot values in conversation logs from Lex V2](monitoring-obfuscate.md).
 
-![Composite slot info panel](http://docs.aws.amazon.com/lexv2/latest/dg/images/cst-slotinfo.png)
+![Composite slot info panel](https://docs.aws.amazon.com/lexv2/latest/dg/images/cst-slotinfo.png)
 
 
 **Editing a composite slot type**
 
 You can edit a subslot from within the composite slot configuration in order to modify subslot name and slot type. However, when a composite slot is in use by an intent, you will have to edit the intents before modifying the subslot.
 
-![Alert panel for existing intents](http://docs.aws.amazon.com/lexv2/latest/dg/images/cst-alert.png)
+![Alert panel for existing intents](https://docs.aws.amazon.com/lexv2/latest/dg/images/cst-alert.png)
 
 
 **Deleting a composite slot type**
 
 You can delete a subslot from within the composite slot configuration. Please note that when a subslot is in use within an intent, the subslots are still removed from that intent.
 
-![Delete intent with subslots](http://docs.aws.amazon.com/lexv2/latest/dg/images/cst-delete.png)
+![Delete intent with subslots](https://docs.aws.amazon.com/lexv2/latest/dg/images/cst-delete.png)
 
 
 The slot expression in the expression builder provides an alert to inform about the deleted subslots.
 
-![Slot type for existing intents](http://docs.aws.amazon.com/lexv2/latest/dg/images/cst-slottype.png)
+![Slot type for existing intents](https://docs.aws.amazon.com/lexv2/latest/dg/images/cst-slottype.png)

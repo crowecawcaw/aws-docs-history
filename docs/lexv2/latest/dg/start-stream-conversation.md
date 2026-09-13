@@ -67,7 +67,7 @@ The following diagrams show a streaming audio conversation between a user and an
 
 The following diagram shows the beginning of a conversation between the application and the bot. The stream begins at time zero (t0). 
 
-![Timeline showing audio input events from user triggering bot response events like heartbeat and transcript.](http://docs.aws.amazon.com/lexv2/latest/dg/images/Streaming-Page-1.png)
+![Timeline showing audio input events from user triggering bot response events like heartbeat and transcript.](https://docs.aws.amazon.com/lexv2/latest/dg/images/Streaming-Page-1.png)
 
 
 The following list describes the events of the preceding diagram.
@@ -84,7 +84,7 @@ The following list describes the events of the preceding diagram.
 
 The following diagram is a continuation of the previous diagram. It shows the application sending a playback completion event to the bot to indicate that it has stopped playing the audio response for the user. The application plays back *Bot response to user utterance 1* to the user. The user responds to *Bot response to user utterance 1* with *User utterance 2*.
 
-![Timeline showing bot and application events including audio input, playback completion, and responses.](http://docs.aws.amazon.com/lexv2/latest/dg/images/Streaming-Page-2.png)
+![Timeline showing bot and application events including audio input, playback completion, and responses.](https://docs.aws.amazon.com/lexv2/latest/dg/images/Streaming-Page-2.png)
 
 
 The following list describes the events of the preceding diagram:
@@ -96,4 +96,4 @@ The following list describes the events of the preceding diagram:
 
 The following diagram shows the *Bot response to user utterance 3*, and that the conversation continues after the bot responds to the user utterance.
 
-![Bot response sequence showing Audio Response, Text Response, Intent Result, Transcript, Heartbeat, and Playback Interruption events.](http://docs.aws.amazon.com/lexv2/latest/dg/images/Streaming-Page-3.png)
+![Bot response sequence showing Audio Response, Text Response, Intent Result, Transcript, Heartbeat, and Playback Interruption events.](https://docs.aws.amazon.com/lexv2/latest/dg/images/Streaming-Page-3.png)

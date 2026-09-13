@@ -14,53 +14,53 @@ Test results comprise all testing related information such as:
 
 **Overall results tab:**
 
-![The test set input breakdown chart in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results1.png)
+![The test set input breakdown chart in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results1.png)
 
 
 **Test set input breakdown** – This chart shows the breakdown of number of conversations and single input utterances in the test set. 
 
-![The single input breakdown chart in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results2.png)
+![The single input breakdown chart in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results2.png)
 
 
 **Single input breakdown** – Displays two charts that included end-to-end conversations and speech transcriptions. The number of passed and failed inputs are indicated on each chart. Note: Speech transcription chart will be visible only for the audio test set. 
 
-![The conversation breakdown chart in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results3.png)
+![The conversation breakdown chart in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results3.png)
 
 
 **Conversation breakdown** – Displays two charts that included end-to-end conversations and speech transcriptions. The number of passed and failed inputs are indicated on each chart. Note: Speech transcription chart will be visible only for the audio test set.
 
 **Conversation results tab:**
 
-![The conversation pass rates chart in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results4.png)
+![The conversation pass rates chart in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results4.png)
 
 
 **Conversation pass rates** – The conversation pass rates table is used to see which intents and slots are used in each conversation in the test set. You can visualize where the conversation has failed by reviewing which intent or slot failed, along with the pass percentage of each intent and slot. 
 
-![The conversation intent failure metrics chart in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results5.png)
+![The conversation intent failure metrics chart in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results5.png)
 
 
 **Conversation intent failure metrics** – This metric shows the top 5 worst performing intents in the test set. This panel shows a chart of what percent or number of intents were successful or failed based on the bot’s conversation logs or transcription. A successful intent does not mean that the entire conversation was successful. These metrics only apply to the value of the intents, regardless of which intent came before or after. 
 
-![The Conversation slot failure metrics chart in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results6.png)
+![The Conversation slot failure metrics chart in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results6.png)
 
 
 **Conversation slot failure metrics** – This metric shows the top 5 worst performing slots in the test set. Indicated the success rate for each slot in the intent. Bar graph shows both speech transcription and end-to-end conversations for each slot in the intent. 
 
 **Intent and slot results tab:**
 
-![The Intent recognition metrics chart in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results7.png)
+![The Intent recognition metrics chart in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results7.png)
 
 
 **Intent recognition metrics** – Shows a table of how many intents were recognized successfully. Displays the pass rate of speech transcription and end-to-end conversations. 
 
-![The Slot resolution metrics chart in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results8.png)
+![The Slot resolution metrics chart in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results8.png)
 
 
 **Slot resolution metrics** – Shows the intents and slots separately, and the success and failure rate of each slot for each intent used in the conversation or single input. Displays the pass rate of speech transcription and end-to-end conversations. 
 
 **Detailed results tab:**
 
-![The detailed results in test results using the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results9.png)
+![The detailed results in test results using the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-results9.png)
 
 
 **Detailed results** – Shows a detailed table on the conversation log with User and Agent utterances and the expected output and expected transcription for each slot. You can download this report by selecting the **Download** button. 

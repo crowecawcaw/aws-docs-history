@@ -7,7 +7,7 @@ In the performance dashboard, you can view details about the performance of your
 
 The **Intent performance breakdown** section displays the total number of times your bot invoked an intent and breaks down the number and percentage of times that the intents were categorized as a *success*, *failed*, *dropped*, and *switched*. See [Intents](analytics-key-definitions.md#analytics-key-definitions-intents) for an explanation of these definitions. Hover over a segment of the chart to show a box with the count and percentage of conversations with that result, as in the following image.
 
-![A donut chart that shows the different results of intent fulfillment for a bot.](http://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/intent-performance-breakdowns.png)
+![A donut chart that shows the different results of intent fulfillment for a bot.](https://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/intent-performance-breakdowns.png)
 
 
 Select **View all intents** to reveal a dropdown menu, from which you can choose to view a list of intents that the bot elicited. You can also choose to view intents with a specific result (*success*, *failed*, *dropped*, or *switched*). These links take you to the **Intent performance** subsection of the **Performance dashboard**. For more information, see [Intent performance](#intent-performance).
@@ -21,7 +21,7 @@ Select **Intents performance** and **Utterance recognition** under the **Perform
 
 This dashboard summarizes the performance of intents used with your bot in descending order of frequency. The bar next to each intent visualizes the number of times the intent was categorized as a *success*, *failed*, *dropped*, and *switched*. See [Intents](analytics-key-definitions.md#analytics-key-definitions-intents) for an explanation of these definitions. Hover over a segment of the bar to see the number of conversations using that intent with that result, as in the following image:
 
-![A bar chart that shows the different results of intent fulfillment for a bot.](http://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/intent-performance.png)
+![A bar chart that shows the different results of intent fulfillment for a bot.](https://docs.aws.amazon.com/lexv2/latest/dg/images/analytics/intent-performance.png)
 
 
 **Note**  

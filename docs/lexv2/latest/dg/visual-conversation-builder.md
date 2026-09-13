@@ -17,7 +17,7 @@ Visual conversation builder is a drag and drop conversation builder to easily de
 
 1. To return to the menu intent editor interface, select **Editor**.
 
-![A sample conversation flow with visual conversation builder.](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-sample.png)
+![A sample conversation flow with visual conversation builder.](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-sample.png)
 
 
 Visual conversation builder offers a more intuitive user interface with the ability to visualize and modify the conversation flow. By dragging and dropping the blocks, you can extend an existing flow or reorder the conversation steps. You can develop conversation flow with complex branching without writing any Lambda code.
@@ -29,12 +29,12 @@ When you save an intent, Amazon Lex V2 can auto-connect intents when it determin
 
 | Action | Example | 
 | --- | --- | 
-| Adding a block to the workspace |  ![Adding a block onto the workspace](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-addblock.gif)  | 
-| Making a connection between blocks |  ![Making a connection between blocks](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-connectionblock.gif)  | 
-| Opening the configuration panel on a block |  ![Open the configuration panel of a block](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-openpanelblock.gif)  | 
-| Zoom to fit |  ![Zoom to fit](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-zoomtofit.gif)  | 
-| Delete a block from the conversation flow |  ![Delete a block from the conversation flow](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-deleteblock.gif)  | 
-| Auto clean the workspace |  ![Auto clean the workspace](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-autoclean.gif)  | 
+| Adding a block to the workspace |  ![Adding a block onto the workspace](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-addblock.gif)  | 
+| Making a connection between blocks |  ![Making a connection between blocks](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-connectionblock.gif)  | 
+| Opening the configuration panel on a block |  ![Open the configuration panel of a block](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-openpanelblock.gif)  | 
+| Zoom to fit |  ![Zoom to fit](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-zoomtofit.gif)  | 
+| Delete a block from the conversation flow |  ![Delete a block from the conversation flow](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-deleteblock.gif)  | 
+| Auto clean the workspace |  ![Auto clean the workspace](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-autoclean.gif)  | 
 
 **Terminology:**
 
@@ -61,16 +61,16 @@ The bot prompts and messages can be configured directly on the node by dragging 
 
 | Block Type | Block | 
 | --- | --- | 
-| **Start** – The root or first block of the conversation flow. This block can also be configured such that the bot can send an initial response (message the intent has been recognized). For more information, see [Initial response](intent-initial.md). |  ![A start block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-start.png)  | 
-| **Get slot value** – This block tries to elicit value for a single slot. This block has a setting to wait for customer response to the slot elicitation prompt. For more information, see [Slots](intent-slots.md). |  ![A get slot value block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-getslotvalue.png)  | 
-| **Condition** – This block contains conditionals. It contains up to 4 custom branches (with conditions) and one default branch. For more information, see [Add conditions to branch conversations](paths-branching.md). |  ![A condition block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-condition.png)  | 
-| **Dialog code hook** – This block handles invocation of the dialog Lambda function. This block contains bot responses based on dialog Lambda function succeeding, failing, or timing out. For more information, see [Invoke dialog code hook](paths-code-hook.md). |  ![A code hook block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-codehook.png)  | 
-| **Confirmation** – This block queries the customer before fulfillment of the intent. It contains bot responses based on customer saying yes or no to the confirmation prompt. For more information, see [Confirmation](intent-confirm.md). |  ![A confirmation block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-confirmation.png)  | 
-| **Fulfillment** – This block handles fulfillment of intent, usually after slots elicitation. It can be configured to invoke Lambda functions, as well as respond with messages, if fulfillment succeeds or fails. For more information, see [Fulfillment](intent-fulfillment.md). |  ![A fulfillment block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-fulfillment.png)  | 
-| **Closing response** – This block allows the bot to respond with a message before ending the conversation. For more information, see [Closing response](intent-closing.md). |  ![A closing block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-closing.png)  | 
-| **End conversation** – This block indicates the end of the conversation flow. |  ![An end block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-end.png)  | 
-| **Wait for user input** – This block can be used to capture input from the customer and switch to another intent based on the utterance. |  ![A wait block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-wait.png)  | 
-| **Go to intent** – This block can be used to go to a new intent, or to directly elicit a specific slot of that intent. |  ![A go to intent block in visual conversation builder](http://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-gotointent.png)  | 
+| **Start** – The root or first block of the conversation flow. This block can also be configured such that the bot can send an initial response (message the intent has been recognized). For more information, see [Initial response](intent-initial.md). |  ![A start block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-start.png)  | 
+| **Get slot value** – This block tries to elicit value for a single slot. This block has a setting to wait for customer response to the slot elicitation prompt. For more information, see [Slots](intent-slots.md). |  ![A get slot value block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-getslotvalue.png)  | 
+| **Condition** – This block contains conditionals. It contains up to 4 custom branches (with conditions) and one default branch. For more information, see [Add conditions to branch conversations](paths-branching.md). |  ![A condition block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-condition.png)  | 
+| **Dialog code hook** – This block handles invocation of the dialog Lambda function. This block contains bot responses based on dialog Lambda function succeeding, failing, or timing out. For more information, see [Invoke dialog code hook](paths-code-hook.md). |  ![A code hook block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-codehook.png)  | 
+| **Confirmation** – This block queries the customer before fulfillment of the intent. It contains bot responses based on customer saying yes or no to the confirmation prompt. For more information, see [Confirmation](intent-confirm.md). |  ![A confirmation block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-confirmation.png)  | 
+| **Fulfillment** – This block handles fulfillment of intent, usually after slots elicitation. It can be configured to invoke Lambda functions, as well as respond with messages, if fulfillment succeeds or fails. For more information, see [Fulfillment](intent-fulfillment.md). |  ![A fulfillment block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-fulfillment.png)  | 
+| **Closing response** – This block allows the bot to respond with a message before ending the conversation. For more information, see [Closing response](intent-closing.md). |  ![A closing block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-closing.png)  | 
+| **End conversation** – This block indicates the end of the conversation flow. |  ![An end block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-end.png)  | 
+| **Wait for user input** – This block can be used to capture input from the customer and switch to another intent based on the utterance. |  ![A wait block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-wait.png)  | 
+| **Go to intent** – This block can be used to go to a new intent, or to directly elicit a specific slot of that intent. |  ![A go to intent block in visual conversation builder](https://docs.aws.amazon.com/lexv2/latest/dg/images/vcb-gotointent.png)  | 
 
 **Port types**
 

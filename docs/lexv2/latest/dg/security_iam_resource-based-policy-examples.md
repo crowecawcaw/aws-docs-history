@@ -25,7 +25,7 @@ When you save a policy with the policy editor, the console checks the syntax of 
 
 The following shows the resource-based policy editor for a bot in the console. The policy editor for a bot alias is similar.
 
-![The Amazon Lex V2 console resource-based policy editor.](http://docs.aws.amazon.com/lexv2/latest/dg/images/resource-policy-editor.png)
+![The Amazon Lex V2 console resource-based policy editor.](https://docs.aws.amazon.com/lexv2/latest/dg/images/resource-policy-editor.png)
 
 
 **To open the policy editor for a bot**

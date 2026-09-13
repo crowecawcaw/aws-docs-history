@@ -25,14 +25,14 @@ You test a bot using a specific alias and language. If you are testing the devel
 
 After you choose **Test**, the test window opens in the console. You can use the test window to interact with your bot, as shown in the following graphic.
 
-![The test window showing a conversation with an order flowers bot.](http://docs.aws.amazon.com/lexv2/latest/dg/images/test-example-1.png)
+![The test window showing a conversation with an order flowers bot.](https://docs.aws.amazon.com/lexv2/latest/dg/images/test-example-1.png)
 
 
 In addition to the conversation, you can also choose **Inspect** in the test window to see the responses returned from the bot. The first view shows you a summary of the information returned from your bot to the test window.
 
-![The test window showing the summary view of a conversation with a bot.](http://docs.aws.amazon.com/lexv2/latest/dg/images/test-example-2.png)
+![The test window showing the summary view of a conversation with a bot.](https://docs.aws.amazon.com/lexv2/latest/dg/images/test-example-2.png)
 
 
 You can also use the test inspection window to see the JSON structures that are sent between the bot and the test window. You can see both the request from the test window and the response from Amazon Lex V2.
 
-![The test window showing the JSON structures used in a conversation with a bot.](http://docs.aws.amazon.com/lexv2/latest/dg/images/test-example-3.png)
+![The test window showing the JSON structures used in a conversation with a bot.](https://docs.aws.amazon.com/lexv2/latest/dg/images/test-example-3.png)

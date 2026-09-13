@@ -5,7 +5,7 @@
 
 To execute a test set, you must choose the appropriate bot to run the test against the test set. You can choose a bot from your AWS account from the drop down menu under Test Set. This operation will test your selected bot against your validated test data to report performance metrics against the baseline data from the test set.
 
-![The screen to execute a test in the Test Workbench.](http://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-extest.png)
+![The screen to execute a test in the Test Workbench.](https://docs.aws.amazon.com/lexv2/latest/dg/images/testworkbench/test-workbench-extest.png)
 
 
 **To execute a test in the Test Workbench**

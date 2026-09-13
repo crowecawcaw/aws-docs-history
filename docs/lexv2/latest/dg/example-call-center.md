@@ -11,7 +11,7 @@ In this tutorial, we create an Amazon Lex V2 bot that agents use to answer custo
 
 The bot and web application that you create in this tutorial helps agents respond to customers efficiently and accurately by quickly providing the right resources. The following diagram shows how the web application works. 
 
-![Workflow showing customer question flow from Amazon Lex to Kendra to S3 and back to agent.](http://docs.aws.amazon.com/lexv2/latest/dg/images/agent-tutorial.png)
+![Workflow showing customer question flow from Amazon Lex to Kendra to S3 and back to agent.](https://docs.aws.amazon.com/lexv2/latest/dg/images/agent-tutorial.png)
 
 
 

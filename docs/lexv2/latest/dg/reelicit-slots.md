@@ -5,7 +5,7 @@
 
  You can configure your bot to re-elicit a slot that has already been filled by setting that slot value to **null** and setting the next step in the conversation to loop back to eliciting that slot. For example, you may want to re-elicit a slot after your customer declines a confirmation of the slot elicitation based on extra information, as in the following conversation: 
 
-![A conversation eliciting a customer's meat preference for a food order.](http://docs.aws.amazon.com/lexv2/latest/dg/images/slots/order-food.png)
+![A conversation eliciting a customer's meat preference for a food order.](https://docs.aws.amazon.com/lexv2/latest/dg/images/slots/order-food.png)
 
 
 You can configure a loop from the confirmation response back to re-elicit the slot with either the intent editor or the [Using Visual conversation builder](visual-conversation-builder.md).
@@ -28,20 +28,20 @@ You can loop back to re-elicit a slot at any point in the conversation provided 
    1. A **Slot** section will appear. In the dropdown menu under it, choose the slot you want to re-elicit.
 
    1. Select **Update options** to confirm your changes.  
-![A conversation eliciting a customer's meat preference for a food order.](http://docs.aws.amazon.com/lexv2/latest/dg/images/slots/decline-food.png)
+![A conversation eliciting a customer's meat preference for a food order.](https://docs.aws.amazon.com/lexv2/latest/dg/images/slots/decline-food.png)
 
 **Reproducing the above example with the Visual conversation builder**
 
 1. Create a connection from the **No** port of the **Confirmation** block to the incoming port of the **Get slot value: Meat** block.  
-![A connection from the declination of the confirmation prompt to the Meat slot elicitation block.](http://docs.aws.amazon.com/lexv2/latest/dg/images/slots/vcb-reelicit-slot-loop.png)
+![A connection from the declination of the confirmation prompt to the Meat slot elicitation block.](https://docs.aws.amazon.com/lexv2/latest/dg/images/slots/vcb-reelicit-slot-loop.png)
 
 1. Select the **Edit** icon in the top right corner of the **Confirmation** block.  
-![Edit icon in the top right corner of the confirmation block.](http://docs.aws.amazon.com/lexv2/latest/dg/images/slots/vcb-reelicit-slot-confirmation-edit.png)
+![Edit icon in the top right corner of the confirmation block.](https://docs.aws.amazon.com/lexv2/latest/dg/images/slots/vcb-reelicit-slot-confirmation-edit.png)
 
 1. Select the gear icon next to the bot response in the **Decilne response** section.  
-![Gear icon next to bot response in decline response section](http://docs.aws.amazon.com/lexv2/latest/dg/images/slots/vcb-reelicit-slot-confirmation.png)
+![Gear icon next to bot response in decline response section](https://docs.aws.amazon.com/lexv2/latest/dg/images/slots/vcb-reelicit-slot-confirmation.png)
 
 1. In the **Set values** section, add "{Meat} = null" in the **Slot values** box.  
-![Set the slot value to be re-elicited to null in the slot values box of the set values section.](http://docs.aws.amazon.com/lexv2/latest/dg/images/slots/vcb-reelicit-slot-set-slot-null.png)
+![Set the slot value to be re-elicited to null in the slot values box of the set values section.](https://docs.aws.amazon.com/lexv2/latest/dg/images/slots/vcb-reelicit-slot-set-slot-null.png)
 
 1. Select **Save Intent.**

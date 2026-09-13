@@ -15,7 +15,7 @@ There are three possible fulfillment responses:
 
 You can set values, configure the next steps, and apply conditions corresponding to each response to design the conversation flow. In the absence of a condition or an explicit next step, Amazon Lex V2 moves to closing response. 
 
-![The Amazon Lex V2 console showing the response options for a fulfillment code hook.](http://docs.aws.amazon.com/lexv2/latest/dg/images/response-fulfillment.png)
+![The Amazon Lex V2 console showing the response options for a fulfillment code hook.](https://docs.aws.amazon.com/lexv2/latest/dg/images/response-fulfillment.png)
 
 
 **Note**  
