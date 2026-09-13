@@ -10,7 +10,7 @@ TiDB is an open-source MySQL-compatible database that supports hybrid transactio
 ## Securely Access TiDB Using AWS PrivateLink
 <a name="diagram1"></a>
 
-![Architecture diagram showing secure access to TiDB Cloud using AWS PrivateLink with Amazon VPC interface endpoints.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/tidb-privatelink/images/tidb-privatelink.png)
+![Architecture diagram showing secure access to TiDB Cloud using AWS PrivateLink with Amazon VPC interface endpoints.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/tidb-privatelink/images/tidb-privatelink.png)
 
 
 The following steps describe the architecture:
