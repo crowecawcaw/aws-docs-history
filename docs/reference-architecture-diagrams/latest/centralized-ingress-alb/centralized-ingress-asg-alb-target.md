@@ -10,7 +10,7 @@ This architecture chains a [Network Load Balancer](https://docs.aws.amazon.com/e
 ## Centralized ingress with Auto Scaling group and ALB target architecture
 <a name="asgalb-diagram1"></a>
 
-![Architecture diagram showing centralized ingress with chained Network Load Balancer and Application Load Balancer for layer 7 load balancing with Auto Scaling groups.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-ingress-alb/images/centralized-ingress-alb-3.png)
+![Architecture diagram showing centralized ingress with chained Network Load Balancer and Application Load Balancer for layer 7 load balancing with Auto Scaling groups.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-ingress-alb/images/centralized-ingress-alb-3.png)
 
 
 The following steps describe the data flow in this architecture:

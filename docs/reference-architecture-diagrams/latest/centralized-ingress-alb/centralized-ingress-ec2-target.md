@@ -10,7 +10,7 @@ This architecture uses a centralized ingress Amazon VPC with a public [Applicati
 ## Centralized ingress with Amazon EC2 target architecture
 <a name="ec2t-diagram1"></a>
 
-![Architecture diagram showing centralized ingress with Application Load Balancer using IP targets to reach EC2 instances through AWS Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-ingress-alb/images/centralized-ingress-alb-1.png)
+![Architecture diagram showing centralized ingress with Application Load Balancer using IP targets to reach EC2 instances through AWS Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-ingress-alb/images/centralized-ingress-alb-1.png)
 
 
 The following steps describe the data flow in this architecture:

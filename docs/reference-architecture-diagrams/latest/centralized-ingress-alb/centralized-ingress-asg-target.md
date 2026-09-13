@@ -10,7 +10,7 @@ This architecture adds a [Network Load Balancer](https://docs.aws.amazon.com/ela
 ## Centralized ingress with Auto Scaling group target architecture
 <a name="asg-diagram1"></a>
 
-![Architecture diagram showing centralized ingress with Application Load Balancer targeting Network Load Balancer static IP for Auto Scaling group registration.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-ingress-alb/images/centralized-ingress-alb-2.png)
+![Architecture diagram showing centralized ingress with Application Load Balancer targeting Network Load Balancer static IP for Auto Scaling group registration.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-ingress-alb/images/centralized-ingress-alb-2.png)
 
 
 The following steps describe the data flow in this architecture:
