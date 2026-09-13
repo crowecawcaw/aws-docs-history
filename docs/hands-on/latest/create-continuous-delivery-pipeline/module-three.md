@@ -70,7 +70,7 @@ In this module, you will:
    Enter **aws-elastic-beanstalk-express-js-sample** in the search field. 
 
    Select the repo you forked in Module 1. After selecting your repo, your screen should look like the screenshot.   
-![The AWS CodeBuild console showing the configuration of a source from a GitHub repository for a continuous delivery pipeline tutorial, including connection status and repository details.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/codebuild-source-acblong-console.png)
+![The AWS CodeBuild console showing the configuration of a source from a GitHub repository for a continuous delivery pipeline tutorial, including connection status and repository details.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/codebuild-source-acblong-console.png)
 
 1. Continue configuring the project
 
@@ -119,4 +119,4 @@ Here's what our architecture looks like now.
 
 We have created a build project on AWS CodeBuild to run the build process of the Hello World\! web app from our GitHub repository. We will be using this build project as the build step in our continuous delivery pipeline, which we will create in the next module. 
 
-![Diagram showing a DevOps pipeline architecture where users commit code to a Git repository, triggering AWS CodeBuild within AWS Cloud, and deploying the application to AWS Elastic Beanstalk.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/devops-codebuild-elastic-beanstalk-diagram.png)
+![Diagram showing a DevOps pipeline architecture where users commit code to a Git repository, triggering AWS CodeBuild within AWS Cloud, and deploying the application to AWS Elastic Beanstalk.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/devops-codebuild-elastic-beanstalk-diagram.png)

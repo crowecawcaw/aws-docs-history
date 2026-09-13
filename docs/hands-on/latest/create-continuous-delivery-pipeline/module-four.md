@@ -110,4 +110,4 @@ Here's what our architecture looks like now:
 
 We have created a continuous delivery pipeline on AWS CodePipeline with three stages: source, build, and deploy. The source code from the GitHub repo created in [Module 1: Set Up Git Repo](module-one.md) is part of the source stage. That source code is then built by AWS CodeBuild in the build stage. Finally, the built code is deployed to the AWS Elastic Beanstalk environment created in [Module 3: Create Build Project](module-three.md). 
 
-![Diagram illustrating a DevOps pipeline using a Git repository as the source, AWS CodePipeline for orchestration, AWS CodeBuild for building the application, and AWS Elastic Beanstalk for deployment.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/devops-git-codebuild-elastic-beanstalk.png)
+![Diagram illustrating a DevOps pipeline using a Git repository as the source, AWS CodePipeline for orchestration, AWS CodeBuild for building the application, and AWS Elastic Beanstalk for deployment.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/devops-git-codebuild-elastic-beanstalk.png)

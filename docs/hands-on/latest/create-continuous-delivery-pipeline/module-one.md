@@ -69,7 +69,7 @@ This tutorial assumes you have an existing GitHub account and Git installed on y
    To clone the repository using HTTPS, confirm that the heading says **Clone with HTTPS.** If not, select the **Use HTTPS** link. 
 
    Choose the white button with a clipboard icon on it (to the right of the URL).   
-![The GitHub 'Code' dropdown showing clone options for HTTPS, SSH, and GitHub CLI, along with URLs, used in the AWS create continuous delivery pipeline tutorial.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/clone-repo-github-code-dropdown-options.png)
+![The GitHub 'Code' dropdown showing clone options for HTTPS, SSH, and GitHub CLI, along with URLs, used in the AWS create continuous delivery pipeline tutorial.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/clone-repo-github-code-dropdown-options.png)
 
 1. Open a terminal
 
@@ -121,4 +121,4 @@ Here is what our architecture looks like right now.
 
 We have created a code repository containing a simple web app. We will be using this repository to start our continuous delivery pipeline. It's important to set it up properly so we push code to it. 
 
-![Diagram showing users connecting to a Git repository, with an arrow pointing from users to the Git icon, and a labeled AWS Cloud box, representing setup or workflow from users via git to AWS Cloud.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/cloud-git-repository-users-diagram-acffbad.png)
+![Diagram showing users connecting to a Git repository, with an arrow pointing from users to the Git icon, and a labeled AWS Cloud box, representing setup or workflow from users via git to AWS Cloud.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/cloud-git-repository-users-diagram-acffbad.png)

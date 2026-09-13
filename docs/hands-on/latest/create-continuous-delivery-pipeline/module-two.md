@@ -58,7 +58,7 @@ In this module, you will:
    Confirm that the radio button next to **Single instance (free tier eligible)** under the Presets heading is selected. 
 
    Select **Next.**   
-![The 'Configure environment' screen in AWS Elastic Beanstalk for a continuous delivery pipeline tutorial. The image shows configuration options including environment tier (Web server environment), application and environment names, platform (Node.js), sample application code option, and single instance configuration preset. The 'Next' button is highlighted at the bottom.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/nswpihyg-configure-environment-screen.png)
+![The 'Configure environment' screen in AWS Elastic Beanstalk for a continuous delivery pipeline tutorial. The image shows configuration options including environment tier (Web server environment), application and environment names, platform (Node.js), sample application code option, and single instance configuration preset. The 'Next' button is highlighted at the bottom.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/nswpihyg-configure-environment-screen.png)
 
 1. Configure service access
 
@@ -76,14 +76,14 @@ In this module, you will:
    Choose **Skip to Review** on the Configure service access page. 
 
    This will select the default values for this step and skip the optional steps.   
-![The 'Configure service access' step in an AWS tutorial for creating a continuous delivery pipeline. The image highlights using an existing IAM service role and selecting an EC2 instance profile, with the 'Skip to review' button outlined at the bottom.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/mos-configure-service-access-ebd-creating.png)
+![The 'Configure service access' step in an AWS tutorial for creating a continuous delivery pipeline. The image highlights using an existing IAM service role and selecting an EC2 instance profile, with the 'Skip to review' button outlined at the bottom.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/mos-configure-service-access-ebd-creating.png)
 
 1.  Create the app
 
    The Review page displays a summary of all your choices. 
 
    Choose **Submit** at the bottom of the page to initialize the creation of your new environment.   
-![The 'Review' step in the AWS Create Continuous Delivery Pipeline tutorial, showing steps to configure environment, service access, networking, instance traffic, and updates, with edit and submit options.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/steps-configure-environment-service-access.png)
+![The 'Review' step in the AWS Create Continuous Delivery Pipeline tutorial, showing steps to configure environment, service access, networking, instance traffic, and updates, with edit and submit options.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/steps-configure-environment-service-access.png)
 
 1. Verify successful creation
 
@@ -92,7 +92,7 @@ In this module, you will:
    + After a few minutes have passed, you will see a green banner with a checkmark at the top of the environment screen. 
 
    Once you see the banner, you have successfully created an AWS Elastic Beanstalk application and deployed it to an environment.   
-![A successful environment launch in the AWS Elastic Beanstalk environment during the Create Continuous Delivery Pipeline tutorial. A green banner at the top reads 'Environment successfully launched.'.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/ouq-success-eccdc-successful-environment.png)
+![A successful environment launch in the AWS Elastic Beanstalk environment during the Create Continuous Delivery Pipeline tutorial. A green banner at the top reads 'Environment successfully launched.'.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/ouq-success-eccdc-successful-environment.png)
 
 ### Step 2: Test your web app
 <a name="test-your-web-app"></a>
@@ -100,12 +100,12 @@ In this module, you will:
 1. Select your app
 
    To test your sample web app, select the link under the name of your environment.   
-![The 'Environment overview' section in AWS console for 'DevOpsGettingStarted-env', highlighting the application link (elasticbeanstalk URL) in the process of creating a continuous delivery pipeline tutorial.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/select-link-eca-environment-overview.png)
+![The 'Environment overview' section in AWS console for 'DevOpsGettingStarted-env', highlighting the application link (elasticbeanstalk URL) in the process of creating a continuous delivery pipeline tutorial.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/select-link-eca-environment-overview.png)
 
 1. View the webpage
 
    Once the test has completed, a new browser tab should open with a webpage congratulating you\!   
-![The AWS Elastic Beanstalk Node.js deployment success page. The message congratulates the user on running their first AWS Elastic Beanstalk Node.js application in a dedicated environment on the AWS Cloud, indicating the environment is launched with the Elastic Beanstalk Node.js Platform.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/view-webpage-aeblong-node-deployment.png)
+![The AWS Elastic Beanstalk Node.js deployment success page. The message congratulates the user on running their first AWS Elastic Beanstalk Node.js application in a dedicated environment on the AWS Cloud, indicating the environment is launched with the Elastic Beanstalk Node.js Platform.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/view-webpage-aeblong-node-deployment.png)
 
 #### Application architecture
 <a name="application-architecture"></a>
@@ -114,4 +114,4 @@ Now that we are done with this module, our architecture will look like this:
 
 We have created an AWS Elastic Beanstalk environment and sample application. We will be using this environment and our continuous delivery pipeline to deploy the Hello World\! web app we created in the previous module. 
 
-![A diagram illustrating the process of users pushing code to a Git repository, which is then deployed to AWS Elastic Beanstalk within the AWS Cloud. The image visualizes the DevOps workflow from source control to application deployment on AWS infrastructure.](http://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/devops-git-elastic-beanstalk-diagram.png)
+![A diagram illustrating the process of users pushing code to a Git repository, which is then deployed to AWS Elastic Beanstalk within the AWS Cloud. The image visualizes the DevOps workflow from source control to application deployment on AWS infrastructure.](https://docs.aws.amazon.com/hands-on/latest/create-continuous-delivery-pipeline/images/devops-git-elastic-beanstalk-diagram.png)
