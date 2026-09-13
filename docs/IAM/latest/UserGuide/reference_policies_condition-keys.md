@@ -307,7 +307,7 @@ In the following Amazon S3 bucket policy example, access to the bucket is restri
 
 In the following video, learn more about how you might use the `aws:PrincipalIsAWSService` condition key in a policy.
 
-[![AWS Videos](http://img.youtube.com/vi/gv-_H8a42G4/0.jpg)](http://www.youtube.com/watch?v=gv-_H8a42G4)
+[![AWS Videos](https://img.youtube.com/vi/gv-_H8a42G4/0.jpg)](https://www.youtube.com/watch?v=gv-_H8a42G4)
 
 
 ### aws:PrincipalServiceName
@@ -1767,7 +1767,7 @@ Use this policy example as a template for creating your own custom policies. Ref
 
 In the following video, learn more about how you might use the `aws:ResourceOrgID` condition key in a policy.
 
-[![AWS Videos](http://img.youtube.com/vi/cWVW0xAiWwc/0.jpg)](http://www.youtube.com/watch?v=cWVW0xAiWwc)
+[![AWS Videos](https://img.youtube.com/vi/cWVW0xAiWwc/0.jpg)](https://www.youtube.com/watch?v=cWVW0xAiWwc)
 
 
 ### aws:ResourceTag/*tag-key*
@@ -1807,7 +1807,7 @@ To allow or deny access when *any* service makes a request using the principal's
 
 The `aws:CalledVia` key is a [multivalued key](reference_policies_condition-single-vs-multi-valued-context-keys.md). However, you can't enforce order using this key in a condition. Using the example above, **User 1** makes a request to CloudFormation, which calls DynamoDB, which calls AWS KMS. These are three separate requests. The final call to AWS KMS is performed by User 1 through CloudFormation and then DynamoDB. 
 
-![Example using aws:CalledVia.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/condition-key-calledvia-example-diagram.png)
+![Example using aws:CalledVia.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/condition-key-calledvia-example-diagram.png)
 
 
 In this case, the `aws:CalledVia` key in the request context includes `cloudformation.amazonaws.com` and `dynamodb.amazonaws.com`, in that order. If you care only that the call was made through DynamoDB somewhere in the chain of requests, you can use this condition key in your policy. 
@@ -1885,7 +1885,7 @@ If you want to enforce which service makes the first or last call in the chain, 
 
 The `aws:CalledViaFirst` and `aws:CalledViaLast` keys are present in the request when a service uses an IAM principal's credentials to call another service. They indicate the first and last services that made calls in the chain of requests. For example, assume that CloudFormation calls another service named `X Service`, which calls DynamoDB, which then calls AWS KMS. The final call to AWS KMS is performed by `User 1` through CloudFormation, then `X Service`, and then DynamoDB. It was first called through CloudFormation and last called through DynamoDB. 
 
-![Example using aws:CalledViaFirst and aws:CalledViaLast.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/condition-key-calledviafirstlast-example-diagram.png)
+![Example using aws:CalledViaFirst and aws:CalledViaLast.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/condition-key-calledviafirstlast-example-diagram.png)
 
 
 ### aws:CalledViaFirst
@@ -2181,7 +2181,7 @@ Use this key to compare the account ID of the resource making a service-to-servi
 + **Availability** – This key is included in the request context only when the call to your resource is being made directly by an [AWS service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) on behalf of a resource for which the configuration triggered the service-to-service request. The calling service passes the account ID of the original resource to the called service.
 **Note**  
 This key provides a uniform mechanism for enforcing cross-service confused deputy control across AWS services. However, not all service integrations require the use of this global condition key. See the documentation of the AWS services you use for more information about service-specific mechanisms for mitigating cross-service confused deputy risks.  
-![aws:SourceAccount.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/sourceAccount.png)
+![aws:SourceAccount.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/sourceAccount.png)
 + **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String)
 + **Value type** – Single-valued
 
@@ -2233,7 +2233,7 @@ This key does not work with the ARN of the principal making the request. Instead
 + **Availability** – This key is included in the request context only when the call to your resource is being made directly by an [AWS service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) on behalf of a resource for which the configuration triggered the service-to-service request. The calling service passes the ARN of the original resource to the called service.
 **Note**  
 This key provides a uniform mechanism for enforcing cross-service confused deputy control across AWS services. However, not all service integrations require the use of this global condition key. See the documentation of the AWS services you use for more information about service-specific mechanisms for mitigating cross-service confused deputy risks.  
-![aws:SourceArn.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/sourceArn.png)
+![aws:SourceArn.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/sourceArn.png)
 + **Data type** – ARN
 
   AWS recommends that you use [ARN operators](reference_policies_elements_condition_operators.md#Conditions_ARN) instead of [string operators](reference_policies_elements_condition_operators.md#Conditions_String) when comparing ARNs.
@@ -2248,7 +2248,7 @@ Use this key to compare the [organization ID](https://docs.aws.amazon.com/organi
 + **Availability** – This key is included in the request context only when the call to your resource is being made directly by an [AWS service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) on behalf of a resource owned by an account which is a member of an organization. The calling service passes the organization ID of the original resource to the called service.
 **Note**  
 This key provides a uniform mechanism for enforcing cross-service confused deputy control across AWS services. However, not all service integrations require the use of this global condition key. See the documentation of the AWS services you use for more information about service-specific mechanisms for mitigating cross-service confused deputy risks.  
-![aws:SourceOrgID.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/sourceOrgID.png)
+![aws:SourceOrgID.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/sourceOrgID.png)
 + **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String)
 + **Value type** – Single-valued
 
@@ -2296,7 +2296,7 @@ Use this key to compare the AWS Organizations path of the resource making a serv
 + **Availability** – This key is included in the request context only when the call to your resource is being made directly by an [AWS service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) on behalf of a resource owned by an account which is a member of an organization. The calling service passes the organization path of the original resource to the called service.
 **Note**  
 This key provides a uniform mechanism for enforcing cross-service confused deputy control across AWS services. However, not all service integrations require the use of this global condition key. See the documentation of the AWS services you use for more information about service-specific mechanisms for mitigating cross-service confused deputy risks.  
-![aws:SourceOrgPaths.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/sourceOrgPaths.png)
+![aws:SourceOrgPaths.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/sourceOrgPaths.png)
 + **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String) (list)
 + **Value type** – Multivalued
 

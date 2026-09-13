@@ -12,7 +12,7 @@ You can use the AWS Management Console to configure and enable a virtual MFA dev
    For instructions, see [Sign in to the AWS Management Console as the root user](https://docs.aws.amazon.com/signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.html) in the *AWS Sign-In User Guide*.
 
 1. On the right side of the navigation bar, choose your account name, and choose **Security credentials**.  
-![Security credentials in the navigation menu.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-root.shared.console.png)
+![Security credentials in the navigation menu.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-root.shared.console.png)
 
 1. In the **Multi-Factor Authentication (MFA)** section, choose **Assign MFA device**.
 

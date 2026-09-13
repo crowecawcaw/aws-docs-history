@@ -39,12 +39,12 @@ The following icons identify the types of items that are found by a search:
 
 | Icon | Description | 
 | --- | --- | 
-| ![a portrait outline on gray background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_user.png) | IAM users | 
-| ![multiple portrait outlines on a blue background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_group.png) | IAM groups | 
-| ![a magic wand icon on a navy background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_role.png) | IAM roles | 
-| ![a document icon on an orange background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_policy.png) | IAM policies | 
-| ![a white star on an orange background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_action.png) | Tasks such as "create user" or "attach policy" | 
-| ![a white X on a red background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_delete.png) | Results from the keyword delete | 
+| ![a portrait outline on gray background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_user.png) | IAM users | 
+| ![multiple portrait outlines on a blue background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_group.png) | IAM groups | 
+| ![a magic wand icon on a navy background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_role.png) | IAM roles | 
+| ![a document icon on an orange background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_policy.png) | IAM policies | 
+| ![a white star on an orange background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_action.png) | Tasks such as "create user" or "attach policy" | 
+| ![a white X on a red background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/search_delete.png) | Results from the keyword delete | 
 
 **Sample search phrases**
 

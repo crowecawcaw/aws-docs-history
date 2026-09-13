@@ -330,12 +330,12 @@ The following example shows how AWS STS passes session tags, transitive tags, an
 
 In this example role chaining scenario, you use an IAM user access key in the AWS CLI to assume a role named `Role1`. You then use the resulting session credentials to assume a second role named `Role2`. You can then use the second session credentials to assume a third role named `Role3`. These requests occur as three separate operations. Each role is already tagged in IAM. And during each request, you pass additional session tags.
 
-![Role chaining.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/session-tags-chaining-simple.png)
+![Role chaining.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/session-tags-chaining-simple.png)
 
 
 When you chain roles, you can ensure that tags from an earlier session persist to the later sessions. To do this using the `assume-role` CLI command, you must pass the tag as a session tag and set the tag as transitive. You pass the tag `Star` = `1` as a session tag. The command also attaches the tag `Heart` = `1` to the role and applies as a principal tag when you use the session. However, you also want the `Heart` = `1` tag to automatically pass to the second or third session. To do that, you manually include it as a session tag. The resulting session principal tags include both of these tags, and sets them as transitive.
 
-![Assuming the first role in a role chain.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/session-tags-chaining-role1.png)
+![Assuming the first role in a role chain.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/session-tags-chaining-role1.png)
 
 
 You perform this request using the following AWS CLI command:
@@ -352,7 +352,7 @@ aws sts assume-role \
 
 You then use the credentials for that session to assume `Role2`. The command attaches the tag `Sun` = `2` to the second role and applies as a principal tag when you use the second session. The `Heart` and `Star` tags inherit the transitive session tags in the first session. The second session resulting principal tags are `Heart` = `1`, `Star` = `1`, and `Sun` = `2`. `Heart` and `Star` continue to be transitive. The `Sun` tag attached to `Role2` is not marked as transitive because it is not a session tag. Future sessions do not inherit this tag. 
 
-![Assuming the second role in a role chain.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/session-tags-chaining-role2.png)
+![Assuming the second role in a role chain.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/session-tags-chaining-role2.png)
 
 
 You perform this second request using the following AWS CLI command:
@@ -367,7 +367,7 @@ aws sts assume-role \
 
 You then use the second session credentials to assume `Role3`. The principal tags for the third session come from any new session tags, the inherited transitive session tags, and the role tags. The `Heart` = `1` and `Star` = `1` tags on the second session are inherited from the transitive session tag in the first session. If you try to pass the `Sun` = `2` session tag, the operation fails. The inherited `Star` = 1 session tag overrides the role `Star` = `3` tag. In role chaining, the value of a transitive tag overrides the role matching the `ResourceTag` value after the evaluation of the role trust policy. In this example, if `Role3` uses `Star` as a `ResourceTag` in the role trust policy, and sets `ResourceTag` value to the transitive tag value from the calling role session. The role `Lightning` tag also applies to the third session, and is not set as transitive.
 
-![Assuming the third role in a role chain.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/session-tags-chaining-role3.png)
+![Assuming the third role in a role chain.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/session-tags-chaining-role3.png)
 
 
 You perform the third request using the following AWS CLI command:

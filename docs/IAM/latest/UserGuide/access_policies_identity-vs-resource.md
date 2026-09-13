@@ -20,7 +20,7 @@ To learn how the policies interact across accounts, see [Cross-account policy ev
 
 To better understand these concepts, view the following figure. The administrator of the `123456789012` account attached *identity-based policies* to the `John`, `Carlos`, and `Mary` users. Some of the actions in these policies can be performed on specific resources. For example, the user `John` can perform some actions on `Resource X`. This is a *resource-level permission* in an identity-based policy. The administrator also added *resource-based policies* to `Resource X`, `Resource Y`, and `Resource Z`. Resource-based policies allow you to specify who can access that resource. For example, the resource-based policy on `Resource X` allows the `John` and `Mary` users list and read access to the resource.
 
-![Identity-based vs resource-based policies.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/Types_of_Permissions.diagram.png)
+![Identity-based vs resource-based policies.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/Types_of_Permissions.diagram.png)
 
 
 The `123456789012` account example allows the following users to perform the listed actions:

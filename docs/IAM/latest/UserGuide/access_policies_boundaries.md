@@ -70,7 +70,7 @@ If any one of these policy types explicitly denies access for an operation, then
 
 **Identity-based policies with boundaries** – Identity-based policies are inline or managed policies that are attached to a user, group of users, or role. Identity-based policies grant permission to the entity, and permissions boundaries limit those permissions. The effective permissions are the intersection of both policy types. An explicit deny in either of these policies overrides the allow.
 
-![Evaluation of identity-based policies and permissions boundaries.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/permissions_boundary.png)
+![Evaluation of identity-based policies and permissions boundaries.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/permissions_boundary.png)
 
 
 **Resource-based policies** – Resource-based policies control how the specified principal can access the resource to which the policy is attached.
@@ -78,7 +78,7 @@ If any one of these policy types explicitly denies access for an operation, then
 *Resource-based policies for IAM users*  
 Within the same account, resource-based policies that grant permissions to an IAM user ARN (that is not an AWS STS federated user principal session) are not limited by an implicit deny in an identity-based policy or permissions boundary.  
 
-![Evaluation of a resource-based policy, permissions boundary, and identity-based policy.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-rbp-boundary-id.png)
+![Evaluation of a resource-based policy, permissions boundary, and identity-based policy.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-rbp-boundary-id.png)
 
 
 *Resource-based policies for IAM roles *  
@@ -91,14 +91,14 @@ However, if a resource-based policy grants permission to the ARN of the IAM user
 
 **AWS Organizations SCPs** – SCPs are applied to an entire AWS account. They limit permissions for every request made by a principal within the account. An IAM entity (user or role) can make a request that is affected by an SCP, a permissions boundary, and an identity-based policy. In this case, the request is allowed only if all three policy types allow it. The effective permissions are the intersection of all three policy types. An explicit deny in any of these policies overrides the allow.
 
-![Evaluation of an SCP, permissions boundary, and identity-based policy.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-scp-boundary-id.png)
+![Evaluation of an SCP, permissions boundary, and identity-based policy.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-scp-boundary-id.png)
 
 
 You can learn [whether your account is a member of an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_details.html#orgs_view_account) in AWS Organizations. Organization members might be affected by an SCP. To view this data using the AWS CLI command or AWS API operation, you must have permissions for the `organizations:DescribeOrganization` action for your AWS Organizations entity. You must have additional permissions to perform the operation in the AWS Organizations console. To learn whether an SCP is denying access to a specific request, or to change your effective permissions, contact your AWS Organizations administrator.
 
 **Session policies** – Session policies are advanced policies that you pass as a parameter when you programmatically create a temporary session for a role or federated user. The permissions for a session come from the IAM entity (user or role) used to create the session and from the session policy. The entity's identity-based policy permissions are limited by the session policy and the permissions boundary. The effective permissions for this set of policy types are the intersection of all three policy types. An explicit deny in any of these policies overrides the allow. For more information about session policies, see [Session Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session).
 
-![Evaluation of a session policy, permissions boundary, and identity-based policy.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-boundary-id.png)
+![Evaluation of a session policy, permissions boundary, and identity-based policy.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-boundary-id.png)
 
 
 ## Delegating responsibility to others using permissions boundaries

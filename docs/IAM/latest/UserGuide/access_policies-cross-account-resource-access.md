@@ -117,7 +117,7 @@ IAM roles and resource-based policies delegate access across accounts only withi
 
 For example, assume that you manage `AccountA` and `AccountB`. In AccountA, you have an Amazon S3 bucket named `BucketA`.
 
-![A resource-based policy created for Amazon S3 bucket provides AccountB permissions to AccountA.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/access_policies-cross-account.png)
+![A resource-based policy created for Amazon S3 bucket provides AccountB permissions to AccountA.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/access_policies-cross-account.png)
 
 
 1. You attach a resource-based policy to `BucketA` that allows all principals in AccountB full access to objects in your bucket. They can create, read, or delete any objects in that bucket. 

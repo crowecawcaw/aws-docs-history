@@ -86,7 +86,7 @@ For your convenience, the AWS sign-in page uses a browser cookie to remember you
    To get your AWS account ID, contact your administrator.
 
 1. In the navigation bar on the upper right, choose your user name, and then choose **Security credentials**.   
-![AWS Management Console Security credentials link.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
+![AWS Management Console Security credentials link.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
 
 1. On the selected IAM user's page, choose the **Security credentials** tab.
 

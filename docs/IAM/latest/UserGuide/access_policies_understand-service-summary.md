@@ -5,7 +5,7 @@
 
 Policies are summarized in three tables: the [policy summary](access_policies_understand-policy-summary.md), the service summary, and the [action summary](access_policies_understand-action-summary.md). The *service summary* table includes a list of the actions and summaries of the permissions that are defined by the policy for the chosen service.
 
-![Policy summaries diagram image that illustrates the 3 tables and their relationship.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_summaries-svc-sum.png)
+![Policy summaries diagram image that illustrates the 3 tables and their relationship.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_summaries-svc-sum.png)
 
 
 You can view a service summary for each service listed in the policy summary that grants permissions. The table is grouped into **Uncategorized actions**, **Uncategorized resource types**, and access level sections. If the policy includes an action that IAM does not recognize, then the action is included in the **Uncategorized actions** section of the table. If IAM recognizes the action, then it is included under one of the access level (**List**, **Read**, **Write** and **Permissions management**) sections of the table. To view the access level classification that is assigned to each action in a service, see [Actions, Resources, and Condition Keys for AWS Services](https://docs.aws.amazon.com/reference_policies_actions-resources-contextkeys.html).
@@ -15,7 +15,7 @@ You can view a service summary for each service listed in the policy summary tha
 
 The example below is the service summary for Amazon S3 actions that are allowed from a policy summary. The actions for this service are grouped by access level. For example, 35 **Read** actions are defined out of the total 52 **Read** actions available for the service.
 
-![Service summary dialog image.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-dialog.png)
+![Service summary dialog image.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-dialog.png)
 
 
 The service summary page for a managed policy includes the following information:

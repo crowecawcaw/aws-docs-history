@@ -73,7 +73,7 @@ Most AWS products are integrated with IAM so that you can use IAM features to he
 <a name="resources-iam-and-ddb"></a>
 + [Using IAM to Control Access to DynamoDB Resources](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsingIAMWithDDB.html) – Describes how to use IAM to permit users to administer DynamoDB tables and indexes. 
 + The following video (8:55) explains how to provide access control for individual DynamoDB database items or attributes (or both).   
-[![AWS Videos](http://img.youtube.com/vi/uAUYphLWL5w/0.jpg)](http://www.youtube.com/watch?v=uAUYphLWL5w)
+[![AWS Videos](https://img.youtube.com/vi/uAUYphLWL5w/0.jpg)](https://www.youtube.com/watch?v=uAUYphLWL5w)
 
 ## General security practices
 <a name="resources-general-security"></a>

@@ -9,7 +9,7 @@ Forward access sessions (FAS) is an IAM technology used by AWS services to pass 
 
 For example, FAS is used by Amazon S3 to make calls to AWS Key Management Service to decrypt an object when [SSE-KMS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html) was used to encrypt it. When downloading an SSE-KMS encrypted object, a role named **data-reader** calls GetObject on the object against Amazon S3, and does not call AWS KMS directly. After receiving the GetObject request and authorizing data-reader, Amazon S3 then makes a FAS request to AWS KMS in order to decrypt the Amazon S3 object. When KMS receives the FAS request it checks the permissions of the role and only authorizes the decryption request if data-reader has the correct permissions on the KMS key. The requests to both Amazon S3 and AWS KMS are authorized using the role’s permissions and is only successful if data-reader has permissions to both the Amazon S3 object and the AWS KMS key.
 
-![A flow diagram of an IAM role being passed as the principal to Amazon S3 and then to AWS KMS.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-fas-example.png)
+![A flow diagram of an IAM role being passed as the principal to Amazon S3 and then to AWS KMS.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-fas-example.png)
 
 
 **Note**  
@@ -20,7 +20,7 @@ Additional FAS requests can be made by services who have received a FAS request.
 
 When FAS requests are made, [aws:CalledVia](reference_policies_condition-keys.md#condition-keys-calledvia), [aws:CalledViaFirst](reference_policies_condition-keys.md#condition-keys-calledviafirst), and [aws:CalledViaLast](reference_policies_condition-keys.md#condition-keys-calledvialast) condition keys are populated with the service principal of the service that initiated the FAS call. The [aws:ViaAWSService](reference_policies_condition-keys.md#condition-keys-viaawsservice) condition key value is set to `true` whenever a FAS request is made. In the following diagram, the request to CloudFormation directly does not have any `aws:CalledVia` or `aws:ViaAWSService` condition keys set. When CloudFormation and DynamoDB make downstream FAS requests on the behalf of the role, the values for these condition keys are populated.
 
-![A flow diagram of an IAM role being passed as the principal to CloudFormation and then passing the condition key values to DynamoDB and AWS KMS.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-fas-example2.png)
+![A flow diagram of an IAM role being passed as the principal to CloudFormation and then passing the condition key values to DynamoDB and AWS KMS.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-fas-example2.png)
 
 
 To allow a FAS request to be made when it would otherwise be denied by a Deny policy statement with a condition key testing Source IP addresses or Source VPCs, you must use condition keys to provide an exception for FAS requests in your Deny policy. This can be done for all FAS requests by using the `aws:ViaAWSService` condition key. To allow only specific AWS services to make FAS requests, use `aws:CalledVia`.

@@ -21,7 +21,7 @@ For cross-account requests, the requester in the trusted `AccountA` must have an
 
 When you make a cross-account request, AWS performs two evaluations. AWS evaluates the request in the trusting account and the trusted account. For more information about how a request is evaluated within a single account, see [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md). The request is allowed only if both evaluations return a decision of `Allow`.
 
-![Cross-account evaluation.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_cross-account-eval-simple.png)
+![Cross-account evaluation.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_cross-account-eval-simple.png)
 
 
 1. When a principal in one account makes a request to access a resource in another account, this is a cross-account request.
@@ -34,7 +34,7 @@ When you make a cross-account request, AWS performs two evaluations. AWS evaluat
 
 The following flow chart provides a more detailed illustration of how a policy evaluation decision is made for a cross-account request. Again, AWS allows the request only if both account policy evaluations allow the request.
 
-![Detailed cross-account policy evaluation.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/PolicyEvaluationCrossAccount.png)
+![Detailed cross-account policy evaluation.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/PolicyEvaluationCrossAccount.png)
 
 
 ## Example cross-account policy evaluation
@@ -118,9 +118,9 @@ When Carlos makes his request to save a file to the `amzn-s3-demo-bucket-product
 
 Because the request is explicitly denied within one of the accounts, the final decision is to deny the request.
 
-![Request to amzn-s3-demo-bucket-production-logs bucket.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_cross-account-eval-example.png)
+![Request to amzn-s3-demo-bucket-production-logs bucket.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_cross-account-eval-example.png)
 
 
 Assume that Carlos then realizes his mistake and tries to save the file to the `Production` bucket. AWS first checks account `111111111111` to determine if the request is allowed. Only the identity-based policy applies, and it allows the request. AWS then checks account `222222222222`. Only the resource-based policy attached to the `Production` bucket applies, and it allows the request. Because both accounts allow the request, the final decision is to allow the request.
 
-![Request to Production bucket.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_cross-account-eval-example-correct.png)
+![Request to Production bucket.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_cross-account-eval-example-correct.png)

@@ -42,7 +42,7 @@ Actions or resources that aren't explicitly allowed by a policy are denied by de
 
 You can organize IAM users into *IAM groups* and attach a policy to the IAM group. In that case, individual IAM users still have their own credentials, but all the IAM users in the IAM group have the permissions attached to the IAM group. Use IAM groups for easier permissions management. 
 
-![This diagram show how IAM users can be organized into IAM groups to make it easier to manage permissions, because each of the IAM users have the permissions assigned to the IAM group.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/iam-intro-users-and-groups.diagram.png)
+![This diagram show how IAM users can be organized into IAM groups to make it easier to manage permissions, because each of the IAM users have the permissions assigned to the IAM group.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/iam-intro-users-and-groups.diagram.png)
 
 
 IAM users or IAM groups can have multiple policies attached to them that grant different permissions. In that case, the combination of policies determines the effective permissions for the principal. If the principal doesn't have explicit `Allow` permission for both an action and a resource, the principal doesn't have those permissions. 

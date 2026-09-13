@@ -24,7 +24,7 @@ A user in one account can switch to a role in the same or a different account. W
 
 Imagine that your organization has multiple AWS accounts to isolate a development environment from a production environment. Users in the development account might occasionally need to access resources in the production account. For example, you might need cross-account access when you are promoting an update from the development environment to the production environment. Although you could create separate identities (and passwords) for users who work in both accounts, managing credentials for multiple accounts makes identity management difficult. In the following figure, all users are managed in the development account, but some developers require limited access to the production account. The development account has two groups: Testers and Developers, and each group has its own policy.
 
-![Use a role to delegate permissions to a user in a different account.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/roles-usingroletodelegate.png)
+![Use a role to delegate permissions to a user in a different account.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/roles-usingroletodelegate.png)
 
 
 1. In the production account, an administrator uses IAM to create the `UpdateApp` role in that account. In the role, the administrator defines a trust policy that specifies the development account as a `Principal`, meaning that authorized users from the development account can use the `UpdateApp` role. The administrator also defines a permissions policy for the role that specifies the read and write permissions to the Amazon S3 bucket named `productionapp`.

@@ -18,7 +18,7 @@ The confused deputy problem arises when an actor uses the trust of an AWS servic
 
 The following diagram illustrates the cross-account confused deputy problem.
 
-![The description of a confused deputy problem.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/confuseddeputyproblem2.png)
+![The description of a confused deputy problem.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/confuseddeputyproblem2.png)
 
 
 This scenario assumes the following:
@@ -72,7 +72,7 @@ The Condition element in this policy allows Example Corp to assume the role only
 
 The following diagram illustrates this.
 
-![How to mitigate a confused deputy problem.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/confuseddeputymitigation2.png)
+![How to mitigate a confused deputy problem.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/confuseddeputymitigation2.png)
 
 
 1. As before, when you start using Example Corp's service, you provide the ARN of **AWS1:ExampleRole** to Example Corp.
@@ -90,7 +90,7 @@ The external ID helps prevent any other customer from tricking Example Corp into
 
 The following diagram demonstrates the cross-service confused deputy problem using the CloudTrail and Amazon S3 interaction example, where an unauthorized actor writes CloudTrail logs to an Amazon S3 bucket they are not authorized to have access to.
 
-![An unauthorized actor is granted access to an Amazon S3 bucket in another account using the CloudTrail service principal.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/cross-service-confused-deputy1.png)
+![An unauthorized actor is granted access to an Amazon S3 bucket in another account using the CloudTrail service principal.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/cross-service-confused-deputy1.png)
 
 
 To help protect against an unauthorized actor from using the trust of an AWS principal to gain access to your resources, AWS service principals include information about the AWS resource, AWS account, and AWS organization they’re acting on behalf of.
@@ -103,7 +103,7 @@ This information is available in global condition key values that can be used in
 
 The following diagram demonstrates the cross-service confused deputy scenario when a resource is configured with the `aws:SourceAccount` global condition context key, and an unauthorized actor from another account tries to access AWS resources they are not intended to have access to.
 
-![An unauthorized actor is denied access to an Amazon S3 bucket in another account using the CloudTrail service principal.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/cross-service-confused-deputy2.png)
+![An unauthorized actor is denied access to an Amazon S3 bucket in another account using the CloudTrail service principal.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/cross-service-confused-deputy2.png)
 
 
 Using `aws:SourceArn`, `aws:SourceAccount`, `aws:SourceOrgID`, and `aws:SourceOrgPaths` global condition keys in a policy help you ensure service principals are accessing your resources on your behalf. We recommend using these condition keys whenever access to one of your resources is granted to an AWS service principal. 

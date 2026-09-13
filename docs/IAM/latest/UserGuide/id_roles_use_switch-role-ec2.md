@@ -29,7 +29,7 @@ Although a role is usually assigned to an Amazon EC2 instance when you launch it
 
 In the following figure, a developer runs an application on an Amazon EC2 instance that requires access to the S3 bucket named `amzn-s3-demo-bucket-photos`. An administrator creates the `Get-pics` service role and attaches the role to the Amazon EC2 instance. The role includes a permissions policy that grants read-only access to the specified S3 bucket. It also includes a trust policy that allows the Amazon EC2 instance to assume the role and retrieve the temporary credentials. When the application runs on the instance, it can use the role's temporary credentials to access the photos bucket. The administrator doesn't have to grant the developer permission to access the photos bucket, and the developer never has to share or manage credentials.
 
-![Application on an Amazon EC2 instance accessing an AWS resource.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/roles-usingrole-ec2roleinstance.png)
+![Application on an Amazon EC2 instance accessing an AWS resource.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/roles-usingrole-ec2roleinstance.png)
 
 
 1. The administrator uses IAM to create the **Get-pics** role. In the role's trust policy, the administrator specifies that only Amazon EC2 instances can assume the role. In the role's permission policy, the administrator specifies read-only permissions for the `amzn-s3-demo-bucket-photos` bucket.
@@ -127,7 +127,7 @@ You can allow an application running on an Amazon EC2 instance to run commands i
 
 Imagine that you are using two AWS accounts and you want to allow an application running on an Amazon EC2 instance to run [AWS CLI](https://aws.amazon.com/cli/) commands in both accounts. Assume that the Amazon EC2 instance exists in account `111111111111`. That instance includes the `abcd` instance profile role that allows the application to perform read-only Amazon S3 tasks on the `amzn-s3-demo-bucket1` bucket within the same `111111111111` account. However, the application must also be allowed to assume the `efgh` cross-account role to access the `amzn-s3-demo-bucket2` Amazon S3 bucket in account `222222222222`.
 
-![The diagram shows how a developer launches an Amazon EC2 instance with the role to get access to photos in an Amazon S3 bucket.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/roles-instance-profile-cross-account.png)
+![The diagram shows how a developer launches an Amazon EC2 instance with the role to get access to photos in an Amazon S3 bucket.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/roles-instance-profile-cross-account.png)
 
 
 The `abcd` Amazon EC2 instance profile role must have the following permissions policy to allow the application to access the `amzn-s3-demo-bucket1` Amazon S3 bucket:

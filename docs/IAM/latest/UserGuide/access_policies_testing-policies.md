@@ -12,7 +12,7 @@ The policy simulator results can differ from your live AWS environment. We recom
 
 The following screenshot shows the IAM policy simulator, where you select an identity and its policies and choose the actions and resources to test before running the simulation.
 
-![The IAM policy simulator console in Principal mode.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-1.png)
+![The IAM policy simulator console in Principal mode.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-1.png)
 
 
 **Topics**

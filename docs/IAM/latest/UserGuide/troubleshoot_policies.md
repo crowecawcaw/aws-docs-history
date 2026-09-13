@@ -151,7 +151,7 @@ Be careful when using these policy elements such as `NotPrincipal`, `NotAction`,
 ### Policy summary includes unrecognized services, actions, or resource types
 <a name="unrecognized-services-actions"></a>
 
-In the IAM console, if a [policy summary](access_policies_understand.md) includes a warning symbol (![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png)), then the policy might include an unrecognized service, action, or resource type. To learn about warnings within a policy summary, see [Policy summary (list of services)](access_policies_understand-policy-summary.md). 
+In the IAM console, if a [policy summary](access_policies_understand.md) includes a warning symbol (![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png)), then the policy might include an unrecognized service, action, or resource type. To learn about warnings within a policy summary, see [Policy summary (list of services)](access_policies_understand-policy-summary.md). 
 
 **Note**  
 IAM reviews service names, actions, and resource types for services that support policy summaries. However, your policy summary might include a resource value or condition that does not exist. Always test your policies with the [policy simulator](access_policies_testing-policies.md).

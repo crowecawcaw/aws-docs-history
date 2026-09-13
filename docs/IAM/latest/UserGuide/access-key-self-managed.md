@@ -27,7 +27,7 @@ For your convenience, the AWS sign-in page uses a browser cookie to remember you
    To get your AWS account ID, contact your administrator.
 
 1. In the navigation bar on the upper right, choose your user name, and then choose **Security credentials**.   
-![AWS Management Console Security credentials link.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
+![AWS Management Console Security credentials link.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
 
 1. In the **Access keys** section, choose **Create access key**. If you already have two access keys, this button is deactivated and you must delete an access key before you can create a new one.
 
@@ -51,7 +51,7 @@ For your convenience, the AWS sign-in page uses a browser cookie to remember you
    To get your AWS account ID, contact your administrator.
 
 1. In the navigation bar on the upper right, choose your user name, and then choose **Security credentials**.   
-![AWS Management Console Security credentials link.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
+![AWS Management Console Security credentials link.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
 
 1. In the **Access keys** section find the key you want to deactivate, then choose **Actions**, then choose **Deactivate**. When prompted for confirmation, choose **Deactivate**. A deactivated access key still counts toward your limit of two access keys.
 
@@ -69,7 +69,7 @@ For your convenience, the AWS sign-in page uses a browser cookie to remember you
    To get your AWS account ID, contact your administrator.
 
 1. In the navigation bar on the upper right, choose your user name, and then choose **Security credentials**.   
-![AWS Management Console Security credentials link.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
+![AWS Management Console Security credentials link.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
 
 1. In the **Access keys** section, find the key to activate, then choose **Actions**, then choose **Activate**.
 
@@ -87,6 +87,6 @@ For your convenience, the AWS sign-in page uses a browser cookie to remember you
    To get your AWS account ID, contact your administrator.
 
 1. In the navigation bar on the upper right, choose your user name, and then choose **Security credentials**.   
-![AWS Management Console Security credentials link.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
+![AWS Management Console Security credentials link.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
 
 1. In the **Access keys** section, find the key you want to delete, then choose **Actions**, then choose **Delete**. Follow the instructions in the dialog to first **Deactivate** and then confirm the deletion. We recommend that you verify that the access key is no longer in use before you permanently delete it.

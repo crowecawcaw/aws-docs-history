@@ -8,7 +8,7 @@
 
 The following flow chart provides details about how a policy evaluation decision is made for an IAM role within a single account.
 
-![Evaluation flow chart for an IAM role within a single account.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/PolicyEvaluationSingleAccountRole.png)
+![Evaluation flow chart for an IAM role within a single account.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/PolicyEvaluationSingleAccountRole.png)
 
 
 ## Policy evaluation for an IAM user
@@ -16,7 +16,7 @@ The following flow chart provides details about how a policy evaluation decision
 
 The following flow chart provides details about how a policy evaluation decision is made for an IAM user within a single account.
 
-![Evaluation flow chart for an IAM user within a single account.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/PolicyevaluationSingleAccountUser.png)
+![Evaluation flow chart for an IAM user within a single account.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/PolicyevaluationSingleAccountUser.png)
 
 
 ## Example identity-based and resource-based policy evaluation
@@ -106,7 +106,7 @@ This policy specifies that only the `carlossalazar` user can access the `amzn-s3
 
 When Carlos makes his request to save a file to the `amzn-s3-demo-bucket-carlossalazar-logs` bucket, AWS determines what policies apply to the request. In this case, only the identity-based policy and the resource-based policy apply. These are both permissions policies. Because no permissions boundaries apply, the evaluation logic is reduced to the following logic.
 
-![Evaluation flow chart.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissionsShort.png)
+![Evaluation flow chart.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissionsShort.png)
 
 
 AWS first checks for a `Deny` statement that applies to the context of the request. It finds one, because the identity-based policy explicitly denies Carlos access to any S3 buckets used for logging. Carlos is denied access. 

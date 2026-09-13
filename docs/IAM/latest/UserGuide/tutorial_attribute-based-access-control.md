@@ -50,7 +50,7 @@ Additionally, you choose to require the `cost-center` cost allocation tag to ena
 
 In this tutorial, you will tag each resource, tag your project roles, and add policies to the roles to allow the behavior previously described. The resulting policy allows the roles `Create`, `Read`, `Update`, and `Delete` access to resources that are tagged with the same project and team tags. The policy also allows cross-project `Read` access for resources that are tagged with the same team.
 
-![The diagram shows two projects where roles are limited to read only access outside of their project while have permissions to create, read, update, and delete resources in their own project.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/tutorial-abac-cross-project.png)
+![The diagram shows two projects where roles are limited to read only access outside of their project while have permissions to create, read, update, and delete resources in their own project.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/tutorial-abac-cross-project.png)
 
 
 ## Prerequisites
@@ -61,7 +61,7 @@ To perform the steps in this tutorial, you must already have the following:
 + Your 12-digit account ID, which you use to create the roles in step 3.
 
   To find your AWS account ID number using the AWS Management Console, choose **Support** on the navigation bar on the upper right, and then choose **Support Center**. The account number (ID) appears in the navigation pane on the left.  
-![Support Center page showing the account number.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/account-id-support-center.console.png)
+![Support Center page showing the account number.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/account-id-support-center.console.png)
 + Experience creating and editing IAM users, roles, and policies in the AWS Management Console. However, if you need help remembering an IAM management process, this tutorial provides links where you can view step-by-step instructions.
 
 ## Step 1: Create test users

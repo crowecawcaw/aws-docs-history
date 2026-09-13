@@ -94,17 +94,17 @@ When you create an AWS STS federated user principal session, you use the access 
 
 A resource-based policy can specify the ARN of the user or role as a principal. In that case, the permissions from the resource-based policy are added to the role or user's identity-based policy before the session is created. The session policy limits the total permissions granted by the resource-based policy and the identity-based policy. The resulting session's permissions are the intersection of the session policies and the resource-based policies plus the intersection of the session policies and identity-based policies.
 
-![Evaluation of the session policy with a resource-based policy specifying the entity ARN.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-rbp-id.png)
+![Evaluation of the session policy with a resource-based policy specifying the entity ARN.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-rbp-id.png)
 
 
 A resource-based policy can specify the ARN of the session as a principal. In that case, the permissions from the resource-based policy are added after the session is created. The resource-based policy permissions are not limited by the session policy. The resulting session has all the permissions of the resource-based policy *plus* the intersection of the identity-based policy and the session policy.
 
-![Evaluation of the session policy with a resource-based policy specifying the session ARN.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-rbpsession-id.png)
+![Evaluation of the session policy with a resource-based policy specifying the session ARN.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-rbpsession-id.png)
 
 
 A permissions boundary can set the maximum permissions for a user or role that is used to create a session. In that case, the resulting session's permissions are the intersection of the session policy, the permissions boundary, and the identity-based policy. However, a permissions boundary does not limit permissions granted by a resource-based policy that specifies the ARN of the resulting session.
 
-![Evaluation of the session policy with a permissions boundary.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-boundary-id.png)
+![Evaluation of the session policy with a permissions boundary.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/EffectivePermissions-session-boundary-id.png)
 
 
 ## Policies and the root user
@@ -130,7 +130,7 @@ As illustrated in the following figure, a JSON policy document includes these el
 
 Each statement includes information about a single permission. If a policy includes multiple statements, AWS applies a logical `OR` across the statements when evaluating them. If multiple policies apply to a request, AWS applies a logical `OR` across all of those policies when evaluating them. 
 
-![JSON policy document structure.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/AccessPolicyLanguage_General_Policy_Structure.diagram.png)
+![JSON policy document structure.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/AccessPolicyLanguage_General_Policy_Structure.diagram.png)
 
 
 The information in a statement is contained within a series of elements.

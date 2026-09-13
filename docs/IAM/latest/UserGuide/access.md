@@ -7,7 +7,7 @@ AWS Identity and Access Management (IAM) is a web service that helps you securel
 
 For details about the rest of the authentication and authorization process, see [How IAM works](intro-structure.md).
 
-![AccessManagement_Diagram.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-diagram_800.png)
+![AccessManagement_Diagram.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-diagram_800.png)
 
 
 During authorization, the AWS enforcement code uses values from the [request context](intro-structure.md#intro-structure-request) to check for matching policies and determine whether to allow or deny the request. 

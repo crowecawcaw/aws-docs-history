@@ -7,7 +7,7 @@ Attribute-based access control (ABAC) is an authorization strategy that defines 
 
 For example, you can create three IAM roles with the `access-project` tag key. Set the tag value of the first IAM role to `Heart`, the second to `Star`, and the third to `Lightning`. You can then use a single policy that allows access when the IAM role and the AWS resource have the tag value `access-project`. For a detailed tutorial that demonstrates how to use ABAC in AWS, see [IAM tutorial: Define permissions to access AWS resources based on tags](tutorial_attribute-based-access-control.md). To learn about services that support ABAC, see [AWS services that work with IAM](reference_aws-services-that-work-with-iam.md).
 
-![This diagram illustrates that the tags applied to a principal must match the tags applied to a resource for the user to be granted permissions to the resource. Tags be applied to IAM groups, resource groups, individual users and individual resources.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/tutorial-abac-concept-23.png)
+![This diagram illustrates that the tags applied to a principal must match the tags applied to a resource for the user to be granted permissions to the resource. Tags be applied to IAM groups, resource groups, individual users and individual resources.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/tutorial-abac-concept-23.png)
 
 
 ## Comparison of ABAC to the traditional RBAC model
@@ -19,7 +19,7 @@ In IAM, you implement RBAC by creating different policies for different job func
 
 For example, assume that you have three projects, named `Heart`, `Star`, and `Lightning`, on which your employees work. You create an IAM role for each project. You then attach policies to each IAM role to define the resources that anyone allowed to assume the IAM role can access. If an employee changes jobs within your company, you assign them to a different IAM role. You can assign people or programs to more than one IAM role. However, the `Star` project might require additional resources, such as a new Amazon EC2 container. In that case, you have to update the policy attached to the `Star` IAM role to specify the new container resource. Otherwise, `Star` project members aren't allowed to access the new container.
 
-![This diagram illustrates that role-based access control requires that each identity be assigned a specific job-function based policy to access different resources.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/tutorial-abac-rbac-concept-23.png)
+![This diagram illustrates that role-based access control requires that each identity be assigned a specific job-function based policy to access different resources.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/tutorial-abac-rbac-concept-23.png)
 
 
 **ABAC provides the following advantages over the traditional RBAC model:**

@@ -33,17 +33,17 @@ The side panel lists the policies in scope for the simulation, including inline,
 #### Add actions and resources
 <a name="policies_policy-simulator-how-to-console-principal-actions-resources"></a>
 
-![The IAM policy simulator console in Principal mode.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-1.png)
+![The IAM policy simulator console in Principal mode.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-1.png)
 
 
 After you choose identities and policies in the left panel, add the actions that you want to test. For an action that supports a resource selection, you can test against all resources or enter one or more specific resource ARNs. When several actions use the same resource type, you can apply one resource to all of them at once, or scope it to a single action.
 
-![An action in the IAM policy simulator that requires only a single resource type.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-2.png)
+![An action in the IAM policy simulator that requires only a single resource type.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-2.png)
 
 
 Some actions require a group of related resource types before the simulator can evaluate them. For example, when you simulate `ec2:RunInstances`, the console prompts you to specify an image, an instance, and a security group together, and a subnet or a volume depending on the scenario.
 
-![An action in the IAM policy simulator that requires multiple resource types.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-3.png)
+![An action in the IAM policy simulator that requires multiple resource types.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-3.png)
 
 
 #### Provide condition key values
@@ -64,7 +64,7 @@ When an identity has a permissions boundary, it appears in the side panel and is
 
 For example, suppose you simulate `iam:DeleteRole` for an identity whose boundary does not allow it. The result is a deny attributed to the permissions boundary. If you then add a policy that allows the action and exclude the boundary, the result changes to an allow. This confirms that the boundary was the only control blocking the action.
 
-![Simulation result attributed to a permissions boundary in the IAM policy simulator.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-4.png)
+![Simulation result attributed to a permissions boundary in the IAM policy simulator.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-4.png)
 
 
 #### Include service control policies
@@ -96,7 +96,7 @@ You can use the IAM policy editor to write or paste in identity-based policies a
 **Note**  
 In Custom mode, the console does not support passing in custom SCPs or simulating resource-based policies. To simulate custom SCPs or resource-based policies, use the AWS CLI or AWS API.
 
-![The IAM policy simulator console in Custom mode.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-5.png)
+![The IAM policy simulator console in Custom mode.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policysim-console-screenshot-5.png)
 
 
 ## Simulate policies (AWS CLI and AWS API)

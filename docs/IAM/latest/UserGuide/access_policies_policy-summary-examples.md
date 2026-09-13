@@ -39,17 +39,17 @@ This policy demonstrates an allow and a deny for the same service.
 
 ***DenyCustomerBucket** Policy Summary:*
 
-![Policy summary for DenyCustomerBucket showing S3 service with explicit deny access level.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example1-dialog.png)
+![Policy summary for DenyCustomerBucket showing S3 service with explicit deny access level.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example1-dialog.png)
 
 
 ***DenyCustomerBucket S3 (Explicit deny)** Service Summary:*
 
-![Service summary for DenyCustomerBucket S3 showing explicitly denied actions.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example1-dialog.png)
+![Service summary for DenyCustomerBucket S3 showing explicitly denied actions.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example1-dialog.png)
 
 
 ***GetObject (Read)** Action Summary:*
 
-![Action summary for GetObject showing denied resources in the DenyCustomerBucket policy.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example1-dialog.png)
+![Action summary for GetObject showing denied resources in the DenyCustomerBucket policy.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example1-dialog.png)
 
 
 ## Policy 2: DynamoDbRowCognitoID
@@ -93,17 +93,17 @@ This policy provides row-level access to Amazon DynamoDB based on the user's Ama
 
 ***DynamoDbRowCognitoID** Policy Summary:*
 
-![Policy summary for DynamoDbRowCognitoID showing DynamoDB service with allowed access level.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example2-dialog.png)
+![Policy summary for DynamoDbRowCognitoID showing DynamoDB service with allowed access level.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example2-dialog.png)
 
 
 ***DynamoDbRowCognitoID DynamoDB (Allow)** Service Summary:*
 
-![Service summary for DynamoDbRowCognitoID DynamoDB showing allowed actions.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example2-dialog.png)
+![Service summary for DynamoDbRowCognitoID DynamoDB showing allowed actions.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example2-dialog.png)
 
 
 ***GetItem (List)** Action Summary:*
 
-![Action summary for GetItem showing allowed resources with conditions in the DynamoDbRowCognitoID policy.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example2-dialog.png)
+![Action summary for GetItem showing allowed resources with conditions in the DynamoDbRowCognitoID policy.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example2-dialog.png)
 
 
 ## Policy 3: MultipleResourceCondition
@@ -149,17 +149,17 @@ This policy includes multiple resources and conditions.
 
 ***MultipleResourceCondition** Policy Summary:*
 
-![Policy summary for MultipleResourceCondition showing S3 service with allowed access level.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example3-dialog.png)
+![Policy summary for MultipleResourceCondition showing S3 service with allowed access level.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example3-dialog.png)
 
 
 ***MultipleResourceCondition S3 (Allow)** Service Summary:*
 
-![Service summary for MultipleResourceCondition S3 showing allowed actions.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example3-dialog.png)
+![Service summary for MultipleResourceCondition S3 showing allowed actions.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example3-dialog.png)
 
 
 ***PutObject (Write)** Action Summary:*
 
-![Action summary for PutObject showing allowed resources with conditions in the MultipleResourceCondition policy.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example3-dialog.png)
+![Action summary for PutObject showing allowed resources with conditions in the MultipleResourceCondition policy.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example3-dialog.png)
 
 
 ## Policy 4: EC2\_troubleshoot
@@ -202,17 +202,17 @@ The following policy allows users to get a screenshot of a running Amazon EC2 in
 
 ***EC2\_Troubleshoot** Policy Summary:*
 
-![Policy summary for EC2_Troubleshoot showing EC2 and S3 services with allowed access levels.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example4-dialog.png)
+![Policy summary for EC2_Troubleshoot showing EC2 and S3 services with allowed access levels.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example4-dialog.png)
 
 
 ***EC2\_Troubleshoot S3 (Allow)** Service Summary:*
 
-![Service summary for EC2_Troubleshoot S3 showing allowed actions.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example4-dialog.png)
+![Service summary for EC2_Troubleshoot S3 showing allowed actions.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example4-dialog.png)
 
 
 ***ListBucket (List)** Action Summary:*
 
-![Action summary for ListBucket showing allowed resources in the EC2_Troubleshoot policy.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example4-dialog.png)
+![Action summary for ListBucket showing allowed resources in the EC2_Troubleshoot policy.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example4-dialog.png)
 
 
 ## Policy 5: CodeBuild\_CodeCommit\_CodeDeploy
@@ -252,14 +252,14 @@ This policy provides access to specific CodeBuild, CodeCommit, and CodeDeploy re
 
 ***CodeBuild\_CodeCommit\_CodeDeploy** Policy Summary:*
 
-![Policy summary for CodeBuild_CodeCommit_CodeDeploy showing multiple services with allowed access levels.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example6-dialog.png)
+![Policy summary for CodeBuild_CodeCommit_CodeDeploy showing multiple services with allowed access levels.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-example6-dialog.png)
 
 
 ***CodeBuild\_CodeCommit\_CodeDeploy CodeBuild (Allow)** Service Summary:*
 
-![Service summary for CodeBuild_CodeCommit_CodeDeploy CodeBuild showing allowed actions.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example6-dialog.png)
+![Service summary for CodeBuild_CodeCommit_CodeDeploy CodeBuild showing allowed actions.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-action-example6-dialog.png)
 
 
 ***CodeBuild\_CodeCommit\_CodeDeploy StartBuild (Write)** Action Summary:*
 
-![Action summary for StartBuild showing allowed resources in the CodeBuild_CodeCommit_CodeDeploy policy.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example6-dialog.png)
+![Action summary for StartBuild showing allowed resources in the CodeBuild_CodeCommit_CodeDeploy policy.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-resource-example6-dialog.png)

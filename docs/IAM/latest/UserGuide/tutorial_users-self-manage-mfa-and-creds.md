@@ -87,7 +87,7 @@ In this part of the tutorial, you sign in as the test user and verify that the p
 1. Choose **EC2** to open the Amazon EC2 console and verify that the user has no permissions to do anything.
 
 1. In the navigation bar on the upper right, choose the `MFAUser` user name, and then choose **Security credentials**.   
-![AWS Management Console Security credentials link.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
+![AWS Management Console Security credentials link.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
 
 1. Now add an MFA device. In the **Multi-factor Authentication (MFA)** section, choose **Assign MFA device**.
 **Note**  

@@ -20,7 +20,7 @@ You can use the AWS Management Console to view password usage information for yo
 
 1. If necessary, add the **Console last sign-in** column to the users table:
 
-   1. Above the table on the far right, choose the settings icon (![Settings icon.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)).
+   1. Above the table on the far right, choose the settings icon (![Settings icon.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)).
 
    1. In **Select visible columns**, select **Console last sign-in**.
 
@@ -64,7 +64,7 @@ You can use the AWS Management Console to view access key usage information for 
 
 1. If necessary, add the **Access key last used** column to the users table:
 
-   1. Above the table on the far right, choose the settings icon (![Settings icon.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)).
+   1. Above the table on the far right, choose the settings icon (![Settings icon.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)).
 
    1. In **Select visible columns**, select **Access key last used**.
 

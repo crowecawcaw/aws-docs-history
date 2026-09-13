@@ -31,7 +31,7 @@ IAM federation supports these use cases:
 
 Assume that you want to provide a way for employees to copy data from their computers to a backup folder. You build an application that users can run on their computers. On the back end, the application reads and writes objects in an Amazon S3 bucket. Users don't have direct access to AWS. Instead, the following process is used:
 
-![Getting temporary security credentials based on a SAML assertion.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/saml-based-federation-diagram.png)
+![Getting temporary security credentials based on a SAML assertion.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/saml-based-federation-diagram.png)
 
 
 1. A user in your organization uses a client app to request authentication from your organization's IdP.

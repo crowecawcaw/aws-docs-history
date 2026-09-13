@@ -62,7 +62,7 @@ For more information and detail about this procedure, see [Grant a user permissi
 1. Choose the name of the user or group to which you want to grant access, and then choose the **Permissions** tab.
 
 1. Do one of the following:
-   + To edit a customer managed policy, choose the name of the policy, choose **Edit policy**, and then choose the **JSON** tab. You cannot edit an AWS managed policy. AWS managed policies appear with the AWS icon (![Orange cube icon indicating a policy is managed by AWS.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_icon.png)). For more information about the difference between AWS managed policies and customer managed policies, see [Managed policies and inline policies](access_policies_managed-vs-inline.md).
+   + To edit a customer managed policy, choose the name of the policy, choose **Edit policy**, and then choose the **JSON** tab. You cannot edit an AWS managed policy. AWS managed policies appear with the AWS icon (![Orange cube icon indicating a policy is managed by AWS.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_icon.png)). For more information about the difference between AWS managed policies and customer managed policies, see [Managed policies and inline policies](access_policies_managed-vs-inline.md).
    + To edit an inline policy, choose the arrow next to the name of the policy and choose **Edit policy**.
 
 1. In the policy editor, add a new `Statement` element that specifies the following:

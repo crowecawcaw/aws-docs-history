@@ -15,7 +15,7 @@ Here are some important characteristics of IAM groups:
 
 The following diagram shows a simple example of a small company. The company owner creates an `Admins` user group for users to create and manage other users as the company grows. The `Admins` user group creates a `Developers` user group and a `Test` user group. Each of these IAM groups consists of users (humans and applications) that interact with AWS (Jim, Brad, DevApp1, and so on). Each user has an individual set of security credentials. In this example, each user belongs to a single user group. However, users can belong to multiple IAM groups.
 
-![Example of relationship between AWS accounts, users, and IAM groups.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/Relationship_Between_Entities_Example.diagram.png)
+![Example of relationship between AWS accounts, users, and IAM groups.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/Relationship_Between_Entities_Example.diagram.png)
 
 
 After you create a user group, you can [View IAM groups](id_groups_manage_list.md), [Attach a policy to an IAM user group](id_groups_manage_attach-policy.md), and [Rename an IAM user group](id_groups_manage_rename.md).

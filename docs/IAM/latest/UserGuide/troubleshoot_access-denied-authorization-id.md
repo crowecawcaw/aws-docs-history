@@ -41,7 +41,7 @@ or call the GetRequestAuthorizationDetails API with the following authorization 
 
  Choose the link in the access denied error message to open the authorization details in the Access Troubleshooter Console. 
 +  **What to look for.** The Access Troubleshooter Console shows the evaluation for each action/resource pair in the request, the result of each one (`Allow`, `Explicit deny`, or `Implicit deny`), and the policies that were considered. Find the pair that was denied and the policy that caused the denial. See the following screenshoot as an example:   
-![Screenshot of the Access Troubleshooter Console with an explicit deny and an implicit deny.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/AccessTroubleshooterConsoleExample.png)
+![Screenshot of the Access Troubleshooter Console with an explicit deny and an implicit deny.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/AccessTroubleshooterConsoleExample.png)
 +  **Determine whether the denial was intended.** Review the evaluation before changing a policy. A denial can be correct, and the cause is sometimes the request context rather than the policy. For example, a request might be missing an expected session tag or coming from an unexpected network path. 
 +  **How to resolve the denial.** Locate the corresponding policy and update it to resolve the access issue. For an explicit deny, remove or narrow the `Deny` statement for the action. For an implicit deny, add an `Allow` statement for the action. For more information, see [Edit IAM policies](access_policies_manage-edit.md). 
 

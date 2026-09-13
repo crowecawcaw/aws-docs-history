@@ -122,7 +122,7 @@ When the policy is evaluated during a request, AWS replaces the key with the cor
 
 A `Condition` element can contain multiple condition operators, and each condition operator can contain multiple context key-value pairs. The following figure illustrates this. 
 
-![two condition operator block diagrams. The first block includes two context key placeholders, each with multiple values. The second condition block includes one context key with multiple values.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/AccessPolicyLanguage_Condition_Block.diagram.png)
+![two condition operator block diagrams. The first block includes two context key placeholders, each with multiple values. The second condition block includes one context key with multiple values.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/AccessPolicyLanguage_Condition_Block.diagram.png)
 
 
 For more information, see [Set operators for multivalued context keys](reference_policies_condition-single-vs-multi-valued-context-keys.md#reference_policies_condition-multi-valued-context-keys). 

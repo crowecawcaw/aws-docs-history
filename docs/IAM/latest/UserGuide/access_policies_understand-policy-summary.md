@@ -5,7 +5,7 @@
 
 Policies are summarized in three tables: the policy summary, the [service summary](access_policies_understand-service-summary.md), and the [action summary](access_policies_understand-action-summary.md). The *policy summary* table includes a list of services and summaries of the permissions that are defined by the chosen policy. 
 
-![Policy summaries diagram image that illustrates the 3 tables and their relationship.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_summaries-pol-sum.png)
+![Policy summaries diagram image that illustrates the 3 tables and their relationship.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_summaries-pol-sum.png)
 
 
 The policy summary table is grouped into one or more **Uncategorized services**, **Explicit deny**, and **Allow** sections. If the policy includes a service that IAM does not recognize, then the service is included in the **Uncategorized services** section of the table. If IAM recognizes the service, then it is included under the **Explicit deny** or **Allow** sections of the table, depending on the effect of the policy (`Deny` or `Allow`).
@@ -15,7 +15,7 @@ The policy summary table is grouped into one or more **Uncategorized services**,
 
 In the following example of a policy details page, the **SummaryAllElements** policy is a managed policy (customer managed policy) that is attached directly to the user. This policy is expanded to show the policy summary. 
 
-![Policy summary dialog image.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-user-page-dialog.png)
+![Policy summary dialog image.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-user-page-dialog.png)
 
 
 In the preceding image, the policy summary is visible from within the **Policies** page:
@@ -32,7 +32,7 @@ In the preceding image, the policy summary is visible from within the **Policies
 
 The following policy summary table image shows the expanded **SummaryAllElements** policy on the policy details page.
 
-![Policy summary dialog image.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-table-dialog.png)
+![Policy summary dialog image.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-table-dialog.png)
 
 
 In the preceding image, the policy summary is visible from within the **Policies** page:
@@ -65,29 +65,29 @@ This column can include a resource from a different service. If the policy state
 
 When a policy or an element within the policy does not grant permissions, IAM provides additional warnings and information in the policy summary. The following policy summary table shows the expanded **Show remaining services** services on the **SummaryAllElements** policy details page with the possible warnings.
 
-![Policy summary dialog image.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-table-showremaining-dialog.png)
+![Policy summary dialog image.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-summary-table-showremaining-dialog.png)
 
 
 In the preceding image, you can see all services that include defined actions, resources, or conditions with no permissions:
 
 1. **Resource warnings** – For services that do not provide permissions for all of the included actions or resources, you see one of the following warnings in the **Resource** column of the table:
-   + **![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) No resources are defined.** – This means that the service has defined actions but no supported resources are included in the policy.
-   + **![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more actions do not have an applicable resource.** – This means that the service has defined actions, but that some of those actions don't have a supported resource.
-   + **![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more resources do not have an applicable action.** – This means that the service has defined resources, but that some of those resources don't have a supporting action.
+   + **![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) No resources are defined.** – This means that the service has defined actions but no supported resources are included in the policy.
+   + **![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more actions do not have an applicable resource.** – This means that the service has defined actions, but that some of those actions don't have a supported resource.
+   + **![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more resources do not have an applicable action.** – This means that the service has defined resources, but that some of those resources don't have a supporting action.
 
    If a service includes both actions that do not have an applicable resource and resources that do have an applicable resource, then only the **One or more resources do not have an applicable action.** warning is shown. This is because when you view the service summary for the service, resources that do not apply to any action are not shown. For the `ListAllMyBuckets` action, this policy includes the last warning because the action does not support resource-level permissions, and does not support the `s3:x-amz-acl` condition key. If you fix either the resource problem or the condition problem, the remaining issue appears in a detailed warning.
 
 1. **Request condition warnings** – For services that do not provide permissions for all of the included conditions, you see one of the following warnings in the **Request condition** column of the table:
-   + **![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more actions do not have an applicable condition.** – This means that the service has defined actions, but that some of those actions don't have a supported condition.
-   + **![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more conditions do not have an applicable action.** – This means that the service has defined conditions, but that some of those conditions don't have a supporting action.
+   + **![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more actions do not have an applicable condition.** – This means that the service has defined actions, but that some of those actions don't have a supported condition.
+   + **![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more conditions do not have an applicable action.** – This means that the service has defined conditions, but that some of those conditions don't have a supporting action.
 
-1. **Multiple \| ![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more actions do not have an applicable resource.** – The `Deny` statement for Amazon S3 includes more than one resource. It also includes more than one action, and some actions support the resources and some do not. To view this policy, see [**SummaryAllElements** JSON policy document](#policy-summary-example-json). In this case, the policy includes all Amazon S3 actions, and only the actions that can be performed on a bucket or bucket object are denied.
+1. **Multiple \| ![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more actions do not have an applicable resource.** – The `Deny` statement for Amazon S3 includes more than one resource. It also includes more than one action, and some actions support the resources and some do not. To view this policy, see [**SummaryAllElements** JSON policy document](#policy-summary-example-json). In this case, the policy includes all Amazon S3 actions, and only the actions that can be performed on a bucket or bucket object are denied.
 
-1. **![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) No resources are defined** – The service has defined actions, but no supported resources are included in the policy, and therefore the service provides no permissions. In this case, the policy includes CodeCommit actions but no CodeCommit resources.
+1. **![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) No resources are defined** – The service has defined actions, but no supported resources are included in the policy, and therefore the service provides no permissions. In this case, the policy includes CodeCommit actions but no CodeCommit resources.
 
-1. **DeploymentGroupName \| string like \| All, region \| string like \| us-west-2 \| ![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more actions do not have an applicable resource.** – The service has a defined action, and at least one more action that does not have a supporting resource.
+1. **DeploymentGroupName \| string like \| All, region \| string like \| us-west-2 \| ![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more actions do not have an applicable resource.** – The service has a defined action, and at least one more action that does not have a supporting resource.
 
-1. **None \| ![Warning hazard sign icon with yellow triangle background.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more conditions do not have an applicable action.** – The service has at least one condition key that does not have a supporting action.
+1. **None \| ![Warning hazard sign icon with yellow triangle background.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-alert-icon.console.png) One or more conditions do not have an applicable action.** – The service has at least one condition key that does not have a supporting action.
 
 ## **SummaryAllElements** JSON policy document
 <a name="policy-summary-example-json"></a>

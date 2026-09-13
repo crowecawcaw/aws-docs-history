@@ -20,7 +20,7 @@ Using outbound identity federation, your AWS workloads can securely:
 ## How It Works
 <a name="outbound-federation-how-it-works"></a>
 
-![Authentication flow between Lambda function, Security Token Service, External Service, and OIDC Issuer URL Discovery Endpoint.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/outbound-use-cases.png)
+![Authentication flow between Lambda function, Security Token Service, External Service, and OIDC Issuer URL Discovery Endpoint.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/outbound-use-cases.png)
 
 
 1. The Lambda function calls the [GetWebIdentityToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetWebIdentityToken.html) API to request a JSON Web Token (JWT) from AWS Security Token Service (AWS STS).

@@ -45,7 +45,7 @@ For the list of IAM service endpoints and service quotas, see [AWS Identity and 
 
 To see an example of how to request an IAM quota increase using the Service Quotas console, watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/srJ4jr6M9YQ/0.jpg)](http://www.youtube.com/watch?v=srJ4jr6M9YQ)
+[![AWS Videos](https://img.youtube.com/vi/srJ4jr6M9YQ/0.jpg)](https://www.youtube.com/watch?v=srJ4jr6M9YQ)
 
 
 You can request an increase to default quotas for adjustable IAM quotas. Requests up to the [maximum quota](#autoapproved) are automatically approved and completed within a few minutes.

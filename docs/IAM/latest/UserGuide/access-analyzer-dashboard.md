@@ -38,7 +38,7 @@ You can select a maximum of one external access analyzer and a maximum of one in
 
 1. Choose **Update**. A summary of the findings for the selected external and internal access analyzers is displayed in the **Resource access findings** section.
 
-![Resource findings access analyzer dashboard.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-analyzer-dashboard-external-internal-new.png)
+![Resource findings access analyzer dashboard.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-analyzer-dashboard-external-internal-new.png)
 
 
 In the preceding image, the resource findings dashboard is visible from within the **Summary** page.
@@ -68,7 +68,7 @@ Only the AWS Organizations management account or delegated administrator can cho
 
 1. Choose **Update summary**. A summary of the findings for the selected unused access analyzer is displayed in the **Unused access findings** section.
 
-![Unused access analyzer dashboard.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-analyzer-dashboard-unused-new.png)
+![Unused access analyzer dashboard.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/access-analyzer-dashboard-unused-new.png)
 
 
 In the preceding image, the unused access findings dashboard is visible from within the **Summary** page.

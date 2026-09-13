@@ -25,7 +25,7 @@ In the app's code, Adele calls the sign-in interface for the IdP that she config
 
 The following figure shows a simplified flow for how this might work, using Login with Amazon as the IdP. For Step 2, the app can also use Facebook, Google, or any OIDC-compatible IdP, but that's not shown here.
 
-![Sample workflow using Amazon Cognito to federate users for a mobile application.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/mobile-app-web-identity-federation.diagram.png)
+![Sample workflow using Amazon Cognito to federate users for a mobile application.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/mobile-app-web-identity-federation.diagram.png)
 
 
  

@@ -7,7 +7,7 @@ The permissions policy of the role that is being assumed determines the permissi
 
 Optionally, you can pass inline or managed [session policies](access_policies.md#policies_session) as parameters of the `AssumeRole`, `AssumeRoleWithSAML`, or `AssumeRoleWithWebIdentity` API operations. Session policies limit the permissions for the role's temporary credential session. The resulting session's permissions are the intersection of the role's identity-based policy and the session policies. You can use the role's temporary credentials in subsequent AWS API calls to access resources in the account that owns the role. You cannot use session policies to grant more permissions than those allowed by the identity-based policy of the role that is being assumed. To learn more about how AWS determines the effective permissions of a role, see [Policy evaluation logic](reference_policies_evaluation-logic.md).
 
-![PermissionsWhenPassingRoles_Diagram.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/role_passed_policy_permissions.png)
+![PermissionsWhenPassingRoles_Diagram.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/role_passed_policy_permissions.png)
 
 
 The policies that are attached to the credentials that made the original call to `AssumeRole` are not evaluated by AWS when making the "allow" or "deny" authorization decision. The user temporarily gives up its original permissions in favor of the permissions assigned by the assumed role. In the case of the `AssumeRoleWithSAML` and `AssumeRoleWithWebIdentity` API operations, there are no policies to evaluate because the caller of the API is not an AWS identity.

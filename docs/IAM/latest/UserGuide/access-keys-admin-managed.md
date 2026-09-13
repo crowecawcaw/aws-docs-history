@@ -205,7 +205,7 @@ You can view a list of the access key IDs for users in your AWS account.
 
 1. If necessary, add the **Access key ID** column to the users table by completing the following steps:
 
-   1. Above the table on the far right, choose the **Preferences** icon (![Preferences icon.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)).
+   1. Above the table on the far right, choose the **Preferences** icon (![Preferences icon.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)).
 
    1. In the **Preferences** dialog box, under **Select visible columns** turn on **Access key ID**.
 
@@ -249,7 +249,7 @@ The most recent use of an access key is displayed in the user's list on the IAM 
 
 1. In users list, see the **Access key last used** column.
 
-   If the column is not displayed, choose the **Preferences** icon (![Preferences icon.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)) and under **Select visible columns** turn on **Access key last used** to display the column.
+   If the column is not displayed, choose the **Preferences** icon (![Preferences icon.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)) and under **Select visible columns** turn on **Access key last used** to display the column.
 
 1. (optional) In the navigation pane, under **Access reports**, select **Credential report** to download a report that includes the access key last used information for all of the IAM users in your account.
 

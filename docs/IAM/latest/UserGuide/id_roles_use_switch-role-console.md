@@ -69,7 +69,7 @@ If your administrator created the role with a path, such as `division_abc/subdiv
    1. Choose **Switch back**.
 
       For example, assume you are signed in to account number `123456789012` using the user name `Richard`. After you use the `admin-role` role, you want to stop using the role and return to your original permissions. To stop using the role, you choose **admin-role @ 123456789012**, and then choose **Switch back**.  
-![Graphic locating the Switch back function to stop using an IAM role and return to the original user.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/role-stop-using.png)
+![Graphic locating the Switch back function to stop using an IAM role and return to the original user.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/role-stop-using.png)
 
 **Tip**  
 The last several roles that you used appear on the menu. The next time you want to switch to one of those roles, you can simply choose the role you want. You are only required to type the account and role information manually if the role isn't displayed on the menu.

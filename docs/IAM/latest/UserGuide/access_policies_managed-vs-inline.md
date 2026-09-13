@@ -49,7 +49,7 @@ You cannot change the permissions defined in AWS managed policies. AWS occasiona
 
 The following diagram illustrates AWS managed policies. The diagram shows three AWS managed policies: **AdministratorAccess**, **PowerUserAccess**, and **AWSCloudTrail\_ReadOnlyAccess**. Notice that a single AWS managed policy can be attached to principal entities in different AWS accounts, and to different principal entities in a single AWS account.
 
-![Diagram of AWS managed policies.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-aws-managed-policies.diagram.png)
+![Diagram of AWS managed policies.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-aws-managed-policies.diagram.png)
 
 
 ## Customer managed policies
@@ -63,7 +63,7 @@ The following diagram illustrates customer managed policies. Each policy is an e
 
 For more information, see [Define custom IAM permissions with customer managed policies](access_policies_create.md)
 
-![Diagram of customer managed policies.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-customer-managed-policies.diagram.png)
+![Diagram of customer managed policies.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-customer-managed-policies.diagram.png)
 
 
 ## Inline policies
@@ -73,4 +73,4 @@ An inline policy is a policy created for a single IAM identity (a user, user gro
 
 The following diagram illustrates inline policies. Each policy is an inherent part of the user, group, or role. Notice that two roles include the same policy (the **DynamoDB-books-app** policy), but they are not sharing a single policy. Each role has its own copy of the policy.
 
-![Diagram of inline policies.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-inline-policies.diagram.png)
+![Diagram of inline policies.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policies-inline-policies.diagram.png)

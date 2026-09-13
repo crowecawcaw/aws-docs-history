@@ -12,7 +12,7 @@ You can configure and enable a passkey for your root user from the AWS Managemen
    For instructions, see [Sign in to the AWS Management Console as the root user](https://docs.aws.amazon.com/signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.html) in the *AWS Sign-In User Guide*.
 
 1. On the right side of the navigation bar, choose your account name, and then choose **Security credentials**.  
-![Security credentials in the navigation menu.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-root.shared.console.png)
+![Security credentials in the navigation menu.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-root.shared.console.png)
 
 1. On your root user **My security credentials** page, under **Multi-factor authentication (MFA)**, choose **Assign MFA device**.
 

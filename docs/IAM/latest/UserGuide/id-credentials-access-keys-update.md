@@ -64,7 +64,7 @@ You can update access keys from the AWS Management Console.
 
 1. If necessary, add the **Access key age** column to the users table by completing the following steps:
 
-   1. Above the table on the far right, choose the settings icon (![Settings icon.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)).
+   1. Above the table on the far right, choose the settings icon (![Settings icon.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/console-settings-icon.console.png)).
 
    1. In **Manage columns**, select **Access key age**.
 

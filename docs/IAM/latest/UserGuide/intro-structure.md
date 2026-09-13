@@ -11,7 +11,7 @@ Next, IAM makes a request to grant the principal access to resources. IAM grants
 
 Once authorized, the principal can perform actions or operations on resources in your AWS account. For example, the principal could launch a new Amazon Elastic Compute Cloud instance, modify IAM group membership, or delete Amazon Simple Storage Service buckets. The following diagram illustrates this process through the IAM infrastructure:
 
-![This diagram that shows how a principal is authenticated and authorized by the IAM service to perform actions or operations upon other AWS services or resources.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/intro-diagram _policies_800.png)
+![This diagram that shows how a principal is authenticated and authorized by the IAM service to perform actions or operations upon other AWS services or resources.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/intro-diagram _policies_800.png)
 
 
 ## Components of a request

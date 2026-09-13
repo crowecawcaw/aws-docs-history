@@ -29,7 +29,7 @@ To change the permissions allowed by the role, modify the role's permissions pol
 1. Do one of the following:
    + To edit an existing customer managed policy, choose the name of the policy and then choose **Edit policy**.
 **Note**  
-You cannot edit an AWS managed policy. AWS managed policies appear with the AWS icon (![Orange cube icon indicating a policy is managed by AWS.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_icon.png)). For more information about the difference between AWS managed policies and customer managed policies, see [Managed policies and inline policies](access_policies_managed-vs-inline.md). 
+You cannot edit an AWS managed policy. AWS managed policies appear with the AWS icon (![Orange cube icon indicating a policy is managed by AWS.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/policy_icon.png)). For more information about the difference between AWS managed policies and customer managed policies, see [Managed policies and inline policies](access_policies_managed-vs-inline.md). 
    + To attach an existing managed policy to the role, choose **Add permissions** and then choose **Attach policies**.
    + To edit an existing inline policy, expand the policy and choose **Edit**.
    + To embed a new inline policy, choose **Add permissions** and then choose **Create inline policy**. 

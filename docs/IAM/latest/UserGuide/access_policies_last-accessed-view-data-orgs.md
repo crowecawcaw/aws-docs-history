@@ -20,7 +20,7 @@ When you use the AWS CLI or AWS API to generate an AWS Organizations access repo
 
 You can build an entity path using the known structure of your organization. For example, assume that you have the following organizational structure in AWS Organizations.
 
-![Organization path structure.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/ou-path-diagram.png)
+![Organization path structure.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/ou-path-diagram.png)
 
 
 The path for the **Dev Managers** OU is built using the IDs of the organization, root, and all OUs in the path down to and including the OU. 

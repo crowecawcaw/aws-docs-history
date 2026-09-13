@@ -84,7 +84,7 @@ For your convenience, the AWS sign-in page uses a browser cookie to remember you
    To get your AWS account ID, contact your administrator.
 
 1. In the navigation bar on the upper right, choose your user name, and then choose **Security credentials**.   
-![AWS Management Console Security credentials link.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
+![AWS Management Console Security credentials link.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
 
 1. On the **AWS IAM credentials** tab, in the **Multi-factor authentication (MFA)** section, choose the radio button next to the MFA device and choose **Resync**.
 
@@ -121,7 +121,7 @@ You might see different text, such as **Sign in using MFA** and **Troubleshoot y
 As the root user, you can't sign in to the **Sign in as IAM user** page. If you see the **Sign in as IAM user** page, choose **Sign in using root user email** near the bottom of the page. For help signing in as the root user, see [Signing in to the AWS Management Console as the root user](https://docs.aws.amazon.com/signin/latest/userguide/introduction-to-          root-user-sign-in-tutorial.html) in the *AWS Sign-In User Guide*.
 
 1. On the right side of the navigation bar, choose on your account name, and then choose **Security credentials**. If necessary, choose **Continue to Security credentials**.  
-![Security credentials in the navigation menu.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-root.shared.console.png)
+![Security credentials in the navigation menu.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-root.shared.console.png)
 
 1. Expand the **Multi-factor authentication (MFA)** section on the page.
 

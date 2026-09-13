@@ -93,7 +93,7 @@ For your convenience, the AWS sign-in page uses a browser cookie to remember you
    To get your AWS account ID, contact your administrator.
 
 1. In the navigation bar on the upper right, choose your user name, and then choose **Security credentials**.   
-![AWS Management Console Security credentials link.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
+![AWS Management Console Security credentials link.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/security-credentials-user.shared.console.png)
 
 1. On the **AWS IAM credentials** tab, in the **Multi-factor authentication (MFA)** section, choose **Assign MFA device**.
 
@@ -102,7 +102,7 @@ For your convenience, the AWS sign-in page uses a browser cookie to remember you
 1. Type the device serial number. The serial number is usually on the back of the device.
 
 1. In the **MFA code 1** box, type the six-digit number displayed by the MFA device. You might need to press the button on the front of the device to display the number.  
-![IAM Dashboard, MFA Device.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/MFADevice.png)
+![IAM Dashboard, MFA Device.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/MFADevice.png)
 
 1. Wait 30 seconds while the device refreshes the code, and then type the next six-digit number into the **MFA code 2** box. You might need to press the button on the front of the device again to display the second number.
 
@@ -132,7 +132,7 @@ The device is ready for use with AWS. For information about using MFA with the A
 1. Type the device serial number. The serial number is usually on the back of the device.
 
 1. In the **MFA code 1** box, type the six-digit number displayed by the MFA device. You might need to press the button on the front of the device to display the number.  
-![IAM Dashboard, MFA Device.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/MFADevice.png)
+![IAM Dashboard, MFA Device.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/MFADevice.png)
 
 1. Wait 30 seconds while the device refreshes the code, and then type the next six-digit number into the **MFA code 2** box. You might need to press the button on the front of the device again to display the second number.
 

@@ -48,12 +48,12 @@ print(f"Status: {response['Status']}")
 
 Navigate to IAM and select **Account Settings** under the **Access Management** section of the left-hand navigation menu
 
-![Account settings menu item highlighted in left navigation under Access management section.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/outbound-screen-1.png)
+![Account settings menu item highlighted in left navigation under Access management section.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/outbound-screen-1.png)
 
 
 Once you enable the feature, make note of your account-specific issuer URL. You will use this URL when configuring trust relationships in external services. You can also retrieve this issuer URL as needed using the [GetOutboundWebIdentityFederationInfo](https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOutboundWebIdentityFederationInfo.html) API.
 
-![Outbound Identity Federation interface showing Enabled status with Disable button and token issuer URL.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/outbound-screen-2.png)
+![Outbound Identity Federation interface showing Enabled status with Disable button and token issuer URL.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/outbound-screen-2.png)
 
 
 ## Establish trust relationship in external service

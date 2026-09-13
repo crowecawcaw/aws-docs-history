@@ -13,7 +13,7 @@ If you are signed into the console, you can view the account ID for your AWS acc
 
 The AWS account ID is displayed when you go to the IAM **Dashboard** in the AWS account section. You can also view your account ID in the navigation bar at the upper right. Choose your user name, and the account ID is displayed above your user name.
 
-![Account information drop-down box with account ID highlighted.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/find-account-id.png)
+![Account information drop-down box with account ID highlighted.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/find-account-id.png)
 
 
 ------

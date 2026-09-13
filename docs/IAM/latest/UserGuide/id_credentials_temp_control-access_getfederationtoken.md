@@ -13,7 +13,7 @@ In most cases if you do not pass a policy with the `GetFederationToken` API call
 
 The following figures show a visual representation of how the policies interact to determine permissions for the temporary security credentials returned by a call to `GetFederationToken`.
 
-![IAM userThe following illustrations show check marks to indicate that session permissions are the intersection of the user's identity-based policy and the session policies. Session permissions can also be the intersection of the user's identity-based policy and resource-based policies.](http://docs.aws.amazon.com/IAM/latest/UserGuide/images/getfederationtoken-permissions.diagram.png)
+![IAM userThe following illustrations show check marks to indicate that session permissions are the intersection of the user's identity-based policy and the session policies. Session permissions can also be the intersection of the user's identity-based policy and resource-based policies.](https://docs.aws.amazon.com/IAM/latest/UserGuide/images/getfederationtoken-permissions.diagram.png)
 
 
 ## Example: Assigning permissions using GetFederationToken
