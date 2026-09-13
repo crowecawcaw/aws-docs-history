@@ -12,7 +12,7 @@ This reference architecture illustrates a highly scalable deployment of Beyond L
 ## LUMINAI Refinery Advisor on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing a highly scalable deployment of Beyond Limits’ LUMINAI Refinery Advisor on AWS using Amazon Elastic Container Service (Amazon ECS), Amazon Aurora, Amazon MQ, and other AWS managed services.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/luminai-refinery-advisor-on-aws/images/luminai-refinery-advisor-on-aws.png)
+![Reference architecture diagram showing a highly scalable deployment of Beyond Limits’ LUMINAI Refinery Advisor on AWS using Amazon Elastic Container Service (Amazon ECS), Amazon Aurora, Amazon MQ, and other AWS managed services.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/luminai-refinery-advisor-on-aws/images/luminai-refinery-advisor-on-aws.png)
 
 
 1.  Operations data from multiple refineries stream into the LUMINAI Refinery Advisor System on AWS. 
