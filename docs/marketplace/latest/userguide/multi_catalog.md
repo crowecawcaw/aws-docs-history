@@ -9,7 +9,7 @@
 
  You create and manage all catalogs through AWS Partner Central - AWS Marketplace using the catalog selection dropdown to switch between your available catalogs. 
 
-![](http://docs.aws.amazon.com/marketplace/latest/userguide/images/multi-catalog-selection-dropdown.png)
+![](https://docs.aws.amazon.com/marketplace/latest/userguide/images/multi-catalog-selection-dropdown.png)
 
 
 ## Available catalogs

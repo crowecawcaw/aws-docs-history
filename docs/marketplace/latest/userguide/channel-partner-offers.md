@@ -29,7 +29,7 @@ Upon approval, ISVs can create selling authorizations for approved Channel Partn
 
 The following diagram shows this relationship between an ISV, a Channel Partner, and a buyer.
 
- ![Relationships and workflow between ISVs, Channel Partners, and buyers.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/consulting-partner-images-3.png) 
+ ![Relationships and workflow between ISVs, Channel Partners, and buyers.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/consulting-partner-images-3.png) 
 
 **Note**  
 For more information about creating a selling authorization for a Channel Partner, as an ISV, see [Creating a selling authorization for an AWS Marketplace Channel Partner as an ISV](channel-partner-isv-info.md).

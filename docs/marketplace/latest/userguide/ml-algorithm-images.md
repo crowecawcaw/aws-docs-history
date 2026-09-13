@@ -22,7 +22,7 @@ An algorithm includes the following components:
 
 The following diagram shows the workflow for publishing and using algorithm products.
 
-![Diagram of how a seller creates an algorithm package image and how a buyer uses it.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/ml-algorithm-package-images.png)
+![Diagram of how a seller creates an algorithm package image and how a buyer uses it.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/ml-algorithm-package-images.png)
 
 
 The workflow for creating a SageMaker AI algorithm for AWS Marketplace includes the following steps:

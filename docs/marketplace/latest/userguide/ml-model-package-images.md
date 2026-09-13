@@ -24,7 +24,7 @@ If your inference model is built with a deep learning framework such as Gluon, K
 
 The following diagram shows the workflow for publishing and using model package products. 
 
-![Diagram of how a seller creates a model package image and how a buyer uses it.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/ml-model-package-images.png)
+![Diagram of how a seller creates a model package image and how a buyer uses it.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/ml-model-package-images.png)
 
 
 The workflow for creating a SageMaker AI model package for AWS Marketplace includes the following steps:

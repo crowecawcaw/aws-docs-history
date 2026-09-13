@@ -243,7 +243,7 @@ update listings, respond to buyers and initiate refunds.
 
 As part of the statute document, you may be required to provide an organization chart showing the entire structure of the registered business. Example below:
 
-![Example organization chart showing the entire structure of a registered business, including parent company, subsidiaries, and beneficial owners.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/kyc-organization-chart.png)
+![Example organization chart showing the entire structure of a registered business, including parent company, subsidiaries, and beneficial owners.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/kyc-organization-chart.png)
 
 
 ### General best practices

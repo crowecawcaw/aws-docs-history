@@ -139,7 +139,7 @@ The spreadsheet contains several example products. You must delete those before 
 
 **To download the form**
 + Start the AWS Marketplace Dashboard and choose **Download product load form**.  
-![The Download product load form button in the AWS Marketplace dashboard.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/plf-download.png)
+![The Download product load form button in the AWS Marketplace dashboard.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/plf-download.png)
 
   The spreadsheet contains data for the previous versions of your products. Leave that data in place and add the new product on the next blank row.
 
@@ -188,7 +188,7 @@ You must ensure that the instance type is available in the same Regions as the p
 
 1. In the **Clusters and AWS Resources Topology 1: Title** to **Clusters and AWS Resources Topology 3: Architecture Diagram URL** columns, enter the CloudFormation data for your product. You must enter the following data:
    + **Topology title** – The title of your deployment or fulfillment option. The title appears on the detail page of your product in the **Fulfillment Options** section. For example:  
-![An example topology in the Fulfilment Options page of a product.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/plf-topology.png)
+![An example topology in the Fulfilment Options page of a product.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/plf-topology.png)
    + In the **Pricing Estimate** column, enter a link to the [AWS Calculator](https://calculator.aws/#/) with your values.
    +  **Short and Long Description** – Enter descriptions of your deployment option. 
    +  **Template URL** – Provide a downloadable link to your Cloudformation template. 

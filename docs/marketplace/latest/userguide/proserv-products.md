@@ -20,7 +20,7 @@ For more information about professional services products, see:
 
 The following video explains more about managing professional services products in AWS Marketplace.
 
-[![AWS Videos](http://img.youtube.com/vi/2ZsS1LfRivk/0.jpg)](http://www.youtube.com/watch?v=2ZsS1LfRivk)
+[![AWS Videos](https://img.youtube.com/vi/2ZsS1LfRivk/0.jpg)](https://www.youtube.com/watch?v=2ZsS1LfRivk)
 
 
 ## Getting help

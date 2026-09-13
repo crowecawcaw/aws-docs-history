@@ -150,12 +150,12 @@ The following diagrams show the architecture of a hypothetical video-analysis Sa
 
 The following is an example of a high-level diagram.
 
-![An architecture diagram of a hypothetical video-analysis SaaS application with high-level services. The services include machine-learning, storage, web, and billing services grouped and labeled as part of the control plane and application plane.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/example-architecture-diagram-with-high-level-services.png)
+![An architecture diagram of a hypothetical video-analysis SaaS application with high-level services. The services include machine-learning, storage, web, and billing services grouped and labeled as part of the control plane and application plane.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/example-architecture-diagram-with-high-level-services.png)
 
 
 The following is an example of a low-level, detailed diagram.
 
-![An architecture diagram of a hypothetical video-analysis SaaS application with low level details. The details include AWS services icons for AWS Fargate, virtual private cloud (VPC), and Amazon SageMaker AI that are grouped and labeled as part of the control plane and application plane.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/example-architecture-diagram-with-low-level-details.png)
+![An architecture diagram of a hypothetical video-analysis SaaS application with low level details. The details include AWS services icons for AWS Fargate, virtual private cloud (VPC), and Amazon SageMaker AI that are grouped and labeled as part of the control plane and application plane.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/example-architecture-diagram-with-low-level-details.png)
 
 
 For more information, see [What is Architecture Diagramming?](https://aws.amazon.com/what-is/architecture-diagramming/). After creating a diagram, update your architecture details in the AWS Partner Central. For more information, see [Update architecture details](saas-product-settings.md#updating-architecture-details).

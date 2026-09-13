@@ -13,14 +13,14 @@ AWS Marketplace provides the following general domains, or categories of interes
 
 This diagram shows the tables in the Catalog, Accounts, and Revenue domains.
 
-![Entity relationship diagram showing how data feeds relate to each other.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-overview.png) 
+![Entity relationship diagram showing how data feeds relate to each other.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-overview.png) 
 
 ## Catalog-related tables
 <a name="data-feed-catalog-domain"></a>
 
 The following diagram shows the relationships between tables in the Catalog domain, as well as the fields within the tables. 
 
-![Relationships between the Product, Offer_Product, Offer, Offer_Target, and Legacy_id_mapping tables in the Catalog domain.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-catalog-details.png)
+![Relationships between the Product, Offer_Product, Offer, Offer_Target, and Legacy_id_mapping tables in the Catalog domain.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-catalog-details.png)
 
 
 The `Product`, `Offer_Product`, `Offer`, `Offer_Target`, and `Legacy_id_mapping`\_tables are in the Catalog domain.
@@ -42,7 +42,7 @@ For more information about these tables, including a description of each field i
 
 The following diagram shows the relationships between the `Account` and `Address` tables in the Accounts domain, as well as the fields within the tables.
 
-![Relationship between the Account and Address tables in the Accounts domain, and fields within each table.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-accounts-details.png)
+![Relationship between the Account and Address tables in the Accounts domain, and fields within each table.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-accounts-details.png)
 
 
 **Note**  
@@ -55,7 +55,7 @@ For more information about these tables, including a description of each field i
 
 The following diagram shows the relationships between the `Billing_Event` and `Tax_Item` tables in the Revenue domain, as well as the fields within the tables. The `Billing_Event` table includes information about disbursements, as well as billing events.
 
-![Relationships between the Billing_Event and Tax_Item tables in the Revenue domain, and the fields within each table.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-revenue-details.png)
+![Relationships between the Billing_Event and Tax_Item tables in the Revenue domain, and the fields within each table.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-revenue-details.png)
 
 
 **Note**  
@@ -81,10 +81,10 @@ The following table describes the symbols that are used in the ER diagrams.
 
 | Symbol | Description | 
 | --- | --- | 
-|  ![An image of the letters "PK" as a symbol.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-primary-key.png)  | **Primary key** – A primary key for the table. When used with the `valid_from` and `update_date` fields, it is unique. For more details about using these fields together, see [Historization of the data](data-feed-details.md#data-feed-historization). If more than one field is marked as primary key, then the fields together form the primary key. | 
-|  ![An image of the letters "FK" as a symbol.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-foreign-key.png)  |  **Foreign key** – A field that represents a primary key in a different table. Not necessarily unique in the table.  In some cases, the foreign key can be blank if the record in the current table does not have a corresponding record in the foreign table.  | 
-|  ![An image of the letters "AK" as a symbol.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-alternate-key.png)  |  **Alternate key** – A key that can be used as a key in the table. Follows the same uniqueness rules as the primary key. | 
-|  ![An image of a line with a cross at one end and circle and fork at the other.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-one-to-many.png)  |  **Connector** – Lines between fields represent a connection, which is two fields that can be used to join tables. The ends of the line represent the type of connection. This example represents a one-to-many connection. | 
+|  ![An image of the letters "PK" as a symbol.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-primary-key.png)  | **Primary key** – A primary key for the table. When used with the `valid_from` and `update_date` fields, it is unique. For more details about using these fields together, see [Historization of the data](data-feed-details.md#data-feed-historization). If more than one field is marked as primary key, then the fields together form the primary key. | 
+|  ![An image of the letters "FK" as a symbol.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-foreign-key.png)  |  **Foreign key** – A field that represents a primary key in a different table. Not necessarily unique in the table.  In some cases, the foreign key can be blank if the record in the current table does not have a corresponding record in the foreign table.  | 
+|  ![An image of the letters "AK" as a symbol.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-alternate-key.png)  |  **Alternate key** – A key that can be used as a key in the table. Follows the same uniqueness rules as the primary key. | 
+|  ![An image of a line with a cross at one end and circle and fork at the other.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-one-to-many.png)  |  **Connector** – Lines between fields represent a connection, which is two fields that can be used to join tables. The ends of the line represent the type of connection. This example represents a one-to-many connection. | 
 
 **Connector types**
 
@@ -93,7 +93,7 @@ The following table shows the types of ends that each connector can have.
 
 | Connector type | Description | 
 | --- | --- | 
-|  ![An image of a line with a cross at one end.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-one-to-n.png)  |  **One to n** – A connector with this end represents a join that has exactly one value on this side of the join. | 
-|  ![An image of a line with a cross and circle at one end.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-zero-or-one-to-n.png)  |  **Zero or one to n** – A connector with this end represents a join that has zero or one values on this side of the join. | 
-|  ![An image of a line with a circle and fork at one end.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-optional-many-to-n.png)  |  **Zero or more to n** – A connector with this end represents a join that has zero, one, or many values on this side of the join. | 
-|  ![An image of a line with a cross and fork at one end.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-one-or-more-to-n.png)  |  **One or more to n** – A connector with this end represents a join that has one or many values on this side of the join. | 
+|  ![An image of a line with a cross at one end.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-one-to-n.png)  |  **One to n** – A connector with this end represents a join that has exactly one value on this side of the join. | 
+|  ![An image of a line with a cross and circle at one end.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-zero-or-one-to-n.png)  |  **Zero or one to n** – A connector with this end represents a join that has zero or one values on this side of the join. | 
+|  ![An image of a line with a circle and fork at one end.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-optional-many-to-n.png)  |  **Zero or more to n** – A connector with this end represents a join that has zero, one, or many values on this side of the join. | 
+|  ![An image of a line with a cross and fork at one end.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/datafeeds-one-or-more-to-n.png)  |  **One or more to n** – A connector with this end represents a join that has one or many values on this side of the join. | 

@@ -7,7 +7,7 @@ With the AWS Marketplace Commerce Analytics Service, you can programmatically ac
 
 The following visualization shows how the Commerce Analytics Service accesses your product and customer data in AWS Marketplace and delivers it as data sets to your Amazon S3 bucket, initiating a notification through Amazon SNS.
 
- ![Commerce Analytics Service Overview.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/commerce-analytics-service-overview.png) 
+ ![Commerce Analytics Service Overview.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/commerce-analytics-service-overview.png) 
 
 ## Terms and conditions
 <a name="terms-and-conditions"></a>

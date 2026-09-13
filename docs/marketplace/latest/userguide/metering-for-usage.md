@@ -80,7 +80,7 @@ In the following diagram, **Resource 1** has a unique set of `AccountId` and `Bu
 
 **Resource 2** and **Resource 3** both have the same `AccountId` tag, `2222`, and the same `BusinessUnit` tag, `Operations`. As a result, they're combined into a single `UsageAllocations` entry in the **Metering Record**.
 
-![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/seller-vendor-meter-tag.png)
+![Diagram showing how vendor metering tags combine usage data. Three resources (Resource 1, 2, and 3) with different AccountIds and BusinessUnits are consolidated into a single Metering Record with UsageAllocations grouped by AccountId and BusinessUnit before being sent to the AWS Marketplace Metering Service.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/seller-vendor-meter-tag.png)
 
 
 Sellers can also combine resources without tags into a single `UsageAllocation` and send it as one of the entries in `UsageAllocations`.
@@ -121,7 +121,7 @@ The first and last rows of the **Cost Usage Report** are relevant to what the se
 
 The following screenshot shows an example of the AWS Cost Explorer Service view after a buyer activates vendor-metered tags and groups costs by the `user` tag.
 
-![Screenshot of Cost Explorer showing vendor-metered tag data grouped by user. The seller uses a $0.00 dimension to report credit consumption alongside a paid overage dimension. Cost allocation tags on both dimensions allow the buyer to see which users consumed credits and which users incurred overage charges.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/vendor-metered-tag-cost-explorer.png)
+![Screenshot of Cost Explorer showing vendor-metered tag data grouped by user. The seller uses a $0.00 dimension to report credit consumption alongside a paid overage dimension. Cost allocation tags on both dimensions allow the buyer to see which users consumed credits and which users incurred overage charges.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/vendor-metered-tag-cost-explorer.png)
 
 
 **To activate vendor-metered tags in the buyer account**

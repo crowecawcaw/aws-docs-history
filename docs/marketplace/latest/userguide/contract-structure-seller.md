@@ -16,4 +16,4 @@ A buyer’s use of AWS Marketplace is governed by the [AWS Service Terms](https:
 
 The following image shows a typical agreement structure. 
 
-![Contractual structure for buyers, sellers, and AWS.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/contract-structure.png)
+![Contractual structure for buyers, sellers, and AWS.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/contract-structure.png)

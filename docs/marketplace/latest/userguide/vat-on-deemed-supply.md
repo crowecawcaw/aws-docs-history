@@ -29,7 +29,7 @@ You can submit invoices for transactions of AWS Marketplace sales of Digital Ser
 
 1. In the bottom-left panel, select Marketplace Settings
 
-![The AWS Partner Central console showing the Marketplace Settings option in the bottom-left panel.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-1.png)
+![The AWS Partner Central console showing the Marketplace Settings option in the bottom-left panel.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-1.png)
 
 
 ### Step 2: Navigate to the VAT on deemed supply Section
@@ -41,14 +41,14 @@ You can submit invoices for transactions of AWS Marketplace sales of Digital Ser
 
 1. Scroll down to the VAT on deemed supply section
 
-![The Tax information tab in AWS Partner Central showing the VAT on deemed supply section.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-2.png)
+![The Tax information tab in AWS Partner Central showing the VAT on deemed supply section.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-2.png)
 
 
 Here you can expand two tables:
 + **VAT on deemed supply — eligible line items:** transactions eligible for VAT Invoicing  
-![The VAT on deemed supply eligible line items table showing transactions eligible for VAT invoicing.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-3.png)
+![The VAT on deemed supply eligible line items table showing transactions eligible for VAT invoicing.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-3.png)
 + **VAT on deemed supply submissions:** your submitted VAT invoices and their status  
-![The VAT on deemed supply submissions table showing submitted VAT invoices and their status.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-4.png)
+![The VAT on deemed supply submissions table showing submitted VAT invoices and their status.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-4.png)
 
 ### Step 3: Select Line Items for Submission
 <a name="vat-deemed-supply-step3"></a>
@@ -61,7 +61,7 @@ Here you can expand two tables:
 
 1. Choose Apply VAT Disbursement
 
-![Selecting line items and choosing Apply VAT Disbursement.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-5.png)
+![Selecting line items and choosing Apply VAT Disbursement.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-5.png)
 
 
 **Note**  
@@ -79,7 +79,7 @@ You can submit individual invoices for individual line items, or a single consol
 
 1. Choose Submit VAT on deemed supply disbursement
 
-![The Apply VAT on deemed supply page showing selected line items, disbursement summary, and invoice upload.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-6.png)
+![The Apply VAT on deemed supply page showing selected line items, disbursement summary, and invoice upload.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-6.png)
 
 
 ### Step 5: Track Your Submission
@@ -95,4 +95,4 @@ To check your disbursement status, visit the Collections and Disbursements dashb
 
 Refer to [Deemed Supply FAQs](vat-deemed-supply-faq.md) for more details.
 
-![The VAT on deemed supply submissions table showing submission statuses.](http://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-7.png)
+![The VAT on deemed supply submissions table showing submission statuses.](https://docs.aws.amazon.com/marketplace/latest/userguide/images/vat-deemed-supply-screenshot-7.png)

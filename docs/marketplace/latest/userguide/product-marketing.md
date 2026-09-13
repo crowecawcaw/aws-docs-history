@@ -133,7 +133,7 @@ Currently, Buy with AWS supports only SaaS products.
   + Log into your [AWS Partner Central](https://partnercentral.awspartner.com/partnercentral2/s/login?ec=302&startURL=%2Fpartnercentral2%2Fs%2Farticle%3Fcategory%3DAWS_Marketplace_Market%26article%3DAvailable-in-AWS-Marketplace-Branding-Treatment-v2024) account to download the marketing toolkit which contains branding assets and specifications to follow for AWS Marketplace branding elements and marketing assets.
   + See the [Buy with AWS creative and messaging guidelines](https://partnercentral.awspartner.com/partnercentral2/s/article?category=AWS_Marketplace_Ma%255b%E2%80%A6%255dg-experiences-on-AWS-Partner-owned-websites-using-APIs) for instructions on using branding elements and marketing assets.
 
-[![AWS Videos](http://img.youtube.com/vi/AAJDRg3PHh4/0.jpg)](http://www.youtube.com/watch?v=AAJDRg3PHh4)
+[![AWS Videos](https://img.youtube.com/vi/AAJDRg3PHh4/0.jpg)](https://www.youtube.com/watch?v=AAJDRg3PHh4)
 
 
 ### Review branding changes

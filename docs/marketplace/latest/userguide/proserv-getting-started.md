@@ -7,7 +7,7 @@ As a seller, you can offer professional services to AWS Marketplace buyers. Prof
 
 The following video explains more about listing professional services products in AWS Marketplace.
 
-[![AWS Videos](http://img.youtube.com/vi/8inkD7mgrLk/0.jpg)](http://www.youtube.com/watch?v=8inkD7mgrLk)
+[![AWS Videos](https://img.youtube.com/vi/8inkD7mgrLk/0.jpg)](https://www.youtube.com/watch?v=8inkD7mgrLk)
 
 
 **Topics**

@@ -14,4 +14,4 @@ Eligible partners can programmatically list AWS Marketplace products outside of 
 
 The following video explains more about selling in AWS Marketplace. 
 
-[![AWS Videos](http://img.youtube.com/vi/UjD-kMiVs0c/0.jpg)](http://www.youtube.com/watch?v=UjD-kMiVs0c)
+[![AWS Videos](https://img.youtube.com/vi/UjD-kMiVs0c/0.jpg)](https://www.youtube.com/watch?v=UjD-kMiVs0c)
