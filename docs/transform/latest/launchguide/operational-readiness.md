@@ -39,7 +39,7 @@ Ensuring the security and compliance of your AWS environment is paramount.
 
 Video: [Back to Basics: Using AWS Config; and Conformance Packs to Optimize Your AWS Resources](https://www.youtube.com/watch?v=yRchvd1h3Qc)
 
-[![AWS Videos](http://img.youtube.com/vi/yRchvd1h3Qc/0.jpg)](http://www.youtube.com/watch?v=yRchvd1h3Qc)
+[![AWS Videos](https://img.youtube.com/vi/yRchvd1h3Qc/0.jpg)](https://www.youtube.com/watch?v=yRchvd1h3Qc)
 
 
 ## Backup

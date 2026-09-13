@@ -15,10 +15,10 @@ Explore the 3 phases of migration defined in the AWS migration process:
 1. *Assess:* At the start of your migration journey, you assess your organization’s current readiness for operating in the cloud. Most importantly, you identify the desired business outcomes and develop the business case for migration. To help you with this goal, AWS provides [AWS Transform assessments](https://aws.amazon.com/transform/assessment/), an Agentic AI migration assessment to simplify and optimize your cloud migration. Discover cost optimization and performance opportunities while getting detailed financial modeling to help you confidently plan your migration and maximize potential savings.
 
 1. *Mobilize*: As part of the mobilize phase, you create a migration plan and refine your business case. You address gaps that were identified in the assess phase to better prepare your organization with a focus on building your baseline environment (the “landing zone”), driving operational readiness, and developing cloud skills. Watch the following video about the Mobilize phase: [Learn how to mobilize for accelerated cloud migration - AWS Virtual Workshop ](https://www.youtube.com/watch?v=5WbInJf8HRI).  
-[![AWS Videos](http://img.youtube.com/vi/5WbInJf8HRI/0.jpg)](http://www.youtube.com/watch?v=5WbInJf8HRI)
+[![AWS Videos](https://img.youtube.com/vi/5WbInJf8HRI/0.jpg)](https://www.youtube.com/watch?v=5WbInJf8HRI)
 
 1. *Migrate & Modernize*: The goal of the migrate-and-modernize phase is to design, migrate, and validate each application. To learn more, watch the following video from 2024: [MAP Overview \| Amazon Web Services](https://www.youtube.com/watch?v=Zv_q7_S2op0).  
-[![AWS Videos](http://img.youtube.com/vi/Zv_q7_S2op0/0.jpg)](http://www.youtube.com/watch?v=Zv_q7_S2op0)
+[![AWS Videos](https://img.youtube.com/vi/Zv_q7_S2op0/0.jpg)](https://www.youtube.com/watch?v=Zv_q7_S2op0)
 
 ## AWS Transform
 <a name="mhj"></a>
@@ -39,7 +39,7 @@ Your CCoE is the starting point for preparing your organization for your migrati
 
 To learn about the importance of establishing a CCoE, watch the following video from 2024 AWS Tech Talks - [Build a cloud center of excellence \| AWS Events](https://www.youtube.com/watch?v=G7SZqJMVYlo).
 
-[![AWS Videos](http://img.youtube.com/vi/G7SZqJMVYlo/0.jpg)](http://www.youtube.com/watch?v=G7SZqJMVYlo)
+[![AWS Videos](https://img.youtube.com/vi/G7SZqJMVYlo/0.jpg)](https://www.youtube.com/watch?v=G7SZqJMVYlo)
 
 
 To learn about the role of the CCoE in your organizational readiness, see the [Organizational readiness](organizational-readiness.md) topic in this launch guide.
@@ -85,7 +85,7 @@ See [Education and Enablement](education.md) for a recommended free course on [S
 
 To learn about the architecture of AWS Transform MGN, watch the following video: [MGN](https://www.youtube.com/watch?v=75gyWJn0_rI)
 
-[![AWS Videos](http://img.youtube.com/vi/75gyWJn0_rI/0.jpg)](http://www.youtube.com/watch?v=75gyWJn0_rI)
+[![AWS Videos](https://img.youtube.com/vi/75gyWJn0_rI/0.jpg)](https://www.youtube.com/watch?v=75gyWJn0_rI)
 
 
 [AWS Database Migration Service (AWS DMS) ](https://aws.amazon.com/dms/) is a managed migration and replication service that helps move your database and analytics workloads to AWS quickly, securely, and with minimal downtime and zero data loss. AWS DMS supports migration between more than 20 database and analytics engines.

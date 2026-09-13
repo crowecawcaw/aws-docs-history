@@ -19,7 +19,7 @@ You can identify your organization's cloud skills gaps with our free self-assess
 
 Watch the video [AWS Training and Certification – Building AWS Cloud Skills and Confidence ](https://www.youtube.com/watch?v=9b50ikEdHV8).
 
-[![AWS Videos](http://img.youtube.com/vi/9b50ikEdHV8/0.jpg)](http://www.youtube.com/watch?v=9b50ikEdHV8)
+[![AWS Videos](https://img.youtube.com/vi/9b50ikEdHV8/0.jpg)](https://www.youtube.com/watch?v=9b50ikEdHV8)
 
 
 ## AWS Skill Builder
@@ -29,12 +29,12 @@ Watch the video [AWS Training and Certification – Building AWS Cloud Skills an
 
 Watch a [video about AWS Skill Builder ](https://www.youtube.com/watch?v=kDShz8PfPuc).
 
-[![AWS Videos](http://img.youtube.com/vi/kDShz8PfPuc/0.jpg)](http://www.youtube.com/watch?v=kDShz8PfPuc)
+[![AWS Videos](https://img.youtube.com/vi/kDShz8PfPuc/0.jpg)](https://www.youtube.com/watch?v=kDShz8PfPuc)
 
 
 A recommended starting point for preparing your organization technically to migrate to AWS is the [Migration Foundations](https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4) learning path. It comes with learning plans, ramp-up guides, assessment, and the following digital badge that you can include in your résumé or share with your employer or on social media after you pass the assessment.
 
-![Digital badge for AWS Migration Foundations with AWS logo and certification details.](http://docs.aws.amazon.com/transform/latest/launchguide/images/foundations-badge.png)
+![Digital badge for AWS Migration Foundations with AWS logo and certification details.](https://docs.aws.amazon.com/transform/latest/launchguide/images/foundations-badge.png)
 
 
 ## AWS GameDay
@@ -53,7 +53,7 @@ Watch the video [From Marine Science to Cloud Engineering: How AWS Certification
 
 Watch the following video: [Accelerating Learning with AWS Workshops ](https://www.youtube.com/watch?v=lv6TFouf4lQ).
 
-[![AWS Videos](http://img.youtube.com/vi/lv6TFouf4lQ/0.jpg)](http://www.youtube.com/watch?v=lv6TFouf4lQ)
+[![AWS Videos](https://img.youtube.com/vi/lv6TFouf4lQ/0.jpg)](https://www.youtube.com/watch?v=lv6TFouf4lQ)
 
 
 ## Experience-Based Acceleration
@@ -63,7 +63,7 @@ Watch the following video: [Accelerating Learning with AWS Workshops ](https://w
 
 For an introduction to EBA, watch the following video: [AWS re:Invent 2024 - Lockheed Martin's path to digital transformation through innovation](https://www.youtube.com/watch?v=h3ZeeJJYpz4).
 
-[![AWS Videos](http://img.youtube.com/vi/h3ZeeJJYpz4/0.jpg)](http://www.youtube.com/watch?v=h3ZeeJJYpz4)
+[![AWS Videos](https://img.youtube.com/vi/h3ZeeJJYpz4/0.jpg)](https://www.youtube.com/watch?v=h3ZeeJJYpz4)
 
 
 For more information, contact your AWS account team.

@@ -29,7 +29,7 @@ Blog Post: [Maximizing resource tagging at scale and across teams for your migra
 
 The following training video explains how to tag resources in AWS.
 
-[![AWS Videos](http://img.youtube.com/vi/HmXkLtSYHtk/0.jpg)](http://www.youtube.com/watch?v=HmXkLtSYHtk)
+[![AWS Videos](https://img.youtube.com/vi/HmXkLtSYHtk/0.jpg)](https://www.youtube.com/watch?v=HmXkLtSYHtk)
 
 
 ## MAP tagging best practices

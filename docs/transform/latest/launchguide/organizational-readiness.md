@@ -28,7 +28,7 @@ Finally, in the Cloud Operations section, we go through some resources to ensure
 
 The Cloud Center of Excellence (CCoE), also known as Cloud Enablement Engine (CEE), is a multi-disciplinary team in charge of implementing the governance, best practices, training, and architecture needed for cloud adoption in a manner that provides repeatable patterns for the larger enterprise to follow. The CCoE team is made up of the Cloud Business Office (CBO) and the Cloud Platform Engineering (CPE), and is governed by the Cloud executive team. The team can be global, local, or federated (though some [capabilities ](https://docs.aws.amazon.com/whitepapers/latest/establishing-your-cloud-foundation-on-aws/capabilities.html) may be local and others global). In a migration context, the CCoE is typically started in the [Mobilize Phase ](https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.html). For more resources, see [Accelerating cloud adoption through culture, change, and leadership ](https://docs.aws.amazon.com/prescriptive-guidance/latest/migration-ocm/welcome.html). You can also watch the video, [The human side of cloud transformation \| Amazon Web Services](https://www.youtube.com/watch?v=g0dG18NnodE). For more information, see [example CCoE structure](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.html) and [prescriptive guidance on building CCoEs](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.html).
 
-[![AWS Videos](http://img.youtube.com/vi/g0dG18NnodE/0.jpg)](http://www.youtube.com/watch?v=g0dG18NnodE)
+[![AWS Videos](https://img.youtube.com/vi/g0dG18NnodE/0.jpg)](https://www.youtube.com/watch?v=g0dG18NnodE)
 
 
 ## AWS Cloud Adoption Framework (CAF)
@@ -51,7 +51,7 @@ The AWS CMA is a maturity model that tracks the adoption of a customer's cloud t
 
 Operating your applications in the cloud is different from operating them on-premises (whether in your own data centers or in co-location). In your cloud migration journey, your organization will gradually pivot towards a Cloud Operating Model. The [Well-Architected Framework - Operational Excellence Pillar ](https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/operating-model-2-by-2-representations.html) can be very useful when designing your cloud operating model based on your Application Engineering and Operations (AEO) and Infrastructure Engineering Operations (AEO) teams. To learn more about Cloud Operating Models, watch [AWS re:Invent 2024 - Building the future of cloud operations at any scale](https://www.youtube.com/watch?v=iT3er0h06Dk).
 
-[![AWS Videos](http://img.youtube.com/vi/iT3er0h06Dk/0.jpg)](http://www.youtube.com/watch?v=iT3er0h06Dk)
+[![AWS Videos](https://img.youtube.com/vi/iT3er0h06Dk/0.jpg)](https://www.youtube.com/watch?v=iT3er0h06Dk)
 
 
 For additional guidance around capabilities needed to operate in the cloud, see [AWS Cloud Adoption Framework: Operations Perspective ](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-operations-perspective/aws-caf-operations-perspective.html).
@@ -75,7 +75,7 @@ The following two-part blog provides the foundational tooling that will help you
 
 Understanding the processes around how resources are priced and consumed in the cloud is one of the critical capabilities that need to be developed during your migration. [AWS Cloud Financial Management](https://aws.amazon.com/aws-cost-management/) can help you find initial resources and guidance on how to start and evolve your [Cloud Financial Management capability ](https://docs.aws.amazon.com/whitepapers/latest/aws-caf-governance-perspective/cloud-financial-management.html) and FinOps. To dive deeper into this topic, watch the following AWS re:Invent video that discusses the practice: [FinOps 3.0: Cost Intelligence for the AI Era](https://www.youtube.com/watch?v=2SP0eOXqOqc).
 
-[![AWS Videos](http://img.youtube.com/vi/2SP0eOXqOqc/0.jpg)](http://www.youtube.com/watch?v=2SP0eOXqOqc)
+[![AWS Videos](https://img.youtube.com/vi/2SP0eOXqOqc/0.jpg)](https://www.youtube.com/watch?v=2SP0eOXqOqc)
 
 
 For key 2025 re:Invent launches for CFM, see [AWS Cloud Financial Management key re:Invent 2025 launches](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/).
