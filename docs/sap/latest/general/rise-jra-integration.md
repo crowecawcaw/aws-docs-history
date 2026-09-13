@@ -23,7 +23,7 @@ Edge Integration Cell (EIC) can be deployed on AWS to leverage its scalable infr
 
 You can refer to the detailed EIC architecture, SAP pre-requisites, AWS pre-requisite in [this sap-samples github link](https://github.com/SAP-samples/btp-edge-integration-cell-aws).
 
-![Joint Reference Architecture in Edge Integration Cell.](http://docs.aws.amazon.com/sap/latest/general/images/rise-jra-integration.png)
+![Joint Reference Architecture in Edge Integration Cell.](https://docs.aws.amazon.com/sap/latest/general/images/rise-jra-integration.png)
 
 
 Key Components

@@ -19,7 +19,7 @@ In the context of RISE with SAP, AWS Network Firewall can be leveraged for the f
 
 Below is example architecture of AWS Network Firewall inspecting network traffic before it reaches RISE with SAP
 
-![Network Firewall inspecting network traffic before it reaches RISE with SAP.](http://docs.aws.amazon.com/sap/latest/general/images/rise-security-network-firewall.png)
+![Network Firewall inspecting network traffic before it reaches RISE with SAP.](https://docs.aws.amazon.com/sap/latest/general/images/rise-security-network-firewall.png)
 
 
 In the preceding diagram

@@ -28,7 +28,7 @@ You can find out more details from these documentations:
 +  [Configure the core network settings in an AWS Cloud WAN policy version](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-core-network-config.html) 
 +  [Building a Scalable and Secure Multi VPC AWS Network Infrastructure – Cloud WAN](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/aws-cloud-wan.html) 
 
-![Cloud WAN.](http://docs.aws.amazon.com/sap/latest/general/images/connectivity-cloudwan-01.jpg)
+![Cloud WAN.](https://docs.aws.amazon.com/sap/latest/general/images/connectivity-cloudwan-01.jpg)
 
 
 1.  **Attaching AWS Site-to-Site VPN (S2S VPN) to AWS Cloud WAN** – Create a Site-to-Site VPN connection with Target Gateway Type set to Not Associated. You can create an AWS S2S VPN attachment for AWS Cloud WAN under Site-to-Site VPN connections from the Amazon VPC console. After the AWS S2S VPN is created, you can [attach it to AWS Cloud WAN core network](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-vpn-attachment-add.html). For more information, see [How Site-to-Site VPN connection can be created for AWS Cloud WAN](https://docs.aws.amazon.com/vpn/latest/s2svpn/create-cwan-vpn-attachment.html).
@@ -39,7 +39,7 @@ You can estimate the costs of deploying AWS Cloud WAN from the [pricing document
 
  **Scenario A. AWS Cloud WAN connecting two VPCs in same Region** 
 
-![Cloud WAN connecting two VPCs in same Region.](http://docs.aws.amazon.com/sap/latest/general/images/connectivity-cloudwan-02.jpg)
+![Cloud WAN connecting two VPCs in same Region.](https://docs.aws.amazon.com/sap/latest/general/images/connectivity-cloudwan-02.jpg)
 
 
 
@@ -49,7 +49,7 @@ You can estimate the costs of deploying AWS Cloud WAN from the [pricing document
 
  **Scenario B. AWS Cloud WAN connecting two VPCs in different Regions** 
 
-![Cloud WAN connecting two VPCs in different Regions.](http://docs.aws.amazon.com/sap/latest/general/images/connectivity-cloudwan-03.jpg)
+![Cloud WAN connecting two VPCs in different Regions.](https://docs.aws.amazon.com/sap/latest/general/images/connectivity-cloudwan-03.jpg)
 
 
 

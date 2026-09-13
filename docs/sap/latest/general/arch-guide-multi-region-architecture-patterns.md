@@ -17,7 +17,7 @@ You should select a multi-Region architecture if you require the following:
 
  **Figure 11: A primary Region with two Availability Zones for production and a secondary Region containing a replica of backups/AMIs** 
 
-![A primary Region with two Availability Zones for production and a secondary Region containing a replica of backups/AMIs](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-5.png)
+![A primary Region with two Availability Zones for production and a secondary Region containing a replica of backups/AMIs](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-5.png)
 
 
 In this pattern, you deploy your production system across two Availability Zones in the primary Region. The compute deployed for the production SAP database and central services tiers are the same size in both Availability Zones with automated fail over in the event of an Availability Zone failure. The compute required for the SAP application tier is split 50/50 between two Availability Zones. Additionally, the production database backups stored in Amazon S3, Amazon EBS Snapshots, and Amazon Machine Images are replicated on the secondary Region. In the event of a complete Region failure, the production systems would be restored from the last set of backups in the second Region.
@@ -65,7 +65,7 @@ In this pattern, you deploy your production system across two Availability Zones
 
  **Figure 12: A primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed in a single Availability Zone** 
 
-![A primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed in a single Availability Zone](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-6.png)
+![A primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed in a single Availability Zone](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-6.png)
 
 
 In this pattern, you deploy all of your production systems across two Availability Zones in the primary Region. The compute deployed for the production SAP database and central services tiers are the same size in both Availability Zones with automated fail over in the event of Availability Zone failure. The compute required for the SAP application tier is split 50/50 between two Availability Zones. Your non-production systems are **not** an equivalent size to your production and are deployed in a different Availability Zone within the Region. Additionally, compute capacity is deployed in Availability Zone 1 in secondary Region for production SAP database and central services tiers. The production database is replicated to the secondary Region using a database replication capability or a block level replication solution.
@@ -121,7 +121,7 @@ The Production database backups stored in Amazon S3, Amazon EBS Snapshots, and A
 
  **Figure 13: A primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed and data replication across two Availability Zones** 
 
-![A primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed and data replication across two Availability Zones](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-7.png)
+![A primary Region with two Availability Zones for production and a secondary Region with compute and storage capacity deployed and data replication across two Availability Zones](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-7.png)
 
 
 In this pattern, you deploy all of your production systems across two Availability Zones in the primary Region. The compute deployed for the production SAP database and central services tiers are the same size in both Availability Zones with automated fail over in the event of Availability Zone failure. The compute required for the SAP application tier is split 50/50 between two Availability Zone. Additionally, you have compute capacity deployed in Availability Zone 1 and Availability Zone 2 in secondary Region for production SAP database and central services tiers and the production database is replicated to the secondary Region using either a database replication capability or a block level replication solution. The production database backups stored in Amazon S3, Amazon EBS Snapshots, and Amazon Machine Images are replicated on a secondary Region. In the event of a complete Region failure, the production systems would be moved over to the secondary Region manually.
@@ -174,7 +174,7 @@ In this pattern, you deploy all of your production systems across two Availabili
 
  **Figure 14: A primary Region with one Availability Zone for production and a secondary Region containing a replica of backups/AMIs** 
 
-![A primary Region with one Availability Zone for production and a secondary Region containing a replica of backups/AMIs](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-8.png)
+![A primary Region with one Availability Zone for production and a secondary Region containing a replica of backups/AMIs](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-8.png)
 
 
 In this pattern, you deploy your production systems in the primary Region in one Availability Zone. Your non-production systems are **not** an equivalent size to your production and are deployed in the same Availability Zones or a different Availability Zone within the Region.

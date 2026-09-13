@@ -30,7 +30,7 @@ This architecture provides you with the advantage of implementing your SQL serve
 
 Your recovery time objective depends on the time it takes to build the system in the secondary Region and restore operations from backup files. The amount of time will vary depending on the size of the database. Also, the time required to get the compute capacity for restore procedures may be more in the absence of a reserved instance capacity. This pattern is suitable when you need the lowest possible recovery time and point objectives within a Region and high recovery point and time objectives for disaster recovery outside the primary Region.
 
-![Amazon S3 cross Region replication](http://docs.aws.amazon.com/sap/latest/general/images/sql-pattern3.png)
+![Amazon S3 cross Region replication](https://docs.aws.amazon.com/sap/latest/general/images/sql-pattern3.png)
 
 
 ## Pattern 4: Primary Region with two Availability Zones for production and secondary Region with compute and storage capacity deployed in a single Availability Zone
@@ -46,7 +46,7 @@ This pattern can be deployed in a multi-tier as well as multi-target replication
 
 The following diagram shows a multi-tier replication where the replication is configured in a chained fashion.
 
-![Amazon S3 cross Region replication](http://docs.aws.amazon.com/sap/latest/general/images/sql-pattern4.png)
+![Amazon S3 cross Region replication](https://docs.aws.amazon.com/sap/latest/general/images/sql-pattern4.png)
 
 
 ## Pattern 5: Primary Region with one Availability Zone for production and a secondary Region with a replica of backups/AMIs
@@ -58,7 +58,7 @@ With this pattern, your SQL server is not highly available. In the event of a co
 
 For disaster recovery that is outside the primary Region, recovery point objective is constrained by how often you store your SQL backup files in your Amazon S3 bucket and the time it takes to replicate your Amazon S3 bucket to the target Region. Your recovery time objective depends on the time it takes to build the system in the secondary Region and restore operations from backup files. The amount of time will vary depending on the size of the database. This pattern is suitable for non-production or non-critical production systems that can tolerate a downtime required to restore normal operations.
 
-![Amazon S3 cross Region replication](http://docs.aws.amazon.com/sap/latest/general/images/sql-pattern5.png)
+![Amazon S3 cross Region replication](https://docs.aws.amazon.com/sap/latest/general/images/sql-pattern5.png)
 
 
 ## Pattern 6: Primary Region with one Availability Zone for production and a secondary Region replicated at block level using AWS Elastic Disaster Recovery
@@ -74,4 +74,4 @@ With Elastic Disaster Recovery, you can perform a failover by launching recovery
 
  AWS Elastic Disaster Recovery uses Amazon EBS snapshots to take point-in-time snapshots of data held within the staging area. To learn more, see [Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html). It then provides crash consistent point-in-time recovery options that can be used in the event of a disaster or drill. Elastic Disaster Recovery can protect individual nodes of the SQL Server Always On availability group. During disaster recovery, the group is launched as individual SQL server instances on AWS. This solution works for both the SQL Server Standard edition and SQL Server Enterprise edition for any supported version of the SQL server.
 
-![Amazon S3 cross Region replication](http://docs.aws.amazon.com/sap/latest/general/images/sql-pattern6.png)
+![Amazon S3 cross Region replication](https://docs.aws.amazon.com/sap/latest/general/images/sql-pattern6.png)

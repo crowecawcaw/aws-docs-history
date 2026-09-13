@@ -5,14 +5,14 @@
 
 You can use SAP Business Technology Platform BTP services on AWS to extend the functionality of the RISE with SAP. SAP recommends SAP Cloud Connector to connect RISE with SAP VPC with SAP BTP via internet. When both RISE with SAP and SAP BTP run on AWS (in the same AWS region or different AWS regions), the network traffic is encrypted and contained within AWS Global Network, without going through the internet (see the following diagram). This provides better security and performance for any integration use-cases between RISE with SAP and SAP BTP. For more information, see [Amazon VPC FAQs - Does traffic go over the internet when two instances communicate using public IP addresses or when instances communicate with a public AWS service endpoint ?](https://aws.amazon.com/vpc/faqs/).
 
-![Transit Gateway routing RISE and BTP network traffic to the internet.](http://docs.aws.amazon.com/sap/latest/general/images/rise-btp-internet.png)
+![Transit Gateway routing RISE and BTP network traffic to the internet.](https://docs.aws.amazon.com/sap/latest/general/images/rise-btp-internet.png)
 
 
 As displayed in the preceding diagram, you can configure Transit Gateway to handle both RISE and BTP network traffic. For more information, see [How to route internet traffic from on-premises via Amazon VPC?](https://guide.aws.dev/articles/ARUIFmbCauTQeyJogByCa5xg/how-to-route-internet-traffic-from-on-premise-via-aws-vpc) 
 
 SAP also offers SAP Private Link Service for SAP BTP on AWS. SAP Private Link connects SAP BTP on AWS with a secure connection without using public IPs in your AWS account.
 
-![Connecting multiple accounts using PrivateLink.](http://docs.aws.amazon.com/sap/latest/general/images/connectivity-btp-services.jpg)
+![Connecting multiple accounts using PrivateLink.](https://docs.aws.amazon.com/sap/latest/general/images/connectivity-btp-services.jpg)
 
 
 You can connect to an AWS endpoint service from an SAP BTP application running on Cloud Foundry. By establishing this connection, you can directly connect to AWS services, or for example, to an S/4HANA system. For a complete list of supported AWS services, see [Consume Amazon Web Services in SAP BTP](https://help.sap.com/docs/private-link/private-link1/consume-amazon-web-services-in-sap-btp-beta).
@@ -23,7 +23,7 @@ SAP Private Link for AWS currently supports connections initiated from SAP BTP C
 
 For AWS services across AWS Regions, you can create a VPC in the same AWS Region as your SAP BTP Cloud Foundry Runtime, and connect these VPCs via VPC peering or AWS Transit Gateway. For a list of supported Regions, see [Regions and API Endpoints Available for the Cloud Foundry Environment](https://help.sap.com/docs/btp/sap-business-technology-platform/regions-and-api-endpoints-available-for-cloud-foundry-environment).
 
-![Connecting multiple accounts in multiple Regions using PrivateLink.](http://docs.aws.amazon.com/sap/latest/general/images/connectivity-btp-regions.jpg)
+![Connecting multiple accounts in multiple Regions using PrivateLink.](https://docs.aws.amazon.com/sap/latest/general/images/connectivity-btp-regions.jpg)
 
 
 SAP Private Link Service is a paid service offered by SAP on SAP BTP. For more information, see [SAP Discovery Center – Services – SAP Private Link Service](https://discovery-center.cloud.sap/serviceCatalog/private-link-service).

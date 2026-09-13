@@ -13,7 +13,7 @@ In this documentation, we will focus into JRA aspect as these components create 
 
  ** AWS-SAP Joint Reference Architecture in Generative AI** 
 
-![Joint Reference Architecture in Generative AI Hub.](http://docs.aws.amazon.com/sap/latest/general/images/rise-jra-ai-genaihub.png)
+![Joint Reference Architecture in Generative AI Hub.](https://docs.aws.amazon.com/sap/latest/general/images/rise-jra-ai-genaihub.png)
 
 
 Key components from the architecture:
@@ -29,7 +29,7 @@ You can find out more from SAP Architecture Center under [Generative AI and SAP 
 
  ** AWS-SAP Joint Reference Architecture in Agent2Agent** 
 
-![Joint Reference Architecture in Agent2Agent.](http://docs.aws.amazon.com/sap/latest/general/images/rise-jra-ai-a2a.png)
+![Joint Reference Architecture in Agent2Agent.](https://docs.aws.amazon.com/sap/latest/general/images/rise-jra-ai-a2a.png)
 
 
 Key components from the architecture:

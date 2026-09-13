@@ -77,46 +77,46 @@ Use the following procedure to install DataProvider 4.3.
 1. Open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/).
 
 1. In the left navigation pane, under the Node Management section, choose **Distributor**.  
-![The navigation pane](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-distributor.png)
+![The navigation pane](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-distributor.png)
 
 1. In the search bar, type **AWSSAPTools-DataProvider**, and choose the package.  
-![The search bar](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-package.png)
+![The search bar](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-package.png)
 
 1. To receive auto updates for the DataProvider when there is a new release, choose **Install on a schedule**.  
-![The details page](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-schedule.png)
+![The details page](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-schedule.png)
 
 1. On the **Create Association** page, type a **Name** for your association.  
-![The Create Association page](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-association.png)
+![The Create Association page](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-association.png)
 
 1. In the **Parameters** section, for **Action**, choose **Install**.  
-![The Parameters section](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-parameters.png)
+![The Parameters section](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-parameters.png)
 
 1. In the >**Targets** section, for **Target selection**, select **Choose instances manually**. Then, choose the instances where you want to install the DataProvider.  
-![The targets section](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-instances.png)
+![The targets section](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-instances.png)
 
 1. In the **Specify schedule** section, make the following selections:
    + Choose **On Schedule** 
    + For **Specify with**, choose **Rate schedule builder**.
    + For **Associate runs**, choose **30 days**. (AWS recommends 30 days)  
-![The Specify schedule section](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-schedule-selection.png)
+![The Specify schedule section](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-schedule-selection.png)
 
 1. In the **Output options **section, choose **Create Association**.  
-![The Output options section](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-create.png)
+![The Output options section](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-create.png)
 
 1. Once the association is created, choose the **Association ID**.  
-![The Associations list](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-association-id.png)
+![The Associations list](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-association-id.png)
 
 1. Choose the **Execution History** tab. Then, choose the Execution id.  
-![Execution history tab](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-execution.png)
+![Execution history tab](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-execution.png)
 
 1. On the **Execution ID** page, choose **Output** to see the installation results.  
-![Example output in the user interface](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-output.png)
+![Example output in the user interface](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-output.png)
 
 1. Once the installation is completed, log in to the instance, and http://localhost:8888/vhostmd [call the endpoint] to enable the DataProvider to fetch metrics.
    + Linux example  
-![Example output from a Linux terminal](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-linux-example.png)
+![Example output from a Linux terminal](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-linux-example.png)
    + Windows example  
-![Example output from a browser on a Windows instance](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-example.png)
+![Example output from a browser on a Windows instance](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-example.png)
 
 ## Installing with Downloadable Installer – DataProvider 4.3
 <a name="data-provider-install-4.3"></a>
@@ -169,21 +169,21 @@ When the RPM package is installed, the agent starts as a daemon, as seen in the 
 
  **RPM package installation** 
 
-![Starting the aws-dataprovider service as systemd](http://docs.aws.amazon.com/sap/latest/general/images/rpm-package-install.png)
+![Starting the aws-dataprovider service as systemd](https://docs.aws.amazon.com/sap/latest/general/images/rpm-package-install.png)
 
 
 Verify that the service is running by calling `netstat -ant` to determine if the listener is running on localhost port 8888.
 
  **Verifying installation on Linux** 
 
-![Output of netstat -ant with a listener on port 8888](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-linux-install.png)
+![Output of netstat -ant with a listener on port 8888](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-linux-install.png)
 
 
 You should also view the log files at `/var/log/aws-dataprovider/messages.0` to ensure the daemon has the appropriate connectivity and authorization to access the required metrics.
 
  **Verifying connectivity and authorization on Linux** 
 
-![Example log file](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-connectivity-linux.png)
+![Example log file](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-connectivity-linux.png)
 
 
 At startup, the monitoring agent runs three sets of diagnostics:
@@ -197,7 +197,7 @@ You can also call the AWS Data Provider for SAP directly to view the metrics. Ca
 
  **Viewing metrics on Linux** 
 
-![Example metrics output on Linux](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-linux-view-metrics.png)
+![Example metrics output on Linux](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-linux-view-metrics.png)
 
 
 The AWS Data Provider for SAP now starts automatically each time the operating system starts. You can also manually stop and restart the AWS Data Provider for SAP with the following command, which depends on your operating system version:
@@ -295,12 +295,12 @@ On Windows, the installer is delivered in the form of an NSIS (Nullsoft Scriptab
    1. Start AWS Data Provider for SAP.
 
 1. Verify that the service is running by calling `netstat -ant` from a command window or from a Windows PowerShell script to determine if the listener is running on localhost port 8888.  
-![Verifying the installation on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-windows.png)
+![Verifying the installation on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-windows.png)
 
     **Verifying the installation on Windows** 
 
 1. Navigate to the Windows event log, and find the application log for startup events from the AWS Data Provider for SAP. Check the diagnostics.  
-![Checking diagnostics on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-diagnostic.png)
+![Checking diagnostics on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-diagnostic.png)
 
     **Checking diagnostics on Windows** 
 
@@ -315,14 +315,14 @@ You can also call the AWS Data Provider for SAP directly from your web browser t
 
  **Viewing metrics on Windows** 
 
-![Example metrics output on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-view-metrics.png)
+![Example metrics output on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-view-metrics.png)
 
 
  AWS Data Provider for SAP now starts automatically each time the operating system starts. You can also manually stop and restart the AWS Data Provider for SAP, just as you would stop and restart any other Windows service.
 
  **Stopping and restarting the AWS Data Provider for SAP on Windows** 
 
-![Stopping and restarting Data Provider for SAP on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-stop-start.png)
+![Stopping and restarting Data Provider for SAP on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-stop-start.png)
 
 
 In order to configure proxy settings, you can place a customized `proxy.properties` file in Window’s temp directory, which is designated by the windows system variable %TEMP%.

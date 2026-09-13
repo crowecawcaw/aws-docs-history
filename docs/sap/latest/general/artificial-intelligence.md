@@ -29,7 +29,7 @@ Customers who choose to break data silos by creating data warehouse or data lake
 + Perform actions across popular business applications and platforms
 + Create and automate complex business workflows
 
-![Amazon Q for Business.](http://docs.aws.amazon.com/sap/latest/general/images/rise-amazon-q-business.png)
+![Amazon Q for Business.](https://docs.aws.amazon.com/sap/latest/general/images/rise-amazon-q-business.png)
 
 
 The preceding diagram illustrates a design framework for Amazon Q Business search for RISE customers. It shows how you can extract SAP data with AWS services and use pre-built Q Business connectors to create a unified search experience.
@@ -50,7 +50,7 @@ Solution Flow:
 
 This democratization of data analysis dramatically reduces report generation time from days to hours, eliminating dependencies on specialized ABAP developers and/or analytics teams. The system’s AI-driven automation intelligently generates contextual titles, organized sections, coherent story flows, and actionable insights with specific recommendations. For RISE customers, this translates into accelerated decision-making processes, with deeper more accessible insights from their enterprise data.
 
-![Amazon QuickSight.](http://docs.aws.amazon.com/sap/latest/general/images/rise-amazon-q-in-quicksight.png)
+![Amazon QuickSight.](https://docs.aws.amazon.com/sap/latest/general/images/rise-amazon-q-in-quicksight.png)
 
 
 The preceding diagram shows a framework for Amazon QuickSight with SAP data.

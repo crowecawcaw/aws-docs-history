@@ -46,7 +46,7 @@ Each environment benefits from isolated configuration, targeted testing, and dep
 
 This modular and environment-aware CI/CD setup automates releases, enables fast iteration in dev, thorough scrutiny in pre-prd, and secure, reliable deployments in prd, supporting the full development lifecycle while protecting production stability.
 
-![DevOps implementation alongside SAP solutions.](http://docs.aws.amazon.com/sap/latest/general/images/rise-change-management.png)
+![DevOps implementation alongside SAP solutions.](https://docs.aws.amazon.com/sap/latest/general/images/rise-change-management.png)
 
 
 The preceding diagram describes how you can implement DevOps in AWS alongside SAP solutions.

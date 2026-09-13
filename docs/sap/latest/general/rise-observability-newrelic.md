@@ -27,7 +27,7 @@ The solution utilizes a truly agentless architecture through a native, SAP-certi
 
 1. BTP Monitoring: Integrates with SAP CloudALM OpenTelemetry APIs for comprehensive BTP environment monitoring
 
-![RISE observability with New Relic.](http://docs.aws.amazon.com/sap/latest/general/images/rise-observability-newrelic.png)
+![RISE observability with New Relic.](https://docs.aws.amazon.com/sap/latest/general/images/rise-observability-newrelic.png)
 
 
 New Relic Monitoring for SAP Solutions [product documentation](https://docs.newrelic.com/docs/data-apis/custom-data/sap-integration/) details technical details along with installation and configuration steps. You can procure your [New Relic solution from AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-yg3ykwh5tmolg), or get a quick overview through the [data sheet](https://newrelic.com/sites/default/files/2025-08/new-relic-sap-data-sheet-2025-aug.pdf).

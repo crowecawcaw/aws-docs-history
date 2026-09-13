@@ -32,14 +32,14 @@ Check the log files in `/var/log/aws-dataprovider` for hints on what is not goin
 
  **Debugging the installation on Linux** 
 
-![Debugging the installation on Linux](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-debug-linux.png)
+![Debugging the installation on Linux](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-debug-linux.png)
 
 
 Now if you run service `aws-dataprovider-start` or `systemctl start aws-dataprovider`, you will get a lot of debugging output that might help you diagnose the root cause of the problem.
 
  **Debugging information on Linux** 
 
-![Debugging information on Linux](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-debug-linux2.png)
+![Debugging information on Linux](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-debug-linux2.png)
 
 
 ### Problem: When I looked at my logs I noticed that my installation failed all diagnostics.
@@ -47,7 +47,7 @@ Now if you run service `aws-dataprovider-start` or `systemctl start aws-dataprov
 
  **Symptoms of internet connectivity problems on Linux** 
 
-![Symptoms of internet connectivity problems on Linux](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-linux-internet-problem.png)
+![Symptoms of internet connectivity problems on Linux](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-linux-internet-problem.png)
 
 
 Failing *all* diagnostics indicates that there’s a problem with your outbound connection to the internet. You can confirm this by pinging a well-known internet location, like [www.amazon.com.](http://www.amazon.com/) The most common cause of routing issues is in the VPC network configuration, which needs to have either an internet gateway in place or a VPN connection to your data center with a route to the internet. For details, see [Amazon VPC Network Topologies](data-provider-req.md#data-provider-vpc-network-topology), earlier in this guide.
@@ -57,14 +57,14 @@ Failing *all* diagnostics indicates that there’s a problem with your outbound 
 
  **Symptoms of authorization issues on Linux** 
 
-![Symptoms of authorization issues on Linux](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-linux-authorization-problem.png)
+![Symptoms of authorization issues on Linux](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-linux-authorization-problem.png)
 
 
 This is a clear indicator that you have an authorization issue when trying to access CloudWatch and Amazon EC2. The common cause for this problem is not having an IAM role associated with your instance that contains the IAM policy, as specified in [IAM Roles](data-provider-req.md#data-provider-iam-roles), earlier in this guide. You can quickly diagnose this issue by looking at the Amazon EC2 instance in question in the Amazon EC2 console and verifying the IAM role.
 
  **Verifying the IAM role for an EC2 instance** 
 
-![Verifying the IAM role for an EC2 instance](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-iam-role.png)
+![Verifying the IAM role for an EC2 instance](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-iam-role.png)
 
 
 If the IAM role doesn’t exist, then create it as specified in IAM Roles, which is described earlier in this guide.
@@ -73,7 +73,7 @@ If you do have an IAM role assigned to the instance, go to the IAM console, sele
 
  **Verifying the policy for the IAM role** 
 
-![Verifying the policy for the IAM role](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-iam-policy.png)
+![Verifying the policy for the IAM role](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-iam-policy.png)
 
 
 ### Problem: I want to configure/update `JAVA_HOME` for Data Provider.
@@ -103,7 +103,7 @@ These log files include an installation log, a log of the service installation, 
 
  **Log files on Windows** 
 
-![Log files on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-log-files.png)
+![Log files on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-log-files.png)
 
 
 ### Problem: I want to get more detailed log information from the data provider.
@@ -113,14 +113,14 @@ Start by stopping the data provider service.
 
  **Stop Service on Windows** 
 
-![Stop Service on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-stop-service-windows.png)
+![Stop Service on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-stop-service-windows.png)
 
 
 Open the registry editor by clicking on the Windows logo in the bottom left and typing `regedit` and then clicking the option that is shown on screen:
 
  **Start ` regedit ` ** 
 
-![Start regedit](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-start-regedit.png)
+![Start regedit](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-start-regedit.png)
 
 
 In the registry, navigate to the key:
@@ -131,7 +131,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Apache Software Foundation\Procrun 2.0\a
 
  **Logging setting** 
 
-![Logging setting](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-logging-setting.png)
+![Logging setting](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-logging-setting.png)
 
 
 The data provider accepts two log levels: INFO and FINE. FINE will generate more detailed logging which can be useful when debugging a problem. The recommendation is to set it back to INFO when you have finished troubleshooting to avoid the logs consuming unnecessary disk space.
@@ -146,7 +146,7 @@ Based on the DataProvider version on your system, follow the procedure in [Updat
 
  **Symptoms of internet connectivity problems on Windows** 
 
-![Symptoms of internet connectivity problems on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-internet-problems.png)
+![Symptoms of internet connectivity problems on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-internet-problems.png)
 
 
 Failing *all* diagnostics indicates that there’s a problem with your outbound connection to the internet. You can confirm this by pinging a well-known internet location, like [www.amazon.com.](http://www.amazon.com/) The most common cause of routing issues is in the VPC network configuration, which needs to have either an internet gateway in place or a VPN connection to your data center with a route to the internet.
@@ -156,14 +156,14 @@ Failing *all* diagnostics indicates that there’s a problem with your outbound 
 
  **Symptoms of authorization issues on Windows** 
 
-![Symptoms of authorization issues on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-authorization-problems.png)
+![Symptoms of authorization issues on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-windows-authorization-problems.png)
 
 
 This is a clear indicator that you have an authorization issue when trying to access Amazon CloudWatch and Amazon EC2. The common cause for this problem is not having an IAM role associated with your instance that contains the IAM policy, as specified in [IAM Roles](data-provider-req.md#data-provider-iam-roles) earlier in this guide. You can quickly diagnose this issue by looking at the specific EC2 instance in the Amazon EC2 console and verifying the IAM role.
 
  **Verifying the IAM role for an EC2 instance** 
 
-![Verifying the IAM role for an EC2 instance](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-iam-role-windows.png)
+![Verifying the IAM role for an EC2 instance](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-iam-role-windows.png)
 
 
 If the IAM role doesn’t exist, then create is as specified in IAM Roles, described earlier in this guide.
@@ -172,4 +172,4 @@ If you do have an IAM role assigned to the instance, go to the IAM console, sele
 
  **Verifying the policy for the IAM role** 
 
-![Verifying the policy for the IAM role](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-iam-policy-windows.png)
+![Verifying the policy for the IAM role](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-verify-iam-policy-windows.png)

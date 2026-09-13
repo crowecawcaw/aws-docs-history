@@ -11,7 +11,7 @@ Using [Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/admingui
 
 The following image shows the use of Amazon WorkSpaces as remote access solution for RISE with SAP.
 
-![Amazon WorkSpaces as remote access solution for RISE with SAP.](http://docs.aws.amazon.com/sap/latest/general/images/rise-workspaces.png)
+![Amazon WorkSpaces as remote access solution for RISE with SAP.](https://docs.aws.amazon.com/sap/latest/general/images/rise-workspaces.png)
 
 
  **Traffic flow** 

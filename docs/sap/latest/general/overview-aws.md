@@ -92,4 +92,4 @@ Figure 1 shows the services managed by AWS and the services managed by the custo
 
  **Figure 1: Managed services for SAP on AWS ** 
 
-![Managed services for SAP](http://docs.aws.amazon.com/sap/latest/general/images/sap-overview-managed-services.png)
+![Managed services for SAP](https://docs.aws.amazon.com/sap/latest/general/images/sap-overview-managed-services.png)

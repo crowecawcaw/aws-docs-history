@@ -18,13 +18,13 @@ You need to deploy SAP systems that receive information from the AWS Data Provid
 
  **Connection to the AWS Cloud via an internet gateway** 
 
-![An example cloud connection via an internet gateway](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-internet-gateway.png)
+![An example cloud connection via an internet gateway](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-internet-gateway.png)
 
 + A second topology routes traffic from the Amazon VPC, through your organization’s on-premises data center, and back to AWS Cloud. For more information about this topology, see the [What is AWS Site-to-Site VPN?](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) 
 
  **Connection to the Amazon Web Services Cloud via an on-premises data center** 
 
-![Connection to the Amazon Web Services Cloud via an on-premises data center](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-data-center.png)
+![Connection to the Amazon Web Services Cloud via an on-premises data center](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-data-center.png)
 
 
 ## Amazon VPC Endpoints

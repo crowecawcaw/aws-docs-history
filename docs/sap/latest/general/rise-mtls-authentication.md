@@ -41,7 +41,7 @@ We recommend that all SSL/TLS certificates used across the infrastructure origin
 
 The following diagram shows a basic SAP on AWS architecture adapted for the RISE with SAP SKU offering.
 
-![mTLS client certificate verification at ALB before routing to SAP Web Dispatcher and S/4HANA.](http://docs.aws.amazon.com/sap/latest/general/images/rise-mtls-alb.png)
+![mTLS client certificate verification at ALB before routing to SAP Web Dispatcher and S/4HANA.](https://docs.aws.amazon.com/sap/latest/general/images/rise-mtls-alb.png)
 
 
 ### mTLS Verify Mode

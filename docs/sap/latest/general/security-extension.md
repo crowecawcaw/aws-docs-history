@@ -46,7 +46,7 @@ To ensure seamless communication, all SSL (Secure Socket Layer) or TLS certifica
 
 The diagram below describes a basic SAP on AWS architecture that is adapted to align with the RISE with SAP SKU offering.
 
-![mTLS Architecture Diagram.](http://docs.aws.amazon.com/sap/latest/general/images/rise-mtls-authentication.png)
+![mTLS Architecture Diagram.](https://docs.aws.amazon.com/sap/latest/general/images/rise-mtls-authentication.png)
 
 
  **mTLS Verify Mode** 
@@ -152,7 +152,7 @@ Users can access RISE with SAP systems faster (before the VPN connectivity is se
 
 1. Test the connectivity to your application. You can now test connectivity to your application by entering your SAP application’s domain name into your web browser, for HTTP(S) based access such as SAP Fiori.
 
-![Verified Access for RISE.](http://docs.aws.amazon.com/sap/latest/general/images/rise-verified-access.png)
+![Verified Access for RISE.](https://docs.aws.amazon.com/sap/latest/general/images/rise-verified-access.png)
 
 
 The preceding diagram describes how AWS Verified Access integrates with RISE with SAP.

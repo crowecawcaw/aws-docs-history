@@ -20,4 +20,4 @@ rpm -qa | grep aws-sap
 
 To check the current version of DataProvider on **Windows**, go to **Services(Local)**, select ** AWS Data Provider for SAP**, and open **Properties**. You can see the current version in the Description field.
 
-![Data sources for Data Provider for SAP](http://docs.aws.amazon.com/sap/latest/general/images/check-data-provider-on-windows.png)
+![Data sources for Data Provider for SAP](https://docs.aws.amazon.com/sap/latest/general/images/check-data-provider-on-windows.png)

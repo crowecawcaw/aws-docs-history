@@ -16,7 +16,7 @@ For more information, you can refer to the following references:
 
 The following image shows the integration between Identity Authentication from SAP BTP and AWS IAM Identity Center in the context of RISE with SAP
 
-![SAP Cloud Identity Services with IAM Identity Center.](http://docs.aws.amazon.com/sap/latest/general/images/rise-security-iam.png)
+![SAP Cloud Identity Services with IAM Identity Center.](https://docs.aws.amazon.com/sap/latest/general/images/rise-security-iam.png)
 
 
  **Authentication flow** 

@@ -7,4 +7,4 @@ Combining together all services described above allow for an architecture monito
 
 Below is example architecture of GuardDuty, AWS Network Firewall, Amazon Macie, AWS Security Hub and Amazon Detective combined together to improve security posture of RISE with SAP on AWS deployment
 
-![GuardDuty](http://docs.aws.amazon.com/sap/latest/general/images/rise-security-allawssecurity.png)
+![GuardDuty](https://docs.aws.amazon.com/sap/latest/general/images/rise-security-allawssecurity.png)

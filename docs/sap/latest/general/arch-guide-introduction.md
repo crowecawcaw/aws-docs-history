@@ -12,7 +12,7 @@ Let’s recap the SAP system design and single points of failure that are part o
 
  **Figure 1: SAP single points of failure** 
 
-![SAP single points of failure](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-1.png)
+![SAP single points of failure](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-1.png)
 
 
 Figure 1 shows the typical SAP NetWeaver architecture, which has several single points of failure which are listed below:
@@ -44,7 +44,7 @@ From the perspective of documented and measurable data points, HADR requirements
 
  **Figure 1: SAP single points of failure** 
 
-![Recovery from a disruptive event](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-2.png)
+![Recovery from a disruptive event](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-2.png)
 
 
 ≈
@@ -58,7 +58,7 @@ To meet disaster recovery requirements (the preceding scenarios represent an ele
 
  **Figure 3: On-premises disaster recovery** 
 
-![On-premises disaster recovery](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-3.png)
+![On-premises disaster recovery](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-3.png)
 
 
 In Figure 3, we give an example of an approach that customers often take on premises. In **Location 1**, the customer has two hosting facilities often separate rooms or halls in the same data center where they deploy a high availability architecture for the SAP single point of failure. **Location 2** is the disaster recovery location in which the SAP systems are recovered, in the event of a significant failure of both hosting facilities in **Location 1**.
@@ -67,21 +67,21 @@ Customers migrating their SAP workloads to cloud providers still revert to this 
 
  **Figure 4: On-premises to AWS region mapping approach** 
 
-![Example mapping of on-premises data centers to Regions](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-4.png)
+![Example mapping of on-premises data centers to Regions](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-4.png)
 
 
  AWS isolates facilities geographically in Regions and Availability Zones. A Multi-AZ approach provides distance while maintaining performance for the primary compute capacity. This approach (Figure 5) greatly reduces the risk of location failure.
 
  **Figure 5: Alternative approach for on premises to AWS region mapping** 
 
-![Alternative approach for mapping on-premises data centers to Regions](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-5.png)
+![Alternative approach for mapping on-premises data centers to Regions](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-5.png)
 
 
 With the risk of location failure significantly reduced for the primary compute capacity, the requirements for a second Region can be evaluated based on business requirements. You can rapidly deploy required capacity in the same or different Region with AWS. Idle hardware is no longer an issue. Data backups can be stored on Amazon Simple Storage Service (Amazon S3) in a single AWS Region or in multiple AWS Regions by leveraging cross-Region replication. This architecture can be simplified and be made readily available (Figure 6).
 
  **Figure 6: Single AWS Region approach** 
 
-![Single-Region approach](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-6.png)
+![Single-Region approach](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-6.png)
 
 
 In addition to considering the impact of infrastructure or hosting facility failure, another scenario to consider is the loss of business data due to accidental or malicious technical activity.

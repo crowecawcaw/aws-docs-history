@@ -37,7 +37,7 @@ We recommend using an AWS Landing Zone for RISE with SAP connectivity.
 
 Both solutions deliver secure, scalable foundations for RISE with SAP connectivity. Choose Control Tower for rapid deployment and visual management, or LZA for enhanced customization and automation capabilities.
 
-![Connecting to RISE with a shared landing zone.](http://docs.aws.amazon.com/sap/latest/general/images/connectivity-rise-landing-zone.png)
+![Connecting to RISE with a shared landing zone.](https://docs.aws.amazon.com/sap/latest/general/images/connectivity-rise-landing-zone.png)
 
 
  **Building an AWS Landing Zone** 

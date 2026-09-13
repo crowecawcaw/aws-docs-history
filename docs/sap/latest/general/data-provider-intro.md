@@ -11,7 +11,7 @@ The diagram provides a high-level illustration of the AWS Data Provider for SAP,
 
  **Data sources for the AWS Data Provider for SAP** 
 
-![Data sources for the Data Provider for SAP](http://docs.aws.amazon.com/sap/latest/general/images/dataprovider-arch.png)
+![Data sources for the Data Provider for SAP](https://docs.aws.amazon.com/sap/latest/general/images/dataprovider-arch.png)
 
 
 The purpose of this guide is to help you:

@@ -9,7 +9,7 @@ Managing connectivity directly from AWS removes dependencies on on-premises netw
 
 You can connect multi-cloud environments to RISE using either public or private connectivity.
 
-![Connectivity patterns for multi-cloud to RISE.](http://docs.aws.amazon.com/sap/latest/general/images/rise-multi1.png)
+![Connectivity patterns for multi-cloud to RISE.](https://docs.aws.amazon.com/sap/latest/general/images/rise-multi1.png)
 
 
 ## Public connectivity
@@ -41,7 +41,7 @@ If you run SAP S/4HANA on RISE with AWS and use Google Cloud BigQuery for analyt
 
 After you establish AWS Interconnect and deliver traffic from AWS RISE into GCP, complete the remaining connectivity configuration on the Google Cloud side. This ensures that data stays within the Google Cloud network.
 
-![Interconnect connecting RISE with SAP to Google Cloud BigQuery.](http://docs.aws.amazon.com/sap/latest/general/images/rise-interconnect-aws-rise-gcp-big-query.png)
+![Interconnect connecting RISE with SAP to Google Cloud BigQuery.](https://docs.aws.amazon.com/sap/latest/general/images/rise-interconnect-aws-rise-gcp-big-query.png)
 
 
 ## Example use case 2: RISE on GCP to AWS services
@@ -55,7 +55,7 @@ Complete the necessary routing configuration on the Google Cloud side to direct 
 
 For more information, see [Custom VPC Endpoints in the AWS SDK for SAP ABAP](https://docs.aws.amazon.com/sdk-for-sapabap/latest/developer-guide/custom-vpc-endpoints.html).
 
-![Interconnect connecting RISE on Google Cloud to Amazon VPC endpoints for the SDK for SAP ABAP.](http://docs.aws.amazon.com/sap/latest/general/images/rise-interconnect-gcp-rise-aws-sdk.png)
+![Interconnect connecting RISE on Google Cloud to Amazon VPC endpoints for the SDK for SAP ABAP.](https://docs.aws.amazon.com/sap/latest/general/images/rise-interconnect-gcp-rise-aws-sdk.png)
 
 
  AWS Interconnect is a fully managed service that provides private, high-speed connectivity between AWS and other cloud providers. Unlike Site-to-Site VPN or self-managed AWS Direct Connect, it requires no colocation facilities, physical routers, cross-connects, or BGP peering configuration.
@@ -84,7 +84,7 @@ For more information, see [What is AWS Interconnect](https://docs.aws.amazon.com
 
 The following diagram describes the factors to choose a multi-cloud connectivity method.
 
-![Connectivity patterns for multi-cloud to RISE.](http://docs.aws.amazon.com/sap/latest/general/images/rise-multi2.png)
+![Connectivity patterns for multi-cloud to RISE.](https://docs.aws.amazon.com/sap/latest/general/images/rise-multi2.png)
 
 
 For more information, see [Designing private network connectivity between AWS and Microsoft Azure](https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/).

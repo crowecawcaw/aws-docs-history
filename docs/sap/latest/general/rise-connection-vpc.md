@@ -21,7 +21,7 @@ Pricing examples are for illustration purposes only and are subject to change. F
 
 The following diagram shows the architecture for a standard bandwidth Site-to-Site VPN connection to the RISE with SAP VPC.
 
-![Standard bandwidth VPN connection to RISE.](http://docs.aws.amazon.com/sap/latest/general/images/rise-vpn-standard.png)
+![Standard bandwidth VPN connection to RISE.](https://docs.aws.amazon.com/sap/latest/general/images/rise-vpn-standard.png)
 
 
 When using this option, SAP requires the following details and handles the AWS-side configuration on your behalf:
@@ -58,7 +58,7 @@ Large Bandwidth Tunnels work only with VPN connections attached to a Transit Gat
 
 The following diagram shows the architecture for a Large Bandwidth Tunnel VPN connection through your own AWS account to the RISE with SAP VPC.
 
-![Large Bandwidth Tunnel VPN connection to RISE.](http://docs.aws.amazon.com/sap/latest/general/images/rise-vpn-large-bandwidth.png)
+![Large Bandwidth Tunnel VPN connection to RISE.](https://docs.aws.amazon.com/sap/latest/general/images/rise-vpn-large-bandwidth.png)
 
 
 When using this option, you are responsible for the configuration. For more information, see [Create an AWS Site-to-Site VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html) and [Introducing AWS Site-to-Site VPN 5 Gbps tunnels to support high-throughput workloads](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-aws-site-to-site-vpn-5-gbps-tunnels/).

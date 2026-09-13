@@ -17,7 +17,7 @@ In the context of RISE with SAP, Amazon GuardDuty can be leveraged for the follo
 
 Below is example architecture of GuardDuty monitoring CloudTrail trails of a RISE with SAP deployment on AWS 
 
-![GuardDuty monitoring CloudTrail trails of a RISE with SAP deployment.](http://docs.aws.amazon.com/sap/latest/general/images/rise-security-guardduty.png)
+![GuardDuty monitoring CloudTrail trails of a RISE with SAP deployment.](https://docs.aws.amazon.com/sap/latest/general/images/rise-security-guardduty.png)
 
 
 In the preceding diagram
@@ -32,7 +32,7 @@ In the preceding diagram
 
 Below is example architecture of GuardDuty monitoring DNS logs of a RISE with SAP deployment on AWS 
 
-![GuardDuty monitoring DNS logs of a RISE with SAP deployment.](http://docs.aws.amazon.com/sap/latest/general/images/rise-security-guardduty-dnslogs.png)
+![GuardDuty monitoring DNS logs of a RISE with SAP deployment.](https://docs.aws.amazon.com/sap/latest/general/images/rise-security-guardduty-dnslogs.png)
 
 
 In the preceding diagram
@@ -43,7 +43,7 @@ In the preceding diagram
 
 Below is example architecture of GuardDuty monitoring VPC Flow Logs of RISE with SAP VPC
 
-![GuardDuty monitoring VPC Flow Logs of RISE with SAP VPC.](http://docs.aws.amazon.com/sap/latest/general/images/rise-security-guardduty-vpcflowlogs.png)
+![GuardDuty monitoring VPC Flow Logs of RISE with SAP VPC.](https://docs.aws.amazon.com/sap/latest/general/images/rise-security-guardduty-vpcflowlogs.png)
 
 
 In the preceding diagram

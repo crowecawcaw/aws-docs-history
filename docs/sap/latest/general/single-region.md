@@ -26,7 +26,7 @@ Microsoft SQL server backups can be stored in Amazon S3 buckets. Amazon S3 objec
 
 With Same-Region replication, you can setup automatic replication of an Amazon S3 bucket in a separate AWS account. This strategy ensures that not all copies of data are lost due to malicious activity or human error. To setup Same-Region replication, see [Setting up replication](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-how-setup.html).
 
-![Replication with two Availability Zones in a single Region](http://docs.aws.amazon.com/sap/latest/general/images/sql-pattern1.png)
+![Replication with two Availability Zones in a single Region](https://docs.aws.amazon.com/sap/latest/general/images/sql-pattern1.png)
 
 
 ## Pattern 2: Single Region with one Availability Zone for production
@@ -34,4 +34,4 @@ With Same-Region replication, you can setup automatic replication of an Amazon S
 
 In this pattern, Microsoft SQL server is deployed as a standalone installation with no target systems to replicate data. This is the most basic and cost-efficient deployment option. The options available to restore business operations during a failure scenario are by Amazon EC2 auto recovery, in the event of an instance failure or by restoration and recovery from most recent and valid backups, in the event of a significant issue impacting the Availability Zone.
 
-![Replication with one Availability Zone in a single Region](http://docs.aws.amazon.com/sap/latest/general/images/sql-pattern2.png)
+![Replication with one Availability Zone in a single Region](https://docs.aws.amazon.com/sap/latest/general/images/sql-pattern2.png)

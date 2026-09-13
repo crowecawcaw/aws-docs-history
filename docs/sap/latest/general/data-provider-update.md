@@ -21,24 +21,24 @@ To update the DataProvider 4.3 manually, you must first uninstall the running ve
 <a name="data-provider-uninstall-4.3"></a>
 
 1. Open the [AWS Systems Manager](https://console.aws.amazon.com/systems-manager/) console, on the left navigation pane, choose **State Manager**.  
-![The navigation pane](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-state-manager.png)
+![The navigation pane](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-state-manager.png)
 
 1. On the **Associations** page, and choose the **Association id**. Then, choose **Delete**.
 
    After the delete is successful, the auto-update stops.  
-![The Associations page](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-delete.png)
+![The Associations page](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-delete.png)
 
 1. On the main page, in the left navigation page, choose **Distributor**.  
-![The navigation pane](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-distributor-1.png)
+![The navigation pane](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-distributor-1.png)
 
 1. Choose the **AWSSAPTools-DataProvider** distributor package, and choose **Install one time**.  
-![The package details page](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-install-one-time.png)
+![The package details page](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-install-one-time.png)
 
 1. In the **Command parameters** section, choose **Uninstall**.  
-![The Command parameters section](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-command-parameters.png)
+![The Command parameters section](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-command-parameters.png)
 
 1. In the **Targets** section, select **Choose instances manually**. Then choose the **instance** to uninstall the DataProvider.  
-![The Targets section](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-choose-instance.png)
+![The Targets section](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-choose-instance.png)
 
 1. Choose **Run** to begin the uninstall.
 
@@ -68,4 +68,4 @@ zypper rm aws-dataprovider-standalone
 1. When prompted, choose **Uninstall**.
 
     **Uninstalling the AWS Data Provider for SAP on Windows**   
-![Uninstalling Data Provider for SAP on Windows](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-uninstall-windows.png)
+![Uninstalling Data Provider for SAP on Windows](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-uninstall-windows.png)

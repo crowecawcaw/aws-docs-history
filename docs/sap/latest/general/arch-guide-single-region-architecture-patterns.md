@@ -15,7 +15,7 @@ Select a single Region pattern if:
 
  **Figure 7: A single Region with two Availability Zones for production** 
 
-![A single Region with two Availability Zones for production](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-1.png)
+![A single Region with two Availability Zones for production](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-1.png)
 
 
 In this pattern, you deploy all your production systems across two Availability Zones. The compute deployed for the production SAP database and central services tiers are the same size in both Availability Zones, with automated fail over in the event of a zone failure. The compute required for the SAP application tier is split 50/50 between two zones. Your non-production systems are **not** an equivalent size to your production and are deployed in the same zones or a different Availability Zone within the Region.
@@ -54,7 +54,7 @@ In this pattern, you deploy all your production systems across two Availability 
 
  **Figure 8: A single Region with two Availability Zones for production and production sized non-production in a third Availability Zone** 
 
-![A single Region with two Availability Zones for production and production sized non-production in a third Availability Zone](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-2.png)
+![A single Region with two Availability Zones for production and production sized non-production in a third Availability Zone](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-2.png)
 
 
 In this pattern, you deploy all your production systems across two Availability Zones. The compute deployed for the production SAP database and central services tiers are the same size in both Availability Zones, with automated fail over in the event of a zone failure. The compute required for the SAP application tier is split 50/50 between two Availability Zones. Your non-production systems are an equivalent size to your production and deployed in a third Availability Zone. In the event of an Availability Zone failure where your production systems are deployed, the non-production capacity is reallocated to enable production to be returned to a Multi-AZ pattern.
@@ -97,7 +97,7 @@ In this pattern, you deploy all your production systems across two Availability 
 
  **Figure 9: A single Region with one Availability Zone for production and another Availability Zone for non-production** 
 
-![A single Region with one Availability Zone for production and another Availability Zone for non-production](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-3.png)
+![A single Region with one Availability Zone for production and another Availability Zone for non-production](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-3.png)
 
 
 In this pattern, you deploy all your production systems in one Availability Zone and all your non-production systems in another Availability Zone. Your non-production systems are an equivalent size to your production.
@@ -134,7 +134,7 @@ In this pattern, you deploy all your production systems in one Availability Zone
 
  **Figure 10: A single Region with a single Availability Zone for production** 
 
-![A single Region with a single Availability Zone for production](http://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-4.png)
+![A single Region with a single Availability Zone for production](https://docs.aws.amazon.com/sap/latest/general/images/arch-guidance-pattern-4.png)
 
 
 In this pattern, you deploy all your production systems in one Availability Zone and all your non-production systems in either the same Availability Zone or another Availability Zone. Your non-production systems are **not** a similar size to your production.**\***\*

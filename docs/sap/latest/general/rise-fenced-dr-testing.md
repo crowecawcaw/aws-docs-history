@@ -62,7 +62,7 @@ Production and DR sites remain accessible to you with complete network isolation
 
 The following diagram shows the network topology for LDDR Internal Fencing.
 
-![Long Distance DR internal fencing with isolated production and DR network segments.](http://docs.aws.amazon.com/sap/latest/general/images/rise-fenceddr-lddr-scenario1-internal-fencing.png)
+![Long Distance DR internal fencing with isolated production and DR network segments.](https://docs.aws.amazon.com/sap/latest/general/images/rise-fenceddr-lddr-scenario1-internal-fencing.png)
 
 
 You must configure network separation on-premises to isolate the DR landscape, to prevent accidental access to production during DR testing. This scenario allows you to perform end-to-end DR testing, for example third-party interfaces and authentication (SSO, LDAP, Kerberos).
@@ -74,7 +74,7 @@ The DR site is completely isolated. You provide specific IP addresses for the te
 
 The following diagram shows the network topology for LDDR Complete Fencing.
 
-![Long Distance DR complete fencing with the DR site isolated from production.](http://docs.aws.amazon.com/sap/latest/general/images/rise-fenceddr-lddr-scenario2-complete-fencing.png)
+![Long Distance DR complete fencing with the DR site isolated from production.](https://docs.aws.amazon.com/sap/latest/general/images/rise-fenceddr-lddr-scenario2-complete-fencing.png)
 
 
 The DR site is completely isolated from both the production SAP RISE systems and external networks. You must provide specific IP addresses or ranges for testing team access to the isolated DR systems. Testing IPs have access to both primary and DR sites, so you must carefully verify which environment you are working in during tests. No data replication occurs between sites during DR testing, preventing production users from accidentally accessing the DR environment.

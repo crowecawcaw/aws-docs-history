@@ -11,7 +11,7 @@ In Nitro System virtualization architecture, the management or control domain co
 
 Below is the Nitro High Level Architecture
 
-![Nitro High Level Architecture.](http://docs.aws.amazon.com/sap/latest/general/images/rise-nitro-1.png)
+![Nitro High Level Architecture.](https://docs.aws.amazon.com/sap/latest/general/images/rise-nitro-1.png)
 
 
 The resulting Nitro System has been divided into the following components:
@@ -34,7 +34,7 @@ While the Nitro Controller and other Nitro Cards operate as one domain, the syst
 
 Below is when Nitro blocked write access to non-volatile storage
 
-![Nitro blocked write access to non-volatile storage.](http://docs.aws.amazon.com/sap/latest/general/images/rise-nitro-2.png)
+![Nitro blocked write access to non-volatile storage.](https://docs.aws.amazon.com/sap/latest/general/images/rise-nitro-2.png)
 
 
  **Nitro Hypervisor** 

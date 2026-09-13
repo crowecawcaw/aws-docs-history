@@ -9,7 +9,7 @@ When there is a business requirement to have a consolidated data for transaction
 
 In the context of SAP and AWS services, it allows organizations to access, combine, and analyze data from both SAP systems and AWS cloud services seamlessly.
 
-![Data Federation.](http://docs.aws.amazon.com/sap/latest/general/images/rise-data-federation.png)
+![Data Federation.](https://docs.aws.amazon.com/sap/latest/general/images/rise-data-federation.png)
 
 
  **Amazon Athena** 

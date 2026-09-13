@@ -15,12 +15,12 @@ The information provided by the AWS Data Provider for SAP is read by the SAP Ope
 1. Open a Windows command shell and direct the shell to the directory `C:\Program Files\SAP\hostctrl\exe`. Start `saposcol.exe` with the `-d` option.
 
     **Starting SAPOSCOL**   
-![Starting SAPOSCOL](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-starting-saposcol.png)
+![Starting SAPOSCOL](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-starting-saposcol.png)
 
 1. SAPOSCOL is now in interactive mode. Type `dump ccm` and press **Enter** to list all values gathered. SAPOSCOL will display a lengthy list of metrics, as shown here.
 
     **Metrics from SAPOSCOL**   
-![Metrics from SAPOSCOL](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-metrics-saposcol.png)
+![Metrics from SAPOSCOL](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-metrics-saposcol.png)
 
    The following two metrics indicate that SAPOSCOL is collaborating successfully with the AWS Data Provider for SAP:
    + Enhanced Monitoring Access TRUE
@@ -36,7 +36,7 @@ The information provided by the AWS Data Provider for SAP is read by the SAP Ope
 
  ** AWS-specific metrics** 
 
-![Data Provider metrics](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-aws-metrics-saposcol.png)
+![Data Provider metrics](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-aws-metrics-saposcol.png)
 
 
 ## Checking Metrics with the SAP CCMS Transactions
@@ -49,7 +49,7 @@ You will need the appropriate authorizations to look up this information.
 
  **Statistics in the SAP CCMS (standard view)** 
 
-![Statistics in the SAP CCMS (standard view)](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-ccms-standard.png)
+![Statistics in the SAP CCMS (standard view)](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-ccms-standard.png)
 
 
 On this screen, you can verify core AWS information such as:
@@ -66,14 +66,14 @@ To view enhanced AWS statistics, choose the **Standard View** button in the uppe
 
  **Enhanced AWS statistics (expert view)** 
 
-![Enhanced statistics (expert view)](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-ccms-expert.png)
+![Enhanced statistics (expert view)](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-ccms-expert.png)
 
 
 It also shows details about the memory subsystem (main memory and disks) and network interfaces.
 
  **Memory and networking statistics (expert view)** 
 
-![Memory and networking statistics (expert view)](http://docs.aws.amazon.com/sap/latest/general/images/data-provider-memory-stats-expert.png)
+![Memory and networking statistics (expert view)](https://docs.aws.amazon.com/sap/latest/general/images/data-provider-memory-stats-expert.png)
 
 
 **Note**  

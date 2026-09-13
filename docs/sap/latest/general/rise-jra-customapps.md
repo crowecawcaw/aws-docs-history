@@ -27,14 +27,14 @@ With event-based architectures, you can implement end-to-end Business Processes 
 
 Example of Event Based notification through Amazon SNS :
 
-![Event-based notification with SNS.](http://docs.aws.amazon.com/sap/latest/general/images/rise-jra-sns.png)
+![Event-based notification with SNS.](https://docs.aws.amazon.com/sap/latest/general/images/rise-jra-sns.png)
 
 
 In the preceding architecture, when you update a Business Partner in SAP S/4HANA, you can trigger the update event through SAP Event Mesh. The CAP Application that is enhanced with AWS SDK for Java to trigger the Amazon SNS topic which enables you to notify Data Owner for this change either through an email, text message and mobile push notification. For more information, see [SAP samples: Cloud CAP Amazon SNS integration](https://github.com/SAP-samples/cloud-cap-amazon-sns-integration) on the GitHub website.
 
 Example of Event Based notification through Amazon SQS and EventBridge, as well as [AWS IoT services](https://aws.amazon.com/iot/) :
 
-![Event-based notification with SQS and Event Bridge.](http://docs.aws.amazon.com/sap/latest/general/images/rise-jra-sqs.png)
+![Event-based notification with SQS and Event Bridge.](https://docs.aws.amazon.com/sap/latest/general/images/rise-jra-sqs.png)
 
 
 The preceding architecture shows an event-driven integration that uses SAP BTP for Industry 4.0 scenarios. It demonstrates SAP–AWS integration supporting predictive maintenance to reduce downtime for your manufacturing line. This architecture uses AWS IoT Services, Amazon SQS, and Amazon EventBridge to provide early sensor data, such as speed, temperature, and vibration, that indicates the need for maintenance before an outage or downtime occurs.
@@ -45,7 +45,7 @@ Safety hazards in every workplace come in many different forms: sharp edges, fal
 
 We provide an integration framework between [Amazon Rekognition](https://aws.amazon.com/rekognition/) and [SAP Environment, Health and Safety (EHS)](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/1b3596cc5dd5428d887966a4193ddc29/5b22b8d6606b4d32b8af9283901d3bdc.html?locale=en-US) and adopt the open-source Events-to-Business-Actions Framework, which will automate the process of creating safety observations.
 
-![Safety at scale with Amazon Rekognition PPE Detection.](http://docs.aws.amazon.com/sap/latest/general/images/rise-jra-ppe.png)
+![Safety at scale with Amazon Rekognition PPE Detection.](https://docs.aws.amazon.com/sap/latest/general/images/rise-jra-ppe.png)
 
 
 In the preceding architecture, the information flow begins with CCTV cameras capturing images at a factory and storing them in [Amazon S3](https://aws.amazon.com/s3/). An [AWS Lambda](https://aws.amazon.com/pm/lambda/) function triggers the Amazon Rekognition PPE detection model to inspect for safety equipment compliance. If violations are detected, the Lambda function retrieves credentials from AWS Secrets Manager and communicates with the [Advanced Event Mesh feature of SAP Integration Suite](https://www.sap.com/products/technology-platform/integration-suite/advanced-event-mesh.html). The event is then processed by the Event-to-Business-Action framework, which uses the Business Rules capability of [SAP Build Process Automation](https://www.sap.com/sea/products/technology-platform/process-automation.html) to determine appropriate actions. Finally, the system creates an EHS Incident Report Safety Observation in the SAP S/4HANA system through SAP Destination Service and Private Link Service. For more information, see [SAP samples: BTP PPE detection EHS](https://github.com/SAP-samples/btp-aws-ppe-detection-ehs) on the GitHub website.

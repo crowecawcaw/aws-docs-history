@@ -27,7 +27,7 @@ Figure 3 depicts an SAP all-on-AWS architecture. The SAP environment running on 
 ### Figure 3: SAP all-on-AWS architecture
 <a name="figure-3"></a>
 
-![An example SAP architecture](http://docs.aws.amazon.com/sap/latest/general/images/sap-overview-all-on-aws.png)
+![An example SAP architecture](https://docs.aws.amazon.com/sap/latest/general/images/sap-overview-all-on-aws.png)
 
 
 ### Hybrid AWS Architecture
@@ -43,7 +43,7 @@ Figure 4 depicts an SAP hybrid AWS architecture with SAP DEV and QAS landscapes 
 ### Figure 4: SAP hybrid AWS architecture
 <a name="figure-4"></a>
 
-![SAP hybrid architecture](http://docs.aws.amazon.com/sap/latest/general/images/sap-overview-hybrid.png)
+![SAP hybrid architecture](https://docs.aws.amazon.com/sap/latest/general/images/sap-overview-hybrid.png)
 
 
 ## Choosing an AWS Region and Availability Zone

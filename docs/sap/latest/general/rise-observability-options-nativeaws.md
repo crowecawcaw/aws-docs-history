@@ -15,7 +15,7 @@ Because you cannot access CloudWatch in the RISE with SAP account directly, you 
 
 To establish lightweight and scalable monitoring for SAP ABAP-based systems with RISE on AWS, you can adopt a serverless model where AWS Lambda (with SAP Java Connector) configured in your own AWS account extracts workload and monitoring data from SAP transactions like ST03, STAD, and /SDF/SMON, and publishes them as custom metrics in Amazon CloudWatch. A CloudWatch rule schedules the data collection, while credentials are managed securely in AWS Secrets Manager and the Lambda runs in a customer managed VPC with connectivity to the SAP Managed VPC. The lambda function connects to the SAP systems running in the SAP Managed VPC via RFC. You can then build dashboards and alarms in CloudWatch to visualize system performance, proactively detect anomalies, and alert on thresholds, all with minimal operational overhead and low cost. This approach eliminates the need for additional infrastructure or agents, scales across multiple SAP systems, and provides a secure, cost-effective baseline for observability.
 
-![RISE observability Native Option.](http://docs.aws.amazon.com/sap/latest/general/images/rise-observability-nativeaws.png)
+![RISE observability Native Option.](https://docs.aws.amazon.com/sap/latest/general/images/rise-observability-nativeaws.png)
 
 
 High-Level Implementation Steps:
@@ -43,7 +43,7 @@ By implementing this approach, you gain scalable, secure, and cost-effective mon
 
 Building on the “Monitoring SAP ABAP-based Systems on AWS", you can gain deeper, business-level visibility into your RISE with SAP environment by integrating Amazon CloudWatch Logs with Amazon QuickSight using Amazon Athena. This lets you take raw operational log data, store and query it efficiently, and build interactive dashboards and reports that non-technical stakeholders can use, offering you a unified picture of system health, user behavior, and security from a single pane.
 
-![RISE observability with QuickSight.](http://docs.aws.amazon.com/sap/latest/general/images/rise-observability-quicksight.png)
+![RISE observability with QuickSight.](https://docs.aws.amazon.com/sap/latest/general/images/rise-observability-quicksight.png)
 
 
 To implement this integration, you first set up the Athena CloudWatch Logs connector by deploying a Lambda function that enables Athena to query your CloudWatch Logs. Next, you define Athena views that structure and extract the relevant log fields, such as timestamps, error codes, or custom SAP log entries, to make them ready for analysis. With the views in place, you connect Amazon QuickSight to Athena by granting the necessary IAM permissions and configuring S3 access, then import or directly query the log data. Finally, you build interactive dashboards and visualizations in QuickSight to monitor trends, error rates, and operational KPIs, and optionally enable Amazon Q in QuickSight so your business users can ask natural language questions against the SAP log data without writing SQL.
@@ -54,7 +54,7 @@ After you set up SAP metrics from the RISE environment in Amazon CloudWatch in y
 
 You can monitor and improve the user experience of your SAP Fiori applications by leveraging [Amazon CloudWatch Real User Monitoring (RUM)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.html). This enables you to capture how actual users interact with the SAP Fiori launchpad and apps in real-time, measuring performance, error rates, and user drop-offs. By understanding user experience metrics, you can proactively optimize your front-end performance and ensure a smooth, responsive SAP Fiori environment.
 
-![RISE observability for SAP Fiori.](http://docs.aws.amazon.com/sap/latest/general/images/rise-observability-fiori.png)
+![RISE observability for SAP Fiori.](https://docs.aws.amazon.com/sap/latest/general/images/rise-observability-fiori.png)
 
 
 High-Level Implementation Steps:

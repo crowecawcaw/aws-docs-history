@@ -28,14 +28,14 @@ The following two sections cover the reference architectures for this scenario.
 
  **Full in-Region disaster recovery implementation** 
 
-![Implementation for full in-Region disaster recovery](http://docs.aws.amazon.com/sap/latest/general/images/in-region-full.png)
+![Implementation for full in-Region disaster recovery](https://docs.aws.amazon.com/sap/latest/general/images/in-region-full.png)
 
 
 In full in-Region disaster recovery implementation, the source servers running SAP application components, such as central services instance ((A)SCS), primary application server (PAS), additional application server (AAS), and the database, are replicated using Elastic Disaster Recovery.
 
  **Hybrid in-Region disaster recovery implementation** 
 
-![Implementation for hybrid in-Region disaster recovery](http://docs.aws.amazon.com/sap/latest/general/images/in-region-hybrid.png)
+![Implementation for hybrid in-Region disaster recovery](https://docs.aws.amazon.com/sap/latest/general/images/in-region-hybrid.png)
 
 
 In hybrid in-Region disaster recovery implementation, the source servers running SAP application components, such as central services instance [(A)SCS], primary application server (PAS), and additional application server (AAS) are replicated using Elastic Disaster Recovery. The database is replicated using a database native replication method.
@@ -63,14 +63,14 @@ The following two sections cover the reference architectures for this scenario.
 
  **Full cross-Region disaster recovery implementation** 
 
-![Implementation for on-premises disaster recovery](http://docs.aws.amazon.com/sap/latest/general/images/cross-region-full.png)
+![Implementation for on-premises disaster recovery](https://docs.aws.amazon.com/sap/latest/general/images/cross-region-full.png)
 
 
 In full cross-Region disaster recovery implementation, the source servers running SAP application components, such as central services instance ((A)SCS), primary application server (PAS), additional application server (AAS), and the database, are replicated using Elastic Disaster Recovery.
 
  **Hybrid cross-Region disaster recovery implementation** 
 
-![Implementation for hybrid on-premises disaster recovery](http://docs.aws.amazon.com/sap/latest/general/images/cross-region-hybrid.png)
+![Implementation for hybrid on-premises disaster recovery](https://docs.aws.amazon.com/sap/latest/general/images/cross-region-hybrid.png)
 
 
 In hybrid cross-Region disaster recovery implementation, the source servers running SAP application components, such as central services instance [(A)SCS], primary application server (PAS), and additional application server (AAS) are replicated using Elastic Disaster Recovery. The database is replicated using a database native replication method.
@@ -93,14 +93,14 @@ The following two sections cover the reference architectures for this scenario.
 
  **Full non-AWS to AWS disaster recovery implementation** 
 
-![Implementation for on-premises disaster recovery](http://docs.aws.amazon.com/sap/latest/general/images/different-region-full.png)
+![Implementation for on-premises disaster recovery](https://docs.aws.amazon.com/sap/latest/general/images/different-region-full.png)
 
 
 In full non-AWS to AWS disaster recovery implementation, the source servers running SAP application components, such as central services instance ((A)SCS), primary application server (PAS), additional application server (AAS), and the database, are replicated using Elastic Disaster Recovery.
 
  **Hybrid non-AWS to AWS disaster recovery implementation** 
 
-![Implementation for hybrid on-premises disaster recovery](http://docs.aws.amazon.com/sap/latest/general/images/different-region-hybrid.png)
+![Implementation for hybrid on-premises disaster recovery](https://docs.aws.amazon.com/sap/latest/general/images/different-region-hybrid.png)
 
 
 In hybrid non-AWS to AWS disaster recovery implementation, the source servers running SAP application components, such as central services instance [(A)SCS], primary application server (PAS), and additional application server (AAS) are replicated using Elastic Disaster Recovery. The database is replicated using a database native replication method.

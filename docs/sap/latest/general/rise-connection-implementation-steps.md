@@ -10,7 +10,7 @@ For each option we’ll provide clarity on the details SAP needs, the steps you 
 ## Option 1: Resilient Deployment for Critical Workloads
 <a name="_option_1_resilient_deployment_for_critical_workloads"></a>
 
-![Resilient Deployment for Critical Workloads.](http://docs.aws.amazon.com/sap/latest/general/images/rise-option-1-resilience-connectivity.png)
+![Resilient Deployment for Critical Workloads.](https://docs.aws.amazon.com/sap/latest/general/images/rise-option-1-resilience-connectivity.png)
 
 
  [AWS Direct Connect (DX)](https://aws.amazon.com/directconnect/?nc=sn&loc=0) comes in two connection types, namely [Dedicated](https://docs.aws.amazon.com/directconnect/latest/UserGuide/dedicated_connection.html) and [Hosted](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html). A Dedicated DX is a physical Ethernet connection associated with a single customer, between the customer’s private network and AWS. Hosted DX is a physical Ethernet connection that an [AWS Direct Connect Partner](https://aws.amazon.com/directconnect/partners/) provisions on behalf of a customer. Learn about [AWS Direct Connect](https://aws.amazon.com/directconnect/) to familiarize yourself with the service.
@@ -80,7 +80,7 @@ By following these steps, you can establish a resilient AWS Direct Connect solut
 ## Option 2: Cost Effective Alternative for Non-Critical Workloads
 <a name="_option_2_cost_effective_alternative_for_non_critical_workloads"></a>
 
-![Cost Effective Alternative for Non-Critical Workloads.](http://docs.aws.amazon.com/sap/latest/general/images/rise-option-2-cost-effective-connectivity.png)
+![Cost Effective Alternative for Non-Critical Workloads.](https://docs.aws.amazon.com/sap/latest/general/images/rise-option-2-cost-effective-connectivity.png)
 
 
 Some AWS customers prefer the benefits of one or more AWS Direct Connect connections as their primary connectivity to AWS, coupled with a lower-cost backup solution. Additionally, they might want an agile and adaptable connection that can be quickly established or decommissioned between network locations globally. To achieve these objectives, they can implement AWS Direct Connect connections with an AWS Site-to-Site VPN backup.

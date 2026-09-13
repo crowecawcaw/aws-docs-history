@@ -13,4 +13,4 @@ Finally, Amazon EventBridge enables real-time response to security events by tri
 
 Below is example architecture of AWS Security Hub, Amazon Detective, AWS Audit Manager and Amazon EventBridge paired to RISE with SAP
 
-![Security Hub](http://docs.aws.amazon.com/sap/latest/general/images/rise-security-securityhub.png)
+![Security Hub](https://docs.aws.amazon.com/sap/latest/general/images/rise-security-securityhub.png)

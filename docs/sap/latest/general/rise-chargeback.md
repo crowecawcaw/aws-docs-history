@@ -7,7 +7,7 @@ If you are a company with subsidiaries, you may have different RISE contracts, l
 
 Transit Gateway Flow Logs enables effective cost management. Transit Gateway Flow Logs can be integrated with Cost and Usage Report (CUR) that can be attributed as chargeback to the business units. For more information, see [Logging network traffic using Transit Gateway Flow Logs](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-flow-logs.html).
 
-![How to implement chargeback capability for connectivity to RISE.](http://docs.aws.amazon.com/sap/latest/general/images/rise-chargeback.png)
+![How to implement chargeback capability for connectivity to RISE.](https://docs.aws.amazon.com/sap/latest/general/images/rise-chargeback.png)
 
 
 The preceding diagram displays how Transit Gateway can be used to connect multiple RISE with SAP VPCs and provide chargeback capability through the Flow Logs.

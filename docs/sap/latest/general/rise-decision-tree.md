@@ -20,7 +20,7 @@ You must also consider if you want to connect:
 
 The decision tree displayed in the following diagram helps you decide which connectivity is suitable based on your requirements, such as future plan of additional AWS or RISE accounts, dedicated private connectivity (security, performance), bandwidth needs, and global multi-region deployments.
 
-![Decision tree for choosing RISE with SAP connectivity options based on bandwidth](http://docs.aws.amazon.com/sap/latest/general/images/rise-decision-tree.png)
+![Decision tree for choosing RISE with SAP connectivity options based on bandwidth](https://docs.aws.amazon.com/sap/latest/general/images/rise-decision-tree.png)
 
 
 **Note**  

@@ -9,7 +9,7 @@ Data lake enables customers to handle structured and unstructured data. It is de
 
 Data lake enables organizations to perform various analytical tasks like creating interactive dashboards, generating visual insights, processing large-scale data, conducting real-time analysis, and implementing machine learning algorithms across diverse data sources.
 
-![Data Lake Architecture.](http://docs.aws.amazon.com/sap/latest/general/images/rise-data-lake-architecture.png)
+![Data Lake Architecture.](https://docs.aws.amazon.com/sap/latest/general/images/rise-data-lake-architecture.png)
 
 
 The Data Lake reference architecture provides three distinct layers to transform raw data into valuable insights:
