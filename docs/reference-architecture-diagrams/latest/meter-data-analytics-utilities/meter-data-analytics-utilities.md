@@ -10,7 +10,7 @@ With this architecture, you can build modern meter data analytics solutions. The
 ## Meter data analytics diagram
 <a name="mda-diagram"></a>
 
-![Reference architecture diagram showing how to build meter data analytics for utilities by using Amazon Kinesis, AWS Glue, SageMaker AI, Amazon Timestream, and Amazon Bedrock.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/meter-data-analytics-utilities/images/meter-data-analytics-utilities.png)
+![Reference architecture diagram showing how to build meter data analytics for utilities by using Amazon Kinesis, AWS Glue, SageMaker AI, Amazon Timestream, and Amazon Bedrock.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/meter-data-analytics-utilities/images/meter-data-analytics-utilities.png)
 
 
 The following steps describe the data pipeline and analytics components for this architecture:
