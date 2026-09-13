@@ -12,7 +12,7 @@ Enterprises are likely to have dedicated persons or teams responsible for each o
 
 The following diagram illustrates the distinct but coordinated duties of license administrators, who manage permissions and configure License Manager, and users, who create, manage, and delete resources through the Amazon EC2 console.
 
-![License Manager workflow](http://docs.aws.amazon.com/license-manager/latest/userguide/images/process.png)
+![License Manager workflow](https://docs.aws.amazon.com/license-manager/latest/userguide/images/process.png)
 
 
 If you are responsible for managing licenses in your organization, you can use License Manager to set up licensing rules, attach them to your launches, and keep track of usage. The users in your organization can then add and remove license-consuming resources without additional work.

@@ -33,7 +33,7 @@ Before you begin, ensure you have:
 ## Network Architecture
 <a name="cross-account-architecture"></a>
 
-![Architecture diagram showing AWS Managed Microsoft AD sharing between owner and consumer accounts.](http://docs.aws.amazon.com/license-manager/latest/userguide/images/cross-account.png)
+![Architecture diagram showing AWS Managed Microsoft AD sharing between owner and consumer accounts.](https://docs.aws.amazon.com/license-manager/latest/userguide/images/cross-account.png)
 
 
 ## How to set up cross-account License Manager functionality

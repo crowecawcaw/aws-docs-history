@@ -215,7 +215,7 @@ To convert Ubuntu LTS to Ubuntu Pro, follow these steps:
    ```
 
 1. Confirm your output indicates that the instance has a valid Ubuntu Pro subscription:  
-![Example output of the Ubuntu pro command with an active Ubuntu Pro subscription.](http://docs.aws.amazon.com/license-manager/latest/userguide/images/ubuntu-pro-conversion-output-valid.png)
+![Example output of the Ubuntu pro command with an active Ubuntu Pro subscription.](https://docs.aws.amazon.com/license-manager/latest/userguide/images/ubuntu-pro-conversion-output-valid.png)
 
 ## Remove a Ubuntu Pro subscription
 <a name="remove-subscription-ubuntu-pro"></a>

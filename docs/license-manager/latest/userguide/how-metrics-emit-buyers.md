@@ -12,4 +12,4 @@ When a seller or independent software vendor (ISV) application records usage aga
 
 The following image is an example of the usage dashboard:
 
-![This is an example image of the usage dashboard.](http://docs.aws.amazon.com/license-manager/latest/userguide/images/license-manager-usage-api-usage-dash.png)
+![This is an example image of the usage dashboard.](https://docs.aws.amazon.com/license-manager/latest/userguide/images/license-manager-usage-api-usage-dash.png)
