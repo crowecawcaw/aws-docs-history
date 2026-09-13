@@ -7,7 +7,7 @@ AWS Payment Cryptography provides a web interface to generate and manage cryptog
 
 AWS Payment Cryptography contains multiple interfaces (including a RESTful API, through the AWS CLI, AWS SDK and the AWS Management Console) to request cryptographic operations of a distributed fleet of [PCI PTS HSM-validated](cryptographic-details-internalops.md) [hardware security modules](terminology.md#terms.hsm). 
 
-![AWS Payment Cryptography basic architecture diagram](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/cryptographic-details.basic_arch.png)
+![AWS Payment Cryptography basic architecture diagram](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/cryptographic-details.basic_arch.png)
 
 
 AWS Payment Cryptography is a tiered service consisting of web-facing AWS Payment Cryptography hosts and a tier of HSMs. The grouping of these tiered hosts forms the AWS Payment Cryptography stack. All requests to AWS Payment Cryptography must be made over the Transport Layer Security protocol (TLS) and terminate on an AWS Payment Cryptography host. The service hosts only allow TLS with a cipher suite that provides [perfect forward secrecy](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-52r2.pdf). The service authenticates and authorizes your requests using the same credential and policy mechanisms of IAM that are available for all other AWS API operations. 

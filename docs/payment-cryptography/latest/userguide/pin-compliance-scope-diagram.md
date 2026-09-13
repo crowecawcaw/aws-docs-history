@@ -9,4 +9,4 @@ AWS Payment Cryptography has reported the internal service structure for our PCI
 
 Example high level network diagram for a PIN applications using AWS Payment Cryptography:
 
-![Example high level network diagram for a PIN applications using AWS Payment Cryptography](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/high-level-network-example.png)
+![Example high level network diagram for a PIN applications using AWS Payment Cryptography](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/high-level-network-example.png)

@@ -33,7 +33,7 @@ If only one or two keys are being exchanged, you may also chose to use asymmetri
 ### Import keys using asymmetric techniques (TR-34)
 <a name="keys-import-tr34"></a>
 
-![AWS Payment Cryptography key encryption key import process](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/keyimport-process-kek-import.png)
+![AWS Payment Cryptography key encryption key import process](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/keyimport-process-kek-import.png)
 
 
  TR-34 uses RSA asymmetric cryptography to encrypt and sign symmetric keys for exchange. This ensures both confidentiality (encryption) and integrity (signature) of the wrapped key. 
@@ -139,7 +139,7 @@ If the imported KeyUsage was TR31\_K0\_KEY\_ENCRYPTION\_KEY, you can use this ke
 ### Import keys using asymmetric techniques (ECDH)
 <a name="keys-import-ecdh"></a>
 
-![AWS Payment Cryptography key encryption key import process using ECDH](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/keyimport-ecdh-import.png)
+![AWS Payment Cryptography key encryption key import process using ECDH](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/keyimport-ecdh-import.png)
 
 
 Elliptic Curve Diffie-Hellman (ECDH) uses ECC asymmetric cryptography to establish a shared key between two parties without requiring pre-exchanged keys. ECDH keys are ephemeral, so AWS Payment Cryptography does not store them. In this process, a one-time [KBPK/KEK](terminology.md#terms.kbpk) is derived using ECDH. That derived key is immediately used to wrap the actual key that you want to transfer, which could be another KBPK, an IPEK key, or other key types. 
@@ -420,7 +420,7 @@ If the imported `KeyUsage` was `TR31_K0_KEY_ENCRYPTION_KEY` or `TR31_K1_KEY_BLOC
 ### Import symmetric keys using a pre-established key exchange key (TR-31)
 <a name="keys-import-tr31"></a>
 
-![AWS Payment Cryptography symmetric key import process](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/keyimport-process-wk-import.png)
+![AWS Payment Cryptography symmetric key import process](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/keyimport-process-wk-import.png)
 
 
 When exchanging multiple keys or supporting key rotation, partners typically first exchange an initial key encryption key (KEK). You can exchange KEK with AWS Payment Cryptography, using techniques such as [TR-34](#keys-import-tr34) or [Physical Key Exchange](keys-physicalkeyexchange.md).

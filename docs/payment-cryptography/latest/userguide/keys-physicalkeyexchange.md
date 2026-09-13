@@ -15,7 +15,7 @@ To initiate paper key exchange, a [CloudFormation template](https://github.com/a
 
 The following diagram shows the end-to-end Physical Key Exchange process.
 
-![Physical Key Exchange process flow](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/physical-key-exchange.png)
+![Physical Key Exchange process flow](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/physical-key-exchange.png)
 
 
 1. **Initiation** – You submit a support ticket or work with your account manager to submit a request.

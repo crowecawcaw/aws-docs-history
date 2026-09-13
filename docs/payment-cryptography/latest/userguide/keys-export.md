@@ -101,7 +101,7 @@ Call the **ExportKey** API with `KeyMaterialType` set to `TR34_KEY_BLOCK`. You n
 ### Export keys using asymmetric techniques (ECDH)
 <a name="keys-export-ecdh"></a>
 
-![AWS Payment Cryptography key encryption key import process using ECDH](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/keyimport-ecdh-export.png)
+![AWS Payment Cryptography key encryption key import process using ECDH](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/keyimport-ecdh-export.png)
 
 
 Elliptic Curve Diffie-Hellman (ECDH) uses ECC asymmetric cryptography to establish a shared key between two parties without requiring pre-exchanged keys. ECDH keys are ephemeral, so AWS Payment Cryptography does not store them. In this process, a one-time [KBPK/KEK](terminology.md#terms.kbpk) is derived using ECDH. That derived key is immediately used to wrap the key you want to transfer, which could be another KBPK, a BDK, an IPEK key, or other key types. 

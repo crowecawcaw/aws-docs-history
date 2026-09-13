@@ -177,9 +177,23 @@ $ aws payment-cryptography-data verify-card-validation-data --key-identifier arn
 ## dCVV (Dynamic Card Verification Value) - CVN17
 <a name="use-cases-issuers.networkfunctions.visa.dcvv"></a>
 
-dCVV (dynamic Card Verification Value) is a Visa-specific dynamic cryptogram used for contactless EMV transactions. It is known as early EMV and it provides enhanced security by generating a unique verification value for each transaction. The dCVV uses inputs including the Primary Account Number (PAN), PAN Sequence Number (PSN), Application Transaction Counter (ATC), unpredictable number, and track data. It is still used in some places, but has mostly been replaced by other algorithms like CVN18.
+dCVV (dynamic Card Verification Value) is a Visa-specific dynamic cryptogram used for contactless EMV transactions. It is known as early EMV and it provides enhanced security by generating a unique verification value for each transaction. The dCVV uses inputs including the Primary Account Number (PAN), PAN Sequence Number (PSN), Application Transaction Counter (ATC), card expiry date, and service code. It is still used in some places, but has mostly been replaced by other algorithms like CVN18.
 
 For all available parameters see [DynamicCardVerificationValue](https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/API_DynamicCardVerificationValue.html) in the API reference guide.
+
+The inputs to `DynamicCardVerificationValue` map to the following Visa authorization and EMV transaction data:
+
+`ApplicationTransactionCounter` (ATC)  
+The transaction counter maintained by the chip, incremented for each transaction. In EMV data this is tag `9F36`.
+
+`PanSequenceNumber`  
+The PAN sequence number that distinguishes cards sharing the same `PAN`. In EMV data this is tag `5F34`.
+
+`CardExpiryDate`  
+The card's application expiration date (EMV tag `5F24`), provided in the same format used by your other card verification calls.
+
+`ServiceCode`  
+The three-digit service code carried in the card's track 2 (equivalent) data.
 
 ### Create key
 <a name="use-cases-issuers.networkfunctions.visa.dcvv.setup"></a>
@@ -228,12 +242,12 @@ Take note of the `KeyArn` that represents the key, for example *arn:aws:payment-
 <a name="use-cases-issuers.networkfunctions.visa.dcvv.generate"></a>
 
 **Example**  
-In this example, we will generate a dCVV for a contactless EMV transaction. The inputs include the PAN, PAN Sequence Number, Application Transaction Counter, unpredictable number, and track data.   
+In this example, we will generate a dCVV for a contactless EMV transaction. The inputs include the PAN, PAN Sequence Number, Application Transaction Counter, card expiry date, and service code.   
 
 ```
 $ aws payment-cryptography-data generate-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc \
-    --primary-account-number=5111112627662122 \
-    --generation-attributes DynamicCardVerificationValue='{ApplicationTransactionCounter=01,PanSequenceNumber=00,TrackData=12345,UnpredictableNumber=123}' \
+    --primary-account-number=4111112627662122 \
+    --generation-attributes DynamicCardVerificationValue='{ApplicationTransactionCounter=01,PanSequenceNumber=00,CardExpiryDate=1226,ServiceCode=201}' \
     --validation-data-length 5
 ```
 
@@ -254,9 +268,9 @@ If AWS Payment Cryptography is able to validate, an http/200 is returned. If the
 
 ```
 $ aws payment-cryptography-data verify-card-validation-data --key-identifier arn:aws:payment-cryptography:us-east-2:111122223333:key/mw7dn3qxvkfh8ztc \
-    --primary-account-number=5111112627662122 \
+    --primary-account-number=4111112627662122 \
     --validation-data=36667 \
-    --verification-attributes DynamicCardVerificationValue='{ApplicationTransactionCounter=01,PanSequenceNumber=00,TrackData=12345,UnpredictableNumber=123}'
+    --verification-attributes DynamicCardVerificationValue='{ApplicationTransactionCounter=01,PanSequenceNumber=00,CardExpiryDate=1226,ServiceCode=201}'
 ```
 
 ```

@@ -87,7 +87,7 @@ AWS Payment Cryptography supports import of cryptograms and key blocks with symm
 
  The AWS Payment Cryptography key hierarchy ensures that keys are always protected by keys as strong as or stronger than the keys they protect. 
 
-![AWS Payment Cryptography key hierarchy diagram](http://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/cryptographic-details.key_hierarchy.png)
+![AWS Payment Cryptography key hierarchy diagram](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/images/cryptographic-details.key_hierarchy.png)
 
 
  AWS Payment Cryptography keys are used for key protection within the service: 
