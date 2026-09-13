@@ -70,7 +70,7 @@ To set up your Edge Agent software, in **General information**, do the following
 
 1. To confirm the stack was created, choose the **Stack info** tab, refresh the view, and look for CREATE\_COMPLETE.
 
-![The AWS IoT FleetWise Stack info tab showing CREATE COMPLETE confirmation notification.](http://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/create-complete.png)
+![The AWS IoT FleetWise Stack info tab showing CREATE COMPLETE confirmation notification.](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/create-complete.png)
 
 
 **Important**  
@@ -116,7 +116,7 @@ For this tutorial, you can download a [sample .dbc file](samples/EngineSignals.z
 
 1. Review your configurations. When you're ready, choose **Create**. A notification appears saying your vehicle model was successfully created.
 
-![The AWS IoT FleetWise notification saying your vehicle model was successfully created.](http://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/vehicle-model-status.png)
+![The AWS IoT FleetWise notification saying your vehicle model was successfully created.](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/vehicle-model-status.png)
 
 
 ## Step 3: Create a decoder manifest
@@ -172,7 +172,7 @@ In AWS IoT FleetWise, vehicles are virtual representations of your real-life, ph
 
    1. In the **Summary** section, under **Status**, check the status of your vehicle.
 
-![The AWS IoT FleetWise Screenshot of the Summary section showing the status of your vehicle.](http://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/vehicle-model-status.png)
+![The AWS IoT FleetWise Screenshot of the Summary section showing the status of your vehicle.](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/vehicle-model-status.png)
 
 
 **To create a vehicle**

@@ -7,7 +7,7 @@ AWS IoT FleetWise is no longer open to new customers. Existing AWS IoT FleetWise
 
 AWS IoT FleetWise provides a vehicle modeling framework that you can use to build virtual representations of your vehicles in the cloud. Signals, signal catalogs, vehicle models, and decoder manifests are the core components that you work with to model your vehicles.
 
-![Image showing entities of the AWS IoT FleetWise domain and their relationships.](http://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/FleetWise-Domain-Entity-Relationships.png)
+![Image showing entities of the AWS IoT FleetWise domain and their relationships.](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/FleetWise-Domain-Entity-Relationships.png)
 
 
 **Signal**  <a name="signal-definition"></a>

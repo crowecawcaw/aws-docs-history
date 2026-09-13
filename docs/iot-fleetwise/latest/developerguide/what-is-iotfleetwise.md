@@ -11,7 +11,7 @@ When the vehicle data is in the cloud, you can use it for applications that anal
 
 The following diagram shows the basic architecture of AWS IoT FleetWise.
 
-![Architecture of AWS IoT FleetWise](http://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/architecture-diagram.png)
+![Architecture of AWS IoT FleetWise](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/images/architecture-diagram.png)
 
 
 **Topics**
