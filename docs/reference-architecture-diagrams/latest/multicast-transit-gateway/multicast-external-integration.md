@@ -10,7 +10,7 @@ This architecture integrates external multicast services with AWS by deploying t
 ## Integrating external multicast services architecture
 <a name="mext-diagram1"></a>
 
-![Architecture diagram showing integration of external multicast services with AWS using Transit Gateway and GRE tunnels to on-premises multicast routers.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multicast-transit-gateway/images/multicast-transit-gateway-3.png)
+![Architecture diagram showing integration of external multicast services with AWS using Transit Gateway and GRE tunnels to on-premises multicast routers.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multicast-transit-gateway/images/multicast-transit-gateway-3.png)
 
 
 The following steps describe the data flow in this architecture:

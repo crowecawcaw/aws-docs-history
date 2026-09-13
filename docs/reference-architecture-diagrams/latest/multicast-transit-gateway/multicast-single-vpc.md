@@ -10,7 +10,7 @@ This architecture uses [AWS Transit Gateway](https://docs.aws.amazon.com/vpc/lat
 ## Multicast traffic in a single VPC architecture
 <a name="msvpc-diagram1"></a>
 
-![Architecture diagram showing multicast traffic in a single VPC using AWS Transit Gateway with multicast domains and groups.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multicast-transit-gateway/images/multicast-transit-gateway-1.png)
+![Architecture diagram showing multicast traffic in a single VPC using AWS Transit Gateway with multicast domains and groups.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multicast-transit-gateway/images/multicast-transit-gateway-1.png)
 
 
 The following steps describe the configuration and data flow in this architecture:

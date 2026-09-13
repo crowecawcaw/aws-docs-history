@@ -10,7 +10,7 @@ This architecture uses [AWS Resource Access Manager (RAM)](https://docs.aws.amaz
 ## Multicast traffic in multi-account environments architecture
 <a name="mmulti-diagram1"></a>
 
-![Architecture diagram showing multicast traffic across multiple AWS accounts using shared Transit Gateway multicast domains.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multicast-transit-gateway/images/multicast-transit-gateway-2.png)
+![Architecture diagram showing multicast traffic across multiple AWS accounts using shared Transit Gateway multicast domains.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multicast-transit-gateway/images/multicast-transit-gateway-2.png)
 
 
 The following steps describe the data flow in this architecture:
