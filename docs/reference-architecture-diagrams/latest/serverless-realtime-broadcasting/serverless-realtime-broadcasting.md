@@ -10,7 +10,7 @@ This architecture shows how to create a movie voting application using [AWS AppS
 ## Serverless Web App Real-Time Data Broadcasting
 <a name="diagram1"></a>
 
-![Architecture diagram showing real-time data broadcasting using AWS AppSync, AWS Lambda, AWS Step Functions, and Amazon DynamoDB with GraphQL subscriptions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-realtime-broadcasting/images/serverless-realtime-broadcasting.png)
+![Architecture diagram showing real-time data broadcasting using AWS AppSync, AWS Lambda, AWS Step Functions, and Amazon DynamoDB with GraphQL subscriptions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/serverless-realtime-broadcasting/images/serverless-realtime-broadcasting.png)
 
 
 The following steps describe the architecture:
