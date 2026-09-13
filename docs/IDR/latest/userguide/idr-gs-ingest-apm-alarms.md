@@ -15,7 +15,7 @@ AWS Incident Detection and Response installs a managed rule on the custom event 
 
 The following diagram shows an example integration using a partner event bus or other AWS event bus sources.
 
-![Diagram showing an example integration using a partner event bus or other AWS event bus sources.](http://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-partner-event-bus.png)
+![Diagram showing an example integration using a partner event bus or other AWS event bus sources.](https://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-partner-event-bus.png)
 
 
 For a complete list of APMs with partner integrations to Amazon EventBridge, see [Amazon EventBridge integrations](https://aws.amazon.com/eventbridge/integrations/).
@@ -24,14 +24,14 @@ For a complete list of APMs with partner integrations to Amazon EventBridge, see
 
 The following diagram shows an example of integration using a API Gateway.
 
-![Diagram showing an example of integration using API Gateway.](http://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-api-gateway.png)
+![Diagram showing an example of integration using API Gateway.](https://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-api-gateway.png)
 
 
 **Example integration using Amazon Simple Notification Service**
 
 The following diagram shows an example of integration using a Amazon SNS.
 
-![Diagram showing an example of integration using Amazon SNS.](http://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-sns.png)
+![Diagram showing an example of integration using Amazon SNS.](https://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-sns.png)
 
 
 To simplify the integration process, AWS Incident Detection and Response provides CloudFormation templates for the most commonly used integration types. These templates automate the setup of AWS resources, and necessary IAM roles.

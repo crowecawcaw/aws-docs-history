@@ -5,7 +5,7 @@
 
 AWS Incident Detection and Response offers you 24 hours a day, 7 days a week proactive monitoring and incident management delivered by a designated team of incident managers. The following diagram outlines the standard incident management process when an application alarm triggers an incident, including alarm generation, AWS Incident Manager engagement, incident resolution, and post-incident review.
 
-![Standard incident management process flow diagram](http://docs.aws.amazon.com/IDR/latest/userguide/images/idr-standard-inc-process-flow.png)
+![Standard incident management process flow diagram](https://docs.aws.amazon.com/IDR/latest/userguide/images/idr-standard-inc-process-flow.png)
 
 
 1. **Alarm generation**: Alarms triggered on your workloads are pushed through Amazon EventBridge to AWS Incident Detection and Response. AWS Incident Detection and Response automatically pulls up the runbook associated with your alarm and notifies an incident manager. If a critical incident occurs on your workload that isn't detected by alarms monitored by AWS Incident Detection and Response, then you can create a support case to request an Incident Response. For more information on requesting an Incident Response, see [Request an Incident Response](inbound-incident-idr.md).

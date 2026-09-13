@@ -27,22 +27,22 @@ The following example shows how notifications for alarm initiated incidents appe
 
 When your alarm initiated incident is acknowledged by AWS Incident Detection and Response, a notification similar to the following generates in Slack:
 
-![Acknowledgement notification in Slack](http://docs.aws.amazon.com/IDR/latest/userguide/images/slack-app-acknowledgement.png)
+![Acknowledgement notification in Slack](https://docs.aws.amazon.com/IDR/latest/userguide/images/slack-app-acknowledgement.png)
 
 
 To view the full correspondence added by AWS Incident Detection and Response, choose** See details**.
 
-![Acknowledgement notification in Slack correspondence](http://docs.aws.amazon.com/IDR/latest/userguide/images/slack-app-acknowledgement-correspondence.png)
+![Acknowledgement notification in Slack correspondence](https://docs.aws.amazon.com/IDR/latest/userguide/images/slack-app-acknowledgement-correspondence.png)
 
 
 Further updates from AWS Incident Detection and Response appear in the case’s thread. 
 
-![View further details in the case thread](http://docs.aws.amazon.com/IDR/latest/userguide/images/slack-app-further-updates.png)
+![View further details in the case thread](https://docs.aws.amazon.com/IDR/latest/userguide/images/slack-app-further-updates.png)
 
 
 Choose **See details** to view the full correspondence added by AWS Incident Detection and Response.
 
-![See the full correspondence](http://docs.aws.amazon.com/IDR/latest/userguide/images/slack-app-details.png)
+![See the full correspondence](https://docs.aws.amazon.com/IDR/latest/userguide/images/slack-app-details.png)
 
 
 ## Create an Incident Response Request in Slack

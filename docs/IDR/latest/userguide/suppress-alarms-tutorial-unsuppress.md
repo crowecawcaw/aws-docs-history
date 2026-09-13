@@ -14,10 +14,10 @@ The following tutorial walks you through how to remove a metric math function to
 1. In the metric math section, choose **Edit**.
 
 1. To remove the suppression from the alarm, select the **x** button next to the metric math expression.  
-![CloudWatch screen showing the x button to remove a metric math function.](http://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-unsuppress.png)
+![CloudWatch screen showing the x button to remove a metric math function.](https://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-unsuppress.png)
 
 1. Select the metric to resume monitoring of the real metric. then choose **Select metric**.  
-![CloudWatch screen showing the Select metric button.](http://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-unsuppress-2.png)
+![CloudWatch screen showing the Select metric button.](https://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-unsuppress-2.png)
 
 1. Choose **Skip to Preview and create**.
 

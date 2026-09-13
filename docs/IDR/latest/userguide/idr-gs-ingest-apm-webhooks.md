@@ -98,7 +98,7 @@ After deploying the stack, test the integration by sending a test payload from y
 ## Option 2: Manual integration
 <a name="idr-gs-apm-webhook-manual"></a>
 
-![Diagram showing an example of integration using API Gateway.](http://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-api-gateway.png)
+![Diagram showing an example of integration using API Gateway.](https://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-api-gateway.png)
 
 
 Use the following steps to set up integration with AWS Incident Detection and Response.

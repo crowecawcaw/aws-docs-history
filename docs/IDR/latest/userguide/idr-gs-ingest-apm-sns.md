@@ -85,7 +85,7 @@ After the CloudFormation stack is deployed successfully, you can validate the in
 ## Option 2: Manual integration
 <a name="idr-gs-apm-sns-manual"></a>
 
-![Diagram showing an example of integration using Amazon SNS.](http://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-sns.png)
+![Diagram showing an example of integration using Amazon SNS.](https://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-sns.png)
 
 
 1. Open the Amazon SNS Console and create a **Standard** Amazon SNS topic named `[apm_name]-sns` to receive alarm events from your APM. Ensure you select **Standard** (not FIFO) as the topic type. Note the ARN of the Amazon SNS topic created.

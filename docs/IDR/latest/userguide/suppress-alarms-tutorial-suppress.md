@@ -10,7 +10,7 @@ The following tutorial walks you through how to suppress a CloudWatch alarm usin
 There's a planned activity that takes place between 1:00 to 3:00 AM UTC on the upcoming Tuesday. You want to create a CloudWatch metric math function that replaces the real data points during this time, with 0 (a data point that falls below the set threshold). 
 
 1. Assess the criteria that causes your alarm to trigger. The following screenshot provides an example of alarm criteria:  
-![CloudWatch screen showing alarm details.](http://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-assess-alarm-criteria.png)
+![CloudWatch screen showing alarm details.](https://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-assess-alarm-criteria.png)
 
    The alarm shown in the preceding screenshot monitors the `UnHealthyHostCount` metric for an Application Load Balancer target group. This alarm enters the `ALARM` state when the `UnHealthyHostCount` metric is greater than or equal to 3 for 5 out of 5 data points. The alarm treats missing data as bad (breaching the configured threshold).
 
@@ -42,10 +42,10 @@ There's a planned activity that takes place between 1:00 to 3:00 AM UTC on the u
 1. Enter your math expression, and then choose **Apply**.
 
    The existing metric that the alarm monitors automatically becomes **m1** and your math expression is **e1**, as shown in the following example:  
-![CloudWatch screen showing metric math expressions.](http://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-expression.png)
+![CloudWatch screen showing metric math expressions.](https://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-expression.png)
 
 1. (Optional) Edit the label of the metric math expression to help others understand it’s function and why it was created, as shown in the following example:  
-![CloudWatch screen showing editing of a metric match expression label.](http://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-edit-label.png)
+![CloudWatch screen showing editing of a metric match expression label.](https://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-edit-label.png)
 
 1. Deselect **m1**, select **e1**, and then choose **Select metric**. This sets the alarm to monitor the math expression instead of the underlying metric directly.
 
@@ -55,9 +55,9 @@ There's a planned activity that takes place between 1:00 to 3:00 AM UTC on the u
 
 In the preceding example, without the metric math function applied, the real `UnHealthyHostCount` metric would have been reported during the planned activity. This would have resulted in the CloudWatch alarm entering the `ALARM` state and engaging Incident Detection and Response, as shown in the following example:
 
-![CloudWatch screen showing data points leading to an alarm state.](http://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-example-alarm-state.png)
+![CloudWatch screen showing data points leading to an alarm state.](https://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-example-alarm-state.png)
 
 
 With the metric math function in place, the real data points are replaced with 0 during the activity, and the alarm remains in the `OK` state, suppressing Incident Detection and Response engagement. 
 
-![CloudWatch screen showing data points with no alarm state.](http://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-datapoints-no-alarm.png)
+![CloudWatch screen showing data points with no alarm state.](https://docs.aws.amazon.com/IDR/latest/userguide/images/metric-math-datapoints-no-alarm.png)

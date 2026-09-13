@@ -7,7 +7,7 @@ If a critical incident occurs on your workload that isn't detected by alarms mon
 
 The following diagram illustrates the end-to-end workflow for an AWS customer requesting incident assistance from the Incident Detection and Response team, detailing the steps from the initial request through investigation, mitigation, and resolution.
 
-![End-to-end workflow diagram for an incident assistance request](http://docs.aws.amazon.com/IDR/latest/userguide/images/idr-incident-request-flow.png)
+![End-to-end workflow diagram for an incident assistance request](https://docs.aws.amazon.com/IDR/latest/userguide/images/idr-incident-request-flow.png)
 
 
 To request an Incident Response for an incident that's actively impacting your workload, create an Support case. After the support case is raised, AWS Incident Detection and Response engages you on a conference bridge with the AWS experts required to accelerate the recovery of your workload.
@@ -57,7 +57,7 @@ To use the AWS Support App in Slack to request an Incident Response, complete th
    ```
    /awssupport create
    ```  
-![/awssupport create.](http://docs.aws.amazon.com/IDR/latest/userguide/images/command_supportcreate.png)
+![/awssupport create.](https://docs.aws.amazon.com/IDR/latest/userguide/images/command_supportcreate.png)
 
 1. Enter a **Subject** for this incident. For example, enter **AWS Incident Detection and Response - Active Incident - workload\_name**.
 
@@ -80,7 +80,7 @@ To use the AWS Support App in Slack to request an Incident Response, complete th
    [Optional] Customer Bridge Details:
 
 1. Choose **Next**.  
-![Create a Support Case.](http://docs.aws.amazon.com/IDR/latest/userguide/images/create-support-case.png)
+![Create a Support Case.](https://docs.aws.amazon.com/IDR/latest/userguide/images/create-support-case.png)
 
 1. For **Issue Type**, choose **Technical support.**
 
@@ -89,19 +89,19 @@ To use the AWS Support App in Slack to request an Incident Response, complete th
 1. For **Category**, choose **Active Incident**.
 
 1. For **Severity**, choose **Business-critical system down**.  
-![Choose Support Case Severity.](http://docs.aws.amazon.com/IDR/latest/userguide/images/support-case-severity.png)
+![Choose Support Case Severity.](https://docs.aws.amazon.com/IDR/latest/userguide/images/support-case-severity.png)
 
 1. Optionally enter up to 10 additional contacts in the **Additional contacts to notify** field, separated by commas. These additional contacts receive copies of email correspondence about this incident.  
-![Configure additional contacts.](http://docs.aws.amazon.com/IDR/latest/userguide/images/configure-additional-contacts.png)
+![Configure additional contacts.](https://docs.aws.amazon.com/IDR/latest/userguide/images/configure-additional-contacts.png)
 
 1. Choose **Review**.
 
 1. A new message that is only visible to you appears in the Slack channel. Review the case details, then choose **Create case**.   
-![Review the private message in Slack.](http://docs.aws.amazon.com/IDR/latest/userguide/images/create-case-message.png)
+![Review the private message in Slack.](https://docs.aws.amazon.com/IDR/latest/userguide/images/create-case-message.png)
 
 1. Your Case ID is provided in a new message from the AWS Support App in Slack. 
 
 1. Incident Detection and Response acknowledges your case within 5 minutes and engages you on a conference bridge with the appropriate AWS experts.
 
 1. Correspondence from Incident Detection and Response is updated in the case thread.  
-![Correspondence from Incident Detection and Response in Slack.](http://docs.aws.amazon.com/IDR/latest/userguide/images/idr-correspondence.jpg)
+![Correspondence from Incident Detection and Response in Slack.](https://docs.aws.amazon.com/IDR/latest/userguide/images/idr-correspondence.jpg)

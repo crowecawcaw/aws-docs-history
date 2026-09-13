@@ -93,7 +93,7 @@ After deploying the stack, test the integration by sending a test payload from y
 ## Option 2: Manual integration
 <a name="idr-gs-apm-eb-manual"></a>
 
-![Diagram showing an example integration using a partner event bus or other AWS event bus sources.](http://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-partner-event-bus.png)
+![Diagram showing an example integration using a partner event bus or other AWS event bus sources.](https://docs.aws.amazon.com/IDR/latest/userguide/images/example-int-partner-event-bus.png)
 
 
 Complete the following steps for each AWS account and AWS Region where AWS Incident Detection and Response needs to ingest alarms from. AWS Incident Detection and Response recommends to set up alarms in the same AWS account and Region as your application resources to make it quicker to identify and investigate impacted resources. Incidents and Support Cases are opened on the AWS Account where the APM alert was received from.
