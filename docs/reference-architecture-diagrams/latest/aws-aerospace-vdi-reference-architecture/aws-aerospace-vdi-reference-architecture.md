@@ -10,7 +10,7 @@ This architectural diagram shows the process for running computer-aided engineer
 ## Aerospace VDI and HPC on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing the process for running computer-aided engineering (CAE) computations and visualizations in the cloud with desktop access..](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-aerospace-vdi-reference-architecture/images/aws-aerospace-vdi-reference-architecture.png)
+![Reference architecture diagram showing the process for running computer-aided engineering (CAE) computations and visualizations in the cloud with desktop access..](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aws-aerospace-vdi-reference-architecture/images/aws-aerospace-vdi-reference-architecture.png)
 
 
 1. The user starts virtual desktop (VD) sessions, starts and monitors high performance computing (HPC) jobs using a web interface or application programming interface (API), accesses VD sessions with NICE DCV client, and shares data with the VD and HPC environment using SFTP.
