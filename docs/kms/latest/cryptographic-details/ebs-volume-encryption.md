@@ -5,7 +5,7 @@
 
 Amazon EBS offers volume encryption capability. Each volume is encrypted using [AES-256-XTS](http://csrc.nist.gov/publications/nistpubs/800-38E/nist-sp-800-38E.pdf). This requires two 256-bit volume keys, which you can think of as one 512-bit volume key. The volume key is encrypted under a KMS key in your account. For Amazon EBS to encrypt a volume for you, it must have access to generate a volume key (VK) under a KMS key in the account. You do this by providing a grant for Amazon EBS to the KMS key to create data keys and to encrypt and decrypt these volume keys. Now Amazon EBS uses AWS KMS with a KMS key to generate AWS KMS encrypted volume keys.
 
-![Amazon EBS volume encryption with AWS KMS keys.](http://docs.aws.amazon.com/kms/latest/cryptographic-details/images/ebs-volume-encryption.png)
+![Amazon EBS volume encryption with AWS KMS keys.](https://docs.aws.amazon.com/kms/latest/cryptographic-details/images/ebs-volume-encryption.png)
 
 
 The following workflow encrypts data that is being written to an Amazon EBS volume:

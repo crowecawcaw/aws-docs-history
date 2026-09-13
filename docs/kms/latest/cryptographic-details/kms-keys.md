@@ -10,7 +10,7 @@ AWS KMS is replacing the term *customer master key (CMK)* with *AWS KMS key* and
 
 This chapter discusses the lifecycle of a KMS key from creation to deletion, as shown in the following image.
 
-![KMS key lifecycle.](http://docs.aws.amazon.com/kms/latest/cryptographic-details/images/keystate.png)
+![KMS key lifecycle.](https://docs.aws.amazon.com/kms/latest/cryptographic-details/images/keystate.png)
 
 
 **Topics**

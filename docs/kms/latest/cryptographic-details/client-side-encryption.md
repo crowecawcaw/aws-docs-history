@@ -22,7 +22,7 @@ The client application can run the following steps:
 
 1. The encrypted data key and encrypted message are combined into a single ciphertext byte array. 
 
-![AWS Encryption SDK envelope encryption.](http://docs.aws.amazon.com/kms/latest/cryptographic-details/images/sdk-envelope-encryption.png)
+![AWS Encryption SDK envelope encryption.](https://docs.aws.amazon.com/kms/latest/cryptographic-details/images/sdk-envelope-encryption.png)
 
 
 The envelope-encrypted message can be decrypted using the decrypt functionality to obtain the originally encrypted message.
@@ -46,4 +46,4 @@ byte[] plaintext = res.getResult();
 
 1. The data key is then used to decrypt the message, returning the initial plaintext. 
 
-![AWS Encryption SDK envelope decryption.](http://docs.aws.amazon.com/kms/latest/cryptographic-details/images/sdk-envelope-decryption.png)
+![AWS Encryption SDK envelope decryption.](https://docs.aws.amazon.com/kms/latest/cryptographic-details/images/sdk-envelope-decryption.png)

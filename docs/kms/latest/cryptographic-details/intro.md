@@ -9,7 +9,7 @@ AWS KMS includes a web interface through the AWS Management Console, command lin
 
 In addition, most AWS services support encryption of data at rest using KMS keys. This capability allows customers to control how and when AWS services can access encrypted data by controlling how and when KMS keys can be accessed. 
 
-![AWS KMS architecture.](http://docs.aws.amazon.com/kms/latest/cryptographic-details/images/KMS-Architecture.png)
+![AWS KMS architecture.](https://docs.aws.amazon.com/kms/latest/cryptographic-details/images/KMS-Architecture.png)
 
 
 AWS KMS is a tiered service consisting of web-facing AWS KMS hosts and a tier of HSMs. The grouping of these tiered hosts forms the AWS KMS stack. All requests to AWS KMS must be made over the Transport Layer Security protocol (TLS) and terminate on an AWS KMS host. AWS KMS hosts only allow TLS with a ciphersuite that provides perfect [forward secrecy](http://dx.doi.org/10.6028/NIST.SP.800-52r2). AWS KMS authenticates and authorizes your requests using the same credential and policy mechanisms of AWS Identity and Access Management (IAM) that are available for all other AWS API operations.
