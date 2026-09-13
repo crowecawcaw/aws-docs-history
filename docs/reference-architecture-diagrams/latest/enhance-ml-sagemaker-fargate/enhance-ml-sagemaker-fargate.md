@@ -10,7 +10,7 @@ This architecture shows how to enhance your existing ML workflow. With [Amazon S
 ## Enhance Existing ML Lifecycles with Amazon SageMaker AI and AWS Fargate
 <a name="diagram1"></a>
 
-![Architecture diagram showing ML lifecycle enhancement with SageMaker AI and AWS Fargate.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/enhance-ml-sagemaker-fargate/images/enhance-ml-sagemaker-fargate.png)
+![Architecture diagram showing ML lifecycle enhancement with SageMaker AI and AWS Fargate.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/enhance-ml-sagemaker-fargate/images/enhance-ml-sagemaker-fargate.png)
 
 
 The following steps describe the architecture:
