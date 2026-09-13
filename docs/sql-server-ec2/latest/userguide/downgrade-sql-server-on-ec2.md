@@ -33,7 +33,7 @@ Confirm that you aren't using any of the following SQL Server Enterprise edition
 
 The following diagram walks through an evaluation for some of the downgrade requirements:
 
-![A diagram evaluating some of the downgrade eligibility requirements.](http://docs.aws.amazon.com/sql-server-ec2/latest/userguide/images/sql_edition_downgrade_decision_flow.png)
+![A diagram evaluating some of the downgrade eligibility requirements.](https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/images/sql_edition_downgrade_decision_flow.png)
 
 
 If your workload doesn't utilize any of the previously listed features, you should continue to evaluate if you use any less common SQL Server Enterprise edition features. For more information about SQL Server Enterprise editions and supported features, see the Microsoft documentation for your SQL Server version:

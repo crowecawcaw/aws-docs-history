@@ -212,7 +212,7 @@ Each resource in a cluster has a setting for Possible Owners. This setting tells
 
 The following image shows an example of configuring an IP address so that it can only be brought online on the node to which the IP belongs:
 
-![Configuring an IP address so that it can only be brought online on the node to which the IP belongs.](http://docs.aws.amazon.com/sql-server-ec2/latest/userguide/images/failover_cluster_manager_1.png)
+![Configuring an IP address so that it can only be brought online on the node to which the IP belongs.](https://docs.aws.amazon.com/sql-server-ec2/latest/userguide/images/failover_cluster_manager_1.png)
 
 
 ## Tune the failover thresholds
