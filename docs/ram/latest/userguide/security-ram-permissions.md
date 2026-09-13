@@ -35,7 +35,7 @@ For a quick overview, watch the following video that demonstrates how managed pe
 
 This video demonstrates how to author and associate customer managed permissions following the best practice of least privilege. For more information see, [Creating and using customer managed permissions in AWS RAM](create-customer-managed-permissions.md).
 
-[![AWS Videos](http://img.youtube.com/vi/SQoJOuIDLKM/0.jpg)](http://www.youtube.com/watch?v=SQoJOuIDLKM)
+[![AWS Videos](https://img.youtube.com/vi/SQoJOuIDLKM/0.jpg)](https://www.youtube.com/watch?v=SQoJOuIDLKM)
 
 
 When you create a resource share, you associate an AWS managed permission with each resource type that you want to share. If the managed permission has more than one version, the new resource share always uses the version designated as the default.

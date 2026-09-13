@@ -39,7 +39,7 @@ Principals with whom you share resources can leave your resource share if the sh
 
 1. (Optional) In **Step 2: Associate a managed permission with each resource type**, you can choose to associate a managed permission created by AWS with the resource type, choose an existing customer managed permission, or you can create your own customer managed permission. For more information, see [Types of managed permissions](security-ram-permissions.md#permissions-types).
 
-   You can also choose **Create customer managed permission** to construct a customer managed permission that meets the requirements of your sharing use case. For more information, see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp). After completing the process, choose ![Refresh icon](http://docs.aws.amazon.com/ram/latest/userguide/images/refresh_icon.PNG), and then you can select your new customer managed permission from the **Managed permission** dropdown list.
+   You can also choose **Create customer managed permission** to construct a customer managed permission that meets the requirements of your sharing use case. For more information, see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp). After completing the process, choose ![Refresh icon](https://docs.aws.amazon.com/ram/latest/userguide/images/refresh_icon.PNG), and then you can select your new customer managed permission from the **Managed permission** dropdown list.
 
    To display the actions that the managed permission allows, expand **View the policy template for this managed permission**.
 

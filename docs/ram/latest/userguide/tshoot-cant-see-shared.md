@@ -45,14 +45,9 @@ In the AWS account that created the resource share, [view the resource share](wo
 
 When you share a resource in account A to another account B, roles and users in account B don't automatically get access to the resources in the share. The administrator of account B must first grant permission to the IAM roles and users in account B who need to access the resource. As an example, the following policy shows how you might grant read-only access to roles and users in account B for a resource from account A. The policy specifies the resource by its [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Action": [
@@ -60,13 +55,11 @@ When you share a resource in account A to another account B, roles and users in 
                 "ram:List*"
             ],
             "Effect": "Allow",
-            "Resource": "arn:aws:{{<service>}}:{{us-east-1}}:{{<Account-A-ID>}}:{{<resource-id>}}"
+            "Resource": "arn:aws:ram:{{us-east-1}}:{{111111111111}}:resource-share/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}"
         }
     ]
 }
 ```
-
-------
 
 ### The resource is in a different AWS Region than the current console setting
 <a name="tshoot-cant-see-shared-4"></a>

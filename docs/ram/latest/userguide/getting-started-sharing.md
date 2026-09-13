@@ -143,7 +143,7 @@ For shared resource types **not** on the following list, you have **12 hours** t
 
 1. In **Step 2: Associate a managed permission with each resource type**, you can choose to associate a managed permission created by AWS with the resource type, choose an existing customer managed permission, or you can create your own customer managed permission for supported resource types. For more information, see [Types of managed permissions](security-ram-permissions.md#permissions-types).
 
-   Choose **Create customer managed permission** to construct a customer managed permission that meets the requirements of your sharing use case. For more information see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp). After completing the process, choose ![Refresh icon](http://docs.aws.amazon.com/ram/latest/userguide/images/refresh_icon.PNG) and then you can select your new customer managed permission from the **Managed permissions** dropdown list.
+   Choose **Create customer managed permission** to construct a customer managed permission that meets the requirements of your sharing use case. For more information see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp). After completing the process, choose ![Refresh icon](https://docs.aws.amazon.com/ram/latest/userguide/images/refresh_icon.PNG) and then you can select your new customer managed permission from the **Managed permissions** dropdown list.
 **Note**  
 If the selected managed permission has multiple versions, then AWS RAM automatically attaches the default version. You can attach ***only*** the version designated as the default.
 

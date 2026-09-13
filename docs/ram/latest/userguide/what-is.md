@@ -28,7 +28,7 @@ The following video demonstrates how to apply AWS managed permissions to your AW
 
 This video demonstrates how to author and associate customer managed permissions following the best practice of least privilege. For more information see, [Creating and using customer managed permissions in AWS RAM](create-customer-managed-permissions.md).
 
-[![AWS Videos](http://img.youtube.com/vi/SQoJOuIDLKM/0.jpg)](http://www.youtube.com/watch?v=SQoJOuIDLKM)
+[![AWS Videos](https://img.youtube.com/vi/SQoJOuIDLKM/0.jpg)](https://www.youtube.com/watch?v=SQoJOuIDLKM)
 
 
 ## Benefits of AWS RAM

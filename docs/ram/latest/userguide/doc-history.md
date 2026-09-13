@@ -9,6 +9,7 @@ For notification about these updates, you can subscribe to the AWS RAM RSS feed.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added support for sharing Amazon Elastic Block Store volumes](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-ec2) | You can now share Amazon Elastic Block Store (Amazon EBS) volumes with other AWS accounts or your organization. | August 20, 2026 | 
 | [Added support for sharing Amazon CloudFront resources](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-cloudfront) | You can now share Amazon CloudFront VPC Origins with other AWS accounts within your organization. | October 6, 2025 | 
 | [Added support to share Billing and Cost Management resources](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-bcm) | You can now share Billing and Cost Management dashboards with other AWS accounts or your organization with AWS RAM. | August 19, 2025 | 
 | [Added support for sharing AWS Cloud Map resources](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-cloudmap) | You can now share AWS Cloud Map namespaces with other AWS accounts within your organization. | August 14, 2025 | 
