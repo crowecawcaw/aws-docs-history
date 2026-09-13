@@ -23,7 +23,7 @@ Use connections with:
 
   For more information, see [Call HTTPS APIs in Step Functions workflows](https://docs.aws.amazon.com/step-functions/latest/dg/connect-third-party-apis.html) in the *Step Functions User Guide*.
 
-![EventBridge and Step Functions use connections as authorization and network connectivity configurations for HTTPS endpoints.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/connections-overview_eventbridge_conceptual.svg)
+![EventBridge and Step Functions use connections as authorization and network connectivity configurations for HTTPS endpoints.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/connections-overview_eventbridge_conceptual.svg)
 
 
 Connections are reusable. You can use the same connection to the same API for multiple EventBridge API destinations or Step Functions tasks, as long as the authentication method is the same. If API destinations or tasks require different authentication, then you must create separate connections.

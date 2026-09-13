@@ -9,7 +9,7 @@ With a VPC, you have control over your network settings, such as the IP address 
 
 Interface VPC endpoints are powered by AWS PrivateLink, which enables private communication between AWS services using an elastic network interface with private IP addresses. For more information, see [AWS PrivateLink and VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html).
 
-![Private interface endpoints providing connections between VPCs and EventBridge event buses, pipes, and schemas.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/interface-vpc_eventbridge_conceptual.svg)
+![Private interface endpoints providing connections between VPCs and EventBridge event buses, pipes, and schemas.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/interface-vpc_eventbridge_conceptual.svg)
 
 
 When you use a private interface VPC endpoint, custom [events](eb-events.md) your VPC sends to EventBridge use that endpoint. EventBridge then sends those events to other AWS services based on the [rules](eb-rules.md) and [targets](eb-targets.md) that you've configured. Once events are sent to another service you can receive them through either the public endpoint or a VPC endpoint for that service. For example, if you create a rule to send events to an Amazon SQS queue, you can configure an interface VPC endpoint for Amazon SQS to receive messages from that queue in your VPC without using the public endpoint. 

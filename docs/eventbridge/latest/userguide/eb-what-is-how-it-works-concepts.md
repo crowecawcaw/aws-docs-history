@@ -19,7 +19,7 @@ Common use cases for event buses include:
 + Using multiple event buses in your applications to divide up the event traffic. For example, creating a bus to process events containing personal identification information (PII), and another bus for events that don't.
 + Aggregating events by sending events from multiple event buses to a centralized event bus. This centralized bus can be in the same account as the other buses, but can also be in a different account or Region.
 
-![The different event buses that receive events from AWS services, custom apps, or partner sources.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus-overview-types_eventbridge_conceptual.svg)
+![The different event buses that receive events from AWS services, custom apps, or partner sources.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus-overview-types_eventbridge_conceptual.svg)
 
 
 ## Events

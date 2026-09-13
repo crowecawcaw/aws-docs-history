@@ -42,6 +42,9 @@ To record events with one of the CloudTrail `detail-type` values, you must enabl
 **Note**  
 All CloudTrail events are delivered to the default event bus only. To process CloudTrail events on a custom event bus, create a rule on the default bus that forwards matching events to your custom bus.
 
+**Note**  
+If you forward read-only management events to another event bus (a custom event bus, or a bus in another account or Region), two rules need the state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`: the forwarding rule on the default event bus, and the rule on the destination event bus. A rule in the default `ENABLED` state does not match read-only management events, so its targets are not invoked.
+
 The rule state controls which event categories are matched:
 + *Write (mutating) management events* — Matched by rules in the default `ENABLED` state. No special configuration needed beyond an active trail.
 + *Read-only management events* — Matched only by rules with state set to `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`. For more information, see [Receiving read-only management events from AWS services](eb-service-event-cloudtrail-management.md).

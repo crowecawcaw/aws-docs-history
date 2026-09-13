@@ -7,8 +7,8 @@ When a custom or partner event is sent to an event bus, EventBridge encrypts tha
 + If the target of a rule is another event bus in the same AWS Region:
 
   If the target event bus has a specified customer managed key, EventBridge encrypts the event with the customer managed key of the target event bus for delivery instead.  
-![An event sent from one event bus to another, encrypted using the key of the target event bus.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/cmkms-bus-same-region_eventbridge_conceptual.svg)
+![An event sent from one event bus to another, encrypted using the key of the target event bus.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/cmkms-bus-same-region_eventbridge_conceptual.svg)
 + If the target of a rule is another event bus in a different AWS Region:
 
   EventBridge encrypts the event at rest according to the KMS key configuration on the first event bus. EventBridge uses TLS to send the event to the second event bus in the different Region, where it is then encrypted according to the KMS key configuration specified for the target event bus.  
-![An event sent to a target event bus in a different Region, using TLS in transit.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/cmkms-bus-cross-region_eventbridge_conceptual.svg)
+![An event sent to a target event bus in a different Region, using TLS in transit.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/cmkms-bus-cross-region_eventbridge_conceptual.svg)

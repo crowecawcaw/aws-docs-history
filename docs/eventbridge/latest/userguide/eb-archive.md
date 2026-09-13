@@ -18,7 +18,7 @@ When you create an archive, you can specify:
 
 Each archive receives events from a single *source* event bus. You cannot change the source event bus once an archive is created. You can create multiple archives for a given event bus.
 
-![Events are filtered by an event pattern and sent to an archive, from which they can be replayed.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/archive_eventbridge_conceptual.svg)
+![Events are filtered by an event pattern and sent to an archive, from which they can be replayed.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/archive_eventbridge_conceptual.svg)
 
 
 EventBridge charges apply to archives. Please refer to [Amazon EventBridge Pricing](https://aws.amazon.com/eventbridge/pricing/) for details.

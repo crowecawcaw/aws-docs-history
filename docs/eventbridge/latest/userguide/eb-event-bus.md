@@ -5,7 +5,7 @@
 
 An event bus is a router that receives [events](eb-events.md) and delivers them to zero or more destinations, or *targets*. Event buses are well-suited for routing events from many sources to many targets, with optional transformation of events prior to delivery to a target. 
 
-![Sources send events to an EventBridge event bus, which then routes them to the appropriate targets.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus_eventbridge_conceptual.svg)
+![Sources send events to an EventBridge event bus, which then routes them to the appropriate targets.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus_eventbridge_conceptual.svg)
 
 
 [Rules](eb-rules.md) associated with the event bus evaluate events as they arrive. Each rule checks whether an event matches the rule's pattern. If the event does match, EventBridge sends the event 
@@ -30,7 +30,7 @@ At a high level, here's how it works:
 
    An event might match multiple rules, and each rule can specify up to five targets. (An event may not match any rules, in which case EventBridge takes no action.)
 
-![An event bus compares events against rules, and sends matching events to the specified targets.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus-overview_eventbridge_conceptual.svg)
+![An event bus compares events against rules, and sends matching events to the specified targets.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus-overview_eventbridge_conceptual.svg)
 
 
 Consider an example using the EventBridge default event bus, which automatically receives events from AWS services:

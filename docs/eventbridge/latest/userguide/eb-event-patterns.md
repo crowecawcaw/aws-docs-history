@@ -60,7 +60,7 @@ For guidance on how to write precise rules and event patterns to minimize such u
 
 For event buses, you can specify an event pattern for each rule you create for the bus. In this way, you can select which events to send to specific targets. Event patterns for event buses can match against the event source, event metadata, and/or event detail values.
 
-![An event is compared to each bus rule's event pattern, and sent to the target if it matches.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/event-pattern-bus_eventbridge_architecture.svg)
+![An event is compared to each bus rule's event pattern, and sent to the target if it matches.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/event-pattern-bus_eventbridge_architecture.svg)
 
 
  The following video discusses the basics of event patterns for event buses:
@@ -73,7 +73,7 @@ For event buses, you can specify an event pattern for each rule you create for t
 
 For EventBridge Pipes, you can specify event patterns to filter the events from the pipe source that you want delivered to the pipe target. Since each pipe has a single event source, event patterns for pipes can match against event metadata and/or detail values.
 
-![An event is compared against the pipe's event pattern, and sent to the target if it matches.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/event-pattern-pipes_eventbridge_architecture.svg)
+![An event is compared against the pipe's event pattern, and sent to the target if it matches.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/event-pattern-pipes_eventbridge_architecture.svg)
 
 
 Not all event fields can be used to construct pipe event patterns. For more information, see [Filtering](eb-pipes-event-filtering.md).

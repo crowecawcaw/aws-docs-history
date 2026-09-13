@@ -5,7 +5,7 @@
 
 [Amazon EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html) is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. With EventBridge Scheduler, you can create schedules using cron and rate expressions for recurring patterns, or configure one-time invocations. You can set up flexible time windows for delivery, define retry limits, and set the maximum retention time for failed API invocations.
 
-![At specific times or defined intervals, the schedule sends tasks to your specified AWS service API.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/schedule-types_eventbridge_conceptual.svg)
+![At specific times or defined intervals, the schedule sends tasks to your specified AWS service API.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/schedule-types_eventbridge_conceptual.svg)
 
 
 EventBridge Scheduler is highly customizable, and offers improved scalability over [EventBridge scheduled rules](eb-create-rule-schedule.md), with a wider set of target API operations and AWS services. We recommend that you use EventBridge Scheduler to invoke targets on a schedule.

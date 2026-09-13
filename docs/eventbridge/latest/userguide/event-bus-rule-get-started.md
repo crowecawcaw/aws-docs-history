@@ -17,7 +17,7 @@ The deployed resources consist of:
 
 For specific technical details of the template, see [Template details](#event-bus-rule-get-started-template-details).
 
-![Amazon S3 events are matched to the rule's event pattern, and sent to an SNS topic if they match.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/rule-get-started_eventbridge_architectural.svg)
+![Amazon S3 events are matched to the rule's event pattern, and sent to an SNS topic if they match.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/rule-get-started_eventbridge_architectural.svg)
 
 
 ## Before you begin

@@ -7,7 +7,7 @@ If you configure customer managed key encryption on an event bus, we recommend t
 + If a non-retriable encryption or decryption error occurs while EventBridge is processing the event on the event bus, the event is sent to the DLQ for the *event bus*, if one is specified.
 + If a non-retriable encryption or decryption error occurs while EventBridge is attempting to send the event to a target, including input transformations and target-specific settings, the event is sent to the DLQ for the *target*, if one is specified.
 
-![A non-retriable error during event bus processing, sent to the event bus DLQ.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/cmkms-bus-dlq_eventbridge_conceptual.svg)
+![A non-retriable error during event bus processing, sent to the event bus DLQ.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/cmkms-bus-dlq_eventbridge_conceptual.svg)
 
 
 For more information, including considerations when using DLQs, and instructions on setting permissions, see [Using dead-letter queues](eb-rule-dlq.md).

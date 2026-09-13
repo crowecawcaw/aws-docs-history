@@ -28,4 +28,4 @@ The diagram below presents a detailed view of the event processing flow, with al
 
 For a complete list of steps, see [Specifying log level](eb-event-bus-logs.md#eb-event-bus-logs-level).
 
-![EventBridge proceeds through steps to process each event sent to the bus.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus_logging_eventbridge_conceptual.svg)
+![EventBridge proceeds through steps to process each event sent to the bus.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus_logging_eventbridge_conceptual.svg)

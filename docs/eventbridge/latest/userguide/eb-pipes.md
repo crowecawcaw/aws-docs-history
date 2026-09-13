@@ -27,7 +27,7 @@ At a high level, here's how EventBridge Pipes works:
 
      If the events are batched, the enrichment maintains the ordering of the events in the batch.
 
-![A source sends events to a pipe, which filters and routes matching events to the target.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/pipes-overview_eventbridge_architectural.svg)
+![A source sends events to a pipe, which filters and routes matching events to the target.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/pipes-overview_eventbridge_architectural.svg)
 
 
 For example, a pipe could be used to create an e-commerce system. Suppose you have an API that contains customer information, such as shipping addresses. 

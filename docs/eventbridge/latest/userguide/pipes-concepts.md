@@ -10,7 +10,7 @@ Here's a closer look at the basic components of EventBridge Pipes.
 
 A pipe routes events from a single source to a single target. The pipe also includes the ability to filter for specific events, and to perform enrichments on the event data before it is sent to the target.
 
-![A pipe routes filtered events to the specified target, with optional enrichment steps.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/pipes-overview-detailed_eventbridge_architectural.svg)
+![A pipe routes filtered events to the specified target, with optional enrichment steps.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/pipes-overview-detailed_eventbridge_architectural.svg)
 
 
 ## Source

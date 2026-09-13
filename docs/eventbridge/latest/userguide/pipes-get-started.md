@@ -17,7 +17,7 @@ The deployed pipe consists of:
 
 For specific technical details of the template, see [Template details](#pipes-get-started-template-details).
 
-![Database events are matched to a filter, and sent to a queue if they match.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/pipes-get-started_eventbridge_architectural.svg)
+![Database events are matched to a filter, and sent to a queue if they match.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/pipes-get-started_eventbridge_architectural.svg)
 
 
 ## Creating the pipe using CloudFormation
@@ -117,7 +117,7 @@ Once the pipe has been created, you can use the EventBridge console to observe p
 1. Choose the pipe you created.
 
    On the pipe detail page, the **Pipe Components** section displays the resources that make up the pipe, and contains tabs that provide more details on each component.  
-![The pipe detail page graphically displays source, filter, and target components for the pipe.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/pipes-get-started_eventbridge_pipe-detail.png)
+![The pipe detail page graphically displays source, filter, and target components for the pipe.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/pipes-get-started_eventbridge_pipe-detail.png)
 
    You can find the execution role we created for the pipe on the **Settings** tab, in the **Permissions** section.
 

@@ -17,7 +17,7 @@ EventBridge includes two ways to process and deliver events: *event buses* and *
 
 In addition, EventBridge provides [EventBridge Scheduler](using-eventbridge-scheduler.md), a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. With EventBridge Scheduler, you can create schedules using cron and rate expressions for recurring patterns, or configure one-time invocations. You can set up flexible time windows for delivery, define retry limits, and set the maximum retention time for failed API invocations.
 
-![EventBridge provides multiple ways to process and deliver events: buses, pipes, and schedules.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/service_eventbridge_conceptual.svg)
+![EventBridge provides multiple ways to process and deliver events: buses, pipes, and schedules.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/service_eventbridge_conceptual.svg)
 
 
 ## Sign up for an AWS account

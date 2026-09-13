@@ -11,7 +11,7 @@ EventBridge then creates a *resource association* that enables EventBridge to ac
 
 While EventBridge manages the resource association, it creates the association using your credentials, so you retain visibility into the resource association operation.
 
-![EventBridge and Step Functions use connections as authorization configurations for HTTPS endpoints.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/connections-private-destination_eventbridge_conceptual.svg)
+![EventBridge and Step Functions use connections as authorization configurations for HTTPS endpoints.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/connections-private-destination_eventbridge_conceptual.svg)
 
 
 You can create connections that access private APIs in other AWS accounts. For more information, see [Cross-account private APIs](connection-private-cross-region.md).

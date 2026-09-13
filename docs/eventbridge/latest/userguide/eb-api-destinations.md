@@ -9,7 +9,7 @@ When you specify an API destination as a rule or pipe target, EventBridge invoke
 
 You can also use input transformers to customize the event to the parameters of a specific HTTP endpoint parameters. For more information, see [Amazon EventBridge input transformation](eb-transform-target-input.md).
 
-![API destinations use a connection with authorization parameters to send events to HTTP endpoints.](http://docs.aws.amazon.com/eventbridge/latest/userguide/images/api-destinations-overview_eventbridge_conceptual.svg)
+![API destinations use a connection with authorization parameters to send events to HTTP endpoints.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/api-destinations-overview_eventbridge_conceptual.svg)
 
 
 EventBridge API destinations use *connections* to define the authorization method and credentials and network connectivity for EventBridge to use when connecting to a given HTTPS endpoint. Connections support both public and private APIs. For more information, see [Connections](eb-target-connection.md).
