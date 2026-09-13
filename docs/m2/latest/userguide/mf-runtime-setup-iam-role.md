@@ -17,10 +17,10 @@ An IAM policy is created first and then attached to the role.
 1. Navigate to AWS Identity and Access Management in the AWS Management Console.
 
 1. Choose **Policies** and then **Create Policy**.  
-![Policy page with no filters applied.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_1.png)
+![Policy page with no filters applied.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_1.png)
 
 1. Choose the **JSON** tab.  
-![JSON tab with no content](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_2.png)
+![JSON tab with no content](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_2.png)
 
 1. Replace `us-west-1` in the following JSON with the AWS Region where the Amazon S3 endpoint was defined, then copy and paste the JSON into the policy editor.
 
@@ -62,15 +62,15 @@ An IAM policy is created first and then attached to the role.
 ------
 **Note**  
 The Actions under the Sid `OtherRequiredActions` do not support resource-level permissions and must specify `*` in the resource element.  
-![JSON tab with policy entered and us-west-1 highlighted.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_3.png)
+![JSON tab with policy entered and us-west-1 highlighted.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_3.png)
 
 1. Choose **Next: Tags**.  
-![Tags with no data entered.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_4.png)
+![Tags with no data entered.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_4.png)
 
 1. Optionally enter any tags, then choose **Next: Review**.
 
 1. Enter a name for the policy, for example “Micro-Focus-Licensing-policy”. Optionally enter a description, for example “A role that includes this policy must be attached to each AWS Mainframe Modernization Amazon EC2 instance.”  
-![Review policy with name and description entered.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_5.png)
+![Review policy with name and description entered.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-policy_5.png)
 
 1. Choose **Create Policy**.
 
@@ -82,10 +82,10 @@ After creating an IAM policy, you create an IAM role and attach it to the policy
 1. Navigate to IAM in the AWS Management Console.
 
 1. Choose **Roles** and then **Create Role**.  
-![Roles with no filter applied.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_1.png)
+![Roles with no filter applied.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_1.png)
 
 1. Leave **Trusted entity type** as **AWS service** and choose the **EC2** common use case.  
-![Select trusted entity with AWS service and EC2 selected](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_2.png)
+![Select trusted entity with AWS service and EC2 selected](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_2.png)
 
 1. Choose **Next**.
 
@@ -94,12 +94,12 @@ After creating an IAM policy, you create an IAM role and attach it to the policy
 1. Choose the policy that was just created, for example the “Micro-Focus-Licensing-policy”. 
 
 1. Choose **Next**.  
-![Add permissions with Micro Focus policy selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_3.png)
+![Add permissions with Micro Focus policy selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_3.png)
 
 1. Enter the Role name, for example “Micro-Focus-Licensing-role”. 
 
 1. Replace the description with one of your own, for example “Allows Amazon EC2 instances with this role to obtain Micro Focus Licenses”.   
-![Role details with name and description entered.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_4.png)
+![Role details with name and description entered.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_4.png)
 
 1. Under **Step 1: Select trusted entities** review the JSON and confirm it has the following values:
 
@@ -132,7 +132,7 @@ After creating an IAM policy, you create an IAM role and attach it to the policy
 The order of the Effect, Action, and Principal are not significant.
 
 1. Confirm that **Step 2: Add permissions** shows your Licensing policy.  
-![Step 2: Add permissions with licensing policy selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_6.png)
+![Step 2: Add permissions with licensing policy selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-iam-role_6.png)
 
 1. Choose **Create role**.
 

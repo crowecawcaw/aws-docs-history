@@ -24,7 +24,7 @@ If you have trouble accessing or using the AMIs, the following information might
 
 This can be checked on the Security tab of the Amazon EC2 Instance Details. This can be changed using the Security Option of the **Actions** drop down menu.
 
-![Instances security tab showing the IAM licensing role.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-troubleshooting-instance-role.png)
+![Instances security tab showing the IAM licensing role.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-troubleshooting-instance-role.png)
 
 
 ## Use the reachability analyzer

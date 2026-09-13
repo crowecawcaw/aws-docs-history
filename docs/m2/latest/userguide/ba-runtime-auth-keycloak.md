@@ -18,29 +18,29 @@ This topic describes how to configure OAuth2 authentication for Gapwalk applicat
 <a name="keycloak-setup"></a>
 
 1. Go to your Keycloak dashboard in your web browser. The default credentials are admin/admin. Go to the top left navigation bar, and create a realm with the name **demo**, as shown in the following image.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_2.png)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_2.png)
 
 1. Create a client with the name **app-demo**.  
-![Clients list page with Create client button highlighted in the toolbar.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_3.jpg)
+![Clients list page with Create client button highlighted in the toolbar.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_3.jpg)
 
    Replace `localhost:8080` with the address of your Gapwalk application  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_4.png)  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_5.png)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_4.png)  
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_5.png)
 
 1. To get your client secret, choose **Clients**, then **app-demo**, then **Credentials**.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_6.jpg)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_6.jpg)
 
 1. Choose **Clients**, then **Client scopes**, then **Add predefined mapper**. Choose **realm roles**.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_7.jpg)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_7.jpg)
 
 1. Edit your realm role with the configuration shown in the following image.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_8.jpg)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_8.jpg)
 
 1. Remember the defined **Token Claim Name**. You’ll need this value in the Gapwalk settings definition for the `gapwalk-application.security.claimGroupName` property.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_9.jpg)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_9.jpg)
 
 1. Choose **Realms roles**, and create 3 roles: **SUPER\_ADMIN**, **ADMIN**, and **USER**. These roles are later mapped to `ROLE_SUPER_ADMIN`, `ROLE_ADMIN`, and `ROLE_USER` by the Gapwalk application to be able to access some restricted API REST calls.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_10.jpg)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-runtime-auth-keycloak_10.jpg)
 
 ## Integrate Keycloak into the Gapwalk application
 <a name="gapwalk-setup"></a>

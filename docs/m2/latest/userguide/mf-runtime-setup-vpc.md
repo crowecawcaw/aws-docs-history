@@ -14,28 +14,28 @@ In this section, you create a Amazon VPC endpoint for Amazon S3 to use. Setting 
 1. In the navigation pane, choose **Endpoints**.
 
 1. Choose **Create endpoint**.  
-![VPC endpoints with Create Endpoint active.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_1.jpg)
+![VPC endpoints with Create Endpoint active.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_1.jpg)
 
 1. Enter a meaningful name tag, for example: “Micro-Focus-License-S3”.
 
 1. Choose **AWS Services** as the Service Category.  
-![Endpoint Settings with sample name tag entered.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_2.png)
+![Endpoint Settings with sample name tag entered.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_2.png)
 
 1. Under **Services** search for the Amazon S3 Gateway service: **com.amazonaws.[region].s3**.
 
    For `us-west-1` this would be: `com.amazonaws.us-west-1.s3`.
 
 1. Choose the **Gateway** service.  
-![Services with Amazon S3 Gateway service selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_3.png)
+![Services with Amazon S3 Gateway service selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_3.png)
 
 1. For VPC choose the VPC you will be using.  
-![VPC with a VPC entered.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_4.png)
+![VPC with a VPC entered.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_4.png)
 
 1. Choose all of the route tables for the VPC.  
-![Route tables with all route tables selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_5.png)
+![Route tables with all route tables selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_5.png)
 
 1. Under **Policy** choose **Full Access**.  
-![Policy with Full Access selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_6.png)
+![Policy with Full Access selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-create-s3-endpoint_6.png)
 **Note**  
 If you decide to create a custom policy, make sure it has access to the Amazon S3 bucket `s3://aws-supernova-marketplace-<region>-prod`.
 

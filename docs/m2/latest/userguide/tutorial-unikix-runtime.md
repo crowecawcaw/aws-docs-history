@@ -30,7 +30,7 @@ For more information about this application, see, [GitHub repository for CardDem
 
 The following diagram shows each step in the workflow for deploying an application on the NTT DATA Unikix runtime.
 
-![The overall workflow of deploying the application on NTT DATA Unikix runtime.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-process.png)
+![The overall workflow of deploying the application on NTT DATA Unikix runtime.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-process.png)
 
 
 ## Prerequisites
@@ -155,46 +155,46 @@ After creating a TPE region, you need to create the BPE node and subsystem by fo
    ```
 
    1. Start the BPE node using the BAM interface. Choose option 2, **System Environments** from the main menu.  
-![In Batch Administrator Manager, choose option 2 System Environments.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-1.png)
+![In Batch Administrator Manager, choose option 2 System Environments.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-1.png)
 
    1. Choose option 2, **Start/(Stop) Batch Node** to start the BPE node.   
-![In System Environments, choose option 2 Start/Stop batch node.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-2.png)
+![In System Environments, choose option 2 Start/Stop batch node.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-2.png)
 
    1. Once started, press the **Return key** twice to return to the BAM main menu.  
-![Batch Node Startup completed screen.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-3.png)
+![Batch Node Startup completed screen.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-3.png)
 
    1. To create the BPE subsystem, choose option 3, **Applications & Subsystems**.  
-![Option 3 Applications and Subsystems selected on the Batch Administrator Manager page.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-4.png)
+![Option 3 Applications and Subsystems selected on the Batch Administrator Manager page.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-4.png)
 
    1. Then choose option 3, **Create a Subsystem**.  
-![Option 3 Create a Subsystem selected on the Applications and Subsystems screen.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-5.png)
+![Option 3 Create a Subsystem selected on the Applications and Subsystems screen.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-5.png)
 
    1. Enter the subsystem name as `sys1`.  
-![Entered sys1 on the Create screen.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-6.png)
+![Entered sys1 on the Create screen.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-6.png)
 
    1. Choose option 3, **Data Management**.  
-![Chose option 3 Data Management on the Create screen in Applications and Subsystem.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-7.png)
+![Chose option 3 Data Management on the Create screen in Applications and Subsystem.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-7.png)
 
    1. Choose option 5, as the CardDemo application involves both sequential and VSAM files.  
-![Choose option 5 to include sequential and VSAM files.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-8.png)
+![Choose option 5 to include sequential and VSAM files.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-8.png)
 
    1. (Optional). Press "R" to return to the **Create Menu** page, review the different configuration options available.
 
    1. On the **Create** page, enter "C" to create the subsystem `sys1`.  
-![Press "C" on the keyboard to create subsystem sys1.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-9.png)
+![Press "C" on the keyboard to create subsystem sys1.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-9.png)
 
    1. Review the settings, and enter "C" to continue for the rest of the environment settings. These environment settings are pre populated due to the necessary environment variables defined in the `carddemo.env` setup file and the recommended folder structure being in place.
 
    1. Enter "y" to confirm and save the current environment settings.  
-![Displays sys1 subsystem's environment setting completed. Also type "y" to save current settings.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-10.png)
+![Displays sys1 subsystem's environment setting completed. Also type "y" to save current settings.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-10.png)
 
    1. Enter "y" to display the log when building the subsystem.  
-![Shows building sys1's NTT DATA COBOL runtime system on the screen.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-11.png)
+![Shows building sys1's NTT DATA COBOL runtime system on the screen.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-11.png)
 
    1. Press the **Return key** until you go back to the Main Menu and exit the BAM interface by selecting the **Quit** option.  
-![Displays COBOL runtime system created. Also prompts to press Return to continue.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-12.png)  
-![Returns to the Create menu and shows subsystem sys1 is created. And configuration is updated. Prompts to press return to continue.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-13.png)  
-![Main Menu for Batch Administrator. Prompts to enter Q to quit this menu.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-14.png)
+![Displays COBOL runtime system created. Also prompts to press Return to continue.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-12.png)  
+![Returns to the Create menu and shows subsystem sys1 is created. And configuration is updated. Prompts to press return to continue.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-13.png)  
+![Main Menu for Batch Administrator. Prompts to enter Q to quit this menu.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-bpe-14.png)
 
 1. Activate the BPE subsystem by sourcing the `batchenv` with the subsystem name `sys1`.
 
@@ -340,7 +340,7 @@ In this step, you need to start the previously created TPE region along with the
    ```
    ebmsys -t
    ```  
-![Displays the Subsystem name as sys1. TPE is connected and the TPE user is ec2-user.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-start-1.png)
+![Displays the Subsystem name as sys1. TPE is connected and the TPE user is ec2-user.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-start-1.png)
 
 ## Step 7: Run the CardDemo application
 <a name="unikix-tutorial-run-application"></a>
@@ -355,7 +355,7 @@ The UniKix runtime AMI comes with TN3270 terminal emulator that you can launch d
   ```
   kixterm
   ```  
-![The main screen of TPE UniKix CardDemo sample application for mainframe.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-00.png)
+![The main screen of TPE UniKix CardDemo sample application for mainframe.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-00.png)
 
 (Optional). If you want to use your own terminal emulator:
 
@@ -366,7 +366,7 @@ The UniKix runtime AMI comes with TN3270 terminal emulator that you can launch d
    ```
    cat $KIXSYS/unikixrc.cfg
    ```  
-![Displays the details of the UniKix unikixrc.cfg file with the listener port as 15440.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-1.png)
+![Displays the details of the UniKix unikixrc.cfg file with the listener port as 15440.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-1.png)
 
 1. Configure your TN3270 terminal emulator to use IP address of UniKix runtime instance and port number 15440.
 
@@ -377,13 +377,13 @@ This section assumes that you have connected to the TN3270 terminal emulator usi
 1. After connecting from TN3270 terminal emulator, press "Enter" key to clear the TPE screen and enter the initial transaction.
 
 1. On the initial transaction CC00 (logon screen) enter `USER001` for username and `PASSWORD` for the password.  
-![Main screen for CardDemo. Displays that this is a Credit CardDemo application for Mainframe Modernization. Asks to enter your user ID and password.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-2.png)
+![Main screen for CardDemo. Displays that this is a Credit CardDemo application for Mainframe Modernization. Asks to enter your user ID and password.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-2.png)
 
 1. Choose option “01” from the **Main Menu** to view accounts.  
-![CardDemo application's main menu in the emulator with selected option as 1.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-3.png)
+![CardDemo application's main menu in the emulator with selected option as 1.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-3.png)
 
 1. In the **View Account** screen, enter an account number (e.g., 00000000010). You should see the account information populated from the migrated data.  
-![Details of the CardDemo application with entered account number as 00000000010.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-4.png)
+![Details of the CardDemo application with entered account number as 00000000010.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-carddemo-4.png)
 
 1. Press “PF03” key twice to go back to Log in screen, and exit the TN3270 terminal by pressing "Ctrl\+C" (Windows) or "Cmd\+C" (Macbook).
 
@@ -436,4 +436,4 @@ kixterm
 
 1. Check if **Connect to batch node?** is set to "**Y** and the Node Directory is correct.
 
-![VSAM Configuration Table in the TN3270 terminal emulator. Displaying values for each of the fields in the table.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-troubleshoot.png)
+![VSAM Configuration Table in the TN3270 terminal emulator. Displaying values for each of the fields in the table.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-troubleshoot.png)

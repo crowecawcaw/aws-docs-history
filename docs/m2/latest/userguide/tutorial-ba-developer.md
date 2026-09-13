@@ -77,10 +77,10 @@ In this step, you set up the AWS Transform for mainframe runtime. You must set u
 In this step, you start the Eclipse IDE and choose a location where you want to create a workspace. 
 
 1. In WorkSpaces Applications choose the Launch Application icon on the toolbar, and then choose **Eclipse JEE**.  
-![Launch Application icon on the toolbar in WorkSpaces Applications. Eclipse JEE is selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/aas-ba-eclipse.png)
+![Launch Application icon on the toolbar in WorkSpaces Applications. Eclipse JEE is selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/aas-ba-eclipse.png)
 
 1. When the launcher opens, enter the location where you want to create your workspace, and choose **Launch**.  
-![AWS Transform for mainframe Eclipse IDE launcher in WorkSpaces Applications. Workspace is selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-launcher.png)
+![AWS Transform for mainframe Eclipse IDE launcher in WorkSpaces Applications. Workspace is selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-launcher.png)
 
 Optionally, you can launch Eclipse from the command line, as follows:
 
@@ -116,7 +116,7 @@ Don't include the `-dev` suffix in `gapwalk.version`. For example, a valid value
 1. In **Import Maven Projects**, provide the location of the extracted files and choose **Finish**.
 
    You can safely ignore the following popup. Maven downloads a local copy of `node.js` to build the Angular (\*-web) part of the project:  
-![Warning message about missing node.js.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-node-warning.png)
+![Warning message about missing node.js.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-node-warning.png)
 
    Wait until the end of the build. You can follow the build in the **Progress** view.
 
@@ -128,15 +128,15 @@ Don't include the `-dev` suffix in `gapwalk.version`. For example, a valid value
 In this step, you configure a Tomcat server where you deploy and start your compiled application.
 
 1. In Eclipse, choose **Window > Show View > Servers** to show the **Servers** view:  
-![AWS Transform for mainframe Eclipse with Servers view selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-servers.png)
+![AWS Transform for mainframe Eclipse with Servers view selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-servers.png)
 
 1. Choose **No servers are available. Click this link to create a new server...**. The **New Server**wizard appears. In the **Select the server type** field of the wizard, enter **tomcat v9** , and choose **Tomcat v9.0 Server**. Then choose **Next**.  
-![The New Server dialog box. Tomcat v9.0 Server is selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-new-server.png)
+![The New Server dialog box. Tomcat v9.0 Server is selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-new-server.png)
 
 1. Choose **Browse**, and choose the **tomcat** folder at the root of the Home folder. Leave the JRE at its default value and choose **Finish**.
 
    A **Servers** project is created in the workspace, and a Tomcat v9.0 server is now available in the **Servers** view. This is where the compiled application will be deployed and started:  
-![AWS Transform for mainframe Eclipse Servers tab with new Tomcat server listed.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-server-added.png)
+![AWS Transform for mainframe Eclipse Servers tab with new Tomcat server listed.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-server-added.png)
 
 ## Step 7: Deploy to Tomcat
 <a name="tutorial-ba-developer-deploy-tomcat"></a>
@@ -148,16 +148,16 @@ In this step, you deploy the Planets demo application to the Tomcat server so yo
 1. Upload the [PlanetsDemo-runtime.zip](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/PlanetsDemo/PlanetsDemo-runtime.zip) to the instance, and unzip the file at an accessible location. This ensures that the demo application can access the configuration folders and files that it requires. 
 
 1. Copy the contents of `PlanetsDemo-runtime/tomcat-config` into the `Servers/Tomcat v9.0...` subfolder that you created for your Tomcat server:  
-![AWS Transform for mainframe Eclipse Tomcat v9.0 subfolder and the files that it contains.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-tomcat-subfolder.png)
+![AWS Transform for mainframe Eclipse Tomcat v9.0 subfolder and the files that it contains.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-tomcat-subfolder.png)
 
 1. Open the `tomcat v9.0` server entry in the Servers view. The server properties editor appears:  
-![The server properties editor. The Overview tab is selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-server-properties-editor.png)
+![The server properties editor. The Overview tab is selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-server-properties-editor.png)
 
 1. In the **Overview** tab, increase the **Timeouts** values to 450 seconds for Start, and 150 seconds for Stop, as shown here:  
-![Start timeout value set to 450 seconds. Stop timeout value set to 150 seconds.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-timeout-values.png)
+![Start timeout value set to 450 seconds. Stop timeout value set to 150 seconds.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-timeout-values.png)
 
 1. Choose **Open launch configuration**. A wizard appears. In the wizard, navigate to the **Arguments** folder and, for **Working directory**, choose **Other**. Choose **File System**, and navigate to the `PlanetsDemo-runtime` folder unzipped earlier. This folder should contain a direct subfolder called **config**.  
-![The Edit Configurations dialog box with the working directory specified in the Other field.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-edit-configuration.png)
+![The Edit Configurations dialog box with the working directory specified in the Other field.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-edit-configuration.png)
 
 1. Choose the **Modules** tab of the server properties editor and make the following changes:
    + Choose **Add Web Module** and add `PlanetsDemo-service`.
@@ -173,7 +173,7 @@ In this step, you deploy the Planets demo application to the Tomcat server so yo
 
 The editor content should now be similar to the following.
 
-![The Web Modules tab for the Tomcat server properties with the modules listed.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-web-modules.png)
+![The Web Modules tab for the Tomcat server properties with the modules listed.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-web-modules.png)
 
 
 ## Step 8: Create the JICS database
@@ -188,10 +188,10 @@ In this step, you connect to the database that you created in [Step 1: Create a 
    ```
 
 1. Choose an email address and password as login identifiers. Take note of the provided URL (typically http://127.0.0.1:5050 ). Launch Google Chrome in the instance, copy and paste the URL into the browser, and log in with your identifiers.  
-![The pgAdmin login dialog box.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-pgadmin-login.png)
+![The pgAdmin login dialog box.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-pgadmin-login.png)
 
 1. After you log in, choose **Add New Server** and enter the connection information to the previously created database as follows.  
-![The pgAdmin Register Server dialog box. The Connection tab is selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-pgadmin-register-server.png)
+![The pgAdmin Register Server dialog box. The Connection tab is selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-pgadmin-register-server.png)
 
 1. When you connect to the database server, use **Object > Create > Database** and create a new database named **jics**.
 
@@ -205,18 +205,18 @@ In this step, you start the Tomcat server and the demo application so that you c
 1. To start the Tomcat server and the previously deployed applications, select the server entry in the Servers view and choose **Start**. A console appears that displays startup logs.
 
 1. Check the server status in the **Servers** view, or wait for the **Server startup in [xxx] milliseconds** message in the console. After the server starts, check that gapwalk-application is properly deployed. To do this, access the **http://localhost:8080/gapwalk-application** URL in a Google Chrome browser. You should see the following.  
-![Confirmation message showing that the jics application is running.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-jics-run-confirm.png)
+![Confirmation message showing that the jics application is running.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-jics-run-confirm.png)
 
 1. Access the deployed application frontend from Google Chrome at http://localhost:8080/demo. The following **Transaction Launcher** page should appear.  
-![The JICS transaction launcher page.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-jics-launcher.png)
+![The JICS transaction launcher page.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-jics-launcher.png)
 
 1. To start the application transaction, enter `PINQ` in the input field, and choose **Run** (or press Enter).
 
    The demo app screen should appear.  
-![The PlanetsDemo application screen in insert mode.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-demo-app-screen.png)
+![The PlanetsDemo application screen in insert mode.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-demo-app-screen.png)
 
 1. Type a planet name in the corresponding field and press Enter.  
-![The PlanetsDemo application screen with Earth entered in the Planet name field.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-demo-with-data.png)
+![The PlanetsDemo application screen with Earth entered in the Planet name field.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-demo-with-data.png)
 
 ## Step 10: Debug the application
 <a name="tutorial-ba-developer-debug"></a>
@@ -224,7 +224,7 @@ In this step, you start the Tomcat server and the demo application so that you c
 In this step, you test using the standard Eclipse debugging features. These features are available when you work on a modernized application.
 
 1. To open the main service class, press Ctrl \+ Shift \+ T. Then enter `PlanetsinqProcessImpl`.  
-![The Eclipse Open Type dialog window with PlanetsinqProcessImpl entered.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-open-type.png)
+![The Eclipse Open Type dialog window with PlanetsinqProcessImpl entered.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-eclipse-open-type.png)
 
 1. Navigate to the `searchPlanet` method, and put a breakpoint there.
 

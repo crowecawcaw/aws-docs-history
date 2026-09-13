@@ -9,12 +9,12 @@
 
 Because the BAC is secured and delivers permissions to use features based on the user role, the first step to access the application is to authenticate yourself. After the authentication step, you'll be redirected to the home page. The home page presents the paginated list of data sets found in the Blusam storage:
 
-![Blusam Administration Console showing configuration settings and a table of data sets.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-list-datasets.png)
+![Blusam Administration Console showing configuration settings and a table of data sets.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-list-datasets.png)
 
 
 To return to the home page with the data sets listing, choose the AWS Transform for mainframe logo in the upper left corner of any page of the application. The following image shows the logo.
 
-![Blu Age logo with stylized blue text and orange hyphen.](http://docs.aws.amazon.com/m2/latest/userguide/images/logo_blu_age_aws_console_s.png)
+![Blu Age logo with stylized blue text and orange hyphen.](https://docs.aws.amazon.com/m2/latest/userguide/images/logo_blu_age_aws_console_s.png)
 
 
 The foldable header, labelled "Blusam configuration", contains information about the used Blusam storage configuration:
@@ -31,7 +31,7 @@ The **Bulk Actions** button is disabled when no data set selection has been made
 
 You can use the search field to filer the list based on the data sets names:
 
-![Search field and table showing KSDS data sets with details like keys, records, and dates.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-filtered-list-datasets.png)
+![Search field and table showing KSDS data sets with details like keys, records, and dates.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-filtered-list-datasets.png)
 
 
 The paginated list that follows shows one data set per table row, with the following columns:
@@ -42,7 +42,7 @@ The paginated list that follows shows one data set per table row, with the follo
   + ESDS
   + RRDS
 + Keys: A link to show or hide details about the keys (if any). For example, the given KSDS has the mandatory primary key and one alternative key.   
-![Key details table showing primary and alternative keys with their names, uniqueness, offsets, and lengths.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-shared-bac-keys-details.png)
+![Key details table showing primary and alternative keys with their names, uniqueness, offsets, and lengths.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-shared-bac-keys-details.png)
 
   There is one row per key, with the following columns. None of the fields are editable.
   + Key nature: either a primary key or an alternative key
@@ -57,10 +57,10 @@ The paginated list that follows shows one data set per table row, with the follo
 + Creation date: The date when the data set was created in the Blusam storage.
 + Last modification date: The date when the data set was last updated in the Blusam storage.
 + Cache: A link to show or hide details about the caching strategy applied to this dataset.   
-![Cache details section with options to enable cache at startup and warm up cache.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-shared-bac-cache-details.png)
+![Cache details section with options to enable cache at startup and warm up cache.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-shared-bac-cache-details.png)
   + Enable cache at startup: A checkbox to specify the startup caching strategy for this data set. If selected, the data set will be loaded into cache at startup time.
   + Warm up cache: A button to load the given data set into cache, starting immediately (but hydrating the cache takes some time, depending on the data set size and number of keys). After the data set gets loaded into cache, a notification like the following one appears.  
-![Green box indicating successful achievement of DataSet AWS.M2.CARDDEMO.CUSTDATA.V SAM.KSDS cache warm up.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-warmed-up-cache-notification.png)
+![Green box indicating successful achievement of DataSet AWS.M2.CARDDEMO.CUSTDATA.V SAM.KSDS cache warm up.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-warmed-up-cache-notification.png)
 + Actions: A drop-down list of possible data sets operations. For details, see [Existing data set operations](#ba-shared-bac-usage-datasets).
 
 At the bottom of the page, there is a regular paginated navigation widget for browsing through the pages of the list of data sets.
@@ -70,7 +70,7 @@ At the bottom of the page, there is a regular paginated navigation widget for br
 
 For each data set in the paginated list, there is an **Actions** drop-down list with the following content:
 
-![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-actions-dropdown.png)
+![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-actions-dropdown.png)
 
 
 Each item in the list is an active link that makes it possible to perform the specified action on the data set:
@@ -87,7 +87,7 @@ Details for each action are provided in the following sections.
 
 When you choose the **Read** action for a given data set, you get the following page.
 
-![Blusam Administration Console showing dataset AWS .M2.CARDDEMO.CARDDATA.VSAM.KSDS with filter options and empty data table.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-browse-empty.png)
+![Blusam Administration Console showing dataset AWS .M2.CARDDEMO.CARDDATA.VSAM.KSDS with filter options and empty data table.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-browse-empty.png)
 
 
 The page is made of:
@@ -96,7 +96,7 @@ The page is made of:
   + Record size: the fixed record length, expressed in bytes
   + Total Records: the total number of records stored for this data set
   + Show configuration button (on the right side): a toggle button to show/hide the data set configuration. At first, the configuration is hidden. When using the button, the configuration you see the configuration, as shown in the following image.  
-![Dataset configuration panel with fields for encoding, characters, separators, and currency signs.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-configuration.png)
+![Dataset configuration panel with fields for encoding, characters, separators, and currency signs.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-configuration.png)
 
     When configuration is shown, two new buttons: Save and Reset, used respectively to:
     + save the configuration for this data set and current work session
@@ -105,7 +105,7 @@ The page is made of:
 
 The configurable properties match the configuration properties described in [BAC dedicated configuration file](bac-deployment.md#ba-shared-bac-configuration-file). Refer to that section to understand the meaning of each column and applicable values. Each value can be redefined here for the data set and saved for the work session (using the Save button). After you save the configuration, a banner similar to the one shown in the following image appears.
 
-![Success message indicating configuration has been saved for the current dataset view session.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-configuration-saved-banner.png)
+![Success message indicating configuration has been saved for the current dataset view session.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-configuration-saved-banner.png)
 
 
 The banner states that the work session ends when you leave the current page.
@@ -124,9 +124,9 @@ First line of options:
 
 Next lines of filters: It is possible to define a list of filters, based on the usage of filtering conditions applied to fields (columns) from a given mask, as shown in the following image.
 + Filter mask: The name of the mask to pick the filtering column from. When you choose the field, the list of applicable masks appears. You can choose the mask you want from that list.  
-![Filter mask field with dropdown showing cbacf04c_fq_tran_cat_bal_record option.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-mask-quick-select.png)
+![Filter mask field with dropdown showing cbacf04c_fq_tran_cat_bal_record option.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-mask-quick-select.png)
 + Filter column: The name of the field (column) from the mask, used to filter records. When you choose the field, the list of mask columns appears. To fill the **Filter column** field, choose the desired cell.  
-![Filter column field with dropdown showing available columns including fd_trancat_acct_id.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-filter-column.png)
+![Filter column field with dropdown showing available columns including fd_trancat_acct_id.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-filter-column.png)
 + Filter operator: An operator to apply to the selected column. The following operators are available.
   + equals to: the column value for the record must be equal to the filter value
   + starts with: the column value for the record must start with the filter value
@@ -139,19 +139,19 @@ Next lines of filters: It is possible to define a list of filters, based on the 
 
 Once the minimal number of filter items are set (at least: Filter mask, filter column, filter operator and Filter value must be set), the Add Filter button is enabled, and clicking on it creates a new filter condition on the retrieved records. Another empty filter condition row is added at the top and the added filter condition has a Remove filter button that can be used to suppress the given filter condition:
 
-![Filter configuration interface with options for mask, column, operator, and value.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-added-filter.png)
+![Filter configuration interface with options for mask, column, operator, and value.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-added-filter.png)
 
 
 When you launch the search, the filtered results appear in a paginated table.
 
 **Note**
 + Successive filters are linked by an **and** or an **or**. Every new filter definition starts by setting the link operator, as shown in the following image.  
-![Dropdown menu showing options for filter link operator: "and" or "or".](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-filter-link-operator.png)
+![Dropdown menu showing options for filter link operator: "and" or "or".](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-filter-link-operator.png)
 + There might not be any records that match the given filter conditions.
 
 Otherwise, the results table looks like the one in the following image.
 
-![Data table showing transaction records with account IDs, types, and numerical data.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-filtered-results.png)
+![Data table showing transaction records with account IDs, types, and numerical data.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-filtered-results.png)
 
 
 A header indicates the total number of records that match the filter conditions. After the header, you see the following.
@@ -165,7 +165,7 @@ For each retrieved record, the table has a row that shows the result of applying
 
 Viewing the record's contents in detail:
 
-![Data mask table showing fields for a transaction record with name, type, options, and value columns.](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-ro-details.png)
+![Data mask table showing fields for a transaction record with name, type, options, and value columns.](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-ro-details.png)
 
 + Three toggle buttons for hiding or showing some columns: 
   + Hide/show the type
@@ -181,7 +181,7 @@ Viewing the record's contents in detail:
 
 Editing the record's contents:
 
-![Data record editor showing field names, types, options, byte ranges, and values for transaction data.](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-details.png)
+![Data record editor showing field names, types, options, byte ranges, and values for transaction data.](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-details.png)
 
 
 The editing page is similar to the view page described above, except that the mask items values are editable. Three buttons control the update process:
@@ -189,29 +189,29 @@ The editing page is similar to the view page described above, except that the ma
 + Validate: validates the input, with regards to the mask item type. For each mask item, the result of the validation will be printed using visual labels (`OK` and checkbox if validation succeeded, `ERROR` and red cross if validation failed, alongside an error message giving hints about the validation failure). If the validation succeeded, two new buttons will appear:
   + Save: attempt to update the existing record into Blusam storage
   + Save a copy: attempt to create a new record into Blusam storage  
-![Data record table showing field names, types, options, ranges, and values for transaction data.](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-valid-details.png)
+![Data record table showing field names, types, options, ranges, and values for transaction data.](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-valid-details.png)
   + If saving the record to the storage is successful, a message is displayed and the page will switch to a read-only mode (mask items values cannot be edited anymore):   
-![Success message showing record with id 0 successfully updated with field values displayed.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-record-updated.png)
+![Success message showing record with id 0 successfully updated with field values displayed.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-record-updated.png)
   + If for any reason the record persistence to the storage fails, an error message is displayed in red, providing a failure reason. The most common case of failures are that storing the record would lead to a key corruption (invalid or duplicate key). For an illustration, see the following note. 
   + To exit, choose the **Close** button.
 + Cancel: Ends the editing session, closes the page, and takes you back to the records list page.
 
 **Note:**
 + The validation mechanism only checks that the mask item value is formally compatible with the mask item type. For example, see this failed validation on a numeric mask item:  
-![Data validation interface showing an error for fd_trancat_cd field with XXXX value marked as invalid.](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-invalid-format.png)
+![Data validation interface showing an error for fd_trancat_cd field with XXXX value marked as invalid.](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-invalid-format.png)
 + The validation mechanism might try to auto-correct invalid input, displaying an informational message in blue to indicate that the value has been automatically corrected, according to its type. For example, inputting 7XX0 as the numeric value in the numeric `fd_trncat_cd` mask item:   
-![Data mask interface showing auto-correction of numeric value 7XX0 in fd_trncat_cd field.](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-half-invalid-format.png)
+![Data mask interface showing auto-correction of numeric value 7XX0 in fd_trncat_cd field.](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-half-invalid-format.png)
 
   Calling validation leads to the following:  
-![Data mask interface showing record fields, types, options, and values for a transaction category.](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-half-invalid-format-autofix.png)
+![Data mask interface showing record fields, types, options, and values for a transaction category.](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-half-invalid-format-autofix.png)
 + The validation mechanism does not check whether the given value is valid in terms of key integrity (if any unique key is involved for the given data set). For instance, despite validation being successful, if provided values lead to an invalid or duplicate key situation, the persistence will fail and an error message will be displayed:  
-![Data record form showing WRITE_INVALID_KEY error message despite successful field validation.](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-invalid-key.png)
+![Data record form showing WRITE_INVALID_KEY error message despite successful field validation.](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-record-rw-invalid-key.png)
 
 Deleting a record:
 
 To delete a record, choose the trashcan button:
 
-![Confirmation required dialog box asking to confirm deletion of record with id 0000.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-record-deletion-confirmation-popup.png)
+![Confirmation required dialog box asking to confirm deletion of record with id 0000.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-record-deletion-confirmation-popup.png)
 
 
 ### Loading records into a data set
@@ -219,12 +219,12 @@ To delete a record, choose the trashcan button:
 
 To loading records into a data set, choose **Actions**, then choose **Load**.
 
-![Dropdown menu showing options: Read, Load, Export, Clear, and Delete.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-cmd.png)
+![Dropdown menu showing options: Read, Load, Export, Clear, and Delete.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-cmd.png)
 
 
 A window with load options appears.
 
-![Load data set dialog with reading parameters, file selection options, and Load on Blusam button.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-popup.png)
+![Load data set dialog with reading parameters, file selection options, and Load on Blusam button.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-popup.png)
 
 
 At first, both the **Load on server** and **Load on Blusam** buttons are disabled.
@@ -234,37 +234,37 @@ Reading parameters:
   + Fixed or Variable record length: use the radio-button to specify whether the legacy data set export uses fixed length records or variable length records (the records are expected to start with RDW bytes). If you choose Fixed, the record length must be specified (in bytes) as a positive integer value in the input field. The value should be pre-filled by the information coming from the data set. If you choose Variable, the given input field disappears.
   + File selection: 
     + Local: choose the data set file from your local computer, using the file selector below (Note: the file selector uses your browser's locale for printing its messages -- here in french, but it might look different on your side, which is expected). After you make the selection, the window is updated with the data file name and the **Load on server** button is enabled:   
-![File selection interface with Local and Server options, Browse button, and Load on server button.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-selection.png)
+![File selection interface with Local and Server options, Browse button, and Load on server button.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-selection.png)
 
       Choose **Load on server**. After the progress bar reaches its end, the **Load on Blusam** button gets enabled:  
-![Progress bar fully loaded, with "Load on Blusam" button enabled.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-selection-uploaded.png)
+![Progress bar fully loaded, with "Load on Blusam" button enabled.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-selection-uploaded.png)
 
       To complete the load process to the Blusam storage, choose the **Load on Blusam**. Otherwise, choose **Cancel**. If you choose to go on with the load process, a notification will appear in the lower right corner after the loading process is completed:  
-![Success notification showing Loading file cardxref.txt completed.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-notification.png)
+![Success notification showing Loading file cardxref.txt completed.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-notification.png)
     + Server: choosing this option makes an input field appear while the **Load on server** button disappears. The input field is where you must specify the path to the data set file on the Blusam server (this assumes that you have transferred the given file to the Blusam server first). After you specify the path, **Load on Blusam** gets enabled:   
-![File selection interface with Server option selected and file path input field displayed.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-from-server.png)
+![File selection interface with Server option selected and file path input field displayed.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-from-server.png)
 
       To complete the loading process, Choose **Load on Blusam**. Otherwise, choose **Cancel**. If you choose to proceed with the loading, a notification appears after the loading process is complete. The notification is different from the load from the browser as it displays the data file server path followed by the words **from server**:  
-![Succeeded notification showing the file path C:\Work\Cobot\cartdemo-main\data\carbxref.txt from server.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-from-server-notification.png)
+![Succeeded notification showing the file path C:\Work\Cobot\cartdemo-main\data\carbxref.txt from server.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-load-from-server-notification.png)
 
 ### Exporting records from a data set
 <a name="ba-shared-bac-export-dataset"></a>
 
 To export data set records, choose **Actions** in the current data set row, then choose **Export**:
 
-![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-export-cmd.png)
+![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-export-cmd.png)
 
 
 The following pop-up window appears.
 
-![Data dump configuration window with options for local or server storage and zip dump.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-export-popup.png)
+![Data dump configuration window with options for local or server storage and zip dump.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-export-popup.png)
 
 
 Options:
 
 **To** : a radio button choice, to pick the export destination, either as a download in the browser (**Local (on browser)**) or to a given folder on the **Server** hosting the BAC application. If you choose to export using the **Server** choice, a new input field will be displayed: 
 
-![Radio button for selecting Server as the export destination, with an input field for target folder.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-export-server-folder-location.png)
+![Radio button for selecting Server as the export destination, with an input field for target folder.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-export-server-folder-location.png)
 
 
 As the red asterisk on the right of the input field indicates, it is mandatory to provide a valid folder location on the server (the Dump button will be inactive while no folder location has been provided).
@@ -277,7 +277,7 @@ To export to the server, you must have the sufficient access rights for the serv
 
 To launch the data set export process, choose **Dump**. If you choose to export to browser, check the download folder for the export data set file. The file will have the same name as the data set:
 
-![File explorer showing exported KSDS file with name AWS .M2.CARDDEMO.CARDXREF.VSAM.KSDS.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-export-result-file.png)
+![File explorer showing exported KSDS file with name AWS .M2.CARDDEMO.CARDXREF.VSAM.KSDS.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-export-result-file.png)
 
 
 **Note:**
@@ -290,12 +290,12 @@ To launch the data set export process, choose **Dump**. If you choose to export 
 
 To clear all records from a data set, choose **Actions**, then choose **Clear**:
 
-![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-clear-cmd.png)
+![Actions menu expanded showing Read, Load, Export, Clear, and Delete options.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-clear-cmd.png)
 
 
 After all records are removed from a data set, the following notification appears.
 
-![Green success notification showing "Succeeded" with a checkmark and data set details.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-clear-notification.png)
+![Green success notification showing "Succeeded" with a checkmark and data set details.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-clear-notification.png)
 
 
 ### Deleting a data set
@@ -303,12 +303,12 @@ After all records are removed from a data set, the following notification appear
 
 To delete a data set, choose **Actions**, then choose **Delete**:
 
-![Dropdown menu showing options: Read, Load, Export, Clear, and Delete.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-delete-cmd.png)
+![Dropdown menu showing options: Read, Load, Export, Clear, and Delete.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-delete-cmd.png)
 
 
 After you delete a data set, the following notification appears:
 
-![Green success notification with checkmark indicating data set deletion completed.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-delete-notification.png)
+![Green success notification with checkmark indicating data set deletion completed.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-delete-notification.png)
 
 
 ### Bulk operations
@@ -321,12 +321,12 @@ Three bulk operations are available on data sets:
 
 Bulk operations can only be applied to a selection of data sets (at least one data set needs to be selected); selecting data sets is done through ticking selection checkboxes on the left of data sets rows, in the data sets list table. Selecting at least one data set will enable the Bulk Actions drop down list:
 
-![Dropdown menu showing Bulk Actions options: Export, Clear, and Delete.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-bulk-actions-dropdown.png)
+![Dropdown menu showing Bulk Actions options: Export, Clear, and Delete.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-bulk-actions-dropdown.png)
 
 
  Apart from the fact that the given actions apply on a selection of data sets rather than a single one, the actions are similar to those described above, so please refer to dedicated actions documentation for details. The pop-up windows text contents will be slightly different to reflect the bulk nature. For instance, when trying to delete several data sets, the pop-up window will look like:
 
-![Confirmation dialog asking if user wants to delete all selected data sets.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-delete-bulk-popup.png)
+![Confirmation dialog asking if user wants to delete all selected data sets.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-delete-bulk-popup.png)
 
 
 ## Creating operations
@@ -337,26 +337,26 @@ Bulk operations can only be applied to a selection of data sets (at least one da
 
 Choose **Actions**, then choose **Create single data set**:
 
-![Dropdown menu showing "Bulk Actions" and "Create Actions" buttons with options.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-single-create.png)
+![Dropdown menu showing "Bulk Actions" and "Create Actions" buttons with options.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-single-create.png)
 
 
 The data set creation form will then be displayed as a pop-up window:
 
-![Data set creation form with fields for DataSet Name, Record size max, DataSet Type, and options.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-form-window.png)
+![Data set creation form with fields for DataSet Name, Record size max, DataSet Type, and options.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-form-window.png)
 
 
 You can specify the following attributes for the data set definition:
 + Enabling and disabling naming rules: Use the 'Disable naming rules / Enable naming rules' toggle widget to disable and enable data set naming conventions. We recommend that you leave the toggle on the default value, with enabled data set naming rules (the toggle widget should display "Disable naming rules"):  
-![Toggle switch in the on position labeled Disable naming rules.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-disable-dataset-naming-rules.png)  
-![Toggle switch for enabling naming rules, shown in the off position.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-enable-dataset-naming-rules.png)
+![Toggle switch in the on position labeled Disable naming rules.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-disable-dataset-naming-rules.png)  
+![Toggle switch for enabling naming rules, shown in the off position.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-enable-dataset-naming-rules.png)
 + Data Set name: The name for the data set. If you specify a name that is already in use, the following error message appears.  
-![Error message indicating dataset name already exists, prompting user to choose another.](http://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-dataset-name-already-used-err-msg.png)
+![Error message indicating dataset name already exists, prompting user to choose another.](https://docs.aws.amazon.com/m2/latest/userguide/images/bac-bac-dataset-name-already-used-err-msg.png)
 
   The name must also respect the naming convention if it is enabled:  
-![Input field with naming convention rule for dataset names using alphabetic or national characters.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-name-segment-convention-err-msg.png)  
-![Text field labeled "DataSet Name" with input validation instructions for allowed characters.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-name-segment-characters-err-msg.png)  
-![Input field for dataset name with character limit instruction in red text.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-name-segment-length-err-msg.png)  
-![Dataset Name field showing MY.NEW with error message that name must not end with a period.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-name-ends-with-period-err-msg.png)
+![Input field with naming convention rule for dataset names using alphabetic or national characters.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-name-segment-convention-err-msg.png)  
+![Text field labeled "DataSet Name" with input validation instructions for allowed characters.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-name-segment-characters-err-msg.png)  
+![Input field for dataset name with character limit instruction in red text.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-name-segment-length-err-msg.png)  
+![Dataset Name field showing MY.NEW with error message that name must not end with a period.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-name-ends-with-period-err-msg.png)
 + Record size max: This must be a positive integer representing the record size for a data set with fixed-length records. You can leave it blank for data sets with variable-length records .
 + Fixed length record: A check box to specify whether the record length is fixed or variable. If selected, the data set will have fixed-length records, otherwise the record length will be variable.
 
@@ -367,7 +367,7 @@ You can specify the following attributes for the data set definition:
   + KSDS
 
   For KSDS, you must specify the primary key:  
-![Form fields for KSDS dataset configuration including Primary Key, Offset, Length, and Unique checkbox.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-ksds.png)
+![Form fields for KSDS dataset configuration including Primary Key, Offset, Length, and Unique checkbox.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-ksds.png)
 
   For the primary key, specify the following:
   + Name: This field is optional. The default is **PK**.
@@ -375,7 +375,7 @@ You can specify the following attributes for the data set definition:
   + Length: The length of the primary key. This length must be a positive integer. This field is required.
 
   For KSDS and ESDS, you can optionally define a collection of alternate keys, by choosing the Plus button in front of the Alternate Keys label. Each time you choose that button, a new alternate key definition section appears in the data set creation form:  
-![Alternative Keys section with fields for key name, Offset, Length, and Unique checkbox.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-altkey-definition.png)
+![Alternative Keys section with fields for key name, Offset, Length, and Unique checkbox.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-altkey-definition.png)
 
   For each alternative key, you need to provide:
   + Name: This field is optional. The default value is **ALTK\_\#**, where \# represents an auto-incremented counter that starts at 0.
@@ -389,12 +389,12 @@ You can specify the following attributes for the data set definition:
 
 After you specify the attribute definitions, choose **Create** to proceed:
 
-![Data set creation form with fields for name, size, type, keys, and other settings.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-form-complete-sample.png)
+![Data set creation form with fields for name, size, type, keys, and other settings.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-form-complete-sample.png)
 
 
 The creation window will be closed and the home page showing the list of data sets will be displayed. You can view the details of the newly created data set.
 
-![Data set details showing primary and alternative keys with their properties.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-freshly-created.png)
+![Data set details showing primary and alternative keys with their properties.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-freshly-created.png)
 
 
 ### Create a single data set in Multi-schema mode
@@ -405,7 +405,7 @@ A data set can be created in a Multi-schema mode by prefixing the data set name 
 **Note**  
 The Schema used for creating the data set should be specified in the `application-main.yml` configuration. For more information, see [Multi-schema configuration properties](ba-shared-blusam.md#ba-shared-blusam-configuration-multi-schema).
 
-![Data set creation form with fields for name, size, type, and other configuration options.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-create-single-dataset-Multi-schema.png)
+![Data set creation form with fields for name, size, type, and other configuration options.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-create-single-dataset-Multi-schema.png)
 
 
 If no schema prefix is provided, the data set will get created in the default schema specified in the Blusam datasource URL in [Blusam Datasource configuration](ba-shared-blusam.md#ba-shared-blusam-configuration-multi-schema). If no schema is specified in the Blusam datasource URL, then 'public' schema is used by default.
@@ -413,7 +413,7 @@ If no schema prefix is provided, the data set will get created in the default sc
 **Note**  
 In Multi-schema mode, BAC console displays the schema information of the data set in the first column.
 
-![Blusam Administration Console showing two schemas with KSDS type and their creation dates.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-create-display-datasets-Multi-schema.png)
+![Blusam Administration Console showing two schemas with KSDS type and their creation dates.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-create-display-datasets-Multi-schema.png)
 
 
 ### Create data sets from LISTCAT
@@ -429,7 +429,7 @@ From the Create Actions drop-down list, choose **Create data sets from LISTCAT**
 
 The following dedicated page will be displayed:
 
-![Interface for creating datasets from LISTCAT files, with options for file source and folder path.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-load-LISTCAT.png)
+![Interface for creating datasets from LISTCAT files, with options for file source and folder path.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-load-LISTCAT.png)
 
 
 At this stage, the **Load** button is disabled, which is expected.
@@ -441,24 +441,24 @@ Use the radio buttons to specify how you want to provide the LISTCAT JSON files.
 **To use JSON files on the server**
 
 1. Set the folder path on the server, pointing at the folder containing the LISTCAT JSON files:  
-![Text input field for server folder path with a "Load" button below.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-from-server-listcat-files.png)
+![Text input field for server folder path with a "Load" button below.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-from-server-listcat-files.png)
 
 1. Choose the **Load** button. All recognized data set definitions will be listed in a table:  
-![Table listing AWS M2 CARDDEMO data set definitions from LISTCAT with VSAM KSDS entries.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-from-server-listcat-files-list.png)
+![Table listing AWS M2 CARDDEMO data set definitions from LISTCAT with VSAM KSDS entries.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-from-server-listcat-files-list.png)
 
    Each row represents a data set definition. You can use trashcan button to remove a data set definition from the list.
 **Important**  
 The removal from the list is immediate, with no warning message.
 
 1. The name on the left is a link. You can choose it to show or hide the details of the data set definition, which is editable. You can freely modify the definition, starting on the basis of the parsed JSON file.  
-![Data set configuration form with fields for name, record size, type, and key settings.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-definition-edit-form.png)
+![Data set configuration form with fields for name, record size, type, and key settings.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-definition-edit-form.png)
 
 1. To create all data sets, choose **Create**. All data sets will be created, and will be displayed on the data sets results page. The newly created data sets will all have 0 records.  
-![Data sets results page showing newly created AWS M2 CARDDEMO data sets with 0 records.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-freshly-created-datasets-from-listcat.png)
+![Data sets results page showing newly created AWS M2 CARDDEMO data sets with 0 records.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-freshly-created-datasets-from-listcat.png)
 
 **To upload files to the server**
 
 1. This option is similar to using the files from the server folder path, but in this case you must first upload the files using the file selector. Select all files to upload from your local machine, then choose **Load on server**.  
-![File upload interface with Browse, Load on server, and Remove all buttons, and a progress bar.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-from-uploaded-listcat-files.png)
+![File upload interface with Browse, Load on server, and Remove all buttons, and a progress bar.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-dataset-creation-from-uploaded-listcat-files.png)
 
 1. When the progress bar reaches the end, all files have been successfully uploaded to the server and the **Load** button is enabled. Choose the **Load** button and use the discovered data set definitions as explained previously.

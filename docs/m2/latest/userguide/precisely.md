@@ -37,7 +37,7 @@ When you subscribe to an AWS Marketplace product, you can launch an instance fro
 1. If the terms and conditions are acceptable, choose **Accept Terms**. The subscription might take a few minutes to process.
 
 1. Wait for the thank you message to appear, as shown below. This message confirms that you have successfully subscribed to the product.  
-![The successful subscription message.](http://docs.aws.amazon.com/m2/latest/userguide/images/precisely-subscription-successful.png)
+![The successful subscription message.](https://docs.aws.amazon.com/m2/latest/userguide/images/precisely-subscription-successful.png)
 
 1. In the left navigate pane, choose **Manage subscriptions**. This view shows you all the subscriptions that you've subscribed to.
 

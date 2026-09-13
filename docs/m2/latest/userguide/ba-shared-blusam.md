@@ -74,7 +74,7 @@ Each legacy data set, when imported to Blusam, will be stored to a dedicated tab
 
 See for example the content of a KSDS data set used in the CardDemo application:
 
-![Query results showing id column with values 0 through 3600 and record column containing binary data.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_dataset_storage.png)
+![Query results showing id column with values 0 through 3600 and record column containing binary data.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_dataset_storage.png)
 
 + This particular data set has fixed length records, the length being 300 bytes (hence the collection of ids being multiples of 300).
 + By default, the pgAdmin tool used to query PostgreSQL databases doesn't show byte array column contents, but prints a [binary data] label instead.
@@ -82,7 +82,7 @@ See for example the content of a KSDS data set used in the CardDemo application:
 
 Regarding the data set metadata and keys indexes: each data set is associated with two rows in the table named `metadata`. This is the default naming convention. To learn how to customize it, see [Blusam configuration](#ba-shared-blusam-configuration).
 
-![Table showing two rows with name and metadata columns for VSAM KSDS data set entries.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_dataset_metadata_rows.png)
+![Table showing two rows with name and metadata columns for VSAM KSDS data set entries.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_dataset_metadata_rows.png)
 
 + The first row has the data set name as the value of the *name* column. The *metadata* column is a binary column that contains a binary serialization of the general metadata of the given data set. For details, see [General data set metadata attributes](#ba-shared-blusam-metadata).
 + The second row has the data set name with the suffix `__internal'` as the value of the *name* column. The *metadata* column binary content depends on the "weight" of the data set.
@@ -99,7 +99,7 @@ Additionally, large/very large data sets indexes (if applicable) are stored usin
 + lastkey: binary value of the last (highest) key value stored in the indexes page;
 + metadata: binary compressed serialization of the indexes page (mapping key values to records RBAs).
 
-![Database table showing columns for id, firstkey bytea, lastkey bytea, and metadata oid with binary data rows.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_index_pages.png)
+![Database table showing columns for id, firstkey bytea, lastkey bytea, and metadata oid with binary data rows.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_index_pages.png)
 
 
 The table name is a concatenation of the data set name and the key internal name, which contains information about the key, such as the key offset, whether the key accepts duplicates (set to true to allow duplicates), and the key length. For example, consider a data set named "AWS\_LARGE\_KSDS" that has the following two defined keys:
@@ -108,7 +108,7 @@ The table name is a concatenation of the data set name and the key internal name
 
 In this case, the following tables store the indexes related to the two keys.
 
-![Two collapsed table entries labeled aws_large_ksds_0f18 and aws_large_ksds_3f6.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_large_dataset_indexes_tables.png)
+![Two collapsed table entries labeled aws_large_ksds_0f18 and aws_large_ksds_3f6.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_large_dataset_indexes_tables.png)
 
 
 ### Optimizing I/O throughput using write-behind mechanism
@@ -604,7 +604,7 @@ Regarding the indexes for either the primary key of KSDS or alternate keys on bo
 
 The graphic below shows the size of the key index per record (y-axis) based on the size of the key (x-axis).
 
-![Line graph showing index size per record increasing from 83 to 157 as key size grows from 0 to 80.](http://docs.aws.amazon.com/m2/latest/userguide/images/indexes_size_per_record.png)
+![Line graph showing index size per record increasing from 83 to 157 as key size grows from 0 to 80.](https://docs.aws.amazon.com/m2/latest/userguide/images/indexes_size_per_record.png)
 
 
 The corresponding formula for evaluating the footprint for a given key index of a data set is:

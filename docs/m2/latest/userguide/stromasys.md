@@ -25,7 +25,7 @@ Charon-SSP/4V(\+) emulates the following SPARC hardware:
 
 The following image shows the basic concept of migrating physical hardware to an emulator.
 
-![Migration diagram showing SPARC server hardware transitioning to x86-64 PC server with virtualization layers.](http://docs.aws.amazon.com/m2/latest/userguide/images/stromasys-migrate-hardware-to-emulator.png)
+![Migration diagram showing SPARC server hardware transitioning to x86-64 PC server with virtualization layers.](https://docs.aws.amazon.com/m2/latest/userguide/images/stromasys-migrate-hardware-to-emulator.png)
 
 
 The Charon-SSP virtual machines allow users of Sun and Oracle SPARC-based computers to replace their native hardware in a way that requires little or no change to the original system configuration. This means you can continue to run your applications and data without the need to switch or port to another platform. The Charon-SSP software runs on commodity, Intel 64-bit systems ensuring the continued protection of your investment.
@@ -162,14 +162,14 @@ If your management system supports it, for RHEL 9.x, Rocky Linux 9.x, and Oracle
 We recommend that you create separate storage volumes for Charon application data (e.g., disk images). If necessaryou, you can later migrate such volumes to another instance.
 
 1. Expand the **Advanced details** section, scroll down, and select **Specify CPU options**. Three that are more likely to be useful to a Charon emulator environment are shown in the following image as examples.  
-![The Specify CPUs page with Core count and Threads per core as 2 and 4 selected Number of vCPUs.](http://docs.aws.amazon.com/m2/latest/userguide/images/charon-cpu-options.png)
+![The Specify CPUs page with Core count and Threads per core as 2 and 4 selected Number of vCPUs.](https://docs.aws.amazon.com/m2/latest/userguide/images/charon-cpu-options.png)
 
 1. For a VE license server system with a version earlier than 1.1.23, you must assign the required IAM role to the instance. It must be a role that allows the `ListUsers` action. To assign a role, in the expanded **Advanced details** section either select a role under **IAM instance profile**, or choose **Create a new IAM profile**. For more information, see [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html).
 
 1. If your instance is based on a Charon AL AWS Marketplace image and you plan to use the Stromasys-operated public license servers, you must add the corresponding information to the instance configuration before you launch the instance.
 
    Enter the information for the AutoVE license server as shown in the following image.  
-![AutoVE license server page with Metadata accessible enabled and selected V1 and V2 Metadata version.](http://docs.aws.amazon.com/m2/latest/userguide/images/stromasys-user-data.png)
+![AutoVE license server page with Metadata accessible enabled and selected V1 and V2 Metadata version.](https://docs.aws.amazon.com/m2/latest/userguide/images/stromasys-user-data.png)
 
    The following are valid user data configuration options:
    + **`primary_server=`***`<ip-address>`*`[:<port>]`
@@ -182,7 +182,7 @@ We recommend that you create separate storage volumes for Charon application dat
 At least one license server must be configured at initial launch to enable AutoVE mode. 0therwise, the instance will bind to one of the public license servers operated by Stromasys.
 
 1. In the **Summary** section, choose **Launch instance**. After a while, you will see the following success message:  
-![Successfully initiated launch of instance message.](http://docs.aws.amazon.com/m2/latest/userguide/images/stromasys-launch-success.png)
+![Successfully initiated launch of instance message.](https://docs.aws.amazon.com/m2/latest/userguide/images/stromasys-launch-success.png)
 
 1. At the bottom-right corner of the screen, choose **View all instances**. 
 

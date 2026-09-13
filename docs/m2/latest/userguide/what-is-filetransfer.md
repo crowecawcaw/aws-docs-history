@@ -26,9 +26,9 @@ AWS Mainframe Modernization File Transfer helps you transfer datasets from mainf
 
 The following figure is an overview of how AWS Mainframe Modernization File Transfer works on a conceptual level.
 
-![The how it works for File Transfer feature with different phases.](http://docs.aws.amazon.com/m2/latest/userguide/images/filetransfer-overview.png)
+![The how it works for File Transfer feature with different phases.](https://docs.aws.amazon.com/m2/latest/userguide/images/filetransfer-overview.png)
 
 
 The following figure is an architectural overview of AWS Mainframe Modernization File Transfer feature.
 
-![The architectural overview of the File Transfer feature representing data transfer between mainframe and AWS Cloud Region.](http://docs.aws.amazon.com/m2/latest/userguide/images/filetransfer-architecture.png)
+![The architectural overview of the File Transfer feature representing data transfer between mainframe and AWS Cloud Region.](https://docs.aws.amazon.com/m2/latest/userguide/images/filetransfer-architecture.png)

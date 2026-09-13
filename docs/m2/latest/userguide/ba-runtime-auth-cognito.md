@@ -53,19 +53,19 @@ If you are using another IdP, you can skip this step.
 1. Choose **Create a user pool**.
 
 1. In **Configure sign-in experience**, keep the **Cognito user pool** default provider type. You can choose one or multiple **Cognito user pool sign-in options**; for now, choose **User name**, then choose **Next**.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/cog-auth-provider.png)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/cog-auth-provider.png)
 
 1. In **Configure security requirements**, keep the defaults and disable **Multi-factor authentication** by choosing **No MFA**, and then choose **Next**.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/cog-sec-requirements.png)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/cog-sec-requirements.png)
 
 1. As a security measure, disable **Enable self-registration**, and then choose **Next**.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/cog-config-sign-up.png)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/cog-config-sign-up.png)
 
 1. Choose **Send email with Cognito**, and then choose **Next**.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/cog-email.png)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/cog-email.png)
 
 1. In **Integrate your app**, specify a name for your user pool. In **Hosted authentication pages**, choose **Use the Cognito Hosted UI**.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/cog-domain.png)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/cog-domain.png)
 
 1. For simplicity, in **Domain**, choose **Use a Cognito domain** and enter a domain prefix; for example, `https://planetsdemo`. The demo app must be added as a client.
 
@@ -83,7 +83,7 @@ If you are using another IdP, you can skip this step.
       ```
 
       You can edit the URL later.  
-![alt_text](http://docs.aws.amazon.com/m2/latest/userguide/images/cog-urls.png)
+![alt_text](https://docs.aws.amazon.com/m2/latest/userguide/images/cog-urls.png)
 
    1. In **Allowed sign-out URLs** enter the URL of the sign-out page that you want Amazon Cognito to redirect to when your application signs users out. For example, for backend Gapwalk and BAC applications:
 

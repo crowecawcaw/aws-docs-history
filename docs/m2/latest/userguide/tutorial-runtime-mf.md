@@ -63,7 +63,7 @@ You do not have to create a new S3 bucket but the bucket that you choose must be
 
 Your Amazon S3 bucket now contains the `CardDemo_runtime` folder.
 
-![The CardDemo Objects tab showing the CardDemo application folder.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-carddemo-s3.png)
+![The CardDemo Objects tab showing the CardDemo application folder.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-carddemo-s3.png)
 
 
 For information about S3 buckets, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html).
@@ -255,7 +255,7 @@ Now store the database credentials securely using the AWS Secrets Manager and AW
 1. Choose **Edit**, and then choose **Add row**.
 
 1. Add a **Key** for `sslMode` with a **Value** of `verify-full`:  
-![Enter the key/value pair for the Secrets Manager Secret.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-carddemo-secret.png)
+![Enter the key/value pair for the Secrets Manager Secret.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-carddemo-secret.png)
 
 1. Choose **Save**.
 
@@ -267,7 +267,7 @@ Now store the database credentials securely using the AWS Secrets Manager and AW
 1. Open the [AWS Mainframe Modernization console](https://us-east-2.console.aws.amazon.com/m2/home?region=us-east-2#/landing).
 
 1. In the navigation pane, choose **Environments**. Then choose **Create environment.**  
-![The Create environment page in the Environments tab.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-environment.png)
+![The Create environment page in the Environments tab.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-environment.png)
 
 1. Under **Specify basic information**,
 
@@ -278,7 +278,7 @@ Now store the database credentials securely using the AWS Secrets Manager and AW
    1. Choose the latest **Micro Focus (Rocket) Version**. 
 
    1. Choose **Next**.  
-![Runtime environment name, description, and engine version section.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-create-env-basic.png)
+![Runtime environment name, description, and engine version section.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-create-env-basic.png)
 
 1. Configure the environment
 
@@ -289,19 +289,19 @@ Now store the database credentials securely using the AWS Secrets Manager and AW
    1. Under **Security and network**, choose **Allow applications deployed to this environment to be publicly accessible** and choose at least two public subnets. 
 
    1. Choose **Next**.  
-![The Specify configurations page with high availability cluster and a specific instance type selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/env-config.png)
+![The Specify configurations page with high availability cluster and a specific instance type selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/env-config.png)
 
 1. On the **Attach storage** page, choose **Next**.
 
 1. On the **Schedule maintenance** page, choose **No preference** and then choose **Next**.  
-![The schedule maintenance for environment.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-env-maintenance.png)
+![The schedule maintenance for environment.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-env-maintenance.png)
 
 1. On the **Review and create** page, review all the configurations that you provided for the runtime environment, and then choose **Create environment**.  
-![The Review and create page with previous selections.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-env-review.png)
+![The Review and create page with previous selections.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-env-review.png)
 
 When you've created your environment, a banner appears that says `Environment name was created successfully`, and the **Status** field changes to **Available**. The environment creation process takes several minutes but you can continue with the next steps while it runs.
 
-![The environment created successfully message.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-env-confirm.png)
+![The environment created successfully message.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-env-confirm.png)
 
 
 ## Step 7: Create an application
@@ -310,13 +310,13 @@ When you've created your environment, a banner appears that says `Environment na
 **To create an application**
 
 1. In the navigation pane, choose **Applications**. Then choose **Create application**.  
-![The Applications page with the Create application button shown.](http://docs.aws.amazon.com/m2/latest/userguide/images/app-create.png)
+![The Applications page with the Create application button shown.](https://docs.aws.amazon.com/m2/latest/userguide/images/app-create.png)
 
 1. On the **Create application** page, under **Specify basic information**, enter `MicroFocus-CardDemo` for the application name and under **Engine type** make sure **Micro Focus (Rocket)** is selected. Then choose **Next**.  
-![The Create applications page with the Rocket Software engine type selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-create-app.png)
+![The Create applications page with the Rocket Software engine type selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-create-app.png)
 
 1. Under **Specify resources and configurations**, choose the option to specify the application definition with its resources and configurations using the inline editor.  
-![The Specify resources and configurations page with a JSON file displayed in the online editor.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-config.png)
+![The Specify resources and configurations page with a JSON file displayed in the online editor.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-config.png)
 
    Enter the following application definition in the editor:
 
@@ -392,7 +392,7 @@ This file is subject to change.
    1. Replace the value for `s3-key-prefix` with the folder (key prefix) where you uploaded the CardDemo sample files. If you uploaded the `CardDemo` directory directly to an Amazon S3 bucket, then the `s3-key-prefix` doesn’t need to be changed.
 
    1. Replace both `secret-manager-arn` values with the ARN for the database secret that you created in Step 4.  
-![JSON application definition.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-resources.png)
+![JSON application definition.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-resources.png)
 
    For more information on the application definition, see [Rocket Software (formerly Micro Focus) application definition](applications-m2-definition.md#applications-m2-definition-mf).
 
@@ -400,7 +400,7 @@ This file is subject to change.
 
 1. On the **Review and create** page, review the information that you provided, and then choose **Create application**.
 
-![The Application created successfully message.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-confirm.png)
+![The Application created successfully message.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-confirm.png)
 
 
 When you've created your application, a banner appears that says `Application name was created successfully`. And the **Status** field changes to **Available**.
@@ -413,14 +413,14 @@ When you've created your application, a banner appears that says `Application na
 1. In the navigation pane, choose **Applications**, and then choose `MicroFocus-CardDemo`.
 
 1. Under **Deploy application**, choose **Deploy**.  
-![The MicroFocus-CardDemo application deployment.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-deploy.png)
+![The MicroFocus-CardDemo application deployment.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-deploy.png)
 
 1. Choose the latest version of the application and the environment that you created previously, and then choose **Deploy**.  
-![The Deploy application and environment page.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-env-deploy.png)
+![The Deploy application and environment page.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-env-deploy.png)
 
 When the CardDemo application deploys successfully, the status changes to **Ready**.
 
-![The Application deployed on Environment confirmation page.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-env-confirm.png)
+![The Application deployed on Environment confirmation page.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-env-confirm.png)
 
 
 ## Step 9: Import data sets
@@ -433,7 +433,7 @@ When the CardDemo application deploys successfully, the status changes to **Read
 1. Choose the **Data sets** tab. Then choose **Import**.
 
 1. Choose **Import and Edit JSON configuration**, and then choose the **Copy and paste your own JSON** option.  
-![Import data set by copying your own JSON script.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-import.png)
+![Import data set by copying your own JSON script.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-import.png)
 
 1. Copy and paste the following JSON but don't choose "Submit" yet. This JSON contains all the data sets required for the demo application but needs your Amazon S3 bucket details.
 
@@ -643,7 +643,7 @@ To copy the Amazon S3 URI for the folder in Amazon S3, select the folder, and th
 1. Choose **Submit**.
 
    When the import finishes, a banner appears with the following message: `Import task with resource identifier name was completed successfully.` A list of the imported datasets is shown.  
-![Successful import of dataset.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-import-success.png)
+![Successful import of dataset.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-import-success.png)
 
 You can also view the status of all data set imports by choosing **Import History** on the **Data sets** tab.
 
@@ -655,11 +655,11 @@ You can also view the status of all data set imports by choosing **Import Histor
 1. In the navigation pane, choose **Applications**, and then choose the application. 
 
 1. Choose **Start application**.  
-![The CardDemo application page.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-start.png)
+![The CardDemo application page.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-app-start.png)
 
 When the CardDemo application starts to run successfully, a banner appears with the following message: `Application name was started successfully`. The **Status** field changes to **Running**.
 
-![The Application start succeeded message.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-startapp-confirm.png)
+![The Application start succeeded message.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-mf-startapp-confirm.png)
 
 
 ## Step 11: Connect to the CardDemo CICS application
@@ -680,23 +680,23 @@ To configure the TN3270 connection, you also need the DNS hostname and the port 
 The configuration steps vary by emulator.
 
 1. Choose **Mainframe Display**.  
-![Rumba+ welcome screen.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-mainframe.png)
+![Rumba+ welcome screen.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-mainframe.png)
 
 1. Choose **Connection**, and then choose **Configure.**  
-![Rumba+ welcome screen.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-configure.png)
+![Rumba+ welcome screen.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-configure.png)
 
 1. Under **Installed Interfaces**, choose `TN3270`, and then choose `TN3270` again under the **Connection** menu.  
-![Connect to installed interfaces.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-connection.png)
+![Connect to installed interfaces.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-connection.png)
 
 1. Choose **Insert**, and paste the `DNS Hostname` for the Application. Specify `6000` for the **Telnet Port**.  
-![Specify hostname and set up port.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-dns-hostname.png)
+![Specify hostname and set up port.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-dns-hostname.png)
 **Note**  
 If you are using AWS AppStream 2.0 in a browser and having difficulties with pasting values, please refer to [Troubleshooting AppStream 2.0 User Issues](https://docs.aws.amazon.com/appstream2/latest/developerguide/troubleshooting-user-issues.html#copy-paste-doesnt-work). 
 
 1. Under **Connection**, choose **Advanced**, and then choose **Send Keep Alive** and **Send NOP**, and enter **180** for the **Interval.**
 **Note**  
 Configuring the keep alive setting on your TN3270 terminal to at least 180 seconds helps ensure that the Network Load Balancer doesn’t drop your connection.  
-![Advanced configuration screen.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-advanced.png)
+![Advanced configuration screen.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-advanced.png)
 
 1. Choose **Connect**.
 **Note**  
@@ -708,17 +708,17 @@ As a diagnostic step, try adding or changing the Security Group inbound rules fo
 1. Enter `USER0001` for the username and `password` for the password.
 **Note**  
 In Rumba, the default for Clear is ctrl-shift-z, and the default for Reset is ctrl-r.  
-![Set up username and password for your CardDemo application.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-username-password.png)
+![Set up username and password for your CardDemo application.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-username-password.png)
 
 1. After you log in successfully, you can navigate through the CardDemo application.
 
 1. Enter `01` for the Account View.  
-![View your CardDemo application.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-carddemo.png)
+![View your CardDemo application.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-carddemo.png)
 
 1. Enter `00000000010` for the Account Number and press **Enter** on your keyboard.
 **Note**  
 Other valid accounts are `0000000011` and `00000000020`.  
-![Manage your CardDemo application.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-carddemo-account.png)
+![Manage your CardDemo application.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-cics-carddemo-account.png)
 
 1. Press **F3** to Exit to the menu, and **F3** to exit the transaction.
 

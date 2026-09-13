@@ -31,7 +31,7 @@ AWS Transform for mainframe modernized applications are packaged as java web app
 
 The war aggregates several component artifacts (.jar). Each jar is the result of the compilation (using the [maven](https://maven.apache.org/) tool) of a dedicated java project whose elements are the result of the modernization process.
 
-![Sample modernized application artifacts.](http://docs.aws.amazon.com/m2/latest/userguide/images/modernized_application_artifacts.png)
+![Sample modernized application artifacts.](https://docs.aws.amazon.com/m2/latest/userguide/images/modernized_application_artifacts.png)
 
 
 The basic organization relies on the following structure:
@@ -48,7 +48,7 @@ The following descriptions only apply to COBOL and PL/I modernization outputs. R
 
 Before any refactoring, the packages organization in the entities project is tied to the modernized programs. You can accomplish this in a couple of different ways. The preferred way is to use the Refactoring toolbox, which operates before you trigger the code generation mechanism. This is an advanced operation, which is explained in the AWS Transform for mainframe trainings. For more information, see [Refactoring workshop](https://catalog.workshops.aws/aws-blu-age-l3-certification-workshop/en-US/refactoring). This approach allows you to preserve the capability to re-generate the java code later, to benefit from further improvements in the future, for instance). The other way is to do regular java refactoring, directly on the generated source code, using any java refactoring approach you might like to apply -- at your own risk. 
 
-![Sample program CBACT04C entities packages.](http://docs.aws.amazon.com/m2/latest/userguide/images/entities_packages.png)
+![Sample program CBACT04C entities packages.](https://docs.aws.amazon.com/m2/latest/userguide/images/entities_packages.png)
 
 
 #### Program related classes
@@ -59,17 +59,17 @@ Each modernized program is related to two packages, a business.context and a bus
 
   The business.context sub-package contains two classes, a configuration class and a context class.
   + One configuration class for the program, which contains specific configuration details for the given program, such as the character set to use to represent character-based data elements, the default byte value for padding data structure elements and so on. The class name ends with "Configuration". It is marked with the `@org.springframework.context.annotation.Configuration` annotation and contains a single method that must return a properly setup `Configuration` object.  
-![Sample configuration in Java.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_configuration.png)
+![Sample configuration in Java.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_configuration.png)
   + One context class, which serves as a bridge between the program service classes (see below) and the data structures (`Record`) and data sets (`File`) from the model sub-package (see below). The class name ends with "Context" and is a subclass of the `RuntimeContext` class.  
-![Sample context class (partial view)](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_context.png)
+![Sample context class (partial view)](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_context.png)
 + `{{base package}}.{{program}}.business.model`
 
   The model sub-package contains all the data structures that the given program can use. For instance, any 01 level COBOL data structure corresponds to a class in the model sub-package (lower level data structures are properties of their owning 01 level structure). For more information about how we modernize 01 data structures, see [What are data simplifiers in AWS Transform for mainframe](ba-shared-data.md).  
-![Sample record entity (partial view)](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_record_entity.png)
+![Sample record entity (partial view)](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_record_entity.png)
 
 All classes extend the `RecordEntity` class, which represents the access to a business record representation. Some of the records have a special purpose, as they're bound to a `File`. The binding between a `Record` and a `File` is made in the corresponding \*FileHandler methods found in the context class when creating the file object. For example, the following listing shows how the TransactfileFile `File` is bound to the transactFile `Record` (from the model sub-package).
 
-![Sample record to file binding.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_record_file_binding.png)
+![Sample record to file binding.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_record_file_binding.png)
 
 
 ### Service project contents
@@ -77,7 +77,7 @@ All classes extend the `RecordEntity` class, which represents the access to a bu
 
 Every service project comes with a dedicated [Springboot](https://spring.io/projects/spring-boot) application, which is used as the backbone of the architecture. This is materialized through the class named `SpringBootLauncher`, located in the base package of the service java sources:
 
-![Service project SpringBoot application.](http://docs.aws.amazon.com/m2/latest/userguide/images/springbootlauncher.png)
+![Service project SpringBoot application.](https://docs.aws.amazon.com/m2/latest/userguide/images/springbootlauncher.png)
 
 
 This class is notably responsible for:
@@ -86,7 +86,7 @@ This class is notably responsible for:
 + discovering all classes marked as spring components (`@Component`).
 + ensuring programs are properly registered in the `ProgramRegistry` -- see the initialize method in charge of this registration.
 
-![Programs registration.](http://docs.aws.amazon.com/m2/latest/userguide/images/programs_registration.png)
+![Programs registration.](https://docs.aws.amazon.com/m2/latest/userguide/images/programs_registration.png)
 
 
 #### Program related artifacts
@@ -94,18 +94,18 @@ This class is notably responsible for:
 
 Without prior refactoring, the business logic modernization outputs are organized on a two or three packages per legacy program basis:
 
-![Sample program packages.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_program_packages.png)
+![Sample program packages.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_program_packages.png)
 
 
 The most exhaustive case will have three packages:
 + `base package.program.service`: contains an interface named *Program*Process, which has business methods to handle the business logic, preserving the legacy execution control flow.
 + `base package.program.service.impl`: contains a class named *Program*ProcessImpl, which is the implementation of the Process interface described previously. This is where the legacy statements are "translated" to java statements, relying on the AWS Transform for mainframe framework:  
-![Sample modernized CICS statements (SEND MAP, RECEIVE MAP)](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_cics_statements.png)
+![Sample modernized CICS statements (SEND MAP, RECEIVE MAP)](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_cics_statements.png)
 + `base package.program.statemachine`: this package might not always be present. It is required when the modernization of the legacy control flow has to use a state machine approach (namely using the [Spring StateMachine framework](https://spring.io/projects/spring-statemachine)) to properly cover the legacy execution flow.
 
   In that case, the statemachine sub-package contains two classes:
   + `ProgramProcedureDivisionStateMachineController`: a class that extends a class implementing the `StateMachineController` (define operations needed to control the execution of a state machine) and `StateMachineRunner` (define operations required to run a state machine) interfaces, used to drive the Spring state machine mechanics; for instance, the `SimpleStateMachineController` as in the sample case.   
-![Sample state machine controller.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_statemachine_controller.png)
+![Sample state machine controller.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_statemachine_controller.png)
 
     The state machine controller defines the possible different states and the transitions between them, which reproduce the legacy execution control flow for the given program.
 
@@ -118,15 +118,15 @@ The most exhaustive case will have three packages:
   + `ProgramProcedureDivisionStateMachineService`: this service class represents some business logic that is required to be bound with the state machine that the state machine controller creates, as described previously.
 
     The code in the methods of this class use the Events defined in the state machine controller:  
-![Statemachine service using a statemachine controller event.](http://docs.aws.amazon.com/m2/latest/userguide/images/service_using_event_1.png)  
-![Statemachine service using a statemachine controller event.](http://docs.aws.amazon.com/m2/latest/userguide/images/service_using_event_2.png)
+![Statemachine service using a statemachine controller event.](https://docs.aws.amazon.com/m2/latest/userguide/images/service_using_event_1.png)  
+![Statemachine service using a statemachine controller event.](https://docs.aws.amazon.com/m2/latest/userguide/images/service_using_event_2.png)
 
     The statemachine service also makes calls to the process service implementation described previously:  
-![.statemachine service making calls to the process implementation](http://docs.aws.amazon.com/m2/latest/userguide/images/service_using_processimpl.png)
+![.statemachine service making calls to the process implementation](https://docs.aws.amazon.com/m2/latest/userguide/images/service_using_processimpl.png)
 
 In addition to that, a package named `base package.program` plays a significant role, as it gathers one class per program, which will serve as the program entry point (more details about this later on). Each class implements the `Program` interface, marker for a program entry point.
 
-![Program entry points](http://docs.aws.amazon.com/m2/latest/userguide/images/programs.png)
+![Program entry points](https://docs.aws.amazon.com/m2/latest/userguide/images/programs.png)
 
 
 #### Other artifacts
@@ -134,32 +134,32 @@ In addition to that, a package named `base package.program` plays a significant 
 + BMS MAPs companions
 
   In addition to program related artifacts, the service project can contain other artifacts for various purposes. In the case of the modernization of a CICS online application, the modernization process produces a json file and puts in the map folder of the /src/main/resources folder:  
-![BMS MAPs json files in resources folder.](http://docs.aws.amazon.com/m2/latest/userguide/images/maps_json_files.png)
+![BMS MAPs json files in resources folder.](https://docs.aws.amazon.com/m2/latest/userguide/images/maps_json_files.png)
 
   The AWS Transform for mainframe runtime consumes those json files to bind the records used by the SEND MAP statement with the screen fields.
 + Groovy Scripts
 
   If the legacy application had JCL scripts, those have been modernized as [groovy](https://groovy-lang.org/) scripts, stored in the /src/main/resources/scripts folder (more on that specific location later on):  
-![groovy scripts (JCL modernization)](http://docs.aws.amazon.com/m2/latest/userguide/images/groovy_scripts.png)
+![groovy scripts (JCL modernization)](https://docs.aws.amazon.com/m2/latest/userguide/images/groovy_scripts.png)
 
   Those scripts are used to launch batch jobs (dedicated, non-interactive, cpu-intensive data processing workloads).
 + SQL files
 
   If the legacy application was using SQL queries, the corresponding modernized SQL queries have been gathered in dedicated properties files, with the naming pattern *program*.sql, where *program* is the name of the program using those queries.  
-![SQL files in the resources folder](http://docs.aws.amazon.com/m2/latest/userguide/images/sql_files.png)
+![SQL files in the resources folder](https://docs.aws.amazon.com/m2/latest/userguide/images/sql_files.png)
 
   The contents of those sql files are a collection of (key=query) entries, where each query is associated to a unique key, that the modernized program uses to run the given query:  
-![Sample sql file that the modernized program uses.](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_sql_file.png)
+![Sample sql file that the modernized program uses.](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_sql_file.png)
 
   For instance, the COSGN00C program is executing the query with key "COSGN00C\_1" (the first entry in the sql file):  
-![sample query usage by program](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_sql_query_usage.png)
+![sample query usage by program](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_sql_query_usage.png)
 
 ### Utilities project contents
 <a name="ba-shared-structure-org-utilities"></a>
 
 The utilities project, whose name ends with "-tools", contains a set of technical utilities, which might be used by all the other projects.
 
-![Utilities project contents](http://docs.aws.amazon.com/m2/latest/userguide/images/tools_project.png)
+![Utilities project contents](https://docs.aws.amazon.com/m2/latest/userguide/images/tools_project.png)
 
 
 ### Web project(s) contents
@@ -167,7 +167,7 @@ The utilities project, whose name ends with "-tools", contains a set of technica
 
 The web project is only present when modernizing legacy UI elements. The modern UI elements used to build the modernized application front-end are based on [Angular](https://angular.io/). The sample application used to show the modernization artifacts is a COBOL/CICS application, running on a mainframe. The CICS system uses MAPs to represent the UI screens. The corresponding modern elements will be, for every map, a html file accompanied by [Typescript](https://www.typescriptlang.org/) files:
 
-![Sample CICS maps modernized to Angular](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_cics_maps_angular.png)
+![Sample CICS maps modernized to Angular](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_cics_maps_angular.png)
 
 
 The web project only takes care of the front end aspect of the application The service project, which relies on the utility and entities projects, provides the backend services. The link between the front end and the backend is made through the web application named Gapwalk-Application, which is part of the standard AWS Transform for mainframe runtime distribution.
@@ -186,7 +186,7 @@ Each time the [Tomcat](https://tomcat.apache.org/) server that hosts modernized 
 
 The registration for a given program relies on the collection of identifiers returned by the getProgramIdentifiers() method:
 
-![sample program (partial view)](http://docs.aws.amazon.com/m2/latest/userguide/images/sample_program.png)
+![sample program (partial view)](https://docs.aws.amazon.com/m2/latest/userguide/images/sample_program.png)
 
 
 In this example, the program is registered once, under the name 'CBACT04C' (look at the contents of the programIdentifiers collection). The tomcat logs show every program registration. The program registration only depends on the declared program identifiers and not the program class name itself (though typically the program identifiers and program class names are aligned.
@@ -215,7 +215,7 @@ All programs methods take both a `RuntimeContext` and an `ExecutionController` a
 
 See, for instance, the following diagram, which shows how the CBST03A program calls the CBST03B program as a sub-program, passing parameters to it:
 
-![.sub-program call sample](http://docs.aws.amazon.com/m2/latest/userguide/images/subprogram_call_sample.png)
+![.sub-program call sample](https://docs.aws.amazon.com/m2/latest/userguide/images/subprogram_call_sample.png)
 
 + The first argument of the `ExecutionController.callSubProgram` is an identifier of the program to call (that is, one of the identifiers used for the program registration -- see paragraphs above).
 + The second argument, which is the result of the build on the `CallBuilder`, is an array of `Record`, corresponding to the data passed from caller to callee.
@@ -227,7 +227,7 @@ The callee will be able to deal with passed parameters only if it was originally
 
 For instance, see the corresponding [CBSTM03B.CBL](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/app/cbl/CBSTM03B.CBL) COBOL source file:
 
-![Sample linkage in a COBOL source file](http://docs.aws.amazon.com/m2/latest/userguide/images/linkage_sample.png)
+![Sample linkage in a COBOL source file](https://docs.aws.amazon.com/m2/latest/userguide/images/linkage_sample.png)
 
 
 So the CBSTM03B program takes a single `Record` as a parameter (an array of size 1). This is what the `CallBuilder` is building, using the byReference() and getArguments() methods chaining.
@@ -250,12 +250,12 @@ It is the responsability of the caller to make sure the arguments array has the 
 
 Calling registered programs from groovy scripts require using a class instance implementing the `MainProgramRunner` interface. Usually, getting such an instance is achieved through Spring's ApplicationContext usage:
 
-![.MainProgramRunner : getting an instance](http://docs.aws.amazon.com/m2/latest/userguide/images/mpr.png)
+![.MainProgramRunner : getting an instance](https://docs.aws.amazon.com/m2/latest/userguide/images/mpr.png)
 
 
 After a `MainProgramRunner` interface is available, use the runProgram method to call a program and pass the identifier of the target program as a parameter:
 
-![MainProgramRunner : running a program](http://docs.aws.amazon.com/m2/latest/userguide/images/mpr_runprogram.png)
+![MainProgramRunner : running a program](https://docs.aws.amazon.com/m2/latest/userguide/images/mpr_runprogram.png)
 
 
 In the previous example, a job step calls IDCAMS (file handling utility program), providing a mapping between actual data set definitions and their logical identifiers.
@@ -280,12 +280,12 @@ To make sure the program is usable, you must complete two mandatory steps:
 
 Use your IDE to create a new java class that implements the `Program` interface:
 
-![Creating a new java Program class](http://docs.aws.amazon.com/m2/latest/userguide/images/new_program.png)
+![Creating a new java Program class](https://docs.aws.amazon.com/m2/latest/userguide/images/new_program.png)
 
 
 The following image shows the Eclipse IDE, which takes care of creating all mandatory methods to be implemented:
 
-![Creating a new java Program class - editing source](http://docs.aws.amazon.com/m2/latest/userguide/images/new_program_ide.png)
+![Creating a new java Program class - editing source](https://docs.aws.amazon.com/m2/latest/userguide/images/new_program_ide.png)
 
 
 ### Spring integration
@@ -293,12 +293,12 @@ The following image shows the Eclipse IDE, which takes care of creating all mand
 
 First, the class must be declared as a Spring component. Annotate the class with the `@Component` annotation:
 
-![Using the spring @Component annotation](http://docs.aws.amazon.com/m2/latest/userguide/images/program_component.png)
+![Using the spring @Component annotation](https://docs.aws.amazon.com/m2/latest/userguide/images/program_component.png)
 
 
 Next, implement the required methods properly. In the context of this sample, we added the `MyUtilityProgram` to the package that already contains all modernized programs. That placement permits the program to use the existing Springboot application to provide the required `ConfigurableApplicationContext` for the getSpringApplication method implementation:
 
-![Implementing the getSpringApplication method.](http://docs.aws.amazon.com/m2/latest/userguide/images/getSpringApplication.png)
+![Implementing the getSpringApplication method.](https://docs.aws.amazon.com/m2/latest/userguide/images/getSpringApplication.png)
 
 
 You might choose a different location for your own program. For instance, you might locate the given program in another dedicated service project. Make sure the given service project has its own Springboot application, which makes it possible to retrieve the ApplicationContext (that should be a `ConfigurableApplicationContext`).
@@ -310,7 +310,7 @@ To be callable by other programs and scripts, the program must be given at least
 
 Creating an unmodifiable set of identifiers in the program is one way of doing this. The following example shows choosing "MYUTILPG" as the single identifier:
 
-![Program identifier example](http://docs.aws.amazon.com/m2/latest/userguide/images/program_identifier.png)
+![Program identifier example](https://docs.aws.amazon.com/m2/latest/userguide/images/program_identifier.png)
 
 
 ### Associate the program to a context
@@ -330,12 +330,12 @@ Those classes should be in a package that is part of a package hierarchy that wi
 
 Let's write a minimal configuration and context, in the `base package.myutilityprogram.business.context` package, freshly created in the entities project:
 
-![New dedicated configuration and context for the new utility program](http://docs.aws.amazon.com/m2/latest/userguide/images/new_program_context_package.png)
+![New dedicated configuration and context for the new utility program](https://docs.aws.amazon.com/m2/latest/userguide/images/new_program_context_package.png)
 
 
 Here is the configuration content. It is using a configuration build similar to other -- modernized -- programs nearby. You'll probably have to customize this for your specific needs.
 
-![New program configuration](http://docs.aws.amazon.com/m2/latest/userguide/images/new_program_configuration.png)
+![New program configuration](https://docs.aws.amazon.com/m2/latest/userguide/images/new_program_configuration.png)
 
 
 Notes:
@@ -346,7 +346,7 @@ Notes:
 
 And the associated context:
 
-![New program context in a Java file.](http://docs.aws.amazon.com/m2/latest/userguide/images/new_program_context.png)
+![New program context in a Java file.](https://docs.aws.amazon.com/m2/latest/userguide/images/new_program_context.png)
 
 
 Notes
@@ -360,7 +360,7 @@ Notes
 
 Now that a dedicated context is available, let the new program use it:
 
-![The new program uses the freshly created context.](http://docs.aws.amazon.com/m2/latest/userguide/images/new_program_uses_context.png)
+![The new program uses the freshly created context.](https://docs.aws.amazon.com/m2/latest/userguide/images/new_program_uses_context.png)
 
 
 Notes:

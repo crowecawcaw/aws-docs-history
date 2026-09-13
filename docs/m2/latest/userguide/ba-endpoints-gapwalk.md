@@ -59,7 +59,7 @@ The links represent the url to use to launch each listed script **synchronously*
 + This endpoint returns the list of deployed groovy scripts on the server, as a String. This endpoint is primarily intended to be used from a web browser, since the resulting String is a HTML page, with active links (a link per launch-able script -- see sample below).
 
   As opposed to the previous endpoint response, the links represent the url to use to launch each listed script **asynchronously**.  
-![Listing scripts sample (browser view)](http://docs.aws.amazon.com/m2/latest/userguide/images/trigger_scripts.png)
+![Listing scripts sample (browser view)](https://docs.aws.amazon.com/m2/latest/userguide/images/trigger_scripts.png)
 
 ### Launch a script synchronously
 <a name="ba-launch-script-synchronously"></a>
@@ -93,7 +93,7 @@ Runtime now supports returning HTTP 500 status code for failed job executions. S
     ```
 
     Looking at the server logs, we can figure out that this a deployment issue (the expected program has not been properly deployed, so it cannot be found, making job execution fail):  
-![Script execution error sample](http://docs.aws.amazon.com/m2/latest/userguide/images/script_exec_error_logs.png)
+![Script execution error sample](https://docs.aws.amazon.com/m2/latest/userguide/images/script_exec_error_logs.png)
 
 **Note**  
 The synchronous calls should be reserved for short time running jobs. Long times running jobs should rather be launched asynchronously (see dedicated endpoint below).

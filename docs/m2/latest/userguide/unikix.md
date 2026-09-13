@@ -74,12 +74,12 @@ When you subscribe to an AWS Marketplace product, you can launch an instance fro
 
 After you provision the Amazon EC2 instance, SSH into it with the user name `ec2-user`. The screen will look like the following image.
 
-![SSH screen with provided Amazon EC2 instance and user name.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-start-screen.png)
+![SSH screen with provided Amazon EC2 instance and user name.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-start-screen.png)
 
 
 Under the `/opt/software/` folder, there is a folder named `UniKix_Product_Guides`, as shown in the following image.
 
-![SSH screen with details of /opt/software/ folder. Spot the folder UniKix_Product_Guides.](http://docs.aws.amazon.com/m2/latest/userguide/images/unikix-product-guides.png)
+![SSH screen with details of /opt/software/ folder. Spot the folder UniKix_Product_Guides.](https://docs.aws.amazon.com/m2/latest/userguide/images/unikix-product-guides.png)
 
 
 The `UniKix_Product_Guides` folder includes the documentation for the following components that are installed on this Amazon EC2 instance:

@@ -9,7 +9,7 @@
 
 If you use the AWS Transform for mainframe refactoring pattern, the AWS Transform for mainframe runtime engine expects the following structure in the folder specified by `app-location` in your application definition:
 
-![The expected structure within the application-name folder.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-app-structure.png)
+![The expected structure within the application-name folder.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-app-structure.png)
 
 
 **config**  

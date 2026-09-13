@@ -12,7 +12,7 @@ After you are subscribed to an AWS Marketplace product, you can launch an instan
 1. Navigate to AWS Marketplace Subscriptions in the AWS Management Console.
 
 1. Choose **Manage subscriptions**.  
-![AWS Marketplace home page.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_1.png)
+![AWS Marketplace home page.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_1.png)
 
 1. Copy and paste one of the following links into the browser address bar.
 **Note**  
@@ -28,19 +28,19 @@ Make sure your account is allowlisted by following the [Request the allowlist up
    + Enterprise Stored Procedures with SQL Server 2019: [https://aws.amazon.com/marketplace/pp/prodview-ynfklquwubnz4](https://aws.amazon.com/marketplace/pp/prodview-ynfklquwubnz4)
 
 1. Choose **Continue to Subscribe**.  
-![Enterprise Server offering in AWS Marketplace.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_2.png)
+![Enterprise Server offering in AWS Marketplace.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_2.png)
 
 1. If the Terms and Conditions are acceptable, choose **Accept Terms**.  
-![Subscription terms and conditions.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_3.png)
+![Subscription terms and conditions.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_3.png)
 
 1. The subscription might take a few minutes to process.  
-![Subscription pending message.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_4.png)
+![Subscription pending message.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_4.png)
 
 1. After the Thank you message shows, copy and paste the next link from step 3 to continue adding subscriptions.  
-![Subscription thank you message.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_5.png)
+![Subscription thank you message.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_5.png)
 
 1. Stop when **Manage subscriptions** shows all your subscribed AMIs.
 **Note**  
 The panel preferences (gear icon) are set to show the View as a Table.  
 
-![Manage subscriptions with list of subscribed AMIs.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_6.png)
+![Manage subscriptions with list of subscribed AMIs.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-ami-subscription_6.png)

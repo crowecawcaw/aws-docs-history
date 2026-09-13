@@ -62,7 +62,7 @@ The tutorials and sample applications only give you a sense of what AWS Mainfram
 
 The following diagram shows the workflow of the AWS Mainframe Modernization service to analyze, transform, develop, test, and deploy and operate mainframe applications.
 
-![The workflow diagram for the AWS Mainframe Modernization service with different phases.](http://docs.aws.amazon.com/m2/latest/userguide/images/m2-workflow.png)
+![The workflow diagram for the AWS Mainframe Modernization service with different phases.](https://docs.aws.amazon.com/m2/latest/userguide/images/m2-workflow.png)
 
 
 ## Related services

@@ -50,7 +50,7 @@ In this step, you set up an ODBC connection to the database that contains the da
    User Name   : {{user_name}}
    Password    : {{user_password}}
    ```  
-![Setting up the Postgres ODBC connection in Enterprise Developer.](http://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-odbc.png)
+![Setting up the Postgres ODBC connection in Enterprise Developer.](https://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-odbc.png)
 
 1. Choose **Test** to make sure the connection works. You should see the message `Connection successful` if the test succeeds.
 
@@ -70,7 +70,7 @@ In this step, you set up an ODBC connection to the database that contains the da
    User Name   : {{user_name}}
    Password    : {{user_password}}
    ```  
-![Setting up the PG.VSAM ODBC data source in Enterprise Developer.](http://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-pg-vsam.png)
+![Setting up the PG.VSAM ODBC data source in Enterprise Developer.](https://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-pg-vsam.png)
 
 ## Step 2: Create the MFDBFH.cfg file
 <a name="view-datasets-tables-m2.config"></a>
@@ -125,15 +125,15 @@ In this step, you create a structure file for your copybook layout so that you c
    ```
 
 1. After successful compilation, right click on the program and choose **Create Record Layout File**. This will open the Micro Focus Data File Tools using the .idy file generated during the compilation.  
-![Location of the Create Record Layout File command in Enterprise Developer.](http://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-idy-file.png)
+![Location of the Create Record Layout File command in Enterprise Developer.](https://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-idy-file.png)
 
 1. Right click on the Record structure and choose **Create Default Layout** (single structure) or **Create Conditional Layout** (multi structure) depending on the layout.
 
    For more information, see [Creating Structure Files and Layouts](https://www.microfocus.com/documentation/enterprise-developer/ed60/ES-WIN/GUID-6EDDA4C3-F09E-4CEC-9CF8-281D9D7453C3.html) in the Micro Focus documentation.  
-![Location of the layout commands in Micro Focus data file tools.](http://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-mf-data-file-tools.png)
+![Location of the layout commands in Micro Focus data file tools.](https://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-mf-data-file-tools.png)
 
 1. After creating the layout, choose **File** from the menu and then choose **Save As**. Browse and save the file under your Home Folder with same file name as your copybook. You can choose to create a folder called `str` and save all your structure files there.  
-![Saving the str file in Enterprise Developer.](http://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-save-str.png)
+![Saving the str file in Enterprise Developer.](https://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-save-str.png)
 
 ## Step 4: Create a database view using the structure (STR) file
 <a name="view-datasets-tables-m2.dbview"></a>
@@ -170,4 +170,4 @@ In this step, connect to the database using `pgAdmin` so you can run queries to 
   ```
   SELECT * FROM public."V_AWS.M2.CARDDEMO.TRANSACT.VSAM.KSDS.DAT";
   ```  
-![Migrated data set showing tables and columns in pgAdmin.](http://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-new-view-pgadmin.png)
+![Migrated data set showing tables and columns in pgAdmin.](https://docs.aws.amazon.com/m2/latest/userguide/images/view-data-tables-new-view-pgadmin.png)

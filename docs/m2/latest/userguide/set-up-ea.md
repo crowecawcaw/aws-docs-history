@@ -184,25 +184,25 @@ Cannot access the workspace directory D:\PhotonUser\My Files\Home Folder\EA_Bank
 To resolve this issue, choose **OK** to clear the message, and then complete the following steps.
 
 1. In WorkSpaces Applications, choose the **Launch Application** icon on the toolbar, and then choose **EA\_Admin** to start the Enterprise Analyzer Administration tool.  
-![The WorkSpaces Applications launch selector menu with the Rocket Enterprise Developer administration tool selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/aas-launch-selector.png)
+![The WorkSpaces Applications launch selector menu with the Rocket Enterprise Developer administration tool selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/aas-launch-selector.png)
 
 1. From the **Administer** menu, choose **Refresh Workspace Path...**.  
-![Administer menu of Rocket Enterprise Analyzer administration tool with Refresh Workspace Path selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-administer-refresh.png)
+![Administer menu of Rocket Enterprise Analyzer administration tool with Refresh Workspace Path selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-administer-refresh.png)
 
 1. Under **Select workspace**, choose the workspace that you want, and then choose **OK**.  
-![The Select workspace dialog box of Rocket Enterprise Analyzer administration tool with a project selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-select-workspace.png)
+![The Select workspace dialog box of Rocket Enterprise Analyzer administration tool with a project selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-select-workspace.png)
 
 1. Choose **OK** to confirm the error message.  
-![The Enterprise Analyzer error message "Cannot access the workspace directory" with OK selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-select-workspace-error.png)
+![The Enterprise Analyzer error message "Cannot access the workspace directory" with OK selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-select-workspace-error.png)
 
 1. Under **Workspace directory network path**, enter the correct path to your workspace, for example, `D:\PhotonUser\My Files\Home Folder\EA\MyWorkspace3`.  
-![The Enterprise Analyzer dialog box Workspace directory network path with an example path.](http://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-workspace-directory-network-path.png)
+![The Enterprise Analyzer dialog box Workspace directory network path with an example path.](https://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-workspace-directory-network-path.png)
 
 1. Close the Micro Focus Enterprise Analyzer Administration tool.  
-![The Micro Focus Enterprise Analyzer Administration tool with the Close button selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-close.png)
+![The Micro Focus Enterprise Analyzer Administration tool with the Close button selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/ea_admin-close.png)
 
 1. In WorkSpaces Applications, choose the **Launch Application** icon on the toolbar, and then choose **EA** to start Micro Focus Enterprise Analyzer.  
-![The WorkSpaces Applications launch application icon with EA selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/aas-launch-ea.png)
+![The WorkSpaces Applications launch application icon with EA selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/aas-launch-ea.png)
 
 1. Repeat steps 3 - 5.
 

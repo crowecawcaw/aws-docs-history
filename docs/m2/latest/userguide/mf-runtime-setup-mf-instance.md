@@ -12,7 +12,7 @@ After creating endpoints, IAM policy, IAM role, and subscribing to AMIs, you are
 1. Navigate to AWS Marketplace Subscriptions in the AWS Management Console.
 
 1. Locate the AMI to be launched and choose **Launch New Instance**.  
-![Manage subscriptions with Enterprise Server and Enterprise Analyzer ready to launch.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_1.png)
+![Manage subscriptions with Enterprise Server and Enterprise Analyzer ready to launch.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_1.png)
 
 1. In the launch new instance dialog, ensure the allowlisted region is selected.
 
@@ -20,7 +20,7 @@ After creating endpoints, IAM policy, IAM role, and subscribing to AMIs, you are
 **Note**  
 The following example shows a launch of an Enterprise Developer AMI, but the process is the same for all the AWS Mainframe Modernization AMIs.  
 
-![Launch new instance.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_2.png)
+![Launch new instance.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_2.png)
 
 
 1. Enter a name for the server.
@@ -34,7 +34,7 @@ The following example shows a launch of an Enterprise Developer AMI, but the pro
    + For Rocket Software Performance Availability Cluster (PAC) with scale-out, an r6i.large
 **Note**  
 The Application and OS Images section has been collapsed for the screen shot.  
-![Launch an instance with name and instance type entered.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_3.png)
+![Launch an instance with name and instance type entered.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_3.png)
 
 1. Choose or create (and save) a key-pair (not shown).
 
@@ -51,20 +51,20 @@ The Application and OS Images section has been collapsed for the screen shot.
 1. Important - Expand Advanced details and under IAM instance profile choose the Licensing role created earlier, for example “Micro-Focus-Licensing-role”.
 **Note**  
 If this step is missed, after the instance is created you can modify the IAM role from the Security option of the Action menu for the EC2 instance.  
-![Advanced Details with IAM instance profile entered.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_4.png)
+![Advanced Details with IAM instance profile entered.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_4.png)
 
 1. Review the Summary and push **Launch Instance**.  
-![Summary with selected options.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_5.png)
+![Summary with selected options.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_5.png)
 
 1. The instance launch will fail if an invalid virtual server type is chosen.
 
    If this happens, choose **Edit instance config** and change the instance type.  
-![Launching instance progress message.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_6.png)
+![Launching instance progress message.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_6.png)
 
 1. Once the “Success” message is shown choose **Connect to instance** to get connection details.  
-![Instance launch success message.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_7.png)
+![Instance launch success message.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_7.png)
 
 1. Alternatively, navigate to **EC2** in the AWS Management Console.
 
 1. Choose **Instances** to see the status of the new instance.  
-![List of instances with status.](http://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_8.png)
+![List of instances with status.](https://docs.aws.amazon.com/m2/latest/userguide/images/mf-launch-instance_8.png)

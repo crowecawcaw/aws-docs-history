@@ -72,14 +72,14 @@ In Blusam storage, data sets records are stored in a byte array column in the da
 
 For the SQL masks to be generated, please make sure to set the relevant option (`export.SQL.masks`) in the configuration of the AWS Transform for mainframe refactor Transformation Center to true:
 
-![Property Set with export.sql.masks highlighted, showing boolean type set to true.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-bluinsights-generate-masks-option.png)
+![Property Set with export.sql.masks highlighted, showing boolean type set to true.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-bluinsights-generate-masks-option.png)
 
 
 The masks are part of the modernization artifacts that can be downloaded from AWS Transform for mainframe refactor for a given project. They are SQL scripts, organized by modernized programs, giving the applicative point of view on data sets records.
 
 For example, using the [AWS CardDemo sample application](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/tree/main/app/cbl), you can find in the downloaded artifacts from the modernization result of this application, the following SQL masks for the program CBACT04C.cbl:
 
-![Five SQL files with names starting with cbact04c_fd, including acctfile, discrp, tran_cat_bal_record, tranfile, and xreffile.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-sample-masks.png)
+![Five SQL files with names starting with cbact04c_fd, including acctfile, discrp, tran_cat_bal_record, tranfile, and xreffile.](https://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-sample-masks.png)
 
 
 Each SQL mask name is the concatenation of the program name and the record structure name for a given data set within the program.

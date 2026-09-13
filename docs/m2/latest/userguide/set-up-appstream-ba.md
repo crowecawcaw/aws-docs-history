@@ -99,10 +99,10 @@ In this step, you use the `cfn-m2-appstream-elastic-fleet-linux.yaml` CloudForma
 1. Navigate to CloudFormation in the AWS Management console, and choose **Stacks**.
 
 1. In **Stacks**, choose **Create stack** and **With new Resources (standard)**:  
-![The Stacks page in CloudFormation with Create Stack and with new resources selected.](http://docs.aws.amazon.com/m2/latest/userguide/images/cfn-ba-stacks.png)
+![The Stacks page in CloudFormation with Create Stack and with new resources selected.](https://docs.aws.amazon.com/m2/latest/userguide/images/cfn-ba-stacks.png)
 
 1. In **Create stack**, choose **Choose an existing template** and **Upload a template file**:  
-![The CloudFormation create stack page with template ready to upload selected file.](http://docs.aws.amazon.com/m2/latest/userguide/images/cfn-ba-create-stack.png)
+![The CloudFormation create stack page with template ready to upload selected file.](https://docs.aws.amazon.com/m2/latest/userguide/images/cfn-ba-create-stack.png)
 
 1. Choose **Choose file**, and navigate to file `cfn-m2-appstream-elastic-fleet-linux.yaml`. Choose **Next**.
 
@@ -134,7 +134,7 @@ Run all the CloudFormation scripts downloaded in step 4 to set up your applicati
 After you create and start the fleet, you can create a temporary link to access the fleet through the native client.
 
 1. Navigate to WorkSpaces Applications in the AWS Management Console and choose the previously created stack:  
-![The Stacks page in WorkSpaces Applications showing the stack created for AWS Mainframe Modernization.](http://docs.aws.amazon.com/m2/latest/userguide/images/aas-ba-stacks.png)
+![The Stacks page in WorkSpaces Applications showing the stack created for AWS Mainframe Modernization.](https://docs.aws.amazon.com/m2/latest/userguide/images/aas-ba-stacks.png)
 
 1. On the stack details page, choose the stack, and then choose **Associate fleet**.
 

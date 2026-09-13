@@ -33,7 +33,7 @@ Code conversion can be configured to emit COBOL suitable for compilation and run
 
 The following is an architectural diagram for the Code conversion process:
 
-![Architectural diagram of the Code conversion process.](http://docs.aws.amazon.com/m2/latest/userguide/images/conversion-architecture.png)
+![Architectural diagram of the Code conversion process.](https://docs.aws.amazon.com/m2/latest/userguide/images/conversion-architecture.png)
 
 
 ## Automation approach

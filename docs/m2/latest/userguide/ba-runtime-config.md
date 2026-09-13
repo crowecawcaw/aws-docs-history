@@ -33,12 +33,12 @@ The first file configures the framework, i.e. `Gapwalk-application.war`, while t
 
 The following example shows a typical main YAML file.
 
-![Excerpt of a "main" YAML file.](http://docs.aws.amazon.com/m2/latest/userguide/images/main-yaml.png)
+![Excerpt of a "main" YAML file.](https://docs.aws.amazon.com/m2/latest/userguide/images/main-yaml.png)
 
 
 The following example shows a typical client YAML file.
 
-![Client YAML example](http://docs.aws.amazon.com/m2/latest/userguide/images/client-yaml.png)
+![Client YAML example](https://docs.aws.amazon.com/m2/latest/userguide/images/client-yaml.png)
 
 
 For information about the content of the YAML files, see [Enable properties for AWS Transform for mainframe Runtime](ba-runtime-key-value.md).

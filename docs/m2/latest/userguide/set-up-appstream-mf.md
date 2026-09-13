@@ -66,7 +66,7 @@ AWS Mainframe Modernization adds an additional fee to the standard WorkSpaces Ap
 1. In **Upload a template file**, choose **Choose file** and upload the [cfn-m2-appstream-fleet-ea-ed.yml](https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml) template.
 
 1. Choose **Next**.  
-![The CloudFormation Create stack page with selected cfn-m2-appstream-fleet-ea-ed.yml template.](http://docs.aws.amazon.com/m2/latest/userguide/images/cfn-create-stack.png)
+![The CloudFormation Create stack page with selected cfn-m2-appstream-fleet-ea-ed.yml template.](https://docs.aws.amazon.com/m2/latest/userguide/images/cfn-create-stack.png)
 
 1. On **Specify stack details**, enter the following information:
    + In **Stack name**, enter a name of your choice. For example, **m2-ea**.
@@ -75,7 +75,7 @@ AWS Mainframe Modernization adds an additional fee to the standard WorkSpaces Ap
    + In **AppStreamFleetVpcSubnet**, choose a subnet within your default VPC.
    + In **AppStreamImageName**, choose the image starting with `m2-enterprise-analyzer`. This image contains the currently supported version of the Rocket Enterprise Analyzer tool.
    + Accept the defaults for the other fields, then choose **Next**.  
-![The CloudFormation specify stack details page with Enterprise Analyzer options filled in.](http://docs.aws.amazon.com/m2/latest/userguide/images/cfn-specify-stack-details.png)
+![The CloudFormation specify stack details page with Enterprise Analyzer options filled in.](https://docs.aws.amazon.com/m2/latest/userguide/images/cfn-specify-stack-details.png)
 
 1. Accept all defaults, then choose **Next** again.
 
@@ -113,7 +113,7 @@ When CloudFormation finishes creating the stack, you can assign the user you cre
 1. In **Assign stack**, choose the stack that begins with `m2-appstream-stack-ea`.
 
 1. Choose **Assign stack**.  
-![The WorkSpaces Applications Assign stack page showing a user and the Enterprise Analyzer stack to be assigned.](http://docs.aws.amazon.com/m2/latest/userguide/images/aas-assign-stack.png)
+![The WorkSpaces Applications Assign stack page showing a user and the Enterprise Analyzer stack to be assigned.](https://docs.aws.amazon.com/m2/latest/userguide/images/aas-assign-stack.png)
 
 Assigning a user to a stack causes WorkSpaces Applications to send an email to the user at the address you provided. This email contains a link to the WorkSpaces Applications login page.
 
@@ -125,7 +125,7 @@ In this step, you log in to WorkSpaces Applications using the link in the email 
 1. Log in to WorkSpaces Applications using the link provided in the email sent by WorkSpaces Applications.
 
 1. Change your password, if prompted. The WorkSpaces Applications screen that you see is similar to the following:  
-![A sample WorkSpaces Applications login screen showing the desktop icon.](http://docs.aws.amazon.com/m2/latest/userguide/images/aas-login-screen.png)
+![A sample WorkSpaces Applications login screen showing the desktop icon.](https://docs.aws.amazon.com/m2/latest/userguide/images/aas-login-screen.png)
 
 1. Choose **Desktop**.
 

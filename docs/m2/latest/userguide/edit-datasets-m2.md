@@ -46,7 +46,7 @@ To do this,
    ```
    mfdatatools2
    ```  
-![Enterprise Developer Command Prompt.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-launch.png)
+![Enterprise Developer Command Prompt.](https://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-launch.png)
 
 This opens the Micro Focus Data File Tools in a separate window.
 
@@ -60,22 +60,22 @@ To do this,
 1. From the **File menu** in the Micro Focus Data File Tools window, choose **Data Explorer**.
 
 1. In the Data Explorer section, choose **Settings** (gear icon) to configure a new connection. This opens a **Data Source Settings** window.  
-![Micro Focus Data File Tools window with Data Explorer section.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-source.png)
+![Micro Focus Data File Tools window with Data Explorer section.](https://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-source.png)
 
 1. In the Data Source Settings window, choose the **MFDBFH** tab, and enter the following values:
    + Server: `ESPACDatabase`
    + Datastore: `VSAM`
 
    Choose **Apply** to save the configuration.  
-![Micro Focus Data File Tools window Data Source settings with MFDBFH tab.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-source-settings.png)
+![Micro Focus Data File Tools window Data Source settings with MFDBFH tab.](https://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-source-settings.png)
 
     The Data Explorer now shows all data sets that are stored in `MFDBFH`.  
-![Micro Focus Data File Tools window with Data Explorer section displaying all data sets.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-datasets.png)
+![Micro Focus Data File Tools window with Data Explorer section displaying all data sets.](https://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-datasets.png)
 
 1. Expand the relative path `DATA` and double click on the VSAM data set you want to open. 
 
 1. In the **Open Data File** window, choose **Open Shared** or **Open Exclusive** to open the data set.  
-![Micro Focus Data File Tools window with Data Explorer section Open Data File section to open data sets..](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-set.png)
+![Micro Focus Data File Tools window with Data Explorer section Open Data File section to open data sets..](https://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-set.png)
 
 You can now view or edit the open data set.
 
@@ -99,7 +99,7 @@ Before running this command, make sure you have set the `MFDBFH_CONFIG` environm
 1. From the File Menu of Micro Focus Data File Tools, choose **Open**, and then choose **Data File**.
 
 1. In the Open Data File window, browse the downloaded data set in your local file system. Edit the **File Details** as required. Then choose **Open Shared** or **Open Exclusive** to open the data set.  
-![Open Data Files window with local tab selected for browsing data sets.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-browse.png)
+![Open Data Files window with local tab selected for browsing data sets.](https://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-browse.png)
 
 You can now view or edit the open data set.
 

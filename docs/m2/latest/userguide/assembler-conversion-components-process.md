@@ -57,4 +57,4 @@ Log files are written in two locations during each CodeBuild project execution:
 
 The following diagram illustrates the process of converting Assembler to COBOL:
 
-![How code conversion from Assembler to COBOL works.](http://docs.aws.amazon.com/m2/latest/userguide/images/conversion-process-overview.png)
+![How code conversion from Assembler to COBOL works.](https://docs.aws.amazon.com/m2/latest/userguide/images/conversion-process-overview.png)

@@ -41,14 +41,14 @@ https://{{load-balancer-DNS-name}}:{{listener-port}}/{{web-binary-name}}
 
 After the PlanetsDemo application starts, the home page is displayed.
 
-![Home page](http://docs.aws.amazon.com/m2/latest/userguide/images/PlanetsDemo-homepage.png)
+![Home page](https://docs.aws.amazon.com/m2/latest/userguide/images/PlanetsDemo-homepage.png)
 
 
 Enter PINQ in the text box and then press Enter. The data inquiry page is displayed.
 
-![Data inquiry page](http://docs.aws.amazon.com/m2/latest/userguide/images/PlanetsDemo-app.png)
+![Data inquiry page](https://docs.aws.amazon.com/m2/latest/userguide/images/PlanetsDemo-app.png)
 
 
 For example, enter EARTH in the PlanetsDemo name field, and then press Enter. The page for the planet you entered is displayed.
 
-![EARTH page](http://docs.aws.amazon.com/m2/latest/userguide/images/PlanetsDemo-EARTH.png)
+![EARTH page](https://docs.aws.amazon.com/m2/latest/userguide/images/PlanetsDemo-EARTH.png)
