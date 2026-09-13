@@ -10,7 +10,7 @@ With this architecture, you can deploy the Temenos Payments Hub on AWS. This com
 ## Temenos Payments Hub service diagram
 <a name="tph-svc-diagram"></a>
 
-![Reference architecture diagram showing how to deploy Temenos Payments Hub by using Amazon API Gateway, Amazon ECS, Lambda, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-payments-hub/images/temenos-payments-hub-service.png)
+![Reference architecture diagram showing how to deploy Temenos Payments Hub by using Amazon API Gateway, Amazon ECS, Lambda, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-payments-hub/images/temenos-payments-hub-service.png)
 
 
 The following steps describe the service components and data flow for this architecture:

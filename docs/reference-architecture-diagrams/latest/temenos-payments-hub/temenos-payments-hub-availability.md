@@ -10,7 +10,7 @@ With this architecture, you can deploy Temenos Payments Hub with high availabili
 ## Temenos Payments Hub Availability Zones diagram
 <a name="tph-az-diagram"></a>
 
-![Reference architecture diagram showing high availability for Temenos Payments Hub across multiple Availability Zones by using Amazon ECS, AWS Fargate, and Amazon MQ.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-payments-hub/images/temenos-payments-hub-availability.png)
+![Reference architecture diagram showing high availability for Temenos Payments Hub across multiple Availability Zones by using Amazon ECS, AWS Fargate, and Amazon MQ.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/temenos-payments-hub/images/temenos-payments-hub-availability.png)
 
 
 The following steps describe the high availability components for this architecture:
