@@ -12,7 +12,7 @@ This architecture uses [Amazon Elastic Kubernetes Service](https://docs.aws.amaz
 ## Airline crew management systems diagram
 <a name="crew-systems-diagram"></a>
 
-![Architecture for airline crew management using Amazon Elastic Kubernetes Service, Amazon Aurora, and Amazon Quick Sight.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/crew-management-systems/images/crew-management-systems-aws-ra.png)
+![Architecture for airline crew management using Amazon Elastic Kubernetes Service, Amazon Aurora, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/crew-management-systems/images/crew-management-systems-aws-ra.png)
 
 
 The following steps describe the architecture:
