@@ -7,7 +7,7 @@ Amazon Cloud Directory is no longer open to new customers, and will reach end of
 
 Data in a directory is structured hierarchically in a tree pattern consisting of nodes, leaf nodes, and links between the nodes, as shown in the following illustration. This is useful in application development to model, store, and quickly traverse hierarchical data.
 
-![Hierarchical tree structure with root node at top, node objects in middle, and leaf node objects at bottom.](http://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/directory_structure.png)
+![Hierarchical tree structure with root node at top, node objects in middle, and leaf node objects at bottom.](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/directory_structure.png)
 
 
 ## Root Node

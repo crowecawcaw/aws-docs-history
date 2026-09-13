@@ -86,7 +86,7 @@ Using the [`ListObjectParentPaths`](http://docs.aws.amazon.com/clouddirectory/la
 
 For an example on how this works, let's say a directory has an object hierarchy similar to the illustration shown below. 
 
-![Directory object hierarchy showing nodes connected by child, attachment, and index links.](http://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/parent_path.png)
+![Directory object hierarchy showing nodes connected by child, attachment, and index links.](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/parent_path.png)
 
 
 The numbered shapes represent the different objects. The number of arrows between that object and the directory root (`000`) represent the complete path and would be expressed in the output. The following table shows requests and responses from queries made to specific leaf node objects in the hierarchy. 

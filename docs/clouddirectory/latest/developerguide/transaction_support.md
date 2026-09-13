@@ -92,7 +92,7 @@ The same concept applies with calculating write operations. For example, the wri
 
 The correct way to calculate the number of objects that are included within a batch is to include both the actual node or leaf\_node objects and if using a path based approach to iterate your directory tree, you also need to include each path that is iterated on, within the batch. For example, as shown in the following illustration of a basic directory tree, to read an attribute value for the object `003`, the total read count of objects would be three. 
 
-![Directory tree with node 001 linking to leaf nodes 002 and 003 via Path 1 and Path 2.](http://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/limits.png)
+![Directory tree with node 001 linking to leaf nodes 002 and 003 via Path 1 and Path 2.](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/limits.png)
 
 
 The traversing of reads down the tree works like this:

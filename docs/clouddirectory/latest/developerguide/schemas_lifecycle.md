@@ -9,7 +9,7 @@ Cloud Directory offers a schema lifecycle to help with the development of schema
 
 The following diagram depicts possible transitions and verbiage. All schema transitions are copy-on-write. For example, publishing a development schema does not alter or remove the development schema. 
 
-![Diagram showing schema transitions: Development to Published to Applied, with Deleted option.](http://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/schema_lifecycle.png)
+![Diagram showing schema transitions: Development to Published to Applied, with Deleted option.](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/schema_lifecycle.png)
 
 
 You can delete a schema when it is in either the Development or Published state. Deleting a schema cannot be undone nor can it be restored once it has been deleted.

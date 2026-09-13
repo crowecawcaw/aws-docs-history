@@ -7,7 +7,7 @@ Amazon Cloud Directory is no longer open to new customers, and will reach end of
 
 A link is a directed edge between two objects that define a relationship. Cloud Directory currently supports the following link types.
 
-![Diagram showing child, attachment, index, and typed link relationships between node objects.](http://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/objectlinks.png)
+![Diagram showing child, attachment, index, and typed link relationships between node objects.](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/objectlinks.png)
 
 
 ## Child Links
@@ -62,7 +62,7 @@ Identity is what uniquely defines whether a typed link can exist between two obj
 
 Typed links that are created from different typed link facets never conflict with each other. For example, consider the following diagram:
 
-![Three node objects connected by typed links with identity attributes showing operation failure at node 003.](http://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/typedlinks.png)
+![Three node objects connected by typed links with identity attributes showing operation failure at node 003.](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/typedlinks.png)
 
 
  
@@ -85,7 +85,7 @@ You can filter typed links based on the order that the attributes are defined on
 
 For example, in the following diagram, consider a Cloud Directory that is used to store information about Employees and their Abilities. 
 
-![Hierarchical diagram showing Root node with Employees and Offices branches, leaf nodes for John, Kelly, and Pete with Status and Role attributes.](http://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/typedlinklisting.png)
+![Hierarchical diagram showing Root node with Employees and Offices branches, leaf nodes for John, Kelly, and Pete with Status and Role attributes.](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/images/typedlinklisting.png)
 
 
 Let’s say we model our employee’s capabilities with a typed link named `EmployeeCapability`, which is configured with three string attributes: `Status`, `Role` and `Created`. The following filters are supported on [`ListIncomingTypedLinks`](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListIncomingTypedLinks.html) and [`ListOutgoingTypedLinks`](http://docs.aws.amazon.com/clouddirectory/latest/APIReference/API_ListOutgoingTypedLinks.html) API operations.
