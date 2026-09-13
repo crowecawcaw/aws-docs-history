@@ -12,7 +12,7 @@ This architecture helps airlines deliver a secure, integrated experience for boo
 ## Amazon Alexa Skill for airlines diagram
 <a name="alexa-skill-diagram"></a>
 
-![Architecture for an airline Alexa Skill using Amazon API Gateway, AWS Lambda, and Amazon Cognito.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/alexa-skill-airlines/images/alexa-skills-airlines-ra.png)
+![Architecture for an airline Alexa Skill using Amazon API Gateway, AWS Lambda, and Amazon Cognito.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/alexa-skill-airlines/images/alexa-skills-airlines-ra.png)
 
 
 The following steps describe the architecture:
