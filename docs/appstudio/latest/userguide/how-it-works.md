@@ -14,7 +14,7 @@ For more information about App Studio concepts, see [AWS App Studio concepts](co
 
 The following image is a simple diagram of how App Studio and its resources are organized. 
 
-![A simple diagram that shows the organization of resources in an App Studio application.](http://docs.aws.amazon.com/appstudio/latest/userguide/images/app-studio-diagram.png)
+![A simple diagram that shows the organization of resources in an App Studio application.](https://docs.aws.amazon.com/appstudio/latest/userguide/images/app-studio-diagram.png)
 
 
 Within an app in App Studio, pages, automations, and entities all interact with one another. You use connectors to connect these resources to external services such as data, storage, or notification providers. To successfully build an app, it’s crucial to understand how all of these concepts and resources interact with one another. 
@@ -60,7 +60,7 @@ The following image shows the **Pages** tab of the application studio, where you
 
 1. The bottom **Errors** and **Warnings** panels. These panels display any errors or warnings in your application, which are most commonly from configuration issues. You can choose the panel to expand it and see the messages.
 
-![A view of the Pages tab of the application studio that is displayed while you edit an app.](http://docs.aws.amazon.com/appstudio/latest/userguide/images/pages-components.png)
+![A view of the Pages tab of the application studio that is displayed while you edit an app.](https://docs.aws.amazon.com/appstudio/latest/userguide/images/pages-components.png)
 
 
 As an example, applications where users have to input information might have the following pages and components:
@@ -83,7 +83,7 @@ The following image shows the **Automations** tab of the application studio, whe
 + The right-side **Actions** and **Properties** panels. With nothing selected, the Actions panel is shown. It displays the list of actions that can be added to your automation. If you select an automation, you can view and configure its properties, such as the input and output of the automation. If you select an action, you can view and configure the action’s properties.
 + The bottom **Errors** and **Warnings** panels. This panel displays any errors or warnings in your application (most commonly from configuration issues). You can choose the panel to expand it and see the messages.
 
-![The Automations tab of the application studio, where you can create, configure, and manage automations and actions while editing an app.](http://docs.aws.amazon.com/appstudio/latest/userguide/images/automations-actions.png)
+![The Automations tab of the application studio, where you can create, configure, and manage automations and actions while editing an app.](https://docs.aws.amazon.com/appstudio/latest/userguide/images/automations-actions.png)
 
 
 Automations can be simple (such as adding numbers and returning the result), or more powerful (such as sending an input to another service and returning the result). The main components of an automation are as follows:
@@ -99,7 +99,7 @@ The development lifecycle of your application includes the following stages: bui
 
 The following image shows a simplified timeline of the application development lifecycle in App Studio:
 
-![A timeline diagram of the application development lifecycle, which includes building, previewing, testing, production, and sharing.](http://docs.aws.amazon.com/appstudio/latest/userguide/images/app-studio-development-lifecycle.png)
+![A timeline diagram of the application development lifecycle, which includes building, previewing, testing, production, and sharing.](https://docs.aws.amazon.com/appstudio/latest/userguide/images/app-studio-development-lifecycle.png)
 
 
 App Studio offers various tools to support the lifecycle of your application. These tools include the following three distinct environments, which are shown in the previous diagram:
