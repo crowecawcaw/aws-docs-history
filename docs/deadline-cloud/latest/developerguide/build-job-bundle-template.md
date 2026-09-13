@@ -36,12 +36,12 @@ The `userInterface` property defines the behavior of automatically generated use
 
 The `gui-submit` command opens a submission dialog with a **Shared job settings** tab for the name, priority, and target queue of the job, and a **Job-specific settings** tab generated from the parameter definitions in the job template.
 
-![The job submission dialog showing the Shared job settings tab with job name, priority, and farm and queue fields.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit.png)
+![The job submission dialog showing the Shared job settings tab with job name, priority, and farm and queue fields.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit.png)
 
 
 In this example, the UI widget for inputting a value for the `BlenderSceneFile` parameter is a file-selection dialog that shows only `.blend` files.
 
-![A user-interface widget for entering the scene file parameter for an OpenJD job template.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/blender_submit_scene_file_widget.png)
+![A user-interface widget for entering the scene file parameter for an OpenJD job template.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/blender_submit_scene_file_widget.png)
 
 
 For more examples of using the `userInteface` element, see the [gui\_control\_showcase sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase) in the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline) on the GitHub website.
@@ -67,7 +67,7 @@ The value of the `OutputDir` parameter is used by job attachments as the directo
 
 When you submit the bundle, the submission dialog's **Job attachments** tab lists the input files and directories it detected from these properties, along with the output directories the job writes to. Paths shown in italics were detected automatically; you can add others that the submitter didn't find.
 
-![The Job attachments tab of a submission dialog, listing detected input files, input directories, and the output directory.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit-job-attachments.png)
+![The Job attachments tab of a submission dialog, listing detected input files, input directories, and the output directory.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit-job-attachments.png)
 
 
 For more information about the `objectType` and `dataFlow` properties, see [JobPathParameterDefinition](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#22-jobpathparameterdefinition) in the [Open Job Description specification](https://github.com/OpenJobDescription/openjd-specifications) on the GitHub website.

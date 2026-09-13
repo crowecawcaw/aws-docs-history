@@ -9,7 +9,7 @@ The source code for this example is available in the [deadline-cloud-samples](ht
 
 The following video demonstrates the FLUX.2 Klein LoRA workflow on Deadline Cloud.
 
-[![AWS Videos](http://img.youtube.com/vi/3ziQqB19RSw/0.jpg)](http://www.youtube.com/watch?v=3ziQqB19RSw)
+[![AWS Videos](https://img.youtube.com/vi/3ziQqB19RSw/0.jpg)](https://www.youtube.com/watch?v=3ziQqB19RSw)
 
 
 **Estimated time:** 30–60 minutes (including 15–45 minutes for training).

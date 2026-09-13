@@ -9,7 +9,7 @@ The source code for this tutorial is available in the [deadline-cloud-samples](h
 
 The following video demonstrates the vLLM LLM leaderboard workflow on Deadline Cloud.
 
-[![AWS Videos](http://img.youtube.com/vi/Hh_s65lEalU/0.jpg)](http://www.youtube.com/watch?v=Hh_s65lEalU)
+[![AWS Videos](https://img.youtube.com/vi/Hh_s65lEalU/0.jpg)](https://www.youtube.com/watch?v=Hh_s65lEalU)
 
 
 **Estimated time:** 20–40 minutes (depending on the number of models and benchmarks).

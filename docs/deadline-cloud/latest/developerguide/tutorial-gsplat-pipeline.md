@@ -15,7 +15,7 @@ The pipeline runs a single task that:
 
 The following video demonstrates the Gaussian Splatting pipeline workflow on Deadline Cloud.
 
-[![AWS Videos](http://img.youtube.com/vi/VUZwa6IuNdg/0.jpg)](http://www.youtube.com/watch?v=VUZwa6IuNdg)
+[![AWS Videos](https://img.youtube.com/vi/VUZwa6IuNdg/0.jpg)](https://www.youtube.com/watch?v=VUZwa6IuNdg)
 
 
 **Estimated time:** A few hours, including farm setup. Depending on the input video and the settings you select, the job itself can finish in 10 minutes or take hours.

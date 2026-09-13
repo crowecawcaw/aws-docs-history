@@ -129,7 +129,7 @@ steps:
 
 Submitters set the same requirements through the **Host requirements** tab. Choose **Run on worker hosts that meet the following requirements** to set an operating system, CPU architecture, and hardware ranges without editing the template.
 
-![The Host requirements tab with custom requirements selected, showing OS, CPU architecture, and hardware ranges.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit-host-requirements.png)
+![The Host requirements tab with custom requirements selected, showing OS, CPU architecture, and hardware ranges.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit-host-requirements.png)
 
 
 This job can be scheduled to a fleet with the following capabilities:
@@ -182,6 +182,11 @@ Because the scheduler evaluates compatibility at the fleet level, design your cu
 For example, if you have workers with 1 GPU (24 GiB VRAM) and workers with 4 GPUs (96 GiB VRAM), create two separate fleets: one declaring a minimum of 1 GPU and 24 GiB GPU memory, and another declaring a minimum of 4 GPUs and 96 GiB GPU memory. Then associate both fleets with the same queue. Steps that require 4 GPUs are automatically routed to the high-GPU fleet.
 
 For more information about creating a customer-managed fleet, see [Create a customer-managed fleet](create-a-cmf.md).
+
+### Memory requirements and instance sizing
+<a name="jobs-scheduling-memory-sizing"></a>
+
+A step's `amount.worker.memory` host requirement selects fleets. It doesn't size instances. The scheduler matches the requirement against each fleet's declared capabilities, not against individual workers. As a result, the requirement doesn't cause a service-managed fleet to launch a larger instance. To guarantee the instance size, constrain the fleet configuration instead. The same applies to the other hardware requirements, such as `amount.worker.vcpu` and `amount.worker.gpu`. For more information about how requirements and fleet configuration divide this work, see [Host requirements and fleet capabilities](host-requirements-overview.md).
 
 ### Custom capabilities
 <a name="jobs-scheduling-custom-capabilities"></a>

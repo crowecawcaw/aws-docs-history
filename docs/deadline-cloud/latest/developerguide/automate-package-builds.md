@@ -115,7 +115,7 @@ You need the following:
 
 After you submit the job, use the Deadline Cloud monitor to view the progress and status of the job.
 
-![The Deadline Cloud monitor showing the progress and status of a job building a conda package.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/Conda-Figure3.png)
+![The Deadline Cloud monitor showing the progress and status of a job building a conda package.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/Conda-Figure3.png)
 
 
 The monitor shows the two steps of the job: building the package and then reindexing the conda channel. When you right-click on the task for the package building step and choose **View logs**, the monitor shows the session actions:

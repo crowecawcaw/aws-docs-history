@@ -15,7 +15,7 @@ The job runs a lane-change cut-in scenario where an NPC vehicle starts behind th
 
 The following video demonstrates the CARLA simulation sweep workflow on Deadline Cloud.
 
-[![AWS Videos](http://img.youtube.com/vi/xitKHbbBHDw/0.jpg)](http://www.youtube.com/watch?v=xitKHbbBHDw)
+[![AWS Videos](https://img.youtube.com/vi/xitKHbbBHDw/0.jpg)](https://www.youtube.com/watch?v=xitKHbbBHDw)
 
 
 **Estimated time:** 1–2 hours, including the Docker image build. Tasks typically complete in about 13 minutes each.

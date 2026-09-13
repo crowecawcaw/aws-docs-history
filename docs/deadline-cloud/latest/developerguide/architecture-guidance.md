@@ -13,7 +13,7 @@ For each layer, decide which approach is best for your use case. These scenarios
 
 In general, you can mix-and-match any scenario in one layer with any other scenario in another layer, except specific combinations which are specified below.
 
-![Diagram showing how different parts of Deadline Cloud work together.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/architecture.png)
+![Diagram showing how different parts of Deadline Cloud work together.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/architecture.png)
 
 
 ## Job source
@@ -197,7 +197,7 @@ With this approach, artists can submit jobs directly from their familiar DCC too
 
 With this configuration, studios can create development and production environments in minutes, only pay for the compute and licensing they use, and focus on creative work rather than infrastructure management. The service-managed approach provides the fastest path to adopting cloud rendering while maintaining familiar workflows for artists.
 
-![Diagram showing how a tradition production studio might use Deadline Cloud.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/architecture-production-studio-example.png)
+![Diagram showing how a tradition production studio might use Deadline Cloud.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/architecture-production-studio-example.png)
 
 
 ### Studio in the Cloud
@@ -251,7 +251,7 @@ A Deadline Cloud deployment for ecommerce automation can be implemented using:
 
 This approach enables processing of thousands of products per day, automatically generating standardized product visualizations like turntable animations. The service-managed infrastructure automatically scales to meet variable demand while maintaining cost efficiency through worker reuse and optimized application deployment.
 
-![Diagram showing how automated eCommerce workflow works in Deadline Cloud.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/architecture-ecommerce.png)
+![Diagram showing how automated eCommerce workflow works in Deadline Cloud.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/architecture-ecommerce.png)
 
 
 ### Whitelabel/OEM/B2C Customer
@@ -285,7 +285,7 @@ End users benefit from:
 
 This integration pattern enables software vendors to provide enterprise-grade rendering capabilities to their entire user base while maintaining a simple, consumer-friendly experience that feels native to their application.
 
-![Diagram showing how B2C users might use Deadline Cloud.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/architecture-b2c-customer.png)
+![Diagram showing how B2C users might use Deadline Cloud.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/architecture-b2c-customer.png)
 
 
 ### Hybrid render farm

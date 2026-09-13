@@ -5,7 +5,7 @@
 
 With Amazon VPC resource endpoints for Deadline Cloud service-managed fleets (SMF), you can connect your VPC resources such as network file systems (NFS), license servers, and databases with your Deadline Cloud workers. This feature lets you use the fully managed Deadline Cloud platform while integrating with your existing infrastructure within a VPC.
 
-![A diagram showing how the Deadline Cloud SMF connects with the VPC Lattice.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/vpc-resource-endpoints.png)
+![A diagram showing how the Deadline Cloud SMF connects with the VPC Lattice.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/vpc-resource-endpoints.png)
 
 
 **Tip**  

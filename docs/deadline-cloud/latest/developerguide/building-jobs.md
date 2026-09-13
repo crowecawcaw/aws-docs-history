@@ -20,5 +20,6 @@ You can store your assets in a file system shared between your workers, or you c
 + [Create resource limits for jobs](build-job-limits.md)
 + [How to submit a job to Deadline Cloud](submit-jobs-how.md)
 + [Share job bundles on your queue](share-job-bundles.md)
++ [Host requirements and fleet capabilities](host-requirements-overview.md)
 + [Schedule jobs in Deadline Cloud](build-jobs-scheduling.md)
 + [Modify a job in Deadline Cloud](build-jobs-modifying.md)

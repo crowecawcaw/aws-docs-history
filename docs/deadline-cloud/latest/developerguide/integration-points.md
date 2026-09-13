@@ -15,7 +15,7 @@ The following diagram shows where each integration point runs during the job lif
 + **Worker** – Queue, job, and step environments use session-scoped enter and exit actions. Task execution runs your work. Dependent steps run after the task completes.
 + **AWS account** – EventBridge events and CloudWatch metrics and alarms respond asynchronously to state changes.
 
-![Job lifecycle integration points across workstation, worker, and cloud.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/integration-points-diagram.png)
+![Job lifecycle integration points across workstation, worker, and cloud.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/integration-points-diagram.png)
 
 
 The following table summarizes the integration points. Choose one based on the answers to the preceding questions. The sections after the table describe each option and link to detailed instructions.

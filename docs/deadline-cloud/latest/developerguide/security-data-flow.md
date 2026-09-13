@@ -5,7 +5,7 @@
 
 Content security reviews, such as studio security audits and vendor onboarding questionnaires, ask for a data flow diagram. The diagram covers the components of the render farm, where each component runs, how data moves between them, and how connections and stored data are encrypted. The diagram and tables on this page answer those questions for a typical AWS Deadline Cloud deployment. For more information about the security controls that you can configure for each part of the farm, see [Security controls in Deadline Cloud](security-controls.md).
 
-![Data flow between your network and the AWS Cloud, where your AWS account and Deadline Cloud sit side by side. Numbered flows show sign-in, job submission, file upload and download, task scheduling and credential requests, and job and worker logs. Customer-managed fleet workers span your network and your AWS account because they can run in either location. All flows are outbound HTTPS connections on TCP port 443, and the tables on this page describe each component and flow.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/deadline-cloud-data-flow.png)
+![Data flow between your network and the AWS Cloud, where your AWS account and Deadline Cloud sit side by side. Numbered flows show sign-in, job submission, file upload and download, task scheduling and credential requests, and job and worker logs. Customer-managed fleet workers span your network and your AWS account because they can run in either location. All flows are outbound HTTPS connections on TCP port 443, and the tables on this page describe each component and flow.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/deadline-cloud-data-flow.png)
 
 
 ## Components and where they run

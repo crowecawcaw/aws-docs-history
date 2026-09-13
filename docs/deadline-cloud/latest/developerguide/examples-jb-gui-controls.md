@@ -11,4 +11,4 @@ Open the GUI submitter to see every control:
 deadline bundle gui-submit job_bundles/gui_control_showcase
 ```
 
-![The job-specific settings tab for the gui_control_showcase bundle, showing generated controls grouped by type.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/gui-control-showcase.png)
+![The job-specific settings tab for the gui_control_showcase bundle, showing generated controls grouped by type.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/gui-control-showcase.png)

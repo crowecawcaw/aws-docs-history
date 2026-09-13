@@ -22,12 +22,12 @@ Use a job bundle for custom job submissions with the Deadline Cloud CLI and a jo
 deadline bundle gui-submit blender_render
 ```
 
-![An example of a custom job submission interface for Blender.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/blender_submit_shared_settings.png)
+![An example of a custom job submission interface for Blender.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/blender_submit_shared_settings.png)
 
 
 The job-specific settings panel are generated from the `userInterface` properties of the job parameters defined in the job template.
 
-![The job-specific settings tab, with a frame range field, a scene file picker, and an output directory picker.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit-job-specific-settings.png)
+![The job-specific settings tab, with a frame range field, a scene file picker, and an output directory picker.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit-job-specific-settings.png)
 
 
 To submit a job using the command line, you can use a command similar to the following

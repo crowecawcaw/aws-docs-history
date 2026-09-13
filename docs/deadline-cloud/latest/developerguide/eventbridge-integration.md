@@ -9,7 +9,7 @@ Here's how it works:
 
 As with many AWS services, Deadline Cloud generates and sends events to the EventBridge default event bus. (The default event bus is automatically provisioned in every AWS account.) An event bus is a router that receives events and delivers them to zero or more destinations, or *targets*. Rules you specify for the event bus evaluate events as they arrive. Each rule checks whether an event matches the rule's *event pattern*. If the event does match, the event bus sends the event to the specified target(s).
 
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/eventbridge-integration-how-it-works.png)
+![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/eventbridge-integration-how-it-works.png)
 
 
 **Topics**

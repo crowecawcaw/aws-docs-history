@@ -225,7 +225,7 @@ Commands should be run as the root user.
 
 The following diagram illustrates the relationship between the agent user and the `jobRunAsUser` users and groups for queues associated with the fleet.
 
-![An illustration of the relationship between agent-users and the jobRunAsUser on queues.](http://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/worker_users_and_groups.png)
+![An illustration of the relationship between agent-users and the jobRunAsUser on queues.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/worker_users_and_groups.png)
 
 
 **Windows users**
