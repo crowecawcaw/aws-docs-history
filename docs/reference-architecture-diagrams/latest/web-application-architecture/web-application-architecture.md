@@ -10,7 +10,7 @@ This architecture shows how you can host a classic web application on AWS. You u
 ## Web Application Architecture on AWS
 <a name="diagram1"></a>
 
-![Architecture diagram showing a web application hosted on AWS with Amazon Elastic Compute Cloud, Amazon RDS, Amazon ElastiCache, and Amazon Simple Storage Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/web-application-architecture/images/web-application-architecture.png)
+![Architecture diagram showing a web application hosted on AWS with Amazon Elastic Compute Cloud, Amazon RDS, Amazon ElastiCache, and Amazon Simple Storage Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/web-application-architecture/images/web-application-architecture.png)
 
 
 The following steps describe the architecture:
