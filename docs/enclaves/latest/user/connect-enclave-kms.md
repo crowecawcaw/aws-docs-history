@@ -21,7 +21,7 @@ An enclave does not have network access. It communicates only with its parent in
 
 The following diagram shows how an enclave uses AWS KMS and cryptographic attestation to decrypt a secret.
 
-![An incoming HTTPS request flows from the parent instance into the enclave over vsock. The enclave calls kmstool-enclave-cli, which obtains an attestation document from the Nitro Secure Module and sends a decrypt request to AWS KMS through the vsock proxy on the parent instance.](http://docs.aws.amazon.com/enclaves/latest/user/images/enclave-kms-attestation.png)
+![An incoming HTTPS request flows from the parent instance into the enclave over vsock. The enclave calls kmstool-enclave-cli, which obtains an attestation document from the Nitro Secure Module and sends a decrypt request to AWS KMS through the vsock proxy on the parent instance.](https://docs.aws.amazon.com/enclaves/latest/user/images/enclave-kms-attestation.png)
 
 
 *Figure 2: Decrypt with AWS KMS and cryptographic attestation*

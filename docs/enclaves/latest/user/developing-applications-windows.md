@@ -16,7 +16,7 @@ This section provides information for Nitro Enclaves application development on 
 
 The EC2 parent instance and the enclaves operate as separate virtual machines. This means that each of them (the parent instance and all of its enclaves) must run its own operating system. The parent instance, supports both Linux and Windows (2016 and later) operating systems. However, the enclaves support only operating systems that support the Linux boot protocol. This means that even if you have a Windows parent instance, you must run a Linux environment inside your enclaves.
 
-![Supported operating systems](http://docs.aws.amazon.com/enclaves/latest/user/images/enclave-os.png)
+![Supported operating systems](https://docs.aws.amazon.com/enclaves/latest/user/images/enclave-os.png)
 
 
 This also means that you must use a Linux-based instance to build your enclave image file (`.eif`). 

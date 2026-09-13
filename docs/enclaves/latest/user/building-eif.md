@@ -7,7 +7,7 @@ After you have developed an enclave application, you are ready to package it as 
 
 This section explains how to create an enclave image file.
 
-![Building an enclave image file](http://docs.aws.amazon.com/enclaves/latest/user/images/build-eif.png)
+![Building an enclave image file](https://docs.aws.amazon.com/enclaves/latest/user/images/build-eif.png)
 
 
 First, you need to package the enclave application and its dependencies into a Docker image. A Docker image is a read-only template that provides instructions for creating a Docker container. Nitro Enclaves uses Docker images as a convenient file format for packaging your applications. Docker images are typically used to create Docker containers. However, in this case, you use the Docker image to create an enclave image file instead. For more information about Docker, see the following resources:

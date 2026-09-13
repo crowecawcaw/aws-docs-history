@@ -5,7 +5,7 @@
 
 You can use Amazon Elastic Kubernetes Service to orchestrate, scale, and deploy Nitro Enclaves from a Kubernetes pod. Kubernetes is an open source platform for container orchestration. The following diagram provides a conceptual overview of how Nitro Enclaves integrates with Amazon EKS.
 
-![Overview](http://docs.aws.amazon.com/enclaves/latest/user/images/enclaves_eks.png)
+![Overview](https://docs.aws.amazon.com/enclaves/latest/user/images/enclaves_eks.png)
 
 
 **Important**  

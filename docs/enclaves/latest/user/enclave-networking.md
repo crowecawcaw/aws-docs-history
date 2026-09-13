@@ -29,7 +29,7 @@ With virtio-vsock language bindings, you can create custom, highly restricted, b
 
 The following diagram shows how the parent instance and enclave communicate over vsock.
 
-![An application on the parent instance dials out to a vsock listener in the enclave on CID 16, port 5000, and exchanges data over the open connection.](http://docs.aws.amazon.com/enclaves/latest/user/images/enclave-vsock-binding.png)
+![An application on the parent instance dials out to a vsock listener in the enclave on CID 16, port 5000, and exchanges data over the open connection.](https://docs.aws.amazon.com/enclaves/latest/user/images/enclave-vsock-binding.png)
 
 
 *Figure 1: vsock language binding*
