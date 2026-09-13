@@ -32,7 +32,7 @@ The console also has a page for managing your existing connections. You can comp
 1. In the navigation pane, choose **Connected accounts**.
 
    The console then displays a list of repository provider connections in your account.  
-![App Runner Connected accounts page](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-connections-github.png)
+![App Runner Connected accounts page](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-connections-github.png)
 
 1. You can now do one of the following actions with any connection on the list:
    + *Open GitHub/Bitbucket account or organization* – Choose the name of the connection.

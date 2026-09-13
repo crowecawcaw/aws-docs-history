@@ -24,7 +24,7 @@ Manage observability for your App Runner services using one of the following met
 
 When you [create a service](manage-create.md) using the App Runner console, or when you [update its configuration later](manage-configure.md), you can configure observability features for your service. Look for the **Observability** configuration section on the console page. 
 
-![App Runner console configuration page showing observability options](http://docs.aws.amazon.com/apprunner/latest/dg/images/manage-configure-observability.png)
+![App Runner console configuration page showing observability options](https://docs.aws.amazon.com/apprunner/latest/dg/images/manage-configure-observability.png)
 
 
 ------

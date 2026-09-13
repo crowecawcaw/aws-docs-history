@@ -11,7 +11,7 @@ X-Ray uses trace data from the AWS resources that power your cloud applications 
 
 For more information about X-Ray, see the [AWS X-Ray Developer Guide](https://docs.aws.amazon.com/xray/latest/devguide/).
 
-![An example of an X-Ray service map for an App Runner service](http://docs.aws.amazon.com/apprunner/latest/dg/images/xray-example.png)
+![An example of an X-Ray service map for an App Runner service](https://docs.aws.amazon.com/apprunner/latest/dg/images/xray-example.png)
 
 
 ## Instrument your application for tracing
@@ -142,7 +142,7 @@ In both the console and API cases, be sure to associate your instance role discu
 
 On the **Observability** tab of the [service dashboard page](console.md#console.dashboard) in the App Runner console, choose **View service map** to navigate to the Amazon CloudWatch console.
 
-![App Runner service dashboard page showing the observability tab](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-observability.png)
+![App Runner service dashboard page showing the observability tab](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-observability.png)
 
 
 Use the Amazon CloudWatch console to view service maps and traces for requests that your application serves. Service maps show information like request latency and interactions with other applications and AWS services. The custom annotations that you add to your code allow you to easily search for traces. For more information, see [Using ServiceLens to monitor the health of your applications](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ServiceLens.html) in the *Amazon CloudWatch User Guide*.

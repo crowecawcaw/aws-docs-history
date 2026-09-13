@@ -56,12 +56,12 @@ At this time, the console displays only service metrics. To view instance metric
 1. In the navigation pane, choose **Services**, and then choose your App Runner service.
 
    The console displays the service dashboard with a **Service overview**.  
-![App Runner service dashboard page showing Activity list](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page showing Activity list](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
 
 1. On the service dashboard page, choose the **Metrics** tab.
 
    The console displays a set of metrics graphs.   
-![The Metrics tab on the App Runner service dashboard page](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-metrics.png)
+![The Metrics tab on the App Runner service dashboard page](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-metrics.png)
 
 1. Choose a duration (for example, **12h**) to scope metrics graphs to the recent period of that duration.
 

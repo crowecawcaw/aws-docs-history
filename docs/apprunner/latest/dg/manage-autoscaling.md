@@ -46,7 +46,7 @@ The **Auto scaling** configuration page offers several options to configure auto
 + **To create and assign a new auto scaling configuration** – Select **Create new ASC** from the **Create** menu. This launches the **Add custom auto scaling configuration** page. Enter a **Configuration name** and values for the auto scaling parameters. Then select **Add**. App Runner creates the new auto scaling configuration resource for you and returns you to **Auto scaling** section with the new configuration selected and displayed.
 + **To create and assign a new revision** – First select the configuration name from the **Existing configurations** drop-down. Then select **Create ASC revision** from the **Create** menu. This launches the **Add custom auto scaling configuration** page. Enter values for the auto scaling parameters. Then select **Add**. App Runner creates a new auto scaling configuration revision for you and returns you to **Auto scaling** section with the new revision selected and displayed.
 
-![App Runner console configuration page showing auto scaling options](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-autoscaling.png)
+![App Runner console configuration page showing auto scaling options](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-autoscaling.png)
 
 
 ------
@@ -74,7 +74,7 @@ You can do any of the following from this page:
 + Delete an auto scaling configuration.
 + Set an auto scaling configuration as the default.
 
-![App Runner Auto scaling configurations page](http://docs.aws.amazon.com/apprunner/latest/dg/images/asc-top-level.png)
+![App Runner Auto scaling configurations page](https://docs.aws.amazon.com/apprunner/latest/dg/images/asc-top-level.png)
 
 
 **To manage auto scaling configurations in your account**
@@ -138,7 +138,7 @@ You can do any of the following from the **Auto scaling revisions** page:
 + View a list of the services associated to a revision.
 + Change the revision for a listed service. 
 
-![App Runner Auto scaling configurations page](http://docs.aws.amazon.com/apprunner/latest/dg/images/asc-revisions.png)
+![App Runner Auto scaling configurations page](https://docs.aws.amazon.com/apprunner/latest/dg/images/asc-revisions.png)
 
 
 **To manage auto scaling revisions in your account**
@@ -201,7 +201,7 @@ The new default designation doesn't affect the associations that were previously
 When you change a revision that's associated to a service, your service is re-deployed.  
 You must select refresh on this panel to see the updated associations.  
 To see the ongoing activity and the status for the service redeployment, use the panel breadcrumbs to navigate to **App Runner** **>** **Services**, select the service, then view the **Logs** tab from the **Service overview** panel.  
-![App Runner Auto scaling revisions page with split panel beneath that displays the services associated the selected revision.](http://docs.aws.amazon.com/apprunner/latest/dg/images/asc-revisions-services.png)
+![App Runner Auto scaling revisions page with split panel beneath that displays the services associated the selected revision.](https://docs.aws.amazon.com/apprunner/latest/dg/images/asc-revisions-services.png)
 
 ------
 #### [ App Runner API or AWS CLI ]

@@ -17,7 +17,7 @@ The App Runner console has three areas. From left to right:
 + **Content pane** – The main part of the console page. Use it to view information and perform your tasks.
 + **Help pane** – A side pane for more information. Expand it to get help about the page you're on. Or choose any **Info** link on a console page to get contextual help.
 
-![The App Runner console layout, showing the navigation, content, and help panes](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-services.png)
+![The App Runner console layout, showing the navigation, content, and help panes](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-services.png)
 
 
 ## The Services page
@@ -43,7 +43,7 @@ You can view information about an App Runner service and manage it from the serv
 
 To get to the service dashboard, navigate to the **Services** page (see previous section), and then choose your App Runner service.
 
-![App Runner service dashboard page](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
 
 
 The **Service overview** section provides basic details about the App Runner service and your application. Things you can do here:
@@ -66,7 +66,7 @@ The **Connected accounts** page lists App Runner connections to source code repo
 
 1. In the navigation pane, choose **Connected accounts**.
 
-![App Runner Connected accounts page](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-connections-github.png)
+![App Runner Connected accounts page](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-connections-github.png)
 
 
 Things you can do here:
@@ -85,7 +85,7 @@ The **Auto scaling configurations** page lists the auto scaling configurations t
 
 1. In the navigation pane, choose **Auto scaling configuration**.
 
-![App Runner Auto scaling configurations page](http://docs.aws.amazon.com/apprunner/latest/dg/images/asc-top-level.png)
+![App Runner Auto scaling configurations page](https://docs.aws.amazon.com/apprunner/latest/dg/images/asc-top-level.png)
 
 
 Things you can do here:

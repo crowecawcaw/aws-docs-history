@@ -29,7 +29,7 @@ Configure health checks for your App Runner service using one of the following m
 
 When you create your App Runner service using the App Runner console, or when you update its configuration later, you can configure health check settings. For full console procedures, see [Creating an App Runner service](manage-create.md) and [Configuring an App Runner service](manage-configure.md). In both cases, look for the **Health check** configuration section on the console page.
 
-![App Runner console configuration page showing health check options](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-health-check.png)
+![App Runner console configuration page showing health check options](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-health-check.png)
 
 
 ------

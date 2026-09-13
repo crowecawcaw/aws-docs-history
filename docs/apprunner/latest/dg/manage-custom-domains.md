@@ -110,13 +110,13 @@ If you're using Amazon Route 53 as your DNS provider, you can add either CNAME 
 1. In the navigation pane, choose **Services**, and then choose your App Runner service.
 
    The console displays the service dashboard with a **Service overview**.  
-![App Runner service dashboard page showing Activity list](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page showing Activity list](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
 
 1. On the service dashboard page, choose the **Custom domains** tab.
 
    The console shows the custom domains that are associated with your service, or **No custom domains**.  
-![The Custom domains tab on the App Runner service dashboard page, showing no associated custom domains](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-domains-empty.png)  
-![The Custom domains tab on the App Runner service dashboard page, showing one custom domain pending association.](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-domains-one-pending.png)
+![The Custom domains tab on the App Runner service dashboard page, showing no associated custom domains](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-domains-empty.png)  
+![The Custom domains tab on the App Runner service dashboard page, showing one custom domain pending association.](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-domains-one-pending.png)
 
 1. On the **Custom domains** tab, choose **Link domain**.
 
@@ -130,7 +130,7 @@ You must first create a Route 53 domain using the Amazon Route 53 service from
      1. Select the **DNS record type**.
 
      1. Choose **Link domain**.  
-![The Link custom domain page, showing Amazon Route 53 as the selected domain provider.](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-domains-link-r53.png)
+![The Link custom domain page, showing Amazon Route 53 as the selected domain provider.](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-domains-link-r53.png)
 **Note**  
 If App Runner displays an error message stating that the automatic configuration attempt failed, you can proceed by configuring the DNS records manually. This issue can arise if the same domain name was previously unlinked from a service, without the DNS provider records that point to the service being deleted afterward. In this case App Runner is blocked from automatically overwriting these records. To finish the DNS configuration, skip the remainder of the steps in this procedure and then follow the instructions in [Configure an Amazon Route 53 alias record](manage-custom-domains-route53.md).
    + If your custom domain is registered with another domain registrar, select **Non–Amazon** for **Domain registrar**.
@@ -138,7 +138,7 @@ If App Runner displays an error message stating that the automatic configuration
      1. Enter the **Domain name**.
 
      1.  Choose **Link domain**.  
-![The Link custom domain page, showing non–Amazon as the selected domain provider.](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-domains-link-non-amzn.png)
+![The Link custom domain page, showing non–Amazon as the selected domain provider.](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-domains-link-non-amzn.png)
 
 1. The **Configure DNS** page displays.
    + If Amazon Route 53 is your DNS provider, then this step is optional.
@@ -159,15 +159,15 @@ To auto-renew your custom domain certificates, make sure not to delete the certi
 To auto-renew your custom domain certificates, make sure not to delete the certificate validation records from your DNS server.
        +  For more information about **Configure certificate validation**, see [DNS Validation](https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html) in the *[AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/)*. 
        + For instructions on how to configure a DNS target on other registrars, such as GoDaddy, Shopify, Hover and so on, refer to their specific documentation on adding DNS Target.  
-![The Configure DNS page, showing certificate validation and DNS target records to add to your DNS.](http://docs.aws.amazon.com/apprunner/latest/dg/images/custom-domain-configure.png)
+![The Configure DNS page, showing certificate validation and DNS target records to add to your DNS.](https://docs.aws.amazon.com/apprunner/latest/dg/images/custom-domain-configure.png)
 
 1. Choose **Close**
 
    The console shows the dashboard again. The **Custom domains** tab has a new tile showing the domain that you just linked in the **Pending certificate DNS validation** status.  
-![The Custom domains tab on the App Runner service dashboard page, showing a custom domain tile](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-domains-tile.png)
+![The Custom domains tab on the App Runner service dashboard page, showing a custom domain tile](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-domains-tile.png)
 
 1. When the domain status changes to **Active**, verify that the domain works for routing traffic by browsing to it.  
-![The Custom domains tab on the App Runner service dashboard page, showing a custom domain tile](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-domains-tile-active.png)
+![The Custom domains tab on the App Runner service dashboard page, showing a custom domain tile](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-domains-tile-active.png)
 
 **Note**  
 For instructions on how to troubleshoot errors related to custom domain, see [Custom domain names](manage-custom-domain-troubleshoot.md).

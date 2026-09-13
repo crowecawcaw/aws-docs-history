@@ -53,7 +53,7 @@ If you want to preserve an existing custom domain during migration, you also nee
 
 The following diagram shows how the migration works using Route 53 to shift DNS records between your App Runner service and your ECS Express Mode service.
 
-![Architecture diagram showing migration from App Runner to ECS Express Mode using Route 53 weighted routing for gradual traffic shifting between the two services.](http://docs.aws.amazon.com/apprunner/latest/dg/images/migration-image-based.png)
+![Architecture diagram showing migration from App Runner to ECS Express Mode using Route 53 weighted routing for gradual traffic shifting between the two services.](https://docs.aws.amazon.com/apprunner/latest/dg/images/migration-image-based.png)
 
 
 ### Step 1: Review the existing App Runner configuration
@@ -114,7 +114,7 @@ For detailed instructions, see [Adding a custom domain to your service](https://
 
 The following image shows an example of configuring the host header condition in the Application Load Balancer listener rule.
 
-![Console screenshot showing the Application Load Balancer listener rule with host header conditions configured for the ECS Express Mode service endpoint and custom domain.](http://docs.aws.amazon.com/apprunner/latest/dg/images/migration-alb-host-header.png)
+![Console screenshot showing the Application Load Balancer listener rule with host header conditions configured for the ECS Express Mode service endpoint and custom domain.](https://docs.aws.amazon.com/apprunner/latest/dg/images/migration-alb-host-header.png)
 
 
 ### Step 4: Shift traffic using Route 53 weighted routing
@@ -212,7 +212,7 @@ The migration workflow has three stages:
 
 The following diagram shows how this workflow works using GitHub Actions:
 
-![Architecture diagram showing migration of a source-based App Runner service to ECS Express Mode using GitHub Actions for building container images, pushing to Amazon Elastic Container Registry, and deploying to ECS Express Mode.](http://docs.aws.amazon.com/apprunner/latest/dg/images/migration-source-based.png)
+![Architecture diagram showing migration of a source-based App Runner service to ECS Express Mode using GitHub Actions for building container images, pushing to Amazon Elastic Container Registry, and deploying to ECS Express Mode.](https://docs.aws.amazon.com/apprunner/latest/dg/images/migration-source-based.png)
 
 
 ### Containerize your application

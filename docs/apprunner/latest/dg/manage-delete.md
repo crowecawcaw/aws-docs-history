@@ -47,7 +47,7 @@ Delete your App Runner service using one of the following methods:
 1. In the navigation pane, choose **Services**, and then choose your App Runner service.
 
    The console displays the service dashboard with a **Service overview**.  
-![App Runner service dashboard page showing Activity list](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page showing Activity list](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
 
 1. Choose **Actions**, and then choose **Delete**.
 

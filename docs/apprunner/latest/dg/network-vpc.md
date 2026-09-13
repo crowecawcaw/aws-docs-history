@@ -75,7 +75,7 @@ When you [create a service](manage-create.md) using the App Runner console, or w
 1. Open the [App Runner console](https://console.aws.amazon.com/apprunner), and in the **Regions** list, select your AWS Region.
 
 1.  Go to **Networking** section under **Configure service**.   
-![App Runner console configuration page showing networking options](http://docs.aws.amazon.com/apprunner/latest/dg/images/network-vpc-config-network.png)
+![App Runner console configuration page showing networking options](https://docs.aws.amazon.com/apprunner/latest/dg/images/network-vpc-config-network.png)
 
 1. Choose **Custom VPC**, for **Outgoing network traffic**. 
 
@@ -86,7 +86,7 @@ When you [create a service](manage-create.md) using the App Runner console, or w
 1. Choose **Add new** to create a new VPC connector for your service. 
 
    Then, the **Add new VPC connector** dialog box opens.  
-![App Runner console showing Add new VPC connector dialog](http://docs.aws.amazon.com/apprunner/latest/dg/images/network-vpc-add-new.png)
+![App Runner console showing Add new VPC connector dialog](https://docs.aws.amazon.com/apprunner/latest/dg/images/network-vpc-add-new.png)
 
 1. Enter a name for your VPC connector and select the required VPC from the available list. 
 

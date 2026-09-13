@@ -71,7 +71,7 @@ The App Runner console displays a summary of all logs for your service and allow
 1. In the navigation pane, choose **Services**, and then choose your App Runner service.
 
    The console displays the service dashboard with a **Service overview**.  
-![App Runner service dashboard page showing Activity list](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page showing Activity list](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
 
 1. On the service dashboard page, choose the **Logs** tab.
 
@@ -79,7 +79,7 @@ The App Runner console displays a summary of all logs for your service and allow
    + **Event log** – Activity in the lifecycle of your App Runner service. The console displays the latest events.
    + **Deployment logs** – Source repository deployments to your App Runner service. The console displays a separate log stream for each deployment.
    + **Application logs** – The output of the web application that's deployed to your App Runner service. The console combines the output from all running instances into a single log stream.  
-![The Logs tab on the App Runner service dashboard page](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-logs.png)
+![The Logs tab on the App Runner service dashboard page](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-logs.png)
 
 1. To find specific deployments, scope down the deployment log list by entering a search term. You can search for any value that appears in the table.
 

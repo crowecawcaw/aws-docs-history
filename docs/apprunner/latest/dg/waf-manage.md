@@ -35,7 +35,7 @@ Source IP rules for App Runner private services that are associated with WAF web
 1. Go to **Web application firewall** under **Security**. 
 
 1. Choose the **Activate** toggle button to view the options.   
-![The App Runner console layout, showing the Web Application Firewall options.](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-waf.png)
+![The App Runner console layout, showing the Web Application Firewall options.](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-waf.png)
 
 1. Perform one of the following steps: 
    + **To associate an existing web ACL**: Choose the required web ACL from the **Choose a web ACL** table to associate with your App Runner service.

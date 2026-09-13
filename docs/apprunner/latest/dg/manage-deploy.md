@@ -28,7 +28,7 @@ When you run a manual deployment, App Runner deploys source from the full reposi
 
 You can configure the deployment method for your service in the following ways:
 + *Console* – For a new service you're creating or for an existing service, in the **Deployment settings** section of the **Source and deployment** configuration page, choose **Manual** or **Automatic**.  
-![App Runner deployment method configuration](http://docs.aws.amazon.com/apprunner/latest/dg/images/manage-deploy.methods.config.png)
+![App Runner deployment method configuration](https://docs.aws.amazon.com/apprunner/latest/dg/images/manage-deploy.methods.config.png)
 + *API or AWS CLI* – In a call to either the [CreateService](https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html) or [UpdateService](https://docs.aws.amazon.com/apprunner/latest/api/API_UpdateService.html) action, set the `AutoDeploymentsEnabled` member of the [SourceConfiguration](https://docs.aws.amazon.com/apprunner/latest/api/API_SourceConfiguration.html) parameter to `False` for manual deployment or `True` for automatic deployment.
 
 **Comparing automatic and manual deployments**  
@@ -57,7 +57,7 @@ Deploy a version of your application using one of the following methods:
 1. In the navigation pane, choose **Services**, and then choose your App Runner service.
 
    The console displays the service dashboard with a **Service overview**.  
-![App Runner service dashboard page showing Activity list](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page showing Activity list](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
 
 1. Choose **Deploy**.
 

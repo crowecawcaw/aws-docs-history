@@ -81,7 +81,7 @@ When you create an App Runner service, you can use an image stored in an Amazon 
 
 You can directly launch container images of compatible web applications that are hosted on the [Amazon ECR Public Gallery](https://gallery.ecr.aws) as web services running on App Runner. When browsing the gallery, look for **Launch with App Runner** on the gallery page for an image. An image with this option is compatible with App Runner. For more information about the gallery, see [Using the Amazon ECR Public Gallery](https://docs.aws.amazon.com/AmazonECR/latest/public/public-gallery.html) in the *Amazon ECR Public user guide*.
 
-![Amazon ECR Public Gallery showing a container image page with a Launch with App Runner button](http://docs.aws.amazon.com/apprunner/latest/dg/images/ecr-gallery-image-launch.png)
+![Amazon ECR Public Gallery showing a container image page with a Launch with App Runner button](https://docs.aws.amazon.com/apprunner/latest/dg/images/ecr-gallery-image-launch.png)
 
 
 **To launch a gallery image as an App Runner service**

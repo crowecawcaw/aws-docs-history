@@ -86,7 +86,7 @@ In this step, you create an App Runner service based on the example source code 
 
 The following diagram outlines the steps for creating an App Runner service:
 
-![App Runner service creation workflow diagram](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-service-workflow.png)
+![App Runner service creation workflow diagram](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-service-workflow.png)
 
 
 **To create an App Runner service based on a source code repository**
@@ -96,10 +96,10 @@ The following diagram outlines the steps for creating an App Runner service:
    1. Open the [App Runner console](https://console.aws.amazon.com/apprunner), and in the **Regions** list, select your AWS Region.
 
    1. If the AWS account doesn't have any App Runner services yet, the console home page is displayed. Choose **Create an App Runner service**.  
-![App Runner console home page showing the create service button](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-home.png)
+![App Runner console home page showing the create service button](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-home.png)
 
       If the AWS account has existing services, the **Services** page with a list of your services is displayed. Choose **Create service**.  
-![App Runner console services page](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-services.png)
+![App Runner console services page](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-services.png)
 
    1. On the **Source and deployment** page, in the **Source** section, for **Repository type**, choose **Source code repository**.
 
@@ -145,7 +145,7 @@ The same applies to the AWS connector for your Bitbucket account. If you're usin
 1. Configure your deployments: In the **Deployment settings** section, choose **Automatic**, and then choose **Next**.
 **Note**  
 With automatic deployment, each new commit to your repository source directory automatically deploys a new version of your service.  
-![Source and deployment settings while creating an App Runner service](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-source-depl.png)
+![Source and deployment settings while creating an App Runner service](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-source-depl.png)
 
 1. Configure application build.
 
@@ -160,7 +160,7 @@ With automatic deployment, each new commit to your repository source directory a
    1. Choose **Next**.
 **Note**  
 The Python 3 runtime builds a Docker image using a base Python 3 image and your example Python code. It then launches a service that runs a container instance of this image.  
-![Build settings while creating an App Runner service](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-build.png)
+![Build settings while creating an App Runner service](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-build.png)
 
 1. Configure your service.
 
@@ -174,12 +174,12 @@ The Python 3 runtime builds a Docker image using a base Python 3 image and your 
 The example application reads the name you set in this environment variable and displays the name on its webpage.
 
    1. Choose **Next**.  
-![Service settings while creating an App Runner service](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-service.png)
+![Service settings while creating an App Runner service](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-service.png)
 
 1. On the **Review and create** page, verify all the details you've entered, and then choose **Create and deploy**.
 
    If the service is successfully created, the console shows the service dashboard, with a **Service overview** of the new service.  
-![App Runner service dashboard page](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-dashboard.png)
+![App Runner service dashboard page](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-dashboard.png)
 
 1. Verify that your service is running.
 
@@ -190,7 +190,7 @@ The example application reads the name you set in this environment variable and 
 To augment the security of your App Runner applications, the *\*.awsapprunner.com* domain is registered in the [Public Suffix List (PSL)](https://publicsuffix.org/). For further security, we recommend that you use cookies with a `__Host-` prefix if you ever need to set sensitive cookies in the default domain name for your App Runner applications. This practice will help to defend your domain against cross-site request forgery attempts (CSRF). For more information see the [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#cookie_prefixes) page in the Mozilla Developer Network.
 
       A webpage displays: **Hello, {{your name}}\!**  
-![The application web page of an App Runner service](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-webpage.png)
+![The application web page of an App Runner service](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-create-webpage.png)
 
 ## Step 2: Change your service code
 <a name="getting-started.deploy"></a>
@@ -216,7 +216,7 @@ In this step, you make a change to your code in the repository source directory.
    1. Choose **Edit this file** (the pencil icon).
 
    1. In the expression assigned to the variable `message`, change the text `Hello` to `Good morning`.  
-![GitHub file page with edit icon and message highlighted](http://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-deploy-edit.png)
+![GitHub file page with edit icon and message highlighted](https://docs.aws.amazon.com/apprunner/latest/dg/images/getting-started-deploy-edit.png)
 
    1. Choose **Commit changes**.
 
@@ -240,14 +240,14 @@ In this step, you make a change to the **NAME** environment variable value, to d
 1. In the navigation pane, choose **Services**, and then choose your App Runner service.
 
    The console displays the service dashboard with a **Service overview**.  
-![App Runner service dashboard page showing Activity list](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page showing Activity list](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
 
 1. On the service dashboard page, choose the **Configuration** tab.
 
    The console displays your service configuration settings in several sections.
 
 1. In the **Configure service** section, choose **Edit**.  
-![The Service configuration section of the Configuration tab on the App Runner service dashboard page](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-config-service.png)
+![The Service configuration section of the Configuration tab on the App Runner service dashboard page](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-config-service.png)
 
 1. For the environment variable with the key **NAME**, change the value to a different name.
 
@@ -273,7 +273,7 @@ In this step, you use the App Runner console to view logs for your App Runner se
 1. In the navigation pane, choose **Services**, and then choose your App Runner service.
 
    The console displays the service dashboard with a **Service overview**.  
-![App Runner service dashboard page showing Activity list](http://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
+![App Runner service dashboard page showing Activity list](https://docs.aws.amazon.com/apprunner/latest/dg/images/console-dashboard.png)
 
 1. On the service dashboard page, choose the **Logs** tab.
 
@@ -281,7 +281,7 @@ In this step, you use the App Runner console to view logs for your App Runner se
    + **Event log** – Activity in the lifecycle of your App Runner service. The console displays the latest events.
    + **Deployment logs** – Source repository deployments to your App Runner service. The console displays a separate log stream for each deployment.
    + **Application logs** – The output of the web application that's deployed to your App Runner service. The console combines the output from all running instances into a single log stream.  
-![The Logs tab on the App Runner service dashboard page](http://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-logs.png)
+![The Logs tab on the App Runner service dashboard page](https://docs.aws.amazon.com/apprunner/latest/dg/images/service-dashboad-logs.png)
 
 1. To find specific deployments, scope down the deployment log list by entering a search term. You can search for any value that appears in the table.
 

@@ -9,7 +9,7 @@ AWS App Runner is an AWS service that provides a fast, simple, and cost-effectiv
 
 App Runner connects directly to your code or image repository. It provides an automatic integration and delivery pipeline with fully managed operations, high performance, scalability, and security.
 
-![The App Runner application deployment lifecycle](http://docs.aws.amazon.com/apprunner/latest/dg/images/app-deploy-lifecycle.png)
+![The App Runner application deployment lifecycle](https://docs.aws.amazon.com/apprunner/latest/dg/images/app-deploy-lifecycle.png)
 
 
 ## Who is App Runner for?

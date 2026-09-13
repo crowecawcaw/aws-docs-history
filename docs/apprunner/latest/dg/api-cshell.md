@@ -155,4 +155,4 @@ $ curl https://qxuadi4qwp.us-east-2.awsapprunner.com/; echo
 
 The output should show the expected page content.
 
-![Browser window showing AWS CloudShell with a command to display the content of an App Runner service page](http://docs.aws.amazon.com/apprunner/latest/dg/images/api-cshell-curl.png)
+![Browser window showing AWS CloudShell with a command to display the content of an App Runner service page](https://docs.aws.amazon.com/apprunner/latest/dg/images/api-cshell-curl.png)
