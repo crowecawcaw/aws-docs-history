@@ -10,7 +10,7 @@ With this architecture, you can efficiently monitor AWS IoT SiteWise metrics by 
 ## Resilient IoT Events alarm architecture diagram
 <a name="riea-diagram"></a>
 
-![Reference architecture for a resilient AWS IoT Events alarm for AWS IoT SiteWise.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/resilient-iot-events-alarm-sitewise/images/resilient-aws-iot-events-alarm-for-aws-iot-sitewise-ra.png)
+![Reference architecture for a resilient AWS IoT Events alarm for AWS IoT SiteWise.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/resilient-iot-events-alarm-sitewise/images/resilient-aws-iot-events-alarm-for-aws-iot-sitewise-ra.png)
 
 
 The following steps describe the architecture:
