@@ -35,7 +35,7 @@ Before you apply the default configurations for your Trusted Advisor checks, it'
 
 The following is an example console screenshot with the **execution-mode** set to **Manual** and the attributes matching their constraints.
 
-![An illustration of Trusted Remediator execution mode decision workflow.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-exe-mode-man-new.png)
+![An illustration of Trusted Remediator execution mode decision workflow.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-exe-mode-man-new.png)
 
 
 ## Customize remediation with resource tags
@@ -84,4 +84,4 @@ For example, to automatically remediate an Amazon EBS volume with the Trusted Ad
 
 The following is an example of the console showing the **Tags** section:
 
-![An example of the Tags section on the console.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tags-example.png)
+![An example of the Tags section on the console.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tags-example.png)

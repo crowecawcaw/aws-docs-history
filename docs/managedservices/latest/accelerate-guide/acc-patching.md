@@ -72,7 +72,7 @@ The patching process for persistent instances should involve the following teams
 ### Example design for high availability Windows application
 <a name="patch-ex-design-ha-win-app"></a>
 
- ![Patch deployment timeline showing Dev, Test, and Production environments with baseline approval schedules.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/acc-maint-window.png) 
+ ![Patch deployment timeline showing Dev, Test, and Production environments with baseline approval schedules.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/acc-maint-window.png) 
 
 **Overview:**
 + One Maintenance Window per AZ.

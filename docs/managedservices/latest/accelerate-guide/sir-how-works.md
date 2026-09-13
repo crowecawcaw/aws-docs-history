@@ -5,7 +5,7 @@
 
 AWS Managed Services aligns to the NIST 800-61 [Computer Security Incident Handling Guide](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final) for Security Incident Response. By aligning to this industry standard, we provide a consistent approach to security event management and adhere to best practices in securing and responding to security incidents in your cloud.
 
-![Incident response lifecycle](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/sec-inc-response-1.png)
+![Incident response lifecycle](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/sec-inc-response-1.png)
 
 
 **Incident response lifecycle**

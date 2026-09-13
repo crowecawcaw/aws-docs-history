@@ -15,19 +15,19 @@ To create the role from the AWS Management Console, complete the following steps
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
-    ![CloudFormation console showing the Stacks page with options to create a new stack.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/image1.png)
+    ![CloudFormation console showing the Stacks page with options to create a new stack.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/image1.png)
 
 1. Choose **Create Stack > With new resources (standard)**. You see the following page. 
 
-   ![CloudFormation Stacks console showing empty state with Create stack and View getting started guide buttons.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/image2.png)
+   ![CloudFormation Stacks console showing empty state with Create stack and View getting started guide buttons.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/image2.png)
 
 1. Choose **Upload a template file**, upload the JSON or YAML file of the IAM role, and then choose **Next**. You see the following page.
 
-   ![Specify template step showing options to upload a template file or use Amazon S3 URL.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/image3.png)
+   ![Specify template step showing options to upload a template file or use Amazon S3 URL.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/image3.png)
 
 1. Enter the stack name "**ams-onboarding-role**" in the **Stack Name** field. Enter a **DateOfExpiry** using the format "YYYY-MM-DDT00:00:00Z" (30 days from the current date is recommended). Continue scrolling down and selecting next until you reach this page: 
 
-   ![Specify stack details page with Stack name field and Parameters section showing LocalUserName.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/image4.png)
+   ![Specify stack details page with Stack name field and Parameters section showing LocalUserName.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/image4.png)
 
 1. Make sure the check box is selected and then select **Create Stack**.
 

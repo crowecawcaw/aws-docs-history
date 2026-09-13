@@ -19,7 +19,7 @@ The Quick Start template completes the following tasks:
 + (Optional) Applies tags to managed EC2 instances that enable them to be backed up as defined in the [default AMS Backup Plan](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/acc-backup-select-plan.html#acc-backup-plan-default).
 + (Optional) Applies tags to managed Amazon Relational Database Service (Amazon RDS) resources that enable them to be backed up according to the [Enhanced backup plan](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/acc-backup-select-plan.html#acc-backup-plan-enhanced). A backup plan also enables Point in time recovery (PITR) for Amazon RDS. If Amazon RDS automated backup isn't enabled, then the database restarts close to the time of the next backup window.
 
-![Illustration of the Quick Start template functions.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/acc-quick-start-template.png)
+![Illustration of the Quick Start template functions.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/acc-quick-start-template.png)
 
 
 ## Quick Start template overrides and exclusions

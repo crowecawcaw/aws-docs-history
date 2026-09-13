@@ -15,7 +15,7 @@ To track OpsItems remediations, complete the following steps:
 1. (Optional) Filter the list by **Source=Trusted Remediator** to include only Trusted Remediator OpsItems in the list.
 
    The following is an example of the OpsCenter screen filtered by **Source=Trusted Remediator**:  
-![An example of the Attributes section.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-opsitems-console.png)
+![An example of the Attributes section.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-opsitems-console.png)
 
 **Note**  
 In addition to viewing OpsItems from the OpsCenter, you can view remediation logs in the AMS S3 bucket. For more information, see [Remediation logs in Trusted Remediator](tr-logging.md).
@@ -108,7 +108,7 @@ Remediation documents contain multiple steps that interact with AWS services per
 **Troubleshooting steps**
 
 1. To view the individual execution steps, choose the **Execution ID**, link in the **Automation Executions** section. The following is an example of the Systems Manager console showing the **Exection steps** for a selected automation:  
-![An example of the Systems Manager console showing a selected automation.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-troubleshooting.png)
+![An example of the Systems Manager console showing a selected automation.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-troubleshooting.png)
 
 1. Choose the step with the **Failed** status. The following are example error messages:
    + `NoSuchBucket - An error occurred (NoSuchBucket) when calling the GetPublicAccessBlock operation: The specified bucket does not exist`

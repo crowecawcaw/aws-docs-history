@@ -36,7 +36,7 @@ To access customer accounts, AMS operations engineers use an AWS internal AMS ac
 
 The following diagram outlines the process used by AMS operations engineers to access your account:
 
-![AMS Accelerate console access method.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/acc-op-console-access-method2.png)
+![AMS Accelerate console access method.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/acc-op-console-access-method2.png)
 
 
 ## How do I track changes made by AMS in my AMS managed AWS accounts?

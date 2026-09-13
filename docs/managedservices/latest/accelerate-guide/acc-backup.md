@@ -9,9 +9,6 @@ To learn more, see [AWS Backup: How It Works](https://docs.aws.amazon.com/aws-ba
 
 AMS Accelerate provides a range of operational services to help you achieve operational excellence on AWS. To gain a quick understanding of how AMS helps your teams achieve overall operational excellence in AWS Cloud with some of our key operational capabilities including 24x7 helpdesk, proactive monitoring, security, patching, logging and backup, see [ AMS Reference Architecture Diagrams](https://d1.awsstatic.com/architecture-diagrams/ArchitectureDiagrams/AWS-managed-services-for-operational-excellence-ra.pdf).
 
-[![AWS Videos](http://img.youtube.com/vi/fzrP6eeTJyg/0.jpg)](http://www.youtube.com/watch?v=fzrP6eeTJyg)
-
-
 **Topics**
 + [How continuity management works in AMS](ug-automated-or-manual.md)
 + [Select an AMS backup plan](acc-backup-select-plan.md)

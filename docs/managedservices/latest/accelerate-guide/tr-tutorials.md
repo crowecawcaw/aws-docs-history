@@ -27,7 +27,7 @@ This example configures manual remediation for all Amazon EBS volumes with the T
 1. Make sure that the **automated-for-tagged-only** and **manual-for-tagged-only** attributes are blank. These attributes are used to override the default execution-mode for resources with matching tags.
 
    The following is an example of the **Attributes** section with blank values for **automated-for-tagged-only** and **manual-for-tagged-only** and **Manual** for **execution-mode**:  
-![An example of the Attributes section.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tutorial1.png)
+![An example of the Attributes section.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tutorial1.png)
 
 1. Choose **Save** to update the value, and then choose **Save new version** to apply the changes. You must choose **Save new version** for Trusted Remediator to recognize the change.
 
@@ -55,7 +55,7 @@ This example configures automatic remediation for all Amazon EBS volumes with th
 1. Make sure that the **automated-for-tagged-only** and **manual-for-tagged-only** attributes are blank. These attributes are used to override the default execution-mode for resources with matching tags.
 
    The following is an example of the **Attributes** section with blank values for **automated-for-tagged-only** and **manual-for-tagged-only** and **Automated** for **execution-mode**:  
-![An example of the Attributes section.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tutorial2.png)
+![An example of the Attributes section.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tutorial2.png)
 
 1. Choose **Save** to update the value, and then choose **Save new version** to apply the changes. You must choose **Save new version** for Trusted Remediator to recognize the change.
 
@@ -76,7 +76,7 @@ This example configures automatic remediation for all Amazon EBS volumes with th
       + **Value:** Inactive
 
       The following is an example of the **Tags** section showing the **Key** and **Value** fields:  
-![An example of the Attributes section.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tutorial-inactive.png)
+![An example of the Attributes section.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tutorial-inactive.png)
 
    1. Repeat steps 2 through 5 for all Amazon EBS volumes that you want to exclude from remediation.
 
@@ -102,7 +102,7 @@ This example configures automatic remediation for all Amazon EBS volumes with th
 1. Set the **automated-for-tagged-only** to `Stage=NonProd`. This attribute overrides the default `execution-mode` for resources with matching tags. Make sure that the **manual-for-tagged-only** attributes is blank.
 
    The following is an example of the **Attributes** section with **automated-for-tagged-only** set to **Stage=NonProd** and **Conditional** for **execution-mode**:  
-![An example of the Attributes section.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tutorial-conditional.png)
+![An example of the Attributes section.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-tutorial-conditional.png)
 
 1. Optionally, set the preconfigured-parameters to one of the following:
    + `CreateSnapshot=false` to not to create snapshot of the Amazon EBS volume before it's deleted

@@ -63,7 +63,7 @@ To edit an AMS patch maintenance window to use patch hooks, follow these steps:
 
 1. Select the **Tasks** tab and the Window Task ID with the Task ARN of **AMS-PatchInstance** and click **Edit**. 
 
-    ![AWS Systems Manager maintenance window tasks interface showing three AWSManagedServices-PatchInstance tasks.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/mwindow-detail-edit-border.png) 
+    ![AWS Systems Manager maintenance window tasks interface showing three AWSManagedServices-PatchInstance tasks.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/mwindow-detail-edit-border.png) 
 
 1. Scroll down to the **Parameters** section and update the following parameters.
 

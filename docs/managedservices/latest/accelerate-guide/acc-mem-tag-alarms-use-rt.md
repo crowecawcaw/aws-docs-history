@@ -49,4 +49,4 @@ The tag-based Alarm Manager manages the lifecycle of per-resource CloudWatch ala
 
 Your instances become tagged with `"ams:rt:ams-managed": "true"` which ensures that additional `"ams:rt:ams-monitoring-policy": "ams-monitored"` and `"ams:rt:ams-monitoring-policy-platform": "ams-monitored-linux"` are applied to the instances. These tags then result in the appropriate alarms being created for the instance. For more information about this process, see [Monitoring in Accelerate](acc-tag-req-mon.md).
 
-[![AWS Videos](http://img.youtube.com/vi/ohtqVmm2yIw/0.jpg)](http://www.youtube.com/watch?v=ohtqVmm2yIw)
+[![AWS Videos](https://img.youtube.com/vi/ohtqVmm2yIw/0.jpg)](https://www.youtube.com/watch?v=ohtqVmm2yIw)

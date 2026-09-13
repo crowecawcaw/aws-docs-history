@@ -112,4 +112,4 @@ Attach the following policy to the appropriate IAM entity (user, group or role) 
 
 You can run the automation either from AWS Systems Manager console or using the AWS CLI. If using the AWS CLI, you might need to install and configure it or the AWS tools for PowerShell, if you haven't already. For information, see [Install or upgrade AWS command line tools](https://docs.aws.amazon.com/systems-manager/latest/userguide/getting-started-cli.html).
 
-[![AWS Videos](http://img.youtube.com/vi/iEfvPYFBoMg/0.jpg)](http://www.youtube.com/watch?v=iEfvPYFBoMg)
+[![AWS Videos](https://img.youtube.com/vi/iEfvPYFBoMg/0.jpg)](https://www.youtube.com/watch?v=iEfvPYFBoMg)

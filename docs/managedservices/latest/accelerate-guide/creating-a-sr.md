@@ -17,7 +17,7 @@ To create a service request, follow these steps:
    + **Subject**: A descriptive title for the service request.
    + **Description**: A comprehensive description of the service request, the systems impacted, and the expected outcome of a resolution.
 
-1. To add an attachment, choose **Attach files**, browse to the attachment you want, and choose **Open**. To delete the attachment, choose the delete icon![Blue circular icon with a white X symbol in the center.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/icon-delete-attachment.png)
+1. To add an attachment, choose **Attach files**, browse to the attachment you want, and choose **Open**. To delete the attachment, choose the delete icon![Blue circular icon with a white X symbol in the center.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/icon-delete-attachment.png)
 
 1. **Contact us**: The default contact AMS through the web. To select other options:
    + **Preferred contact language**: English is the supported language for AMS Accelerate service requests.

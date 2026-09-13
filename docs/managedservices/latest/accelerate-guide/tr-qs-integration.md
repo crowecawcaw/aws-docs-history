@@ -45,7 +45,7 @@ To add a dataset to Quick for the Remediation item log, follow these steps:
 
 The following is a sample analysis:
 
-![A sample analysis worksheet.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-sample-analysis.png)
+![A sample analysis worksheet.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-sample-analysis.png)
 
 
 ## Add a dataset to Quick for the Automated remediation execution log
@@ -84,4 +84,4 @@ The following is a sample analysis:
 
 The following is a sample analysis:
 
-![A sample analysis worksheet.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-sample-analysis2.png)
+![A sample analysis worksheet.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-sample-analysis2.png)

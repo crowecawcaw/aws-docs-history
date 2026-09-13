@@ -7,7 +7,7 @@ See the following graphics on monitoring architecture in AWS Managed Services (A
 
 The following diagram depicts the **AMS Accelerate** monitoring architecture.
 
-![AMS monitoring architecture.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/monitoringNew2.png)
+![AMS monitoring architecture.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/monitoringNew2.png)
 
 
 After your resources are tagged based on the policy defined using Resource tagger, and alarm definitions are deployed, the following list describes the AMS monitoring processes.

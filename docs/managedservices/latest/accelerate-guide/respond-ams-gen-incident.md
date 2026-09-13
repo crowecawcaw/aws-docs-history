@@ -8,4 +8,4 @@ AMS Accelerate proactively monitors your resources. For more information, see  
 **Important**  
 To receive state change notifications for an incident case or service request, enter an email address in the addresses field. 
 
-[![AWS Videos](http://img.youtube.com/vi/5ROuEwNSzSM/0.jpg)](http://www.youtube.com/watch?v=5ROuEwNSzSM)
+[![AWS Videos](https://img.youtube.com/vi/5ROuEwNSzSM/0.jpg)](https://www.youtube.com/watch?v=5ROuEwNSzSM)

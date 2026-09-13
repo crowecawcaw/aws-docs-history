@@ -42,10 +42,10 @@ Add or update a Resource Scheduler period in your AMS accounts.
 The following example shows how you can add a new period using the AWS Systems Manager console. We have named the period **Period-Name** and configured it to cover 9AM-6PM from Mon-Fri for first 15 days of every month.
 
 1. View the AWS Systems Manager automation document at [ AWSManagedServices-AddOrUpdatePeriod](https://console.aws.amazon.com/systems-manager/automation/execute/AWSManagedServices-AddOrUpdatePeriod) (you might have to choose your onboarded Region).  
-![Accelerate adding a period for Resource Scheduler.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedAddPeriod.png)
+![Accelerate adding a period for Resource Scheduler.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedAddPeriod.png)
 
 1. Provide values for the parameters.  
-![Accelerate configuring period settings for Resource Scheduler.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedAddPeriodParams.png)
+![Accelerate configuring period settings for Resource Scheduler.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedAddPeriodParams.png)
 
 1. Click **Execute** and wait for automation to complete.
 
@@ -91,10 +91,10 @@ Add or update a Resource Scheduler schedule in AMS Accelerate accounts.
 The following example shows how to add a schedule for AMS Resource Scheduler. In this example you add a schedule nameed CustomSchedule using CustomPeriod.
 
 1. View the AWS Systems Manager automation document at [ AWSManagedServices-AddOrUpdateSchedule](https://console.aws.amazon.com/systems-manager/automation/execute/AWSManagedServices-AddOrUpdateSchedule) (you might have to choose your onboarded Region).  
-![Accelerate adding a schedule for Resource Scheduler.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedAddOrUpdateSchedule.png)
+![Accelerate adding a schedule for Resource Scheduler.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedAddOrUpdateSchedule.png)
 
 1. Provide values for the parameters.  
-![Accelerate configuring schedule settings for Resource Scheduler.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedAddScheduleParams.png)
+![Accelerate configuring schedule settings for Resource Scheduler.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedAddScheduleParams.png)
 
 1. Click **Execute** and wait for automation to complete.
 
@@ -125,10 +125,10 @@ In order to delete Resource Scheduler periods or schedules in AMS Accelerate acc
 The following example shows how you can delete a period using the AWS Systems Manager console.
 
 1. View the AWS Systems Manager automation document at [ AWSManagedServices-DeleteScheduleOrPeriod](https://console.aws.amazon.com/systems-manager/automation/execute/AWSManagedServices-DeleteScheduleOrPeriod) (you might have to choose your onboarded Region).  
-![Accelerate deleting a period for Resource Scheduler.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedDeleteSchedOrPeriod.png)
+![Accelerate deleting a period for Resource Scheduler.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedDeleteSchedOrPeriod.png)
 
 1. Provide values for the parameters.  
-![Accelerate configuring period delete settings for Resource Scheduler.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedDeletePeriodParams.png)
+![Accelerate configuring period delete settings for Resource Scheduler.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedDeletePeriodParams.png)
 
 1. Click **Execute** and wait for automation to complete.
 
@@ -160,9 +160,9 @@ In order to describe (view a details on) a Resource Scheduler period or schedule
 The following example shows how you can describe a period using the AWS Systems Manager console.
 
 1. View the AWS Systems Manager automation document at [ AWSManagedServices-DescribeScheduleOrPeriods](https://console.aws.amazon.com/systems-manager/automation/execute/AWSManagedServices-DescribeScheduleOrPeriods) (you might have to choose your onboarded Region).  
-![Accelerate describing a period for Resource Scheduler.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedDescribePeriod.png)
+![Accelerate describing a period for Resource Scheduler.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedDescribePeriod.png)
 
 1. Provide values for the parameters.  
-![Accelerate configuring period describe settings for Resource Scheduler.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedDescribePeriodParams.png)
+![Accelerate configuring period describe settings for Resource Scheduler.](https://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/accResSchedDescribePeriodParams.png)
 
 1. Click **Execute** and wait for automation to complete.
