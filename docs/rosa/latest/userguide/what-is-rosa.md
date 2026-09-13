@@ -37,7 +37,7 @@ You can define and configure your ROSA service deployments using the following i
 ## How to get started with ROSA
 <a name="get-started-with-rosa"></a>
 
-![How to get started](http://docs.aws.amazon.com/rosa/latest/userguide/images/rosa-get-started.png)
+![How to get started](https://docs.aws.amazon.com/rosa/latest/userguide/images/rosa-get-started.png)
 
 
 The following summarizes the getting started process for ROSA. For detailed getting started instructions, see [Get started with ROSA](getting-started.md).
