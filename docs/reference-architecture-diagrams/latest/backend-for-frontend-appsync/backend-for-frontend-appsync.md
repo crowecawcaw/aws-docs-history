@@ -10,7 +10,7 @@ This architecture shows how frontend client applications apply the Backend for F
 ## Backend for Frontend Using AppSync
 <a name="diagram1"></a>
 
-![Architecture diagram showing a Backend for Frontend pattern using Amazon AppSync, AWS Lambda, Amazon DynamoDB, and Amazon Cognito for real-time UI updates.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/backend-for-frontend-appsync/images/backend-for-frontend-appsync.png)
+![Architecture diagram showing a Backend for Frontend pattern using Amazon AppSync, AWS Lambda, Amazon DynamoDB, and Amazon Cognito for real-time UI updates.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/backend-for-frontend-appsync/images/backend-for-frontend-appsync.png)
 
 
 The following steps describe the architecture:
