@@ -10,7 +10,7 @@ With this architecture, you can build a supply chain data lake on AWS. Ingest da
 ## Supply chain data lake diagram
 <a name="scdl-diagram"></a>
 
-![Reference architecture diagram showing how to build a supply chain data lake by using AWS Lake Formation, AWS Glue, SageMaker AI, and Amazon Neptune.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/supply-chain-data-lake/images/supply-chain-data-lake.png)
+![Reference architecture diagram showing how to build a supply chain data lake by using AWS Lake Formation, AWS Glue, SageMaker AI, and Amazon Neptune.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/supply-chain-data-lake/images/supply-chain-data-lake.png)
 
 
 The following steps describe the data ingestion and analytics pipeline for this architecture:
