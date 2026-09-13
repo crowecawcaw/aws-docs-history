@@ -44,7 +44,7 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
      Use CloudFormation to launch an EC2 instance in the US-East-1 Region. 
 
      First, you will need to download the [YAML file](https://github.com/awslabs/windows-web-app-migration-assistant/blob/master/cfn_stack/WWAMALab.yml) we will use for the CloudFormation template from GitHub. In GitHub, open the context (right-click) menu of the **Raw** button at the top of the file, select **Save Link As**. Choose the location on your computer where you want to save the file, and select **Save**.   
-![The aws-labs GitHub repository for windows-web-app-migration-assistant, showing the file WWAMALab.yml and an example of using the 'Save Link As...' option for a raw CloudFormation template. This illustrates how to migrate ASP.NET web applications to AWS using the migration assistant.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/fpavuawv-migration-assistant-labs-github.png)
+![The aws-labs GitHub repository for windows-web-app-migration-assistant, showing the file WWAMALab.yml and an example of using the 'Save Link As...' option for a raw CloudFormation template. This illustrates how to migrate ASP.NET web applications to AWS using the migration assistant.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/fpavuawv-migration-assistant-labs-github.png)
 
   1. Create the stack
 
@@ -53,24 +53,24 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
      Choose the **Choose file** button and navigate to the YAML file on your local machine and select **Open**. 
 
      Then choose **Next**.   
-![The AWS CloudFormation 'Create stack' page showing the process to upload a template file for creating a stack, with steps to select 'Upload a template file,' choose a file, and proceed to the next step.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/stack-becd-cfnlong-page-process-upload.png)
+![The AWS CloudFormation 'Create stack' page showing the process to upload a template file for creating a stack, with steps to select 'Upload a template file,' choose a file, and proceed to the next step.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/stack-becd-cfnlong-page-process-upload.png)
 
   1. Add a key pair
 
      Select an existing key pair or [create a key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair) if you do not have one. 
 
      Then choose **Next**.   
-![The AWS CloudFormation console showing the 'Specify stack details' step for migrating an ASP.NET web application, where the user enters a stack name and selects a key pair parameter before proceeding to the next step.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/specify-details-cfnlong-console-stack.png)
+![The AWS CloudFormation console showing the 'Specify stack details' step for migrating an ASP.NET web application, where the user enters a stack name and selects a key pair parameter before proceeding to the next step.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/specify-details-cfnlong-console-stack.png)
 
   1. Review the configuration
 
      On the **Configure stack** options screen, choose **Next**. At the bottom of the **Review** screen, choose **Submit**.   
-![The AWS CloudFormation console showing the 'Review WWAMAStack' step for creating a stack, specifying template and stack details, with the Submit button highlighted.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/stack-abe-cfnlong-console-wwamastack.png)
+![The AWS CloudFormation console showing the 'Review WWAMAStack' step for creating a stack, specifying template and stack details, with the Submit button highlighted.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/stack-abe-cfnlong-console-wwamastack.png)
 
   1. Verify completion
 
      Once the stack has been created, you will see its status change to **CREATE\_COMPLETE**.   
-![The AWS CloudFormation console with the WWAMAStack stack creation marked as complete. This image is used to verify the successful completion of migrating an ASP.NET Web Application.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/verify-completion-adcd-cfnlong-console.png)
+![The AWS CloudFormation console with the WWAMAStack stack creation marked as complete. This image is used to verify the successful completion of migrating an ASP.NET Web Application.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/verify-completion-adcd-cfnlong-console.png)
 
 ### Step 3: Create the IAM user
 <a name="create-the-iam-user"></a>
@@ -82,32 +82,32 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
    In the left navigation pane, select **Users**, then choose **Add users**. 
 
    Enter the **User name** **MigrationUser**, check the box for **Programmatic access**, then choose **Next:Permissions**.   
-![The 'Add user' step in the AWS Management Console, showing fields for entering a user name and selecting access types when migrating an ASP.NET web application. The screen shows the creation of a user called 'MigrationUser' with programmatic access enabled.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/owtelhwh-user-console-fields-entering-name.png)
+![The 'Add user' step in the AWS Management Console, showing fields for entering a user name and selecting access types when migrating an ASP.NET web application. The screen shows the creation of a user called 'MigrationUser' with programmatic access enabled.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/owtelhwh-user-console-fields-entering-name.png)
 
 1. Attach Elastic Beanstalk policy
 
    Select **Attach existing policies directly**, and enter **beanstalk** in the search bar to filter the policies. Select the **checkbox** next to **AdministratorAccess-AWSElasticBeanstalk**.   
-![The process of attaching an AWS Elastic Beanstalk policy to a user during the permissions step when migrating an ASP.NET web application. The image displays the 'Add user' page in the AWS Management Console, where Beanstalk-related AWS managed policies are being filtered and selected under 'Set permissions'.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/atttach-beanstalk-policy-process-attaching.png)
+![The process of attaching an AWS Elastic Beanstalk policy to a user during the permissions step when migrating an ASP.NET web application. The image displays the 'Add user' page in the AWS Management Console, where Beanstalk-related AWS managed policies are being filtered and selected under 'Set permissions'.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/atttach-beanstalk-policy-process-attaching.png)
 
 1. Attach IAM policy
 
    Enter **iam** in the search bar and select the **checkbox** next to **IAMReadOnlyAccess**.   
-![The AWS Management Console showing the process of attaching existing IAM policies directly while adding a user, as part of migrating an ASP.NET web application. The 'IAMReadOnlyAccess' policy is selected in the permissions setup interface.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/abes-attach-iam-policy-fab-bef-console.png)
+![The AWS Management Console showing the process of attaching existing IAM policies directly while adding a user, as part of migrating an ASP.NET web application. The 'IAMReadOnlyAccess' policy is selected in the permissions setup interface.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/abes-attach-iam-policy-fab-bef-console.png)
 
 1. Attach S3 policy
 
    Enter **s3** in the search bar and select the **checkbox** next to **AmazonS3FullAccess**.   
-![The AWS IAM Add User interface showing permissions being set by attaching the AmazonS3FullAccess policy directly to a user. This is step 2 of migrating an ASP.NET Web Application and demonstrates how to assign S3 permissions.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/attach-policy-adfae-iam-user-interface.png)
+![The AWS IAM Add User interface showing permissions being set by attaching the AmazonS3FullAccess policy directly to a user. This is step 2 of migrating an ASP.NET Web Application and demonstrates how to assign S3 permissions.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/attach-policy-adfae-iam-user-interface.png)
 
 1. Review configuration and create user
 
    Choose **Next:Tags**, then **Next:Review**, and then **Create user**.   
-![The 'Add user' review step in AWS IAM, showing user details and attached policies for a migration user when migrating an ASP.NET web application. Policies include AdministratorAccess-AWSElasticBeanstalk, IAMUserChangePassword, and AmazonS3FullAccess.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/user-configuration-iam-details-attached.png)
+![The 'Add user' review step in AWS IAM, showing user details and attached policies for a migration user when migrating an ASP.NET web application. Policies include AdministratorAccess-AWSElasticBeanstalk, IAMUserChangePassword, and AmazonS3FullAccess.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/user-configuration-iam-details-attached.png)
 
 1. Download credentials
 
    After the user is created, choose the **Download .csv** button when the prompt appears.   
-![The AWS Management Console after successfully creating a user, showing a success message and an option to download user security credentials as a .csv file. The page includes user details and security key information for user MigrationUser.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/tobv-download-credentials-console.png)
+![The AWS Management Console after successfully creating a user, showing a success message and an option to download user security credentials as a .csv file. The page includes user details and security key information for user MigrationUser.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/tobv-download-credentials-console.png)
 
 ### Step 4: Log in to the EC2 console and set up to run the WWAMA tool
 <a name="log-in-to-the-ec2-console-and-set-up-to-run-the-wwama-tool"></a>
@@ -117,19 +117,19 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
    Log in to [EC2 console](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:instanceState=running). 
 
    Select the WWAMA instance and choose **Connect**.   
-![The AWS Management Console showing a running EC2 instance named 'WWAMA Lab' filtered by 'Instance state = running'. Used to verify the running status of an instance during ASP.NET web application migration.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/rijx-verify-running-instance-fafec-cfed.png)
+![The AWS Management Console showing a running EC2 instance named 'WWAMA Lab' filtered by 'Instance state = running'. Used to verify the running status of an instance during ASP.NET web application migration.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/rijx-verify-running-instance-fafec-cfed.png)
 
 1. Connect to the instance
 
    Select the **RDP client** tab, then choose the **Download remote desktop file** button and save the RDP file. Then choose **Get password**.   
-![The AWS Management Console showing the 'Connect to instance' options for an EC2 Windows instance, highlighting the process to connect using an RDP client, including session type selection, remote desktop file download, and connection credentials.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/connect-instance-console-options-windows.png)
+![The AWS Management Console showing the 'Connect to instance' options for an EC2 Windows instance, highlighting the process to connect using an RDP client, including session type selection, remote desktop file download, and connection credentials.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/connect-instance-console-options-windows.png)
 
 1. Upload private key
 
    Choose **Upload private key file** to upload your private key, then choose **Decrypt password** to get your Windows Server password. You will see the password in plain text. 
 
    Copy it because you will need it in the next step.   
-![The AWS Management Console 'Get Windows password' interface, showing the process to upload a private key file to retrieve and decrypt the initial Windows administrator password for an EC2 instance. Used in the context of migrating an ASP.NET web application.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/ghgrzxm-upload-private-key-console-get.png)
+![The AWS Management Console 'Get Windows password' interface, showing the process to upload a private key file to retrieve and decrypt the initial Windows administrator password for an EC2 instance. Used in the context of migrating an ASP.NET web application.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/ghgrzxm-upload-private-key-console-get.png)
 
 1. Log into the instance
 
@@ -138,7 +138,7 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
 1. Open a PowerShell terminal
 
    Open a PowerShell terminal as an Administrator by choosing the Windows icon in the lower left corner of the screen, open the **Windows PowerShell** folder, open the context (right-click) menu for **Windows PowerShell**, and then choose **Run as Administrator**.   
-![The Windows Server start menu with the context menu for Windows PowerShell open, showing options to run as administrator. This interface is often used when migrating ASP.NET web applications with PowerShell commands.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/powershell-terminal-windows-server-start.png)
+![The Windows Server start menu with the context menu for Windows PowerShell open, showing options to run as administrator. This interface is often used when migrating ASP.NET web applications with PowerShell commands.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/powershell-terminal-windows-server-start.png)
 
 1. Configure credentials
 
@@ -148,21 +148,21 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
    PS C:\> Import-Module AWSPowerShell
    PS C:\> Set-AWSCredential -AccessKey ACCESS_KEY -SecretKey SECRET_ACCESS_KEY -StoreAs default
    ```  
-![Windows PowerShell commands used for AWS, including importing the AWSPowerShell module and setting AWS credentials, as part of the process to migrate an ASP.NET web application.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/svtpmvxw-run-commands-windows-powershell.png)
+![Windows PowerShell commands used for AWS, including importing the AWSPowerShell module and setting AWS credentials, as part of the process to migrate an ASP.NET web application.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/svtpmvxw-run-commands-windows-powershell.png)
 
 1. Extract Migration Assistant files
 
    The migration assistant has been pre-downloaded on the C:\\ drive by the CloudFormation template. The file is **wwama.zip**. 
 
    Open the context (right-click) menu for the wwama.zip file and extract the archive.   
-![The extraction of files from a compressed folder in Windows Explorer, as part of migrating an ASP.NET web application. The 'Extract All...' option is highlighted in the context menu for a zip file on the C: drive.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/eohipyv-extract-files-bda-cae-extraction.png)
+![The extraction of files from a compressed folder in Windows Explorer, as part of migrating an ASP.NET web application. The 'Extract All...' option is highlighted in the context menu for a zip file on the C: drive.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/eohipyv-extract-files-bda-cae-extraction.png)
 
 1. View the sample website
 
    Open a web browser on the EC2 Windows Server instance and navigate to **http://localhost/**. 
 
    You will see the sample website that the migration assistant will migrate.   
-![The WWAMA Lab sample webpage, demonstrating the Windows Web Application Migration Assistant for AWS Elastic Beanstalk. The page features a navigation bar, a description of the migration utility, a 'Learn more' button, and introductory text for getting started with WWAMA.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/bke-view-sample-webpage-wwama-lab.png)
+![The WWAMA Lab sample webpage, demonstrating the Windows Web Application Migration Assistant for AWS Elastic Beanstalk. The page features a navigation bar, a description of the migration utility, a 'Learn more' button, and introductory text for getting started with WWAMA.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/bke-view-sample-webpage-wwama-lab.png)
 
 ### Step 5: Run the Migration Assistant
 <a name="run-the-migration-assistant"></a>
@@ -191,7 +191,7 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
    The assistant then discovers any websites running on your IIS server and lists them, as in the example. 
 
    Enter the number **2** to migrate the sample site.   
-![The AWS Web Application Migration Assistant command line interface during the process of selecting a specific ASP.NET website to migrate, including profile and region selection and identification of available sites on the local server.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/select-migration-assistant-command-line.png)
+![The AWS Web Application Migration Assistant command line interface during the process of selecting a specific ASP.NET website to migrate, including profile and region selection and identification of available sites on the local server.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/select-migration-assistant-command-line.png)
 
 1. Update connection strings
 
@@ -204,7 +204,7 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
    Next, name your new Elastic Beanstalk application. 
 
    When prompted to select the Windows Server version, enter **6** and press **Enter.**   
-![The process of migrating an ASP.NET web application to AWS Elastic Beanstalk, including application setup, connection string discovery, and selection of supported Windows Server versions.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/set-cedbed-process-migrating-asp-net-1.png)
+![The process of migrating an ASP.NET web application to AWS Elastic Beanstalk, including application setup, connection string discovery, and selection of supported Windows Server versions.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/set-cedbed-process-migrating-asp-net-1.png)
 
 1. Configure application
 
@@ -221,12 +221,12 @@ You will need an AWS account and [IAM](https://aws.amazon.com/iam/) permissions 
    ```
 
    The migration assistant then migrates your application to Elastic Beanstalk.   
-![The process of migrating an ASP.NET web application to AWS Elastic Beanstalk, including application setup, connection string discovery, and selection of supported Windows Server versions.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/set-cedbed-process-migrating-asp-net-1.png)
+![The process of migrating an ASP.NET web application to AWS Elastic Beanstalk, including application setup, connection string discovery, and selection of supported Windows Server versions.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/set-cedbed-process-migrating-asp-net-1.png)
 
 1. Verify completion
 
    When the migration completes, you will see a success message in the CLI.   
-![A command-line interface displaying the process of updating and verifying migration completion for an ASP.NET web application to AWS Elastic Beanstalk. The output includes deployment details, environment status, URLs, and confirmation of successful application launch on the AWS Elastic Beanstalk platform.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/verify-migration-completion-aadad-bfe.png)
+![A command-line interface displaying the process of updating and verifying migration completion for an ASP.NET web application to AWS Elastic Beanstalk. The output includes deployment details, environment status, URLs, and confirmation of successful application launch on the AWS Elastic Beanstalk platform.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/verify-migration-completion-aadad-bfe.png)
 
 ### Step 6: Navigate to your web application hosted on Elastic Beanstalk
 <a name="navigate-to-your-web-application-hosted-on-elastic-beanstalk"></a>
@@ -236,17 +236,17 @@ Now that the site is successfully migrated, verify that the website is up and ru
 1. Locate the application URL
 
    Get the URL from the output of the PowerShell script.   
-![A terminal output showing the successful deployment of a migrated ASP.NET web application to AWS Elastic Beanstalk, including the application URL and confirmation of deployment.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/ezft-get-url-terminal-output-successful.png)
+![A terminal output showing the successful deployment of a migrated ASP.NET web application to AWS Elastic Beanstalk, including the application URL and confirmation of deployment.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/ezft-get-url-terminal-output-successful.png)
 
 1. View the page
 
    Input the URL into your web browser, and you should see your web application, now running on Elastic Beanstalk.   
-![The WWAMA Lab web application, demonstrating the Windows Web Application Migration Assistant (WWAMA) for AWS Elastic Beanstalk. The page describes migrating ASP.NET and ASP.NET Core applications from on-premises IIS Windows servers to AWS Elastic Beanstalk, featuring navigation, a 'Learn more' button, and a 'Getting started with WWAMA' section.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/view-webpage-wwama-lab-demonstrating.png)
+![The WWAMA Lab web application, demonstrating the Windows Web Application Migration Assistant (WWAMA) for AWS Elastic Beanstalk. The page describes migrating ASP.NET and ASP.NET Core applications from on-premises IIS Windows servers to AWS Elastic Beanstalk, featuring navigation, a 'Learn more' button, and a 'Getting started with WWAMA' section.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/view-webpage-wwama-lab-demonstrating.png)
 
 1. Access the app in Beanstalk
 
    You can also view the Elastic Beanstalk environment from the [AWS console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/environments). Make sure you're seeing the console for the same Region you deployed your application to. Feel free to explore what you can do with your application by using the menu on the left side.   
-![The AWS Elastic Beanstalk console showing the deployment status and environment health for a migrated ASP.NET web application running on IIS 10.0 with Windows Server 2019. The image displays application version, platform details, and recent environment events.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/elastic-beanstalk-console-aeblong.png)
+![The AWS Elastic Beanstalk console showing the deployment status and environment health for a migrated ASP.NET web application running on IIS 10.0 with Windows Server 2019. The image displays application version, platform details, and recent environment events.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/elastic-beanstalk-console-aeblong.png)
 
 ### Clean up resources
 <a name="run-the-migration-assistant"></a>
@@ -256,7 +256,7 @@ Now that the site is successfully migrated, verify that the website is up and ru
    Go to the [Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/applications). 
 
    In the **Applications** view, select the radio button next to your application, choose the **Actions** menu, then select **Delete application**. In the confirmation dialog, enter the name of your application and choose **Delete**. This will delete both your application and the Elastic Beanstalk environment.   
-![The AWS Elastic Beanstalk console with the 'Delete application' option highlighted for a migrated ASP.NET web application.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/stlom-delete-resources-aeblong-console.png)
+![The AWS Elastic Beanstalk console with the 'Delete application' option highlighted for a migrated ASP.NET web application.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/stlom-delete-resources-aeblong-console.png)
 
 1. Delete temporary files from Amazon S3
 
@@ -265,7 +265,7 @@ Now that the site is successfully migrated, verify that the website is up and ru
    Then choose **Empty** to first empty the contents of the bucket. You will need to confirm this action by entering **permanently** **delete** in a text box and choose **Empty**. Choose **Exit** to go back to the S3 buckets view. 
 
    Now that the S3 bucket is empty, select the radio button next to the bucket again and choose **Delete**. You will need to confirm this action by entering the name of the bucket in the text box and choose **Delete bucket**.   
-![The Amazon S3 console showing the 'Buckets' overview with a selected bucket for elastic beanstalk migration and the 'Empty' button highlighted. This view illustrates an empty S3 bucket in the US East (N. Virginia) region, useful for steps involving the migration of an ASP.NET web application.](http://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/empty-bucket-console-buckets-overview.png)
+![The Amazon S3 console showing the 'Buckets' overview with a selected bucket for elastic beanstalk migration and the 'Empty' button highlighted. This view illustrates an empty S3 bucket in the US East (N. Virginia) region, useful for steps involving the migration of an ASP.NET web application.](https://docs.aws.amazon.com/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/images/empty-bucket-console-buckets-overview.png)
 
 1. Delete the CloudFormation stack
 
