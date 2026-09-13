@@ -67,10 +67,10 @@ Use the AWS CLI to run commands as a superuser with credentials that allow you t
    ```
 
 1. On the Amazon MSK console, under the **MSK Connect** section, choose **Custom Plugin**, then choose **Create custom plugin** and browse the **s3:<{{S3\_URI\_BUCKET\_LOCATION}}>** S3 bucket to select the custom plugin ZIP file you just uploaded.  
-![S3 bucket showing debezium folder containing custom-plugin.zip file with size and metadata.](http://docs.aws.amazon.com/msk/latest/developerguide/images/s3-object-browser.png)
+![S3 bucket showing debezium folder containing custom-plugin.zip file with size and metadata.](https://docs.aws.amazon.com/msk/latest/developerguide/images/s3-object-browser.png)
 
 1. Enter **debezium-custom-plugin** for the plugin name. Optionally, enter a description and choose **Create Custom Plugin**.  
-![S3 bucket showing debezium folder with custom-plugin.zip file, 55.2 MB, modified May 15, 2023.](http://docs.aws.amazon.com/msk/latest/developerguide/images/create-custom-plugin.png)
+![S3 bucket showing debezium folder with custom-plugin.zip file, 55.2 MB, modified May 15, 2023.](https://docs.aws.amazon.com/msk/latest/developerguide/images/create-custom-plugin.png)
 
 ## Configure parameters and permissions for different providers
 <a name="msk-connect-config-providers"></a>

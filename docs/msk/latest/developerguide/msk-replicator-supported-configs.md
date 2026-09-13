@@ -7,7 +7,7 @@ The following are requirements for cluster types, Kafka versions, instance types
 
 ## Supported cluster types and versions
 <a name="msk-replicator-supported-cluster-types"></a>
-+ MSK Replicator supports both MSK Provisioned clusters and MSK Serverless clusters in any combination as source and target clusters.
++ MSK Replicator supports MSK Provisioned and MSK Serverless clusters in any combination, when both the source and target are Amazon MSK clusters.
 + MSK Replicator also supports self-managed Apache Kafka clusters (Kafka version 2.8.1 or later) with SASL/SCRAM, mTLS, or SASL/OAUTHBEARER (OAuth) authentication as source clusters when replicating to Amazon MSK Provisioned clusters. For more information, see [Migrate from non-MSK Apache Kafka clusters to Amazon MSK Provisioned](msk-replicator-migrate-external.md).
 + MSK Replicator is supported only on MSK clusters running Apache Kafka 2.7.0 or higher.
   + [Identical topic name replication](msk-replicator-topic-naming.md) requires an MSK cluster running Kafka version 2.8.1 or higher.

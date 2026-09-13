@@ -43,7 +43,7 @@ For the API specification, see `CreateChannel`, `DescribeChannel`, `UpdateChanne
 
 The following diagram shows how records flow from an Amazon MSK Express broker topic through a Data Delivery channel to your destination, with unprocessable records routed to a dead-letter queue.
 
-![Data flow from an Amazon MSK Express broker topic through a Data Delivery channel to a general-purpose Amazon S3 bucket, with unprocessable records routed to a dead-letter queue.](http://docs.aws.amazon.com/msk/latest/developerguide/images/msk-data-channel-dataflow.png)
+![Data flow from an Amazon MSK Express broker topic through a Data Delivery channel to a general-purpose Amazon S3 bucket, with unprocessable records routed to a dead-letter queue.](https://docs.aws.amazon.com/msk/latest/developerguide/images/msk-data-channel-dataflow.png)
 
 
 ## Benefits

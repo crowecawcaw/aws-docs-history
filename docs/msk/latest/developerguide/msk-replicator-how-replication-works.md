@@ -13,4 +13,4 @@ MSK Replicator does not store your data. Data is consumed from your source clust
 
 MSK Replicator creates topics in the target cluster with a Replication Factor of 3. If you need to, you can modify the replication factor directly on the target cluster.
 
-![MSK Replicator source and target clusters](http://docs.aws.amazon.com/msk/latest/developerguide/images/msk-replicator-diagram.png)
+![MSK Replicator source and target clusters](https://docs.aws.amazon.com/msk/latest/developerguide/images/msk-replicator-diagram.png)

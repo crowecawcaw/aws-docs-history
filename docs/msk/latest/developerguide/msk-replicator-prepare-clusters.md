@@ -52,7 +52,7 @@ Update the source cluster policy with the following JSON. Replace the placeholde
 
 Use the **Edit cluster policy** option under the **Actions** menu on the cluster details page.
 
-![Edit cluster policy in console](http://docs.aws.amazon.com/msk/latest/developerguide/images/edit-cluster-policy.png)
+![Edit cluster policy in console](https://docs.aws.amazon.com/msk/latest/developerguide/images/edit-cluster-policy.png)
 
 
 ------

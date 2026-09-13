@@ -7,4 +7,4 @@ A connector integrates external systems and Amazon services with Apache Kafka by
 
 The following diagram shows the architecture of a connector. A worker is a Java virtual machine (JVM) process that runs the connector logic. Each worker creates a set of tasks that run in parallel threads and do the work of copying the data. Tasks don't store state, and can therefore be started, stopped, or restarted at any time in order to provide a resilient and scalable data pipeline.
 
-![Diagram showing the architecture of a connector cluster.](http://docs.aws.amazon.com/msk/latest/developerguide/images/mkc-worker-architecture.png)
+![Diagram showing the architecture of a connector cluster.](https://docs.aws.amazon.com/msk/latest/developerguide/images/mkc-worker-architecture.png)

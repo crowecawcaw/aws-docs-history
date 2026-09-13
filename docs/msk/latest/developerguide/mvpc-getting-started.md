@@ -22,4 +22,4 @@ This tutorial assumes that there is a provisioned MSK cluster created with Apach
 
 The following diagram illustrates the architecture of Amazon MSK multi-VPC connectivity connected to a client in a different AWS account.
 
-![Multi-vpc network diagram in a single Region](http://docs.aws.amazon.com/msk/latest/developerguide/images/mvpc-network.png)
+![Multi-vpc network diagram in a single Region](https://docs.aws.amazon.com/msk/latest/developerguide/images/mvpc-network.png)

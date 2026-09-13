@@ -152,7 +152,7 @@ MSK Replicator only replicates up to 750 topics in sorted order. If you need to 
 1. In the **Access permissions** pane, do either of the following:
 
    1. Select **Create or update IAM role with required policies**. The MSK console will automatically attach the necessary permissions and trust policy to the service execution role.  
-![MSK console to create or update replicator IAM role](http://docs.aws.amazon.com/msk/latest/developerguide/images/msk-replicator-ezCRC.png)
+![MSK console to create or update replicator IAM role](https://docs.aws.amazon.com/msk/latest/developerguide/images/msk-replicator-ezCRC.png)
 
    1. Provide your own IAM role by selecting **Choose from IAM roles that Amazon MSK can assume**. We recommend attaching the [`AWSMSKReplicatorExecutionRole`](https://docs.aws.amazon.com/msk/latest/developerguide/security-iam-awsmanpol-AWSMSKReplicatorExecutionRole.html) managed IAM policy to your service execution role. See [Service execution role (SER)](msk-replicator-ser.md).
 

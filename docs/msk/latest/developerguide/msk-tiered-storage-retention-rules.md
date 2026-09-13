@@ -22,22 +22,22 @@ This scenario illustrates how an existing topic that has messages in primary sto
 **Time T0 - Before you enable tiered storage.**  
 Before you enable tiered storage for this topic, there are two log segments. One of the segments is active for an existing topic partition 0.
 
-![Time T0 - Before you enable tiered storage.](http://docs.aws.amazon.com/msk/latest/developerguide/images/tiered-storage-segments-1.png)
+![Time T0 - Before you enable tiered storage.](https://docs.aws.amazon.com/msk/latest/developerguide/images/tiered-storage-segments-1.png)
 
 
 **Time T1 (< 2 days) - Tiered storage enabled. Segment 0 copied to tiered storage.**  
 After you enable tiered storage for this topic, Apache Kafka copies closed log segment 0 to tiered storage as soon as it closes. The segment closes based on segment.bytes or segment.ms settings, not based on retention settings. Apache Kafka retains a copy in primary storage as well. The active segment 1 is not eligible to copy to tiered storage yet because it is still active and hasn't closed. In this timeline, Amazon MSK doesn't apply any of the retention settings yet for any of the messages in segment 0 and segment 1. (local.retention.bytes/ms, retention.ms/bytes)
 
-![Time T1 (< 2 days) - Tiered storage enabled. Segment 0 copied to tiered storage.](http://docs.aws.amazon.com/msk/latest/developerguide/images/tiered-storage-segments-2.png)
+![Time T1 (< 2 days) - Tiered storage enabled. Segment 0 copied to tiered storage.](https://docs.aws.amazon.com/msk/latest/developerguide/images/tiered-storage-segments-2.png)
 
 
 **Time T2 - Local retention in effect.**  
 After 2 days, the local retention threshold is reached for segment 0. The setting of local.retention.ms as 2 days determines this. Segment 0 is now deleted from primary storage, but it remains available in tiered storage. Note that segment 0 was already copied to tiered storage at Time T1 when it closed, not at Time T2 when local retention expired. Active segment 1 is neither eligible for deletion nor eligible to copy to tiered storage yet because it is still active.
 
-![Time T2 - Local retention in effect.](http://docs.aws.amazon.com/msk/latest/developerguide/images/tiered-storage-segments-3.png)
+![Time T2 - Local retention in effect.](https://docs.aws.amazon.com/msk/latest/developerguide/images/tiered-storage-segments-3.png)
 
 
 **Time T3 - Overall retention in effect.**  
  After 5 days, retention settings take effect, and Kafka clears log segment 0 and associated messages from tiered storage. Segment 1 is neither eligible for expiration nor eligible to copy over to tiered storage yet because it is active. Segment 1 is not yet closed, so it is ineligible for segment roll.
 
-![Time T3 - Overall retention in effect.](http://docs.aws.amazon.com/msk/latest/developerguide/images/tiered-storage-segments-4.png)
+![Time T3 - Overall retention in effect.](https://docs.aws.amazon.com/msk/latest/developerguide/images/tiered-storage-segments-4.png)
