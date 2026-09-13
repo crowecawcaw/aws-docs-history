@@ -10,7 +10,7 @@ With this architecture, you can deploy containerized Magento ecommerce software 
 ## Magento personalization diagram
 <a name="magpers-diagram"></a>
 
-![Containerized Magento deployed on Amazon Elastic Kubernetes Service with Varnish Cache pods, Amazon Personalize providing product recommendations, Amazon Aurora database, Amazon ElastiCache for Redis, Amazon OpenSearch Service, and Amazon Elastic Container Registry hosting container images.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/magento-personalization-cpg/images/magento-personalization-cpg.png)
+![Containerized Magento deployed on Amazon Elastic Kubernetes Service with Varnish Cache pods, Amazon Personalize providing product recommendations, Amazon Aurora database, Amazon ElastiCache for Redis, Amazon OpenSearch Service, and Amazon Elastic Container Registry hosting container images.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/magento-personalization-cpg/images/magento-personalization-cpg.png)
 
 
 The following steps describe the architecture:
