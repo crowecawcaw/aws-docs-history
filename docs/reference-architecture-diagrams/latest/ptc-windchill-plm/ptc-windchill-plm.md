@@ -10,7 +10,7 @@ With this architecture, you can deploy a highly available, load-balanced configu
 ## PTC Windchill PLM architecture diagram
 <a name="ptcw-diagram"></a>
 
-![Reference architecture for PTC Windchill product lifecycle management on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ptc-windchill-plm/images/ptc-windchill-plm-on-aws.png)
+![Reference architecture for PTC Windchill product lifecycle management on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ptc-windchill-plm/images/ptc-windchill-plm-on-aws.png)
 
 
 The following steps describe the architecture:
