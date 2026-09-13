@@ -10,7 +10,7 @@ With this architecture, you can build a data platform that serves both operation
 ## Lodging data platform diagram
 <a name="ldp-diagram"></a>
 
-![How to build a lodging data platform by using Amazon Simple Storage Service, Amazon DynamoDB, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/lodging-data-platform/images/lodging-data-platform.png)
+![How to build a lodging data platform by using Amazon Simple Storage Service, Amazon DynamoDB, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/lodging-data-platform/images/lodging-data-platform.png)
 
 
 The following steps describe the architecture:
