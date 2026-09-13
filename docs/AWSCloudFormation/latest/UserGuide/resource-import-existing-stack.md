@@ -102,7 +102,7 @@ The CloudFormation console doesn't support the use of the intrinsic function `Fn
 1. On the **Stacks** page, choose the stack you want to import resources into.
 
 1. Choose **Stack actions**, and then choose **Import resources into stack**.  
-![The Import resources into stack option in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
+![The Import resources into stack option in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
 
 1. Review the **Import overview** page, and then choose **Next**.
 
@@ -125,7 +125,7 @@ The import operation fails if you modify existing parameters that initiate a cre
 1. On the **Review {{stack-name}}** page, review the resources to import, and then choose **Import resources**. This automatically executes the change set created in the last step. Any stack-level tags are applied to imported resources at this time. For more information, see [Configure stack options](cfn-console-create-stack.md#configure-stack-options).
 
    The **Events** page for the stack displays.  
-![The Events tab in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/import-events.png)
+![The Events tab in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/import-events.png)
 
 1. (Optional) Run drift detection on the stack to make sure the template and actual configuration of the imported resources match. For more information about detecting drift, see [Detect drift on an entire CloudFormation stack](detect-drift-stack.md).
 

@@ -88,7 +88,7 @@ This template is meant as an example only. To use it for your own testing purpos
 1. Sign in to the AWS Management Console and open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
 1. On the **Stacks** page, choose **Create stack**, and then choose **With existing resources (import resources)**.  
-![The Create stack from existing resources option in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/create-stack-with-existing-resources.png)
+![The Create stack from existing resources option in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/create-stack-with-existing-resources.png)
 
 1. Read the **Import overview** page for a list of things you're required to provide during this operation. Then, choose **Next**.
 
@@ -111,7 +111,7 @@ The import operation fails if you modify existing parameters that initiate a cre
 1. On the **Review {{stack-name}}** page, confirm that the correct resources are being imported, and then choose **Import resources**. This automatically executes the change set created in the last step.
 
    The **Events** pane of the **Stack details** page for your new stack displays.  
-![The Events tab in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/import-events.png)
+![The Events tab in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/import-events.png)
 
 1. (Optional) Run drift detection on the stack to make sure the template and actual configuration of the imported resources match. For more information about detecting drift, see [Detect drift on an entire CloudFormation stack](detect-drift-stack.md).
 

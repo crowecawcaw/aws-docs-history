@@ -56,7 +56,7 @@ The following example policy grants the required permission:
 }
 ```
 
-![Any user in the administrator account can then create any StackSet in target accounts after setting up a trust relationship.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stacksets_perms_master_target.png)
+![Any user in the administrator account can then create any StackSet in target accounts after setting up a trust relationship.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stacksets_perms_master_target.png)
 
 
 ------
@@ -213,7 +213,7 @@ Use customized administration roles to control which users and groups can perfor
 
 For example, you can create Role A and Role B within your administrator account. You can give Role A permissions to access target account 1 through account 8. You can give Role B permissions to access target account 9 through account 16.
 
-![A trust relationship between a customized administration role and target accounts that allows users to create a StackSet.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stacksets_perms_admin_target.png)
+![A trust relationship between a customized administration role and target accounts that allows users to create a StackSet.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stacksets_perms_admin_target.png)
 
 
 Setting up the necessary permissions involves defining a customized administration role, creating a service role for the target account, and granting users permission to pass the customized administration role when performing StackSet operations.
@@ -381,7 +381,7 @@ Use customized execution roles to control which stack resources users and groups
 
 For example you can create customized administration roles A, B, and C in the administrator account. Users and groups with permission to use Role A can create StackSets containing the stack resources specifically listed in customized execution role X, but not those in roles Y or Z, or resource not included in any execution role.
 
-![A trust relationship between a custom admin role and custom execution role in target accounts, allowing users to create a StackSet.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stacksets_perms_admin_execution.png)
+![A trust relationship between a custom admin role and custom execution role in target accounts, allowing users to create a StackSet.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stacksets_perms_admin_execution.png)
 
 
 When updating a StackSet, the user must explicitly specify a customized administration role, even if it's the same customized administration role used with this StackSet previously. CloudFormation performs the update using the customized administration role specified, so long as the user has permissions to perform operations on that StackSet.

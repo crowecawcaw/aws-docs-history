@@ -40,7 +40,7 @@ For example, you have a root stack called `WebInfra` that contains two smaller s
 
 If something goes wrong during an update, and the update process fails, the entire stack hierarchy may end up in the `UPDATE_ROLLBACK_FAILED` state, as shown in the following diagram. 
 
-![A diagram showing a three-level nested stack hierarchy.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cfn-update-stack-continue-update-rollback_nested-stacks.png)
+![A diagram showing a three-level nested stack hierarchy.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cfn-update-stack-continue-update-rollback_nested-stacks.png)
 
 
 **Note**  

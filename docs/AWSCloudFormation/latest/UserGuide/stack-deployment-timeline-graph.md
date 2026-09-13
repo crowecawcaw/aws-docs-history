@@ -14,7 +14,7 @@ The stack deployment timeline graph provides a visual representation of a stack 
 
 The following image shows the timeline graph for a stack deployment that failed due to an Amazon EC2 instance resource that failed to launch.
 
-![A stack deployment timeline graph for a failed stack deployment.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/deployment-timeline-graph.PNG)
+![A stack deployment timeline graph for a failed stack deployment.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/deployment-timeline-graph.PNG)
 
 
 The names of the stack resources are found on the left side of the graph, and the date and time relative to the deployment times are found at the top of the graph.
@@ -25,7 +25,7 @@ After the stack deployment operation failed, the successfully deployed resource 
 
 Choosing each resource provides more granular detail on the deployment timeline:
 
-![A stack deployment timeline graph popover showing deployment details for the chosen failed resource.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/deployment-timeline-graph-root-cause.PNG)
+![A stack deployment timeline graph popover showing deployment details for the chosen failed resource.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/deployment-timeline-graph-root-cause.PNG)
 
 
 Choosing a resource shows the **Type**, deployment **Start time**, deployment **End time**, and **Total duration** of the deployment. You will also find the **Start time**, **End time**, and **Duration** of each deployment status in the drop-down menus below. If the resource failed to deploy, a **Failure reason** will be provided.

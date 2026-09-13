@@ -96,7 +96,7 @@ During a nested stack import operation, CloudFormation performs the following va
 1. Open the CloudFormation console.
 
 1. On the **Stacks** page, with the parent stack selected, choose **Stack actions**, and then choose **Import resources into stack**.  
-![The Import resources into stack option in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
+![The Import resources into stack option in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
 
 1. Read the **Import overview** page for a list of things you're required to provide during this operation. Then, choose **Next**.
 
@@ -109,7 +109,7 @@ During a nested stack import operation, CloudFormation performs the following va
    1. Under **Identifier property**, choose the type of resource identifier. For example, an `AWS::CloudFormation::Stack` resource can be identified using the `StackId` property.
 
    1. Under **Identifier value**, type the ARN of the stack you're importing. For example, `{{arn:aws:cloudformation:us-west-2:12345678910:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10}}`.  
-![The Identify resources page in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/resource-import-stackid.png)
+![The Identify resources page in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/resource-import-stackid.png)
 
    1. Choose **Next**.
 
@@ -120,7 +120,7 @@ The import operation fails if you modify existing parameters that initiate a cre
 1. On the **Review {{MyParentStack}}** page, confirm that the correct resource is being imported, and then choose **Import resources**. This automatically executes the change set created in the last step. Any stack-level tags are applied to imported resources at this time.
 
 1. The **Events** pane of the **Stack details** page for your parent stack displays.  
-![The Events tab in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/import-events.png)
+![The Events tab in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/import-events.png)
 **Note**  
 It's not necessary to run drift detection on the parent stack after this import operation because the `AWS::CloudFormation::Stack` resource was already managed by CloudFormation.
 

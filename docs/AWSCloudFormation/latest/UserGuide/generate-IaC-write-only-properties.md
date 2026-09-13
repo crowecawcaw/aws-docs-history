@@ -48,12 +48,12 @@ Alternatively, you can see which properties are write-only from the resource pro
 1. Choose the **Templates** tab, and then choose the name of the template you created.
 
 1. On the **Template definition** tab, when the generated template includes resources with write-only properties, the IaC generator console displays a warning with a summary of the type of issues. For example:  
-![IaC generator console warning about write-only properties in generated template.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/IaC-generator-write-only-property-warning.png)
+![IaC generator console warning about write-only properties in generated template.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/IaC-generator-write-only-property-warning.png)
 
 1. Choose **View warning details** for more details. The resources with write-only properties are identified by the logical ID used in the generated template and resource type.
 
    Use the list of warnings to identify resources with write-only properties and look at each resource to determine what changes (if any) need to be made to the generated template.  
-![IaC generator console detailed warnings about write-only properties in generated template.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/IaC-generator-write-only-property-resource-warning.png)
+![IaC generator console detailed warnings about write-only properties in generated template.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/IaC-generator-write-only-property-resource-warning.png)
 
 1. If your template must be updated to resolve issues with write-only properties, do the following: 
 

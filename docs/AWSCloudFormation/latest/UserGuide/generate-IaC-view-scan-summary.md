@@ -19,4 +19,4 @@ After the scan completes, you can view a visualization of resources found during
 
 1. On the right side of the page is the **Scan summary details** panel. To open the panel, choose the **open panel** icon.
 
-![The IaC generator console provides a visual breakdown of scanned resources.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/IaC-generator-scan-summary.png)
+![The IaC generator console provides a visual breakdown of scanned resources.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/IaC-generator-scan-summary.png)

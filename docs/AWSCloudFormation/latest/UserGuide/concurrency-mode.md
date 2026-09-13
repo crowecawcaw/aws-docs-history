@@ -22,45 +22,45 @@ The images below provide a visual representation of how each **Concurrency Mode*
 When a StackSet operation using **Strict Failure Tolerance** has the **Failure tolerance** value set to 5 and the **Maximum concurrent accounts** value set to 10, the actual concurrency is 6. The actual concurrency is 6 because this the **Failure tolerance** value of 5 \+1 is lower than the value of **Maximum concurrent accounts**.  
 The following image shows the impact that the **Failure tolerance** value has on the **Maximum concurrent accounts** value, and the impact they both have on the actual concurrency of the StackSet operation:  
 
-![A StackSet operation using strict failure tolerance. Fail tolerance is 5, max concurrent account is 10, and concurrency is 6.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-1.png)
+![A StackSet operation using strict failure tolerance. Fail tolerance is 5, max concurrent account is 10, and concurrency is 6.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-1.png)
 
 When deployment begins and there are failed stack instances, then the actual concurrency reduces to provide a safe deployment experience. The actual concurrency reduces from 6 to 5 when StackSets fails to deploy 1 stack instance.  
 
-![The StackSet operation using Strict Failure Tolerance has 2 successful deployments and 1 failure.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-2.png)
+![The StackSet operation using Strict Failure Tolerance has 2 successful deployments and 1 failure.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-2.png)
 
 
-![The StackSet operation using Strict Failure Tolerance has reduced the actual concurrency to 5 now that there is one failure.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-3.png)
+![The StackSet operation using Strict Failure Tolerance has reduced the actual concurrency to 5 now that there is one failure.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-3.png)
 
 The **Strict Failure Tolerance** mode reduces the actual concurrency proportionally to the number of failed stack instances. In the following example, the actual concurrency reduces from 5 to 3 when StackSets fails to deploy 2 more stack instances, bringing the total of failed stack instances to 3.  
 
-![The StackSet operation using Strict Failure Tolerance now has 3 failed deployments. Concurrency has reduced to 3.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-4.png)
+![The StackSet operation using Strict Failure Tolerance now has 3 failed deployments. Concurrency has reduced to 3.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-4.png)
 
 StackSets fails the StackSet operation when the number of failed stack instances equals the defined value of **Failure tolerance** \+1. In the following example, StackSets fails the operation when there are 6 failed stack instances and the **Failure tolerance** value is 5.  
 
-![The StackSet operation using Strict Failure Tolerance now has 6 failed deployments. The StackSet operation fails.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-5.png)
+![The StackSet operation using Strict Failure Tolerance now has 6 failed deployments. The StackSet operation fails.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-strict-failure-tolerance-5.png)
 
 In this example, CloudFormation deployed 9 stack instances (3 successful and 6 failed) before stopping the StackSet operation.
 
 **Soft Failure Tolerance**  
 When a StackSet operation using **Soft Failure Tolerance** has the **Failure tolerance** value set to 5 and the **Maximum concurrent accounts** value set to 10, the actual concurrency is 10.  
 
-![A StackSet operation with Soft Failure Tolerance. Fail tolerance is 5 max concurrent accounts and actual concurrency are 10.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-1.png)
+![A StackSet operation with Soft Failure Tolerance. Fail tolerance is 5 max concurrent accounts and actual concurrency are 10.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-1.png)
 
 When deployment begins and there are failed stack instances, the actual concurrency doesn't change. In the following example, 1 stack operation failed, but the actual concurrency remains at 10.  
 
-![The StackSet operation with Soft Failure Tolerance encounters the first failure. Actual concurrency remains at 10.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-2.png)
+![The StackSet operation with Soft Failure Tolerance encounters the first failure. Actual concurrency remains at 10.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-2.png)
 
 The actual concurrency remains at 10 even after 2 more stack instance failures.  
 
-![The StackSet operation with Soft Failure Tolerance now has 2 successes and 3 failures, but actual concurrency is still 10.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-3.png)
+![The StackSet operation with Soft Failure Tolerance now has 2 successes and 3 failures, but actual concurrency is still 10.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-3.png)
 
 StackSets fails the StackSet operation when failed stack instances exceeds the **Failure tolerance** value. In the following example, StackSets fails the operation when there are 6 failed stack instances and the **Failure tolerance** count is 5. However, the operation won't end until the remaining operations in the concurrency queue finish.  
 
-![The StackSet operation with Soft Failure Tolerance reaches 6 fails, but it must finish what's left in the concurrency queue.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-4.png)
+![The StackSet operation with Soft Failure Tolerance reaches 6 fails, but it must finish what's left in the concurrency queue.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-4.png)
 
 StackSets continues to deploy stack instances that are already in the concurrency queue. This means that the number of failed stack instances can be higher than **Failure tolerance**. In the following example, there are 8 failed stack instances because the concurrency queue still had 7 operations left to perform, even though the StackSet operation had reached the **Failure tolerance** of 5.  
 
-![The StackSet operation has 8 total fails because it had 7 deployments left in the queue after it reached the fail threshold.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-5.png)
+![The StackSet operation has 8 total fails because it had 7 deployments left in the queue after it reached the fail threshold.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/concurrency-soft-failure-tolerance-5.png)
 
 In this example, StackSets deployed 15 stack instances (7 successful and 8 failed) before stopping the stack operation.
 

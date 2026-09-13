@@ -10,7 +10,7 @@ CloudFormation is a free service; however, you are charged for the AWS resources
 **Video: Getting started with CloudFormation**  
 The following video is an introduction to creating CloudFormation stacks from the AWS Management Console.
 
-[![AWS Videos](http://img.youtube.com/vi/1h-GPXQrLZw?si=MYHlJvBkE3DspKcL/0.jpg)](http://www.youtube.com/watch?v=1h-GPXQrLZw?si=MYHlJvBkE3DspKcL)
+[![AWS Videos](https://img.youtube.com/vi/1h-GPXQrLZw?si=MYHlJvBkE3DspKcL/0.jpg)](https://www.youtube.com/watch?v=1h-GPXQrLZw?si=MYHlJvBkE3DspKcL)
 
 
 **Topics**

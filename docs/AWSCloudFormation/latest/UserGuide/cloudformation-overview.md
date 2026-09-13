@@ -168,7 +168,7 @@ When you use CloudFormation to create your stack, CloudFormation makes underlyin
 
 The calls that CloudFormation makes are all declared by your template. For example, suppose you have a template that describes an EC2 instance with a `t2.micro` instance type. When you use that template to create a stack, CloudFormation calls the Amazon EC2 create instance API and specifies the instance type as `t2.micro`. The following diagram summarizes the CloudFormation workflow for creating stacks.
 
-![A created or existing template that is saved locally, or in a bucket, that's used to create a stack.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/create-stack-diagram.png)
+![A created or existing template that is saved locally, or in a bucket, that's used to create a stack.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/create-stack-diagram.png)
 
 
 **To create a stack**
@@ -194,7 +194,7 @@ For faster stack operations during development, use express mode. Express mode c
 
 When you need to update your stack's resources, you can modify the stack's template. You don't need to create a new stack and delete the old one. To update a stack, create a change set by submitting a modified version of the original stack template, different input parameter values, or both. CloudFormation compares the modified template with the original template and generates a change set. The change set lists the proposed changes. After reviewing the changes, you can start the change set to update your stack or you can create a new change set. The following diagram summarizes the workflow for updating a stack.
 
-![A template using a change set to view the modified value before executing the change set to update the stack.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/update-stack-diagram.png)
+![A template using a change set to view the modified value before executing the change set to update the stack.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/update-stack-diagram.png)
 
 
 **To update a stack with a change set**

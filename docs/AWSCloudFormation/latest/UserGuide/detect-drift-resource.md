@@ -31,7 +31,7 @@ When performing drift detection on a resource, CloudFormation also updates the o
        + Added properties are highlighted in green in the **Current** column of the **Details** section.
        + Deleted properties are highlighted in red in the **Expected** column of the **Details** section.
        + Properties whose value have been changed are highlighted in yellow in the both **Expected** and **Current** columns.  
-![The Resource drift status section of the Drift Details page, which contains drift information for each resource in the stack that supports drift detection. Details include drift status and expected and current property values.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/console-stacks-drifts-drift-details-differences-1.png)
+![The Resource drift status section of the Drift Details page, which contains drift information for each resource in the stack that supports drift detection. Details include drift status and expected and current property values.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/console-stacks-drifts-drift-details-differences-1.png)
 
 **To detect drift on an individual resource using the AWS CLI**
 + 

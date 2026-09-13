@@ -13,7 +13,7 @@ To use a module, the steps are as follows:
 
 Consider the following example: you have a template that contains both resources and modules. The template contains one individual resource, `ResourceA`, as well as a module, `ModuleParent`. That module contains two resources, `ResourceB` and `ResourceC`, as well as a nested module, `ModuleChild`. `ModuleChild` contains a single resource, `ResourceD`. If you create a stack from this template, CloudFormation processes the template and resolves the modules to the appropriate resources. The resulting stack has four resources: `ResourceA`, `ResourceB`, `ResourceC`, and `ResourceD`.
 
-![During a stack operation, CloudFormation resolves the two modules included in the stack template into the appropriate four resources.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/modules-resource-inclusion.png)
+![During a stack operation, CloudFormation resolves the two modules included in the stack template into the appropriate four resources.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/modules-resource-inclusion.png)
 
 
 CloudFormation keeps track of which resources in a stack were created from modules. You can view this information on the **Events**, **Resources**, and **Drifts** tabs for a given stack, and it's also included in change set previews.

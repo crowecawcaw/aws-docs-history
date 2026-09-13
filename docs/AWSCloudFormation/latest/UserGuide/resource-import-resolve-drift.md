@@ -113,7 +113,7 @@ Resources:
 
 In this example, let's assume a user changed a resource outside of CloudFormation. After running drift detect, we discovered that `GamesTable` has been modified `BillingMode` to `PAY_PER_REQUEST`. For more information about drift detect, see [Detect unmanaged configuration changes to stacks and resources with drift detection](using-cfn-stack-drift.md).
 
-![The drift results display the expected and actual results in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/drift-results-gamestable.png)
+![The drift results display the expected and actual results in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/drift-results-gamestable.png)
 
 
 Our stack is now out of date, our resources are live, but we want to preserve the intended resource configuration. We can do this by resolving drift through an import operation, without interrupting services.
@@ -261,7 +261,7 @@ Resources:
 **To update template to match the live state of resources**
 
 1. To import the updated template, choose **Stack actions** and then choose **Import resources into stack**.  
-![The Import resources into stack option in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
+![The Import resources into stack option in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
 
 1. Review the **Import overview** page for a list of things you're required to provide during this operation, and then choose **Next**.
 

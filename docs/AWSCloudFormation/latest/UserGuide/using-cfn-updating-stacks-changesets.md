@@ -23,7 +23,7 @@ You can use express mode with change sets to complete stack operations faster. S
 **Change set overview**  
 The following diagram summarizes how you use change sets to update a stack:
 
-![Diagram showing four steps to update a stack using CloudFormation change sets.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/update-stack-changesets-diagram.png)
+![Diagram showing four steps to update a stack using CloudFormation change sets.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/update-stack-changesets-diagram.png)
 
 
 1. Create a change set by submitting changes for the stack that you want to update. You can submit a modified stack template or modified input parameter values. CloudFormation compares your stack with the changes that you submitted to generate the change set; it doesn't make changes to your stack at this point.

@@ -17,7 +17,7 @@ Next, you typically create a change set and then execute it. (Processing macros 
 
 After all macros in the template have been called, CloudFormation generates a change set that includes the processed template content. After you review the change set, execute it to apply the changes.
 
-![Use the Fn::Transform intrinsic function or the Transform section of the template, to pass the template contents and associated parameters to the macro's underlying Lambda function, which returns the processed template contents.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/template-macro-use.png)
+![Use the Fn::Transform intrinsic function or the Transform section of the template, to pass the template contents and associated parameters to the macro's underlying Lambda function, which returns the processed template contents.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/template-macro-use.png)
 
 
 ## How to create stacks directly
@@ -56,7 +56,7 @@ When working with macros, keep in mind the following notes and limitations:
 
 You can use macros only in the account in which they were created as a resource. The name of the macro must be unique within a given account. However, you can make the same functionality available in multiple accounts by enabling cross-account access on the underlying Lambda function, and then creating macro definitions referencing that function in multiple accounts. In the example below, three accounts contain macro definitions that each point to the same Lambda function.
 
-![By allowing cross-account access on the Lambda function, AWS enables you to create macros in multiple accounts that reference that function.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/template-macro-accounts.png)
+![By allowing cross-account access on the Lambda function, AWS enables you to create macros in multiple accounts that reference that function.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/template-macro-accounts.png)
 
 
 To create a macro definition, the user must have permissions to create a stack or stack set within the specified account.

@@ -12,7 +12,7 @@ Nested stacks can themselves contain other nested stacks, resulting in a hierarc
 + For stack B, stack A is both the parent stack, and the root stack.
 + For stack D, stack C is the parent stack; while for stack C, stack B is the parent stack.
 
-![Nested stacks, which are created as part of another stack, have an immediate parent stack, and the top-level root stack.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cfn-console-nested-stacks.png)
+![Nested stacks, which are created as part of another stack, have an immediate parent stack, and the top-level root stack.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cfn-console-nested-stacks.png)
 
 
 **Topics**

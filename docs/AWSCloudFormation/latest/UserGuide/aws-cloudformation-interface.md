@@ -150,4 +150,4 @@ Metadata:
 
 Using the metadata key from this example, the following figure shows how the console displays parameter groups when a stack is created or updated: **Parameter groups in the console** 
 
-![Console showing parameter groups for this example.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/console-create-stack-parameter-groups.png)
+![Console showing parameter groups for this example.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/console-create-stack-parameter-groups.png)

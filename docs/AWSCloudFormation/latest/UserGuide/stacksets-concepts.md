@@ -57,7 +57,7 @@ A *stack instance* is a reference to a stack in a target account within a Region
 
 The following figure shows the logical relationships between StackSets, stack operations, and stacks. When you update a StackSet, *all* associated stack instances update throughout all accounts and Regions.
 
-![A StackSet can create, update, or delete stacks instances and stacks across accounts and Regions.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack_sets_operations_stacks_sv.png)
+![A StackSet can create, update, or delete stacks instances and stacks across accounts and Regions.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack_sets_operations_stacks_sv.png)
 
 
 ## StackSet operations

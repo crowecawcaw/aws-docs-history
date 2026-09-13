@@ -186,7 +186,7 @@ Not all resources support import operations. See [Resources that support import 
 1. Perform an import operation to add `GamesTable` to the target stack.
 
    1. On the **Stacks** page, with the parent stack selected, choose **Stack actions**, and then choose **Import resources into stack**.  
-![The Import resources into stack option in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
+![The Import resources into stack option in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
 
    1. Read the **Import overview** page for a list of things you're required to provide during this operation. Then, choose **Next**.
 
@@ -209,7 +209,7 @@ The import operation fails if you modify existing parameters that initiate a cre
    1. On the **Review {{TargetStackName}}** page, confirm that the correct resource is being imported, and then choose **Import resources**. This automatically initiates the change set created in the last step. Any [stack-level tags](cfn-console-create-stack.md#configure-stack-options) are applied to imported resources at this time.
 
    1. The **Events** pane of the **Stack details** page for your parent stack displays.  
-![The Events tab in the console.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/import-events.png)
+![The Events tab in the console.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/import-events.png)
 **Note**  
 It's not necessary to run drift detection on the parent stack after this import operation because the `AWS::CloudFormation::Stack` resource is already managed by CloudFormation.
 

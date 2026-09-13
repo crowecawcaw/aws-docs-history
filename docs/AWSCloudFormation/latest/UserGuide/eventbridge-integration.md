@@ -9,7 +9,7 @@ As with many AWS services, CloudFormation generates and sends events to the Even
 
 For more information, see [Getting started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*.
 
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/eventbridge-integration-how-it-works.png)
+![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/eventbridge-integration-how-it-works.png)
 
 
 **Topics**
