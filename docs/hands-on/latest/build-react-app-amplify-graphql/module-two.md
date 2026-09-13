@@ -31,7 +31,7 @@ The app uses email as the default login mechanism. When the users sign up, they 
 + Set auth resource
 
   By default, your auth resource is configured as shown inside the ****notesapp/amplify/auth/resource.ts**** file. For this tutorial, **keep** the default auth set up as is.   
-![The configuration settings interface.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/configuration-settings-interface.png)
+![The configuration settings interface.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/configuration-settings-interface.png)
 
 ### Step 2: Set up Amplify Data
 <a name="set-up-amplify-data"></a>
@@ -62,7 +62,7 @@ The app you will be building is a Notes app that will allow users to create, del
     },
   });
   ```  
-![File directory view of a project named "notesapp," with the "resource.ts" file under the "data" folder highlighted in red.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/file-directory-view-project-named-notesapp.png)
+![File directory view of a project named "notesapp," with the "resource.ts" file under the "data" folder highlighted in red.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/file-directory-view-project-named-notesapp.png)
 
 ### Step 3: Set up Amplify Storage
 <a name="set-up-amplify-storage"></a>
@@ -70,7 +70,7 @@ The app you will be building is a Notes app that will allow users to create, del
 1. Create a storage folder
 
    On your local machine, navigate to the ****notesapp/amplify**** folder, and **create** a new folder named ****storage****, and then **create** a file named ****resource.ts**** inside of the new storage folder.   
-![File directory structure of a "notesapp" project, with the "storage" folder and its "resource.ts" file highlighted in red.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/file-directory-structure-notesapp-project.png)
+![File directory structure of a "notesapp" project, with the "storage" folder and its "resource.ts" file highlighted in red.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/file-directory-structure-notesapp-project.png)
 
 1. Configure a storage resource for your app
 
@@ -112,7 +112,7 @@ The app you will be building is a Notes app that will allow users to create, del
      storage
    });
    ```  
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/interface.png)
 
 1. Start sandbox environment
 
@@ -126,12 +126,12 @@ The app you will be building is a Notes app that will allow users to create, del
 1. Confirm deployment
 
    Once the cloud sandbox has been fully deployed, your terminal will display a confirmation message.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/interface-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/interface-1.png)
 
 1. Verify JSON file was added
 
    The ****amplify\_outputs.json**** file will be generated and added to your project.    
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/interface-interface-element.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/interface-interface-element.png)
 
 ## Conclusion
 <a name="conclusion"></a>

@@ -33,7 +33,7 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
   ```
   npm install aws-amplify @aws-amplify/ui-react
   ```  
-![Terminal showing using npm install.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/npm-install-amplify.png)
+![Terminal showing using npm install.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/npm-install-amplify.png)
 
 ### Step 2: Style the App UI
 <a name="style-the-app-ui"></a>
@@ -76,7 +76,7 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
     grid-column: 3;
   }
   ```  
-![File directory structure of a "notesapp" project, with "App.jsx" highlighted in the "src" folder.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/file-directory-structure-notesapp-project-1.png)
+![File directory structure of a "notesapp" project, with "App.jsx" highlighted in the "src" folder.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/file-directory-structure-notesapp-project-1.png)
 
 ### Step 3: Implement the UI flow for Notes feature
 <a name="implement-the-ui-flow-for-notes-feature"></a>
@@ -279,22 +279,22 @@ Additionally, the code contains the following:
      );
    }
    ```  
-![File directory structure of a "notesapp" project, with "App.jsx" highlighted in the "src" folder.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/file-directory-structure-notesapp-project-1.png)
+![File directory structure of a "notesapp" project, with "App.jsx" highlighted in the "src" folder.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/file-directory-structure-notesapp-project-1.png)
 
 1. Open the app
 
    Select the **Local host link** to open the application.   
-![Terminal output showing Vite server running locally with additional instructions.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/terminal-output-vite-server-running.png)
+![Terminal output showing Vite server running locally with additional instructions.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/terminal-output-vite-server-running.png)
 
 1. Create an account
 
    Choose the **Create Account** tab, and use the authentication flow to create a new user by entering your **email address** and a **password**. Then, choose **Create Account**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/resource-creation-interface.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/resource-creation-interface.png)
 
 1. Get verification code
 
    You will get a verification code sent to your email. Enter the **verification code** to log in to the app. When signed in, you can start creating notes and delete them.   
-![Email verification screen with a confirmation code input field, pre-filled with '123456,' and buttons for 'Confirm' and 'Resend Code.'.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/email-verification-screen-confirmation.png)
+![Email verification screen with a confirmation code input field, pre-filled with '123456,' and buttons for 'Confirm' and 'Resend Code.'.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/email-verification-screen-confirmation.png)
 
 1. Push changes to GitHub
 
@@ -305,7 +305,7 @@ Additionally, the code contains the following:
    git commit -m 'the notes app'
    git push origin main
    ```  
-![The AWS sign-in interface.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/sign-interface.png)
+![The AWS sign-in interface.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/sign-interface.png)
 
 1. Sign into the console
 
@@ -314,7 +314,7 @@ Additionally, the code contains the following:
 1. View your web app
 
    AWS Amplify automatically builds your source code and deployed your app at https://...amplifyapp.com, and on every git push your deployment instance will update. Select the **Visit deployed URL** button to see your web app up and running live.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/interface-controls-buttons.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/interface-controls-buttons.png)
 
 ## Congratulations
 <a name="congratulations"></a>

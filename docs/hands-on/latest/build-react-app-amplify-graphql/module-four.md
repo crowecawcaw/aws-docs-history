@@ -23,7 +23,7 @@ In the Amplify console, in the left-hand navigation for the **notesapp** app, ch
 
 In the **General settings** section, choose **Delete app**. 
 
-![The navigation menu interface.](http://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/navigation-menu-interface.png)
+![The navigation menu interface.](https://docs.aws.amazon.com/hands-on/latest/build-react-app-amplify-graphql/images/navigation-menu-interface.png)
 
 
 ## Conclusion
