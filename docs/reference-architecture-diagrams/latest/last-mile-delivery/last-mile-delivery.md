@@ -10,7 +10,7 @@ With this architecture, you can optimize your last mile delivery operations. Imp
 ## Last mile delivery diagram
 <a name="lmd-diagram"></a>
 
-![Reference architecture diagram showing how to optimize last mile delivery by using AWS IoT Core, AWS Fargate, Amazon Neptune, and Amazon DocumentDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/last-mile-delivery/images/last-mile-delivery.png)
+![Reference architecture diagram showing how to optimize last mile delivery by using AWS IoT Core, AWS Fargate, Amazon Neptune, and Amazon DocumentDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/last-mile-delivery/images/last-mile-delivery.png)
 
 
 The following steps describe the data flow and delivery components for this architecture:
