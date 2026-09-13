@@ -10,7 +10,7 @@ This reference architecture diagram helps you deploy a local cluster for Amazon 
 ## Local Clusters for Amazon EKS on AWS Outposts Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to deploy a local cluster for Amazon EKS on AWS Outposts.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/local-clusters-for-amazon-eks-on-aws-outposts/images/local-clusters-for-amazon-eks-on-aws-outposts.png)
+![Reference architecture diagram showing how you can use AWS services to deploy a local cluster for Amazon EKS on AWS Outposts.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/local-clusters-for-amazon-eks-on-aws-outposts/images/local-clusters-for-amazon-eks-on-aws-outposts.png)
 
 
 1. Ensure that you have a reliable network connection between AWS Outposts and its parent Region. Use a highly available, low-latency connectivity, such as AWS Direct Connect. 
