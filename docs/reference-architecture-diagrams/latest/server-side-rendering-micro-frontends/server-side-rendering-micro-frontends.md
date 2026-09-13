@@ -10,7 +10,7 @@ This architecture shows how to implement server-side rendering micro-frontends i
 ## Server-Side Rendering Micro-Frontends in AWS
 <a name="diagram1"></a>
 
-![Architecture diagram showing server-side rendering micro-frontends using Amazon CloudFront, Amazon Simple Storage Service, AWS Fargate, AWS Lambda, AWS Step Functions, and Amazon DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/server-side-rendering-micro-frontends/images/server-side-rendering-micro-frontends.png)
+![Architecture diagram showing server-side rendering micro-frontends using Amazon CloudFront, Amazon Simple Storage Service, AWS Fargate, AWS Lambda, AWS Step Functions, and Amazon DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/server-side-rendering-micro-frontends/images/server-side-rendering-micro-frontends.png)
 
 
 The following steps describe the architecture:
