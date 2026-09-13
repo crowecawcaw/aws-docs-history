@@ -10,7 +10,7 @@ This architecture enables you to process electro-optical imagery on AWS.
 ## Electro-Optical Imagery Reference Architecture
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to process elctro-optical imagery on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/electro-optical-imagery-architecture/images/electro-optical-imagery-architecture.png)
+![Reference architecture diagram showing how you can use AWS services to process elctro-optical imagery on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electro-optical-imagery-architecture/images/electro-optical-imagery-architecture.png)
 
 
 1. Demodulate and Decode: Extract baseband waveform from modulated carrier; remove forward error correction. 
@@ -42,7 +42,7 @@ This architecture enables you to process electro-optical imagery on AWS.
 ## Electro-Optical Imagery Reference Architecture (Classified Processing)
 <a name="diagram2"></a>
 
-![Reference architecture diagram showing how to process classified electro-optical imagery on AWS](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/electro-optical-imagery-architecture/images/electro-optical-imagery-architecture2.png)
+![Reference architecture diagram showing how to process classified electro-optical imagery on AWS](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electro-optical-imagery-architecture/images/electro-optical-imagery-architecture2.png)
 
 
 1. Demodulate and Decode: Extract baseband waveform from modulated carrier; remove forward error correction. 
