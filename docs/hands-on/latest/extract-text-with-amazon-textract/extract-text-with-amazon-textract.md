@@ -103,7 +103,7 @@ In this step, you will create a Jupyter notebook to write your proof of concept 
    Then, choose **Create notebook instance**. 
 **Note**  
 It can take a few minutes for the notebook instance to be created. Wait until its **Status** shows **InService** before you continue.  
-![The Create notebook instance page in the Amazon SageMaker AI console, showing the Notebook instance settings section with the instance name and type, and the Permissions and encryption section with a successfully created IAM role and the Create notebook instance button.](http://docs.aws.amazon.com/hands-on/latest/extract-text-with-amazon-textract/images/create-notebook-instance-config.png)
+![The Create notebook instance page in the Amazon SageMaker AI console, showing the Notebook instance settings section with the instance name and type, and the Permissions and encryption section with a successfully created IAM role and the Create notebook instance button.](https://docs.aws.amazon.com/hands-on/latest/extract-text-with-amazon-textract/images/create-notebook-instance-config.png)
 
 ### Step 3: Generate code to process your documents
 <a name="generate-code-to-process-your-documents"></a>
@@ -323,12 +323,12 @@ This example uses the US East (N. Virginia) (**us-east-1**) Region. If you are w
 1. Run the notebook
 
    1. Return to your JupyterLab notebook, select the cell that contains your pasted code, and then choose the **Run** button to run the cell.   
-![A Jupyter Notebook interface showing Python code for processing image files, including functions to list image files, check if a file should be processed, and extract text using Amazon Textract.](http://docs.aws.amazon.com/hands-on/latest/extract-text-with-amazon-textract/images/jupyter-notebook-interface-code-processing.png)
+![A Jupyter Notebook interface showing Python code for processing image files, including functions to list image files, check if a file should be processed, and extract text using Amazon Textract.](https://docs.aws.amazon.com/hands-on/latest/extract-text-with-amazon-textract/images/jupyter-notebook-interface-code-processing.png)
 
 1. View the text file
 
    1. After your code runs, a **.txt file** with the same name as your image appears in the file browser on the left. Double-click the file to open it and view the extracted text.   
-![A file explorer and text editor showing a health insurance card's redacted details, including member name, ID, plan type, and coverage information.](http://docs.aws.amazon.com/hands-on/latest/extract-text-with-amazon-textract/images/file-explorer-text-editor-health-insurance.png)
+![A file explorer and text editor showing a health insurance card's redacted details, including member name, ID, plan type, and coverage information.](https://docs.aws.amazon.com/hands-on/latest/extract-text-with-amazon-textract/images/file-explorer-text-editor-health-insurance.png)
 
 ### Clean up resources
 <a name="clean-up-resources"></a>
