@@ -22,4 +22,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
  The image below has a widget selected and a summary from the AWS IoT SiteWise Assistant. 
 
-![sitatuation summarization in gauge widget in dashboard](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-situation-summary.png)
+![sitatuation summarization in gauge widget in dashboard](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-situation-summary.png)

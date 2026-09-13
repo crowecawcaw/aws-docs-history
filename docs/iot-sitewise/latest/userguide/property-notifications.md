@@ -30,7 +30,7 @@ You can choose the arrow icon to expand an asset hierarchy to find your asset.
 1. Choose **Edit**.
 
 1. For the asset property's **Notification status**, choose **ENABLED**.  
-![AWS IoT SiteWise "Edit asset" page screenshot with "Notification status" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-enable-property-notifications-console.png)
+![AWS IoT SiteWise "Edit asset" page screenshot with "Notification status" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-enable-property-notifications-console.png)
 
    You can also choose **DISABLED** to disable notifications for the asset property.
 

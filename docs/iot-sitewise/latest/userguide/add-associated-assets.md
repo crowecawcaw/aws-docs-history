@@ -27,7 +27,7 @@ You can choose the arrow icon to expand an asset hierarchy to find your asset.
 1. Choose **Edit**.
 
 1. In **Assets associated to this asset**, choose **Add associated asset**.  
-![The AWS IoT SiteWise Edit asset page with this field text: Add associated asset.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-associate-asset-console.png)
+![The AWS IoT SiteWise Edit asset page with this field text: Add associated asset.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-associate-asset-console.png)
 
 1. For **Hierarchy**, choose the hierarchy that defines the relationship between the parent asset and the child asset.
 
@@ -48,7 +48,7 @@ You can choose the arrow icon to expand an asset hierarchy to find your asset.
 1. Choose **Edit**.
 
 1. In **Assets associated to this asset**, choose **Disassociate** for the asset.  
-![AWS IoT SiteWise "Edit asset" page screenshot with "Disassociate" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-disassociate-asset-console.png)
+![AWS IoT SiteWise "Edit asset" page screenshot with "Disassociate" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-disassociate-asset-console.png)
 
 1. Choose **Save**.
 

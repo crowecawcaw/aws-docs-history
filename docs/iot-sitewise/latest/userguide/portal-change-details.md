@@ -9,7 +9,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 You can change a portal's name, description, branding, support email, and permissions.
 
 1. On the portal details page, in the **Portal details** section, choose **Edit**.  
-![Portal details section of the portal details page with Edit highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-view-portal-details-console.png)
+![Portal details section of the portal details page with Edit highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-view-portal-details-console.png)
 
 1. Update the **Name**, **Description**, **Portal branding**, **Support contact email**, or **Permissions**.
 

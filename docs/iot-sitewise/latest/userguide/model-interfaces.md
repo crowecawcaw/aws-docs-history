@@ -23,7 +23,7 @@ Interfaces help standardize properties across different asset models while prese
 
 For example, there are four stations in a powertrain shop: engine, transmission, differential, and assembly. Each station contains various equipment types. For example, the engine station includes CNC machines, but they differ in specifications: some are 3-axis, while others are 5-axis.
 
-![Diagram showing the hierarchy of the powertrain shop's equipment using only asset models and assets. The powertrain shop is at the top, then each of the asset models for the engine, transmission, differential and assemble stations on the second level down. On the third level down, there's the individual CNC machines broken down by axis stemming from the engine station asset model. Conversely, there's asset models stemming from the assemble station model as well. On the fourth level, are each of the assets representing the individual CNC machines or robotic arms by name.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/models-interface-hierarchy.png)
+![Diagram showing the hierarchy of the powertrain shop's equipment using only asset models and assets. The powertrain shop is at the top, then each of the asset models for the engine, transmission, differential and assemble stations on the second level down. On the third level down, there's the individual CNC machines broken down by axis stemming from the engine station asset model. Conversely, there's asset models stemming from the assemble station model as well. On the fourth level, are each of the assets representing the individual CNC machines or robotic arms by name.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/models-interface-hierarchy.png)
 
 
 However, interfaces let you create standards for commonalities seen in the CNC machines. You can use the repeatable properties in an interface rather than create asset models for each property.
@@ -36,7 +36,7 @@ For example, you can:
 
 1. Apply this interface to all CNC machine asset models, still allowing for device-specific properties on the individual asset models.
 
-![Diagram showing how interfaces simplify the organization of asset models from previous diagram. It shows several repeatable parameters for the engine station CNC machines now governed by the interfaces carrying over to various properties to the 3-axis and 5-axis CNC machine asset models, while also allowing for device-specific properties on each.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/models-interface-to-asset-models.png)
+![Diagram showing how interfaces simplify the organization of asset models from previous diagram. It shows several repeatable parameters for the engine station CNC machines now governed by the interfaces carrying over to various properties to the 3-axis and 5-axis CNC machine asset models, while also allowing for device-specific properties on each.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/models-interface-to-asset-models.png)
 
 
 You can also define availability metrics at the interface level. For example, `Avail = avg(Down-time, Running-time)` calculates the availability based on the down time and running time values.

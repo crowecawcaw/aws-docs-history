@@ -18,4 +18,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
 1. Choose **Create**.
 
-![The IoT dashboard Project page with Create highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-project.png)
+![The IoT dashboard Project page with Create highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-project.png)

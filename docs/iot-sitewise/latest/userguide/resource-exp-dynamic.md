@@ -20,4 +20,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
 1. Save the dashboard. In the **Preview** mode, choose different assets from the drop down menu to monitor the properties under each asset, without reconstructing the data panels.
 
-![The IoT dashboard Project page with dynamic assets shown.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-dynamic-assets.png)
+![The IoT dashboard Project page with dynamic assets shown.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-dynamic-assets.png)

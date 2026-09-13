@@ -8,7 +8,7 @@
 
 You can create virtual representations of your industrial operation with AWS IoT SiteWise assets. An **asset** represents a device, a piece of equipment, or a process that uploads one or more data streams to the AWS Cloud. For example, an asset device can be a wind turbine that sends air temperature, propeller rotation speed, and power output time-series measurements to asset properties in AWS IoT SiteWise.
 
-![AWS IoT SiteWise assets representing the devices in an industrial operation.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-asset.png)
+![AWS IoT SiteWise assets representing the devices in an industrial operation.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-asset.png)
 
 
 ## Property aliases identify equipment data streams
@@ -21,7 +21,7 @@ Each data stream corresponds to unique property alias. For example, the alias `/
 
 An asset can also represent a logical grouping of devices, such as an entire wind farm. You can associate assets with other assets to create asset hierarchies that represent complex industrial operations. Assets can access the data within their associated child assets. By doing so, you can use AWS IoT SiteWise expressions to calculate aggregate metrics, such as the net power output of a wind farm.
 
-![AWS IoT SiteWise asset hierarchies representing device relationships.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-asset-hierarchy.png)
+![AWS IoT SiteWise asset hierarchies representing device relationships.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-asset-hierarchy.png)
 
 
 ## Asset models standardize equipment representation

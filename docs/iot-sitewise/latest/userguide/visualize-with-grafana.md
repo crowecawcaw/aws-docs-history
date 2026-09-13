@@ -160,7 +160,7 @@ For information about sharing dashboards, see [Sharing dashboards and panels](ht
 1. Choose **Apply** to save your changes.
 
    The following image displays what your Grafana dashboards might look like when you complete this step.  
-![Sample dashboards created with the wind farm demo data.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/updated-grafana.png)
+![Sample dashboards created with the wind farm demo data.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/updated-grafana.png)
 
 ## (optional) Step 4: Set up alerts to monitor performance
 <a name="set-up-alerts"></a>

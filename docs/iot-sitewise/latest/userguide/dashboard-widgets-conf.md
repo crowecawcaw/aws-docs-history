@@ -25,7 +25,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
     + **Display style** – Select values to display.
     + **Y-axis** – Add a **Label**, and **Min** and **Max** values.
     + **Fonts** – Select **Font size**, **Unit font size**, and **Label font size** values.  
-![The IoT dashboard widget configuration page with style shown.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-widget-style.png)
+![The IoT dashboard widget configuration page with style shown.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-widget-style.png)
 +  **Properties** – All the properties of widgets are listed in this section. Different widgets have different properties. A few examples are listed below. 
   + **Line** widget :
     + **Label** – Choose to use the default datastream name or give a new name.
@@ -35,7 +35,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
     + **Label** – Choose to use the default datastream name or give a new name.
   + **Table** widget :
     + **Label** – Choose to use the default datastream name or give a new name.  
-![The IoT dashboard widget configuration page with properties shown.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-widget-properties.png)
+![The IoT dashboard widget configuration page with properties shown.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-widget-properties.png)
 +  **Thresholds** – Add a **Threshold** for a widget. Different widgets have different configurations. A few examples are listed below. 
   + **Bar chart** widget :
     + Choose **Add a threshold** to add to the widget.
@@ -48,4 +48,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
   + **Gauge** widget :
     + Choose **Add a threshold** to add to the widget.
     + Choose **Operator** and give a **Value** for the threshold. Customize the threshold with a color from the color palette.  
-![The IoT dashboard widget configuration page with style shown.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-widget-thresh.png)
+![The IoT dashboard widget configuration page with style shown.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-widget-thresh.png)

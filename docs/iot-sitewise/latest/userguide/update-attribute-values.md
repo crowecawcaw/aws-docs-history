@@ -23,7 +23,7 @@ You can choose the arrow icon to expand an asset hierarchy to find your asset.
 1. Choose **Edit**.
 
 1. Find the attribute to update, and then enter its new value.  
-![AWS IoT SiteWise "Edit asset" page screenshot with an attribute value highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-update-asset-attribute-console.png)
+![AWS IoT SiteWise "Edit asset" page screenshot with an attribute value highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-update-asset-attribute-console.png)
 
 1. Choose **Save**.
 

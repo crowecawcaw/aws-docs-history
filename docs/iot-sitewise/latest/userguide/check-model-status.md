@@ -26,7 +26,7 @@ Asset models and component models are both listed under **Models** in the naviga
 1. Choose the model to check.
 
 1. Find **Status** in the **Details** panel.  
-![AWS IoT SiteWise "Asset model" page screenshot with asset model status highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-view-model-status-console.png)
+![AWS IoT SiteWise "Asset model" page screenshot with asset model status highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-view-model-status-console.png)
 
 ## Check the status of an asset model or component model (AWS CLI)
 <a name="check-model-status-cli"></a>

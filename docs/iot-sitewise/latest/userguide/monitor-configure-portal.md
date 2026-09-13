@@ -8,7 +8,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
 Your users use portals to view your data. You can customize a portal's name, description, branding, user authentication, support contact email, and permissions.
 
-![The "Portal configuration" page used to create a portal.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/PortalConfiguration.png)
+![The "Portal configuration" page used to create a portal.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/PortalConfiguration.png)
 
 
 **To configure a portal**
@@ -27,7 +27,7 @@ Your users use portals to view your data. You can customize a portal's name, des
      1. Choose **Create user**.
 
      1. On the **Create user** page, to create the first portal, enter the user's email address, first name, and last name, and then choose **Create user**.  
-![Enable IAM Identity Center if you haven't enable IAM Identity Center in your AWS account.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/SSOUserCreation.png)
+![Enable IAM Identity Center if you haven't enable IAM Identity Center in your AWS account.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/SSOUserCreation.png)
 **Note**  
 AWS automatically enables IAM Identity Center in your account when you create the first portal user.
 <a name="cross-region-sso"></a>You can configure IAM Identity Center in only one Region at a time. SiteWise Monitor connects to the Region that you configured for IAM Identity Center. This means that you use one Region for IAM Identity Center access, but you can create portals in any Region.
@@ -61,7 +61,7 @@ The **Status** column can be one of the following values.
 
 A message appears when your portal is created.
 
-![An example successful portal creation message.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-create-portal-success-console.png)
+![An example successful portal creation message.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-create-portal-success-console.png)
 
 
 Next, you must invite one or more portal administrators to the portal. So far, you created a portal but no one can access it.

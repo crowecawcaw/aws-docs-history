@@ -47,7 +47,7 @@ Use the AWS IoT SiteWise console search functionality to find assets based on me
 
 1. From the **Search results** table, choose the asset from the **Name** column. This takes you to the detailed asset page for that asset.
 
-![metadata search results.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/search_results_all_fields.png)
+![metadata search results.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/search_results_all_fields.png)
 
 
 #### Partial search
@@ -79,7 +79,7 @@ All parameters do not need to be provided for an asset search. Here are some exa
 
 1. From the **Search results** table, choose the asset from the **Name** column. This takes you to the detailed asset page for that asset.
 
-![query builder search results.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/search_results_sql_query.png)
+![query builder search results.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/search_results_sql_query.png)
 
 
 **Note**  

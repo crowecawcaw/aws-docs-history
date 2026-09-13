@@ -5,7 +5,7 @@
 
 You can define asset model hierarchies to create logical associations between the asset models in your industrial operation. For example, you can define a wind farm composed of onshore and offshore wind farms. An onshore wind farm contains a turbine and onshore location. An offshore wind farm contains a turbine and offshore location.
 
-![AWS IoT SiteWise wind farm hierarchies between asset models.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/asset-model-hierarchies.png)
+![AWS IoT SiteWise wind farm hierarchies between asset models.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/asset-model-hierarchies.png)
 
 
 When you associate a child asset model to a parent asset model through a hierarchy, the parent asset model's metrics can input data from the child asset model's metrics. You can use asset model hierarchies and metrics to calculate statistics that provide insight to your operation or a subset of your operation. For more information, see [Aggregate data from properties and other assets (metrics)](metrics.md).

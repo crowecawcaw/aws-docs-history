@@ -10,7 +10,7 @@ The AWS IoT SiteWise Assistant is a generative AI-powered assistant. It allows u
 
 The AWS IoT SiteWise Assistant button is on the top right corner of the dashboard. Click on it to activate the Assistant. Can only be used with the **Preview** mode of the dashboard.
 
-![Assistant widget in dashboard](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-assistant.png)
+![Assistant widget in dashboard](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-assistant.png)
 
 
  Use the AWS IoT SiteWise Assistant in the following scenarios: 

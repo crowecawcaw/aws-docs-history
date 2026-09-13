@@ -11,7 +11,7 @@ In a few steps, you can add or remove users as administrators for a portal. Base
 ------
 #### [ IAM Identity Center ]
 
-![Portal administrators section of the portal details page.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/SSOAdminDetail.png)
+![Portal administrators section of the portal details page.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/SSOAdminDetail.png)
 
 
 **To add portal administrators**
@@ -24,7 +24,7 @@ If you use IAM Identity Center as your identity store, and you're signed in to y
 
 1. Choose **Assign administrators**.
 
-![The "Assign administrators" page.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/SSOAdminAssign.png)
+![The "Assign administrators" page.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/SSOAdminAssign.png)
 
 
 **To remove portal administrators**
@@ -35,7 +35,7 @@ We recommend that you select at least one portal administrator.
 ------
 #### [ IAM ]
 
-![Portal administrators section of the portal details page.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMAdminDetail.png)
+![Portal administrators section of the portal details page.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMAdminDetail.png)
 
 
 **To add portal administrators**
@@ -53,10 +53,10 @@ We recommend that you select at least one portal administrator.
 **Important**  <a name="iam-portal-user-permissions"></a>
 Users or roles must have the `iotsitewise:DescribePortal` permission to sign in to the portal.
 
-![The "Assign administrators" page.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMUserAdminAssign.png)
+![The "Assign administrators" page.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMUserAdminAssign.png)
 
 
-![The "Assign administrators" page.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMRoleAdminAssign.png)
+![The "Assign administrators" page.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMRoleAdminAssign.png)
 
 
 **To remove portal administrators**

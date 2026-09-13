@@ -25,7 +25,7 @@ If you use IAM Identity Center as your identity store, and you're signed in to y
 
 1. When you're finished selecting users, choose **Assign users**.
 
-![The assign IAM Identity Center users step of the portal creation process.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/SSOUserAssign.png)
+![The assign IAM Identity Center users step of the portal creation process.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/SSOUserAssign.png)
 
 
 ------
@@ -50,10 +50,10 @@ If you see the user or role that you want to add in the **IAM users** or **IAM r
 **Important**  <a name="iam-portal-user-permissions"></a>
 Users or roles must have the `iotsitewise:DescribePortal` permission to sign in to the portal.
 
-![The assign IAM users step of the portal creation process.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMUserAssign.png)
+![The assign IAM users step of the portal creation process.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMUserAssign.png)
 
 
-![The assign IAM step of the portal creation process.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMRoleAssign.png)
+![The assign IAM step of the portal creation process.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/IAMRoleAssign.png)
 
 
 ------

@@ -16,4 +16,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
 1. Select **Update** to save your changes.
 
-![The IoT dashboard Project details page with Update highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-project-update.png)
+![The IoT dashboard Project details page with Update highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-project-update.png)

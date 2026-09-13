@@ -11,4 +11,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 + The **Severity** and **Rule expression** is displayed for the alarm.
 + Choose **Generate summary** to generate a summary.
 
-![alarm summarization in gauge widget in dashboard](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-alarm-summary.png)
+![alarm summarization in gauge widget in dashboard](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-alarm-summary.png)

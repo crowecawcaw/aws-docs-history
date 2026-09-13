@@ -32,12 +32,12 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
 1. Choose **Create**.
 
-![Creating a dataset final picture in the Assistant page of the console](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-assistant-create-dataset.png)
+![Creating a dataset final picture in the Assistant page of the console](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-assistant-create-dataset.png)
 
 
 The service role created by AWS IoT SiteWise for the user, if the user chose to **Create and use a new service role**.
 
-![Creating a dataset final picture in the Assistant page of the console](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-create-dataset-permissions.png)
+![Creating a dataset final picture in the Assistant page of the console](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-create-dataset-permissions.png)
 
 
 ------

@@ -25,4 +25,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 **Note**  
  The configuration settings wheel on the right hand side displays **Preferences** for the user to choose like **Page size**, **Sticky first columns**, **Sticky last columns**, and **Column preferences**. Customize your preferences, and choose **Confirm** to apply the changes. 
 
-![The IoT dashboard Project page with unmodeled assets shown.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-unmodeled-assets.png)
+![The IoT dashboard Project page with unmodeled assets shown.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-unmodeled-assets.png)

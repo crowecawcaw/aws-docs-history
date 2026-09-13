@@ -15,6 +15,6 @@ You create a SiteWise Monitor portal in the AWS IoT SiteWise console.
 1. In the navigation pane, choose **Monitor**, **Get started**.
 
 1. Choose **Create portal (AI-aware)**.  
-![The AWS IoT SiteWise Monitor Getting started page with Create portal highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-create-portal-console.png)
+![The AWS IoT SiteWise Monitor Getting started page with Create portal highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-create-portal-console.png)
 
    Next, you must provide some basic information to configure your portal.

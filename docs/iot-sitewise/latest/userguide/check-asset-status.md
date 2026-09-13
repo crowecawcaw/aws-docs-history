@@ -25,7 +25,7 @@ Use the following procedure to check the status of an asset in the AWS IoT SiteW
 You can choose the arrow icon to expand an asset hierarchy to find your asset.
 
 1. Find **Status** in the **Asset details** panel.  
-![AWS IoT SiteWise Asset details panel with Status as Active.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-view-asset-status-console.png)
+![AWS IoT SiteWise Asset details panel with Status as Active.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-view-asset-status-console.png)
 
 ## Check the status of an asset (AWS CLI)
 <a name="check-asset-status-cli"></a>

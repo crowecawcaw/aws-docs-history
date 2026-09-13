@@ -16,4 +16,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
 1. Select **Delete** to delete the project.
 
-![The IoT dashboard Project details page with Delete highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-project-delete.png)
+![The IoT dashboard Project details page with Delete highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-project-delete.png)

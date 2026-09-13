@@ -8,7 +8,7 @@
 
 Scenario Discovery is an agentic data curation solution within AWS IoT SiteWise that enables you to find the right scenarios in your data faster, with greater confidence in what you have and what you're missing, so you can build more holistic datasets to train and test your autonomous functions in shorter time.
 
-![Scenario Discovery data flow and architecture](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image1.png)
+![Scenario Discovery data flow and architecture](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image1.png)
 
 
 If you develop autonomous vehicles, warehouse robotics, or last-mile delivery systems, you generate petabytes of sensor data, yet your perception engineers likely spend much of their time on data preparation instead of model development. Scenario Discovery enables you to discover previously unfindable scenarios by finding the most critical and relevant data from petabytes of operational data, helping to reduce scenario discovery from days to minutes.

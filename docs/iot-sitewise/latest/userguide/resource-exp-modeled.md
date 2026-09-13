@@ -49,4 +49,4 @@ From the assets listed, filter by name, description, ID, or asset model ID. Sele
 **Note**  
  The configuration settings wheel on the right hand side displays **Preferences** for the user to choose like **Page size**, **Sticky first columns**, **Sticky last columns**, and **Column preferences**. Customize your preferences, and choose **Confirm** to apply the changes. 
 
-![The IoT dashboard Project page with modeled assets shown.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-modeled-assets.png)
+![The IoT dashboard Project page with modeled assets shown.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-modeled-assets.png)

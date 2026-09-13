@@ -15,4 +15,4 @@ Widgets supports a wide range of features, including alarms, high-performance li
 + **Table** – The Table component provides a compact form for viewing one or more data streams from one or more time series data sources. It displays assets with **Property**, **Latest value** and **Unit** in a tabular form. Supports AWS IoT SiteWise alarms. 
 + **Text** – The Text widget helps write text with various colors and fonts. You can create a link by associating a text with an URL. The **Properties** and **Thresholds** fields are not enabled for this widget. 
 
-![The IoT dashboard Project page with widgets shown.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-widget-list.png)
+![The IoT dashboard Project page with widgets shown.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-widget-list.png)

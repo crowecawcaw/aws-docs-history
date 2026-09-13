@@ -11,7 +11,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 **Update a dashboard**
 
 1.  Select a dashboard to update.   
-![The IoT dashboard Dashboards page with Update highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-choose-update.png)
+![The IoT dashboard Dashboards page with Update highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-choose-update.png)
 
 1.  Update the **Dashboard name ** and optionally the **Dashboard description**. Select **Update** to save changes.   
-![The IoT dashboard Dashboards page with update text.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-update.png)
+![The IoT dashboard Dashboards page with update text.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-update.png)

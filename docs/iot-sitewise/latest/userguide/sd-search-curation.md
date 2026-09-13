@@ -10,10 +10,10 @@ In the Discover section, Scenario Discovery Search and Curation combines natural
 
 From the SiteWise Console, choose the URI link to open the Scenario Discovery landing page:
 
-![Scenario Discovery landing page](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image31.png)
+![Scenario Discovery landing page](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image31.png)
 
 
-![Scenario Discovery search interface](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image32.png)
+![Scenario Discovery search interface](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image32.png)
 
 
 ## Data curation concepts
@@ -46,7 +46,7 @@ The following are example search queries you can try. Type a query in plain lang
 ### Step 1: Running a search query
 <a name="sd-quick-step1-search"></a>
 
-![Running a Video Search query](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image33.png)
+![Running a Video Search query](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image33.png)
 
 
 ### Step 2: Saving a curation
@@ -66,52 +66,52 @@ To save a curation, complete the following steps:
 
 1. Confirm to save. Your curation is now accessible from the Discover page for review, refinement, or export.
 
-![Saving your curation selection](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image34.png)
+![Saving your curation selection](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image34.png)
 
 
-![Naming your saved curation](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image35.png)
+![Naming your saved curation](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image35.png)
 
 
 ### Step 3: Finding your saved curation
 <a name="sd-quick-step3-find"></a>
 
-![Finding your saved curation on the Discover page](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image36.png)
+![Finding your saved curation on the Discover page](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image36.png)
 
 
 ### Step 4: Exporting your saved curation
 <a name="sd-quick-step4-export"></a>
 
-![Exporting your saved curation](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image37.png)
+![Exporting your saved curation](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image37.png)
 
 
 ### Step 5: Export saved curation into your S3 bucket
 <a name="sd-quick-step5-s3-export"></a>
 
-![Configuring S3 bucket export destination](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image38.png)
+![Configuring S3 bucket export destination](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image38.png)
 
 
 ### Step 6: Export job running
 <a name="sd-quick-step6-running"></a>
 
-![Export job running](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image39.png)
+![Export job running](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image39.png)
 
 
 ### Step 7: Export completed
 <a name="sd-quick-step7-completed"></a>
 
-![Export job completed successfully](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image40.png)
+![Export job completed successfully](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image40.png)
 
 
 ### Step 8: View export job in S3
 <a name="sd-quick-step8-view-s3"></a>
 
-![Viewing the export job in S3](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image41.png)
+![Viewing the export job in S3](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image41.png)
 
 
 ### Step 9: View export job completed in console
 <a name="sd-quick-step9-view-console"></a>
 
-![Export job confirmed in console](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image42.png)
+![Export job confirmed in console](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image42.png)
 
 
 ## Running a Multi-modal Search
@@ -119,7 +119,7 @@ To save a curation, complete the following steps:
 
 When your query contains both semantic and structured components, use the Multi-modal Search feature. It first retrieves scenes matching the semantic description (for example, "pedestrians"), then applies structured filters (for example, car speed = 30 mph) to narrow results. The results rank videos from highest to lowest relevance level. This search takes several minutes and delivers more focused, relevant results.
 
-![Multi-modal Search results with relevance ranking](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image43.png)
+![Multi-modal Search results with relevance ranking](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image43.png)
 
 
 Each search result relevance score tells you how well it matches your query compared to other results in the same search — higher means a better match. Scores cannot be compared across different searches, so use result ranking (not score values) when evaluating results from separate queries. You can follow the manual selection of results that are relevant to your search to export. The export follows the same manually selected process as described in the Video Search section.
@@ -142,10 +142,10 @@ The following walkthrough demonstrates how to use AI Curation to build a curated
 
 Enter a natural language description of your curation objective (for example, object detection for highway lane-changing scenarios). The AI generates a structured discovery plan. Then adjust the parameter sliders to control how scenarios are balanced across class type, behavior, and time of day. Expected duration: The AI Curation workflow duration depends on dataset size, query complexity, and the number of parameter categories you configure. The system provides real-time progress updates as it generates queries, retrieves scenarios, and assembles the curated dataset.
 
-![AI Curation discovery plan](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image44.png)
+![AI Curation discovery plan](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image44.png)
 
 
-![Defining curation objective and parameter distribution](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image45.png)
+![Defining curation objective and parameter distribution](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image45.png)
 
 
 ### Step 3: Execute the AI Curation workflow
@@ -153,7 +153,7 @@ Enter a natural language description of your curation objective (for example, ob
 
 The AI agent automatically executes the multi-step curation workflow, from generating search queries to classifying and curating matching scenarios. This helps save hours of manual work while ensuring consistent methodology across runs.
 
-![AI Curation workflow executing](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image46.png)
+![AI Curation workflow executing](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image46.png)
 
 
 ### Step 4: Review curated results
@@ -161,7 +161,7 @@ The AI agent automatically executes the multi-step curation workflow, from gener
 
 Review the curated results including quality score, dataset size, and diversity metrics across scenario classifications. This validates dataset completeness before committing to model training.
 
-![Curated results with quality score and diversity metrics](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image47.png)
+![Curated results with quality score and diversity metrics](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image47.png)
 
 
 Your Overall Quality Score is a single percentage that tells you how ready your curated dataset is for model training or validation. It is calculated as a weighted blend of four factors: Size Adequacy (30%) evaluates whether you have enough scenarios relative to your use case's minimum and recommended thresholds; Completeness (30%) measures whether all required object types, behaviors, environmental conditions, and critical scenarios are represented; Diversity (25%) assesses how evenly your scenarios are distributed across conditions like weather, time of day, and driving environment compared to an ideal target distribution; and Redundancy (15%) penalizes duplicate or near-duplicate scenarios that inflate volume without adding value. A score of 70% or greater indicates high confidence in dataset readiness, 50%–69% signals moderate gaps worth reviewing, and below 50% means significant improvements are needed.
@@ -171,10 +171,10 @@ The Dataset Size and Diversity Score cards shown alongside the Overall Quality S
 ### Step 5: Access saved curations
 <a name="sd-ai-step5-saved"></a>
 
-![Accessing saved curation](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image48.png)
+![Accessing saved curation](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image48.png)
 
 
-![Accessing and exporting saved curation](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image49.png)
+![Accessing and exporting saved curation](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sd-image49.png)
 
 
 Follow the same export path described in the Video Search section. Your data is now ready for simulation or model training.

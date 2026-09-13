@@ -8,7 +8,7 @@ The data publish flow uses three nodes to create a pipeline that sends your indu
 + **Data translator for AWS IoT SiteWise** - Translates data to AWS IoT SiteWise format to ensure compatibility with the SiteWise Edge gateway
 + **MQTT publisher** - Publishes data to SiteWise Edge MQTT broker, making it available to both local and cloud consumers
 
-![A diagram showing the Node-RED data publishing flow. It sends simulated device data to the SiteWise Edge MQTT broker for pickup by SiteWise Edge Gateway and then onto the AWS IoT SiteWise Cloud.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-open-source-nodered-publish-flow.png)
+![A diagram showing the Node-RED data publishing flow. It sends simulated device data to the SiteWise Edge MQTT broker for pickup by SiteWise Edge Gateway and then onto the AWS IoT SiteWise Cloud.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-open-source-nodered-publish-flow.png)
 
 
 ## Configure the data input node
@@ -239,7 +239,7 @@ After configuring the three data publish flow nodes, follow these steps to deplo
 **To deploy and verify connections**
 
 1. Connect the three nodes as shown in the data publish flow.  
-![](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-open-source-nodered-publish-flow.png)
+![](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-open-source-nodered-publish-flow.png)
 
 1. Choose **Deploy** to apply all node connection changes.
 

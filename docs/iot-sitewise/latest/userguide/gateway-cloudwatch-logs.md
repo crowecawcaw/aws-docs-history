@@ -18,7 +18,7 @@ You can configure your SiteWise Edge gateway to send logs to CloudWatch Logs. Fo
    Choose the log group for the function to debug.
 
 1. Choose a log stream that has a name that ends with the name of your AWS IoT Greengrass group. By default, CloudWatch displays the most recent log stream first.  
-![CloudWatch Logs "Log groups" page screenshot.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-view-cloudwatch-logs-console.png)
+![CloudWatch Logs "Log groups" page screenshot.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-view-cloudwatch-logs-console.png)
 
 1. To show logs from the last 5 minutes, do the following:
 
@@ -29,7 +29,7 @@ You can configure your SiteWise Edge gateway to send logs to CloudWatch Logs. Fo
    1. Choose **5** minutes.
 
    1. Choose **Apply**.  
-![CloudWatch "Logs" page screenshot.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-filter-cloudwatch-logs-console.png)
+![CloudWatch "Logs" page screenshot.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-filter-cloudwatch-logs-console.png)
 
 1. (Optional) To see fewer logs, you can choose **1m** from the upper-right corner.
 

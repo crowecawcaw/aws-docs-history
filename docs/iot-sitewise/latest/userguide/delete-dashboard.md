@@ -11,6 +11,6 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 **Delete a dashboard**
 
 1.  Select a dashboard to delete.   
-![The IoT dashboard Dashboards page with Delete highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-choose-delete.png)
+![The IoT dashboard Dashboards page with Delete highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-choose-delete.png)
 
 1.  Select **Delete** to delete the dashboard. This cannot be undone. 

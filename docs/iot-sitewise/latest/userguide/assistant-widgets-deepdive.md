@@ -10,4 +10,4 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
  The example below displays the answer for "**Is there any SOP for the alarm windSpeedAlarm?**" 
 
-![deep dive summarization in gauge widget in dashboard](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-deepdive-summary.png)
+![deep dive summarization in gauge widget in dashboard](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-deepdive-summary.png)

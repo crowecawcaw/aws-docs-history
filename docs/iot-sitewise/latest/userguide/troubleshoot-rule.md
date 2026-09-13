@@ -34,7 +34,7 @@ You can configure AWS IoT to log various levels of information to CloudWatch Log
 1. Choose a recent log stream. By default, CloudWatch displays the most recent log stream first.
 
 1. Choose a log entry to expand the log message. Your log entry might look like the following screenshot.  
-![CloudWatch "AWS IoT Logs" screenshot.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/troubleshoot-rule-logs-console.png)
+![CloudWatch "AWS IoT Logs" screenshot.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/troubleshoot-rule-logs-console.png)
 
 1. Compare the error messages with the errors in this topic to troubleshoot your issue.
 
@@ -57,7 +57,7 @@ The republish error action outputs only the equivalent of `ERROR` level logs. If
 1. Under **Error action**, choose **Add action**.
 
 1. Choose **Republish a message to an AWS IoT topic**.  
-![AWS IoT Core "Select an action" page screenshot with the Republish action highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/rule-choose-republish-action-console.png)
+![AWS IoT Core "Select an action" page screenshot with the Republish action highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/rule-choose-republish-action-console.png)
 
 1. Choose **Configure action** at the bottom of the page.
 
@@ -72,7 +72,7 @@ The republish error action outputs only the equivalent of `ERROR` level logs. If
 1. Choose **Add action**.
 
    Your rule's error action should look similar to the following screenshot.  
-![AWS IoT Core "Rule" page Republish error action screenshot.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/rule-confirm-republish-error-action-console.png)
+![AWS IoT Core "Rule" page Republish error action screenshot.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/rule-confirm-republish-error-action-console.png)
 
 1. Choose the back arrow in the upper left of the console to return to the AWS IoT console home.
 
@@ -87,7 +87,7 @@ In the following procedure, you subscribe to the error topic in the MQTT test cl
 1. In the left navigation page, choose **Test** to open the MQTT test client.
 
 1. In the **Subscription topic** field, enter the error topic that you configured earlier (for example, **sitewise/windfarm/rule/error**) and choose **Subscribe to topic**.  
-![AWS IoT Core "MQTT client" page screenshot with the "Subscribe to topic" button highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/troubleshoot-rule-subscribe-error-topic-console.png)
+![AWS IoT Core "MQTT client" page screenshot with the "Subscribe to topic" button highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/troubleshoot-rule-subscribe-error-topic-console.png)
 
 1. Watch for error messages to appear and then expand the `failures` array in any error message. 
 
@@ -202,25 +202,25 @@ Follow the steps in this procedure to troubleshoot your rule if the demo asset d
 1. In the left navigation pane, choose **Act** and then choose **Rules**.
 
 1. Choose the rule that you created earlier.  
-![AWS IoT Core "Rules" page screenshot.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-choose-rule-console.png)
+![AWS IoT Core "Rules" page screenshot.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-choose-rule-console.png)
 
 1. Under **Error action**, choose **Add action**.
 
 1. Choose **Republish a message to an AWS IoT topic**.  
-![AWS IoT Core "Select an action" page screenshot with the Republish action highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-choose-republish-action-console.png)
+![AWS IoT Core "Select an action" page screenshot with the Republish action highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-choose-republish-action-console.png)
 
 1. Choose **Configure action** at the bottom of the page.
 
 1. In **Topic**, enter **windspeed/error**. AWS IoT Core will republish error messages to this topic.  
-![AWS IoT Core "Configure Republish action" page screenshot with the "Topic" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-configure-republish-action-console.png)
+![AWS IoT Core "Configure Republish action" page screenshot with the "Topic" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-configure-republish-action-console.png)
 
 1. Choose **Select** to grant AWS IoT Core access to perform the error action using the role that you created earlier.
 
 1. Choose **Select** next to your role.  
-![AWS IoT Core "Configure Republish action" page screenshot with the role select button highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-select-role-console.png)
+![AWS IoT Core "Configure Republish action" page screenshot with the role select button highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-select-role-console.png)
 
 1. Choose **Update Role** to add the additional permissions to the role.  
-![AWS IoT Core "Configure Republish action" page screenshot with the update role button highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-update-role-console.png)
+![AWS IoT Core "Configure Republish action" page screenshot with the update role button highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-update-role-console.png)
 
 1. Choose **Add action** to finish adding the error action.
 
@@ -235,7 +235,7 @@ In the following procedure, you subscribe to the error topic in the MQTT test cl
 1. In the AWS IoT Core console's left navigation page, choose **Test**.
 
 1. In the **Subscription topic** field, enter **windspeed/error** and choose **Subscribe to topic**.  
-![AWS IoT Core "MQTT client" page screenshot with the "Subscribe to topic" button highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-subscribe-error-topic-console.png)
+![AWS IoT Core "MQTT client" page screenshot with the "Subscribe to topic" button highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/interact-dynamo-db/rule-subscribe-error-topic-console.png)
 
 1. Watch for error messages to appear and explore the `failures` array in an error message to diagnose the following common issues:
    + Typos in the rule query statement

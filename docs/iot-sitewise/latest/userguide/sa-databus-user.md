@@ -25,7 +25,7 @@ All topics that a Siemens Databus user has access to are published to AWS IoT Si
 **Note**  
 Siemens Databus users need access to both data and metadata topics. Topics that start with `ie/d` are data topics. And topics that start with `ie/m` are metadata topics. Share topics in pairs so that SiteWise Edge has access to both data and metadata for each respective topic.   
 
-![A screenshot displaying the Siemens topic types. The image circles the portion of the file path that starts with "ie/d" and "ie/m," respectively.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-sa-topics.png)
+![A screenshot displaying the Siemens topic types. The image circles the portion of the file path that starts with "ie/d" and "ie/m," respectively.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-sa-topics.png)
 
 
 1. Set appropriate permissions for your Siemens Databus configuration.

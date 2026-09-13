@@ -11,7 +11,7 @@ In a few steps, you can add or remove users as administrators for a portal. Base
 ------
 #### [ IAM Identity Center ]
 
-![Portal administrators section of the portal details page.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-SSOAdminDetail.png)
+![Portal administrators section of the portal details page.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-SSOAdminDetail.png)
 
 
 **To add portal administrators**
@@ -24,7 +24,7 @@ If you use IAM Identity Center as your identity store, and you're signed in to y
 
 1. Choose **Assign administrators**.
 
-![The "Assign administrators" page.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-SSOAdminAssign.png)
+![The "Assign administrators" page.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-SSOAdminAssign.png)
 
 
 **To remove portal administrators**

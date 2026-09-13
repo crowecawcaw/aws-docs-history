@@ -8,7 +8,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
  The **Dashboards** section lists the dashboards in the project. Select a dashboard from the list. The **Edit** mode allows you to configure your dashboard by adding widgets and configuring them. The **Preview** button lets you visualize your changes. 
 
-![The IoT dashboard Project page with Edit highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-edit.png)
+![The IoT dashboard Project page with Edit highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-dashboard-edit.png)
 
 
 Steps to configure your dashboard:

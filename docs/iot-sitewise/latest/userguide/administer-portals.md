@@ -11,7 +11,7 @@ You have the ability to manage and configure various aspects of the portal. This
 1. Sign in to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/home).
 
 1. In the navigation pane, choose **Monitor**, **Portals**.  
-![Left navigation pane in the AWS IoT SiteWise console with Portals highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-choose-portals-console.png)
+![Left navigation pane in the AWS IoT SiteWise console with Portals highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-choose-portals-console.png)
 
 1. Choose a portal, and then choose **View details** (or choose the portal's **Name**).
 

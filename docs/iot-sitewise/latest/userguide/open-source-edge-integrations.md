@@ -12,7 +12,7 @@ Node-RED processes and transforms your data flows, while InfluxDB provides time-
 **Note**  
 Node-RED®, InfluxDB®, and Grafana® are not vendors or suppliers for SiteWise Edge.
 
-![A diagram that shows a few data sources and the turbine simulator connecting to the EMQX Broker to publish. Then the EMQX broker subscribes to the AWS IoT SiteWise Gateway and Node-RED. Node-RED feeds into InfluxDB, and then Influx DB into the Grafana Dashboard.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-open-source-overview.png)
+![A diagram that shows a few data sources and the turbine simulator connecting to the EMQX Broker to publish. Then the EMQX broker subscribes to the AWS IoT SiteWise Gateway and Node-RED. Node-RED feeds into InfluxDB, and then Influx DB into the Grafana Dashboard.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-open-source-overview.png)
 
 
 **Note**  

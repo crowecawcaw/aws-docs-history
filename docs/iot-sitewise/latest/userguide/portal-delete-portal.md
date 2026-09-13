@@ -14,14 +14,14 @@ You must first manually delete all dashboards and projects in a portal before yo
 1. On the portal details page, choose **Delete**.
 **Important**  
 When you delete a portal, you lose all projects that the portal contains, and all dashboards in each project. This action can't be undone. Your asset data isn't affected.  
-![Portal details page with Delete highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-console.png)
+![Portal details page with Delete highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-console.png)
 
 1. In the **Delete portals** dialog box, choose **Remove admins and users**.
 
    You must remove the administrators and users from a portal before you can delete it. If your portal doesn't have administrators or users, the button doesn't appear, and you can skip to the next step.  
-!["Delete portals" dialog box with "Remove administrators and users" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-remove-users-console.png)
+!["Delete portals" dialog box with "Remove administrators and users" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-remove-users-console.png)
 
 1. If you're sure that you want to delete the entire portal, enter **delete** in the field to confirm deletion.  
-!["Delete portals" dialog box with "Delete" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-confirm-delete-console.png)
+!["Delete portals" dialog box with "Delete" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/sitewise-delete-portal-confirm-delete-console.png)
 
 1. Choose **Delete**.

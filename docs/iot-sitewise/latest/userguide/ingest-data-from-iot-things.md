@@ -860,7 +860,7 @@ For this tutorial, you aren't using an actual device to report data. Instead, yo
    1. Choose **Measurements**.
 
    1. Verify that the **Latest value** cells have values for the **CPU Usage** and **Memory Usage** properties.  
-![Screenshot with "Measurements" highlighted.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/sitewise-view-measurement-values-console.png)
+![Screenshot with "Measurements" highlighted.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/rule-ingestion/sitewise-view-measurement-values-console.png)
 
    1. If the **CPU Usage** and **Memory Usage** properties don't have the latest values, refresh the page. If values don't appear after a few minutes, see [Troubleshoot a rule (AWS IoT SiteWise)](troubleshoot-rule.md#rule-tutorial-troubleshoot-rule).
 

@@ -45,7 +45,7 @@ Enabling the AWS IoT SiteWise Assistant will incur charges. To use enterprise le
 
 A message appears when your portal is created.
 
-![An example successful portal creation message.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-sitewise-create-portal-success-console.png)
+![An example successful portal creation message.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-sitewise-create-portal-success-console.png)
 
 
  Once a portal is created, it is listed in the **Portals** section. The **Portal details** section lists the name, description, ID, URL, status, last updated and created dates, portal branding and support email for each portal. 

@@ -27,7 +27,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 
 1. Choose **Save changes** to save your selection.
 
-![Editing a dataset final picture in the Assistant page of the console](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-assistant-edit-details-dataset.png)
+![Editing a dataset final picture in the Assistant page of the console](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/ai-assistant-edit-details-dataset.png)
 
 
 ------

@@ -18,4 +18,4 @@ You have two options to use the AWS IoT SiteWise plugin:
 **Example Grafana dashboard**  
 The following Grafana dashboard visualizes the [demo wind farm](getting-started-demo.md). You can access this demo dashboard on the [Grafana Play](https://play.grafana.org/d/avzwehmz/demo-wind-farm?orgId=1) website.  
 
-![An example Grafana dashboard that visualizes the AWS IoT SiteWise demo wind farm.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/grafana-dashboard-example.png)
+![An example Grafana dashboard that visualizes the AWS IoT SiteWise demo wind farm.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/grafana-dashboard-example.png)

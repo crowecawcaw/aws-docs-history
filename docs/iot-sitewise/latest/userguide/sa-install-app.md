@@ -28,8 +28,8 @@ If a **Contact Us** button displays, choose it, and follow the steps to request 
 1. Choose the small, round gray checkmark icon next to **Databus\_Configuration** to turn the icon color green.
 **Note**  
 The input configurations only apply if the checkmark icon changes from gray to green. Otherwise, the input configuration is ignored.  
-![A screenshot of the Siemens Databus Configurator screen displaying an unfinished process, with a circled gray checkmark icon.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-sa-gray-checkmark.png)  
-![A screenshot of the Siemens Databus Configurator screen displaying a finished process, with a circled green checkmark icon.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-sa-green-checkmark.png)
+![A screenshot of the Siemens Databus Configurator screen displaying an unfinished process, with a circled gray checkmark icon.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-sa-gray-checkmark.png)  
+![A screenshot of the Siemens Databus Configurator screen displaying a finished process, with a circled green checkmark icon.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/gateway-sa-green-checkmark.png)
 
 1. Choose **Next** to move onto **Other Configurations** where you can upload your gateway configuration file. 
 

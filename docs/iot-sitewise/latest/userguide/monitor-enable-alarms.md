@@ -21,7 +21,7 @@ When you configure and create a portal, you can enable alarms and alarm notifica
 ------
 #### [ IAM Identity Center ]
 
-![Additional features page for enabling alarms for portals.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/portal-create-console-enable-alarms-sso.png)
+![Additional features page for enabling alarms for portals.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/portal-create-console-enable-alarms-sso.png)
 
 
 **To enable alarms for a portal**
@@ -43,7 +43,7 @@ You must verify the sender email address in Amazon SES. For more information, se
 ------
 #### [ IAM ]
 
-![Additional features page for enabling alarms for portals.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/portal-create-console-enable-alarms-iam.png)
+![Additional features page for enabling alarms for portals.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/portal-create-console-enable-alarms-iam.png)
 
 
 **To enable alarms for a portal**

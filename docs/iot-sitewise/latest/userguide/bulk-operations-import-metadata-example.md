@@ -337,12 +337,12 @@ The following JSON metadata file defines these asset models and assets. Running 
 
 The following screenshot is of models that display in the AWS IoT SiteWise console after you run the previous code example.
 
-![AWS IoT SiteWise models with asset and asset models.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/import-example-asset.png)
+![AWS IoT SiteWise models with asset and asset models.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/import-example-asset.png)
 
 
 The following screenshot is of models, assets, and hierarchies that display in the AWS IoT SiteWise console after you run the previous code example.
 
-![AWS IoT SiteWise models with assets, asset models, and hierarchies.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/hierarchy-example-import.png)
+![AWS IoT SiteWise models with assets, asset models, and hierarchies.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/hierarchy-example-import.png)
 
 
 ## Example of onboarding additional assets
@@ -452,7 +452,7 @@ The following JSON metadata file defines these asset models and assets. Running 
 
 The following screenshot is of models, assets, and hierarchies that display in the AWS IoT SiteWise console after you run the previous code example.
 
-![AWS IoT SiteWise models with asset and asset models.](http://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/additional-assets-import.png)
+![AWS IoT SiteWise models with asset and asset models.](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/images/additional-assets-import.png)
 
 
 ## Example of onboarding new properties
