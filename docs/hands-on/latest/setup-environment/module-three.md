@@ -73,19 +73,19 @@ You can find this information in the Settings summary in the IAM Identity Center
    The following image is an example of the CLI content at this stage. 
 
    The CLI attempts to automatically open the SSO authorization page in your default browser and begins the sign in process for your IAM Identity Center account.   
-![Terminal window showing IAM Identity Center configuration with session name "Test1," start URL partially redacted, region "us-east-1," and registration scopes.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/terminal-window-configuration-session-name-1.png)
+![Terminal window showing IAM Identity Center configuration with session name "Test1," start URL partially redacted, region "us-east-1," and registration scopes.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/terminal-window-configuration-session-name-1.png)
 
 1. Authorize CLI access
 
    You might be asked to provide your password (and MFA credential, if enabled). On the Authorization requested page, select Confirm and continue. 
 
    This gives permissions to the AWS CLI to retrieve and display the AWS accounts and roles that you are authorized to use with IAM Identity Center.   
-![Terminal window showing IAM Identity Center configuration with session name "Test1," start URL partially redacted, region "us-east-1," and registration scopes.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/terminal-window-configuration-session-name-1.png)
+![Terminal window showing IAM Identity Center configuration with session name "Test1," start URL partially redacted, region "us-east-1," and registration scopes.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/terminal-window-configuration-session-name-1.png)
 
 1. Grant permissions
 
    Since the AWS CLI is built on top of the SDK for Python, permission messages may contain variations of the botocore name, such as **botocore-client-Test1**. Select **Allow access**. After authentication, you will be told that you can close the window.      
-![AWS prompt asking to allow "botocore-client-Test1" access to data, with options to "Deny access" or "Allow access.".](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/asking-allow-botocore-client-test-access.png)
+![AWS prompt asking to allow "botocore-client-Test1" access to data, with options to "Deny access" or "Allow access.".](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/asking-allow-botocore-client-test-access.png)
 
 1. Review available accounts
 
@@ -101,7 +101,7 @@ You can find this information in the Settings summary in the IAM Identity Center
    The only role available to you is: AdministratorAccess 
 
    Using the role name "AdministratorAccess"      
-![Terminal window showing AWS CLI configuration for SSO, including session name, region, authorization URL, and role details.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/terminal-window-cli-configuration.png)
+![Terminal window showing AWS CLI configuration for SSO, including session name, region, authorization URL, and role details.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/terminal-window-cli-configuration.png)
 
 1. Set CLI preferences
 
@@ -114,12 +114,12 @@ You can find this information in the Settings summary in the IAM Identity Center
    Your CLI window should now look similar to the example image on the right and have these lines displayed: 
 
    **To use this profile, specify the profile name using --profile, as shown:** **aws s3 ls --profile admin-1**  
-![Terminal window showing AWS CLI configuration with region set to 'us-east-1', output format as 'json', and profile name as 'admin-1', with an example command to list S3 buckets using the profile.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/terminal-window-cli-configuration-region.png)
+![Terminal window showing AWS CLI configuration with region set to 'us-east-1', output format as 'json', and profile name as 'admin-1', with an example command to list S3 buckets using the profile.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/terminal-window-cli-configuration-region.png)
 
 1. (Optional) View the configuration file
 
    This session created a config file located at \~/.aws/config on computers running Linux or macOS, or at C:\\Users\\ USERNAME \\.aws\\config on computers running Windows. Your config file will look similar to the example image.   
-![A configuration file displayed in a code editor, showing IAM Identity Center settings with regions, start URLs, and registration scopes.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/configuration-file-displayed-code-editor.png)
+![A configuration file displayed in a code editor, showing IAM Identity Center settings with regions, start URLs, and registration scopes.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/configuration-file-displayed-code-editor.png)
 
 1. Start SSO session
 
@@ -138,7 +138,7 @@ You can find this information in the Settings summary in the IAM Identity Center
    **Then enter the code:** 
 
    **ABCD-ABCD**   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-1.png)
 
 1. Complete authentication
 
@@ -147,7 +147,7 @@ You can find this information in the Settings summary in the IAM Identity Center
    **Successfully logged into Start URL: https://my-sso-portal.awsapps.com/start** 
 
    For more information about CLI file credential, see the [Configuration and credential file settings in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) in the **AWS Command Line Interface** user guide.   
-![The configuration settings interface.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-1.png)
+![The configuration settings interface.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-1.png)
 
 ### Step 3: (Optional) Configure multiple profiles
 <a name="optional-configure-multiple-profiles"></a>

@@ -29,7 +29,7 @@ To create a new AWS account, go to [**aws.amazon.com**](https://aws.amazon.com/)
 
    Enter an **email address** and an **account name.** 
    + Carefully consider which email address you want to use. If you are setting up for a personal account, we don't recommend using a work email address because you may change jobs at some point. Conversely, for business accounts, we recommend using an email alias that can be managed because the person setting up the account may, at some point, change roles or companies.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface.png)
 
 1. Enter the email verification code
 
@@ -43,7 +43,7 @@ To create a new AWS account, go to [**aws.amazon.com**](https://aws.amazon.com/)
    Create your **root user password**. 
    + The password you choose is extremely sensitive, and should be shared only with people who have access to the credit card that will be used on this account. 
    + Your password must include: uppercase letters, lowercase letters, numbers, and non-alphabetic characters.    
-![The navigation bar showing create a password create your root user password. the password you...](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/navigation-bar-password-your-root-user-you.png)
+![The navigation bar showing create a password create your root user password. the password you...](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/navigation-bar-password-your-root-user-you.png)
 
 1. Choose continue
 
@@ -64,7 +64,7 @@ Now you need to add your contact information and select how you plan to use AWS.
 
    Once you have selected the account type, fill out the the **contact information** about the account. 
    + Save these details in a safe place. If you ever lose access to the email or your two-factor authentication device, AWS Support can use these details to confirm your identity.    
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/navigation-interface.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/navigation-interface.png)
 
 1. Accept the AWS Customer Agreement
 
@@ -83,7 +83,7 @@ In the following screen, add your preferred credit or debit card to use for paym
 
    Enter your **Billing Information** details. 
    + A small hold will be placed on the card, so the address must match what your financial institution has on file for you or your business.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-interface-element.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-interface-element.png)
 
 1. Choose Continue
 
@@ -104,17 +104,17 @@ Now you need to verify your account. 
 1. Send the SMS
 
    Choose your verification choice, then choose **Send SMS (step 4 of 5) t**o proceed to verification.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-1.png)
 
 1. Solve the CAPTCHA
 
    Enter the **CAPTCHA** as appropriate, then choose **Submit** to receive a call or SMS.   
-![Security verification CAPTCHA with distorted text and options for audio or refresh.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/security-verification-captcha-distorted.png)
+![Security verification CAPTCHA with distorted text and options for audio or refresh.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/security-verification-captcha-distorted.png)
 
 1. Enter the verification code
 
    Enter the **code** as appropriate for your verification choice, then choose **Continue (step 4 of 5)** to proceed to the final step.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-2.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/interface-2.png)
 
 ### Step 5: Select a support plan
 <a name="select-a-support-plan"></a>
@@ -127,7 +127,7 @@ Choose a support plan for your AWS account. 
    + You have three options for support plans. The default option is called Basic Support and is free of charge. If you are not sure, select Basic Support. You can always change support tiers at a later date.  
 
    To see the full list of differences between the tiers, see [Compare AWS Support Plans](https://aws.amazon.com/premiumsupport/plans/).    
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/setup-environment/images/selection-interface.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/selection-interface.png)
 
 1. Choose Complete sign up
 
