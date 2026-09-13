@@ -12,7 +12,7 @@ This reference architecture describes how sports betting application can be depl
 
  This reference architecture describes how to set up betting applications in AWS when regulations require that only a copy of the data be stored within the regulated jurisdiction. 
 
-![Reference architecture diagram showing how to set up betting applications in AWS when regulations require that only a copy of the data be stored within the regulated jurisdiction.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sports-betting-architecture/images/1-deployment-of-all-components-on-aws.png)
+![Reference architecture diagram showing how to set up betting applications in AWS when regulations require that only a copy of the data be stored within the regulated jurisdiction.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sports-betting-architecture/images/1-deployment-of-all-components-on-aws.png)
 
 
 1.  The bet entry point uses [**Amazon CloudFront**](https://aws.amazon.com/cloudfront). [**AWS WAF**](https://aws.amazon.com/waf) protects against DDoS attacks, bots, and account takeover. 
@@ -40,7 +40,7 @@ This reference architecture describes how sports betting application can be depl
 
  This reference architecture describes deployment of betting applications to AWS when regulations require that the sportsbook, wallets, and player account management(PAM) be deployed within the regulated jurisdiction with no AWS Region available. 
 
-![Reference architecture diagram showing how to deploy betting applications to AWS when regulations require that the sportsbook, wallets, and player account management(PAM) be deployed within the regulated jurisdiction with no AWS Region available.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sports-betting-architecture/images/2-deployment-of-player-related-components-outside-of-aws.png)
+![Reference architecture diagram showing how to deploy betting applications to AWS when regulations require that the sportsbook, wallets, and player account management(PAM) be deployed within the regulated jurisdiction with no AWS Region available.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sports-betting-architecture/images/2-deployment-of-player-related-components-outside-of-aws.png)
 
 
 1.  The bet entry point uses [**Amazon CloudFront**](https://aws.amazon.com/cloudfront). [**AWS WAF**](https://aws.amazon.com/waf) protects against DDoS attacks, bots, and account takeover. 
@@ -70,7 +70,7 @@ This reference architecture describes how sports betting application can be depl
 
  This reference architecture describes deployment of betting applications to AWS where regulations require that sportsbook, wallets, player account management (PAM), and odds engines run within a jurisdiction containing no AWS Region. 
 
-![Reference architecture diagram showing how to deploy betting applications to AWS where regulations require that sportsbook, wallets, player account management (PAM), and odds engines run within a jurisdiction containing no AWS Region.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sports-betting-architecture/images/3-deployment-of-all-core-components-outside-of-aws.png)
+![Reference architecture diagram showing how to deploy betting applications to AWS where regulations require that sportsbook, wallets, player account management (PAM), and odds engines run within a jurisdiction containing no AWS Region.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sports-betting-architecture/images/3-deployment-of-all-core-components-outside-of-aws.png)
 
 
 1.  The bet entry point uses [**Amazon CloudFront**](https://aws.amazon.com/cloudfront). [**AWS WAF**](https://aws.amazon.com/waf) protects against DDoS attacks, bots, and account takeover. 
