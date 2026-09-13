@@ -12,7 +12,7 @@ The implementation provides an extensible, real-time predictive analytics pipeli
 ## Streaming airline ticket shopping insights diagram
 <a name="ticket-shopping-diagram"></a>
 
-![Architecture for streaming airline ticket shopping insights on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/airline-ticket-shopping/images/airline-ticket-shopping-ra.png)
+![Architecture for streaming airline ticket shopping insights on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/airline-ticket-shopping/images/airline-ticket-shopping-ra.png)
 
 
 The following steps describe the architecture:
