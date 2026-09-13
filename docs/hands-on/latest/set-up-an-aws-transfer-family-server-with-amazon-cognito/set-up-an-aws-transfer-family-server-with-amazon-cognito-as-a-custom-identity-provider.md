@@ -29,7 +29,7 @@ In this tutorial, you will follow step-by-step instructions to set up an AWS Tra
 
 This solution allows you to use your existing identity system for user authentication. It combines AWS Lambda and the Amazon DynamoDB database to store configuration metadata about users and IdPs. This approach supports various identity providers and can be easily expanded to meet future needs. The user records in the DynamoDB table map usernames to specific IdPs and store per-user settings like home directory details, roles, and POSIX profiles. When a client connects to the AWS Transfer Family server, the custom IdP Lambda function authenticates the user against the configured IdP module, retrieves the user-specific session settings from DynamoDB, and provisions those settings for the session.
 
-![Set up an AWS Transfer Family server with Amazon Cognito as a custom identity provider diagram](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/set-up-an-aws-transfer-family-server-with-amazon-cognito-as-a-custom-identity-provider-diagram.png)
+![Set up an AWS Transfer Family server with Amazon Cognito as a custom identity provider diagram](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/set-up-an-aws-transfer-family-server-with-amazon-cognito-as-a-custom-identity-provider-diagram.png)
 
 
 ## Prerequisites
@@ -65,7 +65,7 @@ This tutorial is divided into the following short tasks. You must complete each 
 In this task, you will deploy an AWS Transfer Family Custom IdP solution using an AWS Serverless Application Model (AWS SAM) template in [AWS CloudShell,](https://aws.amazon.com/cloudshell/) a browser-based, pre-authenticated shell that you can launch directly from the AWS Management Console
 
 1. Open [AWS CloudShell](https://console.aws.amazon.com/cloudshell/) and ensure you are in a region you want to deploy the solution.  
-![AWS CloudShell console window](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-cloudshell-console.png)
+![AWS CloudShell console window](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-cloudshell-console.png)
 
 1. Clone the git repository into your environment
 
@@ -73,7 +73,7 @@ In this task, you will deploy an AWS Transfer Family Custom IdP solution using a
    cd ~
    git clone https://github.com/aws-samples/toolkit-for-aws-transfer-family.git
    ```  
-![AWS CloudShell clone repo](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-cloudshell-cloned.png)
+![AWS CloudShell clone repo](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-cloudshell-cloned.png)
 
 1. Run the following command to start the build script.
 
@@ -85,7 +85,7 @@ In this task, you will deploy an AWS Transfer Family Custom IdP solution using a
    ```
 
    Monitor the execution and verify that the script completes successfully.  
-![CloudShell Build Succeeded message](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-script-complete-message.png)
+![CloudShell Build Succeeded message](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-script-complete-message.png)
 
 1. Run the following command to deploy the custom idp solution using the AWS SAM template.
 
@@ -94,7 +94,7 @@ In this task, you will deploy an AWS Transfer Family Custom IdP solution using a
    ```
 
    At the prompts, provide the values as highlighted in the image:  
-![Deploys the custom idp solution using the AWS SAM template](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-sam-template-deploy.png)
+![Deploys the custom idp solution using the AWS SAM template](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-sam-template-deploy.png)
 
 1. Open [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/), and check the **Status** column for the **transfer-family-custom-idp-solution** stack.
 
@@ -108,32 +108,32 @@ In this task, you will deploy an AWS Transfer Family Custom IdP solution using a
 In this task, you will create an AWS Transfer Family server which will use the custom IdP solution deployed in the previous task.
 
 1. Open [AWS Transfer Family](https://console.aws.amazon.com/transfer/) and select **Create server**.  
-![AWS Transfer Family console](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-transfer-family-console.png)
+![AWS Transfer Family console](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-transfer-family-console.png)
 
 1. For **Choose protocols**, leave the default SFTP and choose **Next.**  
-![AWS Transfer Family create server setup](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/transfer-family-create-server-setup.png)
+![AWS Transfer Family create server setup](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/transfer-family-create-server-setup.png)
 
 1. For **Choose an identity provider**, select **Custom Identity Provider**, then select one of the identity provider options below.
    + **Option 1: Use AWS Lambda to connect your identity provider**
      + Choose **transfer-family-custom-idp-solution-idp** Lambda function in the dropdown and choose **Next**.  
-![Choosing an identity provider](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/choose-an-identity-provider.png)
+![Choosing an identity provider](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/choose-an-identity-provider.png)
    + Option 2: **Use API Gateway to connect your identity provider**
      + Specify the API Gateway Url from the **ApiUrl** output (for example, )
      + Choose the IAM role from the list that matches the output from the **ApiRole** (for example, *[StackName]\_ [Region]-tf-api*)  
-![Choosing an identity provider option 2](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/choose-an-identity-provider-option-2.png)
+![Choosing an identity provider option 2](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/choose-an-identity-provider-option-2.png)
 
 1. At the **Choose an endpoint** screen, confirm Endpoint configuration as **Publicly accessible,** then choose **Next**.  
-![Choosing an endpoint](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/choose-an-endpoint.png)
+![Choosing an endpoint](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/choose-an-endpoint.png)
 
 1. For **Choose a domain**, select the AWS Storage Service to use **Amazon S3** and choose **Next**.  
-![Choosing a domain](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/choose-a-domain.png)
+![Choosing a domain](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/choose-a-domain.png)
 
 1. At the **Configure additional details** screen, leave all defaults and choose **Next**.
 
 1. For **Review and create**, review and verify all settings for the new server and choose **Create**.
 
 1. In the AWS Transfer Family console, a new server will appear in the list with a **State** of Starting. Wait for the **State** to show Online before proceeding to the next task.  
-![Showing the new server is online](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/new-server-online.png)
+![Showing the new server is online](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/new-server-online.png)
 
 ### **Task 3: Create an Amazon S3 bucket and IAM role for Transfer Family server**
 <a name="task-3-create-an-amazon-s3-bucket-and-iam-role-for-transfer-family-server"></a>
@@ -141,12 +141,12 @@ In this task, you will create an AWS Transfer Family server which will use the c
 In this task, you will create an [Amazon S3](https://aws.amazon.com/s3/) bucket to store information accessed through the AWS Transfer Family server that was created in the previous task. You will then create an IAM role to provide the Transfer Family server with access to the S3 bucket.
 
 1. Open [Amazon S3](https://console.aws.amazon.com/s3/get-started/), and select **Create bucket**.  
-![Amazon S3 console](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/amazon-s3-console.png)
+![Amazon S3 console](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/amazon-s3-console.png)
 
 1. Under **General configuration**, provide a bucket name.
 **Note**  
 The bucket name should be globally unique.  
-![Creating a new bucket](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/create-bucket.png)
+![Creating a new bucket](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/create-bucket.png)
 
 1. Leave all the other settings as defaults and select **Create bucket**.
 
@@ -185,17 +185,17 @@ The bucket name should be globally unique.
          }]
      }
    ```  
-![Setting up policy permissions](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/set-role-permissions.png)
+![Setting up policy permissions](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/set-role-permissions.png)
 
 1. In the **Review and create** screen, provide the name of the policy as *transfer-family-custom-idp-user-policy* and then choose **Create policy***.*
 
 1. In the navigation pane, choose Roles, then select on Create role.
 
 1. Confirm that *AWS Service* is selected as **Trusted entity type** and select *Transfer* for **Use case** and choose **Next.**  
-![Setting up role permissions](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/select-trusted-entity.png)
+![Setting up role permissions](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/select-trusted-entity.png)
 
 1. In the Add Permissions screen, search and select *transfer-family-custom-idp-user-policy* and choose **Next***.*  
-![Add permissions to the policy](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/add-permissions-the-role.png)
+![Add permissions to the policy](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/add-permissions-the-role.png)
 
 1. In the Name, review and create screen, provide the Role name as *transfer-family-custom-idp-user-role and* select **Create role***.*
 
@@ -232,7 +232,7 @@ In this task, you will create an Amazon Cognito user pool and client which will 
    ```
 
 1. Copy and save the **user pool id** (format: region\_xxxxxxxxxxxxx) from the command output.  
-![Copy your user pool id](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-user-pool-id.png)
+![Copy your user pool id](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-user-pool-id.png)
 
 1. In the same command line, paste the following command with your newly created user pool id to create an Amazon Cognito user pool client for the user pool created above.
 
@@ -247,7 +247,7 @@ In this task, you will create an Amazon Cognito user pool and client which will 
      --allowed-o-auth-scopes phone email openid profile \
      --supported-identity-providers COGNITO
    ```  
-![Update with your user pool id](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-replace-user-pool-id.png)
+![Update with your user pool id](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-replace-user-pool-id.png)
 
 1. Save the ClientId in a secure location
 
@@ -268,7 +268,7 @@ In this task, you will create an Amazon Cognito user pool and client which will 
    ```
    aws cognito-idp admin-set-user-password --user-pool-id {{USER_POOL_ID}} --username john --password "{{PASSWORD}}" --permanent
    ```  
-![Creating the john user](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-create-user.png)
+![Creating the john user](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-create-user.png)
 
 ### **Task 5: Configure Amazon Cognito as an identity provider**
 <a name="task-5-configure-amazon-cognito-as-an-identity-provider"></a>
@@ -276,10 +276,10 @@ In this task, you will create an Amazon Cognito user pool and client which will 
 In this task, you will use [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) to configure Amazon Cognito as a custom identity provider for the AWS Transfer Family Server.
 
 1. Open [Amazon DynamoDB,](https://console.aws.amazon.com/dynamodbv2/) choose **Tables** from the navigation on the left hand side, then select the **transfer-family-custom-idp-solution\_identity\_providers** table.  
-![Choose AWS Transfer Family table](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/amazon-dynamodb-console.png)
+![Choose AWS Transfer Family table](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/amazon-dynamodb-console.png)
 
 1. Select **Explore table items** and then select **Create item**.  
-![Exploring DynamoDB table items](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/dynamodb-explore-table-items.png)
+![Exploring DynamoDB table items](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/dynamodb-explore-table-items.png)
 
 1. In the Create item screen, select JSON View, then paste the following into the record.
 
@@ -288,7 +288,7 @@ In this task, you will use [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) t
    ```
    { "provider": { "S": "CognitoIDP" }, "config": { "M": { "cognito_client_id": { "S": "{{YOUR_OWN_CLIENT_ID}}" } } }, "module": { "S": "cognito" }
    ```  
-![Update the cognito_client_id in DynamoDB JSON](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/create-item-json-view.png)
+![Update the cognito_client_id in DynamoDB JSON](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/create-item-json-view.png)
 
 1. Select **Create item**.
 
@@ -303,7 +303,7 @@ In this task, you will use [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) t
     "config": { "M": { "HomeDirectoryDetails": { "L": [ { "M": { "Entry": { "S": "/john" }, "Target": { "S": "/{{YOUR-BUCKET-NAME}}/john" } } } ] }, "HomeDirectoryType": { "S": "LOGICAL" }, "Role": { "S": "arn:aws:iam::{{ACCOUNTNUMBER}}:role/transfer-family-custom-idp-user-role" } } } }
    ```
 
-![Update YOUR-BUCKET-NAME and ACCOUNTNUMBER in DynamoDB JSON](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/dynamodb-update-bucket-and-accountnumber.png)
+![Update YOUR-BUCKET-NAME and ACCOUNTNUMBER in DynamoDB JSON](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/dynamodb-update-bucket-and-accountnumber.png)
 
 
 ### **Task 6: Test user access to AWS Transfer Family server**
@@ -316,7 +316,7 @@ When setting the user permissions, we used the [logical directories](https://doc
 1. Find the {{TRANSFER\_FAMILY\_SERVER\_ENDPOINT\_URL}} by opening to [AWS Transfer Family](https://console.aws.amazon.com/transfer/) and choosing **Servers** in the navigation bar.
 
 1. Select the server you created and copy the **Endpoint URL**.  
-![AWS Transfer Family servers console](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-transfer-family-servers-console.png)
+![AWS Transfer Family servers console](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/aws-transfer-family-servers-console.png)
 
 1. Open [AWS CloudShell](https://console.aws.amazon.com/cloudshell/) and create a test file for John by pasting the following command:
 
@@ -331,12 +331,12 @@ When setting the user permissions, we used the [logical directories](https://doc
    ```
 
 1. Enter yes for RSA key fingerprint. Press the enter key. Enter the password you set in Amazon Cognito for the user, and press the enter key.  
-![Log into the AWS Transfer family as the john user](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-amazon-cognito-user-test.png)
+![Log into the AWS Transfer family as the john user](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/cloudshell-amazon-cognito-user-test.png)
 
 1. View the contents of the logical directories that are mapped for John by running *ls* command.
 
 1. Upload the *index.txt* file to the *john* folder.  
-![Updating the index.txt file to the john folder](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/update-index-file-to-john.png)
+![Updating the index.txt file to the john folder](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-server-with-amazon-cognito/images/update-index-file-to-john.png)
 
 You have successfully created an AWS Transfer Family server using Amazon Cognito as an identity provider and tested user access as John.
 
