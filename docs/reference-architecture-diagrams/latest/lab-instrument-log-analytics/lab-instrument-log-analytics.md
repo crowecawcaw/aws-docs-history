@@ -10,7 +10,7 @@ With this architecture, you can build a data pipeline to automate lab instrument
 ## Lab instrument log analytics architecture diagram
 <a name="lab-diagram"></a>
 
-![Reference architecture diagram for automating lab instrument log ingestion and analytics on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/lab-instrument-log-analytics/images/lab-instruments-log-analytics-ra.png)
+![Reference architecture diagram for automating lab instrument log ingestion and analytics on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/lab-instrument-log-analytics/images/lab-instruments-log-analytics-ra.png)
 
 
 The following steps describe the architecture:
