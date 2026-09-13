@@ -19,7 +19,7 @@ Terminal errors stop the training of a model. There are 3 categories of terminal
 
 In the console, Amazon Rekognition Custom Labels shows terminal errors for a model in the **Status message** column of the projects page. The project management dashboard showing list of projects with name, versions, date created, model performance, and status message indicating model state such as training completed or failed
 
-![A screenshot of the Project management dashboard.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/terminal-errors.png)
+![A screenshot of the Project management dashboard.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/terminal-errors.png)
 
 
 If you using the AWS SDK, you can find out if a terminal manifest file error or a terminal manifest content error has occured by checking the response from [DescribeProjectVersions](https://docs.aws.amazon.com/rekognition/latest/APIReference/API_DescribeProjectVersions). In this case, the `Status` value is `TRAINING_FAILED` and `StatusMessage` field contains the error. 

@@ -33,7 +33,7 @@ To help you decide which type of model to train, Amazon Rekognition Custom Label
 
 The model predicts classifications for the objects, scenes, and concepts associated with an entire image. For example, you can train a model that determines if an image contains a *tourist attraction*, or not. For an example project, see [Image classification](getting-started.md#gs-image-classification-example). The following image of a lake is an example of the kind of image you can recognize objects, scenes, and concepts in.
 
-![Tranquil lake reflecting clouds and mountains at sunset or sunrise.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/pateros.jpg)
+![Tranquil lake reflecting clouds and mountains at sunset or sunrise.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/pateros.jpg)
 
 
 Alternatively, you can train a model that categorizes images into multiple categories. For example, the previous image might have categories such as *sky color*, *reflection*, or *lake*. For an example project, see [Multi-label image classification](getting-started.md#gs-multi-label-image-classification-example).
@@ -43,7 +43,7 @@ Alternatively, you can train a model that categorizes images into multiple categ
 
 The model predicts the location of an object on an image. The prediction includes bounding box information for the object location and a label that identifies the object within the bounding box. For example, the following image shows bounding boxes around various parts of a circuit board, such as a *comparator* or *pot resistor*. 
 
-![Component image showing an IR LED, pot resistor, and comparator chip on a circuit board.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/localization-circuit-board.png)
+![Component image showing an IR LED, pot resistor, and comparator chip on a circuit board.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/localization-circuit-board.png)
 
 
 The [Object localization](getting-started.md#gs-object-localization-example) example project shows how Amazon Rekognition Custom Labels uses labeled bounding boxes to train a model that finds object locations.
@@ -53,7 +53,7 @@ The [Object localization](getting-started.md#gs-object-localization-example) exa
 
 Amazon Rekognition Custom Labels can train a model that finds the location of brands, such as logos, on an image. The prediction includes bounding box information for the brand location and a label that identifies the object within the bounding box. For an example project, see [Brand detection](getting-started.md#gs-brand-detection-example). The following image is an example of some of the brands that the model can detect.
 
-![Diagram showing Lambda service feeding user activity into Amazon Pinpoint for recommendations.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/brand-detection-lambda.png)
+![Diagram showing Lambda service feeding user activity into Amazon Pinpoint for recommendations.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/brand-detection-lambda.png)
 
 
 ## Create a model
@@ -185,12 +185,12 @@ To analyze an image with your model, you use the `DetectCustomLabels` API. You c
 
 If your model finds objects, scenes, and concepts, the response includes a list of image-level labels found in the image. For example, the following image shows the image-level labels found using *Rooms* example project.
 
-![Living room with fireplace, brown sofa, armchair, coffee tables, and scenic artwork on wall. Doors lead to outdoor patio.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/rooms.jpg)
+![Living room with fireplace, brown sofa, armchair, coffee tables, and scenic artwork on wall. Doors lead to outdoor patio.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/rooms.jpg)
 
 
 If the model finds object locations, the response includes list of labeled bounding boxes found in the image. A bounding box represents the location of an object on an image. You can use the bounding box information to draw a bounding box around an object. For example, the following image shows bounding boxes around circuit board parts found using the *Circuit boards* example project.
 
-![Circuit board with IR LED, phototransistor, and potentiometer for adjustments.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/circuitboardparts.jpg)
+![Circuit board with IR LED, phototransistor, and potentiometer for adjustments.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/circuitboardparts.jpg)
 
 
 For more information, see [Analyzing an image with a trained model](detecting-custom-labels.md). 

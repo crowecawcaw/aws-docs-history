@@ -22,7 +22,7 @@ You can create two types of classification model, *image classification* and *mu
 
 The model classifies images as belonging to a set of predefined labels. For example, you might want a model that determines if an image contains a living space. The following image might have a *living\_space* image-level label. 
 
-![Cozy living room with fireplace, large windows overlooking backyard patio. Neutral tones, wooden accents.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/living_space1.jpeg)
+![Cozy living room with fireplace, large windows overlooking backyard patio. Neutral tones, wooden accents.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/living_space1.jpeg)
 
 
 For this type of model, add a single image-level label to each of the training and test dataset images. For an example project, see [Image classification](getting-started.md#gs-image-classification-example).
@@ -32,7 +32,7 @@ For this type of model, add a single image-level label to each of the training a
 
 The model classifies images into multiple categories, such as the type of flower and whether it has leaves, or not. For example, the following image might have *mediterranean\_spurge* and *no\_leaves* image level labels.
 
-![Close-up of a green viburnum flower cluster with tightly packed small florets.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/mediterranean_spurge3.jpg)
+![Close-up of a green viburnum flower cluster with tightly packed small florets.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/mediterranean_spurge3.jpg)
 
 
 For this type of model assign image-level labels for each category to the training and test dataset images. For an example project, see [Multi-label image classification](getting-started.md#gs-multi-label-image-classification-example).
@@ -47,7 +47,7 @@ If your images are stored in an Amazon S3 bucket, you can use [folder names](md-
 
 To create a model that predicts the location of objects in your images, you define object location bounding boxes and labels for the images in your training and test datasets. A bounding box is a box that tightly surrounds an object. For example, the following image shows bounding boxes around an Amazon Echo and an Amazon Echo Dot. Each bounding box has an assigned label (*Amazon Echo* or *Amazon Echo Dot*).
 
-![Two Amazon smart speakers, one with green bounding box and one blue bounding box, on a wooden surface.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/echos.png)
+![Two Amazon smart speakers, one with green bounding box and one blue bounding box, on a wooden surface.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/echos.png)
 
 
 To find object locations, your datasets needs at least one label. During model training, a further label is automatically created that represents the area outside of the bounding boxes on an image. 
@@ -62,9 +62,9 @@ To find object locations, your datasets needs at least one label. During model t
 
 If you want to find the location of brands, such as logos and animated characters, you can use two different types of images for your training dataset images. 
 +  Images that are of the logo only. Each image needs a single image-level label that represents the logo name. For example, the image-level label for the following image could be *Lambda*.  
-![Lambda logo in white on an orange background.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/lambda-logo.jpg)
+![Lambda logo in white on an orange background.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/lambda-logo.jpg)
 + Images that contain the logo in natural locations, such as a football game or an architectual diagram. Each training image needs bounding boxes that surround each instance of the logo. For example, the following image shows an architectural diagram with labeled bounding boxes surrounding the AWS Lambda and Amazon Pinpoint logos.   
-![Diagrom workflow showing AWS Lambda service feeding user activity into Amazon Pinpoint for recommendations.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/brand-detection-lambda.png)
+![Diagrom workflow showing AWS Lambda service feeding user activity into Amazon Pinpoint for recommendations.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/brand-detection-lambda.png)
 
 We recommend that you don't mix image-level labels and bounding boxes in your training images. 
 

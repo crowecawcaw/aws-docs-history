@@ -21,12 +21,12 @@ For more information, see [Analyzing an image with a trained model](detecting-cu
 1. If you haven't already, start running your model. For more information, see [Step 3: Start your model](gs-step-start-model.md).
 
 1. Choose the **Use Model** tab and then choose **API code**. The model status panel shown below shows the model as Running, with a Stop button to stop the running model, and an option to display the API.  
-![Model status showing as Running, with Stop button to stop the running model.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-use-model-api-code.png)
+![Model status showing as Running, with Stop button to stop the running model.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-use-model-api-code.png)
 
 1. Choose **AWS CLI command**.
 
 1. In the **Analyze image** section, copy the AWS CLI command that calls `detect-custom-labels`. The following image of the Rekognition console shows the "Analyze Image" section with the AWS CLI command to detect custom labels on an image using a machine learning model, and instructions to start the model and provide image details.  
-![Console screenshot with the AWS CLI command to detect custom labels on an image using a machine learning model, and instructions to start the model and provide image details.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-cli-code-analyze.png)
+![Console screenshot with the AWS CLI command to detect custom labels on an image using a machine learning model, and instructions to start the model and provide image details.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-cli-code-analyze.png)
 
 1. Upload an example image to an Amazon S3 bucket. For instructions, see [Getting an example image](#gs-example-images).
 
@@ -98,22 +98,22 @@ You can use the following images with the `DetectCustomLabels` operation. There 
 ### Image classification
 <a name="gs-example-image-classification"></a>
 
-![Living room with fireplace, couch, armchair, end tables, lamps, and large windows.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/image-classification.jpg)
+![Living room with fireplace, couch, armchair, end tables, lamps, and large windows.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/image-classification.jpg)
 
 
 ### Multi-label classification
 <a name="gs-example-image-multi-label-classification"></a>
 
-![Spherical green flower head composed of densely packed overlapping petals or bracts forming a ball-like shape.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/multi-label-classification.jpg)
+![Spherical green flower head composed of densely packed overlapping petals or bracts forming a ball-like shape.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/multi-label-classification.jpg)
 
 
 ### Brand detection
 <a name="gs-example-image-brand-detection"></a>
 
-![Diagram showing user activity data flowing from Lambda to Amazon Personalize for recommendations, and to Amazon Pinpoint for recommendations.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/brand-detection.png)
+![Diagram showing user activity data flowing from Lambda to Amazon Personalize for recommendations, and to Amazon Pinpoint for recommendations.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/brand-detection.png)
 
 
 ### Object localization
 <a name="gs-example-image-object-localization"></a>
 
-![Small circuit with various electronic components, and connector pins.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/object-localization.jpg)
+![Small circuit with various electronic components, and connector pins.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/object-localization.jpg)

@@ -5,7 +5,7 @@
 
 You use image-level labels to train models that classify images into categories. An image-level label indicates that an image contains an object, scene or concept. For example, the following image shows a river. If your model classifies images as containing rivers, you would add a *river* image-level label. For more information, see [Purposing datasets](md-dataset-purpose.md). 
 
-![Lake reflecting mountains and clouds in still water at sunset or sunrise.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/pateros.jpg)
+![Lake reflecting mountains and clouds in still water at sunset or sunrise.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/pateros.jpg)
 
 
 A dataset that contains image-level labels, needs at least two labels defined. Each image needs at least one assigned label that identifies the object, scene, or concept in the image.

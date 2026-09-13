@@ -49,7 +49,7 @@ The following is an example COCO manifest file. For more information, see [The C
 
 The following diagram shows how the COCO dataset lists for a *dataset* map to Amazon Rekognition Custom Labels JSON lines for an *image*. Every JSON line for an image posseess a source-ref, job, and job metadata field. Matching colors indicate information for a single image. Note that in the manifest an individual image may have multiple annotations and metadata/categories.
 
-![Diagram showing the structure of Coco Manifest, with images, annotations, and categories contained within it.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/coco-transform.png)
+![Diagram showing the structure of Coco Manifest, with images, annotations, and categories contained within it.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/coco-transform.png)
 
 
 **To get the COCO objects for a single JSON line**

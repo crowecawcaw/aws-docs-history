@@ -73,6 +73,6 @@ You can choose a time period up to 15 months in the past. For more information a
 1. Choose **Update**.
 
 1. At the top of the page, choose a timeline. You should see numbers for inference units used and hours running during the timeline. Gaps in the graph indicate times when the model wasn't running. The screenshot of the console below showing inference units used and hours running over time periods, with a custom time of 2 weeks set, with the highest values of 214 inference units and 209 hours running.  
-![Graph showing inference units.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/model-duration.png)
+![Graph showing inference units.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/model-duration.png)
 
 1. (Optional) Add the graph to a dashboard by choosing **Actions** and then **Add to dashboard - improved**.

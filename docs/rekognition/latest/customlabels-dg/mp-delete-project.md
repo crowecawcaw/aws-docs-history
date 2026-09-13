@@ -27,7 +27,7 @@ The Amazon Rekognition Custom Labels console deletes associated models and datas
 1. In the left navigation pane, choose **Projects**.
 
 1. On the **Projects** page, select the radio button for the project that you want to delete. The project list showing echo-devices-project, with 1 version created on 2020-03-25, and options to Delete, Train new model, or Create project.  
-![Project list showing the echo-devices-project project and project details.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/delete-projects-page.png)
+![Project list showing the echo-devices-project project and project details.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/delete-projects-page.png)
 
 1. Choose **Delete** at the top of the page. The **Delete project** dialog box is shown.
 
@@ -47,12 +47,12 @@ The console can't delete models that are in-training or running. Try again after
 If you **Close** the dialog box during model deletion, the models are still deleted. Later, you can delete the project by repeating this procedure. 
 
        The panel for deleting a model gives you explicit instructions to delete associated models.   
-![Interface for deleting a project.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/delete-project-with-models.png)
+![Interface for deleting a project.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/delete-project-with-models.png)
 
    1. Enter **delete** to confirm that you want to delete the project.
 
    1. Choose **Delete** to delete the project.  
-![Dialog box confirming deletion of "echo-devices-project" project with no models.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/delete-project.png)
+![Dialog box confirming deletion of "echo-devices-project" project with no models.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/delete-project.png)
 
 ## Deleting an Amazon Rekognition Custom Labels project (SDK)
 <a name="mp-delete-project-sdk"></a>

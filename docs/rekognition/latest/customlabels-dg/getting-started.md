@@ -41,7 +41,7 @@ Amazon Rekognition Custom Labels provides the following example projects.
 
 The image classification project (Rooms) trains a model that finds one or more household locations in an image, such as *backyard*, *kitchen*, and *patio*. The training and test images represent a single location. Each image is labeled with a single image-level label, such as *kitchen*, *patio*, or *living\_space*. For an analyzed image, the trained model returns one or more matching labels from the set of image-level labels used for training. For example, the model might find the label *living\_space* in the following image. For more information, see [Find objects, scenes, and concepts](md-dataset-purpose.md#md-dataset-purpose-classification). 
 
-![Living room with fireplace, plush sofa, armchair, round tables, plants, and large windows overlooking outdoors.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/image-classification.jpg)
+![Living room with fireplace, plush sofa, armchair, round tables, plants, and large windows overlooking outdoors.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/image-classification.jpg)
 
 
 ### Multi-label image classification
@@ -53,7 +53,7 @@ The training and test images have image-level labels for each concept, such as *
 
 For an analyzed image, the trained model returns matching labels from the set of image-level labels used for training. For example, the model returns the labels *mediterranean\_spurge* and *with\_leaves* for the following image. For more information, see [Find objects, scenes, and concepts](md-dataset-purpose.md#md-dataset-purpose-classification). 
 
-![Close-up of a vibrant green flower with tightly packed petals forming a spherical shape.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/multi-label-classification.jpg)
+![Close-up of a vibrant green flower with tightly packed petals forming a spherical shape.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/multi-label-classification.jpg)
 
 
 ### Brand detection
@@ -61,7 +61,7 @@ For an analyzed image, the trained model returns matching labels from the set of
 
 The brand detection project (Logos) trains a model that model finds the location of certain AWS logos such as *Amazon Textract*, and *AWS lambda*. The training images are of the logo only and have a single image level-label, such as *lambda* or *textract*. It is also possible to train a brand detection model with training images that have bounding boxes for brand locations. The test images have labeled bounding boxes that represent the location of logos in natural locations, such as an architectural diagram. The trained model finds the logos and returns a labeled bounding box for each logo found. For more information, see [Find brand locations](md-dataset-purpose.md#md-dataset-purpose-brands). 
 
-![Lambda service feeding user activity into Amazon Pinpoint for recommendations.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/brand-detection-lambda.png)
+![Lambda service feeding user activity into Amazon Pinpoint for recommendations.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/brand-detection-lambda.png)
 
 
 ### Object localization
@@ -69,7 +69,7 @@ The brand detection project (Logos) trains a model that model finds the location
 
 The object localization project (Circuit boards) trains a model that finds the location of parts on a printed circuit board, such as a *comparator* or an *infra red light emitting diode*. The training and test images include bounding boxes that surround the circuit board parts and a label that identifies the part within the bounding box. In the following example image, the label names are *ir\_phototransistor*, *ir\_led*, *pot\_resistor*, and *comparator*. The trained model finds the circuit board parts and returns a labeled bounding for each circuit part found. For more information, see [Find object locations](md-dataset-purpose.md#md-dataset-purpose-localization). 
 
-![Component image showing an IR LED, pot resistor, and comparator chip on a circuit board.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/localization-circuit-board.png)
+![Component image showing an IR LED, pot resistor, and comparator chip on a circuit board.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/localization-circuit-board.png)
 
 
 ## Using the example projects

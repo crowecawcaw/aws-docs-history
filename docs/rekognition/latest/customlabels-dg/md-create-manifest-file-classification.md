@@ -29,7 +29,7 @@ To simplify creation of a manifest file, we provide a Python script that creates
 
 In this section, we show you how to create a JSON line for a single image. Consider the following image. A scene for the following image might be called *Sunrise*.
 
-![Sunset over a lake with a dock and small boats, surrounded by mountains.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/sunrise.png)
+![Sunset over a lake with a dock and small boats, surrounded by mountains.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/sunrise.png)
 
 
 The JSON line for the preceding image, with the scene *Sunrise*, might be the following. 

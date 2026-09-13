@@ -10,7 +10,7 @@ If you're training a model to find objects, scenes, and concepts with image-leve
 
 For example, if you want to train a model that detects Amazon Echo Dot devices, you draw a bounding box around each Echo Dot in an image and assign a label named *Echo Dot* to the bounding box. The following image shows a bounding box around an Echo Dot device. The image also contains an Amazon Echo without a bounding box.
 
-![Amazon Echo Dot and Echo devices, with bounding box around Echo Dot.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/dot.jpg)
+![Amazon Echo Dot and Echo devices, with bounding box around Echo Dot.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/dot.jpg)
 
 
 ## Locate objects with bounding boxes (Console)
@@ -54,7 +54,7 @@ Before you can add bounding boxes, you must add at least one label to the datase
 1. Release the mouse button. The bounding box is highlighted.
 
 1. Choose **Next** if you have more images to label. Otherwise, choose **Done** to finish labeling.  
-![UI to draw bounding box around an image, the image is Amazon Echo and Echo Dot smart speakers on a wooden surface.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/draw-bounding-box.png)
+![UI to draw bounding box around an image, the image is Amazon Echo and Echo Dot smart speakers on a wooden surface.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/draw-bounding-box.png)
 
 1. Repeat steps 1–7 until you have created a bounding box in each image that contains objects. 
 

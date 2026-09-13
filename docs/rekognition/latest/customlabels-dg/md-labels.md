@@ -76,7 +76,7 @@ You can rename or remove labels after adding them to a dataset. You can only rem
 1. In the **Labels** section of the dataset gallery, choose **Manage labels** to open the **Manage labels** dialog box.
 
 1. Choose the label that you want to edit or delete.   
-![Manage labels dialog box showing a text field to add a new label and an existing label named "test", with options to save or cancel changes.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/change-delete-label.jpg)
+![Manage labels dialog box showing a text field to add a new label and an existing label named "test", with options to save or cancel changes.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/change-delete-label.jpg)
 
    1. If you choose the delete icon (X), the label is removed from the list.
 

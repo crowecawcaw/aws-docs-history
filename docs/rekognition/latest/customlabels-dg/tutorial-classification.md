@@ -52,7 +52,7 @@ The following procedure stores images from the Rooms project into local folders 
 
 Make a list of the classes that you want your model to find. For example, if you're training a model to recognize rooms in a house, you can classify the following image as `living_room`. 
 
-![Cozy living room with fireplace, plush sofa, armchair, overlooking outdoors.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/image-classification.jpg)
+![Cozy living room with fireplace, plush sofa, armchair, overlooking outdoors.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/image-classification.jpg)
 
 
 Each class maps to an image-level label. Later you assign image-level labels to the images in your training and test datasets. 
@@ -81,7 +81,7 @@ To manage your datasets and models you create a project. Each project should add
 1. In **Project name**, enter a name for your project. 
 
 1. Choose **Create project** to create your project.   
-![UI form to create a new project named "My-Project" with a field to enter the project name and cancel or create project buttons.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-create-project.jpg)
+![UI form to create a new project named "My-Project" with a field to enter the project name and cancel or create project buttons.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-create-project.jpg)
 
 ## Step 4: Create training and test datasets
 <a name="tutorial-classify-images-create-datasets"></a>
@@ -93,7 +93,7 @@ For more information about datasets, see [Managing datasets](managing-dataset.md
 **To create a dataset using images on a local computer (console)**
 
 1. On the project details page, choose **Create dataset**.  
-![Creating dataset step in training model workflow: Create dataset button for uploading images and labels to train model.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-create-dataset.jpg)
+![Creating dataset step in training model workflow: Create dataset button for uploading images and labels to train model.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-create-dataset.jpg)
 
 1. In the **Starting configuration** section, choose **Start with a training dataset and a test dataset**.
 
@@ -102,22 +102,22 @@ For more information about datasets, see [Managing datasets](managing-dataset.md
 1. In the **Test dataset details** section, choose **Upload images from your computer**.
 
 1. Choose **Create datasets**.  
-![User interface to create training and test datasets. Create datasets and Cancel button at bottom.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-project-details-create-dataset.jpg)
+![User interface to create training and test datasets. Create datasets and Cancel button at bottom.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-project-details-create-dataset.jpg)
 
 1. A dataset page appears with a **Training** tab and a **Test** tab for the respective datasets. 
 
 1. On the dataset page, choose the **Training** tab. 
 
 1.  Choose **Actions** and then choose **Add images to training dataset**.  
-![Dataset view showing options to add images to training and test datasets under the Actions menu.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-action-add-images.jpg)
+![Dataset view showing options to add images to training and test datasets under the Actions menu.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-action-add-images.jpg)
 
 1. In the **Add images to training dataset** dialog box, choose **Choose files**.  
-![Button to upload image files for training a dataset.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-choose-files.jpg)
+![Button to upload image files for training a dataset.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-choose-files.jpg)
 
 1. Choose the images you want to upload to the dataset. You can upload as many as 30 images at a time.
 
 1. Choose **Upload images**. It might take a few seconds for Amazon Rekognition Custom Labels to add the images to the dataset.  
-![Grid showing 11 image thumbnails ready for upload to a training dataset.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-upload-images.jpg)
+![Grid showing 11 image thumbnails ready for upload to a training dataset.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-upload-images.jpg)
 
 1. If you have more images to add to the training dataset, repeat steps 9-12.
 
@@ -133,7 +133,7 @@ In this step you add a label to the project for each of the classes you identifi
 **To add a new label (console)**
 
 1. On the dataset gallery page, choose **Start labeling** to enter labeling mode.  
-![Dataset gallery interface showing steps to label images: review, add labels, label object locations with bounding boxes, and train model. Start labeling button highlighted.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-start-labeling.jpg)
+![Dataset gallery interface showing steps to label images: review, add labels, label object locations with bounding boxes, and train model. Start labeling button highlighted.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-start-labeling.jpg)
 
 1. In the **Labels** section of the dataset gallery, choose **Edit labels** to open the **Manage labels** dialog box.
 
@@ -167,12 +167,12 @@ In this step you assign a single image level to each image in your training and 
    1. Release the shift key.
 
 1. Choose **Assign image-level labels**.   
-![Interface showing three images of residential backyards, with "Assign-image level labels" button.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-assign-image-level-labels.jpg)
+![Interface showing three images of residential backyards, with "Assign-image level labels" button.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-assign-image-level-labels.jpg)
 
 1. In **Assign image-level labels to selected images** dialog box, select a label that you want to assign to the image or images.
 
 1. Choose **Assign** to assign label to the image.  
-![Dialog box showing how to assign image-level label "backyard" to selected images with the Assign button.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-assign-image-level-label.jpg)
+![Dialog box showing how to assign image-level label "backyard" to selected images with the Assign button.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-assign-image-level-label.jpg)
 
 1. Repeat labeling until every image is annotated with the required labels.
 
@@ -188,27 +188,27 @@ Use the following steps to train your model. For more information, see [Training
 **To train your model (console)**
 
 1. On the **Dataset** page, choose **Train model**.  
-![Train model button for training a machine learning model on the dataset in the current project.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-train-model.jpg)
+![Train model button for training a machine learning model on the dataset in the current project.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-train-model.jpg)
 
 1. On the **Train model** page, choose **Train model**. The Amazon Resource Name (ARN) for your project is in the **Choose project** edit box.   
-![Train model configuration page showing Project ARN input field, empty Tags section, and Train Model button.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-train-model-page-train-model.jpg)
+![Train model configuration page showing Project ARN input field, empty Tags section, and Train Model button.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-train-model-page-train-model.jpg)
 
 1. In the **Do you want to train your model?** dialog box, choose **Train model**.   
-![Dialog box asking "Do you want to train your model?" with Cancel and Train model buttons.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-train-model.jpg)
+![Dialog box asking "Do you want to train your model?" with Cancel and Train model buttons.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-train-model.jpg)
 
 1. In the **Models** section of the project page, you can see that training is in progress. You can check the current status by viewing the `Model Status` column for the model version. Training a model takes a while to complete.   
-![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-training-progress.jpg)
+![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-training-progress.jpg)
 
 1. After training completes, choose the model name. Training is finished when the model status is **TRAINING\_COMPLETED**.  
-![Rooms 19 model info showing status TRAINING_COMPLETED indicating the model is ready.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-choose-model.jpg)
+![Rooms 19 model info showing status TRAINING_COMPLETED indicating the model is ready.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-choose-model.jpg)
 
 1. Choose the **Evaluate** button to see the evaluation results. For information about evaluating a model, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md).
 
 1. Choose **View test results** to see the results for individual test images. For more information, see [Metrics for evaluating your model](im-metrics-use.md).  
-![Model evaluation results showing F1 score, average precision, and overall recall for 10 image labels with per label performance metrics.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-training-results.jpg)
+![Model evaluation results showing F1 score, average precision, and overall recall for 10 image labels with per label performance metrics.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-training-results.jpg)
 
 1. After viewing the test results, choose the model name to return to the model page.  
-![Interface showing test results for a trained model on a dataset of backyard and front yard images, with predicted labels and confidence scores displayed.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-image-test-results.jpg)
+![Interface showing test results for a trained model on a dataset of backyard and front yard images, with predicted labels and confidence scores displayed.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-image-test-results.jpg)
 
 ## Step 8: Start your model
 <a name="tutorial-step-start-model"></a>
@@ -224,13 +224,13 @@ You are charged for the amount of time that your model runs. Stop your model if 
 1. In the **Start or stop model** section do the following:
 
    1. Choose **Start**.  
-![User interface showing Start model button and options to start or stop a machine learning model for detecting custom labels. Select number of inference units to increase throughput.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-start-model.jpg)
+![User interface showing Start model button and options to start or stop a machine learning model for detecting custom labels. Select number of inference units to increase throughput.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-start-model.jpg)
 
    1. In the **Start model** dialog box, choose **Start**.   
-![Start model dialog box with Start button.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-start-model-dialog.jpg)
+![Start model dialog box with Start button.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-start-model-dialog.jpg)
 
 1. Wait until the model is running. The model is running when the status in the **Start or stop model** section is **Running**.  
-![Running status indicator with a green circle indicating the model is currently running, and options to stop the model or change the number of inference units.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-start-model-running.jpg)
+![Running status indicator with a green circle indicating the model is currently running, and options to stop the model or change the number of inference units.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-start-model-running.jpg)
 
 ## Step 9: Analyze an image with your model
 <a name="tutorial-step-get-a-prediction"></a>
@@ -249,12 +249,12 @@ For more information, see [Analyzing an image with a trained model](detecting-cu
 1. If you haven't already, set up the AWS CLI. For instructions, see [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md).
 
 1. Choose the **Use Model** tab and then choose **API code**.   
-![Interface showing model details with option to display the Amazon Resource Name (ARN) and API Code to use the model.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-use-model-api-code.png)
+![Interface showing model details with option to display the Amazon Resource Name (ARN) and API Code to use the model.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-use-model-api-code.png)
 
 1. Choose **AWS CLI command**.
 
 1. In the **Analyze image** section, copy the AWS CLI command that calls `detect-custom-labels`.  
-![AWS CLI command to analyze an image with a custom model, showing project ARN and bucket name placeholders to replace.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-cli-code-analyze.png)
+![AWS CLI command to analyze an image with a custom model, showing project ARN and bucket name placeholders to replace.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-cli-code-analyze.png)
 
 1. Upload an image to an Amazon S3 bucket. For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*. If you're using images from the Rooms project, use one of the images you moved to a separate folder in [Step 1: Collect your images](#tutorial-classify-images-collect-images).
 
@@ -299,10 +299,10 @@ In this step you stop running your model. You are charged for the amount of time
 **To stop your model**
 
 1. In the **Start or stop model** section choose **Stop**.  
-![Stop button to halt the currently running model and disable inference units.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-stop-model.jpg)
+![Stop button to halt the currently running model and disable inference units.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-stop-model.jpg)
 
 1. In the **Stop model** dialog box, enter **stop** to confirm that you want to stop the model.  
-![Input field with "stop" entered, and Stop button to confirm stopping a model.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-stop-model-dialog.jpg)
+![Input field with "stop" entered, and Stop button to confirm stopping a model.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-stop-model-dialog.jpg)
 
 1. Choose **Stop** to stop your model. The model has stopped when the status in the **Start or stop model** section is **Stopped**.  
-![Stopped status indicator with explanation that the model is not running and needs to be started using the Start button or code example.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-stopped-model.jpg)
+![Stopped status indicator with explanation that the model is not running and needs to be started using the Start button or code example.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-stopped-model.jpg)

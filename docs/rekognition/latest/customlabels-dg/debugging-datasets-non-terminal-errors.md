@@ -44,4 +44,4 @@ You can use the console to find out which images in a dataset have non-terminal 
 1. In the **Labels** section of the dataset gallery, choose **Errors**. The dataset gallery is filtered to only show images with errors.
 
 1. Choose **Error** underneath an image to see the error code. Use the information at [Non-Terminal JSON Line Validation Errors](tm-debugging-json-line-errors.md) to fix the error.  
-![Error dialog showing "ERROR_UNSUPPORTED_USE_CASE_TYPE" and "ERROR_NO_VALID_LABEL_ATTRIBUTES" under "Dataset record errors".](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/dataset-non-terminal-error.jpg)
+![Error dialog showing "ERROR_UNSUPPORTED_USE_CASE_TYPE" and "ERROR_NO_VALID_LABEL_ATTRIBUTES" under "Dataset record errors".](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/dataset-non-terminal-error.jpg)

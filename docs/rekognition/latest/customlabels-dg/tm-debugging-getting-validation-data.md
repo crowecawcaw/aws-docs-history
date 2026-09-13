@@ -21,12 +21,12 @@ After training completes or fails, you can download the validation results by us
 
 If you are using the console to train your model, you can download the validation results from a project's list of models, as shown in the following diagram. The Models panel shows model training and validation results with option to download validation results.
 
-![Interface showing model training and validation results with option to download validation results.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/models-validation-results.jpg)
+![Interface showing model training and validation results with option to download validation results.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/models-validation-results.jpg)
 
 
 You can also access download the validation results from a model's details page. The details page shows the dataset details with status, training and test datasets, and download links for manifest summary, training validation manifest, and testing validation manifest.
 
-![Screenshot of the dataset details panel with status, links to training and test datasets, and download links for manifest items.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/model-validation-results.jpg)
+![Screenshot of the dataset details panel with status, links to training and test datasets, and download links for manifest items.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/model-validation-results.jpg)
 
 
 For more information, see [Training a model (Console)](training-model.md#tm-console). 

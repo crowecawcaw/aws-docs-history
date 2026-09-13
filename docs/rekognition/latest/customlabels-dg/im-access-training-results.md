@@ -30,9 +30,9 @@ In this step, you use the console to access the training results in the console.
 1. Choose the **Evaluation** tab to see the evaluation results. For information about evaluating a model, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md).
 
 1. Choose **View test results** to see the results for individual test images. For more information, see [Metrics for evaluating your model](im-metrics-use.md). The following screenshot of the model evaluation summary shows the F1 score, average precision, and overall recall for 6 labels with test results and performance metrics. Details on using the trained model are also provided.   
-![Model evaluation summary showing F1 score, average precision, and overall recall.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-training-results.jpg)
+![Model evaluation summary showing F1 score, average precision, and overall recall.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-training-results.jpg)
 
 1. After viewing the test results, choose the project name to return to the model page. The test results page shows images with predicted labels and confidence scores for a machine learning model trained on backyard and front yard image categories. Two example images are displayed.   
-![The test results page shows images with predicted labels and confidence scores.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-image-test-results.jpg)
+![The test results page shows images with predicted labels and confidence scores.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-image-test-results.jpg)
 
 1. Use the metrics to evaluate the performance of the model. For more information, see [Improving an Amazon Rekognition Custom Labels model](tr-improve-model.md). 

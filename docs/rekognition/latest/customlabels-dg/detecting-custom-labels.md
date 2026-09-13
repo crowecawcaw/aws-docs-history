@@ -64,7 +64,7 @@ For information about securing `DetectCustomLabels`, see [Securing DetectCustomL
    For instructions, see [Uploading Objects into Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UploadingObjectsintoAmazonS3.html) in the *Amazon Simple Storage Service User Guide*. The Python, Java, and Java 2 examples also show you how to use a local image file to pass an image by using raw bytes. The file must be smaller than 4 MB.
 
 1. Use the following examples to call the `DetectCustomLabels` operation. The Python and Java examples show the image and overlay the analysis results, similar to the following image. The following images contains bounding boxes and labels for a circuit board with a potentiometer, infrared phototransistor, and LED components.  
-![Circuit board with a potentiometer, infrared phototransistor, and LED components labeled.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/prediction.jpg)
+![Circuit board with a potentiometer, infrared phototransistor, and LED components labeled.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/prediction.jpg)
 
 ------
 #### [ AWS CLI ]

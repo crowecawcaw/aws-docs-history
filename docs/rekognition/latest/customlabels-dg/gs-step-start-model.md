@@ -16,9 +16,9 @@ You are charged for the amount of time that your model runs. Stop your model if 
    1. Choose **Start**.
 
    1. In the **Start model** dialog box, choose **Start**. The following image shows the Start button in the model control panel.  
-![Start model control panel with the Start button and an option to select one inference unit.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-start-model.jpg)
+![Start model control panel with the Start button and an option to select one inference unit.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-start-model.jpg)
 
 1. Wait until the model is running. The following screenshot shows the console while the model is running, where the status in the **Start or stop model** section is **Running**.  
-![Model status showing as Running, with Stop button to stop the running model.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-start-model-running.jpg)
+![Model status showing as Running, with Stop button to stop the running model.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-start-model-running.jpg)
 
 1. Use your model to classify images. For more information, see [Step 4: Analyze an image with your model](gs-step-get-a-prediction.md).

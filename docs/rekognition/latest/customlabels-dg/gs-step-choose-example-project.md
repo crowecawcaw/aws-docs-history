@@ -16,7 +16,7 @@ For information about the example projects, see [Example projects](getting-start
 1. Choose **Get started**. 
 
    Amazon Rekognition Custom Labels section showing Get started, Tutorials with "Example projects" highlighted, Projects, and Datasets.  
-![Amazon Rekognition Custom Labels section showing Get started, Tutorials with "Example projects" highlighted, Projects, and Datasets.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/example-projects.png)
+![Amazon Rekognition Custom Labels section showing Get started, Tutorials with "Example projects" highlighted, Projects, and Datasets.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/example-projects.png)
 
 1. In **Explore example projects**, choose **Try example projects**.
 
@@ -25,7 +25,7 @@ For information about the example projects, see [Example projects](getting-start
 If this is the first time that you've opened the console in the current AWS Region, the **First Time Set Up** dialog box is shown. Do the following:  
 Note the name of the Amazon S3 bucket that's shown.
 Choose **Continue** to let Amazon Rekognition Custom Labels create an Amazon S3 bucket (console bucket) on your behalf. The image of the console below shows examples with "Create project" buttons for Image Classification (Rooms), Multi-label classification (Flowers), Brand detection (Logos), and Object Localization (Circuit boards).  
-![Amazon Rekognition service examples with "Create project" buttons for Image Classification (Rooms), Multi-label classification (Flowers), Brand detection (Logos), and Object Localization (Circuit boards).](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started.jpg)
+![Amazon Rekognition service examples with "Create project" buttons for Image Classification (Rooms), Multi-label classification (Flowers), Brand detection (Logos), and Object Localization (Circuit boards).](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started.jpg)
 
 1. After your project is ready, choose **Go to dataset**. The following image shows what the project panel looks like when the project is ready.  
-![Project rooms status panel with "Go to dataset" button for accessing data after model training is complete.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-goto-dataset-dialog.jpg)
+![Project rooms status panel with "Go to dataset" button for accessing data after model training is complete.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-goto-dataset-dialog.jpg)

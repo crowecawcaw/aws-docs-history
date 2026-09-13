@@ -51,7 +51,7 @@ You are charged for the amount of time that it takes to train a model. For more 
 1. In the **Projects** page, choose the project that contains the model that you want to train. 
 
 1. On the **Project** page, choose **Train model**.  
-!["Train mode" button for training a machine learning model on the dataset in the current project.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-train-model.jpg)
+!["Train mode" button for training a machine learning model on the dataset in the current project.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-train-model.jpg)
 
 1. (Optional) If you want to use your own AWS KMS encryption key, do the following:
 
@@ -74,16 +74,16 @@ You are charged for the amount of time that it takes to train a model. For more 
    1. (Optional) If you want to remove a tag, choose **Remove** next to the tag that you want to remove. If you are removing a previously saved tag, it is removed when you save your changes.
 
 1. On the **Train model** page, Choose **Train model**. The Amazon Resource Name (ARN) for your project should be in the **Choose project** edit box. If not, enter the ARN for your project.  
-![Train model button to start training an AI model on the Amazon Rekognition Custom Labels service.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-train-model-page-train-model.jpg)
+![Train model button to start training an AI model on the Amazon Rekognition Custom Labels service.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-train-model-page-train-model.jpg)
 
 1. In the **Do you want to train your model?** dialog box, choose **Train model**.   
-![Train model configuration page showing Train Model button.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-train-model.jpg)
+![Train model configuration page showing Train Model button.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-dialog-train-model.jpg)
 
 1. In the **Models** section of the project page, you can check the current status in the `Model Status` column, where the training's in progress. Training a model takes a while to complete.   
-![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-training-progress.jpg)
+![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/tutorial-training-progress.jpg)
 
 1. After training completes, choose the model name. Training is finished when the model status is **TRAINING\_COMPLETED**. If training fails, read [Debugging a failed model training](tm-debugging.md).  
-![Interface showing a trained model and status TRAINING_COMPLETED, indicating the model is ready to run.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-choose-model.jpg)
+![Interface showing a trained model and status TRAINING_COMPLETED, indicating the model is ready to run.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/get-started-choose-model.jpg)
 
 1. Next step: Evaluate your model. For more information, [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md).
 

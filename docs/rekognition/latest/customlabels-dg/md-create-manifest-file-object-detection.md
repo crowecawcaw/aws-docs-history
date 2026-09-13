@@ -30,7 +30,7 @@ A manifest file is made of one or more JSON lines, each line contains the inform
 
 In this section, we show you how to create a JSON line for a single image. The following image shows bounding boxes around Amazon Echo and Amazon Echo Dot devices.
 
-![Two Amazon smart speakers, one with green bounding box and one blue bounding box, on a wooden surface.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/echos.png)
+![Two Amazon smart speakers, one with green bounding box and one blue bounding box, on a wooden surface.](https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/echos.png)
 
 
 The following is the bounding box JSON line for the preceding image. 
