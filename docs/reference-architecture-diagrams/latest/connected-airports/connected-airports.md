@@ -14,7 +14,7 @@ This architecture references the [Aircraft Turn Tracking Passive Data Collection
 ## Connected airports diagram
 <a name="connected-airports-diagram"></a>
 
-![Architecture for connected airports using AWS IoT Core, AWS IoT Greengrass, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-airports/images/connected-airports-using-iot-ai-ml-ra.png)
+![Architecture for connected airports using AWS IoT Core, AWS IoT Greengrass, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-airports/images/connected-airports-using-iot-ai-ml-ra.png)
 
 
 The following steps describe the architecture:
