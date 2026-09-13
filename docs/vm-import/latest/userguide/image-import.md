@@ -7,7 +7,7 @@ First, you'll need to prepare your virtual machine for export, and then export i
 
 The following diagram shows the process of exporting a VM from your virtualization environment to Amazon EC2 as an AMI.
 
-![VM Import/Export image import](http://docs.aws.amazon.com/vm-import/latest/userguide/images/vmimport-export-architecture-import-image.png)
+![VM Import/Export image import](https://docs.aws.amazon.com/vm-import/latest/userguide/images/vmimport-export-architecture-import-image.png)
 
 
 Before you proceed with this process, see [VM Import/Export Requirements](vmie_prereqs.md).
