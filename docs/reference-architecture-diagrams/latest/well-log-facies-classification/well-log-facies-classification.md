@@ -10,7 +10,7 @@ This solution incorporates [well logs](https://en.wikipedia.org/wiki/Well_loggin
 ## Well Log Facies Classification Using Machine Learning
 <a name="diagram1"></a>
 
-![Architecture diagram showing well log facies classification by using SageMaker AI Autopilot.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/well-log-facies-classification/images/well-log-facies-classification.png)
+![Architecture diagram showing well log facies classification by using SageMaker AI Autopilot.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/well-log-facies-classification/images/well-log-facies-classification.png)
 
 
 The following steps describe the architecture:
