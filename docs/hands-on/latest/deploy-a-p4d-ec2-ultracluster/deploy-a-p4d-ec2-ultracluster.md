@@ -44,17 +44,17 @@ The EC2 UltraCluster will have multiple elastic network interfaces per instance.
 1. Create a private subnet
 
    Create a subnet in your VPC with an available free CIDR range this CIDR range needs to be able to accommodate the number of instances you want to launch \* 4.   
-![An example configuration for subnet settings in Amazon EC2, including subnet name, availability zone, IPv4 CIDR block, and tagging options.](http://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/subnet-settings-configuration-example-eaf.png)
+![An example configuration for subnet settings in Amazon EC2, including subnet name, availability zone, IPv4 CIDR block, and tagging options.](https://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/subnet-settings-configuration-example-eaf.png)
 
 1. Create a NAT Gateway
 
    Create a NAT Gateway by going to NAT Gateways in the side menu launching a gateway in public subnet in the VPC. This will take a few minutes to provision.   
-![The NAT gateway settings page, including fields for the NAT gateway name, subnet selection, and Elastic IP allocation, as demonstrated in an EC2 tutorial.](http://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/nat-gateway-settings-page-including-fields.png)
+![The NAT gateway settings page, including fields for the NAT gateway name, subnet selection, and Elastic IP allocation, as demonstrated in an EC2 tutorial.](https://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/nat-gateway-settings-page-including-fields.png)
 
 1. Create a routing table
 
    After provisioning is complete go to **route tables** and create a new route table selecting the VPC that your Gateway was created in. In **Routes** for the route table add a route for the destination **0.0.0.0/0** where the target is the NAT Gateway ID you created earlier.   
-![A sample AWS route tables configuration with destinations, targets, statuses, and propagation columns as part of a getting started tutorial.](http://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/route-tables-sample-configuration.png)
+![A sample AWS route tables configuration with destinations, targets, statuses, and propagation columns as part of a getting started tutorial.](https://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/route-tables-sample-configuration.png)
 
 1. Associate the route table with the subnet
 
@@ -73,7 +73,7 @@ We will create 2 security groups with different policies for access for:
    + Choose the VPC used earlier to associate this security group with 
    + For EFA: For inbound rules add All traffic on all ports in scope of the security group that is being created. 
    + For EFA: For outbound rules add All traffic on all ports in scope of the security group being create   
-![The Inbound rules tab of an Amazon EC2 security group, with all traffic, all protocols, all port ranges allowed from a specific source security group.](http://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/security-group-inbound-rules-example-dbba.png)
+![The Inbound rules tab of an Amazon EC2 security group, with all traffic, all protocols, all port ranges allowed from a specific source security group.](https://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/security-group-inbound-rules-example-dbba.png)
 
 1. Verify the TCP port settings
 
@@ -99,12 +99,12 @@ As part of the EC2 UltraClusters you will need to launch a FSx for Lustre file s
    + For **Virtual Private Cloud**: choose **VPC of the private subnet created earlier** 
    + For **VPC Security Groups** choose **Choose the EFA security group you created earlier** 
    + For **Subnet** choose. the private subnet you created earlier   
-![The AWS FSx for Lustre 'Create file system' settings page, showing options for file system details, storage type, throughput, capacity, and network and security configuration.](http://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/lustre-file-settings-edaeb-fsxlustre-page.png)
+![The AWS FSx for Lustre 'Create file system' settings page, showing options for file system details, storage type, throughput, capacity, and network and security configuration.](https://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/lustre-file-settings-edaeb-fsxlustre-page.png)
 
 1. Choose an S3 bucket
 
    Choose an S3 bucket for data ingestion. The dataset for this tutorial is the BERT dataset. If you don’t have it, we can use synthetic benchmarks.   
-![A Data Repository Import/Export configuration interface, showing options to import data from and export data to an S3 bucket, including file and directory listing updates, import bucket and prefix entry, and export prefix selection.](http://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/vte-data-repo-import-export-fbedea.png)
+![A Data Repository Import/Export configuration interface, showing options to import data from and export data to an S3 bucket, including file and directory listing updates, import bucket and prefix entry, and export prefix selection.](https://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/vte-data-repo-import-export-fbedea.png)
 
 1. Verify the file system was created
 
@@ -137,7 +137,7 @@ In the EC2 management console, select in the EC2 Dashboard to launch an instance
   1. Add any relevant tags in the next screen for the Security Group section choose the security groups created earlier for SSH and EFA access. 
 
   1. Launch the instance and confirm they have 4 private IP addresses per node.   
-![The Amazon EC2 console interface for configuring multiple network interfaces with Elastic Fabric Adapter (EFA) attachment options.](http://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/network-interfaces-efa-attachment-console.png)
+![The Amazon EC2 console interface for configuring multiple network interfaces with Elastic Fabric Adapter (EFA) attachment options.](https://docs.aws.amazon.com/hands-on/latest/deploy-a-p4d-ec2-ultracluster/images/network-interfaces-efa-attachment-console.png)
 
 ### Step 5: Launch a jumphost
 <a name="launch-a-jumphost"></a>
