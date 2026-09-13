@@ -47,7 +47,7 @@ Before you can initialize the cluster, you must download and sign a certificate 
 1. If you did not complete the [previous step](create-hsm.md) to create an HSM, choose an Availability Zone (AZ) for the HSM that you are creating. Then select **Create**.
 
 1. When the CSR is ready, you see a link to download it.  
-![Download certificate signing request page in the AWS CloudHSM console.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/download-csr-hsm-cert.png)
+![Download certificate signing request page in the AWS CloudHSM console.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/download-csr-hsm-cert.png)
 
 1. Choose **Cluster CSR** to download and save the CSR.
 

@@ -131,7 +131,7 @@ Now that you have Mage.exe and your imported certificate, you can sign a file. Y
    ```
 
    Copy the `Thumbprint`, `Key Container`, and `Provider` values from the output.  
-![The certificate's hash will be displayed as the thumbprint, keycontainer and provider in the output](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/certstore-my-certificate.png)
+![The certificate's hash will be displayed as the thumbprint, keycontainer and provider in the output](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/certstore-my-certificate.png)
 
 1. Sign your file by running the following command:
 

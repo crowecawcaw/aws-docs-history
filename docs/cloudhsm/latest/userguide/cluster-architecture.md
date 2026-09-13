@@ -13,4 +13,4 @@ To interact with the HSMs in a cluster, you need the AWS CloudHSM client softwar
 
 The following figure represents an AWS CloudHSM cluster with three HSMs, each in a different Availability Zone in the VPC.
 
-![Architecture of an AWS CloudHSM cluster with three HSMs.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cluster-architecture.png)
+![Architecture of an AWS CloudHSM cluster with three HSMs.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cluster-architecture.png)

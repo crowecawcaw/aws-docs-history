@@ -15,21 +15,21 @@ You can view the audit logs for an HSM from the CloudWatch Logs page in the AWS 
 
 For example, the following image shows the log group for the `cluster-likphkxygsn` cluster in the AWS Management Console.
 
-![The log group for a AWS CloudHSM cluster in CloudWatch Logs.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cloudwatch-logs-cluster.png)
+![The log group for a AWS CloudHSM cluster in CloudWatch Logs.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cloudwatch-logs-cluster.png)
 
 
 When you choose the cluster log group name, you can view the log stream for each of the HSMs in the cluster. The following image shows the log streams for the HSMs in the `cluster-likphkxygsn` cluster.
 
-![The log stream for an HSM in CloudWatch Logs.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cloudwatch-logs-hsm.png)
+![The log stream for an HSM in CloudWatch Logs.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cloudwatch-logs-hsm.png)
 
 
 When you choose an HSM log stream name, you can view the events in the audit log. For example, this event, which has a sequence number of 0x0 and an `Opcode` of `CN_INIT_TOKEN`, is typically the first event for the first HSM in each cluster. It records the initialization of the HSM in the cluster. 
 
-![An event in an AWS CloudHSM audit log in CloudWatch Logs.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cloudwatch-logs-event.png)
+![An event in an AWS CloudHSM audit log in CloudWatch Logs.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cloudwatch-logs-event.png)
 
 
 You can use all the many features in CloudWatch Logs to manage your audit logs. For example, you can use the **Filter events** feature to find particular text in an event, such as the `CN_CREATE_USER` `Opcode`.
 
 To find all events that do not include the specified text, add a minus sign (-) before the text. For example, to find events that do not include `CN_CREATE_USER`, enter **-CN\_CREATE\_USER**.
 
-![Filtering an event in an AWS CloudHSM audit log in CloudWatch Logs by its Opcode value.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cloudwatch-logs-event-filter.png)
+![Filtering an event in an AWS CloudHSM audit log in CloudWatch Logs by its Opcode value.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/cloudwatch-logs-event-filter.png)

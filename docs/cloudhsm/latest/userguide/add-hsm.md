@@ -5,7 +5,7 @@
 
 The following figure illustrates the events that occur when you add an HSM to a cluster.
 
-![Animation showing the events that occur when you add an HSM to a cluster.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/add-hsm.gif)
+![Animation showing the events that occur when you add an HSM to a cluster.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/add-hsm.gif)
 
 
 1. You add a new HSM to a cluster. The following procedures explain how to do this from the [AWS CloudHSM console](https://console.aws.amazon.com/cloudhsm/), the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/), and the [AWS CloudHSM API](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/).

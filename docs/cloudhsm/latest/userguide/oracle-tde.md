@@ -5,7 +5,7 @@
 
 Transparent Data Encryption (TDE) is used to encrypt database files. Using TDE, database software encrypts data before storing it on disk. The data in the database's table columns or tablespaces are encrypted with a table key or tablespace key. Some versions of Oracle's database software offer TDE. In Oracle TDE, these keys are encrypted with a TDE master encryption key. You can achieve greater security by storing the TDE master encryption key in the HSMs in your AWS CloudHSM cluster.
 
-![Store the Oracle TDE master encryption key in AWS CloudHSM.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/tde-master-key-in-hsm.png)
+![Store the Oracle TDE master encryption key in AWS CloudHSM.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/tde-master-key-in-hsm.png)
 
 
 In this solution, you use Oracle Database installed on an Amazon EC2 instance. Oracle Database integrates with the [AWS CloudHSM software library for PKCS \#11](pkcs11-library.md) to store the TDE master key in the HSMs in your cluster.

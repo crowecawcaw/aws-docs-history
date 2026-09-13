@@ -120,7 +120,7 @@ You are now ready to use SignTool and your imported certificate to sign your exa
    ```
 
    Copy the `Thumbprint` that is returned.  
-![The certificate's hash is returned as the thumbprint](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/signtool-hash.png)
+![The certificate's hash is returned as the thumbprint](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/signtool-hash.png)
 
 1. Navigate to the directory within PowerShell that contains `SignTool.exe`. The default location is `C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x64`.
 
@@ -129,7 +129,7 @@ You are now ready to use SignTool and your imported certificate to sign your exa
    ```
    signtool.exe sign /v /fd sha256 /sha1 {{<thumbprint>}} /sm C:\Users\Administrator\Desktop\{{<test>}}.ps1
    ```  
-![The .ps1 file was successfully signed.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/signtool-last-command.png)
+![The .ps1 file was successfully signed.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/signtool-last-command.png)
 
 1. (Optional) To verify the signature on the file, use the following command:
 

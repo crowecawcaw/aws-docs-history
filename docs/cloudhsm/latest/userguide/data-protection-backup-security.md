@@ -13,7 +13,7 @@ To encrypt the EBK, the HSM uses another encryption key known as the persistent 
 
 The encryption processes are summarized in the following figure. The backup encryption key represents the persistent backup key (PBK) and the ephemeral backup key (EBK). 
 
-![A summary of the encryption keys that are used to encrypt AWS CloudHSM backups.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/backup-security.png)
+![A summary of the encryption keys that are used to encrypt AWS CloudHSM backups.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/backup-security.png)
 
 
 AWS CloudHSM can restore backups onto only AWS-owned HSMs made by the same manufacturer. Because each backup contains all users, keys, and configuration from the original HSM, the restored HSM contains the same protections and access controls as the original. The restored data overwrites all other data that might have been on the HSM prior to restoration.

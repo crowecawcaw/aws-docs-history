@@ -18,7 +18,7 @@ To verify the identity of your cluster's first HSM, complete the following steps
 
 The following diagram shows the CSR, the certificates, and their relationship to each other. The subsequent list defines each certificate.
 
-![The HSM certificates and their relationships.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/hsm-certificate-relationships.png)
+![The HSM certificates and their relationships.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/hsm-certificate-relationships.png)
 
 
 **AWS Root Certificate**  
@@ -58,7 +58,7 @@ To verify the identity and authenticity of your HSM, start by getting a CSR and 
 1. If you did not complete the [previous step](create-hsm.md) to create an HSM, choose an Availability Zone (AZ) for the HSM that you are creating. Then select **Create**.
 
 1. When the certificates and CSR are ready, you see links to download them.  
-![The download certificate signing request page in the AWS CloudHSM console.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/download-csr-hsm-cert.png)
+![The download certificate signing request page in the AWS CloudHSM console.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/download-csr-hsm-cert.png)
 
 1. Choose each link to download and save the CSR and certificates. To simplify the subsequent steps, save all of the files to the same directory and use the default file names. 
 

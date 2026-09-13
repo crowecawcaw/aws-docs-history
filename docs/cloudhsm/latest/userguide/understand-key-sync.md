@@ -5,7 +5,7 @@
 
 AWS CloudHSM uses key synchronization to clone token keys across all the hardware security modules (HSM) in a cluster. You create token keys as persistent keys during key generation, import, or unwrap operations. To distribute these keys across the cluster, CloudHSM offers both client-side and server-side key synchronization.
 
-![Key synchronization diagram showing client-side and server-side sync for CloudHSM cluster.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/key-synch.png)
+![Key synchronization diagram showing client-side and server-side sync for CloudHSM cluster.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/key-synch.png)
 
 
 The goal with key synchronization—both server side and client side—is to distribute new keys across the cluster as quickly as possible after you create them. This is important because the subsequent calls you make to use new keys can get routed to any available HSM in the cluster. If the call you make routes to an HSM without the key, then the call fails. You can mitigate these type failures by specifying that your applications retry subsequent calls made after key creation operations. The time required to synchronize can vary, depending on the workload of your cluster and other intangibles. Use CloudWatch metrics to determine the timing your application should employ in this type situation. For more information, see [CloudWatch Metrics](hsm-metrics-cw.md).

@@ -36,7 +36,7 @@ Before you can create another web server, you need to create a new subnet in the
 1. Select the check box next to the public subnet that contains your existing web server. This is different from the public subnet that you created in the previous step. 
 
 1. In the content pane, choose the **Route Table** tab. Then choose the link for the route table.   
-![Choose the route table link in the Amazon VPC console.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/console-vpc-choose-route-table.png)
+![Choose the route table link in the Amazon VPC console.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/console-vpc-choose-route-table.png)
 
 1. Select the check box next to the route table.
 
@@ -66,7 +66,7 @@ Complete the following steps to create a second web server with the same configu
    1. Choose **Create Image**. This action reboots your existing web server.
 
    1. Choose the **View pending image ami-{{<AMI ID>}}** link.  
-![Choose the view pending image link in the Amazon EC2 console.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/console-ec2-choose-view-pending-image.png)
+![Choose the view pending image link in the Amazon EC2 console.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/console-ec2-choose-view-pending-image.png)
 
       In the **Status** column, note your image status. When your image status is **available** (this might take several minutes), go to the next step. 
 
@@ -77,7 +77,7 @@ Complete the following steps to create a second web server with the same configu
 1. Choose **Actions** and choose **Launch More Like This**.
 
 1. Choose **Edit AMI**.  
-![Choose the edit AMI link in the Amazon EC2 console.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/console-ec2-choose-edit-ami.png)
+![Choose the edit AMI link in the Amazon EC2 console.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/console-ec2-choose-edit-ami.png)
 
 1. In the left navigation pane, choose **My AMIs**. Then clear the text in the search box. 
 

@@ -8,7 +8,7 @@ To establish an HTTPS connection, your web server performs a handshake process w
 **Note**  
 The following image and process assumes that RSA is used for server verification and key exchange. The process is slightly different when Diffie–Hellman is used instead of RSA. 
 
-![An illustration of the TLS handshake process between a client and server including cryptographic offload to an HSM.](http://docs.aws.amazon.com/cloudhsm/latest/userguide/images/ssl-offload-handshake-process.png)
+![An illustration of the TLS handshake process between a client and server including cryptographic offload to an HSM.](https://docs.aws.amazon.com/cloudhsm/latest/userguide/images/ssl-offload-handshake-process.png)
 
 
 1. The client sends a hello message to the server.
