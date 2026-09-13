@@ -10,7 +10,7 @@ This architecture shows how to use [AWS Database Migration Service](https://docs
 ## Change Data Capture Using AWS DMS: Migrate and Replicate
 <a name="diagram1"></a>
 
-![Architecture diagram showing change data capture using AWS DMS to migrate and replicate databases.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/change-data-capture-dms/images/change-data-capture-dms-1.png)
+![Architecture diagram showing change data capture using AWS DMS to migrate and replicate databases.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/change-data-capture-dms/images/change-data-capture-dms-1.png)
 
 
 The following steps describe the architecture:

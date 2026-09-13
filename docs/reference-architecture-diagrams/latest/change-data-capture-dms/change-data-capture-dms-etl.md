@@ -8,7 +8,7 @@ This architecture shows how to use AWS Database Migration Service (AWS DMS) to c
 ## Change Data Capture Using AWS DMS: Amazon S3 with ETL for Upsert
 <a name="diagram3"></a>
 
-![Architecture diagram showing change data capture using AWS DMS with Amazon S3 and ETL for upsert using AWS Glue and Amazon EMR.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/change-data-capture-dms/images/change-data-capture-dms-3.png)
+![Architecture diagram showing change data capture using AWS DMS with Amazon S3 and ETL for upsert using AWS Glue and Amazon EMR.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/change-data-capture-dms/images/change-data-capture-dms-3.png)
 
 
 The following steps describe the architecture:

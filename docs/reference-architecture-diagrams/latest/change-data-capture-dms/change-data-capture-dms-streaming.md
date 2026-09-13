@@ -8,7 +8,7 @@ This architecture shows how to use AWS Database Migration Service (AWS DMS) to i
 ## Change Data Capture Using AWS DMS: Streaming
 <a name="diagram2"></a>
 
-![Architecture diagram showing change data capture using AWS DMS to stream data through Amazon Kinesis and Amazon Managed Streaming for Apache Kafka.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/change-data-capture-dms/images/change-data-capture-dms-2.png)
+![Architecture diagram showing change data capture using AWS DMS to stream data through Amazon Kinesis and Amazon Managed Streaming for Apache Kafka.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/change-data-capture-dms/images/change-data-capture-dms-2.png)
 
 
 The following steps describe the architecture:
