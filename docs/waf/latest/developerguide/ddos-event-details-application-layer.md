@@ -20,7 +20,7 @@ For Amazon CloudFront distributions, you can configure Shield Advanced to apply 
 
 The following screenshot shows an example of the detection metrics for an application layer event that subsided after a number of hours. 
 
-![A detection metrics graph shows detection of request flood traffic from 11:30 until it subsides at 16:00.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-app-detection-metrics.png)
+![A detection metrics graph shows detection of request flood traffic from 11:30 until it subsides at 16:00.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-app-detection-metrics.png)
 
 
 Event traffic that subsides before a mitigating rule takes effect isn't represented in mitigation metrics. This can result in a difference between the web request traffic shown in the detection graphs and the allow and block metrics shown in the mitigation graphs. 
@@ -39,7 +39,7 @@ The Shield top contributors information doesn't always completely reflect the da
 
 The following screenshot shows an example **Top contributors** tab for an application layer event. 
 
-![The top contributors tab for an application layer event describes the top 5 contributors for a number of web request characteristics. The screen shows the top 5 source IP addresses, top 5 destination URLs, top 5 source countries, and top 5 user agents.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-app-event-top-contributors.png)
+![The top contributors tab for an application layer event describes the top 5 contributors for a number of web request characteristics. The screen shows the top 5 source IP addresses, top 5 destination URLs, top 5 source countries, and top 5 user agents.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-app-event-top-contributors.png)
 
 
 Contributor information is based on requests for both legitimate and potentially unwanted traffic. Larger volume events and events where the request sources aren't highly distributed are more likely to have identifiable top contributors. A significantly distributed attack could have any number of sources, making it hard to identify top contributors to the attack. If Shield Advanced doesn't identify significant contributors for a specific category, it displays the data as unavailable. 

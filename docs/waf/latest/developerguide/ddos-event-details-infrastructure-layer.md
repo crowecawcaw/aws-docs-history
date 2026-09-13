@@ -18,7 +18,7 @@ Shield automatically creates a mitigation for the protected resource types Elast
 
 The following screenshot shows an example **Detection and mitigation** tab for an infrastructure layer event. 
 
-![The detection and mitigation graphs for a network event show increasing SYN flood and packet flood traffic in the detection metrics, matched by a an increase in mitigations that drop traffic a few seconds later, in the mitigation metrics. After about thirty seconds of increased mitigations, the traffic floods stop.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-network-event-detection-mitigation.png)
+![The detection and mitigation graphs for a network event show increasing SYN flood and packet flood traffic in the detection metrics, matched by a an increase in mitigations that drop traffic a few seconds later, in the mitigation metrics. After about thirty seconds of increased mitigations, the traffic floods stop.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-network-event-detection-mitigation.png)
 
 
 Event traffic that subsides before Shield places a mitigation isn't represented in the mitigation metrics. This can result in a difference between the traffic shown in the detection graphs and the pass and drop metrics shown in the mitigation graphs. 
@@ -30,7 +30,7 @@ The **Top contributors** tab for infrastructure layer events lists metrics for u
 
 The following screenshot shows an example **Top contributors** tab for an infrastructure layer event. 
 
-![The top contributors tab for a network event shows the categories of traffic that contributed the most to the event. The categories in this case include volume by protocol, volume by protocol and destination port, volume by protocol and source ASN, and volume by TCP flags.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-network-event-top-contributors.png)
+![The top contributors tab for a network event shows the categories of traffic that contributed the most to the event. The categories in this case include volume by protocol, volume by protocol and destination port, volume by protocol and source ASN, and volume by TCP flags.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-network-event-top-contributors.png)
 
 
 Contributor metrics are based on sampled network flows for both legitimate and potentially unwanted traffic. Larger volume events and events where the traffic sources aren't highly distributed are more likely to have identifiable top contributors. A significantly distributed attack could have any number of sources, making it hard to identify top contributors to the attack. If Shield doesn't identify any significant contributors for a specific metric or category, it displays the data as unavailable. 

@@ -35,4 +35,4 @@ You can view information for count action matches in one of two places.
 In the dashboard graph panes, you can access the CloudWatch metrics for the graphed data. Choose the option at the top of the graph pane or from the **⋮** (vertical ellipsis) dropdown menu inside the pane. 
 
 **Refreshing the dashboards**  
-The dashboards don't refresh automatically. To update the display, choose the refresh ![Icon to refresh the dashboard graph](http://docs.aws.amazon.com/waf/latest/developerguide/images/cloudwatch-refresh-icon.png) icon.
+The dashboards don't refresh automatically. To update the display, choose the refresh ![Icon to refresh the dashboard graph](https://docs.aws.amazon.com/waf/latest/developerguide/images/cloudwatch-refresh-icon.png) icon.

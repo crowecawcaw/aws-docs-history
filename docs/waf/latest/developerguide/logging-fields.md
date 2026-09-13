@@ -36,9 +36,6 @@ The IP address of the client sending the request.
 **country**  
 The source country of the request. If AWS WAF is unable to determine the country of origin, it sets this field to `-`. 
 
-**country**  
-The source country of the request. If AWS WAF is unable to determine the country of origin, it sets this field to `-`. 
-
 **excludedRules**  
 Used only for rule group rules. The list of rules in the rule group that you have excluded. The action for these rules is set to Count.   
 If you override a rule to count using the override rule action option, matches aren't listed here. They're listed as the action pairs `action` and `overriddenAction`.    

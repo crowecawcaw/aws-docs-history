@@ -17,19 +17,19 @@ The following screenshot depicts the traffic overview for a protection pack (web
 
 Inside the all traffic dashboard are the action totals for the various terminating actions. Each pane lists the request count and shows an up/down arrow indicating the change since the prior three hours time range. 
 
-![The AWS WAF console shows the protection pack (web ACL) page Traffic overview tab with the default data filters selected. The terminating rule action options are Block, Allow, CAPTCHA, and Challenge. Below the data filters section are tabs for all traffic, Bot Control, and Account takeover prevention.](http://docs.aws.amazon.com/waf/latest/developerguide/images/web-acl-dashboard-data-filters-default-top-actions.png)
+![The AWS WAF console shows the protection pack (web ACL) page Traffic overview tab with the default data filters selected. The terminating rule action options are Block, Allow, CAPTCHA, and Challenge. Below the data filters section are tabs for all traffic, Bot Control, and Account takeover prevention.](https://docs.aws.amazon.com/waf/latest/developerguide/images/web-acl-dashboard-data-filters-default-top-actions.png)
 
 
 **Example screen: **Bot Control** dashboard action counts**  
 The following screenshot depicts action counts for the Bot Control dashboard. This shows the same totals panes for the time range, but the counts are only for requests that the Bot Control rule group evaluated. Farther down, in the **Action totals** pane, you can see the action counts throughout the specified three-hour time range. For this time range, the CAPTCHA action wasn't applied to any of the requests that the rule group evaluated.
 
-![The AWS WAF console shows the top portion of the Bot Control dashboard, with action totals for the time range and action totals throughout the time range.](http://docs.aws.amazon.com/waf/latest/developerguide/images/web-acl-dashboard-bot-action-totals.png)
+![The AWS WAF console shows the top portion of the Bot Control dashboard, with action totals for the time range and action totals throughout the time range.](https://docs.aws.amazon.com/waf/latest/developerguide/images/web-acl-dashboard-bot-action-totals.png)
 
 
 **Example screen: **AI Traffic Analysis dashboard** dashboard action counts**  
 The following screenshot depicts the AI Traffic Analysis dashboard for a protection pack (web ACL). The dashboard shows AI bot activity over the selected time range with filters for bot organization, intent type, and verification status.
 
-![The AWS WAF console shows the top portion of the AI Traffic Analysis dashboard, with top crawlers and top paths for the time range and action totals throughout the time range.](http://docs.aws.amazon.com/waf/latest/developerguide/images/waf-phantom-edge-dashboard.png)
+![The AWS WAF console shows the top portion of the AI Traffic Analysis dashboard, with top crawlers and top paths for the time range and action totals throughout the time range.](https://docs.aws.amazon.com/waf/latest/developerguide/images/waf-phantom-edge-dashboard.png)
 
 
 The dashboard includes:
@@ -44,7 +44,7 @@ The following screenshot depicts two of the summary graphics available in the Bo
 
 Hovering over any area in the graph brings up the available information details. In the **Token status** pane in this screenshot, the mouse is hovering over a point in time, without being on any graph line, so the console displays the data for all lines at that point in time. 
 
-![The AWS WAF console shows two panes for Token status and IP token absent thresholds, with similar graph lines for blocked and challenged requests in each pane. The Token status pane also has a graph for allowed requests.](http://docs.aws.amazon.com/waf/latest/developerguide/images/web-acl-dashboard-bot-token-panes.png)
+![The AWS WAF console shows two panes for Token status and IP token absent thresholds, with similar graph lines for blocked and challenged requests in each pane. The Token status pane also has a graph for allowed requests.](https://docs.aws.amazon.com/waf/latest/developerguide/images/web-acl-dashboard-bot-token-panes.png)
 
 
 This section shows just a few of the traffic summaries that are provided in the protection pack (web ACL) traffic overview dashboards. To see the dashboards for any of your protection packs (web ACLs), open the protection pack (web ACL)'s page in the console. For information about how to do this, see the guidance at [Viewing the dashboards for a protection pack (web ACL)](web-acl-dashboards-accessing.md).

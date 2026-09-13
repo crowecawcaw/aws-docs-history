@@ -46,6 +46,6 @@ If you change the name of a rule and you want the rule's metric name to reflect 
    + If you recently associated a protection pack (web ACL) with an AWS resource, you might need to wait a few minutes for data to appear in the graph and for the metric for the protection pack (web ACL) to appear in the list of available metrics.
    + If you associate more than one resource with a protection pack (web ACL), the CloudWatch data will include requests for all of them.
    + You can hover the cursor over a data point to get more information.
-   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](http://docs.aws.amazon.com/waf/latest/developerguide/images/cloudwatch-refresh-icon.png)) icon.
+   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](https://docs.aws.amazon.com/waf/latest/developerguide/images/cloudwatch-refresh-icon.png)) icon.
 
 For more information about CloudWatch metrics, see [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md). 

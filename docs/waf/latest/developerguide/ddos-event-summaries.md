@@ -13,7 +13,7 @@ You can view summary and detail information for an event in the event's console 
 
 The following screenshot shows an example event summary for a network layer event. 
 
-![The summary pane of the AWS Shield console event page lists information for an event and includes the affected AWS resource, attack vectors, start and end times, and mitigation and status information.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-event-summary2.png)
+![The summary pane of the AWS Shield console event page lists information for an event and includes the affected AWS resource, attack vectors, start and end times, and mitigation and status information.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-event-summary2.png)
 
 
 The event page summary information includes the following. 

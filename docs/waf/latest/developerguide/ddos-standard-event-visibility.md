@@ -11,7 +11,7 @@ This page provides instructions for accessing an aggregated view of global threa
 
 The following screenshot shows an example **Getting Started** page. 
 
-![The AWS Shield console shows the Getting started page, containing the global threat and account event summary panes.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-global-account.png)
+![The AWS Shield console shows the Getting started page, containing the global threat and account event summary panes.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-global-account.png)
 
 
 **To access the AWS Shield console**
@@ -22,7 +22,7 @@ You don't need a subscription to Shield Advanced to access global activity and a
 **Global activity**  
  This information is available through the AWS Shield console **Global threat dashboard** and **Getting Started** pages. The following screenshot shows an example of the global activity pane. 
 
-![A AWS Shield console pane titled Global activity detected by Shield shows a world map superimposed by heatmap markings for areas where global threats have been detected in the last two weeks.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-global-activity.png)
+![A AWS Shield console pane titled Global activity detected by Shield shows a world map superimposed by heatmap markings for areas where global threats have been detected in the last two weeks.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-global-activity.png)
 
 
 Global activity describes DDoS events observed across all AWS customers. Once per hour, AWS updates the information for the prior two weeks. In the console pane, you can see the results, partitioned by AWS Region and displayed on a world heat map. Next to the map, Shield displays summary information such as the largest packet attack, largest bit rate, most common vector, total number of attacks, and threat level. The threat level is an assessment of the current global activity compared to what AWS typically observes. The default threat level value is **Normal**. AWS automatically updates the value to **High** for elevated DDoS activity. 
@@ -34,7 +34,7 @@ This information is available in the AWS Shield console **Getting Started** page
 
 The following screenshot shows an example account activity pane. 
 
-![A AWS Shield console pane titled Account activity detected by Shield lists a summary of events for the past year, with information like the total number of events and the largest packet rate and request rate.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-account-activity.png)
+![A AWS Shield console pane titled Account activity detected by Shield lists a summary of events for the past year, with information like the total number of events and the largest packet rate and request rate.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-account-activity.png)
 
 
 Account activity describes DDoS events that Shield detected for your resources that are eligible for protection by Shield Advanced. Each day, Shield creates summary metrics for the year ending at 00:00 UTC the prior day, and then displays total events, largest bit rate, largest packet rate, and largest request rate. 

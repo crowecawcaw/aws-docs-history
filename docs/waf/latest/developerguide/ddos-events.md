@@ -20,14 +20,14 @@ You can access event summaries and details through the **Events** page of the Sh
 
 The following screenshot shows an example **Events** page with a single ongoing event. This active event is also flagged in the left navigation pane. 
 
-![The AWS Shield console left navigation pane has the Events selection highlighted in red, with a numeral 1 beside it, inside a red circle. The Events page is open, and shows a single row in the events list. The row lists an AWS resource of type CloudFront distribution. The Current status field contains a triangular red icon next to the words Mitigation in progress. The Attack vectors status field contains UDP traffic. The Start time field contains Sep 16th 2020, 2:43:00 pm SAST. The Duration field contains 6 minutes.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-event-summary1.png)
+![The AWS Shield console left navigation pane has the Events selection highlighted in red, with a numeral 1 beside it, inside a red circle. The Events page is open, and shows a single row in the events list. The row lists an AWS resource of type CloudFront distribution. The Current status field contains a triangular red icon next to the words Mitigation in progress. The Attack vectors status field contains UDP traffic. The Start time field contains Sep 16th 2020, 2:43:00 pm SAST. The Duration field contains 6 minutes.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-event-summary1.png)
 
 
 Shield Advanced might also automatically place mitigations against attacks, depending on the traffic type and on your configured protections. These mitigations can protect your resource from receiving excess traffic or traffic that matches a known DDoS attack signature.
 
 The following screenshot shows an example **Events** listing where all events have been mitigated by Shield Advanced or have subsided on their own. 
 
-![A AWS Shield console page titled Events lists events that have been detected recently and their current status.](http://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-events.png)
+![A AWS Shield console page titled Events lists events that have been detected recently and their current status.](https://docs.aws.amazon.com/waf/latest/developerguide/images/shield-console-events.png)
 
 
 **Protect your resources before an event**  

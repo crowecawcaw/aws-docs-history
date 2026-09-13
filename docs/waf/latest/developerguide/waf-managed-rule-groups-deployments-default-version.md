@@ -11,7 +11,7 @@ When AWS determines that a new static version provides improved protections for 
 
 The following diagram shows the state of the example rule group versions after AWS moves the default version setting to the new static version. 
 
-![This is similar to the typical version states figure, but with Version_1.5 on the top of the stack and the default indicator pointing to it.](http://docs.aws.amazon.com/waf/latest/developerguide/images/amr-rg-versions-new-default-diagram.png)
+![This is similar to the typical version states figure, but with Version_1.5 on the top of the stack and the default indicator pointing to it.](https://docs.aws.amazon.com/waf/latest/developerguide/images/amr-rg-versions-new-default-diagram.png)
 
 
 Before deploying this change to the default version, AWS provides notifications so that you can test and prepare for the upcoming changes. If you use the default version, you can take no action and remain on it through the update. If instead you want to delay switching to the new version, before the planned start of the default version deployment, you can explicitly configure your rule group to use the static version that the default is set to. 

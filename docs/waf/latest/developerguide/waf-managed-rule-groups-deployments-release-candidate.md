@@ -34,7 +34,7 @@ AWS performs the following steps for a release candidate deployment:
     You'll see the default version's name change from the one that indicates only the static version, such as `Default (using Version_1.4)`, to one that indicates the static version plus the release candidate rules, such as `Default (using Version_1.4_PLUS_RC_COUNT)`. This naming scheme lets you identify which static version you're using to manage your web traffic. 
 
    The following diagram shows the state of the example rule group versions at this point.   
-![At the top of the figure are three stacked static versions, with Version_1.4 on the top. Separate from the static versions stack is the version Version_1.4_PLUS_RC_COUNT. This version contains the rules from Version_1.4 and it also contains two release candidate rules, RuleB_RC_COUNT and RuleZ_RC_COUNT, both with count action. The default version indicator points to Version_1.4_PLUS_RC_COUNT.](http://docs.aws.amazon.com/waf/latest/developerguide/images/amr-rg-versions-rc-diagram.png)
+![At the top of the figure are three stacked static versions, with Version_1.4 on the top. Separate from the static versions stack is the version Version_1.4_PLUS_RC_COUNT. This version contains the rules from Version_1.4 and it also contains two release candidate rules, RuleB_RC_COUNT and RuleZ_RC_COUNT, both with count action. The default version indicator points to Version_1.4_PLUS_RC_COUNT.](https://docs.aws.amazon.com/waf/latest/developerguide/images/amr-rg-versions-rc-diagram.png)
 
    The release candidate rules are always configured with Count action, so they don't alter how the rule group manages web traffic. 
 
@@ -45,7 +45,7 @@ AWS performs the following steps for a release candidate deployment:
 1. **Return the default version to the recommended static version** – After testing the release candidate rules, AWS sets the default version back to the current recommended static version. The default version name setting drops the `_PLUS_RC_COUNT` ending, and the rule group stops generating CloudWatch count metrics for the release candidate rules. This is a silent change, and is not the same as a deployment of a default version rollback.
 
    The following diagram shows the state of the example rule group versions after the testing of the release candidate is complete.   
-![This is the typical version states figure again. Three static versions Version_1.2, Version_1.3, and Version_1.4 are stacked with Version_1.4 on the top. Version_1.4 has two rules, RuleA and RuleB, both with production action. A default version indicator points to Version_1.4.](http://docs.aws.amazon.com/waf/latest/developerguide/images/amr-rg-versions-rc-complete-diagram.png)
+![This is the typical version states figure again. Three static versions Version_1.2, Version_1.3, and Version_1.4 are stacked with Version_1.4 on the top. Version_1.4 has two rules, RuleA and RuleB, both with production action. A default version indicator points to Version_1.4.](https://docs.aws.amazon.com/waf/latest/developerguide/images/amr-rg-versions-rc-complete-diagram.png)
 
 **Timing and notifications**  
 AWS deploys release candidate versions on an as-needed basis, to test improvements to a rule group. 
