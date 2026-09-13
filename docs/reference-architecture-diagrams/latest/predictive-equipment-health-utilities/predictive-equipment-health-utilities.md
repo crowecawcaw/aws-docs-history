@@ -10,7 +10,7 @@ With this architecture, you can build a modern, end-to-end, field-to-cloud solut
 ## Predictive equipment health diagram
 <a name="peh-diagram"></a>
 
-![Reference architecture diagram showing how to ingest utility asset data and predict equipment health by using AWS IoT SiteWise, SageMaker AI, Forecast, and Amazon S3.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/predictive-equipment-health-utilities/images/predictive-equipment-health-utilities.png)
+![Reference architecture diagram showing how to ingest utility asset data and predict equipment health by using AWS IoT SiteWise, SageMaker AI, Forecast, and Amazon S3.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/predictive-equipment-health-utilities/images/predictive-equipment-health-utilities.png)
 
 
 The following steps describe the data flow and analytics pipeline for this architecture:
