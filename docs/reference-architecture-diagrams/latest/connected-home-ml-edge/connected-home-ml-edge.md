@@ -10,7 +10,7 @@ With this architecture, you can run machine learning (ML) inference on Internet 
 ## Connected home ML at the edge diagram
 <a name="home-ml-diagram"></a>
 
-![Reference architecture diagram showing how to run ML inference on IoT home devices by using AWS IoT Greengrass, SageMaker AI, Amazon Data Firehose, and Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-home-ml-edge/images/connected-home-ml-edge.png)
+![Reference architecture diagram showing how to run ML inference on IoT home devices by using AWS IoT Greengrass, SageMaker AI, Amazon Data Firehose, and Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-home-ml-edge/images/connected-home-ml-edge.png)
 
 
 The following steps describe the architecture:
