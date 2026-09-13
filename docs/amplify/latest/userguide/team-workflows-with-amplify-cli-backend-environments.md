@@ -14,7 +14,7 @@ Amplify Hosting continuously deploys backend resources such as GraphQL APIs and 
 + Map the **test** backend to the **develop** branch.
 + Team members can use the **dev** backend environment for testing individual **feature** branches.
 
-![A diagram that shows how to map relationships from backend environments to frontend branches.](http://docs.aws.amazon.com/amplify/latest/userguide/images/FeatureBranchWorkflow.png)
+![A diagram that shows how to map relationships from backend environments to frontend branches.](https://docs.aws.amazon.com/amplify/latest/userguide/images/FeatureBranchWorkflow.png)
 
 
 1. Install the Amplify CLI to initialize a new Amplify project.
@@ -59,15 +59,15 @@ Amplify Hosting continuously deploys backend resources such as GraphQL APIs and 
    ```
 
 1. Visit Amplify in the AWS Management Console to see your current backend environment. Navigate a level up from the breadcrumb to view a list of all backend environments created in the **Backend environments** tab.  
-![The Amplify console showing the backend environments associated with an Amplify app.](http://docs.aws.amazon.com/amplify/latest/userguide/images/reuse-backend-5.png)
+![The Amplify console showing the backend environments associated with an Amplify app.](https://docs.aws.amazon.com/amplify/latest/userguide/images/reuse-backend-5.png)
 
 1. Switch to the **Frontend environments** tab and connect your repository provider and *main* branch.
 
 1. On the build settings page, select an existing backend environment to set up continuous deployment with the main branch. Choose *prod* from the list and grant the service role to Amplify. Choose **Save and deploy**. After the build completes you will get a main branch deployment available at *https://main.appid.amplifyapp.com*.  
-![The Configure build settings page with a list of existing backends.](http://docs.aws.amazon.com/amplify/latest/userguide/images/reuse-backend-2.png)
+![The Configure build settings page with a list of existing backends.](https://docs.aws.amazon.com/amplify/latest/userguide/images/reuse-backend-2.png)
 
 1. Connect *develop* branch in Amplify (assume *develop* and *main* branch are the same at this point). Choose the *test* backend environment.  
-![The Add repository branch page with a branch and backend environment selected.](http://docs.aws.amazon.com/amplify/latest/userguide/images/reuse-backend-4.png)
+![The Add repository branch page with a branch and backend environment selected.](https://docs.aws.amazon.com/amplify/latest/userguide/images/reuse-backend-4.png)
 
 1. Amplify is now set up. You can start working on new features in a feature branch. Add backend functionality by using the *dev* backend environment from your local workstation.
 
@@ -118,7 +118,7 @@ GitFlow uses two branches to record the history of the project. The *main* branc
 
 The diagram below shows a recommended setup with GitFlow. You can follow the same process as described in the feature branch workflow section above.
 
-![A diagram that shows a recommended setup with GitFlow.](http://docs.aws.amazon.com/amplify/latest/userguide/images/GitflowWorkflow.png)
+![A diagram that shows a recommended setup with GitFlow.](https://docs.aws.amazon.com/amplify/latest/userguide/images/GitflowWorkflow.png)
 
 
 ## Per-developer sandbox
@@ -126,7 +126,7 @@ The diagram below shows a recommended setup with GitFlow. You can follow the sam
 + Each developer in a team creates a sandbox environment in the cloud that is separate from their local computer. This allows developers to work in isolation from each other without overwriting other team members’ changes.
 + Each branch in Amplify has its own backend. This ensures that the Amplify uses the Git repository as a single source of truth from which to deploy changes, rather than relying on developers on the team to manually push their backend or front end to production from their local computers.
 
-![A diagram that shows a per developer sandbox workflow.](http://docs.aws.amazon.com/amplify/latest/userguide/images/AmplifySandboxWorkflow.png)
+![A diagram that shows a per developer sandbox workflow.](https://docs.aws.amazon.com/amplify/latest/userguide/images/AmplifySandboxWorkflow.png)
 
 
 1. Install the Amplify CLI to initialize a new Amplify project.

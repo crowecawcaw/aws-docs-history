@@ -24,10 +24,10 @@ If you don't see a solution to your issue here, contact Support. For more inform
 <a name="how-do-i-verify-that-my-cname-resolves"></a>
 
 1. After you update your DNS records with your third-party domain provider, you can use a tool such as [dig](https://en.wikipedia.org/wiki/Dig_(command)) or a free website such as [https://www.whatsmydns.net/](https://www.whatsmydns.net/) to verify that your CNAME record is resolving correctly. The following screenshot demonstrates how to use whatsmydns.net to check your CNAME record for the domain **www.example.com**.  
-![The whatsmydns.net application, where you enter the name of a website to check.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-troubleshooting-whatsmydns-1Update.png)
+![The whatsmydns.net application, where you enter the name of a website to check.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-troubleshooting-whatsmydns-1Update.png)
 
 1. Choose **Search**, and **whatsmydns.net** displays the results for your CNAME. The following screenshot is an example of a list of results that verify that the CNAME resolves correctly to a cloudfront.net URL.  
-![The whatsmydns.net application showing the results of a resolving CNAME.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-troubleshooting-whatsmydns-2Update.png)
+![The whatsmydns.net application showing the results of a resolving CNAME.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-troubleshooting-whatsmydns-2Update.png)
 
 ## My domain hosted with a third-party is stuck in the Pending Verification state
 <a name="my-domain-hosted-with-a-third-party-is-stuck-in-the-pending-verification-state"></a>
@@ -50,10 +50,10 @@ If you transferred your domain to Amazon Route 53, it is possible that your dom
 1. In the navigation pane, choose **Hosted Zones** and then choose the name of the domain you are connecting.
 
 1. Record the name server values from the **Hosted Zone Details** section. You need these values to complete the next step. The following screenshot of the Route 53 console displays the location of the name server values in the lower-right corner.  
-![The Hosted Zone Details section in the Route 53 console displaying the name server values.](http://docs.aws.amazon.com/amplify/latest/userguide/images/1555952748759-111.png)
+![The Hosted Zone Details section in the Route 53 console displaying the name server values.](https://docs.aws.amazon.com/amplify/latest/userguide/images/1555952748759-111.png)
 
 1. In the navigation pane, choose **Registered domains**. Verify that the name servers displayed on the **Registered domains** section match the name server values that you recorded in the previous step from the **Hosted Zone Details** section. If they do not match, edit the name server values to match the values in your **Hosted Zone**. The following screenshot of the Route 53 console displays the location of the name server values on the right side.  
-![The Registered domains section of the Route 53 console displaying the name server values.](http://docs.aws.amazon.com/amplify/latest/userguide/images/1555952748759-607.png)
+![The Registered domains section of the Route 53 console displaying the name server values.](https://docs.aws.amazon.com/amplify/latest/userguide/images/1555952748759-607.png)
 
 1. If this doesn't resolve the issue, contact Support. For more information, see [Creating a support case](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case) in the *AWS Support User Guide*.
 

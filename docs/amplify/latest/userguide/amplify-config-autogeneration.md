@@ -17,10 +17,10 @@ Amplify supports the automatic build-time generation of the Amplify config `aws-
 1. Choose the **Hosting environments** tab.
 
 1. Locate the branch to edit and choose **Edit**.  
-![The location of the Edit link for a branch in the Amplify console.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify_edit_backend_alternate.png)
+![The location of the Edit link for a branch in the Amplify console.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify_edit_backend_alternate.png)
 
 1. On the **Edit target backend** page, uncheck **Enable full-stack continuous deployments (CI/CD)** to turn off full-stack CI/CD for this backend.  
-![The location of the checkbox to turn off CI/CD in the Amplify console.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify_turnoff_CICD.png)
+![The location of the checkbox to turn off CI/CD in the Amplify console.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify_turnoff_CICD.png)
 
 1. Select an existing service role to give Amplify the permissions it requires to make changes to your app backend. If you need to create a service role, choose **Create new role**. For more information about creating a service role, see [Adding a service role with permissions to deploy backend resources](amplify-service-role.md).
 

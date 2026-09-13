@@ -8,7 +8,7 @@ One-click deployment using the **Deploy to Amplify Hosting** button is no longer
 
 The **Deploy to Amplify Hosting** button enables you to share GitHub projects publicly or within your team. The following is an image of the button:
 
-![The Deploy to Amplify Hosting button.](http://docs.aws.amazon.com/amplify/latest/userguide/images/OneClickButton.png)
+![The Deploy to Amplify Hosting button.](https://docs.aws.amazon.com/amplify/latest/userguide/images/OneClickButton.png)
 
 
 ## Adding the Deploy to Amplify Hosting button to a repository or blog

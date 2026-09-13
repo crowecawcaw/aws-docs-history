@@ -82,7 +82,7 @@ Use the following instructions to create a simple database using the Amplify Stu
 1. For **Field name**, enter **Description**.
 
    The following screenshot is an example of how your data model will look in the designer.  
-![The Amplify Studio UI for creating a data model.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-deploy-backend-1.png)
+![The Amplify Studio UI for creating a data model.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-deploy-backend-1.png)
 
 1. Choose **Save and Deploy**.
 
@@ -114,7 +114,7 @@ Now you can configure the build process to add the backend to the continuous dep
 1. On the app homepage, choose the **Hosting environments** tab.
 
 1. Locate the **main** branch and choose **Edit**.  
-![The location of the Edit link for a branch in the Amplify console.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify_edit_backend_alternate.png)
+![The location of the Edit link for a branch in the Amplify console.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify_edit_backend_alternate.png)
 
 1. In the **Edit target backend** window, for **Environment**, select the name of the backend to connect. In this example, choose the **staging** backend that you created in *Step 2*. 
 

@@ -52,7 +52,7 @@ Use the following procedure to specify whether to include or exclude cookies fro
 1. Choose **Advanced settings**, then locate the **Cache key settings** section.
 
 1. Choose either **Keep cookies in cache key** or **Remove cookies from cache key**. The following screenshot shows the **Cache key settings** toggle in the console.  
-![Screenshot of the Cache key settings toggle in the Amplify console.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-caching-1.png)
+![Screenshot of the Cache key settings toggle in the Amplify console.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-caching-1.png)
 
 1. Choose **Next**.
 
@@ -74,6 +74,6 @@ You can change the cache key cookie configuration for an app that is already dep
 1. On the **Custom headers and cache** page, locate the **Cache key settings** section and choose **Edit**.
 
 1. Choose either **Keep cookies in cache key** or **Remove cookies from cache key**. The following screenshot shows the **Cache key settings** toggle in the console.  
-![Screenshot of the Cache key settings toggle in the Amplify console.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-caching-1.png)
+![Screenshot of the Cache key settings toggle in the Amplify console.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-caching-1.png)
 
 1. Choose **Save**.

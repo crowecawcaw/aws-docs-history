@@ -37,7 +37,7 @@ Use the following instructions to set environment variables for an application i
    + **Connecting a branch to a new app**
 
      1. On the **Build settings** page, locate the **Select a backend environment to use with this branch** section. For **Environment**, choose **Create new environment**, and enter the name of your backend environment. The following screenshot shows the **Select a backend environment to use with this branch** section of the **Build settings** page with **backend** entered for the backend environment name.  
-![The Select a backend environment to use with this branch section of the Build settings page.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-newenvironment-1.png)
+![The Select a backend environment to use with this branch section of the Build settings page.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-newenvironment-1.png)
 
      1. Expand the **Advanced settings** section on the **Build settings** page and add environment variables for social sign-in keys. For example, **AMPLIFY\_FACEBOOK\_CLIENT\_SECRET** is a valid environment variable. For the list of Amplify system environment variables that are available by default, see the table in [Amplify environment variable reference](environment-variables.md#amplify-console-environment-variables).
    + **Connecting a branch to an existing app**

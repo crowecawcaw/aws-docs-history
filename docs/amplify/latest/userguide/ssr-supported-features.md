@@ -233,7 +233,7 @@ When you deploy an SSR app, Amplify creates a rewrite rule for your CloudFront S
 
 To view or edit an app's rewrite and redirect rules in the Amplify console, in the navigation pane, choose **App settings**, then **Rewrites and redirects**. The following screenshot shows an example of the rewrite rules that Amplify creates for you when you deploy an SSR app. Notice that in this example, a CloudFront rewrite rule exists.
 
-![The Rewrites and redirects page for an SSR app.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-ssr-troubleshooting1.png)
+![The Rewrites and redirects page for an SSR app.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-ssr-troubleshooting1.png)
 
 
 #### My application is too large to deploy

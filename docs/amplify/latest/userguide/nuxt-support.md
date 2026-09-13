@@ -14,4 +14,4 @@ To learn how to deploy a Nuxt.js app to Amplify, see [Deploy a Nuxt.js app to Am
 **Demo**  
 For a video demonstration, see *Nuxt Hosting With ZERO Configuration In Minutes (With AWS)* on YouTube.  
 
-[![AWS Videos](http://img.youtube.com/vi/CAk5_XGkOG4/0.jpg)](http://www.youtube.com/watch?v=CAk5_XGkOG4)
+[![AWS Videos](https://img.youtube.com/vi/CAk5_XGkOG4/0.jpg)](https://www.youtube.com/watch?v=CAk5_XGkOG4)

@@ -26,7 +26,7 @@ If GoDaddy is your DNS provider, use the following instructions to update your D
    1. For **Value**, look at your DNS records in the Amplify console and then enter the value. If the Amplify console displays the domain for your app as **d111111abcdef8.cloudfront.net**, enter **d111111abcdef8.cloudfront.net** for **Value**.
 
       The following screenshot shows the location of the domain name record to use.  
-![The DNS records in the Amplify console, including the domain name record.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification3.png)
+![The DNS records in the Amplify console, including the domain name record.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification3.png)
 
    1. Choose **Save**.
 
@@ -39,14 +39,14 @@ If GoDaddy is your DNS provider, use the following instructions to update your D
       For example, if the DNS record in the Amplify console for verifying ownership of your subdomain is **\_c3e2d7eaf1e656b73f46cd6980fdc0e.example.com**, enter only **\_c3e2d7eaf1e656b73f46cd6980fdc0e** for **Name**.
 
       The following screenshot shows the location of the verification record to use.  
-![The DNS records section in the Amplify console with the Hostname verification record circled](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification-1.png)
+![The DNS records section in the Amplify console with the Hostname verification record circled](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification-1.png)
 
    1. For **Value**, enter the ACM validation certificate.
 
       For example, if the validation server is **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws**, enter **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws** for **Value**.
 
       The following screenshot shows the location of the ACM verification record to use.  
-![The DNS records in the Amplify console, including the ACM verification record.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification2.png)
+![The DNS records in the Amplify console, including the ACM verification record.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification2.png)
 
    1. Choose **Save**.
 **Note**  

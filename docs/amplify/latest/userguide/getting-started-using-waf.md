@@ -18,7 +18,7 @@ Use the following procedure to enable AWS WAF for an existing app in the Amplify
 1. In the navigation pane, choose **Hosting**, and then choose **Firewall**.
 
    The following screenshot shows how to navigate to the **Add firewall** page in the Amplify console.  
-![The Amplify console Add firewall page.](http://docs.aws.amazon.com/amplify/latest/userguide/images/Amplify-WAF-1.png)
+![The Amplify console Add firewall page.](https://docs.aws.amazon.com/amplify/latest/userguide/images/Amplify-WAF-1.png)
 
 1. On the **Add firewall** page, your actions will depend on whether you want to create a new AWS WAF configuration or use an existing one.
    + Create a new AWS WAF configuration.
@@ -46,7 +46,7 @@ Use the following procedure to enable AWS WAF for an existing app in the Amplify
            1. For **Countries**, select either your allowed or blocked countries from the list.
 
      The following screenshot demonstrates how to enable a new AWS WAF configuration for an app.   
-![The Amplify console Add firewall with all of the firewall settings enabled.](http://docs.aws.amazon.com/amplify/latest/userguide/images/Amplify-WAF-2.png)
+![The Amplify console Add firewall with all of the firewall settings enabled.](https://docs.aws.amazon.com/amplify/latest/userguide/images/Amplify-WAF-2.png)
    + Use an existing AWS WAF configuration.
 
      1. Choose **Use existing AWS WAF configuration**.
@@ -58,5 +58,5 @@ Use the following procedure to enable AWS WAF for an existing app in the Amplify
 1. On the **Firewall** page, the **Associating** status is displayed to indicate that the AWS WAF settings are being propagated. When the process is complete, the status changes to **Enabled**.
 
    The following screenshots show the firewall progress status in the Amplify console, indicating when the AWS WAF configuration is **Associating** and **Enabled**.  
-![The Amplify console Firewall status progress in the Associating state.](http://docs.aws.amazon.com/amplify/latest/userguide/images/Amplify-WAF-3.png)  
-![The Amplify console Firewall status progress in the Enabled state.](http://docs.aws.amazon.com/amplify/latest/userguide/images/Amplify-WAF-4.png)
+![The Amplify console Firewall status progress in the Associating state.](https://docs.aws.amazon.com/amplify/latest/userguide/images/Amplify-WAF-3.png)  
+![The Amplify console Firewall status progress in the Enabled state.](https://docs.aws.amazon.com/amplify/latest/userguide/images/Amplify-WAF-4.png)

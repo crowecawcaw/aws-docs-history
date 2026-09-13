@@ -84,7 +84,7 @@ Amplify enables you to reuse existing backend environments across all of your Ge
 1. Choose the **Hosting environments** tab.
 
 1. Locate the branch to edit and choose **Edit**.  
-![The location of the Edit link for a branch in the Amplify console.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify_edit_backend.png)
+![The location of the Edit link for a branch in the Amplify console.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify_edit_backend.png)
 
 1. On the **Select a backend environment to use with this branch** page, for **App name**, select the frontend app that you want to edit the backend environment for. You can choose the current app or any other app in the current region.
 

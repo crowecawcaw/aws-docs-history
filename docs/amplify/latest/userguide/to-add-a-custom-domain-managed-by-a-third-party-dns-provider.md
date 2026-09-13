@@ -62,7 +62,7 @@ If you are using Cloudflare, see [Updating DNS records for a domain managed by C
    If you chose **Manual configuration**, in step six, you must update your DNS records with your third-party domain provider. 
 
    On the **Actions** menu, choose **View DNS records**. The following screenshot shows the DNS records displayed in the console.  
-![The DNS records displayed in the Amplify console.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNSRecords.png)
+![The DNS records displayed in the Amplify console.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNSRecords.png)
 
 1. Do one of the following: 
    + If you're using GoDaddy, go to [Updating DNS records for a domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md).
@@ -76,12 +76,12 @@ If you are using Cloudflare, see [Updating DNS records for a domain managed by C
    If the Amplify console displays a DNS record for verifying ownership of your subdomain such as **\_c3e2d7eaf1e656b73f46cd6980fdc0e.example.com**, enter only ** \_c3e2d7eaf1e656b73f46cd6980fdc0e** for the CNAME record subdomain name.
 
    The following screenshot shows the location of the verification record to use.  
-![The DNS records section in the Amplify console with the Hostname verification record circled.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification-1.png)
+![The DNS records section in the Amplify console with the Hostname verification record circled.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification-1.png)
 
    If the the Amplify console displays an ACM validation server record such as **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws**, enter **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws** for the CNAME record value.
 
    The following screenshot shows the location of the ACM verification record to use.  
-![The DNS records in the Amplify console, including the ACM verification record.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification2.png)
+![The DNS records in the Amplify console, including the ACM verification record.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification2.png)
 
    Amplify uses this information to verify ownership of your domain and generate an SSL/TLS certificate for your domain. Once Amplify validates ownership of your domain, all traffic will be served using HTTPS/2.
 **Note**  
@@ -96,7 +96,7 @@ It is important that you perform this step soon after adding your custom domain 
    If you have production traffic, we recommended you update this CNAME record after your domain status shows as **AVAILABLE** in the Amplify console.
 
    The following screenshot shows the location of the domain name record to use.  
-![The DNS records in the Amplify console, including the domain name record.](http://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification3.png)
+![The DNS records in the Amplify console, including the domain name record.](https://docs.aws.amazon.com/amplify/latest/userguide/images/amplify-customdomains-DNS-verification3.png)
 
 1. Configure the ANAME/ALIAS record to point to the root domain of your app (for example **https://example.com**). An ANAME record points the root of your domain to a hostname. If you have production traffic, we recommended that you update your ANAME record after your domain status shows as **AVAILABLE** in the console. For DNS providers that don't have ANAME/ALIAS support, we strongly recommend migrating your DNS to Route 53. For more information, see [Configuring Amazon Route 53 as your DNS service](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring.html).
 
