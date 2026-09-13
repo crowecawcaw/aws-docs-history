@@ -5,7 +5,7 @@
 
 You can give Device Farm desktop browser testing access to an Amazon Virtual Private Cloud (Amazon VPC) environment, enabling testing of isolated, non-internet-facing services and apps through an [elastic network interface](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ElasticNetworkInterfaces.html). For more information on VPCs, see the [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/).
 
-![Diagram showing Device Farm browser testing integration with VPC, including NAT Gateway and application components.](http://docs.aws.amazon.com/devicefarm/latest/testgrid/images/TestGridVPC.png)
+![Diagram showing Device Farm browser testing integration with VPC, including NAT Gateway and application components.](https://docs.aws.amazon.com/devicefarm/latest/testgrid/images/TestGridVPC.png)
 
 
 If you have private DNS enabled within your VPC, you can use the DNS names within the VPC to access those resources.
@@ -16,7 +16,7 @@ As part of using Amazon VPC endpoints with Device Farm desktop browser testing, 
 
 Device Farm can connect to VPCs only within the `us-west-2` AWS Region. To access resources in a VPC in another Region, you must create a VPC in the `us-west-2` Region and peer the VPCs. For information on peering VPCs, see the [Amazon VPC Peering Guide](https://docs.aws.amazon.com/vpc/latest/peering/).
 
-![Architecture diagram showing VPC peering between us-west-2 and eu-west-2 regions for Device Farm testing.](http://docs.aws.amazon.com/devicefarm/latest/testgrid/images/TestGridVPC_peered.png)
+![Architecture diagram showing VPC peering between us-west-2 and eu-west-2 regions for Device Farm testing.](https://docs.aws.amazon.com/devicefarm/latest/testgrid/images/TestGridVPC_peered.png)
 
 
 For information on using AWS CloudFormation to automatically create and peer VPCs, see the [VPCPeering templates](https://github.com/awslabs/aws-cloudformation-templates/tree/master/aws/solutions/VPCPeering) in the CloudFormation template repository on GitHub.

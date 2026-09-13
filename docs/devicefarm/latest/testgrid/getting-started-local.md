@@ -7,12 +7,12 @@ If you're testing browsers locally, you can use the desktop browser testing feat
 
 Traditional local testing with Selenium involves tests that start a WebDriver component, such as `GeckoDriver` or `ChromeDriver`. These components directly interact with a browser under test, without the use of an intermediary. This means that your browsers are running where your tests are running: 
 
-![Diagram showing test suites and browsers on local computer connecting to web application.](http://docs.aws.amazon.com/devicefarm/latest/testgrid/images/testgrid-localtests-shared.png)
+![Diagram showing test suites and browsers on local computer connecting to web application.](https://docs.aws.amazon.com/devicefarm/latest/testgrid/images/testgrid-localtests-shared.png)
 
 
  A common solution is to add an intermediary, Selenium Server, that runs browsers remotely. Often, this results in your tests being run on your CI server with a headless browser. Your infrastructure now looks like this: 
 
-![Architecture diagram showing test suites connecting to Selenium Server, which connects to browsers, which connect to web application.](http://docs.aws.amazon.com/devicefarm/latest/testgrid/images/testgrid-local-ci-shared.png)
+![Architecture diagram showing test suites connecting to Selenium Server, which connects to browsers, which connect to web application.](https://docs.aws.amazon.com/devicefarm/latest/testgrid/images/testgrid-local-ci-shared.png)
 
 
 When you use Selenium Server (or Selenium Grid), you create a `RemoteWebDriver` instance that acts as a stand-in for your browser-specific `WebDriver`. 
