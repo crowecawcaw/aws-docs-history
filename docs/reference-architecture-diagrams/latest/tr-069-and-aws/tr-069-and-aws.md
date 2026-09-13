@@ -10,7 +10,7 @@ With this architecture, you can connect TR-069 customer premises equipment (CPE)
 ## TR-069 and AWS diagram
 <a name="tr069-diagram"></a>
 
-![Reference architecture diagram showing how to connect TR-069 CPE fleets with AWS for data collection, analytics, and AI/ML by using AWS IoT Core, Amazon Kinesis, and Amazon Data Firehose.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/tr-069-and-aws/images/tr-069-and-aws.png)
+![Reference architecture diagram showing how to connect TR-069 CPE fleets with AWS for data collection, analytics, and AI/ML by using AWS IoT Core, Amazon Kinesis, and Amazon Data Firehose.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/tr-069-and-aws/images/tr-069-and-aws.png)
 
 
 The following steps describe the data flow and analytics pipeline for this architecture:
