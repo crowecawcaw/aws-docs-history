@@ -10,7 +10,7 @@ With this architecture, you can ingest near real-time data from Siemens LOGO\! c
 ## Siemens LOGO\! industrial applications architecture diagram
 <a name="slogo-diagram"></a>
 
-![Reference architecture diagram for AWS industrial applications with Siemens LOGO! automation controllers.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-applications-siemens-logo/images/aws-industrial-applications-with-siemens-logo-ra.png)
+![Reference architecture diagram for AWS industrial applications with Siemens LOGO! automation controllers.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-applications-siemens-logo/images/aws-industrial-applications-with-siemens-logo-ra.png)
 
 
 The following steps describe the architecture:
