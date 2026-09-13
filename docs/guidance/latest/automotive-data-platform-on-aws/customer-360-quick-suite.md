@@ -21,10 +21,10 @@ Instead of manually sifting through data and coordinating across departments, ag
 
 Quick Suite dashboards visualize customer sentiment, NPS scores, and quality issues across all touchpoints.
 
-![Quick Suite Dashboard - Executive Summary and Trends](http://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-dashboard1.jpg)
+![Quick Suite Dashboard - Executive Summary and Trends](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-dashboard1.jpg)
 
 
-![Quick Suite Dashboard - Detailed Analytics](http://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-dashboard-2.jpg)
+![Quick Suite Dashboard - Detailed Analytics](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-dashboard-2.jpg)
 
 
 ### Dashboard components
@@ -69,7 +69,7 @@ Quick Suite integrates Bedrock agents for conversational analytics:
 
 Quick Automate combines Bedrock agents with your knowledge base to continuously monitor customer sentiment, automatically identify root causes when scores drop, and match issues to proven remediation playbooks. The result is an executive-ready report with recommended actions and approval workflows—delivered in minutes instead of days of manual analysis.
 
-![Quick Suite Automate - Workflow Configuration](http://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-automate.jpg)
+![Quick Suite Automate - Workflow Configuration](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-automate.jpg)
 
 
 ### Customer sentiment automation
@@ -270,7 +270,7 @@ Return:
 
 Quick Flows transforms the executive report from a static document into an interactive action center—one click launches a guided approval workflow that gathers context, notifies stakeholders via Slack, and routes decisions to the right people. Business users build these flows in minutes using plain English, connecting approvals to notifications without writing code or waiting on IT. The flows integrate directly with your existing tools like Slack and Task Center, so approvers act where they already work instead of logging into another system.
 
-![Quick Flows - Approval Process Configuration](http://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-flow.jpg)
+![Quick Flows - Approval Process Configuration](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-flow.jpg)
 
 
 ### Campaign approval flow
@@ -392,7 +392,7 @@ Quick Suite workflows integrate with collaboration tools.
 
 Track metrics to optimize workflows and demonstrate value.
 
-![Quick Suite Reports - Metrics Dashboard](http://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-report.jpg)
+![Quick Suite Reports - Metrics Dashboard](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/quick-suite-report.jpg)
 
 
 ### Automation metrics

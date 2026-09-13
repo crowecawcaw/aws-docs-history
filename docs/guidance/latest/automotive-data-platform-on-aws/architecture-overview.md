@@ -5,7 +5,7 @@
 
 This chapter provides a high-level overview of the Automotive Data Platform v0.2 architecture — its foundation topology, data product catalog, governance layer, and two-stage rollout model. For deploy topology detail, see [Platform foundation](platform-foundation.md). For the full data product catalog, see [Data products](data-products.md).
 
-![Automotive Data Platform Architecture Overview](http://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/mesh.png)
+![Automotive Data Platform Architecture Overview](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/mesh.png)
 
 
 **Note**  

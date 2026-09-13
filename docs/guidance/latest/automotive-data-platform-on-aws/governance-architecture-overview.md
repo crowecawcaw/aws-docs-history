@@ -5,7 +5,7 @@
 
 The Governance Framework in Automotive Data Platform solution provides a framework for managing vehicle data across multiple geographic regions with capabilities that support EU Data Act, GDPR, and regional data sovereignty requirements. It separates PII data processing in EU regions from anonymized analytics in global regions, enabling worldwide R&D collaboration with appropriate technical controls.
 
-![Automotive Data Governance Architecture](http://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/governance.png)
+![Automotive Data Governance Architecture](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform-on-aws/images/governance.png)
 
 
 ## Why This Architecture Matters for Global Automakers
