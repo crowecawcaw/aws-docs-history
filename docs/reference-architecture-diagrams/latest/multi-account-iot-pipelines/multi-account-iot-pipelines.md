@@ -10,7 +10,7 @@ This reference architecture diagram shows how to deploy AWS IoT Analytics pipeli
 ## Creating Multi-Account IoT Pipelines On-The-Fly on AWS
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to automatically deploy AWS IoT Analytics pipelines into different AWS Organizations accounts by using Amazon Managed Service for Apache Flink, AWS Lambda, DynamoDB, and AWS IoT Analytics.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-account-iot-pipelines/images/multi-account-iot-pipelines.png)
+![Reference architecture diagram showing how to automatically deploy AWS IoT Analytics pipelines into different AWS Organizations accounts by using Amazon Managed Service for Apache Flink, AWS Lambda, DynamoDB, and AWS IoT Analytics.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-account-iot-pipelines/images/multi-account-iot-pipelines.png)
 
 
 1. Ingest device telemetry data through the telemetry [Amazon Kinesis](https://docs.aws.amazon.com/streams/latest/dev/introduction.html) stream.
