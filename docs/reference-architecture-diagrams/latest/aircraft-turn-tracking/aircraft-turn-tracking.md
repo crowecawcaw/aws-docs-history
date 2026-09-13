@@ -14,7 +14,7 @@ This architecture uses cameras and edge inference to passively collect turn even
 ## Aircraft turn tracking diagram
 <a name="turn-tracking-diagram"></a>
 
-![Architecture for aircraft turn tracking using AWS IoT Greengrass and Amazon SageMaker AI on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/aircraft-turn-tracking/images/travel-ra-turn-tracking.png)
+![Architecture for aircraft turn tracking using AWS IoT Greengrass and Amazon SageMaker AI on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/aircraft-turn-tracking/images/travel-ra-turn-tracking.png)
 
 
 The following steps describe the architecture:
