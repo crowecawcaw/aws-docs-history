@@ -19,4 +19,4 @@ To set up the router information in Conductor Live, gather the following informa
 In the following example, *Node 1* has two SDI cards. On Card 1, four inputs are being used. On card 2, one input is being used. *Node 2* has one card, with two inputs in use.   
 In total, seven inputs are in use on the node, so you need seven outputs from the router. These seven outputs are shown on the right side of the router.  
 
-![Router with seven outputs connecting to inputs on Node 1, Node 2, and SDI Card 1 and 2.](http://docs.aws.amazon.com/elemental-cl3/latest/configguide/images/sdi-router-diagram-png.png)
+![Router with seven outputs connecting to inputs on Node 1, Node 2, and SDI Card 1 and 2.](https://docs.aws.amazon.com/elemental-cl3/latest/configguide/images/sdi-router-diagram-png.png)
