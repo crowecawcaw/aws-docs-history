@@ -17,7 +17,7 @@ You can also use Amazon Kendra's semantic search capabilities to re-rank another
 
 |  | 
 | --- |
-|  [![AWS Videos](http://img.youtube.com/vi/59kbpMnncC8/0.jpg)](http://www.youtube.com/watch?v=59kbpMnncC8)  | 
+|  [![AWS Videos](https://img.youtube.com/vi/59kbpMnncC8/0.jpg)](https://www.youtube.com/watch?v=59kbpMnncC8)  | 
 
 ## Querying Amazon Kendra
 <a name="kendra-query-types"></a>

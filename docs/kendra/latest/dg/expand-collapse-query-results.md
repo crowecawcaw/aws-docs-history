@@ -17,9 +17,9 @@ The collapse and expand query results feature is currently available only via th
 
 This is useful in the following kinds of search situations:
 + Multiple versions of content exist in documents within your index. When your end user queries the index, you want them to see the most relevant version of the document with duplicates hidden/collapsed. For example, if your index contains multiple versions of a document named "NYC leave policy" you can choose to collapse the documents for the specific groups "HR" and "Legal" using the "Type" attribute/field.  
-![Example 1](http://docs.aws.amazon.com/kendra/latest/dg/images/expand-collapse-1.png)
+![Example 1](https://docs.aws.amazon.com/kendra/latest/dg/images/expand-collapse-1.png)
 + Your index contains multiple documents with unique information about one kind of item or object, like a product inventory, for example. To capture and sort item information conveniently, you want end users to access all documents linked by an item or object as one search result. In the example below, a customer search on "animal print shirts" returns results grouped by name, and sorted by ascending price order.  
-![Example 2](http://docs.aws.amazon.com/kendra/latest/dg/images/expand-collapse-2.png)
+![Example 2](https://docs.aws.amazon.com/kendra/latest/dg/images/expand-collapse-2.png)
 
 ## Collapsing results
 <a name="expand-results"></a>

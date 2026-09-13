@@ -27,7 +27,7 @@ This tutorial uses a sample dataset of news articles to extract entities, conver
 
 **The following diagram shows the workflow:**
 
-![Workflow diagram of the procedures in the tutorial.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-workflow.png)
+![Workflow diagram of the procedures in the tutorial.](https://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-workflow.png)
 
 
 **Estimated time to complete this tutorial:** 1 hour

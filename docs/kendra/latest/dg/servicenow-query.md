@@ -20,6 +20,6 @@ To build a query, you use the ServiceNow query builder. You can use the builder 
 1. Use the query builder to create the query.
 
 1. When the query is complete, right click the query and choose **Copy query** to copy the query from the query builder. Save this query to use in Amazon Kendra.  
-![Query builder interface showing Copy query option in right-click context menu.](http://docs.aws.amazon.com/kendra/latest/dg/images/ServiceNowQuery.png)
+![Query builder interface showing Copy query option in right-click context menu.](https://docs.aws.amazon.com/kendra/latest/dg/images/ServiceNowQuery.png)
 
 Make sure that you don't change any query parameter when you copy the query. If any of the query parameters are not recognized, ServiceNow treats the parameter as empty and doesn't use it to filter the results.

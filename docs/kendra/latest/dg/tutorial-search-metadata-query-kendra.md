@@ -39,7 +39,7 @@ The example questions in this section have been chosen based on the sample datas
    
 
      
-![Amazon Kendra search results page showing Formula One driver information for Lewis Hamilton.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query1.png)
+![Amazon Kendra search results page showing Formula One driver information for Lewis Hamilton.](https://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query1.png)
 
 1. To run a descriptive query, enter **How does Formula One work?** in the search box and press enter.
 
@@ -48,7 +48,7 @@ The example questions in this section have been chosen based on the sample datas
    
 
      
-![Search results page showing query for How does Formula One work with 51 results displayed.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query2.png)
+![Search results page showing query for How does Formula One work with 51 results displayed.](https://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query2.png)
 
 1. To run a keyword search, enter **Formula One** in the search box and press enter.
 
@@ -57,7 +57,7 @@ The example questions in this section have been chosen based on the sample datas
    
 
      
-![Amazon Kendra search results page showing Formula One related answers with snippets.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query3.png)
+![Amazon Kendra search results page showing Formula One related answers with snippets.](https://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-query3.png)
 
 ### To query your Amazon Kendra index (AWS CLI)
 <a name="tutorial-search-metadata-query-index-cli"></a>
@@ -229,7 +229,7 @@ You can filter and sort your search results using custom document attributes in 
    
 
      
-![Search results page showing four results for Soccer matches with filters and sorting options.](http://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-filter.png)
+![Search results page showing four results for Soccer matches with filters and sorting options.](https://docs.aws.amazon.com/kendra/latest/dg/images/tutorial-filter.png)
 
 ### To filter your search results (AWS CLI)
 <a name="tutorial-search-metadata-filter-index-cli"></a>

@@ -15,7 +15,7 @@ You must specify the main title of your documents using the [Document](https://d
 
 You create an identifier for your custom data source using the console or by using the [CreateDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateDataSource.html) API. To use the console, give your data source a name, and optionally a description and resource tags. After the data source is created, a data source ID is shown. Copy this ID to use when you synchronize the data source with the index.
 
-![Form for specifying data source details, including name, description, and optional tags.](http://docs.aws.amazon.com/kendra/latest/dg/images/CustomDataSource.png)
+![Form for specifying data source details, including name, description, and optional tags.](https://docs.aws.amazon.com/kendra/latest/dg/images/CustomDataSource.png)
 
 
 You can also create a custom data source using the `CreateDataSource` API. The API returns an ID to use when you synchronize the data source. When you use the `CreateDataSource` API to create a custom data source, you can't set the `Configuration`, `RoleArn` or `Schedule` parameters. If you set these parameters, Amazon Kendra returns a `ValidationException` exception.
