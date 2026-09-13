@@ -10,7 +10,7 @@ This architecture shows how to inspect inbound and outbound traffic using [AWS N
 ## Single Amazon VPC inspection with Network Firewall architecture
 <a name="nwfw1-diagram1"></a>
 
-![Architecture diagram showing single VPC traffic inspection with AWS Network Firewall for both inbound and outbound traffic flows.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-1.png)
+![Architecture diagram showing single VPC traffic inspection with AWS Network Firewall for both inbound and outbound traffic flows.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-1.png)
 
 
 The following steps describe the inbound traffic flow in this architecture:

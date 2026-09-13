@@ -10,7 +10,7 @@ This architecture shows how to inspect traffic in each AWS Region when using [AW
 ## Multi-Region centralized inspection with Network Firewall architecture
 <a name="nwfw6-diagram1"></a>
 
-![Architecture diagram showing multi-Region centralized inspection using AWS Network Firewall with inter-Region Transit Gateway peering and inspection in each Region.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-6.png)
+![Architecture diagram showing multi-Region centralized inspection using AWS Network Firewall with inter-Region Transit Gateway peering and inspection in each Region.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-6.png)
 
 
 The following numbered items describe the traffic flow in this architecture:

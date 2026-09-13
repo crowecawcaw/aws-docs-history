@@ -10,7 +10,7 @@ This architecture shows how to use [AWS Transit Gateway](https://docs.aws.amazon
 ## Combined inspection with Network Firewall architecture
 <a name="nwfw5-diagram1"></a>
 
-![Architecture diagram showing combined east-west and north-south inspection using AWS Network Firewall with AWS Transit Gateway and centralized egress through a NAT gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-5.png)
+![Architecture diagram showing combined east-west and north-south inspection using AWS Network Firewall with AWS Transit Gateway and centralized egress through a NAT gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-5.png)
 
 
 The following steps describe the east-west traffic flow in this architecture:

@@ -10,7 +10,7 @@ This architecture shows how to use [AWS Transit Gateway](https://docs.aws.amazon
 ## East-west centralized inspection with Network Firewall architecture
 <a name="nwfw3-diagram1"></a>
 
-![Architecture diagram showing east-west centralized inspection using AWS Network Firewall and AWS Transit Gateway for traffic between VPCs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-3.png)
+![Architecture diagram showing east-west centralized inspection using AWS Network Firewall and AWS Transit Gateway for traffic between VPCs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-3.png)
 
 
 The following steps describe the east-west traffic flow in this architecture:

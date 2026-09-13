@@ -10,7 +10,7 @@ This architecture shows how to use the Amazon VPC routing enhancement to inspect
 ## Intra-VPC inspection with Network Firewall architecture
 <a name="nwfw2-diagram1"></a>
 
-![Architecture diagram showing intra-VPC inspection using the VPC routing enhancement to inspect traffic between subnets within the same VPC.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-2.png)
+![Architecture diagram showing intra-VPC inspection using the VPC routing enhancement to inspect traffic between subnets within the same VPC.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/network-firewall-inspection-models/images/network-firewall-inspection-models-2.png)
 
 
 The following numbered items describe the key components in this architecture:
