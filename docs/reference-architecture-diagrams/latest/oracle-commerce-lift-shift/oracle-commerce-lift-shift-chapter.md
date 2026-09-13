@@ -12,7 +12,7 @@ This architecture deploys Oracle Commerce in a single AWS Region with multiple A
 
 Publication date: May 14, 2021
 
-![Oracle Commerce deployed in a single AWS Region and Amazon VPC across multiple Availability Zones, with Amazon CloudFront, Amazon Route 53, Elastic Load Balancing, AWS WAF, Oracle Commerce clusters, Oracle RAC databases, Amazon ElastiCache for Redis, and Amazon EFS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/oracle-commerce-lift-shift/images/oracle-commerce-lift-shift.png)
+![Oracle Commerce deployed in a single AWS Region and Amazon VPC across multiple Availability Zones, with Amazon CloudFront, Amazon Route 53, Elastic Load Balancing, AWS WAF, Oracle Commerce clusters, Oracle RAC databases, Amazon ElastiCache for Redis, and Amazon EFS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/oracle-commerce-lift-shift/images/oracle-commerce-lift-shift.png)
 
 
 **Download:** [Architecture diagram (PDF)](samples/oracle-commerce-lift-shift.zip)
