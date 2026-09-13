@@ -24,7 +24,7 @@ Publication date: **September 21, 2023 ([Diagram history](#diagram-history))**
 +  **Transit/Private VIF**: You can create Active/Active by ensuring advertised prefixes, local preference, autonomous system (AS) path, and Multi-Exit Discriminator (MED) values are the same. With that you influence incoming traffic from AWS. These options are not mutually exclusive and can be used together. 
 +  **Active/Active**: Traffic is load-shared between interfaces based on flow via ECMP. If one connection becomes unavailable, then all traffic is routed through the other connections. 
 
-![Diagram showing the active/active with private/transit VIF model.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/images/1-active-active-with-private-transit-vif.png)
+![Diagram showing the active/active with private/transit VIF model.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/images/1-active-active-with-private-transit-vif.png)
 
 
 1.  **AWS Direct Connect** gateway is a global construct and AWS takes care of its availability. 
@@ -60,7 +60,7 @@ Publication date: **September 21, 2023 ([Diagram history](#diagram-history))**
 +  **Transit/Private VIF**: You can create Active/Passive setups in multiple ways by controlling advertised prefixes, local preference, AS path and MED value. With that you influence incoming traffic from AWS. These options are not mutually exclusive and can be used together. 
 +  **Active/Passive**: One connection handles traffic, and the others are on standby. If the active connection becomes unavailable, then all traffic is routed through the passive connections. 
 
-![Diagram showing the active/passive with private/transit VIF model.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/images/2-active-passive-with-private-transit-vif.png)
+![Diagram showing the active/passive with private/transit VIF model.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/images/2-active-passive-with-private-transit-vif.png)
 
 
 1. **Direct Connect** gateway is a global construct and AWS takes care of its availability. 
@@ -94,7 +94,7 @@ Publication date: **September 21, 2023 ([Diagram history](#diagram-history))**
 
    If you're using a private ASN, load balancing on a public virtual interface is not supported. 
 
-![Diagram showing the active/active with public VIF model.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/images/3-active-active-with-public-vif.png)
+![Diagram showing the active/active with public VIF model.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/images/3-active-active-with-public-vif.png)
 
 
 1.  When you request multiple ports at the same **Direct Connect** location, they will be provisioned on redundant AWS equipment. 
@@ -122,7 +122,7 @@ Publication date: **September 21, 2023 ([Diagram history](#diagram-history))**
 +  **Public VIF**: You can create Active/Passive with a *public* ASN by controlling advertised prefixes and AS path. You can create Active/Passive with a *private* ASN by controlling advertised prefixes. 
 +  **Active/Passive**: One connection handles traffic, and the others are on standby. If the active connection becomes unavailable, then all traffic is routed through the passive connections. 
 
-![Diagram showing the active/passive with public VIF model.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/images/4-active-passive-with-public-vif.png)
+![Diagram showing the active/passive with public VIF model.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/images/4-active-passive-with-public-vif.png)
 
 
 1.  When you request multiple ports at the same **Direct Connect** location, they will be provisioned on redundant AWS equipment. 
