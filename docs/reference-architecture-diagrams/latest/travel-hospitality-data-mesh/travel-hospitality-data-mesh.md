@@ -12,7 +12,7 @@ This architecture uses domain-owned design, maintained data properties, open dat
 ## Domain architecture diagram
 <a name="travel-hospitality-data-mesh-diagram-1"></a>
 
-![Domain architecture for data mesh using DynamoDB, Amazon Redshift, AWS Glue, and Lake Formation.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/travel-hospitality-data-mesh/images/implementing-travel-and-hospitality-data-mesh-ra-1.png)
+![Domain architecture for data mesh using DynamoDB, Amazon Redshift, AWS Glue, and Lake Formation.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/travel-hospitality-data-mesh/images/implementing-travel-and-hospitality-data-mesh-ra-1.png)
 
 
 The following steps describe the domain architecture:
@@ -34,7 +34,7 @@ The following steps describe the domain architecture:
 ## Service architecture diagram
 <a name="travel-hospitality-data-mesh-diagram-2"></a>
 
-![Service architecture for data mesh using Amazon S3, AWS Glue, Amazon Redshift, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/travel-hospitality-data-mesh/images/implementing-travel-and-hospitality-data-mesh-ra-2.png)
+![Service architecture for data mesh using Amazon S3, AWS Glue, Amazon Redshift, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/travel-hospitality-data-mesh/images/implementing-travel-and-hospitality-data-mesh-ra-2.png)
 
 
 The following steps describe the service architecture:
