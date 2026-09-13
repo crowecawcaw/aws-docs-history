@@ -10,7 +10,7 @@ With this architecture, you can build a guest 360-degree data platform for lodgi
 ## Guest 360 data platform diagram
 <a name="g360-diagram"></a>
 
-![How to build a guest 360-degree data platform for lodging by using AWS services.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/guest-360-data-platform-lodging/images/guest-360-data-platform-lodging.png)
+![How to build a guest 360-degree data platform for lodging by using AWS services.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/guest-360-data-platform-lodging/images/guest-360-data-platform-lodging.png)
 
 
 The following steps describe the architecture:
