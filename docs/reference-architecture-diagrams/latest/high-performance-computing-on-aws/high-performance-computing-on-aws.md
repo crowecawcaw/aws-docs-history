@@ -10,7 +10,7 @@ This architecture enables you to deploy and burst a suite of high performance co
 ## High Performance Computing on AWS
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to deploy and burst a suite of high performance computing (HPC) cases to the cloud directly from the desktop.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/high-performance-computing-on-aws/images/high-performance-computing.png)
+![Reference architecture diagram showing how you can use AWS services to deploy and burst a suite of high performance computing (HPC) cases to the cloud directly from the desktop.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/high-performance-computing-on-aws/images/high-performance-computing.png)
 
 
 1. Users deploy HPC cases with one of the AWS SDKs or the **AWS Command Line Interface** (AWS CLI). Users can interface directly with the cluster through NICE DCV. 
