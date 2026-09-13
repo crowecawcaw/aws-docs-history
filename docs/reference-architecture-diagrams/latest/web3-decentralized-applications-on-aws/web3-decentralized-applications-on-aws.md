@@ -10,7 +10,7 @@ Use this architecture as a reference for developing static hosted web applicatio
 ## Web3 Decentralized Applications on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to develop static hosted web applications that communicate with a blockchain network through an Amazon Managed Blockchain node.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/web3-decentralized-applications-on-aws/images/web-decentralized-applications-on-aws.png)
+![Reference architecture diagram showing how to develop static hosted web applications that communicate with a blockchain network through an Amazon Managed Blockchain node.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/web3-decentralized-applications-on-aws/images/web-decentralized-applications-on-aws.png)
 
 
 1. The browser makes a requests to the **Amazon CloudFront** domain, routed to the closest distribution for the Decentralized Application (DApp). 
