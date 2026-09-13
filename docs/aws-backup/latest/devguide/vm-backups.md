@@ -35,7 +35,7 @@ AWS Backup, by default, captures application-consistent backups of VMs using the
 
 Backup gateway is downloadable AWS Backup software that you deploy to your VMware infrastructure to connect your VMware VMs to AWS Backup. The gateway connects to your VM management server to discover VMs, discovers your VMs, encrypts data, and efficiently transfers data to AWS Backup. The following diagram illustrates how Backup gateway connects to your VMs:
 
-![A backup gateway is an OVF template the connects your VMware environment to AWS Backup.](http://docs.aws.amazon.com/aws-backup/latest/devguide/images/Horizon.png)
+![A backup gateway is an OVF template the connects your VMware environment to AWS Backup.](https://docs.aws.amazon.com/aws-backup/latest/devguide/images/Horizon.png)
 
 
 To download the Backup gateway software, follow the procedure for [Working with gateways](working-with-gateways.md).

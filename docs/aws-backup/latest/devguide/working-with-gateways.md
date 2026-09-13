@@ -46,28 +46,28 @@ After it is complete, proceed with the following steps:
 1. Connect to your virtual machine hypervisor using VMware vSphere.
 
 1. Right-click a parent object of a virtual machine and select *Deploy OVF Template.*  
-![The Deploy OVF Template menu item.](http://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-deploy-ovf-template-20.png)
+![The Deploy OVF Template menu item.](https://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-deploy-ovf-template-20.png)
 
 1. Choose **Local file**, and upload the **aws-appliance-latest.ova** file you downloaded.  
-![The Local file option on the Select an OVF template panel.](http://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-select-ovf-template-50.png)
+![The Local file option on the Select an OVF template panel.](https://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-select-ovf-template-50.png)
 
 1. Follow the deployment wizard steps to deploy it. On the **Select storage** page, select virtual disk format **Thick Provision Lazy Zeroed**.  
-![The Thick Provision Lazy Zeroed option on the Select storage panel.](http://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-thick-provision-lazy-70.png)
+![The Thick Provision Lazy Zeroed option on the Select storage panel.](https://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-thick-provision-lazy-70.png)
 
 1. After deploying the OVF, right-click the gateway and choose **Edit Settings**.
 
-    ![The Edit Settings menu item.](http://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-edit-settings-30.png) 
+    ![The Edit Settings menu item.](https://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-edit-settings-30.png) 
 
    1. Under **VM Options**, go to **VM Tools**.
 
    1. Ensure that for **Synchronize Time with Host**, **Synchronize at start up and resume** is selected.  
-![The Synchronize at startup and resume VM option.](http://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-synchronize-time-60.png)
+![The Synchronize at startup and resume VM option.](https://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-synchronize-time-60.png)
 
 1. Turn on the virtual machine by selecting “Power On” from the **Actions** menu.  
-![The Power On menu item.](http://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-power-on-vm-40.png)
+![The Power On menu item.](https://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-power-on-vm-40.png)
 
 1. Copy the IP address from the VM summary and enter it below.  
-![The IP Addresses field on the Summary page.](http://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-copy-ip-address-10.png)
+![The IP Addresses field on the Summary page.](https://docs.aws.amazon.com/aws-backup/latest/devguide/images/gateway-user-copy-ip-address-10.png)
 
 Once the VMWare software is downloaded, complete the following steps:
 
