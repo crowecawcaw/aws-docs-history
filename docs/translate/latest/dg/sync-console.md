@@ -27,7 +27,7 @@ Use the Amazon Translate console to translate up to 10,000 bytes of text.
 1. For **Target language**, select a language.
 
 1. Enter or paste text into the **Source language** text box. The console displays the translated text in the **Target language** text box.  
-![The translate text page of the Amazon Translate console.](http://docs.aws.amazon.com/translate/latest/dg/images/gs-10.png)
+![The translate text page of the Amazon Translate console.](https://docs.aws.amazon.com/translate/latest/dg/images/gs-10.png)
 
 ## Translate a document
 <a name="sync-console-document"></a>
@@ -41,7 +41,7 @@ To translate a document using the Amazon Translate console:
 1. In the navigation menu on the left, choose **Real-time translation**.
 
 1. In the Translation panel, choose the **Documents** tab.  
-![The translate document screen of the Amazon Translate console.](http://docs.aws.amazon.com/translate/latest/dg/images/gs-12.png)
+![The translate document screen of the Amazon Translate console.](https://docs.aws.amazon.com/translate/latest/dg/images/gs-12.png)
 
 1. For **Source language**, select the language of the source text, or select **Auto** for auto detection.
 
@@ -63,7 +63,7 @@ After you use the console to translate the input text or document, you can view 
 1. Below the **Translation** panel, expand the ** Application integration** panel.
 
    The console displays the equivalent translation request data in JSON format.   
-![JSON code samples for translating text.](http://docs.aws.amazon.com/translate/latest/dg/images/gs-20.png)
+![JSON code samples for translating text.](https://docs.aws.amazon.com/translate/latest/dg/images/gs-20.png)
 
 1. You can copy the **JSON request** to use in a [TranslateText](https://docs.aws.amazon.com/translate/latest/APIReference/API_TranslateText.html) or [TranslateDocument](https://docs.aws.amazon.com/translate/latest/APIReference/API_TranslateDocument.html) API operation. 
 

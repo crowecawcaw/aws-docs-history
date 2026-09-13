@@ -11,9 +11,9 @@ If this is the first time that you've used Amazon Translate, choose **Launch rea
 
 In **Real-time translation**, choose the target language. Amazon Translate autodetects the source language, or you can choose a source language. Enter the text that you want to translate in the left-hand text box. The translated text appears in the right-hand text box.
 
-![The translate text page of the Amazon Translate API Explorer.](http://docs.aws.amazon.com/translate/latest/dg/images/gs-10.png)
+![The translate text page of the Amazon Translate API Explorer.](https://docs.aws.amazon.com/translate/latest/dg/images/gs-10.png)
 
 
 In the **Application integration** section you can see the JSON input and output for the [TranslateText](https://docs.aws.amazon.com/translate/latest/APIReference/API_TranslateText.html) operation.
 
-![JSON code samples for translating text.](http://docs.aws.amazon.com/translate/latest/dg/images/gs-20.png)
+![JSON code samples for translating text.](https://docs.aws.amazon.com/translate/latest/dg/images/gs-20.png)

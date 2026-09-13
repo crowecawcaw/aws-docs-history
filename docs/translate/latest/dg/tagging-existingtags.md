@@ -14,7 +14,7 @@ You can view, update or delete the tags associated with a `Parallel data` or `Cu
 1. Select the resource that contains the tags you want to view, update, or delete. The console opens the details page for the resource. 
 
 1. Scroll down until you see the **Tags** panel. Here, you can see all the tags associated with your selected resource.  
-![Screen shot showing the Tags panel with two tags (color and type).](http://docs.aws.amazon.com/translate/latest/dg/images/modify-tags-2.png)
+![Screen shot showing the Tags panel with two tags (color and type).](https://docs.aws.amazon.com/translate/latest/dg/images/modify-tags-2.png)
 
    Select **Manage tags** to edit or remove tags from your resource.
 
