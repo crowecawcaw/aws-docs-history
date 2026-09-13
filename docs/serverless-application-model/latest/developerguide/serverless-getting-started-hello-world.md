@@ -16,7 +16,7 @@ The sample **Hello World** application implements a basic API backend. It consis
 
 The following diagram shows the components of this application:
 
-![A diagram of a Lambda function that's invoked when you send a GET request to the API Gateway endpoint.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/gs-01.png)
+![A diagram of a Lambda function that's invoked when you send a GET request to the API Gateway endpoint.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/gs-01.png)
 
 
 **Topics**

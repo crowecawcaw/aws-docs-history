@@ -92,7 +92,7 @@ Next, the necessary access policies for this connection are automatically compos
 
 The following example shows how you can use connectors to write data from an AWS Lambda function to an Amazon DynamoDB table.
 
-![A Lambda function writing data to a DynamoDB table using AWS SAM connectors.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/managing-connectors-example.png)
+![A Lambda function writing data to a DynamoDB table using AWS SAM connectors.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/managing-connectors-example.png)
 
 
 ```

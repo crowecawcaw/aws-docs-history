@@ -38,7 +38,7 @@ Here’s an example of a basic serverless application. This application processe
 
 1. Permissions for the application to run securely.
 
-![Application architecture of simple serverless application.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-06.png)
+![Application architecture of simple serverless application.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-06.png)
 
 
 This application's infrastructure code can be defined in the following AWS SAM template:
@@ -317,7 +317,7 @@ Select from starter templates or choose a custom template location to begin a ne
 
 Here, we use the **sam init** command to initialize a new application project. We select the **Hello World Example** project to start with. The AWS SAM CLI downloads a starter template and creates our project folder directory structure. 
 
-![Using sam init to start a new application project with the AWS SAM CLI.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-01.gif)
+![Using sam init to start a new application project with the AWS SAM CLI.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-01.gif)
 
 
 For more details, see [Create your application in AWS SAM](using-sam-cli-init.md).
@@ -329,7 +329,7 @@ Package your function dependencies and organize your project code and folder str
 
 Here, we use the **sam build** command to prepare our application for deployment. The AWS SAM CLI creates a `.aws-sam`directory and organizes our application dependencies and files there for deployment.
 
-![Using sam build to prepare an application for deployment.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-02.gif)
+![Using sam build to prepare an application for deployment.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-02.gif)
 
 
 For more details, see [Build your application](serverless-building.md).
@@ -341,7 +341,7 @@ On your local machine, simulate events, test APIs, invoke functions, and more to
 
 Here, we use the **sam local invoke** command to invoke our `HelloWorldFunction` locally. To accomplish this, the AWS SAM CLI creates a local container, builds our function, invokes it, and outputs the results. You can use an application like Docker to run containers on your machine.
 
-![Using the AWS SAM CLI sam local invoke command to locally invoke a function.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-04.gif)
+![Using the AWS SAM CLI sam local invoke command to locally invoke a function.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-04.gif)
 
 
 For more details, see [Test your application](serverless-test-and-debug.md) and [Debug your application](debug-application.md).
@@ -353,7 +353,7 @@ Configure your application's deployment settings and deploy to the AWS Cloud to 
 
 Here, we use the **sam deploy --guided** command to deploy our application through an interactive flow. The AWS SAM CLI guides us through configuring our application's deployment settings, transforms our template into CloudFormation, and deploys to CloudFormation to create our resources.
 
-![Using the AWS SAM CLI sam deploy command to deploy an application to the AWS Cloud.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-03.gif)
+![Using the AWS SAM CLI sam deploy command to deploy an application to the AWS Cloud.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-03.gif)
 
 
 For more details, see [Deploy your application and resources](serverless-deploying.md).
@@ -365,7 +365,7 @@ Create secure *continuous integration and delivery (CI/CD)* pipelines, using a s
 
 Here, we use the **sam pipeline init --bootstrap** command to configure a CI/CD deployment pipeline for our application. The AWS SAM CLI guides us through our options and generates the AWS resources and configuration file to use with our CI/CD system.
 
-![Using the AWS SAM CLI sam pipeline init --bootstrap command to configure a CI/CD pipeline with our preferred CI/CD system.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-07.gif)
+![Using the AWS SAM CLI sam pipeline init --bootstrap command to configure a CI/CD pipeline with our preferred CI/CD system.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-07.gif)
 
 
 For more details, see [Deploy with CI/CD systems and pipelines](deploying-options.md#serverless-deploying-ci-cd).
@@ -377,7 +377,7 @@ View important information about your deployed resources, gather logs, and utili
 
 Here, we use the **sam list** command to view our deployed resources. We get our API endpoint and invoke it, which triggers our function. Then, we use **sam logs** to view our function's logs.
 
-![Using the AWS SAM CLI sam list command to obtain our API endpoint. Then, sam logs is used to view our function's logs.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-08.gif)
+![Using the AWS SAM CLI sam list command to obtain our API endpoint. Then, sam logs is used to view our function's logs.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-08.gif)
 
 
 For more details, see [Monitor your application](serverless-monitoring.md).
@@ -389,7 +389,7 @@ As you develop on your local machine, automatically sync changes to the cloud. Q
 
 Here, we use the **sam sync --watch** command to have the AWS SAM CLI watch for local changes. We modify our `HelloWorldFunction` code and the AWS SAM CLI automatically detects the change and deploys our updates to the cloud. 
 
-![Using the AWS SAM CLI sam sync command to sync local changes to the AWS Cloud.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-05.gif)
+![Using the AWS SAM CLI sam sync command to sync local changes to the AWS Cloud.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-05.gif)
 
 
 ### Test supported resources in the cloud
@@ -399,7 +399,7 @@ Invoke and pass events to supported resources in the cloud.
 
 Here, we use the **sam remote invoke** command to test a deployed Lambda function in the cloud. We invoke our Lambda function and receive its logs and response. With our Lambda function configured to stream responses, the AWS SAM CLI streams its response back in real time.
 
-![Using the AWS SAM CLI sam remote invoke command to test our deployed function in the AWS Cloud.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-09.gif)
+![Using the AWS SAM CLI sam remote invoke command to test our deployed function in the AWS Cloud.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/what-is-sam-09.gif)
 
 
 ## Learn more

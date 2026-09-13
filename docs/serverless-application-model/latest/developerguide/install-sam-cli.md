@@ -372,7 +372,7 @@ If you receive this error, you're using an unsupported version of Linux, and the
 #### The installation failed
 <a name="sam-cli-troubleshoot-install-macos-install-failed"></a>
 
-![Image of the AWS SAM CLI installer showing an installation failed message](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/sam-cli-troubleshoot-install-macos-install-failed.jpg)
+![Image of the AWS SAM CLI installer showing an installation failed message](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/sam-cli-troubleshoot-install-macos-install-failed.jpg)
 
 
  If you are installing the AWS SAM CLI for your user and selected an installation directory that you don’t have write permissions for, this error could occur. Try either of the following: 

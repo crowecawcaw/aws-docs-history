@@ -293,7 +293,7 @@ These steps are not required for Terraform v1.6.0 or newer. To start using the A
 1. **Obtain your run ID** – From the Terraform Cloud console, locate the run ID for the Terraform run that you’d like to use with the AWS SAM CLI.
 
    The run ID is located in the breadcrumb path of your run.  
-![Breadcrumb path in Terraform Cloud that displays run ID.](http://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/terraform-01.png)
+![Breadcrumb path in Terraform Cloud that displays run ID.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/terraform-01.png)
 
 1. **Fetch the plan file** – Using your API token, obtain your local plan file. The following is an example from the command line:
 
