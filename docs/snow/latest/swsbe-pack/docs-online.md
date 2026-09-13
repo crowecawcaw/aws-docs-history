@@ -7,4 +7,4 @@ Now that your device is set up, you can access Snow device and AWS service guide
 
 **[https://docs.jwcc.aws.amazon.com/](https://docs.jwcc.aws.amazon.com/)**
 
-![QR code containing the AWS logo, likely linking to AWS documentation website.](http://docs.aws.amazon.com/snow/latest/swsbe-pack/images/qrcode_sw_docs.png)
+![QR code containing the AWS logo, likely linking to AWS documentation website.](https://docs.aws.amazon.com/snow/latest/swsbe-pack/images/qrcode_sw_docs.png)

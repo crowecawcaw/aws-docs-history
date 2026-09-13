@@ -10,7 +10,7 @@ After creating a job to order a Snow Family device, you can cancel the job throu
 1. Choose the job to cancel.
 
 1. Choose **Actions**. From the menu that appears, choose **Cancel job**.  
-![AWS Snow Family Management Console with job selected and Actions menu showing Cancel job.](http://docs.aws.amazon.com/snow/latest/swsbe-pack/images/cancel-job-console.png)
+![AWS Snow Family Management Console with job selected and Actions menu showing Cancel job.](https://docs.aws.amazon.com/snow/latest/swsbe-pack/images/cancel-job-console.png)
 
 1. The **Cancel job** window appears. To confirm cancelling the job, enter the **job name** and choose **Cancel job**. In the list of jobs, **Cancelled** appears in the **Status** column.  
-![Cancel job window.](http://docs.aws.amazon.com/snow/latest/swsbe-pack/images/cancel-job-window-console.png)
+![Cancel job window.](https://docs.aws.amazon.com/snow/latest/swsbe-pack/images/cancel-job-window-console.png)

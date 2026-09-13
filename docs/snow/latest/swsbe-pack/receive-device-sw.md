@@ -34,7 +34,7 @@ The Snowball Edge is the property of AWS. Tampering with an Snowball Edge is a v
 
 The device looks like the following image.
 
-![Snowball Edge device showing front panel and top of device with E ink screen.](http://docs.aws.amazon.com/snow/latest/swsbe-pack/images/SnowballEdgeAppliance.png)
+![Snowball Edge device showing front panel and top of device with E ink screen.](https://docs.aws.amazon.com/snow/latest/swsbe-pack/images/SnowballEdgeAppliance.png)
 
 
 ## Connecting to your local network

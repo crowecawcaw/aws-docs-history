@@ -11,7 +11,7 @@ Do not turn off the Snowball Edge device by unplugging the power cable from the 
 **To shut down a Snowball Edge device in an emergency**
 
 1. Press and release the power button located above the LCD screen. It takes about 20 seconds for the device to shut down. While the device is shutting down, the LCD screen displays a message indicating the device is shutting down.  
-![Shutdown message on LCD screen.](http://docs.aws.amazon.com/snow/latest/swsbe-pack/images/shutdown-screen.png)
+![Shutdown message on LCD screen.](https://docs.aws.amazon.com/snow/latest/swsbe-pack/images/shutdown-screen.png)
 
 1. After the device has shut down, disconnect the device power cable from the power source.
 
