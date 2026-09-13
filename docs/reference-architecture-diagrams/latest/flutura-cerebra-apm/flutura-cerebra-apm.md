@@ -10,7 +10,7 @@ With this architecture, you can ingest data from industrial equipment and build 
 ## Flutura Cerebra APM architecture diagram
 <a name="fca-diagram"></a>
 
-![Architecture diagram for Flutura Cerebra Asset Performance Management on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/flutura-cerebra-apm/images/flutura-cerebra-APM-ra.png)
+![Architecture diagram for Flutura Cerebra Asset Performance Management on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/flutura-cerebra-apm/images/flutura-cerebra-APM-ra.png)
 
 
 The following steps describe the architecture:
