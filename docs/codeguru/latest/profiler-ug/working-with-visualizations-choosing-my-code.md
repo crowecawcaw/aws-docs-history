@@ -7,7 +7,7 @@ CodeGuru Profiler differentiates your code in the overview visualization, so you
 
 The blue portion of the flame graph highlights your code. The green portion of the graph highlights other code that your application uses, such as libraries and frameworks.
 
-![Image: Stack traces in overview 1.](http://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/mycode.png)
+![Image: Stack traces in overview 1.](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/mycode.png)
 
 
 You can change the coloring by manually selecting which package name you want CodeGuru Profiler to identify as your code.

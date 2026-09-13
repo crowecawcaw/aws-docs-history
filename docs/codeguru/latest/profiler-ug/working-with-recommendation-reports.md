@@ -56,7 +56,7 @@ Each anomaly includes the following information:
 + **Show anomalies in inspect view** – Choose this link to go back to the flame graph and see an **overview** visualization for the given frame name.
 + **Did this anomaly identify an issue?** – Submit feedback by choosing **thumbs up** or **thumbs down** on an anomaly report. Providing feedback improves the quality of the generated anomalies.
 
-![Image: Anomaly report example](http://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/anomalyreport.png)
+![Image: Anomaly report example](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/anomalyreport.png)
 
 
 You can set up Amazon SNS notifications to let you know when CodeGuru Profiler generates new anomaly reports. For information about creating and subscribing to an SNS topic, see [Getting started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started).

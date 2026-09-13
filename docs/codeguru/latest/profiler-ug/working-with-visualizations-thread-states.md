@@ -21,7 +21,7 @@ Custom view – You can choose to select the thread states for frames to include
 
 | CPU view | Latency view | 
 | --- | --- | 
-|  ![Image: CPU view.](http://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/cpu-visualization.png)  |  ![Image: Latency view.](http://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/latency-visualization.png)  | 
+|  ![Image: CPU view.](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/cpu-visualization.png)  |  ![Image: Latency view.](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/latency-visualization.png)  | 
 
 The `callOtherService` function appears smaller in the **CPU** view because it's not showing the time when the thread was in a waiting state. In the **Latency view**, we still see the part where the CPU was active (in red), but we also see when the threads were waiting (in green). 
 

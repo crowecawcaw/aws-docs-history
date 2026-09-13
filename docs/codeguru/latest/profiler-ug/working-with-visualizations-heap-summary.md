@@ -17,7 +17,7 @@ This shows the maximum heap size configured for the JVM. If your application’s
 
 This shows how much heap space your application requires to store all objects required in memory after a garbage collection cycle. If this value continuously grows over time until it reaches total capacity, then that could be an indication of a memory leak. If this value is very low compared to total capacity, then you may be able to save money by reducing your system’s memory.
 
-![Image: Heap summary visualization.](http://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/heap-summary.png)
+![Image: Heap summary visualization.](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/heap-summary.png)
 
 
 ## Heap summary table

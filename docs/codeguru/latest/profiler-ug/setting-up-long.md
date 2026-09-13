@@ -40,10 +40,10 @@ arn:aws:iam::aws:policy/AmazonCodeGuruProfilerAgentAccess
 1. If your applications run on AWS Lambda, choose the role that your AWS Lambda function uses. 
 
 1. After you grant permissions for a user or role, you don't need to attach IAM policies for agent permissions.  
-![Image: Manage user and role permissions to submit profiling data.](http://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/manage-permissions.png)
+![Image: Manage user and role permissions to submit profiling data.](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/manage-permissions.png)
 
    Use `IAM:ListUsers` and `IAM:ListRoles` permissions to see your users and roles. Otherwise, you can add a user or Amazon Resource Name (ARN) role. You'll see the following message.   
-![Image: Error message on the manage permissions section. Cannot list users and roles.](http://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/manage-permissions-error.png)
+![Image: Error message on the manage permissions section. Cannot list users and roles.](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/manage-permissions-error.png)
 
    Alternatively, you can add a policy like the following to the role that your application uses. For more information about roles, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html).
 

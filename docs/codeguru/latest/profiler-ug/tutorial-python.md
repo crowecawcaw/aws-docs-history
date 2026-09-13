@@ -129,7 +129,7 @@ The CodeGuru Profiler console is where you can view the data that Profiler has g
 The following sections are displayed, along with options for other visualizations or a full recommendations report.
 + **Profiling group status** displays the status of the profiling group and metrics from data collected in the past 12 hours.
 + **CPU summary** displays the amount of system CPU capacity that the application consumes. You can choose **Visualize CPU** to view the flame graph.  
-![Image: CPU visualization of demo application.](http://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/python-tutorial.png)
+![Image: CPU visualization of demo application.](https://docs.aws.amazon.com/codeguru/latest/profiler-ug/images/python-tutorial.png)
 + **Latency summary** displays the amount of time the application’s threads spend in the Blocked, Waiting, and Timed Waiting thread states.
 + **Heap usage** displays how much of your application's maximum heap capacity is consumed by the application.
 + **Anomalies** display any deviations from trends that CodeGuru Profiler detects.
