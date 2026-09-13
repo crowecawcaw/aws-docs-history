@@ -16,13 +16,13 @@ You can attach `AmazonElasticMapReduceFullAccess` to your users, groups, and rol
 <a name="AmazonElasticMapReduceFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 06, 2015, 18:40 UTC 
-+ **Edited time:** October 11, 2019, 15:19 UTC
++ **Edited time:** September 11, 2026, 17:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonElasticMapReduceFullAccess`
 
 ## Policy version
 <a name="AmazonElasticMapReduceFullAccess-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -88,6 +88,22 @@ The policy's default version is the version that defines the permissions for the
           "iam:AWSServiceName" : [
             "elasticmapreduce.amazonaws.com",
             "elasticmapreduce.amazonaws.com.cn"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack"
           ]
         }
       }

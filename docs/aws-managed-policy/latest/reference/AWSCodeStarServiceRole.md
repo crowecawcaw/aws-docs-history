@@ -16,13 +16,13 @@ You can attach `AWSCodeStarServiceRole` to your users, groups, and roles.
 <a name="AWSCodeStarServiceRole-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: April 19, 2017, 15:20 UTC 
-+ **Edited time:** September 20, 2021, 19:11 UTC
++ **Edited time:** September 08, 2026, 12:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSCodeStarServiceRole`
 
 ## Policy version
 <a name="AWSCodeStarServiceRole-version"></a>
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -72,6 +72,30 @@ The policy's default version is the version that defines the permissions for the
         "cloudformation:DescribeChangeSet"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:stack/awscodestar-*",
+        "arn:aws:cloudformation:*:*:stack/awseb-*",
+        "arn:aws:cloudformation:*:*:stack/aws-cloud9-*",
+        "arn:aws:cloudformation:*:aws:transform/CodeStar*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack",
+            "CreateChangeSet",
+            "ExecuteChangeSet"
+          ]
+        }
+      }
     },
     {
       "Sid" : "ProjectQuickstarts",

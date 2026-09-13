@@ -16,13 +16,13 @@ You can attach `AWSQuickSetupJITNADeploymentRolePolicy` to your users, groups, a
 <a name="AWSQuickSetupJITNADeploymentRolePolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 17, 2025, 09:07 UTC 
-+ **Edited time:** February 12, 2026, 18:01 UTC
++ **Edited time:** September 07, 2026, 12:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSQuickSetupJITNADeploymentRolePolicy`
 
 ## Policy version
 <a name="AWSQuickSetupJITNADeploymentRolePolicy-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -62,6 +62,26 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:cloudformation:*:*:stack/StackSet-AWS-QuickSetup-JITNA-*"
       ]
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:stack/StackSet-AWS-QuickSetup-JITNA-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack",
+            "CreateChangeSet",
+            "ExecuteChangeSet"
+          ]
+        }
+      }
     },
     {
       "Effect" : "Allow",

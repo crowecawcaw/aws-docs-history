@@ -1,33 +1,33 @@
 
 
-# AmazonODBAutonomousVmClusterAdmin
-<a name="AmazonODBAutonomousVmClusterAdmin"></a>
+# AmazonODBExascaleVmClusterAdmin
+<a name="AmazonODBExascaleVmClusterAdmin"></a>
 
-**Description**: Provides administrative access to manage Autonomous VM cluster resources in Oracle Database@AWS
+**Description**: Provides administrative access to manage Exascale VM cluster resources in Oracle Database@AWS.
 
-`AmazonODBAutonomousVmClusterAdmin` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
+`AmazonODBExascaleVmClusterAdmin` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
-<a name="AmazonODBAutonomousVmClusterAdmin-how-to-use"></a>
+<a name="AmazonODBExascaleVmClusterAdmin-how-to-use"></a>
 
-You can attach `AmazonODBAutonomousVmClusterAdmin` to your users, groups, and roles.
+You can attach `AmazonODBExascaleVmClusterAdmin` to your users, groups, and roles.
 
 ## Policy details
-<a name="AmazonODBAutonomousVmClusterAdmin-details"></a>
+<a name="AmazonODBExascaleVmClusterAdmin-details"></a>
 + **Type**: Job function policy 
-+ **Creation time**: August 07, 2026, 01:12 UTC 
-+ **Edited time:** September 04, 2026, 21:17 UTC
-+ **ARN**: `arn:aws:iam::aws:policy/job-function/AmazonODBAutonomousVmClusterAdmin`
++ **Creation time**: September 04, 2026, 21:37 UTC 
++ **Edited time:** September 04, 2026, 21:37 UTC
++ **ARN**: `arn:aws:iam::aws:policy/job-function/AmazonODBExascaleVmClusterAdmin`
 
 ## Policy version
-<a name="AmazonODBAutonomousVmClusterAdmin-version"></a>
+<a name="AmazonODBExascaleVmClusterAdmin-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
-<a name="AmazonODBAutonomousVmClusterAdmin-json"></a>
+<a name="AmazonODBExascaleVmClusterAdmin-json"></a>
 
 ```
 {
@@ -39,21 +39,32 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "odb:GetOciOnboardingStatus",
         "odb:InitializeService",
-        "odb:GetCloudExadataInfrastructure",
-        "odb:GetCloudExadataInfrastructureUnallocatedResources",
-        "odb:ListCloudExadataInfrastructures",
-        "odb:CreateCloudAutonomousVmCluster",
-        "odb:GetCloudAutonomousVmCluster",
-        "odb:DeleteCloudAutonomousVmCluster",
-        "odb:ListCloudAutonomousVmClusters",
+        "odb:GetExascaleDbStorageVault",
+        "odb:ListExascaleDbStorageVaults",
+        "odb:CreateExadbVmCluster",
+        "odb:GetExadbVmCluster",
+        "odb:UpdateExadbVmCluster",
+        "odb:DeleteExadbVmCluster",
+        "odb:ListExadbVmClusters",
+        "odb:AssociateVirtualMachinesToExadbVmCluster",
+        "odb:DisassociateVirtualMachinesFromExadbVmCluster",
         "odb:AssociateIamRoleToResource",
         "odb:DisassociateIamRoleFromResource",
+        "odb:CreateDbNode",
+        "odb:GetDbNode",
+        "odb:RebootDbNode",
+        "odb:StartDbNode",
+        "odb:StopDbNode",
+        "odb:DeleteDbNode",
+        "odb:ListDbNodes",
+        "odb:GetDbServer",
         "odb:ListDbServers",
         "odb:GetOdbNetwork",
         "odb:ListOdbNetworks",
-        "odb:ListAutonomousVirtualMachines",
         "odb:ListDbSystemShapes",
+        "odb:ListFlexComponents",
         "odb:ListGiVersions",
+        "odb:ListGiMinorVersions",
         "odb:ListSystemVersions",
         "odb:ListTagsForResource"
       ],
@@ -75,7 +86,8 @@ The policy's default version is the version that defines the permissions for the
         "odb:UntagResource"
       ],
       "Resource" : [
-        "arn:aws:odb:*:*:cloud-autonomous-vm-cluster/*"
+        "arn:aws:odb:*:*:exadb-vm-cluster/*",
+        "arn:aws:odb:*:*:db-node/*"
       ]
     },
     {
@@ -86,7 +98,7 @@ The policy's default version is the version that defines the permissions for the
         "odb:UpdateOutboundIntegration"
       ],
       "Resource" : [
-        "arn:aws:odb:*:*:cloud-autonomous-vm-cluster/*"
+        "arn:aws:odb:*:*:exadb-vm-cluster/*"
       ]
     }
   ]
@@ -94,7 +106,7 @@ The policy's default version is the version that defines the permissions for the
 ```
 
 ## Learn more
-<a name="AmazonODBAutonomousVmClusterAdmin-learn-more"></a>
+<a name="AmazonODBExascaleVmClusterAdmin-learn-more"></a>
 + [Create a permission set using AWS managed policies in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) 
 + [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) 
 + [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)

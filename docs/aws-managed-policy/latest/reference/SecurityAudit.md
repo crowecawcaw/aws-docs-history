@@ -16,13 +16,13 @@ You can attach `SecurityAudit` to your users, groups, and roles.
 <a name="SecurityAudit-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 06, 2015, 18:41 UTC 
-+ **Edited time:** August 17, 2026, 15:27 UTC
++ **Edited time:** September 09, 2026, 19:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SecurityAudit`
 
 ## Policy version
 <a name="SecurityAudit-version"></a>
 
-**Policy version:** v92 (default)
+**Policy version:** v93 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -395,10 +395,8 @@ The policy's default version is the version that defines the permissions for the
         "ec2:GetTransitGatewayAttachmentPropagations",
         "ec2:GetTransitGatewayMulticastDomainAssociations",
         "ec2:GetTransitGatewayPrefixListReferences",
-        "ec2:GetTransitGatewayPrefixListReferences",
         "ec2:GetTransitGatewayRouteTableAssociations",
         "ec2:GetTransitGatewayRouteTablePropagations",
-        "ec2:SearchTransitGatewayRoutes",
         "ec2:SearchTransitGatewayRoutes",
         "ecr-public:DescribeImages",
         "ecr-public:DescribeImageTags",

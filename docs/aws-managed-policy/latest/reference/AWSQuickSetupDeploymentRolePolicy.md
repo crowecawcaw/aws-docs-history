@@ -16,13 +16,13 @@ You can attach `AWSQuickSetupDeploymentRolePolicy` to your users, groups, and ro
 <a name="AWSQuickSetupDeploymentRolePolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 26, 2024, 09:55 UTC 
-+ **Edited time:** February 12, 2026, 18:00 UTC
++ **Edited time:** September 07, 2026, 15:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSQuickSetupDeploymentRolePolicy`
 
 ## Policy version
 <a name="AWSQuickSetupDeploymentRolePolicy-version"></a>
 
-**Policy version:** v13 (default)
+**Policy version:** v14 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -63,6 +63,27 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:cloudformation:*:*:stack/StackSet-AWS-QuickSetup-*"
       ]
+    },
+    {
+      "Sid" : "CfnTagOnMutate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:stack/StackSet-AWS-QuickSetup-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack",
+            "CreateChangeSet",
+            "ExecuteChangeSet"
+          ]
+        }
+      }
     },
     {
       "Sid" : "RGroupsGet",

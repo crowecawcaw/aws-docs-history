@@ -16,13 +16,13 @@ You can attach `AWSCodeDeployRole` to your users, groups, and roles.
 <a name="AWSCodeDeployRole-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: May 04, 2015, 18:05 UTC 
-+ **Edited time:** August 16, 2023, 20:38 UTC
++ **Edited time:** September 10, 2026, 10:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole`
 
 ## Policy version
 <a name="AWSCodeDeployRole-version"></a>
 
-**Policy version:** v11 (default)
+**Policy version:** v12 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -39,6 +39,7 @@ The policy's default version is the version that defines the permissions for the
         "autoscaling:CompleteLifecycleAction",
         "autoscaling:DeleteLifecycleHook",
         "autoscaling:DescribeAutoScalingGroups",
+        "autoscaling:DescribeAutoScalingInstances",
         "autoscaling:DescribeLifecycleHooks",
         "autoscaling:PutLifecycleHook",
         "autoscaling:RecordLifecycleActionHeartbeat",

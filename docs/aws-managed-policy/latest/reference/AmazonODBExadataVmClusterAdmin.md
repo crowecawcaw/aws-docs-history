@@ -1,33 +1,33 @@
 
 
-# AmazonODBExadataInfrastructureAdmin
-<a name="AmazonODBExadataInfrastructureAdmin"></a>
+# AmazonODBExadataVmClusterAdmin
+<a name="AmazonODBExadataVmClusterAdmin"></a>
 
-**Description**: Provides administrative access to manage Exadata Infrastructure resources in Oracle Database@AWS
+**Description**: Provides administrative access to manage Exadata VM cluster resources in Oracle Database@AWS.
 
-`AmazonODBExadataInfrastructureAdmin` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
+`AmazonODBExadataVmClusterAdmin` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
-<a name="AmazonODBExadataInfrastructureAdmin-how-to-use"></a>
+<a name="AmazonODBExadataVmClusterAdmin-how-to-use"></a>
 
-You can attach `AmazonODBExadataInfrastructureAdmin` to your users, groups, and roles.
+You can attach `AmazonODBExadataVmClusterAdmin` to your users, groups, and roles.
 
 ## Policy details
-<a name="AmazonODBExadataInfrastructureAdmin-details"></a>
+<a name="AmazonODBExadataVmClusterAdmin-details"></a>
 + **Type**: Job function policy 
-+ **Creation time**: August 07, 2026, 01:12 UTC 
-+ **Edited time:** September 04, 2026, 21:27 UTC
-+ **ARN**: `arn:aws:iam::aws:policy/job-function/AmazonODBExadataInfrastructureAdmin`
++ **Creation time**: September 04, 2026, 21:37 UTC 
++ **Edited time:** September 04, 2026, 21:37 UTC
++ **ARN**: `arn:aws:iam::aws:policy/job-function/AmazonODBExadataVmClusterAdmin`
 
 ## Policy version
-<a name="AmazonODBExadataInfrastructureAdmin-version"></a>
+<a name="AmazonODBExadataVmClusterAdmin-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
-<a name="AmazonODBExadataInfrastructureAdmin-json"></a>
+<a name="AmazonODBExadataVmClusterAdmin-json"></a>
 
 ```
 {
@@ -39,21 +39,30 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "odb:GetOciOnboardingStatus",
         "odb:InitializeService",
-        "odb:CreateCloudExadataInfrastructure",
         "odb:GetCloudExadataInfrastructure",
-        "odb:UpdateCloudExadataInfrastructure",
         "odb:GetCloudExadataInfrastructureUnallocatedResources",
-        "odb:DeleteCloudExadataInfrastructure",
         "odb:ListCloudExadataInfrastructures",
+        "odb:CreateCloudVmCluster",
+        "odb:GetCloudVmCluster",
+        "odb:DeleteCloudVmCluster",
         "odb:ListCloudVmClusters",
-        "odb:ListCloudAutonomousVmClusters",
+        "odb:AssociateIamRoleToResource",
+        "odb:DisassociateIamRoleFromResource",
+        "odb:CreateDbNode",
+        "odb:GetDbNode",
+        "odb:RebootDbNode",
+        "odb:StartDbNode",
+        "odb:StopDbNode",
+        "odb:DeleteDbNode",
+        "odb:ListDbNodes",
         "odb:GetDbServer",
         "odb:ListDbServers",
+        "odb:GetOdbNetwork",
+        "odb:ListOdbNetworks",
         "odb:ListDbSystemShapes",
         "odb:ListFlexComponents",
-        "odb:PutResourcePolicy",
-        "odb:GetResourcePolicy",
-        "odb:DeleteResourcePolicy",
+        "odb:ListGiVersions",
+        "odb:ListSystemVersions",
         "odb:ListTagsForResource"
       ],
       "Resource" : "*"
@@ -67,21 +76,6 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : "*"
     },
     {
-      "Sid" : "AllowSLRActions",
-      "Effect" : "Allow",
-      "Action" : [
-        "iam:CreateServiceLinkedRole"
-      ],
-      "Resource" : "*",
-      "Condition" : {
-        "StringEquals" : {
-          "iam:AWSServiceName" : [
-            "odb.amazonaws.com"
-          ]
-        }
-      }
-    },
-    {
       "Sid" : "AllowTaggingActions",
       "Effect" : "Allow",
       "Action" : [
@@ -89,7 +83,19 @@ The policy's default version is the version that defines the permissions for the
         "odb:UntagResource"
       ],
       "Resource" : [
-        "arn:aws:odb:*:*:cloud-exadata-infrastructure/*"
+        "arn:aws:odb:*:*:cloud-vm-cluster/*",
+        "arn:aws:odb:*:*:db-node/*"
+      ]
+    },
+    {
+      "Sid" : "AllowOutboundIntegrationActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "odb:CreateOutboundIntegration",
+        "odb:UpdateOutboundIntegration"
+      ],
+      "Resource" : [
+        "arn:aws:odb:*:*:cloud-vm-cluster/*"
       ]
     }
   ]
@@ -97,7 +103,7 @@ The policy's default version is the version that defines the permissions for the
 ```
 
 ## Learn more
-<a name="AmazonODBExadataInfrastructureAdmin-learn-more"></a>
+<a name="AmazonODBExadataVmClusterAdmin-learn-more"></a>
 + [Create a permission set using AWS managed policies in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) 
 + [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) 
 + [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)

@@ -16,13 +16,13 @@ You can attach `AmazonODBFullAccess` to your users, groups, and roles.
 <a name="AmazonODBFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 23, 2026, 22:57 UTC 
-+ **Edited time:** July 23, 2026, 22:57 UTC
++ **Edited time:** September 04, 2026, 21:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonODBFullAccess`
 
 ## Policy version
 <a name="AmazonODBFullAccess-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -53,6 +53,19 @@ The policy's default version is the version that defines the permissions for the
         "odb:GetCloudAutonomousVmCluster",
         "odb:DeleteCloudAutonomousVmCluster",
         "odb:ListCloudAutonomousVmClusters",
+        "odb:CreateExascaleDbStorageVault",
+        "odb:GetExascaleDbStorageVault",
+        "odb:UpdateExascaleDbStorageVault",
+        "odb:DeleteExascaleDbStorageVault",
+        "odb:ListExascaleDbStorageVaults",
+        "odb:CreateExadbVmCluster",
+        "odb:GetExadbVmCluster",
+        "odb:UpdateExadbVmCluster",
+        "odb:DeleteExadbVmCluster",
+        "odb:ListExadbVmClusters",
+        "odb:AssociateVirtualMachinesToExadbVmCluster",
+        "odb:DisassociateVirtualMachinesFromExadbVmCluster",
+        "odb:ListGiMinorVersions",
         "odb:CreateAutonomousDatabase",
         "odb:GetAutonomousDatabase",
         "odb:UpdateAutonomousDatabase",
@@ -83,6 +96,8 @@ The policy's default version is the version that defines the permissions for the
         "odb:ListDbNodes",
         "odb:GetDbServer",
         "odb:ListDbServers",
+        "odb:AssociateIamRoleToResource",
+        "odb:DisassociateIamRoleFromResource",
         "odb:CreateOdbNetwork",
         "odb:GetOdbNetwork",
         "odb:UpdateOdbNetwork",
@@ -95,6 +110,7 @@ The policy's default version is the version that defines the permissions for the
         "odb:ListOdbPeeringConnections",
         "odb:ListAutonomousVirtualMachines",
         "odb:ListDbSystemShapes",
+        "odb:ListFlexComponents",
         "odb:ListGiVersions",
         "odb:ListSystemVersions",
         "odb:ListAutonomousDatabaseVersions",
@@ -102,7 +118,11 @@ The policy's default version is the version that defines the permissions for the
         "odb:PutResourcePolicy",
         "odb:GetResourcePolicy",
         "odb:DeleteResourcePolicy",
+        "odb:CreateGrantShare",
+        "odb:UpdateGrantShare",
+        "odb:DeleteGrantShare",
         "odb:CreateOutboundIntegration",
+        "odb:UpdateOutboundIntegration",
         "odb:TagResource",
         "odb:UntagResource",
         "odb:ListTagsForResource"
@@ -126,12 +146,7 @@ The policy's default version is the version that defines the permissions for the
         "ec2:ModifyOdbNetworkPeering",
         "ec2:DeleteOdbNetworkPeering"
       ],
-      "Resource" : "*",
-      "Condition" : {
-        "ForAnyValue:StringEquals" : {
-          "aws:CalledVia" : "odb.amazonaws.com"
-        }
-      }
+      "Resource" : "*"
     },
     {
       "Sid" : "AllowSLRActions",

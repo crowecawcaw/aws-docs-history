@@ -16,13 +16,13 @@ You can attach `AWSGlueConsoleSageMakerNotebookFullAccess` to your users, groups
 <a name="AWSGlueConsoleSageMakerNotebookFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: October 05, 2018, 17:52 UTC 
-+ **Edited time:** July 15, 2021, 15:24 UTC
++ **Edited time:** September 10, 2026, 20:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess`
 
 ## Policy version
 <a name="AWSGlueConsoleSageMakerNotebookFullAccess-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -115,6 +115,22 @@ The policy's default version is the version that defines the permissions for the
         "cloudformation:DeleteStack"
       ],
       "Resource" : "arn:aws:cloudformation:*:*:stack/aws-glue*/*"
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "arn:aws:cloudformation:*:*:stack/aws-glue*/*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack"
+          ]
+        }
+      }
     },
     {
       "Effect" : "Allow",

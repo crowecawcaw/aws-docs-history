@@ -16,13 +16,13 @@ You can attach `AWSTransformApplicationECSDeploymentPolicy` to your users, group
 <a name="AWSTransformApplicationECSDeploymentPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: September 29, 2025, 22:49 UTC 
-+ **Edited time:** February 12, 2026, 18:02 UTC
++ **Edited time:** September 11, 2026, 00:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSTransformApplicationECSDeploymentPolicy`
 
 ## Policy version
 <a name="AWSTransformApplicationECSDeploymentPolicy-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -55,6 +55,23 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}",
           "aws:ResourceTag/CreatedBy" : "AWSTransform"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "arn:aws:cloudformation:*:*:stack/AWSTransform*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack"
+          ]
         }
       }
     },

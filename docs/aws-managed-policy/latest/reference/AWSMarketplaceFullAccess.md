@@ -16,13 +16,13 @@ You can attach `AWSMarketplaceFullAccess` to your users, groups, and roles.
 <a name="AWSMarketplaceFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 11, 2015, 17:21 UTC 
-+ **Edited time:** February 12, 2026, 18:00 UTC
++ **Edited time:** September 11, 2026, 16:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceFullAccess`
 
 ## Policy version
 <a name="AWSMarketplaceFullAccess-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -46,7 +46,6 @@ The policy's default version is the version that defines the permissions for the
         "ec2:AuthorizeSecurityGroupIngress",
         "ec2:CreateSecurityGroup",
         "ec2:CreateTags",
-        "ec2:DescribeAccountAttributes",
         "ec2:DescribeAddresses",
         "ec2:DeleteSecurityGroup",
         "ec2:DescribeAccountAttributes",
@@ -60,7 +59,9 @@ The policy's default version is the version that defines the permissions for the
         "ec2:RunInstances",
         "ec2:StartInstances",
         "ec2:StopInstances",
-        "ec2:TerminateInstances"
+        "ec2:TerminateInstances",
+        "license-manager:ListReceivedLicenses",
+        "payments:ListPaymentProgramStatus"
       ],
       "Resource" : "*"
     },
@@ -85,6 +86,31 @@ The policy's default version is the version that defines the permissions for the
         "iam:ListInstanceProfiles"
       ],
       "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack"
+          ]
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "signin:CreateOAuth2Token",
+      "Resource" : "arn:aws:signin:*:*:service-principal/marketplace-mcp.amazonaws.com",
+      "Condition" : {
+        "StringEquals" : {
+          "signin:OAuthGrantType" : "client_credentials"
+        }
+      }
     },
     {
       "Effect" : "Allow",

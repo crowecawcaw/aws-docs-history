@@ -16,13 +16,13 @@ You can attach `AIDevOpsOperatorAppAccessPolicy` to your users, groups, and role
 <a name="AIDevOpsOperatorAppAccessPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: March 26, 2026, 03:42 UTC 
-+ **Edited time:** June 26, 2026, 23:57 UTC
++ **Edited time:** September 10, 2026, 17:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AIDevOpsOperatorAppAccessPolicy`
 
 ## Policy version
 <a name="AIDevOpsOperatorAppAccessPolicy-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -79,6 +79,7 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:ListPendingMessages",
         "aidevops:ListRecommendations",
         "aidevops:ListTriggers",
+        "aidevops:ListWebhooks",
         "aidevops:RevokeAccessToken",
         "aidevops:RotateAccessToken",
         "aidevops:SendMessage",
@@ -91,7 +92,10 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:UpdateRecommendation",
         "aidevops:UpdateTrigger"
       ],
-      "Resource" : "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
+      "Resource" : [
+        "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
+        "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}/*"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSResourceExplorerServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: October 25, 2022, 20:35 UTC 
-+ **Edited time:** September 03, 2026, 19:37 UTC
++ **Edited time:** September 09, 2026, 23:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSResourceExplorerServiceRolePolicy`
 
 ## Policy version
 <a name="AWSResourceExplorerServiceRolePolicy-version"></a>
 
-**Policy version:** v53 (default)
+**Policy version:** v54 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -1099,7 +1099,9 @@ The policy's default version is the version that defines the permissions for the
         "cloudtrail:GetInsightSelectors",
         "cloudtrail:GetTrail",
         "cloudtrail:GetTrailStatus",
+        "connect:DescribeHoursOfOperation",
         "connect:DescribeQueue",
+        "connect:ListHoursOfOperationOverrides",
         "connect:ListInstances",
         "connect:ListQuickConnects",
         "connect:ListUserProficiencies",

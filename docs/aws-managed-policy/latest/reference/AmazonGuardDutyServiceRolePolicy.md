@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AmazonGuardDutyServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: November 28, 2017, 20:12 UTC 
-+ **Edited time:** April 24, 2026, 20:12 UTC
++ **Edited time:** September 09, 2026, 21:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyServiceRolePolicy`
 
 ## Policy version
 <a name="AmazonGuardDutyServiceRolePolicy-version"></a>
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -302,6 +302,23 @@ The policy's default version is the version that defines the permissions for the
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
+    },
+    {
+      "Sid" : "GdLatticeCreateManagedSnvaAssociation",
+      "Effect" : "Allow",
+      "Action" : "vpc-lattice:CreateServiceNetworkVpcAssociation",
+      "Resource" : "arn:aws:vpc-lattice:*:*:servicenetworkvpcassociation/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "GdLatticeAssociateViaAwsService",
+      "Effect" : "Allow",
+      "Action" : "vpc-lattice:AssociateViaAWSService",
+      "Resource" : "*"
     }
   ]
 }

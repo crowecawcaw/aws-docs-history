@@ -16,13 +16,13 @@ You can attach `AWSControlTowerServiceRolePolicy` to your users, groups, and rol
 <a name="AWSControlTowerServiceRolePolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: May 03, 2019, 18:19 UTC 
-+ **Edited time:** May 20, 2026, 20:12 UTC
++ **Edited time:** September 10, 2026, 19:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSControlTowerServiceRolePolicy`
 
 ## Policy version
 <a name="AWSControlTowerServiceRolePolicy-version"></a>
 
-**Policy version:** v21 (default)
+**Policy version:** v22 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -241,6 +241,29 @@ The policy's default version is the version that defines the permissions for the
         "cloudformation:DescribeOrganizationsAccess"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:type/resource/AWS-IAM-Role",
+        "arn:aws:cloudformation:*:*:stack/AWSControlTower*/*",
+        "arn:aws:cloudformation:*:*:stack/StackSet-AWSControlTower*/*",
+        "arn:aws:cloudformation:*:*:stackset/AWSControlTower*:*",
+        "arn:aws:cloudformation:*:*:stackset-target/AWSControlTower*/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack"
+          ]
+        }
+      }
     }
   ]
 }

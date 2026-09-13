@@ -16,13 +16,13 @@ You can attach `AWSGlueConsoleFullAccess` to your users, groups, and roles.
 <a name="AWSGlueConsoleFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 14, 2017, 13:37 UTC 
-+ **Edited time:** July 14, 2023, 14:37 UTC
++ **Edited time:** September 10, 2026, 20:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess`
 
 ## Policy version
 <a name="AWSGlueConsoleFullAccess-version"></a>
 
-**Policy version:** v14 (default)
+**Policy version:** v15 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -125,6 +125,22 @@ The policy's default version is the version that defines the permissions for the
         "cloudformation:DeleteStack"
       ],
       "Resource" : "arn:aws:cloudformation:*:*:stack/aws-glue*/*"
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource",
+        "cloudformation:UntagResource"
+      ],
+      "Resource" : "arn:aws:cloudformation:*:*:stack/aws-glue*/*",
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack"
+          ]
+        }
+      }
     },
     {
       "Effect" : "Allow",

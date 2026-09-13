@@ -16,13 +16,13 @@ You can attach `AWSElasticDisasterRecoveryStagingAccountPolicy_v2` to your users
 <a name="AWSElasticDisasterRecoveryStagingAccountPolicy_v2-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: January 05, 2023, 12:11 UTC 
-+ **Edited time:** November 27, 2023, 13:32 UTC
++ **Edited time:** September 09, 2026, 13:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryStagingAccountPolicy_v2`
 
 ## Policy version
 <a name="AWSElasticDisasterRecoveryStagingAccountPolicy_v2-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -69,6 +69,15 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:drs:*:*:source-server/*"
       ]
+    },
+    {
+      "Sid" : "DRSStagingAccountPolicyv24",
+      "Effect" : "Allow",
+      "Action" : [
+        "drs:CreateSourceServerForDrs",
+        "drs:DescribeReplicationConfigurationTemplates"
+      ],
+      "Resource" : "*"
     }
   ]
 }

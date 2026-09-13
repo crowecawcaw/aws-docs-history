@@ -1,33 +1,33 @@
 
 
-# AmazonODBNetworkAdmin
-<a name="AmazonODBNetworkAdmin"></a>
+# AmazonODBExascaleStorageVaultAdmin
+<a name="AmazonODBExascaleStorageVaultAdmin"></a>
 
-**Description**: Provides administrative access to networking resources for Oracle Database@AWS
+**Description**: Provides administrative access to manage Exascale storage vault resources in Oracle Database@AWS.
 
-`AmazonODBNetworkAdmin` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
+`AmazonODBExascaleStorageVaultAdmin` is an [AWS managed policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies).
 
 ## Using this policy
-<a name="AmazonODBNetworkAdmin-how-to-use"></a>
+<a name="AmazonODBExascaleStorageVaultAdmin-how-to-use"></a>
 
-You can attach `AmazonODBNetworkAdmin` to your users, groups, and roles.
+You can attach `AmazonODBExascaleStorageVaultAdmin` to your users, groups, and roles.
 
 ## Policy details
-<a name="AmazonODBNetworkAdmin-details"></a>
+<a name="AmazonODBExascaleStorageVaultAdmin-details"></a>
 + **Type**: Job function policy 
-+ **Creation time**: August 07, 2026, 01:12 UTC 
++ **Creation time**: September 04, 2026, 21:37 UTC 
 + **Edited time:** September 04, 2026, 21:37 UTC
-+ **ARN**: `arn:aws:iam::aws:policy/job-function/AmazonODBNetworkAdmin`
++ **ARN**: `arn:aws:iam::aws:policy/job-function/AmazonODBExascaleStorageVaultAdmin`
 
 ## Policy version
-<a name="AmazonODBNetworkAdmin-version"></a>
+<a name="AmazonODBExascaleStorageVaultAdmin-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
 ## JSON policy document
-<a name="AmazonODBNetworkAdmin-json"></a>
+<a name="AmazonODBExascaleStorageVaultAdmin-json"></a>
 
 ```
 {
@@ -39,16 +39,16 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "odb:GetOciOnboardingStatus",
         "odb:InitializeService",
-        "odb:CreateOdbNetwork",
-        "odb:GetOdbNetwork",
-        "odb:UpdateOdbNetwork",
-        "odb:DeleteOdbNetwork",
-        "odb:ListOdbNetworks",
-        "odb:CreateOdbPeeringConnection",
-        "odb:GetOdbPeeringConnection",
-        "odb:UpdateOdbPeeringConnection",
-        "odb:DeleteOdbPeeringConnection",
-        "odb:ListOdbPeeringConnections",
+        "odb:CreateExascaleDbStorageVault",
+        "odb:GetExascaleDbStorageVault",
+        "odb:UpdateExascaleDbStorageVault",
+        "odb:DeleteExascaleDbStorageVault",
+        "odb:ListExascaleDbStorageVaults",
+        "odb:ListExadbVmClusters",
+        "odb:GetDbServer",
+        "odb:ListDbServers",
+        "odb:ListDbSystemShapes",
+        "odb:ListFlexComponents",
         "odb:PutResourcePolicy",
         "odb:GetResourcePolicy",
         "odb:DeleteResourcePolicy",
@@ -60,18 +60,7 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "AllowEC2Actions",
       "Effect" : "Allow",
       "Action" : [
-        "ec2:DescribeAvailabilityZones",
-        "ec2:DescribeVpcs"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "AllowOdbNetworkPeeringActions",
-      "Effect" : "Allow",
-      "Action" : [
-        "ec2:CreateOdbNetworkPeering",
-        "ec2:ModifyOdbNetworkPeering",
-        "ec2:DeleteOdbNetworkPeering"
+        "ec2:DescribeAvailabilityZones"
       ],
       "Resource" : "*"
     },
@@ -85,8 +74,7 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "StringEquals" : {
           "iam:AWSServiceName" : [
-            "odb.amazonaws.com",
-            "vpc-lattice.amazonaws.com"
+            "odb.amazonaws.com"
           ]
         }
       }
@@ -99,8 +87,7 @@ The policy's default version is the version that defines the permissions for the
         "odb:UntagResource"
       ],
       "Resource" : [
-        "arn:aws:odb:*:*:odb-network/*",
-        "arn:aws:odb:*:*:odb-peering-connection/*"
+        "arn:aws:odb:*:*:exascale-db-storage-vault/*"
       ]
     }
   ]
@@ -108,7 +95,7 @@ The policy's default version is the version that defines the permissions for the
 ```
 
 ## Learn more
-<a name="AmazonODBNetworkAdmin-learn-more"></a>
+<a name="AmazonODBExascaleStorageVaultAdmin-learn-more"></a>
 + [Create a permission set using AWS managed policies in IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) 
 + [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) 
 + [Understand versioning for IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-versioning.html)
