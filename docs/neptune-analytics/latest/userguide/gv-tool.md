@@ -55,4 +55,4 @@ G.V() is continuously evolving with new features released monthly. Get started w
 
 Here's a short preview of G.V() in action:
 
-![G.V() product demonstration showing graph visualization and query capabilities](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/gdotv-product-introduction.gif)
+![G.V() product demonstration showing graph visualization and query capabilities](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/gdotv-product-introduction.gif)

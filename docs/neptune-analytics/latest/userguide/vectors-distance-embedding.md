@@ -35,25 +35,25 @@ RETURN embedding, n, distance
   +  Case-insensitive. 
   +  The descriptions for the metrics, where x and y are vectors, x\_i and y\_i are the components of x and y vectors, θ is the angle between the x and y vectors, \|\|x\|\| denotes the magnitude (length, l2-norm, norm2) of vector x, ∑ denotes summation: 
     +  L2-Squared: Squared Euclidean distance between two vectors:   
-![L2-Squared: Squared Euclidean distance between two vectors.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/L2Squared.png)
+![L2-Squared: Squared Euclidean distance between two vectors.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/L2Squared.png)
 
        For more information on L2-Squared, see [ https://en.wikipedia.org/wiki/Euclidean\_distance\#Squared\_Euclidean\_distance](https://en.wikipedia.org/wiki/Euclidean_distance#Squared_Euclidean_distance). 
     +  L2: Euclidean distance (L2 norm) between two vectors:   
-![L2: Euclidean distance (L2 norm) between two vectors.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/L2.png)
+![L2: Euclidean distance (L2 norm) between two vectors.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/L2.png)
 
        For more information on L2, see [ https://en.wikipedia.org/wiki/Euclidean\_distance](https://en.wikipedia.org/wiki/Euclidean_distance). 
     +  Dot Product: Inner dot product of two vectors:   
-![Dot Product: Inner dot product of two vectors.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/dot1.png)
+![Dot Product: Inner dot product of two vectors.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/dot1.png)
 
        For more information on Dot Product, see [ https://en.wikipedia.org/wiki/Dot\_product](https://en.wikipedia.org/wiki/Dot_product). 
     +  Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar):   
-![Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar).](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/cossimi4.png)
+![Cosine Similarity: Measures the cosine of the angle between two vectors (higher value means more similar).](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/cossimi4.png)
 
        Range: [-1, 1] 
 
        For more information on Cosine Similarity, see [ https://en.wikipedia.org/wiki/Cosine\_similarity](https://en.wikipedia.org/wiki/Cosine_similarity). 
     +  Cosine Distance: Opposite of cosine similarity (lower value means more similar):   
-![Cosine Distance: Opposite of cosine similarity (lower value means more similar).](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/cosdist1.png)
+![Cosine Distance: Opposite of cosine similarity (lower value means more similar).](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/vectors-distance/cosdist1.png)
 
        Range: [0, 2] 
 

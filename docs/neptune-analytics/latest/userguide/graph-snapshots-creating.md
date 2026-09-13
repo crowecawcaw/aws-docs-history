@@ -36,9 +36,9 @@ aws neptune-graph create-graph-snapshot \
 1.  Select the graph you want to take a snapshot of in **Analytics**, **Graphs**. 
 
 1.  Choose **Actions**, and choose **Create snapshot**.   
-![Image showing the selection process of creating a snapshot.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/create-step-2.png)
+![Image showing the selection process of creating a snapshot.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/create-step-2.png)
 
 1.  Give the snapshot a name and choose **Create Analytics Snapshot**.   
-![Analytics snapshot name field with Tags section showing no tags and Add new tag button.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/create-step-3.png)
+![Analytics snapshot name field with Tags section showing no tags and Add new tag button.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/create-step-3.png)
 
 ------

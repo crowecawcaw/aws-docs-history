@@ -21,7 +21,7 @@
 1.  In the **data source** section, choose the **empty graph** option. 
 **Note**  
  Additional charges equivalent to the m-NCUs selected for the graph apply for each replica.   
-![Image showing the AWS console, with the available options and settings configurations.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/getting-started/gettingStartedStep6.png)
+![Image showing the AWS console, with the available options and settings configurations.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/getting-started/gettingStartedStep6.png)
 
 1.  You can connect to a Neptune graph from a public endpoint or a private endpoint. Select your network configuration accordingly. 
 **Note**  
@@ -36,7 +36,7 @@ ec2:DescribeVpcs
 ec2:ModifyVpcEndpoint
 route53:AssociateVPCWithHostedZone
  For more information about required permissions, see [ Actions defined by Neptune Analytics](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonneptuneanalytics.html#amazonneptuneanalytics-actions-as-permissions).   
-![Image showing the AWS console, with the available options and settings configurations.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/getting-started/gettingStartedStep7.png)
+![Image showing the AWS console, with the available options and settings configurations.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/getting-started/gettingStartedStep7.png)
 
 1.  Additionally, you can select vector search configuration for the graph. For more information on vector search configuration, see [Vector indexing](vector-index.md). 
 

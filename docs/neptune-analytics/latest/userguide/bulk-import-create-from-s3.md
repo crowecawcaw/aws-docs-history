@@ -176,12 +176,12 @@ aws neptune-graph create-graph-using-import-task \
 **Via Neptune console**
 
 1. Start the Create Graph wizard and choose **Create graph from existing source**.  
-![Step 1 of import using console.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/bulk-import/import-step-1.png)
+![Step 1 of import using console.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/bulk-import/import-step-1.png)
 
 1. Choose type of source as Amazon S3, minimum and maximum provisioned memory, Amazon S3 path, and load role ARN.  
-![Step 2 of import using console.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/bulk-import/import-step-2.png)
+![Step 2 of import using console.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/bulk-import/import-step-2.png)
 
 1. Choose the Network Settings and Replica counts.  
-![Step 3 of import using console.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/bulk-import/import-step-3.png)
+![Step 3 of import using console.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/bulk-import/import-step-3.png)
 
 1. Create graph.

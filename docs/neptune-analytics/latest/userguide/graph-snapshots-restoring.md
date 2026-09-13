@@ -40,10 +40,10 @@ Optional parameters:
 1.  Select the snapshot and choose **Restore snapshot**. 
 
 1.  Give the graph a unique name, and choose provisioned m-NCU.   
-![Image showing the form used to give the graph a unique name and choose m-NCU for the graph.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/restore-step-3.png)
+![Image showing the form used to give the graph a unique name and choose m-NCU for the graph.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/restore-step-3.png)
 
 1.  Update availibility, network, and advanced settings if necessary, and choose the **Restore snapshot** button.   
-![Image showing the form used to update availibility, network, and advanced settings.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/restore-step-4.png)
+![Image showing the form used to update availibility, network, and advanced settings.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/restore-step-4.png)
 
 1.  You can review the status of your restored graph by expanding **Analytics** and choosing **Graphs**. 
 

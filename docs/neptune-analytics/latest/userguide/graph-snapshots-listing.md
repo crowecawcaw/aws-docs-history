@@ -32,7 +32,7 @@ Status:
 
  You can view your snapshots by expanding **Analytics** and choosing **Snapshots**. 
 
-![Expanded Analytics menu showing Graphs, Snapshots, and Import tasks options.](http://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/listing-via-console.png)
+![Expanded Analytics menu showing Graphs, Snapshots, and Import tasks options.](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/images/snapshots/listing-via-console.png)
 
 
 ------
