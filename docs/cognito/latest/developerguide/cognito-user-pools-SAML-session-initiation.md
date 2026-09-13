@@ -20,7 +20,7 @@ As a best practice, implement service-provider-initiated (SP-initiated) sign-in 
 
 The following process shows how users complete SP-initiated sign in to your user pool through a SAML provider.
 
-![Authentication flow diagram of Amazon Cognito SP-initiated SAML sign-in.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml-stepbystep.png)
+![Authentication flow diagram of Amazon Cognito SP-initiated SAML sign-in.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml-stepbystep.png)
 
 
 1. Your user enters their email address at a sign-in page. To determine your user’s redirect to their IdP, you can collect their email address in a custom-built application or invoke managed login in web view.
@@ -52,7 +52,7 @@ You can also choose the duration of refresh tokens. After a user's refresh token
 
 When you configure your identity provider for IdP-initiated SAML 2.0 sign-in, you can present SAML assertions to the `saml2/idpresponse` endpoint in your user pool domain without the need to initiate the session at the [Authorize endpoint](authorization-endpoint.md). A user pool with this configuration accepts IdP-initiated SAML assertions from a user pool external identity provider that the requested app client supports.
 
-![Authentication flow diagram of Amazon Cognito IdP-initiated SAML sign-in.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml-idpinit.png)
+![Authentication flow diagram of Amazon Cognito IdP-initiated SAML sign-in.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml-idpinit.png)
 
 
 1. A user requests SAML sign-in with your application.

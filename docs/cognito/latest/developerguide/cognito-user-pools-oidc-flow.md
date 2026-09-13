@@ -41,7 +41,7 @@ When your user signs in to your application using an OIDC IdP, your user pool co
 
 1. Your application processes the user pool tokens and signs the user in.
 
-![User pool OIDC IdP authentication flow](http://docs.aws.amazon.com/cognito/latest/developerguide/images/flow-cup-oidc-endpoints.png)
+![User pool OIDC IdP authentication flow](https://docs.aws.amazon.com/cognito/latest/developerguide/images/flow-cup-oidc-endpoints.png)
 
 
 **Note**  

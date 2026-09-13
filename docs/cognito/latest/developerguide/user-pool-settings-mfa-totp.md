@@ -118,7 +118,7 @@ This error results when AWS WAF prompts for a CAPTCHA in response to [AssociateS
 
 The following screenshot shows an example AWS WAF rule that applies a CAPTCHA action to all requests that don't have a `x-amzn-cognito-operation-name` header value of `AssociateSoftwareToken` or `VerifySoftwareToken`.
 
-![A screenshot of a AWS WAF rule that applies a CAPTCHA action to all requests that don't have a x-amzn-cognito-operation-name header value of AssociateSoftwareToken or VerifySoftwareToken.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-WAF-rule-TOTP.png)
+![A screenshot of a AWS WAF rule that applies a CAPTCHA action to all requests that don't have a x-amzn-cognito-operation-name header value of AssociateSoftwareToken or VerifySoftwareToken.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-WAF-rule-TOTP.png)
 
 
 For more information about AWS WAF web ACLs and Amazon Cognito, see [Associate an AWS WAF web ACL with a user pool](user-pool-waf.md).

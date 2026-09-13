@@ -50,7 +50,7 @@ The Amplify libraries are open source and are available on [GitHub](https://gith
 
 [User pool managed login](cognito-user-pools-managed-login.md) can fulfill the essential needs of an authentication front-end for a web or mobile app. To customize your user interface (UI) beyond the parameters that managed login accommodates, custom-build an application. [Amplify UI](https://ui.docs.amplify.aws/) is a customizable collection of front-end components in a variety of languages.
 
-![A screenshot of an example Amplify Authenticator application.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amplify-authenticator-ui.png)
+![A screenshot of an example Amplify Authenticator application.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amplify-authenticator-ui.png)
 
 
 To get started with your custom authentication component, visit the following documentation for the Authenticator component.

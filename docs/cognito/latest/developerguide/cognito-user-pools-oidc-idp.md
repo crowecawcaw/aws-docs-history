@@ -9,7 +9,7 @@ Users who sign in with an OIDC IdP aren't required to provide new credentials or
 
 Like with other third-party identity providers, you must register your application with the OIDC provider and obtain information about the IdP application that you want to connect to your user pool. A user pool OIDC IdP requires a client ID, client secret, scopes that you want to request, and information about provider service endpoints. Your user pool can discover the provider OIDC endpoints from a discovery endpoint or you can enter them manually. You must also examine provider ID tokens and create attribute mappings between the IdP and the attributes in your user pool.
 
-![User pool OIDC IdP authentication flow](http://docs.aws.amazon.com/cognito/latest/developerguide/images/flow-cup-oidc-endpoints.png)
+![User pool OIDC IdP authentication flow](https://docs.aws.amazon.com/cognito/latest/developerguide/images/flow-cup-oidc-endpoints.png)
 
 
 See [OIDC user pool IdP authentication flow](cognito-user-pools-oidc-flow.md) for more details about this authentication flow.

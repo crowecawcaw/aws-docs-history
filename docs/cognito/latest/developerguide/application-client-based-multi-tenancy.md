@@ -7,7 +7,7 @@ Create an [app client](user-pool-settings-client-apps.md#user-pool-settings-clie
 
 The following diagram shows each tenant with a dedicated app client in a shared user pool.
 
-![A diagram of a one-to-one multi-tenancy model where each tenant has their own app client in a shared user pool.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/multi-tenancy-app-client.png)
+![A diagram of a one-to-one multi-tenancy model where each tenant has their own app client in a shared user pool.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/multi-tenancy-app-client.png)
 
 
 **When to implement app-client multi-tenancy**  

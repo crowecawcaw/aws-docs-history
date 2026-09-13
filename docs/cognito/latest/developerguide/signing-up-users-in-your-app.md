@@ -28,7 +28,7 @@ Amazon Cognito requires passwords from all users when they sign up, except under
 
 The following diagram illustrates the confirmation process:
 
-![When users enter the confirmation code, they automatically verify email or phone.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-sign-in-confirm-user.png)
+![When users enter the confirmation code, they automatically verify email or phone.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-sign-in-confirm-user.png)
 
 
 A user account can be in any of the following states:

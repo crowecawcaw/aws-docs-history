@@ -9,7 +9,7 @@ Using this approach, you can set up a hosted UI for each tenant independently an
 
 The following diagram shows each tenant with a dedicated user pool.
 
-![A diagram of a one-to-one multi-tenancy model where each tenant has their own user pool.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/multi-tenancy-user-pool.png)
+![A diagram of a one-to-one multi-tenancy model where each tenant has their own user pool.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/multi-tenancy-user-pool.png)
 
 
 **When to implement user-pool multi-tenancy**  

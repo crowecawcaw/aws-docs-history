@@ -52,12 +52,12 @@ To activate [client-based authentication](authentication-flows-selection-sdk.md#
 
 To activate [choice-based authentication](authentication-flows-selection-sdk.md#authentication-flows-selection-choice) with username and password, configure your app client to permit it. Edit your app client and choose **Choice-based sign-in: ALLOW\_USER\_AUTH**.
 
-![A screenshot from the Amazon Cognito console that illustrates the choice of plain password authentication flows for an app client. The options ALLOW_USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, and ALLOW_USER_AUTH have been selected.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/screenshot-choose-password-admin-password-and-user-auth.png)
+![A screenshot from the Amazon Cognito console that illustrates the choice of plain password authentication flows for an app client. The options ALLOW_USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, and ALLOW_USER_AUTH have been selected.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/screenshot-choose-password-admin-password-and-user-auth.png)
 
 
 To verify that password authentication is available in choice-based authentication flows, navigate to the **Sign-in menu** and review the section under **Options for choice-based sign-in**. You can sign in with plain-password authentication if **Password** is visible under **Available choices**. The **Password** option includes the plain and SRP username-password authentication variants.
 
-![A screenshot from the Amazon Cognito console that illustrates the choice of password authentication in USER_AUTH choice-based sign-in configuration for a user pool. The Password option is displayed as active.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/screenshot-password-flow-in-user-auth.png)
+![A screenshot from the Amazon Cognito console that illustrates the choice of password authentication in USER_AUTH choice-based sign-in configuration for a user pool. The Password option is displayed as active.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/screenshot-password-flow-in-user-auth.png)
 
 
 Configure `ExplicitAuthFlows` with your preferred username-and-password authentication options in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) request.
@@ -176,12 +176,12 @@ To activate [client-based authentication](authentication-flows-selection-sdk.md#
 
 To activate [choice-based authentication](authentication-flows-selection-sdk.md#authentication-flows-selection-choice) with username and SRP, edit your app client and choose **Choice-based sign-in: ALLOW\_USER\_AUTH**.
 
-![A screenshot from the Amazon Cognito console that illustrates the choice of secure remote password authentication flows for an app client. The options ALLOW_USER_SRP_AUTH and ALLOW_USER_AUTH have been selected.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/screenshot-choose-SRP-and-user-auth.png)
+![A screenshot from the Amazon Cognito console that illustrates the choice of secure remote password authentication flows for an app client. The options ALLOW_USER_SRP_AUTH and ALLOW_USER_AUTH have been selected.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/screenshot-choose-SRP-and-user-auth.png)
 
 
 To verify that SRP authentication is available in your choice-based authentication flows, navigate to the **Sign-in menu** and review the section under **Options for choice-based sign-in**. You can sign in with SRP authentication if **Password** is visible under **Available choices**. The **Password** option includes the plaintext and SRP username-password authentication variants.
 
-![A screenshot from the Amazon Cognito console that illustrates the choice of password authentication in USER_AUTH choice-based sign-in configuration for a user pool. The Password option is displated as active.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/screenshot-password-flow-in-user-auth.png)
+![A screenshot from the Amazon Cognito console that illustrates the choice of password authentication in USER_AUTH choice-based sign-in configuration for a user pool. The Password option is displated as active.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/screenshot-password-flow-in-user-auth.png)
 
 
 Configure `ExplicitAuthFlows` with your preferred username-and-password authentication options in a [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) or [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) request.

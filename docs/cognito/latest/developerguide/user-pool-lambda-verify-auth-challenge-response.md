@@ -5,7 +5,7 @@
 
 The verify auth challenge trigger is a Lambda function that compares a user's provided response to a known answer. This function tells your user pool whether the user answered the challenge correctly. When the verify auth challenge trigger responds with an `answerCorrect` of `true`, the authentication sequence can continue.
 
-![Challenge Lambda triggers](http://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-challenges3.png)
+![Challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-challenges3.png)
 
 
 **Verify auth challenge response**  

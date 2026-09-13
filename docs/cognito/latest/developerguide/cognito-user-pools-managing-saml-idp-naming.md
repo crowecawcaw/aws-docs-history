@@ -5,7 +5,7 @@
 
 When you name your SAML identity providers (IdPs) and assign IdP identifiers, you can automate the flow of SP-initiated sign-in and sign-out requests to that provider. For information about string constraints to the provider name, see the `ProviderName` property of [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderName).
 
-![Authentication flow diagram of Amazon Cognito SP-initiated SAML sign-in with an IdP identifier and managed login. The user provides an email address to managed login and Amazon Cognito automatically redirects them to their provider.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml-identifier.png)
+![Authentication flow diagram of Amazon Cognito SP-initiated SAML sign-in with an IdP identifier and managed login. The user provides an email address to managed login and Amazon Cognito automatically redirects them to their provider.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml-identifier.png)
 
 
 You can also choose up to 50 identifiers for your SAML providers. An identifier is a friendly name for an IdP in your user pool, and must be unique within the user pool. If your SAML identifiers match your users' email domains, managed login requests each user's email address, evaluates the domain in their email address, and redirects them to the IdP that corresponds to their domain. Because the same organization can own multiple domains, a single IdP can have multiple identifiers.
@@ -34,7 +34,7 @@ You can also implement the same logic independently. In your app, you can build 
 
 To collect an email address and parse the domain in managed login, assign at least one identifier to each SAML IdP that you have assigned to your app client. By default, the managed login sign-in screen displays a button for each of the IdPs that you have assigned to your app client. However, if you have successfully assigned identifiers, your classic hosted UI sign-in page looks like the following image.
 
-![An Amazon Cognito managed login sign-in page displaying local user sign-in and a prompt for a federated user to enter an email address.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-saml-identifiers.png)
+![An Amazon Cognito managed login sign-in page displaying local user sign-in and a prompt for a federated user to enter an email address.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-saml-identifiers.png)
 
 
 **Note**  

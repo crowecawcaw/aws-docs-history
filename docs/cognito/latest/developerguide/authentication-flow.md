@@ -44,7 +44,7 @@ Enhanced authentication manages the logic of IAM role selection and credentials 
 
 1. `GetCredentialsForIdentity`
 
-![A diagram that shows the flow of enhanced authentication](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-ext-auth-enhanced-flow.png)
+![A diagram that shows the flow of enhanced authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-ext-auth-enhanced-flow.png)
 
 
 ## The basic (classic) authentication flow
@@ -82,7 +82,7 @@ Basic (classic) flow is not supported with RoleMappings, please use enhanced flo
 
 1. `AssumeRoleWithWebIdentity`
 
-![A diagram that shows the flow of basic authentication](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-ext-auth-basic-flow.png)
+![A diagram that shows the flow of basic authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-ext-auth-basic-flow.png)
 
 
 ## The developer-authenticated authentication flow
@@ -100,7 +100,7 @@ When using [Developer-authenticated identities](developer-authenticated-identiti
 
 1. [GetCredentialsForIdentity](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html)
 
-![A diagram that shows the flow of developer-authenticated enhanced authentication](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-dev-auth-enhanced-flow.png)
+![A diagram that shows the flow of developer-authenticated enhanced authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-dev-auth-enhanced-flow.png)
 
 
 **Order of operations in basic authentication with a developer provider**
@@ -113,7 +113,7 @@ When using [Developer-authenticated identities](developer-authenticated-identiti
 
 1. Request application credentials with [AssumeRoleWithWebIdentity](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html).
 
-![A diagram that shows the flow of developer-authenticated basic authentication](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-dev-auth-basic-flow.png)
+![A diagram that shows the flow of developer-authenticated basic authentication](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-dev-auth-basic-flow.png)
 
 
 ## Which authentication flow should I implement?

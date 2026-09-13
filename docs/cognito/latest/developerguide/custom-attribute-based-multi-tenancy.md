@@ -7,7 +7,7 @@ Amazon Cognito supports [custom attributes](user-pool-settings-attributes.md#use
 
 The following diagram shows tenants sharing an app client and a user pool, with a custom attributes in the user pool that indicates the tenant that they belong to.
 
-![A diagram of a many-to-one multi-tenancy model where each user has their own tenant user attribute in a shared user pool.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/multi-tenancy-custom-attribute.png)
+![A diagram of a many-to-one multi-tenancy model where each user has their own tenant user attribute in a shared user pool.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/multi-tenancy-custom-attribute.png)
 
 
 When custom attributes determine tenancy, you can distribute a single application or sign-in URL. After your user signs in, your app can process the `custom:tenantID` claim determine which assets to load, the branding to apply, and features to display. For advanced access-control decisions from user attributes, set up your user pool as an identity provider in Amazon Verified Permissions, and generate access decisions from the contents of ID or access tokens.

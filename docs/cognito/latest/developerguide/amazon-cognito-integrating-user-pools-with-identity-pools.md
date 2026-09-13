@@ -9,7 +9,7 @@ Your web or mobile app receives tokens from a user pool. When you configure your
 
 The following diagram shows how an application signs in with a user pool, retrieves identity pool credentials, and requests an asset from an AWS service.
 
-![A flow diagram of an application that authenticates with an Amazon Cognito user pool and authorizes access to AWS resources with an identity pool.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/access-services-identity-pool.png)
+![A flow diagram of an application that authenticates with an Amazon Cognito user pool and authorizes access to AWS resources with an identity pool.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/access-services-identity-pool.png)
 
 
 You can use identity pool credentials to:

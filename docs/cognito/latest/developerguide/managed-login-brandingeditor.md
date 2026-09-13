@@ -5,7 +5,7 @@
 
 The branding editor is a visual design and editing tool for your managed login webpages. It's built in to the Amazon Cognito console. In the branding editor, you start with a preview of your login pages and can proceed into a quick-setup option or a detailed view with advanced options. You can modify and preview style parameters or add a custom background image and logo. You can configure light mode and dark mode.
 
-![A preview of the branding editor visual editor for Amazon Cognito user pools.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/hosted-ui-customization-editor-preview.png)
+![A preview of the branding editor visual editor for Amazon Cognito user pools.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/hosted-ui-customization-editor-preview.png)
 
 
 To begin, create a style that you can apply to your user pool or an app client.
@@ -92,7 +92,7 @@ Set the light and dark mode colors for the background of the header.
 
 In the detailed settings view, you can modify individual components in the **Foundation** and **Components**. The **Preview** tab displays a preview of managed login in the current context with your customizations.
 
-![An AWS Management Console screenshot of detailed configuration of managed login components.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/hosted-ui-customization-console-preview.png)
+![An AWS Management Console screenshot of detailed configuration of managed login components.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/hosted-ui-customization-console-preview.png)
 
 
 To enter the visual editor for a component, choose the edit icon in the tile for the component. From the theme studio editor, you can switch between components with the **Change setting category** button.

@@ -21,7 +21,7 @@ The two components that follow make up Amazon Cognito. They operate independentl
 ## User pools
 <a name="what-is-amazon-cognito-user-pools"></a>
 
-![Authentication flow diagram showing user sign-in through Cognito user pool with identity provider and app interactions.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/user-pools-overview.png)
+![Authentication flow diagram showing user sign-in through Cognito user pool with identity provider and app interactions.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/user-pools-overview.png)
 
 
 Create a user pool when you want to authenticate and authorize users to your app or API. User pools are a user directory with both self-service and administrator-driven user creation, management, and authentication. Your user pool can be an independent directory and OIDC identity provider (IdP), and an intermediate service provider (SP) to third-party providers of workforce and customer identities. You can provide single sign-on (SSO) in your app for your organization's workforce identities in SAML 2.0 and OIDC IdPs with user pools. You can also provide SSO in your app for your organization's customer identities in the public OAuth 2.0 identity stores Amazon, Google, Apple and Facebook. For more information about customer identity and access management (CIAM), see [What is CIAM?](https://aws.amazon.com/what-is/ciam/).
@@ -31,7 +31,7 @@ User pools don’t require integration with an identity pool. From a user pool, 
 ## Identity pools
 <a name="what-is-amazon-cognito-identity-pools"></a>
 
-![Sequence diagram showing authentication flow between app, identity pool, user pool, and STS.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/identity-pools-overview.png)
+![Sequence diagram showing authentication flow between app, identity pool, user pool, and STS.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/identity-pools-overview.png)
 
 
 Set up an Amazon Cognito identity pool when you want to authorize authenticated or anonymous users to access your AWS resources. An identity pool issues AWS credentials for your app to serve resources to users. You can authenticate users with a trusted identity provider, like a user pool or a SAML 2.0 service. It can also optionally issue credentials for guest users. Identity pools use both role-based and attribute-based access control to manage your users’ authorization to access your AWS resources.

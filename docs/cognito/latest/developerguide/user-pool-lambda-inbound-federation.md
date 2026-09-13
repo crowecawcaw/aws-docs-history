@@ -19,7 +19,7 @@ Use this trigger to add, override, or suppress attributes before creating new us
 
 When a user authenticates with an external identity provider, Amazon Cognito invokes the inbound federation trigger before creating or updating the user profile. The trigger receives the raw attributes from the identity provider and can transform them before Amazon Cognito stores them. This flow occurs for both new federated users and existing users who sign in again through federation.
 
-![Inbound federation Lambda trigger flow](http://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-inbound-federation.png)
+![Inbound federation Lambda trigger flow](https://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-inbound-federation.png)
 
 
 ## Inbound federation Lambda trigger parameters

@@ -12,7 +12,7 @@ Amazon Cognito issues tokens as [base64url](https://datatracker.ietf.org/doc/htm
 **Authenticating with tokens**  
 When a user signs into your app, Amazon Cognito verifies the login information. If the login is successful, Amazon Cognito creates a session and returns an ID token, an access token, and a refresh token for the authenticated user. You can use the tokens to grant your users access to downstream resources and APIs like Amazon API Gateway. Or you can exchange them for temporary AWS credentials to access other AWS services.
 
-![Authentication overview](http://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-cup2.png)
+![Authentication overview](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-cup2.png)
 
 
 **Storing tokens**  

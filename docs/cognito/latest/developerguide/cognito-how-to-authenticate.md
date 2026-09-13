@@ -30,7 +30,7 @@ Managed login and third-party IdP authentication models, with a primary reliance
 
 The following diagram illustrates a typical sign-in session for managed login authentication.
 
-![A flowchart that shows an application that prompts a user for input and signs them in with managed login.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-managed-login.png)
+![A flowchart that shows an application that prompts a user for input and signs them in with managed login.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-managed-login.png)
 
 
 **Managed login authentication flow**
@@ -88,7 +88,7 @@ API authentication with custom OAuth scopes is less oriented toward external API
 
 The following diagram illustrates a typical sign-in session for API authentication.
 
-![A flowchart that shows an application that prompts a user for input and signs them in with an AWS SDK.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-api.png)
+![A flowchart that shows an application that prompts a user for input and signs them in with an AWS SDK.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-api.png)
 
 
 **API authentication flow**
@@ -145,7 +145,7 @@ Like managed login authentication, federated authentication is best for advanced
 
 The following diagram illustrates a typical sign-in session for federated authentication.
 
-![A flowchart that shows an application that prompts a user for input and signs them in with a third-party IdP.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-federated.png)
+![A flowchart that shows an application that prompts a user for input and signs them in with a third-party IdP.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-federated.png)
 
 
 **Federated authentication flow**
@@ -205,7 +205,7 @@ Authentication with an identity pool fits a model where you enforce the access c
 
 The following diagram illustrates a typical sign-in session for identity pool authentication with an IdP.
 
-![A flowchart that shows an application that prompts a user for input and signs them in with a third-party IdP.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-identity-pool.png)
+![A flowchart that shows an application that prompts a user for input and signs them in with a third-party IdP.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-identity-pool.png)
 
 
 **Identity pool authentication flow**

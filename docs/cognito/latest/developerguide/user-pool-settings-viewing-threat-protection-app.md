@@ -14,7 +14,7 @@ In the following scenarios, your authentication front end manages user context d
 ## Submitting user context data in client-only applications with Amplify
 <a name="user-pool-settings-viewing-threat-protection-app-amplify"></a>
 
-![An overview of data collection for threat protection in an Amplify application.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/user-pools-asf-amplify-data-collection.png)
+![An overview of data collection for threat protection in an Amplify application.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/user-pools-asf-amplify-data-collection.png)
 
 
 Amplify SDKs support mobile clients that authenticate with Amazon Cognito directly. Clients of this kind make direct API requests to Amazon Cognito public API operations. Amplify clients automatically collect context data for threat protection by default.
@@ -28,7 +28,7 @@ Typically, an application in this configuration uses unauthenticated API operati
 
 Some applications have a front-end tier that collects user authentication data and an application back-end tier that submits authentication requests to Amazon Cognito. This is a common architecture in webservers and applications backed by microservices. In these applications, you must import a public context-data collection library.
 
-![An overview of server-side authentication with threat protection context data in JavaScript.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/user-pools-asf-non-amplify-data-collection.png)
+![An overview of server-side authentication with threat protection context data in JavaScript.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/user-pools-asf-non-amplify-data-collection.png)
 
 
 Typically, an application server in this configuration uses authenticated API operations like [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html) and [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html). The [ContextData](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html#CognitoUserPools-AdminInitiateAuth-request-ContextData) object helps Amazon Cognito evaluate risks more accurately for these operations. . The contents of `ContextData` are the encoded data that your front end passed to your server, and additional details from the user's HTTP request to your server. These additional context details, like the HTTP headers and IP address, provide your application server with the characteristics of the user's environment.

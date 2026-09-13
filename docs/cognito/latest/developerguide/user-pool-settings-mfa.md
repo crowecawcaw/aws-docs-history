@@ -124,20 +124,20 @@ To determine the steps to take when users sign in, your user pool evaluates user
 
 The logic illustrated here applies to SDK-based applications and [managed login](cognito-user-pools-managed-login.md) sign-in, but is less visible in managed login. When you troubleshoot MFA, work backward from your users' outcomes to the user-profile and user-pool configurations that contributed to the decision.
 
-![A diagram of the Amazon Cognito user pools decision process for end-user MFA selection.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-mfa-decision-tree.png)
+![A diagram of the Amazon Cognito user pools decision process for end-user MFA selection.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-mfa-decision-tree.png)
 
 
-The following list corresponds to the numbering in the decision logic diagram and describes each step in detail. A ![checkmark](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png) indicates a successful authentication and the conclusion of the flow. A ![error](http://docs.aws.amazon.com/cognito/latest/developerguide/images/error.png) indicates unsuccessful authentication.
+The following list corresponds to the numbering in the decision logic diagram and describes each step in detail. A ![checkmark](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png) indicates a successful authentication and the conclusion of the flow. A ![error](https://docs.aws.amazon.com/cognito/latest/developerguide/images/error.png) indicates unsuccessful authentication.
 
 1. A user presents their username or username and password at your sign-in screen. If they don't present valid credentials, their sign-in request is denied. 
 
-1. If they succeed username-password authentication, determine whether MFA is required, optional, or off. If it is off, the correct username and password results in successful authentication. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+1. If they succeed username-password authentication, determine whether MFA is required, optional, or off. If it is off, the correct username and password results in successful authentication. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
-   1. If MFA is optional, determine if the user has previously set up a TOTP authenticator. If they have set up TOTP, prompt for TOTP MFA. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1. If MFA is optional, determine if the user has previously set up a TOTP authenticator. If they have set up TOTP, prompt for TOTP MFA. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
-   1. Determine if the adaptive authentication feature of threat protection has required the user to set up MFA. If it hasn't assigned MFA, the user is signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1. Determine if the adaptive authentication feature of threat protection has required the user to set up MFA. If it hasn't assigned MFA, the user is signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
-1. If MFA is required or adaptive authentication has assigned MFA, determine if the user has set an MFA factor as enabled and preferred. If they have, prompt for MFA with that factor. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+1. If MFA is required or adaptive authentication has assigned MFA, determine if the user has set an MFA factor as enabled and preferred. If they have, prompt for MFA with that factor. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
 1. If the user hasn't set an MFA preference, determine if the user has registered a TOTP authenticator.
 
@@ -145,31 +145,31 @@ The following list corresponds to the numbering in the decision logic diagram an
 
    1. Determine whether email-message or SMS-message MFA is also available in the user pool.
 
-   1.  If neither email nor SMS MFA is available, prompt the user for TOTP MFA. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1.  If neither email nor SMS MFA is available, prompt the user for TOTP MFA. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
    1. If email or SMS MFA are available, determine whether the user has the corresponding `email` or `phone_number` attribute. If so, any attribute that isn't the primary method for self-service account recovery and is enabled for MFA is available to them.
 
    1. Prompt the user with a `SELECT_MFA_TYPE` challenge with `MFAS_CAN_SELECT` options that include TOTP and the available SMS or email MFA factors.
 
-   1.  Prompt the user for the factor that they select in response to the `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1.  Prompt the user for the factor that they select in response to the `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
 1. If the user hasn't registered a TOTP authenticator, or if they have but TOTP MFA is currently disabled, determine whether the user has an `email` or `phone_number` attribute.
 
-1.  If the user has only an email address or only a phone number, determine whether that attribute is also the method the user pool implements to send account-recovery messages for password reset. If true, they can't complete sign-in with MFA required and Amazon Cognito returns an error. To activate sign-in for this user, you must add a non-recovery attribute or register a TOTP authenticator for them. ![Red circle with white X icon indicating error or deletion.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/error.png)
+1.  If the user has only an email address or only a phone number, determine whether that attribute is also the method the user pool implements to send account-recovery messages for password reset. If true, they can't complete sign-in with MFA required and Amazon Cognito returns an error. To activate sign-in for this user, you must add a non-recovery attribute or register a TOTP authenticator for them. ![Red circle with white X icon indicating error or deletion.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/error.png)
 
    1. If they have an available non-recovery email address or phone number, determine whether the corresponding email or SMS MFA factor is enabled.
 
-   1. If they have a non-recovery email address attribute and email MFA is enabled, prompt them with an `EMAIL_OTP` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1. If they have a non-recovery email address attribute and email MFA is enabled, prompt them with an `EMAIL_OTP` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
-   1. If they have a non-recovery phone number attribute and SMS MFA is enabled, prompt them with an `SMS_MFA` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1. If they have a non-recovery phone number attribute and SMS MFA is enabled, prompt them with an `SMS_MFA` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
-   1. If they don't have an attribute that's eligible for an enabled email or SMS MFA factor, determine whether TOTP MFA is enabled. If TOTP MFA is disabled, they can't complete sign-in with MFA required and Amazon Cognito returns an error. To activate sign-in for this user, you must add a non-recovery attribute or register a TOTP authenticator for them. ![Red circle with white X icon indicating error or deletion.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/error.png)
+   1. If they don't have an attribute that's eligible for an enabled email or SMS MFA factor, determine whether TOTP MFA is enabled. If TOTP MFA is disabled, they can't complete sign-in with MFA required and Amazon Cognito returns an error. To activate sign-in for this user, you must add a non-recovery attribute or register a TOTP authenticator for them. ![Red circle with white X icon indicating error or deletion.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/error.png)
 **Note**  
 This step has already been evaluated as **No** if the user has a TOTP authenticator but TOTP MFA is disabled.
 
    1. If TOTP MFA is enabled, present the user with a `MFA_SETUP` challenge with `SOFTWARE_TOKEN_MFA` in the `MFAS_CAN_SETUP` options. To complete this challenge, you must separately register a TOTP authenticator for the user and respond with `"ChallengeName": "MFA_SETUP", "ChallengeResponses": {"USERNAME": "[username]", "SESSION": "[Session ID from VerifySoftwareToken]}"`.
 
-   1. After the user responds to the `MFA_SETUP` challenge with the session token from a [VerifySoftwareToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html) request, prompt them with an `SOFTWARE_TOKEN_MFA` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1. After the user responds to the `MFA_SETUP` challenge with the session token from a [VerifySoftwareToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html) request, prompt them with an `SOFTWARE_TOKEN_MFA` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
 1. If the user has both an email address and phone number, determine which attribute, if any, is the primary method for account-recovery messages for password reset.
 
@@ -177,9 +177,9 @@ This step has already been evaluated as **No** if the user has a TOTP authentica
 
    1. If both attributes are enabled as an MFA factor, prompt the user with a `SELECT_MFA_TYPE` challenge with `MFAS_CAN_SELECT` options `SMS_MFA` and `EMAIL_OTP`.
 
-   1. Prompt them for the factor that they select in response to the `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1. Prompt them for the factor that they select in response to the `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
-   1. If only one attribute is an eligible MFA factor, prompt them with a challenge for the remaining factor. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1. If only one attribute is an eligible MFA factor, prompt them with a challenge for the remaining factor. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
       This outcome happens in the following scenarios.
 
@@ -193,7 +193,7 @@ This step has already been evaluated as **No** if the user has a TOTP authentica
 
    For email MFA, respond with `"ChallengeName": "MFA_SETUP", "ChallengeResponses": {"USERNAME": "[username]", "email": "[user's email address]"}`.
 
-   1. Prompt them for the factor that they select in response to the `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
+   1. Prompt them for the factor that they select in response to the `SELECT_MFA_TYPE` challenge. If they successfully respond to the MFA challenge, they're signed in. ![Green circular icon with a checkmark symbol inside.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/checkmark.png)
 
 ## Configure a user pool for multi-factor authentication
 <a name="user-pool-configuring-mfa"></a>
@@ -211,7 +211,7 @@ You can configure MFA in the Amazon Cognito console or with the [SetUserPoolMfaC
 1. Choose the **Sign-in** menu. Locate **Multi-factor authentication** and choose **Edit**.
 
 1. Choose the **MFA enforcement** method that you want to use with your user pool.  
-![A screenshot from the Amazon Cognito console with MFA options.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-mfa.png)
+![A screenshot from the Amazon Cognito console with MFA options.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-mfa.png)
 
    1. **Require MFA**. All users in your user pool must sign in with an additional SMS, email, or time-based one-time password (TOTP) code as an additional authentication factor.
 

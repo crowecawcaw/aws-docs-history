@@ -15,7 +15,7 @@ A post authentication Lambda that doesn't return the request body to Amazon Cogn
 ## Authentication flow overview
 <a name="user-pool-lambda-post-authentication-1"></a>
 
-![Post authentication Lambda trigger - client flow](http://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-post-authentication-1.png)
+![Post authentication Lambda trigger - client flow](https://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-post-authentication-1.png)
 
 
 For more information, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow).

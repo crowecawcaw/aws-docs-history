@@ -20,7 +20,7 @@ Authentication data comes from two classes of endpoints. Amazon Cognito [OAuth 2
 
 With API Gateway token caching, your app can scale in response to events larger than the default request rate quota of Amazon Cognito OAuth endpoints.
 
-![A diagram of an API Gateway maintaining a cache of access tokens for M2M. The API proxy processes the token request and returns a cached token if one is already valid.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/user-pools-m2m-caching.png)
+![A diagram of an API Gateway maintaining a cache of access tokens for M2M. The API proxy processes the token request and returns a cached token if one is already valid.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/user-pools-m2m-caching.png)
 
 
 You can cache the access tokens so that your app only requests a new access token if a cached token is expired. Otherwise, your caching endpoint returns a token from the cache. This prevents an additional call to an Amazon Cognito API endpoint. When you use Amazon API Gateway as a proxy to the [Token endpoint](token-endpoint.md), your API responds to the majority of requests that would otherwise contribute to your request quota, avoiding unsuccessful requests as a result of rate limiting.

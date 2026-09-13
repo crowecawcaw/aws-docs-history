@@ -7,7 +7,7 @@ A common use of Amazon Cognito user pools tokens is to authorize requests to an 
 
 The following diagram illustrates an application that is gaining access to a REST API with the OAuth 2.0 scopes in an access token.
 
-![A flow diagram of an application that authenticates with an Amazon Cognito user pool and authorizes access to API resources with Amazon API Gateway.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/access-services-api-gateway.png)
+![A flow diagram of an application that authenticates with an Amazon Cognito user pool and authorizes access to API resources with Amazon API Gateway.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/access-services-api-gateway.png)
 
 
 Your app must collect the tokens from authenticated sessions and add them as bearer tokens to an `Authorization` header in the request. Configure the authorizer that you configured for the API, path, and method to evaluate token contents. API Gateway returns data only if the request matches the conditions that you set up for your authorizer. 

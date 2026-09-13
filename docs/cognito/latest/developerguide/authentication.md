@@ -169,7 +169,7 @@ Attempts made during a lockout period generate a `Password attempts exceeded` ex
 
 The following diagram and step-by-step guide illustrate a typical scenario where a user signs in to an application. The example application presents a user with several sign-in options. They select one by entering their credentials, provide an additional authentication factor, and sign in.
 
-![A flowchart that shows an application that prompts a user for input and signs them in with an AWS SDK.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-api-userauth.png)
+![A flowchart that shows an application that prompts a user for input and signs them in with an AWS SDK.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/authentication-api-userauth.png)
 
 
 Picture an application with a sign-in page where users can sign in with a username and password, request a one-time code in an email message, or choose a fingerprint option.

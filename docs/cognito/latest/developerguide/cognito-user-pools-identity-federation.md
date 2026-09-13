@@ -10,7 +10,7 @@ Your app users can either sign in directly through a user pool, or they can fede
 
 Sign-in through a third party (federation) is available in Amazon Cognito user pools. This feature is independent of federation through Amazon Cognito identity pools (federated identities).
 
-![Authentication overview with social sign-in](http://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-cup.png)
+![Authentication overview with social sign-in](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-cup.png)
 
 
 Amazon Cognito is a user directory and an OAuth 2.0 identity provider (IdP). When you sign in *local users* to the Amazon Cognito directory, your user pool is an IdP to your app. A local user exists exclusively in your user pool directory without federation through an external IdP.

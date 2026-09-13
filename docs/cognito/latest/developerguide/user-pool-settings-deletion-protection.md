@@ -5,7 +5,7 @@
 
 To make it so that your administrators don't accidentally delete your user pool, activate deletion protection. With deletion protection active, you can only delete your user pool after you confirm that you want to delete it. When you delete a user pool in the AWS Management Console, you can deactivate deletion protection at the same time. When you accept the prompt to deactivate deletion protection and confirm your intention to delete, as shown in the following image, Amazon Cognito deletes your user pool.
 
-![A screenshot from the AWS Management Console showing a prompt to delete a user pool with an included prompt to also deactivate deletion protection.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-delete-user-pool-deactivate-deletion-protection.png)
+![A screenshot from the AWS Management Console showing a prompt to delete a user pool with an included prompt to also deactivate deletion protection.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-delete-user-pool-deactivate-deletion-protection.png)
 
 
 When you want to delete a user pool with an Amazon Cognito API request, you must first change `DeletionProtection` to `Inactive` in an [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) request. If you don't deactivate deletion protection, Amazon Cognito returns an `InvalidParameterException` error. After you deactivate deletion protection, you can delete the user pool in a [DeleteUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteUserPool.html) request.

@@ -5,7 +5,7 @@
 
 The define auth challenge trigger is a Lambda function that maintains the challenge sequence in a custom authentication flow. It declares success or failure of the challenge sequence, and sets the next challenge if the sequence isn't yet complete.
 
-![Challenge Lambda triggers](http://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-challenges1.png)
+![Challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-challenges1.png)
 
 
 **Define auth challenge**  

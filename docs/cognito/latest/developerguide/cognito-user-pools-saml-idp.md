@@ -7,7 +7,7 @@ You can choose to have your web and mobile app users sign in through a SAML iden
 
 With managed login, Amazon Cognito authenticates local and third-party IdP users and issues JSON web tokens (JWTs). With the tokens that Amazon Cognito issues, you can consolidate multiple identity sources into a universal OpenID Connect (OIDC) standard across all of your apps. Amazon Cognito can process SAML assertions from your third-party providers into that SSO standard. You can create and manage a SAML IdP in the AWS Management Console, through the AWS CLI, or with the Amazon Cognito user pools API. To create your first SAML IdP in the AWS Management Console, see [Adding and managing SAML identity providers in a user pool](cognito-user-pools-managing-saml-idp.md).
 
-![Authentication overview with SAML sign-in](http://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml.png)
+![Authentication overview with SAML sign-in](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml.png)
 
 
 **Note**  

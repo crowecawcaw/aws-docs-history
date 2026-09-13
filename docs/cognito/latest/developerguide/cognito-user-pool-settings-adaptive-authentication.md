@@ -116,7 +116,7 @@ Amazon Cognito generates a log for each authentication event by a user when you 
 
 To see the sign-in history for a user, you can choose the user from the **Users** menu in the Amazon Cognito console. Amazon Cognito retains user event history for two years.
 
-![User event history](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-advanced-security-event-history.png)
+![User event history](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-advanced-security-event-history.png)
 
 
 Each sign-in event has an event ID. The event also has corresponding context data, such as location, device details, and risk detection results.
@@ -294,7 +294,7 @@ Amazon Cognito only sends notification messages to users when their action gener
 
 In the **Automatic risk response** section choose **Notify Users** for low, medium, or high-risk cases.
 
-![Notify users](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-adaptive-auth.png)
+![Notify users](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-adaptive-auth.png)
 
 
 Amazon Cognito sends email notifications to your users regardless of whether they have verified their email address.

@@ -43,7 +43,7 @@ Your ID or access tokens can authorize requests to back-end Amazon API Gateway R
 
 The following diagram illustrates the authorization flow for an API Gateway API with Verified Permissions. For a detailed breakdown, see [API-linked policy stores](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-stores_api-userpool.html) in the Amazon Verified Permissions User Guide.
 
-![A diagram that illustrates the flow of API authorization with Amazon Verified Permissions. An application makes a request to an Amazon API Gateway API. The API invokes a Lambda authorizer. The authorizer makes an API request to Verified Permissions. Verified Permissions checks token validity and returns an authorization decision.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-avp-use-case.png)
+![A diagram that illustrates the flow of API authorization with Amazon Verified Permissions. An application makes a request to an Amazon API Gateway API. The API invokes a Lambda authorizer. The authorizer makes an API request to Verified Permissions. Verified Permissions checks token validity and returns an authorization decision.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-avp-use-case.png)
 
 
 Verified Permissions structures API authorization around [user pool groups](cognito-user-pools-user-groups.md). Because both ID and access tokens include a `cognito:groups` claim, your policy store can manage role-based access control (RBAC) for your APIs in a variety of application contexts.

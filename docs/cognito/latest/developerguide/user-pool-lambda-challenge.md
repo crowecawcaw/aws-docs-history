@@ -20,7 +20,7 @@ Knows the expected answer and compares it to the answer your application provide
 
 These three Lambda functions chain together to present an authentication mechanism that is completely within your control and of your own design. Because custom authentication requires application logic in your client and in the Lambda functions, you can't process custom authentication within managed login. This authentication system requires additional developer effort. Your application must perform the authentication flow with the user pools API and handle the resulting challenge with a custom-built login interface that renders the question at the center of the custom authentication challenge.
 
-![Challenge Lambda triggers](http://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-challenges.png)
+![Challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-challenges.png)
 
 
 For more information about implementing custom authentication, see [Custom authentication flow and challenges](amazon-cognito-user-pools-authentication-flow-methods.md#Custom-authentication-flow-and-challenges)

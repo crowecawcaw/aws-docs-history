@@ -18,7 +18,7 @@ In this tutorial, you'll create a React single page application where you can te
 
 The following screenshot is of the initial authentication page in the application that you'll create.
 
-![A screenshot of the sign-up page for a React-based example web application.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cognito-getting-started-react-app-running.png)
+![A screenshot of the sign-up page for a React-based example web application.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cognito-getting-started-react-app-running.png)
 
 
 To set up this application, your user pool must meet the following requirements:
@@ -139,7 +139,7 @@ In this tutorial, you'll create a mobile application in Android Studio where you
 
 The following screenshot shows the app running on a virtual Android device.
 
-![A screenshot of the sign-up page for a virtualized Android example app.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cognito-getting-started-android-app-running.png)
+![A screenshot of the sign-up page for a virtualized Android example app.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cognito-getting-started-android-app-running.png)
 
 
 To set up this application, you user pool must meet the following requirements:
@@ -192,13 +192,13 @@ To set up this application, you user pool must meet the following requirements:
 
 1. Launch your virtual Android device.
 
-   1. In the Android Studio GUI, select the start ![Play button icon with a blue triangle pointing to the right.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cognito-getting-started-android-virtual-device-start.png) icon next to your virtual device.
+   1. In the Android Studio GUI, select the start ![Play button icon with a blue triangle pointing to the right.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cognito-getting-started-android-virtual-device-start.png) icon next to your virtual device.
 
    1. In the CLI, run `flutter emulators --launch android-device`.
 
 1. Launch your app on your virtual device.
 
-   1. In the Android Studio GUI, select the deploy ![Green play button icon representing a start or play action.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cognito-getting-started-android-app-start.png) icon.
+   1. In the Android Studio GUI, select the deploy ![Green play button icon representing a start or play action.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cognito-getting-started-android-app-start.png) icon.
 
    1. In the CLI, run `flutter run`.
 

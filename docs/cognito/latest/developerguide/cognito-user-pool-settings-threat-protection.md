@@ -190,7 +190,7 @@ To set up a different threat protection configuration for an app client in the A
 1. If you chose **Notify user** in the previous step, you can customize your email delivery settings and email message templates for adaptive authentication.
 
    1. Under **Email configuration**, choose the **SES Region**, **FROM email address**, **FROM sender name**, and **REPLY-TO email address** that you want to use with adaptive authentication. For more information about integrating your user pool email messages with Amazon Simple Email Service, see [Email settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html).  
-![User event history](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-advanced-security-ses-notification.png)
+![User event history](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-advanced-security-ses-notification.png)
 
    1. Expand **Email templates** to customize adaptive authentication notifications with both HTML and plaintext versions of email messages. To learn more about email message templates, see [Message templates](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-message-templates).
 

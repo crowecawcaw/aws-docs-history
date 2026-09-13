@@ -29,7 +29,7 @@ This example application demonstrates the following capabilities of Amazon Cogni
 
 After you set up the application on your development webserver and access it in a browser, you see the following options.
 
-![Screenshot of the Amazon Cognito identity pool demo application web interface showing the main page with authentication method options and interactive demo sections.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-identity-pool-demo-app.png)
+![Screenshot of the Amazon Cognito identity pool demo application web interface showing the main page with authentication method options and interactive demo sections.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/amazon-cognito-identity-pool-demo-app.png)
 
 
 **Topics**

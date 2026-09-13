@@ -16,7 +16,7 @@ This Lambda trigger doesn't activate when a user doesn't exist unless the `Preve
 ## Flow overview
 <a name="user-pool-lambda-pre-authentication-1"></a>
 
-![Pre authentication Lambda trigger - client flow](http://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-pre-authentication-1.png)
+![Pre authentication Lambda trigger - client flow](https://docs.aws.amazon.com/cognito/latest/developerguide/images/lambda-pre-authentication-1.png)
 
 
 The request includes client validation data from the `ClientMetadata` values that your app passes to the user pool `InitiateAuth` and `AdminInitiateAuth` API operations.

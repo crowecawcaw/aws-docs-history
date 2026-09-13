@@ -7,7 +7,7 @@ Amazon Cognito supports SAML 2.0 [single logout](http://docs.oasis-open.org/secu
 
 When you configure your SAML IdP to support **Sign-out flow**, Amazon Cognito redirects your user with a signed SAML logout request to your IdP. Amazon Cognito determines the redirect location from the `SingleLogoutService` URL in your IdP metadata. Amazon Cognito signs the sign-out request with your user pool signing certificate.
 
-![Authentication flow diagram of Amazon Cognito SAML sign-out. The user requests sign-out and Amazon Cognito redirects them to their provider with a SAML sign-out request.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml-sign-out.png)
+![Authentication flow diagram of Amazon Cognito SAML sign-out. The user requests sign-out and Amazon Cognito redirects them to their provider with a SAML sign-out request.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-saml-sign-out.png)
 
 
 When you direct a user with a SAML session to your user pool `/logout` endpoint, Amazon Cognito redirects your SAML user with the following request to the SLO endpoint that's specified in the IdP metadata.

@@ -7,7 +7,7 @@ Amazon Cognito supports custom OAuth 2.0 scopes for [resource servers](cognito-u
 
  The following diagram illustrates one option for custom scope multi-tenancy. It shows each tenant with a dedicated app client that has access to relevant scopes in a user pool.
 
-![A diagram that illustrates the flow of custom scopes in a multi-tenant architecture.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/multi-tenancy-custom-scope.png)
+![A diagram that illustrates the flow of custom scopes in a multi-tenant architecture.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/multi-tenancy-custom-scope.png)
 
 
 **When to implement custom-scope multi-tenancy**  

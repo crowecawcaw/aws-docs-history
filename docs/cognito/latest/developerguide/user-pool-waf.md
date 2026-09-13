@@ -107,7 +107,7 @@ Though you must grant IAM permissions, the listed actions are permission-only an
 1. Choose **Edit**.
 
 1. Select **Use AWS WAF with your user pool**.  
-![Screenshot of the AWS WAF dialog box with Use AWS WAF with your user pool selected.](http://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-WAF-console.png)
+![Screenshot of the AWS WAF dialog box with Use AWS WAF with your user pool selected.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/cup-WAF-console.png)
 
 1. Choose an **AWS WAF Web ACL** that you already created, or choose **Create web ACL in AWS WAF** to create one in a new AWS WAF session in the AWS Management Console.
 
