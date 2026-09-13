@@ -31,8 +31,8 @@ Elastic Beanstalk has scheduled the following .NET Core on Linux platform versio
 
 |  Platform Version and *Solution Stack Name*   |  Framework  |  Proxy Server  |  AMI  |  AWS X-Ray  |  End Date  | 
 | --- | --- | --- | --- | --- | --- | 
-|  ** .NET 9 on AL2023 version 3.11.7** <br /> * 64bit Amazon Linux 2023 v3.11.7 running .NET 9 *  | .NET 9.0.19, supports 9.0.19 | nginx 1.30.4 | 2023.12.20260817 | 3.6.7 | 2027-03-31 | 
-|  ** .NET 8 on AL2023 version 3.11.7** <br /> * 64bit Amazon Linux 2023 v3.11.7 running .NET 8 *  | .NET 8.0.30, supports 8.0.30 | nginx 1.30.4 | 2023.12.20260817 | 3.6.7 | 2027-03-31 | 
+|  ** .NET 9 on AL2023 version 3.11.8** <br /> * 64bit Amazon Linux 2023 v3.11.8 running .NET 9 *  | .NET 9.0.20, supports 9.0.20 | nginx 1.30.4 | 2023.12.20260831 | 3.7.0 | 2027-03-31 | 
+|  ** .NET 8 on AL2023 version 3.11.8** <br /> * 64bit Amazon Linux 2023 v3.11.8 running .NET 8 *  | .NET 8.0.31, supports 8.0.31 | nginx 1.30.4 | 2023.12.20260831 | 3.7.0 | 2027-03-31 | 
 
 For information about current platform versions, see [.NET Core on Linux](platforms-supported.md#platforms-supported.dotnetlinux).
 
@@ -79,7 +79,7 @@ Elastic Beanstalk has scheduled the following Node.js platform versions for reti
 
 |  Platform Version and *Solution Stack Name*   |  AMI  |  Node.js versions (npm versions)  |  Proxy Server  |  Git  |  AWS X-Ray  |  End Date  | 
 | --- | --- | --- | --- | --- | --- | --- | 
-|  ** Node.js 22 AL2023 version 6.11.7** <br /> * 64bit Amazon Linux 2023 v6.11.7 running Node.js 22 *  | 2023.12.20260817 | 22.23.2 (10.9.8)<br /> Default version: v22.23.2 | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.6.7 | 2027-07-31 | 
+|  ** Node.js 22 AL2023 version 6.11.8** <br /> * 64bit Amazon Linux 2023 v6.11.8 running Node.js 22 *  | 2023.12.20260831 | 22.23.2 (10.9.8)<br /> Default version: v22.23.2 | nginx 1.30.4 (default), Apache 2.4.68 | 2.50.1 | 3.7.0 | 2027-07-31 | 
 
 For information about current platform versions, see [Node.js](platforms-supported.md#platforms-supported.nodejs).
 
@@ -92,7 +92,7 @@ Elastic Beanstalk has scheduled the following PHP platform versions for retireme
 
 |  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Proxy Server  |  End Date  | 
 | --- | --- | --- | --- | --- | --- | 
-|  ** PHP 8.2 AL2023 version 4.13.7** <br /> * 64bit Amazon Linux 2023 v4.13.7 running PHP 8.2 *  | 2023.12.20260817 | PHP 8.2.33 | Composer 2.10.2, PIE 1.4.10 | nginx 1.30.4 (default), Apache 2.4.68 | 2027-03-31 | 
+|  ** PHP 8.2 AL2023 version 4.13.8** <br /> * 64bit Amazon Linux 2023 v4.13.8 running PHP 8.2 *  | 2023.12.20260831 | PHP 8.2.33 | Composer 2.10.3, PIE 1.4.10 | nginx 1.30.4 (default), Apache 2.4.68 | 2027-03-31 | 
 
 For information about current platform versions, see [PHP](platforms-supported.md#platforms-supported.PHP).
 
@@ -105,6 +105,6 @@ Elastic Beanstalk has scheduled the following Ruby platform versions for retirem
 
 |  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Application Server  |  AWS X-Ray  |  Proxy Server  |  End Date  | 
 | --- | --- | --- | --- | --- | --- | --- | --- | 
-|  ** Ruby 3.3 AL2023 version 4.14.7** <br /> * 64bit Amazon Linux 2023 v4.14.7 running Ruby 3.3 *  | 2023.12.20260817 | Ruby 3.3.12-p206 | RubyGems 3.5.22 | Puma 8.0.2 | 3.6.7 | nginx 1.30.4 | 2027-07-31 | 
+|  ** Ruby 3.3 AL2023 version 4.14.8** <br /> * 64bit Amazon Linux 2023 v4.14.8 running Ruby 3.3 *  | 2023.12.20260831 | Ruby 3.3.12-p206 | RubyGems 3.5.22 | Puma 8.0.2 | 3.7.0 | nginx 1.30.4 | 2027-07-31 | 
 
 For information about current platform versions, see [Ruby](platforms-supported.md#platforms-supported.ruby).
