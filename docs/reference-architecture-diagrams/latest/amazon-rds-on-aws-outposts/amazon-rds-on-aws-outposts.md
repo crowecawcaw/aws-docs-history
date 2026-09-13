@@ -10,7 +10,7 @@ This reference architecture diagram shows how to deploy [Amazon Relational Datab
 ## Amazon Relational Database Service on AWS Outposts
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to deploy Amazon RDS on AWS Outposts, including network connectivity, database creation, application access, and backup strategies.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-rds-on-aws-outposts/images/amazon-rds-on-aws-outposts.png)
+![Reference architecture diagram showing how to deploy Amazon RDS on AWS Outposts, including network connectivity, database creation, application access, and backup strategies.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-rds-on-aws-outposts/images/amazon-rds-on-aws-outposts.png)
 
 
 1. Ensure a secure connection between AWS Outposts and the parent Region by using [https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) or a virtual private network (VPN). If the network connection between the AWS Region and AWS Outposts is disconnected, Amazon RDS for Outposts continues to run. API calls and management tasks are unavailable until the connection is restored.
