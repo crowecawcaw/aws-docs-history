@@ -8,7 +8,7 @@ This topic provides reference information about partitioning in Microsoft SQL Se
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Partitioning](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.partitioning)  | PostgreSQL doesn’t support `LEFT` partition or foreign keys referencing partitioned tables. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Partitioning](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.partitioning)  | PostgreSQL doesn’t support `LEFT` partition or foreign keys referencing partitioned tables. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.storage.partitioning.sqlserver"></a>

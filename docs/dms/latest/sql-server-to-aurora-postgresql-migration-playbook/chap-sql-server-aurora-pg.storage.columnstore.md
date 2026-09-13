@@ -8,7 +8,7 @@ This topic provides reference information about the compatibility of columnstore
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A |  Aurora PostgreSQL offers no comparable feature. | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A |  Aurora PostgreSQL offers no comparable feature. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.storage.columnstore.sqlserver"></a>

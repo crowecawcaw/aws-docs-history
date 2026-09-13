@@ -8,7 +8,7 @@ This topic provides reference information comparing high availability and disast
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Multi replica, scale out solution using Amazon Aurora clusters and Availability Zones. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Multi replica, scale out solution using Amazon Aurora clusters and Availability Zones. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.hadr.essentials.sqlserver"></a>
@@ -168,7 +168,7 @@ New Aurora PostgreSQL database instances are always created as part of a cluster
 
 Each Region is completely independent and each Availability Zone is isolated from all others. However, the main benefit of Availability Zones within a Region is that they are connected through low-latency, high bandwidth local network links.
 
-![Availability Zones](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-availability-zones.png)
+![Availability Zones](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-availability-zones.png)
 
 
 Resources may have different scopes. A resource may be global, associated with a specific region (region level), or associated with a specific Availability Zone within a region. For more information, see [Resource locations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resources.html) in the *User Guide for Linux Instances*.
@@ -193,7 +193,7 @@ An Amazon Aurora database cluster is made up of one of more of the following typ
 + A Primary instance that supports both read and write workloads. This instance is used for all DML transactions. Every Amazon Aurora DB cluster has one, and only, one primary instance.
 + An Amazon Aurora Replica that supports read-only workloads. Every Aurora PostgreSQL database cluster may contain from zero to 15 Amazon Aurora Replicas in addition to the primary instance for a total maximum of 16 instances. Amazon Aurora Replicas enable scale-out of read operations by offloading reporting or other read-only processes to multiple replicas. Place Amazon Aurora replicas in multiple availability Zones to increase availability of the databases.
 
-![Aurora PostgreSQL DB Cluster](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-aurora-architecture-four-cluster-nodes.png)
+![Aurora PostgreSQL DB Cluster](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-aurora-architecture-four-cluster-nodes.png)
 
 
 ### Endpoints
@@ -248,7 +248,7 @@ The following walkthrough demonstrates how to create a read-replica:
 
 1. Select the instance and choose **Instance actions**, **Create cross-region read replica**.
 
-    ![Create cross-region read replica](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-cross-region-read-replica.png) 
+    ![Create cross-region read replica](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-cross-region-read-replica.png) 
 
 1. On the next page, enter all required details and choose **Create**.
 

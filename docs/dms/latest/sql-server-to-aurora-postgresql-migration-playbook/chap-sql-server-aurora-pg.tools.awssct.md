@@ -34,7 +34,7 @@ Find other supported drivers in the [Schema Conversion Tool user guide](https://
 
 1. Enter the paths for the SQL Server and PostgreSQL drivers downloaded in the first step.
 
-    ![Enter the paths for the Microsoft and PostgreSQL drivers](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-configure-aws-sct.png) 
+    ![Enter the paths for the Microsoft and PostgreSQL drivers](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-configure-aws-sct.png) 
 
 1. Choose **Apply** and then **OK**.
 
@@ -51,17 +51,17 @@ Find other supported drivers in the [Schema Conversion Tool user guide](https://
 
 The progress bar displays the objects that AWS SCT analyzes. When AWS SCT completes the analysis, the application displays the database migration assessment report. Read the Executive summary and other sections. Note that the information on the screen is only partial. To read the full report, including details of the individual issues, choose **Save to PDF** at the top right and open the PDF document.
 
-![Assessment report](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-aws-sct-assessment-report.png)
+![Assessment report](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-aws-sct-assessment-report.png)
 
 
 Scroll down to the **Database objects with conversion actions for Amazon Aurora (PostgreSQL compatible)** section.
 
-![Assessment report conversion statistics](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-aws-sct-assessment-report-conversion-statistics.png)
+![Assessment report conversion statistics](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-aws-sct-assessment-report-conversion-statistics.png)
 
 
 Scroll further down to the **Detailed recommendations for Amazon Aurora (PostgreSQL compatible) migrations** section.
 
-![Assessment report detailed recommendations](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-aws-sct-assessment-report-detailed-recommendations.png)
+![Assessment report detailed recommendations](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-aws-sct-assessment-report-detailed-recommendations.png)
 
 
 Return to AWS SCT and choose **Next**. Enter the connection details for the target Aurora PostgreSQL database and choose **Finish**.
@@ -84,7 +84,7 @@ On the right pane, AWS SCT displays the new virtual schema as if it exists in th
 
 Choose the database on the right pane, open the context (right-click) menu, and choose either **Apply to database** to automatically run the conversion script against the target database, or choose **Save as SQL** to save to an SQL file.
 
-![Apply to database](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-aws-sct-apply-to-database.png)
+![Apply to database](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-aws-sct-apply-to-database.png)
 
 
 We recommend saving to an SQL file because you can verify and QA the converted code. Also, you can make the adjustments needed for objects that couldn’t be automatically converted.

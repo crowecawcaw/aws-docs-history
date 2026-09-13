@@ -8,7 +8,7 @@ This topic provides reference information about user permissions and access cont
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-5.png)  | N/A | N/A | Similar syntax and similar functionality. | 
+|  ![Five star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-5.png)  | N/A | N/A | Similar syntax and similar functionality. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.security.datacontrollanguage.sqlserver"></a>

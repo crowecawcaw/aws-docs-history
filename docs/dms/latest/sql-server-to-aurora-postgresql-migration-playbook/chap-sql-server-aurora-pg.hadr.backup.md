@@ -8,7 +8,7 @@ This topic provides reference information about backup and restore capabilities 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A |  [Backup](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.backup)  | Storage level backup managed by Amazon RDS. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A |  [Backup](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.backup)  | Storage level backup managed by Amazon RDS. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.hadr.backup.sqlserver"></a>
@@ -230,25 +230,25 @@ The following walkthrough describes how to change Aurora PostgreSQL DB cluster r
 
 1. Log in to the Amazon RDS Console and on dashboard choose **Databases**.
 
-    ![RDS Console](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-rds-console.png) 
+    ![RDS Console](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-rds-console.png) 
 
 1. Choose the relevant DB identifier.
 
-    ![DB identifier](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-db-identifier.png) 
+    ![DB identifier](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-db-identifier.png) 
 
 1. Verify the current automatic backup settings.
 
-    ![Backup settings](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-backup-settings.png) 
+    ![Backup settings](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-backup-settings.png) 
 
 1. In this cluster, select database instance with the writer role.
 
-    ![Database instance with the writer role](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-writer-role.png) 
+    ![Database instance with the writer role](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-writer-role.png) 
 
 1. On the top right, choose **Modify**.
 
 1. For **Backup retention period**, choose \*7 Days.
 
-    ![Backup retention period](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-backup-retention-period.png) 
+    ![Backup retention period](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-backup-retention-period.png) 
 
 1. Choose **Continue** and review the summary.
 

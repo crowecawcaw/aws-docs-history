@@ -8,7 +8,7 @@ This topic provides reference information about linked servers in SQL Server and
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A |  [Linked Servers](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.linkedservers)  | Syntax and option differences, similar functionality. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A |  [Linked Servers](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.linkedservers)  | Syntax and option differences, similar functionality. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.management.linkedservers.sqlserver"></a>

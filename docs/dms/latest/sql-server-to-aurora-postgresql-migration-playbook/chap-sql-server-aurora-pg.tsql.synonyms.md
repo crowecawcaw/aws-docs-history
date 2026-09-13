@@ -8,7 +8,7 @@ This topic provides reference information about the differences in synonym funct
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A | PostgreSQL doesn’t support synonyms. There is an available workaround. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A | PostgreSQL doesn’t support synonyms. There is an available workaround. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.tsql.synonyms.sqlserver"></a>

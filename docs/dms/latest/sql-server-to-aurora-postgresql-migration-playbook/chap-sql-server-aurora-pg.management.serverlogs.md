@@ -8,7 +8,7 @@ This topic provides reference information about logging capabilities in SQL Serv
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | View logs from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | View logs from the Amazon RDS console, the Amazon RDS API, the AWS CLI, or the AWS SDKs. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.management.serverlogs.sqlserver"></a>
@@ -39,7 +39,7 @@ The following table identifies some common error codes database administrators t
 
 The following screenshot shows the typical log file viewer content:
 
-![Log file viewer](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-log-file-viewer.png)
+![Log file viewer](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-log-file-viewer.png)
 
 
 For more information, see [Monitoring the Error Logs](https://docs.microsoft.com/en-us/sql/tools/configuration-manager/monitoring-the-error-logs?view=sql-server-ver15) in the *SQL Server documentation*.
@@ -74,7 +74,7 @@ The following walkthrough demonstrates how to view the Aurora PostgreSQL error l
 
 1. Choose the instance for which you want to view the error log.
 
-    ![Log file viewer](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-view-error-log.png) 
+    ![Log file viewer](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-view-error-log.png) 
 
 1. Scroll down to the logs section and choose the log name. The log viewer displays the log content.
 

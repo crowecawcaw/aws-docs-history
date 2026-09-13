@@ -23,7 +23,7 @@ You can turn on Amazon RDS Proxy for most applications with no code changes. You
 ## How Amazon RDS Proxy Works
 <a name="chap-sql-server-aurora-pg.tools.rdsproxy.howitworks"></a>
 
-![How Amazon RDS Proxy Works](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-how-rds-proxy-works.png)
+![How Amazon RDS Proxy Works](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-how-rds-proxy-works.png)
 
 
 For more information, see [Amazon RDS Proxy for Scalable Serverless Applications](https://aws.amazon.com/blogs/aws/amazon-rds-proxy-now-generally-available) and [Amazon RDS Proxy](https://aws.amazon.com/rds/proxy).

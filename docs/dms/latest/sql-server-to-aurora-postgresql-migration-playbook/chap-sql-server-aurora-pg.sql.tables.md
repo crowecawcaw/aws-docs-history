@@ -8,7 +8,7 @@ This topic provides reference information comparing the creation of tables in Mi
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [Creating Tables](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.tables)  | Auto generated value column is different. Can’t use physical attribute `ON`. Missing table variable and memory-optimized table. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [Creating Tables](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.tables)  | Auto generated value column is different. Can’t use physical attribute `ON`. Missing table variable and memory-optimized table. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.sql.tables.sqlserver"></a>

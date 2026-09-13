@@ -8,7 +8,7 @@ This topic provides reference information about data encryption capabilities in 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Storage level encryption managed by Amazon RDS. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Storage level encryption managed by Amazon RDS. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.security.transparentdataencryption.sqlserver"></a>
@@ -77,7 +77,7 @@ The following walkthrough demonstrates how to enable TDE.
 
 In the database settings, enable encryption and choose a master key. You can choose the default key provided for the account or define a specific key based on an IAM KMS ARN from your account or a different account.
 
-![Enable encryption](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-enable-encryption.png)
+![Enable encryption](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-enable-encryption.png)
 
 
  **Create an encryption key** 
@@ -88,24 +88,24 @@ Choose the key type and the key material origin, and then choose **Next**.
 
 Create alias and description, and then choose **Next**.
 
-![Create alias and description](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-alias-description.png)
+![Create alias and description](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-alias-description.png)
 
 
 For **Define Key Administrative Permissions**, leave the default values and choose **Next**.
 
 Make sure that you assigned the key to the relevant users who will need to interact with Amazon Aurora.
 
-![Key usage permissions](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-key-permissions.png)
+![Key usage permissions](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-key-permissions.png)
 
 
 Review and edit the key policy, and then choose **Finish**.
 
-![Key policy](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-key-policy.png)
+![Key policy](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-key-policy.png)
 
 
 Now, you can set the master encryption key by using the ARN of the key that you have created or picking it from the list.
 
-![Set master encryption key](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-set-master-encryption-key.png)
+![Set master encryption key](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-set-master-encryption-key.png)
 
 
 Proceed to the finish and launch the instance.

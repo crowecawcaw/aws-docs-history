@@ -8,7 +8,7 @@ This topic provides reference information about email capabilities in Microsoft 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A |  [SQL Server Mail](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.mail)  | Use Lambda integration. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A |  [SQL Server Mail](chap-sql-server-aurora-pg.tools.actioncode.md#chap-sql-server-aurora-pg.tools.actioncode.mail)  | Use Lambda integration. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.management.databasemail.sqlserver"></a>

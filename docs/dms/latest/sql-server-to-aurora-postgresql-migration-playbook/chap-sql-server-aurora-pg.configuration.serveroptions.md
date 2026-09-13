@@ -8,7 +8,7 @@ This topic provides reference information about parameter configuration in SQL S
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use Cluster and Database/Cluster Parameter. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use Cluster and Database/Cluster Parameter. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.configuration.serveroptions.sqlserver"></a>
@@ -127,7 +127,7 @@ New parameters in PostgreSQL 10:
 **Note**  
 You can’t edit the default parameter group. Create a custom parameter group to apply changes to your Amazon Aurora cluster and its database instances.
 
-    ![Parameter groups](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-parameter-groups.png) 
+    ![Parameter groups](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-parameter-groups.png) 
 
 1. Select the DB family from the Parameter group family drop-down list.
 

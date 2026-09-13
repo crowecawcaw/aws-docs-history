@@ -8,7 +8,7 @@ This topic provides reference information about the differences in feature compa
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Very limited set of hints - Index hints and optimizer hints as comments. Syntax differences. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Very limited set of hints - Index hints and optimizer hints as comments. Syntax differences. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.tuning.queryplanning.sqlserver"></a>

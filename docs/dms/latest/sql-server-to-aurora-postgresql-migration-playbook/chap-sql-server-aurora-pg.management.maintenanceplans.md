@@ -8,7 +8,7 @@ This topic provides reference information comparing database maintenance tasks b
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Backups using the Amazon RDS services. Table maintenance using SQL commands. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Backups using the Amazon RDS services. Table maintenance using SQL commands. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.management.maintenanceplans.sqlserver"></a>
@@ -116,7 +116,7 @@ You can backup database instances manually by creating an explicit database snap
 
 1. Choose your Aurora PostgreSQL instance, and for **Instance actions** choose **Take snapshot**.
 
-    ![Take snapshot](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-take-snapshot.png) 
+    ![Take snapshot](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-take-snapshot.png) 
 
  **Restore a snapshot using the Amazon RDS console** 
 

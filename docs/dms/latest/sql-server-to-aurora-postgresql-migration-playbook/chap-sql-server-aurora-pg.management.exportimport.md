@@ -8,7 +8,7 @@ This topic provides reference information on data export and import capabilities
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Non-compatible tool. | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Non-compatible tool. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.management.exportimport.sqlserver"></a>

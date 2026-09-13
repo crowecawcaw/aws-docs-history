@@ -8,7 +8,7 @@ This topic provides reference information about the security and authentication 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. There are no users in PostgreSQL, only roles. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. There are no users in PostgreSQL, only roles. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.security.usersroles.sqlserver"></a>

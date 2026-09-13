@@ -8,7 +8,7 @@ This topic provides reference information about migrating ETL (Extract, Transfor
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Use [AWS Glue](https://aws.amazon.com/glue) for ETL. | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  | N/A | N/A | Use [AWS Glue](https://aws.amazon.com/glue) for ETL. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.management.etl.sqlserver"></a>
@@ -133,7 +133,7 @@ This walkthrough demonstrates how to create the buckets and upload the files man
 
 1. Review the information that you provided and choose **Finish** to create the crawler.
 
-    ![Crawler](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-crawler.png) 
+    ![Crawler](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-crawler.png) 
 
 #### Step 3 — Run the Amazon Glue Crawler
 <a name="chap-sql-server-aurora-pg.management.etl.pg.examples.step3"></a>

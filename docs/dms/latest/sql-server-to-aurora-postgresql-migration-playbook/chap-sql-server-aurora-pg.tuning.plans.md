@@ -8,7 +8,7 @@ This topic provides reference information about query execution plans in both Mi
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Syntax differences. Completely different optimizer with different operators and rules. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Syntax differences. Completely different optimizer with different operators and rules. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.tuning.plans.sqlserver"></a>
@@ -52,7 +52,7 @@ SET STATISTICS XML OFF;
 
 The following example shows a partial graphical run plan from SQL Server Management Studio.
 
-![A partial graphical run plan](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-run-plans-ssms.png)
+![A partial graphical run plan](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-run-plans-ssms.png)
 
 
 For more information, see [Display and Save Execution Plans](https://docs.microsoft.com/en-us/sql/relational-databases/performance/display-and-save-execution-plans?view=sql-server-ver15) in the *SQL Server documentation*.

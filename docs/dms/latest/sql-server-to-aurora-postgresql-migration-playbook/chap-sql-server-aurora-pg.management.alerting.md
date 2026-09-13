@@ -8,7 +8,7 @@ This topic provides reference information about alert and notification systems i
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use [Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) with [Amazon Simple Notification Service](https://aws.amazon.com/sns/). | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use [Amazon RDS event notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) with [Amazon Simple Notification Service](https://aws.amazon.com/sns/). | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.management.alerting.sqlserver"></a>

@@ -8,7 +8,7 @@ This topic provides reference information about monitoring capabilities in Micro
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Use Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Monitoring.html) in the *Amazon Relational Database Service User Guide*. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Use Amazon CloudWatch service. For more information, see [Monitoring metrics in an Amazon RDS instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Monitoring.html) in the *Amazon Relational Database Service User Guide*. | 
 
 ## SQL Server Usage
 <a name="chap-sql-server-aurora-pg.management.monitoring.sqlserver"></a>
@@ -119,7 +119,7 @@ The following walkthrough demonstrates how to access the Amazon Aurora Performan
 
 1. The web page displays a dashboard containing current and past database performance metrics. You can choose the period of the displayed performance data (5 minutes, 1 hour, 6 hours, or 24 hours) as well as different criteria to filter and slice the information such as waits, SQL, hosts, users, and so on.
 
-    ![Performance insights](http://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-performance-insights.png) 
+    ![Performance insights](https://docs.aws.amazon.com/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/images/pb-sql-server-aurora-pg-performance-insights.png) 
 
 ### Turning on Performance Insights
 <a name="chap-sql-server-aurora-pg.management.monitoring.pg.insights"></a>
