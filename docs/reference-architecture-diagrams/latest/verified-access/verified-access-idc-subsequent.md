@@ -10,7 +10,7 @@ This flow shows how AWS Verified Access handles subsequent requests after the us
 ## AWS Verified Access with IAM Identity Center - subsequent request flow
 <a name="vas-diagram1"></a>
 
-![Architecture diagram showing AWS Verified Access subsequent request flow with an existing identity cookie from IAM Identity Center.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/verified-access/images/verified-access-2.png)
+![Architecture diagram showing AWS Verified Access subsequent request flow with an existing identity cookie from IAM Identity Center.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/verified-access/images/verified-access-2.png)
 
 
 The following steps describe the request verification flow:

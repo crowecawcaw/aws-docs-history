@@ -10,7 +10,7 @@ This flow shows how AWS Verified Access handles an initial request that does not
 ## AWS Verified Access with IAM Identity Center - initial request flow
 <a name="vai-diagram1"></a>
 
-![Architecture diagram showing AWS Verified Access initial request verification flow with IAM Identity Center for user authentication.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/verified-access/images/verified-access-1.png)
+![Architecture diagram showing AWS Verified Access initial request verification flow with IAM Identity Center for user authentication.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/verified-access/images/verified-access-1.png)
 
 
 The following steps describe the request verification flow:

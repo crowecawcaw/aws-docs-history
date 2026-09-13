@@ -10,7 +10,7 @@ This flow shows how AWS Verified Access handles subsequent requests when the app
 ## AWS Verified Access with IAM Identity Center and device trust - subsequent request flow
 <a name="vds-diagram1"></a>
 
-![Architecture diagram showing AWS Verified Access subsequent request flow with device trust provider where the browser extension automatically includes device information.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/verified-access/images/verified-access-4.png)
+![Architecture diagram showing AWS Verified Access subsequent request flow with device trust provider where the browser extension automatically includes device information.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/verified-access/images/verified-access-4.png)
 
 
 The following steps describe the request verification flow:

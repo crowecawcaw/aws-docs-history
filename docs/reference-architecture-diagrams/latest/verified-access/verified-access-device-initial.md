@@ -10,7 +10,7 @@ This flow shows how AWS Verified Access handles an initial request when both [IA
 ## AWS Verified Access with IAM Identity Center and device trust - initial request flow
 <a name="vdi-diagram1"></a>
 
-![Architecture diagram showing AWS Verified Access initial request flow with IAM Identity Center and device trust provider for combined verification.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/verified-access/images/verified-access-3.png)
+![Architecture diagram showing AWS Verified Access initial request flow with IAM Identity Center and device trust provider for combined verification.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/verified-access/images/verified-access-3.png)
 
 
 The following steps describe the request verification flow:
