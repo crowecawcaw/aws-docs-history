@@ -13,4 +13,4 @@ AWS Service Catalog products created with AWS Launch Wizard can be integrated wi
 
 For more information about how to integrate AWS products into your Jira Service Management portal using the AWS Service Catalog Connector, watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/1AODGjhqufo/0.jpg)](http://www.youtube.com/watch?v=1AODGjhqufo)
+[![AWS Videos](https://img.youtube.com/vi/1AODGjhqufo/0.jpg)](https://www.youtube.com/watch?v=1AODGjhqufo)

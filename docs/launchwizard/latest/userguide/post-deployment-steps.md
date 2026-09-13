@@ -68,17 +68,17 @@ The root certificate will be stored as `c:\servername.cer` on each RD gateway wh
 1. Start the Remote Desktop Connection client.
 
 1. In the computer name field, type the name or IP address of the Windows instance you want to connect to. Keep in mind that this instance needs to be reachable only from the RD gateway, not from the client machine.  
-![The Remote Desktop Connection client](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/rd-connect-client1.png)
+![The Remote Desktop Connection client](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/rd-connect-client1.png)
 
 1. Choose Show Options. On the Advanced tab, choose Settings.
 
 1. Choose Use these RD Gateway server settings. For server name, specify the FQDN of the RD gateway. If the RD gateway and the server you want to connect to are in the same domain, choose Use my RD Gateway credentials for the remote computer, and then choose OK.  
-![Advanced properties for the Remote Desktop Connection client](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/rd-connect-client2.png)
+![Advanced properties for the Remote Desktop Connection client](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/rd-connect-client2.png)
 **Note**  
 The FQDN server name of the RD Gateway host must match the certificate and the DNS record (or local HOSTS file entry). Otherwise, the secure connection will generate warnings and might fail.
 
 1. Enter your credentials, and then choose OK to connect to the server. You can supply the same set of credentials for the RD gateway and the destination server, as shown. If your servers are not joined to the domain, you will need to authenticate twice: once for the RD gateway and once for the destination server. If your servers aren’t joined to the domain, when prompted for the RD Gateway server credentials, provide the Admin User Name and Admin Password credentials you set in when you deployed with Launch Wizard. Check the Remember my credentials box. (Otherwise, if you’re connecting from a Windows computer, you’ll get prompted for your credentials repeatedly, and will be blocked from entering your remote computer credentials.)  
-![Default network ACL configuration for a VPC subnet.](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/rd-connect-client3.png)
+![Default network ACL configuration for a VPC subnet.](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/rd-connect-client3.png)
 
 ## Run Windows Updates
 <a name="windows-updates"></a>

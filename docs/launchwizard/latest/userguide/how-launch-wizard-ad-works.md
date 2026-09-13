@@ -146,7 +146,7 @@ If you choose to deploy self-managed domain controllers in the AWS Cloud, Launch
 
 To ensure that domain-joined Windows instances automatically register host (A) and reverse lookup (PTR) records with Active Directory-integrated DNS, set the properties of the network connection as shown in the following image. 
 
-![Advanced TCP/IP settings on a domain-joined Windows instance](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/tcp-ip.png)
+![Advanced TCP/IP settings on a domain-joined Windows instance](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/tcp-ip.png)
 
 
 The default configuration for a network connection is set to automatically register the connections address in DNS. In other words, the **Register this connection's addresses in DNS** option is selected for you automatically. This takes care of host (A) record dynamic registration. However, if you do not also select the second option, **Use this connection's DNS suffix in DNS registration**, dynamic registration of PTR records will not occur.

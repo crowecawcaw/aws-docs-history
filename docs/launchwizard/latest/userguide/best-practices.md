@@ -38,7 +38,7 @@ Amazon Virtual Private Cloud (Amazon VPC) lets you provision a private, isolated
 
 A network access control list (ACL) is a set of permissions that you can attach to any network subnet in a VPC to provide stateless filtering of traffic. You can use network ACLs for inbound or outbound traffic, as they provide an effective way to place a CIDR block or individual IP addresses on a deny list. These ACLs can contain ordered rules to allow or deny traffic based on IP protocol, service port, or source or destination IP address. The following image shows the default ACL configuration for a VPC subnet, which is also used by this Launch Wizard deployment:
 
-![Default network ACL configuration for a VPC subnet.](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/default-nacl.png)
+![Default network ACL configuration for a VPC subnet.](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/default-nacl.png)
 
 
  You can keep the default network ACL configuration, or you can configure more specific rules to restrict traffic between subnets at the network level. For example, you could set a rule that would allow inbound administrative traffic on TCP port 3389 from a specific set of IP addresses. In either case, you must implement security group rules to permit access from users connecting to RD Gateways and between tiered groups of Amazon EC2 instances.
@@ -48,7 +48,7 @@ A network access control list (ACL) is a set of permissions that you can attach 
 
 All instances are required to belong to one or more security groups. Security groups allow you to set policies to control open ports and provide isolation between application tiers. In a VPC, every instance runs behind a stateful firewall with all ports closed by default. The security group contains rules responsible for opening inbound and outbound ports on that firewall. While security groups act as an instance-level firewall, they can also be associated with multiple instances, providing isolation between application tiers in your environment. For example, you can create a security group for all your web servers that will allow traffic on TCP port 3389, but only from members of the security group containing your RD Gateway servers. The following diagram illustrates this configuration:
 
-![Security groups for RD Gateway administrative access.](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/security-group-admin.png)
+![Security groups for RD Gateway administrative access.](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/security-group-admin.png)
 
 
 Notice that inbound connections from the internet are only permitted over TCP port 443 to the RD Gateways. The RD Gateways have an Elastic IP address assigned and have direct access to the internet. The remaining Windows instances are deployed into private subnets and are assigned private IP addresses only. Security group rules allow only the RD Gateways to initiate inbound connections for remote administration to TCP port 3389 for instances in the private subnets.
@@ -64,14 +64,14 @@ In an initial RD Gateway configuration, the servers in the public subnet will ne
 
 Using this architecture, an administrator can use a traditional RDP connection to an RD Gateway to configure the local server. The RD Gateway can also be used as a bastion host (jump box). This means that when an RDP connection is established to the desktop of the RD Gateway, an administrator can start a new RDP client session to initiate a connection to an instance in a private subnet, as illustrated in the following diagram:
 
-![Initial architecture for remote administration](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/initial-arch.png)
+![Initial architecture for remote administration](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/initial-arch.png)
 
 
 Although this architecture works well for initial administration, it is not recommended for the long term. To further secure connections and reduce the number of RDP sessions required to administer the servers in the private subnets, the inbound rule should be changed to permit TCP port 443. The RD Gateway service should be installed and configured with an SSL certificate and Remote Desktop Connection Authorization Policies (RD CAP).
 
 This Launch Wizard deployment sets up a standard TCP port 3389 connection from the administrator’s IP address. You must follow the post-deployment steps to modify the security group for RD Gateway to use a single inbound rule permitting TCP port 443. This modification will allow a Transport Layer Security (TLS) encrypted RDP connection to be proxied through the gateway over TCP port 443 directly to one or more Windows instances in private subnets on TCP port 3389. This configuration increases the security of the connection and also prevents the need to initiate an RDP session to the desktop of the RD Gateway. The following diagram illustrates this configuration:
 
-![Architecture for RD Gateway administrative access](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/admin-arch.png)
+![Architecture for RD Gateway administrative access](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/admin-arch.png)
 
 
 ## SSL Certificates

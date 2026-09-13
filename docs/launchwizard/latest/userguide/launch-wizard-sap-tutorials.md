@@ -15,7 +15,7 @@ The following tutorials can help you get started with deploying an application w
 
 For more information about how to deploy an SAP HANA database on AWS that applies AWS and SAP best practices, watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/-EHJLBwDBgU/0.jpg)](http://www.youtube.com/watch?v=-EHJLBwDBgU)
+[![AWS Videos](https://img.youtube.com/vi/-EHJLBwDBgU/0.jpg)](https://www.youtube.com/watch?v=-EHJLBwDBgU)
 
 
 ## Deploy SAP S/4HANA with high availability
@@ -23,7 +23,7 @@ For more information about how to deploy an SAP HANA database on AWS that applie
 
 For more information about how to automate the configuration of a high availability SAP S/4HANA application on AWS using AWS Launch Wizard, watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/0VyvrE2fvmc/0.jpg)](http://www.youtube.com/watch?v=0VyvrE2fvmc)
+[![AWS Videos](https://img.youtube.com/vi/0VyvrE2fvmc/0.jpg)](https://www.youtube.com/watch?v=0VyvrE2fvmc)
 
 
 ## Automate a high availability configuration for SAP HANA
@@ -31,4 +31,4 @@ For more information about how to automate the configuration of a high availabil
 
 For more information about how to automate a high availability configuration for an SAP HANA database on AWS and then test the failover of the system with AWS Launch Wizard, watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/g6E-Hua0WzE/0.jpg)](http://www.youtube.com/watch?v=g6E-Hua0WzE)
+[![AWS Videos](https://img.youtube.com/vi/g6E-Hua0WzE/0.jpg)](https://www.youtube.com/watch?v=g6E-Hua0WzE)

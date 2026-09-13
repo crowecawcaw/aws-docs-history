@@ -22,7 +22,7 @@ When you launch your instances in different Regions, you can set your SQL Server
 
 When you deploy AWS Launch Wizard with the default parameters, it configures a two-node, automatic failover cluster with a file share witness. An Always On Availability Group is deployed on this cluster with two availability replicas, as shown in the following diagram.
 
-![Deploy a two-node automatic failover cluster with a file share witness.](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/sql-server-automatic-failover-2.png)
+![Deploy a two-node automatic failover cluster with a file share witness.](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/sql-server-automatic-failover-2.png)
 
 
 Launch Wizard implementation supports the following scenarios:

@@ -82,4 +82,4 @@ Additionally, a new VPC deployment includes the following components:
 + An internet gateway to allow access to the internet. This gateway is used by the RD Gateway instances to send and receive traffic.
 + Managed network address translation (NAT) gateways to allow outbound internet access for resources in the private subnets.
 
-![A Remote Desktop gateway application deployed in two Availability Zones using an Auto Scaling group and a Network Load Balancer.](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/rdgateway-architecture-diagram.png)
+![A Remote Desktop gateway application deployed in two Availability Zones using an Auto Scaling group and a Network Load Balancer.](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/rdgateway-architecture-diagram.png)

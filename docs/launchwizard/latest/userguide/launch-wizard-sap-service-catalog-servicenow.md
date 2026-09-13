@@ -13,4 +13,4 @@ ServiceNow users can natively browse and provision AWS Service Catalog products 
 
 For more information about how to integrate AWS products into your ServiceNow Portal using the AWS Service Catalog Connector, watch the following video.
 
-[![AWS Videos](http://img.youtube.com/vi/YCvNK-fzgoc/0.jpg)](http://www.youtube.com/watch?v=YCvNK-fzgoc)
+[![AWS Videos](https://img.youtube.com/vi/YCvNK-fzgoc/0.jpg)](https://www.youtube.com/watch?v=YCvNK-fzgoc)

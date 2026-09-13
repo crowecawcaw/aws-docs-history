@@ -203,12 +203,12 @@ Launch Wizard uses two Availability Zones.
 
 You can build a SQL HA installation, as shown in the following diagram.
 
-![Deploy SQL Server HA with Launch Wizard](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/sql-server-on-aws-architecture_mod-3.png)
+![Deploy SQL Server HA with Launch Wizard](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/sql-server-on-aws-architecture_mod-3.png)
 
 
 You can also choose to build an architecture with SQL Server Always On FCI, as shown in the following diagram.
 
-![Deploy SQL Server Always On FCI](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/ms-sql-fci-fsx-architecture_diagram.png)
+![Deploy SQL Server Always On FCI](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/ms-sql-fci-fsx-architecture_diagram.png)
 
 
 ### Linux
@@ -223,4 +223,4 @@ A SQL Server application deployed on Linux with Launch Wizard includes the follo
 
 The high-level architecture of a SQL Server high availability solution on Linux is similar to the architecture for deployment on Windows. The main differences are the low-level components and technologies. The architecture for Linux deployments provides redundant databases and a configuration-only replica node to verify that a quorum can vote for the node to be promoted to the controlling resource. The default architecture mirrors an on-premises architecture of two SQL Server instances spanning two subnets placed in two different Availability Zones. For more information about SQL Server Always On Availability Groups (AG), see [Overview of Always On Availability Groups (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) in the Microsoft documentation.
 
-![Deploy SQL Server Always On with Launch Wizard with three Availability Zones](http://docs.aws.amazon.com/launchwizard/latest/userguide/images/sql-server-on-aws-architecture-3az_linux-2.png)
+![Deploy SQL Server Always On with Launch Wizard with three Availability Zones](https://docs.aws.amazon.com/launchwizard/latest/userguide/images/sql-server-on-aws-architecture-3az_linux-2.png)
