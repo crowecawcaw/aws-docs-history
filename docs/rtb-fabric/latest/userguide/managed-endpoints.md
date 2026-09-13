@@ -11,6 +11,9 @@ Managed endpoints supports two infrastructure types for hosting your responder a
 
 If you are interested in using managed endpoints for your responder gateway, please contact your AWS solution architect (SA).
 
+**Note**  
+The client routing policy of a responder gateway controls how requester gateways reach that gateway. It does not change how the gateway reaches your managed endpoint targets. RTB Fabric prefers targets in the gateway's Availability Zone and can use targets in another Availability Zone when no target is available in that zone. For more information, see [Configuring Availability Zone affinity](working-with-responder-gateways.md#configuring-availability-zone-affinity).
+
 ## IAM role requirements
 <a name="managed-endpoints-iam-requirements"></a>
 
@@ -200,5 +203,5 @@ The domain name must be allowlisted by the RTB Fabric team for your account befo
 
 RTB Fabric can terminate the TLS connection from the requester on your behalf and send your hosts HTTP traffic. However, if you require HTTPS from RTB Fabric managed endpoints to your bidder hosts, additional configuration is required:
 + **TLS certificates** – Each host must serve up a TLS certificate.
-+ **Certificate Authority chain** – You must provide RTB Fabric with the Certificate Authority (CA) certificate chain so that RTB Fabric hosts can trust the TLS certificate from each bidder host.
++ **Certificate Authority chain** – You must provide RTB Fabric with the Certificate Authority (CA) certificate chain, as base64-encoded PEM, so that RTB Fabric hosts can trust the TLS certificate from each bidder host.
 + **Domain name allowlisting** – You must provide RTB Fabric with a domain name that matches the SAN of the TLS certificate from each bidder host.

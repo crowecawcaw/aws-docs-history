@@ -29,6 +29,8 @@ RTB Fabric supports HTTP/1.1 with gzip compression for all RTB traffic to optimi
 
 When you configure TLS encryption, RTB traffic between requester and responder applications is encrypted using TLS 1.2\+ protocols. This ensures that bid requests, responses, and other RTB communications are protected during transmission across networks when TLS is enabled.
 
+For HTTPS responder endpoints, you provide a CA certificate chain (trust store). RTB Fabric verifies the certificate that your responder origin presents against this trust store. You can rotate the trust store without interrupting traffic by trusting both the outgoing and incoming CA during the transition. For more information, see [Rotating a responder gateway certificate](working-with-responder-gateways.md#rotating-responder-gateway-certificate).
+
 ### Encryption at rest
 <a name="encryption-at-rest"></a>
 

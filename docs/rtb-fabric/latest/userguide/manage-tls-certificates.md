@@ -5,6 +5,9 @@
 
 If you use HTTPS for your custom domain, you must configure TLS certificates that match the hostnames clients use to connect. RTB Fabric uses Server Name Indication (SNI) to select the correct certificate during the TLS handshake. This section describes certificate configuration, the resolution process, and operational considerations. If you use HTTP only, you can skip this section. For general information about encryption in transit, see Data protection in RTB Fabric.
 
+**Note**  
+This topic covers the inbound custom domain certificate that an external gateway presents to partner clients. You import this certificate into ACM and associate it with the gateway. It is not the CA certificate chain (trust store) that RTB Fabric uses to verify your responder origin on outbound HTTPS connections. To rotate the trust store, see [Rotating a responder gateway certificate](working-with-responder-gateways.md#rotating-responder-gateway-certificate).
+
 ## Certificate requirements
 <a name="certificate-requirements"></a>
 

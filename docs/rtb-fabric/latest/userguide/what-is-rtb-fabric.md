@@ -15,7 +15,7 @@ RTB Fabric enables bidirectional communication between RTB applications through 
 
 The following diagram shows the high-level architecture of RTB Fabric:
 
-![RTB Fabric high-level architecture showing customer applications connecting through gateways and links](http://docs.aws.amazon.com/rtb-fabric/latest/userguide/images/rtb-fabric-high-level-architecture.png)
+![RTB Fabric high-level architecture showing customer applications connecting through gateways and links](https://docs.aws.amazon.com/rtb-fabric/latest/userguide/images/rtb-fabric-high-level-architecture.png)
 
 
 This architecture demonstrates how RTB Fabric acts as connecting infrastructure between your applications. Requester applications connect to RTB Fabric requester gateways, which forward requests through links to RTB Fabric responder gateways. The responder gateways then forward requests to responder applications, which process them and return responses through the same pathway.

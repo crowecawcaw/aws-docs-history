@@ -53,13 +53,13 @@ When you associate an ACM certificate with your gateway using the `AssociateCert
                 "acm:DescribeCertificate",
                 "acm:CreateCertificateRelation"
             ],
-            "Resource": "{{CERTIFICATE_ARN}}"
+            "Resource": "arn:aws:acm:{{us-east-1}}:{{111122223333}}:certificate/{{certificate-id}}"
         }
     ]
 }
 ```
 
-Replace {{CERTIFICATE\_ARN}} with the ARN of your ACM certificate (for example, `arn:aws:acm:us-east-1:{{ACCOUNT_ID}}:certificate/abcd1234-5678-90ef-ghij-klmnopqrstuv`).
+Replace {{us-east-1}} with the Region of your ACM certificate, {{111122223333}} with your AWS account ID, and {{certificate-id}} with the ID of your ACM certificate (for example, `12345678-1234-1234-1234-123456789012`).
 
 If you use HTTP only, skip this prerequisite.
 
