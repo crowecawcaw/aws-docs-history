@@ -15,4 +15,4 @@ The architecture of Nutanix Move for VMware ESXi environments utilizes the vCent
 
 An architecture diagram for the Nutanix Move solution is provided:
 
-![Depicts Nutanix Move components](http://docs.aws.amazon.com/guidance/latest/migrating-vmware-virtual-machines-to-nutanix-cloud-clusters-on-aws/images/nutanix-move-architecture.jpeg)
+![Depicts Nutanix Move components](https://docs.aws.amazon.com/guidance/latest/migrating-vmware-virtual-machines-to-nutanix-cloud-clusters-on-aws/images/nutanix-move-architecture.jpeg)
