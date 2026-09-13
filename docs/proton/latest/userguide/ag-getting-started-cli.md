@@ -208,7 +208,7 @@ In the previous steps, an administrator registered and published a service templ
    ```
 
    The value of the `ServiceURL` instance output is the endpoint to your new service website. Use your browser to navigate to it. You should see the following graphic on a static page:  
-![A web browser showing the static image site resulting from the getting started CLI procedure](http://docs.aws.amazon.com/proton/latest/userguide/images/getting-started-static-site.png)
+![A web browser showing the static image site resulting from the getting started CLI procedure](https://docs.aws.amazon.com/proton/latest/userguide/images/getting-started-static-site.png)
 
 ## Step 5: Clean up (optional)
 <a name="ag-getting-started-cli.cleanup"></a>

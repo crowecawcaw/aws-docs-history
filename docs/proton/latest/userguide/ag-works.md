@@ -7,16 +7,16 @@ End of support notice: On October 7, 2026, AWS will end support for AWS Proton. 
 
 With AWS Proton, you provision *environments*, and then *services* running in those environments. Environments and services are based on environment and service *templates*, respectively, that you choose in your AWS Proton versioned template library.
 
-![A diagram that describes a process of how to create a template bundle for a set of AWS Proton infrastructure resources.](http://docs.aws.amazon.com/proton/latest/userguide/images/works.png)
+![A diagram that describes a process of how to create a template bundle for a set of AWS Proton infrastructure resources.](https://docs.aws.amazon.com/proton/latest/userguide/images/works.png)
 
 
- ![Number 1 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-one.png) When you, as an administrator, select an environment template with AWS Proton, you provide values for required *input parameters*.
+ ![Number 1 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-one.png) When you, as an administrator, select an environment template with AWS Proton, you provide values for required *input parameters*.
 
- ![Number 2 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-two.png) AWS Proton uses the environment template and parameter values to provision your environment.
+ ![Number 2 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-two.png) AWS Proton uses the environment template and parameter values to provision your environment.
 
- ![Number 3 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-three.png) When you, as a developer or administrator, select a service template with AWS Proton, you provide values for required input parameters. You also select an environment to deploy your application or service to.
+ ![Number 3 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-three.png) When you, as a developer or administrator, select a service template with AWS Proton, you provide values for required input parameters. You also select an environment to deploy your application or service to.
 
- ![Number 4 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-four.png) AWS Proton uses the service template, and both your service and selected environment parameter values, to provision your service.
+ ![Number 4 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-four.png) AWS Proton uses the service template, and both your service and selected environment parameter values, to provision your service.
 
 You provide values for the input parameters to customize your template for re-use and multiple use cases, applications, or services.
 

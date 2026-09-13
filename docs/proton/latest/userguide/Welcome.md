@@ -37,17 +37,17 @@ As an application developer, you select a standardized *service template* that A
 
 The following diagram is a visualization of the main AWS Proton concepts discussed in the preceding paragraph. It also offers a high-level overview of what constitutes a simple AWS Proton workflow.
 
-![A diagram that describes the main AWS Proton concepts discussed in the preceding paragraph. It also offers a high-level overview of what constitutes a simple AWS Proton workflow divided into the following six steps.](http://docs.aws.amazon.com/proton/latest/userguide/images/service-diagram_1.png)
+![A diagram that describes the main AWS Proton concepts discussed in the preceding paragraph. It also offers a high-level overview of what constitutes a simple AWS Proton workflow divided into the following six steps.](https://docs.aws.amazon.com/proton/latest/userguide/images/service-diagram_1.png)
 
 
- ![Number 1 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-one.png)As an **Administrator**, you create and register an **Environment Template** with AWS Proton, which defines the shared resources.
+ ![Number 1 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-one.png)As an **Administrator**, you create and register an **Environment Template** with AWS Proton, which defines the shared resources.
 
- ![Number 2 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-two.png)AWS Proton deploys one or more **Environments**, based on an **Environment Template**.
+ ![Number 2 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-two.png)AWS Proton deploys one or more **Environments**, based on an **Environment Template**.
 
- ![Number 3 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-three.png) As an **Administrator**, you create and register a **Service Template** with AWS Proton, which defines the related infrastructure, monitoring, and CI/CD resources as well as compatible **Environment Templates**.
+ ![Number 3 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-three.png) As an **Administrator**, you create and register a **Service Template** with AWS Proton, which defines the related infrastructure, monitoring, and CI/CD resources as well as compatible **Environment Templates**.
 
- ![Number 4 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-four.png) As a **Developer**, you select a registered **Service Template** and provide a link to your **Source code** repository.
+ ![Number 4 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-four.png) As a **Developer**, you select a registered **Service Template** and provide a link to your **Source code** repository.
 
- ![Number 5 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-five.png) AWS Proton provisions the **Service** with a **CI/CD Pipeline** for your **Service instances**.
+ ![Number 5 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-five.png) AWS Proton provisions the **Service** with a **CI/CD Pipeline** for your **Service instances**.
 
- ![Number 6 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-six.png) AWS Proton provisions and manages the **Service** and the **Service Instances** that are running the **Source code** as was defined in the selected **Service Template**. A **Service Instance** is an instantiation of the selected **Service Template** in an **Environment** for a single stage of a **Pipeline** (for example Prod).
+ ![Number 6 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-six.png) AWS Proton provisions and manages the **Service** and the **Service Instances** that are running the **Source code** as was defined in the selected **Service Template**. A **Service Instance** is an instantiation of the selected **Service Template** in an **Environment** for a single stage of a **Pipeline** (for example Prod).

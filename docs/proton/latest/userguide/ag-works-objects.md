@@ -9,7 +9,7 @@ The following diagram shows the main AWS Proton objects and their relationship t
 
 We follow the diagram with brief descriptions and reference links for these AWS Proton objects.
 
-![Diagram illustrating AWS-managed provisioning in AWS Proton](http://docs.aws.amazon.com/proton/latest/userguide/images/object-diagram.png)
+![Diagram illustrating AWS-managed provisioning in AWS Proton](https://docs.aws.amazon.com/proton/latest/userguide/images/object-diagram.png)
 
 + **Environment template** – A collection of environment template versions that can be used to create AWS Proton environments.
 

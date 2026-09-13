@@ -15,7 +15,7 @@ To view the AWS Proton dashboard, open the [AWS Proton console](https://console.
 ### Resources
 <a name="w2aac28b9b7b9"></a>
 
-![Resources tab](http://docs.aws.amazon.com/proton/latest/userguide/images/dashboard.png)
+![Resources tab](https://docs.aws.amazon.com/proton/latest/userguide/images/dashboard.png)
 
 
 The first tab of the dashboard displays counts of all resources in your account. The resources tab shows the number of your service instances, services, environments, and components, as well as your resource templates. It also breaks down resource counts for each deployed resource type by the status of resources of that type. A service instance table shows details of each service instance—its deployment status, the AWS Proton resources that it's associated with, the updates that are available to it, and some time stamps.
@@ -27,7 +27,7 @@ Choose a service instance name to navigate to the service instance detail page, 
 ### Deployment history
 <a name="w2aac28b9b7c13"></a>
 
-![Deployment history tab](http://docs.aws.amazon.com/proton/latest/userguide/images/deployment-history.png)
+![Deployment history tab](https://docs.aws.amazon.com/proton/latest/userguide/images/deployment-history.png)
 
 
 The deployment history tab lets you see details about your deployments. In the deployment history table, you can keep track of the deployment status, as well as environment and deployment ID. You can choose the resource name or the deployment ID to see even more details, such as a deployment status message and resource outputs. The table also allows you to filter on any table property.

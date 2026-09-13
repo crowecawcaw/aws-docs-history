@@ -15,7 +15,7 @@ For more information about provisioning methods, see [How AWS Proton provisions 
 
 **Terminology**
 
-![A diagram that describes AWS Proton resources within a single account (management account) that's in a single AWS Region. It also shows how AWS Proton environments in that account can use environment account connections to deploy to other accounts (environment accounts) in the same Region.](http://docs.aws.amazon.com/proton/latest/userguide/images/xaccount-diagram.png)
+![A diagram that describes AWS Proton resources within a single account (management account) that's in a single AWS Region. It also shows how AWS Proton environments in that account can use environment account connections to deploy to other accounts (environment accounts) in the same Region.](https://docs.aws.amazon.com/proton/latest/userguide/images/xaccount-diagram.png)
 
 
 With AWS Proton *environment account connections*, you can create an AWS Proton environment from one account and provision its infrastructure in another account.

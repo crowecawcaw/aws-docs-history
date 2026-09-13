@@ -38,13 +38,13 @@ AWS Proton requires an input parameter schema file. When you use AWS CloudFormat
 
 The following diagram shows an example of steps that you can take to create a *template* for AWS Proton.
 
-![A diagram that describes a process of how to create a template bundle for a set of AWS Proton infrastructure resources.](http://docs.aws.amazon.com/proton/latest/userguide/images/bundles.png)
+![A diagram that describes a process of how to create a template bundle for a set of AWS Proton infrastructure resources.](https://docs.aws.amazon.com/proton/latest/userguide/images/bundles.png)
 
 
- ![Number 1 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-one.png) Identify [input parameters](parameters.md).
+ ![Number 1 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-one.png) Identify [input parameters](parameters.md).
 
- ![Number 2 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-two.png) Create a [schema file](ag-schema.md) to define your input parameters.
+ ![Number 2 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-two.png) Create a [schema file](ag-schema.md) to define your input parameters.
 
- ![Number 3 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-three.png) Create [IaC files](ag-infrastructure-tmp-files.md) that reference your input parameters. You can reference environment IaC file *outputs* as *inputs* for your service IaC files.
+ ![Number 3 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-three.png) Create [IaC files](ag-infrastructure-tmp-files.md) that reference your input parameters. You can reference environment IaC file *outputs* as *inputs* for your service IaC files.
 
- ![Number 4 icon.](http://docs.aws.amazon.com/proton/latest/userguide/images/label-four.png) [Register a template version](template-create.md) with AWS Proton and upload your template bundle.
+ ![Number 4 icon.](https://docs.aws.amazon.com/proton/latest/userguide/images/label-four.png) [Register a template version](template-create.md) with AWS Proton and upload your template bundle.

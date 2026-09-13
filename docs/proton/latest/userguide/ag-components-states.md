@@ -21,9 +21,9 @@ The following table provides a top level comparison of the different component s
 | **State's main purpose** | To extend the infrastructure of a service instance. | To maintain the component's infrastructure between service instance attachments. | 
 | **Associated with** | A service instance and an environment | An environment | 
 | **Key specific properties** |  +  Service name <br />+  Service instance name <br />+  Spec   |  +  Environment name   | 
-| **Can be deleted** |  ![](http://docs.aws.amazon.com/proton/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/proton/latest/userguide/images/icon-yes.png) Yes | 
-| **Can be updated to another service instance** |  ![](http://docs.aws.amazon.com/proton/latest/userguide/images/icon-no.png) No |  ![](http://docs.aws.amazon.com/proton/latest/userguide/images/icon-yes.png) Yes | 
-| **Can read inputs** |  ![](http://docs.aws.amazon.com/proton/latest/userguide/images/icon-yes.png) Yes |  ![](http://docs.aws.amazon.com/proton/latest/userguide/images/icon-no.png) No | 
+| **Can be deleted** |  ![](https://docs.aws.amazon.com/proton/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/proton/latest/userguide/images/icon-yes.png) Yes | 
+| **Can be updated to another service instance** |  ![](https://docs.aws.amazon.com/proton/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/proton/latest/userguide/images/icon-yes.png) Yes | 
+| **Can read inputs** |  ![](https://docs.aws.amazon.com/proton/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/proton/latest/userguide/images/icon-no.png) No | 
 
 A component's main purpose is to be attached to a service instance and extend its infrastructure with additional resources. An attached component can read inputs from the service instance according to the spec. You can't directly delete the component or attach it to a different service instance. You can't delete its service instance or the related service and environment, either. To do any of these things, update the component to detach it from its service instance first.
 

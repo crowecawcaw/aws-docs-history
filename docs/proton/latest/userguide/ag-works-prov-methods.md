@@ -46,7 +46,7 @@ When an environment or a service uses AWS-managed provisioning, infrastructure i
 
 The following diagram shows that AWS Proton takes care of most of these steps directly.
 
-![Diagram illustrating AWS-managed provisioning in AWS Proton](http://docs.aws.amazon.com/proton/latest/userguide/images/provisioning-direct.png)
+![Diagram illustrating AWS-managed provisioning in AWS Proton](https://docs.aws.amazon.com/proton/latest/userguide/images/provisioning-direct.png)
 
 
 ### Considerations for AWS-managed provisioning
@@ -109,7 +109,7 @@ Be sure that your commands correctly return the provisioning status to CodeBuild
 
 The following diagram illustrates the steps that AWS Proton performs and the steps that your commands perform within a CodeBuild job.
 
-![Diagram illustrating CodeBuild-based provisioning in AWS Proton](http://docs.aws.amazon.com/proton/latest/userguide/images/provisioning-codebuild.png)
+![Diagram illustrating CodeBuild-based provisioning in AWS Proton](https://docs.aws.amazon.com/proton/latest/userguide/images/provisioning-codebuild.png)
 
 
 ### Considerations for CodeBuild provisioning
@@ -176,7 +176,7 @@ Be sure that your automation code calls back into AWS Proton with the provisioni
 
 The following diagram illustrates the steps that AWS Proton performs and the steps that your own provisioning system performs.
 
-![Diagram illustrating self-managed provisioning in AWS Proton](http://docs.aws.amazon.com/proton/latest/userguide/images/provisioning-self.png)
+![Diagram illustrating self-managed provisioning in AWS Proton](https://docs.aws.amazon.com/proton/latest/userguide/images/provisioning-self.png)
 
 
 ### Considerations for self-managed provisioning
