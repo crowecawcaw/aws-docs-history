@@ -5,7 +5,7 @@
 
 This reference architecture aligns to the design tenants of a well-architected, secure, and scalable multi-account AWS implementation with the integration of AWS Backup for data protection. You can use or a similar landing zone framework to standardize your data protection strategy.
 
-![Architecture diagram showing AWS Landing Zone and AWS Backup reference architecture.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-protection-aws-backup/images/data-protection-aws-backup-3.png)
+![Architecture diagram showing AWS Landing Zone and AWS Backup reference architecture.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-protection-aws-backup/images/data-protection-aws-backup-3.png)
 
 
 1. Use and deploy the Customizations for Control Tower (CfCT) resource template to integrate AWS Backup in your environment.

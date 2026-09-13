@@ -5,7 +5,7 @@
 
 This reference architecture shows how to implement a consistent backup strategy through multiple AWS accounts and Regions, and copy backups between them through an automated, policy-driven approach.
 
-![Architecture diagram showing cross-account and Region data protection with AWS Backup and AWS Organizations.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-protection-aws-backup/images/data-protection-aws-backup-2.png)
+![Architecture diagram showing cross-account and Region data protection with AWS Backup and AWS Organizations.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-protection-aws-backup/images/data-protection-aws-backup-2.png)
 
 
 1. Use [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) StackSets to create [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html) resources such as an [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) role, backup vault, [AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) key, and access policies.

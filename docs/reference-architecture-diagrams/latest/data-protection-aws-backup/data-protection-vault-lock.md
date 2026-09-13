@@ -5,7 +5,7 @@
 
 This architecture details the key steps involved in setting up a central immutable backup data bunker that follows the principle of least privilege in a multi-account AWS Organization.
 
-![Architecture diagram showing how to create immutable backups with AWS Backup Vault Lock.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-protection-aws-backup/images/data-protection-aws-backup-4.png)
+![Architecture diagram showing how to create immutable backups with AWS Backup Vault Lock.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-protection-aws-backup/images/data-protection-aws-backup-4.png)
 
 
 1. Create a resource policy that limits CopyFromBackupVault to the Backup Data Bunker Account. Apply it to the AWS Backup vaults in each member account. Create a customer-managed KMS key for each vault.

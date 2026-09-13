@@ -5,7 +5,7 @@
 
 This reference architecture describes how [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html) is implemented in a single AWS account to protect multiple services in an automated way.
 
-![Architecture diagram showing cloud-native data protection with AWS Backup.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-protection-aws-backup/images/data-protection-aws-backup-1.png)
+![Architecture diagram showing cloud-native data protection with AWS Backup.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-protection-aws-backup/images/data-protection-aws-backup-1.png)
 
 
 1. Use [AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) to create the components that AWS Backup uses in this architecture.
