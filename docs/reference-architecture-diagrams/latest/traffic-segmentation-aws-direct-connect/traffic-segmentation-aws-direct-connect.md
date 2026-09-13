@@ -10,7 +10,7 @@ This architecture shows traffic segmentation options in AWS Direct Connect, incl
 ## Segment Your Traffic over AWS Direct Connect by Using Several Private VIFs in the VPC or Direct Connect Gateway Diagram
 <a name="1-several-private-vifs"></a>
 
-![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several private VIFs in the VPC or Direct Connect Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/1-several-private-vifs.png)
+![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several private VIFs in the VPC or Direct Connect Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/1-several-private-vifs.png)
 
 
  Private virtual interfaces (VIFs) are used to access Amazon Virtual Private Cloud (Amazon VPC) using private IP addresses. Each VIF is configured with an unique virtual local area network (VLAN) tag, which means you can segment your traffic by using one VIF per virtual routing and forwarding (VRF) you have in your data center. Take into account the limits in the number of VIFs, depending the type of Direct Connect connection you have. You can have 50 private or public VIFs with a dedicated connection, and one private or public VIF with a hosted connection. In addition, you can have 30 private VIFs associated to the same Direct Connect gateway. You can check the quotas in the [Direct Connect user guide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/limits.html). 
@@ -30,7 +30,7 @@ This architecture shows traffic segmentation options in AWS Direct Connect, incl
 ## Segment Your Traffic over AWS Direct Connect by Using Several Transit VIFs and Direct Connect Gateways Diagram
 <a name="2-several-transit-vifs"></a>
 
-![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several transit VIFs and Direct Connect gateways.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/2-several-transit-vifs.png)
+![Reference architecture diagram showing how to segment your traffic over AWS Direct Connect by using several transit VIFs and Direct Connect gateways.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/2-several-transit-vifs.png)
 
 
  Transit Virtual Interfaces (VIFs) are used to access AWS Transit Gateway by way of an Direct Connect gateway. Each VIF is configured with an unique virtual local area network (VLAN) tag, which means you can segment your traffic by using one VIF per virtual routing and forwarding (VRF) you have in your data center. Take into account the limits in the number of VIFs, depending the type of Direct Connect connection you have. You can have four transit VIFs with a max combination of 51 private, public, and transit VIFs per dedicated connection. For hosted connections, you can have only one transit VIF. In addition, you can have 30 transit VIFs associated with the same Direct Connect gateway. You can check the quotas in the [Direct Connect user guide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/limits.html). 
@@ -54,7 +54,7 @@ This architecture shows traffic segmentation options in AWS Direct Connect, incl
 ## Use AWS Transit Gateway Connect Attachments and AWS Direct Connect to Extend your On-Premises VRFs over Transit VIFs Diagram
 <a name="3-extend-on-premises-vrfs-over-transit-vifs"></a>
 
-![Reference architecture diagram showing how to use AWS Transit Gateway connect attachments and AWS Direct Connect to extend your on-premises VRFs over transit VIFs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/3-extend-on-premises-vrfs-over-transit-vifs.png)
+![Reference architecture diagram showing how to use AWS Transit Gateway connect attachments and AWS Direct Connect to extend your on-premises VRFs over transit VIFs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/3-extend-on-premises-vrfs-over-transit-vifs.png)
 
 
  With a hosted connection, you get one transit VIF; with a dedicated connection you get four. When you have more VRFs than transit VIFs, you can use several Transit Gateway Connect attachments (GRE tunnels) over a transit VIF to segment the traffic, creating one connect attachment per VRF you have in your data center. For more information about this use case, refer to [Using AWS Transit Gateway Connect to extend VRFs and increase IP prefix advertisement](https://aws.amazon.com/blogs/networking-and-content-delivery/using-aws-transit-gateway-connect-to-extend-vrfs-and-increase-ip-prefix-advertisement/). 
@@ -78,7 +78,7 @@ This architecture shows traffic segmentation options in AWS Direct Connect, incl
 ## Use AWS Site-to-Site VPN Attachments (Public VIFs) and AWS Direct Connect to Extend Your On-Premises VRFs Diagram
 <a name="4-extend-on-premises-vrfs"></a>
 
-![Reference architecture diagram showing how to use AWS Site-to-Site VPN VPN attachments (public VIFs) and AWS Direct Connect to extend your on-premises VRFs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/4-extend-on-premises-vrfs.png)
+![Reference architecture diagram showing how to use AWS Site-to-Site VPN VPN attachments (public VIFs) and AWS Direct Connect to extend your on-premises VRFs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/4-extend-on-premises-vrfs.png)
 
 
  If your customer gateway does not support Generic Routing Encapsulation (GRE), you can still segment your traffic by creating one AWS Site-to-Site VPN connection per each VRF you have in your data center. You can use a public VIF as underlaying transport. 
@@ -102,7 +102,7 @@ This architecture shows traffic segmentation options in AWS Direct Connect, incl
 ## Use AWS Site-to-Site VPN Private IP VPN Attachments and AWS Direct Connect to Extend Your On-Premises VRFs Over Transit VIFs Diagram
 <a name="5-extend-on-premises-vrfs-over-transit-vifs-private-ip"></a>
 
-![Reference architecture diagram showing how to use AWS Site-to-Site VPN private IP VPN attachments and AWS Direct Connect to extend your on-premises VRFs over transit VIFs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/5-extend-on-premises-vrfs-over-transit-vifs-private-ip.png)
+![Reference architecture diagram showing how to use AWS Site-to-Site VPN private IP VPN attachments and AWS Direct Connect to extend your on-premises VRFs over transit VIFs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/images/5-extend-on-premises-vrfs-over-transit-vifs-private-ip.png)
 
 
  If your customer gateway does not support GRE (Generic Routing Encapsulation), you can still segment your traffic by creating one AWS Site-to-Site VPN connection (with two tunnels) per each VRF you have in your data center. With the Site-to-Site VPN Private IP VPN feature, you can create the VPNs using private IPs with the AWS Direct Connect gateway and transit VIF as underlying transport. 
