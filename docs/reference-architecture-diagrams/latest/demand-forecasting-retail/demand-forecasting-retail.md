@@ -10,7 +10,7 @@ With this architecture, you can understand prior demand trends and anticipate fu
 ## Demand forecasting diagram
 <a name="df-diagram"></a>
 
-![Data flowing from Amazon.com Selling Partner API through Lambda and Amazon Simple Queue Service into Amazon Simple Storage Service, with AWS Glue for processing, Amazon Forecast for predictions managed by AWS Step Functions, and Amazon Quick Sight for visualization.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/demand-forecasting-retail/images/demand-forecasting-retail.png)
+![Data flowing from Amazon.com Selling Partner API through Lambda and Amazon Simple Queue Service into Amazon Simple Storage Service, with AWS Glue for processing, Amazon Forecast for predictions managed by AWS Step Functions, and Amazon Quick Sight for visualization.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/demand-forecasting-retail/images/demand-forecasting-retail.png)
 
 
 The following steps describe the architecture:
