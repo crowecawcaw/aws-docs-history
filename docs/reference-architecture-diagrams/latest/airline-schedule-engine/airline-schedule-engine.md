@@ -12,7 +12,7 @@ This architecture uses the [Airport Terminal Optimizer](../airport-terminal-opti
 ## Airline schedule engine diagram
 <a name="schedule-engine-diagram"></a>
 
-![Architecture for airline schedule engine using Amazon DynamoDB, Amazon Neptune, and AWS Glue.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/airline-schedule-engine/images/airline-schedule-builder-ra.png)
+![Architecture for airline schedule engine using Amazon DynamoDB, Amazon Neptune, and AWS Glue.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/airline-schedule-engine/images/airline-schedule-builder-ra.png)
 
 
 The following steps describe the architecture:
