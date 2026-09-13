@@ -12,12 +12,12 @@ This procedure shows you how to switch your pricing mode in the [AWS IoT TwinMak
 1. Open the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/).
 
 1. In the left navigation pane, select **Settings**. The **Pricing** page opens.  
-![The left navigation pane with Settings highlighted.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/setting-menu.png)
+![The left navigation pane with Settings highlighted.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/setting-menu.png)
 
 1. Choose **Change price mode**.
 
 1. Select either the **Standard** or **Tiered bundle** modes, as shown in the following screenshot.  
-![The Select price mode dialog box has the options Basic, Standard, and Tiered bundle and a Save button.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/selected-pricing-mode.png)
+![The Select price mode dialog box has the options Basic, Standard, and Tiered bundle and a Save button.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/selected-pricing-mode.png)
 
 1. Choose **Save** to confirm your new pricing mode.
 

@@ -24,7 +24,7 @@ To see all the listed errors for the current source, use the following procedure
 1. Navigate to your workspace in the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/).
 
 1. Select the AWS IoT SiteWise source listed in the **Entity model sources** modal to open the asset sync details page.  
-![The AWS IoT SiteWise source page shows asset sync details, including errors.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/synced-resources.png)
+![The AWS IoT SiteWise source page shows asset sync details, including errors.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/synced-resources.png)
 
 1. As shown in the preceding screenshot, any resources with persisting errors are listed in the **Errors ** table. You can use this table to track down and fix errors related to specific resources.
 

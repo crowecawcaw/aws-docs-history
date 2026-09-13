@@ -85,23 +85,23 @@ AWS IoT TwinMaker annotations and overlay Markdown syntax only and not HTML.
 1. Select an element from the scene hierarchy that you want to annotate. If no element in the hierarchy is selected, then you can add annotation to the root.
 
 1. Press the plus **\+** button and choose the **Add annotation** option.  
-![A scene canvas page with the plus sign control expanded to show the Add annotation option.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Scene composer -annotation-menu.png)
+![A scene canvas page with the plus sign control expanded to show the Add annotation option.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Scene composer -annotation-menu.png)
 
 1. In the **Inspector** window on the left, scroll down to the **annotation** section. Using Markdown syntax, write the text you want your annotation to display.
 
    For more information on writing in Markdown, see the official documentation on markdown syntax, [Basic Syntax](https://www.markdownguide.org/basic-syntax/).  
-![A scene canvas page with the annotation panel's markdown content entry form displayed.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step4a.png)
+![A scene canvas page with the annotation panel's markdown content entry form displayed.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step4a.png)
 
 1. To bind your AWS IoT TwinMaker scene data to an annotation choose **Add data binding**, add the **Entity Id**, then select the **Component Name** and **Property Name** of the entity you wish to surface data from. You can update the binding name to use it as a Markdown variable, and surface the data in the annotation.  
-![With the three dots to the right of the annotation pull-down selected, the Add Data Binding button appears.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step5a1.png)  
-![When the Add Data Binding button is selected, you can enter the Binding Name, Entity Id, and Component and Property Names.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step5a2.png)
+![With the three dots to the right of the annotation pull-down selected, the Add Data Binding button appears.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step5a1.png)  
+![When the Add Data Binding button is selected, you can enter the Binding Name, Entity Id, and Component and Property Names.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step5a2.png)
 
 1. The **Binding Name** is used to represent the annotation's variable.
 
    Enter a **Binding Name** to surface the latest historical value of an entities time-series in the annotation through AWS IoT TwinMaker's variable syntax: `${{{variable-name}}}`
 
    As an example, this overlay displays the value of the `mixer0alarm`, in the annotation with the syntax `${mixer0alarm}`.  
-![A completed annotation data binding example.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step6a.png)
+![A completed annotation data binding example.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step6a.png)
 
 ## Add overlays to Tags
 <a name="scenes-ee-overlay"></a>
@@ -118,26 +118,26 @@ By default, an **Overlay** is visible in a scene only when the tag associated wi
 1. The AWS IoT TwinMaker **overlay** is associated with a tag scene, you can update an existing tag or add a new one.
 
    Press the plus **\+** button and choose the **Add tag** option.  
-![A scene in which the plus button was selected and with the Add tag option highlighted.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Scene composer-overlay-add-tag.png)
+![A scene in which the plus button was selected and with the Add tag option highlighted.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Scene composer-overlay-add-tag.png)
 
 1. In the **Inspector** panel on the right, select the **\+** (plus symbol) button then select **Add overlay**.  
-![The Inspector panel with the plus button selected and Add overlay highlighted.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step4b.png)
+![The Inspector panel with the plus button selected and Add overlay highlighted.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step4b.png)
 
 1. In Markdown syntax, write the text you want your overlay to display.
 
    For more information on writing in Markdown, see the official documentation on markdown syntax, [Basic Syntax](https://www.markdownguide.org/basic-syntax/).
 
 1. To bind your AWS IoT TwinMaker scene data to an overlay, select **Add data binding**.  
-![The Inspector panel with the three dots selected and Add data binding highlighted.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step6b.png)
+![The Inspector panel with the three dots selected and Add data binding highlighted.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step6b.png)
 
    Add the **Binding name** and **Entity Id**, then select the **Component Name** and **Property Name** of the entity you wish to surface data from.
 
 1. You can surface the latest historical value of an entities time-series data in the overlay through AWS IoT TwinMaker's variable syntax: `${{{variable-name}}}`.
 
    As an example, this overlay displays the value of the `mixer0alarm`, in the overlay with the syntax `${mixer0alarm}`.  
-![The Inspector panel with alarm status information entered in the Markdown content entry box.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step7b.png)
+![The Inspector panel with alarm status information entered in the Markdown content entry box.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-step7b.png)
 
 1. To enable **Overlay** visibility, open the **Settings** tab in the top left, and make sure the toggle for **Overlay** is switched on so that all **Overlays** are visible at once.
 **Note**  
 By default, an **Overlay** is visible in a scene only when the tag associated with it is selected.  
-![The Settings tab showing the Overlay toggle switched off.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/scene-setting.png)
+![The Settings tab showing the Overlay toggle switched off.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/scene-setting.png)

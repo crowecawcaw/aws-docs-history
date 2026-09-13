@@ -77,7 +77,7 @@ For more information, see [Creating a dashboard IAM role](dashboard-IAM-role.md#
 1. Create a new **dashboard panel**. For detailed steps on how to create a panel, see [ Create a dashboard](https://grafana.com/docs/grafana/latest/dashboards/build-dashboards/create-dashboard/) in the Grafana documentation.
 
 1. From the list of visualizations, select **AWS IoT TwinMaker Query Editor**.  
-![The dropdown list in the AWS IoT TwinMaker dashboard contains the option for the AWS IoT TwinMaker Query Editor.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tw-query-editor-dropdown.png)
+![The dropdown list in the AWS IoT TwinMaker dashboard contains the option for the AWS IoT TwinMaker Query Editor.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tw-query-editor-dropdown.png)
 
 1. Select the data source to run queries against.
 
@@ -92,14 +92,14 @@ The knowledge graph panel works in a similar way as the query editor provided in
 
 The results of your queries are displayed in three ways, as shown in the following images: visualized in a graph, listed in a table, or presented as a run summary.
 + **Graph visualization:**  
-![AWS IoT TwinMaker query editor results displayed as a Visual graph.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/kg-vis-graph.png)
+![AWS IoT TwinMaker query editor results displayed as a Visual graph.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/kg-vis-graph.png)
 
   The visual graph only displays data for queries that have at least one relation in the result. The graph displays entities as nodes and relationships as directed edges in the graph.
 + **Tabular data:**  
-![AWS IoT TwinMaker query editor results displayed as tabular data.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/kg-table-data.png)
+![AWS IoT TwinMaker query editor results displayed as tabular data.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/kg-table-data.png)
 
   The tabular data format displays the data for all queries. You can search the table for specific results or subsets of the results. The data can be exported in JSON or CSV format.
 + **Run summary**  
-![AWS IoT TwinMaker query editor results displayed as a run summary.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/kg-run-sum.png)
+![AWS IoT TwinMaker query editor results displayed as a run summary.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/kg-run-sum.png)
 
   The run summary displays the query and metadata about the status of the query.

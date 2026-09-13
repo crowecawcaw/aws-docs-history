@@ -32,7 +32,7 @@ The following procedures show you how to write, run, save, and edit queries.
 1. In the query editor, choose the **Editor** tab to open the syntax editor.
 
 1. In the editor space, write the query you wish to run against your workspace's resources.  
-![The editor space with a query entered.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/kg-query-updated.png)
+![The editor space with a query entered.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/kg-query-updated.png)
 
    In the example shown, the request searches for entities that contain `vav_%` in their name, then organizes these entities by the `feed` relationship between them, using the following code.
 
@@ -47,7 +47,7 @@ The knowledge graph syntax uses [PartiQL](https://partiql.org/). For information
 1. Choose **Run query** to run the request you created.
 
    A graph is generated based on your request.  
-![A graph showing the results of the query detailed in the preceding steps.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-kg-graph-output.png)
+![A graph showing the results of the query detailed in the preceding steps.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-kg-graph-output.png)
 
    The example graph shown above is based on the query example in step 2.
 

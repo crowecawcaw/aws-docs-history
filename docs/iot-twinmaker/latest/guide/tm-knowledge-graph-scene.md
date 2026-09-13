@@ -5,7 +5,7 @@
 
 You can use AWS IoT app kit components to build a web application that integrates knowledge graph into your AWS IoT TwinMaker scenes. This allows you to generate graphs based on the 3D nodes (the 3D models which represent your equipment or systems) that are present within your scene. To create an application that graphs 3D nodes from your scene, first bind the 3D nodes to entities in your workspace. With this mapping, AWS IoT TwinMaker graphs the relationships between the 3D models present in your scene and the entities in your workspace. Then you can create a web application, select 3D models with your scene, and explore their relationships to other entities in a graph format.
 
-![A TwinMaker scene with a knowledge graph showing the relationships between 3D models.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/intro_kg_scene.png)
+![A TwinMaker scene with a knowledge graph showing the relationships between 3D models.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/intro_kg_scene.png)
 
 
 For an example of a working web application that utilizes the AWS IoT app kit components to generate graphs in an AWS IoT TwinMaker scene, see the [AWS IoT TwinMaker sample react app](https://github.com/awslabs/iot-app-kit/blob/3DKG_Demo/examples/react-app/src/components/index.tsx) on github.
@@ -37,10 +37,10 @@ Before you create a web app that integrates knowledge graph with your scene, bin
 1. Select a node (3D model) in the scene composer. When you select a node, it will open an inspector panel on the right side of the screen.
 
 1. In the inspector panel, navigate to the top of the panel and select the **\+** button. Then choose the **Add entity binding** option. This will open a drop-down where you can select an entity to bind to your currently selected node.  
-![A scene with the plus sign selected in the Inspector panel and Add entity binding highlighted.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/binding-step-4.png)
+![A scene with the plus sign selected in the Inspector panel and Add entity binding highlighted.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/binding-step-4.png)
 
 1. From the data binding drop-down menu, select the entity id you want to map to the 3D model. For the **Component name** and **Property name** fields, select the components and properties you want to bind.  
-![A scene with the Component and Property Names selected in the Inspector panel.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/binding-step-6.png)
+![A scene with the Component and Property Names selected in the Inspector panel.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/binding-step-6.png)
 
    Once you have made selections for the **Entity Id**, **Component Name** and **Property Name** fields, the binding is complete.
 
@@ -66,9 +66,9 @@ The following procedure demonstrates the functionality of the scene viewer compo
 This procedure is based on the implementation of the AWS IoT app kit scene viewer component in the AWS IoT TwinMaker sample react app.
 
 1. Open the scene viewer component of the AWS IoT TwinMaker sample react app. In the search field type an entity name or partial entity name (case sensitive search) then select the **Search** button. If a model is bound to the entity id, then the model in the scene will be highlighted and a node of the entity will be shown in the scene viewer panel.  
-![A scene with the Knowledge Graph scene viewer panel displayed.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/search_select_kg_event.png)
+![A scene with the Knowledge Graph scene viewer panel displayed.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/search_select_kg_event.png)
 
 1. To generate a graph of all relationships, select a node in the scene viewer widget and select the **Explore** button.  
-![A scene with the Knowledge Graph scene viewer panel displaying a graph of relationships.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/explore_select_kg.png)
+![A scene with the Knowledge Graph scene viewer panel displaying a graph of relationships.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/explore_select_kg.png)
 
 1. Press the **Clear** button to clear your current graph selection and start over.

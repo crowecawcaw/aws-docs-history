@@ -35,7 +35,7 @@ AWS IoT TwinMaker addresses these challenges by providing the following capabili
 
 The following diagram illustrates how the key concepts of AWS IoT TwinMaker fit together.
 
-![AWS IoT TwinMaker workspaces consist of components, entities, scenes, and resources. Scenes consist of nodes. Nodes can be empty or contain a tag, light, or shader.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/what-is-twinmaker.png)
+![AWS IoT TwinMaker workspaces consist of components, entities, scenes, and resources. Scenes consist of nodes. Nodes can be empty or contain a tag, light, or shader.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/what-is-twinmaker.png)
 
 
 **Note**  

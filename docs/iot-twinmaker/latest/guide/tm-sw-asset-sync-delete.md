@@ -15,7 +15,7 @@ See [Differences between custom and default workspaces](tm-sw-default-ws-diffs.m
 1. Under **Entity model sources**, select the AWS IoT SiteWise source to open the source details page.
 
 1. To stop the sync job, choose **Disconnect**. Confirm your choice to fully delete the sync job.  
-![The Disconnect AWS IoT SiteWise sync dialog box has buttons to Cancel or Disconnect the sync job.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/confirm-delete.png)
+![The Disconnect AWS IoT SiteWise sync dialog box has buttons to Cancel or Disconnect the sync job.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/confirm-delete.png)
 
 Once a sync job is deleted, you can create the sync job again in the same or a different workspace.
 

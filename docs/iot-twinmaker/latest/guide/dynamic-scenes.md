@@ -25,7 +25,7 @@ You can convert an existing static scene to a dynamic scene by following these s
 **Warning**  
  The conversion from a static to dynamic scene is irreversible. 
 
-![3D viewer showing a robotic arm model with settings panel for toggling visibility options.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/convert-scene.png)
+![3D viewer showing a robotic arm model with settings panel for toggling visibility options.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/convert-scene.png)
 
 
 ## Scene component types and entities

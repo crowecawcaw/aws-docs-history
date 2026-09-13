@@ -5,7 +5,7 @@
 
 Matterport provides a variety of capture options to scan real-world environments and create immersive 3D models, also known as Matterport digital twins. These models are called Matterport spaces. AWS IoT TwinMaker supports Matterport integration, allowing you to import your Matterport digital twins into your AWS IoT TwinMaker scenes. By pairing Matterport digital twins with AWS IoT TwinMaker, you can visualize and monitor your digital twin system in a virtual environment.
 
-![An AWS IoT TwinMaker scene with an imported Matterport environment.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-mp-industrial-site.png)
+![An AWS IoT TwinMaker scene with an imported Matterport environment.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-mp-industrial-site.png)
 
 
 For more information about using Matterport, read Matterport's documentation on [AWS IoT TwinMaker and Matterport](https://matterport.com/partners/amazon-web-services) page.
@@ -39,7 +39,7 @@ The integration process is comprised of 3 critical steps.
 
 You start your integration in the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/). In the console's **Settings** page, under **3rd party resources**, open **Matterport integration** to navigate between the different resources required for the integration.
 
-![The AWS IoT TwinMaker console Settings page, showing the Matterport integration page under the 3rd party resources tab.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Workspace details page.png)
+![The AWS IoT TwinMaker console Settings page, showing the Matterport integration page under the 3rd party resources tab.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Workspace details page.png)
 
 
 ## Matterport integration prerequisites
@@ -126,7 +126,7 @@ Use the following procedure to store your Matterport credentials in AWS Secrets 
    + Create a key-value pair, with **Key:** `client_secret`, and **Value:** {{<your Matterport credentials>}}.
 
    When completed, you should have a configuration similar to the following example:  
-![The required key-value pairs that list the Matterport credentials used in the integration process.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-mp-key-value-step.png)
+![The required key-value pairs that list the Matterport credentials used in the integration process.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-mp-key-value-step.png)
 
 1. For the **Encryption key**, you can leave the default encryption key `aws/secretsmanager` selected.
 
@@ -137,7 +137,7 @@ Use the following procedure to store your Matterport credentials in AWS Secrets 
 1. Add a tag to this secret in the **Tags** section.
 
    When creating the tag, assign the key as `AWSIoTTwinMaker_Matterport` as shown in the following screenshot:  
-![A Configure secret console page with the Tag key entered.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-mp-tag-step.png)
+![A Configure secret console page with the Tag key entered.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/tm-mp-tag-step.png)
 **Note**  
 You must add a tag. Tags are required when adding 3rd party secrets into AWS Secrets Manager, despite **Tags** being listed as optional.
 
@@ -166,19 +166,19 @@ Add Matterport scans to your scene by selecting the connected Matterport account
 1. Once the scene has opened, navigate to the **Settings** tab.
 
 1. In **Settings**, under **3rd party resources**, find the **Connection name** and enter the secret you created in the procedure from [Store your Matterport credentials in AWS Secrets Manager](#tm-matterport-integration-secrets).  
-![The settings tab contents after storing the Matterport SDK credentials as a secret.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav(1).png)
+![The settings tab contents after storing the Matterport SDK credentials as a secret.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav(1).png)
 **Note**  
 If you see a message that states **No connections**, navigate to the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/) settings page to begin the process for Matterport integration.  
-![The settings tab with the "No connections" message.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav.png)
+![The settings tab with the "No connections" message.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav.png)
 
 1. Next, choose the Matterport space you'd like to use in your scene by selecting it in the **Matterport space** drop-down.  
-![The settings tab with the Matterport space dropdown displayed.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav(2).png)
+![The settings tab with the Matterport space dropdown displayed.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav(2).png)
 
 1. After selecting a space, you can import your Matterport tags and convert them to AWS IoT TwinMaker scene tags by pressing the **Import tags** button.   
-![The settings tab with the Import tags button displayed.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav(3).png)
+![The settings tab with the Import tags button displayed.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav(3).png)
 
    After you have imported Matterport tags, the button is replaced by an **Update tags** button. You can continually update your Matterport tags in AWS IoT TwinMaker so that they always reflect the most recent changes in your Matterport account.  
-![The settings tab with the Update tags button displayed.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav(4).png)
+![The settings tab with the Update tags button displayed.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/Project nav(4).png)
 
 1. You have successfully integrated AWS IoT TwinMaker with Matterport, and now your AWS IoT TwinMaker scene has both your imported Matterport space and tags. You can work within this scene as you would with any other AWS IoT TwinMaker scene.
 

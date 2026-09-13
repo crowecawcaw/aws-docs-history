@@ -17,7 +17,7 @@ Use the following procedure to create your scene in AWS IoT TwinMaker.
 1. In the scene creation pane, enter a name and description for your new scene. If you have a standard or tiered bundle pricing plan, you can select your scene type. It is recommended to use a [dynamic scene](dynamic-scenes.md).
 
 1. When you're ready to create the scene, choose **Create scene**. The new scene opens and is ready for you to work with it.  
-![An empty scene canvas ready to be worked on.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/scenes-fresh-scene.png)
+![An empty scene canvas ready to be worked on.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/scenes-fresh-scene.png)
 
 ## Use 3D navigation in your AWS IoT TwinMaker in scenes
 <a name="scenes-navigation"></a>
@@ -30,7 +30,7 @@ The AWS IoT TwinMaker scene has a set of navigation controls that you can use to
 + **Edit Camera gizmo**: Use the Edit Camera gizmo to quickly view the scene view camera’s current orientation and modify the viewing angle. You can find this gizmo in the lower-right corner of the scene view.
 + **Zoom controls**: To navigate on the Scene Canvas, use right click and drag in the direction you want to move. To rotate , left click and drag to rotate. To zoom, use the scroll wheel on your mouse, or pinch and move your fingers apart on the track pad of your laptop.
 
-![A scene canvas with a newly added object gizmo.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/scenes-nav-layout.png)
+![A scene canvas with a newly added object gizmo.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/scenes-nav-layout.png)
 
 
 The scene buttons on the hierarchy pane have the following functions listed, in order of the buttons' layout:

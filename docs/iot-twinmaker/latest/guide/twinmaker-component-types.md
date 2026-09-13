@@ -19,7 +19,7 @@ In the AWS IoT TwinMaker console, when you choose a workspace and then choose **
 + **com.amazon.iottwinmaker.parameters**: A component that adds static key-value pairs to an entity.
 + **com.amazon.kvs.video**: A component that pulls video from Kinesis Video Streams into an AWS IoT TwinMaker entity.
 
-![The Component types console page with a list of several predefined component types.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/ComponentTypesPredefined.png)
+![The Component types console page with a list of several predefined component types.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/ComponentTypesPredefined.png)
 
 
 ## Core features of AWS IoT TwinMaker component types

@@ -36,7 +36,7 @@ Imagine you are working with a factory that has a set of cookie mixers and a wat
 
 You have on-site sensors set up and you are already streaming measurement data into a Timestream database. You want to be able to view and organize the measurement data in AWS IoT TwinMaker with minimal overhead. You can accomplish this task by using a time-series data connector. The following image shows an example telemetry table, which is populated through the use of a time-series connector.
 
-![An example of telemetry table data that includes the Asset ID, Type, measure, time, and values.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/image(1).png)
+![An example of telemetry table data that includes the Asset ID, Type, measure, time, and values.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/image(1).png)
 
 
 The datasets and the Timestream table used in this screenshot are available in the [AWS IoT TwinMaker samples GitHub repository](https://github.com/aws-samples/aws-iot-twinmaker-samples). Also see the [cookie factory example connector](time-series-data-connectors-example.md) for the implementation, which produces the result shown in the preceding screenshot.
@@ -52,7 +52,7 @@ The results of the Lambda query are mapped to an API response and returned to yo
 
 AWS IoT TwinMaker defines the data connector interface and uses that to interact with Lambda functions. Using data connectors, you can query your data source from AWS IoT TwinMaker API without any data migration efforts. The following image outlines the basic data flow described in the previous paragraphs.
 
-![API requests and responses use 3P Connector requests and responses that access a data source.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/data_flow.drawio.png)
+![API requests and responses use 3P Connector requests and responses that access a data source.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/data_flow.drawio.png)
 
 
 ## Developing a time-series data connector
@@ -472,12 +472,12 @@ If you follow the setup instructions in the GitHub sample, all AWS IoT TwinMaker
 
 We recommend having an integrated test with AWS IoT TwinMaker to verify the data plane query works end-to-end. You can perform that through [GetPropertyValueHistory](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetPropertyValueHistory.html) API or easily in [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/).
 
-![A TwinMaker Component information console page shows the component's name, type, status, and so on.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/image(3).png)
+![A TwinMaker Component information console page shows the component's name, type, status, and so on.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/image(3).png)
 
 
 In the AWS IoT TwinMaker console, go to **component details** and then under the **Test**, you’ll see all the properties in the component are listed there. The **Test** area of the console allows you to test time-series properties as well as non-time-series properties. For time-series properties you can also use the [ GetPropertyValueHistory](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetPropertyValueHistory.html) API and for non-time-series properties use [ GetPropertyValue](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetPropertyValue.html) API. If your Lambda connector supports multiple property query, you can choose more than one property.
 
-![A portion of a TwinMaker Component information console page showing a component's test.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/image(4).png)
+![A portion of a TwinMaker Component information console page showing a component's test.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/image(4).png)
 
 
 ## What's next

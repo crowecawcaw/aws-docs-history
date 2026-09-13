@@ -15,6 +15,6 @@ To add models in your scene, you must first upload the models to the AWS IoT Twi
 1. **Optional**: Choose the plus (**\+**) sign, and then choose **Add light**.
 
 1. Choose each light option to see how they affect the scene.  
-![A scene canvas with the "Light type" and "Color" controls displayed for the selected cookie mixer.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/CookieMixerInScene.png)
+![A scene canvas with the "Light type" and "Color" controls displayed for the selected cookie mixer.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/CookieMixerInScene.png)
 **Note**  
 Scenes have default ambient lighting. To avoid frame rate loss, consider limiting the number of additional lights placed in your scene.

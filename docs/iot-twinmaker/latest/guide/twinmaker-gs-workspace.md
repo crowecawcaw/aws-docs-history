@@ -23,7 +23,7 @@ This topic shows you how to create a simple workspace with a single resource. Fo
    If you choose **Auto-generate a new role**, AWS IoT TwinMaker attaches a policy to the role that grants permission to the new service role to access other AWS services, including permission to read and write to the Amazon S3 bucket that you specify in the previous step. For information about assigning permissions to this role, see [Create and manage a service role for AWS IoT TwinMaker](twinmaker-gs-service-role.md).
 
 1. Choose **Create Workspace**. The following banner appears at the top of the **Workspaces** page.  
-![A banner with the recommended IAM policy and role names, and a button that lets you get the required JSON.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/DashboardPolicy.png)
+![A banner with the recommended IAM policy and role names, and a button that lets you get the required JSON.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/DashboardPolicy.png)
 
 1. Choose **Get json**. We recommend you add the IAM policy you see to the IAM role that AWS IoT TwinMaker created for users and accounts that view the Grafana dashboard. The name of this role follows this pattern: {{workspace-name}}DashboardRole, For instructions on how to create a policy and attach it to a role, see [Modifying a role permissions policy (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-modify_permissions-policy).
 

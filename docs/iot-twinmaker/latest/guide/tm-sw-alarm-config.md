@@ -42,7 +42,7 @@ AWS IoT TwinMaker uses the workspace IAM role to query and configure the alarm t
 
 In the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/), create an entity that represents your AWS IoT SiteWise asset. Make sure you add a component for that entity using `com.amazon.iotsitewise.alarm` as the component type, and pick the corresponding asset and alarm models.
 
-![The Add component screen showing a component of type com.amazon.iotsitewise.alarm.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/image(5).png)
+![The Add component screen showing a component of type com.amazon.iotsitewise.alarm.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/image(5).png)
 
 
 The above screenshot is example of creating this entity with the type `com.amazon.iotsitewise.alarm`.
@@ -164,7 +164,7 @@ The datasource needs to have it’s write arn set with the dashboard write role 
 
  After you modify your IAM role, login into your Grafana dashboard to assume the updated role arn. Select the checkbox for **Define write permissions for Alarm Configuration Panel** and copy in the arn for the Write role.
 
-![The Grafana dashboard Settings tab with the checkbox selected and the arn entry box highlighted.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/alarmDataSource.png)
+![The Grafana dashboard Settings tab with the checkbox selected and the arn entry box highlighted.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/alarmDataSource.png)
 
 
 ## Use Grafana dashboard for alarm visualization
@@ -191,11 +191,11 @@ For the public preview, no notifications are shown. You should review your alarm
 1. The default Query Order of Ascending should be used so the latest value shows.
 
 1. The filter section of the Query can be left empty. A complete configuration is pictured below:  
-![The Grafana Labs Alarm Config Test / Edit Panel with a complete configuation filled in.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/alarmConfigPanel.png)
+![The Grafana Labs Alarm Config Test / Edit Panel with a complete configuation filled in.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/alarmConfigPanel.png)
 
 1. By using the **Edit Alarm** button you can bring up a dialog to change the current alarm threshold.
 
 1. Select **Save** to set the new threshold value.  
-![The Edit alarm dialog box with Cancel and Save buttons.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/alarmThresholdModal.png)
+![The Edit alarm dialog box with Cancel and Save buttons.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/alarmThresholdModal.png)
 **Note**  
 This panel should only be used with a live time range that includes the present. Using it with time ranges that end and start in the past may show unexpected values when editing alarm thresholds as the current threshold always.

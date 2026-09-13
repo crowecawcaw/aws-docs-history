@@ -13,4 +13,4 @@ You can use the Resource Library to control and manage any resource you want to 
 1. In the left navigation menu, under **Workspaces**, select **Resource Library**.
 
 1. Select **Add resources** and choose the files you want to upload.   
-![The Resource Library console page with a list of files that can be selected for upload.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/scenes-resource-lib-upload.png)
+![The Resource Library console page with a list of files that can be selected for upload.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/scenes-resource-lib-upload.png)

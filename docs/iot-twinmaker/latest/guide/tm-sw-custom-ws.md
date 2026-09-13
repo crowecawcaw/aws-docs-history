@@ -111,7 +111,7 @@ Use the following procedure to turn on and configure AWS IoT SiteWise asset sync
 1. In the [AWS IoT TwinMaker console](https://console.aws.amazon.com/iottwinmaker/), navigate to the **Settings** page.
 
 1. Open the **Model sources** tab.  
-![The AWS IoT TwinMaker console Setting page with the Model sources tab open.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/asset-sync-settings.png)
+![The AWS IoT TwinMaker console Setting page with the Model sources tab open.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/asset-sync-settings.png)
 
 1. Choose **Connect workspace** to link your AWS IoT TwinMaker workspace to your AWS IoT SiteWise assets.
 **Note**  
@@ -120,9 +120,9 @@ You can only use asset sync with a single AWS IoT TwinMaker workspace. You must 
 1. Next, navigate to the workspace in which you want to use asset sync.
 
 1. Choose **Add sources**. This opens the **Add entity model source** page.  
-![The Add entity model source page.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/add-model-source.png)
+![The Add entity model source page.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/add-model-source.png)
 
 1. On the **Add entity model source** page, confirm that the source field displays **AWS IoT SiteWise**. Select the IAM role you created as a prerequisite for the **IAM role**.
 
 1. You have now turned on AWS IoT SiteWise asset sync. You should see a conformation banner appear at the top of the selected **Workspace** page confirming that asset sync is active. You should also now see a sync source listed in the **Entity model sources** section.  
-![The workspace page showing the list of Entity model sources.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/success-sync.png)
+![The workspace page showing the list of Entity model sources.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/success-sync.png)

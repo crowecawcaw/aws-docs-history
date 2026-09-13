@@ -8,7 +8,7 @@ To create your first entity, use the following steps.
 1. On the **Workspaces** page, choose your workspace, and then in the left pane choose **Entities**.
 
 1. On the **Entities** page, choose **Create**, and then choose **Create entity**.  
-![A TwinMaker Entities console page with the Create entity option appearing under Create.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/CreateEntity.png)
+![A TwinMaker Entities console page with the Create entity option appearing under Create.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/CreateEntity.png)
 
 1. In the **Create an entity** window, enter a name for your entity. This example uses a **CookieMixer** entity.
 
@@ -28,10 +28,10 @@ You can see these component types and their definitions by choosing **Component 
 In this example, we create a simple document component that adds descriptive information about your entity.
 
 1. On the **Entities** page, choose the entity, and then choose add component.  
-![A TwinMaker Entities console page showing the Add component button.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/AddComponent.png)
+![A TwinMaker Entities console page showing the Add component button.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/AddComponent.png)
 
 1. In the **Add component** window, enter a name for your component. Since this example uses a cookie mixer entity, we enter **MixerDescription** in the **Name** field.  
-![A TwinMaker Add Component console page showing the Name field and "Add a doc" button.](http://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/DocumentComponent.png)
+![A TwinMaker Add Component console page showing the Name field and "Add a doc" button.](https://docs.aws.amazon.com/iot-twinmaker/latest/guide/images/DocumentComponent.png)
 
 1. Choose **Add a doc**, then enter values for the doc **Name** and **External Url**. With the documents component, you can store a list of external URLs that contain important information about the entity.
 
