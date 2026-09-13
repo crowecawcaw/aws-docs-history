@@ -11,7 +11,7 @@ This section provides information about Oracle V$ views and the data dictionary 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Table names in queries need to be changed in PostgreSQL. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Table names in queries need to be changed in PostgreSQL. | 
 
 ### Oracle usage
 <a name="chap-oracle-aurora-pg.monitoring.vsviews.ora"></a>
@@ -176,7 +176,7 @@ To access the Amazon Aurora Performance Insights console, do the following.
 
 1. Review a visualized dashboard of your current and past database performance metrics. You can choose the period of time of the displayed performance data (5m, 1h, 6h or 24h) as well as different criteria to filter and slice the information presented such as waits, SQL, Hosts or Users, and so on.
 
-    ![Performance insights](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-performance-insights.png) 
+    ![Performance insights](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-performance-insights.png) 
 
  **Enabling Performance Insights** 
 

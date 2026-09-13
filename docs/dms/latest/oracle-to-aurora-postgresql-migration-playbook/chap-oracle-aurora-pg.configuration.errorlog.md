@@ -8,7 +8,7 @@ With AWS DMS, you can capture and analyze database logs to monitor migration tas
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use [Event Notifications Subscription](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) with [Amazon Simple Notification Service](https://aws.amazon.com/sns). | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use [Event Notifications Subscription](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) with [Amazon Simple Notification Service](https://aws.amazon.com/sns). | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.configuration.errorlog.ora"></a>
@@ -30,7 +30,7 @@ In addition, several other Oracle server components have unique log files such a
 
 The following screenshot displays partial contents of the Oracle database Alert Log File.
 
-![Contents of the Oracle database Alert Log File](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-database-alert-log-file.png)
+![Contents of the Oracle database Alert Log File](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-database-alert-log-file.png)
 
 
 For more information, see [Monitoring Errors and Alerts](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/monitoring-the-database.html#GUID-E5F89E8E-7FBC-47DD-BA5D-96AFD9CE4BC7) in the *Oracle documentation*.
@@ -77,15 +77,15 @@ Access the PostgreSQL error log using the Amazon RDS or Aurora management consol
 
 1. Choose **Logs & events**.
 
-    ![Logs and events tab](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-logs-events.png) 
+    ![Logs and events tab](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-logs-events.png) 
 
 1. Scroll down to the Logs section and select the log to inspect. For example, select the log during the hour the data was experiencing problems. The following screen shot displays partial contents of a PostgreSQL database error log as viewed from the Amazon RDS Management Console.
 
-    ![Logs](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-logs.png) 
+    ![Logs](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-logs.png) 
 
 1. Choose one of the logs.
 
-    ![View log](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-view-log.png) 
+    ![View log](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-view-log.png) 
 
 ### PostgreSQL error log configuration
 <a name="chap-oracle-aurora-pg.configuration.errorlog.pg.conf"></a>

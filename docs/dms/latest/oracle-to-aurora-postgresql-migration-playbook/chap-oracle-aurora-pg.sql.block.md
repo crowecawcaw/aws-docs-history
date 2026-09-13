@@ -8,7 +8,7 @@ With AWS DMS, you can run PL/SQL anonymous blocks and PostgreSQL `DO` commands t
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Stored Procedures](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures)  | Different syntax may require code rewrite. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Stored Procedures](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.procedures)  | Different syntax may require code rewrite. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.sql.block.ora"></a>

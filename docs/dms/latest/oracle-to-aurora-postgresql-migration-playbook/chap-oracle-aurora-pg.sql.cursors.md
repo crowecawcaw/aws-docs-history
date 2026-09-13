@@ -8,7 +8,7 @@ With AWS DMS, you can migrate data from Oracle and PostgreSQL databases that use
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Cursors](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.cursors)  |  `TYPE …​ IS REF CURSOR` isn’t supported by PostgreSQL.<br />Minor differences in syntax may require some code rewrite.<br />PostgreSQL doesn’t support `%ISOPEN`, `%BULK_EXCEPTIONS`, and `%BULK_ROWCOUNT`. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Cursors](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.cursors)  |  `TYPE …​ IS REF CURSOR` isn’t supported by PostgreSQL.<br />Minor differences in syntax may require some code rewrite.<br />PostgreSQL doesn’t support `%ISOPEN`, `%BULK_EXCEPTIONS`, and `%BULK_ROWCOUNT`. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.sql.cursors.ora"></a>

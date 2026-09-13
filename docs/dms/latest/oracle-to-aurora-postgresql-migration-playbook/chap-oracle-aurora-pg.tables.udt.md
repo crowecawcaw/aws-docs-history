@@ -8,7 +8,7 @@ With AWS DMS, you can migrate user-defined types (UDTs) from Oracle and PostgreS
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [User-Defined Types](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.udt)  | PostgreSQL doesn’t support `FORALL` statement and `DEFAULT` option. PostgreSQL doesn’t support constructors of the collection type. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [User-Defined Types](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.udt)  | PostgreSQL doesn’t support `FORALL` statement and `DEFAULT` option. PostgreSQL doesn’t support constructors of the collection type. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.tables.udt.ora"></a>

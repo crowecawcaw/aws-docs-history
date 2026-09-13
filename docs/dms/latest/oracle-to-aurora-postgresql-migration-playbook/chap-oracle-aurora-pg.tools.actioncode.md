@@ -8,12 +8,12 @@ The following table shows the icons we use to describe the automation levels of 
 
 | Automation level icon | Description | 
 | --- | --- | 
-|  ![Five star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-5.png)  |  **Full automation**. AWS SCT performs fully automatic conversion, no manual conversion needed. | 
-|  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  **High automation**. Minor, simple manual conversions may be needed. | 
-|  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  **Medium automation**. Low-medium complexity manual conversions may be needed. | 
-|  ![Two star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-2.png)  |  **Low automation**. Medium-high complexity manual conversions may be needed. | 
-|  ![One star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-1.png)  |  **Very low automation**. High risk or complex manual conversions may be needed. | 
-|  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  **No automation**. Not currently supported by AWS SCT, manual conversion is required for this feature. | 
+|  ![Five star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-5.png)  |  **Full automation**. AWS SCT performs fully automatic conversion, no manual conversion needed. | 
+|  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  **High automation**. Minor, simple manual conversions may be needed. | 
+|  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  **Medium automation**. Low-medium complexity manual conversions may be needed. | 
+|  ![Two star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-2.png)  |  **Low automation**. Medium-high complexity manual conversions may be needed. | 
+|  ![One star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-1.png)  |  **Very low automation**. High risk or complex manual conversions may be needed. | 
+|  ![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  **No automation**. Not currently supported by AWS SCT, manual conversion is required for this feature. | 
 
 The following sections list the AWS Schema Conversion Tool Action codes for topics that are covered in this playbook.
 
@@ -23,7 +23,7 @@ The links in the table point to the Oracle topic pages, which are immediately fo
 ## SQL
 <a name="chap-oracle-aurora-pg.tools.actioncode.sql"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
 
 
  AWS SCT automatically converts the most commonly used SQL statements as both Oracle and Aurora PostgreSQL support the entry level ANSI compliance, some changes may be required for DML related to `ERROR LOG`, subquery, or partitions.
@@ -59,7 +59,7 @@ The links in the table point to the Oracle topic pages, which are immediately fo
 ## Creating tables
 <a name="chap-oracle-aurora-pg.tools.actioncode.tables"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
 
 
  AWS SCT automatically converts the most commonly used constructs of the `CREATE TABLE` statement as both Oracle and Aurora PostgreSQL support the entry level ANSI compliance. These items include table names, containing security schema (or database), column names, basic column data types, column and table constraints, column default values, primary, candidate (UNIQUE), and foreign keys. Some changes may be required for computed columns and global temporary tables.
@@ -94,7 +94,7 @@ The links in the table point to the Oracle topic pages, which are immediately fo
 ## Data types
 <a name="chap-oracle-aurora-pg.tools.actioncode.datatypes"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
 
 
 Data type syntax is very similar between Oracle and Aurora PostgreSQL and most are converted automatically by AWS SCT. Note that date and time handling paradigms are different for Oracle and Aurora PostgreSQL and require manual verifications and/or conversion. Also note that due to differences in data type behavior between Oracle and Aurora PostgreSQL, manual verification and strict testing are highly recommended.
@@ -122,7 +122,7 @@ For more information, see [Data Types](chap-oracle-aurora-pg.tables.common.md).
 ## Character set
 <a name="chap-oracle-aurora-pg.tools.actioncode.characterset"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
 
 
 The character set granularity in Oracle and Aurora PostgreSQL are significantly different, in some cases.
@@ -137,7 +137,7 @@ For more information, see [Character Set](chap-oracle-aurora-pg.special.charset.
 ## Cursors
 <a name="chap-oracle-aurora-pg.tools.actioncode.cursors"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
 
 
 PostgreSQL has PL/pgSQL cursors that enable you to iterate business logic on rows read from the database. They can encapsulate the query and read the query results a few rows at a time. All access to cursors in PL/pgSQL is performed through cursor variables, which are always of the refcursor data type.
@@ -170,7 +170,7 @@ For more information, see [Cursors](chap-oracle-aurora-pg.sql.cursors.md).
 ## Flow control
 <a name="chap-oracle-aurora-pg.tools.actioncode.flowcontrol"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
 
 
 Although the flow control syntax of Oracle differs from Aurora PostgreSQL , AWS SCT can convert most constructs automatically including loops, command blocks, and delays. Aurora PostgreSQL doesn’t support the `GOTO` command nor conditional compilation command, which require manual conversion.
@@ -184,7 +184,7 @@ Although the flow control syntax of Oracle differs from Aurora PostgreSQL , AWS 
 ## Transaction isolation
 <a name="chap-oracle-aurora-pg.tools.actioncode.transaction"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
 
 
 Aurora PostgreSQL supports the four transaction isolation levels specified in the SQL:92 standard: `READ UNCOMMITTED`, `READ COMMITTED`, `REPEATABLE READ`, and `SERIALIZABLE`, all of which are automatically converted by AWS SCT. AWS SCT also converts `BEGIN / COMMIT` and `ROLLBACK` commands that use slightly different syntax. Manual conversion is required for named, marked, and delayed durability transactions that aren’t supported by Aurora PostgreSQL.
@@ -200,7 +200,7 @@ For more information, see [Transaction Isolation](chap-oracle-aurora-pg.sql.tran
 ## Stored procedures
 <a name="chap-oracle-aurora-pg.tools.actioncode.procedures"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
 
 
 Aurora PostgreSQL stored procedures (functions) provide very similar functionality to Oracle stored procedures and can be automatically converted by AWS SCT. Manual conversion is required for procedures that use `RETURN` values and some less common `EXECUTE` options such as the `RECOMPILE` and `RESULTS SETS` options.
@@ -230,7 +230,7 @@ For more information, see [Stored Procedures](chap-oracle-aurora-pg.sql.stored.m
 ## Triggers
 <a name="chap-oracle-aurora-pg.tools.actioncode.triggers"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
 
 
 Aurora PostgreSQL supports `BEFORE` and `AFTER` triggers for `INSERT`, `UPDATE`, and `DELETE`. However, Aurora PostgreSQL triggers differ substantially from Oracle triggers, but most common use cases can be migrated with minimal code changes.
@@ -255,7 +255,7 @@ For more information, see [Triggers](chap-oracle-aurora-pg.tables.triggers.md).
 ## Sequences
 <a name="chap-oracle-aurora-pg.tools.actioncode.sequences"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
 
 
 Although the syntax for Oracle `IDENTITY` and Aurora PostgreSQL `SERIAL` auto-enumeration columns differs significantly, it can be automatically converted by AWS SCT.
@@ -270,7 +270,7 @@ For more information, see [Sequences](chap-oracle-aurora-pg.sql.sequences.md) an
 ## Views
 <a name="chap-oracle-aurora-pg.tools.actioncode.views"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
 
 
 Although the basic syntax for creating a view in Oracle and Aurora PostgreSQL is almost identical there are some sub-options that can differs significantly and this can add manual needed tasks to the migration process.
@@ -292,7 +292,7 @@ For more information, see [Views](chap-oracle-aurora-pg.special.views.md).
 ## User-defined types
 <a name="chap-oracle-aurora-pg.tools.actioncode.udt"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
 
 
 User-defined types aren’t supported, AWS SCT can convert standard user-defined types by replacing it with their base types. More complicated user-defined types may require manual intervention.
@@ -319,7 +319,7 @@ For more information, see [User-Defined Types](chap-oracle-aurora-pg.tables.udt.
 ## Merge
 <a name="chap-oracle-aurora-pg.tools.actioncode.merge"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
 
 
 The `MERGE` statement isn’t supported and it can’t be automatically converted by AWS SCT. Manual conversion is straight-forward in most cases.
@@ -336,7 +336,7 @@ For more information, see [Merge](chap-oracle-aurora-pg.sql.merge.md).
 ## Materialized views
 <a name="chap-oracle-aurora-pg.tools.actioncode.materializedviews"></a>
 
-![Two star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-2.png)
+![Two star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-2.png)
 
 
 Materialized views aren’t supported, some features such as incremental refresh or DML commands on materialized views aren’t supported.
@@ -353,7 +353,7 @@ For more information, see [Materialized Views](chap-oracle-aurora-pg.special.mat
 ## Query hints
 <a name="chap-oracle-aurora-pg.tools.actioncode.queryhints"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
 
 
 Basic query hints such as index hints can be converted automatically by AWS SCT, except for DML statements. Note that specific optimizations used for Oracle may be completely inapplicable to a new query optimizer. It is recommended to start migration testing with all hints removed. Then, selectively apply hints as a last resort if other means such as schema, index, and query optimizations have failed. Plan guides aren’t supported by Aurora PostgreSQL.
@@ -368,7 +368,7 @@ For more information, see [Query Hints and Plan Guides](chap-oracle-aurora-pg.tu
 ## Database links
 <a name="chap-oracle-aurora-pg.tools.actioncode.databaselinks"></a>
 
-![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
+![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)
 
 
 Migrating database links from Oracle to Aurora PostgreSQL requires a full rewrite the mechanism that managed the database links. This can’t be automatically converted by AWS SCT.
@@ -387,7 +387,7 @@ For more information, see [Database Links](chap-oracle-aurora-pg.special.dblinks
 ## Indexes
 <a name="chap-oracle-aurora-pg.tools.actioncode.indexes"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
 
 
 Basic non-clustered indexes, which are the most commonly used type of indexes are automatically migrated by AWS SCT. In addition, filtered indexes, indexes with included columns, and some Oracle specific index options such as bitmap or domain can’t be migrated automatically and require manual conversion.
@@ -404,7 +404,7 @@ For more details, see the Indexes topics.
 ## Partitioning
 <a name="chap-oracle-aurora-pg.tools.actioncode.partitioning"></a>
 
-![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
+![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)
 
 
 Aurora PostgreSQL uses table inheritance, some of the physical aspects of partitioning in Oracle don’t apply to Aurora PostgreSQL. For example, the concept of file groups and assigning partitions to file groups. Aurora PostgreSQL supports a much richer framework for table partitioning than Oracle, with many additional options such as hash partitioning, and sub partitioning.
@@ -424,7 +424,7 @@ For more information, see [Partitioning](chap-oracle-aurora-pg.storage.partition
 ## OLAP functions
 <a name="chap-oracle-aurora-pg.tools.actioncode.olapfunctions"></a>
 
-![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
+![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)
 
 
 Aurora PostgreSQL does provide native support for almost all OLAP Functions.

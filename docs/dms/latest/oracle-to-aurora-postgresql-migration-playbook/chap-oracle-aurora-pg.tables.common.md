@@ -8,7 +8,7 @@ With AWS DMS, you can seamlessly migrate data between different database platfor
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [Data Types](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.datatypes)  | PostgreSQL doesn’t support `BFILE`, `ROWID`, `UROWID`. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [Data Types](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.datatypes)  | PostgreSQL doesn’t support `BFILE`, `ROWID`, `UROWID`. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.tables.common.ora"></a>

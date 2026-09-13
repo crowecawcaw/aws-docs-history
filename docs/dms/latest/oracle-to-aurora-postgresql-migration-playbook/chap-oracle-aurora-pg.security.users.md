@@ -8,7 +8,7 @@ With AWS DMS, you can migrate data from Oracle and PostgreSQL databases to Amazo
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | N/A | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | N/A | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.security.users.ora"></a>

@@ -8,7 +8,7 @@ With AWS DMS, you can migrate data from on-premises databases to Amazon S3 by cr
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![No feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [Creating Tables](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.tables)  | PostgreSQL doesn’t support external tables. | 
+|  ![No feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-0.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [Creating Tables](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.tables)  | PostgreSQL doesn’t support external tables. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.special.external.ora"></a>
@@ -59,7 +59,7 @@ For more information, see [External Tables Concepts](https://docs.oracle.com/en/
 
 The following diagram illustrates the solution architecture.
 
-![Oracle external tables solution architecture](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-external-tables.png)
+![Oracle external tables solution architecture](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-external-tables.png)
 
 
 This is the most relevant capability for the Oracle’s External Tables in Aurora for PostgreSQL, but requires a significant amount of syntax modifications. The main difference is that there is no open link to files and the data must be transferred from and to PostgreSQL (if all data is needed).

@@ -25,7 +25,7 @@ Aurora Serverless v1 is designed for the following use cases:
 
 This process takes almost no time and since the storage is shared between nodes Aurora can scale up or down in seconds for most workloads. The service currently has autoscaling thresholds of 1.5 minutes to scale up and 5 minutes to scale down. That means metrics must exceed the limits for 1.5 minutes to trigger a scale up or fall below the limits for 5 minutes to trigger a scale down. The cool-down period between scaling activities is 5 minutes to scale up and 15 minutes to scale down. Before scaling can happen the service has to find a “scaling point” which may take longer than anticipated if you have long-running transactions. Scaling operations are transparent to the connected clients and applications since existing connections and session state are transferred to the new nodes. The only difference with pausing and resuming is a higher latency for the first connection, typically around 25 seconds. You can find more details in the documentation.
 
-![How Aurora Serverless Works](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-serverless.png)
+![How Aurora Serverless Works](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-serverless.png)
 
 
 ## How to provision
@@ -35,12 +35,12 @@ Log in to your [AWS console](https://eu-central-1.console.aws.amazon.com/rds/hom
 
 On **Engine options**, choose **Serverless** for the **Capacity type**.
 
-![Provision Aurora Serverless](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-serverless-provision.png)
+![Provision Aurora Serverless](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-serverless-provision.png)
 
 
 Choose the capacity settings for your use case.
 
-![Aurora Serverless Capacity Settings](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-serverless-capacity.png)
+![Aurora Serverless Capacity Settings](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-serverless-capacity.png)
 
 
 For more information, see [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless), [Aurora Serverless MySQL Generally Available](https://aws.amazon.com/blogs/aws/aurora-serverless-ga/), and [Amazon Aurora PostgreSQL Serverless Now Generally Available](https://aws.amazon.com/blogs/aws/amazon-aurora-postgresql-serverless-now-generally-available).

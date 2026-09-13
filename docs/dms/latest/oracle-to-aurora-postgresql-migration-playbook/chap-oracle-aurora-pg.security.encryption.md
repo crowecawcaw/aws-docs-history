@@ -8,7 +8,7 @@ With AWS DMS, you can securely migrate databases by encrypting data at rest usin
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Use [Amazon Aurora Encryption](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html)  | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Use [Amazon Aurora Encryption](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html)  | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.security.encryption.ora"></a>
@@ -180,7 +180,7 @@ Once enabled, Amazon will transparently encrypt/decrypt the data without any imp
 
 As part of the database settings you will be asked to enable encryption and choose a root key.
 
-![Enable Encryption](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-enable-encryption.png)
+![Enable Encryption](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-enable-encryption.png)
 
 
 You can choose the default key provided for the account or define a specific key based on an IAM AWS KMS ARN from your account or a different account.
@@ -196,7 +196,7 @@ You can choose the default key provided for the account or define a specific key
 
 1. Enter **Alias** as the name of the key and choose **Next**.
 
-    ![Enter Alias](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-enter-alias.png) 
+    ![Enter Alias](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-enter-alias.png) 
 
 1. Skip **Define Key Administrative Permissions** and choose **Next**.
 
@@ -204,7 +204,7 @@ You can choose the default key provided for the account or define a specific key
 
 1. On the last step you can see the ARN of the key and its account.
 
-    ![ARN of the key](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-key-arn.png) 
+    ![ARN of the key](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-key-arn.png) 
 
 1. Choose **Finish** and the key will be listed in under customer managed keys.
 

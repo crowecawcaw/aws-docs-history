@@ -8,7 +8,7 @@ With AWS DMS, you can analyze table statistics for your Oracle and PostgreSQL da
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.tuning.statistics.ora"></a>

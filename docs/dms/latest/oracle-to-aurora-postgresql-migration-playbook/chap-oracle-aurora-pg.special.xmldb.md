@@ -8,7 +8,7 @@ With AWS DMS, you can migrate data from Oracle XML DB and PostgreSQL XML type an
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  | N/A | Different paradigm and syntax will require application or drivers rewrite. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  | N/A | Different paradigm and syntax will require application or drivers rewrite. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.special.xmldb.ora"></a>

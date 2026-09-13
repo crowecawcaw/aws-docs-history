@@ -8,7 +8,7 @@ With AWS DMS, you can manage database user roles and permissions when migrating 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. There are no users, only roles in PostgreSQL. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Syntax and option differences, similar functionality. There are no users, only roles in PostgreSQL. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.security.roles.ora"></a>

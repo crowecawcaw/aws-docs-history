@@ -8,7 +8,7 @@ With AWS DMS, you can analyze and optimize database query performance by examini
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Syntax differences. Completely different optimizer with different operators and rules in PostgreSQL. | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Syntax differences. Completely different optimizer with different operators and rules in PostgreSQL. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.tuning.plans.ora"></a>

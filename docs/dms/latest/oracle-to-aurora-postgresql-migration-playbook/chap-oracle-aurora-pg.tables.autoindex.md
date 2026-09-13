@@ -8,7 +8,7 @@ With AWS DMS, you can migrate databases to Amazon Aurora PostgreSQL with the sel
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [Indexes](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.indexes)  | PostgreSQL doesn’t provide an automatic indexing feature but in self-managed PostgreSQL instances you can use some extensions for automatic index creation. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  |  [Indexes](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.indexes)  | PostgreSQL doesn’t provide an automatic indexing feature but in self-managed PostgreSQL instances you can use some extensions for automatic index creation. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.tables.autoindex.ora"></a>

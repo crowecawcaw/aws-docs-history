@@ -8,7 +8,7 @@ With AWS DMS, you can efficiently migrate data from Oracle SecureFile LOBs and P
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  | N/A | PostgreSQL doesn’t support SecureFiles, automation and compatibility refer only to LOBs. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  | N/A | PostgreSQL doesn’t support SecureFiles, automation and compatibility refer only to LOBs. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.special.lobs.ora"></a>

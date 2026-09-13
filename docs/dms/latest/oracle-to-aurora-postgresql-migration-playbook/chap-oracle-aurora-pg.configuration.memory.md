@@ -8,7 +8,7 @@ With AWS DMS, you can optimize database performance by properly sizing memory co
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Different cache names, similar usage | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  | N/A | N/A | Different cache names, similar usage | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.configuration.memory.ora"></a>
@@ -53,7 +53,7 @@ PostgreSQL provides us with control over how server RAM is allocated. The follow
 |  `work_mem`  | Used for parallel queries and SQL sort operations. Approximate Oracle PGA equivalent and/or the Large Pool (for parallel workloads). | 
 |  `maintenance_work_mem`  | Memory used for certain backend database operations such as `VACUUM`, `CREATE INDEX`, `ALTER TABLE ADD FOREIGN KEY`. | 
 |  `temp_buffers`  | Memory buffers used by each database session for reading data from temporary tables. | 
-| Total memory available for PostgreSQL cluster | Controlled by choosing the **DB Instance Class** during instance creation.<br /> ![Instance creation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-db-instance-class.png)  | 
+| Total memory available for PostgreSQL cluster | Controlled by choosing the **DB Instance Class** during instance creation.<br /> ![Instance creation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-db-instance-class.png)  | 
 
 Cluster level parameters, such as `shared_buffers` and `wal_buffers`, are configured using parameter groups in the Amazon RDS Management Console.
 

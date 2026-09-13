@@ -8,7 +8,7 @@ With AWS DMS, you can migrate your on-premises Oracle Real Application Clusters 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, or users across multiple instances. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | Distribute load, applications, or users across multiple instances. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.hadr.rac.ora"></a>
@@ -17,7 +17,7 @@ Oracle Real Application Clusters (RAC) is one of the most advanced and capable t
 
 The following diagram illustrates the Oracle RAC architecture.
 
-![Oracle RAC architecture](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-rac.png)
+![Oracle RAC architecture](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-rac.png)
 
 
 Oracle RAC requires network configuration of SCAN IPs, VIP IPs, interconnect, and other items. As a best practice, all severs should run the same versions of Oracle software.
@@ -70,7 +70,7 @@ Each Aurora cluster can have one or more instances serving different purposes:
 
 The following diagram illustrates a high-level Aurora architecture with four cluster nodes: one primary and three read replicas. The primary node is located in Availability Zone A, the first read replica in Availability Zone B, and the second and third read replicas in Availability Zone C.
 
-![Aurora architecture with four cluster nodes](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-architecture-four-cluster-nodes.png)
+![Aurora architecture with four cluster nodes](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-architecture-four-cluster-nodes.png)
 
 
 An Aurora Storage volume is made up of 10 GB segments of data with six copies spread across three Availability Zones. Each Amazon Aurora read replica shares the same underlying volume as the master instance. Updates made by the master are visible to all read replicas through a combination of reading from the shared Aurora storage volume and applying log updates in-memory when received from the primary instance after a master failure. Promotion of a read replica to master usually occurs in less than 30 seconds with no data loss.
@@ -84,7 +84,7 @@ Aurora provides two endpoints for cluster access. These endpoints provide both h
 +  **Cluster Endpoint** — Connects to the current primary instance for the Aurora cluster. You can perform both read and write operations using the cluster endpoint. If the current primary instance fails, Aurora automatically fails over to a new primary instance. During a failover, the database cluster continues to serve connection requests to the cluster endpoint from the new primary instance with minimal interruption of service.
 +  **Reader Endpoint** — Provides load-balancing capabilities (round-robin) across the replicas allowing applications to scale-out reads across the Aurora cluster. Using the Reader Endpoint provides better use of the resources available in the cluster. The reader endpoint also enhances high availability. If an AWS Availability Zone fails, the application’s use of the reader endpoint continues to send read traffic to the other replicas with minimal disruption.
 
-![Aurora architecture with cluster endpoints](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-cluster-endpoints.png)
+![Aurora architecture with cluster endpoints](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-aurora-cluster-endpoints.png)
 
 
 While Amazon Aurora focuses on the scale-out of reads and Oracle RAC can scale-out both reads and writes, most OLTP applications are usually not limited by write scalability. Many Oracle RAC customers use RAC first for high availability and second to scale-out their reads. You can write to any node in an Oracle RAC cluster, but this capability is often a functional benefit for the application versus a method for achieving unlimited scalability for writes.
@@ -100,7 +100,7 @@ While Amazon Aurora focuses on the scale-out of reads and Oracle RAC can scale-o
 
 When comparing Oracle RAC and Amazon Aurora side by side, you can see the architectural differences between the two database technologies. Both provide high availability and scalability, but with different architectures.
 
-![Oracle RAC and Aurora architecture comparison](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-rac-amazon-aurora-comparison.png)
+![Oracle RAC and Aurora architecture comparison](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-rac-amazon-aurora-comparison.png)
 
 
 Overall, Amazon Aurora introduces a simplified solution that can function as an Oracle RAC alternative for many typical OLTP applications that need high performance writes, scalable reads, and very high availability with lower operational overhead.

@@ -8,7 +8,7 @@ Single-row and aggregate functions are essential SQL constructs that perform ope
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  | N/A | Not all functions are supported by PostgreSQL and may require to create manually. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  | N/A | Not all functions are supported by PostgreSQL and may require to create manually. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.sql.aggregate.ora"></a>

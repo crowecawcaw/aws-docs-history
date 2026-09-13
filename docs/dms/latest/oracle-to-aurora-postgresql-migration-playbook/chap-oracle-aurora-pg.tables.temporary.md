@@ -8,7 +8,7 @@ With AWS DMS, you can efficiently migrate data between Oracle and PostgreSQL dat
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Creating Tables](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.tables)  | PostgreSQL doesn’t support GLOBAL temporary table. PostgreSQL can’t read from multiple sessions. PostgreSQL drops tables after the session ends. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  |  [Creating Tables](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.tables)  | PostgreSQL doesn’t support GLOBAL temporary table. PostgreSQL can’t read from multiple sessions. PostgreSQL drops tables after the session ends. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.tables.temporary.ora"></a>

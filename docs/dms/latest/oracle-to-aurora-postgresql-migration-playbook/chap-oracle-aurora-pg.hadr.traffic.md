@@ -8,7 +8,7 @@ With AWS DMS, you can migrate Oracle Traffic Director to Amazon RDS Proxy for Po
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Two star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A | Some features may be replaced by Amazon RDS Proxy | 
+|  ![Two star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-2.png)  |  ![No automation](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-0.png)  | N/A | Some features may be replaced by Amazon RDS Proxy | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.hadr.traffic.ora"></a>

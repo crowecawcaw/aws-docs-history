@@ -8,7 +8,7 @@ With AWS DMS, you can migrate partitioned Oracle tables and implement partitioni
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  | N/A | Foreign keys referencing to/from partitioned tables are supported on the individual tables in PostgreSQL. Some partition types are not supported by PostgreSQL. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  |  ![Three star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-3.png)  | N/A | Foreign keys referencing to/from partitioned tables are supported on the individual tables in PostgreSQL. Some partition types are not supported by PostgreSQL. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.storage.partition.ora"></a>

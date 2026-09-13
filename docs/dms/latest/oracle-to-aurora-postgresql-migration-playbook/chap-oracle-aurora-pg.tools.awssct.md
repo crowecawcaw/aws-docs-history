@@ -34,7 +34,7 @@ Follow this procedure for configuring `AWSSCT` to streamline your database migra
 
 1. Enter the paths for the Oracle and PostgreSQL drivers downloaded in the first step.
 
-    ![Enter the paths for the Oracle and PostgreSQL drivers](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-configure-aws-sct.png) 
+    ![Enter the paths for the Oracle and PostgreSQL drivers](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-configure-aws-sct.png) 
 
 1. Choose **Apply** and then **OK**.
 
@@ -53,17 +53,17 @@ Create a new migration project to define the source and target databases, config
 
 The progress bar displays the objects that AWS SCT analyzes. What AWS SCT completes the analysis, the application displays the database migration assessment report. Read the Executive summary and other sections. Note that the information on the screen is only partial. To read the full report, including details of the individual issues, choose **Save to PDF** at the top right and open the PDF document.
 
-![Database Migration assessment report](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-assessment-report.png)
+![Database Migration assessment report](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-assessment-report.png)
 
 
 Scroll down to the **Database objects with conversion actions for Amazon Aurora (PostgreSQL compatible)** section.
 
-![Conversion statistics](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-assessment-report-conversion-statistics.png)
+![Conversion statistics](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-assessment-report-conversion-statistics.png)
 
 
 Scroll further down to the **Detailed recommendations for Amazon Aurora (PostgreSQL compatible) migrations** section.
 
-![Detailed recommendations](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-assessment-report-detailed-recommendations.png)
+![Detailed recommendations](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-assessment-report-detailed-recommendations.png)
 
 
 Return to AWS SCT and choose **Next**. Enter the connection details for the target Aurora PostgreSQL database and choose **Finish**.
@@ -72,7 +72,7 @@ When the connection is complete, AWS SCT displays the main window. In this inter
 
 For example, expand **sample database**, **dms sample**, **Procedures**, **generate\_tickets**. This issue has a red marker indicating it could not be automatically converted and requires a manual code change (issue 811 above). Select the object to highlight the incompatible code section.
 
-![Conversion issue in the generate tickets procedure](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-generate-tickets.png)
+![Conversion issue in the generate tickets procedure](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-generate-tickets.png)
 
 
 Right-click the schema and then choose **Create report** to create a report tailored for the target database type. You can view this report in AWS SCT.
@@ -81,17 +81,17 @@ The progress bar updates while the report is generated.
 
  AWS SCT displays the executive summary page of the database migration assessment report.
 
-![Assessment report executive summary](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-executive-summary.png)
+![Assessment report executive summary](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-executive-summary.png)
 
 
 Choose **Action items**. In this window, you can investigate each issue in detail and view the suggested course of action. For each issue, drill down to view all instances of that issue.
 
-![Assessment report action items tab](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-action-items.png)
+![Assessment report action items tab](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-action-items.png)
 
 
 Right-click the database name and choose **Convert schema**. Make sure that you uncheck the `sys` and `information_schema` system schemas. Aurora PostgreSQL already has an `information_schema` schema.
 
-![Convert database schema](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-convert-schema.png)
+![Convert database schema](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-convert-schema.png)
 
 
 This step doesn’t make any changes to the target database.
@@ -100,7 +100,7 @@ On the right pane, AWS SCT displays the new virtual schema as if it exists in th
 
 Right-click the database on the right pane and choose either **Apply to database** to automatically run the conversion script against the target database, or choose **Save as SQL** to save to an SQL file.
 
-![Apply converted code to database](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-apply-to-database.png)
+![Apply converted code to database](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-oracle-aurora-pg-aws-sct-apply-to-database.png)
 
 
 We recommend saving to an SQL file because you can verify and QA the converted code. Also, you can make the adjustments needed for objects that could not be automatically converted.

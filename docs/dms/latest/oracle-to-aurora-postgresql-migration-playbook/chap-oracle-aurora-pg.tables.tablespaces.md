@@ -8,7 +8,7 @@ With AWS DMS, you can migrate data between different database platforms, includi
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | All supported by PostgreSQL except managing the physical data files. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | All supported by PostgreSQL except managing the physical data files. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.tables.tablespaces.ora"></a>

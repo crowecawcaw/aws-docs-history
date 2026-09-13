@@ -8,7 +8,7 @@ With AWS DMS, you can dynamically construct and execute SQL statements at runtim
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  |  ![One star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-1.png)  | N/A | Different paradigm and syntax will require application and drivers rewrite. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  |  ![One star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-1.png)  | N/A | Different paradigm and syntax will require application and drivers rewrite. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.sql.dynamic.ora"></a>

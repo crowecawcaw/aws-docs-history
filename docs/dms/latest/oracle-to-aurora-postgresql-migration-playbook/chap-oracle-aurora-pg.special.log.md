@@ -8,7 +8,7 @@ With AWS DMS, you can migrate data from Oracle and PostgreSQL databases while ma
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Three star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | PostgreSQL doesn’t support LogMiner, workaround is available. | 
+|  ![Three star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-3.png)  | N/A | N/A | PostgreSQL doesn’t support LogMiner, workaround is available. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.special.log.ora"></a>
@@ -183,7 +183,7 @@ Test DDL/DML logging.
 
 1. For the log you want to review, choose **View**. For example, the following image shows the PostgreSQL log file with a logged `UPDATE` command.
 
-![A screenshot of a PostgreSQL log file](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-pg-log.png)
+![A screenshot of a PostgreSQL log file](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-pg-log.png)
 
 
  ** Amazon Aurora Performance Insights** 

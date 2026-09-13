@@ -8,7 +8,7 @@ With AWS DMS, you can migrate databases between different database platforms or 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Five star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Storage level backup managed by Amazon RDS. | 
+|  ![Five star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Storage level backup managed by Amazon RDS. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.hadr.flashback.ora"></a>
@@ -62,7 +62,7 @@ The following steps to enable Aurora automatic backups and configure the backup 
 
 1. Expand **Additional configuration** and specify **Backup retention period** in days.
 
-    ![Backup retention period](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-backup-retention-period.png) 
+    ![Backup retention period](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-backup-retention-period.png) 
 
 The following table identifies the default automatic backup time for each region.
 
@@ -93,7 +93,7 @@ Use the following steps to perform a manual snapshot backup of an Aurora databas
 
 1. Choose **Actions** and then choose **Take snapshot**.
 
-    ![Take snapshot](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-take-snapshot.png) 
+    ![Take snapshot](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-take-snapshot.png) 
 
 Use the following steps to restore an Aurora database from a snapshot. This process is similar to the Oracle RMAN commands `RESTORE DATABASE` and `RECOVER DATABASE`. However, instead of running in place, restoring an Aurora database creates a new cluster.
 

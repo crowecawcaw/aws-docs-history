@@ -8,7 +8,7 @@ With AWS DMS, you can configure Oracle instance parameters and Amazon RDS parame
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![One star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use Cluster and Database/Cluster parameters. | 
+|  ![One star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-1.png)  | N/A | N/A | Use Cluster and Database/Cluster parameters. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.configuration.parameters.ora"></a>

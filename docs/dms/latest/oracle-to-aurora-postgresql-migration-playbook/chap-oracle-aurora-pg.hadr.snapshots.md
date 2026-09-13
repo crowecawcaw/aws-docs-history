@@ -8,7 +8,7 @@ With AWS DMS, you can migrate databases between different database platforms or 
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Storage level backup managed by Amazon RDS. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  | N/A | N/A | Storage level backup managed by Amazon RDS. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.hadr.snapshots.ora"></a>

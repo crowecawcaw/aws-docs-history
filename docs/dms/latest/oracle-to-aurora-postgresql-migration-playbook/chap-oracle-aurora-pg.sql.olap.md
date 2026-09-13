@@ -8,7 +8,7 @@ The following sections outline the steps to configure and utilize Oracle OLAP fu
 
 | Feature compatibility |  AWS SCT / AWS DMS automation level |  AWS SCT action code index | Key differences | 
 | --- | --- | --- | --- | 
-|  ![Four star feature compatibility](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](http://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [OLAP Functions](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.olapfunctions)  |  `GREATEST` and `LEAST` functions might get different results in PostgreSQL. `CONNECT BY` isn’t supported by PostgreSQL, workaround available. | 
+|  ![Four star feature compatibility](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-compatibility-4.png)  |  ![Four star automation level](https://docs.aws.amazon.com/dms/latest/oracle-to-aurora-postgresql-migration-playbook/images/pb-automation-4.png)  |  [OLAP Functions](chap-oracle-aurora-pg.tools.actioncode.md#chap-oracle-aurora-pg.tools.actioncode.olapfunctions)  |  `GREATEST` and `LEAST` functions might get different results in PostgreSQL. `CONNECT BY` isn’t supported by PostgreSQL, workaround available. | 
 
 ## Oracle usage
 <a name="chap-oracle-aurora-pg.sql.olap.ora"></a>
