@@ -26,6 +26,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   AssociatePhoneNumberWithUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:AssociatePhoneNumberWithUser](#list_chime-action-AssociatePhoneNumberWithUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   AssociateSigninDelegateGroupsWithAccount  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:AssociateSigninDelegateGroupsWithAccount](#list_chime-action-AssociateSigninDelegateGroupsWithAccount) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   BatchCreateRoomMembership  **
   - **SDK client:** chime
   - **IAM action:**  [chime:BatchCreateRoomMembership](#list_chime-action-BatchCreateRoomMembership) 
@@ -36,6 +50,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   BatchDeletePhoneNumber  **
   - **SDK client:** chime
   - **IAM action:**  [chime:BatchDeletePhoneNumber](#list_chime-action-BatchDeletePhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchSuspendUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:BatchSuspendUser](#list_chime-action-BatchSuspendUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   BatchUnsuspendUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:BatchUnsuspendUser](#list_chime-action-BatchUnsuspendUser) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -89,6 +117,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:CreateUser](#list_chime-action-CreateUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteAccount  **
   - **SDK client:** chime
   - **IAM action:**  [chime:DeleteAccount](#list_chime-action-DeleteAccount) 
@@ -120,6 +155,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DeleteRoomMembership  **
   - **SDK client:** chime
   - **IAM action:**  [chime:DeleteRoomMembership](#list_chime-action-DeleteRoomMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociatePhoneNumberFromUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:DisassociatePhoneNumberFromUser](#list_chime-action-DisassociatePhoneNumberFromUser) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DisassociateSigninDelegateGroupsFromAccount  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:DisassociateSigninDelegateGroupsFromAccount](#list_chime-action-DisassociateSigninDelegateGroupsFromAccount) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -313,6 +362,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   ResetPersonalPIN  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:ResetPersonalPIN](#list_chime-action-ResetPersonalPIN) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   RestorePhoneNumber  **
   - **SDK client:** chime
   - **IAM action:**  [chime:RestorePhoneNumber](#list_chime-action-RestorePhoneNumber) 
@@ -326,6 +382,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   UpdateAccountSettings  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:UpdateAccountSettings](#list_chime-action-UpdateAccountSettings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateBot  **
   - **SDK client:** chime
@@ -365,6 +428,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   UpdateRoomMembership  **
   - **SDK client:** chime
   - **IAM action:**  [chime:UpdateRoomMembership](#list_chime-action-UpdateRoomMembership) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateUser  **
+  - **SDK client:** chime
+  - **IAM action:**  [chime:UpdateUser](#list_chime-action-UpdateUser) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write

@@ -830,7 +830,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html)  **
   - **Description:** Grants permission to start a task using random placement and the default Amazon ECS scheduler
   - **Resource types (\*required):** [task-definition\*](#list_ecs-resource-task-definition)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_ecs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ecs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ecs-aws_TagKeys)<br />[ecs:capacity-provider](#list_ecs-ecs_capacity-provider)<br />[ecs:cluster](#list_ecs-ecs_cluster)<br />[ecs:enable-ebs-volumes](#list_ecs-ecs_enable-ebs-volumes)<br />[ecs:enable-execute-command](#list_ecs-ecs_enable-execute-command)<br />[ecs:ResourceTag/${TagKey}](#list_ecs-ecs_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_ecs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ecs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ecs-aws_TagKeys)<br />[ecs:capacity-provider](#list_ecs-ecs_capacity-provider)<br />[ecs:cluster](#list_ecs-ecs_cluster)<br />[ecs:enable-ebs-volumes](#list_ecs-ecs_enable-ebs-volumes)<br />[ecs:enable-execute-command](#list_ecs-ecs_enable-execute-command)<br />[ecs:ResourceTag/${TagKey}](#list_ecs-ecs_ResourceTag___TagKey_)<br />[ecs:task-cpu](#list_ecs-ecs_task-cpu)<br />[ecs:task-memory](#list_ecs-ecs_task-memory)
   - **Access level:** Write
 
 - **   [StartTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html)  **

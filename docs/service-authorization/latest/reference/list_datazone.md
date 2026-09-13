@@ -997,6 +997,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   StartNotebookSync  **
+  - **IAM action:**  [datazone:StartNotebookSync](#list_datazone-action-StartNotebookSync) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StopNotebookRun  **
   - **IAM action:**  [datazone:StopNotebookRun](#list_datazone-action-StopNotebookRun) 
   - **Condition key:** 

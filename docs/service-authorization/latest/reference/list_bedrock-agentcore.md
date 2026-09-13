@@ -533,6 +533,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateConsentPortal  **
   - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:CreateConsentPortal](#list_bedrock-agentcore-action-CreateConsentPortal)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [bedrock-agentcore:TagResource](#list_bedrock-agentcore-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** bedrock-agentcore.amazonaws.com / **Access level:** Write
 
@@ -709,6 +710,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DeleteConfigurationBundle  **
   - **SDK client:** bedrock-agentcore-control
   - **IAM action:**  [bedrock-agentcore:DeleteConfigurationBundle](#list_bedrock-agentcore-action-DeleteConfigurationBundle) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteConsentPortal  **
+  - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:DeleteConsentPortal](#list_bedrock-agentcore-action-DeleteConsentPortal) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -917,6 +925,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   GetConfigurationBundleVersion  **
   - **SDK client:** bedrock-agentcore-control
   - **IAM action:**  [bedrock-agentcore:GetConfigurationBundleVersion](#list_bedrock-agentcore-action-GetConfigurationBundleVersion) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetConsentPortal  **
+  - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:GetConsentPortal](#list_bedrock-agentcore-action-GetConsentPortal) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -1169,6 +1184,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ListConfigurationBundles  **
   - **SDK client:** bedrock-agentcore-control
   - **IAM action:**  [bedrock-agentcore:ListConfigurationBundles](#list_bedrock-agentcore-action-ListConfigurationBundles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListConsentPortals  **
+  - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:ListConsentPortals](#list_bedrock-agentcore-action-ListConsentPortals) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -1452,6 +1474,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateConsentPortal  **
+  - **SDK client:** bedrock-agentcore-control
+  - **IAM action:**  [bedrock-agentcore:UpdateConsentPortal](#list_bedrock-agentcore-action-UpdateConsentPortal) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdateDataset  **
   - **SDK client:** bedrock-agentcore-control
   - **IAM action:**  [bedrock-agentcore:UpdateDataset](#list_bedrock-agentcore-action-UpdateDataset) 
@@ -1702,6 +1731,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [CreateConsentPortal](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateConsentPortal.html)  **
+  - **Description:** Grants permission to create a new consent portal
+  - **Resource types (\*required):** [consent-portal\*](#list_bedrock-agentcore-resource-consent-portal)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_bedrock-agentcore-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_bedrock-agentcore-aws_TagKeys)
+  - **Access level:** Write
+
 - **   [CreateDataset](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_CreateDataset.html)  **
   - **Description:** Grants permission to create a new dataset
   - **Resource types (\*required):** 
@@ -1903,6 +1938,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteConfigurationBundle](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteConfigurationBundle.html)  **
   - **Description:** Grants permission to delete a configuration bundle
   - **Resource types (\*required):** [configuration-bundle\*](#list_bedrock-agentcore-resource-configuration-bundle)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteConsentPortal](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_DeleteConsentPortal.html)  **
+  - **Description:** Grants permission to delete a consent portal
+  - **Resource types (\*required):** [consent-portal\*](#list_bedrock-agentcore-resource-consent-portal)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -2150,6 +2191,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetConfigurationBundleVersion](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetConfigurationBundleVersion.html)  **
   - **Description:** Grants permission to get a specific version of a configuration bundle
   - **Resource types (\*required):** [configuration-bundle\*](#list_bedrock-agentcore-resource-configuration-bundle)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetConsentPortal](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetConsentPortal.html)  **
+  - **Description:** Grants permission to retrieve information about a consent portal
+  - **Resource types (\*required):** [consent-portal\*](#list_bedrock-agentcore-resource-consent-portal)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
@@ -2528,6 +2575,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListConfigurationBundles](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListConfigurationBundles.html)  **
   - **Description:** Grants permission to list configuration bundles
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListConsentPortals](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListConsentPortals.html)  **
+  - **Description:** Grants permission to list all of the consent portals in your account
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -2952,6 +3005,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [UpdateConsentPortal](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateConsentPortal.html)  **
+  - **Description:** Grants permission to update an existing consent portal
+  - **Resource types (\*required):** [consent-portal\*](#list_bedrock-agentcore-resource-consent-portal)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [UpdateDataset](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_UpdateDataset.html)  **
   - **Description:** Grants permission to update a dataset
   - **Resource types (\*required):** [dataset\*](#list_bedrock-agentcore-resource-dataset)
@@ -3193,6 +3252,7 @@ The following resource types are defined by this service and can be used in the 
 |  [code-interpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/codeInterpreter.html)  | arn:${Partition}:bedrock-agentcore:${Region}:aws:code-interpreter/${CodeInterpreterId} |   | 
 |  [code-interpreter-custom](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/codeInterpreter.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:code-interpreter-custom/${CodeInterpreterId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [configuration-bundle](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/configurationBundle.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:configuration-bundle/${ConfigurationBundleId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
+|  [consent-portal](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-consent-portal.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:consent-portal/${ConsentPortalId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [dataset](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/dataset.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:dataset/${DatasetId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [evaluator](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/evaluator.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:evaluator/${EvaluatorId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 
 |  [gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/gateway.html)  | arn:${Partition}:bedrock-agentcore:${Region}:${Account}:gateway/${GatewayId} | [aws:ResourceTag/${TagKey}](#list_bedrock-agentcore-aws_ResourceTag___TagKey_) | 

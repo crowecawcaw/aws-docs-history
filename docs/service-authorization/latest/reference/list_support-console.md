@@ -31,19 +31,19 @@ The following actions are defined by AWS Support Console but are not directly in
 
 | Actions | Description | Resource types (\*required) | Condition keys | Access level | 
 | --- | --- | --- | --- | --- | 
-|   [CheckSubscription](${AuthZDocPage})  | Grants permission to check whether the account has access to given product |  |   | Read | 
-|   [CreateCaseDraft](${AuthZDocPage})  | Grants permission to create or update case draft for the given case type |  |   | Write | 
-|   [CreateContact](${AuthZDocPage})  | Grants permission to create an authenticated contact for the given contact type |  |   | Write | 
-|   [DeleteCaseDraft](${AuthZDocPage})  | Grants permission to delete a case draft for the given case type |  |   | Write | 
-|   [DescribeDynamicHelp](${AuthZDocPage})  | Grants permission to get dynamic help resources for given service and category |  |   | Read | 
-|   [GetAccountGovCloudEnabled](${AuthZDocPage})  | Grants permission to determines whether the calling account is GovCloud enabled |  |   | Read | 
-|   [GetAccountState](${AuthZDocPage})  | Grants permission to get the state of the calling account |  |   | Read | 
-|   [GetBanner](${AuthZDocPage})  | Grants permission to get the support banner information |  |   | Read | 
-|   [GetCaseDraft](${AuthZDocPage})  | Grants permission to get a case draft for given case type |  |   | Read | 
-|   [GetIssueClassificationPredictions](${AuthZDocPage})  | Grants permission to get classification predictions of an issue |  |   | Read | 
-|   [GetIssueTextSummary](${AuthZDocPage})  | Grants permission to get a generated text summary of an issue |  |   | Read | 
-|   [GetQuestionnaire](${AuthZDocPage})  | Grants permission to get a feedback questionnaire |  |   | Read | 
-|   [SaveFeedback](${AuthZDocPage})  | Grants permission to save questionnaire feedback |  |   | Write | 
+|   [CheckSubscription](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to check whether the account has access to given product |  |   | Read | 
+|   [CreateCaseDraft](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to create or update case draft for the given case type |  |   | Write | 
+|   [CreateContact](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to create an authenticated contact for the given contact type |  |   | Write | 
+|   [DeleteCaseDraft](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to delete a case draft for the given case type |  |   | Write | 
+|   [DescribeDynamicHelp](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to get dynamic help resources for given service and category |  |   | Read | 
+|   [GetAccountGovCloudEnabled](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to determines whether the calling account is GovCloud enabled |  |   | Read | 
+|   [GetAccountState](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to get the state of the calling account |  |   | Read | 
+|   [GetBanner](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to get the support banner information |  |   | Read | 
+|   [GetCaseDraft](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to get a case draft for given case type |  |   | Read | 
+|   [GetIssueClassificationPredictions](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to get classification predictions of an issue |  |   | Read | 
+|   [GetIssueTextSummary](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to get a generated text summary of an issue |  |   | Read | 
+|   [GetQuestionnaire](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to get a feedback questionnaire |  |   | Read | 
+|   [SaveFeedback](https://docs.aws.amazon.com/awssupport/latest/user/support-console-access-control.html)  | Grants permission to save questionnaire feedback |  |   | Write | 
 
 ## Resource types defined by AWS Support Console
 <a name="list_support-console-resources-for-iam-policies"></a>

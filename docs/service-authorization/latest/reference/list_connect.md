@@ -408,10 +408,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateTaskTemplate  **
   - **SDK client:** connect
-  - **IAM action:**  [connect:CreateTaskTemplate](#list_connect-action-CreateTaskTemplate) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [connect:CreateTaskTemplate](#list_connect-action-CreateTaskTemplate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [connect:TagResource](#list_connect-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateTestCase  **
   - **SDK client:** connect
@@ -1373,6 +1371,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ListEntitySecurityProfiles  **
   - **SDK client:** connect
   - **IAM action:**  [connect:ListEntitySecurityProfiles](#list_connect-action-ListEntitySecurityProfiles) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListEvaluationFormAIVersions  **
+  - **SDK client:** connect
+  - **IAM action:**  [connect:ListEvaluationFormAIVersions](#list_connect-action-ListEvaluationFormAIVersions) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -3818,6 +3823,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list security profiles associated with an entity in an Amazon Connect instance
   - **Resource types (\*required):** [ai-agent](#list_connect-resource-ai-agent) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
   - **Resource types (\*required):** [instance\*](#list_connect-resource-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
+  - **Access level:** List
+
+- **   [ListEvaluationFormAIVersions](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListEvaluationFormAIVersions.html)  **
+  - **Description:** Grants permission to list the AI versions for evaluation forms in the specified Amazon Connect instance
+  - **Resource types (\*required):** [instance\*](#list_connect-resource-instance)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_connect-aws_ResourceTag___TagKey_)<br />[connect:InstanceId](#list_connect-connect_InstanceId)
   - **Access level:** List
 
 - **   [ListEvaluationFormVersions](https://docs.aws.amazon.com/connect/latest/APIReference/API_ListEvaluationFormVersions.html)  **

@@ -648,10 +648,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ImportApp  **
   - **SDK client:** resiliencehubv2
-  - **IAM action:**  [resiliencehub:ImportApp](#list_resilience-hub-action-ImportApp) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [resiliencehub:ImportApp](#list_resilience-hub-action-ImportApp)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [resiliencehub:TagResource](#list_resilience-hub-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   ImportPolicy  **
   - **SDK client:** resiliencehubv2

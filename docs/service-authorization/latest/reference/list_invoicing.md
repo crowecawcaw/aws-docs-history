@@ -72,6 +72,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [invoicing:ListProcurementPortalPreferences](#list_invoicing-action-ListProcurementPortalPreferences)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
+- **   ListProcurementPortalSuppliers  **
+  - **IAM action:**  [invoicing:ListProcurementPortalSuppliers](#list_invoicing-action-ListProcurementPortalSuppliers) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListProcurementPortals  **
+  - **IAM action:**  [invoicing:ListProcurementPortals](#list_invoicing-action-ListProcurementPortals) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTagsForResource  **
   - **IAM action:**  [invoicing:ListTagsForResource](#list_invoicing-action-ListTagsForResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [aws-portal:ViewBilling](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read

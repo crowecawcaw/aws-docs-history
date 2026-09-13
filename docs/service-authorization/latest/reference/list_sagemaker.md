@@ -374,7 +374,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreatePartnerApp  **
   - **SDK client:** sagemaker
-  - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [sagemaker:CreatePartnerApp](#list_sagemaker-action-CreatePartnerApp)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker.amazonaws.com / **Access level:** Write
 

@@ -32,6 +32,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CancelJobs  **
+  - **IAM action:**  [batch:CancelJob](#list_batch-action-CancelJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateComputeEnvironment  **
   - **IAM action:**  [batch:CreateComputeEnvironment](#list_batch-action-CreateComputeEnvironment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [batch:SetCapacityTags](#list_batch-action-SetCapacityTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -228,7 +234,19 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   TerminateJobs  **
+  - **IAM action:**  [batch:TerminateJob](#list_batch-action-TerminateJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   TerminateServiceJob  **
+  - **IAM action:**  [batch:TerminateServiceJob](#list_batch-action-TerminateServiceJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   TerminateServiceJobs  **
   - **IAM action:**  [batch:TerminateServiceJob](#list_batch-action-TerminateServiceJob) 
   - **Condition key:** 
   - **Possible value(s):** 

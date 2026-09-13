@@ -27,13 +27,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [Connect](https://docs.aws.amazon.com/vpc-lattice/latest/ug/sigv4-authenticated-requests.html)  **
   - **Description:** Grants permission to connect to a VPC Lattice service
   - **Resource types (\*required):** [TCP Service\*](#list_vpc-lattice-svcs-resource-TCPService)
-  - **Condition keys:** [vpc-lattice-svcs:Port](#list_vpc-lattice-svcs-vpc-lattice-svcs_Port)<br />[vpc-lattice-svcs:ServiceArn](#list_vpc-lattice-svcs-vpc-lattice-svcs_ServiceArn)<br />[vpc-lattice-svcs:ServiceNetworkArn](#list_vpc-lattice-svcs-vpc-lattice-svcs_ServiceNetworkArn)<br />[vpc-lattice-svcs:SourceVpc](#list_vpc-lattice-svcs-vpc-lattice-svcs_SourceVpc)<br />[vpc-lattice-svcs:SourceVpcOwnerAccount](#list_vpc-lattice-svcs-vpc-lattice-svcs_SourceVpcOwnerAccount)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_vpc-lattice-svcs-aws_ResourceTag___TagKey_)<br />[vpc-lattice-svcs:Port](#list_vpc-lattice-svcs-vpc-lattice-svcs_Port)<br />[vpc-lattice-svcs:ServiceArn](#list_vpc-lattice-svcs-vpc-lattice-svcs_ServiceArn)<br />[vpc-lattice-svcs:ServiceNetworkArn](#list_vpc-lattice-svcs-vpc-lattice-svcs_ServiceNetworkArn)<br />[vpc-lattice-svcs:SourceVpc](#list_vpc-lattice-svcs-vpc-lattice-svcs_SourceVpc)<br />[vpc-lattice-svcs:SourceVpcOwnerAccount](#list_vpc-lattice-svcs-vpc-lattice-svcs_SourceVpcOwnerAccount)
   - **Access level:** Write
 
 - **   [Invoke](https://docs.aws.amazon.com/vpc-lattice/latest/ug/sigv4-authenticated-requests.html)  **
   - **Description:** Grants permission to invoke a VPC Lattice service
   - **Resource types (\*required):** [Service\*](#list_vpc-lattice-svcs-resource-Service)
-  - **Condition keys:** [vpc-lattice-svcs:Port](#list_vpc-lattice-svcs-vpc-lattice-svcs_Port)<br />[vpc-lattice-svcs:RequestHeader/${HeaderName}](#list_vpc-lattice-svcs-vpc-lattice-svcs_RequestHeader___HeaderName_)<br />[vpc-lattice-svcs:RequestMethod](#list_vpc-lattice-svcs-vpc-lattice-svcs_RequestMethod)<br />[vpc-lattice-svcs:RequestPath](#list_vpc-lattice-svcs-vpc-lattice-svcs_RequestPath)<br />[vpc-lattice-svcs:RequestQueryString/${QueryStringKey}](#list_vpc-lattice-svcs-vpc-lattice-svcs_RequestQueryString___QueryStringKey_)<br />[vpc-lattice-svcs:ServiceArn](#list_vpc-lattice-svcs-vpc-lattice-svcs_ServiceArn)<br />[vpc-lattice-svcs:ServiceNetworkArn](#list_vpc-lattice-svcs-vpc-lattice-svcs_ServiceNetworkArn)<br />[vpc-lattice-svcs:SourceVpc](#list_vpc-lattice-svcs-vpc-lattice-svcs_SourceVpc)<br />[vpc-lattice-svcs:SourceVpcOwnerAccount](#list_vpc-lattice-svcs-vpc-lattice-svcs_SourceVpcOwnerAccount)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_vpc-lattice-svcs-aws_ResourceTag___TagKey_)<br />[vpc-lattice-svcs:Port](#list_vpc-lattice-svcs-vpc-lattice-svcs_Port)<br />[vpc-lattice-svcs:RequestHeader/${HeaderName}](#list_vpc-lattice-svcs-vpc-lattice-svcs_RequestHeader___HeaderName_)<br />[vpc-lattice-svcs:RequestMethod](#list_vpc-lattice-svcs-vpc-lattice-svcs_RequestMethod)<br />[vpc-lattice-svcs:RequestPath](#list_vpc-lattice-svcs-vpc-lattice-svcs_RequestPath)<br />[vpc-lattice-svcs:RequestQueryString/${QueryStringKey}](#list_vpc-lattice-svcs-vpc-lattice-svcs_RequestQueryString___QueryStringKey_)<br />[vpc-lattice-svcs:ServiceArn](#list_vpc-lattice-svcs-vpc-lattice-svcs_ServiceArn)<br />[vpc-lattice-svcs:ServiceNetworkArn](#list_vpc-lattice-svcs-vpc-lattice-svcs_ServiceNetworkArn)<br />[vpc-lattice-svcs:SourceVpc](#list_vpc-lattice-svcs-vpc-lattice-svcs_SourceVpc)<br />[vpc-lattice-svcs:SourceVpcOwnerAccount](#list_vpc-lattice-svcs-vpc-lattice-svcs_SourceVpcOwnerAccount)
   - **Access level:** Write
 
 
@@ -47,8 +47,8 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
-|  [Service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html)  | arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/${RequestPath} |   | 
-|  [TCP Service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html)  | arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId} |   | 
+|  [Service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html)  | arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId}/${RequestPath} | [aws:ResourceTag/${TagKey}](#list_vpc-lattice-svcs-aws_ResourceTag___TagKey_) | 
+|  [TCP Service](https://docs.aws.amazon.com/vpc-lattice/latest/ug/services.html)  | arn:${Partition}:vpc-lattice:${Region}:${Account}:service/${ServiceId} | [aws:ResourceTag/${TagKey}](#list_vpc-lattice-svcs-aws_ResourceTag___TagKey_) | 
 
 ## Condition keys for Amazon VPC Lattice Services
 <a name="list_vpc-lattice-svcs-policy-keys"></a>
@@ -59,6 +59,7 @@ Amazon VPC Lattice Services defines the following condition keys that can be use
 
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
+|   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by tag key-value pairs attached to the resource | String | 
 |   [vpc-lattice-svcs:Port](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html#auth-policies-condition-keys)  | Filters access by the destination port the request is made to | Numeric | 
 |   [vpc-lattice-svcs:RequestHeader/${HeaderName}](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html#auth-policies-condition-keys)  | Filters access by a header name-value pair in the request headers | String | 
 |   [vpc-lattice-svcs:RequestMethod](https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html#auth-policies-condition-keys)  | Filters access by the method of the request | String | 

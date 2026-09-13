@@ -226,7 +226,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateBacklogTask.html)  **
   - **Description:** Grants permission to create a new backlog task
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [CreateChat](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_CreateChat.html)  **
@@ -370,19 +370,19 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetAsset](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAsset.html)  **
   - **Description:** Grants permission to get an asset
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetAssetContent](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssetContent.html)  **
   - **Description:** Grants permission to get asset content
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetAssetFile](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssetFile.html)  **
   - **Description:** Grants permission to get an asset file
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetAssociation](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetAssociation.html)  **
@@ -394,7 +394,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [GetBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_GetBacklogTask.html)  **
   - **Description:** Grants permission to get a backlog task
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [GetKnowledgeItem](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
@@ -448,7 +448,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListAssetFiles](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetFiles.html)  **
   - **Description:** Grants permission to list asset files
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListAssetTypes](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssetTypes.html)  **
@@ -466,7 +466,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListAssets](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssets.html)  **
   - **Description:** Grants permission to list assets
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListAssociations](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListAssociations.html)  **
@@ -478,7 +478,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListBacklogTasks](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListBacklogTasks.html)  **
   - **Description:** Grants permission to list backlog tasks
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListChats](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListChats.html)  **
@@ -490,7 +490,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListExecutions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListExecutions.html)  **
   - **Description:** Grants permission to list executions
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListGoals](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListGoals.html)  **
@@ -502,7 +502,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListJournalRecords](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_ListJournalRecords.html)  **
   - **Description:** Grants permission to list journal records
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
 - **   [ListKnowledgeItemVersions](https://docs.aws.amazon.com/devopsagent/latest/APIReference/what-is.html)  **
@@ -720,6 +720,8 @@ AWS DevOps Agent Service defines the following condition keys that can be used i
 
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
+|   [aidevops:SourceAgentSpaceArn](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the source AgentSpace ARN on the request. Set by the service from the request context, not supplied by the caller | String | 
+|   [aidevops:TargetAgentSpaceArn](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the target AgentSpace ARN on the request. Set by the service from the request context, not supplied by the caller | String | 
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

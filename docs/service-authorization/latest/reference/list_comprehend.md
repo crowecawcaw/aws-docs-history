@@ -273,6 +273,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ImportModel  **
   - **IAM action:**  [comprehend:ImportModel](#list_comprehend-action-ImportModel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [comprehend:TagResource](#list_comprehend-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** comprehend.amazonaws.com / **Access level:** Write
 
 - **   ListDatasets  **
