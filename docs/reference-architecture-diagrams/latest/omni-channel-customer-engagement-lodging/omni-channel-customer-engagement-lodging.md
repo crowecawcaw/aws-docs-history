@@ -10,7 +10,7 @@ With this architecture, you can provide a unified interface for customer service
 ## Omni-channel customer engagement diagram
 <a name="oce-diagram"></a>
 
-![How to provide personalized customer service across all channels by using Amazon Lex, Amazon OpenSearch Service, and Amazon Pinpoint.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/omni-channel-customer-engagement-lodging/images/omni-channel-customer-engagement-lodging.png)
+![How to provide personalized customer service across all channels by using Amazon Lex, Amazon OpenSearch Service, and Amazon Pinpoint.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/omni-channel-customer-engagement-lodging/images/omni-channel-customer-engagement-lodging.png)
 
 
 The following steps describe the architecture:
