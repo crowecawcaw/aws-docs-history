@@ -21,7 +21,7 @@ The CloudWatch portion of the procedures in this section are intended to just pr
 1. On the **Reputation metrics** page under the **Account-level** tab, in either the **Bounce rate** or **Complaint rate** pane, choose **View in CloudWatch** - this will open the CloudWatch console with your chosen metric.
 
 1. Under the **Graphed metrics** tab, on the line of your chosen metric, for this example, **Reputation.BounceRate**, choose the *alarm bell* icon in the **Actions** column (see image below) - this will open the **Specify metric and conditions** page.  
-![Alarm bell icon in the Actions column of the Graphed metrics tab.](http://docs.aws.amazon.com/ses/latest/dg/images/cw_alarm_for_reputation.png)
+![Alarm bell icon in the Actions column of the Graphed metrics tab.](https://docs.aws.amazon.com/ses/latest/dg/images/cw_alarm_for_reputation.png)
 
 1. Scroll down to the **Conditions** pane, and choose **Static** in the **Threshold type** field.
 

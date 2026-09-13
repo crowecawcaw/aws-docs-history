@@ -48,6 +48,6 @@ If you can't connect to Amazon SES using this setting, try **SECURE\_SMTP**.
    1. **Password**—Your SMTP password.
 
    You can see the settings for TLS Wrapper in the following image.  
-![SMTP email configuration for JIRA](http://docs.aws.amazon.com/ses/latest/dg/images/SMTP_jira.png)
+![SMTP email configuration for JIRA](https://docs.aws.amazon.com/ses/latest/dg/images/SMTP_jira.png)
 
 1. Choose **Test Connection**. If the test email that JIRA sends through Amazon SES arrives successfully, then your configuration is complete.

@@ -119,7 +119,7 @@ After you create the template, you can use the `SendEmail` or the `SendBulkEmail
 
 When you send an email to the recipients listed in the preceding example using the `SendBulkEmail` operation, they receive a message that resembles the example shown in the following image:
 
-![Preferences notification listing Sports, Travel, and Cooking as selected interests.](http://docs.aws.amazon.com/ses/latest/dg/images/send-personalized-email-advanced-condition-interest.png)
+![Preferences notification listing Sports, Travel, and Cooking as selected interests.](https://docs.aws.amazon.com/ses/latest/dg/images/send-personalized-email-advanced-condition-interest.png)
 
 
 ## Using basic conditional statements
@@ -200,7 +200,7 @@ The following example shows a JSON file that can be used to send email to multip
 
 In this example, the recipient whose template data included a list of interests receives the same email as the example shown in the previous section. The recipient whose template data did not include any interests, however, receives an email that resembles the example shown in the following image:
 
-![Email message with header "Your Preferences" and text about updating subscription preferences.](http://docs.aws.amazon.com/ses/latest/dg/images/send-personalized-email-advanced-condition-nointerest.png)
+![Email message with header "Your Preferences" and text about updating subscription preferences.](https://docs.aws.amazon.com/ses/latest/dg/images/send-personalized-email-advanced-condition-nointerest.png)
 
 
 ## Creating inline partials

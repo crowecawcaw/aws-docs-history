@@ -17,7 +17,7 @@ With configuration set-level suppression, there are different levels of overridi
 **Note**  
 For any suppression condition *not* specified at the configuration set-level, suppression behavior will fall back to the global suppression list since account-level settings have been overridden.
 
-![Flowchart showing configuration set-level suppression logic with decision points and outcomes.](http://docs.aws.amazon.com/ses/latest/dg/images/config_set_suppression_logic.png)
+![Flowchart showing configuration set-level suppression logic with decision points and outcomes.](https://docs.aws.amazon.com/ses/latest/dg/images/config_set_suppression_logic.png)
 
 
 Keep in mind that configuration set-level suppression is not an actual suppression *list*, rather, it's simply a mechanism to override your account-level suppression list with custom suppression settings defined in a configuration set - this means any email sent using the configuration set will only use its own suppression settings and ignore any account-level suppression settings. In other words, configuration set-level suppression is interacting with your account-level suppression list by simply changing (overriding) the suppression reasons that determine what email addresses get added to your account-level suppression list.

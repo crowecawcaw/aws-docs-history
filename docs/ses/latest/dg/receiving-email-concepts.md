@@ -38,7 +38,7 @@ The SNS action includes a complete copy of the email content in the Amazon SNS n
 
 Receipt rules are grouped together into *rule sets*. If you don't have an existing rule set, you'll first have to create a rule set before you start creating receipt rules. You can define multiple rule sets for your AWS account, but only one rule set is active at any time. The following figure shows how receipt rules, rule sets, and actions relate to each other.
 
-![Inbound email overview](http://docs.aws.amazon.com/ses/latest/dg/images/inbound_overview_v2.png)
+![Inbound email overview](https://docs.aws.amazon.com/ses/latest/dg/images/inbound_overview_v2.png)
 
 
 ## IP-based control using IP address filters

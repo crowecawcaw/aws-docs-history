@@ -9,7 +9,7 @@ Advisor’s infrastructure recommendations are listed in the *Open recommendatio
 
 Open recommendations display in the Virtual Deliverability Manager advisor sorted by impact level.
 
-![Open recommendations displayed in the Virtual Deliverability Manager advisor sorted by impact level.](http://docs.aws.amazon.com/ses/latest/dg/images/vdm_advisor_overview.png)
+![Open recommendations displayed in the Virtual Deliverability Manager advisor sorted by impact level.](https://docs.aws.amazon.com/ses/latest/dg/images/vdm_advisor_overview.png)
 
 
 If you don't have any ongoing advisor notifications, a message will indicate that you don’t have any open recommendations. We recommend that you check the advisor on a regular basis. Optionally, you can integrate these advisor notification events with Amazon EventBridge to build scalable event-driven applications as explained in [Monitoring SES events using Amazon EventBridge](monitoring-eventbridge.md).

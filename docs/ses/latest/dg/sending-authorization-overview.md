@@ -21,7 +21,7 @@ When Amazon SES receives the request to send the email, it checks your identity'
 
 The following diagram shows the high-level relationship between sending authorization concepts:
 
-![Sending authorization overview](http://docs.aws.amazon.com/ses/latest/dg/images/sending_authorization_overview.png)
+![Sending authorization overview](https://docs.aws.amazon.com/ses/latest/dg/images/sending_authorization_overview.png)
 
 
 The sending authorization process consists of the following steps:

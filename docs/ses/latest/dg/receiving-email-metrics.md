@@ -29,9 +29,9 @@ Changes you make to fix your receipt rule set will apply only to emails that Ama
 
 Metrics for an SES *receipt rule set* displayed in the CloudWatch console.
 
-![Receipt rule set metrics in CloudWatch.](http://docs.aws.amazon.com/ses/latest/dg/images/inbound_cloudwatch_rule_set_metrics.png)
+![Receipt rule set metrics in CloudWatch.](https://docs.aws.amazon.com/ses/latest/dg/images/inbound_cloudwatch_rule_set_metrics.png)
 
 
 Metrics for an SES *receipt rule* displayed in the CloudWatch console.
 
-![Receipt rule metrics in CloudWatch.](http://docs.aws.amazon.com/ses/latest/dg/images/inbound_cloudwatch_rule_metrics.png)
+![Receipt rule metrics in CloudWatch.](https://docs.aws.amazon.com/ses/latest/dg/images/inbound_cloudwatch_rule_metrics.png)

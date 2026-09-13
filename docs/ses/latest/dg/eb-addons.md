@@ -33,13 +33,13 @@ The following procedure shows you how to use the **Email Add Ons** page in the M
 
 **Traffic policy example using an Add On**  
 Using the **Spamhaus Domain Block List** Add On in a policy statement condition to block email coming into your ingress endpoint that originates from a domain listed in Spamhaus:  
-![Using the Spamhaus Domain Block List Add On in a policy statement condition to block email coming into your ingress endpoint.](http://docs.aws.amazon.com/ses/latest/dg/images/SpamhausAddOnPolicyStmnt.png)
+![Using the Spamhaus Domain Block List Add On in a policy statement condition to block email coming into your ingress endpoint.](https://docs.aws.amazon.com/ses/latest/dg/images/SpamhausAddOnPolicyStmnt.png)
 
    For details on how to create traffic policies and build policy statement conditions with Email Add Ons, see [Creating traffic policies and policy statements in the SES console](eb-filters.md#eb-filters-create-console).
 
 **Rule condition example using an Add On**  
 Using the **Trend Micro Virus Scanning** Add On in a rule condition to determine a rule action for email that passes the virus scan:  
-![Using the Trend Micro Virus Scanning Add On in a rule condition to determine a rule action for email that passes the virus scan.](http://docs.aws.amazon.com/ses/latest/dg/images/TrendMicroAddOnRule.png)
+![Using the Trend Micro Virus Scanning Add On in a rule condition to determine a rule action for email that passes the virus scan.](https://docs.aws.amazon.com/ses/latest/dg/images/TrendMicroAddOnRule.png)
 
    For details on how to create rule sets and build rule conditions with Email Add Ons, see [Creating rule sets and rules in the SES console](eb-rules.md#eb-rules-create-console).
 

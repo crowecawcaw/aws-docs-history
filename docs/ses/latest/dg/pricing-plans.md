@@ -25,7 +25,7 @@ If you do not have a plan, you are on à la carte pricing (pay-per-use pricing f
 
 The following screenshot shows the plan options and **Choose plan** buttons on the **Pricing plan** page.
 
-![The Essentials, Pro, and Enterprise plan cards on the Amazon SES console Pricing plan page, with Choose plan buttons.](http://docs.aws.amazon.com/ses/latest/dg/images/pricing-plan-choose-options-console.png)
+![The Essentials, Pro, and Enterprise plan cards on the Amazon SES console Pricing plan page, with Choose plan buttons.](https://docs.aws.amazon.com/ses/latest/dg/images/pricing-plan-choose-options-console.png)
 
 
 ### Changing or canceling your plan
@@ -37,7 +37,7 @@ You can change or cancel your plan from the **Pricing plan** page in the Amazon 
 
 The following screenshot shows the **Pricing plan details** card.
 
-![The Pricing plan details card on the Amazon SES console, showing Plan, Region, Next plan, and action buttons.](http://docs.aws.amazon.com/ses/latest/dg/images/pricing-plan-details-console.png)
+![The Pricing plan details card on the Amazon SES console, showing Plan, Region, Next plan, and action buttons.](https://docs.aws.amazon.com/ses/latest/dg/images/pricing-plan-details-console.png)
 
 
 #### When plan changes take effect

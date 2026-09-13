@@ -72,10 +72,10 @@ In this procedure, you first find the DNS servers that serve your domain, and th
 
    1. In the output of the command, verify that the string that follows `canonical name =` matches the CNAME value you see when you choose the domain in the Identities list of the Amazon SES console.
 
-      In our example, we are looking for a CNAME record under `4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz`*\_domainkey.ses-example.com* with a value of `4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz.dkim.amazonses.com`. If the record is correctly published, we would expect the command to have the following output:
+      In our example, we are looking for a CNAME record under `4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz`*\_domainkey.ses-example.com* with a value that matches the CNAME value shown for the domain in the Identities list of the Amazon SES console. The hosted zone portion of this value is the `SigningHostedZone` returned for your identity and varies by AWS Region. If the record is correctly published, and the hosted zone for our identity is `dkim.us-west-2.amazonses.com`, we would expect the command to have the following output:
 
       ```
-      1. 4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz_domainkey.ses-example.com canonical name = "4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz.dkim.amazonses.com"
+      1. 4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz_domainkey.ses-example.com canonical name = "4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz.dkim.us-west-2.amazonses.com"
       ```
 
 ## Common email verification problems

@@ -7,7 +7,7 @@ You want your recipients to read your emails, find them valuable, and not label 
 
 To maximize email deliverability, you need to understand email delivery issues, proactively take steps to prevent them, stay informed of the status of the emails that you send, and then improve your email-sending program, if necessary, to further increase the likelihood of successful deliveries. The following sections review the concepts behind these steps and how Amazon SES helps you through the process. 
 
-![Circular flow diagram showing four steps: Understand Email Delivery Issues, Be Proactive, Stay Informed, and Improve Your Email Sending Program.](http://docs.aws.amazon.com/ses/latest/dg/images/deliverability_concepts-diagram.png)
+![Circular flow diagram showing four steps: Understand Email Delivery Issues, Be Proactive, Stay Informed, and Improve Your Email Sending Program.](https://docs.aws.amazon.com/ses/latest/dg/images/deliverability_concepts-diagram.png)
 
 
 ## Understand email delivery issues

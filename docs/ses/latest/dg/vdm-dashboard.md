@@ -9,12 +9,12 @@ Being able to see things from a high overall level with the ability to also view
 
 An account overview in the Virtual Deliverability Manager dashboard showing the cards and time series graphs.
 
-![An account overview in the Virtual Deliverability Manager dashboard showing the cards and time series graphs.](http://docs.aws.amazon.com/ses/latest/dg/images/vdm_db_overview_1.png)
+![An account overview in the Virtual Deliverability Manager dashboard showing the cards and time series graphs.](https://docs.aws.amazon.com/ses/latest/dg/images/vdm_db_overview_1.png)
 
 
 The *Messages* table selected in the Virtual Deliverability Manager dashboard showing sent messages matching the date range and filter criteria.
 
-![The Messages table selected in the Virtual Deliverability Manager dashboard showing sent messages matching the date range and filter criteria.](http://docs.aws.amazon.com/ses/latest/dg/images/vdm_db_overview_2.png)
+![The Messages table selected in the Virtual Deliverability Manager dashboard showing sent messages matching the date range and filter criteria.](https://docs.aws.amazon.com/ses/latest/dg/images/vdm_db_overview_2.png)
 
 
 Granular data provided by the dashboard can help you to improve your sender reputation and calculate ideal times and dates for better engagement and conversions for your email program with the ability to drill-down to specific data sets:
@@ -23,7 +23,7 @@ Granular data provided by the dashboard can help you to improve your sender repu
 
 Drill-down data displayed in the Virtual Deliverability Manager dashboard for the selected sending identity, *example.com*—cards display deliverability and reputation metrics. The table displays all of the ISPs that the sending identity sent mail to with metric rates for each ISP within the date range entered.
 
-![Drill-down data displayed in the Virtual Deliverability Manager dashboard for the selected sending identity, example.com—cards display deliverability and reputation metrics. The table displays all of the ISPs that the sending identity sent mail to with metric rates for each ISP within the date range entered.](http://docs.aws.amazon.com/ses/latest/dg/images/vdm_db_ident_drill_sort_export.png)
+![Drill-down data displayed in the Virtual Deliverability Manager dashboard for the selected sending identity, example.com—cards display deliverability and reputation metrics. The table displays all of the ISPs that the sending identity sent mail to with metric rates for each ISP within the date range entered.](https://docs.aws.amazon.com/ses/latest/dg/images/vdm_db_ident_drill_sort_export.png)
 
 
 ## Using the Virtual Deliverability Manager dashboard in the Amazon SES console

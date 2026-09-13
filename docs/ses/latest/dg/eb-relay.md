@@ -136,7 +136,7 @@ The following walkthrough example shows you how to setup Google Workspaces to wo
   1. Select **Spam, Phishing, and Malware**, then go to **Inbound gateway** configuration.
 
   1. Enable **Inbound gateway**, and configure it with the following details:  
-![Enable Inbound gateway, and configure it with details.](http://docs.aws.amazon.com/ses/latest/dg/images/GoogleWSInboundGateway.png)
+![Enable Inbound gateway, and configure it with details.](https://docs.aws.amazon.com/ses/latest/dg/images/GoogleWSInboundGateway.png)
      + In **Gateway IPs**, select **Add **, and add the ingress endpoint IPs specific to your region from the [SMTP Relay IP Ranges](https://docs.aws.amazon.com/general/latest/gr/ses.html#ses_mm_relay_ip_ranges) table.
      + Select **Automatically detect external IP**.
      + Select **Require TLS for connections from the email gateways listed above**.
@@ -165,7 +165,7 @@ The following walkthrough example shows you how to setup Microsoft Office 365 to
 
    1. Return to the **Anti-spam** option and choose **Anti-spam inbound policy**.
       + At the bottom of the dialog, select **Edit spam threshold and properties**:  
-![Enable Inbound gateway, and configure it with details.](http://docs.aws.amazon.com/ses/latest/dg/images/MSO365AntiSpamInboundPolicy.png)
+![Enable Inbound gateway, and configure it with details.](https://docs.aws.amazon.com/ses/latest/dg/images/MSO365AntiSpamInboundPolicy.png)
       + Scroll to **Mark as spam** and ensure that **SPF record: hard fail** is set to **Off**.
       + Select **Save**.
 
@@ -180,10 +180,10 @@ The following walkthrough example shows you how to setup Microsoft Office 365 to
       + Fill in the fields as follows:
         + **Name** – Simple Email Service Mail Manager connector
         + **Description** – Connector for filtering   
-![Adding a connector.](http://docs.aws.amazon.com/ses/latest/dg/images/MSExAddConnector.png)
+![Adding a connector.](https://docs.aws.amazon.com/ses/latest/dg/images/MSExAddConnector.png)
       + Select **Next**.
       + In **Authenticating sent email**, select **By verifying that the IP address of the sending server matches one of the following IP addresses, which belong to your partner organization** and add the ingress endpoint IPs specific to your region from the [SMTP Relay IP Ranges](https://docs.aws.amazon.com/general/latest/gr/ses.html#ses_mm_relay_ip_ranges) table.  
-![In Authenticating sent email, select By verifying that the IP address of the sending server matches one of the following IP addresses, which belong to your partner organization and add the ingress endpoint IPs specific to your region from the following table.](http://docs.aws.amazon.com/ses/latest/dg/images/MSExAuthSentMail.png)
+![In Authenticating sent email, select By verifying that the IP address of the sending server matches one of the following IP addresses, which belong to your partner organization and add the ingress endpoint IPs specific to your region from the following table.](https://docs.aws.amazon.com/ses/latest/dg/images/MSExAuthSentMail.png)
       + Select **Next**.
       + In **Security restrictions**, accept the default **Reject email messages if they aren’t sent over TLS** setting, followed by **Next**.
       + Review your settings and select **Create connector**.
@@ -193,8 +193,8 @@ The following walkthrough example shows you how to setup Microsoft Office 365 to
       Now that the inbound connector has been configured, you will need to enable the enhanced filtering configuration of the connector in the **Microsoft Security admin center**.
       + In the [Microsoft Security admin center](https://security.microsoft.com/homepage), go to **Email & collaboration > Policies & Rules > Threat policies**.
       + Select **Enhanced filtering** under **Rules**.  
-![Select Enhanced filtering under Rules within Threat polices.](http://docs.aws.amazon.com/ses/latest/dg/images/MSO365ThreatPolicies.png)
+![Select Enhanced filtering under Rules within Threat polices.](https://docs.aws.amazon.com/ses/latest/dg/images/MSO365ThreatPolicies.png)
       + Select the **Simple Email Service Mail Manager connector** that you created previously to edit its configuration parameters.
       + Select both **Automatically detect and skip the last IP address** and **Apply to entire organization**.  
-![Edit the previously created connector's configuration.](http://docs.aws.amazon.com/ses/latest/dg/images/MSO365EditConnector.png)
+![Edit the previously created connector's configuration.](https://docs.aws.amazon.com/ses/latest/dg/images/MSO365EditConnector.png)
       + Select **Save**.

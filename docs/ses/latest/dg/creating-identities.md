@@ -163,9 +163,9 @@ If you created a Global (replica) identity using Deterministic Easy DKIM (DEED),
    1. From the **Publish DNS records** table, copy the three CNAME records that appear in this section to be published (added) to your DNS provider. Alternatively, you can choose **Download .csv record set** to save a copy of the records to your computer.
 
       The following image shows an example of the CNAME records to publish to your DNS provider.  
-![The DKIM section of a details page for an identity. Three fictitious CNAME records are shown.](http://docs.aws.amazon.com/ses/latest/dg/images/dkim_records.png)
+![The DKIM section of a details page for an identity. Three fictitious CNAME records are shown.](https://docs.aws.amazon.com/ses/latest/dg/images/dkim_records.png)
 **Retrieving the hosted zone programmatically**  
-Each CNAME record's value is composed of the DKIM token followed by a hosted zone domain (for example, `{{token}}.dkim.amazonses.com` or `{{token}}.{{a31d}}.dkim.{{us-west-2}}.amazonses.com`). The hosted zone portion varies by AWS Region and cell.  
+Each CNAME record's value is composed of the DKIM token followed by a hosted zone domain (for example, `{{token}}.dkim.{{us-west-2}}.amazonses.com`). The hosted zone portion varies by AWS Region and identity.  
 You can retrieve the hosted zone directly from the API response. Both the [CreateEmailIdentity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_CreateEmailIdentity.html) and [GetEmailIdentity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetEmailIdentity.html) responses include a `SigningHostedZone` field in the `DkimAttributes` object. Use this value to construct the full CNAME record value: `{{token}}.{{SigningHostedZone}}`.
 
    1. Add the CNAME records to your domain’s DNS settings respective of your DNS host provider:
@@ -185,7 +185,7 @@ A small number of DNS providers don't allow you to include underscores (\_) in r
    1. From the **Publish DNS records** table, copy the selector name record that appears in the **Name** column to be published (added) to your DNS provider. Alternatively, you can choose **Download .csv record set** to save a copy of it to your computer.
 
       The following image shows an example of the selector name record to publish to your DNS provider.  
-![The DKIM section of a details page for an identity. Three fictitious CNAME records are shown.](http://docs.aws.amazon.com/ses/latest/dg/images/byodkim_records.png)
+![The DKIM section of a details page for an identity. Three fictitious CNAME records are shown.](https://docs.aws.amazon.com/ses/latest/dg/images/byodkim_records.png)
 
    1. Login to your domain’s DNS or web hosting provider, and then add the selector name record you copied or saved previously. Different providers have different procedures for updating DNS records. See the [DNS/Hosting provider table](#dns-hosting-providing-table) following these procedures.
 **Note**  
@@ -330,7 +330,7 @@ If you entered a domain name for the `--email-identity` parameter in the above c
 
 When you attempt to verify an email address, Amazon SES sends an email to that address that resembles the example shown in the following image.
 
-![Email verification message from AWS with confirmation URL and instructions.](http://docs.aws.amazon.com/ses/latest/dg/images/verification_email_example.png)
+![Email verification message from AWS with confirmation URL and instructions.](https://docs.aws.amazon.com/ses/latest/dg/images/verification_email_example.png)
 
 
 Several Amazon SES customers build applications (such as email marketing suites or ticketing systems) that send email through Amazon SES on behalf of their own customers. For the end users of these applications, the email verification process can be confusing: the verification email uses Amazon SES branding, rather than the branding of the application, and those end users never signed up to use Amazon SES directly.
@@ -436,7 +436,7 @@ For example, assume your customers register for your service using a form in you
 
 Your customer receives an email that uses the customized email template you created. Amazon SES automatically adds a unique link to the recipient, and also a brief disclaimer. The following image shows a sample verification email that uses the template created in [Creating a custom verification email template](#send-email-verify-address-custom-creating).
 
-![Email verification message with verification link, welcome text, and disclaimer footer.](http://docs.aws.amazon.com/ses/latest/dg/images/cve_sample_message.png)
+![Email verification message with verification link, welcome text, and disclaimer footer.](https://docs.aws.amazon.com/ses/latest/dg/images/cve_sample_message.png)
 
 
 ### Custom verification email frequently asked questions

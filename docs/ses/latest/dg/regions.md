@@ -51,7 +51,7 @@ Before you can send email using SES, you have to verify that you own the email a
 
 You have to perform the Easy DKIM setup process for each AWS Region where you want to use Easy DKIM. That is, in each region, you have to use the SES console or the SES API to generate CNAME records. Next, you have to add all of the CNAME records to the DNS configuration for your domain. For more information about setting up Easy DKIM, see [Easy DKIM in Amazon SES](send-email-authentication-dkim-easy.md).
 
-Not all AWS Regions use the default SES DKIM domain, `dkim.amazonses.com`—to see if your region uses a region specific DKIM domain, check the [DKIM domains table](https://docs.aws.amazon.com/general/latest/gr/ses.html#ses_dkim_domains) in the *AWS General Reference*.
+SES uses various DKIM hosted zones that might differ per AWS Region and email identity. Always use the `SigningHostedZone` value returned by the [CreateEmailIdentity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_CreateEmailIdentity.html) or [GetEmailIdentity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetEmailIdentity.html) operation to construct your CNAME records. For more information, see [Managing Easy DKIM and BYODKIM](send-email-authentication-dkim-easy-managing.md).
 
 ## Account-level suppression list
 <a name="region-suppression-list"></a>

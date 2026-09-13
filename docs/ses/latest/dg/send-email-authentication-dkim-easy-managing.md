@@ -23,58 +23,60 @@ You can obtain the DKIM records for your domain or email address at any time by 
 1. Copy either the three CNAME records if you used Easy DKIM, or the TXT record if you used BYODKIM, that appear in this section. Alternatively, you can choose **Download .csv record set** to save a copy of the records to your computer.
 
    The following image shows an example of the expanded **View DNS records** section revealing CNAME records associated with Easy DKIM.  
-![The DKIM section of a details page for an identity. Three fictitious CNAME records are shown.](http://docs.aws.amazon.com/ses/latest/dg/images/dkim_existing_dns.png)
+![The DKIM section of a details page for an identity. Three fictitious CNAME records are shown.](https://docs.aws.amazon.com/ses/latest/dg/images/dkim_existing_dns.png)
 
-You can also obtain the DKIM records for an identity by using the Amazon SES API. A common method of interacting with the API is to use the AWS CLI.
+You can also obtain the DKIM records for an identity by using the Amazon SES API v2. A common method of interacting with the API is to use the AWS CLI.
 
 **To obtain the DKIM records for an identity by using the AWS CLI**
 
-1. At the command line, type the following command:
+1. At the command line, enter the following command:
 
    ```
-   aws ses get-identity-dkim-attributes --identities "{{example.com}}"
+   aws sesv2 get-email-identity --email-identity "{{example.com}}"
    ```
 
    In the preceding example, replace {{example.com}} with the identity that you want to obtain DKIM records for. You can specify either an email address or a domain.
 
-1. The output of this command contains a `DkimTokens` section, as shown in the following example:
+1. The output of this command contains a `DkimAttributes` object. The `Tokens` array provides the DKIM tokens, and the `SigningHostedZone` field provides the hosted zone to use in the CNAME record values, as shown in the following example:
 
    ```
    {
        "DkimAttributes": {
-           "example.com": {
-               "DkimEnabled": true,
-               "DkimVerificationStatus": "Success",
-               "DkimTokens": [
-                   "hirjd4exampled5477y22yd23ettobi",
-                   "v3rnz522czcl46quexamplek3efo5o6x",
-                   "y4examplexbhyhnsjcmtvzotfvqjmdqoj"
-               ]
-           }
+           "SigningEnabled": true,
+           "Status": "SUCCESS",
+           "Tokens": [
+               "hirjd4exampled5477y22yd23ettobi",
+               "v3rnz522czcl46quexamplek3efo5o6x",
+               "y4examplexbhyhnsjcmtvzotfvqjmdqoj"
+           ],
+           "SigningAttributesOrigin": "AWS_SES",
+           "SigningHostedZone": "dkim.us-west-2.amazonses.com"
        }
    }
    ```
+**Note**  
+The hosted zone returned in `SigningHostedZone` varies by AWS Region and can differ between identities. Always use the `SigningHostedZone` value returned for your identity to construct the CNAME records, rather than a hardcoded hosted zone.
 
-   You can use the tokens to create the CNAME records that you add to the DNS settings for your domain. To create the CNAME records, use the following template:
-
-   ```
-   {{token1}}._domainkey.example.com CNAME {{token1}}.dkim.amazonses.com
-   {{token2}}._domainkey.example.com CNAME {{token2}}.dkim.amazonses.com
-   {{token3}}._domainkey.example.com CNAME {{token3}}.dkim.amazonses.com
-   ```
-
-   Replace each instance of {{token1}} with the first token in the list you received when you ran the `get-identity-dkim-attributes` command, replace all instances of {{token2}} with the second token in the list, and replace all instances of {{token3}} with the third token in the list. 
-
-   For example, applying this template to the tokens shown in the preceding example produces the following records:
+   You use the tokens together with the `SigningHostedZone` value to create the CNAME records that you add to the DNS settings for your domain. To create the CNAME records, use the following template:
 
    ```
-   hirjd4exampled5477y22yd23ettobi._domainkey.example.com CNAME hirjd4exampled5477y22yd23ettobi.dkim.amazonses.com
-   v3rnz522czcl46quexamplek3efo5o6x._domainkey.example.com CNAME v3rnz522czcl46quexamplek3efo5o6x.dkim.amazonses.com
-   y4examplexbhyhnsjcmtvzotfvqjmdqoj._domainkey.example.com CNAME y4examplexbhyhnsjcmtvzotfvqjmdqoj.dkim.amazonses.com
+   {{token1}}._domainkey.example.com CNAME {{token1}}.{{SigningHostedZone}}
+   {{token2}}._domainkey.example.com CNAME {{token2}}.{{SigningHostedZone}}
+   {{token3}}._domainkey.example.com CNAME {{token3}}.{{SigningHostedZone}}
+   ```
+
+   Replace each instance of {{token1}}, {{token2}}, and {{token3}} with the first, second, and third tokens from the `Tokens` array. Replace each instance of {{SigningHostedZone}} with the `SigningHostedZone` value returned for your identity.
+
+   For example, applying this template to the values shown in the preceding example produces the following records:
+
+   ```
+   hirjd4exampled5477y22yd23ettobi._domainkey.example.com CNAME hirjd4exampled5477y22yd23ettobi.dkim.us-west-2.amazonses.com
+   v3rnz522czcl46quexamplek3efo5o6x._domainkey.example.com CNAME v3rnz522czcl46quexamplek3efo5o6x.dkim.us-west-2.amazonses.com
+   y4examplexbhyhnsjcmtvzotfvqjmdqoj._domainkey.example.com CNAME y4examplexbhyhnsjcmtvzotfvqjmdqoj.dkim.us-west-2.amazonses.com
    ```
 
 **Note**  
-Not all AWS Regions use the default SES DKIM domain, `dkim.amazonses.com`—to see if your region uses a region specific DKIM domain, check the [DKIM domains table](https://docs.aws.amazon.com/general/latest/gr/ses.html#ses_dkim_domains) in the *AWS General Reference*.
+SES uses various DKIM hosted zones that might differ per AWS Region and email identity. Always use the `SigningHostedZone` value returned by the [CreateEmailIdentity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_CreateEmailIdentity.html) or [GetEmailIdentity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetEmailIdentity.html) operation to construct your CNAME records.
 
 ## Disabling Easy DKIM for an identity
 <a name="send-email-authentication-dkim-easy-managing-disabling"></a>

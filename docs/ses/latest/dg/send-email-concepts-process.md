@@ -5,7 +5,7 @@
 
 This topic describes what happens when you send an email with SES, and the various outcomes that can occur after the email is sent. The following figure is a high-level overview of the sending process:
 
-![Email flow from sender through SES to receivers, showing bounce and complaint feedback loops.](http://docs.aws.amazon.com/ses/latest/dg/images/arch_overview-diagram.png)
+![Email flow from sender through SES to receivers, showing bounce and complaint feedback loops.](https://docs.aws.amazon.com/ses/latest/dg/images/arch_overview-diagram.png)
 
 
 1. A client application, acting as an email sender, makes a request to SES to send email to one or more recipients.
@@ -57,15 +57,15 @@ For information about errors that can occur when you send an email with SES, see
 
 If the sender's request to SES succeeds, then SES sends the email and one of the following outcomes occurs:
 + **Successful delivery and the recipient does not object to the email – **The email is accepted by the ISP, and the ISP delivers the email to the recipient. A successful delivery is shown in the following figure.  
-![Email flow from sender through Amazon SES to receiver and recipient.](http://docs.aws.amazon.com/ses/latest/dg/images/successful-diagram.png)
+![Email flow from sender through Amazon SES to receiver and recipient.](https://docs.aws.amazon.com/ses/latest/dg/images/successful-diagram.png)
 + **Hard bounce – **The email is rejected by the ISP because of a persistent condition or rejected by SES because the email address is on the SES suppression list. An email address is on the SES suppression list if it has recently caused a hard bounce for any SES customer. A hard bounce with an ISP can occur because the recipient's address is invalid. A hard bounce notification is sent from the ISP back to SES, which notifies the sender through email or through Amazon Simple Notification Service (Amazon SNS), depending on the sender's setup. SES notifies the sender of suppression list bounces by the same means. The path of a hard bounce from an ISP is shown in the following figure.  
-![Email flow from sender through Amazon SES to receiver showing hard bounce path back to sender.](http://docs.aws.amazon.com/ses/latest/dg/images/hard_bounce-diagram.png)
+![Email flow from sender through Amazon SES to receiver showing hard bounce path back to sender.](https://docs.aws.amazon.com/ses/latest/dg/images/hard_bounce-diagram.png)
 + **Soft bounce – **The ISP cannot deliver the email to the recipient because of a temporary condition, such as the ISP is too busy to handle the request or the recipient's mailbox is full. A soft bounce can also occur if the domain does not exist. The ISP sends a soft bounce notification back to SES, or, in the case of a nonexistent domain, SES cannot find an email server for the domain. In either case, SES retries the email for an extended period of time. If SES cannot deliver the email in that time period, it sends you a bounce notification through email or through Amazon SNS. If SES can deliver the email to the recipient during a retry, the delivery is successful. A soft bounce is shown in the following figure. In this case, SES retries sending the email, and the ISP is eventually able to deliver it to the recipient.  
-![Email flow from sender through Amazon SES to receiver and recipient with retry path shown.](http://docs.aws.amazon.com/ses/latest/dg/images/soft_bounce-diagram.png)
+![Email flow from sender through Amazon SES to receiver and recipient with retry path shown.](https://docs.aws.amazon.com/ses/latest/dg/images/soft_bounce-diagram.png)
 + **Complaint – **The email is accepted by the ISP and delivered to the recipient, but the recipient considers the email to be spam and clicks a button such as "Mark as spam" in his or her email client. If SES has a feedback loop set up with the ISP, then a complaint notification is sent to SES, which forwards the complaint notification to the sender. Most ISPs do not provide the email address of the recipient who submitted the complaint, so the complaint notification from SES provides the sender a list of recipients who might have sent the complaint, based on the recipients of the original message and the ISP from which SES received the complaint. The path of a complaint is shown in the following figure.  
-![Email flow from sender through Amazon SES to receiver at ISP, then to recipient.](http://docs.aws.amazon.com/ses/latest/dg/images/complaint-diagram.png)
+![Email flow from sender through Amazon SES to receiver at ISP, then to recipient.](https://docs.aws.amazon.com/ses/latest/dg/images/complaint-diagram.png)
 + **Auto response – **The email is accepted by the ISP, and the ISP delivers it to the recipient. The ISP then sends an automatic response such as an out-of-the-office (OOTO) message to SES. SES forwards the auto response notification to the sender. An auto response is shown in the following figure.  
-![Email flow from sender through Amazon SES to receiver at ISP, then auto response back to sender.](http://docs.aws.amazon.com/ses/latest/dg/images/auto_response-diagram.png)
+![Email flow from sender through Amazon SES to receiver at ISP, then auto response back to sender.](https://docs.aws.amazon.com/ses/latest/dg/images/auto_response-diagram.png)
 
   Make sure that your SES-enabled program does not retry sending messages that generate an auto response.
 **Tip**  

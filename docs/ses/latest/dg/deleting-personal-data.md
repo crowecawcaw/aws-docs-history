@@ -49,7 +49,7 @@ You can use Firehose to stream email event data to several destinations—includ
 
 1. In the list of configuration sets, choose the configuration set that contains the Firehose event destination.
 
-1. Next to the Firehose event destination that you want to delete, choose the **delete** (![Close or cancel icon represented by an X symbol in a circular shape.](http://docs.aws.amazon.com/ses/latest/dg/images/delete_icon.png)) button.
+1. Next to the Firehose event destination that you want to delete, choose the **delete** (![Close or cancel icon represented by an X symbol in a circular shape.](https://docs.aws.amazon.com/ses/latest/dg/images/delete_icon.png)) button.
 
 1. If necessary, remove the data that Firehose wrote to other services. For more information, see [Remove Stored Event Data](#deleting-personal-data-message-data-storage).
 
