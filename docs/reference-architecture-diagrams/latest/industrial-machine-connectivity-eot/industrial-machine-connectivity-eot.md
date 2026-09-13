@@ -10,7 +10,7 @@ With this architecture, you can provision asset models and ingest real-time sens
 ## Industrial machine connectivity architecture diagram
 <a name="eot-diagram"></a>
 
-![Reference architecture diagram for ingesting real-time sensor data from industrial historians and SCADA platforms into AWS IoT SiteWise on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-machine-connectivity-eot/images/cygnet-and-pi-data-to-sitewise-ra.png)
+![Reference architecture diagram for ingesting real-time sensor data from industrial historians and SCADA platforms into AWS IoT SiteWise on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-machine-connectivity-eot/images/cygnet-and-pi-data-to-sitewise-ra.png)
 
 
 The following steps describe the architecture:
