@@ -10,7 +10,7 @@ This architecture shows how to deploy Couchbase Server and Couchbase Sync Gatewa
 ## Couchbase on AWS Local Zones architecture
 <a name="diagram1"></a>
 
-![Architecture diagram showing Couchbase Server and Sync Gateway deployment on AWS Local Zones with replication to the parent region.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/couchbase-local-zones/images/couchbase-local-zones.png)
+![Architecture diagram showing Couchbase Server and Sync Gateway deployment on AWS Local Zones with replication to the parent region.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/couchbase-local-zones/images/couchbase-local-zones.png)
 
 
 The following components describe this architecture:
