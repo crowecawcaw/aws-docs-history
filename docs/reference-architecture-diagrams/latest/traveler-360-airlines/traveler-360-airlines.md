@@ -14,7 +14,7 @@ This reference architecture builds upon the [Personalization Using AI/ML for Air
 ## Traveler 360 data platform diagram
 <a name="traveler-360-diagram"></a>
 
-![Architecture for traveler 360 data platform using Amazon S3, AWS Lambda, and Amazon DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/traveler-360-airlines/images/traveler-360-data-platform-airlines-ra.png)
+![Architecture for traveler 360 data platform using Amazon S3, AWS Lambda, and Amazon DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/traveler-360-airlines/images/traveler-360-data-platform-airlines-ra.png)
 
 
 The following steps describe the architecture:
