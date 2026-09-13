@@ -70,7 +70,7 @@ The following illustration shows a general example of the processes that Systems
 
 The full process is explained below the illustration.
 
-![Patch Manager workflow for determining which patch baselines to use when performing patching operations.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/patch-groups-how-it-works.png)
+![Patch Manager workflow for determining which patch baselines to use when performing patching operations.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/patch-groups-how-it-works.png)
 
 
 In this example, we have three groups of EC2 instances for Windows Server with the following tags applied:

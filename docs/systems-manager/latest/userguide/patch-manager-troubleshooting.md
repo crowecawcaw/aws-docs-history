@@ -45,7 +45,7 @@ failed to run commands: exit status 0xffffffff
 
 However, as shown in the following image, you didn't select the **Add required IAM policies to existing instance profiles attached to your instances** check box.
 
-![The Add required IAM policies to existing instance profiles check box isn't selected in the Instance profile options area.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/QS-instance-profile-option.png)
+![The Add required IAM policies to existing instance profiles check box isn't selected in the Instance profile options area.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/QS-instance-profile-option.png)
 
 
 When you create a patch policy, an Amazon S3 bucket is also created to store the policy's configuration `baseline_overrides.json` file. If you don't select the **Add required IAM policies to existing instance profiles attached to your instances** check box when creating the policy, the IAM policies and resource tags that are needed to access `baseline_overrides.json` in the S3 bucket are not automatically added to your existing IAM instance profiles and service roles.

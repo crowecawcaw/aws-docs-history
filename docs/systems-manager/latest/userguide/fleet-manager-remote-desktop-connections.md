@@ -493,4 +493,4 @@ You can use the Fleet Manager section of the Systems Manager console to view inf
    + **Active connections**
    + **Connection history**
 
-1. To further narrow the list of connection results displayed, specify one or more filters in the search (![The Search icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box. You can also enter a free-text search term.
+1. To further narrow the list of connection results displayed, specify one or more filters in the search (![The Search icon](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box. You can also enter a free-text search term.

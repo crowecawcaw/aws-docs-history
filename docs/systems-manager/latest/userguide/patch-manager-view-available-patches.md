@@ -28,6 +28,6 @@ For Windows Server, the **Patches** tab displays updates that are available from
 
 1. (Optional) For **Product**, choose an OS version, such as `WindowsServer2019` or `AmazonLinux2018.03`.
 
-1. (Optional) To add or remove information columns for your results, choose the configure button (![The icon to view configuration settings.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/configure-button.png)) at the top right of the **Patches** list. (By default, the **Patches** tab displays columns for only some of the available patch metadata.)
+1. (Optional) To add or remove information columns for your results, choose the configure button (![The icon to view configuration settings.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/configure-button.png)) at the top right of the **Patches** list. (By default, the **Patches** tab displays columns for only some of the available patch metadata.)
 
    For information about the types of metadata you can add to your view, see [Patch](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_Patch.html) in the *AWS Systems Manager API Reference*.

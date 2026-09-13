@@ -13,7 +13,7 @@ You can use the Systems Manager **Explore nodes** feature to view filtered or un
 
 1. In the navigation pane, choose **Explore nodes**.
 
-1. In the **Nodes** area, choose the preferences gear icon (![The preferences gear icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/preferences-icon.png)).
+1. In the **Nodes** area, choose the preferences gear icon (![The preferences gear icon](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/preferences-icon.png)).
 
 1. In the **Preferences** dialog box, do the following:
 
@@ -25,6 +25,6 @@ You can use the Systems Manager **Explore nodes** feature to view filtered or un
 
    1. For **Select visible content**, do the following:
       + Turn on or off individual columns for your list display and reports.
-      + To change the order of columns, press and hold the drag handle (![The drag handle](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/drag-handle-dashboard.png)) of a column name and drag it up or down in the list.
+      + To change the order of columns, press and hold the drag handle (![The drag handle](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/drag-handle-dashboard.png)) of a column name and drag it up or down in the list.
 
 1. Choose **Confirm**.

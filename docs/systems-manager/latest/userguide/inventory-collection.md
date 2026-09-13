@@ -47,10 +47,10 @@ Use the following procedure to configure Systems Manager Inventory for all manag
 1. In the navigation pane, choose **Inventory**.
 
 1. In the **Managed instances with inventory enabled** card, choose **Click here to enable inventory on all instances**.  
-![Enabling Systems Manager Inventory on all managed nodes.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-1.png)
+![Enabling Systems Manager Inventory on all managed nodes.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-1.png)
 
    If successful, the console displays the following message.  
-![Enabling Systems Manager Inventory on all managed nodes.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-2.png)
+![Enabling Systems Manager Inventory on all managed nodes.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-2.png)
 
    Depending on the number of managed nodes in your account, it can take several minutes for the global inventory association to be applied. Wait a few minutes and then refresh the page. Verify that the graphic changes to reflect that inventory is configured on all of your managed nodes.
 

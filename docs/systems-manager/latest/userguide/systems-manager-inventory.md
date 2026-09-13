@@ -27,7 +27,7 @@ Depending on the amount of data collected, the system can take several minutes t
 
 You can view the data in the Systems Manager console on the **Inventory** page, which includes several predefined cards to help you query the data.
 
-![Systems Manager Inventory cards in the Systems Manager console.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-cards.png)
+![Systems Manager Inventory cards in the Systems Manager console.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-cards.png)
 
 
 **Note**  

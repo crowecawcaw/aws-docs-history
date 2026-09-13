@@ -23,7 +23,7 @@ When you specify a tag as the target for an automation, you also specify a targe
 
 The following screenshot uses the `AWS-DetachEBSVolume` runbook. The logical target parameter is `VolumeId`.
 
-![Using a tag as a target for a Systems Manager Automation](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-tags-1-new.png)
+![Using a tag as a target for a Systems Manager Automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-tags-1-new.png)
 
 
 The `AWS-DetachEBSVolume` runbook also includes a special property called **Target type**, which is set to `/AWS::EC2::Volume`. This means that if the tag-key pair `Finance:TestEnv` returns different types of resources (for example, EC2 instances, Amazon EBS volumes, Amazon EBS snapshots) then only Amazon EBS volumes will be used.
@@ -79,7 +79,7 @@ aws ssm start-automation-execution \
 
 The following console example uses a Resource Group called t2-micro-instances.
 
-![Targeting an AWS resource group with a Systems Manager automation](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-resource-groups-new.png)
+![Targeting an AWS resource group with a Systems Manager automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-resource-groups-new.png)
 
 
 ## Targeting parameter values
@@ -229,7 +229,7 @@ aws ssm start-automation-execution \
 
 You can run an automation on all Amazon EC2 instances in the current AWS account and AWS Region by choosing **All instances** in the **Targets** list. For example, if you want to restart all Amazon EC2 instances your AWS account and the current AWS Region, you can choose the `AWS-RestartEC2Instance` runbook and then choose **All instances** from the **Targets** list.
 
-![Targeting all Amazon EC2 instances for a runbook](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-target-all-instances.png)
+![Targeting all Amazon EC2 instances for a runbook](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-target-all-instances.png)
 
 
 After you choose **All instances**, Systems Manager populates the **Instance** field with an asterisk (\*) and makes the field unavailable for changes (the field is grayed out). Systems Manager also makes the **InstanceId** field in the **Input parameters** field unavailable for changes. Making these fields unavailable for changes is expected behavior if you choose to target all instances.

@@ -99,7 +99,7 @@ OpsCenter doesn't support publishing OpsItems to an Amazon SNS topic that is con
    ```
 
     In the following example, the new block is entered at line 14.  
-![Editing the AWS KMS access policy of an Amazon SNS topic.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_KMS_access_policy.png)
+![Editing the AWS KMS access policy of an Amazon SNS topic.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_KMS_access_policy.png)
 
 1. Choose **Save changes**.
 
@@ -117,7 +117,7 @@ Default OpsItems rules in Amazon EventBridge aren't configured with an Amazon Re
 1. Choose the **OpsItems** tab, and then choose **Configure sources**.
 
 1. Choose the name of the source rule that you want to configure with a `notifications` block, as shown in the following example.  
-![Choosing an Amazon EventBridge rule to add an Amazon SNS notifications block.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_2.png)
+![Choosing an Amazon EventBridge rule to add an Amazon SNS notifications block.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_2.png)
 
    The rule opens in Amazon EventBridge.
 

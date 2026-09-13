@@ -78,7 +78,7 @@ Some of the steps in this procedure contain explicit instructions for Ubuntu Ser
      ```
 
 1. Open a simple editor like VIM, and depending on whether you're using an HTTP proxy server or HTTPS proxy server, add one of the following configurations.  
-![Enter new content above the line "### Lines below this comment will be discarded."](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/update-proxy-callout.png)
+![Enter new content above the line "### Lines below this comment will be discarded."](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/update-proxy-callout.png)
 
     **For an HTTP proxy server:** 
 

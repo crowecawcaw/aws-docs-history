@@ -18,10 +18,10 @@ If Amazon EventBridge creates the OpsItem, the system automatically populates th
 1. Choose the **OpsItems** tab.
 
 1. Choose an OpsItem ID.  
-![A new OpsItem on the OpsCenter Overview page.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1.png)
+![A new OpsItem on the OpsCenter Overview page.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1.png)
 
 1. To view information about the impacted resource, choose the **Related resources details** tab.  
-![Viewing the Related resource details tab for an OpsItem.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1_5.png)
+![Viewing the Related resource details tab for an OpsItem.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1_5.png)
 
    This tab displays information about the resource from several AWS services. Expand the **Resource details** section to view information about this resource as provided by the AWS service that hosts it. You can also toggle through other related resources associated with this OpsItem by using the **Related resources** list.
 

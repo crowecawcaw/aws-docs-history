@@ -12,7 +12,7 @@ Each rule includes a preset **Category** and **Severity** value. When the system
 **Important**  
 You can't edit the **Category** and **Severity** values for default rules but you can edit these values on OpsItems created from the default rules. 
 
-![Default rules for creating OpsItems in Systems Manager Explorer](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-default-rules.png)
+![Default rules for creating OpsItems in Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-default-rules.png)
 
 
 **To edit default rules for creating OpsItems**

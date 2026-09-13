@@ -317,17 +317,17 @@ The **Compliance resources summary** section displays a count of resources that 
 **Note**  
 Custom:DSC is the default **ComplianceType** value in the `AWS-ApplyDSCMofs` document. This value is customizable.
 
-![Viewing counts in the Compliance resources summary section of the Compliance page.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-3.png)
+![Viewing counts in the Compliance resources summary section of the Compliance page.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-3.png)
 
 
 The **Details overview for resources** section displays information about the AWS resource with the noncompliant DSC resource. This section also includes the MOF name, script execution steps, and (when applicable) a **View output** link to view detailed status information. 
 
-![Viewing compliance details for a MOF execution resource failure](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-1.png)
+![Viewing compliance details for a MOF execution resource failure](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-1.png)
 
 
 The **View output** link displays the last 4,000 characters of the detailed status. Systems Manager starts with the exception as the first element, and then scans back through the verbose messages and prepends as many as it can until it reaches the 4,000 character quota. This process displays the log messages that were output before the exception was thrown, which are the most relevant messages for troubleshooting.
 
-![Viewing detailed output for MOF resource compliance issue](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-2.png)
+![Viewing detailed output for MOF resource compliance issue](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-2.png)
 
 
 For information about how to view compliance information, see [AWS Systems Manager Compliance](systems-manager-compliance.md).

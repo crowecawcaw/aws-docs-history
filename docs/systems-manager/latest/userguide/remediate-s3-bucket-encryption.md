@@ -106,6 +106,6 @@ After completing the previous two tasks, use the following procedure to change t
 
 1. Select the **Customize encryption settings (advanced)** check box.
 
-1. In the search (![The search icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box, choose the ID of an existing key, or paste the ARN of an existing key.
+1. In the search (![The search icon](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box, choose the ID of an existing key, or paste the ARN of an existing key.
 
 1. Choose **Save**.

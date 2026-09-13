@@ -196,7 +196,7 @@ Use the following procedure to view inventory data from multiple AWS Regions and
 **Important**  
 The Inventory **Detailed View** page is only available in AWS Regions that offer Amazon Athena. If the following tabs aren't displayed on the Systems Manager Inventory page, it means Athena isn't available in the Region and you can't use the **Detailed View** to query data.  
 
-![Displaying Inventory Dashboard | Detailed View | Settings tabs](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
+![Displaying Inventory Dashboard | Detailed View | Settings tabs](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
 
 
 **To view inventory data from multiple Regions and accounts in the AWS Systems Manager console**
@@ -206,16 +206,16 @@ The Inventory **Detailed View** page is only available in AWS Regions that offer
 1. In the navigation pane, choose **Inventory**.
 
 1. Choose the **Detailed View** tab.  
-![Accessing the AWS Systems Manager Inventory Detailed View page](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view.png)
+![Accessing the AWS Systems Manager Inventory Detailed View page](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view.png)
 
 1. Choose the resource data sync for which you want to query data.  
-![Displaying inventory data in the AWS Systems Manager console](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-display-data.png)
+![Displaying inventory data in the AWS Systems Manager console](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-display-data.png)
 
 1. In the **Inventory Type** list, choose the type of inventory data that you want to query, and then press Enter.  
-![Choosing an inventory type in the AWS Systems Manager console](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-type.png)
+![Choosing an inventory type in the AWS Systems Manager console](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-type.png)
 
 1. To filter the data, choose the Filter bar, and then choose a filter option.  
-![Filtering inventory data in the AWS Systems Manager console](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-filter.png)
+![Filtering inventory data in the AWS Systems Manager console](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-filter.png)
 
 You can use the **Export to CSV** button to view the current query set in a spreadsheet application such as Microsoft Excel. You can also use the **Query History** and **Run Advanced Queries** buttons to view history details and interact with your data in Amazon Athena.
 

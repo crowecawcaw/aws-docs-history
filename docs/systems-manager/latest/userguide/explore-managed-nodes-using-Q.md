@@ -11,7 +11,7 @@ For more information about interacting with Amazon Q, see [Chatting with Amazon 
 
 **To explore managed nodes using Amazon Q**
 
-1. From anywhere in the AWS Management Console, choose the Amazon Q icon (![The Amazon Q icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/q-icon-white.png)).
+1. From anywhere in the AWS Management Console, choose the Amazon Q icon (![The Amazon Q icon](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/q-icon-white.png)).
 
 1. In the prompt field at the bottom of the Amazon Q pane, ask a question about managed nodes in your account or organization.
 **Tip**  

@@ -14,4 +14,4 @@ If you configure Explorer to aggregate data from an organization in AWS Organiza
 
 The following diagram shows a resource data sync configured to work with AWS Organizations. In this scenario, the user has two accounts defined in AWS Organizations. Resource data sync aggregates data from both accounts and multiple AWS Regions into the AWS Organizations management account where it's then displayed in Explorer.
 
-![Resource data sync for Systems Manager Explorer](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ExplorerSyncFromSource.png)
+![Resource data sync for Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/ExplorerSyncFromSource.png)

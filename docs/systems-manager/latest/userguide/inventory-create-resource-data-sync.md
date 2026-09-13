@@ -20,7 +20,7 @@ Diagram 1 shows how resource data sync aggregates inventory data from Amazon EC2
 
 **Diagram 1: Resource data sync with multiple AWS accounts and AWS Regions**
 
-![Systems Manager resource data sync architecture](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-resource-data-sync-updated.png)
+![Systems Manager resource data sync architecture](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-resource-data-sync-updated.png)
 
 
 If you delete a managed node, resource data sync preserves the inventory file for the deleted node. For running nodes, however, resource data sync automatically overwrites old inventory files when new files are created and written to the Amazon S3 bucket. If you want to track inventory changes over time, you can use the AWS Config service to track the `SSM:ManagedInstanceInventory` resource type. For more information, see [Getting Started with AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html).
@@ -130,7 +130,7 @@ If the sync and the target Amazon S3 bucket are located in different regions, yo
 
 To synchronize inventory data from multiple AWS Regions, you must create a resource data sync in *each* Region. Repeat this procedure in each AWS Region where you want to collect inventory data and send it to the central Amazon S3 bucket. When you create the sync in each Region, specify the central Amazon S3 bucket in the **Bucket name** field. Then use the **Bucket region** option to choose the Region where you created the central Amazon S3 bucket, as shown in the following screen shot. The next time the association runs to collect inventory data, Systems Manager stores the data in the central Amazon S3 bucket. 
 
-![Systems Manager resource data sync from multiple AWS Regions](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-rds-multiple-regions.png)
+![Systems Manager resource data sync from multiple AWS Regions](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-rds-multiple-regions.png)
 
 
 ## Creating an inventory resource data sync for accounts defined in AWS Organizations

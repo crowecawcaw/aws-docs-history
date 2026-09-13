@@ -28,7 +28,7 @@ OpsCenter enforces a limit of 15 insights per type. If a type reaches this limit
 
 When you choose an insight, OpsCenter displays information about the affected OpsItems and resources. The following screenshot shows an example with the details of a duplicate OpsItem insight. 
 
-![Detailed view of an OpsCenter insight with information about OpsItems.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsCenter-insights-detailed.png)
+![Detailed view of an OpsCenter insight with information about OpsItems.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsCenter-insights-detailed.png)
 
 
 Operational insights are turned off by default. For more information about working with operational insights, see the following topics.

@@ -32,7 +32,7 @@ Depending on the requirements specified in a change template, change requests th
 **Original approval workflows and updated and/or approvals**  
 Using change templates created before January 23, 2023, an approval must be received from each specified approver for the change request to be approved at that level. For example, in the approval level setup shown in the following image, four approvers are specified. Specified approvers include two users (John Stiles and Ana Carolina Silva), a user group that contains three members (GroupOfThree), and a user role that represents ten users (RoleOfTen).
 
-![Approval level showing four required per-line approvers.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-1.png)
+![Approval level showing four required per-line approvers.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-1.png)
 
 
 For the change request to be approved at this level, it must be approved by John Stiles, Ana Carolina Silva, one member of the `GroupOfThree` group, and one member of the `RoleOfTen` role.
@@ -41,7 +41,7 @@ Using change templates created on or after January 23, 2023, for each approval l
 
 For example, in the approval level area shown in the following image, three approvals are required. The template-specified approvers include two users (John Stiles and Ana Carolina Silva), a user group that contains three members (`GroupOfThree`), and a user role that represents ten users (`RoleOfTen`).
 
-![Approval level showing three approvals are required and four specified approvers.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-2.png)
+![Approval level showing three approvals are required and four specified approvers.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-2.png)
 
 
 If all three users in the `GroupOfThree` group approve your change request, it is approved for that level. It's not necessary to receive an approval from each user, group, or role. The minimum number of approvals can come from any combination of potential approvers.

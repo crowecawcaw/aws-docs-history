@@ -158,7 +158,7 @@ Use the following procedure to create a custom service role for Maintenance Wind
    1. Choose **Systems Manager**.
 
       The following image highlights the location of the Systems Manager option.  
-![Systems Manager is one of the options for Use case.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
+![Systems Manager is one of the options for Use case.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
 
 1. Choose **Next**. 
 

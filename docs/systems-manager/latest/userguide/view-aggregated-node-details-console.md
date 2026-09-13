@@ -12,7 +12,7 @@ In the Systems Manager console, you can then group your managed nodes according 
 
 Lists all managed nodes in your organization or account.
 
-![A list of managed nodes in the Explore nodes page](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-managed-nodes.png)
+![A list of managed nodes in the Explore nodes page](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-managed-nodes.png)
 
 
 ------
@@ -20,7 +20,7 @@ Lists all managed nodes in your organization or account.
 
 Provides tabs for viewing data for Amazon Elastic Compute Cloud (Amazon EC2) instances and other machine types separately. Other types include on-premises servers, AWS IoT Greengrass core devices, AWS IoT and non-AWS edge devices, and VMs in other cloud environments.
 
-![Lists of managed nodes on node type tabs](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-node-types.png)
+![Lists of managed nodes on node type tabs](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-node-types.png)
 
 
 ------
@@ -28,7 +28,7 @@ Provides tabs for viewing data for Amazon Elastic Compute Cloud (Amazon EC2) ins
 
 Provides a tab for each operating system type in your organization or account, such as **Amazon Linux** and **Microsoft Windows Server 2022 Datacenter**. On each tab, you can further filter the list by selecting only specific versions of the operating systems, such as *Amazon Linux 2* and *Amazon Linux 2023*.
 
-![Lists of managed nodes on OS tabs](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-operating-system.png)
+![Lists of managed nodes on OS tabs](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-operating-system.png)
 
 
 ------
@@ -36,7 +36,7 @@ Provides a tab for each operating system type in your organization or account, s
 
 Provides a tab for each version of SSM Agent installed on managed nodes in your fleet. On each tab, you can further filter the list by selecting only specific operating systems, such as **Amazon Linux** and **Microsoft Windows Server 2022 Datacenter**.
 
-![Lists of managed nodes on agent tabs](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-agent-versions.png)
+![Lists of managed nodes on agent tabs](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-agent-versions.png)
 
 
 ------

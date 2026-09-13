@@ -128,7 +128,7 @@ Use the following procedure to configure your Jenkins project to invoke Automati
    ```
 
    In Jenkins, the command looks like the example in the following screenshot.  
-![A sample command in Jenkins software.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-ami-jenkins2.png)
+![A sample command in Jenkins software.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-ami-jenkins2.png)
 
 1. In the Jenkins project, choose **Build Now**. Jenkins returns output similar to the following example.  
-![Sample command output in Jenkins software.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-ami-jenkins.png)
+![Sample command output in Jenkins software.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-ami-jenkins.png)

@@ -25,7 +25,7 @@ The number of nodes reported as unmanaged on the **Unmanaged EC2 instances issue
 
 This number is reported as **Impacted nodes** in the **Issue summary** area. In the following image, this number of impacted nodes not currently managed by Systems Manager is `40`.
 
-![The "Issue summary" area showing 40 impacted nodes in the Diagnose and remedidate page](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-unmanaged-EC2-instance-count.png)
+![The "Issue summary" area showing 40 impacted nodes in the Diagnose and remedidate page](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-unmanaged-EC2-instance-count.png)
 
 
 Unlike the report of unmanaged EC2 instances on the **Review node insights** page, this count of EC2 instances is not dynamic. It represents findings made during the last reported diagnostic scan, shown as the **Scan time** value. We therefore recommend running a diagnostic scan for unmanaged EC2 instances on a regular schedule to keep this reported number of impacted nodes up to date.

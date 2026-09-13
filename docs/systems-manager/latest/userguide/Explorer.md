@@ -11,7 +11,7 @@ To raise operational awareness, Explorer also displays operational work items (O
 
 The following image shows some of the individual report boxes, called *widgets*, which are available in Explorer.
 
-![Explorer dashboard in AWS Systems Manager](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Explorer-1-overview.png)
+![Explorer dashboard in AWS Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/Explorer-1-overview.png)
 
 
 ## What are the features of Explorer?

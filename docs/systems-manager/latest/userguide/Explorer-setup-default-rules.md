@@ -19,4 +19,4 @@ You can disable a default rule or change its category and severity level in the 
 
 You can also edit the category or severity assigned to an individual OpsItem created from these rules in the Systems Manager console. For information, see [Editing an OpsItem](OpsCenter-working-with-OpsItems-editing-details.md). 
 
-![Default rules for creating OpsItems in Systems Manager Explorer](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-default-rules.png)
+![Default rules for creating OpsItems in Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-default-rules.png)

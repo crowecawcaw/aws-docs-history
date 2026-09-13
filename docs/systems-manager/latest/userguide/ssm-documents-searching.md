@@ -73,12 +73,12 @@ The Systems Manager **Documents** page automatically displays the following filt
 + Document type
 + Tag key
 
-![Filter options on SSM Documents page.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssm-documents-filters-1.png)
+![Filter options on SSM Documents page.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssm-documents-filters-1.png)
 
 
 You can search for SSM documents by using a single filter. If you want to return a more specific set of SSM documents, you can apply multiple filters. Here is an example of a search that uses the **Platform types** and the **Document name prefix** filters.
 
-![Applying multiple filter options on the SSM Documents page.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssm-documents-filters-2.png)
+![Applying multiple filter options on the SSM Documents page.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssm-documents-filters-2.png)
 
 
 If you apply multiple filters, Systems Manager creates different search statements based on the filters you choose: 

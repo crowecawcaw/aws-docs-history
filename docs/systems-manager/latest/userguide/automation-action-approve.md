@@ -108,7 +108,7 @@ You can approve or deny Automations that are waiting for approval in the console
 1. In the navigation pane, choose **Automation**.
 
 1. Choose the option next to an Automation with a status of **Waiting**.  
-![Accessing the Approve/Deny Automation page](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-approve-action-aws.png)
+![Accessing the Approve/Deny Automation page](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-approve-action-aws.png)
 
 1. Choose **Approve/Deny**.
 

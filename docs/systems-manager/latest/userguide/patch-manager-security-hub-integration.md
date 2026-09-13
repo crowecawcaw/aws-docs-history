@@ -62,7 +62,7 @@ This procedure describes how to view findings in Security Hub CSPM about managed
 
 1. In the navigation pane, choose **Findings**.
 
-1. Choose the **Add filters** (![The Search icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box.
+1. Choose the **Add filters** (![The Search icon](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box.
 
 1. In the menu, under **Filters**, choose **Product name**.
 

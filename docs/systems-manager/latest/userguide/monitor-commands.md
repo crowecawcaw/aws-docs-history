@@ -66,7 +66,7 @@ Systems Manager enforces the following timeout values when running commands.
 **Total Timeout**  
 In the Systems Manager console, you specify the timeout value in the **Timeout (seconds)** field. After a command is sent, Run Command checks whether the command has expired or not. If a command reaches the command expiration limit (total timeout), it changes status to `DeliveryTimedOut` for all invocations that have the status `InProgress`, `Pending` or `Delayed`.
 
-![The Timeout (seconds) field in the Systems Manager console](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-delivery-time-out-time-out-seconds.png)
+![The Timeout (seconds) field in the Systems Manager console](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-delivery-time-out-time-out-seconds.png)
 
 
 On a more technical level, total timeout (**Timeout (seconds)**) is a combination of two timeout values, as shown here: 
@@ -95,7 +95,7 @@ In the Systems Manager console, you specify the execution timeout value in the *
 **Note**  
 Run Command relies on the SSM Agent document terminal response to determine whether the command was delivered to the agent. SSM Agent must send an `ExecutionTimedOut` signal for an invocation or command to be marked as `ExecutionTimedOut`.
 
-![The Execution Timeout field in the Systems Manager console](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-execution-timeout-console.png)
+![The Execution Timeout field in the Systems Manager console](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-execution-timeout-console.png)
 
 
 **Default Execution Timeout**  

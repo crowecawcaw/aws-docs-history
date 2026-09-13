@@ -406,12 +406,12 @@ The **Compliance resources summary** section displays a count of resources that 
 **Note**  
 `Custom:Chef` is the default **ComplianceType** value in the `AWS-ApplyChefRecipes` document. This value is customizable.
 
-![Viewing counts in the Compliance resources summary section of the Compliance page.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-chef-compliance-summary.png)
+![Viewing counts in the Compliance resources summary section of the Compliance page.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-chef-compliance-summary.png)
 
 
 The **Details overview for resources** section shows information about the AWS resource that isn't in compliance. This section also includes the Chef resource type against which compliance was run, severity of issue, compliance status, and links to more information when applicable.
 
-![Viewing compliance details for a Chef managed resource failure](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-chef-compliance-details.png)
+![Viewing compliance details for a Chef managed resource failure](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-chef-compliance-details.png)
 
 
 **View output** shows the last 4,000 characters of the detailed status. Systems Manager starts with the exception as the first element, finds verbose messages, and shows them until it reaches the 4,000 character quota. This process displays the log messages that were output before the exception was thrown, which are the most relevant messages for troubleshooting.

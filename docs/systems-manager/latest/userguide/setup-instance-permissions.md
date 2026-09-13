@@ -113,7 +113,7 @@ Depending on whether you're creating a new role for your instance profile or add
 
 1. On the **Add permissions** page, do the following: 
    + Use the **Search** field to locate the **AmazonSSMManagedInstanceCore** policy. Select the check box next to its name, as shown in the following illustration.   
-![The check box is selected in the AmazonSSMManagedInstanceCore row.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
+![The check box is selected in the AmazonSSMManagedInstanceCore row.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
 
      The console retains your selection even if you search for other policies.
    + If you created a custom S3 bucket policy in the previous procedure, [(Optional) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy), search for it and select the check box next to its name.

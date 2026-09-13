@@ -36,7 +36,7 @@ In the visual design experience, a workflow is a graphical representation of you
 **To create a workflow**
 
 1. Next to the **Design** and **Code** toggle, select the pencil icon and enter a name for your runbook. For this tutorial, enter **VisualDesignExperienceTutorial**.  
-![Visual design experience name your runbook](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_tutorial_name.png)
+![Visual design experience name your runbook](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_tutorial_name.png)
 
 1. In the **Document attributes** section of the **Form** panel, expand the **Input parameters** dropdown, and select **Add a parameter**.
 
@@ -45,14 +45,14 @@ In the visual design experience, a workflow is a graphical representation of you
    1. In the **Type** dropdown, choose **AWS::EC2::Instance**.
 
    1. Select the **Required** toggle.  
-![Create a parameter for your runbook](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_actions_tutorial_parameter.png)
+![Create a parameter for your runbook](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_actions_tutorial_parameter.png)
 
 1. In the **AWS APIs** browser, enter **DescribeInstances** in the search bar.
 
 1. Move an **Amazon EC2 – DescribeInstances** action to the empty canvas.
 
 1. For **Step name**, enter a value. For this tutorial, you can use the name **GetInstanceState**.  
-![Choose an Amazon EC2 describe instances API action.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_tutorial_api_action.png)
+![Choose an Amazon EC2 describe instances API action.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_tutorial_api_action.png)
 
    1. Expand the **Additional inputs** dropdown, and in the **Input name** field, enter **InstanceIds**.
 
@@ -81,7 +81,7 @@ In the visual design experience, a workflow is a graphical representation of you
    1. For **Operator**, choose **is equal to**.
 
    1. For **Value**, choose **String** from the dropdown list. Enter **stopped**.  
-![Define a condition for a branch action.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_tutorial_condition.png)
+![Define a condition for a branch action.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_tutorial_condition.png)
 
    1. Select **Save conditions**.
 
@@ -146,7 +146,7 @@ In the visual design experience, a workflow is a graphical representation of you
    1. In the **Input value** field, enter **`{"commands": "echo 'Hello World'"}`**.
 
 1. Review the completed runbook in the canvas and select **Create runbook** to save the tutorial runbook.  
-![Review and create the runbook.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_tutorial_complete.png)
+![Review and create the runbook.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_tutorial_complete.png)
 
 ## Step 3: Review the auto-generated code
 <a name="view-generated-code"></a>

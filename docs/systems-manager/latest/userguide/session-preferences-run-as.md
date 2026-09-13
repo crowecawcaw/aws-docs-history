@@ -44,6 +44,6 @@ If you activate Run As without specifying an OS account or tagging an IAM entity
      Using this option, you can specify unique OS users for different IAM entities if you choose. For more information about tagging IAM entities (users or roles), see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*.
 
      The following is an example.  
-![Screenshot of specifying tags for Session Manager Run As permission.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssn-run-as-tags.png)
+![Screenshot of specifying tags for Session Manager Run As permission.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/ssn-run-as-tags.png)
 
 1. Choose **Save**.

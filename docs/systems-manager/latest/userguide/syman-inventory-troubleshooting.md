@@ -77,7 +77,7 @@ The `AWS-ListWindowsInventory` document is deprecated. Don't use this document t
 
 The Inventory **Detailed View ** page is only available in AWS Regions that offer Amazon Athena. If the following tabs aren't displayed on the Inventory page, it means Athena isn't available in the Region and you can't use the **Detailed View** to query data.
 
-![Displaying Inventory Dashboard | Detailed View | Settings tabs](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
+![Displaying Inventory Dashboard | Detailed View | Settings tabs](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-detailed-view-for-error.png)
 
 
 ## UnsupportedAgent

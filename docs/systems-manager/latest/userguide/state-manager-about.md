@@ -77,7 +77,7 @@ For associations that are created with Automation runbooks to be applied when ne
 + The association must specify both parameters and targets.
 
   In the console, the **Parameter** and **Targets** fields are displayed when you choose a rate control execution.  
-![Parameter and target options are presented in the console for rate control executions](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sm_Rate_control_execution_options.png)
+![Parameter and target options are presented in the console for rate control executions](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/sm_Rate_control_execution_options.png)
 
   When you use the [CreateAssociation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html), [CreateAssociationBatch](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociationBatch.html), or [UpdateAssociation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateAssociation.html) API actions, you can specify these values using the `AutomationTargetParameterName` and `Targets` inputs. In each of these API actions, you can also prevent the association from running each time a target changes by setting the `ApplyOnlyAtCronInterval` parameter to `true`. 
 

@@ -17,7 +17,7 @@ Depending on the size of the report, you're prompted to download the report to y
 
 1. (Optional) Follow the steps in [Choosing a filter view for managed node summaries](explore-nodes-filter-view.md) to refine the list of managed nodes displayed for your organization or account.
 
-1. Choose **Report** (![The download report icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/download-arrow-icon.png)).
+1. Choose **Report** (![The download report icon](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/download-arrow-icon.png)).
 
 1. If the **Download report** dialog box is displayed, do the following:
 

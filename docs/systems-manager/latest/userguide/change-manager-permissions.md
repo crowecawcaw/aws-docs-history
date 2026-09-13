@@ -121,7 +121,7 @@ Use the following procedure to create a Change Manager assume role, a type of se
    1. For **Use cases for other AWS services**, choose **Systems Manager**
 
    1. Choose **Systems Manager**, as shown in the following image.  
-![Screenshot illustrating the Systems Manager option selected as a use case.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
+![Screenshot illustrating the Systems Manager option selected as a use case.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
 
 1. Choose **Next**.
 

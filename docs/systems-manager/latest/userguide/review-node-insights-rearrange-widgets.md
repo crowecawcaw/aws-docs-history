@@ -13,7 +13,7 @@ You can customize the layout in the **Review node insights** page by rearranging
 
 1. In the navigation pane, choose **Review node insights**.
 
-1. To customize the widget layout, choose a widget that you want to move. Press and hold the drag handle (![The drag handle](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/drag-handle-dashboard.png)) of the widget and then drag it to its new location.
+1. To customize the widget layout, choose a widget that you want to move. Press and hold the drag handle (![The drag handle](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/drag-handle-dashboard.png)) of the widget and then drag it to its new location.
 
 1. Repeat this process for each widget that you want to reposition.
 

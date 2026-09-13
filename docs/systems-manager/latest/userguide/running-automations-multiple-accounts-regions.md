@@ -14,7 +14,7 @@ For example, you can do the following by using automation runbooks:
 
 The following diagram shows an example of a user who is running the `AWS-RestartEC2Instances` runbook in multiple Regions and accounts from a central account. The automation locates the instances by using the specified tags in the targeted Regions and accounts.
 
-![Illustration showing Systems Manager Automation running in multiple Regions and multiple accounts.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-multi-region-and-multi-account.png)
+![Illustration showing Systems Manager Automation running in multiple Regions and multiple accounts.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-multi-region-and-multi-account.png)
 
 
 **Choose a central account for Automation**  

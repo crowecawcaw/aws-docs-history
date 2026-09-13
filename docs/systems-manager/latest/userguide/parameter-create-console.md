@@ -50,7 +50,7 @@ Parameter Store only supports [symmetric encryption KMS keys](https://docs.aws.a
 Parameters can't be referenced or nested in the values of other parameters. You can't include `{{}}` or `{{ssm:{{parameter-name}}}}` in a parameter value.  
 If you chose **SecureString**, the value of the parameter is masked by default ("\*\*\*\*\*\*") when you view it later on the parameter **Overview** tab, as shown in the following illlustration. Choose **Show** to display the parameter value.  
 
-![A SecureString parameter's value is masked with the option to display the value.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/ps-overview-show-secstring.png)
+![A SecureString parameter's value is masked with the option to display the value.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/ps-overview-show-secstring.png)
 
 
 1. (Optional) In the **Tags** area, apply one or more tag key-value pairs to the parameter.

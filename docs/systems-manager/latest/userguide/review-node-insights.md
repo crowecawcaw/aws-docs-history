@@ -18,7 +18,7 @@ After onboarding, open the [Systems Manager console](https://console.aws.amazon.
 
 The following image shows the individual report boxes, called *widgets*, which are available on the **Review node insights** page.
 
-![Node data displayed on Systems Manager Review node insights page](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/SYS2-Dashboard-Nodes.png)
+![Node data displayed on Systems Manager Review node insights page](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/SYS2-Dashboard-Nodes.png)
 
 
 The display supports widgets that provide you with the following information.

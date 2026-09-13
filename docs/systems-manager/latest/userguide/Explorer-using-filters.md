@@ -25,7 +25,7 @@ Before you customize widget layout, verify that the widgets you want to view are
 
 To customize widget layout in Explorer, choose a widget that you want to move. Press and hold the name of the widget and then drag it to its new location.
 
-![Moving a widget in Systems Manager Explorer](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-customize.png)
+![Moving a widget in Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-customize.png)
 
 
 Repeat this process for each widget that you want to reposition.
@@ -48,7 +48,7 @@ By default, Explorer displays data for the current AWS account and the current R
 1. Use the **Regions** list to choose either a specific AWS Region or choose **All Regions**.
 
 1. Choose the Search bar, and then choose the criteria on which to filter the data.  
-![Using the filters Search bar in Systems Manager Explorer](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-filters.png)
+![Using the filters Search bar in Systems Manager Explorer](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/explorer-filters.png)
 
 1. Press Enter.
 

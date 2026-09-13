@@ -67,7 +67,7 @@ For information about generating patch compliance reports that are downloaded to
    + In the **Managed instances** area, choose the ID of the managed node for which you want to review patch compliance results.
    + In the **Details** area, in the **Properties** list, choose **Patches**.
 
-1. (Optional) In the Search box (![The Search icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)), choose from the available filters.
+1. (Optional) In the Search box (![The Search icon](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)), choose from the available filters.
 
    For example, for Red Hat Enterprise Linux (RHEL), choose from the following:
    + Name

@@ -7,7 +7,7 @@
 
 Operational data is custom data that provides useful reference details about an OpsItem. You can enter multiple key-value pairs of operational data. For example, you can specify log files, error strings, license keys, troubleshooting tips, or other relevant data. The maximum length of the key can be 128 characters, and the maximum size of the value can be 20 KB. 
 
-![Viewing operational data for an OpsItem.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_7.png)
+![Viewing operational data for an OpsItem.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_7.png)
 
 
 You can make the data searchable by other users in the account, or you can restrict search access. Searchable data means that all users with access to the OpsItem **Overview** page (as provided by the [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html) API operation) can view and search on the specified data. Operational data that isn't searchable is only viewable by users who have access to the OpsItem (as provided by the [GetOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetOpsItem.html) API operation).

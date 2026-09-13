@@ -22,7 +22,7 @@ In the per-level approval level setup shown in the following image, three approv
 
 If all three users in the `GroupOfThree` group approve the change request, it is approved for that level. It's not necessary to receive an approval from each user, group, or role. The minimum number of approvals can come from any combination of specified approvers. We recommend per-level approvals for your Change Manager operations.
 
-![Approval level showing three approvals are required and four specified approvers.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-2.png)
+![Approval level showing three approvals are required and four specified approvers.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-2.png)
 
 
 The following sample illustrates part of the YAML code for this configuration. 
@@ -65,7 +65,7 @@ templateInformation: >
 
 In the approval level setup shown in the following image, four approvers are specified. These include two IAM users (John Stiles and Ana Carolina Silva), a user group that contains three members (`GroupOfThree`), and a user role that represents ten users (`RoleOfTen`). Per-line approvals are supported for backwards compatibility but not recommended.
 
-![Approval level showing four required per-line approvers.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-1.png)
+![Approval level showing four required per-line approvers.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-1.png)
 
 
 For the change request to be approved in this per-line approval configuration, it must be approved by all approver lines: John Stiles, Ana Carolina Silva, one member of the `GroupOfThree` group, and one member of the `RoleOfTen` role.
@@ -112,7 +112,7 @@ templateInformation: >
 
 In the combined per-level and per-line approval setup shown in the following image, three approvals are specified for the level, but four approvals are specified for the line-item approvals. Whichever approval type requires more approvals takes precedence over the other, so four approvals are required by this configuration. Combined per-level and per-line approval are not recommended.
 
-![Approval level showing three approvals required for the level but four required at the line level.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-3.png)
+![Approval level showing three approvals required for the level but four required at the line level.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-3.png)
 
 
 ```

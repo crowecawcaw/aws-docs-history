@@ -9,7 +9,7 @@ The visual design experience for Systems Manager Automation is a low-code visual
 
 Get to know the visual design experience with an overview of the interface components:
 
-![Visual design experience components](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_overview.png)
+![Visual design experience components](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_overview.png)
 
 + The **Actions** browser contains the **Actions**, **AWS APIs**, and **Runbooks** tabs.
 + The *canvas* is where you move actions into your workflow graph. You can also change the order of actions and select them to configure.
@@ -25,7 +25,7 @@ From the **Actions** browser, you can select actions to move into your workflow 
 + The **AWS APIs** tab lists AWS APIs that you can move into your runbook's workflow graph.
 + The **Runbooks** tab provides ready-to-use runbooks as building blocks. For example, you can use them to perform common remediation tasks on Amazon EC2 instances without re-creating the same actions.
 
-![Visual design experience actions browser](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_actions_multi_view.png)
+![Visual design experience actions browser](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_actions_multi_view.png)
 
 
 ## Canvas
@@ -35,7 +35,7 @@ After you choose an action, drag it to the canvas and drop it into your workflow
 
 Move an action from the **Actions** browser into your runbook's workflow graph. A line shows where it will be placed in your workflow. To change the order of an action, you can move it to a different place in your workflow. The new action has been added to your workflow, and its code is auto-generated.
 
-![Visual design experience canvas](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_canvas.png)
+![Visual design experience canvas](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_canvas.png)
 
 
 ## Form
@@ -43,10 +43,10 @@ Move an action from the **Actions** browser into your runbook's workflow graph. 
 
 After you add an action to your runbook workflow, you can configure it to meet your use case. Choose the action that you want to configure, and you see its parameters and options in the **Form** panel. You can also see the YAML or JSON code by choosing the **Content** toggle. The code associated with the action you have selected is highlighted.
 
-![Visual design experience form panel](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_form.png)
+![Visual design experience form panel](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_form.png)
 
 
-![Visual design experience content panel](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_content.png)
+![Visual design experience content panel](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/visual_designer_content.png)
 
 
 ## Keyboard shortcuts

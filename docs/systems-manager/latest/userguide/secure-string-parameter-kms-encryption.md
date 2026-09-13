@@ -97,7 +97,7 @@ The following workflow shows how Parameter Store uses a KMS key to encrypt and d
 1. When you use `PutParameter` to create a `SecureString` parameter, Parameter Store sends an `Encrypt` request to AWS KMS. That request includes the plaintext parameter value, the KMS key that you chose, and the [Parameter Store encryption context](#parameter-store-kms-encryption-context). During transmission to AWS KMS, the plaintext value in the `SecureString` parameter is protected by Transport Layer Security (TLS).
 
 1. AWS KMS encrypts the parameter value with the specified KMS key and encryption context. It returns the ciphertext to Parameter Store, which stores the parameter name and its encrypted value.  
-![Encrypting a standard SecureString parameter value](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/service-pstore-standard.png)
+![Encrypting a standard SecureString parameter value](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/service-pstore-standard.png)
 
 ### Decrypt a standard parameter
 <a name="kms-encryption-securestring-standard-decrypt"></a>
@@ -200,7 +200,7 @@ The following workflow shows how Parameter Store uses a KMS key to encrypt and d
 1. The AWS Encryption SDK uses the plaintext data key to encrypt the parameter value. It returns an [encrypted message](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/concepts.html#message) that includes the encrypted parameter value, the encrypted data key, and other data, including the Parameter Store encryption context.
 
 1. Parameter Store stores the encrypted message as the parameter value.  
-![Encrypting an advanced SecureString parameter value](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/service-pstore-advanced.png)
+![Encrypting an advanced SecureString parameter value](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/service-pstore-advanced.png)
 
 ### Decrypt an advanced parameter
 <a name="kms-encryption-securestring-advanced-decrypt"></a>

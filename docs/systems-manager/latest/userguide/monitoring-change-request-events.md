@@ -24,7 +24,7 @@ The following are samples of event details you can view for a change request aft
 
 The following image shows the high-level information about a change request available on the **Details** tab. These details include information such as the time the change request operation began, the ID of the user that initiated the change request, the impacted AWS Region, and the event ID and request ID associated with the request.
 
-![Details of a change request from CloudTrail Lake.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/cm-event-details.png)
+![Details of a change request from CloudTrail Lake.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/cm-event-details.png)
 
 
 ------
@@ -32,7 +32,7 @@ The following image shows the high-level information about a change request avai
 
 The following image shows the structure of the JSON content provided by CloudTrail Lake for a change request event. This data is provided on the **Event record** tab in a change request.
 
-![JSON record of a change request from CloudTrail Lake.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/cm-event-record.png)
+![JSON record of a change request from CloudTrail Lake.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/cm-event-record.png)
 
 
 ------

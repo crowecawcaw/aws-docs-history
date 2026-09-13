@@ -22,7 +22,7 @@ Data in the execution history list reports the following types of information:
 **Tip**  
 When an execution is running, you can also choose **View progress** to open the **Execution history** page.
 
-1. (Optional) In the search (![The search icon](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box, enter a phrase to help narrow down the execution list, such as **EC2** or **VPC**.
+1. (Optional) In the search (![The search icon](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)) box, enter a phrase to help narrow down the execution list, such as **EC2** or **VPC**.
 
 1. (Optional) To view additional details about an execution, in the **Execution name** column, choose an operation name, such as **AWS-DiagnoseUnmanagedEC2NetworkIssues**.
 

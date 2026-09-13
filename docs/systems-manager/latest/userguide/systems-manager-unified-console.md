@@ -7,18 +7,18 @@
 
 The unified Systems Manager console is a consolidated experience that combines various tools to help you complete common node tasks across multiple AWS accounts and AWS Regions in an AWS Organizations organization, or a single account and Region. Nodes can be EC2 instances, hybrid servers, or servers running in a multicloud environment. In the unified console, you're provided with detailed insights to your nodes. You can generate reports for your nodes, diagnose and remediate common issues that prevent nodes from reporting as managed by Systems Manager, like connectivity issues. 
 
-![Node data displayed on Systems Manager Review node insights page](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/SYS2-Dashboard-Nodes.png)
+![Node data displayed on Systems Manager Review node insights page](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/SYS2-Dashboard-Nodes.png)
 
 
 Besides summaries about your nodes on the **Review node insights** page, you can view specific details about a node from the **Explore nodes** page. 
 
-![A list of managed nodes in the Explore nodes page](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-managed-nodes.png)
+![A list of managed nodes in the Explore nodes page](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/2-explore-nodes-managed-nodes.png)
 
 
 **Node details tabs**  
 When you select a node on the **Explore nodes** page, the node detail page provides a comprehensive overview of node details and additional information on a series of tabs:
 
-![Node overview details in the Explore nodes section](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/unified-console-explore-nodes-node-details.png)
+![Node overview details in the Explore nodes section](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/unified-console-explore-nodes-node-details.png)
 
 
 ****Tags****  

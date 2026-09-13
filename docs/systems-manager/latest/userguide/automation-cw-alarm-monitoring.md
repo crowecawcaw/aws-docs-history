@@ -50,7 +50,7 @@ Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-
 1. Select a runbook and configure the input parameters for your execution.
 
 1. In the **CloudWatch alarm** section, choose an alarm to monitor during the execution.  
-![The CloudWatch alarm section of the Systems Manager Automation console showing alarm selection and the option to continue when alarm state is unavailable.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-cw-alarm-console.png)
+![The CloudWatch alarm section of the Systems Manager Automation console showing alarm selection and the option to continue when alarm state is unavailable.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-cw-alarm-console.png)
 
 1. (Optional) Toggle **Continue automation if alarm state is unavailable** to control behavior when Automation cannot retrieve the alarm state. When enabled, the execution continues even if the alarm state cannot be determined. When disabled (default), the execution stops if the alarm state cannot be retrieved.
 

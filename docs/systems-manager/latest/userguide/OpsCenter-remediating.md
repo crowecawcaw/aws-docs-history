@@ -11,12 +11,12 @@ Each OpsItem includes the **Runbooks** section that provides a list of runbooks 
 
  You can choose a status to view important details about the runbook, such as the reason why an automation failed and which step of the Automation runbook was running when the failure occurred, as shown in the following example. 
 
-![Status information for the last time an Automation runbook was run.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_results.png)
+![Status information for the last time an Automation runbook was run.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_results.png)
 
 
 The **Related resource details** page for a selected OpsItem includes the **Run automation** list. You can choose recent or resource-specific Automation runbooks and run them to remediate issues. This page also includes data providers, including Amazon CloudWatch metrics and alarms, AWS CloudTrail logs, and details from AWS Config.
 
-![Metrics available on the Related Resources tab.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_related_resource_details.png)
+![Metrics available on the Related Resources tab.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_related_resource_details.png)
 
 
 You can view information about an Automation runbook by either choosing its name in the console or by using the [Systems Manager Automation Runbook Reference](automation-documents-reference.md).
@@ -35,7 +35,7 @@ Before you use an Automation runbook to remediate an OpsItem issue, do the follo
 1. In the navigation pane, choose **OpsCenter**.
 
 1. Choose the OpsItem ID to open the details page.  
-![A new OpsItem on the OpsCenter Overview page.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1.png)
+![A new OpsItem on the OpsCenter Overview page.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1.png)
 
 1. Scroll to the **Runbooks** section.
 

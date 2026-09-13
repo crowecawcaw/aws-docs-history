@@ -7,7 +7,7 @@
 
 By using **Related OpsItems** of the **OpsItems Details** page, you can investigate operations issues and provide context for an issue. OpsItems can be related in different ways, including a parent-child relationship between OpsItems, a root cause, or a duplicate. You can associate one OpsItem with another to display it in the **Related OpsItem** section.You can specify a maximum of 10 IDs for other OpsItems that are related to the current OpsItem. 
 
-![Viewing related OpsItems.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_4.png)
+![Viewing related OpsItems.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_4.png)
 
 
 **To add a related OpsItem**

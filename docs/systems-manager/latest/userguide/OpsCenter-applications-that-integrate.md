@@ -69,7 +69,7 @@ Insight: <INSIGHT>
 
 Here is an example:
 
-![Screen shot showing the new format of an OpsItem created from a CloudWatch Insight.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItem-CWinsight.png)
+![Screen shot showing the new format of an OpsItem created from a CloudWatch Insight.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItem-CWinsight.png)
 
 
 ## Understanding OpsCenter integration with Amazon DevOps Guru

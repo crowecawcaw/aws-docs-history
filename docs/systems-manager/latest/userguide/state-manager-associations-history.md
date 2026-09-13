@@ -34,14 +34,14 @@ Use the following procedure to view the execution history for a specific associa
 1. Choose an association for which you want to view resource-level execution details. For example, choose an association that shows a status of **Failed**. You can then view the execution details for the nodes that failed to run the association.
 
    Use the search box filters to locate the execution for which you want to view details.  
-![Filtering the list of State Manager association executions.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-filter.png)
+![Filtering the list of State Manager association executions.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-filter.png)
 
 1. Choose an execution ID. The **Association execution targets** page opens. This page shows all the resources that ran the association.
 
 1. Choose a resource ID to view specific information about that resource.
 
    Use the search box filters to locate the resource for which you want to view details.  
-![Filtering the list of State Manager association executions targets.](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-targets-filter.png)
+![Filtering the list of State Manager association executions targets.](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-state-executions-targets-filter.png)
 
 1. If you're investigating an association that failed to run, you can use the **Apply association now** button to run an association once at the time of creation. After you made changes on the resource where the association failed to run, choose the **Association ID** link in the navigation breadcrumb.
 

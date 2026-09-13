@@ -12,7 +12,7 @@ This topic describes State Manager features that help you deploy an association 
 
 When you create a State Manager association, you choose which nodes to configure with the association in the **Targets** section of the Systems Manager console, as shown here.
 
-![Different options for targeting nodes when creating a State Manager association](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-targets.png)
+![Different options for targeting nodes when creating a State Manager association](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-targets.png)
 
 
 If you create an association by using a command line tool such as the AWS Command Line Interface (AWS CLI), then you specify the `targets` parameter. Targeting nodes lets you configure tens, hundreds, or thousands of nodes with an association without having to specify or choose individual node IDs. 
@@ -70,7 +70,7 @@ Use this option to target all nodes in the current AWS account and AWS Region. W
 
 You can control the execution of an association on your nodes by specifying a concurrency value and an error threshold. The concurrency value specifies how many nodes can run the association simultaneously. An error threshold specifies how many association executions can fail before Systems Manager sends a command to each node configured with that association to stop running the association. The command stops the association from running until the next scheduled execution. The concurrency and error threshold features are collectively called *rate controls*. 
 
-![Different rate control options when creating a State Manager association](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-rate-controls.png)
+![Different rate control options when creating a State Manager association](https://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-rate-controls.png)
 
 
 **Concurrency**  
