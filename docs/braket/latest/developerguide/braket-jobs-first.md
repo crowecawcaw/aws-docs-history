@@ -19,7 +19,7 @@
 
 Once you have a role with permissions to run a hybrid job, you are ready to proceed. The key piece of your first Braket hybrid job is the *algorithm script*. It defines the algorithm you want to run and contains the classical logic and quantum tasks that are part of your algorithm. In addition to your algorithm script, you can provide other dependency files. The algorithm script together with its dependencies is called the *source module*. The *entry point* defines the first file or function to run in your source module when the hybrid job starts.
 
-![Diagram showing the workflow of creating a quantum job using a console or notebook, running the algorithm script on a quantum device, and analyzing results.](http://docs.aws.amazon.com/braket/latest/developerguide/images/braket-jobs-first-workflow.jpg)
+![Diagram showing the workflow of creating a quantum job using a console or notebook, running the algorithm script on a quantum device, and analyzing results.](https://docs.aws.amazon.com/braket/latest/developerguide/images/braket-jobs-first-workflow.jpg)
 
 
 First, consider the following basic example of an algorithm script that creates five bell states and prints the corresponding measurement results.
@@ -106,12 +106,12 @@ You can also use your custom-made module with the [AwsQuantumJob.create](https:/
 
 Alternatively, you can access the log output from Amazon CloudWatch. To do this, go to the **Log groups** tab on the left menu of the job detail page, select the log group `aws/braket/jobs`, and then choose the log stream that contains the job name. In the example above, this is `braket-job-default-1631915042705/algo-1-1631915190`.
 
-![CloudWatch log group showing list of log events with file paths and timestamps for Amazon Braket SDK Python tests.](http://docs.aws.amazon.com/braket/latest/developerguide/images/braket-jobs-first-cw-log.png)
+![CloudWatch log group showing list of log events with file paths and timestamps for Amazon Braket SDK Python tests.](https://docs.aws.amazon.com/braket/latest/developerguide/images/braket-jobs-first-cw-log.png)
 
 
 You can also view the status of the hybrid job in the console by selecting the **Hybrid Jobs** page and then choose **Settings**.
 
-![Amazon Braket hybrid job details showing summary, event times, source code and instance configuration, and stopping conditions.](http://docs.aws.amazon.com/braket/latest/developerguide/images/braket-jobs-first-console-status.png)
+![Amazon Braket hybrid job details showing summary, event times, source code and instance configuration, and stopping conditions.](https://docs.aws.amazon.com/braket/latest/developerguide/images/braket-jobs-first-console-status.png)
 
 
 Your hybrid job produces some artifacts in Amazon S3 while it runs. The default S3 bucket name is `amazon-braket-<region>-<accountid>` and the content is in the `jobs/<jobname>/<timestamp>` directory. You can configure the S3 locations where these artifacts are stored by specifying a different `code_location` when the hybrid job is created with the Braket Python SDK.

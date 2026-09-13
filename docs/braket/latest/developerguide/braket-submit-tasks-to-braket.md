@@ -179,4 +179,4 @@ Probability= [0.777 0.    0.    0.223]
 Text(0, 0.5, 'counts')
 ```
 
-![Bar chart showing the number of counts to different bitstrings, with the highest bar for "000" containing over 700 counts.](http://docs.aws.amazon.com/braket/latest/developerguide/images/demo-result.png)
+![Bar chart showing the number of counts to different bitstrings, with the highest bar for "000" containing over 700 counts.](https://docs.aws.amazon.com/braket/latest/developerguide/images/demo-result.png)

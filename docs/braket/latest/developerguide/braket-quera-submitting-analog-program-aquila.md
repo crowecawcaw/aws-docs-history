@@ -24,7 +24,7 @@ This page provides a comprehensive documentation about the capabilities of the A
 
 The Aquila machine from QuEra simulates the following (time-dependent) Hamiltonian natively:
 
-![Mathematical equation with summations representing the Hamiltonian of a system, involving drive, local detuning, and interdot coupling terms.](http://docs.aws.amazon.com/braket/latest/developerguide/images/TimeDependentDrivingHamiltonian.png)
+![Mathematical equation with summations representing the Hamiltonian of a system, involving drive, local detuning, and interdot coupling terms.](https://docs.aws.amazon.com/braket/latest/developerguide/images/TimeDependentDrivingHamiltonian.png)
 
 
 **Note**  

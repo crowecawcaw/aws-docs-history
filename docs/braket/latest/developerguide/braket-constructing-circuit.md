@@ -321,7 +321,7 @@ program_set_1 = ProgramSet([
 
 This program set contains four unique programs: `circ1`, `circ2`, `circ3`, and `circuit_binding`. The `circuit_binding` program runs with five different parameter bindings, creating five executables. The other three parameter-free programs create one executable each. This results in eight total executables, as shown in the following image.
 
-![ProgramSet structure with four circuits, where c4 uses CircuitBinding for processing five input sets.](http://docs.aws.amazon.com/braket/latest/developerguide/images/program_set1.png)
+![ProgramSet structure with four circuits, where c4 uses CircuitBinding for processing five input sets.](https://docs.aws.amazon.com/braket/latest/developerguide/images/program_set1.png)
 
 
 The following second code example demonstrates how to use the `product()` method to attach the same set of observables to each executable of the program set.
@@ -339,7 +339,7 @@ program_set_2 = ProgramSet.product(
 
 For parameter-free programs, each observable is measured for each circuit. For parametric programs, each observable is measured for each input set, as shown in the following image.
 
-![ProgramSet.product showing parallel execution of three circuits, with c3 using CircuitBinding to process five input sets with five observables each.](http://docs.aws.amazon.com/braket/latest/developerguide/images/program_set2.png)
+![ProgramSet.product showing parallel execution of three circuits, with c3 using CircuitBinding to process five input sets with five observables each.](https://docs.aws.amazon.com/braket/latest/developerguide/images/program_set2.png)
 
 
 The following third code example demonstrates how to use the `zip()` method to pair individual observables with specific parameter sets in the `ProgramSet`.
@@ -351,7 +351,7 @@ program_set_3 = ProgramSet.zip(
 )
 ```
 
-![ProgramSet.zip with CircuitBinding demonstrating five parallel executions using a shared circuit with individual observable per input set.](http://docs.aws.amazon.com/braket/latest/developerguide/images/program_set3.png)
+![ProgramSet.zip with CircuitBinding demonstrating five parallel executions using a shared circuit with individual observable per input set.](https://docs.aws.amazon.com/braket/latest/developerguide/images/program_set3.png)
 
 
 Instead of `CircuitBinding()`, you can directly zip a list of observables with a list of circuits and input sets. 
@@ -364,7 +364,7 @@ program_set_4 = ProgramSet.zip(
 )
 ```
 
-![ProgramSet.zip showing parallel execution of seven circuits with their corresponding individual input set and individual observables.](http://docs.aws.amazon.com/braket/latest/developerguide/images/program_set4.png)
+![ProgramSet.zip showing parallel execution of seven circuits with their corresponding individual input set and individual observables.](https://docs.aws.amazon.com/braket/latest/developerguide/images/program_set4.png)
 
 
 For more information and examples on program sets, see the [Program set folder](https://github.com/amazon-braket/amazon-braket-examples/tree/main/examples/braket_features/program_sets) in the amazon-braket-examples Github.

@@ -5,12 +5,12 @@
 
 After your notebook instance has launched, open the instance with a standard Jupyter interface by choosing the notebook you just created.
 
-![Notebooks interface showing an existing notebook instance named amazon-braket-test with status InService and its URL.](http://docs.aws.amazon.com/braket/latest/developerguide/images/console-page.png)
+![Notebooks interface showing an existing notebook instance named amazon-braket-test with status InService and its URL.](https://docs.aws.amazon.com/braket/latest/developerguide/images/console-page.png)
 
 
 Amazon Braket notebook instances are pre-installed with the Amazon Braket SDK and all its dependencies. Start by creating a new notebook with `conda_braket` kernel.
 
-![Launcher interface for Notebooks, Console, and Other tools like Terminal, Text File, Markdown File, Python File, with highlighted conda_braket Python environment.](http://docs.aws.amazon.com/braket/latest/developerguide/images/jupyter-open.png)
+![Launcher interface for Notebooks, Console, and Other tools like Terminal, Text File, Markdown File, Python File, with highlighted conda_braket Python environment.](https://docs.aws.amazon.com/braket/latest/developerguide/images/jupyter-open.png)
 
 
 You can start with a simple “Hello, world\!” example. First, construct a circuit that prepares a Bell state, and then run that circuit on different devices to obtain the results.

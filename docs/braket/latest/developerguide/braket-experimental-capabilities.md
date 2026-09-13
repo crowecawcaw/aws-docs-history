@@ -41,7 +41,7 @@ The spatial pattern of the local detuning field is customizable for each AHS pro
 
 When running quantum programs that use the local detuning field (even if its magnitude is set to constant zero in the Hamiltonian), the device experiences faster decoherence than the T2 time listed in the performance section of Aquila's properties. When unnecessary, it is best practice to omit the local detuning field from the Hamiltonian of the AHS program.
 
-![Analog hamiltonian simulation in spin terminology, where there are qubits, a time dependent global driving field, and time dependent local detuning.](http://docs.aws.amazon.com/braket/latest/developerguide/images/AHS_spin_terminology.png)
+![Analog hamiltonian simulation in spin terminology, where there are qubits, a time dependent global driving field, and time dependent local detuning.](https://docs.aws.amazon.com/braket/latest/developerguide/images/AHS_spin_terminology.png)
 
 
 **Examples:**
@@ -71,7 +71,7 @@ The max height for tall geometries is 0.000128 m (128 um).
 
 The capabilities shown on the device properties page and the `GetDevice` call will continue to reflect the regular, lower limit on the height. When an AHS program uses atom arrangements that go beyond the regular capabilities, the filling error is expected to increase. You will find an elevated number of unexpected 0s in the `pre_sequence` part of the task result, in turn, lowering the chance to get a perfectly initialized arrangement. This effect is strongest in rows with many atoms.
 
-![The three dot graphs show depictions of tall geometries in a 1d line, ladder, and multiplex forms.](http://docs.aws.amazon.com/braket/latest/developerguide/images/tall-geometry-graphs.PNG)
+![The three dot graphs show depictions of tall geometries in a 1d line, ladder, and multiplex forms.](https://docs.aws.amazon.com/braket/latest/developerguide/images/tall-geometry-graphs.PNG)
 
 
 **Examples:**
@@ -97,7 +97,7 @@ The minimal row spacing for tight geometries is 0.000002 m (2 um).
 
 The capabilities shown on the device properties page and the `GetDevice` call will continue to reflect the regular, higher limit on the spacing. When an AHS program uses atom arrangements that go beyond the regular capabilities, the filling error is expected to increase. Customers will find an elevated number of unexpected 0s in the `pre_sequence` part of the task result, in turn, lowering the chance to get a perfectly initialized arrangement. This effect is strongest in rows with many atoms.
 
-![The graphs shows a tight geometry of a triangle lattice of dots on the left and the right graph is a hexagonal lattice of dots.](http://docs.aws.amazon.com/braket/latest/developerguide/images/tight-geometry-graphs.PNG)
+![The graphs shows a tight geometry of a triangle lattice of dots on the left and the right graph is a hexagonal lattice of dots.](https://docs.aws.amazon.com/braket/latest/developerguide/images/tight-geometry-graphs.PNG)
 
 
 **Examples:**
@@ -139,7 +139,7 @@ Amazon Braket supports dynamic circuits through OpenQASM, the Amazon Braket SDK,
 
 MCM can only be use for feed-forward control in a program. The MCM outcomes (0 or 1) are not returned as part of a task result.
 
-![The left image is the IQM Garnet 20-qubit device with 2 qubit groups in a square lattice, and the right image is the IQM Emerald 54-qubit device with 4 qubit groups in a square lattice.](http://docs.aws.amazon.com/braket/latest/developerguide/images/IQM-Garnet-Emerald-qubit-grouping.png)
+![The left image is the IQM Garnet 20-qubit device with 2 qubit groups in a square lattice, and the right image is the IQM Emerald 54-qubit device with 4 qubit groups in a square lattice.](https://docs.aws.amazon.com/braket/latest/developerguide/images/IQM-Garnet-Emerald-qubit-grouping.png)
 
 
 These images display the qubit groupings for both IQM devices. The Garnet 20-qubit device contains 2 groups of qubits, while the Emerald 54-qubit device contains 4 groups of qubits. 

@@ -7,12 +7,12 @@ You may need to cancel a hybrid job in a non-terminal state. This can be done ei
 
 To cancel your hybrid job in the console, select the hybrid job to cancel from the **Hybrid Jobs** page and then select **Cancel hybrid job** from the **Actions** dropdown menu.
 
-![Amazon Braket hybrid jobs table with 4 jobs showing their names, status, device information, and timestamps. The Actions dropdown contains options to view new hybrid job, cancel, or manage tags.](http://docs.aws.amazon.com/braket/latest/developerguide/images/braket-hybrid-cancel-job.png)
+![Amazon Braket hybrid jobs table with 4 jobs showing their names, status, device information, and timestamps. The Actions dropdown contains options to view new hybrid job, cancel, or manage tags.](https://docs.aws.amazon.com/braket/latest/developerguide/images/braket-hybrid-cancel-job.png)
 
 
 To confirm the cancellation, enter *cancel* into the input field when prompted and then select **OK**.
 
-![Dialog box to cancel a specific job with warnings about the cancellation process and a text input field to confirm by entering "cancel".](http://docs.aws.amazon.com/braket/latest/developerguide/images/braket-hybrid-cancel-job-confirm.png)
+![Dialog box to cancel a specific job with warnings about the cancellation process and a text input field to confirm by entering "cancel".](https://docs.aws.amazon.com/braket/latest/developerguide/images/braket-hybrid-cancel-job-confirm.png)
 
 
 To cancel your hybrid job using code from the Braket Python SDK, use the `job_arn` to identify the hybrid job and then call the `cancel` command on it as shown in following code.

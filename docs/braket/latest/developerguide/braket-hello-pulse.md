@@ -66,7 +66,7 @@ probability_of_zero = [
 
 The statistics of the qubit measurement exhibits the oscillatory dynamics of the qubit that oscillates between the 0 state and the 1 state. From the measurement data, you can extract the Rabi frequency and fine tune the length of the pulse to implement a particular 1-qubit gate. For example, from the data in figure below, the periodicity is about 154 ns. So a pi/2 rotation gate would correspond to the pulse sequence with length=38.5ns. 
 
-![Line graph that shows the amount of population to the pulse duration in seconds. There are two peaks and one trough in the graph.](http://docs.aws.amazon.com/braket/latest/developerguide/images/Rabi-frequency.png)
+![Line graph that shows the amount of population to the pulse duration in seconds. There are two peaks and one trough in the graph.](https://docs.aws.amazon.com/braket/latest/developerguide/images/Rabi-frequency.png)
 
 
 ## Hello Pulse using OpenPulse

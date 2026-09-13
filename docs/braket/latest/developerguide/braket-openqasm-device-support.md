@@ -196,7 +196,7 @@ Describes the pre-built waveform functions available on the device and the assoc
 
  ** *Constant* ** 
 
-![Mathematical equation showing a constant function with parameters t, tau, and iq where the output is always equal to iq.](http://docs.aws.amazon.com/braket/latest/developerguide/images/ConstantFunction.png)
+![Mathematical equation showing a constant function with parameters t, tau, and iq where the output is always equal to iq.](https://docs.aws.amazon.com/braket/latest/developerguide/images/ConstantFunction.png)
 
 
  `τ` is the length of the waveform and `iq` is a complex number.
@@ -207,7 +207,7 @@ def constant(length, iq)
 
  ** *Gaussian* ** 
 
-![Mathematical equation showing the Gaussian function with parameters t, tau, sigma, A=1, and ZaE=0.](http://docs.aws.amazon.com/braket/latest/developerguide/images/GaussianFunction.png)
+![Mathematical equation showing the Gaussian function with parameters t, tau, sigma, A=1, and ZaE=0.](https://docs.aws.amazon.com/braket/latest/developerguide/images/GaussianFunction.png)
 
 
  `τ` is the length of the waveform, `σ` is the width of the Gaussian, and `A` is the amplitude. If setting `ZaE` to `True`, the Gaussian is offset and rescaled such that it is equal to zero at the start and end of the waveform, and reaches `A` at maximum.
@@ -218,7 +218,7 @@ def gaussian(length, sigma, amplitude=1, zero_at_edges=False)
 
  ** *DRAG Gaussian* ** 
 
-![Mathematical equation for DRAG Gaussian distribution with parameters t, tau, sigma, beta, A=1, and ZaE=0.](http://docs.aws.amazon.com/braket/latest/developerguide/images/DRAGGaussianFunction.png)
+![Mathematical equation for DRAG Gaussian distribution with parameters t, tau, sigma, beta, A=1, and ZaE=0.](https://docs.aws.amazon.com/braket/latest/developerguide/images/DRAGGaussianFunction.png)
 
 
  `τ` is the length of the waveform, `σ` is the width of the gaussian, `β` is a free parameter, and `A` is the amplitude. If setting `ZaE` to `True`, the Derivative Removal by Adiabatic Gate (DRAG) Gaussian is offset and rescaled such that it is equal to zero at the start and end of the waveform, and the real part reaches `A` at maximum. For more information about the DRAG waveform, see the paper [Simple Pulses for Elimination of Leakage in Weakly Nonlinear Qubits](https://doi.org/10.1103/PhysRevLett.103.110501).
@@ -229,12 +229,12 @@ def drag_gaussian(length, sigma, beta, amplitude=1, zero_at_edges=False)
 
  ** *Erf Square* ** 
 
-![Mathematical equation for Erf Square distribution with parameters t, Length, Width, sigma, A=1, and ZaE=0.](http://docs.aws.amazon.com/braket/latest/developerguide/images/ErfSquareFunction.PNG)
+![Mathematical equation for Erf Square distribution with parameters t, Length, Width, sigma, A=1, and ZaE=0.](https://docs.aws.amazon.com/braket/latest/developerguide/images/ErfSquareFunction.PNG)
 
 
 Where `L` is the length, `W` is the width of the waveform, `σ` defines how fast the edges rise and fall, `t1​=(L−W)/2` and `t22=(L+W)/2`, `A` is the amplitude. If setting `ZaE` to `True`, the Gaussian is offset and rescaled such that it is equal to zero at the start and end of the waveform, and reaches `A` at maximum. The following equation is the rescaled version of the waveform.
 
-![Mathematical equation for the rescaled Erf Square distribution with parameters ZaE=1.](http://docs.aws.amazon.com/braket/latest/developerguide/images/RescaledErfSquareFunction.PNG)
+![Mathematical equation for the rescaled Erf Square distribution with parameters ZaE=1.](https://docs.aws.amazon.com/braket/latest/developerguide/images/RescaledErfSquareFunction.PNG)
 
 
 Where `a=erf(W/2σ)`and `b=erf(-t1​/σ)/2+erf(t2​/σ)/2`.

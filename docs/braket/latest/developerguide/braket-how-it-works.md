@@ -19,7 +19,7 @@ In this section, we are going to learn about the high-level flow of running quan
 ## Amazon Braket quantum task flow
 <a name="braket-data-flow"></a>
 
-![Diagram showing user interaction with AWS Cloud services like Amazon Braket notebook, S3 results bucket, Amazon Braket, managed simulator, and their results to QPUs for quantum computing tasks.](http://docs.aws.amazon.com/braket/latest/developerguide/images/data-flow-3.png)
+![Diagram showing user interaction with AWS Cloud services like Amazon Braket notebook, S3 results bucket, Amazon Braket, managed simulator, and their results to QPUs for quantum computing tasks.](https://docs.aws.amazon.com/braket/latest/developerguide/images/data-flow-3.png)
 
 
 With Jupyter notebooks, you can define, submit, and monitor your quantum tasks from the [Amazon Braket Console](https://us-west-1.console.aws.amazon.com/console/home?region=us-west-1#) or using the [Amazon Braket SDK](https://github.com/aws/amazon-braket-sdk-python). You can build your quantum circuits directly in the SDK. However, for Analog Hamiltonian Simulators, you define the register layout and the controlling fields (1). After your quantum task is defined, you can choose a device to run it on and submit it to the Amazon Braket API (2). Depending on the device you chose, the quantum task is queued until the device becomes available and the task is sent to the QPU or simulator for implementation (3). Amazon Braket gives you access to a variety of [supported quantum devices](braket-devices.md) including QPUs, on-demand simulators, local simulators, and an embedded simulator.

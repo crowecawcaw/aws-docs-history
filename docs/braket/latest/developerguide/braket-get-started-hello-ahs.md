@@ -22,7 +22,7 @@ This section provides information on running your first Analog Hamiltonian Simul
 
 For a canonical example of a system of many interacting particles, let us consider a ring of eight spins (each of which can be in “up” ∣↑⟩ and “down” ∣↓⟩ states). Albeit small, this model system already exhibits a handful of interesting phenomena of naturally occurring magnetic materials. In this example, we will show how to prepare a so-called anti-ferromagnetic order, where consecutive spins point in opposite directions.
 
-![Diagram connecting 8 circle nodes that contain inversing up and down arrows.](http://docs.aws.amazon.com/braket/latest/developerguide/images/AntiFerromagnetic.png)
+![Diagram connecting 8 circle nodes that contain inversing up and down arrows.](https://docs.aws.amazon.com/braket/latest/developerguide/images/AntiFerromagnetic.png)
 
 
 ## Arrangement
@@ -63,7 +63,7 @@ for idx, (x, y) in enumerate(zip(xs, ys)):
 plt.show()  # This will show the plot below in an ipython or jupyter session
 ```
 
-![Scatter plot showing points distributed across positive and negative values on both axes.](http://docs.aws.amazon.com/braket/latest/developerguide/images/PlotNeutralAtoms.png)
+![Scatter plot showing points distributed across positive and negative values on both axes.](https://docs.aws.amazon.com/braket/latest/developerguide/images/PlotNeutralAtoms.png)
 
 
 ## Interaction
@@ -71,7 +71,7 @@ plt.show()  # This will show the plot below in an ipython or jupyter session
 
 To prepare the anti-ferromagnetic phase, we need to induce interactions between neighboring spins. We use the [van der Waals interaction](https://en.wikipedia.org/wiki/Van_der_Waals_force) for this, which is natively implemented by neutral atom devices (such as the Aquila device from QuEra). Using the spin-representation, the Hamiltonian term for this interaction can be expressed as a sum over all spin pairs (j,k).
 
-![Hamiltonian interaction equation showing this this interaction as expressed as a sum over all spin pairs (j,k).](http://docs.aws.amazon.com/braket/latest/developerguide/images/HInteraction.png)
+![Hamiltonian interaction equation showing this this interaction as expressed as a sum over all spin pairs (j,k).](https://docs.aws.amazon.com/braket/latest/developerguide/images/HInteraction.png)
 
 
 Here, nj​=∣↑j​⟩⟨↑j​∣ is an operator that takes the value of 1 only if spin j is in the “up” state, and 0 otherwise. The strength is Vj,k​=C6​/(dj,k​)6, where C6​ is the fixed coefficient, and dj,k​ is the Euclidean distance between spins j and k. The immediate effect of this interaction term is that any state where both spin j and spin k are “up” have elevated energy (by the amount Vj,k​). By carefully designing the rest of the AHS program, this interaction will prevent neighboring spins from both being in the “up” state, an effect commonly known as "Rydberg blockade."
@@ -81,7 +81,7 @@ Here, nj​=∣↑j​⟩⟨↑j​∣ is an operator that takes the value of 1 
 
 At the beginning of the AHS program, all spins (by default) start in their “down” state, they are in a so-called ferromagnetic phase. Keeping an eye on our goal to prepare the anti-ferromagnetic phase, we specify a time-dependent coherent driving field that smoothly transitions the spins from this state to a many-body state where the “up” states are preferred. The corresponding Hamiltonian can be written as
 
-![Mathematical equation depicting the calculation of a Hamiltonian drive function.](http://docs.aws.amazon.com/braket/latest/developerguide/images/HDrive.png)
+![Mathematical equation depicting the calculation of a Hamiltonian drive function.](https://docs.aws.amazon.com/braket/latest/developerguide/images/HDrive.png)
 
 
 where Ω(t),ϕ(t),Δ(t) are the time-dependent, global amplitude (aka [Rabi frequency](https://en.wikipedia.org/wiki/Rabi_frequency)), phase, and detuning of the driving field affecting all spins uniformly. Here S−,k​=∣↓k​⟩⟨↑k​∣and S\+,k​​=(S−,k​)†=∣↑k​⟩⟨↓k​∣ are the lowering and raising operators of spin k, respectively, and nk​=∣↑k​⟩⟨↑k​∣ is the same operator as before. The Ω part of the driving field coherently couples the “down” and the “up” states of all spins simultaneously, while the Δ part controls the energy reward for “up” states.
@@ -148,7 +148,7 @@ ax.set_xlabel('time [s]')
 plt.show()  # This will show the plot below in an ipython or jupyter session
 ```
 
-![Three graphs showing phi, delta, and omega over time. The top subplot shows the growth to just above 6 rads/s where it stays for 4 seconds until it drops back to 0. The middle subplot depicts the associated linear growth of the derivative, and the bottom subplot illustrates a flat line near zero.](http://docs.aws.amazon.com/braket/latest/developerguide/images/DrivingTimeSeries.png)
+![Three graphs showing phi, delta, and omega over time. The top subplot shows the growth to just above 6 rads/s where it stays for 4 seconds until it drops back to 0. The middle subplot depicts the associated linear growth of the derivative, and the bottom subplot illustrates a flat line near zero.](https://docs.aws.amazon.com/braket/latest/developerguide/images/DrivingTimeSeries.png)
 
 
 ## AHS program
@@ -276,10 +276,10 @@ def plot_counts(counts):
 plot_counts(counts_simulator)
 ```
 
-![Bar chart showing a large number of shots with no neighboring "up" states configurations.](http://docs.aws.amazon.com/braket/latest/developerguide/images/AHSCounts1.png)
+![Bar chart showing a large number of shots with no neighboring "up" states configurations.](https://docs.aws.amazon.com/braket/latest/developerguide/images/AHSCounts1.png)
 
 
-![Bar chart showing shots of some neighboring "up" states configurations, with 4 states at 1.0 shots.](http://docs.aws.amazon.com/braket/latest/developerguide/images/AHSCounts2.png)
+![Bar chart showing shots of some neighboring "up" states configurations, with 4 states at 1.0 shots.](https://docs.aws.amazon.com/braket/latest/developerguide/images/AHSCounts2.png)
 
 
 From the plots, we can read the following observations the verify that we successfully prepared the anti-ferromagnetic phase.
@@ -386,10 +386,10 @@ and plot them with `plot_counts`:
 plot_counts(counts_aquila)
 ```
 
-![Bar chart showing a large number of shots with no neighboring "up" states configurations.](http://docs.aws.amazon.com/braket/latest/developerguide/images/QPUPlotCounts1.png)
+![Bar chart showing a large number of shots with no neighboring "up" states configurations.](https://docs.aws.amazon.com/braket/latest/developerguide/images/QPUPlotCounts1.png)
 
 
-![Bar chart showing shots of some neighboring "up" states configurations, with 4 states at 1.0 shots.](http://docs.aws.amazon.com/braket/latest/developerguide/images/QPUPlotCounts2.png)
+![Bar chart showing shots of some neighboring "up" states configurations, with 4 states at 1.0 shots.](https://docs.aws.amazon.com/braket/latest/developerguide/images/QPUPlotCounts2.png)
 
 
 Note that a small fraction of shots have empty sites (marked with “e”). This is due to a 1—2% per atom preparation imperfections of the Aquila QPU. Apart from this, the results match with the simulation within the expected statistical fluctuation due to small number of shots.

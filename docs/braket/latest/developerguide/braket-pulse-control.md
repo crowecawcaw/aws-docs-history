@@ -71,7 +71,7 @@ plt.plot(times_1, zero_at_edge1.sample(drive_frame.port.dt))
 plt.plot(times_2, zero_at_edge2.sample(drive_frame.port.dt))
 ```
 
-![Graph showing amplitude over time for two cases: ZaE = True (lower curve) and ZaE = False (top curve). The curves have a bell shape peaking around 0.5 seconds with an amplitude of 0.10 a. u..](http://docs.aws.amazon.com/braket/latest/developerguide/images/gaussianwaveform.png)
+![Graph showing amplitude over time for two cases: ZaE = True (lower curve) and ZaE = False (top curve). The curves have a bell shape peaking around 0.5 seconds with an amplitude of 0.10 a. u..](https://docs.aws.amazon.com/braket/latest/developerguide/images/gaussianwaveform.png)
 
 
 The preceding image depicts the Gaussian waveforms created from `GaussianWaveform`. We chose a pulse length of 100 ns, a width of 25 ns, and an amplitude of 0.1 (arbitrary units). The waveforms are centered in the pulse window. `GaussianWaveform` accepts a boolean argument `zero_at_edges` (ZaE in the legend). When set to `True`, this argument offsets the Gaussian waveform such that the points at t=0 and t=`length` are at zero and rescales its amplitude such that the maximum value corresponds to the `amplitude` argument.
