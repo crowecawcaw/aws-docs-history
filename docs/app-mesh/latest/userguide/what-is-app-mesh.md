@@ -18,14 +18,14 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 Consider the following simple example application that doesn’t use App Mesh. The two services can be running on AWS Fargate, Amazon Elastic Container Service (Amazon ECS), Amazon Elastic Kubernetes Service (Amazon EKS), Kubernetes on Amazon Elastic Compute Cloud (Amazon EC2) instances, or on Amazon EC2 instances with Docker.
 
-![Client service connecting to servicea.apps.local which connects to serviceb.apps.local.](http://docs.aws.amazon.com/app-mesh/latest/userguide/images/simple-app-diagram.png)
+![Client service connecting to servicea.apps.local which connects to serviceb.apps.local.](https://docs.aws.amazon.com/app-mesh/latest/userguide/images/simple-app-diagram.png)
 
 
 In this illustration, both `serviceA` and `serviceB` are discoverable through the `apps.local` namespace. Let's say, for example, you decide to deploy a new version of `serviceb.apps.local` named `servicebv2.apps.local`. Next, you want to direct a percentage of the traffic from `servicea.apps.local` to `serviceb.apps.local` and a percentage to `servicebv2.apps.local`. When you're sure that `servicebv2` is performing well, you want to send 100 percent of the traffic to it.
 
  App Mesh can help you do this without changing any application code or registered service names. If you use App Mesh with this example application, then your mesh might look like the following illustration. 
 
-![App Mesh architecture with client service connecting through proxies to virtual services, router, and nodes.](http://docs.aws.amazon.com/app-mesh/latest/userguide/images/simple-app-with-mesh-diagram.png)
+![App Mesh architecture with client service connecting through proxies to virtual services, router, and nodes.](https://docs.aws.amazon.com/app-mesh/latest/userguide/images/simple-app-with-mesh-diagram.png)
 
 
 In this configuration, the services no longer communicate with each other directly. Instead, they communicate with each other through a proxy. The proxy deployed with the `servicea.apps.local` service reads the App Mesh configuration and sends traffic to `serviceb.apps.local` or `servicebv2.apps.local` based on the configuration.

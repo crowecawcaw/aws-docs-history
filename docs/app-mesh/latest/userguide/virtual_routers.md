@@ -8,7 +8,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 Virtual routers handle traffic for one or more virtual services within your mesh. After you create a virtual router, you can create and associate routes for your virtual router that direct incoming requests to different virtual nodes.
 
-![Virtual router diagram showing HTTP route with prefix and targets B and B' for different service versions.](http://docs.aws.amazon.com/app-mesh/latest/userguide/images/virtual_router.png)
+![Virtual router diagram showing HTTP route with prefix and targets B and B' for different service versions.](https://docs.aws.amazon.com/app-mesh/latest/userguide/images/virtual_router.png)
 
 
 Any inbound traffic that your virtual router expects should be specified as a *listener*.

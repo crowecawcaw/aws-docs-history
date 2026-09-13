@@ -583,66 +583,66 @@ All [supported](https://docs.aws.amazon.com/general/latest/gr/appmesh.html) Regi
 Standard  
 
 ```
-840364872350.dkr.ecr.{{region-code}}.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod
+840364872350.dkr.ecr.{{region-code}}.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod
 ```
 FIPS-compliant  
 
 ```
-840364872350.dkr.ecr.{{region-code}}.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod-fips
+840364872350.dkr.ecr.{{region-code}}.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod-fips
 ```
 
 `me-south-1`  
 Standard  
 
 ```
-772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod
+772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod
 ```
 
 `ap-east-1`  
 Standard  
 
 ```
-856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod
+856666278305.dkr.ecr.ap-east-1.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod
 ```
 
 `ap-southeast-3`  
 Standard  
 
 ```
-909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod
+909464085924.dkr.ecr.ap-southeast-3.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod
 ```
 
 `eu-south-1`  
 Standard  
 
 ```
-422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod
+422531588944.dkr.ecr.eu-south-1.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod
 ```
 
 `il-central-1`  
 Standard  
 
 ```
-564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod
+564877687649.dkr.ecr.il-central-1.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod
 ```
 
 `af-south-1`  
 Standard  
 
 ```
-924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod
+924023996002.dkr.ecr.af-south-1.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod
 ```
 
 `Public repository`  
 Standard  
 
 ```
-public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.13.3-prod
+public.ecr.aws/appmesh/aws-appmesh-envoy:v1.39.1.0-prod
 ```
 FIPS-compliant  
 
 ```
-public.ecr.aws/appmesh/aws-appmesh-envoy:v1.34.13.3-prod-fips
+public.ecr.aws/appmesh/aws-appmesh-envoy:v1.39.1.0-prod-fips
 ```
 
 **Important**  
@@ -665,7 +665,7 @@ The following code shows an Envoy container definition example.
 ```
 {
 	"name": "envoy",
-	"image": "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod",
+	"image": "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod",
 	"essential": true,
 	"environment": [{
 		"name": "APPMESH_RESOURCE_ARN",
@@ -751,7 +751,7 @@ Fargate must use a port value greater than 1024.
       },
       {         
          "name" : "envoy",
-         "image" : "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod",
+         "image" : "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod",
          "essential" : true,
          "environment" : [
             {
@@ -841,7 +841,7 @@ X-Ray allows you to collect data about requests that an application serves and p
       {
          
          "name" : "envoy",
-         "image" : "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod",
+         "image" : "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod",
          "essential" : true,
          "environment" : [
             {
@@ -945,7 +945,7 @@ X-Ray allows you to collect data about requests that an application serves and p
     },
     {
       "name": "envoy",
-      "image": "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod",
+      "image": "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod",
       "essential": true,
       "environment": [
         {
@@ -1031,7 +1031,7 @@ X-Ray allows you to collect data about requests that an application serves and p
     },
     {
       "name": "envoy",
-      "image": "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.34.13.3-prod",
+      "image": "{{840364872350}}.dkr.ecr.{{us-west-2}}.amazonaws.com/aws-appmesh-envoy:v1.39.1.0-prod",
       "essential": true,
       "environment": [
         {

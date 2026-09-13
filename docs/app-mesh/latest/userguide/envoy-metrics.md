@@ -17,7 +17,7 @@ In App Mesh, the proxy intercepts upstream and downstream traffic. For example, 
 
 The following picture shows the communication between the proxy and service containers.
 
-![Proxy container receives ingress and egress traffic, communicating with service container.](http://docs.aws.amazon.com/app-mesh/latest/userguide/images/task-proxy-container.png)
+![Proxy container receives ingress and egress traffic, communicating with service container.](https://docs.aws.amazon.com/app-mesh/latest/userguide/images/task-proxy-container.png)
 
 
 **Resource naming conventions**
@@ -71,7 +71,7 @@ App Mesh may also create the following types of additional special clusters. The
 
 To illustrate the metrics available in Envoy, the following sample application has three virtual nodes. The virtual services, virtual routers, and routes in the mesh can be ignored since they are not reflected in Envoy’s metrics. In this example, all services listen for http traffic on port 8080.
 
-![Three virtual nodes with Service and Envoy components: product-details, cart, and website.](http://docs.aws.amazon.com/app-mesh/latest/userguide/images/envoy-metric-example1.png)
+![Three virtual nodes with Service and Envoy components: product-details, cart, and website.](https://docs.aws.amazon.com/app-mesh/latest/userguide/images/envoy-metric-example1.png)
 
 
 We recommend adding the environment variable `ENABLE_ENVOY_STATS_TAGS=1` to the Envoy proxy containers running in your mesh. This adds the following metric dimensions to all metrics emitted by the proxy:

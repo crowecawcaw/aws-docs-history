@@ -8,7 +8,7 @@ End of support notice: On September 30, 2026, AWS will discontinue support for A
 
 When you create your virtual nodes and virtual gateways, you have the option to configure Envoy access logs. In the console, this is in the **Logging** section of the virtual node and virtual gateway create or edit workflows.
 
-![HTTP access logs path field set to /dev/stdout with informational note about log ingestion.](http://docs.aws.amazon.com/app-mesh/latest/userguide/images/logging.png)
+![HTTP access logs path field set to /dev/stdout with informational note about log ingestion.](https://docs.aws.amazon.com/app-mesh/latest/userguide/images/logging.png)
 
 
 The preceding image shows a logging path of `/dev/stdout` for Envoy access logs.
