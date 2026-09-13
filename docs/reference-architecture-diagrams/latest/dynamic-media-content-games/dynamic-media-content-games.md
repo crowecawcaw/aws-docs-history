@@ -10,7 +10,7 @@ Game developers often build custom solutions to engage with players through dail
 ## Dynamic Media Content for Games diagram
 <a name="dynamic-media-diagram"></a>
 
-![Reference architecture diagram showing how to build a serverless solution for customized in-game media content by using CloudFront, Lambda@Edge, DynamoDB Global Tables, and Amazon S3.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/dynamic-media-content-games/images/dynamic-media-content-games.png)
+![Reference architecture diagram showing how to build a serverless solution for customized in-game media content by using CloudFront, Lambda@Edge, DynamoDB Global Tables, and Amazon S3.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/dynamic-media-content-games/images/dynamic-media-content-games.png)
 
 
 The following steps describe the architecture:
