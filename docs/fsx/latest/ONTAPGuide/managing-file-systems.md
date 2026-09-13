@@ -16,7 +16,7 @@ An Amazon FSx for NetApp ONTAP file system is composed of the following primary 
 
 The following image illustrates the architecture of a first-generation FSx for ONTAP file system with one HA pair, and the relationship between its primary resources. The FSx for ONTAP file system on the left is the simplest file system, with one SVM and one volume. The file system on the right has multiple SVMs, with some SVMs having multiple volumes. File systems and SVMs each have multiple management endpoints, and SVMs also have data access endpoints.
 
-![The architecture of FSx for ONTAP file systems](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/ontap-file-system-structure.png)
+![The architecture of FSx for ONTAP file systems](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/ontap-file-system-structure.png)
 
 
 When creating an FSx for ONTAP file system, you define the following properties:

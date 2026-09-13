@@ -31,7 +31,7 @@ Each FSx for ONTAP file system has an endpoint IP address range from which the e
 1. Access your Amazon FSx SVM from an Amazon EC2 instance running Windows Server or from a WorkSpace. For more information, see [Accessing your FSx for ONTAP data](supported-fsx-clients.md).
 
 1. You map your share to `Z:\` on your Windows WorkSpaces instance:  
-![Shows the Windows Map Network Drive dialog for mapping an ONTAP SMB share to a letter on a WorkSpace.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-map-drive.png)
+![Shows the Windows Map Network Drive dialog for mapping an ONTAP SMB share to a letter on a WorkSpace.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-map-drive.png)
 
 **Step 2: Link the FSx for ONTAP file share to User Accounts**
 
@@ -56,17 +56,17 @@ Each FSx for ONTAP file system has an endpoint IP address range from which the e
 1. Log on to the test user WorkSpace.
 
 1. In **System Properties**, select the **Advanced** tab and press the **Settings** button in the **User Profiles** section. The logged-in user will have a profile type of `Roaming`.  
-![The Windows User Profiles dialog showing a profile configured for a WorkSpace user.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-profiles.png)
+![The Windows User Profiles dialog showing a profile configured for a WorkSpace user.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-profiles.png)
 
 1. Browse the FSx for ONTAP shared folder. In the `profiles` folder, you'll see a folder for the user.  
-![The Windows File Explorer dialog showing a new folder for a WorkSpace user.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-new-folder.png)
+![The Windows File Explorer dialog showing a new folder for a WorkSpace user.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-new-folder.png)
 
 1. Create a document in the test user's `Documents` folder
 
 1. Log out the test user from their WorkSpace.
 
 1. If you log back on as the test user and browse to their profile store, you will see the document you created.  
-![The Windows File Explorer dialog showing a new file for a WorkSpace user.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-new-file.png)
+![The Windows File Explorer dialog showing a new file for a WorkSpace user.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-new-file.png)
 
 ## Provide a shared folder to access common files
 <a name="workspace-shared-folder"></a>
@@ -88,7 +88,7 @@ You can use Amazon FSx to provide a shared folder to users in your organization.
    1. For a Linux WorkSpace, you don't need to enter your user details if your Linux WorkSpace is in the same domain as the Amazon FSx share.
 
    1. Choose **Connect**.  
-![The Connect to Server dialog showing a connection to an SMB share.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-connect.png)
+![The Connect to Server dialog showing a connection to an SMB share.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-connect.png)
 
 1. After the connection is made, you can see the shared folder (named `team-shared` in this example) in the SMB share named `workspace`.  
-![A Windows dialog showing a shared folder.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-mounted.png)
+![A Windows dialog showing a shared folder.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/workspace-mounted.png)

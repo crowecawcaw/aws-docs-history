@@ -47,7 +47,7 @@ To understand the Amazon FSx for NetApp ONTAP performance model in detail, you c
 
 These components are illustrated in the following diagram.
 
-![FSx for ONTAP architecture.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-performance.png)
+![FSx for ONTAP architecture.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-performance.png)
 
 
 Corresponding with these architectural components–network interface, in-memory cache, NVMe cache, and storage volumes–are the primary performance characteristics of an Amazon FSx for NetApp ONTAP file system that determine the overall throughput and IOPS performance.

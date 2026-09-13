@@ -28,7 +28,7 @@ Before you begin the process of configuring your file system for iSCSI, you need
 + Obtain the credentials for the ONTAP user with `fsxadmin` privileges that you will use to access the ONTAP CLI. For more information, see [ONTAP roles and users](roles-and-users.md).
 + The Linux host that you will configure for iSCSI and use to access the FSx for ONTAP file system are located in the same VPC and AWS account.
 + We recommend that the EC2 instance be in the same availability zone as your file system's preferred subnet, as shown in the following graphic.  
-![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-iscsi-mnt-client.png)
+![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-iscsi-mnt-client.png)
 
 If your EC2 instance runs a different Linux AMI than Amazon Linux 2, some of the utilities used in these procedures and examples might already be installed, and you might use different commands to install required packages. Aside from installing packages, the commands used in this section are valid for other EC2 Linux AMIs.
 

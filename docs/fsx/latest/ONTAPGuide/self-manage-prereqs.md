@@ -31,7 +31,7 @@ For an SVM to join Active Directory, you need to ensure that the ports documente
 + The DNS server and Active Directory domain controller IP addresses.
 + Connectivity between the Amazon VPC where you're creating the file system and your self-managed Active Directory using [Direct Connect](https://aws.amazon.com/directconnect/), [Site-to-Site VPN](https://aws.amazon.com/vpn/), or [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/).
 + The security group and the VPC Network ACLs for the subnets on which you're creating the file system must allow traffic on the ports and in the directions shown in the following diagram.  
-![Diagram showing FSx for ONTAP port configuration requirements for VPC security groups and network ACLs for the subnets that you're creating an FSx for ONTAP file system in.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/ontap-port-requirements.png)
+![Diagram showing FSx for ONTAP port configuration requirements for VPC security groups and network ACLs for the subnets that you're creating an FSx for ONTAP file system in.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/ontap-port-requirements.png)
 
   The role of each port is described in the following table.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/self-manage-prereqs.html)

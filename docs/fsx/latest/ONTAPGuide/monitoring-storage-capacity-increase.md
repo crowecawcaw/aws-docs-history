@@ -10,7 +10,7 @@ You can monitor the progress of an SSD storage capacity and IOPS update by using
 
 In the **Updates** tab on the **File system details** page for your FSx for ONTAP file system, you can view the 10 most recent updates for each update type.
 
-![A recent updates list for a file system as it appears in the Console.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fs-updates-panel.png)
+![A recent updates list for a file system as it appears in the Console.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fs-updates-panel.png)
 
 
 For SSD storage capacity and IOPS updates, you can view the following information:

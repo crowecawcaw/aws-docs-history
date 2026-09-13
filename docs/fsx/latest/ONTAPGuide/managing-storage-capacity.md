@@ -22,12 +22,12 @@ An FSx for ONTAP volume is a virtual resource that, similar to folders, doesn't 
 
 The following diagram illustrates an example of data laid out across multiple FSx for ONTAP volumes in a file system.
 
-![FSx for ONTAP SSD and capacity pool storage tiers logically provisioned across file system volumes.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-volume-virtual-resource.png)
+![FSx for ONTAP SSD and capacity pool storage tiers logically provisioned across file system volumes.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-volume-virtual-resource.png)
 
 
 The following diagram illustrates how the file system's physical storage capacity is consumed by the data in the four volumes in the previous diagram.
 
-![How the SSD, or primary storage tier, and the capacity pool storage tier usage of the file system's physical storage capacity looks across all volumes in a file system.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-storage-tiers-physical-resource.png)
+![How the SSD, or primary storage tier, and the capacity pool storage tier usage of the file system's physical storage capacity looks across all volumes in a file system.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-storage-tiers-physical-resource.png)
 
 
 You can reduce your storage costs by choosing the tiering policy that best meets the requirements for each volume on your file system. For more information, see [Volume data tiering](volume-storage-capacity.md#volume-data-tiering).

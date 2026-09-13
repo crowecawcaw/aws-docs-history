@@ -28,7 +28,7 @@ When you use SnapMirror to migrate to FSx for ONTAP, deduplicated and compressed
 
 The following diagram illustrates the migration scenario described in this section.
 
-![Flowchart displaying the process of migrating on-premises NetApp ONTAP file systems to FSx for ONTAP.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/snapmirror-on-premise-migration.png)
+![Flowchart displaying the process of migrating on-premises NetApp ONTAP file systems to FSx for ONTAP.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/snapmirror-on-premise-migration.png)
 
 
 **Topics**

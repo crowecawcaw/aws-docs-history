@@ -27,7 +27,7 @@ Inactive data compression consumes additional CPU and disk IOPS and can be a res
 
 The following image illustrates the storage savings that can be achieved by compressing data blocks.
 
-![Illustrates the storage savings that can be achieved by compressing data blocks with compression groups.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-before-compression.png)
+![Illustrates the storage savings that can be achieved by compressing data blocks with compression groups.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-before-compression.png)
 
 
 ## Deduplication of data blocks
@@ -44,7 +44,7 @@ FSx for ONTAP doesn't support cross-volume deduplication.
 
 The following image illustrates the storage savings that can be achieved with deduplication.
 
-![Illustrates the storage savings that can be achieved with deduplication.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-before-deduplication.png)
+![Illustrates the storage savings that can be achieved with deduplication.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-before-deduplication.png)
 
 
 ## Compaction of data blocks
@@ -56,7 +56,7 @@ By default, data is compacted inline to optimize the layout of data as it's writ
 
 The following image illustrates the storage savings that can be achieved with compaction.
 
-![Illustrates the storage savings that can be achieved with compaction.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-before-compaction.png)
+![Illustrates the storage savings that can be achieved with compaction.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-before-compaction.png)
 
 
 ## Example: storage efficiencies
@@ -64,4 +64,32 @@ The following image illustrates the storage savings that can be achieved with co
 
 The following image illustrates how storage efficiencies are applied to data.
 
-![Illustrates how storage efficiencies are applied to data.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-se-example.png)
+![Illustrates how storage efficiencies are applied to data.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-se-example.png)
+
+
+## Storage Efficiency status
+<a name="SE-status"></a>
+
+Amazon FSx reports a volume's storage efficiency as **Enabled** in the console, API, and AWS CLI only when the volume's storage efficiency configuration in ONTAP matches the settings that Amazon FSx uses. When you enable storage efficiency on a volume, Amazon FSx applies the following ONTAP settings:
++ Compression: inline
++ Deduplication: inline and background (both)
++ Cross-volume deduplication: none
++ Compaction: inline
+
+If you modify storage efficiency settings with the ONTAP CLI or REST API, or if you migrated your volumes from an on-premises ONTAP system, the volume's configuration might not match these settings. When that happens, Amazon FSx reports storage efficiency as **Disabled**, even if efficiency features are still active on the volume.
+
+To restore the Amazon FSx-managed configuration and have the console report **Enabled**, use one of the following methods:
++ **AWS CLI:**
+
+  ```
+  aws fsx update-volume --volume-id {{vol-id}} --ontap-configuration StorageEfficiencyEnabled=true
+  ```
++ **ONTAP CLI:**
+
+  ```
+  ::> volume efficiency on -vserver {{svm-name}} -volume {{vol-name}}
+  ::> volume efficiency modify -vserver {{svm-name}} -volume {{vol-name}} -inline-dedupe true -inline-compression true -data-compaction true -compression true
+  ```
+
+**Important**  
+For volumes migrated from Cloud Volumes ONTAP with a compression type of `secondary`, switching to the Amazon FSx-managed settings requires first undoing existing compression savings on the volume, then re-enabling compression with the `adaptive` compression type. This operation is resource-intensive. Plan this operation carefully before running it on production volumes. For more information, see [Moving between secondary compression and adaptive compression](https://docs.netapp.com/us-en/ontap/volumes/move-between-secondary-adaptive-compression-task.html) in the NetApp ONTAP documentation.

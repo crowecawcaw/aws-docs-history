@@ -14,7 +14,7 @@ The examples presented in these procedures show how to provision the iSCSI proto
 
   We recommend that the EC2 instance be in the same availability zone as your file system's preferred subnet, as shown in the following graphic.
 
-![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-iscsi-mnt-client.png)
+![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-iscsi-mnt-client.png)
 
 
 **Topics**
@@ -197,10 +197,10 @@ The examples presented in these procedures show how to provision the iSCSI proto
    ```
 
 1. Launch the Windows Disk Management application. Open the Windows Run dialog box, and enter `diskmgmt.msc` and press **Enter**. The Disk Management application opens.  
-![The Windows Disk Management window is displayed.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/DiskMgmt.png)
+![The Windows Disk Management window is displayed.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/DiskMgmt.png)
 
 1. Locate the unallocated disk This is the iSCSI LUN. In the example, Disk 1 is the iSCSI disk. It is offline.  
-![The panel that displays when the cursor is placed over Disk 1.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/GoOnline.png)
+![The panel that displays when the cursor is placed over Disk 1.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/GoOnline.png)
 
    Bring the volume online by placing the cursor over **Disk 1** and right-click then choose **Online**.
 **Note**  

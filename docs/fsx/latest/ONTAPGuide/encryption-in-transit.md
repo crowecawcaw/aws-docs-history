@@ -57,7 +57,7 @@ If you are using Microsoft Active Directory, you can use [Kerberos encryption](#
 
 Use the following diagram to help you decide which encryption in-transit method to use.
 
-![Flowchart showing which encryption in transit method to use based on five decision points.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-encrypt-n-transit-decision-flow.png)
+![Flowchart showing which encryption in transit method to use based on five decision points.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-encrypt-n-transit-decision-flow.png)
 
 
 IPsec encryption is the only option available when all of the following conditions apply to your workflow:

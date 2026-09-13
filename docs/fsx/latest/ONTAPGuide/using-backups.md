@@ -97,7 +97,7 @@ You can use tags to select which of your FSx for ONTAP resources are protected i
 ## Restoring backups to a new volume
 <a name="restoring-backups"></a>
 
-You can restore a volume backup to a new volume on a file system that is in the same AWS Region that the backup is stored in. You cannot restore a backup to a file system that is located in a different AWS Region than the backup.
+You can restore a volume backup to a new volume on a file system that is in the same AWS Region that the backup is stored in. To restore a backup to a file system that is located in a different AWS Region than the backup, you can copy that backup to that file system's AWS Region and then restore that backup copy. For more information, see [Copying backups within the same AWS account](copying-backups-same-account.md).
 
 When restoring a backup on FSx for ONTAP second-generation file systems, clients can mount and read data from a volume while it is being restored. Clients can mount the volume you are restoring and read the file data once Amazon FSx has loaded all the metadata onto the new volume and the volume reports a lifecycle status of `CREATED`. You can find a volume's lifecycle state on the [**Volumes detail**](viewing-volumes.md) page in the Amazon FSx console and in the response of the [describe-volumes](https://docs.aws.amazon.com/v2/documentation/api/latest/reference/fsx/describe-volumes.html) CLI command.
 

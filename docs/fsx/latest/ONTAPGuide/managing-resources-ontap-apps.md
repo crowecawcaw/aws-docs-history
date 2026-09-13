@@ -22,7 +22,7 @@ In order to download some NetApp software, such as NetApp Console, SnapCenter, a
 1. Go to the [NetApp User Registration](https://mysupport.netapp.com/site/user/registration) page and register for a new NetApp user account.
 
 1. Complete the form(s) with your information. Be sure to select the **NetApp Customer/End User** access level. In the **SERIAL NUMBER** field, copy and paste the File System ID for your FSx for ONTAP file system. See the following example:  
-![Select user access level when signing up for a NetApp account.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/signupfornetapp3.png)
+![Select user access level when signing up for a NetApp account.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/signupfornetapp3.png)
 
 ### What to expect after you register
 <a name="what-to-expect-netapp"></a>
@@ -129,7 +129,7 @@ FsxId0abcdef123456789
 
 You can access the ONTAP CLI on your SVM by establishing a secure shell (SSH) connection to the SVM's management endpoint using the `vsadmin` user name and password. You can find the SVM's management endpoint **DNS name** and **IP address** in the Amazon FSx console, in the **Endpoints** panel of the **Storage virtual machines** details page, shown in the following graphic.
 
-![The Endpoints panel of the Storage virtual machines details page with arrows pointing to Management DNS name and Management IP address.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-svm-endpoints.png)
+![The Endpoints panel of the Storage virtual machines details page with arrows pointing to Management DNS name and Management IP address.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-svm-endpoints.png)
 
 
 To connect to the SVM's management endpoint with SSH, you can use the `vsadmin` username and password. If you did not set a password for the `vsadmin` user when the SVM was created, you can set the `vsadmin` password at anytime. For more information, see [Updating storage virtual machines (SVM)](updating-svms.md). You can SSH into the SVM from a client that is in the same VPC as the file system, using the management endpoint IP address or DNS name.

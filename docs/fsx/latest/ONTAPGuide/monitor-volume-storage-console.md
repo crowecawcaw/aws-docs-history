@@ -18,8 +18,8 @@ The **Available storage** graph displays the amount of free storage capacity on 
 1. Choose **Volumes** in the left navigation column, then choose the ONTAP volume that you want to view storage capacity information for. The volume detail page appears.
 
 1. In the second panel, choose the **Monitoring** tab. The **Available storage** and **Storage distribution** graphs display, along with several other graphs.  
-![A volume's Available storage graph in the Monitoring tab, as seen in the Amazon FSx console.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-volume-storage-graphs.png)  
-![A volume's Storage distribution graph in the Monitoring tab, as seen in the Amazon FSx console.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-volume-storage-graphs2.png)
+![A volume's Available storage graph in the Monitoring tab, as seen in the Amazon FSx console.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-volume-storage-graphs.png)  
+![A volume's Storage distribution graph in the Monitoring tab, as seen in the Amazon FSx console.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-volume-storage-graphs2.png)
 
 **To monitor a volume's storage capacity (ONTAP CLI)**
 

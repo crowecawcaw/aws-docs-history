@@ -191,7 +191,7 @@ The following example scenarios show common configurations for Amazon S3 access 
 
 **With VPC network origin:**
 
-![Single VPC access with VPC network origin](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/single-vpc-origin.png)
+![Single VPC access with VPC network origin](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/single-vpc-origin.png)
 
 
 The VPC origin configuration effectively denies requests where `aws:SourceVpc` does not match the bound VPC. Requests from other VPCs, the internet, or on-premises networks are denied. You can use either a Gateway or Interface Amazon S3 VPC endpoint.
@@ -221,7 +221,7 @@ The VPC origin configuration effectively denies requests where `aws:SourceVpc` d
 
 **With Internet network origin:**
 
-![Single VPC access with Internet network origin](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/single-vpc-internet.png)
+![Single VPC access with Internet network origin](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/single-vpc-internet.png)
 
 
 With internet origin, you restrict access to the VPC using `aws:SourceVpc` conditions in the access point policy (with an explicit Deny). A VPC endpoint is required so that `aws:SourceVpc` is populated on the request.
@@ -282,7 +282,7 @@ Both the Allow and Deny statements are required in the access point policy. With
 **Important**  
 Gateway endpoints do not route traffic entering the VPC from VPN, Direct Connect, or Transit Gateway connections. On-premises callers must use an Amazon S3 Interface endpoint. See [Using VPC endpoints with Amazon S3 access points](#s3-ap-vpc-endpoints) for details.
 
-![On-premises and VPC access with VPC network origin](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/onprem-vpc-origin.png)
+![On-premises and VPC access with VPC network origin](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/onprem-vpc-origin.png)
 
 
 Both the Gateway endpoint (in-VPC traffic) and Interface endpoint (on-prem traffic) are in the same VPC, so both satisfy the VPC origin Deny condition.
@@ -305,7 +305,7 @@ There are two approaches for multi-VPC access, depending on whether you want to 
 
 Each VPC has its own Amazon S3 Gateway endpoint. Callers in each VPC access the access point through their local Gateway endpoint, which populates `aws:SourceVpc` on the request. The access point policy restricts access to the allowed VPC IDs.
 
-![Multi-VPC access with Internet network origin and Gateway endpoints](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/multi-vpc-option1.png)
+![Multi-VPC access with Internet network origin and Gateway endpoints](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/multi-vpc-option1.png)
 
 + **Network origin:** Internet
 + **VPC endpoints:** Amazon S3 Gateway endpoint in each VPC (free, no additional configuration needed)
@@ -318,7 +318,7 @@ This option is simpler to set up because each VPC operates independently — no 
 
 **Option 2: VPC origin with a centralized Interface endpoint**
 
-![Multi-VPC access with VPC origin and centralized Interface endpoint](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/multi-vpc-option2.png)
+![Multi-VPC access with VPC origin and centralized Interface endpoint](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/multi-vpc-option2.png)
 
 
 One VPC hosts an Amazon S3 Interface endpoint, and the access point is created with VPC origin bound to that VPC. Other VPCs route their Amazon S3 traffic to the Interface endpoint through VPC peering or Transit Gateway. Because all requests arrive through an endpoint in the bound VPC, they satisfy the VPC origin enforcement.

@@ -21,7 +21,7 @@ The solution automatically deploys all of the components needed, and uses the fo
 
 Deploying this solution builds the following resources in the AWS Cloud.
 
-![Architecture diagram of the solution to automatically increase the storage capacity of an FSx for ONTAP file system.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/dynamic-storage-scaling-architecture.png)
+![Architecture diagram of the solution to automatically increase the storage capacity of an FSx for ONTAP file system.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/dynamic-storage-scaling-architecture.png)
 
 
 The diagram illustrates the following steps:
@@ -116,7 +116,7 @@ Amazon FSx is currently only available in specific AWS Regions. You must launch 
 1. Choose **Template is ready**. In the **Specify template** section, choose **Upload a template file** and upload the template that you downloaded.
 
 1. In **Specify stack details**, enter the values for your automatic storage capacity increase solution.  
-![The values entered for the Specify stack details page for the CloudFormation template](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/dynamic-storage-capacity-increase-cfn-stack.png)
+![The values entered for the Specify stack details page for the CloudFormation template](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/dynamic-storage-capacity-increase-cfn-stack.png)
 
 1. Enter a **Stack name**.
 

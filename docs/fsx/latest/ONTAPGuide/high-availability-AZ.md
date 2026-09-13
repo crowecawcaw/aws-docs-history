@@ -29,7 +29,7 @@ Single-AZ file systems are designed for use cases that do not require the data r
 
 The following diagram illustrates the architecture for an FSx for ONTAP Single-AZ first-generation file system.
 
-![Diagram illustrating the architecture for an FSx for ONTAP Single-AZ first-generation file system.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-single-az-architecture.png)
+![Diagram illustrating the architecture for an FSx for ONTAP Single-AZ first-generation file system.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-single-az-architecture.png)
 
 
 ### Multi-AZ deployment types
@@ -41,7 +41,7 @@ Multi-AZ file systems support all the availability and durability features of Si
 
 Multi-AZ file systems are designed for use cases such as business-critical production workloads that require high availability to shared ONTAP file data and need storage with built-in replication across Availability Zones. The following diagram illustrates the architecture for an FSx for ONTAP Multi-AZ first-generation file system.
 
-![Diagram illustrating the highly available architecture of FSx for ONTAP Multi-AZ first-generation file system.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-multi-az-architecture.png)
+![Diagram illustrating the highly available architecture of FSx for ONTAP Multi-AZ first-generation file system.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-multi-az-architecture.png)
 
 
 ## Choosing a file system generation

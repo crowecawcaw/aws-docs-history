@@ -98,7 +98,7 @@ Only [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/?whats-new-car
 
 The following diagram illustrates using Transit Gateway for NFS, SMB, or management access to a Multi-AZ file system that is in a different VPC than the clients that are accessing it.
 
-![Using Transit Gateway to access NFS, SMB, and ONTAP management endpoints on an FSx for ONTAP Multi-AZ file system with clients located in a different VPC than the file system.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-multi-az-access-transit-gateway.png)
+![Using Transit Gateway to access NFS, SMB, and ONTAP management endpoints on an FSx for ONTAP Multi-AZ file system with clients located in a different VPC than the file system.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-multi-az-access-transit-gateway.png)
 
 
 **Note**  
@@ -115,7 +115,7 @@ The endpoints used to access FSx for ONTAP Single-AZ file systems over NFS or SM
 
 The following diagram illustrates using Site-to-Site VPN or Direct Connect for NFS, SMB, or management access to a Single-AZ file system that is in a different VPC than the clients accessing it.
 
-![Using Site-to-Site VPN or Direct Connect to access NFS, SMB, and ONTAP management endpoints on a Single-AZ file system that is in a different VPC than the clients accessing it.](http://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-single-az-access-vpc-peering.png)
+![Using Site-to-Site VPN or Direct Connect to access NFS, SMB, and ONTAP management endpoints on a Single-AZ file system that is in a different VPC than the clients accessing it.](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/images/fsx-ontap-single-az-access-vpc-peering.png)
 
 
 #### When is Transit Gateway required?
