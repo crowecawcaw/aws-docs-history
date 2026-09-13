@@ -14,7 +14,7 @@ This architecture builds upon the [Traveler 360 Data Platform for Airlines](../t
 ## Customer engagement AI/ML for airlines diagram
 <a name="engagement-airlines-diagram"></a>
 
-![Architecture for airline customer engagement using Amazon Connect Customer, Amazon Lex, and AWS Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/customer-engagement-airlines/images/customer_engagement_travel_ra.png)
+![Architecture for airline customer engagement using Amazon Connect Customer, Amazon Lex, and AWS Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/customer-engagement-airlines/images/customer_engagement_travel_ra.png)
 
 
 The following steps describe the architecture:
