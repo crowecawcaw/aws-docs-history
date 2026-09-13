@@ -10,7 +10,7 @@ With this architecture, you can build a highly reliable, available, scalable, an
 ## Video stream from cloud to satellite diagram
 <a name="video-sat-diagram"></a>
 
-![Reference architecture diagram showing how to build a cloud-based video headend by using AWS Elemental MediaConnect, AWS Elemental MediaLive, CloudFront, and IAM.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/video-stream-cloud-satellite-internet/images/video-stream-cloud-satellite-internet.png)
+![Reference architecture diagram showing how to build a cloud-based video headend by using AWS Elemental MediaConnect, AWS Elemental MediaLive, CloudFront, and IAM.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/video-stream-cloud-satellite-internet/images/video-stream-cloud-satellite-internet.png)
 
 
 The following steps describe the data flow and key configuration points for this architecture:
