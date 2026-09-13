@@ -26,7 +26,7 @@ The following are requirements for the solution.
 
  The development team has taken the initial set of requirements are put together a high-level solution concept. They have also created a high-level architecture that includes recommended AWS services. 
 
-![The digital archive solution includes private browsing content that requires login credentials. The solution also includes publishing assets to the web, using machine learning to extract media, providing secure storage in AWS, and reporting on data usage and access.](http://docs.aws.amazon.com/wellarchitected/latest/maori-data-lens/images/image1.jpg)
+![The digital archive solution includes private browsing content that requires login credentials. The solution also includes publishing assets to the web, using machine learning to extract media, providing secure storage in AWS, and reporting on data usage and access.](https://docs.aws.amazon.com/wellarchitected/latest/maori-data-lens/images/image1.jpg)
 
 
  
@@ -36,7 +36,7 @@ The following are requirements for the solution.
 
  The following diagram provides a high-level architecture for the digital archive solution. 
 
-![The high-level architecture diagram for the digital archive solution includes multiple AWS services such as content delivery with Amazon CloudFront, metadata extraction with AWS Lambda, and database usage with Amazon Relational Database Service.](http://docs.aws.amazon.com/wellarchitected/latest/maori-data-lens/images/image2.jpg)
+![The high-level architecture diagram for the digital archive solution includes multiple AWS services such as content delivery with Amazon CloudFront, metadata extraction with AWS Lambda, and database usage with Amazon Relational Database Service.](https://docs.aws.amazon.com/wellarchitected/latest/maori-data-lens/images/image2.jpg)
 
 
 1. The front-end web application is a javascript based web application deployed to Amazon S3 and accessed using Amazon CloudFront. Amazon CloudFront is integrated with Amazon Web Application Firewall (WAF) to provide protection from layer 7 style attacks. Amazon CloudFront provides distributed denial of service (DDoS) protection through AWS Shield. 
