@@ -10,7 +10,7 @@ Kelvin’s solution, built on AWS Cloud, allows enterprises to scale faster, opt
 ## Kelvin AI on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing Kelvin’s solution, built on AWS Cloud, which allows enterprises to scale faster, optimize their industrial operations in real time, and accelerate their digital transformation initiatives.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/kelvin-ai-on-aws/images/kelvin-ai-on-aws.png)
+![Reference architecture diagram showing Kelvin’s solution, built on AWS Cloud, which allows enterprises to scale faster, optimize their industrial operations in real time, and accelerate their digital transformation initiatives.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/kelvin-ai-on-aws/images/kelvin-ai-on-aws.png)
 
 
 1.  Time-series data from industrial historians or industrial gateway/programmable logic controllers (PLCs) leveraging MQTT, OPC-UA, and Modbus protocols are sent to the edge nodes. 
