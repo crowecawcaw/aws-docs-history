@@ -10,7 +10,7 @@ This architecture shows how to build a continuous integration pipeline for Git p
 ## Pull Request Continuous Integration
 <a name="diagram1"></a>
 
-![Architecture diagram showing a pull request continuous integration pipeline by using AWS CodeBuild, Amazon API Gateway, and AWS Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/pull-request-continuous-integration/images/pull-request-continuous-integration.png)
+![Architecture diagram showing a pull request continuous integration pipeline by using AWS CodeBuild, Amazon API Gateway, and AWS Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/pull-request-continuous-integration/images/pull-request-continuous-integration.png)
 
 
 1. Webhooks connect supported Git providers (such as GitHub or Bitbucket) and AWS CodeBuild. The Git provider sends events when a PR is created or updated. For [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html), an [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) function triggers the build.
