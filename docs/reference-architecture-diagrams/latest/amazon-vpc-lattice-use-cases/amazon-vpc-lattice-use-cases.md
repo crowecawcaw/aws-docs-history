@@ -12,7 +12,7 @@ Amazon VPC Lattice is an application layer service that consistently connects, m
 
  VPC Lattice gives you a consistent way to connect, secure, and monitor communication between your services, across AWS compute services (instances, containers, and serverless functions). This diagram will show you the different components in VPC Lattice and how they interact within each other. 
 
-![Diagram showing the different components in VPC Lattice and how they interact within each other.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/1-components.png)
+![Diagram showing the different components in VPC Lattice and how they interact within each other.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/1-components.png)
 
 
 1.  A *service network* is logical boundary for a collection of services. Services associated with the network can be authorized for discovery, connectivity, accessibility, and observability. To make requests to services in the network, the client must be in a VPC that is associated with the service network. 
@@ -30,7 +30,7 @@ Amazon VPC Lattice is an application layer service that consistently connects, m
 
  VPC Lattice is designed to help you easily and effectively discover, secure, connect, and monitor all of the services within it. The Amazon Route 53 VPC Resolver is used within the consumer VPC to resolve the VPC Lattice service’s domain names, resolving to link-local addresses to send traffic locally to the service network. 
 
-![Diagram showing how to easily and effectively discover, secure, connect, and monitor all of the services within it.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/2-traffic-flow.png)
+![Diagram showing how to easily and effectively discover, secure, connect, and monitor all of the services within it.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/2-traffic-flow.png)
 
 
 1.  The consumer application placed in the **Amazon Elastic Compute Cloud** (Amazon EC2) instance queries the **Amazon Route 53** VPC Resolver to get domain name resolution of *service1*. 
@@ -46,7 +46,7 @@ Amazon VPC Lattice is an application layer service that consistently connects, m
 
  When creating VPC Lattice services, you can configure a custom domain name to provide a more intuitive URL for your users. When a client makes a request using your custom domain name, the DNS server resolves it to the VPC Lattice-generated domain name (service-name-service\_id.partition\_id.vpc-lattice-svcs.region.on.aws). However, this happens only if you map your custom domain name to the VPC Lattice-generated domain name (CNAME record). 
 
-![Diagram showing how to map your custom domain name to the VPC Lattice-generated domain name.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/3-custom-domain-name.png)
+![Diagram showing how to map your custom domain name to the VPC Lattice-generated domain name.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/3-custom-domain-name.png)
 
 
 1.  To allow the mapping between your custom domain name and the **VPC Lattice**-generated domain name, create a private hosted zone associated to your consumer VPC. This hosted zone will contain the ALIAS record doing this mapping. 
@@ -66,7 +66,7 @@ Amazon VPC Lattice is an application layer service that consistently connects, m
 
  A central account can have ownership of the service network, which is shared (using AWS Resource Access Manager) to other AWS accounts inside the same or different AWS Organizations. Additionally, the provider accounts can also shared their services using AWS Resource Access Manager. 
 
-![Diagram showing how a central account can have ownership of the service network, which is shared (using AWS Resource Access Manager) to other AWS accounts inside the same or different AWS Organizations.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/4-multi-account-centralized-single-service-network.png)
+![Diagram showing how a central account can have ownership of the service network, which is shared (using AWS Resource Access Manager) to other AWS accounts inside the same or different AWS Organizations.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/4-multi-account-centralized-single-service-network.png)
 
 
 1.  The consumer application placed in the **Amazon EC2** instance queries the VPC resolver to get domain name resolution of *service2*. 
@@ -84,7 +84,7 @@ Amazon VPC Lattice is an application layer service that consistently connects, m
 
  A central account can have ownership of several service networks, which are shared (using AWS Resource Access Manager) to other AWS accounts, inside the same or different AWS Organizations (same as services). The use of several service networks allow for a segmentation of services, which can also be achieved or complemented with the use of policies. 
 
-![Diagram showing how a central account can have ownership of several service networks, which are shared (using AWS Resource Access Manager) to other AWS accounts, inside the same or different AWS Organizations (same as services).](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/5-multi-account-centralized-multiple-service-networks.png)
+![Diagram showing how a central account can have ownership of several service networks, which are shared (using AWS Resource Access Manager) to other AWS accounts, inside the same or different AWS Organizations (same as services).](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/5-multi-account-centralized-multiple-service-networks.png)
 
 
 1.  An **AWS Lambda** function placed in a VPC can access a service network after the VPC is associated to it. In this case, the consumer service located in the **Lambda** function queries the VPC resolver to resolve the domain name of *service1*. 
@@ -102,7 +102,7 @@ Amazon VPC Lattice is an application layer service that consistently connects, m
 
  Each provider AWS account owns its own services, and shares them with other AWS accounts, inside the same or different AWS Organizations. Because a VPC can only be associated with one service network, consumers can own its own service network and choose which services they want to consume. 
 
-![Diagram showing how each provider AWS account owns its own services and shares them with other AWS accounts, inside the same or different AWS Organizations.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/6-multi-account-distributed-service-networks.png)
+![Diagram showing how each provider AWS account owns its own services and shares them with other AWS accounts, inside the same or different AWS Organizations.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/amazon-vpc-lattice-use-cases/images/6-multi-account-distributed-service-networks.png)
 
 
 1.  The consumer application – placed in an **Amazon EC2** instance – queries the VPC resolver for DNS resolution of *service1*. 
