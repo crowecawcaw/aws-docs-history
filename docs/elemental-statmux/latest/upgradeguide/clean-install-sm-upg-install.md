@@ -20,7 +20,7 @@ Do this from each Elemental node.
 1. Insert the DVD or USB thumb drive into the hardware unit.
 
 1. Boot up or reboot the system. The installer automatically starta.  
-![](http://docs.aws.amazon.com/elemental-statmux/latest/upgradeguide/images/install-installer-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-statmux/latest/upgradeguide/images/install-installer-shared-png.png)
 
 1. Use the arrow keys to select each option and do the following:    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-statmux/latest/upgradeguide/clean-install-sm-upg-install.html)
