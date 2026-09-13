@@ -10,7 +10,7 @@ This architecture shows how to build a DISA-compliant landing zone on AWS GovClo
 ## Secure Cloud Computing Architecture (SCCA) on AWS GovCloud
 <a name="diagram1"></a>
 
-![Architecture diagram showing SCCA on AWS GovCloud (US) with DISA-compliant landing zone.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/scca-govcloud/images/scca-govcloud.png)
+![Architecture diagram showing SCCA on AWS GovCloud (US) with DISA-compliant landing zone.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/scca-govcloud/images/scca-govcloud.png)
 
 
 1. The Virtual Data Center Security Stack (VDSS) Account acts as the boundary for protection of mission owner applications.
