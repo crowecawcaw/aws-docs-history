@@ -39,16 +39,16 @@ This section describes how to download, install, and set up the Amazon GameLift 
 1. Launch Unity and choose a project.
 
 1. In the top navigation bar, under **Window** choose **Package Manager**:  
-![Unity menu under Window with package manager selected.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_pkgmgr.png)
+![Unity menu under Window with package manager selected.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_pkgmgr.png)
 
 1. Under the **Package Manager** tab choose **\+**, and then choose **Add package from tarball...**:  
-![Add package from tarball highlighted under the + icon in the Package Manager tab.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_tarball.png)
+![Add package from tarball highlighted under the + icon in the Package Manager tab.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_tarball.png)
 
 1. In the **Select packages on disk** window, navigate to the `com.amazonaws.gamelift` folder, choose the file `com.amazonaws.gamelift-version.tgz `, and then choose **Open**:  
-![Choosing the tarball file in the select package on disk window.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_tarballselect.png)
+![Choosing the tarball file in the select package on disk window.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_tarballselect.png)
 
 1. After Unity has loaded the plug-in, **Amazon GameLift Servers** appears as a new item in the Unity menu. It may take a few minutes to install and recompile scripts. The **Amazon GameLift Servers Plugin Settings** tab automatically opens.  
-![Amazon GameLift Servers plugin for Unity plugin settings menu.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_done_ui.png)
+![Amazon GameLift Servers plugin for Unity plugin settings menu.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_install_done_ui.png)
 
 1. In the **SDK** pane, choose **Use .NET 4.x**.
 
@@ -220,10 +220,10 @@ You must configure AWS credentials and an AWS account bootstrap to deploy a scen
 1. Choose the **Game Server Build .exe File Path**. The build executable file path points to the game server executable.
 
 1. Choose **Start Deployment** to begin deploying a scenario. You can follow the status of the update in the **Deployment** window under **Current State**.Scenarios can take several minutes to deploy.  
-![Scenario deployment status update](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_deploy_statex.png)
+![Scenario deployment status update](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_deploy_statex.png)
 
 1. When the scenario completes deployment, the **Current State** updates to include the **Cognito Client ID** and **API Gateway Endpoint** that you can copy and paste into the game.  
-![Scenario deployment status update](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_deploy_statedone.png)
+![Scenario deployment status update](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unitypi_deploy_statedone.png)
 
 1. To update game settings, on the Unity menu, choose **Go To Client Connection Settings**. This displays an **Inspector** tab on the right side of the Unity screen.
 
@@ -259,7 +259,7 @@ Integrate your Unity game with Amazon GameLift Servers by completing the followi
 
 The following diagram shows an example flow of integrating a game. In the diagram, a fleet with the game server is deployed to Amazon GameLift Servers. The game client communicates with the game server, which communicates with Amazon GameLift Servers. 
 
-![Architecture diagram of integrating Unity with Amazon GameLift Servers.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unity_diagram.png)
+![Architecture diagram of integrating Unity with Amazon GameLift Servers.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unity_diagram.png)
 
 
 ## Import and run a sample game

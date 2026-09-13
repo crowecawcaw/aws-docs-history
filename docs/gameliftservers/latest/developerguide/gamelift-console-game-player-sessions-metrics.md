@@ -24,7 +24,7 @@ Game session and player session data is organized by the fleet that hosts the ga
 
 1. Each **Fleets** page displays the list of fleets for your currently selected AWS Region. Choose the fleet that you want to view game session data for.
 
-1. In the fleet's detail page, open the **Game sessions** tab. This tab lists all game sessions that were hosted on the fleet, along with summary information. You can adjust the table content as needed using the **Preferences** tool (see the ![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of the table). Custom preferences are saved to your AWS account user and are automatically applied whenever you view this page.
+1. In the fleet's detail page, open the **Game sessions** tab. This tab lists all game sessions that were hosted on the fleet, along with summary information. You can adjust the table content as needed using the **Preferences** tool (see the ![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of the table). Custom preferences are saved to your AWS account user and are automatically applied whenever you view this page.
 
 1. Choose a game session from the list to view additional information. 
 

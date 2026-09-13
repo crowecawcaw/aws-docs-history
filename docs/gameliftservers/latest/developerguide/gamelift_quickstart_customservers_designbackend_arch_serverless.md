@@ -7,7 +7,7 @@ Using a serverless client service architecture, the backend can view the status 
 
 The following diagram shows a serverless backend built with AWS services that matches players into games running on Amazon GameLift Servers fleets. The following list provides a description for each numbered callout in the diagram. To try out this example, see [Multiplayer Session-based Game Hosting on AWS](https://github.com/aws-samples/aws-gamelift-and-serverless-backend-sample) on GitHub.
 
-![Example serverless architecture that matches players into games running on Amazon GameLift Servers fleets.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/qs_arch_serverless.png)
+![Example serverless architecture that matches players into games running on Amazon GameLift Servers fleets.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/qs_arch_serverless.png)
 
 
 1. The game client requests an Amazon Cognito user identity from an Amazon Cognito identity pool.

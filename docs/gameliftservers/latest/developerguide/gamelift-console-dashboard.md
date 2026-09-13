@@ -17,4 +17,4 @@ From the dashboard, you can:
 + Request service quota increases in preparation for launches or in response to launches by choosing **View service quotas**.
 + View blog posts and detailed information about new features by choosing the link in the **Features spotlight**.
 
-![The dashboard displays the status of all Amazon GameLift Servers resources in your current Region.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/gamelift-console-dashboard.png)
+![The dashboard displays the status of all Amazon GameLift Servers resources in your current Region.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/gamelift-console-dashboard.png)

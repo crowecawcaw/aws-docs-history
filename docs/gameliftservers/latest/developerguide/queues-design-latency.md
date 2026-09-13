@@ -18,4 +18,4 @@ For example, consider this queue with a 5-minute timeout and the following playe
 
 1. Spend the remaining queue time until timeout searching for a location where all player latencies are less than 200 milliseconds.
 
-![A console screen shot that illustrates the example latency policies that gradually relax.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/queue-latency-policy.png)
+![A console screen shot that illustrates the example latency policies that gradually relax.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/queue-latency-policy.png)

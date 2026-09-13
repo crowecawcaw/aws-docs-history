@@ -12,7 +12,7 @@ View information about game server builds in the Amazon GameLift Servers console
 
 On the **Builds** page of the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/), you can view information about and manage all the game server builds that you've uploaded to Amazon GameLift Servers for deployment on managed EC2 fleets. In the navigation pane, choose **Hosting**, **Managed EC2**, **Builds**.
 
-The **Builds** page shows the following information for each build. You can adjust the table content as needed using the **Preferences** tool (see the ![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of the table). Custom preferences are saved to your AWS account user and are automatically applied whenever you view this page.
+The **Builds** page shows the following information for each build. You can adjust the table content as needed using the **Preferences** tool (see the ![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of the table). Custom preferences are saved to your AWS account user and are automatically applied whenever you view this page.
 
 **Note**  
 The **Builds** page shows builds in your current AWS Region only.

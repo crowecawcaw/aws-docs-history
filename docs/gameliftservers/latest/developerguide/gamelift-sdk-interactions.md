@@ -16,7 +16,7 @@ Hosting solution components include a game server, the Amazon GameLift Servers s
 
 The following diagram illustrates how your game hosting components interact so that the Amazon GameLift Servers service can track the status of game server availability and start game sessions in response to player demands.
 
-![Game client/server behavior for the key interactions, as described in this topic.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/combined_api_interactions_vsd.png)
+![Game client/server behavior for the key interactions, as described in this topic.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/combined_api_interactions_vsd.png)
 
 
 ## Interaction behaviors

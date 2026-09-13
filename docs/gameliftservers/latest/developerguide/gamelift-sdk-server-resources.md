@@ -55,7 +55,7 @@ For container fleets, `FleetRoleArn` credentials are injected into each containe
 
 For games integrated with server SDK 5.x, this diagram illustrates how applications in your deployed game build can acquire credentials for the IAM role.
 
-![Game executables call GetFleetRoleCredentials(). Other files use locally stored shared credentials.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/instance-role-creds_vsd.png)
+![Game executables call GetFleetRoleCredentials(). Other files use locally stored shared credentials.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/instance-role-creds_vsd.png)
 
 
 #### Call `GetFleetRoleCredentials()` (server SDK 5.x)

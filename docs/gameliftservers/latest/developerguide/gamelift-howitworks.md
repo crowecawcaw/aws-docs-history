@@ -18,7 +18,7 @@ A complete Amazon GameLift Servers hosting solution consists of several essentia
 + Game hosting fleets provide game servers in one or more geographic locations.
 + Game hosting management system monitors game hosting status and manages capacity. 
 
-![Game architecture with managed Amazon GameLift Servers.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/game_architecture.png)
+![Game architecture with managed Amazon GameLift Servers.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/game_architecture.png)
 
 
 ### Game client

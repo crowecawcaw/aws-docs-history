@@ -626,7 +626,7 @@ Based on customer feedback, we've clarified the Amazon GameLift Servers workflow
 <a name="release-notes-08152024"></a>
 
 Based on customer feedback, we've made the following updates to the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift) experience: 
-+ Your display preferences for pages are now automatically saved to your AWS account user and applied whenever you return to the page. Display preferences let you choose what information to include in a table display, such as on the Fleets listing page. Customize your display preferences by using the ![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of a table. 
++ Your display preferences for pages are now automatically saved to your AWS account user and applied whenever you return to the page. Display preferences let you choose what information to include in a table display, such as on the Fleets listing page. Customize your display preferences by using the ![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of a table. 
 + The Create Fleet workflow for managed EC2 fleets has been streamlined to combine the selection of fleet locations and instance types. We've made it easier for you to find the right instance type for your fleet, even when you change your locations selections. 
 
 ****Learn more:****

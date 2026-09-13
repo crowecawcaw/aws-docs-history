@@ -9,7 +9,7 @@ For more information about using API Gateway WebSocket APIs, see [Working with W
 
 The following diagram shows a WebSocket-based backend architecture that uses API Gateway and other AWS services to match players into games running on Amazon GameLift Servers fleets. The following list provides a description for each numbered callout in the diagram.
 
-![Example WebSockets architecture that matches players into games running on Amazon GameLift Servers fleets.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/qs_arch_websockets.png)
+![Example WebSockets architecture that matches players into games running on Amazon GameLift Servers fleets.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/qs_arch_websockets.png)
 
 
 1. The game client requests an Amazon Cognito user identity from an Amazon Cognito identity pool.

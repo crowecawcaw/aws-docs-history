@@ -14,7 +14,7 @@ The **Alias** page displays information about Amazon GameLift Servers aliases th
 
 You can do the following on the aliases page:
 + Create a new alias. Choose **Create alias**.
-+ Filter and sort the aliases table. Use the controls at the top of the table. You can adjust the table content as needed using the **Preferences** tool (see the ![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of the table). Custom preferences are saved to your AWS account user and are automatically applied whenever you view this page.
++ Filter and sort the aliases table. Use the controls at the top of the table. You can adjust the table content as needed using the **Preferences** tool (see the ![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of the table). Custom preferences are saved to your AWS account user and are automatically applied whenever you view this page.
 + View alias details. Choose an alias name to open the alias detail page.
 + Delete an alias. Choose an alias and then choose **Delete**.
 

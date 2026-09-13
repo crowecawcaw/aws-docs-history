@@ -14,7 +14,7 @@ You can view information on all the fleets created to host your games on Amazon 
 
 For each hosting option, the **Fleets** page lists fleets that are located in your currently selected AWS Region. From the **Fleets** page, you can create a new fleet or view additional detail on a fleet. A fleet's [detail page](gamelift-console-fleets-metrics.md) contains usage information, metrics, game session data, and player session data. You can also edit a fleet record or delete a fleet.
 
-A **Fleets** page displays the following summary information by default. You can adjust the table content as needed using the **Preferences** tool (see the ![Gear icon representing settings or configuration options.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of the table). Custom preferences are saved to your AWS account user and are automatically applied whenever you view this page.
+A **Fleets** page displays the following summary information by default. You can adjust the table content as needed using the **Preferences** tool (see the ![Gear icon representing settings or configuration options.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/settings.png) icon in the upper right corner of the table). Custom preferences are saved to your AWS account user and are automatically applied whenever you view this page.
 + **ID** – An identifier assigned to the fleet. This ID is unique within the AWS Region where the fleet is created.
 + **Name** – A friendly name given to the fleet.
 + **Status** – The status of the fleet: **New**, **Downloading**, **Building**, and **Active**.

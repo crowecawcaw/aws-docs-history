@@ -19,7 +19,7 @@ The following example outlines the process of designing a basic multi-location q
 
 1. Define the location order. If you don't define the location order, Amazon GameLift Servers uses the locations in alphabetical order.
 
-![A console screenshot that illustrates the example queue's locations and destination order.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/queue-multi-location-1.png)
+![A console screenshot that illustrates the example queue's locations and destination order.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/queue-multi-location-1.png)
 
 
-![A console screenshot that illustrates the example queue's placement priority and Location order.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/queue-multi-location-2.png)
+![A console screenshot that illustrates the example queue's placement priority and Location order.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/queue-multi-location-2.png)

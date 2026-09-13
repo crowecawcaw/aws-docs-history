@@ -5,7 +5,7 @@
 
 Amazon GameLift Servers can be configured to collect and publish telemetry metrics for game servers running on managed Amazon EC2 and Container fleets. These metrics become available after deploying the telemetry collector with your server build. The metrics system supports all SDKs (C\+\+, C\#, Go), all plugins (Unreal, Unity), and the Amazon GameLift Servers Game Server Wrapper. Metrics data flows to [Amazon Managed Service for Prometheus](https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html), [Monitor Amazon GameLift Servers with Amazon CloudWatch](monitoring-cloudwatch.md), and [Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.html) dashboards (recommended for visualization).
 
-![telemetry_metrics](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/telemetry_metrics.png)
+![telemetry_metrics](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/telemetry_metrics.png)
 
 
 ## Benefits of telemetry metrics

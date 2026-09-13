@@ -10,7 +10,7 @@ Player gateway uses a relay network to route UDP traffic between game clients an
 
 When a player connects to a game session, your game backend retrieves relay endpoints and a player gateway token from the `GetPlayerConnectionDetails` API and sends them to the game client. The game client prepends the player gateway token to UDP packets and sends the packets to a relay endpoint. The relay network validates the token and routes legitimate traffic to the game server. Before delivery, the relay network strips the player gateway token so that game servers receive the raw game client payload and should not require code changes. Communication from the game server back to the game client returns through the relay network without modification.
 
-![Architecture diagram showing game client connecting through relay network to game server](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/player_gateway_architecture.png)
+![Architecture diagram showing game client connecting through relay network to game server](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/player_gateway_architecture.png)
 
 
 ## Core concepts
@@ -21,7 +21,7 @@ When a player connects to a game session, your game backend retrieves relay endp
 
 Relay endpoints are IP address and port combinations that game clients use to send traffic through player gateway. Each player receives multiple endpoints that vary across players to distribute traffic and reduce the impact of attacks on other players in the same game session.
 
-![Diagram showing multiple players receiving different relay endpoints for the same game sessions](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/player_gateway_relay_endpoints.png)
+![Diagram showing multiple players receiving different relay endpoints for the same game sessions](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/player_gateway_relay_endpoints.png)
 
 
 ### Player gateway tokens

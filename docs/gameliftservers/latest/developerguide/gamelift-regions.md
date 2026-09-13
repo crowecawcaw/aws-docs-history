@@ -66,7 +66,7 @@ Remote locations for a multi-location fleet can be other AWS Regions or Local Zo
 
 The following diagram illustrates a multi-location fleet with resources in two AWS Regions and one Local Zone. The fleet's home Region is `us-west-2`, and it has two remote locations: `us-east-2` Region and `us-west-2-lax-1` Local Zone.
 
-![An Amazon GameLift Servers fleet with 2 AWS Regions and one Local Zone. Each location hosts their own game server resources.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/fleet_local_zones.png)
+![An Amazon GameLift Servers fleet with 2 AWS Regions and one Local Zone. Each location hosts their own game server resources.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/fleet_local_zones.png)
 
 
 In addition to fleet resources, managed hosting with Amazon GameLift Servers can also use the following types of resources. You create these resources in a specific AWS Region that supports the resource type. 

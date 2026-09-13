@@ -37,7 +37,7 @@ To manage Amazon GameLift Servers resources in a single location, we recommend a
 
 The diagram below illustrates a two-stack structure for deploying resources in a single AWS Region. 
 
-![Diagram with 2 CloudFormation stacks for Amazon GameLift Servers resources and supporting AWS services.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/resources-cf_single_vsd.png)
+![Diagram with 2 CloudFormation stacks for Amazon GameLift Servers resources and supporting AWS services.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/resources-cf_single_vsd.png)
 
 
 ### Stacks for multiple regions
@@ -50,10 +50,10 @@ When deploying your game in more than one Region, keep in mind how resources can
 
 The diagrams below illustrates a multistack structure for deploying resources in several AWS Regions. The first diagram shows a structure for a single game session queue. The second diagram shows a structure with multiple queues.
 
-![Diagram with CloudFormation resource stacks containing region-specific and global resources.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/resources-cf_multi_vsd.png)
+![Diagram with CloudFormation resource stacks containing region-specific and global resources.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/resources-cf_multi_vsd.png)
 
 
-![Diagram shows how regional CloudFormation stacks can share global resources such as queues.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/resources-cf_multiqueue_vsd.png)
+![Diagram shows how regional CloudFormation stacks can share global resources such as queues.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/resources-cf_multiqueue_vsd.png)
 
 
 ## Updating builds
@@ -94,7 +94,7 @@ The main advantage with this approach is that it gives you the flexibility. You 
 
 The following diagram illustrates this process. 
 
-![Diagram shows how you can use CloudFormation stacks to update game server builds.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/resources-cf_updating_vsd.png)
+![Diagram shows how you can use CloudFormation stacks to update game server builds.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/resources-cf_updating_vsd.png)
 
 
 ### How rollbacks work

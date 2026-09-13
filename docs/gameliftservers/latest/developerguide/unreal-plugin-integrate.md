@@ -441,7 +441,7 @@ After you've made these changes to your project, you're ready to build your game
 **Note**  
 For Unreal Engine 5.6 or later, if you cannot move the character after connecting to the game server, update the BP\_ThirdPersonCharacter blueprint to add input mapping context for `IMC_Default` and `IMC_MouseLook` as shown below:  
 
-![Blueprint nodes showing Event BeginPlay connected to Cast To PlayerController and Add Mapping Context nodes for IMC_Default and IMC_MouseLook.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unreal-enhanced-input-blueprint.png)
+![Blueprint nodes showing Event BeginPlay connected to Cast To PlayerController and Add Mapping Context nodes for IMC_Default and IMC_MouseLook.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/unreal-enhanced-input-blueprint.png)
 
 
 ## Package your game components

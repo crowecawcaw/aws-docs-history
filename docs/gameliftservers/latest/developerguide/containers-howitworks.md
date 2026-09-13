@@ -40,12 +40,12 @@ A compute represents a copy of a game server container group on a fleet instance
 
 The following diagram illustrates the simplest container fleet structure. In this structure, each instance in the fleet maintains one copy of the game server container group. The container group has a single game server container that runs one game server process. In this example, the container fleet is configured to place one copy of the game server container group per instance. With this architecture, each instance runs one game server process.
 
-![An example of a simple container architecture, with a single game server container in the game server container group.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/container_architecture_simple.png)
+![An example of a simple container architecture, with a single game server container in the game server container group.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/container_architecture_simple.png)
 
 
 This second diagram illustrates a more complex container fleet architecture. In this structure, the fleet has both a game server container group and a per-instance container group. The game server container group has separate containers for the game server process and a support process. The fleet is configured to place three copies of the game server container group on each fleet instance. The per-instance container group is never replicated. In this example, the container fleet is configured to place three copies of the game server container group per instance. With this architecture, each instance runs three game server processes.
 
-![An example of a container architecture with multiple containers in the game server container group and one container in the per-instance container group.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/container_architecture_complex.png)
+![An example of a container architecture with multiple containers in the game server container group and one container in the per-instance container group.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/container_architecture_complex.png)
 
 
 ## Core features
@@ -106,7 +106,7 @@ You can modify a container fleet's port settings at any time. This change requir
 
 The following diagram illustrates the role of port connections across a container fleet. As shown, you set ports on individual containers, and Amazon GameLift Servers uses this information to configure enough ports on the fleet instance to map to each container port. Both the external-facing instance inbound permissions and the internal-facing connection ports are calculated by Amazon GameLift Servers for your fleet, unless you choose to set them manually.
 
-![An illustration of port settings for a container fleet. Port mappings enable external traffic to connect to a fleet instance and get access to an individual container on the instance.](http://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/container_design_networking.png)
+![An illustration of port settings for a container fleet. Port mappings enable external traffic to connect to a fleet instance and get access to an individual container on the instance.](https://docs.aws.amazon.com/gameliftservers/latest/developerguide/images/container_design_networking.png)
 
 
 ### Container logging
