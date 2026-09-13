@@ -22,4 +22,4 @@ You can export up to 100 assets in a single job.
 
 The following video explains more about how to export assets from AWS Data Exchange.
 
-[![AWS Videos](http://img.youtube.com/vi/VpIdwc3zLlo/0.jpg)](http://www.youtube.com/watch?v=VpIdwc3zLlo)
+[![AWS Videos](https://img.youtube.com/vi/VpIdwc3zLlo/0.jpg)](https://www.youtube.com/watch?v=VpIdwc3zLlo)

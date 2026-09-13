@@ -19,4 +19,4 @@ If the provider has marked a product as containing protected health information 
 
 The following video explains more about how to export assets from AWS Data Exchange (starting at 2:18).
 
-[![AWS Videos](http://img.youtube.com/vi/VpIdwc3zLlo/0.jpg)](http://www.youtube.com/watch?v=VpIdwc3zLlo)
+[![AWS Videos](https://img.youtube.com/vi/VpIdwc3zLlo/0.jpg)](https://www.youtube.com/watch?v=VpIdwc3zLlo)
