@@ -10,7 +10,7 @@ Run OpenText InfoArchive on Amazon Elastic Kubernetes Service (Amazon EKS) and A
 ## OpenText InfoArchive Architecture Using Amazon EKS and Amazon RDS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to run OpenText InfoArchive on Amazon EKS and Amazon RDS](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/opentext-infoarchive-architecture-using-amazon-eks/images/opentext-infoarchive-architecture-using-amazon-eks.png)
+![Reference architecture diagram showing how to run OpenText InfoArchive on Amazon EKS and Amazon RDS](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/opentext-infoarchive-architecture-using-amazon-eks/images/opentext-infoarchive-architecture-using-amazon-eks.png)
 
 
 1. RESTful API call for administration, configuration, search, or retrieval. 
