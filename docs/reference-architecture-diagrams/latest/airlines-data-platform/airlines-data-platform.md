@@ -14,7 +14,7 @@ This architecture uses the [Implementing Travel and Hospitality Data Mesh](../tr
 ## Airlines data platform diagram
 <a name="airlines-data-platform-diagram"></a>
 
-![Architecture for airline data platform using Amazon S3, Amazon Redshift, AWS Glue, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/airlines-data-platform/images/svoc_data_platform_travel_ra.png)
+![Architecture for airline data platform using Amazon S3, Amazon Redshift, AWS Glue, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/airlines-data-platform/images/svoc_data_platform_travel_ra.png)
 
 
 The following steps describe the architecture:
