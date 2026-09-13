@@ -10,7 +10,7 @@ This architecture automates the process of ingesting, analyzing, and visualizing
 ## AWS DevOps Monitoring Dashboard
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to ingest, analyze, and visualize continuous integration/continuous delivery (CI/CD) metrics.](http://docs.aws.amazon.com/architecture-diagrams/latest/aws-devops-monitoring-dashboard/images/aws-devops-monitoring-dashboard.png)
+![Reference architecture diagram showing how you can use AWS services to ingest, analyze, and visualize continuous integration/continuous delivery (CI/CD) metrics.](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-devops-monitoring-dashboard/images/aws-devops-monitoring-dashboard.png)
 
 
 1. An **Amazon EventBridge** events rule detects the events based on predefined event patterns and then sends the event data to an **Amazon Data Firehose** delivery stream. One event rule is created per event source. For activities in **AWS CodeBuild**, a **CloudWatch** metric stream is set up to capture **CloudWatch** metrics and deliver them to a **Firehose** delivery stream. For GitHub push events, an Amazon API endpoint is created to post these events and deliver them to a **Firehose** delivery stream.
@@ -31,7 +31,7 @@ To customize this reference architecture diagram based on your business needs, [
 ## Create a free AWS account
 <a name="create-a-free-aws-account"></a>
 
-[![Sign up for a free AWS account](http://docs.aws.amazon.com/architecture-diagrams/latest/aws-devops-monitoring-dashboard/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
+[![Sign up for a free AWS account](https://docs.aws.amazon.com/architecture-diagrams/latest/aws-devops-monitoring-dashboard/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
 
 Sign up for an AWS account. New accounts include 12 months of [AWS Free Tier](https://aws.amazon.com/free/) access, including the use of Amazon EC2, Amazon S3, and Amazon DynamoDB.
 
