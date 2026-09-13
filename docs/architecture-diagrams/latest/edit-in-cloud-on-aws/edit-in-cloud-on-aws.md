@@ -10,7 +10,7 @@ This architecture helps you build a virtual, video editing environment on AWS to
 ## Edit in the Cloud on AWS
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to help you build a virtual, video editing environment on AWS to collaborate with your editors and creative professionals.](http://docs.aws.amazon.com/architecture-diagrams/latest/edit-in-cloud-on-aws/images/edit-in-cloud-on-aws.png)
+![Reference architecture diagram showing how you can use AWS services to help you build a virtual, video editing environment on AWS to collaborate with your editors and creative professionals.](https://docs.aws.amazon.com/architecture-diagrams/latest/edit-in-cloud-on-aws/images/edit-in-cloud-on-aws.png)
 
 
 1. An **Amazon Elastic Compute Cloud** (Amazon EC2) instance for Windows Server 2019 with Teradici Cloud Access Software or NICE DCV and NVIDIA T4 GPU drivers for running your Non-Linear Editor (NLE) software of choice. During deployment, the solution gives you the option to install either Teradici’s Cloud Access Software, or NICE DCV. Users can then access the cloud workstation using either Teradici’s PC-over-IP (PCoIP) client or the NICE DCV client, accordingly.
@@ -27,7 +27,7 @@ To customize this reference architecture diagram based on your business needs, [
 ## Create a free AWS account
 <a name="create-a-free-aws-account"></a>
 
-[![Sign up for a free AWS account](http://docs.aws.amazon.com/architecture-diagrams/latest/edit-in-cloud-on-aws/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
+[![Sign up for a free AWS account](https://docs.aws.amazon.com/architecture-diagrams/latest/edit-in-cloud-on-aws/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
 
 Sign up for an AWS account. New accounts include 12 months of [AWS Free Tier](https://aws.amazon.com/free/) access, including the use of Amazon EC2, Amazon S3, and Amazon DynamoDB.
 
