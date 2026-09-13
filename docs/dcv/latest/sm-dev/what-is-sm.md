@@ -22,7 +22,7 @@ Before you start working with the Session Manager APIs, ensure that you're famil
 
 The following diagram shows the high-level components of Session Manager.
 
-![Amazon DCV Session Manager components](http://docs.aws.amazon.com/dcv/latest/sm-dev/images/components.png)
+![Amazon DCV Session Manager components](https://docs.aws.amazon.com/dcv/latest/sm-dev/images/components.png)
 
 
 ****Broker****  
