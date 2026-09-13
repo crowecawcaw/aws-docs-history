@@ -22,12 +22,12 @@ Beyond licensing, Outpost owners can use Dedicated Hosts to optimize the servers
 **Alter the capacity layout of a server**  
 Dedicated Hosts offers you the capability to alter the layout of servers in your Outpost deployment without contacting Support. When you purchase capacity for your Outpost, you specify an EC2 capacity layout that each server provides. Each server supports a single family of instance types. A layout can offer a single instance type or multiple instance types. Dedicated Hosts allows you to alter whatever you chose for that initial layout. If you allocate a host to support a single instance type for the entire capacity, you can only launch a single instance type from that host. The following illustration presents an m5.24xlarge server with a homogeneous layout:
 
-![An illustration of homogeneous instance-type layout.](http://docs.aws.amazon.com/outposts/latest/userguide/images/dh-48xm5large.png)
+![An illustration of homogeneous instance-type layout.](https://docs.aws.amazon.com/outposts/latest/userguide/images/dh-48xm5large.png)
 
 
 You can allocate the same capacity for multiple instance types. When you allocate a host to support multiple instance types, you get a heterogeneous layout that doesn't require an explicit capacity layout. The following illustration presents an m5.24xlarge server with a heterogeneous layout at full capacity:
 
-![An illustration of heterogeneous instance-type layout.](http://docs.aws.amazon.com/outposts/latest/userguide/images/dh-heterogeneous.png)
+![An illustration of heterogeneous instance-type layout.](https://docs.aws.amazon.com/outposts/latest/userguide/images/dh-heterogeneous.png)
 
 
 For more information, see [Allocate a Dedicated Host](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-allocating.html) in the *Amazon EC2 User Guide*.
@@ -55,13 +55,13 @@ Use a spread placement group to distribute a single instance across distinct har
 **Rack spread level placement groups**  
 Your rack spread level placement group can hold as many instances as you have racks in your Outpost deployment. The following illustration shows a three-rack Outpost deployment running three instances in a rack spread level placement group. 
 
-![An illustration of rack spread level placement group.](http://docs.aws.amazon.com/outposts/latest/userguide/images/placement-groups-spread.png)
+![An illustration of rack spread level placement group.](https://docs.aws.amazon.com/outposts/latest/userguide/images/placement-groups-spread.png)
 
 
 **Host spread level placement groups**  
 Your host spread level placement group can hold as many instances as you have hosts in your Outpost deployment. The following illustration shows a single-rack Outpost deployment running three instances in a host spread level placement group. 
 
-![An illustration of host spread level placement group.](http://docs.aws.amazon.com/outposts/latest/userguide/images/placement-groups-host-spread.png)
+![An illustration of host spread level placement group.](https://docs.aws.amazon.com/outposts/latest/userguide/images/placement-groups-host-spread.png)
 
 
 ### Partition placement groups
@@ -69,12 +69,12 @@ Your host spread level placement group can hold as many instances as you have ho
 
 Use a partition placement group to distribute multiple instances across racks with partitions. Each partition can hold multiple instances. You can use automatic distribution to spread instances across partitions or deploy instances to target partitions. The following illustration shows a partition placement group with automatic distribution. 
 
-![An illustration of partition placement group using an automatic distribution.](http://docs.aws.amazon.com/outposts/latest/userguide/images/placement-groups-partition-auto.png)
+![An illustration of partition placement group using an automatic distribution.](https://docs.aws.amazon.com/outposts/latest/userguide/images/placement-groups-partition-auto.png)
 
 
 You can also deploy instances to target partitions. The following illustration shows a partition placement group with targeted distribution.
 
-![An illustration of partition placement group using a targeted distribution](http://docs.aws.amazon.com/outposts/latest/userguide/images/placement-groups-partition-targeted.png)
+![An illustration of partition placement group using a targeted distribution](https://docs.aws.amazon.com/outposts/latest/userguide/images/placement-groups-partition-targeted.png)
 
 
 For more information about working with placement groups, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) and [Placement groups on AWS Outposts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups-outpost.html) in the *Amazon EC2 User Guide*.

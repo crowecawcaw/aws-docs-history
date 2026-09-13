@@ -7,7 +7,7 @@ AWS Outposts is designed to operate with a constant and consistent connection be
 
 The following diagram illustrates both Outpost form factors.
 
-![A drawing of Outpost form factors.](http://docs.aws.amazon.com/outposts/latest/userguide/images/outposts-form-factors.png)
+![A drawing of Outpost form factors.](https://docs.aws.amazon.com/outposts/latest/userguide/images/outposts-form-factors.png)
 
 
 **Topics**
@@ -32,7 +32,7 @@ The following diagram shows the network components for your Outpost.
   + For Outposts racks: a local gateway
   + For Outposts servers: a local network interface (LNI)
 
-![The VPC networking components for your Outpost.](http://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-networking-components.png)
+![The VPC networking components for your Outpost.](https://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-networking-components.png)
 
 
 ## VPCs and subnets

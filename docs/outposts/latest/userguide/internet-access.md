@@ -25,7 +25,7 @@ For the route table setting on the Outposts subnet, see [Local gateway route tab
 
 The following image shows traffic between the workload in the Outposts instance and the internet going through the parent AWS Region.
 
-![Shows the traffic between the workload in the Outposts instance and the internet going through the parent AWS Region.](http://docs.aws.amazon.com/outposts/latest/userguide/images/racks-internet-access-via-region.png)
+![Shows the traffic between the workload in the Outposts instance and the internet going through the parent AWS Region.](https://docs.aws.amazon.com/outposts/latest/userguide/images/racks-internet-access-via-region.png)
 
 
 ## Internet access through your local data center's network
@@ -47,4 +47,4 @@ For the route table setting on the Outposts subnet, see [Local gateway route tab
 
 The following image shows traffic between the workload in the Outposts instance and the internet going through your local data center.
 
-![Shows the traffic between the workload in the Outposts instance and the internet going through your data center's network.](http://docs.aws.amazon.com/outposts/latest/userguide/images/racks-internet-access-via-customer-network.png)
+![Shows the traffic between the workload in the Outposts instance and the internet going through your data center's network.](https://docs.aws.amazon.com/outposts/latest/userguide/images/racks-internet-access-via-customer-network.png)

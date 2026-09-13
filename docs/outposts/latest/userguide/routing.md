@@ -46,7 +46,7 @@ BGP advertisement is supported only for subnets on an Outpost that have a route 
 
 In the following diagram, traffic from the instance in the Outpost subnet can use the internet gateway for the VPC to access the internet.
 
-![Routing overview](http://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-routing-overview-direct-vpc.png)
+![Routing overview](https://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-routing-overview-direct-vpc.png)
 
 
 To achieve internet connectivity through the parent Region, the route table for the Outpost subnet must have the following routes.
@@ -72,7 +72,7 @@ BGP advertisement is supported only for subnets on an Outpost that have a route 
 
 In the following diagram, traffic from the instance in the Outpost subnet can use the local gateway to access the internet or the on-premises network. Traffic from the on-premises network uses the local gateway to access the instance in the Outpost subnet.
 
-![Local gateway access to on-premises](http://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-routing.png)
+![Local gateway access to on-premises](https://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-routing.png)
 
 
 To achieve internet connectivity through the on-premises network, the route table for the Outpost subnet must have the following routes.
@@ -125,7 +125,7 @@ Consider the following configuration:
 + The instance in the Outpost subnet has an Elastic IP address from the customer-owned IP address pool.
 + The local gateway uses BGP advertisement to advertise the customer-owned IP address pool to the on-premises network.
 
-![Routing overview](http://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-routing-overview.png)
+![Routing overview](https://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-routing-overview.png)
 
 
 To achieve internet connectivity through the Region, the route table for the Outpost subnet must have the following routes.
@@ -149,7 +149,7 @@ Consider the following configuration:
 + An Elastic IP address association that maps 10.0.3.112 to 10.1.0.2.
 + The router in the customer on-premises network performs NAT.
 
-![Local gateway access to on-premises](http://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-routing.png)
+![Local gateway access to on-premises](https://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-routing.png)
 
 
 To achieve internet connectivity through the local gateway, the route table for the Outpost subnet must have the following routes.

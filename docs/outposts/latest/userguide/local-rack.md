@@ -42,7 +42,7 @@ Outposts racks can support single-mode fiber (SMF) with Lucent Connector (LC), m
 
 In the following diagram, the physical demarcation is the fiber patch panel in each Outpost. You provide the fiber cables that are required to connect the Outpost to the patch panel.
 
-![Outpost physical demarcation](http://docs.aws.amazon.com/outposts/latest/userguide/images/outpost_demarcation.PNG)
+![Outpost physical demarcation](https://docs.aws.amazon.com/outposts/latest/userguide/images/outpost_demarcation.PNG)
 
 
 ## Link aggregation
@@ -58,7 +58,7 @@ For deployments that have multiple racks, an Outpost must have four LAGs between
 
 The following diagram shows four physical connections between each Outpost network device and its connected local network device. We use Ethernet LAGs to aggregate the physical links connecting the Outpost network devices and the customer local network devices. 
 
-![Using link aggregation to connect devices.](http://docs.aws.amazon.com/outposts/latest/userguide/images/link-aggregation.png)
+![Using link aggregation to connect devices.](https://docs.aws.amazon.com/outposts/latest/userguide/images/link-aggregation.png)
 
 
 ## Virtual LANs
@@ -74,7 +74,7 @@ You can configure the service link VLAN and local gateway VLAN only between the 
 
 An Outpost is designed to separate the service link and local gateway data paths into two isolated networks. This enables you to choose which of your networks can communicate with services running on the Outpost. It also enables you to make the service link an isolated network from the local gateway network by using multiple route table on your customer local network device, commonly known as Virtual Routing and Forwarding instances (VRF). The demarcation line exists at the port of the Outpost network devices. AWS manages any infrastructure on the AWS side of the connection, and you manage any infrastructure on your side of the line.
 
-![Virtual LANs.](http://docs.aws.amazon.com/outposts/latest/userguide/images/two-isolated-networks.png)
+![Virtual LANs.](https://docs.aws.amazon.com/outposts/latest/userguide/images/two-isolated-networks.png)
 
 
 To integrate your Outpost with your on-premises network during the installation and on-going operation, you must allocate the VLANs used between the Outpost network devices and the customer local network devices. You need to provide this information to AWS before the installation. For more information, see [Network readiness checklist](outposts-requirements.md#checklist).
@@ -98,7 +98,7 @@ The following diagram shows the connections from each Outpost network device to 
 + VLAN C is for the service link path that connects the Outpost network device 2 with the customer local network device 2.
 + VLAN D is for the local gateway path that connects the Outpost network device 2 with the customer local network device 2.
 
-![Service link path and local gateway path](http://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-ip-addressing.PNG)
+![Service link path and local gateway path](https://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-ip-addressing.PNG)
 
 
 The following table shows example values for the subnets that connect the Outpost network device 1 with the customer local network device 1.
@@ -133,12 +133,12 @@ The following images show the two networking topologies.
 
 *The following image shows the four ACE networking devices of the ACE rack connected to two upstream customer devices:*
 
-![The four ACE networking devices of the ACE rack connect to two upstream customer devices.](http://docs.aws.amazon.com/outposts/latest/userguide/images/ace-2devices.png)
+![The four ACE networking devices of the ACE rack connect to two upstream customer devices.](https://docs.aws.amazon.com/outposts/latest/userguide/images/ace-2devices.png)
 
 
 *The following image shows the four ACE networking devices of the ACE rack connected to four upstream customer devices:*
 
-![The four ACE networking devices of the ACE rack connect to four upstream customer devices.](http://docs.aws.amazon.com/outposts/latest/userguide/images/ace-4devices.png)
+![The four ACE networking devices of the ACE rack connect to four upstream customer devices.](https://docs.aws.amazon.com/outposts/latest/userguide/images/ace-4devices.png)
 
 
 ## Service link BGP connectivity
@@ -154,7 +154,7 @@ Consider the scenario where you have an Outpost with two Outpost network devices
 + The customer local network device 2 service link BGP peer IP address.
 + The customer local network device 2 service link BGP peer ASN. The valid values are 1-4294967294. For more information, see [RFC4893](https://tools.ietf.org/html/rfc4893).
 
-![Service link BGP advertisement](http://docs.aws.amazon.com/outposts/latest/userguide/images/service-link-bgp-advertisement.png)
+![Service link BGP advertisement](https://docs.aws.amazon.com/outposts/latest/userguide/images/service-link-bgp-advertisement.png)
 
 
 The Outpost establishes an external BGP peering session over the service link VLAN using the following process:
@@ -197,7 +197,7 @@ Consider the scenario where you have an Outpost with two Outpost network devices
 + You provide the customer local network device 2 local gateway BGP peer IP address.
 + You provide the customer local network device 2 local gateway BGP peer ASN. The valid values are 1-4294967294. For more information, see [RFC4893](https://tools.ietf.org/html/rfc4893).
 
-![Local gateway BGP advertisement](http://docs.aws.amazon.com/outposts/latest/userguide/images/lgw-bgp-connectivity.png)
+![Local gateway BGP advertisement](https://docs.aws.amazon.com/outposts/latest/userguide/images/lgw-bgp-connectivity.png)
 
 
 We recommend that you configure customer network equipment to receive BGP advertisements from Outposts without changing the BGP attributes, and enable BGP multipath/load balancing to achieve optimal inbound traffic flows. AS-Path prepending is used for local gateway prefixes to shift traffic away from ONDs if maintenance is required. The customer network should prefer routes from Outposts with an AS-Path length of 1 over routes with an AS-Path length of 4.
@@ -225,4 +225,4 @@ Consider the scenario where you have an Outpost with two Outpost network devices
 + A local gateway that uses BGP to advertise 10.1.0.0/26 to the on-premises network through the local devices.
 + Communication between your Outpost and on-premises network will use the CoIP Elastic IPs to address instances in the Outpost, the VPC CIDR range is not used.
 
-![Local gateway subnet advertisement](http://docs.aws.amazon.com/outposts/latest/userguide/images/lgw-subnet-advertisement.png)
+![Local gateway subnet advertisement](https://docs.aws.amazon.com/outposts/latest/userguide/images/lgw-subnet-advertisement.png)

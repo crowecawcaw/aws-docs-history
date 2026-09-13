@@ -9,7 +9,7 @@ If you plan on allow-listing only AWS Region public IPs (instead of 0.0.0.0/0) o
 
 The following image shows both options to establish a service link public connection between your Outposts and the AWS Region:
 
-![The service link public connection options.](http://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-rack-sl-public-connectivity-options.png)
+![The service link public connection options.](https://docs.aws.amazon.com/outposts/latest/userguide/images/outpost-rack-sl-public-connectivity-options.png)
 
 
 ## Option 1. Public connectivity through the internet
