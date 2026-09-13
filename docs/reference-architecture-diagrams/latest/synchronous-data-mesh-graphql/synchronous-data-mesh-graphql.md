@@ -10,7 +10,7 @@ This architecture shows how to use an API composition pattern to build a modern,
 ## Synchronous Data Mesh for GraphQL Queries
 <a name="diagram1"></a>
 
-![Architecture diagram showing a synchronous data mesh for GraphQL queries using Amazon AppSync, Lambda, Athena, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/synchronous-data-mesh-graphql/images/synchronous-data-mesh-graphql.png)
+![Architecture diagram showing a synchronous data mesh for GraphQL queries using Amazon AppSync, Lambda, Athena, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/synchronous-data-mesh-graphql/images/synchronous-data-mesh-graphql.png)
 
 
 The following steps describe the architecture:
