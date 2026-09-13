@@ -50,7 +50,7 @@ Amazon EVS does not support connectivity via an AWS Direct Connect private virtu
 
 The following diagram illustrates the HCX private connectivity architecture, showing how you can use AWS Direct Connect and Site-to-Site VPN with the transit gateway to enable secure workload migration through a private dedicated connection.
 
-![HCX Private Connectivity Architecture](http://docs.aws.amazon.com/evs/latest/userguide/images/hcx-private-landscape.drawio.png)
+![HCX Private Connectivity Architecture](https://docs.aws.amazon.com/evs/latest/userguide/images/hcx-private-landscape.drawio.png)
 
 
 ## HCX internet connectivity architecture
@@ -69,7 +69,7 @@ For more information, see [Configure HCX public internet connectivity](evs-env-h
 
 The following diagram illustrates the HCX internet connectivity architecture.
 
-![HCX Internet Connectivity Architecture](http://docs.aws.amazon.com/evs/latest/userguide/images/hcx-public-landscape.drawio.png)
+![HCX Internet Connectivity Architecture](https://docs.aws.amazon.com/evs/latest/userguide/images/hcx-public-landscape.drawio.png)
 
 
 ## HCX migration setup

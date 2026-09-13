@@ -16,7 +16,7 @@ The consolidated domain that Amazon EVS deploys contains the following VCF manag
 
 The following diagram shows an example Amazon EVS architecture that’s been deployed in an Amazon EVS environment, and shows how the components in the environment are connected. In the diagram, the Amazon EVS environment with a consolidated domain architecture is shaded in blue. The underlying Amazon EVS network topology is illustrated within the solid purple line.
 
-![Amazon EVS sample architecture](http://docs.aws.amazon.com/evs/latest/userguide/images/amazon-evs-architecture.png)
+![Amazon EVS sample architecture](https://docs.aws.amazon.com/evs/latest/userguide/images/amazon-evs-architecture.png)
 
 
 ## Network topology
