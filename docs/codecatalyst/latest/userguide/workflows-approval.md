@@ -72,14 +72,14 @@ When the **Approval** gate is present, runs are processed as follows:
 
 **Figure 1**: 'Queued run mode' and an **Approval** gate
 
-![How an 'Approval' gate works with the 'queued run mode'](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/runmode-queued-ma.png)
+![How an 'Approval' gate works with the 'queued run mode'](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/runmode-queued-ma.png)
 
 
 **Figure 2**: 'Superseded run mode' and an **Approval** gate
 
-![How an 'Approval' gate works with the 'superseded run mode'](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/runmode-superseded-ma.png)
+![How an 'Approval' gate works with the 'superseded run mode'](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/runmode-superseded-ma.png)
 
 
 **Figure 3**: 'Parallel run mode' and an **Approval** gate
 
-![How an 'Approval' gate works with the 'parallel run mode'](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/runmode-parallel-ma.png)
+![How an 'Approval' gate works with the 'parallel run mode'](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/runmode-parallel-ma.png)

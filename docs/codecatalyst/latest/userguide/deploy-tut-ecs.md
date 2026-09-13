@@ -166,11 +166,11 @@ If you do not have this information, go to the `CodeCatalystECSUser` details pag
 
 **To launch an AWS CloudShell instance**
 
-1. As `CodeCatalystECSUser`, in the top navigation bar, choose the AWS icon (![AWS icon](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/deploy/aws-logo.png)).
+1. As `CodeCatalystECSUser`, in the top navigation bar, choose the AWS icon (![AWS icon](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/deploy/aws-logo.png)).
 
    The main page of the AWS Management Console appears.
 
-1. In the top navigation bar, choose the AWS CloudShell icon (![CloudShell icon](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/deploy/CloudShell.png)).
+1. In the top navigation bar, choose the AWS CloudShell icon (![CloudShell icon](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/deploy/CloudShell.png)).
 
    CloudShell opens. Wait while the CloudShell environment is created.
 **Note**  

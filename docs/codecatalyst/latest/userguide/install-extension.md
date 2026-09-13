@@ -5,7 +5,7 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 # Installing an extension in a space
 <a name="install-extension"></a>
 
-You can install extensions for your CodeCatalyst space that add functionality to projects in that space. You can view the CodeCatalyst catalog by choosing the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png). To learn more about the extensions and their functionalities, see [Available third-party extensions](extensions.md#extensions-types). 
+You can install extensions for your CodeCatalyst space that add functionality to projects in that space. You can view the CodeCatalyst catalog by choosing the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png). To learn more about the extensions and their functionalities, see [Available third-party extensions](extensions.md#extensions-types). 
 
 **Important**  
 To install an extension, you must be signed in with an account that has the **Space administrator** role in the space.
@@ -19,7 +19,7 @@ After you install a repository extension, any repositories you link to CodeCatal
 
 1. Navigate to your CodeCatalyst space.
 
-1. Navigate to the CodeCatalyst catalog by choosing the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png) in the top menu. You can search for **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**, or **Jira Software**. You can also filter extensions based on categories.
+1. Navigate to the CodeCatalyst catalog by choosing the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png) in the top menu. You can search for **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**, or **Jira Software**. You can also filter extensions based on categories.
 
 1. (Optional) Choose the name of the extension to see more details about the extension, such as the permissions the extension will have.
 

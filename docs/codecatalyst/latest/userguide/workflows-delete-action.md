@@ -24,7 +24,7 @@ Use the following instructions to remove an action from a workflow.
 
 1. Choose **Visual**.
 
-1. In the workflow diagram, in the action you want to remove, choose the vertical ellipsis icon (![Ellipsis.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/elipsis.png)), and choose **Remove**.
+1. In the workflow diagram, in the action you want to remove, choose the vertical ellipsis icon (![Ellipsis.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/elipsis.png)), and choose **Remove**.
 
 1. (Optional) Choose **Validate** to validate the workflow's YAML code before committing.
 

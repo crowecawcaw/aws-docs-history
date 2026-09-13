@@ -20,7 +20,7 @@ To uninstall an extension, you must be signed in with an account that has the **
 
    1. Choose **Settings**, and then choose **Installed extensions**.
 
-   1. Choose the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png) in the top menu.
+   1. Choose the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png) in the top menu.
 
 1. Choose **Configure** on the extension you want to uninstall.
 

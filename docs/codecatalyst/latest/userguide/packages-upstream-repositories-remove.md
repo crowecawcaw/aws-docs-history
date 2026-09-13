@@ -18,6 +18,6 @@ When you remove an upstream repository, you could break upstream relationship ch
 
 1. Under the package repository's name, choose **Upstreams**.
 
-1. In the **Edit upstream repositories** section, find the upstream repository you want to remove and choose ![Remove](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/packages/remove.png).
+1. In the **Edit upstream repositories** section, find the upstream repository you want to remove and choose ![Remove](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/packages/remove.png).
 
 1. When you're finished removing upstream repositories, choose **Save**.

@@ -24,7 +24,7 @@ To unlink your GitHub repository, Bitbucket repository, or Gitlab project reposi
 
    1. Choose **Settings**, and then choose **Installed extensions**.
 
-   1. Choose the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png) in the top menu.
+   1. Choose the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png) in the top menu.
 
 1. Choose **Configure** for one of the following extensions you want to configure: **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**, or **Jira Software**.
 

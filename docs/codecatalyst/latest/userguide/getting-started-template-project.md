@@ -11,7 +11,7 @@ The following illustration shows how tools in CodeCatalyst are used to create an
 
 The actions generate resources in the associated AWS account and deploy your application to a serverless AWS Lambdafunction with an API Gateway endpoint. The AWS Cloud Development Kit (AWS CDK) action converts one or more AWS CDK stacks to CloudFormation templates and deploys stacks to your AWS account. Resources in your stacks include Amazon CloudFront resources to distribute dynamic web content, an Amazon DynamoDB instance for your application data, and the roles and policies that support the deployed application.
 
-![A code change, from the creation of an issue through the change in the source repository, which is then automatically built and deployed to resources in AWS](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/modern-app-overview.png)
+![A code change, from the creation of an issue through the change in the source repository, which is then automatically built and deployed to resources in AWS](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/modern-app-overview.png)
 
 
 When you create a project with the **Modern three-tier web application** blueprint, your project is created with the following resources:
@@ -268,7 +268,7 @@ If the **ApplicationDeploymentPipeline** run fails with a **Build@cdk\_bootstrap
 
 1. In the workflow diagram, choose the **DeployFrontend** action.
 
-1. Wait for the action to finish. Watch for the "in-progress" icon (![Workflow in progress.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/run-in-progress.png)) to change to a "success" icon (![Workflow success.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/run-success.png)).
+1. Wait for the action to finish. Watch for the "in-progress" icon (![Workflow in progress.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/run-in-progress.png)) to change to a "success" icon (![Workflow success.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/run-success.png)).
 
 1. Choose the **build\_backend** action.
 
@@ -356,7 +356,7 @@ Once you've merged the changes from the `test` branch into the **main** branch, 
 1. In **Workflows**, in **ApplicationDeploymentPipeline**, expand **Recent runs**. You can see the workflow run started by the merge commit. Optionally choose it to watch the run progress. 
 
 1. When the run completes, reload the URL you visited earlier. View the pegasus to verify that the age changed.  
-![The code change merged, built, and deployed, visible in the application](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/modified-mysfits.png)
+![The code change merged, built, and deployed, visible in the application](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/modified-mysfits.png)
 
 ## Step 8: Close the issue
 <a name="getting-started-template-project-close-issue"></a>

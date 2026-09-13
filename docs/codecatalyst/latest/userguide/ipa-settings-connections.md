@@ -43,7 +43,7 @@ You can also find your user profile by going to the members page for a project o
 1. On the connection confirmation page, choose **Accept**.
 
 1. On the installation confirmation page, choose the authorization button to confirm that you want to install the connector application.  
-![Image showing the GitHub confirmation screen for the connector app installation](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/ipa/connection-install-confirm.png)
+![Image showing the GitHub confirmation screen for the connector app installation](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/ipa/connection-install-confirm.png)
 
 ## Deleting personal connections
 <a name="ipa-settings-connections-delete"></a>

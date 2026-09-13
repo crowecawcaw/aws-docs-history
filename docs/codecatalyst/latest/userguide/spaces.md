@@ -24,7 +24,7 @@ When you create a space, you are automatically added to the space with two roles
 
 For more information about roles, see [Granting access with user roles](ipa-roles.md).
 
-![Diagram showing how spaces share members and resources across projects while all projects return activity data to the space level](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/spaces/spaces-flow.png)
+![Diagram showing how spaces share members and resources across projects while all projects return activity data to the space level](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/spaces/spaces-flow.png)
 
 
 The following are additional considerations for added accounts: 

@@ -11,7 +11,7 @@ Events in the account are logged with the trail and designated bucket that is se
 
 The following diagram shows how all management events for the space are logged in CloudTrail for the billing account, while account connections/billing events and AWS resource events are logged in CloudTrail for the respective account.
 
-![Diagram showing how event logging for spaces is managed](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/ipa/logging-codecatalyst.png)
+![Diagram showing how event logging for spaces is managed](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/ipa/logging-codecatalyst.png)
 
 
 The diagram illustrates the following steps:

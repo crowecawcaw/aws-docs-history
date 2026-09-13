@@ -35,7 +35,7 @@ These are the high-level steps to follow to edit your role policy and verify the
 1. Choose the workflow titled **OnPullRequest**. Choose the **Definition** tab.
 
 1. In the workflow YAML, in the `Role:` field under the **codeguru\_codereview** action, make a note of the role name. This is the role with the policy that you will modify in IAM. The following example shows the role name.  
-![View the IAM role name in the workflow YAML](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/projects/ts-workflow-role.png)
+![View the IAM role name in the workflow YAML](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/projects/ts-workflow-role.png)
 
 1. Do one of the following:
    + (Recommended) Update the service role connected to your project with the required permissions for Amazon CodeGuru and Amazon CodeGuru Reviewer. The role will have a name `CodeCatalystWorkflowDevelopmentRole-{{spaceName}}` with a unique identifier appended. For more information about the role and role policy, see [Understanding the **CodeCatalystWorkflowDevelopmentRole-{{spaceName}}** service role](ipa-iam-roles.md#ipa-iam-roles-service-role). Proceed to the next steps to update the policy in IAM.

@@ -20,7 +20,7 @@ This section provides two common paths for setting up to work in Amazon CodeCata
 
 1. In the second case, if you join CodeCatalyst by accepting an invitation to a project, someone else has already created a space and project for you. However, you'll still want to configure your profile so that you're ready to start working with others.
 
-![Sign up and create a space that you can invite members to join](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/sign-up-types.png)
+![Sign up and create a space that you can invite members to join](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/sign-up-types.png)
 
 
 **Tip**  

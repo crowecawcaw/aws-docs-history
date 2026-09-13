@@ -364,7 +364,7 @@ The action will replace the {{NPMUSER}} and {{NPMTOKEN}} variables with the npm 
 
 Workflows are stored per branch per repository. Two different workflows can have the same name if they exist in different branches. In the Workflows page, you can differentiate workflows of the same name by looking at the branch name. For more information, see [Organizing your source code work with branches in Amazon CodeCatalyst](source-branches.md).
 
-![Workflow branch](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-branch.png)
+![Workflow branch](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-branch.png)
 
 
 ## Can I store my workflow definition files in another folder?

@@ -47,7 +47,7 @@ If the default IAM role does not have the permissions required by the action, yo
 
     To change the role:
 
-   1. In the **What's in {{my-environment}} ?** box, and choose the vertical ellipsis icon (![Ellipsis.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/elipsis.png)).
+   1. In the **What's in {{my-environment}} ?** box, and choose the vertical ellipsis icon (![Ellipsis.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/elipsis.png)).
 
    1. Choose one of the following:
       +  **Switch role**. Choose this option to change the IAM role used by this action, and only this action. Other actions continue to use the default IAM role specified in their associated environment. For more information, see [Changing the IAM role of an action](deploy-environments-switch-role.md).

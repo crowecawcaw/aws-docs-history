@@ -36,7 +36,7 @@ Here's how things will transpire as the workflow runs finish processing:
 
 **Figure 1**: A workflow configured in 'queued run mode'
 
-![A workflow configured in 'queued run mode'](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/RunMode-Queued.png)
+![A workflow configured in 'queued run mode'](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/RunMode-Queued.png)
 
 
 Use queued run mode if:

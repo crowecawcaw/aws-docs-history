@@ -51,7 +51,7 @@ A CodeCatalyst project can only be linked to one Jira project. A Jira project ca
 
    1. Choose **Settings**, and then choose **Installed extensions**.
 
-   1. Choose the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png) in the top menu.
+   1. Choose the **Catalog** icon ![The CodeCatalyst catalog icon in the top navigation bar in CodeCatalyst.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/marketplace-icon.png) in the top menu.
 
 1. Choose **Configure** for one of the following extensions: **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**, or **Jira Software**.
 
@@ -124,7 +124,7 @@ If the name of the repository is greyed out, you can't link that repository beca
      1. Choose **Link**.
 
      Once a Jira project is linked to a CodeCatalyst project, access to CodeCatalyst issues is disabled entirely, and **Issues** in the CodeCatalyst navigation pane will be replaced with a **Jira issues** item that links to the Jira project.  
-![CodeCatalyst issues replaced with linked Jira issues in navigation pane.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/jira-issues-nav.png)
+![CodeCatalyst issues replaced with linked Jira issues in navigation pane.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/integrations/jira-issues-nav.png)
 
      If you no longer want to use a Jira project in CodeCatalyst, you can unlink it from your CodeCatalyst project. When a Jira project is unlinked, Jira issues will not be available in the CodeCatalyst project, and CodeCatalyst **Issues** will be the issue provider again. For more information, see [Unlinking GitHub repositories, Bitbucket repositories, GitLab project repositories, and Jira projects in CodeCatalyst](extensions-unlink.md).
 

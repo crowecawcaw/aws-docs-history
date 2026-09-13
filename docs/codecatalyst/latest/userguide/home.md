@@ -10,6 +10,6 @@ You can view a listing of your spaces and projects on the user home page. The us
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
 
 1. In the browser, enter the following address: [https://codecatalyst.aws/home](https://codecatalyst.aws/home)   
-![The user home page lists all spaces and projects where you are a member](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/user_home.png)
+![The user home page lists all spaces and projects where you are a member](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/user_home.png)
 
 1. Choose the space or project you want to open. If you do not see a space or project you expected to see, your might need to sign in as a different user.

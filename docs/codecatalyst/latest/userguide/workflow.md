@@ -62,12 +62,12 @@ To create and edit the workflow definition file, you can use your preferred edit
 
 The following image shows a workflow in the visual editor. The visual editor offers you a complete user interface through which to create and configure your workflow definition file. The visual editor includes a workflow diagram (1) showing the workflow's main components, and a configuration area (2).
 
-![Workflow visual editor](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-visual-editor.png)
+![Workflow visual editor](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-visual-editor.png)
 
 
 Alternatively, you can use the YAML editor, shown in the next image. Use the YAML editor to paste in large code blocks (from a tutorial, for example), or to add advanced properties that are not offered through the visual editor.
 
-![Workflow YAML editor](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-yaml-editor.png)
+![Workflow YAML editor](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-yaml-editor.png)
 
 
 You can toggle from the visual editor to the YAML editor to see the effect that your configurations have on the underlying YAML code.
@@ -79,7 +79,7 @@ You can view your workflow on the **Workflows** summary page, along with other w
 
 The following image shows the **Workflows** summary page. It is populated with two workflows: **BuildToProd** and **UnitTests**. You can see that both have been run a few times. You can choose **Recent runs** to quickly see the run history, or choose the name of the workflow to see the workflow's YAML code and other detailed information.
 
-![Workflow logs](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-list.png)
+![Workflow logs](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-list.png)
 
 
 ## Viewing workflow run details
@@ -89,7 +89,7 @@ You can view the details of a workflow run by choosing the run in the **Workflow
 
 The following image shows the details of a workflow run called **Run-cc11d** that was started automatically on a commit to source. The workflow diagram indicates that an action has failed (1). You can navigate to the logs (2) to view the detailed log messages and troubleshoot issues. For more information about workflow runs, see [Running a workflow](workflows-working-runs.md).
 
-![Workflow logs](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-visual-logs.png)
+![Workflow logs](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/workflow-visual-logs.png)
 
 
 ## Next steps

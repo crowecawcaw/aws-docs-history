@@ -30,7 +30,7 @@ Use the following instructions to configure an action to use a different IAM rol
 
 1. Choose the **Configuration** tab.
 
-1. In the **What's in {{my-environment}} ?** box, choose the vertical ellipsis icon (![Ellipsis.](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/elipsis.png)).
+1. In the **What's in {{my-environment}} ?** box, choose the vertical ellipsis icon (![Ellipsis.](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/flows/elipsis.png)).
 
 1. Choose **Switch role**.
 

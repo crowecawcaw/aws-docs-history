@@ -7,7 +7,7 @@ Amazon CodeCatalyst is no longer open to new customers. Existing customers can c
 
 If your workflow deploys an application, you can configure Amazon CodeCatalyst to display the application's URL as a clickable link. This link appears in the CodeCatalyst console, inside the action that deployed it. The following workflow diagram shows the **View App** URL appearing at the bottom of an action.
 
-![View app URL](http://docs.aws.amazon.com/codecatalyst/latest/userguide/images/deploy/view-app-url.png)
+![View app URL](https://docs.aws.amazon.com/codecatalyst/latest/userguide/images/deploy/view-app-url.png)
 
 
 By making this URL clickable in the CodeCatalyst console, you can quickly verify your application deployment.
