@@ -316,5 +316,8 @@ You can view the alert log using the Amazon RDS console. You can also use the fo
 
 Access the listener log using Amazon CloudWatch Logs.
 
+**Important**  
+Content that you write to the alert log is stored in a diagnostic log. This content might be accessed and processed by AWS for operational and diagnostic purposes, and is included when you publish the alert log to Amazon CloudWatch Logs. We strongly recommend that you don't write confidential or sensitive information to the alert log. For example, don't write personally identifiable information (PII), credentials, or customer data.
+
 **Note**  
 Oracle rotates the alert and listener logs when they exceed 10 MB, at which point they are unavailable from Amazon RDS views.

@@ -69,7 +69,7 @@ You can use the AWS Management Console, AWS CLI, or RDS API to create a DB insta
    1. Enter the **Allocated storage** and **Provisioned IOPS** that you want.
 
    1. Expand **Dedicated Log Volume**, then select **Turn on Dedicated Log Volume**.  
-![Enabling DLV on a new DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/enable-dlv.png)
+![Enabling DLV on a new DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/enable-dlv.png)
 
 1. Choose other settings as needed.
 

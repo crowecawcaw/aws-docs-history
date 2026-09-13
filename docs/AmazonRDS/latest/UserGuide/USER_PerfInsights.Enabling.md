@@ -25,7 +25,7 @@ For more information, see the following topics.
 
 The following screenshot shows the **Database Insights** section.
 
-![Database Insights section on the DB instance creation page, with the option to enable detailed database metrics.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db_insights_enabling.png)
+![Database Insights section on the DB instance creation page, with the option to enable detailed database metrics.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db_insights_enabling.png)
 
 
 If you choose **Enable collecting detailed per-query and database counter metrics**, you have the following options:
@@ -49,7 +49,7 @@ In the console, you can modify a DB instance or Multi-AZ DB cluster to manage de
    If you choose **Enable collecting detailed per-query and database counter metrics**, you have the following options:
    + **Retention** – The amount of time to retain Database Insights data. The retention setting is **Default (7 days)**. To retain your performance data for longer, specify 1–24 months. For more information about retention periods, see [Pricing and data retention for Database Insights](USER_PerfInsights.Overview.cost.md).
    + **AWS KMS key** – Specify your KMS key. Database Insights encrypts all potentially sensitive data using your KMS key. Data is encrypted in flight and at rest. For more information, see [Encrypting Amazon RDS resources](Overview.Encryption.md).  
-![Database Insights section on the modify DB instance page, with the option to enable detailed database metrics.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db_insights_enabling.png)
+![Database Insights section on the modify DB instance page, with the option to enable detailed database metrics.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db_insights_enabling.png)
 
 1. Choose **Continue**.
 

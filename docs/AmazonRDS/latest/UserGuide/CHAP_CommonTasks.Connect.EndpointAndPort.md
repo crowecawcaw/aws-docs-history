@@ -32,7 +32,7 @@ To find the connection information for a DB instance, use the AWS Management Con
 1. Choose the name of the DB instance to display its details.
 
 1. On the **Connectivity & security** tab, copy the endpoint. Also, note the port number. You need both the endpoint and the port number to connect to the DB instance.   
-![The endpoint and port of a DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/endpoint-port.png)
+![The endpoint and port of a DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/endpoint-port.png)
 
 1. If you need to find the master user name, choose the **Configuration** tab and view the **Master username** value.
 

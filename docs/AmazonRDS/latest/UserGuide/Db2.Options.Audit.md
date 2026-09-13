@@ -483,12 +483,12 @@ After you enable Db2 audit logging, wait for at least one hour before viewing th
 
 The following example screenshot of the Amazon S3 console shows a list of folders for RDS for Db2 DB instance level log files.
 
-![Amazon S3 console with Objects tab selected, showing a list of folders for RDS for Db2 DB instance level log files.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-instance-level-audit-logs.png)
+![Amazon S3 console with Objects tab selected, showing a list of folders for RDS for Db2 DB instance level log files.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-instance-level-audit-logs.png)
 
 
 The following example screenshot of the Amazon S3 console shows database level log files for the RDS for Db2 DB instance.
 
-![Amazon S3 console with Objects tab selected, showing database level log files for the RDS for Db2 DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-database-level-audit-logs.png)
+![Amazon S3 console with Objects tab selected, showing database level log files for the RDS for Db2 DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-database-level-audit-logs.png)
 
 
 ## Troubleshooting Db2 audit logging

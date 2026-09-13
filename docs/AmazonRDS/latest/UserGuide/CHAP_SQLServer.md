@@ -10,11 +10,11 @@ Amazon RDS supports several versions and editions of Microsoft SQL Server. The f
 
 | Major version | Service Pack / GDR | Cumulative Update | Minor version | Knowledge Base Article | Release Date | 
 | --- | --- | --- | --- | --- | --- | 
-| SQL Server 2025 | Not applicable | CU6 | 17.0.4055.5 | [KB5093421](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2025/cumulativeupdate6) | June 17, 2026 | 
-| SQL Server 2022 | Not applicable | CU25 | 16.0.4255.1 | [KB5081477](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate25) | May 20, 2026 | 
-| SQL Server 2019 | GDR | CU32 GDR | 15.0.4470.1 | [KB5090407](https://support.microsoft.com/en-US/servicing/SQL/sql-server-2019/cumulative-update/kb5090407-description-of-the-security-update-for-sql-server-2019-cu32-may-12-2026) | May 12, 2026 | 
-| SQL Server 2017 | GDR | CU31 GDR | 14.0.3530.2 | [KB5090354](https://support.microsoft.com/en-US/servicing/SQL/sql-server-2017/cumulative-update/kb5090354-description-of-the-security-update-for-sql-server-2017-cu31-may-12-2026) | May 12, 2026 | 
-| SQL Server 2016 | SP3 GDR | Not applicable | 13.0.6490.1 | [KB5089271](https://support.microsoft.com/en-US/servicing/SQL/sql-server-2016/general-distribution-release/kb5089271-description-of-the-security-update-for-sql-server-2016-sp3-gdr-may-12-2026) | May 12, 2026 | 
+| SQL Server 2025 | Not applicable | CU7 | 17.0.4065.4 | [KB5096981](https://support.microsoft.com/en-us/servicing/sql/sql-server-2025/cumulative-update/kb5096981-cu7) | July 16, 2026 | 
+| SQL Server 2022 | Not applicable | CU26 | 16.0.4265.3 | [KB5093420](https://support.microsoft.com/en-us/servicing/sql/sql-server-2022/cumulative-update/kb5093420-cu26) | July 16, 2026 | 
+| SQL Server 2019 | GDR | CU32 GDR | 15.0.4480.2 | [KB5102335](https://support.microsoft.com/en-us/servicing/sql/sql-server-2019/general-distribution-release/kb5102335-july) | July 14, 2026 | 
+| SQL Server 2017 | GDR | CU31 GDR | 14.0.3540.1 | [KB5102337](https://support.microsoft.com/en-us/servicing/sql/sql-server-2017/general-distribution-release/kb5102337-july) | July 14, 2026 | 
+| SQL Server 2016 | SP3 GDR | Not applicable | 13.0.6500.1 | [KB5102340](https://support.microsoft.com/en-us/servicing/sql/sql-server-2016/general-distribution-release/kb5102340-july) | July 14, 2026 | 
 
 For information about licensing for SQL Server, see [Licensing Microsoft SQL Server on Amazon RDS](SQLServer.Concepts.General.Licensing.md). For information about SQL Server builds, see this Microsoft support article about [Where to find information about the latest SQL Server builds](https://support.microsoft.com/en-us/topic/kb957826-where-to-find-information-about-the-latest-sql-server-builds-43994ba5-9aed-2323-ea7c-d29fe9c4fbe8).
 

@@ -97,13 +97,13 @@ Feature availability and support varies across specific versions of each databas
  Subnets for the directory servers. The two subnets must be in different Availability Zones. 
 
 1.  Review the directory information and make any necessary changes. When the information is correct, choose **Create directory**.   
-![The Review and create window during directory creation in the Directory Service console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth2.png)
+![The Review and create window during directory creation in the Directory Service console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth2.png)
 
  It takes several minutes for the directory to be created. When it has been successfully created, the **Status** value changes to **Active**. 
 
  To see information about your directory, choose the directory name in the directory listing. Note the **Directory ID** value because you need this value when you create or modify your MySQL DB instance. 
 
-![The Directory details section with Directory ID in the Directory Service console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth3.png)
+![The Directory details section with Directory ID in the Directory Service console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth3.png)
 
 
 ### Step 2: Create the IAM role for use by Amazon RDS
@@ -241,7 +241,7 @@ Kerberos authentication is only supported for MySQL DB instances in a VPC. The D
 
 When you use the console to create, modify, or restore a DB instance, choose **Password and Kerberos authentication** in the **Database authentication** section. Choose **Browse Directory** and then select the directory, or choose **Create a new directory**.
 
-![The Database authentication section with Password and Kerberos authentication selected in the Amazon RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/kerberos-authentication.png)
+![The Database authentication section with Password and Kerberos authentication selected in the Amazon RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/kerberos-authentication.png)
 
 
 When you use the AWS CLI or RDS API, associate a DB instance with a directory. The following parameters are required for the DB instance to use the domain directory you created:

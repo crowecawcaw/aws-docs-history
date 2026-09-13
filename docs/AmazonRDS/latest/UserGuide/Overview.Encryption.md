@@ -80,7 +80,7 @@ You can use the AWS Management Console, AWS CLI, or RDS API to determine whether
 1. Choose the **Configuration** tab, and check the **Encryption** value under **Storage**.
 
    It shows either **Enabled** or **Not enabled**.  
-![Checking encryption at rest for a DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/encryption-check-db-instance.png)
+![Checking encryption at rest for a DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/encryption-check-db-instance.png)
 
 ### AWS CLI
 <a name="Overview.Encryption.Determining.CLI"></a>

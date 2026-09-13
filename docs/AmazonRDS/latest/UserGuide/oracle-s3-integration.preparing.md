@@ -431,7 +431,7 @@ The last step in configuring permissions for Amazon S3 integration is associatin
 1. For **Add IAM roles to this instance**, choose the role that you created in [Step 3: Create an IAM role for your DB instance and attach your policy](#oracle-s3-integration.preparing.role).
 
 1. For **Feature**, choose **S3\_INTEGRATION**.  
-![Add S3_INTEGRATION role.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ora-s3-integration-role.png)
+![Add S3_INTEGRATION role.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ora-s3-integration-role.png)
 
 1. Choose **Add role**.
 

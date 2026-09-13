@@ -48,7 +48,7 @@ To manage eventual consistency, you can do the following:
 
 View whether a maintenance update is available for your DB instance by using the RDS console, the AWS CLI, or the RDS API. If an update is available, it is indicated in the **Maintenance** column for the DB instance on the Amazon RDS console, as shown in this figure.
 
-![Maintenance action is available and will be applied at the next maintenance window.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/offlinepatchavailable.png)
+![Maintenance action is available and will be applied at the next maintenance window.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/offlinepatchavailable.png)
 
 
 If no maintenance update is available for a DB instance, the column value is **none** for it.
@@ -73,7 +73,7 @@ If an update is available, you can do one of the following:
 
 1. Choose the action to take, then choose when to apply it.
 
-![Pending maintenance items for an RDS DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/pending_maintenance_rds.png)
+![Pending maintenance items for an RDS DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/pending_maintenance_rds.png)
 
 
 The maintenance window determines when pending operations start, but doesn't limit the total run time of these operations. Maintenance operations aren't guaranteed to finish before the maintenance window ends, and can continue beyond the specified end time. For more information, see [Amazon RDS maintenance window](#Concepts.DBMaintenance).
@@ -367,12 +367,12 @@ You can use the AWS Management Console or the AWS CLI to get information about t
 
 In the AWS Management Console, an optional update has its maintenance **Status** set to **available** and doesn't have an **Apply date**, as shown in the following image.
 
-![Optional operating system update.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/os-update-optional.png)
+![Optional operating system update.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/os-update-optional.png)
 
 
 A mandatory update has its maintenance **Status** set to **required** and has an **Apply date**, as shown in the following image.
 
-![Required operating system update.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/os-update-required.png)
+![Required operating system update.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/os-update-required.png)
 
 
 ### AWS CLI

@@ -52,12 +52,12 @@ Complete the following major steps when you use a blue/green deployment for data
 1. Identify a production environment that requires updates.
 
    For example, the production environment in this image has a Multi-AZ DB instance deployment (mydb1) and a read replica (mydb2).  
-![Production (blue) environment in a blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-blue-environment.png)
+![Production (blue) environment in a blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-blue-environment.png)
 
 1. Create the blue/green deployment. For instructions, see [Creating a blue/green deployment in Amazon RDS](blue-green-deployments-creating.md).
 
    The following image shows an example of a blue/green deployment of the production environment from step 1. While creating the blue/green deployment, RDS copies the complete topology and configuration of the primary DB instance to create the green environment. The copied DB instance names are appended with `-green-{{random-characters}}`. The staging environment in the image contains a Multi-AZ DB instance deployment (mydb1-green-{{*abc123*}}) and a read replica (mydb2-green-{{*abc123*}}).  
-![Blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment.png)
+![Blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment.png)
 
    When you create the blue/green deployment, you can upgrade your DB engine version and specify a different DB parameter group for the DB instances in the green environment. RDS also configures replication from the primary DB instance in the blue environment to the primary DB instance in the green environment.
 
@@ -76,7 +76,7 @@ Complete the following major steps when you use a blue/green deployment for data
    The switchover results in downtime. The downtime is usually under one minute, but it can be longer depending on your workload.
 
    The following image shows the DB instances after the switchover.  
-![DB instances after switching over a blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-switchover.png)
+![DB instances after switching over a blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-switchover.png)
 
    After the switchover, the DB instances that were in the green environment become the new production DB instances. The names and endpoints in the current production environment are assigned to the newly switched over production environment, requiring no changes to your application. As a result, your production traffic now flows to the new production environment. The DB instances in the previous blue environment are renamed by appending `-old{{n}}` to the current name, where `{{n}}` is a number. For example, assume the name of the DB instance in the blue environment is `mydb1`. After switchover, the DB instance name will be `mydb1-old1`.
 

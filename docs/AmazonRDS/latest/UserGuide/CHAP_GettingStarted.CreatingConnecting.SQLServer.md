@@ -12,7 +12,7 @@ There's no charge for creating an AWS account. However, by completing this tutor
 
 The following diagram shows the configuration when the tutorial is complete.
 
-![EC2 instance and Microsoft SQL Server DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/getting-started-sqlserver.png)
+![EC2 instance and Microsoft SQL Server DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/getting-started-sqlserver.png)
 
 
 This tutorial allows you to create your resources by using one of the following methods:
@@ -54,7 +54,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
 1. In the AWS Management Console, choose the AWS Region you used for the database previously.
 
 1. Choose **EC2 Dashboard**, and then choose **Launch instance**, as shown in the following image.  
-![EC2 Dashboard.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_11.png)
+![EC2 Dashboard.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_11.png)
 
    The **Launch an instance** page opens.
 
@@ -63,7 +63,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
    1. Under **Name and tags**, for **Name**, enter **ec2-database-connect**.
 
    1. Under **Application and OS Images (Amazon Machine Image)**, choose **Windows**, and then choose the **Microsoft Windows Server 2022 Base**. Keep the default selections for the other choices.  
-![The Amazon Machine Image selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tutorial_ec2_sqlserver_create1.png)
+![The Amazon Machine Image selection.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tutorial_ec2_sqlserver_create1.png)
 
    1. Under **Instance type**, choose **t2.micro**.
 
@@ -80,14 +80,14 @@ Create an Amazon EC2 instance that you will use to connect to your database.
 If you use `0.0.0.0/0` for RDP access, you make it possible for all IP addresses to access your public EC2 instances using RDP. This approach is acceptable for a short time in a test environment, but it's unsafe for production environments. In production, authorize only a specific IP address or range of addresses to access your EC2 instances using RDP.
 
       The following image shows an example of the **Network settings** section.  
-![Network settings for an EC2 instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EC2_RDS_Connect_NtwkSettingsRDSMS.png)
+![Network settings for an EC2 instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EC2_RDS_Connect_NtwkSettingsRDSMS.png)
 
    1. Keep the default values for the remaining sections.
 
    1. Review a summary of your EC2 instance configuration in the **Summary** panel, and when you're ready, choose **Launch instance**.
 
 1. On the **Launch Status** page, note the identifier for your new EC2 instance, for example: `i-1234567890abcdef0`.  
-![EC2 instance identifier on Launch Status page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/getting-started-ec2-id.png)
+![EC2 instance identifier on Launch Status page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/getting-started-ec2-id.png)
 
 1. Choose the EC2 instance identifier to open the list of EC2 instances. 
 
@@ -109,7 +109,7 @@ In this example, you use **Easy create** to create a DB instance running the SQL
 1. In the navigation pane, choose **Databases**.
 
 1. Choose **Create database** and make sure that **Easy create** is chosen.   
-![Easy create option.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-option.png)
+![Easy create option.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-option.png)
 
 1. In **Configuration**, choose **Microsoft SQL Server**.
 
@@ -120,21 +120,21 @@ In this example, you use **Easy create** to create a DB instance running the SQL
 1. For **DB instance identifier**, enter **database-test1**.
 
    The **Create database** page should look similar to the following image. For free plan accounts, **Free tier **appears. For paid plan accounts, **Sandbox** appears.  
-![Engine options.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-sqlserver.png)
+![Engine options.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-sqlserver.png)
 
 1. For **Master username**, enter a name for the master user, or keep the default name.
 
 1. To set up a connection with the EC2 instance you created previously, open **Set up EC2 connection - *optional***.
 
    Select **Connect to an EC2 compute resource**. Choose the EC2 instance you created previously.  
-![Set up EC2 connection option.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EC2_RDS_Setup_Conn-EasyCreate.png)
+![Set up EC2 connection option.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EC2_RDS_Setup_Conn-EasyCreate.png)
 
 1. To use an automatically generated master password for the DB instance, select the **Auto generate a password** box.
 
    To enter your master password, clear the **Auto generate a password** box, and then enter the same password in **Master password** and **Confirm password**.
 
 1. Open **View default settings for Easy create**.  
-![Easy create default settings.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-sqlserver-confirm.png)
+![Easy create default settings.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-sqlserver-confirm.png)
 
    You can examine the default settings used with **Easy create**. The **Editable after database is created** column shows which options you can change after you create the database.
    + If a setting has **No** in that column, and you want a different setting, you can use **Standard create** to create the DB instance.
@@ -152,7 +152,7 @@ If you need to change the master user password after the DB instance is availabl
 1. In the **Databases** list, choose the name of the new SQL Server DB instance to show its details.
 
    The DB instance has a status of **Creating** until it is ready to use.  
-![Screen capture of the DB instance details.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-sqlserver-launch.png)
+![Screen capture of the DB instance details.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-sqlserver-launch.png)
 
    When the status changes to **Available**, you can connect to the DB instance. Depending on the DB instance class and the amount of storage, it can take up to 20 minutes before the new instance is available.
 
@@ -243,7 +243,7 @@ In the following procedure, you connect to your DB instance by using Microsoft S
    1. Choose the SQL Server DB instance name to display its details. 
 
    1. On the **Connectivity** tab, copy the endpoint. Also, note the port number. You need both the endpoint and the port number to connect to the DB instance.  
-![Connect to a Microsoft SQL Server DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQLServerConnect2.png)
+![Connect to a Microsoft SQL Server DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQLServerConnect2.png)
 
 1. Connect to the EC2 instance that you created earlier by following the steps in [Connect to your Microsoft Windows instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html#ec2-connect-to-instance-windows) in the *Amazon EC2 User Guide for Windows Instances*.
 
@@ -295,7 +295,7 @@ You can explore your sample DB instance by using Microsoft SQL Server Management
    1. In SSMS, on the **View** menu, choose **Object Explorer**.
 
    1. Expand your DB instance, expand **Databases**, and then expand **System Databases** as shown.   
-![Object Explorer displaying the system databases.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-SSMS-SystemDBs.png)
+![Object Explorer displaying the system databases.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-SSMS-SystemDBs.png)
 
    Your SQL Server DB instance also comes with a database named `rdsadmin`. Amazon RDS uses this database to store the objects that it uses to manage your database. The `rdsadmin` database also includes stored procedures that you can run to perform advanced tasks. 
 
@@ -310,7 +310,7 @@ You can explore your sample DB instance by using Microsoft SQL Server Management
       ```
 
    1. Run the query. SSMS returns the SQL Server version of your Amazon RDS DB instance.   
-![SQL Query Window.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-Connect-Query.png)
+![SQL Query Window.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-Connect-Query.png)
 
 ## Delete the EC2 instance and DB instance
 <a name="CHAP_GettingStarted.Deleting.SQLServer"></a>

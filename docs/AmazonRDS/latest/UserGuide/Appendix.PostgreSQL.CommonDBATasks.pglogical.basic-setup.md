@@ -27,7 +27,7 @@ The steps following assume that your RDS for PostgreSQL DB instance is associate
 1. Choose **Edit parameters** to access the property values.
 
 1. Add `pglogical` to the list in the **Values** field. Use a comma to separate items in the list of values.   
-![The shared_preload_libraries parameter with pglogical added.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/apg_rpg_shared_preload_pglogical.png)
+![The shared_preload_libraries parameter with pglogical added.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/apg_rpg_shared_preload_pglogical.png)
 
 1. Find the `rds.logical_replication` parameter and set it to `1`, to turn on logical replication.
 

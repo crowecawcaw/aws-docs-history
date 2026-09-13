@@ -29,10 +29,10 @@ Before initiating a switchover, verify the following:
 1. Choose **I acknowledge**. Then choose **Switch over replica**.
 
 1. On the **Databases** page, monitor the progress of the switchover.  
-![Monitor the progress of the Oracle Data Guard switchover.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-switchover-progress.png)
+![Monitor the progress of the Oracle Data Guard switchover.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-switchover-progress.png)
 
    When the switchover completes, the role of the switchover target changes from **Replica** to **Source**.  
-![The source and replica databases change roles.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-switchover-complete.png)
+![The source and replica databases change roles.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-switchover-complete.png)
 
 ## AWS CLI
 <a name="USER_ReadRepl.Promote.CLI"></a>

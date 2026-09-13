@@ -11,7 +11,7 @@ If you don't complete the prerequisites, your Multi-AZ DB instance might fail to
 
 Running a DB instance with high availability can enhance availability during planned system maintenance. In the event of planned database maintenance or unplanned service disruption, Amazon RDS automatically fails over to the up-to-date secondary DB instance. This functionality lets database operations resume quickly without manual intervention. The primary and standby instances use the same endpoint, whose physical network address transitions to the secondary replica as part of the failover process. You don't have to reconfigure your application when a failover occurs.
 
-![RDS Custom for SQL Server supports Multi-AZ.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom-sqlserver-multiaz-architecture.png)
+![RDS Custom for SQL Server supports Multi-AZ.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom-sqlserver-multiaz-architecture.png)
 
 
 You can create an RDS Custom for SQL Server Multi-AZ deployment by specifying Multi-AZ when creating an RDS Custom DB instance. You can use the console to convert existing RDS Custom for SQL Server DB instances to Multi-AZ deployments by modifying the DB instance and specifying the Multi-AZ option. You can also specify a Multi-AZ DB instance deployment with the AWS CLI or Amazon RDS API.

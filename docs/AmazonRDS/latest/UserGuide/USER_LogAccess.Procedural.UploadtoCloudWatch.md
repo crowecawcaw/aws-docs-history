@@ -49,7 +49,7 @@ You specify which logs to publish in the console. Make sure that you have a serv
 1. In **Logs exports**, choose which logs to publish.
 
    The following example specifies the audit log, error logs, general log, and slow query log for an RDS for MySQL DB instance.  
-![Choose the logs to publish to CloudWatch Logs.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/AddCWLogs.png)
+![Choose the logs to publish to CloudWatch Logs.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/AddCWLogs.png)
 
 ## Searching and filtering your logs in CloudWatch Logs
 <a name="accessing-logs-in-cloudwatch"></a>

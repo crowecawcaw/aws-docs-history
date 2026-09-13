@@ -5,7 +5,7 @@
 
 You can use the Amazon RDS console to simplify setting up a connection between an Amazon Elastic Compute Cloud (Amazon EC2) instance and a DB instance. Often, your DB instance is in a private subnet and your EC2 instance is in a public subnet within a VPC. You can use a SQL client on your EC2 instance to connect to your DB instance. The EC2 instance can also run web servers or applications that access your private DB instance. For instructions on setting up a connection between an EC2 instance and a Multi-AZ DB cluster, see [Automatically connecting an EC2 instance and a Multi-AZ DB cluster](multiaz-ec2-rds-connect.md).
 
-![Automatically connect a DB instance with an EC2 instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2.png)
+![Automatically connect a DB instance with an EC2 instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2.png)
 
 
 If you want to connect to an EC2 instance that isn't in the same VPC as the DB instance, see the scenarios in [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md).
@@ -78,14 +78,14 @@ You can only set up a connection between an EC2 instance and an RDS database aut
    The **Set up EC2 connection** page appears.
 
 1. On the **Set up EC2 connection** page, choose the EC2 instance.  
-![Set up EC2 connection page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2-set-up.png)
+![Set up EC2 connection page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2-set-up.png)
 
    If no EC2 instances exist in the same VPC, choose **Create EC2 instance** to create one. In this case, make sure the new EC2 instance is in the same VPC as the RDS database.
 
 1. Choose **Continue**.
 
    The **Review and confirm** page appears.  
-![EC2 connection review and confirmation page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2-confirm.png)
+![EC2 connection review and confirmation page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-rds-ec2-confirm.png)
 
 1. On the **Review and confirm** page, review the changes that RDS will make to set up connectivity with the EC2 instance.
 
@@ -121,7 +121,7 @@ For a compute resource to be listed, the following conditions must apply:
 1. In the navigation pane, choose **Databases**, and then choose the name of the RDS database.
 
 1. On the **Connectivity & security** tab, view the compute resources in the **Connected compute resources**.  
-![Connected compute resources.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ec2-connected-compute-resources.png)
+![Connected compute resources.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ec2-connected-compute-resources.png)
 
 ## Connecting to a DB instance that is running a specific DB engine
 <a name="ec2-rds-Connect-DBEngine"></a>

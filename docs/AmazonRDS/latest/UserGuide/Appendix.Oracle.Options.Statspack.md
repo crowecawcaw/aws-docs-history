@@ -121,7 +121,7 @@ A Statspack report compares two snapshots.
    To retrieve the report, call the trace file procedures, as explained in [Working with Oracle trace files](USER_LogAccess.Concepts.Oracle.md#USER_LogAccess.Concepts.Oracle.WorkingWithTracefiles). 
 
    Alternatively, download the Statspack report from the RDS console. Go to the **Log** section of the DB instance details and choose **Download**. The following example shows `trace/ORCL_spreport_1_2.lst`  
-![Show a list of Oracle log files in the RDS console. The following trace file is circled: trace/ORCL_spreport_1_2.lst.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/statspack1.png)
+![Show a list of Oracle log files in the RDS console. The following trace file is circled: trace/ORCL_spreport_1_2.lst.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/statspack1.png)
 
    If an error occurs while generating a report, the DB engine uses the same naming conventions as for a report but with an extension of `.err`. For example, if an error occurred while creating a report using Statspack snapshots 1 and 7, the report file would be named `ORCL_spreport_1_7.err`. You can download the error report using the same techniques as for a standard Snapshot report.
 

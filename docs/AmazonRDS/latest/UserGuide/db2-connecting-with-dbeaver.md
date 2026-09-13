@@ -12,7 +12,7 @@ To connect to your RDS for Db2 DB instance, you need its DNS name and port numbe
 1. Start **DBeaver**.
 
 1. Choose the **New Connection** icon in the toolbar and then choose **Db2 for LUW**.  
-![The menu that lists engine types in DBeaver.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dbeaver-add-connection.png)
+![The menu that lists engine types in DBeaver.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dbeaver-add-connection.png)
 
 1. In the **Connect to a database** window, provide information for your RDS for Db2 DB instance.
 
@@ -26,7 +26,7 @@ To connect to your RDS for Db2 DB instance, you need its DNS name and port numbe
    1. Select **Save password**.
 
    1. Choose **Driver Settings**.   
-![The Connect to a database window with various connection settings populated in DBeaver.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dbeaver-connect-database.png)
+![The Connect to a database window with various connection settings populated in DBeaver.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dbeaver-connect-database.png)
 
 1. In the **Edit Driver** window, specify additional security properties.
 
@@ -47,7 +47,7 @@ To connect to your RDS for Db2 DB instance, you need its DNS name and port numbe
       1. With the **securityMechanism** row selected, choose the **Value** column and add **7**.
 
    1. Choose **OK**.  
-![The Driver properties tab in the Edit Driver window in DBeaver.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dbeaver-driver-properties-tab.png)
+![The Driver properties tab in the Edit Driver window in DBeaver.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dbeaver-driver-properties-tab.png)
 
 1. In the **Connect to a database** window, choose **Test Connection**. If you don't have a DB2 JBDC driver installed on your computer, then the driver automatically downloads.
 
@@ -68,4 +68,4 @@ You are now ready to run SQL commands.
 1. To run the command, choose the **Execute SQL query** button.
 
 1. In the SQL results panel, view the results of your SQL queries.  
-![Window showing how to run a SQL command and view the results in DBeaver.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dbeaver-sql-run-example.png)
+![Window showing how to run a SQL command and view the results in DBeaver.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dbeaver-sql-run-example.png)

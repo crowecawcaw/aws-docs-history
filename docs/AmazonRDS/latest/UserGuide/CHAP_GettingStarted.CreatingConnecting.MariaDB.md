@@ -12,7 +12,7 @@ There's no charge for creating an AWS account. However, by completing this tutor
 
 The following diagram shows the configuration when the tutorial is complete.
 
-![EC2 instance and MariaDB DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/getting-started-mariadb.png)
+![EC2 instance and MariaDB DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/getting-started-mariadb.png)
 
 
 This tutorial allows you to create your resources by using one of the following methods:
@@ -53,7 +53,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
 1. In the AWS Management Console, choose the AWS Region in which you want to create the EC2 instance.
 
 1. Choose **EC2 Dashboard**, and then choose **Launch instance**, as shown in the following image.  
-![EC2 Dashboard.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_11.png)
+![EC2 Dashboard.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_11.png)
 
    The **Launch an instance** page opens.
 
@@ -62,7 +62,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
    1. Under **Name and tags**, for **Name**, enter **ec2-database-connect**.
 
    1. Under **Application and OS Images (Amazon Machine Image)**, choose **Amazon Linux**, and then choose the **Amazon Linux 2023 AMI**. Keep the default selections for the other choices.  
-![The Amazon Machine Image selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_12.png)
+![The Amazon Machine Image selection.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Tutorial_WebServer_12.png)
 
    1. Under **Instance type**, choose **t2.micro**.
 
@@ -79,24 +79,24 @@ Create an Amazon EC2 instance that you will use to connect to your database.
 If you use `0.0.0.0/0` for SSH access, you make it possible for all IP addresses to access your public EC2 instances using SSH. This approach is acceptable for a short time in a test environment, but it's unsafe for production environments. In production, authorize only a specific IP address or range of addresses to access your EC2 instances using SSH.
 
       The following image shows an example of the **Network settings** section.  
-![Network settings for an EC2 instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EC2_RDS_Connect_NtwkSettings.png)
+![Network settings for an EC2 instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EC2_RDS_Connect_NtwkSettings.png)
 
    1. Leave the default values for the remaining sections.
 
    1. Review a summary of your EC2 instance configuration in the **Summary** panel, and when you're ready, choose **Launch instance**.
 
 1. On the **Launch Status** page, note the identifier for your new EC2 instance, for example: `i-1234567890abcdef0`.  
-![EC2 instance identifier on Launch Status page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/getting-started-ec2-id.png)
+![EC2 instance identifier on Launch Status page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/getting-started-ec2-id.png)
 
 1. Choose the EC2 instance identifier to open the list of EC2 instances, and then select your EC2 instance.
 
 1. In the **Details** tab, note the following values, which you need when you connect using SSH:
 
    1. In **Instance summary**, note the value for **Public IPv4 DNS**.  
-![EC2 public DNS name on Details tab of Instances page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-ec2-public-dns.png)
+![EC2 public DNS name on Details tab of Instances page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-ec2-public-dns.png)
 
    1. In **Instance details**, note the value for **Key pair name**.  
-![EC2 key pair name on Details tab of Instance page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-ec2-key-pair.png)
+![EC2 key pair name on Details tab of Instance page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-ec2-key-pair.png)
 
 1. Wait until the **Instance state** for your EC2 instance has a status of **Running** before continuing.
 
@@ -116,7 +116,7 @@ In this example, you use **Easy create** to create a DB instance running the Mar
 1. In the navigation pane, choose **Databases**.
 
 1. Choose **Create database** and select **Easy create**.   
-![Easy create option.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-option.png)
+![Easy create option.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-option.png)
 
 1. In **Configuration**, choose **MariaDB**.
 
@@ -127,7 +127,7 @@ In this example, you use **Easy create** to create a DB instance running the Mar
 1. For **Master username**, enter a name for the master user, or keep the default name.
 
    The **Create database** page should look similar to the following image. For free plan accounts, **Free tier **appears. For paid plan accounts, **Sandbox** appears.  
-![Create database page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-mariadb.png)
+![Create database page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-mariadb.png)
 
 1. To use an automatically generated master password for the DB instance, select **Auto generate a password**.
 
@@ -136,10 +136,10 @@ In this example, you use **Easy create** to create a DB instance running the Mar
 1. To set up a connection with the EC2 instance you created previously, expand **Set up EC2 connection - *optional***.
 
    Select **Connect to an EC2 compute resource**. Choose the EC2 instance you created previously.  
-![Set up EC2 connection option.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EC2_RDS_Setup_Conn-EasyCreate.png)
+![Set up EC2 connection option.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EC2_RDS_Setup_Conn-EasyCreate.png)
 
 1. Expand **View default settings for Easy create**.   
-![Easy create default settings.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-view-default-maria.png)
+![Easy create default settings.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/easy-create-view-default-maria.png)
 
    You can examine the default settings used with **Easy create**. The **Editable after database is created** column shows which options you can change after you create the database.
    + If a setting has **No** in that column, and you want a different setting, you can use **Standard create** to create the DB instance.
@@ -157,7 +157,7 @@ If you need to change the master user password after the DB instance is availabl
 1. In the **Databases** list, choose the name of the new MariaDB DB instance to show its details.
 
    The DB instance has a status of **Creating** until it is ready to use.  
-![DB instance details.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MariaDB-Launch06.png)
+![DB instance details.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MariaDB-Launch06.png)
 
    When the status changes to **Available**, you can connect to the DB instance. Depending on the DB instance class and the amount of storage, it can take up to 20 minutes before the new instance is available.
 
@@ -244,7 +244,7 @@ You can use any standard SQL client application to connect to the DB instance. I
    1. Choose the MariaDB DB instance name to display its details. 
 
    1. On the **Connectivity & security** tab, copy the endpoint. Also note the port number. You need both the endpoint and the port number to connect to the DB instance.   
-![Connect to a MariaDB DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MariaDBConnect1.png)
+![Connect to a MariaDB DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MariaDBConnect1.png)
 
 1. Connect to the EC2 instance that you created earlier by following the steps in [Connect to your Linux instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) in the *Amazon EC2 User Guide*.
 

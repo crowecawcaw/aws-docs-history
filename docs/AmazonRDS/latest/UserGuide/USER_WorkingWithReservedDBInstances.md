@@ -98,12 +98,12 @@ You can compare usage for different reserved DB instance sizes by using normaliz
 
 For example, suppose that you purchase a `db.t2.medium` reserved DB instance, and you have two running `db.t2.small` DB instances in your account in the same AWS Region. In this case, the billing benefit is applied in full to both instances.
 
-![Applying a reserved DB instance in full to smaller DB instances.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ri-db-instance-flex-full.png)
+![Applying a reserved DB instance in full to smaller DB instances.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ri-db-instance-flex-full.png)
 
 
 Alternatively, if you have one `db.t2.large` instance running in your account in the same AWS Region, the billing benefit is applied to 50 percent of the usage of the DB instance. 
 
-![Applying a reserved DB instance in part to a larger DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ri-db-instance-flex-partial.png)
+![Applying a reserved DB instance in part to a larger DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ri-db-instance-flex-partial.png)
 
 
 ### Reserved DB instance billing example

@@ -9,7 +9,7 @@ When you use the console, you can reset specific parameters to their default val
 
 Changes to some parameters are applied to the DB instance immediately without a reboot. Changes to other parameters are applied only after the DB instance is rebooted. The RDS console shows the status of the DB parameter group associated with a DB instance on the **Configuration** tab. For example, suppose that the DB instance isn't using the latest changes to its associated DB parameter group. If so, the RDS console shows the DB parameter group with a status of **pending-reboot**. To apply the latest parameter changes to that DB instance, manually reboot the DB instance.
 
-![Parameter change pending reboot scenario.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/param-reboot.png)
+![Parameter change pending reboot scenario.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/param-reboot.png)
 
 
 **Note**  

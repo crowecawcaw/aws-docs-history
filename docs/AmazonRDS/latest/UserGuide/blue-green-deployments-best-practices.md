@@ -25,6 +25,7 @@ Consider the following general best practices when you create a blue/green deplo
 **Note**  
 This limitation doesn't apply to RDS for PostgreSQL blue/green deployments that use physical replication. For more information, see [RDS for PostgreSQL limitations for blue/green deployments with physical replication](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres-physical).
 + After you create the blue/green deployment, handle lazy loading if necessary. Make sure data loading is complete before switching over. For more information, see [Lazy loading and storage initialization for blue/green deployments](blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading).
++ When you reduce allocated storage with a blue/green deployment, follow the storage sizing guidance. For more information, see [Modify storage and performance settings](blue-green-deployments-creating.md#blue-green-deployments-resize).
 + When you switch over a blue/green deployment, follow the switchover best practices. For more information, see [Switchover best practices](blue-green-deployments-switching.md#blue-green-deployments-switching-best-practices).
 
 ## RDS for MySQL best practices for blue/green deployments

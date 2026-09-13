@@ -26,7 +26,7 @@ If you are using Kerberos authentication, see [Connecting to Oracle with Kerbero
    1. Choose the Oracle DB instance name to display the instance details. 
 
    1. On the **Connectivity & security** tab, copy the endpoint. Also, note the port number. You need both the endpoint and the port number to connect to the DB instance.  
-![Locate DB instance endpoint and port.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/OracleConnect1.png)
+![Locate DB instance endpoint and port.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/OracleConnect1.png)
 
 ## AWS CLI
 <a name="USER_Endpoint.CLI"></a>

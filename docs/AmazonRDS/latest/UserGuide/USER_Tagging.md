@@ -223,7 +223,7 @@ To filter the list of DB instances in the **Databases** pane, enter a text strin
 1. In the details section, scroll down to the **Tags** section. 
 
 1. Choose **Add**. The **Add tags** window appears.   
-![Add tags window.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDSConsoleTagging5.png)
+![Add tags window.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDSConsoleTagging5.png)
 
 1. Enter a value for **Tag key** and **Value**.
 
@@ -246,7 +246,7 @@ To filter the list of DB instances in the **Databases** pane, enter a text strin
 1. In the details section, scroll down to the **Tags** section. 
 
 1. Choose the tag you want to delete.  
-![Tags section.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDSConsoleTagging6.png)
+![Tags section.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDSConsoleTagging6.png)
 
 1. Choose **Delete**, and then choose **Delete** in the **Delete tags** window. 
 

@@ -49,13 +49,13 @@ An Amazon SNS topic subscriber receives every message published to the topic by 
    1. Choose the event categories and resources that you want to receive event notifications for.
 
       The following example configures event notifications for the DB instance named `testinst`.  
-![The source type field.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/event-source.png)
+![The source type field.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/event-source.png)
 
    1. Choose **Create**.
 
 The Amazon RDS console indicates that the subscription is being created.
 
-![List DB event notification subscriptions.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EventNotification-Create2.png)
+![List DB event notification subscriptions.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EventNotification-Create2.png)
 
 
 ## AWS CLI

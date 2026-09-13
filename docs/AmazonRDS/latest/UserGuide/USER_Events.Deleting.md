@@ -19,7 +19,7 @@ You can delete a subscription when you no longer need it. All subscribers to the
 1. Choose **Delete**.
 
 1. The Amazon RDS console indicates that the subscription is being deleted.  
-![Delete an event notification subscription.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EventNotification-Delete.png)
+![Delete an event notification subscription.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EventNotification-Delete.png)
 
    
 

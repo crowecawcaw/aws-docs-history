@@ -21,7 +21,7 @@ Creating an RDS Custom for Oracle replica is similar to creating an RDS for Orac
 
 The architecture of RDS Custom for Oracle replication is analogous to RDS for Oracle replication. A primary DB instance replicates asynchronously to one or more Oracle replicas.
 
-![RDS Custom for Oracle supports Oracle replicas.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica-custom-oracle.png)
+![RDS Custom for Oracle supports Oracle replicas.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica-custom-oracle.png)
 
 
 ### Maximum number of replicas

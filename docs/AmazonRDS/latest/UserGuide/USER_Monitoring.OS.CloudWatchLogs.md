@@ -16,6 +16,6 @@ After you have enabled Enhanced Monitoring for your DB instance or Multi-AZ DB c
 1. Choose **RDSOSMetrics** from the list of log groups.
 
    In a Multi-AZ DB instance deployment, log files with `-secondary` appended to the name are for the Multi-AZ standby replica.  
-![Multi-AZ standby replica log file.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/enhanced-monitoring-cloudwatch-secondary.png)
+![Multi-AZ standby replica log file.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/enhanced-monitoring-cloudwatch-secondary.png)
 
 1. Choose the log stream that you want to view from the list of log streams.

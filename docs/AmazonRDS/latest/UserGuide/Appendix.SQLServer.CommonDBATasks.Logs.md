@@ -12,7 +12,7 @@ If you view a log in the Amazon RDS console, you can see its contents as they ex
 
 Only the latest log is active for watching. For example, suppose you have the following logs shown:
 
-![An image of the Logs section from the Amazon RDS console with an error log selected.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/logs_sqlserver.png)
+![An image of the Logs section from the Amazon RDS console with an error log selected.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/logs_sqlserver.png)
 
 
 Only log/ERROR, as the most recent log, is being actively updated. You can choose to watch others, but they are static and will not update.

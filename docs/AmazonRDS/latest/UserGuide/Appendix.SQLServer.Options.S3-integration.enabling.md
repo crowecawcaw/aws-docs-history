@@ -20,7 +20,7 @@ To add an IAM role to a DB instance, the status of the DB instance must be **ava
 1. On the **Connectivity & security** tab, in the **Manage IAM roles** section, choose the IAM role to add for **Add IAM roles to this instance**.
 
 1. For **Feature**, choose **S3\_INTEGRATION**.  
-![Add the S3_INTEGRATION role.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ora-s3-integration-role.png)
+![Add the S3_INTEGRATION role.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ora-s3-integration-role.png)
 
 1. Choose **Add role**.
 

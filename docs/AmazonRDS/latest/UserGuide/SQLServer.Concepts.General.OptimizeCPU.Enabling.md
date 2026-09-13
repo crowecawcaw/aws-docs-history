@@ -28,7 +28,7 @@ Set the CPU cores by using the AWS Management Console, AWS CLI or the RDS API.
    1. Choose the **Optimize CPU** option.
 
    1. Set your **vCPU** option by choosing the number of cores.  
-![Database create page when setting OCPU settings.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/OCPU-screenshot.png)
+![Database create page when setting OCPU settings.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/OCPU-screenshot.png)
 
 1. After completing other selections, select **Create database**.
 

@@ -99,7 +99,7 @@ When connecting from Windows clients such as SQL Server Management Studio (SSMS)
 1. On the fourth page of the Certificate Import Wizard, choose **Finish**. A dialog box appears indicating that the import was successful. 
 
 1. In the MMC console, expand **Certificates**, expand **Trusted Root Certification Authorities**, and then choose **Certificates**. Locate the certificate to confirm it exists, as shown here.  
-![The MMC Certificates snap-in with the Trusted Root Certification Authority folder selected.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rds_sql_ssl_cert.png)
+![The MMC Certificates snap-in with the Trusted Root Certification Authority folder selected.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rds_sql_ssl_cert.png)
 
 ### Encrypting connections to an Amazon RDS DB instance running Microsoft SQL Server
 <a name="SQLServer.Concepts.General.SSL.Encrypting"></a>

@@ -18,13 +18,13 @@ You can use the open-source tool pgAdmin to connect to your RDS for PostgreSQL D
    + For **Port**, type the assigned port. 
    + For **Username**, type the user name that you entered when you created the DB instance (if you changed the 'master username' from the default, `postgres`). 
    + For **Password**, type the password that you entered when you created the DB instance.  
-![The password field for the DB instance connection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Postgres-Connect01.png)
+![The password field for the DB instance connection.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Postgres-Connect01.png)
 
 1. Choose **Save**. 
 
    If you have any problems connecting, see [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.Troubleshooting.md). 
 
 1. To access a database in the pgAdmin browser, expand **Servers**, the DB instance, and **Databases**. Choose the DB instance's database name.  
-![The DB instance database name in the pgAdmin browser.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Postgres-Connect02.png)
+![The DB instance database name in the pgAdmin browser.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Postgres-Connect02.png)
 
 1. To open a panel where you can enter SQL commands, choose **Tools**, **Query Tool**. 

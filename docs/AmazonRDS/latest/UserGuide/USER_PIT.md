@@ -17,7 +17,7 @@ RDS uploads transaction logs for DB instances to Amazon S3 every five minutes. T
 
 You can restore to any point in time within your backup retention period. To see the earliest restorable time for each DB instance, choose **Automated backups** in the Amazon RDS console.
 
-![Automated backups.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/automated-backups.png)
+![Automated backups.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/automated-backups.png)
 
 
 **Note**  

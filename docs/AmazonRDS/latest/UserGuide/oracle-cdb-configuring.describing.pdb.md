@@ -15,12 +15,12 @@ You can view details about a tenant database in the same way that you can for a 
 1. In the Amazon RDS console, choose the AWS Region where your DB instance resides.
 
 1. In the navigation pane, choose **Databases**.  
-![View details about a CDB.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cdb-list.png)
+![View details about a CDB.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cdb-list.png)
 
    In the preceding image, the sole tenant database (PDB) appears as a child of the DB instance.
 
 1. Choose the name of a tenant database.  
-![View details about a PDB.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/pdb-details.png)
+![View details about a PDB.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/pdb-details.png)
 
 ## AWS CLI
 <a name="oracle-cdb-configuring.describing.pdb.cli"></a>

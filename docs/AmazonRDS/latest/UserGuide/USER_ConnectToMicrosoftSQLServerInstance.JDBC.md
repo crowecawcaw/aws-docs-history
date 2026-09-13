@@ -10,7 +10,7 @@ SQL Workbench/J uses JDBC to connect to your DB instance. You also need the JDBC
 **To connect to a DB instance using SQL Workbench/J**
 
 1. Open SQL Workbench/J. The **Select Connection Profile** dialog box appears, as shown following.  
-![The Connection Profile dialog.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/workbench_profile.png)
+![The Connection Profile dialog.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/workbench_profile.png)
 
 1. In the first box in the dialog box, enter a name for the profile. 
 
@@ -27,7 +27,7 @@ SQL Workbench/J uses JDBC to connect to your DB instance. You also need the JDBC
 1. For **Password**, enter the password for the master user. 
 
 1. Choose the save icon in the dialog toolbar, as shown following.  
-![Save the profile.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/save_example.png)
+![Save the profile.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/save_example.png)
 
 1. Choose **OK**. After a few moments, SQL Workbench/J connects to your DB instance. If you can't connect to your DB instance, see [Security group considerations](USER_ConnectToMicrosoftSQLServerInstance.Security.md) and [Troubleshooting connections to your SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.Troubleshooting.md). 
 
@@ -38,7 +38,7 @@ SQL Workbench/J uses JDBC to connect to your DB instance. You also need the JDBC
    ```
 
 1. Choose the `Execute` icon in the toolbar, as shown following.  
-![Run the query.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/execute_example.png)
+![Run the query.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/execute_example.png)
 
    The query returns the version information for your DB instance, similar to the following.
 

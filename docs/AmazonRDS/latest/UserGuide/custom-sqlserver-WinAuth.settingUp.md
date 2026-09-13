@@ -282,7 +282,7 @@ aws rds modify-db-instance ^
 
 When using the console to create or modify your instance, click on **Enable Microsoft SQL Server Windows Authentication** to see the following options.
 
-![Microsoft SQL Server Windows Authentication directory.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom-sqs-WinAuth.png)
+![Microsoft SQL Server Windows Authentication directory.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom-sqs-WinAuth.png)
 
 
 You are responsible to make sure your domain FQDN is resolving to the domain controller IP addresses. If domain controller IPs are not resolving, domain join operations fail but RDS Custom for SQL Server instance creation succeeds. For troubleshooting information, see [Troubleshooting Active Directory](custom-sqlserver-WinAuth.Troubleshoot.md). 

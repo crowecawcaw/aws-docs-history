@@ -9,7 +9,7 @@ In this procedure, you transfer a copy of your database data to an Amazon EC2 in
 
 The following diagram shows importing an external MariaDB database into a MariaDB database on Amazon RDS.
 
-![Workflow that shows importing an external MariaDB database into a MariaDB database on Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_1.png)
+![Workflow that shows importing an external MariaDB database into a MariaDB database on Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_1.png)
 
 
 ## Task 1: Create a copy of your existing database
@@ -19,7 +19,7 @@ The first step in the process of migrating a large amount of data to an RDS for 
 
 The following diagram shows creating a backup of the MariaDB database.
 
-![Workflow that shows creating a backup of the MariaDB database.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_2.png)
+![Workflow that shows creating a backup of the MariaDB database.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_2.png)
 
 
 You can use the `mysqldump` or `mariadb-dump` utility to create a database backup in either SQL or delimited-text format. In MariaDB 10.5, the client is called [mariadb-dump](https://mariadb.com/kb/en/mariadb-dump/). Starting with MariaDB 11.0.1, you must use `mariadb-dump` instead of `mysqldump`. We recommend that you do a test run with each format in a non-production environment to see which method minimizes the amount of time that `mysqldump` or `mariadb-dump` runs.
@@ -189,7 +189,7 @@ Copying your compressed database backup file to an Amazon EC2 instance takes few
 
 The following diagram shows copying the database backup to an Amazon EC2 instance.
 
-![Workflow that shows copying the database backup to an Amazon EC2 instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_3.png)
+![Workflow that shows copying the database backup to an Amazon EC2 instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_3.png)
 
 
 ### To create an Amazon EC2 instance and copy your data
@@ -237,7 +237,7 @@ By creating an RDS for MariaDB DB instance in the same AWS Region as your Amazon
 
 The following diagram shows importing the backup from an Amazon EC2 instance into a MariaDB database.
 
-![Workflow that shows importing the backup from the EC2 instance into the MariaDB database.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_4.png)
+![Workflow that shows importing the backup from the EC2 instance into the MariaDB database.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_4.png)
 
 
 ### To create a MariaDB database and import your data
@@ -306,7 +306,7 @@ If you no longer need the Amazon EC2 instance used in this procedure, terminate 
 
 Your source database was likely updated during the time that it took to copy and transfer the data to the MariaDB database. You can use replication to bring the copied database up-to-date with the source database.
 
-![Workflow that shows replicating data from the external MariaDB database to the database on Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_5.png)
+![Workflow that shows replicating data from the external MariaDB database to the database on Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_5.png)
 
 
 The permissions required to start replication on an Amazon RDS database are restricted and aren't available to your Amazon RDS master user. Because of this, use the appropriate Amazon RDS stored procedure: 
@@ -400,7 +400,7 @@ Specify credentials other than the prompts shown here as a security best practic
 
 After the MariaDB database is up-to-date with the source replication instance, you can now update your live application to use the Amazon RDS instance. 
 
-![Workflow that shows stopping replication and directing the live application to the database on Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_6.png)
+![Workflow that shows stopping replication and directing the live application to the database on Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDBToRDS_6.png)
 
 
 ### To redirect your live application to your MariaDB database and stop replication

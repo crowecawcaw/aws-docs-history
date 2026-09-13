@@ -9,7 +9,7 @@ The scenario described in this section restores a backup of an on-premises datab
 
 The following diagram shows the supported scenario.
 
-![MySQL importing backup files from S3.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MySQL-bak-file.png)
+![MySQL importing backup files from S3.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MySQL-bak-file.png)
 
 
 If your on-premises database can be offline while you create, copy, and restore backup files, then we recommend that you use backup files to import your database to Amazon RDS. If your database can't be offline, then you can use one of the following methods:
@@ -237,7 +237,7 @@ You can import data from Amazon S3 to a new MySQL DB instance using the AWS Mana
 1. Choose **Restore from S3**.
 
    The **Create database by restoring from S3** page appears.  
-![The Create database by restoring from S3 page where you specify the details for restoring a DB instance from S3.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/mys-s3-ingestion.png)
+![The Create database by restoring from S3 page where you specify the details for restoring a DB instance from S3.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/mys-s3-ingestion.png)
 
 1. Under **S3 source**:
 

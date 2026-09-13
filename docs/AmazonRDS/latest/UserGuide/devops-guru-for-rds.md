@@ -11,7 +11,7 @@ You can now view these recommendations in RDS console. For more information, see
 
 The following video is an overview of DevOps Guru for RDS.
 
-[![AWS Videos](http://img.youtube.com/vi/N3NNYgzYUDA/0.jpg)](http://www.youtube.com/watch?v=N3NNYgzYUDA)
+[![AWS Videos](https://img.youtube.com/vi/N3NNYgzYUDA/0.jpg)](https://www.youtube.com/watch?v=N3NNYgzYUDA)
 
 
 For a deep dive on this subject, see [Amazon DevOps Guru for RDS under the hood.](https://aws.amazon.com/blogs/database/amazon-devops-guru-for-rds-under-the-hood/)
@@ -142,7 +142,7 @@ The creation workflow includes a setting that turns on DevOps Guru coverage for
 1. In **Monitoring**, choose **Turn on Performance Insights**. For DevOps Guru for RDS to provide detailed analysis of performance anomalies, Performance Insights must be turned on.
 
 1. Choose **Turn on DevOps Guru**.  
-![Turn on DevOps Guru when you create a DB instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-enable-create.png)
+![Turn on DevOps Guru when you create a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-enable-create.png)
 
 1. Create a tag for your database so that DevOps Guru can monitor it. Do the following:
    + In the text field for **Tag key**, enter a name that begins with **Devops-Guru-**.
@@ -159,7 +159,7 @@ If your resources aren't covered by DevOps Guru, Amazon RDS notifies you with a
 + The **Monitoring** tab of a DB cluster instance
 + The Performance Insights dashboard
 
-![DevOps Guru banner.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-enable-banner.png)
+![DevOps Guru banner.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-enable-banner.png)
 
 
 **To turn on DevOps Guru for your RDS for PostgreSQL database**
@@ -167,7 +167,7 @@ If your resources aren't covered by DevOps Guru, Amazon RDS notifies you with a
 1. In the banner, choose **Turn on DevOps Guru for RDS**.
 
 1. Enter a tag key name and value. For more information about tags, see "[Use tags to identify resources in your DevOps Guru applications](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-resource-tags.html)" in the *Amazon DevOps Guru User Guide*.  
-![Turn on DevOps Guru in the RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-turn-on.png)
+![Turn on DevOps Guru in the RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-turn-on.png)
 
 1. Choose **Turn on DevOps Guru**.
 
@@ -176,7 +176,7 @@ If your resources aren't covered by DevOps Guru, Amazon RDS notifies you with a
 
 If you turn on DevOps Guru from the RDS console when you create a database, RDS might display the following banner about missing permissions.
 
-![Banner with a missing permissions error.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-permissions-error.png)
+![Banner with a missing permissions error.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-permissions-error.png)
 
 
 **To respond to a permissions error**
@@ -190,10 +190,10 @@ If you turn on DevOps Guru from the RDS console when you create a database, RDS
 1. Choose a DB instance in the cluster that you just created.
 
 1. Choose the switch to turn on **DevOps Guru for RDS**.  
-![The switch to turn on DevOps Guru for RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-pi-toggle-off.png)
+![The switch to turn on DevOps Guru for RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-pi-toggle-off.png)
 
 1. Choose a tag value. For more information, see "[Use tags to identify resources in your DevOps Guru applications](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-resource-tags.html)" in the *Amazon DevOps Guru User Guide*.  
-![Turn on DevOps Guru in the Amazon RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-turn-on.png)
+![Turn on DevOps Guru in the Amazon RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/devops-guru-turn-on.png)
 
 1. Choose **Turn on DevOps Guru**.
 

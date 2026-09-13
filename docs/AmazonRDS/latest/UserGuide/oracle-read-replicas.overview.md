@@ -7,7 +7,7 @@ An *Oracle replica* database is a physical copy of your primary database. An Ora
 
 The following video provides a helpful overview of RDS for Oracle disaster recovery. 
 
-[![AWS Videos](http://img.youtube.com/vi/-XpzhIevwVg/0.jpg)](http://www.youtube.com/watch?v=-XpzhIevwVg)
+[![AWS Videos](https://img.youtube.com/vi/-XpzhIevwVg/0.jpg)](https://www.youtube.com/watch?v=-XpzhIevwVg)
 
 
 For more information, see the blog post [Managed disaster recovery with Amazon RDS for Oracle cross-Region automated backups - Part 1](https://aws.amazon.com/blogs/database/managed-disaster-recovery-with-amazon-rds-for-oracle-cross-region-automated-backups-part-1/) and [Managed disaster recovery with Amazon RDS for Oracle cross-Region automated backups - Part 2](https://aws.amazon.com/blogs/database/part-2-managed-disaster-recovery-with-amazon-rds-for-oracle-xrab/).

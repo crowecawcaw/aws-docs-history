@@ -29,7 +29,7 @@ For information about restoring Multi-AZ DB cluster with an RDS Extended Support
 1. For **Actions**, choose **Restore snapshot**.
 
 1. On the **Restore snapshot** page, in **Availability and durability**, choose **Multi-AZ DB cluster**.  
-![Multi-AZ DB cluster choice.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster-create.png)
+![Multi-AZ DB cluster choice.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster-create.png)
 
 1. For **DB cluster identifier**, enter the name for your restored Multi-AZ DB cluster.
 

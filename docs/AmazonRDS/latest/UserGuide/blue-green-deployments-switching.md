@@ -173,7 +173,7 @@ You can switch over a blue/green deployment using the AWS Management Console, th
 1. For **Actions**, choose **Switch over**.
 
    The **Switch over** page appears.  
-![Switch over blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-switch-over.png)
+![Switch over blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-switch-over.png)
 
 1. On the **Switch over** page, review the switchover summary. Make sure the resources in both environments match what you expect. If they don't, choose **Cancel**.
 
@@ -222,7 +222,7 @@ RDS renames the DB instances in the blue environment by appending `-old{{n}}` to
 
 If you delete the blue/green deployment resource, RDS retains the `-old{{n}}` and `-new{{n}}` resources.
 
-![After switching over a blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-after-switchover.png)
+![After switching over a blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-after-switchover.png)
 
 
 ### Updating the parent node for consumers

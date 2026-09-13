@@ -135,7 +135,7 @@ The password encryption mechanism used by an RDS for PostgreSQL DB instance is s
 
 With a custom DB parameter group attached to your RDS for PostgreSQL DB instance, you can modify values for the password encryption parameter.
 
-![Following, the RDS console shows the default values for the password_encryption parameters for RDS for PostgreSQL.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rpg-pwd-encryption-md5-scram-1.png)
+![Following, the RDS console shows the default values for the password_encryption parameters for RDS for PostgreSQL.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rpg-pwd-encryption-md5-scram-1.png)
 
 
 **To change password encryption setting to scram-sha-256**
@@ -206,7 +206,7 @@ This is the final step in the process. After you make the change in the followin
 
 The `rds.accepted_password_auth_method` specifies the encryption method that the RDS for PostgreSQL DB instance accepts for a user password during the login process. The default value is `md5+scram`, meaning that either method is accepted. In the following image, you can find the default setting for this parameter.
 
-![The RDS console showing the default and allowed values for the rds.accepted_password_auth_method parameters.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/pwd-encryption-md5-scram-2.png)
+![The RDS console showing the default and allowed values for the rds.accepted_password_auth_method parameters.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/pwd-encryption-md5-scram-2.png)
 
 
 The allowed values for this parameter are `md5+scram` or `scram` alone. Changing this parameter value to `scram` makes this a requirement. 

@@ -19,7 +19,7 @@ After you have created a subscription, you can change the subscription name, sou
 1.  Make your changes to the subscription in either the **Target** or **Source** section.
 
 1. Choose **Edit**. The Amazon RDS console indicates that the subscription is being modified.  
-![List DB event notification subscriptions.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EventNotification-Modify2.png)
+![List DB event notification subscriptions.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/EventNotification-Modify2.png)
 
    
 

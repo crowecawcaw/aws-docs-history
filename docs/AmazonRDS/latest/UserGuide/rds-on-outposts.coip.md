@@ -18,7 +18,7 @@ CoIPs can provide the following benefits for RDS on Outposts DB instances:
 
 You can turn CoIPs on or off for an RDS on Outposts DB instance using the AWS Management Console, the AWS CLI, or the RDS API:
 + With the AWS Management Console, choose the **Customer-owned IP address (CoIP)** setting in **Access type** to use CoIPs. Choose one of the other settings to turn them off.  
-![The Customer-owned IP address (CoIP) setting in the AWS Management Console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/outpost-coip.png)
+![The Customer-owned IP address (CoIP) setting in the AWS Management Console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/outpost-coip.png)
 + With the AWS CLI, use the `--enable-customer-owned-ip | --no-enable-customer-owned-ip` option.
 + With the RDS API, use the `EnableCustomerOwnedIp` parameter.
 

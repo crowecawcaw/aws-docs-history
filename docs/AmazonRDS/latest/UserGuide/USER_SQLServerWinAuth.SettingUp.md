@@ -70,13 +70,13 @@ Choose the subnets for the directory servers. The two subnets must be in differe
 1. Choose **Next**.
 
 1. Review the directory information. If changes are needed, choose **Previous**. When the information is correct, choose **Create directory**.   
-![Review and create page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth2.png)
+![Review and create page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth2.png)
 
 It takes several minutes for the directory to be created. When it has been successfully created, the **Status** value changes to **Active**.
 
 To see information about your directory, choose the directory ID in the directory listing. Make a note of the **Directory ID**. You need this value when you create or modify your SQL Server DB instance.
 
-![Directory details page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth3.png)
+![Directory details page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth3.png)
 
 
 ## Step 2: Create the IAM role for use by Amazon RDS
@@ -201,7 +201,7 @@ Create or modify a SQL Server DB instance for use with your directory. You can u
 +  For **Directory**, you must choose the domain identifier (`d-{{ID}}`) generated when you created the directory.
 +  Make sure that the VPC security group has an outbound rule that lets the DB instance communicate with the directory.
 
-![Microsoft SQL Server Windows Authentication directory.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth1.png)
+![Microsoft SQL Server Windows Authentication directory.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/WinAuth1.png)
 
 
 When you use the AWS CLI, the following parameters are required for the DB instance to be able to use the directory that you created:

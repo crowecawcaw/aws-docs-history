@@ -32,7 +32,7 @@ The following steps use an AMI with **Windows Server 2019 Base** as an example.
    1. Select the EC2 instance in the Amazon EC2 console.
 
    1. In the **Details** section, check the **Usage operation** and ensure that it is set to **RunInstances:0002**.  
-![Windows AMI using RunInstances:0002 for BYOM.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cev-sqlserver-byom-ec2runinstances.png)
+![Windows AMI using RunInstances:0002 for BYOM.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cev-sqlserver-byom-ec2runinstances.png)
 
 1. Log in to the EC2 instance and copy your SQL Server installation media to it.
 **Note**  
@@ -83,7 +83,7 @@ The following steps to create a CEV using pre-installed Microsoft SQL Server (LI
    1. Search for **CU20** within the [Windows AMI version history](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-ami-version-history.html).
 
    1. Note the Release number. For SQL Server 2019 CU20, the release number is `2023.05.10`.  
-![AMI version history result for SQL Server 2019 CU20.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rds_custom_sqlserver_cev_find_ami_history_li_cu20.png)
+![AMI version history result for SQL Server 2019 CU20.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rds_custom_sqlserver_cev_find_ami_history_li_cu20.png)
 
    1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
@@ -94,7 +94,7 @@ The following steps to create a CEV using pre-installed Microsoft SQL Server (LI
    1. Enter `2023.05.10` into the search box. A list of AMIs appears.
 
    1. Enter `Windows_Server-2019-English-Full-SQL_2019` into the search box to filter the results. The following results should appear.  
-![Supported AMIs using SQL Server 2019 CU20.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rds_custom_sqlserver_cev_find_ami_li_cu.png)
+![Supported AMIs using SQL Server 2019 CU20.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rds_custom_sqlserver_cev_find_ami_li_cu.png)
 
    1. Choose the AMI with the SQL Server edition that you want to use.
 

@@ -34,7 +34,7 @@ A common use of a DB instance in a VPC is to share data with an application serv
 
 The following diagram shows this scenario.
 
-![DB instance and EC2 instance in a VPC.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/con-VPC-sec-grp.png)
+![DB instance and EC2 instance in a VPC.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/con-VPC-sec-grp.png)
 
 
 For detailed instructions about configuring a VPC for this scenario, see [Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md) . For more information about using a VPC, see [Amazon VPC and Amazon RDS](USER_VPC.md) .

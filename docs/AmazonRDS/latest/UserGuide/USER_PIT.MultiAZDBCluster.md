@@ -47,7 +47,7 @@ Times are shown in your local time zone, which is indicated by an offset from Co
 1. For **DB cluster identifier**, enter the name for your restored Multi-AZ DB cluster.
 
 1. In **Availability and durability**, choose **Multi-AZ DB cluster**.  
-![Multi-AZ DB cluster choice.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster-create.png)
+![Multi-AZ DB cluster choice.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster-create.png)
 
 1. In **DB instance class**, choose a DB instance class.
 

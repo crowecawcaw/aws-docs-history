@@ -27,7 +27,7 @@ The steps following assume that your RDS for PostgreSQL DB instance is associate
 1. Choose **Edit parameters** to access the property values.
 
 1. Add `pgaudit` to the list in the **Values** field. Use a comma to separate items in the list of values.   
-![The shared_preload_libaries parameter with pgAudit added.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/apg_rpg_shared_preload_pgaudit.png)
+![The shared_preload_libaries parameter with pgAudit added.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/apg_rpg_shared_preload_pgaudit.png)
 
 1. Reboot the RDS for PostgreSQL DB instance so that your change to the `shared_preload_libraries` parameter takes effect. 
 
@@ -56,7 +56,7 @@ The steps following assume that your RDS for PostgreSQL DB instance is associate
 1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
 1. Find the `pgaudit.log` parameter in the list and set to the appropriate value for your use case. For example, setting the `pgaudit.log` parameter to `write` as shown in the following image captures inserts, updates, deletes, and some other types changes to the log.   
-![The pgaudit.log parameter with setting.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rpg_set_pgaudit-log-level.png)
+![The pgaudit.log parameter with setting.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/rpg_set_pgaudit-log-level.png)
 
    You can also choose one of the following values for the `pgaudit.log` parameter.
    + none – This is the default. No database changes are logged. 

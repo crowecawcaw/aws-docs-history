@@ -28,7 +28,7 @@ Storage optimization can take several hours. After storage optimization complete
 1. Choose **Modify**.
 
 1. Enter a new value for **Allocated storage**. It must be at least 10% greater than the current value.   
-![Modify the amount of storage for a DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/scale-gs2.png)
+![Modify the amount of storage for a DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/scale-gs2.png)
 
 1. Choose **Continue**.
 

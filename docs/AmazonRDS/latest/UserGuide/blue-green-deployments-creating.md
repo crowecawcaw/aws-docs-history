@@ -99,12 +99,12 @@ You can change the storage type of the green DB instance to gp2, gp3, io1, or io
 You can also choose to increase or decrease allocated storage in the green environment. However, a storage reduction only occurs if the target allocated storage is at least 20% more than the current storage usage. If you decrease the allocated storage, Amazon RDS initiates a storage configuration upgrade. For more information, see [Upgrade the storage configuration](#blue-green-deployments-storage). The minimum target storage is calculated as:
 
 ```
-Minimum Target Storage = Total Allocated Storage × Current Apparent Utilization × 1.2
+Minimum Target Storage = Total Allocated Storage × (Current Utilization ÷ 100) × 1.2
 ```
 
 1. Total Allocated Storage: The storage capacity provisioned for your DB instance, visible in the RDS console.
 
-1. Current Apparent Utilization: The percentage of allocated storage in use. To estimate it, use the `os.fileSys.usedPercent` metric from Performance Insights (Database Insights) or Enhanced Monitoring.
+1. Current Utilization: The percentage of allocated storage in use, from the `os.fileSys.usedPercent` metric in Enhanced Monitoring.
 
 **Note**  
 Since storage utilization fluctuates over time, we recommend setting the target storage slightly above the calculated minimum to account for potential increases during the reduction process.
@@ -153,7 +153,7 @@ Use the console, AWS CLI, or Amazon RDS API to monitor storage initialization. B
 
  In the AWS Management Console, you see the progress of storage initialization with the DB instance status.
 
-![Storage initialization progress indicator for a blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/storage-initialization-bg.png)
+![Storage initialization progress indicator for a blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/storage-initialization-bg.png)
 
 
 ------
@@ -206,7 +206,7 @@ You can create a blue/green deployment using the AWS Management Console, the AWS
 1. Choose **Actions**, **Create blue/green deployment**.
 
    The **Create blue/green deployment** page appears.   
-![Create blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-create.png)
+![Create blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/blue-green-deployment-create.png)
 
 1. Review the blue database identifiers. Make sure that they match the DB instances that you expect in the blue environment. If they don't, choose **Cancel**.
 

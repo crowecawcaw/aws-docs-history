@@ -7,7 +7,7 @@ You can promote a read replica into a standalone DB instance. If a source DB ins
 
 When you promote a read replica, RDS reboots the DB instance before making it available. The promotion process can take several minutes or longer to complete, depending on the size of the read replica. 
 
-![Promoting a read replica.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica-promote.png)
+![Promoting a read replica.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica-promote.png)
 
 
 ## Use cases for promoting a read replica

@@ -31,7 +31,7 @@ The following sections describe common scenarios for Oracle GoldenGate on Amazon
 
 In this scenario, an on-premises Oracle source database and on-premises Oracle GoldenGate hub provides data to a target Amazon RDS DB instance. 
 
-![Oracle GoldenGate configuration 0 using Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg0.png)
+![Oracle GoldenGate configuration 0 using Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg0.png)
 
 
 ## On-premises source database and Amazon EC2 hub
@@ -39,7 +39,7 @@ In this scenario, an on-premises Oracle source database and on-premises Oracle G
 
 In this scenario, an on-premises Oracle database acts as the source database. It's connected to an Amazon EC2 instance hub. This hub provides data to a target RDS for Oracle DB instance.
 
-![Oracle GoldenGate configuration 1 using Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg1.png)
+![Oracle GoldenGate configuration 1 using Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg1.png)
 
 
 ## Amazon RDS source database and Amazon EC2 hub
@@ -47,7 +47,7 @@ In this scenario, an on-premises Oracle database acts as the source database. It
 
 In this scenario, an RDS for Oracle DB instance acts as the source database. It's connected to an Amazon EC2 instance hub. This hub provides data to a target RDS for Oracle DB instance.
 
-![Oracle GoldenGate configuration 2 using Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg2.png)
+![Oracle GoldenGate configuration 2 using Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg2.png)
 
 
 ## Amazon EC2 source database and Amazon EC2 hub
@@ -55,7 +55,7 @@ In this scenario, an RDS for Oracle DB instance acts as the source database. It'
 
 In this scenario, an Oracle database on an Amazon EC2 instance acts as the source database. It's connected to an Amazon EC2 instance hub. This hub provides data to a target RDS for Oracle DB instance.
 
-![Oracle GoldenGate configuration 3 using Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg3.png)
+![Oracle GoldenGate configuration 3 using Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg3.png)
 
 
 ## Amazon EC2 hubs in different AWS Regions
@@ -63,7 +63,7 @@ In this scenario, an Oracle database on an Amazon EC2 instance acts as the sourc
 
 In this scenario, an Oracle database on an Amazon RDS DB instance is connected to an Amazon EC2 instance hub in the same AWS Region. The hub is connected to an Amazon EC2 instance hub in a different AWS Region. This second hub provides data to the target RDS for Oracle DB instance in the same AWS Region as the second Amazon EC2 instance hub.
 
-![Oracle GoldenGate configuration 4 using Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg4.png)
+![Oracle GoldenGate configuration 4 using Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-gg4.png)
 
 
 **Note**  

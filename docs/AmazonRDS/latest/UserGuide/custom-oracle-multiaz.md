@@ -12,7 +12,7 @@ A Multi-AZ DB instance deployment enhances availability during planned system ma
 
 The following diagram shows the Multi-AZ architecture for RDS Custom for Oracle:
 
-![RDS Custom for Oracle Multi-AZ deployment with primary instance and standby replica across availability zones.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom-oracle-multiaz-architecture.png)
+![RDS Custom for Oracle Multi-AZ deployment with primary instance and standby replica across availability zones.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom-oracle-multiaz-architecture.png)
 
 
 The Amazon RDS console shows the Availability Zone of the standby replica (the secondary AZ). You can also use the `describe-db-instances` CLI command or the `DescribeDBInstances` API operation to find the secondary AZ.

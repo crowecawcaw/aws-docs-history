@@ -163,7 +163,7 @@ In this step, copy the backup and configuration files from your scratch location
 + If the source and target hosts share an Amazon EFS file system, use an operating system utility such as `cp` to copy your backup files and the `res.txt` file from your scratch location to a shared directory. Then skip to [Step 3: Import the tablespaces on your target DB instance](#oracle-migrating-tts.initial-tts-import).
 + If you need to stage your backups to an Amazon S3 bucket, complete the following steps.
 
-![Transfer files using either Amazon S3 or Amazon EFS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-tts.png)
+![Transfer files using either Amazon S3 or Amazon EFS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-tts.png)
 
 
 #### Step 2.2: Upload the backups to your Amazon S3 bucket

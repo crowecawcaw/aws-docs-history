@@ -61,7 +61,7 @@ Using this option creates a private DB instance. The DB instance uses a DB subne
 
 To connect an EC2 instance to the DB instance, choose **Connect to an EC2 compute resource** in the **Connectivity** section on the **Create database** page.
 
-![Connect an EC2 instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ec2-set-up-connection-create.png)
+![Connect an EC2 instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ec2-set-up-connection-create.png)
 
 
 When you choose **Connect to an EC2 compute resource**, RDS sets the following options automatically. You can't change these settings unless you choose not to set up connectivity with an EC2 instance by choosing **Don't connect to an EC2 compute resource**.
@@ -140,7 +140,7 @@ For examples that use **Easy create** to walk you through creating and connectin
 1. For **Engine type**, choose IBM Db2, MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL.
 
    **Microsoft SQL Server** is shown here.   
-![Engine selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/create-instance-sqlserver.png)
+![Engine selection.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/create-instance-sqlserver.png)
 
 1. For **Database management type**, if you're using Oracle or SQL Server choose **Amazon RDS** or **Amazon RDS Custom**.
 
@@ -196,7 +196,7 @@ You can't view the master user password again. If you don't record it, you might
 1. For **Databases**, choose the name of the new DB instance.
 
    On the RDS console, the details for the new DB instance appear. The DB instance has a status of **Creating** until the DB instance is created and ready for use. When the state changes to **Available**, you can connect to the DB instance. Depending on the DB instance class and storage allocated, it can take several minutes for the new instance to be available.   
-![My DB instances details.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQLSvr-Launch05.png)
+![My DB instances details.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQLSvr-Launch05.png)
 
 ### AWS CLI
 <a name="USER_CreateDBInstance.CLI"></a>

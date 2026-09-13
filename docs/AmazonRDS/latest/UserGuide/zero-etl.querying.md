@@ -95,7 +95,7 @@ After you add data to the RDS database, it's replicated into the destination dat
    ```
    SELECT * from {{my_db}}."{{books_table}}";
    ```  
-![Query editor results showing sample data added to the Amazon RDS database.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/zero-etl-redshift-editor.png)
+![Query editor results showing sample data added to the Amazon RDS database.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/zero-etl-redshift-editor.png)
    + `{{my_db}}` is the RDS database schema name. 
    + `{{books_table}}` is the RDS table name.
 

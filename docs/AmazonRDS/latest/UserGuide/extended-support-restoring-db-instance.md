@@ -53,7 +53,7 @@ When you restore a DB instance or a Multi-AZ DB cluster, select **Enable RDS Ext
 
 The following image shows the **Enable RDS Extended Support** setting:
 
-![The Enable RDS Extended Support setting in the Engine options section.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/extended-support-enable.png)
+![The Enable RDS Extended Support setting in the Engine options section.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/extended-support-enable.png)
 
 
 ### AWS CLI

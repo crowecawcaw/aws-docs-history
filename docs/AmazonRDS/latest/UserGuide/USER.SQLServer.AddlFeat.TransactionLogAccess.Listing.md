@@ -19,7 +19,7 @@ SELECT * from msdb.dbo.rds_fn_list_tlog_backup_metadata('mydatabasename') WHERE 
 SELECT * from msdb.dbo.rds_fn_list_tlog_backup_metadata('mydatabasename') WHERE backup_file_time_utc > '2022-09-15 20:44:01' ORDER BY backup_file_time_utc DESC;
 ```
 
-![Output from rds_fn_list_tlog_backup_metadata.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/sql_accesstransactionlogs_func.png)
+![Output from rds_fn_list_tlog_backup_metadata.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/sql_accesstransactionlogs_func.png)
 
 
 The `rds_fn_list_tlog_backup_metadata` function returns the following output:

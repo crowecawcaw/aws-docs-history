@@ -26,4 +26,4 @@ In the following procedure, you determine whether Database Insights is managing 
 1. Check whether **Source** is the system default and **Value** is **0**. If so, Database Insights is managing the Performance Schema automatically.
 
    In the example shown here, Database Insights isn't managing the Performance Schema automatically.  
-![Shows that the settings for the performance_schema parameter are modified.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/perf_schema_user.png)
+![Shows that the settings for the performance_schema parameter are modified.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/perf_schema_user.png)

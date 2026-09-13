@@ -21,7 +21,7 @@ In the tutorial that follows, you create an EC2 instance that uses the default V
 
 The following diagram shows the configuration when the tutorial is complete.
 
-![Single VPC Scenario.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/con-VPC-sec-grp.png)
+![Single VPC Scenario.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/con-VPC-sec-grp.png)
 
 
 **Note**  

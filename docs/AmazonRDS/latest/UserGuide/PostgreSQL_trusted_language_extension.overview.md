@@ -5,7 +5,7 @@
 
 Trusted Language Extensions for PostgreSQL is a PostgreSQL extension that you install in your RDS for PostgreSQL DB instance in the same way that you set up other PostgreSQL extensions. In the following image of an example database in the pgAdmin client tool, you can view some of the components that comprise the `pg_tle` extension.
 
-![Image showing some of the components that make up the TLE development kit.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/apg-pg_tle-installed-view-in-pgAdmin.png)
+![Image showing some of the components that make up the TLE development kit.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/apg-pg_tle-installed-view-in-pgAdmin.png)
 
 
 You can see the following details.

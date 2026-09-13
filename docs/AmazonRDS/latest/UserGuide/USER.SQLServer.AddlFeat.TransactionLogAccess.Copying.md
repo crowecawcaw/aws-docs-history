@@ -67,7 +67,7 @@ To manually validate the log chain before copying transaction log backups, call 
 
 The following example shows a broken log chain in the output from the `rds_fn_list_tlog_backup_metadata` stored procedure. 
 
-![Output from rds_fn_list_tlog_backup_metadata showing a broken log chain.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/sql_accesstransactionlogs_logchain_error.png)
+![Output from rds_fn_list_tlog_backup_metadata showing a broken log chain.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/sql_accesstransactionlogs_logchain_error.png)
 
 
 In a normal log chain, the log sequence number (LSN) value for first\_lsn for given rds\_sequence\_id should match the value of last\_lsn in the preceding rds\_sequence\_id. In the image, the rds\_sequence\_id of 45 has a first\_lsn value 90987, which does not match the last\_lsn value of 90985 for preceeding rds\_sequence\_id 44.

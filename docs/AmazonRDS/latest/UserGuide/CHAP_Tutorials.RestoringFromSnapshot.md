@@ -25,10 +25,10 @@ Use the following procedure to restore from a snapshot in the AWS Management Con
 1. Choose the DB snapshot that you want to restore from.
 
 1. For **Actions**, choose **Restore snapshot**.  
-![Restore snapshot option in the Actions menu in the RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tut-restore-instance1.png)
+![Restore snapshot option in the Actions menu in the RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tut-restore-instance1.png)
 
    The **Restore snapshot** page appears.  
-![Restore snapshot page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tut-restore-instance2.png)
+![Restore snapshot page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tut-restore-instance2.png)
 
 1. Under **DB instance settings**, use the default settings for **DB engine** and **License model** (for Oracle or Microsoft SQL Server).
 
@@ -55,7 +55,7 @@ Use the following procedure to restore from a snapshot in the AWS Management Con
    If the source DB instance for the snapshot was encrypted, the restored DB instance is also encrypted. You can't make it unencrypted.
 
 1. Expand **Additional configuration**.  
-![Additional configuration.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tut-restore-instance3.png)
+![Additional configuration.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tut-restore-instance3.png)
 
 1. Do the following under **Database options**:
 
@@ -75,4 +75,4 @@ In some cases, you might restore from a DB snapshot of a DB instance that uses a
 
 The **Databases** page displays the restored DB instance, with a status of `Creating`.
 
-![Restored DB instance on the Databases page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tut-restore-instance4.png)
+![Restored DB instance on the Databases page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/tut-restore-instance4.png)

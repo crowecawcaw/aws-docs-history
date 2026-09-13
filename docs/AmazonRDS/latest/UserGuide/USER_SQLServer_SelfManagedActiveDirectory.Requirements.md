@@ -26,7 +26,7 @@ Make sure that you have an on-premises or other self-managed Microsoft AD that y
 Make sure that you have met the following network configurations:
 + Configure connectivity between the Amazon VPC where you want to create the RDS for SQL Server DB instance and your self-managed AD. You can set up connectivity using AWS Direct Connect, AWS VPN, VPC peering, or AWS Transit Gateway.
 + For VPC security groups, the default security group for your default Amazon VPC is already added to your RDS for SQL Server DB instance in the console. Ensure that the security group and the VPC network ACLs for the subnet(s) where you're creating your RDS for SQL Server DB instance allow traffic on the ports and in the directions shown in the following diagram.  
-![Self-managed AD network configuration port rules.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQLServer_SelfManagedActiveDirectory_Requirements_NetworkConfig.png)
+![Self-managed AD network configuration port rules.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQLServer_SelfManagedActiveDirectory_Requirements_NetworkConfig.png)
 
   The following table identifies the role of each port.    
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServer_SelfManagedActiveDirectory.Requirements.html)

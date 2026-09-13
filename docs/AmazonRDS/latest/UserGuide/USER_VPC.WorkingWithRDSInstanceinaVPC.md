@@ -175,7 +175,7 @@ When you create or modify a DB instance, you can specify dual-stack mode to allo
 
 When you use the AWS Management Console to create or modify a DB instance, you can specify dual-stack mode in the **Network type** section. The following image shows the **Network type** section in the console.
 
-![Network type section in the console with Dual-stack mode selected.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dual-stack-mode.png)
+![Network type section in the console with Dual-stack mode selected.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dual-stack-mode.png)
 
 
 When you use the AWS CLI to create or modify a DB instance, set the `--network-type` option to `DUAL` to use dual-stack mode. When you use the RDS API to create or modify a DB instance, set the `NetworkType` parameter to `DUAL` to use dual-stack mode. When you are modifying the network type of a DB instance, downtime is possible. If dual-stack mode isn't supported by the specified DB engine version or DB subnet group, the `NetworkTypeNotSupported` error is returned.
@@ -231,7 +231,7 @@ When you modify a DB instance to use dual-stack mode, there can't be a pending c
 
    If you are using the console, make sure that the following settings are correct:
    + **Network type** – **Dual-stack mode**  
-![Network type section in the console with Dual-stack mode selected.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dual-stack-mode.png)
+![Network type section in the console with Dual-stack mode selected.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/dual-stack-mode.png)
    + **DB subnet group** – The DB subnet group that you configured in a previous step
    + **Security group** – The security that you configured in a previous step
 
@@ -285,7 +285,7 @@ When you launch a DB instance inside a VPC, the DB instance has a private IP add
 
 You can modify a DB instance to turn on or off public accessibility by modifying the **Public access** option. The following illustration shows the **Public access** option in the **Additional connectivity configuration** section. To set the option, open the **Additional connectivity configuration** section in the **Connectivity** section. 
 
-![Set your database Public access option in the Additional connectivity configuration section to No.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/VPC-example4.png)
+![Set your database Public access option in the Additional connectivity configuration section to No.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/VPC-example4.png)
 
 
 For information about modifying a DB instance to set the **Public access** option, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md).
@@ -344,7 +344,7 @@ In this step, you create a DB subnet group and add the subnets that you created 
 1. For **VPC**, choose the default VPC or the VPC that you created.
 
 1. In the **Add subnets** section, choose the Availability Zones that include the subnets from **Availability Zones**, and then choose the subnets from **Subnets**.  
-![Create a DB subnet group.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDSVPC101.png)
+![Create a DB subnet group.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDSVPC101.png)
 **Note**  
 If you have enabled a Local Zone, you can choose an Availability Zone group on the **Create DB subnet group** page. In this case, choose the **Availability Zone group**, **Availability Zones**, and **Subnets**.
 

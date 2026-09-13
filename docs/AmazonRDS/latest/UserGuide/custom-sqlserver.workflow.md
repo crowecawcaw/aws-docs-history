@@ -5,7 +5,7 @@
 
 The following diagram shows the typical workflow for RDS Custom for SQL Server.
 
-![RDS Custom for SQL Server architecture.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom_sqlserver_architecture_v2.png)
+![RDS Custom for SQL Server architecture.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom_sqlserver_architecture_v2.png)
 
 
 The steps are as follows:

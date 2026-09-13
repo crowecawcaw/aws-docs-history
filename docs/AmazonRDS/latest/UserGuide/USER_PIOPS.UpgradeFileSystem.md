@@ -7,7 +7,7 @@ Most RDS DB instances offer a maximum storage size of 64 TiB for RDS for MariaDB
 
 RDS checks whether your storage system has a 16 TiB storage size, a file size limit of 2 TiB, or non-optimized writes. If your DB instances meet these conditions, RDS alerts you that your file system configuration is eligible for an upgrade. You can check the upgrade eligibility of a DB instance on the **Storage** panel of the DB instance details page.
 
-![Check the storage configuration upgrade eligibility of a DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/upgrade-storage-config.png)
+![Check the storage configuration upgrade eligibility of a DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/upgrade-storage-config.png)
 
 
 If your DB instance is eligible for a file system upgrade, use either of the following techniques:

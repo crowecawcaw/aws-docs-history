@@ -31,7 +31,7 @@ You can create a DB snapshot using the AWS Management Console, the AWS CLI, or t
 1. Choose **Take snapshot**.
 
    The **Take DB snapshot** window appears.  
-![Take DB snapshot.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/take_db_snapshot.png)
+![Take DB snapshot.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/take_db_snapshot.png)
 
 1. Choose the **DB instance** for which you want to take a snapshot.
 

@@ -21,14 +21,14 @@ The **Configuration** tab displays information about database activity streams.
 1. Choose the name of the DB instance that you want to monitor.
 
    The database page appears. The following example shows an Oracle database named `orclb`.  
-![Database page with monitoring tab shown.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-with-monitoring-tab.png)
+![Database page with monitoring tab shown.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-with-monitoring-tab.png)
 
 1. Choose **Logs & events**.
 
    The Logs & events section appears.  
-![Database page with Logs & events tab shown.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-logs-and-events-subpage.png)
+![Database page with Logs & events tab shown.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-logs-and-events-subpage.png)
 
 1. Choose **Configuration**.
 
    The following example shows the status of the database activity streams for your DB instance.  
-![Enhanced Monitoring.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-das.png)
+![Enhanced Monitoring.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-das.png)

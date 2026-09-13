@@ -12,7 +12,7 @@ If you want to import data into an RDS for MySQL DB instance and your scenario s
 
 The following diagram shows importing an external MySQL database into a MySQL database on Amazon RDS.
 
-![Workflow that shows importing an external MySQL database into a MySQL database on Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_1.png)
+![Workflow that shows importing an external MySQL database into a MySQL database on Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_1.png)
 
 
 ## Task 1: Create a copy of your existing database
@@ -22,7 +22,7 @@ The first step in the process of migrating a large amount of data to an RDS for 
 
 The following diagram shows creating a backup of the MySQL database.
 
-![Workflow that shows creating a backup of the MySQL database.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_2.png)
+![Workflow that shows creating a backup of the MySQL database.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_2.png)
 
 
 You can use the `mysqldump` utility to create a database backup in either SQL or delimited-text format. We recommend that you do a test run with each format in a non-production environment to see which method minimizes the amount of time that `mysqldump` runs.
@@ -202,7 +202,7 @@ Copying your compressed database backup file to an Amazon EC2 instance takes few
 
 The following diagram shows copying the database backup to an Amazon EC2 instance.
 
-![Workflow that shows copying the database backup to an Amazon EC2 instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_3.png)
+![Workflow that shows copying the database backup to an Amazon EC2 instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_3.png)
 
 
 ### To create an Amazon EC2 instance and copy your data
@@ -252,7 +252,7 @@ By creating an RDS for MySQL DB instance or an RDS for MySQL Multi-AZ DB cluster
 
 The following diagram shows importing the backup from an Amazon EC2 instance into a MySQL database.
 
-![Workflow that shows importing the backup from the EC2 instance into the MySQL database.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_4.png)
+![Workflow that shows importing the backup from the EC2 instance into the MySQL database.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_4.png)
 
 
 ### To create a MySQL database and import your data
@@ -325,7 +325,7 @@ If you no longer need the Amazon EC2 instance used in this procedure, terminate 
 
 Your source database was likely updated during the time that it took to copy and transfer the data to the MySQL database. Thus, you can use replication to bring the copied database up-to-date with the source database.
 
-![Workflow that shows replicating data from the external MySQL database to the database on Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_5.png)
+![Workflow that shows replicating data from the external MySQL database to the database on Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_5.png)
 
 
 The permissions required to start replication on an Amazon RDS database are restricted and aren't available to your Amazon RDS master user. Because of this, use the appropriate Amazon RDS stored procedure for your major engine version: 
@@ -401,7 +401,7 @@ Previous versions of MySQL used `SHOW SLAVE STATUS` instead of `SHOW REPLICA STA
 
 After the MySQL database is up to date with the source replication instance, you can now update your live application to use the Amazon RDS instance. 
 
-![Workflow that shows stopping replication and directing the live application to the database on Amazon RDS.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_6.png)
+![Workflow that shows stopping replication and directing the live application to the database on Amazon RDS.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMySQLToRDS_6.png)
 
 
 ### To redirect your live application to your MySQL database and stop replication

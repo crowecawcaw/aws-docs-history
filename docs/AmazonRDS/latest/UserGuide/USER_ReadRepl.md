@@ -15,7 +15,7 @@ To create a read replica from a source DB instance, Amazon RDS uses the built-in
 
 After you create a read replica from a source DB instance, the source becomes the primary DB instance. When you make updates to the primary DB instance, Amazon RDS copies them asynchronously to the read replica. The following diagram shows a source DB instance replicating to a read replica in a different Availability Zone (AZ). Clients have read/write access to the primary DB instance and read-only access to the replica.
 
-![Read replica configuration.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica.png)
+![Read replica configuration.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica.png)
 
 
 Read replicas are billed as standard DB instances at the same rates as the DB instance class used for the replica. You aren't charged for the data transfer incurred in replicating data between the source DB instance and a read replica within the same AWS Region. For more information, see [Cross-Region replication costs](USER_ReadRepl.XRgn.md#USER_ReadRepl.XRgn.Costs) and [DB instance billing for Amazon RDS ](User_DBInstanceBilling.md).
@@ -69,7 +69,7 @@ You can configure a read replica for a DB instance that also has a standby repli
 
 In the following scenario, clients have read/write access to a primary DB instance in one AZ. The primary instance copies updates asynchronously to a read replica in a second AZ and also copies them synchronously to a standby replica in a third AZ. Clients have read access only to the read replica.
 
-![Read replica and standby replica configuration.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-and-standby-replica.png)
+![Read replica and standby replica configuration.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-and-standby-replica.png)
 
 
 For more information about high availability and standby replicas, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md).

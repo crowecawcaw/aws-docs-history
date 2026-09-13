@@ -5,7 +5,7 @@
 
 When you modify your DB instance, you decide when you want the modifications to occur.
 
-![Schedule modifications either immediately or during the maintenance window.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/schedule-modifications.png)
+![Schedule modifications either immediately or during the maintenance window.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/schedule-modifications.png)
 
 
 To apply changes immediately rather than in the next maintenance window, choose the **Apply Immediately** option in the AWS Management Console. Or you use the `--apply-immediately` parameter when calling the AWS CLI or set the `ApplyImmediately` parameter to `true` when using the Amazon RDS API. 

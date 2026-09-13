@@ -7,14 +7,14 @@ You can use the RDS console to simplify setting up a connection between a Lambda
 
 The following image shows a direct connection between your Multi-AZ DB cluster and your Lambda function.
 
-![Automatically connect a Multi-AZ DB cluster with a Lambda function.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-maz-lambda.png)
+![Automatically connect a Multi-AZ DB cluster with a Lambda function.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-maz-lambda.png)
 
 
 You can set up the connection between your Lambda function and your database through RDS Proxy to improve your database performance and resiliency. Often, Lambda functions make frequent, short database connections that benefit from connection pooling that RDS Proxy offers. You can take advantage of any IAM authentication that you already have for Lambda functions, instead of managing database credentials in your Lambda application code. For more information, see [Amazon RDS Proxy](rds-proxy.md).
 
 You can use the console to automatically create a proxy for your connection. You can also select existing proxies. The console updates the proxy security group to allow connections from your database and Lambda function. You can input your database credentials or select the Secrets Manager secret you require to access the database.
 
-![Automatically connect a Multi-AZ DB cluster with a Lambda function through RDS Proxy.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-maz-lambda-Proxy.png)
+![Automatically connect a Multi-AZ DB cluster with a Lambda function through RDS Proxy.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/auto-connect-maz-lambda-Proxy.png)
 
 
 **Topics**

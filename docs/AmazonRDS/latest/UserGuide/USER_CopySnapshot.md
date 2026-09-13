@@ -34,7 +34,7 @@ The following procedure copies an encrypted or unencrypted DB snapshot, in the s
 1. For **Actions**, choose **Copy snapshot**.
 
    The **Copy snapshot** page appears.  
-![Copy a DB snapshot.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/DBSnapshotCopy1.png)
+![Copy a DB snapshot.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/DBSnapshotCopy1.png)
 
 1. For **Target option group (optional)**, choose a new option group if you want.
 

@@ -279,6 +279,8 @@ The following table shows the event category and a list of events when a DB inst
 | maintenance | RDS-EVENT-0429 | Amazon RDS can't perform the OS upgrade because of insufficient capacity available for the {{type}} instance type in the {{zone}} Availability Zone | None | 
 | maintenance | RDS-EVENT-0501 | Amazon RDS DB instance's server certificate requires rotation through a pending maintenance action. | DB instance's server certificate requires rotation through a pending maintenance action. Amazon RDS reboots your database during this maintenance to complete the certificate rotation. To schedule this maintenance, go to the **Maintenance & backups** tab and choose **Apply now** or **Schedule for next maintenance window**. If the change is not scheduled, Amazon RDS automatically applies it in your mainteance window on the auto apply date shown in your maintenance action. | 
 | maintenance | RDS-EVENT-0502 | Amazon RDS has scheduled a server certificate rotation for DB instance during the next maintenance window. This maintenance will require a database reboot. | None | 
+| notification | RDS-EVENT-0610 | The log file {{log\_name}} will be deleted since it is past the log retention period and may not be uploaded to CloudWatch Logs. | None | 
+| notification | RDS-EVENT-0611 | Due to storage space constraints, the log file {{log\_name}} will be deleted and will not be uploaded to CloudWatch Logs. | None | 
 
 ## DB parameter group events
 <a name="USER_Events.Messages.parameter-group"></a>

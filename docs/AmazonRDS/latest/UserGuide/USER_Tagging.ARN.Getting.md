@@ -12,7 +12,7 @@ To get an ARN from the AWS Management Console, navigate to the resource you want
 
 For example, you can get the ARN for a DB instance from the **Configuration** tab of the DB instance details.
 
-![DB instance ARN.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/DB-instance-arn.png)
+![DB instance ARN.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/DB-instance-arn.png)
 
 
 ## AWS CLI

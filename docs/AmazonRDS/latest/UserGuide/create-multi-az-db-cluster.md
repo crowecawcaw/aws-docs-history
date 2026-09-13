@@ -59,7 +59,7 @@ Using this option creates a private DB cluster. The DB cluster uses a DB subnet 
 
 To connect an EC2 instance to the DB cluster, choose **Connect to an EC2 compute resource** in the **Connectivity** section on the **Create database** page.
 
-![Connect an EC2 instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ec2-set-up-connection-create.png)
+![Connect an EC2 instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ec2-set-up-connection-create.png)
 
 
 When you choose **Connect to an EC2 compute resource**, RDS sets the following options automatically. You can't change these settings unless you choose not to set up connectivity with an EC2 instance by choosing **Don't connect to an EC2 compute resource**.
@@ -133,7 +133,7 @@ You can create a Multi-AZ DB cluster by choosing **Multi-AZ DB cluster** in the 
 1. In **Templates**, choose the appropriate template for your deployment.
 
 1. In **Availability and durability**, choose **Multi-AZ DB cluster**.  
-![Multi-AZ DB cluster choice.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster-create.png)
+![Multi-AZ DB cluster choice.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/multi-az-db-cluster-create.png)
 
 1. In **DB cluster identifier**, enter the identifier for your DB cluster.
 

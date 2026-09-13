@@ -105,7 +105,7 @@ To connect to your RDS for Db2 DB instance, you need its DNS name and port numbe
       + For **Host**, enter the DNS name of the DB instance.
       + For **Port**, enter the port number for the DB instance.
       + For **Database**, enter the name of the database.  
-![The Connection and database section in IBM Db2 Data Management Console with Host, Port, and Database fields.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-connection-database.png)
+![The Connection and database section in IBM Db2 Data Management Console with Host, Port, and Database fields.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-connection-database.png)
 
    1. In the **Security and credential **section, enter the following information for your RDS for Db2 DB instance:
       + For **Security type**, choose **Encrypted user and password**.
@@ -117,12 +117,12 @@ To connect to your RDS for Db2 DB instance, you need its DNS name and port numbe
 If the connection is unsuccessful, confirm that the database port is open through the inbound rules in your security group. For more information, see [Considerations for security groups with Amazon RDS for Db2](db2-security-groups-considerations.md).
 
       If you didn't [manually create a buffer pool, a user tablespace, and a system temporary tablespace](#db2-manually-creating-dmc) in RDS for Db2, you might see the following error message:   
-![Error message about not having permissions to perform operations.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-error-message.png)
+![Error message about not having permissions to perform operations.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-error-message.png)
 
       Make sure that you created a buffer table, a tablespace, and objects for an IBM Db2 Data Management Console repository to monitor your RDS for Db2 DB instance. Or, you can use an Amazon EC2 Db2 DB instance to host an IBM Db2 Data Management Console repository to monitor your RDS for Db2 DB instance. For more information, see [Step 1: Creating a repository database to monitor DB instances](#db2-creating-repo-db-monitoring-dmc).
 
    1. After you successfully test your connection, choose **Next**.  
-![The Security and credential section in IBM Db2 Data Management Console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-security-credential.png)
+![The Security and credential section in IBM Db2 Data Management Console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-security-credential.png)
 
    If IBM Db2 Data Management Console finds the buffer pool, the user tablespace, and the system temporary tablespace in the RDS for Db2 DB instance, then IBM Db2 Data Management Console automatically configures the repository database. If you use your Db2 instance on your Amazon EC2 instance as the repository database, then IBM Db2 Data Management Console automatically creates the buffer pool and other objects.
 
@@ -135,7 +135,7 @@ If the connection is unsuccessful, confirm that the database port is open throug
       + For **Host**, enter the DNS name of the DB instance.
       + For **Port**, enter the port number for the DB instance.
       + For **Database**, enter the name of the database.  
-![The Connection and database section for a new connection in IBM Db2 Data Management Console with Host, Port, and Database fields.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-new-connection-database.png)
+![The Connection and database section for a new connection in IBM Db2 Data Management Console with Host, Port, and Database fields.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-new-connection-database.png)
 
    1. In the **Security and credential**** **section, select **Enable monitoring data collection**.
 
@@ -146,13 +146,13 @@ If the connection is unsuccessful, confirm that the database port is open throug
    1. Choose **Test connection**.
 
    1. After you successfully test your connection, choose **Save**.  
-![The Security and credential section for a new connection in IBM Db2 Data Management Console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-new-security-credential.png)
+![The Security and credential section for a new connection in IBM Db2 Data Management Console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-new-security-credential.png)
 
    After the connection is added, a window similar to the following appears. This window indicates that your database was successfully configured.  
-![The window indicating that the database was successfully configured in IBM Db2 Data Management Console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-configuration-success.png)
+![The window indicating that the database was successfully configured in IBM Db2 Data Management Console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-configuration-success.png)
 
 1. Choose **Go to Databases**. A Databases window similar to the following appears. This window is a dashboard that shows metrics, statuses, and connections.  
-![The Databases overview window in IBM Db2 Data Management Console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-database-view.png)
+![The Databases overview window in IBM Db2 Data Management Console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-database-view.png)
 
 You can now start using IBM Db2 Data Management Console.
 
@@ -176,4 +176,4 @@ You can use IBM Db2 Data Management Console to do the following types of tasks:
 
 1. To view the results, choose the **Results** tab.
 
-![The Database window showing how to run a SQL command and view the results in IBM Db2 Data Management Console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-sql-run-example.png)
+![The Database window showing how to run a SQL command and view the results in IBM Db2 Data Management Console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ibm-dmc-sql-run-example.png)

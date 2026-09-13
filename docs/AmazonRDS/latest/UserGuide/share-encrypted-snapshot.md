@@ -102,7 +102,7 @@ Next you copy the source DB snapshot to a new snapshot using the customer manage
    1. Enter the name of the DB snapshot copy in **New DB Snapshot Identifier**.
 
    1. For **AWS KMS key**, choose the customer managed key that you created.  
-![The customer managed key selection.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/copy-encrypted-snapshot.png)
+![The customer managed key selection.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/copy-encrypted-snapshot.png)
 
    1. Choose **Copy snapshot**.
 

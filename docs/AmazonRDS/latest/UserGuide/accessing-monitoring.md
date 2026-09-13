@@ -66,7 +66,7 @@ Find the possible status values for DB instances in the following table. This ta
 1. In the navigation pane, choose **Databases**.
 
    The **Databases page** appears with the list of DB instances. For each DB instance , the status value is displayed.   
-![View the status of a DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDS_instance_status.png)
+![View the status of a DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDS_instance_status.png)
 
 ### CLI
 <a name="DBinstance.Status.Cli"></a>

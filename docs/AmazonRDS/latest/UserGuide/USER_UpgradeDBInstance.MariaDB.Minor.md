@@ -9,7 +9,7 @@ If you specify the following settings when creating or modifying a DB instance, 
 
 In the AWS Management Console, these settings are under **Additional configuration**. The following image shows the **Auto minor version upgrade** setting.
 
-![Auto minor version upgrade setting.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/amvu.png)
+![Auto minor version upgrade setting.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/amvu.png)
 
 
 For more information about these settings, see [Settings for DB instances](USER_ModifyInstance.Settings.md).

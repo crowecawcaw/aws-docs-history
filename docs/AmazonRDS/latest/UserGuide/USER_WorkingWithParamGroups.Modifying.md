@@ -9,7 +9,7 @@ There are two types of parameters: dynamic parameters and static parameters. Cha
 
 The RDS console shows the status of the DB parameter group associated with a DB instance on the **Configuration** tab. For example, if the DB instance isn't using the latest changes to its associated DB parameter group, the RDS console shows the DB parameter group with a status of **pending-reboot**. To apply the latest parameter changes to that DB instance, manually reboot the DB instance.
 
-![Parameter change pending reboot scenario.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/param-reboot.png)
+![Parameter change pending reboot scenario.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/param-reboot.png)
 
 
 ## Console

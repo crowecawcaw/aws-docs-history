@@ -36,7 +36,7 @@ To access detailed information about events using AWS CloudTrail, including requ
 1. (Optional) Enter a search term to filter your results. 
 
    The following example shows a list of events filtered by the characters **stopped**.  
-![List DB events.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ListEvents.png)
+![List DB events.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ListEvents.png)
 
 ## AWS CLI
 <a name="USER_ListEvents.CLI"></a>

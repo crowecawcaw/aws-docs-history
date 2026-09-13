@@ -5,7 +5,7 @@
 
 This section assumes that you have set up your Oracle client as described in [Step 8: Configure an Oracle client](oracle-kerberos-setting-up.md#oracle-kerberos.setting-up.configure-oracle-client). To connect to the Oracle DB with Kerberos authentication, log in using the Kerberos authentication type. For example, after launching Oracle SQL Developer, choose **Kerberos Authentication** as the authentication type, as shown in the following example. 
 
-![The Database Connection dialog in Oracle SQL Developer with Kerberos Authentication selected.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ora-kerberos-auth.png)
+![The Database Connection dialog in Oracle SQL Developer with Kerberos Authentication selected.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/ora-kerberos-auth.png)
 
 
 To connect to Oracle with Kerberos authentication with SQL\*Plus:

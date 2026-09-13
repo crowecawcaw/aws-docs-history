@@ -20,7 +20,7 @@ Amazon RDS supports a fully managed, switchover-based role transition for Oracle
 
 The replicas can reside in separate AWS Regions or in different Availability Zones (AZs) of a single Region. All AWS Regions are supported. 
 
-![Switch over a standby instance to make it the primary DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica-switchover.png)
+![Switch over a standby instance to make it the primary DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/read-replica-switchover.png)
 
 
 A switchover differs from a read replica promotion. In a switchover, the source and replica DB instances change roles. In a promotion, a read replica becomes a source DB instance, but the source DB instance doesn't become a replica. For more information, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.Promote.md).

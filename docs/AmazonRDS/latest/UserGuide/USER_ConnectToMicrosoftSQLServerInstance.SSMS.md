@@ -10,7 +10,7 @@ In this procedure, you connect to your sample DB instance by using Microsoft SQL
 1. Start SQL Server Management Studio.
 
    The **Connect to Server** dialog box appears.  
-![Connect to Server dialog.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDSMSFTSQLConnect01.png)
+![Connect to Server dialog.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RDSMSFTSQLConnect01.png)
 
 1. Provide the information for your DB instance:
 
@@ -43,7 +43,7 @@ Change the colon between the endpoint and port number to a comma.
    1. In SSMS, on the **View** menu, choose **Object Explorer**.
 
    1. Expand your DB instance, expand **Databases**, and then expand **System Databases**.  
-![Object Explorer displaying the system databases.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-SSMS-SystemDBs.png)
+![Object Explorer displaying the system databases.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-SSMS-SystemDBs.png)
 
 1. Your SQL Server DB instance also comes with a database named `rdsadmin`. Amazon RDS uses this database to store the objects that it uses to manage your database. The `rdsadmin` database also includes stored procedures that you can run to perform advanced tasks. For more information, see [Common DBA tasks for Amazon RDS for Microsoft SQL Server](Appendix.SQLServer.CommonDBATasks.md).
 
@@ -58,4 +58,4 @@ Change the colon between the endpoint and port number to a comma.
       ```
 
    1. Run the query. SSMS returns the SQL Server version of your Amazon RDS DB instance.  
-![SQL Query Window.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-Connect-Query.png)
+![SQL Query Window.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-Connect-Query.png)

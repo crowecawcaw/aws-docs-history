@@ -25,7 +25,7 @@ You can view Amazon RDS zero-ETL integrations using the AWS Management Console, 
 1. From the left navigation pane, choose **Zero-ETL integrations**. 
 
 1. Select an integration to view more details about it, such as its source database and target data warehouse.  
-![Details about a zero-ETL integration.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/zero-etl-integration-view.png)
+![Details about a zero-ETL integration.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/zero-etl-integration-view.png)
 
 An integration can have the following statuses:
 + `Creating` – The integration is being created.

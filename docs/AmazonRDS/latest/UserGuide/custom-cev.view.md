@@ -22,10 +22,10 @@ You can view details about your CEV manifest and the command used to create your
 1. Choose the name of the CEV that you want to view.
 
 1. Choose **Configuration** to view the installation parameters specified in your manifest.  
-![View the installation parameters for a CEV.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cev-configuration-tab.png)
+![View the installation parameters for a CEV.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cev-configuration-tab.png)
 
 1. Choose **Manifest** to view the installation parameters specified in the `--manifest` option of the `create-custom-db-engine-version` command. You can copy this text, replace values as needed, and use them in a new command.  
-![View the command used to create the CEV.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cev-manifest-tab.png)
+![View the command used to create the CEV.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/cev-manifest-tab.png)
 
 ## AWS CLI
 <a name="custom-cev.view.CEV"></a>

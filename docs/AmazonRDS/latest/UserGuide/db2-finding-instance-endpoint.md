@@ -23,7 +23,7 @@ You can find the endpoint for a DB instance by using the AWS Management Console 
    1. Choose the RDS for Db2 DB instance name to display the instance details. 
 
    1. On the **Connectivity & security** tab, copy the endpoint. Also, note the port number. You need both the endpoint and the port number to connect to the DB instance.   
-![The Connectivity and security tab for a DB instance that shows the endpoint and port.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-connectivity-security.png)
+![The Connectivity and security tab for a DB instance that shows the endpoint and port.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-connectivity-security.png)
 
 ## AWS CLI
 <a name="db2-finding-instance-endpoint-cli"></a>

@@ -12,7 +12,7 @@ To connect to your DB instance, you need its DNS name and port number. For infor
 1. Start Oracle SQL Developer.
 
 1. On the **Connections** tab, choose the **add (\+)** icon.  
-![Oracle SQL Developer with add icon highlighted.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-sqldev-plus.png)
+![Oracle SQL Developer with add icon highlighted.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-sqldev-plus.png)
 
 1. In the **New/Select Database Connection** dialog box, provide the information for your DB instance:
    + For **Connection Name**, enter a name that describes the connection, such as `Oracle-RDS`.
@@ -24,7 +24,7 @@ To connect to your DB instance, you need its DNS name and port number. For infor
    + If your DB instance uses the CDB architecture (multitenant), you can also choose **Service Name** instead of **SID** and enter the PDB name to connect directly to your tenant database.
 
    The completed dialog box should look similar to the following.  
-![Creating a new connection in Oracle SQL Developer.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-sqldev-newcon.png)
+![Creating a new connection in Oracle SQL Developer.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-sqldev-newcon.png)
 
 1. Choose **Connect**.
 
@@ -37,7 +37,7 @@ To connect to your DB instance, you need its DNS name and port number. For infor
       ```
 
    1. Choose the **execute** icon to run the query.  
-![Running a query in Oracle SQL Developer using the execute icon.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-sqldev-run.png)
+![Running a query in Oracle SQL Developer using the execute icon.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-sqldev-run.png)
 
       SQL Developer returns the database name.  
-![Query results in Oracle SQL Developer.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-sqldev-results.png)
+![Query results in Oracle SQL Developer.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/oracle-sqldev-results.png)

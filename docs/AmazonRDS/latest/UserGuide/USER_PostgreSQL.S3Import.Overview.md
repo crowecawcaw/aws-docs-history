@@ -21,7 +21,7 @@ Multi part data import from Amazon S3 isn't currently supported.
 1. Get the details about the Amazon S3 bucket and the data to import. To do this, open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/), and choose **Buckets**. Find the bucket containing your data in the list. Choose the bucket, open its Object overview page, and then choose Properties.
 
    Make a note of the bucket name, path, the AWS Region, and file type. You need the Amazon Resource Name (ARN) later, to set up access to Amazon S3 through an IAM role. For more more information, see [Setting up access to an Amazon S3 bucket](USER_PostgreSQL.S3Import.AccessPermission.md). The image following shows an example.   
-![A file object in an Amazon S3 bucket.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/aws_s3_import-export_s3_bucket-info.png)
+![A file object in an Amazon S3 bucket.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/aws_s3_import-export_s3_bucket-info.png)
 
 1. You can verify the path to the data on the Amazon S3 bucket by using the AWS CLI command `aws s3 cp`. If the information is correct, this command downloads a copy of the Amazon S3 file. 
 

@@ -13,7 +13,7 @@ For an example that walks you through the process of creating and connecting to 
 Before you can connect to your DB instance, it has to be available and accessible.
 
 1. Make sure that its status is `available`. You can check this on the details page for your instance in the AWS Management Console or by using the [describe-db-instances](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html) AWS CLI command.  
-![Check that the DB instance is available.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/sqlserver-available.png)
+![Check that the DB instance is available.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/sqlserver-available.png)
 
 1. Make sure that it is accessible to your source. Depending on your scenario, it might not need to be publicly accessible. For more information, see [Amazon VPC and Amazon RDS](USER_VPC.md).
 
@@ -37,6 +37,6 @@ You need both the endpoint and the port number to connect to the DB instance.
    1. Choose the SQL Server DB instance name to display its details.
 
    1. On the **Connectivity & security** tab, copy the endpoint.  
-![Locate DB instance endpoint and port.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-Connect-Endpoint.png)
+![Locate DB instance endpoint and port.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/SQL-Connect-Endpoint.png)
 
    1. Note the port number.

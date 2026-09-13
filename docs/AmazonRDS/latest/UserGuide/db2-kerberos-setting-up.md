@@ -79,13 +79,13 @@ Make sure that you save this password. Directory Service doesn't store this pass
 1. Choose **Next**.
 
 1. Review the directory information. If changes are needed, choose **Previous** and make the changes. When the information is correct, choose **Create directory**.   
-![The Review and create window during directory creation in the Directory Service console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-create-ADS-directory.png)
+![The Review and create window during directory creation in the Directory Service console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-create-ADS-directory.png)
 
 It takes several minutes for the directory to be created. When it has been successfully created, the **Status** value changes to **Active**. 
 
 To see information about your directory, choose the directory ID under **Directory ID**. Make a note of the **Directory ID** value. You need this value when you create or modify your RDS for Db2 DB instance. 
 
-![The Directory details section with Directory ID in the Directory Service console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-ADS-directory-details.png)
+![The Directory details section with Directory ID in the Directory Service console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-ADS-directory-details.png)
 
 
 ## Step 2: Create a trust
@@ -201,7 +201,7 @@ Kerberos authentication is only supported for RDS for Db2 DB instances in a VPC.
 
 When you use the console to create, modify, or restore a DB instance, choose **Password and Kerberos authentication** in the **Database authentication** section. Then choose **Browse Directory**. Select the directory or choose **Create directory** to use the Directory Service.
 
-![The Database authentication section with Password and Kerberos authentication selected in the Amazon RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-database-authentication-directory.png)
+![The Database authentication section with Password and Kerberos authentication selected in the Amazon RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-database-authentication-directory.png)
 
 
 ### AWS CLI

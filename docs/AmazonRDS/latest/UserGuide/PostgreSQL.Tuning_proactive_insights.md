@@ -102,7 +102,7 @@ AUTOCOMMIT is turned on by default. But if it is accidentally turned off in the 
   postgres=> \set AUTOCOMMIT on
   ```
 + In pgadmin, turn it on by choosing the AUTOCOMMIT option from the down arrow.  
-![In pgadmin, choose AUTOCOMMIT to turn it on.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/apg-insight-pgadmin-autocommit.png)
+![In pgadmin, choose AUTOCOMMIT to turn it on.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/apg-insight-pgadmin-autocommit.png)
 
 #### Check the transaction logic in your application code
 <a name="proactive-insights.idle-txn.actions.app-logic"></a>

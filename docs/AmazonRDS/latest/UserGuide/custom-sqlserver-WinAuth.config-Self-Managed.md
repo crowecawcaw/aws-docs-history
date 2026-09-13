@@ -15,7 +15,7 @@ To join your on-premise or self-managed Microsoft AD to your RDS Custom for SQL 
 Configure your self-managed or on-premise AD network connectivity in the following manner:
 + Set up connectivity between Amazon VPC where your RDS Custom for SQL Server instance is running, and your AD. Use Direct Connect, Site-to-Site VPN, AWS Transit Gateway, and VPC Peering.
 + Allow traffic on the ports your RDS Custom for SQL Server security groups and network ACLs to your self-managed or on-premise AD. For more information, see [Network configuration port rules](custom-sqlserver-WinAuth.NWConfigPorts.md).  
-![Microsoft SQL Server Windows Authentication directory.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom-sqs-SM-NC.png)
+![Microsoft SQL Server Windows Authentication directory.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/custom-sqs-SM-NC.png)
 
 ## Configure DNS resolution
 <a name="custom-sqlserver-WinAuth.config-Self-Managed.DNS"></a>

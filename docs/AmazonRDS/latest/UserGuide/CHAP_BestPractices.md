@@ -117,7 +117,7 @@ You can create a performance analysis report for a specific time period and view
 1. Choose **Logs & events**.
 
 1. In the **CloudWatch alarms** section, choose **Create alarm**.  
-![Create Alarm dialog box.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/CreateAlarm.png)
+![Create Alarm dialog box.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/CreateAlarm.png)
 
 1. For **Send notifications**, choose **Yes**, and for **Send notifications to**, choose **New email or SMS topic**.
 
@@ -288,7 +288,7 @@ For information about best practices for working with Amazon RDS for Oracle, see
 
 A 2020 AWS virtual workshop included a presentation on running production Oracle databases on Amazon RDS. A video of the presentation is available here:
 
-[![AWS Videos](http://img.youtube.com/vi/vpSWZx4-M-M/0.jpg)](http://www.youtube.com/watch?v=vpSWZx4-M-M)
+[![AWS Videos](https://img.youtube.com/vi/vpSWZx4-M-M/0.jpg)](https://www.youtube.com/watch?v=vpSWZx4-M-M)
 
 
 ## Best practices for working with PostgreSQL
@@ -356,7 +356,7 @@ relname | n_dead_tup | last_vacuum | last_autovacuum
 
 The 2020 AWS re:Invent conference included a presentation on new features and best practices for working with PostgreSQL on Amazon RDS. A video of the presentation is available here:
 
-[![AWS Videos](http://img.youtube.com/vi/3JLPWOoiVB8/0.jpg)](http://www.youtube.com/watch?v=3JLPWOoiVB8)
+[![AWS Videos](https://img.youtube.com/vi/3JLPWOoiVB8/0.jpg)](https://www.youtube.com/watch?v=3JLPWOoiVB8)
 
 
 ## Best practices for working with SQL Server
@@ -383,7 +383,7 @@ When working with a Multi-AZ deployment of SQL Server, remember that Amazon RDS 
 
 The 2019 AWS re:Invent conference included a presentation on new features and best practices for working with SQL Server on Amazon RDS. A video of the presentation is available here:
 
-[![AWS Videos](http://img.youtube.com/vi/R4Vj88iqu5s/0.jpg)](http://www.youtube.com/watch?v=R4Vj88iqu5s)
+[![AWS Videos](https://img.youtube.com/vi/R4Vj88iqu5s/0.jpg)](https://www.youtube.com/watch?v=R4Vj88iqu5s)
 
 
 ## Working with DB parameter groups
@@ -427,4 +427,4 @@ For information on creating DB instances programmatically, see the following res
 
 The 2023 AWS re:Invent conference included a presentation on new Amazon RDS features. A video of the presentation is available here:
 
-[![AWS Videos](http://img.youtube.com/vi/IFg8EZGtLsM?si=e7T7LzW616AMd3i3/0.jpg)](http://www.youtube.com/watch?v=IFg8EZGtLsM?si=e7T7LzW616AMd3i3)
+[![AWS Videos](https://img.youtube.com/vi/IFg8EZGtLsM?si=e7T7LzW616AMd3i3/0.jpg)](https://www.youtube.com/watch?v=IFg8EZGtLsM?si=e7T7LzW616AMd3i3)

@@ -11,12 +11,12 @@ To create a zero-ETL integration, you specify an RDS database as the *source*, a
 
 The following diagram illustrates this functionality for zero-ETL integration with Amazon Redshift:
 
-![A zero-ETL integration.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/zero-etl-integrations.png)
+![A zero-ETL integration.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/zero-etl-integrations.png)
 
 
 The following diagram illustrates this functionality for zero-ETL integration with an Amazon SageMaker AI lakehouse:
 
-![A zero-ETL integration with an Amazon SageMaker AI lakehouse.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/zero-etl-rds-lakehouse.png)
+![A zero-ETL integration with an Amazon SageMaker AI lakehouse.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/zero-etl-rds-lakehouse.png)
 
 
 The integration monitors the health of the data pipeline and recovers from issues when possible. You can create integrations from multiple RDS databases into a single target data warehouse or lakehouse enabling you to derive insights across multiple applications.

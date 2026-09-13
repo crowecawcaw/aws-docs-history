@@ -167,7 +167,7 @@ The following procedure copies a RDS Custom for SQL Server DB snapshot by using 
 1. Select the RDS Custom for SQL Server DB snapshot that you want to copy.
 
 1. In the **Actions** dropwdown , choose **Copy snapshot**.  
-![The Copy snapshot page in the Amazon RDS console. The settings are loaded in the page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/XRSC-Snapshot-Copy.png)
+![The Copy snapshot page in the Amazon RDS console. The settings are loaded in the page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/XRSC-Snapshot-Copy.png)
 
 1. To copy the DB snapshot to a different AWS Region, set **Destination Region** to the required value.
 **Note**  

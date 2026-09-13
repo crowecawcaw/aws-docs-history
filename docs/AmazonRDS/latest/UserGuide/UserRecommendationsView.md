@@ -14,17 +14,17 @@ Using the Amazon RDS console, you can view Amazon RDS recommendations for your d
 
 1. In the navigation pane, do any of the following:
    + Choose **Recommendations**. The number of active recommendations for your resources and the number of recommendations with the highest severity generated in the last month are available next to **Recommendations**. To find the number of active recommendations for each severity, choose the number that shows the highest severity.   
-![The Recommendations page in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/recommendations-select.png)
+![The Recommendations page in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/recommendations-select.png)
 
      By default, the **Recommendations** page displays a list of new recommendations in the last month. Amazon RDS gives recommendations for all the resources in your account and sorts the recommendations by their severity.  
-![Main Recommendations page in the console which contains all the recommendations.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_List.png)
+![Main Recommendations page in the console which contains all the recommendations.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_List.png)
 
      You can choose a recommendation to view the affected resources and details of how the recommendation will be applied.
    + In the **Databases** page, choose **Recommendations** for a resource.  
-![Recommendation option selected on Databases page in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_DBpage.png)
+![Recommendation option selected on Databases page in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_DBpage.png)
 
      The **Recommendations** tab displays the recommendations and its details for the selected resource.  
-![Recommendations tab on Databases page in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RecommendationsTab_DBpage.png)
+![Recommendations tab on Databases page in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RecommendationsTab_DBpage.png)
 
    The following details are available for the recommendations:
    + **Severity** – The implication level of the issue. The severity levels are **High**, **Medium**, **Low**, and **Informational**.
@@ -39,7 +39,7 @@ Using the Amazon RDS console, you can view Amazon RDS recommendations for your d
    + **Resource identifier** – The name of one or more resources.
 
 1. (Optional) Choose **Severity** or **Category** operators in the field to filter the list of recommendations.  
-![Recommendations page with severity operation in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_Severity.png)
+![Recommendations page with severity operation in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_Severity.png)
 
    The recommendations for the selected operation appear.
 
@@ -49,10 +49,10 @@ Using the Amazon RDS console, you can view Amazon RDS recommendations for your d
    + **Dismissed** – Shows the dismissed recommendations.
    + **Resolved** – Shows the recommendations that are resolved.
    + **Pending** – Shows the recommendations whose recommended actions are in progress or scheduled for the next maintenance window.   
-![Recommendations filtered by status in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_Status.png)
+![Recommendations filtered by status in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_Status.png)
 
 1. (Optional) Choose **Relative mode** or **Absolute mode** in **Last modified** to modify the time period. The **Recommendations** page displays the recommendations generated in the time period. The default time period is the last month. In the **Absolute mode**, you can choose the time period, or enter the time in **Start date** and **End date** fields.  
-![Recommendations filtered by time period in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_TimeMode.png)
+![Recommendations filtered by time period in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_TimeMode.png)
 
    The recommendations for the set time period display.
 
@@ -61,7 +61,7 @@ Using the Amazon RDS console, you can view Amazon RDS recommendations for your d
 1. (Optional) Choose **Preferences** in the right to customize the details to display. You can choose a page size, wrap the lines of the text, and allow or hide the columns.
 
 1. (Optional) Choose a recommendation and then choose **View details**.  
-![Recommendations page in the console with a selected recommendation and view details button chosen.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_viewDetailsSelect.png)
+![Recommendations page in the console with a selected recommendation and view details button chosen.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_viewDetailsSelect.png)
 
    The recommendation details page appears. The title provides the total count of the resources with the issue detected and the severity.
 
@@ -71,11 +71,11 @@ Using the Amazon RDS console, you can view Amazon RDS recommendations for your d
 
    The other automated recommendations display the following components on the recommendation details page:
    + **Recommendation** – A summary of the recommendation and whether downtime is required to apply the recommendation.  
-![Recommendations details page showing Recommendation section in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RecommendationSummary.png)
+![Recommendations details page showing Recommendation section in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RecommendationSummary.png)
    + **Resources affected** – Details of the affected resources.  
-![Recommendations details page showing Resources Affected section in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_AffectedResources.png)
+![Recommendations details page showing Resources Affected section in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/Recommendations_AffectedResources.png)
    + **Recommendation details** – Supported engine information, any required associated cost to apply the recommendation, and documentation link to learn more.  
-![Recommendations details page showing Recommendation details section in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RecommendationDetails.png)
+![Recommendations details page showing Recommendation details section in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/RecommendationDetails.png)
 
 ## CLI
 <a name="UserRecommendationsView.Cli"></a>

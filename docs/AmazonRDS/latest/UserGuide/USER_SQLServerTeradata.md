@@ -30,6 +30,7 @@ RDS for SQL Server supports linked servers with Teradata ODBC in all AWS Regions
 + SQL Server 2017, all versions
 
 The following Teradata database versions support linking with RDS for SQL Server
++ Teradata 20.00, all versions (default)
 + Teradata 17.20, all versions
 
 ## Limitations and recommendations
@@ -37,7 +38,7 @@ The following Teradata database versions support linking with RDS for SQL Server
 
 The following limitations apply to linked servers with Teradata ODBC:
 + RDS for SQL Server support only simple authentication with a username and password for the Teradata source.
-+ RDS for SQL Server supports only Teradata ODBC driver version 17.20.0.33.
++ RDS for SQL Server supports Teradata ODBC driver versions 20.00.36 (default) and 17.20.0.33.
 + RDS for SQL Server does not support creating data source names (DSNs) to use as shortcuts for a connection string.
 + RDS for SQL Server does not support ODBC driver tracing. Use SQL Server Extended Events to trace ODBC events. For more information, see [Set up Extended Events in RDS for SQL Server](https://aws.amazon.com/blogs/database/set-up-extended-events-in-amazon-rds-for-sql-server/).
 + RDS for SQL Server does not support access to the catalogs folder for a Teradata linked server when using SQL Server Management Studio (SSMS).

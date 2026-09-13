@@ -10,4 +10,4 @@ Transaction log backups have the following standard structure and naming convent
 
 The following example shows the folder and file structure of a set of transaction log backups within an Amazon S3 bucket.
 
-![Amazon S3 bucket structure with access to transaction logs.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/sql_accesstransactionlogs_s3.png)
+![Amazon S3 bucket structure with access to transaction logs.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/sql_accesstransactionlogs_s3.png)

@@ -33,7 +33,7 @@ To create a DB subnet group for the AWS Cloud, specify at least two subnets.
 1. Choose **Subnet groups**, and then choose **Create DB Subnet Group**.
 
    The **Create DB subnet group** page appears.  
-![Create DB subnet group page.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/create-db-subnet-group.png)
+![Create DB subnet group page.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/create-db-subnet-group.png)
 
 1. For **Name**, choose the name of the DB subnet group.
 
@@ -124,7 +124,7 @@ You can't view the master user password again. If you don't record it, you might
 1. Choose the name of the new DB instance on the **Databases** page.
 
    On the RDS console, the details for the new DB instance appear. The DB instance has a status of **Creating** until the DB instance is created and ready for use. When the state changes to **Available**, you can connect to the DB instance. Depending on the DB instance class and storage allocated, it can take several minutes for the new DB instance to be available.   
-![My DB instances details.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/create-outpost-launch.png)
+![My DB instances details.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/create-outpost-launch.png)
 
    After the DB instance is available, you can manage it the same way that you manage RDS DB instances in the AWS Cloud.
 

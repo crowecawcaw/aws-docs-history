@@ -363,7 +363,7 @@ You can add an IAM role to your DB instance by using the AWS Management Console 
 1. For **Feature**, choose **S3\_INTEGRATION**.
 
 1. Choose **Add role**.  
-![The S3_INTEGRATION feature added to the IAM role for a DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-s3-integration-role.png)
+![The S3_INTEGRATION feature added to the IAM role for a DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/db2-s3-integration-role.png)
 
 ### AWS CLI
 <a name="db2-adding-iam-role-cli"></a>

@@ -28,7 +28,7 @@ You can migrate an RDS for MySQL DB snapshot to a new MariaDB DB instance using 
 1. For **Migrate to DB Engine**, choose **mariadb**.
 
    Amazon RDS selects the **DB engine version** automatically. You can't change the DB engine version.  
-![The Migrate database page to migrate from MySQL to MariaDB in the Amazon RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDB.png)
+![The Migrate database page to migrate from MySQL to MariaDB in the Amazon RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/images/MigrateMariaDB.png)
 
 1. For the remaining sections, specify your DB instance settings. For information about each setting, see [Settings for DB instances](USER_CreateDBInstance.Settings.md). 
 
