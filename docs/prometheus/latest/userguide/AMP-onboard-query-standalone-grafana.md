@@ -114,7 +114,7 @@ The following steps explain how to set up the Prometheus data source in Grafana 
         You should see the following message: **Data source is working**
 
         The following screenshot shows the Access key, Secret key SigV4 auth detail setting.  
-![SigV4 Auth Details form showing configured access keys and default region settings.](http://docs.aws.amazon.com/prometheus/latest/userguide/images/sigv4-2-with-credentials-crop.png)
+![SigV4 Auth Details form showing configured access keys and default region settings.](https://docs.aws.amazon.com/prometheus/latest/userguide/images/sigv4-2-with-credentials-crop.png)
    + To use a default provider chain instead (recommended for a production environment), do the following: 
 
      1. Under **SigV4 Auth Details**, for **Authentication Provider** choose **AWS SDK Default**.
@@ -130,7 +130,7 @@ The following steps explain how to set up the Prometheus data source in Grafana 
         If you do not see that message, the next section provides troubleshooting tips for connecting.
 
         The following screenshot shows the SDK default SigV4 auth detail setting.  
-![SigV4 auth details showing AWS SDK Default provider and us-west-2 region.](http://docs.aws.amazon.com/prometheus/latest/userguide/images/sigv4-screen-shot-crop2.png)
+![SigV4 auth details showing AWS SDK Default provider and us-west-2 region.](https://docs.aws.amazon.com/prometheus/latest/userguide/images/sigv4-screen-shot-crop2.png)
 
 1. Test a PromQL query against the new data source:
 
