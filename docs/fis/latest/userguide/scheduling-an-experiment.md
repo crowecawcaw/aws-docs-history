@@ -9,7 +9,7 @@
 
  Follow to the schedule pattern section and choose either one-time schedule or recurring. Fill in required input fields and navigate to permissions. 
 
-![Schedule pattern interface with options for one-time or recurring schedules and date/time settings](http://docs.aws.amazon.com/fis/latest/userguide/images/schedule-pattern.png)
+![Schedule pattern interface with options for one-time or recurring schedules and date/time settings](https://docs.aws.amazon.com/fis/latest/userguide/images/schedule-pattern.png)
 
 
  Schedule state will be enabled by default. Note: if you disable **schedule state**, the experiment will not be scheduled even if you create a schedule.

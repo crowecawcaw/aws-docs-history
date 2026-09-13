@@ -7,7 +7,7 @@
 
  When an action is initiated, FIS retrieves the [FIS Pod container image](eks-pod-actions.html#eks-pod-container-images). This image is then used to create a Pod in the targeted EKS cluster. The newly-created Pod is responsible for injecting, controlling and monitoring the fault. For all FIS EKS actions, except for [aws:eks:pod-delete](fis-actions-reference.html#pod-delete), the fault injection is achieved through the use of [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/), a Kubernetes feature that allows for the creation of temporary containers within an existing Pod. The ephemeral container is started in the same namespace as the target container and executes the desired fault injection tasks. If no target container is specified, the first container in the Pod specification is selected as target. 
 
-![FIS pod creation workflow showing ephemeral container injection into target pod containers.](http://docs.aws.amazon.com/fis/latest/userguide/images/eks-actions.png)
+![FIS pod creation workflow showing ephemeral container injection into target pod containers.](https://docs.aws.amazon.com/fis/latest/userguide/images/eks-actions.png)
 
 
 1.  FIS creates the FIS Pod in the target cluster specified in the experiment template. 

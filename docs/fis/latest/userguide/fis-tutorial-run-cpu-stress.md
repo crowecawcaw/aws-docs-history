@@ -200,10 +200,10 @@ You can monitor the CPU utilization of your instance while the experiment is run
 **To verify the results of the experiment**
 
 1. Choose the **Stop conditions** tab. The green border and green checkmark icon indicate that the initial state of the alarm is `OK`. The red line indicates the alarm threshold. If you prefer a more detailed graph, choose **Enlarge** from the widget menu.  
-![Graph showing CPU utilization spike to 100 percent after period of low activity around 50 percent.](http://docs.aws.amazon.com/fis/latest/userguide/images/stop-conditions-pane-ok.png)
+![Graph showing CPU utilization spike to 100 percent after period of low activity around 50 percent.](https://docs.aws.amazon.com/fis/latest/userguide/images/stop-conditions-pane-ok.png)
 
 1. When CPU utilization exceeds the threshold, the red border and red exclamation point icon in the **Stop conditions** tab indicate that the alarm state changed to `ALARM`. In the **Details** pane, the state of the experiment is **Stopped**. If you select the state, the message displayed is "Experiment halted by stop condition".  
-![Graph showing CPU utilization over time with a red threshold line at 50 percent.](http://docs.aws.amazon.com/fis/latest/userguide/images/stop-conditions-pane-in-alarm.png)
+![Graph showing CPU utilization over time with a red threshold line at 50 percent.](https://docs.aws.amazon.com/fis/latest/userguide/images/stop-conditions-pane-in-alarm.png)
 
 1. When CPU utilization decreases below the threshold, the green border and green checkmark icon indicate that the alarm state changed to `OK`.
 

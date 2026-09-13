@@ -17,7 +17,7 @@ For more information about planning your experiment, see [Test Reliability](http
 
 To use AWS FIS, you run *experiments* on your AWS resources to test your theory of how an application or system will perform under fault conditions. To run experiments, you first create an *experiment template*. An experiment template is the blueprint of your experiment. It contains the *actions*, *targets*, and *stop conditions* for the experiment. After you create an experiment template, you can use it to run an experiment. While your experiment is running, you can track its progress and view its status. An experiment is complete when all of the actions in the experiment have run.
 
-![The components of an experiment template](http://docs.aws.amazon.com/fis/latest/userguide/images/experiment-components.png)
+![The components of an experiment template](https://docs.aws.amazon.com/fis/latest/userguide/images/experiment-components.png)
 
 
 ### Actions

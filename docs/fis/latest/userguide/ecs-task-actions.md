@@ -11,7 +11,7 @@
 
  The following diagram exemplifies the setup and fault injection on a task with one existing container. 
 
-![Diagram showing Amazon ECS task fault injection setup with SSM agent container](http://docs.aws.amazon.com/fis/latest/userguide/images/ecs-actions.png)
+![Diagram showing Amazon ECS task fault injection setup with SSM agent container](https://docs.aws.amazon.com/fis/latest/userguide/images/ecs-actions.png)
 
 
 ## Actions
