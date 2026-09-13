@@ -47,10 +47,10 @@ Before you start, make sure to get the Lightsail default key pair (DKP) for the 
    1. On the navigation bar, choose the **CloudShell** icon.
 
    1. Choose **CloudShell** on the Console Toolbar in the lower left of the console.  
-![Key features in the AWS CloudShell interface.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-cloudshell-connect.png)
+![Key features in the AWS CloudShell interface.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-cloudshell-connect.png)
 
    When the command prompt displays, the shell is ready for interaction.  
-![AWS CloudShell terminal interface.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/cloudshell-terminal.png)
+![AWS CloudShell terminal interface.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/cloudshell-terminal.png)
 
 1. Choose a pre-installed shell to work with. To change the default shell, enter one of the following program names at the command line prompt. Bash is the default shell that's running when you launch AWS CloudShell.
 
@@ -104,7 +104,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
    ```
 
    The response will display the username and public IP address of the virtual computer as shown in the following example. Note these values, because you need them in the following step of this procedure.  
-![The username and public IP address of an virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-windows.png)
+![The username and public IP address of an virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-windows.png)
 
 1. Enter the following command to establish an SSH connection with your virtual computer. In the command, replace `{{user-name}}` with the sign-in in username, and replace `{{public-ip-address}}` with the public IP address of your virtual computer.
 
@@ -119,7 +119,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
    ```
 
    You should see a response similar to the following example, which shows an SSH connection established with an Ubuntu virtual computer in Lightsail for Research.  
-![SSH connection established with a virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-connected-windows.png)
+![SSH connection established with a virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-connected-windows.png)
 
    Now that you've successfully established an SSH connection to your virtual computer, continue to the [next section](#connect-using-ssh-next-steps) for additional next steps.
 
@@ -146,7 +146,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
    ```
 
    The response will display the username and public IP address of the virtual computer as shown in the following example. Note these values, because you need them in the following step of this procedure.  
-![The username and public IP address of an virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-linux.png)
+![The username and public IP address of an virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-linux.png)
 
 1. Enter the following command to establish an SSH connection with your virtual computer. In the command, replace `{{user-name}}` with the sign-in username, and replace `{{public-ip-address}}` with the public IP address of your virtual computer.
 
@@ -161,7 +161,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
    ```
 
    You should see a response similar to the following example, which shows an SSH connection established with an Ubuntu virtual computer in Lightsail for Research.  
-![SSH connection established with a virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-connected-linux.png)
+![SSH connection established with a virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-connected-linux.png)
 
    Now that you've successfully established an SSH connection to your virtual computer, continue to the [next section](#connect-using-ssh-next-steps) for additional next steps.
 

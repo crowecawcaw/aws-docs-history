@@ -65,10 +65,10 @@ Don't update the operating system or the JupyterLab application even if you are 
 1. In the **Virtual computers** page, find your virtual computer and choose one of the following options to connect to it:
 
    1. (Recommended) Choose **Launch JupyterLab** to launch the JupyterLab application in focused mode. If you haven't connected to your virtual computer recently, you might have to wait a few minutes while Lightsail for Research prepares your session.  
-![The Launch application button.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/launch-application-jupyter.png)
+![The Launch application button.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/launch-application-jupyter.png)
 
    1. Choose the dropdown menu for the computer, and then choose **Access operating system** to access your virtual computer's desktop.  
-![The Access operating system option.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/launch-operating-system-jupyter.png)
+![The Access operating system option.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/launch-operating-system-jupyter.png)
 
    Lightsail for Research runs a few commands to initiate the remote display protocol connection. After a few moments, a new browser tab window opens with a virtual desktop connection established to your virtual computer. If you chose the **Launch application** option, continue to the next step of this procedure to open a file in the JupyterLab application. If you chose the **Access operating system** option, you can open other applications through the Ubuntu desktop.
 **Note**  
@@ -76,15 +76,15 @@ Your browser might prompt you to authorize sharing of your clipboard. Allowing t
 Ubuntu might also prompt you for an initial setup. Follow the prompts until you complete the setup and can use the operating system.
 
 1. The JupyterLab application opens. In the launcher menu, you can create a new notebook, launch the console, launch the terminal, and create various files.  
-![The JupyterLab launcher menu.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-rdp-launcher.png)
+![The JupyterLab launcher menu.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-rdp-launcher.png)
 
 1. To open a file in JupyterLab, in the **File Browser** pane, choose the directory or folder where your project files are stored. Then choose the file to open.
 
    If you uploaded your project files to an attached disk, look for the directory where the disk is mounted. By default, Lightsail for Research mounts disks to the `/home/lightsail-user/{{<disk-name>}}` directory. `{{<disk-name>}}` is the name you gave your disk. In the following example, the `MyJupyterDisk` directory represents the mounted disk, and the `Notebooks` subdirectory contains our Jupyter notebook files.  
-![The directory of JupyterLab project files.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-rdp-directory.png)
+![The directory of JupyterLab project files.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-rdp-directory.png)
 
    In the following example, we have opened the `equations_of_state.ipynb` Jupyter notebook file.  
-![An opened Jupyter notebook file.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-rdp-notebook.png)
+![An opened Jupyter notebook file.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-rdp-notebook.png)
 
    For information about how to get started, continue to the [Step 5: Read the JupyterLab documentation](#jupyter-read-documentation) section of this tutorial.
 
@@ -103,13 +103,13 @@ If you're not familiar with JupyterLab, we recommend that you read their officia
 Month to date cost and usage estimates for your Lightsail for Research resources are displayed in the following areas of the Lightsail for Research console.
 
 1. Choose **Virtual computers** in the navigation pane of the Lightsail for Research console. The month to date cost estimate for your virtual computers is listed under each running virtual computer.  
-![The month to date cost estimate for your virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-computer-cost-estimate.png)
+![The month to date cost estimate for your virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-computer-cost-estimate.png)
 
 1. To view the CPU utilization for a virtual computer, choose the name of the virtual computer, and then choose the **Dashboard** tab.  
-![The CPU utilization graph for a virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-cpu-utilization.png)
+![The CPU utilization graph for a virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-cpu-utilization.png)
 
 1. To view the month to date cost and usage estimates for all of your Lightsail for Research resources, choose **Usage** in the navigation pane.  
-![The month to date cost and usage estimates for all of your Lightsail for Research resources.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-usage-page.png)
+![The month to date cost and usage estimates for all of your Lightsail for Research resources.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-jupyter-usage-page.png)
 
 ## Step 7: (Optional) Create a cost control rule
 <a name="jupyter-create-cost-control-rule"></a>

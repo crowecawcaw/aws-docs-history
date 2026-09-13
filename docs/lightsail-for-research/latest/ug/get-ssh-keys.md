@@ -51,7 +51,7 @@ This procedure applies to you if your local computer uses a Windows operating sy
    ```
 
    There is no response to the command. You can confirm if the command was successful by opening the `dkp-details.json` file and seeing if the Lightsail DKP information was saved. The contents of the `dkp-details.json` file should look like the following example. The command failed if the file is blank.  
-![Example contents of the dkp-details.json file.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-dkp-key-details-windows.png)
+![Example contents of the dkp-details.json file.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-dkp-key-details-windows.png)
 
 1. Enter the following command to extract the private key information from the `dkp-details.json` file and add it to a new `dkp_rsa` private key file.
 
@@ -60,7 +60,7 @@ This procedure applies to you if your local computer uses a Windows operating sy
    ```
 
    There is no response to the command. You can confirm if the command was successful by opening the `dkp_rsa` files and seeing if it contains information. The contents of the `dkp_rsa` file should look like the following example. The command failed if the file is blank.  
-![Example contents of the dkp_rsa file.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-dkp-private-key-windows.png)
+![Example contents of the dkp_rsa file.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-dkp-private-key-windows.png)
 
    You now have the required private key to establish an SSH or SCP connection to your virtual computer. Continue to the [next section](#get-ssh-keys-next-steps) for additional next steps.
 
@@ -84,7 +84,7 @@ This procedure applies to you if your local computer uses a Linux, Unix, or a ma
    ```
 
    There is no response to the command. You can confirm if the command was successful by opening the `dkp-details.json` file and seeing if the Lightsail DKP information was saved. The contents of the `dkp-details.json` file should look like the following example. The command failed if the file is blank.  
-![Example contents of the dkp-details.json file.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-dkp-key-details-linux.png)
+![Example contents of the dkp-details.json file.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-dkp-key-details-linux.png)
 
 1. Enter the following command to extract the private key information from the `dkp-details.json` file and add it to a new `dkp_rsa` private key file.
 
@@ -93,7 +93,7 @@ This procedure applies to you if your local computer uses a Linux, Unix, or a ma
    ```
 
    There is no response to the command. You can confirm if the command was successful by opening the `dkp_rsa` files and seeing if it contains information. The contents of the `dkp_rsa` file should look like the following example. The command failed if the file is blank.  
-![Example contents of the dkp_rsa file.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-dkp-private-key-linux.png)
+![Example contents of the dkp_rsa file.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/ssh-dkp-private-key-linux.png)
 
 1. Enter the following command to set permissions for the `dkp_rsa` file.
 

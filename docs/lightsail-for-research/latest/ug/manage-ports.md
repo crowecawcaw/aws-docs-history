@@ -75,7 +75,7 @@ Complete the following procedure to get the port states for a virtual computer. 
    ```
 
    The response will display the open ports and protocols, and the IP CIDR ranges that are allowed to connect to your virtual computer.  
-![The port states of a virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/get-instance-port-states.png)
+![The port states of a virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/get-instance-port-states.png)
 
    For information about how to open ports, continue to the [next section](#open-ports).
 
@@ -109,7 +109,7 @@ Complete the following procedure to open ports for a virtual computer. This proc
    ```
 
    The response will display the newly added ports, protocols, and IP CIDR ranges that are allowed to connect to your virtual computer.  
-![The open ports of a virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/open-instance-public-ports.png)
+![The open ports of a virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/open-instance-public-ports.png)
 
    For information about how to close ports, continue to the [next section](#close-ports).
 
@@ -143,7 +143,7 @@ Complete the following procedure to close ports for a virtual computer. This pro
    ```
 
    The response will display the ports, protocols, and IP CIDR ranges that have been closed and are no longer allowed to connect to your virtual computer.  
-![The closed ports of a virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/close-instance-public-ports.png)
+![The closed ports of a virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/close-instance-public-ports.png)
 
 ## Continue to the next steps
 <a name="manage-ports-next-steps"></a>

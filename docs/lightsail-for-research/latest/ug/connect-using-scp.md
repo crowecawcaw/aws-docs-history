@@ -52,7 +52,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
    ```
 
    The response will display the username and public IP address of the virtual computer as shown in the following example. Note these values, because you need them in the following step of this procedure.  
-![The username and public IP address of an virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-windows.png)
+![The username and public IP address of an virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-windows.png)
 
 1. Enter the following command to establish an SCP connection with your virtual computer and transfer files to it.
 
@@ -73,7 +73,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
    ```
 
    You should see a response similar to the following example. It shows each file that was transferred from the origin folder to the destination directory. You should now be able to access those files on your virtual computer.  
-![Response to the SCP transfer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-transfer-response-windows.png)
+![Response to the SCP transfer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-transfer-response-windows.png)
 
 ### Connect to a virtual computer using SCP on a Linux, Unix, or a macOS local computer
 <a name="connect-using-scp-linux"></a>
@@ -98,7 +98,7 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
    ```
 
    The response will display the username and public IP address of the virtual computer as shown in the following example. Note these values, because you need them in the following step of this procedure.  
-![The username and public IP address of an virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-linux.png)
+![The username and public IP address of an virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-public-ip-address-and-user-linux.png)
 
 1. Enter the following command to establish an SCP connection with your virtual computer and transfer files to it.
 
@@ -119,4 +119,4 @@ Make sure you get the Lightsail default key pair (DKP) for the virtual computer 
    ```
 
    You should see a response similar to the following example. It shows each file that was transferred from the origin folder to the destination directory. You should now be able to access those files on your virtual computer.  
-![Response to the SCP transfer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-transfer-response-linux.png)
+![Response to the SCP transfer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/scp-transfer-response-linux.png)

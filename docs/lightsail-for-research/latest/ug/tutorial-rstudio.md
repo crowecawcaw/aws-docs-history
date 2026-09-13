@@ -64,10 +64,10 @@ Don't update the operating system or the RStudio application even if you are pro
 1. In the **Virtual computers** page, find your virtual computer and choose one of the following options to connect to it:
 
    1. (Recommended) Choose **Launch RStudio** to launch the RStudio application in focused mode. If you haven't connected to your virtual computer recently, you might have to wait a few minutes while Lightsail for Research prepares your session.  
-![The Launch application button.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/launch-application-rstudio.png)
+![The Launch application button.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/launch-application-rstudio.png)
 
    1. Choose the dropdown menu for the computer, and then choose **Access operating system** to access your virtual computer's desktop. Do this if you want to install a different application on the operating system.  
-![The Access operating system option.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/launch-operating-system-rstudio.png)
+![The Access operating system option.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/launch-operating-system-rstudio.png)
 
    Lightsail for Research runs a few commands to initiate the remote display protocol connection. After a few moments, a new browser tab window opens with a virtual desktop connection established to your virtual computer. If you chose the **Launch application** option, continue to the next step of this procedure to open a file in the RStudio application. If you chose the **Access operating system** option, you can open other applications through the Ubuntu desktop.
 **Note**  
@@ -75,15 +75,15 @@ Your browser might prompt you to authorize sharing of your clipboard. Allowing t
 Ubuntu might also prompt you for an initial setup. Follow the prompts until you complete the setup and can use the operating system.
 
 1. The RStudio application opens.  
-![The RStudio application.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-rdp-launcher.png)
+![The RStudio application.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-rdp-launcher.png)
 
 1. To open a project in RStudio, choose the **File** menu, and then choose **Open project**. Browse to the directory or folder where your project files are stored. Then choose the file to open.
 
    If you uploaded your project files to an attached disk, look for the directory where the disk is mounted. By default, Lightsail for Research mounts disks to the `/home/lightsail-user/{{<disk-name>}}` directory. `{{<disk-name>}}` is the name you gave your disk. In the following example, the `MyRstudioDisk` directory represents the mounted disk, and the `Projects` subdirectory contains our RStudio project files.  
-![The directory of RStudio project files.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-rdp-directory.png)
+![The directory of RStudio project files.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-rdp-directory.png)
 
    In the following example, we have opened the `MyRstudioProject.Rproj` project file.  
-![An opened RStudio project.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-rdp-project.png)
+![An opened RStudio project.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-rdp-project.png)
 
    For information about how to get started with RStudio, continue to the [Step 5: Read the RStudio documentation](#rstudio-read-documentation) section of this tutorial.
 
@@ -92,7 +92,7 @@ Ubuntu might also prompt you for an initial setup. Follow the prompts until you 
 
 The RStudio application is bundled with a comprehensive documentation package. To get started with learning RStudio, we recommend that you access the **Help** tab in RStudio as shown in the following example.
 
-![Help tab in the RStudio application.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-help-tab.png)
+![Help tab in the RStudio application.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-help-tab.png)
 
 
 The following RStudio online resources are also available:
@@ -111,13 +111,13 @@ The following RStudio online resources are also available:
 Month to date cost and usage estimates for your Lightsail for Research resources are displayed in the following areas of the Lightsail for Research console.
 
 1. Choose **Virtual computers** in the navigation pane of the Lightsail for Research console. The month to date cost estimate for your virtual computers is listed under each running virtual computer.  
-![The month to date cost estimate for your virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-computer-cost-estimate.png)
+![The month to date cost estimate for your virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-computer-cost-estimate.png)
 
 1. To view the CPU utilization for a virtual computer, choose the name of the virtual computer, and then choose the **Dashboard** tab.  
-![The CPU utilization graph for a virtual computer.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-cpu-utilization.png)
+![The CPU utilization graph for a virtual computer.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-cpu-utilization.png)
 
 1. To view the month to date cost and usage estimates for all of your Lightsail for Research resources, choose **Usage** in the navigation pane.  
-![The month to date cost and usage estimates for all of your Lightsail for Research resources.](http://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-usage-page.png)
+![The month to date cost and usage estimates for all of your Lightsail for Research resources.](https://docs.aws.amazon.com/lightsail-for-research/latest/ug/images/tutorial-rstudio-usage-page.png)
 
 ## Step 7: (Optional) Create a cost control rule
 <a name="rstudio-create-cost-control-rule"></a>
