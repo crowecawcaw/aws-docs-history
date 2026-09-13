@@ -13,7 +13,7 @@ This is a technical diagram only and does not account for possible privacy impli
 ## Hybrid Remote Proctoring Solution diagram
 <a name="proctoring-diagram"></a>
 
-![Reference architecture diagram showing how to build a hybrid remote proctoring solution by using CloudFront, Lambda, Amazon Rekognition, Amazon Chime SDK, and DynamoDB.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-remote-proctoring-solution/images/hybrid-remote-proctoring-solution.png)
+![Reference architecture diagram showing how to build a hybrid remote proctoring solution by using CloudFront, Lambda, Amazon Rekognition, Amazon Chime SDK, and DynamoDB.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/hybrid-remote-proctoring-solution/images/hybrid-remote-proctoring-solution.png)
 
 
 The following steps describe the architecture:
