@@ -68,10 +68,10 @@ Some AWS-managed services running on your Outpost, such as Application Load Bala
    1. Ensure that the **Instance capacity utilization** is at 0% for each instance family.
 
       The following image shows the **Instance capacity availability** and **Instance capacity utilization** graphs on the **Available EC2 capacity** tab.  
-![Shows metrics on the Available EC2 capacity tab.](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack-ec2-status.jpg)
+![Shows metrics on the Available EC2 capacity tab.](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack-ec2-status.jpg)
 
       The following image shows the list of instance types.  
-![Shows list of instance types.](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/racks-instance-types.png)
+![Shows list of instance types.](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/racks-instance-types.png)
 
 1. Create backups of your Amazon EC2 instances and server volumes. To create the backups, follow the instructions in [Backup and recovery for Amazon EC2 with EBS volumes](https://docs.aws.amazon.com/prescriptive-guidance/latest/backup-recovery/backup-recovery-ec2-ebs.html) in the *AWS Prescriptive Guidance* guide.
 

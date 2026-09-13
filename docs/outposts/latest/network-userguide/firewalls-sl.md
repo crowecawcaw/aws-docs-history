@@ -9,12 +9,12 @@ In the following diagram, the configuration extends the Amazon VPC from the AWS 
 + Management traffic to the Outpost through the service link
 + Traffic between the Outpost and any associated VPCs
 
-![Direct Connect connection to AWS](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/intra-vpc-Nov-23.png)
+![Direct Connect connection to AWS](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/intra-vpc-Nov-23.png)
 
 
 If you are using a stateful firewall with your internet connection to limit connectivity from the public internet to the service link VLAN, you can block all inbound connections that initiate from the internet. This is because the service link VPN initiates only from the Outpost to the Region, not from the Region to the Outpost.
 
-![Internet gateway connection to AWS](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/igw-connection-Nov-23.png)
+![Internet gateway connection to AWS](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/igw-connection-Nov-23.png)
 
 
 If you use a stateful firewall that is both UDP and TCP-aware to limit connectivity regarding the service link VLAN, you can deny all inbound connections. If the firewall is acting in a stateful manner, allowed outbound connections from the Outposts service link should automatically allow reply traffic back in without explicit rule configuration. Only outbound connections initiated from the Outpost service link need to be configured as allowed.

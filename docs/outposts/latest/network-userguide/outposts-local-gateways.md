@@ -66,4 +66,4 @@ The local gateway supports only IPv4 traffic. It does not support IPv6.
 
 The following image shows the connectivity through the local gateway:
 
-![Shows local gateway connections.](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack-local-gateway-connection-Nov-23.png)
+![Shows local gateway connections.](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack-local-gateway-connection-Nov-23.png)

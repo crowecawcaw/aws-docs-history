@@ -11,7 +11,7 @@ When you select the private connectivity option, a service link VPN connection i
 
 The following image shows both options to establish a service link VPN private connection between your Outposts and the AWS Region:
 
-![The service link private connection options.](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack2ndgen-sl-private-connection-options.PNG)
+![The service link private connection options.](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack2ndgen-sl-private-connection-options.PNG)
 
 
 **IP Address Planning for Private Connectivity**  

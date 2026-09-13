@@ -14,6 +14,6 @@ For more information about the infrastructure security provided for the EC2 inst
 VPC Flow Logs function the same way as they do in an AWS Region. This means that they can be published to CloudWatch Logs or to Amazon GuardDuty for analysis. Data needs to be sent back to the Region for publication to these services, so it is not visible from CloudWatch or other services when the Outpost is in a disconnected state.
 
 ## Tamper monitoring on AWS Outposts equipment
-<a name="w2aac25c21c17"></a>
+<a name="w2aac27c21c17"></a>
 
 Ensure that no one modifies, alters, reverse engineers, or tampers with the AWS Outposts equipment. AWS Outposts equipment may be equipped with tamper monitoring to ensure compliance with the [AWS Service Terms](https://aws.amazon.com/service-terms/).

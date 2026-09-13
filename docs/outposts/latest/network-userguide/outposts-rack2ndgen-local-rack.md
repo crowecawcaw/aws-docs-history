@@ -33,7 +33,7 @@ You can review your LAG details on the AWS Outposts console: Choose **Networking
 
 The following diagram shows four physical connections between each Outpost network device and its connected local network device. We use Ethernet LAGs to aggregate the physical links connecting the Outpost network devices and the customer local network devices.
 
-![Using link aggregation to connect devices.](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack2ndgen-link-aggregation.png)
+![Using link aggregation to connect devices.](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack2ndgen-link-aggregation.png)
 
 
 ## Virtual LANs
@@ -49,7 +49,7 @@ You can configure the service link VLAN and local gateway VLAN only between the 
 
 An Outpost is designed to separate the service link and local gateway data paths into two isolated networks. This enables you to choose which of your networks can communicate with services running on the Outpost. It also enables you to make the service link an isolated network from the local gateway network by using multiple route table on your customer local network device, commonly known as Virtual Routing and Forwarding instances (VRF). The demarcation line exists at the port of the Outpost network devices. AWS manages any infrastructure on the AWS side of the connection, and you manage any infrastructure on your side of the line.
 
-![Virtual LANs.](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack2ndgen-virtualLAN.png)
+![Virtual LANs.](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack2ndgen-virtualLAN.png)
 
 
 To integrate your Outpost with your on-premises network during the installation and on-going operation, you must allocate the VLANs used between the Outpost network devices and the customer local network devices. You need to provide this information to AWS before the installation. For more information, see [Network readiness checklist](outposts-rack2ndgen-requirements.md#network-readiness-checklist).

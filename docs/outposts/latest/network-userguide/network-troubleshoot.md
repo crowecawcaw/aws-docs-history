@@ -5,7 +5,7 @@
 
 Use this checklist to help troubleshoot a service link that has a status of `DOWN`.
 
-![Virtual LANs.](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack2ndgen-servicelink-troubleshoot.png)
+![Virtual LANs.](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-rack2ndgen-servicelink-troubleshoot.png)
 
 
 ## Connectivity with Outpost network devices

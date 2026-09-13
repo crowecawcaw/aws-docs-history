@@ -26,7 +26,7 @@ The following diagram shows the network components for your Outpost.
   + For Outposts racks: a local gateway
   + For Outposts servers: a local network interface (LNI)
 
-![The VPC networking components for your Outpost.](http://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-networking-components.png)
+![The VPC networking components for your Outpost.](https://docs.aws.amazon.com/outposts/latest/network-userguide/images/outpost-networking-components.png)
 
 
 ## VPCs and subnets
