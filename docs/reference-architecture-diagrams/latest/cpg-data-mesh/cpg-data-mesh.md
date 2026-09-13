@@ -12,7 +12,7 @@ For more information about this architecture, see [How to Create a Modern CPG Da
 ## CPG data mesh diagram
 <a name="cpgmesh-diagram"></a>
 
-![Data flowing from batch, streaming, and SFTP sources through domain-owned nodes managed by AWS Lake Formation, with metadata stored in AWS Glue and Amazon Neptune, and analytics through Amazon Athena and Amazon OpenSearch Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/cpg-data-mesh/images/cpg-data-mesh.png)
+![Data flowing from batch, streaming, and SFTP sources through domain-owned nodes managed by AWS Lake Formation, with metadata stored in AWS Glue and Amazon Neptune, and analytics through Amazon Athena and Amazon OpenSearch Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/cpg-data-mesh/images/cpg-data-mesh.png)
 
 
 The following steps describe the architecture:
