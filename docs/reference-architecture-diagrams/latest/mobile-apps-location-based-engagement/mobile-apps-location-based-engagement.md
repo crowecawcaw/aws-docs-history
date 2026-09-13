@@ -10,7 +10,7 @@ This architecture is built around Amazon Location Service features such as maps,
 ## Mobile Apps for Location-based engagement
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how Amazon Location Service can be used to add location awareness to apps to enable you to offer an enhanced experience, such as sending real-time messages and information based on user location.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/mobile-apps-location-based-engagement/images/mobile-apps-location-based-engagement.png)
+![Reference architecture diagram showing how Amazon Location Service can be used to add location awareness to apps to enable you to offer an enhanced experience, such as sending real-time messages and information based on user location.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/mobile-apps-location-based-engagement/images/mobile-apps-location-based-engagement.png)
 
 
 1. A web app deployed by **AWS Amplify** is used by operations and business users to create messages, business rules for engagements, and geofences that initiate messages. 
