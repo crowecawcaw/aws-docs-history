@@ -26,7 +26,7 @@ Depending on whether your directories are using the legacy or new user login flo
 
 |  |  | 
 | --- |--- |
-|  ![WorkSpaces client sign in screen - Legacy login flow](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/client-cobranding-legacy.png)  |  ![WorkSpaces client sign in screen - New login flow](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/client-cobranding-new.png)  | 
+|  ![WorkSpaces client sign in screen - Legacy login flow](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/client-cobranding-legacy.png)  |  ![WorkSpaces client sign in screen - New login flow](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/client-cobranding-new.png)  | 
 
 1. Support link
 

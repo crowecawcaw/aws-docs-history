@@ -15,9 +15,9 @@ BYOP bundles support nested virtualization. Nested virtualization operates at th
 GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend migrating your GraphicsPro WorkSpaces to supported bundles before October 31, 2025. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md).
 The Graphics bundle will no longer be supported after November 30, 2023. We recommend switching to a supported GPU enabled bundle for WorkSpaces using the Graphics bundle.
 Graphics and GraphicsPro bundles aren't currently available in the Asia Pacific (Mumbai) Region.
-Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office version to use Office 2021 or Office 2024. For more information, see, [Manage applications in WorkSpaces Personal](manage-applications).
+Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office versions to use Office 2021 or Office 2024. For more information, see [Manage applications in WorkSpaces Personal](manage-applications).
 
-The following are the bundles that WorkSpaces offers. For information about bundles in WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles).
+The following are the bundles that WorkSpaces offers:
 
 ## Value bundle
 <a name="value"></a>
@@ -27,7 +27,7 @@ This bundle is well-suited for the following:
 + Web browsing with light usage
 + Instant messaging
 
-This bundle is not recommended for word processing, audio and video conferencing, screen sharing, software development tool, business intelligence applications, and graphics applications.
+This bundle is not recommended for word processing, audio and video conferencing, screen sharing, software development tools, business intelligence applications, and graphics applications.
 
 ## Standard bundle
 <a name="standard"></a>
@@ -38,7 +38,7 @@ This bundle is well-suited for the following:
 + Instant messaging
 + Email
 
-This bundle is not recommended for audio and video conferencing, screen sharing, word processing, software development tool, business intelligence applications, and graphics applications.
+This bundle is not recommended for audio and video conferencing, screen sharing, word processing, software development tools, business intelligence applications, and graphics applications.
 
 ## Performance bundle
 <a name="performance"></a>
@@ -52,7 +52,7 @@ This bundle is well-suited for the following:
 + Audio processing
 + Courseware
 
-This bundle is not recommended for video conferencing, screen sharing, software development tool, business intelligence applications, and graphics applications.
+This bundle is not recommended for video conferencing, screen sharing, software development tools, business intelligence applications, and graphics applications.
 
 ## Power bundle
 <a name="power"></a>
@@ -68,7 +68,7 @@ This bundle is well-suited for the following:
 + Entry to mid-level data processing
 + Audio and video conferencing
 
-This bundle is not recommended for screen sharing, software development tool, business intelligence applications, and graphics applications.
+This bundle is not recommended for screen sharing, software development tools, business intelligence applications, and graphics applications.
 
 ## PowerPro bundle
 <a name="powerpro"></a>
@@ -109,7 +109,7 @@ This bundle is not recommended for 3D rendering, photo-realistic design, game st
 ## Graphics G6 bundles
 <a name="graphicsg6"></a>
 
-The G6 WorkSpace bundles utilize NVIDIA L4 GPUs with 3rd generation AMD EPYC (Milan) processors and are available in three variants: G6, Gr6, and G6f. The G6 WorkSpaces feature a standard 1:4 vCPU-to-memory ratio, providing balanced compute and memory resources for general graphics workloads. The Gr6 WorkSpaces offer a 1:8 vCPU-to-memory ratio, delivering double the memory per vCPU for graphics applications with higher memory requirements. The G6f WorkSpaces provide fractional GPU allocation, making them suitable for workloads that do not require full GPU processing capacity for computationally intensive operations. Refer to [Amazon EC2 G6 Instances page](https://aws.amazon.com/ec2/instance-types/g6/) for more information. The G6 WorkSpace bundles support all use cases that existing bundles support, such as daily tasks, data processing and analysis, audio conferencing and software development. Additionally, they enable the followiing use cases:
+The G6 WorkSpace bundles utilize NVIDIA L4 GPUs with 3rd generation AMD EPYC (Milan) processors and are available in three variants: G6, Gr6, and G6f. The G6 WorkSpaces feature a standard 1:4 vCPU-to-memory ratio, providing balanced compute and memory resources for general graphics workloads. The Gr6 WorkSpaces offer a 1:8 vCPU-to-memory ratio, delivering double the memory per vCPU for graphics applications with higher memory requirements. The G6f WorkSpaces provide fractional GPU allocation, making them suitable for workloads that do not require full GPU processing capacity for computationally intensive operations. Refer to [Amazon EC2 G6 Instances page](https://aws.amazon.com/ec2/instance-types/g6/) for more information. The G6 WorkSpace bundles support all use cases that existing bundles support, such as daily tasks, data processing and analysis, audio conferencing and software development. Additionally, they enable the following use cases:
 + Graphic design
 + CAD/CAM (computer-aided design/computer-aided manufacturing)
 + Video transcoding

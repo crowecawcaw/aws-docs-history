@@ -20,7 +20,7 @@ After January 14, 2020, images cannot be created from public Windows 7 bundles. 
 The Graphics bundle is no longer supported as of November 30, 2023, and the GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend migrating your WorkSpaces to a supported GPU bundle. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md).
 GraphicsPro bundle reaches end-of-life on October 31, 2025. We recommend migrating your GraphicsPro WorkSpaces to supported GPU bundle before October 31, 2025. For more information, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md).
 Custom bundle storage volumes can't be smaller than image storage volumes.
-Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office version to use Office 2021. For more information, see, [Manage applications in WorkSpaces Personal](manage-applications).
+Plus applications bundles with Office 2016 or Office 2019 will no longer be supported after October 14, 2025. We recommend migrating your WorkSpaces bundles with those Office versions to use Office 2021. For more information, see [Manage applications in WorkSpaces Personal](manage-applications).
 
 Custom bundles cost the same as the public bundles they are created from. For more information about pricing, see [Amazon WorkSpaces Pricing](https://aws.amazon.com/workspaces/pricing/).
 

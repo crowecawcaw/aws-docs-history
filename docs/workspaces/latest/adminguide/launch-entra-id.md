@@ -24,7 +24,7 @@ Microsoft Entra joined personal WorkSpaces are available in all AWS regions wher
 
 A Microsoft Entra ID personal WorkSpaces directory contains all the information needed to launch Microsoft Entra ID-joined WorkSpaces that are assigned to your users managed with Microsoft Entra ID. User information is made available to WorkSpaces through AWS IAM Identity Center, which acts as an identity broker to bring your workforce identity from Entra ID to AWS. Microsoft Windows Autopilot user-driven mode is used to accomplish WorkSpaces Intune enrollment and Entra join. The following diagram illustrates the Autopilot process.
 
-![Workflow showing admin setup of Entra ID, WorkSpaces Service integration, and device registration.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/autopilot.jpg)
+![Workflow showing admin setup of Entra ID, WorkSpaces Service integration, and device registration.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/autopilot.jpg)
 
 
 ## Requirements and limitations

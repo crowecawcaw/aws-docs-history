@@ -163,7 +163,7 @@ Enabling data replication in Multi-Region Resilience allows you to replicate dat
 
 After data replication is enabled for the standby WorkSpaces, the initial snapshot for a particular data volume is complete, while subsequent snapshots are incremental. As a consequence, the first replication for a given WorkSpace will take longer than subsequent ones. Snapshots are triggered at predetermined intervals within WorkSpaces and the timing cannot be controlled by users.
 
-![One-way data replication for standby WorkSpaces](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/Doppel-admin-LT-one-way.png)
+![One-way data replication for standby WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/Doppel-admin-LT-one-way.png)
 
 
 During failover, when users are redirected to the secondary Region, they can access their standby WorkSpaces with data and applications that are between 12 and 24 hours old. While users are using standby WorkSpaces, Multi-Region Resilience will not force them to log out of their standby WorkSpaces or update the standby WorkSpaces with the snapshots from the primary Region.

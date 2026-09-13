@@ -26,7 +26,7 @@ The IdP-initiated flow allows users to automatically register the WorkSpaces cli
 1. Users are redirected to the AWS access portal in the browser. Then, users choose the WorkSpaces icon.
 
 1. Users are redirected to the page below and the WorkSpaces client application is opened automatically. Choose **Open Amazon WorkSpaces app** if the client application doesn't opened automatically.  
-![Opening WorkSpaces application redirection page](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-redir.png)
+![Opening WorkSpaces application redirection page](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-redir.png)
 
 1. The WorkSpaces client application is now registered and users can continue to sign by clicking **Continue to sign in to WorkSpaces**.
 
@@ -41,7 +41,7 @@ The IdP-initiated Web Access flow allows users to automatically register their W
 1. Users are redirected to AWS access portal in the browser. Then, users choose the WorkSpaces icon.
 
 1. Users are redirected to this page in the browser. To open WorkSpaces, choose **Amazon WorkSpaces in the browser**.  
-![Opening WorkSpaces application redirection page](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-redir.png)
+![Opening WorkSpaces application redirection page](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-redir.png)
 
 1. The WorkSpaces client application is now registered and users can continue to sign in through WorkSpaces Web Access.
 

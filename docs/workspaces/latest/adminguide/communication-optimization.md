@@ -88,7 +88,7 @@ Media Optimized RTC mode is made possible by the UC application vendor use of th
 
 The SDK, which includes publicly available options like the DCV Extension SDK and customized private versions, establishes a control channel between the UC application module operating within the WorkSpace and a plugin on the client side. Typically, this control channel instructs the client extension to initiate or join a call. Once the call is established through the client-side extension, the UC plugin captures audio from the microphone and video from the webcam, which are then transmitted directly to the UC cloud or a call peer. The incoming audio is played locally, and video is overlaid on the remote client UI. The control channel is responsible for communicating the call's status.
 
-![Diagram showing the Media Optimized RTC configuration.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/media-optimized-rtc.png)
+![Diagram showing the Media Optimized RTC configuration.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/media-optimized-rtc.png)
 
 
 Amazon WorkSpaces currently supports following applications with Media Optimized RTC mode:
@@ -114,7 +114,7 @@ In the In-session Optimized RTC mode, the UC application operates on the WorkSpa
 
 Notably, this option ensures exceptional compatibility, even with legacy applications, offering a cohesive user experience regardless of the application's origin. In-session optimization works with web client as well.
 
-![Diagram showing the In-session Optimized RTC configuration.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/in-session-optimized-rtc.png)
+![Diagram showing the In-session Optimized RTC configuration.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/in-session-optimized-rtc.png)
 
 
 DCV has been meticulously optimized to enhance the performance of Remote RTC mode. The optimization measures encompass:
@@ -220,7 +220,7 @@ To enhance the audio experience and prevent echo, it's crucial to utilize high-q
 
 The configuration of Direct RTC mode depends on the specific Unified Communication (UC) application and does not necessitate any changes in the WorkSpaces configuration. The following list offers a non-exhaustive compilation of optimizations for various UC applications.
 
-![Diagram showing the Direct RTC configuration.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/direct-rtc.png)
+![Diagram showing the Direct RTC configuration.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/direct-rtc.png)
 
 + Microsoft Teams:
   + [Plan for SIP Gateway](https://learn.microsoft.com/en-us/microsoftteams/sip-gateway-plan)

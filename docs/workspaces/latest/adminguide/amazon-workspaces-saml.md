@@ -27,7 +27,7 @@ The IdP-initiated flow allows users to automatically register the WorkSpaces cli
 1. After signing in to the IdP, users choose the WorkSpaces application from the IdP user portal.
 
 1. Users are redirected to this page in the browser, and the WorkSpaces client application is opened automatically.   
-![Opening WorkSpaces application redirection page](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-redir.png)
+![Opening WorkSpaces application redirection page](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-redir.png)
 
 1. The WorkSpaces client application is now registered and users can continue to sign by clicking **Continue to sign in to WorkSpaces**.
 
@@ -40,7 +40,7 @@ The IdP-initiated Web Access flow allows users to automatically register their W
 1. After signing in to the IdP, users click the WorkSpaces application from the IdP user portal.
 
 1. Users are redirected to this page in the browser. To open WorkSpaces, choose **Amazon WorkSpaces in the browser**.  
-![Opening WorkSpaces application redirection page](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-redir.png)
+![Opening WorkSpaces application redirection page](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-redir.png)
 
 1. The WorkSpaces client application is now registered and users can continue to sign in through WorkSpaces Web Access.
 
@@ -53,7 +53,7 @@ The client-initiated flow allows users to sign in to their WorkSpaces after sign
 1. Users are redirected to their default web browser to sign in to the IdP. If the users are already signed in to the IdP in their browser, they don't need to sign in again and will skip this step.
 
 1. Once signed in to the IdP, users are redirected to a pop up. Follow the prompts to allow your web browser to open the client application.  
-![Open client application prompt.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-open-client-app.png)
+![Open client application prompt.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/saml-open-client-app.png)
 
 1. Users are redirected to the WorkSpaces client application to complete sign in to their WorkSpace. WorkSpaces usernames are populated automatically from the IdP SAML 2.0 assertion. When you use [ certificate-based authentication (CBA)](certificate-based-authentication.md) , users are automatically signed in.
 

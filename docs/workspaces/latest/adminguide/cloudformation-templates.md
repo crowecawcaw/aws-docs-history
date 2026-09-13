@@ -27,7 +27,7 @@ The Help Desk dashboard displays the following metrics for a specific WorkSpace:
 
 Following is an example of the Help Desk dashboard.
 
-![The sample help desk dashboard for CloudWatch.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/help-desk.png)
+![The sample help desk dashboard for CloudWatch.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/help-desk.png)
 
 
 Complete the following procedure to create a custom dashboard in CloudWatch using CloudFormation.
@@ -69,7 +69,7 @@ The Connection Insights dashboard displays the client versions, platforms, and I
 
 Following is an example of the Connection Insights dashboard.
 
-![The sample connection insights dashboard for CloudWatch.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/connection-insights.png)
+![The sample connection insights dashboard for CloudWatch.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/connection-insights.png)
 
 
 Complete the following procedure to create a custom dashboard in CloudWatch using CloudFormation.
@@ -117,7 +117,7 @@ The Internet Monitoring dashboard displays details about the Internet Service Pr
 
 Following is an example of the Internet Monitoring dashboard.
 
-![The sample Internet Monitoring dashboard for CloudWatch.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/cw-internet-monitor.png)
+![The sample Internet Monitoring dashboard for CloudWatch.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/cw-internet-monitor.png)
 
 
 **To create a custom dashboard in CloudWatch using CloudFormation**

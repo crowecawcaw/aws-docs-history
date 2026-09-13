@@ -3,7 +3,7 @@
 # Bundles and images for WorkSpaces Personal
 <a name="amazon-workspaces-bundles"></a>
 
-A *WorkSpace bundle* is a combination of an operating system, and storage, compute, and software resources. When you launch a WorkSpace, you select the bundle that meets your needs. The default bundles available for WorkSpaces are called *public bundles*. For more information about the various public bundles available for WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles).
+A *WorkSpace bundle* is a combination of an operating system, and storage, compute, and software resources. When you launch a WorkSpace, you select the bundle that meets your needs. The default bundles available for WorkSpaces are called *public bundles*. For more information about the various public bundles available for WorkSpaces, see [Bundle options for WorkSpaces Personal](bundle-options.md).
 
 If you've launched a Windows or Linux WorkSpace and have customized it, you can create a custom image from that WorkSpace. 
 
@@ -33,8 +33,7 @@ WorkSpaces supports several different operating systems (OS), streaming protocol
 | Red Hat Enterprise Linux 9 | Included | DCV | Standard, Performance, Power, PowerPro | [May 31, 2032](https://access.redhat.com/support/policy/updates/errata) | 
 
 **Note**  
-Operating system versions that are no longer supported by the vender are not guaranteed to work and are not supported by AWS support.
-For WorkSpaces running on Windows operating system, Graphics bundles only supports PCoIP streaming protocol.
+Operating system versions that are no longer supported by the vendor are not guaranteed to work and are not supported by AWS support.
 Nested virtualization is not supported on Windows Server 2016-based WorkSpaces. If you require nested virtualization for running Docker Desktop, WSL2, or other hypervisor-dependent tools, migrate your WorkSpace to a newer operating system version (Windows Server 2019 or later). For more information about migration, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md). For more information about nested virtualization, see [Nested virtualization for WorkSpaces Personal](https://docs.aws.amazon.com/workspaces/latest/adminguide/nested-virtualization.html).
 
 **Topics**

@@ -15,7 +15,7 @@ Each WorkSpace has two elastic network interfaces associated with it: a network 
 
 The following diagram shows the architecture of WorkSpaces that use AD Connector.
 
-![WorkSpaces architecture diagram showing user connections, gateways, and AWS services integration.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/architectural-diagram-new-2.png)
+![WorkSpaces architecture diagram showing user connections, gateways, and AWS services integration.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/architectural-diagram-new-2.png)
 
 
 ## Get started with WorkSpaces Personal
@@ -89,15 +89,15 @@ Using quick setup, you can launch your first WorkSpace in minutes.
 1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
 1. Choose **Quick setup**. If you don't see this button, either you have already launched a WorkSpace in this Region, or you aren't using one of the [Regions that support quick setup](#quick-setup-regions). In this case, see [Create a directory for WorkSpaces Personal](launch-workspaces-tutorials.md).   
-![Amazon WorkSpaces dashboard showing service description and setup options.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/quick-setup.png)
+![Amazon WorkSpaces dashboard showing service description and setup options.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/quick-setup.png)
 
 1. For **Identify users**, enter the **Username**, **First Name**. **Last Name**, and **Email**. Then choose **Next**.
 **Note**  
 If this is your first time using WorkSpaces, we recommend creating a user for yourself for testing purposes.  
-![User creation form for WorkSpaces with fields for username, first name, last name, and email.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/identify-users.png)
+![User creation form for WorkSpaces with fields for username, first name, last name, and email.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/identify-users.png)
 
 1. For **Bundles**, select a bundle (hardware and software) for the user with the appropriate protocol (PCoIP or DCV). For more information about the various public bundles available for Amazon WorkSpaces, see [Amazon WorkSpaces Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles).  
-![WorkSpaces bundle selection interface showing various Amazon Linux and Windows options with storage specifications.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/select-bundle.png)
+![WorkSpaces bundle selection interface showing various Amazon Linux and Windows options with storage specifications.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/select-bundle.png)
 
 1. Review your information. Then choose **Create WorkSpace**.
 

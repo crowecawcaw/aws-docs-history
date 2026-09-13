@@ -27,7 +27,7 @@ Amazon WorkSpaces is available in a subset of the Availability Zones in each sup
 
 If you use Directory Service to create an AWS Managed Microsoft or a Simple AD, we recommend that you configure the VPC with one public subnet and two private subnets. Configure your directory to launch your WorkSpaces in the private subnets. To provide internet access to WorkSpaces in a private subnet, configure a NAT gateway in the public subnet.
 
-![Configure your WorkSpaces VPC](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/vpc-configuration-new.png)
+![Configure your WorkSpaces VPC](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/vpc-configuration-new.png)
 
 
 **To create a VPC with one public subnet and two private subnets**

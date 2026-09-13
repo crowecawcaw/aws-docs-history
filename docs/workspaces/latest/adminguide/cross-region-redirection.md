@@ -297,7 +297,7 @@ To make sure your WorkSpaces users are using the connection string instead of th
 
 The following diagram describes the deployment process of cross-Region redirection.
 
-![Cross-Region redirection](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/Doppel-admin-LT-MRR.png)
+![Cross-Region redirection](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/Doppel-admin-LT-MRR.png)
 
 
 **Note**  

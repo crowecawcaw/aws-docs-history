@@ -28,7 +28,7 @@ WorkSpaces CloudWatch automatic dashboards are available in all AWS commercial R
 
 The CloudWatch automatic dashboard allows you to gain insight into the performance of your WorkSpaces resources and helps you identify performance issues.
 
-![WorkSpaces client sign in screen](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/cw_dashboard_withcallouts.png)
+![WorkSpaces client sign in screen](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/cw_dashboard_withcallouts.png)
 
 
 **The dashboard consists of the following features:**

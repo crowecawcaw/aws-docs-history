@@ -131,7 +131,7 @@ Complete the following procedure to create a SAML 2.0 federation IAM role in the
 1. In the **Edit trust policy** JSON text box, add the **sts:TagSession** action to the trust policy. For more information, see [Passing session tags in AWS STS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html) in *AWS Identity and Access Management User Guide*.
 
    The result should look like the following example.  
-![An example of a trust policy.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/iam-saml-federation-policy-sts-tagsession.png)
+![An example of a trust policy.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/iam-saml-federation-policy-sts-tagsession.png)
 
 1. Choose **Update policy**.
 

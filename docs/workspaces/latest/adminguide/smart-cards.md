@@ -112,7 +112,7 @@ If you're using OpenSC, you can also load the OpenSC `pkcs11` module into Firefo
 ```
 To verify that the OpenSC `pkcs11` module has been loaded into Firefox, do the following:  
 If Firefox is already running, close it.
-Open Firefox. Choose the menu button ![Firefox menu button](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/firefox-menu-button.png) in the upper-right corner, and then choose **Options**. 
+Open Firefox. Choose the menu button ![Firefox menu button](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/firefox-menu-button.png) in the upper-right corner, and then choose **Options**. 
 On the **about:preferences** page, in the left navigation pane, choose **Privacy & Security**.
 Under **Certificates**, choose **Security Devices**.
 In the **Device Manager** dialog box, you should see **OpenSC smartcard framework (0.21)** in the left navigation, and it should have the following values when you select it:  

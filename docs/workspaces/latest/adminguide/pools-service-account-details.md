@@ -5,7 +5,7 @@
 
 In this topic, we show you how to specify your Active Directory (AD) details within the **Create WorkSpaces Pool directory** page of the WorkSpaces console. As you create your WorkSpaces Pool directory, you should specify your AD details if you plan to use an AD with your WorkSpaces Pools. You cannot edit the **Active Directory Config** for your WorkSpaces Pools directory after you create it. Following is an example of the **Active Directory Config** section of the **Create WorkSpaces Pool directory** page.
 
-![The Active Directory Config section of the Create WorkSpaces Pool directory page](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/pools-wsp-active-directory-config.png)
+![The Active Directory Config section of the Create WorkSpaces Pool directory page](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/pools-wsp-active-directory-config.png)
 
 
 **Note**  
@@ -74,7 +74,7 @@ Complete the following procedure to create an AWS KMS customer managed key
    ```
 
    The result should appear like the following example.  
-![An example of a AWS KMS key policy.](http://docs.aws.amazon.com/workspaces/latest/adminguide/images/kms-key-policy-for-wsp-pools-service-account.png)
+![An example of a AWS KMS key policy.](https://docs.aws.amazon.com/workspaces/latest/adminguide/images/kms-key-policy-for-wsp-pools-service-account.png)
 
 1. Choose **Finish**.
 
