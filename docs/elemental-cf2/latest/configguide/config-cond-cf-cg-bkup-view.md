@@ -10,7 +10,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 1. On the **Conductor Configuration** screen, review the management database fields. 
 
    In the following example, the system creates backups every 24 hours and five consecutive backup files are saved. When the system creates the sixth backup, the it deletes the oldest file before saving the most recent backup.  
-![](http://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/bkup-mgmt-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/bkup-mgmt-shared-png.png)
 
 Backup files are named in this format: `<yyyy-mm-dd_hh-mm-ss.tar.bz2>`
 

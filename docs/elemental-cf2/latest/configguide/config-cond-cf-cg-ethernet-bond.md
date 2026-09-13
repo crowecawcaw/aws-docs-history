@@ -48,6 +48,6 @@ Before you begin this process, make sure that you've done the following:
    + **Master Device**: Select the bond that you just created (for example, bond0).
 
 1. Choose **Save**. The Network Devices list shows the two Ethernet devices and the bond, as displayed in this example:  
-![](http://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/confc-device-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/confc-device-shared-png.png)
 
 1. If you have a secondary Conductor node, switch to the web interface for that node and repeat these steps. 

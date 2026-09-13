@@ -28,10 +28,10 @@ Take care to go to the correct screen\! Do not confuse the Node Configuration sc
 **Node Configuration Screen**  
 This example shows the Node Configuration screen for a Conductor node. The screen for a worker node is nearly identical.
 
-![](http://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/ready-node-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/ready-node-shared-png.png)
 
 
 **Conductor Configuration Screen**  
 This example shows the Conductor configuration screen.
 
-![](http://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/ready-cond-shared-png.png)
+![](https://docs.aws.amazon.com/elemental-cf2/latest/configguide/images/ready-cond-shared-png.png)
