@@ -54,7 +54,7 @@ Changes the interval between data points in the graph.
 
    Note the following:
    + If you just created a health check, you might need to wait for a few minutes for data to appear in the graph and for the health check metric to appear in the list of available metrics.
-   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)) icon.
+   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)) icon.
    + If health checks are failing for some reason, such as a connection timeout, Route 53 can't measure latency, and latency data will be missing from the graph for the affected period.
 
 ------
@@ -92,7 +92,7 @@ Changes the interval between data points in the graph.
 
    Note the following:
    + If you just created a health check, you might need to wait for a few minutes for data to appear in the graph and for the health check metric to appear in the list of available metrics.
-   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)) icon.
+   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)) icon.
    + If health checks are failing for some reason, such as a connection timeout, Route 53 can't measure latency, and latency data will be missing from the graph for the affected period.
 
 ------

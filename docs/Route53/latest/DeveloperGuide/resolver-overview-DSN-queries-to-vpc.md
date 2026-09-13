@@ -32,12 +32,12 @@ To use inbound or outbound forwarding, you create a Resolver endpoint in your VP
 
 The following diagram shows the path of a DNS query from a DNS resolver on your network to Route 53 Resolver endpoints.
 
-![Conceptual graphic that shows the path of a DNS query from a DNS resolver on your network to Route 53 Resolver endpoints.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/Resolver-inbound-endpoint.png)
+![Conceptual graphic that shows the path of a DNS query from a DNS resolver on your network to Route 53 Resolver endpoints.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/Resolver-inbound-endpoint.png)
 
 
 The following diagram shows the path of a DNS query from an EC2 instance in one of your VPCs to a DNS resolver on your network. The jyo.example.com domain uses a forwarding rule, whereas the ric.example.com subdomain has delegated the forwarding authority to VPC Resolver.
 
-![Conceptual graphic that shows the path of a DNS query from your network to Route 53 VPC Resolver.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/Resolver-outbound-endpoint.png)
+![Conceptual graphic that shows the path of a DNS query from your network to Route 53 VPC Resolver.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/Resolver-outbound-endpoint.png)
 
 
 For an overview of VPC network interfaces, see [Elastic network interfaces](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ElasticNetworkInterfaces.html) in the *Amazon VPC User Guide*.

@@ -11,4 +11,4 @@ The Nitro Resolver service is part of the Link-Local services on the instance. L
 
 The following diagram shows an overview of how Route 53 VPC Resolver resolves DNS queries within Availability Zones.
 
-![Conceptual graphic that shows how Route 53 VPC Resolver resolves DNS queries within Availability Zones.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/Resolver-scale-availability2.png)
+![Conceptual graphic that shows how Route 53 VPC Resolver resolves DNS queries within Availability Zones.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/Resolver-scale-availability2.png)

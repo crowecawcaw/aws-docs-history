@@ -34,7 +34,7 @@ Route 53 can't check the health of resources that have an IP address in local, 
    + **Non-alias records** – Associate the health checks that you created in step 2 with the corresponding records. 
 
    When you're finished, your configuration looks similar to the following diagram, which includes only non-alias records.  
-![Three weighted records and corresponding health checks.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-weighted.png)
+![Three weighted records and corresponding health checks.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-weighted.png)
 
    For more information about creating records by using the Route 53 console, see [Creating records by using the Amazon Route 53 console](resource-record-sets-creating.md). 
 
@@ -58,9 +58,9 @@ The following example shows a group of weighted records in which the third recor
 + When Route 53 initially selects from among all three records, it responds to requests using the first record about 20% of the time, 10/(10 \+ 20 \+ 20). 
 + When Route 53 determines that the third record is unhealthy, it responds to requests using the first record about 33% of the time, 10/(10 \+ 20).
 
-![Three weighted records and the corresponding health checks. The third health check is unhealthy, so Route 53 considers the associated record to be unhealthy.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-weighted-failed-hc.png)
+![Three weighted records and the corresponding health checks. The third health check is unhealthy, so Route 53 considers the associated record to be unhealthy.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-weighted-failed-hc.png)
 
 
 If you omit a health check from one or more records in a group of records, Route 53 has no way to determine the health of the corresponding resource. Route 53 treats those records as healthy.
 
-![Three weighted records, only two of which have health checks. Route 53 always considers the third record to be healthy.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-weighted-missing-health-check.png)
+![Three weighted records, only two of which have health checks. Route 53 always considers the third record to be healthy.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-weighted-missing-health-check.png)

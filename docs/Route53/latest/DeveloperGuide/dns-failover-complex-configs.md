@@ -7,7 +7,7 @@ Checking the health of resources in complex configurations works much the same w
 
 For example, you might use latency alias records to select a Region close to a user and use weighted records for two or more resources within each Region to protect against the failure of a single endpoint or an Availability Zone. The following diagram shows this configuration.
 
-![DNS configuration that includes latency alias records and weighted alias records.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted.png)
+![DNS configuration that includes latency alias records and weighted alias records.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted.png)
 
 
 Here's how Amazon EC2 and Route 53 are configured. Let's start at the bottom of the tree because that's the order that you'll create records in:
@@ -25,7 +25,7 @@ Here's how Amazon EC2 and Route 53 are configured. Let's start at the bottom of
 
   For both latency alias records, you set the value of **Evaluate Target Health** to **Yes**. This causes Route 53 to determine whether there are any healthy resources in a Region before trying to route traffic there. If not, Route 53 chooses a healthy resource in the other Region.
 
-![DNS configuration that includes latency alias records and weighted alias records.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted-both-failed.png)
+![DNS configuration that includes latency alias records and weighted alias records.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted-both-failed.png)
 
 
 The preceding diagram illustrates the following sequence of events:
@@ -58,7 +58,7 @@ In this configuration, both of the following must be true before Route 53 will 
 
 In the following illustration, the health check for the latency alias record on the top left failed. As a result, Route 53 stops responding to queries using any of the weighted records that the latency alias record refers to even if they're all healthy. Route 53 begins to consider these weighted records again only when the health check for the latency alias record is healthy again. (For exceptions, see [How Amazon Route 53 chooses records when health checking is configured](health-checks-how-route-53-chooses-records.md).) 
 
-![DNS configuration that includes an alias record with both Evaluate Target Health set to Yes and a health check on the alias record.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted-alias-hc-failed.png)
+![DNS configuration that includes an alias record with both Evaluate Target Health set to Yes and a health check on the alias record.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted-alias-hc-failed.png)
 
 
 ## What happens when you omit health checks?
@@ -66,7 +66,7 @@ In the following illustration, the health check for the latency alias record on 
 
 In a complex configuration, it's important to associate health checks with all the non-alias records. In the following example, a health check is missing on one of the weighted records in the us-east-1 region.
 
-![DNS configuration that includes one failed health check and one record that has no health check.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted-missing-health-check.png)
+![DNS configuration that includes one failed health check and one record that has no health check.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted-missing-health-check.png)
 
 
 Here's what happens when you omit a health check on a non-alias record in this configuration:
@@ -84,7 +84,7 @@ In general, you should set **Evaluate Target Health** to **Yes** for all the ali
 
 In the following example, all the weighted records have associated health checks, but **Evaluate Target Health** is set to **No** for the latency alias record for the us-east-1 region:
 
-![DNS configuration that includes an alias record with Evaluate Target Health set to No.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted-eth-is-no.png)
+![DNS configuration that includes an alias record with Evaluate Target Health set to No.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/hc-latency-alias-weighted-eth-is-no.png)
 
 
 Here's what happens when you set **Evaluate Target Health** to **No** for an alias record in this configuration:

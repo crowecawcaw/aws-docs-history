@@ -15,4 +15,4 @@ If the geolocation record for the DNS query's region is unhealthy, the default r
 
 In the example configuration in the following figure, DNS queries coming from an us-east-1 AWS Region (Virginia) will be routed to the 1.1.1.1 endpoint.
 
-![A screenshot that shows a geolocation record for a private hosted zone.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/geolocation-phz.png)
+![A screenshot that shows a geolocation record for a private hosted zone.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/geolocation-phz.png)

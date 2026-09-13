@@ -58,7 +58,7 @@ Changes the interval between data points in the graph.
 
    Note the following:
    + If you just created a health check, you might need to wait for a few minutes for data to appear in the graph and for the health check metric to appear in the list of available metrics.
-   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)) icon.
+   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)) icon.
 
 ------
 #### [ Old console ]<a name="monitoring-status-procedure"></a>
@@ -94,7 +94,7 @@ Changes the interval between data points in the graph.
 
    Note the following:
    + If you just created a health check, you might need to wait for a few minutes for data to appear in the graph and for the health check metric to appear in the list of available metrics.
-   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)) icon.
+   + The graph doesn't refresh itself automatically. To update the display, choose the refresh (![Icon to refresh the CloudWatch graph](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-refresh-icon.png)) icon.
 
 ------
 
@@ -142,7 +142,7 @@ CloudWatch has accumulated enough statistics from Route 53 health checks to det
 
 1. Choose the row for any health check.
 
-1. In the details pane (following *x* **Health Checks Selected**), choose the right caret (![Icon to expand the list of CloudWatch alarms](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-expand-alarms-list.png)) icon.
+1. In the details pane (following *x* **Health Checks Selected**), choose the right caret (![Icon to expand the list of CloudWatch alarms](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/cloudwatch-expand-alarms-list.png)) icon.
 
    The **CloudWatch Alarms** list contains all the Route 53 alarms that you have created using the current AWS account.
 

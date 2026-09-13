@@ -16,7 +16,7 @@ To start logging DNS queries that originate in your VPCs, you perform the follow
 
 1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
 
-1. Expand the Route 53 console menu. In the upper left corner of the console, choose the three horizontal bars (![Menu icon](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/menu-icon.png)) icon.
+1. Expand the Route 53 console menu. In the upper left corner of the console, choose the three horizontal bars (![Menu icon](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/menu-icon.png)) icon.
 
 1. Within the Resolver menu, choose **Query logging**.
 

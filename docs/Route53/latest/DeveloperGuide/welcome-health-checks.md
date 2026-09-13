@@ -7,7 +7,7 @@ Amazon Route 53 health checks monitor the health of your resources such as web 
 
 Here's an overview of how health checking works if you want to be notified when a resource becomes unavailable:
 
-![Conceptual graphic that shows how you configure Route 53 to monitor the health of specified endpoints.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/how-health-checks-work.png)
+![Conceptual graphic that shows how you configure Route 53 to monitor the health of specified endpoints.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/how-health-checks-work.png)
 
 
 1. You create a health check and specify values that define how you want the health check to work, such as the following:

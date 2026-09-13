@@ -40,7 +40,7 @@ You can also create special Route 53 records, called alias records, that route 
 
 After you configure Amazon Route 53 to route your internet traffic to your resources, such as web servers or Amazon S3 buckets, here's what happens in a few milliseconds when someone requests content for www.example.com:
 
-![Conceptual graphic that shows how the Domain Name System and Route 53 route internet traffic to the resources for www.example.com.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/how-route-53-routes-traffic.png)
+![Conceptual graphic that shows how the Domain Name System and Route 53 route internet traffic to the resources for www.example.com.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/how-route-53-routes-traffic.png)
 
 
 1. A user opens a web browser, enters www.example.com in the address bar, and presses Enter.

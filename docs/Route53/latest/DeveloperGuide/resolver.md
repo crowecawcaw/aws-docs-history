@@ -26,7 +26,7 @@ If you have workloads that leverage both VPCs and on-premises resources, you als
 
 The following diagram shows hybrid DNS resolution with Resolver endpoints. Note that the diagram is simplified to show only one Availability Zone.
 
-![Conceptual graphic that shows the path of a DNS query from your VPC to your on-premises data storage through an Route 53 VPC Resolver outbound endpoint and the path from a DNS resolver on your network inbound endpoint back to the VPC.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/Resolver-routing.png)
+![Conceptual graphic that shows the path of a DNS query from your VPC to your on-premises data storage through an Route 53 VPC Resolver outbound endpoint and the path from a DNS resolver on your network inbound endpoint back to the VPC.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/Resolver-routing.png)
 
 
 The diagram illustrates the following steps:

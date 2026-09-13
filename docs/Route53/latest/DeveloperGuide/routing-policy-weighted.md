@@ -7,7 +7,7 @@ With weighted routing, you can link multiple resources to a single domain name (
 
 To set up weighted routing, you create records with the same name and type for each of your resources. You give each record a relative weight that matches how much traffic you want to send to each resource. Amazon Route 53 sends traffic to a resource based on the weight you assign to the record as a share of the total weight for all records in the group: 
 
-![Formula for how much traffic is routed to a given resource: weight for a specified record / sum of the weights for all records.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/WRR_calculation.png)
+![Formula for how much traffic is routed to a given resource: weight for a specified record / sum of the weights for all records.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/WRR_calculation.png)
 
 
 For example, if you want to send a tiny part of your traffic to one resource and the rest to another resource, you might set weights of 1 and 255. The resource with a weight of 1 gets 1/256th of the traffic (1/(1\+255)), and the other resource gets 255/256ths (255/(1\+255)). You can slowly change the balance by changing the weights. If you want to stop sending traffic to a resource, change the weight for that record to 0.

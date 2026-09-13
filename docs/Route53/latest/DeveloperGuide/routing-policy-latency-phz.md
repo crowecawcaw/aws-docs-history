@@ -12,4 +12,4 @@ If you include health checks, and the record with the lowest latency to the quer
 
 In the example configuration in the following figure, DNS queries coming from a us-east-1 AWS Region, or closest to it, will be routed to the 1.1.1.1 endpoint. DNS queries from us-west-2, or closest to it, will be routed to the 2.2.2.2 endpoint.
 
-![A screenshot that shows two latency records for a private hosted zone.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/latency-phz.png)
+![A screenshot that shows two latency records for a private hosted zone.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/latency-phz.png)

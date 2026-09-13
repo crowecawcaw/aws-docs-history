@@ -42,17 +42,17 @@ The following map shows four AWS Regions (numbered 1 through 5):
 **Note**  
 The maps are available only with Traffic Flow.
 
-![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), Europe (Frankfurt), Asia Pacific (Tokyo), Africa (Cape Town) and Middle East (Bahrain).](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-no-bias-new.png)
+![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), Europe (Frankfurt), Asia Pacific (Tokyo), Africa (Cape Town) and Middle East (Bahrain).](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-no-bias-new.png)
 
 
 The following map shows what happens if you add a bias of \+25 for the US West (Oregon) Region (number **1** on the map). Traffic is routed to the resource in that Region from a larger portion of North America and from all of South America than previously.
 
-![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-bias-plus25-new.png)
+![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-bias-plus25-new.png)
 
 
 The following map shows what happens if you change the bias to -25 for the US West (Oregon) Region. Traffic is routed to the resource in that Region from smaller portions of North and South America than previously, and more traffic is routed to resources in the adjacent regions **2**, **3**, and **4**. 
 
-![A map of the world that shows how traffic is routed when you add a bias of -25 in the US West (Oregon) Region.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-bias-minus25-new.png)
+![A map of the world that shows how traffic is routed when you add a bias of -25 in the US West (Oregon) Region.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-bias-minus25-new.png)
 
 
 ------
@@ -63,17 +63,17 @@ The following map shows four AWS Regions (numbered 1 through 4) and a location i
 **Note**  
 The maps are available only with Traffic Flow.
 
-![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), US East (N. Virginia), Europe (Paris), and Asia Pacific (Tokyo), and you have a record for a non-AWS resource in Johannesburg, South Africa.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-no-bias.png)
+![A map of the world that shows how traffic is routed when you have geoproximity records for resources in the AWS Regions in US West (Oregon), US East (N. Virginia), Europe (Paris), and Asia Pacific (Tokyo), and you have a record for a non-AWS resource in Johannesburg, South Africa.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-no-bias.png)
 
 
 The following map shows what happens if you add a bias of \+25 for the US East (N. Virginia) Region (number **2** on the map). Traffic is routed to the resource in that Region from a larger portion of North America than previously, and from all of South America.
 
-![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-bias-plus-25.png)
+![A map of the world that shows how traffic is routed when you add a bias of +25 in the US East (Northern Virginia) Region.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-bias-plus-25.png)
 
 
 The following map shows what happens if you change the bias to -25 for the US East (N. Virginia) Region. Traffic is routed to the resource in that Region from smaller portions of North and South America than previously, and more traffic is routed to resources in the adjacent regions **1**, **3**, and **5**. 
 
-![A map of the world that shows how traffic is routed when you add a bias of -25 in the US East (N. Virginia) Region.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-bias-minus-25.png)
+![A map of the world that shows how traffic is routed when you add a bias of -25 in the US East (N. Virginia) Region.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-example-bias-minus-25.png)
 
 
 ------

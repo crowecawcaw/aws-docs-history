@@ -299,7 +299,7 @@ Choose the tab for the console you are using.
 
 You can display a map that shows the effect of your current geoproximity settings. For example, if you have resources in the US West (Oregon), Europe (Frankfurt), and Asia Pacific (Tokyo) Regions, and if you don't specify a bias, the map looks like this.
 
-![Map of the world that shows three regions approximately divided into North and South America; Europe, Africa, and western Asia; and the rest of Asia and Australia.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-new.png)
+![Map of the world that shows three regions approximately divided into North and South America; Europe, Africa, and western Asia; and the rest of Asia and Australia.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map-new.png)
 
 
 The map for a geoproximity rule automatically displays in the **Properties** and updates as you add or delete regions.
@@ -317,7 +317,7 @@ Note the following:
 
 You can display a map that shows the effect of your current geoproximity settings. For example, if you have resources in the US West (Oregon), Europe (Frankfurt), and Asia Pacific (Tokyo) Regions, and if you don't specify a bias, the map looks like this.
 
-![Map of the world that shows three regions approximately divided into North and South America; Europe, Africa, and western Asia; and the rest of Asia and Australia.](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map.png)
+![Map of the world that shows three regions approximately divided into North and South America; Europe, Africa, and western Asia; and the rest of Asia and Australia.](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/traffic-flow-geoproximity-map.png)
 
 
 To display the map for a geoproximity rule, choose the graph icon next to **Show geoproximity map**. (This icon appears at the top of the rule.) To hide the map, choose the icon again or choose the **x** in the upper right corner of the map.
@@ -469,7 +469,7 @@ Choose the tab for the console you are using.
 
 1. Choose **Next**.
 
-1. On the editor page choose the json editor (![json editor icon](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/jsoneditor.png)) icon on the upper right corner of the editor. 
+1. On the editor page choose the json editor (![json editor icon](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/images/jsoneditor.png)) icon on the upper right corner of the editor. 
 
 1. Enter a new traffic policy, paste an example traffic policy, or paste an existing traffic policy. 
 
