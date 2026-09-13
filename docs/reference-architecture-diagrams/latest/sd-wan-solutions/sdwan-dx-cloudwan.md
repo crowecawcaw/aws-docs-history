@@ -10,7 +10,7 @@ When extending your SD-WAN traffic to AWS through [AWS Direct Connect](https://d
 ## SD-WAN devices integration with AWS Cloud WAN and AWS Direct Connect architecture
 <a name="sdwan7-diagram1"></a>
 
-![Architecture diagram showing SD-WAN devices integration with AWS Cloud WAN and AWS Direct Connect through AWS Transit Gateway with peering between Cloud WAN and Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-7.png)
+![Architecture diagram showing SD-WAN devices integration with AWS Cloud WAN and AWS Direct Connect through AWS Transit Gateway with peering between Cloud WAN and Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-7.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:

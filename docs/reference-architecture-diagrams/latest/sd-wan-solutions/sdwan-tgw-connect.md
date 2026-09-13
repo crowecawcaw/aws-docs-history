@@ -10,7 +10,7 @@ This architecture shows how to use [AWS Transit Gateway](https://docs.aws.amazon
 ## SD-WAN connectivity with AWS Transit Gateway Connect architecture
 <a name="sdwan1-diagram1"></a>
 
-![Architecture diagram showing SD-WAN connectivity using AWS Transit Gateway Connect attachments with GRE tunneling and BGP peering.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-1.png)
+![Architecture diagram showing SD-WAN connectivity using AWS Transit Gateway Connect attachments with GRE tunneling and BGP peering.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-1.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:

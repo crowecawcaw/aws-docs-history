@@ -10,7 +10,7 @@ If your third-party virtual appliance does not support GRE, you can still integr
 ## SD-WAN connectivity with AWS Site-to-Site VPN to AWS Transit Gateway architecture
 <a name="sdwan4-diagram1"></a>
 
-![Architecture diagram showing SD-WAN connectivity using AWS Site-to-Site VPN to AWS Transit Gateway with IPSec tunnels.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-4.png)
+![Architecture diagram showing SD-WAN connectivity using AWS Site-to-Site VPN to AWS Transit Gateway with IPSec tunnels.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-4.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:

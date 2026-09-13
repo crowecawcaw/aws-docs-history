@@ -10,7 +10,7 @@ This architecture shows how to use Connect attachments to connect your SD-WAN to
 ## SD-WAN connectivity with AWS Cloud WAN Connect architecture
 <a name="sdwan2-diagram1"></a>
 
-![Architecture diagram showing SD-WAN connectivity using AWS Cloud WAN Connect attachments with GRE tunneling and BGP peering across multiple Regions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-2.png)
+![Architecture diagram showing SD-WAN connectivity using AWS Cloud WAN Connect attachments with GRE tunneling and BGP peering across multiple Regions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-2.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:

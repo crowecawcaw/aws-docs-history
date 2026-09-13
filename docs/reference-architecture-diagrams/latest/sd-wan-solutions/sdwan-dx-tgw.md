@@ -10,7 +10,7 @@ This architecture shows how to use [AWS Transit Gateway](https://docs.aws.amazon
 ## SD-WAN devices integration with AWS Transit Gateway and AWS Direct Connect architecture
 <a name="sdwan6-diagram1"></a>
 
-![Architecture diagram showing SD-WAN devices integration with AWS Transit Gateway Connect attachments and AWS Direct Connect using GRE tunneling over Direct Connect.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-6.png)
+![Architecture diagram showing SD-WAN devices integration with AWS Transit Gateway Connect attachments and AWS Direct Connect using GRE tunneling over Direct Connect.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-6.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:

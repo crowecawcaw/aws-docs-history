@@ -10,7 +10,7 @@ If your third-party virtual appliance does not support GRE, you can still integr
 ## SD-WAN connectivity with AWS Site-to-Site VPN to AWS Cloud WAN architecture
 <a name="sdwan5-diagram1"></a>
 
-![Architecture diagram showing SD-WAN connectivity using AWS Site-to-Site VPN to AWS Cloud WAN with IPSec tunnels across multiple Regions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-5.png)
+![Architecture diagram showing SD-WAN connectivity using AWS Site-to-Site VPN to AWS Cloud WAN with IPSec tunnels across multiple Regions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-5.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:

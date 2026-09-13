@@ -10,7 +10,7 @@ This architecture shows how to use Tunnel-less Connect attachments to connect yo
 ## SD-WAN connectivity with AWS Cloud WAN Tunnel-less Connect architecture
 <a name="sdwan3-diagram1"></a>
 
-![Architecture diagram showing SD-WAN connectivity using AWS Cloud WAN Tunnel-less Connect attachments with native BGP peering across multiple Regions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-3.png)
+![Architecture diagram showing SD-WAN connectivity using AWS Cloud WAN Tunnel-less Connect attachments with native BGP peering across multiple Regions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/sd-wan-solutions/images/sd-wan-solutions-3.png)
 
 
 The following steps describe the AWS to on-premises traffic flow:
