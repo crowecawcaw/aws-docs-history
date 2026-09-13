@@ -11,4 +11,4 @@ The lakehouse architecture is built on AWS Glue Data Catalog and AWS Lake Format
 
 The following diagram shows how the lakehouse architecture works.
 
-![The lakehouse architecture](http://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/lakehouse/lakehouse-architecture.png)
+![The lakehouse architecture](https://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/lakehouse/lakehouse-architecture.png)

@@ -17,7 +17,7 @@ To configure your catalog in account A:
 1. After the registration is initiated, you will see an invite from Amazon Redshift on the Lake Formation console.
 
 1. Select the pending catalog invitation and choose **Approve and create catalog**.  
-![Pending catalog invitations section with Approve and create catalog button highlighted.](http://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/lakehouse/sm-sharing-pending-invite.png)
+![Pending catalog invitations section with Approve and create catalog button highlighted.](https://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/lakehouse/sm-sharing-pending-invite.png)
 
 1. On the **Set catalog details** page, configure your catalog:
 
@@ -68,7 +68,7 @@ To grant permissions:
 1. For **Catalogs**, choose the account ID that represents the default catalog.
 
 1. For **Databases**, choose the database you want to share (for example, {{`customerdb`}}).  
-![Databases dropdown with customerdb selected in the Named Data Catalog resources section.](http://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/lakehouse/sm-sharing-grant-permission.png)
+![Databases dropdown with customerdb selected in the Named Data Catalog resources section.](https://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/lakehouse/sm-sharing-grant-permission.png)
 
 1. Under **Database permissions**, select **Describe** under both **Database permissions** and **Grantable permissions**.
 

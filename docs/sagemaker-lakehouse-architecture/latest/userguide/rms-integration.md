@@ -39,7 +39,7 @@ You can get started by creating an AWS Glue managed catalog using the `glue:Crea
 1. Next, choose **Redshift managed storage** as the data source.
 
 1. On the **Set catalog details** page, enter the following information:   
-![The create catalog page with catalog details.](http://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/create-rms-catalog.png)
+![The create catalog page with catalog details.](https://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/create-rms-catalog.png)
    + **Name** – A unique name for your managed catalog. The name can't be changed, and must be in lower case. The name can consist of a maximum of 255 characters maximum. account. 
    + **Description** – Enter a description for the catalog created from the data source.
    + Under **Access from engines** make sure that **Access this catalog from Iceberg compatible engines** is selected.
@@ -57,7 +57,7 @@ You can get started by creating an AWS Glue managed catalog using the `glue:Crea
 1. On the **Grant permissions** page, choose **Add permissions**.
 
 1.  On the **Add permissions** screen, choose the principals and the types of permissions to grant.   
-![The catalog permissions page with principal type and grant options.](http://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/add-catalog-permissions.png)
+![The catalog permissions page with principal type and grant options.](https://docs.aws.amazon.com/sagemaker-lakehouse-architecture/latest/userguide/images/add-catalog-permissions.png)
    +  In the **Principals** section, choose a principal type and then specify principals to grant permissions. 
      + **IAM users and roles** – Choose one or more users or roles from the IAM users and roles list.
      + **SAML users and groups** – For SAML and Amazon Quick users and groups, enter one or more Amazon Resource Names (ARNs) for users or groups federated through SAML, or ARNs for Amazon Quick users or groups. Press **Enter** after each ARN.
