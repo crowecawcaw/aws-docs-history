@@ -36,7 +36,7 @@ Currently, you can’t delete notifications for events that appear in your AWS H
 **Example : Operational issue event for Amazon Elastic Compute Cloud (Amazon EC2)**  
 The following image shows an event for launch failures and connectivity issues for Amazon EC2 instances.  
 
-![Screenshot of your account events in the AWS Health console.](http://docs.aws.amazon.com/health/latest/ug/images/health-dashboard-your-account-events.png)
+![Screenshot of your account events in the AWS Health console.](https://docs.aws.amazon.com/health/latest/ug/images/health-dashboard-your-account-events.png)
 
 
 ## Scheduled changes
@@ -72,7 +72,7 @@ You can choose the following filter options to narrow your results:
 **Example : Event log**  
 The following image shows recent events for the US East (N. Virginia) and US East (Ohio) Regions.  
 
-![Screenshot of the event log tab in the AWS Health console.](http://docs.aws.amazon.com/health/latest/ug/images/event-log-aws-health-console.png)
+![Screenshot of the event log tab in the AWS Health console.](https://docs.aws.amazon.com/health/latest/ug/images/event-log-aws-health-console.png)
 
 
 ## Event details
@@ -97,7 +97,7 @@ You can filter the items that appear in the resources. You can narrow your resul
 **Example : AWS Health event for AWS Lambda**  
 The following screenshot shows an example event for Lambda.  
 
-![Screenshot of the details pane for an event in the AWS Health console.](http://docs.aws.amazon.com/health/latest/ug/images/event-log-details-pane-aws-health-console.png)
+![Screenshot of the details pane for an event in the AWS Health console.](https://docs.aws.amazon.com/health/latest/ug/images/event-log-details-pane-aws-health-console.png)
 
 
 ## Events types
@@ -118,7 +118,7 @@ You can use the following options to identify if an event is public or account-s
 
 AWS Health events are displayed by date. Select a date to display a side panel that contains further details on the AWS Health event. **Upcoming** and **ongoing** events are displayed in black. **Completed** events are displayed in grey. If there are more than two events in a date, only the number of black and grey events are shown. Select a date to display a list of AWS Health events in the side panel. You can select an event in the side panel to display information about the event. The side panel has breadcrumbs to navigate to an earlier view.
 
-![Scheduled changes calendar view](http://docs.aws.amazon.com/health/latest/ug/images/calendar-view2.png)
+![Scheduled changes calendar view](https://docs.aws.amazon.com/health/latest/ug/images/calendar-view2.png)
 
 
 ## Affected resources view
@@ -134,7 +134,7 @@ You can download the list of affected resources in the affected resources tab in
 
 You can download only one file at a time. The files are automatically downloaded into the default download folder of your browser and have a preset file name based on the AWS Region, the event title, the event start date, and the download date. 
 
-![Affected resources view](http://docs.aws.amazon.com/health/latest/ug/images/affected-resources.png)
+![Affected resources view](https://docs.aws.amazon.com/health/latest/ug/images/affected-resources.png)
 
 
 ## Time zone settings
@@ -161,7 +161,7 @@ AWS Health integrates with AWS Organizations so that you can view events for all
 
 For more information, see [Aggregating AWS Health events across accounts](aggregate-events.md).
 
-![Screenshot of the Enable organizational view page in the AWS Health console.](http://docs.aws.amazon.com/health/latest/ug/images/organizational-view-aws-health-console.png)
+![Screenshot of the Enable organizational view page in the AWS Health console.](https://docs.aws.amazon.com/health/latest/ug/images/organizational-view-aws-health-console.png)
 
 
 ## Alerts for AWS Health events
@@ -174,4 +174,4 @@ Choose the bell icon to see if recent events affect your account. You can then c
 **Example : Open events**  
 The following image shows open and notification events for an account.  
 
-![Screenshot of the notification bell icon in the AWS Health console.](http://docs.aws.amazon.com/health/latest/ug/images/aws-health-dashboard-bell-icon.png)
+![Screenshot of the notification bell icon in the AWS Health console.](https://docs.aws.amazon.com/health/latest/ug/images/aws-health-dashboard-bell-icon.png)

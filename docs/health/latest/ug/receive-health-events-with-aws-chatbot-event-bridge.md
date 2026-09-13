@@ -39,4 +39,4 @@ Before you get started, you must have the following:
 **Example : AWS Health events sent to Slack**  
 The following is an example of two AWS Health events for Amazon EC2 and Amazon Simple Storage Service (Amazon S3) in the US East (N. Virginia) Region that appear in the Slack channel.  
 
-![Screenshot of how two AWS Health events appear in a Slack channel.](http://docs.aws.amazon.com/health/latest/ug/images/slack-chat-notification-for-health-events.png)
+![Screenshot of how two AWS Health events appear in a Slack channel.](https://docs.aws.amazon.com/health/latest/ug/images/slack-chat-notification-for-health-events.png)

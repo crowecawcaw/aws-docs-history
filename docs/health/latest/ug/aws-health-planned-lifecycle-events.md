@@ -52,7 +52,7 @@ Organizations can expect to receive a single event ARN for every planned lifecyc
 AWS Health notifications provide status updates over time where possible, except for the AWS GovCloud (US) and China Regions.
 Resource state updates are performed asynchronously and periodically and can have a delay of up to 72 hours in rare occasions.
 
-![Amazon EKS planned lifecycle event example showing event details and timeline](http://docs.aws.amazon.com/health/latest/ug/images/eks-example-ple.png)
+![Amazon EKS planned lifecycle event example showing event details and timeline](https://docs.aws.amazon.com/health/latest/ug/images/eks-example-ple.png)
 
 
 **After the planned event date passes:**
@@ -68,7 +68,7 @@ Resource state updates are performed asynchronously and periodically and can hav
 
 Security and compliance are shared responsibilities between AWS and the customer. Depending on the services deployed, this shared model can help relieve the customer’s operational burden. This is because AWS operates, manages, and controls the components from the host operating system and virtualization layer down to the physical security of the facilities in which the service operates. The customer assumes responsibility and management of the guest operating system (including updates and security patches) and other associated application software, in addition to the configuration of the security group firewall provided by AWS. For more information, see [Shared responsibility model](https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/shared-responsibility-model.html).
 
-![Shared responsibility model](http://docs.aws.amazon.com/health/latest/ug/images/responsibility-model.png)
+![Shared responsibility model](https://docs.aws.amazon.com/health/latest/ug/images/responsibility-model.png)
 
 
 ## Accessing planned lifecycle events

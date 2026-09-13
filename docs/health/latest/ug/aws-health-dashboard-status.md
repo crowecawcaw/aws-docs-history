@@ -27,10 +27,10 @@ You can view the events in your local time zone or in UTC. For more information,
 **Tip**  
 You can filter by **Service**, **AWS Region**, and date.
 
-1. Next to an ongoing service event, choose the status icon (![Status information icon](http://docs.aws.amazon.com/health/latest/ug/images/x-status-icon.png)) to view more information about the event.
+1. Next to an ongoing service event, choose the status icon (![Status information icon](https://docs.aws.amazon.com/health/latest/ug/images/x-status-icon.png)) to view more information about the event.
 
 1. (Optional) To view this as a list of historical events, choose the list of events button. Choose any event in the event column to view more information about that specific event in the pop-up side-panel.  
-![AWS Health service history page showing event details and timeline.](http://docs.aws.amazon.com/health/latest/ug/images/health-service-history.png)
+![AWS Health service history page showing event details and timeline.](https://docs.aws.amazon.com/health/latest/ug/images/health-service-history.png)
 **Note**  
 Selecting any public event after September 2023 will populate the URL in the browser with a link to that public AWS Health event. After you select this link, you  navigate to the list of events view with that event pop-up.
 

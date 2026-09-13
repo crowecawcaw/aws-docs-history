@@ -249,7 +249,7 @@ Follow this procedure to create a rule in the EventBridge console so that you ca
 1. Choose **Use existing role**, and then choose the IAM role that you created, such as {{AutomationEVRole}}.
 
    Your target should look like the following example.  
-![Screenshot of the "SSM Automation" example in the EventBridge console.](http://docs.aws.amazon.com/health/latest/ug/images/event-bridge-event-pattern-ssm-automation.png)
+![Screenshot of the "SSM Automation" example in the EventBridge console.](https://docs.aws.amazon.com/health/latest/ug/images/event-bridge-event-pattern-ssm-automation.png)
 **Note**  
 If you don't have an existing IAM role with the required EC2 and Systems Manager permissions and trusted relationship, your role won't appear in the list. For more information, see [Prerequisites](#prerequisites-automation-ec2-instances).
 
