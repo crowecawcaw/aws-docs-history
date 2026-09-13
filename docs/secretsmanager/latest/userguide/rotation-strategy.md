@@ -23,16 +23,16 @@ Secrets Manager creates the cloned user with the same permissions as the origina
 
 For example, if you create a secret with a database user's credentials, the secret contains one version with those credentials.
 
- ![The secret contains one secret version labeled AWSCURRENT. The username for the AWSCURRENT version is MyUser.](http://docs.aws.amazon.com/secretsmanager/latest/userguide/images/AlternatingUsers1.png) 
+ ![The secret contains one secret version labeled AWSCURRENT. The username for the AWSCURRENT version is MyUser.](https://docs.aws.amazon.com/secretsmanager/latest/userguide/images/AlternatingUsers1.png) 
 
 **First rotation** – The rotation function creates a clone of your user with a generated password, and those credentials become the current secret version.
 
- ![The secret contains two secret versions, one labeled AWSCURRENT and one labeled AWSPREVIOUS. The username for the AWSCURRENT version is MyUser_clone.](http://docs.aws.amazon.com/secretsmanager/latest/userguide/images/AlternatingUsers2.png) 
+ ![The secret contains two secret versions, one labeled AWSCURRENT and one labeled AWSPREVIOUS. The username for the AWSCURRENT version is MyUser_clone.](https://docs.aws.amazon.com/secretsmanager/latest/userguide/images/AlternatingUsers2.png) 
 
 **Second rotation** – The rotation function updates the password for the original user.
 
- ![The secret contains two secret versions, one labeled AWSCURRENT and one labeled AWSPREVIOUS. The username for the AWSCURRENT version is MyUser.](http://docs.aws.amazon.com/secretsmanager/latest/userguide/images/AlternatingUsers3.png) 
+ ![The secret contains two secret versions, one labeled AWSCURRENT and one labeled AWSPREVIOUS. The username for the AWSCURRENT version is MyUser.](https://docs.aws.amazon.com/secretsmanager/latest/userguide/images/AlternatingUsers3.png) 
 
 **Third rotation** – The rotation function updates the password for the cloned user.
 
- ![The secret contains two secret versions, one labeled AWSCURRENT and one labeled AWSPREVIOUS. The username for the AWSCURRENT version is MyUser_clone.](http://docs.aws.amazon.com/secretsmanager/latest/userguide/images/AlternatingUsers4.png) 
+ ![The secret contains two secret versions, one labeled AWSCURRENT and one labeled AWSPREVIOUS. The username for the AWSCURRENT version is MyUser_clone.](https://docs.aws.amazon.com/secretsmanager/latest/userguide/images/AlternatingUsers4.png) 

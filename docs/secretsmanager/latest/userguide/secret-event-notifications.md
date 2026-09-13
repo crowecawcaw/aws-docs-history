@@ -16,7 +16,7 @@ EventBridge routes events according to *rules* you create on the event bus. For 
 
 The following diagram shows how EventBridge routes Secrets Manager events from the default event bus to the targets that you specify.
 
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge routes the event to the targets specified for that rule.](http://docs.aws.amazon.com/secretsmanager/latest/userguide/images/eventbridge-integration-how-it-works.png)
+![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge routes the event to the targets specified for that rule.](https://docs.aws.amazon.com/secretsmanager/latest/userguide/images/eventbridge-integration-how-it-works.png)
 
 
 For more information, see [Creating rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html) in the *EventBridge User Guide*.

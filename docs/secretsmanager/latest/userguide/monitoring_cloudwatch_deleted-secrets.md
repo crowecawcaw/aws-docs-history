@@ -22,7 +22,7 @@ You must configure delivery of your CloudTrail log files to CloudWatch Logs. You
 
 1. In the left navigation pane, choose **Trails**, and then choose the name of the trail to configure for CloudWatch.
 
-1. On the **Trails Configuration** page, scroll down to the **CloudWatch Logs** section, and then choose the edit icon (![Edit pencil icon](http://docs.aws.amazon.com/secretsmanager/latest/userguide/images/edit-pencil-icon.png)).
+1. On the **Trails Configuration** page, scroll down to the **CloudWatch Logs** section, and then choose the edit icon (![Edit pencil icon](https://docs.aws.amazon.com/secretsmanager/latest/userguide/images/edit-pencil-icon.png)).
 
 1. For **New or existing log group**, type a name for the log group, such as **CloudTrail/MyCloudWatchLogGroup**.
 

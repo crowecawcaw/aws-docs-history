@@ -61,4 +61,4 @@ Secrets Manager never removes labeled versions, but unlabeled versions are consi
 
 The following figure shows a secret that has AWS labeled versions and customer labeled versions. The versions without labels are considered deprecated and will be removed by Secrets Manager at some point in the future. 
 
- ![A secret that contains multiple secret versions, some with labels such as AWSCURRENT or MyLabelA, and some without labels.](http://docs.aws.amazon.com/secretsmanager/latest/userguide/images/SecretVersions.png) 
+ ![A secret that contains multiple secret versions, some with labels such as AWSCURRENT or MyLabelA, and some without labels.](https://docs.aws.amazon.com/secretsmanager/latest/userguide/images/SecretVersions.png) 
