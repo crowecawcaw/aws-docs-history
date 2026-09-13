@@ -16,7 +16,7 @@ AWS Clean Rooms provides built-in data access controls and audit support control
 
 The following video explains more about AWS Clean Rooms.
 
-[![AWS Videos](http://img.youtube.com/vi/0S6icreVCO0/0.jpg)](http://www.youtube.com/watch?v=0S6icreVCO0)
+[![AWS Videos](https://img.youtube.com/vi/0S6icreVCO0/0.jpg)](https://www.youtube.com/watch?v=0S6icreVCO0)
 
 
 ## Are you a first-time AWS Clean Rooms user?
@@ -35,7 +35,7 @@ In AWS Clean Rooms, you create a collaboration and add the AWS accounts that you
 
 The following diagram shows how AWS Clean Rooms works.
 
-![Diagram explaining how AWS Clean Rooms works](http://docs.aws.amazon.com/clean-rooms/latest/userguide/images/how-it-works.png)
+![Diagram explaining how AWS Clean Rooms works](https://docs.aws.amazon.com/clean-rooms/latest/userguide/images/how-it-works.png)
 
 
 ## Related services

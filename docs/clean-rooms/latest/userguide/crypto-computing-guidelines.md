@@ -46,7 +46,7 @@ Data in the fingerprint columns is cryptographically processed through a Hash-ba
 
 The following image shows how * `BASE_OVERHEAD = ` ** `C3R_DESIGNATION + ` ** `(MAC * 1.33)` *
 
-![The 52 byte base overhead for a fingerprint column.](http://docs.aws.amazon.com/clean-rooms/latest/userguide/images/base-overhead-fingerprint.PNG)
+![The 52 byte base overhead for a fingerprint column.](https://docs.aws.amazon.com/clean-rooms/latest/userguide/images/base-overhead-fingerprint.PNG)
 
 
 The output ciphertext in the fingerprint columns will always be 52 bytes. This can be a significant storage decrease if the input cleartext data averages more than 52 bytes (for example, full street addresses). This can be a significant storage increase if the input cleartext data averages less than 52 bytes (for example, customer ages).
@@ -172,7 +172,7 @@ Before any encryption, data in the sealed columns is pre-pended with a 1 byte ch
 
 The following image shows how * `BASE_OVERHEAD = C3R_DESIGNATION + ((NONCE + IV + DATA_TYPE + PAD_SIZE + AUTH_TAG) * 1.33)` *
 
-![The 91 byte base overhead for a sealed column.](http://docs.aws.amazon.com/clean-rooms/latest/userguide/images/base-overhead-sealed.PNG)
+![The 91 byte base overhead for a sealed column.](https://docs.aws.amazon.com/clean-rooms/latest/userguide/images/base-overhead-sealed.PNG)
 
 
 #### Collaboration settings for sealed columns

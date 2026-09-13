@@ -13,7 +13,7 @@ As with many AWS services, AWS Clean Rooms generates and sends events to the Eve
 
 EventBridge routes events according to *rules* you create on the event bus. For each rule, you specify a filter, or *event pattern*, to select only the events you want. Whenever an event is sent to the event bus, EventBridge compares it against each rule. If the event matches the rule, EventBridge routes the event to the specified target(s).
 
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](http://docs.aws.amazon.com/clean-rooms/latest/userguide/images/eventbridge-integration-how-it-works.png)
+![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](https://docs.aws.amazon.com/clean-rooms/latest/userguide/images/eventbridge-integration-how-it-works.png)
 
 
 For example, suppose you want to know every time a new AWS Clean Rooms collaboration is created in your account. You could create a rule on the default event bus. In the rule you would create an event pattern that specified events from AWS Clean Rooms named **Collaboration Created**. Every time EventBridge received an event matching those properties, it would route the event to the specified workflow.

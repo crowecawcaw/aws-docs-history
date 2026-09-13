@@ -7,7 +7,7 @@ After you have [created a container training image](https://docs.aws.amazon.com/
 
 The following image shows configuring a model algorithm as a step that happens after you create the container training image and before you associate it with the collaboration.
 
-![An overview of how to contribute a custom ML model.](http://docs.aws.amazon.com/clean-rooms/latest/userguide/images/bringMLModelCollaboration.png)
+![An overview of how to contribute a custom ML model.](https://docs.aws.amazon.com/clean-rooms/latest/userguide/images/bringMLModelCollaboration.png)
 
 
 ------

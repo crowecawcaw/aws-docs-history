@@ -38,7 +38,7 @@ The training data provider's data is never shared with the seed data provider an
 ## How AWS Clean Rooms ML works with AWS models
 <a name="ml-how-it-works"></a>
 
-![An overview of how AWS Clean Rooms ML works with AWS models.](http://docs.aws.amazon.com/clean-rooms/latest/userguide/images/howItWorksML.png)
+![An overview of how AWS Clean Rooms ML works with AWS models.](https://docs.aws.amazon.com/clean-rooms/latest/userguide/images/howItWorksML.png)
 
 
 Working with lookalike models requires that two parties, a training data provider and a seed data provider, work sequentially in AWS Clean Rooms to bring their data into a collaboration. This is the workflow that the training data provider must complete first:

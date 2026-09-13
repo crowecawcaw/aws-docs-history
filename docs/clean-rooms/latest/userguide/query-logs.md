@@ -11,12 +11,12 @@ When logs are exported, AWS Clean Rooms records an event in the same log group f
 
 When **Analysis logging** is turned on, AWS Clean Rooms generates logs at two stages: when the analysis runs and when the analysis completes.
 
+The following table describes the fields included in analysis logs.
 
-**Analysis log fields**  
 
 | Field | Delivered when | Description | 
 | --- | --- | --- | 
-| `eventId` | Always delivered | The unique identifier for the analysis run. For queries, this is the same as the protectedQueryID. For jobs, this is the same as the protectedJobID. | 
+| `eventId` | Always delivered | The unique identifier for the analysis run. For queries, this is the same as the `protectedQueryID`. For jobs, this is the same as the `protectedJobID`. | 
 | `eventTimestamp` | Always delivered | The time the analysis ran. | 
 | `collaborationId` | Always delivered | The unique identifier for the collaboration. | 
 | `logStage` | Always delivered | Indicates whether the log is from submission validation (SUBMISSION) or terminal completion (TERMINATION). | 
@@ -43,11 +43,11 @@ When **Analysis logging** is turned on, AWS Clean Rooms generates logs at two st
 | `errorMessage` | An analysis finishes | The error message when an analysis failed to execute properly. | 
 | `memberSchemaMapping` | Always delivered | A mapping of member accounts to their schema information. | 
 | `memberDisplayNames` | Always delivered | A mapping of member accounts to their display names. | 
-| `additionalAnalyses` | Synthetic data is created | Additional analyses configured for the collaboration. | 
+| `additionalAnalyses` | Synthetic data is created | The ARN of the additional analyses resource permitted for the synthetic-data analysis. Delivered to members whose configured table is referenced in the query, not to the member who created the ML input channel. | 
 | `isSynthetic` | Synthetic data is created | Whether the analysis created [privacy-enhanced synthetic data](https://docs.aws.amazon.com/clean-rooms/latest/userguide/synthetic-data-generation.html). | 
 | `epsilon` | Synthetic data is created | The epsilon value required to successfully create [privacy-enhanced synthetic data](https://docs.aws.amazon.com/clean-rooms/latest/userguide/synthetic-data-generation.html). | 
 | `maxMembershipInferenceAttackScore` | Synthetic data is created | The maximum membership inference attack score allowed to successfully create [privacy-enhanced synthetic data](https://docs.aws.amazon.com/clean-rooms/latest/userguide/synthetic-data-generation.html). | 
-| `machineLearningInputChannelArn` | Synthetic data is created | The ARN of the machine learning input channel. | 
+| `machineLearningInputChannelArn` | Synthetic data is created | The ARN of the machine learning input channel used to generate the synthetic data. Delivered to the member who created the ML input channel and to members whose configured tables are referenced. | 
 | `analysisId` | Logs are exported | The unique identifier of the analysis for which logs were exported. | 
 | `callerAccountId` | Logs are exported | The account ID of the member who requested the export. | 
 | `s3OutputPath` | Logs are exported | The Amazon S3 destination where the exported logs were written. | 
@@ -67,19 +67,34 @@ The member who can run queries and jobs and member who can receive results recei
 
 If a member has multiple configured table associations referenced in the analysis, they receive an analysis log for each configured table.
 
-Logs are created for queries that contain unsupported and supported SQL in AWS Clean Rooms. For more details, see the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
+Members with tables used to create an intermediate table don't receive analysis logs when analyses are run on the intermediate table.
 
-Logs are also created when queries or jobs reference configured tables that are not associated with the collaboration.
+AWS Clean Rooms creates logs for queries that contain unsupported and supported SQL. For more details, see the [AWS Clean Rooms SQL Reference](https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html).
+
+AWS Clean Rooms also creates logs when queries or jobs reference configured tables that are not associated with the collaboration.
 
 Logs might contain information about incorrect SQL.
 
 Query and job logs indicate the status of a query but don't report whether query output was delivered. They confirm that a query or job was submitted by the member who can query. Query logs also confirm that the query contains supported SQL in AWS Clean Rooms and references configured tables that are associated with the collaboration.
 
 **Note**  
-A log isn't produced if the query was canceled after AWS Clean Rooms validated its compliance with analysis rules and during query processing.
+AWS Clean Rooms doesn't produce a log if the query was canceled after AWS Clean Rooms validated its compliance with analysis rules and during query processing.
 
 If you delete the log group, you must re-create the log group manually with the same log group name (collaboration ID of the collaboration). Or, you can turn the logging off and on in your membership.
 
 For more information about how to turn on analysis logging, see [Creating a collaboration](create-collaboration.md).
 
 For more information about Amazon CloudWatch Logs, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
+
+## Recommended actions for query and job logs
+<a name="using-query-logs"></a>
+
+We recommend that members periodically take the following actions: 
++ To verify that the queries and jobs match the use cases or queries that were agreed upon for the collaboration, review the queries and jobs that are run in the collaboration.
+
+  For more information about how to view recent queries, see [Viewing recent queries](https://docs.aws.amazon.com/clean-rooms/latest/userguide/query-data.html#view-queries-console).
+
+  For more information about how to view recent jobs, see [Viewing recent jobs](view-recent-jobs.md).
++ To verify that the configured table columns match what was agreed upon for the collaboration, review the configured table columns that are used in collaboration members' analysis rules and in queries.
+
+  For more information about how to view the configured columns, see [Viewing tables and analysis rules](https://docs.aws.amazon.com/clean-rooms/latest/userguide/manage-configured-tables.html#view-tables).

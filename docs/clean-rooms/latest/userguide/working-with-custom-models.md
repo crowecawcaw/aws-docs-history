@@ -5,7 +5,7 @@
 
 From a technical standpoint, the following diagram describes how custom ML modeling works in AWS Clean Rooms ML.
 
-![An overview of how AWS Clean Rooms ML works with custom models.](http://docs.aws.amazon.com/clean-rooms/latest/userguide/images/byomHowItWorks.png)
+![An overview of how AWS Clean Rooms ML works with custom models.](https://docs.aws.amazon.com/clean-rooms/latest/userguide/images/byomHowItWorks.png)
 
 
 Here's how custom ML modeling works in Clean Rooms ML:

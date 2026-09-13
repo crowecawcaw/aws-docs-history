@@ -7,7 +7,7 @@ After you have configured the model algorithm, you are ready to associate the mo
 
 The following image shows associating the configured model algorithm as the last step, after creating the container training image and configuring a model algorithm.
 
-![An overview of how to contribute a custom ML model.](http://docs.aws.amazon.com/clean-rooms/latest/userguide/images/bringMLModelCollaboration.png)
+![An overview of how to contribute a custom ML model.](https://docs.aws.amazon.com/clean-rooms/latest/userguide/images/bringMLModelCollaboration.png)
 
 
 ------
