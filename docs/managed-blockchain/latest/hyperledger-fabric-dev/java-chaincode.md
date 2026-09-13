@@ -31,7 +31,7 @@ The following is a high-level summary of the steps to install and run Java Chain
 
 1. **Invoke and query the chaincode** – After, you can send query transactions or invoke transactions to modify the ledger.
 
-![Java chaincode steps on Amazon Managed Blockchain (AMB) Hyperledger Fabric: build, install, and query.](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/java_chaincode.png)
+![Java chaincode steps on Amazon Managed Blockchain (AMB) Hyperledger Fabric: build, install, and query.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/java_chaincode.png)
 
 
 ## Building Java Chaincode with AMB Access: Step-by-step

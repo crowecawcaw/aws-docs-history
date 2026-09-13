@@ -22,31 +22,31 @@ The following flow diagrams depict the possible outcomes of a proposal using thi
 **Example – Proposal approved with full member vote**  
 For the following proposal, all members cast a vote before the duration expired. The proposal is `APPROVED`, and an invitation is extended to the AWS account.  
 
-![Proposal workflow showing voting process, approval threshold evaluation, and invitation to AWS account.](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/approved_full.png)
+![Proposal workflow showing voting process, approval threshold evaluation, and invitation to AWS account.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/approved_full.png)
 
 
 **Example – Proposal approved with partial member vote**  
 For the following proposal, not all members cast a vote before the duration expired. However, enough Yes votes were cast to approve the proposal according to the voting policy. The proposal is `APPROVED`, and an invitation is extended to the AWS account.  
 
-![Voting workflow showing proposal creation, voting period, approval threshold evaluation, and invitation creation.](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/approved_partial.png)
+![Voting workflow showing proposal creation, voting period, approval threshold evaluation, and invitation creation.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/approved_partial.png)
 
 
 **Example – Proposal rejected with full member vote**  
 For the following proposal, all members cast a vote before the duration expired. Because the comparator in the voting policy is **greater than**, a three-to-three vote does not pass the threshold for approval. The proposal is `REJECTED`, and an invitation is not extended to the AWS account.  
 
-![Timeline showing proposal voting process with six votes cast, resulting in rejection due to three-to-three tie not meeting approval threshold.](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/rejected_full.png)
+![Timeline showing proposal voting process with six votes cast, resulting in rejection due to three-to-three tie not meeting approval threshold.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/rejected_full.png)
 
 
 **Example – Proposal rejected with partial member vote**  
 For the following proposal, not all members cast a vote before the duration expired. However, enough No votes were cast to reject the proposal according to the voting policy. The proposal is `REJECTED`, and an invitation is not extended to the AWS account.  
 
-![Proposal workflow showing voting timeline with insufficient yes votes, resulting in rejected status.](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/rejected_partial.png)
+![Proposal workflow showing voting timeline with insufficient yes votes, resulting in rejected status.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/rejected_partial.png)
 
 
 **Example – Proposal expires and is not approved**  
 For the following proposal, not all members cast a vote before the duration expired, and neither the number of Yes nor No votes were cast to determine the outcome of the proposal. The proposal is `EXPIRED`, and an invitation is not extended to the AWS account.  
 
-![Proposal workflow showing voting timeline with insufficient votes, resulting in expired status.](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/expired.png)
+![Proposal workflow showing voting timeline with insufficient votes, resulting in expired status.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/expired.png)
 
 
 ## View Proposals

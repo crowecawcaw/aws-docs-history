@@ -74,7 +74,7 @@ AMB Access publishes logged events to CloudWatch Logs every five seconds. By def
 
 While viewing events for any log in AMB Access, you can enter a keyword or phrase in the **Search events** box to show only those events that contain the search term. For example, you can enter a date, a date and time, or a log level such as `CRITICAL`, `DEBUG`, or `WARNING`. When you download a log after searching, only the events filtered by your search term are downloaded.
 
-![Screenshot of the log filtering UI for CA logs](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/filter_CA_logs.png)
+![Screenshot of the log filtering UI for CA logs](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/filter_CA_logs.png)
 
 
 ### Downloading Logged Events
@@ -107,7 +107,7 @@ Filter: "DEBUG"
 
 When viewing chaincode logs for a peer node with multiple chaincodes, you can choose the chaincode to view by choosing the chaincode name from the list next to **Logged events**. When you download a log, only the logged events for the chaincode that you are viewing are downloaded.
 
-![Screenshot of the log filtering UI for chaincode events](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/choose_chaincode_log.png)
+![Screenshot of the log filtering UI for chaincode events](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/choose_chaincode_log.png)
 
 
 ## Identifying Logs in CloudWatch Logs

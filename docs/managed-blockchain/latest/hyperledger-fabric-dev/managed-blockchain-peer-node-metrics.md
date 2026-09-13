@@ -49,4 +49,4 @@ You can use the Amazon Managed Blockchain (AMB) console to view graphs for peer 
 1. For **Channel Metrics**, choose the channels you want to view or compare from the list.
 
 1. Choose a chart and then use **Statistics**, **Time Range**, and **Period** to customize the chart.  
-![Customizing a metrics chart in AMB Access.](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/metrics_chart.png)
+![Customizing a metrics chart in AMB Access.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/metrics_chart.png)

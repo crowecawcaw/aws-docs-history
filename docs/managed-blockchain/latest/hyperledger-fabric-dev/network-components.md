@@ -21,7 +21,7 @@ A Hyperledger Fabric network on AMB Access remains active as long as there are m
 
 The following diagram shows the basic components of a Hyperledger Fabric blockchain running on AMB Access.
 
-![Hyperledger Fabric blockchain network on Amazon Managed Blockchain with three member nodes and VPC connections.](http://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/blockchain-architecture.png)
+![Hyperledger Fabric blockchain network on Amazon Managed Blockchain with three member nodes and VPC connections.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/images/blockchain-architecture.png)
 
 
 ## Inviting and Removing Members
