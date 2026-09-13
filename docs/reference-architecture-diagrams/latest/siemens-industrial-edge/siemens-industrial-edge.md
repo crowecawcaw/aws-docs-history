@@ -10,7 +10,7 @@ With this architecture, you can integrate [AWS IoT SiteWise](https://docs.aws.am
 ## Siemens Industrial Edge architecture diagram
 <a name="sie-diagram"></a>
 
-![Architecture diagram for integrating AWS IoT SiteWise Edge on Siemens Industrial Edge with AWS cloud services for industrial data and ML.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/siemens-industrial-edge/images/siemens-industrial-edge-on-aws-ra.png)
+![Architecture diagram for integrating AWS IoT SiteWise Edge on Siemens Industrial Edge with AWS cloud services for industrial data and ML.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/siemens-industrial-edge/images/siemens-industrial-edge-on-aws-ra.png)
 
 
 The following steps describe the architecture:
