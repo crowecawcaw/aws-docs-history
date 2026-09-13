@@ -10,7 +10,7 @@ With this architecture, you can optimize terminal and gate openings for airports
 ## Airport terminal optimizer diagram
 <a name="terminal-optimizer-diagram"></a>
 
-![Architecture for airport terminal optimization using AWS Glue, Amazon EMR, Amazon Athena, and Amazon Quick Sight.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/airport-terminal-optimizer/images/airport-terminal-optimizer-ra.png)
+![Architecture for airport terminal optimization using AWS Glue, Amazon EMR, Amazon Athena, and Amazon Quick Sight.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/airport-terminal-optimizer/images/airport-terminal-optimizer-ra.png)
 
 
 The following steps describe the architecture:
