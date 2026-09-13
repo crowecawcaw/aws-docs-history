@@ -7,7 +7,7 @@ We are no longer updating the Amazon Machine Learning service or accepting new u
 
 For regression tasks, the typical accuracy metrics are root mean square error (RMSE) and mean absolute percentage error (MAPE). These metrics measure the distance between the predicted numeric target and the actual numeric answer (ground truth). In Amazon ML, the RMSE metric is used to evaluate the predictive accuracy of a regression model.
 
-![Histogram showing prediction errors with bin width selector, centered near zero target value.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/mlconcepts_image4.png)
+![Histogram showing prediction errors with bin width selector, centered near zero target value.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/mlconcepts_image4.png)
 
 
 Figure 3: Distribution of residuals for a Regression model

@@ -14,7 +14,7 @@ We are no longer updating the Amazon Machine Learning service or accepting new u
    Using a friendly name, such as the default, helps you easily identify and manage the ML model. 
 
 1.  For **Training and evaluation settings**, ensure that **Default** is selected.  
-![Default option selected with Name this evaluation field showing Evaluation ML model: Banking Data 1.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image19.png)
+![Default option selected with Name this evaluation field showing Evaluation ML model: Banking Data 1.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image19.png)
 
 1.  For **Name this evaluation**, accept the default, **Evaluation: ML model: Banking Data 1**. 
 

@@ -58,7 +58,7 @@ Text:
 
  The target distributions report shows the distribution of the target attribute of the datasource. In the following example, there are 39,922 observations where the willRespondToCampaign target attribute equals 0. This is the number of customers who did not respond to the email campaign. There are 5,289 observations where willRespondToCampaign equals 1. This is the number of customers who responded to the email campaign. 
 
- ![Bar chart showing target distributions for willRespondToCampaign: 39,922 for one category, 5,289 for another.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image41.png) 
+ ![Bar chart showing target distributions for willRespondToCampaign: 39,922 for one category, 5,289 for another.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image41.png) 
 
 ### Missing Values
 <a name="missing-values"></a>
@@ -72,9 +72,9 @@ During ML model training, if the target attribute is missing, Amazon ML rejects 
 
  Invalid values can occur only with Numeric and Binary data types. You can find invalid values by viewing the summary statistics of variables in the data type reports. In the following examples, there is one invalid value in the duration Numeric attribute and two invalid values in the Binary data type (one in the housing attribute and one in the loan attribute). 
 
- ![Numeric Variables table showing duration variable with correlation, missing values, range, mean, median, and preview.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image42.png) 
+ ![Numeric Variables table showing duration variable with correlation, missing values, range, mean, median, and preview.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image42.png) 
 
- ![Binary Variables table showing correlations, percent true, and invalid values for variables.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image43.png) 
+ ![Binary Variables table showing correlations, percent true, and invalid values for variables.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image43.png) 
 
 ### Variable-Target Correlation
 <a name="variable-target-correlation"></a>
@@ -96,19 +96,19 @@ During ML model training, if the target attribute is missing, Amazon ML rejects 
 
 Summary statistics for the Binary data type show all binary attributes. The **Correlations to target** column shows the information shared between the target column and the attribute column. The **Percent true** column shows the percentage of observations that have value 1. The **Invalid values** column shows the number of invalid values as well as the percentage of invalid values for each attribute. The **Preview** column provides a link to a graphical distribution for each attribute. 
 
- ![](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image43.png) 
+ ![](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image43.png) 
 
 Summary statistics for the Categorical data type show all Categorical attributes with the number of unique values, most frequent value, and least frequent value. The **Preview** column provides a link to a graphical distribution for each attribute.
 
- ![Table showing categorical variables with correlations, unique values, frequencies, and preview charts.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image44.png) 
+ ![Table showing categorical variables with correlations, unique values, frequencies, and preview charts.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image44.png) 
 
 Summary statistics for the Numeric data type show all Numeric attributes with the number of missing values, invalid values, range of values, mean, and median. The **Preview** column provides a link to a graphical distribution for each attribute. 
 
- ![](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image42.png) 
+ ![](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image42.png) 
 
 Summary statistics for the Text data type show all of the Text attributes, the total number of words in that attribute, the number of unique words in that attribute, the range of words in an attribute, the range of word lengths, and the most prominent words. The **Preview** column provides a link to a graphical distribution for each attribute.
 
- ![Table showing text attributes with correlations, word counts, and ranges for a phrase.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image61.png) 
+ ![Table showing text attributes with correlations, word counts, and ranges for a phrase.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image61.png) 
 
 The next example shows the Text data type statistics for a text variable called review, with four records.
 
@@ -135,7 +135,7 @@ The columns for this example would show the following information.
 
  For example, the following screenshot shows the distribution for the categorical attribute jobId. The distribution displays the top 10 categorical values, with all other values grouped as "other". It ranks each of the top 10 categorical values with the number of observations in the input file that contain that value, as well as a link to view sample observations from the input data file. 
 
- ![Bar chart showing top 10 job categories with blue-collar highest at 9,732, followed by management at 9,458.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image45.png) 
+ ![Bar chart showing top 10 job categories with blue-collar highest at 9,732, followed by management at 9,458.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image45.png) 
 
 ### Understanding the Distribution of Numeric Attributes
 <a name="understanding-the-distribution-of-numeric-attributes"></a>
@@ -144,14 +144,14 @@ The columns for this example would show the following information.
 
  The minimum, mean, and maximum values are also displayed, as shown in the following screenshot. 
 
- ![Histogram showing duration distribution with most values under 500, ranging from 0 to 4918.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image46.png) 
+ ![Histogram showing duration distribution with most values under 500, ranging from 0 to 4918.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image46.png) 
 
 ### Understanding the Distribution of Text Attributes
 <a name="understanding-the-distribution-of-text-attributes"></a>
 
 To view the distribution of a text attribute, click the **Preview** link of the attribute. When viewing the distribution of a text attribute, you will see the following information.
 
- ![Table showing phrase rankings with tokens, word prominence scores, and counts for terms like film, movie, and good.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image62.png) 
+ ![Table showing phrase rankings with tokens, word prominence scores, and counts for terms like film, movie, and good.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image62.png) 
 
 **Ranking**  
 Text tokens are ranked by the amount of information they convey, most informative to least informative.

@@ -7,7 +7,7 @@ We are no longer updating the Amazon Machine Learning service or accepting new u
 
 The actual output of many binary classification algorithms is a prediction score. The score indicates the system’s certainty that the given observation belongs to the positive class. To make the decision about whether the observation should be classified as positive or negative, as a consumer of this score, you will interpret the score by picking a classification threshold (cut-off) and compare the score against it. Any observations with scores higher than the threshold are then predicted as the positive class and scores lower than the threshold are predicted as the negative class.
 
-![Figure 1: Score Distribution for a Binary Classification Model](http://docs.aws.amazon.com/machine-learning/latest/dg/images/mlconcepts_image2.png)
+![Figure 1: Score Distribution for a Binary Classification Model](https://docs.aws.amazon.com/machine-learning/latest/dg/images/mlconcepts_image2.png)
 
 
 Figure 1: Score Distribution for a Binary Classification Model

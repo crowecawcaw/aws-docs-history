@@ -33,7 +33,7 @@ Your actual cost may vary from this estimate for the following reasons:
 + Some of the data records might fail processing. You are not billed for predictions from failed data records.
 + The estimate doesn't take into account pre-existing credits or other adjustments that are applied by AWS.
 
- ![Batch prediction results page showing cost estimate of $4.20 and S3 destination input field.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image59b.png) 
+ ![Batch prediction results page showing cost estimate of $4.20 and S3 destination input field.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image59b.png) 
 
 ### Estimating Batch Prediction Cost When Only Data Size Is Available
 <a name="w2aab7c20c14b6"></a>
@@ -54,4 +54,4 @@ When neither data statistics nor the data size are available, Amazon ML cannot e
 
 When you create a real-time prediction endpoint using the Amazon ML console, you will be shown the estimated reserve capacity charge, which is an ongoing charge for reserving the endpoint for prediction processing. This charge varies based on the size of the model, as explained on the [service pricing page](https://aws.amazon.com/machine-learning/pricing/). You will also be informed about the standard Amazon ML real-time prediction charge. 
 
- ![Dialog box for creating a real-time endpoint showing model size, hourly cost, and per-prediction pricing.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image60b.png) 
+ ![Dialog box for creating a real-time endpoint showing model size, hourly cost, and per-prediction pricing.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image60b.png) 

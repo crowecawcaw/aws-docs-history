@@ -7,7 +7,7 @@ We are no longer updating the Amazon Machine Learning service or accepting new u
 
 Understanding model fit is important for understanding the root cause for poor model accuracy. This understanding will guide you to take corrective steps. We can determine whether a predictive model is underfitting or overfitting the training data by looking at the prediction error on the training data and the evaluation data.
 
-![Three graphs showing underfitting, balanced, and overfitting models with data points and trend lines.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/mlconcepts_image5.png)
+![Three graphs showing underfitting, balanced, and overfitting models with data points and trend lines.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/mlconcepts_image5.png)
 
 
 Your model is *underfitting* the training data when the model performs poorly on the training data. This is because the model is unable to capture the relationship between the input examples (often called X) and the target values (often called Y). Your model is *overfitting* your training data when you see that the model performs well on the training data but does not perform well on the evaluation data. This is because the model is memorizing the data it has seen and is unable to generalize to unseen examples.

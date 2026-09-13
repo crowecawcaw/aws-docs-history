@@ -10,7 +10,7 @@ When you no longer need your datasources, ML models, evaluations, and batch pred
 **Warning**  
 When you delete Amazon ML objects, the effect is immediate, permanent, and irreversible.
 
-![Objects table showing five completed items with names, types, IDs, status, and timestamps.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image58b.png)
+![Objects table showing five completed items with names, types, IDs, status, and timestamps.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image58b.png)
 
 
 ## Deleting Objects (Console)
@@ -22,7 +22,7 @@ You can use the Amazon ML console to delete objects, including models. The proce
 
 1. Sign in to the AWS Management Console and open the Amazon Machine Learning console at [https://console.aws.amazon.com/machinelearning/](https://console.aws.amazon.com/machinelearning/).
 
-1. Select the Amazon ML objects that you want to delete. To select more than one object, use the SHIFT key. To deselect all selected objects, use the ![Blue rectangular button with minus sign icon, indicating a removal or subtraction action.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/deselect-all.png) or ![Blue checkmark icon indicating a completed or selected state.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/deselect-all2.png) buttons.
+1. Select the Amazon ML objects that you want to delete. To select more than one object, use the SHIFT key. To deselect all selected objects, use the ![Blue rectangular button with minus sign icon, indicating a removal or subtraction action.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/deselect-all.png) or ![Blue checkmark icon indicating a completed or selected state.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/deselect-all2.png) buttons.
 
 1. For **Actions**, choose **Delete**.
 

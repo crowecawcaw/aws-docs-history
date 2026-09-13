@@ -36,7 +36,7 @@ To help you decide whether to enable real-time prediction, Amazon ML allows you 
 1. Choose the model that you want to use to try real-time predictions, such as the `Subscription propensity model` from the tutorial.
 
 1. On the ML model report page, under **Predictions**, choose **Summary**, and then choose **Try real-time predictions**.  
-![Tools section with Try real-time predictions link.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/try-real-time.png)
+![Tools section with Try real-time predictions link.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/try-real-time.png)
 
    Amazon ML shows a list of the variables that made up the data records that Amazon ML used to train your model.
 
@@ -51,7 +51,7 @@ The data in the data record must have the same number of columns as the training
 1. At the bottom of the page, choose **Create prediction**. Amazon ML returns the prediction immediately.
 
    In the **Prediction results** pane, you see the prediction object that the `Predict` API call returns, along with the ML model type, the name of the target variable, and the predicted class or value. For information about interpreting the results, see [Interpreting the Contents of Batch Prediction Files for a Binary Classification ML model](reading-the-batchprediction-output-files.md#interpreting-the-contents-of-batch-prediction-files-for-a-binary-classification-ml-model).  
-![Prediction results pane showing binary classification with predicted label 0 and score 0.03348433.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/real-time-result.png)
+![Prediction results pane showing binary classification with predicted label 0 and score 0.03348433.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/real-time-result.png)
 
 ## Creating a Real-Time Endpoint
 <a name="creating-a-real-time-endpoint"></a>
@@ -71,10 +71,10 @@ To generate real-time predictions, you need to create a real-time endpoint. To c
    A dialog box that explains how real-time predictions are priced appears.
 
 1. Choose **Create**. The real-time endpoint request is sent to Amazon ML and entered into a queue. The status of the real-time endpoint is **Updating**.  
-![Enable real-time predictions section showing Real-time endpoint status as Updating.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/endpoint-updating.png)
+![Enable real-time predictions section showing Real-time endpoint status as Updating.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/endpoint-updating.png)
 
 1. When the real-time endpoint is ready, the status changes to **Ready**, and Amazon ML displays the endpoint URL. Use the endpoint URL to create real-time prediction requests with the `Predict` API. For more information about using the `Predict` API, see [https://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html](https://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html) in the Amazon Machine Learning API Reference.  
-![Real-time endpoint status showing Ready with endpoint URL and 200 requests per second.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/endpoint-ready.png)
+![Real-time endpoint status showing Ready with endpoint URL and 200 requests per second.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/endpoint-ready.png)
 
 ## Locating the Real-time Prediction Endpoint (Console)
 <a name="locate-endpoint-by-console"></a>

@@ -11,7 +11,7 @@ In Amazon ML, you can use the k-fold cross-validation method to perform cross-va
 
 The following diagram shows an example of the training subsets and complementary evaluation subsets generated for each of the four models that are created and trained during a 4-fold cross-validation. Model one uses the first 25 percent of data for evaluation, and the remaining 75 percent for training. Model two uses the second subset of 25 percent (25 percent to 50 percent) for evaluation, and the remaining three subsets of the data for training, and so on.
 
-![Four rectangles showing data division for cross-validation models with training and evaluation subsets.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image63.png)
+![Four rectangles showing data division for cross-validation models with training and evaluation subsets.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image63.png)
 
 
 Each model is trained and evaluated using complementary datasources - the data in the evaluation datasource includes and is limited to all of the data that is not in the training datasource. You create datasources for each of these subsets with the `DataRearrangement` parameter in the `createDatasourceFromS3`, `createDatasourceFromRedShift`, and `createDatasourceFromRDS` APIs. In the `DataRearrangement` parameter, specify which subset of data to include in a datasource by specifying where to begin and end each segment. To create the complementary datasources required for a 4k-fold cross validation, specify the `DataRearrangement` parameter as shown in the following example:

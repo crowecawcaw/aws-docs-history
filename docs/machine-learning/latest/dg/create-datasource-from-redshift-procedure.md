@@ -82,7 +82,7 @@ When you want to create a datasource that is similar to an existing datasource, 
 1. On the Amazon ML dashboard, under **Entities**, choose **Create new...**, and then choose **Datasource**.
 
 1. On the **Input data** page, for **Where is your data?**, choose **Amazon Redshift**. If you already have a datasource created from Amazon Redshift data, you have the option of copying settings from another datasource.   
-![Amazon Redshift selected as data source with option to copy settings from existing datasource.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/infobar.png)
+![Amazon Redshift selected as data source with option to copy settings from existing datasource.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/infobar.png)
 
    If you don't already have a datasource created from Amazon Redshift data, this option doesn't appear.
 

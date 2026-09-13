@@ -20,12 +20,12 @@ Typical metrics used in multiclass are the same as the metrics used in the binar
 
 F1 score is a binary classification metric that considers both binary metrics precision and recall. It is the harmonic mean between precision and recall. The range is 0 to 1. A larger value indicates better predictive accuracy:
 
-![image54](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image53.png)
+![image54](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image53.png)
 
 
 The macro average F1 score is the unweighted average of the F1-score over all the classes in the multiclass case. It does not take into account the frequency of occurrence of the classes in the evaluation dataset. A larger value indicates better predictive accuracy. The following example shows K classes in the evaluation datasource:
 
-![image55](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image54.png)
+![image55](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image54.png)
 
 
 Baseline Macro Average F1 Score
@@ -39,7 +39,7 @@ Amazon ML provides a *confusion matrix* as a way to visualize the accuracy of mu
 
 For example, if you are trying to classify a movie into a genre, the predictive model might predict that its genre (class) is Romance. However, its true genre actually might be Thriller. When you evaluate the accuracy of a multiclass classification ML model, Amazon ML identifies these misclassifications and displays the results in the confusion matrix, as shown in the following illustration.
 
-![Predicted genre example.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image55.png)
+![Predicted genre example.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image55.png)
 
 
 The following information is displayed in a confusion matrix:

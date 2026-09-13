@@ -18,7 +18,7 @@ The range of predictions can differ from the range of the target in the training
 
 For regression tasks, Amazon ML uses the industry standard root mean square error (RMSE) metric. It is a distance measure between the predicted numeric target and the actual numeric answer (ground truth). The smaller the value of the RMSE, the better is the predictive accuracy of the model. A model with perfectly correct predictions would have an RMSE of 0. The following example shows evaluation data that contains N records:
 
-![image56](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image56.png)
+![image56](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image56.png)
 
 
 Baseline RMSE
@@ -30,4 +30,4 @@ Amazon ML provides a baseline metric for regression models. It is the RMSE for a
 
 It is common practice to review the *residuals* for regression problems. A residual for an observation in the evaluation data is the difference between the true target and the predicted target. Residuals represent the portion of the target that the model is unable to predict. A positive residual indicates that the model is underestimating the target (the actual target is larger than the predicted target). A negative residual indicates an overestimation (the actual target is smaller than the predicted target). The histogram of the residuals on the evaluation data when distributed in a bell shape and centered at zero indicates that the model makes mistakes in a random manner and does not systematically over or under predict any particular range of target values. If the residuals do not form a zero-centered bell shape, there is some structure in the model's prediction error. Adding more variables to the model might help the model capture the pattern that is not captured by the current model. The following illustration shows residuals that are not centered around zero.
 
-![image58](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image57.png)
+![image58](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image57.png)

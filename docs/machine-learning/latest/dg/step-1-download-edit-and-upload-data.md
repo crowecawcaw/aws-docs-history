@@ -16,7 +16,7 @@ In machine learning, you typically obtain the data and ensure that it is well fo
 1. Download the file that you will use to predict whether potential customers will respond to your offer by clicking [banking-batch.zip](samples/banking-batch.zip). Unzip the folder and save the banking-batch.csv file to your computer.
 
 1.  Open `banking.csv`. You will see rows and columns of data. The *header row* contains the attribute names for each column. An *attribute* is a unique, named property that describes a particular characteristic of each customer; for example, nr\_employed indicates the customer's employment status. Each row represents the collection of observations about a single customer.   
-![CSV file showing header row with column names euribor3m, nr_employed, and y above data rows.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image1.png)
+![CSV file showing header row with column names euribor3m, nr_employed, and y above data rows.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image1.png)
 
    You want your ML model to answer the question "Will this customer subscribe to my new product?". In the `banking.csv` dataset, the answer to this question is attribute **y**, which contains the values 1 (for yes) or 0 (for no). The attribute that you want Amazon ML to learn how to predict is known as the *target attribute*. 
 **Note**  
@@ -24,10 +24,10 @@ Attribute **y** is a binary attribute. It can contain only one of two values, in
 
  The following examples show the data before and after we changed the values in attribute **y** to the binary attributes 0 and 1. 
 
-![CSV file showing euribor3m and nr_employed columns with y values transformed from yes/no to 1/0.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image2.png)
+![CSV file showing euribor3m and nr_employed columns with y values transformed from yes/no to 1/0.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image2.png)
 
 
-![Data transformation showing banking.csv file with columns euribor3m, nr_employed, and y displayed.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image3.png)
+![Data transformation showing banking.csv file with columns euribor3m, nr_employed, and y displayed.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image3.png)
 
 
  The `banking-batch.csv` file doesn’t contain the **y** attribute. After you have created an ML model, you will use the model to predict **y** for each record in that file. 

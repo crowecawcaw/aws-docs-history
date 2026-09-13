@@ -9,7 +9,7 @@ Unlike the process for binary classification problems, you do not need to choose
 
 Typical metrics used in multiclass are the same as the metrics used in the binary classification case. The metric is calculated for each class by treating it as a binary classification problem after grouping all the other classes as belonging to the second class. Then the binary metric is averaged over all the classes to get either a macro average (treat each class equally) or weighted average (weighted by class frequency) metric. In Amazon ML, the macro average F1-measure is used to evaluate the predictive success of a multiclass classifier.
 
-![Confusion matrix showing predicted vs. true values for Romance, Thriller, and Adventure genres with F1 scores.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/mlconcepts_image3.png)
+![Confusion matrix showing predicted vs. true values for Romance, Thriller, and Adventure genres with F1 scores.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/mlconcepts_image3.png)
 
 
 Figure 2: Confusion Matrix for a multiclass classification model

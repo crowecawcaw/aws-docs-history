@@ -28,7 +28,7 @@ To explore the accuracy of the ML model, you can review the graphs on the **Eval
 
 An ML model that has good predictive accuracy will predict higher scores to the actual 1s and lower scores to the actual 0s. A perfect model will have the two histograms at two different ends of the x-axis showing that actual positives all got high scores and actual negatives all got low scores. However, ML models make mistakes, and a typical graph will show that the two histograms overlap at certain scores. An extremely poor performing model will be unable to distinguish between the positive and negative classes, and both classes will have mostly overlapping histograms.
 
-![image49](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image48b.png)
+![image49](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image48b.png)
 
 
 Using the visualizations, you can identify the number of predictions that fall into the two types of correct predictions and the two types of incorrect predictions.
@@ -61,7 +61,7 @@ Amazon ML provides the following additional metrics to measure the predictive ac
 
 *Accuracy* (ACC) measures the fraction of correct predictions. The range is 0 to 1. A larger value indicates better predictive accuracy:
 
-![image50](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image49.png)
+![image50](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image49.png)
 
 
 #### Precision
@@ -69,7 +69,7 @@ Amazon ML provides the following additional metrics to measure the predictive ac
 
 *Precision* measures the fraction of actual positives among those examples that are predicted as positive. The range is 0 to 1. A larger value indicates better predictive accuracy:
 
-![image51](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image50.png)
+![image51](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image50.png)
 
 
 #### Recall
@@ -77,7 +77,7 @@ Amazon ML provides the following additional metrics to measure the predictive ac
 
 *Recall* measures the fraction of actual positives that are predicted as positive. The range is 0 to 1. A larger value indicates better predictive accuracy:
 
-![image52](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image51.png)
+![image52](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image51.png)
 
 
 #### False Positive Rate
@@ -85,7 +85,7 @@ Amazon ML provides the following additional metrics to measure the predictive ac
 
 The *false positive rate* (FPR) measures the false alarm rate or the fraction of actual negatives that are predicted as positive. The range is 0 to 1. A smaller value indicates better predictive accuracy:
 
-![image53](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image52.png)
+![image53](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image52.png)
 
 
 Depending on your business problem, you might be more interested in a model that performs well for a specific subset of these metrics. For example, two business applications might have very different requirements for their ML model:

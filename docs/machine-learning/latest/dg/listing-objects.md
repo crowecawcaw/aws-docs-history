@@ -12,7 +12,7 @@ We are no longer updating the Amazon Machine Learning service or accepting new u
 
 To see a list of the last 1,000 objects that you've created, in the Amazon ML console, open the **Objects** dashboard. To display the **Objects** dashboard, log into the Amazon ML console. 
 
-![Objects dashboard showing a list of completed evaluations, ML models, and datasources.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image58b.png)
+![Objects dashboard showing a list of completed evaluations, ML models, and datasources.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image58b.png)
 
 
 To see more details about an object, including details that are specific to that object type, choose the object's name or ID. For example, to see the **Data insights** for a datasource, choose the datasource name.

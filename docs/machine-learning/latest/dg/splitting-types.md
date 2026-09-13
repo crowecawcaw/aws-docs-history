@@ -24,7 +24,7 @@ A simple way to split your input data for training and evaluation is to select n
 
 The following figure shows examples of when you should use a sequential splitting strategy versus when you should use a random strategy.
 
-![Two cases comparing sequential split strategies: Case 1 splits by month, Case 2 splits by target.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image64.png)
+![Two cases comparing sequential split strategies: Case 1 splits by month, Case 2 splits by target.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image64.png)
 
 
 When you create a datasource, you can choose to split your datasource sequentially, and Amazon ML uses the first 70 percent of your data for training and the remaining 30 percent of the data for evaluation. This is the default approach when you use the Amazon ML console to split your data.
@@ -36,7 +36,7 @@ Randomly splitting the input data into training and evaluation datasources ensur
 
 Amazon ML uses a seeded pseudo-random number generation method to split your data. The seed is based partly on an input string value and partially on the content of the data itself. By default, the Amazon ML console uses the S3 location of the input data as the string. API users can provide a custom string. This means that given the same S3 bucket and data, Amazon ML splits the data the same way every time. To change how Amazon ML splits the data, you can use the `CreateDatasourceFromS3`, `CreateDatasourceFromRedshift`, or `CreateDatasourceFromRDS` API and provide a value for the seed string. When using these APIs to create separate datasources for training and evaluation, it is important to use the same seed string value for both datasources and the complement flag for one datasource, to ensure that there is no overlap between the training and evaluation data.
 
-![List of movie genres split between training and evaluation datasources.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image65.png)
+![List of movie genres split between training and evaluation datasources.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image65.png)
 
 
 A common pitfall in developing a high-quality ML model is evaluating the ML model on data that is not similar to the data used for training. For example, say you are using ML to predict the genre of movies, and your training data contains movies from the Adventure, Comedy, and Documentary genres. However, your evaluation data contains only data from the Romance and Thriller genres. In this case, the ML model did not learn any information about the Romance and Thriller genres, and the evaluation did not evaluate how well the model learned patterns for the Adventure, Comedy, and Documentary genres. As a result, the genre information is useless, and the quality of the ML model predictions for all of the genres is compromised. The model and evaluation are too dissimilar (have extremely different descriptive statistics) to be useful. This can happen when input data is sorted by one of the columns in the dataset, and then split sequentially.

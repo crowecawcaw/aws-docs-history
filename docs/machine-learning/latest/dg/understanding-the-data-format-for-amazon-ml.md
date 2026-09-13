@@ -7,7 +7,7 @@ We are no longer updating the Amazon Machine Learning service or accepting new u
 
  Input data is the data that you use to create a datasource. You must save your input data in the comma-separated values (.csv) format. Each row in the .csv file is a single data record or observation. Each column in the .csv file contains an attribute of the observation. For example, the following figure shows the contents of a .csv file that has four observations, each in its own row. Each observation contains eight attributes, separated by a comma. The attributes represent the following information about each individual represented by an observation: customerId,jobId,education,housing,loan,campaign,duration,willRespondToCampaign.
 
- ![Diagram showing Attributes and Observations sections with sample data entries.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image39.png) 
+ ![Diagram showing Attributes and Observations sections with sample data entries.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image39.png) 
 
 ## Attributes
 <a name="attributes"></a>
@@ -77,6 +77,6 @@ You would provide the following S3 location as input to Amazon ML:
 
 1.  Choose **Save**. 
 
-    ![Save dialog showing Windows Comma Separated format selected from file format dropdown menu.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image40b.png) 
+    ![Save dialog showing Windows Comma Separated format selected from file format dropdown menu.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image40b.png) 
 **Important**  
  Do not save the .csv file by using the **Comma Separated Values (.csv)** or **MS-DOS Comma Separated (.csv)** formats because Amazon ML is unable to read them.

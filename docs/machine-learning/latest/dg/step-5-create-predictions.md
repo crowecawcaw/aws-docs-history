@@ -21,10 +21,10 @@ For applications that require real-time predictions, you must create a real-time
 **To try a real-time prediction**
 
 1. In the **ML model report** navigation pane, choose **Try real-time predictions**.  
-![ML model report navigation pane with Try real-time predictions option highlighted.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/try-real-time-prediction-menu.png)
+![ML model report navigation pane with Try real-time predictions option highlighted.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/try-real-time-prediction-menu.png)
 
 1. Choose **Paste a record**.   
-![Paste a record button highlighted in the real-time predictions interface.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/paste-a-record.png)
+![Paste a record button highlighted in the real-time predictions interface.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/paste-a-record.png)
 
 1. In the **Paste a record** dialog box, paste the following observation:
 
@@ -33,21 +33,21 @@ For applications that require real-time predictions, you must create a real-time
    ```
 
 1. In the **Paste a record** dialog box, choose **Submit** to confirm that you want to generate a prediction for this observation. Amazon ML populates the values in the real-time prediction form.  
-![Table row showing age attribute with Numeric type and value of 32.0.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/value-column.png)
+![Table row showing age attribute with Numeric type and value of 32.0.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/value-column.png)
 **Note**  
 You can also populate the **Value** fields by typing in individual values. Regardless of the method you choose, you should provide an observation that wasn't used to train the model.
 
 1. At the bottom of the page, choose **Create prediction**. 
 
    The prediction appears in the **Prediction results** pane on the right. This prediction has a **Predicted label** of `0`, which means that this potential customer is unlikely to respond to the campaign. A **Predicted label** of `1` would mean that the customer is likely to respond to the campaign.  
-![Prediction results pane showing predicted label 0 with score 0.03348433 using SGD algorithm.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/real-time-result.png)
+![Prediction results pane showing predicted label 0 with score 0.03348433 using SGD algorithm.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/real-time-result.png)
 
 Now, create a batch prediction. You will provide Amazon ML with the name of the ML model you are using; the Amazon Simple Storage Service (Amazon S3) location of the input data for which you want to generate predictions (Amazon ML will create a batch prediction datasource from this data); and the Amazon S3 location for storing the results. 
 
 **To create a batch prediction**
 
 1. Choose **Amazon Machine Learning**, and then choose **Batch Predictions**.  
-![Amazon Machine Learning menu expanded showing Dashboard, Datasources, ML Models, Evaluations, and Batch Predictions options.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image29.png)
+![Amazon Machine Learning menu expanded showing Dashboard, Datasources, ML Models, Evaluations, and Batch Predictions options.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image29.png)
 
 1. Choose **Create new batch prediction**.
 
@@ -60,7 +60,7 @@ Now, create a batch prediction. You will provide Amazon ML with the name of the 
 1. To generate predictions, you need to provide Amazon ML the data that you need predictions for. This is called the *input data*. First, put the input data into a datasource so that Amazon ML can access it.
 
    For **Locate the input data**, choose **My data is in S3, and I need to create a datasource**.  
-![Two radio button options: one for existing datasource, one selected for creating new datasource.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image31.png)
+![Two radio button options: one for existing datasource, one selected for creating new datasource.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image31.png)
 
 1. For **Datasource name**, type **Banking Data 2**. 
 
@@ -81,7 +81,7 @@ Now, create a batch prediction. You will provide Amazon ML with the name of the 
 1. Choose **Review**.
 
 1. In the **S3 permissions** dialog box, choose **Yes**.  
-![S3 permissions dialog box requesting write permission with No and Yes buttons.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image32.png)
+![S3 permissions dialog box requesting write permission with No and Yes buttons.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image32.png)
 
 1. On the **Review** page, choose **Finish**.
 
@@ -90,18 +90,18 @@ Now, create a batch prediction. You will provide Amazon ML with the name of the 
 **To view the predictions**
 
 1. Choose **Amazon Machine Learning**, and then choose **Batch Predictions**.  
-![Amazon Machine Learning navigation menu with Batch Predictions option highlighted.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image33.png)
+![Amazon Machine Learning navigation menu with Batch Predictions option highlighted.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image33.png)
 
 1. In the list of predictions, choose **Batch prediction: ML model: Banking Data 1**. The **Batch prediction info** page appears.  
-![Batch prediction details showing ID, creation time, status, datasource ID, model ID, and S3 URLs.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image34.png)
+![Batch prediction details showing ID, creation time, status, datasource ID, model ID, and S3 URLs.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image34.png)
 
 1. To view the results of the batch prediction, go to the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/) and navigate to the Amazon S3 location referenced in the **Output S3 URL** field. From there, navigate to the results folder, which will have a name similar to `s3://aml-data/batch-prediction/result`.   
-![S3 bucket showing the bp-u5DMGZYFa9I-banking-batch.csv.gz file in the result folder.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image35.png)
+![S3 bucket showing the bp-u5DMGZYFa9I-banking-batch.csv.gz file in the result folder.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image35.png)
 
    The prediction is stored in a compressed .gzip file with the .gz extension.
 
 1. Download the prediction file to your desktop, uncompress it, and open it.  
-![Table showing bestAnswer scores with values ranging from 0.06046 to 0.30811.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image36.png)
+![Table showing bestAnswer scores with values ranging from 0.06046 to 0.30811.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image36.png)
 
    The file has two columns, **bestAnswer** and **score**, and a row for each observation in your datasource. The results in the **bestAnswer** column are based on the score threshold of 0.77 that you set in [Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold](step-4-review-model-and-set-cutoff.md). A **score** greater than 0.77 results in a **bestAnswer** of 1, which is a positive response or prediction, and a **score** less than 0.77 results in a **bestAnswer** of 0, which is a negative response or prediction.
 
@@ -109,14 +109,14 @@ Now, create a batch prediction. You will provide Amazon ML with the name of the 
 
  Positive prediction: 
 
-![Table showing bestAnswer score of 1 with confidence value 0.8228876.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image37.png)
+![Table showing bestAnswer score of 1 with confidence value 0.8228876.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image37.png)
 
 
 In this example, the value for **bestAnswer** is 1, and the value of **score** is 0.8228876. The value for **bestAnswer** is 1 because the **score** is greater than the score threshold of 0.77. A **bestAnswer** of 1 indicates that the customer is likely to purchase your product, and is, therefore, considered a positive prediction.
 
  Negative prediction: 
 
-![Table showing bestAnswer score of 0 and a numerical score of 0.7693356.](http://docs.aws.amazon.com/machine-learning/latest/dg/images/image38.png)
+![Table showing bestAnswer score of 0 and a numerical score of 0.7693356.](https://docs.aws.amazon.com/machine-learning/latest/dg/images/image38.png)
 
 
  In this example, the value of **bestAnswer** is 0 because the **score** value is 0.7695356, which is less than the score threshold of 0.77. The **bestAnswer** of 0 indicates that the customer is unlikely to purchase your product, and is, therefore, considered a negative prediction.
