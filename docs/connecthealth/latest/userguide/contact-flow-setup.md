@@ -28,7 +28,7 @@ To find the sample contact flow:
 
 You can assign this flow to your preferred phone number if the provisioned number doesn’t fit your workflows.
 
-![Sample Connect Health Contact Flow](http://docs.aws.amazon.com/connecthealth/latest/userguide/images/sample-contact-flow.png)
+![Sample Connect Health Contact Flow](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/sample-contact-flow.png)
 
 
 ## Provisioned resources

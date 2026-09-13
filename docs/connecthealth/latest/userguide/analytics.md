@@ -5,7 +5,7 @@
 
 The analytics dashboard provides operational visibility into your AI agent performance and business impact. You can view key performance indicators (KPIs), track trends over time, and export detailed task metrics for further analysis.
 
-![The analytics dashboard showing KPI summary cards and charts](http://docs.aws.amazon.com/connecthealth/latest/userguide/images/full-dashboard.png)
+![The analytics dashboard showing KPI summary cards and charts](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/full-dashboard.png)
 
 
 ## Viewing the analytics dashboard
@@ -47,7 +47,7 @@ You can also specify a custom relative range in days or weeks, or select an abso
 + The maximum date range is 30 days.
 + The start date must be within the last 90 days.
 
-![The date range picker showing date range options](http://docs.aws.amazon.com/connecthealth/latest/userguide/images/relative-date-view.png)
+![The date range picker showing date range options](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/relative-date-view.png)
 
 
 ## Exporting task metrics

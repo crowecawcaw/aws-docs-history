@@ -55,7 +55,7 @@ Your Epic Administrator installs the Amazon Connect Health application and confi
 
 After installation, configure your EHR integration in the Amazon Connect Health console using the fields described in [Configuration fields](#ehr-configuration-fields).
 
-![EHR integration in the Amazon Connect Health application](http://docs.aws.amazon.com/connecthealth/latest/userguide/images/ehr-integration-console.png)
+![EHR integration in the Amazon Connect Health application](https://docs.aws.amazon.com/connecthealth/latest/userguide/images/ehr-integration-console.png)
 
 
 ## Authentication configuration
