@@ -19,7 +19,7 @@ The following are important concepts to understand as you get started using AWS 
 
 The following diagram provides a high-level overview of how AWS PrivateLink works. Consumers create VPC endpoints to connect to endpoint services and resources that are hosted by providers.
 
-![Service consumers create VPC endpoints to connect to endpoint services and resources hosted by providers.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/privatelink-concepts.png)
+![Service consumers create VPC endpoints to connect to endpoint services and resources hosted by providers.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/privatelink-concepts.png)
 
 
 ## Providers

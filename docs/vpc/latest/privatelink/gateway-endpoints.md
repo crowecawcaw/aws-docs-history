@@ -29,13 +29,13 @@ You can access Amazon S3 and DynamoDB through their public service endpoints or 
 **Access through an internet gateway**  
 The following diagram shows how instances access Amazon S3 and DynamoDB through their public service endpoints. Traffic to Amazon S3 or DynamoDB from an instance in a public subnet is routed to the internet gateway for the VPC and then to the service. Instances in a private subnet can't send traffic to Amazon S3 or DynamoDB, because by definition private subnets do not have routes to an internet gateway. To enable instances in the private subnet to send traffic to Amazon S3 or DynamoDB, you would add a NAT device to the public subnet and route traffic in the private subnet to the NAT device. While traffic to Amazon S3 or DynamoDB traverses the internet gateway, it does not leave the AWS network.
 
-![Traffic leaves your VPC through an internet gateway, but stays in the AWS network.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/without-gateway-endpoints.png)
+![Traffic leaves your VPC through an internet gateway, but stays in the AWS network.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/without-gateway-endpoints.png)
 
 
 **Access through a gateway endpoint**  
 The following diagram shows how instances access Amazon S3 and DynamoDB through a gateway endpoint. Traffic from your VPC to Amazon S3 or DynamoDB is routed to the gateway endpoint. Each subnet route table must have a route that sends traffic destined for the service to the gateway endpoint using the prefix list for the service. For more information, see [AWS-managed prefix lists](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-aws-managed-prefix-lists.html) in the *Amazon VPC User Guide*.
 
-![Traffic from your VPC is routed to the gateway endpoint.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/gateway-endpoints.png)
+![Traffic from your VPC is routed to the gateway endpoint.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/gateway-endpoints.png)
 
 
 ## Routing

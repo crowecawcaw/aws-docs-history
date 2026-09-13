@@ -34,13 +34,13 @@ You can access AWS services through their public service endpoints or connect to
 **Access through public service endpoints**  
 The following diagram shows how instances access AWS services through the public service endpoints. Traffic to an AWS service from an instance in a public subnet is routed to the internet gateway for the VPC and then to the AWS service. Traffic to an AWS service from an instance in a private subnet is routed to a NAT gateway, then to the internet gateway for the VPC, and then to the AWS service. While this traffic traverses the internet gateway, it does not leave the AWS network.
 
-![Traffic to an AWS service leaves your VPC through an internet gateway, but stays in the AWS network.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/access-with-igw.png)
+![Traffic to an AWS service leaves your VPC through an internet gateway, but stays in the AWS network.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/access-with-igw.png)
 
 
 **Connect through AWS PrivateLink**  
 The following diagram shows how instances access AWS services through AWS PrivateLink. First, you create an interface VPC endpoint, which establishes connections between the subnets in your VPC and an AWS service using network interfaces. Traffic destined for the AWS service is resolved to the private IP addresses of the endpoint network interfaces using DNS, and then sent to the AWS service using the connection between the VPC endpoint and the AWS service.
 
-![Traffic from a subnet uses an interface VPC endpoint to connect to an AWS service.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/access-with-privatelink.png)
+![Traffic from a subnet uses an interface VPC endpoint to connect to an AWS service.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/access-with-privatelink.png)
 
 
 AWS services accept connection requests automatically. The service can't initiate requests to resources through the VPC endpoint.
@@ -137,17 +137,17 @@ In a production environment, for high availability and resiliency, we recommend 
 
 The following diagram shows a VPC endpoint for Amazon CloudWatch with an endpoint network interface in a single Availability Zone. When any resource in any subnet in the VPC accesses Amazon CloudWatch using its public endpoint, we resolve the traffic to the IP address of the endpoint network interface. This includes traffic from subnets in other Availability Zones. However, if Availability Zone 1 is impaired, the resources in Availability Zone 2 lose access to Amazon CloudWatch.
 
-![An interface VPC endpoint for Amazon CloudWatch enabled for a single Availability Zone.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/interface-endpoint-single-az.png)
+![An interface VPC endpoint for Amazon CloudWatch enabled for a single Availability Zone.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/interface-endpoint-single-az.png)
 
 
 The following diagram shows a VPC endpoint for Amazon CloudWatch with endpoint network interfaces in two Availability Zones. When any resource in any subnet in the VPC accesses Amazon CloudWatch by using its public endpoint, we select a healthy endpoint network interface, using the round robin algorithm to alternate between them. We then resolve the traffic to the IP address of the selected endpoint network interface.
 
-![An interface VPC endpoint for Amazon CloudWatch enabled for multiple Availability Zones.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/interface-endpoint-multi-az.png)
+![An interface VPC endpoint for Amazon CloudWatch enabled for multiple Availability Zones.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/interface-endpoint-multi-az.png)
 
 
 If it's better for your use case, you can send traffic from your resources to the AWS service by using the endpoint network interface in the same Availability Zone. To do so, use the private zonal endpoint or IP address of the endpoint network interface.
 
-![An interface VPC endpoint with traffic using the private zonal endpoints.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/interface-endpoint-multi-az-zonal.png)
+![An interface VPC endpoint with traffic using the private zonal endpoints.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/interface-endpoint-multi-az-zonal.png)
 
 
 ## IP address types

@@ -43,7 +43,7 @@ When you configure your interface endpoint for Amazon S3 to use private DNS only
 **Private DNS**  
 If you configure private DNS for your interface endpoint for Amazon S3 but do not configure private DNS only for the inbound Resolver endpoint, requests from both your on-premises network and your VPC use the interface endpoint to access Amazon S3. Therefore, you pay to use the interface endpoint for traffic from the VPC, instead of using the gateway endpoint for no additional charge.
 
-![Amazon S3 request routing with both endpoint types.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/s3-private-dns-default.png)
+![Amazon S3 request routing with both endpoint types.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/s3-private-dns-default.png)
 
 
 **Private DNS only for the inbound Resolver endpoint**  
@@ -51,7 +51,7 @@ If you configure private DNS only for the inbound Resolver endpoint, requests fr
 
 In order to configure this, the DNS record IP type of the gateway endpoint must match the interface endpoint or be `service-defined`. AWS PrivateLink doesn't support any other combination. For more information, see [DNS record IP type](gateway-endpoints.md#gateway-endpoint-dns-record-ip-type).
 
-![Amazon S3 request routing with private DNS and an inbound Resolver endpoint.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/s3-private-dns-inbound-endpoint.png)
+![Amazon S3 request routing with private DNS and an inbound Resolver endpoint.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/s3-private-dns-inbound-endpoint.png)
 
 
 **Configure private DNS**  

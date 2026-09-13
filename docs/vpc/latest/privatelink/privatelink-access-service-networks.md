@@ -31,7 +31,7 @@ You can either create your own service network, or a service network can be shar
 
 The following diagram shows how a service-network endpoint in your VPC accesses a service network.
 
-![A service-network endpoint connects to a service network.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/service-network-endpoint.png)
+![A service-network endpoint connects to a service network.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/service-network-endpoint.png)
 
 
 Network connections can only be initiated from the VPC that has the service-network endpoint to the resources and services in the service network. The VPC with the resources and services can't initiate network connections into the endpoint VPC.

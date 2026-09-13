@@ -27,7 +27,7 @@ You can access resources in your account or those that have been shared with you
 
 The following image shows a resource endpoint in a consumer account accessing a resource that is owned by a different account and shared through AWS RAM:
 
-![A resource endpoint in a consumer VPC accesses a resource in a different VPC.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/access-resource-via-endpoint.png)
+![A resource endpoint in a consumer VPC accesses a resource in a different VPC.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/access-resource-via-endpoint.png)
 
 
 ### Considerations

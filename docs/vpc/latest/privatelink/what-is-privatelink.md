@@ -12,7 +12,7 @@ You can create VPC endpoints to connect clients in your VPC to services and reso
 
 In the following diagram, the VPC on the left has several Amazon EC2 instances in a private subnet and five VPC endpoints - three interface VPC endpoints, a resource VPC endpoint and a service-network VPC endpoint. The first interface VPC endpoint connects to an AWS service. The second interface VPC endpoint connects to a service hosted by another AWS account (a VPC endpoint service). The third interface VPC endpoint connects to an AWS Marketplace partner service. The resource VPC endpoint connects to a database. The service network VPC endpoint connects to a service network.
 
-![Connect to an AWS service, an endpoint service in another AWS account, a partner service, a VPC resource, or VPC Lattice service network.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/use-cases.png)
+![Connect to an AWS service, an endpoint service in another AWS account, a partner service, a VPC resource, or VPC Lattice service network.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/use-cases.png)
 
 
 **Learn more**

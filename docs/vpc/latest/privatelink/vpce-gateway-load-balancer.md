@@ -22,7 +22,7 @@ For more information, see [Gateway Load Balancers](https://docs.aws.amazon.com/e
 
 The following diagram shows how application servers access security appliances through AWS PrivateLink. The application servers run in a subnet of the service consumer VPC. You create a Gateway Load Balancer endpoint in another subnet of the same VPC. All traffic entering the service consumer VPC through the internet gateway is first routed to the Gateway Load Balancer endpoint for inspection and then routed to the destination subnet. Similarly, all traffic leaving the application servers is routed to the Gateway Load Balancer endpoint for inspection before it is routed back through the internet gateway.
 
-![Using a Gateway Load Balancer endpoint to access security appliances.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/gateway-load-balancer-endpoint.png)
+![Using a Gateway Load Balancer endpoint to access security appliances.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/gateway-load-balancer-endpoint.png)
 
 
 **Traffic from the internet to the application servers (blue arrows):**

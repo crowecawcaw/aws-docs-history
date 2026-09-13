@@ -18,7 +18,7 @@ You can also find SaaS products powered by AWS PrivateLink from AWS Partners. Fo
 
 The following diagram shows how you use VPC endpoints to connect to SaaS products. The service provider creates an endpoint service and grants their customers access to the endpoint service. As the service consumer, you create an interface VPC endpoint, which establishes connections between one or more subnets in your VPC and the endpoint service.
 
-![A service consumer and a service provider.](http://docs.aws.amazon.com/vpc/latest/privatelink/images/endpoint-services.png)
+![A service consumer and a service provider.](https://docs.aws.amazon.com/vpc/latest/privatelink/images/endpoint-services.png)
 
 
 ## Create an interface endpoint
