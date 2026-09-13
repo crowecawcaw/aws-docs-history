@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,14 +13,14 @@
 <a name="CLTReference_LoadHITsCommand"></a>
 
 ## Description
-<a name="w2aab9c43b2"></a>
+<a name="w2aac11c43b2"></a>
 
  The `loadHITs` command loads HITs into Amazon Mechanical Turk. Before you can use this command, you must create an `input` file, a `question` file, and a `properties` file. If you are loading a single HIT, your `question` file can contain the question information. The `question` file is an XML file that conforms to the [QuestionForm Data Structure](http://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_QuestionFormDataStructureArticle.html). If you are loading multiple HITs, you should create a question template file. This file has the same XML format as the `question` file, but it contains placeholders for the fields defined in the `input` file. For each row in the `input` file, the system inserts the the fields into the placeholders of the template file. The number of rows in the `input` file determines how many HITs are created. For more information about these files, see [Files Used by the Command Line Tools](CLTFilesArticle.md). 
 
  If the HITs load successfully, this operation creates a `.success` file with the same name as your `.input` file. That is, if your input file is called `MyHITs.input`, then the `.success` file will be `MyHITs.success`. If the HITs do not load successfully, this operation creates a `.failure` file with the same name as your `.input` file. If you want to call this command multiple times with the same input file, you can use the `label` argument to change the name of the created file. For more information about the `.success` file and the `.failure` file see [Files Used by the Command Line Tools](CLTFilesArticle.md). 
 
 ## Arguments
-<a name="w2aab9c43b4"></a>
+<a name="w2aac11c43b4"></a>
 
  The following table describes the arguments for the `loadHITs` command. 
 
@@ -36,12 +38,12 @@
 | `-sandbox` |  Runs this command in the Amazon Mechanical Turk sandbox for testing. This argument takes precedence even if you specify the production web site in your `mturk.properties` file. <br /> Example:`-sandbox`  | No | 
 
 ## Example
-<a name="w2aab9c43b6"></a>
+<a name="w2aac11c43b6"></a>
 
  The following examples for Unix and Windows show how to use the `loadHITs` command. This example loads five HITs using the information found in the `survey.input`, `survey.question`, and `survey.properties` files found in the directory `..\survey`. 
 
 ### Unix
-<a name="w2aab9c43b6b4"></a>
+<a name="w2aac11c43b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -50,7 +52,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c43b6b6"></a>
+<a name="w2aac11c43b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -59,7 +61,7 @@ loadHITs -input ..\survey\survey.input -question ..\survey\survey.question -prop
 ```
 
 ## Output
-<a name="w2aab9c43b8"></a>
+<a name="w2aac11c43b8"></a>
 
 These examples create a `.success` file with the same path and name as the file specified by the`-input` argument. In these examples, the returned file is `survey.sucess` in the `..\survey` directory. The command produces the following output.
 
@@ -88,7 +90,7 @@ You may see your HIT(s) with HITTypeId 'YTXZ13ZWEYFZRBZ4V120' here:
 ```
 
 ## Related Commands
-<a name="w2aab9c43c10"></a>
+<a name="w2aac11c43c10"></a>
 
  
 +  [getResults](CLTReference_GetResultsCommand.md) 

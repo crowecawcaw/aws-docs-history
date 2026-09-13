@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,12 +13,12 @@
 <a name="CLTReference_UpdateQualificationTypeCommand"></a>
 
 ## Description
-<a name="w2aab9c73b2"></a>
+<a name="w2aac11c73b2"></a>
 
  The `updateQualificationType` command updates the properties of your Qualification. 
 
 ## Arguments
-<a name="w2aab9c73b4"></a>
+<a name="w2aac11c73b4"></a>
 
  The following table describes the arguments for the `updateQualificationType` command. 
 
@@ -32,12 +34,12 @@
 | `-sandbox` |  Runs this command in the Amazon Mechanical Turk sandbox for testing. This argument takes precedence even if you specify the production web site in your `mturk.properties` file. <br /> Example:`-sandbox`  | No | 
 
 ## Example
-<a name="w2aab9c73b6"></a>
+<a name="w2aac11c73b6"></a>
 
  The following examples for Unix and Windows show how to use the `updateQualificationType` command. These examples update the Qualification test. 
 
 ### Unix
-<a name="w2aab9c73b6b4"></a>
+<a name="w2aac11c73b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -46,7 +48,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c73b6b6"></a>
+<a name="w2aac11c73b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -55,7 +57,7 @@ updateQualificationType -qualtypeid RWFZTKZ55ZPZXN1C8TDZ -question survey.questi
 ```
 
 ## Output
-<a name="w2aab9c73b8"></a>
+<a name="w2aac11c73b8"></a>
 
 These examples produce the following output.
 

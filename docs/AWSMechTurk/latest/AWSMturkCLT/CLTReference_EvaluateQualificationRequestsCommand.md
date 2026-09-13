@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,7 +13,7 @@
 <a name="CLTReference_EvaluateQualificationRequestsCommand"></a>
 
 ## Description
-<a name="w2aab9c25b2"></a>
+<a name="w2aac11c25b2"></a>
 
  The `evaluateQualificationRequests` command evaluates the answers submitted by Workers so you can approve or reject the Qualification requests. You can use the `preview` argument to view the results before you approve them. If you run this command without the `preview` argument, the request is approved or rejected. 
 
@@ -25,7 +27,7 @@
  For more information about Qualifications, see the [Amazon Mechanical Turk Developer Guide](http://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/). 
 
 ## Arguments
-<a name="w2aab9c25b4"></a>
+<a name="w2aac11c25b4"></a>
 
  The following table describes the arguments for the `evaluateQualificationRequests` command. 
 
@@ -40,12 +42,12 @@
 | `-sandbox` |  Runs this command in the Amazon Mechanical Turk sandbox for testing. This argument takes precedence even if you specify the production web site in your `mturk.properties` file. <br /> Example:`-sandbox`  | No | 
 
 ## Example
-<a name="w2aab9c25b6"></a>
+<a name="w2aac11c25b6"></a>
 
  The following examples for Unix and Windows show how to use the `evaluateQualificationRequests` command. These examples preview the results. 
 
 ### Unix
-<a name="w2aab9c25b6b4"></a>
+<a name="w2aac11c25b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -54,7 +56,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c25b6b6"></a>
+<a name="w2aac11c25b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -63,7 +65,7 @@ evaluateQualificationRequests -answers qualification.answerkey -qualtypeid RWFZT
 ```
 
 ## Output
-<a name="w2aab9c25b8"></a>
+<a name="w2aac11c25b8"></a>
 
 These examples produce the following output.
 
@@ -78,7 +80,7 @@ Worker A3C4G8DMFSG5PQ has PASSED your test and scored 100
 ```
 
 ## Related Commands
-<a name="w2aab9c25c10"></a>
+<a name="w2aac11c25c10"></a>
 
  
 +  [getQualificationRequests](CLTReference_GetQualificationRequestsCommand.md) 

@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,12 +13,12 @@
 <a name="CLTReference_GetBalanceCommand"></a>
 
 ## Description
-<a name="w2aab9c31b2"></a>
+<a name="w2aac11c31b2"></a>
 
  The `getBalance` command retrieves the available balance in your Amazon Mechanical Turk account. This amount is your current balance minus any outstanding payments, fees, or bonuses you owe. 
 
 ## Arguments
-<a name="w2aab9c31b4"></a>
+<a name="w2aac11c31b4"></a>
 
  The following table describes the arguments for the `getBalance` command. 
 
@@ -27,12 +29,12 @@
 |  `‑sandbox`  |  Runs this command in the Amazon Mechanical Turk sandbox and gets your sandbox account balance. This amount is always $10000.00. This argument takes precedence even if you specify the production web site in your `mturk.properties` file. <br /> Example:`-sandbox`  | No | 
 
 ## Example
-<a name="w2aab9c31b6"></a>
+<a name="w2aac11c31b6"></a>
 
  The following examples for Unix and Windows show how to use the `getBalance` command. 
 
 ### Unix
-<a name="w2aab9c31b6b4"></a>
+<a name="w2aac11c31b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -41,7 +43,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c31b6b6"></a>
+<a name="w2aac11c31b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -50,7 +52,7 @@ getBalance
 ```
 
 ## Output
-<a name="w2aab9c31b8"></a>
+<a name="w2aac11c31b8"></a>
 
 This example produces output similar to the following.
 

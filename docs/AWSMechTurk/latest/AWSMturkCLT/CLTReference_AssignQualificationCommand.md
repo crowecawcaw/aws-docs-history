@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,14 +13,14 @@
 <a name="CLTReference_AssignQualificationCommand"></a>
 
 ## Description
-<a name="w2aab9c13b2"></a>
+<a name="w2aac11c13b2"></a>
 
  The `assignQualification` command assigns a Qualification to a Worker without the Worker requesting the Qualification. There are two ways to use this operation: 
 + **Bulk Operation—** If you want to assign multiple Qualifications, use this command with a file that contains the Qualification Type ID and the list of Workers to be assigned the Qualfication.
 + **Single Assignmentn—** You can specify the Qualification Type ID, the Worker, and the assigned Qualification score on the command line.
 
 ## Arguments
-<a name="w2aab9c13b4"></a>
+<a name="w2aac11c13b4"></a>
 
  The following table describes the arguments for the `assignQualification` command. 
 
@@ -35,12 +37,12 @@
 | `-workerid [Worker ID]` |  Specifies the ID of the Worker you want to assign the Qualification to. <br />Condition: Required if the `scorefile` argument is not specified.<br />Example: `-workerid A3C4G8DMXFG5PQ` | Conditional | 
 
 ## Example
-<a name="w2aab9c13b6"></a>
+<a name="w2aac11c13b6"></a>
 
  The following examples for Unix and Windows show how to use the `AssignQualification` command. The examples demonstrate a single assignment. 
 
 ### Unix
-<a name="w2aab9c13b6b4"></a>
+<a name="w2aac11c13b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -49,7 +51,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c13b6b6"></a>
+<a name="w2aac11c13b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -58,7 +60,7 @@ assignQualification -qualtypeid RWFZTKZ55ZPZXN1C8TDZ -workerid A3C4G8DMXFG5PQ -s
 ```
 
 ## Output
-<a name="w2aab9c13b8"></a>
+<a name="w2aac11c13b8"></a>
 
 These examples produce the following output.
 
@@ -67,7 +69,7 @@ Assigned qualification RWFZTKZ55ZPZXN1C8TDZ to A3C4G8DMXFG5PQ with value 100
 ```
 
 ## Related Commands
-<a name="w2aab9c13c10"></a>
+<a name="w2aac11c13c10"></a>
 
  
 +  [createQualificationType](CLTReference_CreateQualificationTypeCommand.md) 

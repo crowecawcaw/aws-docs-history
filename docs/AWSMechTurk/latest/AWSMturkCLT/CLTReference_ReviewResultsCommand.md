@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,7 +13,7 @@
 <a name="CLTReference_ReviewResultsCommand"></a>
 
 ## Description
-<a name="w2aab9c58b2"></a>
+<a name="w2aac11c58b2"></a>
 
  The `reviewResults` command allows you to approve or reject multiple assignments from a file. You use the output file from [getResults](CLTReference_GetResultsCommand.md) to specify which assignments to reject. All other assignments are approved. 
 
@@ -31,7 +33,7 @@
  Any mark in the "reject" column for an assignment causes the assignment to be rejected. Any unmarked assignments are accepted. 
 
 ## Arguments
-<a name="w2aab9c58b4"></a>
+<a name="w2aac11c58b4"></a>
 
  The following table describes the arguments for the `reviewResults` command. 
 
@@ -43,12 +45,12 @@
 | `-sandbox` |  Runs this command in the Amazon Mechanical Turk sandbox for testing. This argument takes precedence even if you specify the production web site in your `mturk.properties` file. <br /> Example:`-sandbox`  | No | 
 
 ## Example
-<a name="w2aab9c58b6"></a>
+<a name="w2aac11c58b6"></a>
 
  The following examples for Unix and Windows show how to use the `reviewResults` command. 
 
 ### Unix
-<a name="w2aab9c58b6b4"></a>
+<a name="w2aac11c58b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -57,7 +59,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c58b6b6"></a>
+<a name="w2aac11c58b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -66,7 +68,7 @@ reviewResults -resultsfile survey.results
 ```
 
 ## Output
-<a name="w2aab9c58b8"></a>
+<a name="w2aac11c58b8"></a>
 
 This example produces output similar to the following:
 
@@ -83,7 +85,7 @@ Assignments failed: 0/5 (0%)
 ```
 
 ## Related Commands
-<a name="w2aab9c58c10"></a>
+<a name="w2aac11c58c10"></a>
 
  
 +  [approveWork](CLTReference_ApproveWorkCommand.md) 

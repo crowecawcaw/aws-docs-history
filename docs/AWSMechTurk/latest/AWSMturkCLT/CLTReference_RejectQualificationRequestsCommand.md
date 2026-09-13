@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,12 +13,12 @@
 <a name="CLTReference_RejectQualificationRequestsCommand"></a>
 
 ## Description
-<a name="w2aab9c49b2"></a>
+<a name="w2aac11c49b2"></a>
 
  The `rejectQualificationRequests` command rejects Workers' Qualification requests. 
 
 ## Arguments
-<a name="w2aab9c49b4"></a>
+<a name="w2aac11c49b4"></a>
 
  The following table describes the arguments for the `rejectQualificationRequests` command. 
 
@@ -30,12 +32,12 @@
 | `-sandbox` |  Runs this command in the Amazon Mechanical Turk sandbox for testing. This argument takes precedence even if you specify the production web site in your `mturk.properties` file. <br /> Example:`-sandbox`  | No | 
 
 ## Example
-<a name="w2aab9c49b6"></a>
+<a name="w2aac11c49b6"></a>
 
  The following examples for Unix and Windows show how to use the `rejectQualificationRequests` command. These examples reject one Qualification request listed in the file `toreject.txt`. 
 
 ### Unix
-<a name="w2aab9c49b6b4"></a>
+<a name="w2aac11c49b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -44,7 +46,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c49b6b6"></a>
+<a name="w2aac11c49b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -53,7 +55,7 @@ rejectQualificationRequests -rejectfile toreject.txt
 ```
 
 ## Output
-<a name="w2aab9c49b8"></a>
+<a name="w2aac11c49b8"></a>
 
 These examples produce the following output.
 

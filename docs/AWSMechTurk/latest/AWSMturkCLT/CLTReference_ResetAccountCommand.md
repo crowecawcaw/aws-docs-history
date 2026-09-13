@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,12 +13,12 @@
 <a name="CLTReference_ResetAccountCommand"></a>
 
 ## Description
-<a name="w2aab9c55b2"></a>
+<a name="w2aac11c55b2"></a>
 
  The `resetAccount` command deletes all of your existing HITs from Amazon Amazon Mechanical Turk. If Workers are still working on a HIT, it is not deleted. Amazon Mechanical Turk approves any assignments that are submitted but not yet approved. 
 
 ## arguments
-<a name="w2aab9c55b4"></a>
+<a name="w2aac11c55b4"></a>
 
  The following table describes the arguments for the `resetAccount` command. 
 
@@ -28,12 +30,12 @@
 |  `-sandbox`  |  Runs this command in the Amazon Mechanical Turk sandbox. This argument takes precedence even if you specify the production web site in your `mturk.properties` file. <br /> Example:`-sandbox`  | No | 
 
 ## Example
-<a name="w2aab9c55b6"></a>
+<a name="w2aac11c55b6"></a>
 
  The following examples for Unix and Windows show how to use the `resetAccount` command. 
 
 ### Unix
-<a name="w2aab9c55b6b4"></a>
+<a name="w2aac11c55b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -42,7 +44,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c55b6b6"></a>
+<a name="w2aac11c55b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -51,7 +53,7 @@ resetAccount
 ```
 
 ## Output
-<a name="w2aab9c55b8"></a>
+<a name="w2aac11c55b8"></a>
 
 These examples produce output similar to the following.
 

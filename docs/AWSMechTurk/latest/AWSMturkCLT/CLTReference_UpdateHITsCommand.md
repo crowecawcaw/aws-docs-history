@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,7 +13,7 @@
 <a name="CLTReference_UpdateHITsCommand"></a>
 
 ## Description
-<a name="w2aab9c67b2"></a>
+<a name="w2aac11c67b2"></a>
 
  The `updateHITs` command updates properties of HITs that are already on Amazon Mechanical Turk. 
 
@@ -29,7 +31,7 @@
  The Reward property can only be updated for HITs that do not have any assignments that have been accepted, submitted, approved or rejected. 
 
 ## Arguments
-<a name="w2aab9c67b4"></a>
+<a name="w2aac11c67b4"></a>
 
  The following table describes the arguments for the `updateHITs` command. 
 
@@ -42,12 +44,12 @@
 | `-success [filename]` |  Specifies the success file that contains the IDs of the HITs to be updated. For information about this file, see *The success file* in [Files Used by the Command Line Tools](CLTFilesArticle.md). <br />Example: `-success helloworld.success` | Yes | 
 
 ## Example
-<a name="w2aab9c67b6"></a>
+<a name="w2aac11c67b6"></a>
 
  The following examples for Unix and Windows show how to use the `updateHITs` command. These examples update four HITs in the file `..\survey\survey.success` with the new properties in the file `..\survey\survey.properties` 
 
 ### Unix
-<a name="w2aab9c67b6b4"></a>
+<a name="w2aac11c67b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -56,7 +58,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c67b6b6"></a>
+<a name="w2aac11c67b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -65,7 +67,7 @@ updateHITs -success ..\survey\survey.success -properties ..\survey\survey.proper
 ```
 
 ## Output
-<a name="w2aab9c67b8"></a>
+<a name="w2aac11c67b8"></a>
 
 These examples produce the following output.
 

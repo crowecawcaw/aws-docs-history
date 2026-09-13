@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,12 +13,12 @@
 <a name="CLTReference_RevokeQualificationCommand"></a>
 
 ## Description
-<a name="w2aab9c61b2"></a>
+<a name="w2aac11c61b2"></a>
 
  The `revokeQualification` command revokes a Qualification from a Worker. 
 
 ## Arguments
-<a name="w2aab9c61b4"></a>
+<a name="w2aac11c61b4"></a>
 
  The following table describes the arguments for the `revokeQualification` command. 
 
@@ -30,12 +32,12 @@
 | `-workerid [Worker ID]` |  The Worker ID of the Worker from whom to revoke the Qualification. <br />Example: `-workerid A3C4G8DMXFG5PQ` | Yes | 
 
 ## Example
-<a name="w2aab9c61b6"></a>
+<a name="w2aac11c61b6"></a>
 
  The following examples for Unix and Windows show how to use the `revokeQualification` command. These examples revoke a Worker's qualification and provide a reason. 
 
 ### Unix
-<a name="w2aab9c61b6b4"></a>
+<a name="w2aac11c61b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -44,7 +46,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c61b6b6"></a>
+<a name="w2aac11c61b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -53,7 +55,7 @@ revokeQualification -qualtypeid RWFZTKZ55ZPZXN1C8TDZ -workerid A3C4G8DMXFG5PQ -r
 ```
 
 ## Output
-<a name="w2aab9c61b8"></a>
+<a name="w2aac11c61b8"></a>
 
 These examples produce the following output.
 

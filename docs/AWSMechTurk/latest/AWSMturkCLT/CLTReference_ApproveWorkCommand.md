@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,7 +13,7 @@
 <a name="CLTReference_ApproveWorkCommand"></a>
 
 ## Description
-<a name="w2aab9c10b2"></a>
+<a name="w2aac11c10b2"></a>
 
  The `approveWork` command approves assignments Workers have submitted to Amazon Mechanical Turk. To specify the assignments to approve you can: 
 +  Obtain the assignment IDs from a call to [getResults](CLTReference_GetResultsCommand.md) then call the `approveWork` command and use the `assignment` argument to list the IDs. When you use this argument, you are prompted to provide optional comments that the Worker can see in the **Status** section of the web site. 
@@ -21,7 +23,7 @@
  When you use this command, it initiates two payments from your Requester account. Amazon Mechanical Turk pays the reward specified in the HIT to the Worker who submitted the assignment, and also debits your account for any fees. If your Requester account does not have adequate funds for these payments, this command returns an error. 
 
 ## Arguments
-<a name="w2aab9c10b4"></a>
+<a name="w2aac11c10b4"></a>
 
  The following table describes the arguments for the `approveWork` command. 
 
@@ -36,12 +38,12 @@
 | `-successfile [path]` |  The path to the `.success` file that a call to [loadHITs](CLTReference_LoadHITsCommand.md) returned. This argument attempts to approve all assignments for all HITs in the file. For information about this file, see *The success file* in [Files Used by the Command Line Tools](CLTFilesArticle.md). <br />Condition: Required if neither the `-approvefile` argument nor the `-assignment` argument is specified.<br />Example: `-approvefile helloworld_approve.txt` | Conditional | 
 
 ## Example
-<a name="w2aab9c10b6"></a>
+<a name="w2aac11c10b6"></a>
 
  The following examples for Unix and Windows show how to use the `approveWork` command. The examples approve one assignment in the file `approval.txt`. 
 
 ### Unix
-<a name="w2aab9c10b6b4"></a>
+<a name="w2aac11c10b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -50,7 +52,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c10b6b6"></a>
+<a name="w2aac11c10b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -59,7 +61,7 @@ approveWork -approvefile approval.txt
 ```
 
 ## Output
-<a name="w2aab9c10b8"></a>
+<a name="w2aac11c10b8"></a>
 
 These examples produce the following output.
 
@@ -73,7 +75,7 @@ for HIT 62145TS44X94HHYGW0PZ
 ```
 
 ## Related Commands
-<a name="w2aab9c10c10"></a>
+<a name="w2aac11c10c10"></a>
 
  
 +  [rejectWork](CLTReference_RejectWorkCommand.md) 

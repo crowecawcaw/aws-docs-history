@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,12 +13,12 @@
 <a name="CLTReference_GrantBonusCommand"></a>
 
 ## Description
-<a name="w2aab9c40b2"></a>
+<a name="w2aac11c40b2"></a>
 
  The `grantBonus` command issues a payment from your account to a Worker. This payment happens separately from the reward you pay to the Worker when you approve the Worker's assignment. You must have enough funds in your account to pay for the bonus. 
 
 ## Arguments
-<a name="w2aab9c40b4"></a>
+<a name="w2aac11c40b4"></a>
 
  The following table describes the arguments for the `grantBonus` command. 
 
@@ -31,12 +33,12 @@
 | `-workerid [workerID]` |  The ID of the Worker who gets the bonus. <br />Example: `-workerid A3C4G8DMXFG5PQ` | Yes | 
 
 ## Example
-<a name="w2aab9c40b6"></a>
+<a name="w2aac11c40b6"></a>
 
  The following examples for Unix and Windows show how to use the `grantBonus` command. 
 
 ### Unix
-<a name="w2aab9c40b6b4"></a>
+<a name="w2aac11c40b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -45,7 +47,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c40b6b6"></a>
+<a name="w2aac11c40b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -54,7 +56,7 @@ grantBonus -workerid A3C4G8DMXFG5PQ -assignment 0YFZ2TYJF3HZPGZV4Z40EZD4YZZFDSTZ
 ```
 
 ## Output
-<a name="w2aab9c40b8"></a>
+<a name="w2aac11c40b8"></a>
 
 These examples produce output similar to the following.
 

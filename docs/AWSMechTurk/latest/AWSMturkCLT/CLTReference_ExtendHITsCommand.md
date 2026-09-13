@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,12 +13,12 @@
 <a name="CLTReference_ExtendHITsCommand"></a>
 
 ## Description
-<a name="w2aab9c28b2"></a>
+<a name="w2aac11c28b2"></a>
 
  The `extendHITs` command extends the expiration date or increases the maximum number of assignments for all HITs in the specified `-successfile`. If you extend the expiration date, and the HIT has not expired, the new expiration date is the existing date plus the amount of time specified. If the HIT has already expired, the new expiration date is the current time plus the amount of time specified. If you add additional assignments, you must be sure that you have enough funds to pay for the assignments. 
 
 ## Arguments
-<a name="w2aab9c28b4"></a>
+<a name="w2aac11c28b4"></a>
 
  The following table describes the arguments for the `extendHITs` command. 
 
@@ -30,12 +32,12 @@
 | `-successfile [filename]` |  The path to the `.success` file that contains the HITs to extend. This is the file that [loadHITs](CLTReference_LoadHITsCommand.md) returns. For information about this file, see *The success file* in [Files Used by the Command Line Tools](CLTFilesArticle.md). <br /> Example:`-successfile ..\mysurvey\mysurvey.success`  | Yes | 
 
 ## Example
-<a name="w2aab9c28b6"></a>
+<a name="w2aac11c28b6"></a>
 
  The following examples for Unix and Windows show how to use the `extendHITs` command. These examples add four assignments and three hours to the five HITs in the `.success` file. 
 
 ### Unix
-<a name="w2aab9c28b6b4"></a>
+<a name="w2aac11c28b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -44,7 +46,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c28b6b6"></a>
+<a name="w2aac11c28b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -53,7 +55,7 @@ extendHITs -successfile ..\mysurvey\mysurvey.success -assignments 4 -hours 3
 ```
 
 ## Output
-<a name="w2aab9c28b8"></a>
+<a name="w2aac11c28b8"></a>
 
 This example produces output similar to the following.
 

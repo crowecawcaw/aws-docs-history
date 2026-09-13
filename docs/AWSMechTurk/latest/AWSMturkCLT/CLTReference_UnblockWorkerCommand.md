@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,12 +13,12 @@
 <a name="CLTReference_UnblockWorkerCommand"></a>
 
 ## Description
-<a name="w2aab9c64b2"></a>
+<a name="w2aac11c64b2"></a>
 
  The `unblockWorker` command unblocks a Worker who has been blocked from working on your HITs. 
 
 ## Arguments
-<a name="w2aab9c64b4"></a>
+<a name="w2aac11c64b4"></a>
 
  The following table describes the arguments for the `unblockWorker` command. 
 
@@ -29,12 +31,12 @@
 | `-workerid [worker ID]` |  The ID of the Worker to unblock. <br />Example: `-workerid A3C4G8DMXFG5PQ` | Yes | 
 
 ## Example
-<a name="w2aab9c64b6"></a>
+<a name="w2aac11c64b6"></a>
 
  The following examples for Unix and Windows show how to use the `unblockWorker` command. These examples unblock a specified Worker. 
 
 ### Unix
-<a name="w2aab9c64b6b4"></a>
+<a name="w2aac11c64b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -43,7 +45,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c64b6b6"></a>
+<a name="w2aac11c64b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -52,7 +54,7 @@ unblockWorker -workerid A3C4G8DMXFG5PQ -reason "Made a mistake. Blocked the wron
 ```
 
 ## Output
-<a name="w2aab9c64b8"></a>
+<a name="w2aac11c64b8"></a>
 
 These examples produce the following output.
 

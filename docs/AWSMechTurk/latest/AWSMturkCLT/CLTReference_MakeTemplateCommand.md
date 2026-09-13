@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 
 |  | 
 | --- |
@@ -11,7 +13,7 @@
 <a name="CLTReference_MakeTemplateCommand"></a>
 
 ## Description
-<a name="w2aab9c46b2"></a>
+<a name="w2aac11c46b2"></a>
 
  The `makeTemplate` command creates a copy of a sample application. After you run the sample applications that the Amazon Mechanical Turk Command Line Tools provide, you might want to create your own application, probably one that is similar to one of the sample applications. The `makeTemplate` command makes it easy for you to replicate one of the samples in a different directory. 
 
@@ -20,7 +22,7 @@
  You can also make templates of Qualification-generating samples, such as the Assign Qualification sample. For these templates, run the `makeTemplate` from the `Command Line Tools installation directory]\qualifications` directory. 
 
 ## Arguments
-<a name="w2aab9c46b4"></a>
+<a name="w2aac11c46b4"></a>
 
  The following table describes the arguments for the `makeTemplate` command. 
 
@@ -42,12 +44,12 @@
  When you run this command for qualification-type samples, the Command Line Tools creates the new directory and copies the `.answer`,`.question`, and `.properties` files from the specified sample. It creates these files with the name specified in the `-target` option. The Command Line Tools also creates new `createQualification.cmd`, `updateQualification.cmd`, and `deactivateQualification.cmd` files. 
 
 ## Example
-<a name="w2aab9c46b6"></a>
+<a name="w2aac11c46b6"></a>
 
  The following examples for Unix and Windows show how to use the `makeTemplate` command. 
 
 ### Unix
-<a name="w2aab9c46b6b4"></a>
+<a name="w2aac11c46b6b4"></a>
 
  The following example demonstrates how to call this command from Unix. 
 
@@ -56,7 +58,7 @@
 ```
 
 ### Windows
-<a name="w2aab9c46b6b6"></a>
+<a name="w2aac11c46b6b6"></a>
 
  The following example demonstrates how to call this command from Microsoft Windows. 
 
@@ -65,7 +67,7 @@ makeTemplate -template helloworld  -target newhelloworld3 -os Dos -type Hit -tem
 ```
 
 ## Output
-<a name="w2aab9c46b8"></a>
+<a name="w2aac11c46b8"></a>
 
 These examples produce the following output.
 
