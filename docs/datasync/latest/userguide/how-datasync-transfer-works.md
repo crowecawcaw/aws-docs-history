@@ -20,7 +20,7 @@ The following diagrams show how and where DataSync commonly transfers storage da
 
 The following diagram shows a high-level overview of DataSync transferring files between self-managed, on-premises storage systems and AWS services.
 
-![An overview of a common DataSync scenario where data transfers from an on-premises storage system to a supported AWS storage resource (such as an Amazon S3 bucket or Amazon EFS file system).](http://docs.aws.amazon.com/datasync/latest/userguide/images/DataSync-chart-on-prem.png)
+![An overview of a common DataSync scenario where data transfers from an on-premises storage system to a supported AWS storage resource (such as an Amazon S3 bucket or Amazon EFS file system).](https://docs.aws.amazon.com/datasync/latest/userguide/images/DataSync-chart-on-prem.png)
 
 
 The diagram illustrates a common DataSync use case:
@@ -33,7 +33,7 @@ The diagram illustrates a common DataSync use case:
 
 The following diagram shows a high-level overview of DataSync transferring files between AWS services in the same AWS account.
 
-![An overview of a common DataSync scenario where data transfers between AWS storage resources (such as an Amazon S3 bucket or Amazon EFS file system).](http://docs.aws.amazon.com/datasync/latest/userguide/images/DataSync-chart-agentless.png)
+![An overview of a common DataSync scenario where data transfers between AWS storage resources (such as an Amazon S3 bucket or Amazon EFS file system).](https://docs.aws.amazon.com/datasync/latest/userguide/images/DataSync-chart-agentless.png)
 
 
 The diagram illustrates a common DataSync use case:
@@ -57,7 +57,7 @@ DataSync can copy data to and from other clouds with or without using an agent. 
 
 The following diagram shows a high-level overview of DataSync transferring data between AWS storage services and another cloud provider.
 
-![An overview of a common DataSync scenario where data transfers between AWS storage services (such as an Amazon S3 bucket or Amazon EFS file system) and another cloud provider.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-diagram-other-clouds.png)
+![An overview of a common DataSync scenario where data transfers between AWS storage services (such as an Amazon S3 bucket or Amazon EFS file system) and another cloud provider.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-diagram-other-clouds.png)
 
 
 ## Concepts and terminology

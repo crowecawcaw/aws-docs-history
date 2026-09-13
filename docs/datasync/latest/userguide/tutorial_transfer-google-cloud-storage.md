@@ -36,7 +36,7 @@ When you use an agent for transfers, you can deploy it in Google Cloud Storage o
 
 The following diagram illustrates the transfer.
 
-![An example DataSync transfer shows how object data transfers from a Google Cloud Storage bucket to an S3 bucket. First, the DataSync agent is deployed in your Google Cloud environment. Then, the DataSync agent reads the Google Cloud Storage bucket. The data moves securely through a public endpoint into AWS, where DataSync writes the objects to an S3 bucket in the same AWS Region where you're using DataSync.](http://docs.aws.amazon.com/datasync/latest/userguide/images/diagram-transfer-google-cloud-storage-public.png)
+![An example DataSync transfer shows how object data transfers from a Google Cloud Storage bucket to an S3 bucket. First, the DataSync agent is deployed in your Google Cloud environment. Then, the DataSync agent reads the Google Cloud Storage bucket. The data moves securely through a public endpoint into AWS, where DataSync writes the objects to an S3 bucket in the same AWS Region where you're using DataSync.](https://docs.aws.amazon.com/datasync/latest/userguide/images/diagram-transfer-google-cloud-storage-public.png)
 
 
 ------
@@ -52,7 +52,7 @@ The following diagram illustrates the transfer.
 
 The following diagram illustrates the transfer.
 
-![An example DataSync transfer shows how object data transfers from a Google Cloud Storage bucket to an S3 bucket. First, the DataSync agent is deployed in a VPC in AWS. Then, the DataSync agent reads the Google Cloud Storage bucket. The data moves securely through a VPC endpoint into AWS, where DataSync writes the objects to an S3 bucket in the same AWS Region as the VPC.](http://docs.aws.amazon.com/datasync/latest/userguide/images/diagram-transfer-google-cloud-storage.png)
+![An example DataSync transfer shows how object data transfers from a Google Cloud Storage bucket to an S3 bucket. First, the DataSync agent is deployed in a VPC in AWS. Then, the DataSync agent reads the Google Cloud Storage bucket. The data moves securely through a VPC endpoint into AWS, where DataSync writes the objects to an S3 bucket in the same AWS Region as the VPC.](https://docs.aws.amazon.com/datasync/latest/userguide/images/diagram-transfer-google-cloud-storage.png)
 
 
 ------

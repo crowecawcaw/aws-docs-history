@@ -24,7 +24,7 @@ If your DataSync agent uses a [VPC service endpoint](choose-service-endpoint.md#
 
 The following Direct Connect architecture shows a DataSync transfer from an on-premises storage system to an S3 bucket.
 
-![A diagram that shows DataSync transfer traffic routed through Direct Connect to an S3 bucket.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-direct-connect-diagram-vpc-s3.png)
+![A diagram that shows DataSync transfer traffic routed through Direct Connect to an S3 bucket.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-direct-connect-diagram-vpc-s3.png)
 
 
 1. The DataSync agent routes DataSync traffic from the on-premises storage system (source location) to the Direct Connect connection.
@@ -48,7 +48,7 @@ When transferring to or from an Amazon EFS or Amazon FSx file system, your file 
 
 The following Direct Connect architecture shows a DataSync transfer from an on-premises storage system to an Amazon EFS or Amazon FSx file system.
 
-![A diagram that shows DataSync transfer traffic routed through Direct Connect to an AWS storage file system.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-direct-connect-diagram-vpc-file-1subnet.png)
+![A diagram that shows DataSync transfer traffic routed through Direct Connect to an AWS storage file system.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-direct-connect-diagram-vpc-file-1subnet.png)
 
 
 1. The DataSync agent routes DataSync traffic from the on-premises storage system (source location) to the Direct Connect connection.
@@ -72,7 +72,7 @@ When transferring to or from an Amazon EFS or Amazon FSx file system, your file 
 
 The following Direct Connect architecture shows a DataSync transfer from an on-premises storage system to an Amazon EFS or Amazon FSx file system.
 
-![A diagram that shows DataSync transfer traffic routed through Direct Connect and two subnets to an AWS storage file system.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-direct-connect-diagram-vpc-file-2subnet.png)
+![A diagram that shows DataSync transfer traffic routed through Direct Connect and two subnets to an AWS storage file system.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-direct-connect-diagram-vpc-file-2subnet.png)
 
 
 1. The DataSync agent routes DataSync traffic from the on-premises storage system (source location) to the Direct Connect connection.
@@ -98,7 +98,7 @@ While Direct Connect advertises all local and remote AWS Region prefixes by defa
 
 The following Direct Connect architecture shows a DataSync transfer from an on-premises storage system through a public or FIPS endpoint to an S3 bucket.
 
-![A diagram that shows DataSync transfer traffic routed through Direct Connect using a public virtual interface to an S3 bucket.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-direct-connect-diagram-public-endpoint.png)
+![A diagram that shows DataSync transfer traffic routed through Direct Connect using a public virtual interface to an S3 bucket.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-direct-connect-diagram-public-endpoint.png)
 
 
 1. The DataSync agent routes DataSync traffic from the on-premises storage system (source location) to the Direct Connect connection.

@@ -17,7 +17,7 @@ It's not uncommon to need to transfer data between different AWS accounts, espec
 
 The following diagram illustrates this kind of scenario.
 
-![An example DataSync scenario of data moving from an on-premises storage system through an Direct Connect connection across the internet into AWS. The data is first transferred into one AWS account (your source account), before finally making it into an Amazon S3 bucket in a different AWS account (your destination account).](http://docs.aws.amazon.com/datasync/latest/userguide/images/s3-cross-account-diagram.png)
+![An example DataSync scenario of data moving from an on-premises storage system through an Direct Connect connection across the internet into AWS. The data is first transferred into one AWS account (your source account), before finally making it into an Amazon S3 bucket in a different AWS account (your destination account).](https://docs.aws.amazon.com/datasync/latest/userguide/images/s3-cross-account-diagram.png)
 
 
 ## Prerequisite: Required source account permissions

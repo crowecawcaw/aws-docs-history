@@ -64,7 +64,7 @@ You create a VPC service endpoint for DataSync in a VPC that you manage. Your se
 
 The following diagram shows an example of DataSync using a VPC service endpoint for transferring from an on-premises storage system to an Amazon S3 bucket. The numbered callouts correspond to the steps to create a VPC service endpoint.
 
-![A network diagram showing the order in which you can create a VPC service endpoint for DataSync.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-agent-vpc-endpoint.png)
+![A network diagram showing the order in which you can create a VPC service endpoint for DataSync.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-agent-vpc-endpoint.png)
 
 
 **To create a VPC service endpoint for DataSync**

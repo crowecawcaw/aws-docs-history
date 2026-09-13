@@ -10,7 +10,7 @@ Learn the key concepts and terminology related to AWS DataSync Discovery.
 
 The following diagram illustrates how DataSync Discovery collects information and provides recommendations for migrating data from an on-premises storage system to AWS.
 
-![The first connection is for communicating with the source storage location. The second connection is for transferring between locations. The third and final connection is with the destination storage location.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-discovery-overview-diagram.png)
+![The first connection is for communicating with the source storage location. The second connection is for transferring between locations. The third and final connection is with the destination storage location.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-discovery-overview-diagram.png)
 
 
 

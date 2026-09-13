@@ -98,7 +98,7 @@ Your DataSync agent requires the following network access when using public or F
 
 The following diagram shows the ports required by DataSync when using public or FIPS service endpoints. 
 
-![Shows the ports used by DataSync with public or FIPS endpoints.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-ports.png)
+![Shows the ports used by DataSync with public or FIPS endpoints.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-ports.png)
 
 
 ## Network requirements for VPC or FIPS VPC service endpoints
@@ -118,4 +118,4 @@ DataSync requires the following ports for your agent to use a VPC service endpoi
 
  The following diagram shows the ports required by DataSync when using VPC service endpoints. 
 
-![Shows the ports used by DataSync with VPC service endpoints.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-ports-PL.png)
+![Shows the ports used by DataSync with VPC service endpoints.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-ports-PL.png)

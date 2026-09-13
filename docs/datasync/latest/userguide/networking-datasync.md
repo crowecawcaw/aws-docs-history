@@ -5,7 +5,7 @@
 
 If [you need an AWS DataSync agent](do-i-need-datasync-agent.md), you must establish several network connections for a data transfer. The following diagram shows the three network connections in a DataSync transfer from a storage system (which could be on premises, in another cloud, or at the edge) to an AWS storage service.
 
-![AWS DataSync network architecture showing three essential connections for data transfer workflow.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-network-connection-diagram-overview.png)
+![AWS DataSync network architecture showing three essential connections for data transfer workflow.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-network-connection-diagram-overview.png)
 
 
 ## 1. Network connection between your storage system and agent

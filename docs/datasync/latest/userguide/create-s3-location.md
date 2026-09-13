@@ -666,7 +666,7 @@ Choose one of the following scenarios that describe how to create an agent based
 
 The following diagram shows a transfer where your DataSync task and agent are in the commercial Region.
 
-![A DataSync agent deployed in a commercial Region for a cross-Region transfer to an S3 bucket in an AWS GovCloud (US) Region.](http://docs.aws.amazon.com/datasync/latest/userguide/images/s3-task-in-commercial.png)
+![A DataSync agent deployed in a commercial Region for a cross-Region transfer to an S3 bucket in an AWS GovCloud (US) Region.](https://docs.aws.amazon.com/datasync/latest/userguide/images/s3-task-in-commercial.png)
 
 
 
@@ -691,7 +691,7 @@ You can use this same setup to transfer the opposite direction, too, from the AW
 
 The following diagram shows a transfer where your DataSync task and agent are in the AWS GovCloud (US) Region.
 
-![A DataSync agent deployed in a AWS GovCloud (US) Region or a cross-Region transfer to an S3 bucket in the same AWS GovCloud (US) Region.](http://docs.aws.amazon.com/datasync/latest/userguide/images/s3-task-in-govcloud-1.png)
+![A DataSync agent deployed in a AWS GovCloud (US) Region or a cross-Region transfer to an S3 bucket in the same AWS GovCloud (US) Region.](https://docs.aws.amazon.com/datasync/latest/userguide/images/s3-task-in-govcloud-1.png)
 
 
 

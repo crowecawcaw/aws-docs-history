@@ -9,7 +9,7 @@ Partitioning also helps you stay within DataSync [quotas](datasync-limits.md) an
 
 The following diagram shows how you might use multiple DataSync tasks and agents to transfer data from the same source storage location. In this scenario, each task focuses on a specific folder in the source location. For more information and examples on these approaches, see [How to accelerate your data transfers with AWS DataSync scale out architectures](https://aws.amazon.com/blogs/storage/how-to-accelerate-your-data-transfers-with-aws-datasync-scale-out-architectures/).
 
-![A diagram that shows one approach with DataSync for partitioning your source data to help accelerate a large migration.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-partition-by-folder.png)
+![A diagram that shows one approach with DataSync for partitioning your source data to help accelerate a large migration.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-partition-by-folder.png)
 
 
 ## Partitioning your dataset by folder or prefix

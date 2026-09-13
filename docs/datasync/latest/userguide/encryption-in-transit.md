@@ -14,7 +14,7 @@ DataSync requires three network connections to copy data: a connection to read d
 
 The following diagram is an example of the network connections that DataSync uses to transfer data from an on-premises storage system to an AWS storage service. To understand where the connections happen and how data is protected as it transfers through each connection, use the accompanying table.
 
-![The first connection is for communicating with the source storage location. The second connection is for transferring between locations. The third and final connection is with the destination storage location.](http://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-encryption-in-transit-diagram.png)
+![The first connection is for communicating with the source storage location. The second connection is for transferring between locations. The third and final connection is with the destination storage location.](https://docs.aws.amazon.com/datasync/latest/userguide/images/datasync-encryption-in-transit-diagram.png)
 
 
 
