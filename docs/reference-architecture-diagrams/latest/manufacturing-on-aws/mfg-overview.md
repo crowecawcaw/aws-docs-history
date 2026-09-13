@@ -5,7 +5,7 @@
 
 The overview diagram shows how manufacturing workloads connect through a central data lake on AWS.
 
-![Overview diagram showing how manufacturing workloads connect through a central data lake on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-1.png)
+![Overview diagram showing how manufacturing workloads connect through a central data lake on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-1.png)
 
 
 1. Central to the architecture is a manufacturing data lake for analytics and machine learning (ML). Use [AWS Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/) or [Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/userguide/) (Amazon S3) to structure your data lake.

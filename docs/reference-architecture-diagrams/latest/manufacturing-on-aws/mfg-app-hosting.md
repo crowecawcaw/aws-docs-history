@@ -5,7 +5,7 @@
 
 The application hosting diagram shows how to run enterprise and engineering applications on AWS.
 
-![Application hosting diagram for enterprise and engineering workloads on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-4.png)
+![Application hosting diagram for enterprise and engineering workloads on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-4.png)
 
 
 1. Use [AWS Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/) for latency-sensitive workloads that must run close to on-premises systems.

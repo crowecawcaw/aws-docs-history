@@ -5,7 +5,7 @@
 
 The smart products diagram shows how to connect manufactured products and machines to AWS for telemetry and event processing.
 
-![Smart products diagram for connecting manufactured products to AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-5.png)
+![Smart products diagram for connecting manufactured products to AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-5.png)
 
 
 1. Use [AWS IoT Core](https://docs.aws.amazon.com/iot/latest/developerguide/) to connect products by using MQTT (Message Queuing Telemetry Transport).

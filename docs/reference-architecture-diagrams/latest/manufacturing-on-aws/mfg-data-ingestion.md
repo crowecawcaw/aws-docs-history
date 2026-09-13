@@ -5,7 +5,7 @@
 
 The data ingestion diagram shows how to bring data from factory floors and enterprise applications into AWS.
 
-![Data ingestion diagram showing how to bring factory and enterprise data into AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-2.png)
+![Data ingestion diagram showing how to bring factory and enterprise data into AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-2.png)
 
 
 1. Connect industrial devices with [AWS IoT Greengrass](https://docs.aws.amazon.com/greengrass/v2/developerguide/) on an Edge gateway.

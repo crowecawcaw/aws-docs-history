@@ -5,7 +5,7 @@
 
 The data lake and analytics diagram shows how to process, analyze, and derive insights from manufacturing data.
 
-![Data lake and analytics diagram showing processing and analysis of manufacturing data on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-3.png)
+![Data lake and analytics diagram showing processing and analysis of manufacturing data on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-on-aws/images/manufacturing-on-aws-ra-3.png)
 
 
 1. Use Lake Formation or Amazon S3 for the data lake structure to store raw and processed manufacturing data.
