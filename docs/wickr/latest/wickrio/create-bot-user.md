@@ -12,16 +12,16 @@ Complete the following procedure to create a bot user.
 1. Log in to the AWS Wickr console at [https://console.aws.amazon.com/wickr/](https://console.aws.amazon.com/wickr/)
 
 1. In the **Access Admin Console** section of the page, choose **Manage network**.  
-![The Wickr Access Admin Console Manage Network button.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-access-admin-console.png)
+![The Wickr Access Admin Console Manage Network button.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-access-admin-console.png)
 
 1. Select your Wickr network by finding it using its Network name or Network ID on the Manager network page. If necessary, search for the network by its Network name.  
-![The Wickr network selection screen.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-select-network.png)
+![The Wickr network selection screen.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-select-network.png)
 
 1. In the left navigation, choose **User management** to access the User Management page. This page allows you to add, remove, and set properties for all kinds of Wickr user types including licensed users, bots, and guest users.  
-![The Wickr User Management page.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-user-management.png)
+![The Wickr User Management page.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-user-management.png)
 
 1. Choose the **Bot users** tab and choose **Create bot user**.  
-![The Wickr Bot users tab with Create bot user button.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-create-bot-user.png)
+![The Wickr Bot users tab with Create bot user button.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-create-bot-user.png)
 
 1. Enter the following information:
    + **Username** — The internal username of the bot.

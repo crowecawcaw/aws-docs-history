@@ -111,7 +111,7 @@ When adding a bot client to a Docker image, you may encounter issues during the 
 
 ***Username does not exist:***
 
-![The username is does not exist.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-username.png)
+![The username is does not exist.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-username.png)
 
 
 **Solution**
@@ -120,7 +120,7 @@ Make sure the bot username is correct and exists in the Wickr Admin Console.
 
 ***Incorrect password:***
 
-![The password is incorrect.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-incorrect-password.png)
+![The password is incorrect.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-incorrect-password.png)
 
 
 **Solution**
@@ -138,7 +138,7 @@ For further assistance, [Wickr support ](https://mailto:wickr-support@amazon.com
 
 When trying to start a bot client, if you enter an incorrect password, you will get a “Bus Error” and see the Docker container has exited.
 
-![The password is incorrect.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-wrong-password.png)
+![The password is incorrect.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-wrong-password.png)
 
 
 **Solution**
@@ -178,7 +178,7 @@ To enable debugging, enter `debug` in the CLI.
 **Note**  
 This action will output a lot of debug information with this option enabled.
 
-![Turn debug on.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-debug.png)
+![Turn debug on.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-debug.png)
 
 
 ## Client and Integration compatibility issues
@@ -209,7 +209,7 @@ If you need to contact Wickr support it's helpful to have the version number of 
 
 If the necessary files are missing from the software.tar.gz imported into the Docker container, you will receive an "install shell file does not exist" error when starting a Wickr IO client using your custom integration.
 
-![The custom integration command.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-custom-integration.png)
+![The custom integration command.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickr-custom-integration.png)
 
 
 **Solution**

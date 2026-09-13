@@ -230,12 +230,12 @@ You can interact with the BroadcastBot using commands sent to the BroadcastBot o
 
 To use the BroadcastBot you will interact via a 1on1 conversation with the BroadcastBot Wickr client. The BroadcastBot will prompt you for any necessary information related to what you are going to broadcast. The following shows a sample dialog with the BroadcastBot to send a broadcast message:
 
-![Sample dialog with the BroadcastBot to send a broadcast message.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/bcastbot-broadcastmessage-d44c176d.png)
+![Sample dialog with the BroadcastBot to send a broadcast message.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/bcastbot-broadcastmessage-d44c176d.png)
 
 
 The BroadcastBot will send the message, file or voice memo to the destination group(s) you select. The broadcast message will be sent on 1on1 conversations between the BroadcastBot and each member of the destination group. The broadcast message will include the identity of who the broadcast was initiated by, for example:
 
-![Example broadcast message received by a user showing the sender identity.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/bcastbot-broadcastrcvmsg-13c58f79.png)
+![Example broadcast message received by a user showing the sender identity.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/bcastbot-broadcastrcvmsg-13c58f79.png)
 
 
 If you want the user to acknowledge the receipt of the broadcast message that will be mentioned in the broadcast message as well. If you broadcast a file or a voice memo an additional message will be sent to include the identity of the broadcast user as well as the acknowledgement request.
@@ -273,7 +273,7 @@ When you broadcast a text-based message the BroadcastBot will ask you if you wan
 
 Detailed reports are returned in a CSV format, which can be imported into programs such as Excel or Pages. The following image shows a sample summary of a broadcast message, as well as the types of status information maintained by the BroadcastBot:
 
-![Sample broadcast message status summary showing various status types.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/bcastbot-messagestatus-1245c27a.png)
+![Sample broadcast message status summary showing various status types.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/bcastbot-messagestatus-1245c27a.png)
 
 
 **Note**  
@@ -284,32 +284,32 @@ The current broadcast bot does not support commands via a room or group conversa
 
 The start command is used to initiate a broadcast. When a broadcast is initiated the user will be asked recipients of the broadcast. This can be configured using a User File (a .txt file of Wickr usernames), or by stating the Security Group(s) to which this broadcast will go out.
 
-![Initial broadcast setup screen showing recipient selection options.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_1-cf5e4a7a.png)
+![Initial broadcast setup screen showing recipient selection options.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_1-cf5e4a7a.png)
 
 
 If the user selects User File, they can choose from a list of previously uploaded user files or upload a new one by hitting the '\+' sign on the navigation bar:
 
-![User file selection screen with option to upload new files.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_choose_file-61c5e5dd.png)
+![User file selection screen with option to upload new files.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_choose_file-61c5e5dd.png)
 
 
 If the user selects Network or All, they have the option to broadcast the message to the whole network or to one or more security groups:
 
-![Security group selection screen for network broadcasts.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_which_group-9cef7d24.png)
+![Security group selection screen for network broadcasts.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_which_group-9cef7d24.png)
 
 
 The sender can configure the broadcast to request that recipients acknowledge the message, acknowledge with their location or acknowledge with a Response.
 
-![Acknowledgement configuration options for broadcast messages.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_ask_for_ack-a17beb17.png)
+![Acknowledgement configuration options for broadcast messages.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_ask_for_ack-a17beb17.png)
 
 
 If there are other broadcasts in the queue before the user, they will get a message with an estimated wait time:
 
-![Queue status message showing estimated wait time for broadcast.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_queue-792f4cb7.png)
+![Queue status message showing estimated wait time for broadcast.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_queue-792f4cb7.png)
 
 
 Once the user's broadcast is sent, they will receive a confirmation of this send and a status message to indicate the status of the broadcast. At any point the user can see the status of their broadcast using the /status command or the user can generate a report by running the /report command:
 
-![Broadcast confirmation and status message after successful send.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_broadcast_received-a0e2c155.png)
+![Broadcast confirmation and status message after successful send.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/start_flow_broadcast_received-a0e2c155.png)
 
 
 ### /send Command
@@ -319,19 +319,19 @@ The send command is used to send a message to a predetermined list of users in y
 
 The file format is simple. Just write the Wickr user ID of each user you wish to send a message to on its own line in a text file (.txt). Commas or any other delimiters at the end of each line should not be included. An example is shown below:
 
-![Example text file format showing Wickr user IDs on separate lines.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/example-send-file-7b2769eb.png)
+![Example text file format showing Wickr user IDs on separate lines.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/example-send-file-7b2769eb.png)
 
 
 Once you have a text file of users, you are ready to upload it and make it available to the broadcast bot and send command. To do this go to your direct message conversation with the broadcast bot and click on the plus sign in the bottom right hand corner. A menu will pop up. Click on the option that says "choose file."
 
 You will then be asked what you want to do with the file. Respond by pressing the 'u' key and then pressing enter. If you've been following along then you have just uploaded your file to the bot and made it available for the send command.
 
-![File upload dialog showing the upload process for user list files.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/example-file-upload-aa536295.png)
+![File upload dialog showing the upload process for user list files.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/example-file-upload-aa536295.png)
 
 
 Now you are ready to send a message. To begin the process type /send followed by the message you want to send. For example if you wanted to tell people there is cake in the break room you would type the following: "/send There is cake in the break room\!" You will then be prompted to choose which file of users you want to send to. Next you will be prompted if you want an acknowledgement response. Once you make a selection the message will be sent to each user and you will recieve a status message(s) detailing the progress of the message.
 
-![Complete example of the /send command workflow from message input to delivery status.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/send-example-eba3268f.png)
+![Complete example of the /send command workflow from message input to delivery status.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/send-example-eba3268f.png)
 
 
 ### /map Command
@@ -341,7 +341,7 @@ This command was added in the 5.60 release of the broadcast bot.
 
 The /map command will display Google Maps link that will display a map that contains pins for all of the users associated with a specific broadcast message. Only the users that send their location to the broadcast bot will be shown on the map. The following image shows the Google Maps image where two users sent their location to the broadcast bot:
 
-![Google Maps display showing user location pins for a broadcast message.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/map-response-701f90f2.png)
+![Google Maps display showing user location pins for a broadcast message.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/map-response-701f90f2.png)
 
 
 The /map command will only work if it has been configured properly with a Google Maps API key. The following shows the prompts for the config entries associated with the /map command setup.
@@ -364,7 +364,7 @@ This section describes the web interface supported by the BroadcastBot. The web 
 
 The screenshot below shows the main landing page for the BroadcastBot's web interface. On this page you can send a broadcast message and view the list of broadcast messages that you have already sent.
 
-![The BroadcastBot web interface main screen.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/bcastbot-webmainscreen-286f1fcf.png)
+![The BroadcastBot web interface main screen.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/bcastbot-webmainscreen-286f1fcf.png)
 
 
 To begin you will want to select the recipients for the broadcast message. Using the drop down box that says "Select Security Groups" you can choose which security group will receive your broadcast message. You also have the option to broadcast to everyone in your network by selecting the "Whole Network" option.

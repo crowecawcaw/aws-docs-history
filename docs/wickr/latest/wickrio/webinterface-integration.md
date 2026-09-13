@@ -371,7 +371,7 @@ The body of this POST request will use the following Key/Value pairs:
 
 For those familiar with Postman, the following shows an example body set to send a file to two users:
 
-![Postman example showing file upload configuration for the Wickr IO Web Interface API.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/webinterface-file-postman1-c373c9d8.png)
+![Postman example showing file upload configuration for the Wickr IO Web Interface API.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/webinterface-file-postman1-c373c9d8.png)
 
 
 Make sure to follow the formatting shown for the "users" value.

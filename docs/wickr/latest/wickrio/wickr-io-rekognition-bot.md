@@ -32,18 +32,18 @@ Complete the following procedure to deploy a rekognition bot.
    ```
 
 1. Select your preference for the welcome message.  
-![The Wickr IO welcome message prompt.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-welcome-message-prompt.png)
+![The Wickr IO welcome message prompt.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-welcome-message-prompt.png)
 
 1. At the **Enter command:** prompt, enter the command **add**.  
-![The Wickr IO rekognition bot add command.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-add.png)
+![The Wickr IO rekognition bot add command.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-add.png)
 
 1. Over the next several prompts, enter the username and password created in the previous steps.  
-![The Wickr IO rekognition bot credentials prompt.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-credentials.png)
+![The Wickr IO rekognition bot credentials prompt.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-credentials.png)
 
 1. You are prompted to select an integration. Type `@wickr-sample-integrations/wickrio-rekognition-bot`
 
 1. Next, you are prompted for the AWS Region, and for the name of your profile in your credentials file that you set up earlier. If you are unsure of the AWS Region, you can use US East (N. Virginia). AWS Wickr is available in the following regions: [AWS Wickr Regional availability](https://docs.aws.amazon.com/wickr/latest/adminguide/what-is-wickr.html#regional-availability).  
-![The Wickr IO rekognition bot region selection.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-region.png)
+![The Wickr IO rekognition bot region selection.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-region.png)
 
 **Step 2: Start the bot**
 
@@ -58,12 +58,12 @@ Complete the following procedure to deploy a rekognition bot.
 **Step 3: Interact with the bot**
 
 1. In the top right corner of the navigation panel, select the new message button.  
-![The Wickr IO new message image.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-new-message.png)
+![The Wickr IO new message image.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-new-message.png)
 
 1. In the pop up menu, choose **New Direct Message**.
 
 1. Search for your bot by display name.  
-![The Wickr IO rekognition bot search.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-search.png)
+![The Wickr IO rekognition bot search.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-search.png)
 
 1. Select your bot for a direct message, and send a message.  
-![The Wickr IO rekognition bot conversation.](http://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-conversation.png)
+![The Wickr IO rekognition bot conversation.](https://docs.aws.amazon.com/wickr/latest/wickrio/images/wickrio-rekognition-conversation.png)

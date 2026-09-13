@@ -73,7 +73,7 @@ AWS_S3_INTEGRATIONS_BUCKET='wickrio-integrations'
 
 The contents of the AWS S3 bucket/folder will contain one or more folders, one folder for each integration you want to be used by the Wickr IO bot. The name of the folder is used as the name of the integration that you will use to work with your bots. For example, see the image below, there are two folders in the bucket/folder. They are "user-app-bot" and "user-file-bot", which are the names of those two integrations. If the "integration" value in the "client" entry (see above) has the value "user-app-bot" or "user-file-bot" it will use the integration code from that folder.
 
-![Automatic Config S3 Integrations](http://docs.aws.amazon.com/wickr/latest/wickrio/images/autoconfig-s3-integrations.png)
+![Automatic Config S3 Integrations](https://docs.aws.amazon.com/wickr/latest/wickrio/images/autoconfig-s3-integrations.png)
 
 
 The contents of each of the integration folders will be the software.tar.gz file that contains all of the integration files (see the section on developing your own custom bots).
