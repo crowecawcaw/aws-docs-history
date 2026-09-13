@@ -83,7 +83,7 @@ For sample code, see [aws-samples/sample-amazon-ivs-multitrack-video](https://gi
 
 This diagram illustrates how publishing with multitrack video works:
 
-![Publishing multitrack video to a stage."](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/E-RTMP.png)
+![Publishing multitrack video to a stage."](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/E-RTMP.png)
 
 
 ### OBS Guide

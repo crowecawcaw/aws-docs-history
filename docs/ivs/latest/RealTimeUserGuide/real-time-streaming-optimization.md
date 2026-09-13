@@ -27,7 +27,7 @@ Layered encoding with simulcast is supported on Android and iOS, and on the Chro
 
 In the diagram below, the host is sending three video qualities (high, medium, and low). IVS forwards the highest quality video to each viewer based on available bandwidth; this provides an optimal experience for each viewer. If Viewer 1's network connection changes from good to bad, IVS automatically starts sending Viewer 1 lower quality video, so Viewer 1 can keep watching the stream uninterrupted (with the best quality possible).
 
-![Use layered encoding with simulcast to adjust quality video based on the quality of a viewer's network connection.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Layered_Encoding_1.png)
+![Use layered encoding with simulcast to adjust quality video based on the quality of a viewer's network connection.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Layered_Encoding_1.png)
 
 
 ### Default Layers, Qualities, and Framerates

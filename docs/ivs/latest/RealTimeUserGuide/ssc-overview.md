@@ -5,7 +5,7 @@
 
 This diagram illustrates how server-side composition works:
 
-![Broadcasting a stage using server-side composition.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_Intro_Composite_Recording.png)
+![Broadcasting a stage using server-side composition.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_Intro_Composite_Recording.png)
 
 
 ## Benefits
@@ -24,7 +24,7 @@ Alternatively, to broadcast a stage to an IVS channel, you can do the compositio
 
 Use the diagram below to understand the state transitions of a composition:
 
-![Lifecycle of a Server-Side Composition resource.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_Composition_Lifecycle.png)
+![Lifecycle of a Server-Side Composition resource.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_Composition_Lifecycle.png)
 
 
 At a high level, the life cycle of a Composition is as follows:
@@ -50,7 +50,7 @@ Server-side composition uses these key API elements:
 
 To use server-side composition, you need to create an EncoderConfiguration and attach it when calling the StartComposition operation. In this example, the SquareVideo EncoderConfiguration is used in two Compositions:
 
-![Server-side composition uses two key API elements.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_IVS_API_Composite_Recording.png)
+![Server-side composition uses two key API elements.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_IVS_API_Composite_Recording.png)
 
 
 For complete information, see [IVS Real-Time Streaming API Reference](https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/Welcome.html).
@@ -77,7 +77,7 @@ The grid layout arranges stage participants in a grid of equally sized slots. It
 
 For details on grid layout (including valid values and defaults for all fields), see the [GridConfiguration](https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_GridConfiguration.html) data type.
 
-![Server-side composition grid layout](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_Grid_Layout.png)
+![Server-side composition grid layout](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_Grid_Layout.png)
 
 
 ### Picture-in-Picture (PiP) Layout
@@ -94,7 +94,7 @@ Like the grid layout, the PiP layout supports `featuredParticipantAttribute`, `o
 
 For details on PiP layout (including valid values and defaults for all fields), see the [PipConfiguration](https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_PipConfiguration.html) data type.
 
-![Server-side composition Picture-in-Picture (PiP) layout](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_PiP_Layout.png)
+![Server-side composition Picture-in-Picture (PiP) layout](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_PiP_Layout.png)
 
 
 **Note**: The maximum resolution supported by a stage publisher on server-side composition is 1080p. If a publisher sends video higher than 1080p, the publisher will be rendered as an audio-only participant.

@@ -37,7 +37,7 @@ We recommend that you integrate broadcast SDK via Swift Package Manager. (Altern
 1. Extract the contents of the archive. `AmazonIVSBroadcast.xcframework` contains the SDK for both device and simulator.
 
 1. Embed `AmazonIVSBroadcast.xcframework` by dragging it into the **Frameworks, Libraries, and Embedded Content** section of the **General** tab for your application target.  
-![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/iOS_Broadcast_SDK_Guide_xcframework.png)
+![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/iOS_Broadcast_SDK_Guide_xcframework.png)
 
 ## Request Permissions
 <a name="broadcast-ios-permissions"></a>

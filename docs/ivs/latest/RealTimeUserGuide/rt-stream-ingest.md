@@ -7,7 +7,7 @@ As an alternative to using the IVS broadcast SDK, you can publish video to an IV
 
 This diagram illustrates how publishing with WHIP and RTMP works:
 
-![Publishing with WHIP and RTMP.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Stream_Ingest.png)
+![Publishing with WHIP and RTMP.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Stream_Ingest.png)
 
 
 ## Supported Protocols

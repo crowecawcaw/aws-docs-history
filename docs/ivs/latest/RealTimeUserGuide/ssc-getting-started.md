@@ -35,7 +35,7 @@ Below, we describe one possible workflow that uses EventBridge events to start a
 
 1. Wait for a few seconds and see the composited view in the channel playback.
 
-![Server-side composition workflow that uses EventBridge events to start a composition when a participant publishes.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_Workflow.png)
+![Server-side composition workflow that uses EventBridge events to start a composition when a participant publishes.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_Workflow.png)
 
 
 **Note**: A Composition performs auto-shutdown after 60 seconds of inactivity from publisher participants on the stage. At that point, the Composition is terminated and transitions to a `STOPPED` state. A Composition is automatically deleted after a few minutes in the `STOPPED` state.

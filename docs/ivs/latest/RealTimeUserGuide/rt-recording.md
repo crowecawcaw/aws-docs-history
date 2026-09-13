@@ -14,7 +14,7 @@ Individual participant recording incurs no additional Amazon IVS charges, while 
 
 This option is ideal for live streams with a single publisher or when separate recordings of each publisher are needed, especially for moderation purposes. For more details, see [Individual Participant Recording](rt-individual-participant-recording.md).
 
-![Recording each publisher's media in a separate file using individual particpant recording.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Individual_Participant_Recording.png)
+![Recording each publisher's media in a separate file using individual particpant recording.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Individual_Participant_Recording.png)
 
 
 ## Composite Recording
@@ -22,7 +22,7 @@ This option is ideal for live streams with a single publisher or when separate r
 
 This option combines media from multiple publishers into a single view and records it in one file, ideal for a video-on-demand experience. For more details, see [Composite Recording](rt-composite-recording.md).
 
-![Recording a stage to an S3 bucket using server-side composition.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Composite_Recording.png)
+![Recording a stage to an S3 bucket using server-side composition.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Composite_Recording.png)
 
 
 ## Thumbnails

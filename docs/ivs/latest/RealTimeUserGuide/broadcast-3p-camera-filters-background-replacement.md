@@ -13,7 +13,7 @@ Background replacement is a type of camera filter that enables live-stream creat
 
 1. Passing it to a Custom Image Source for broadcast.
 
-![Workflow for implementing background replacement.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/3P_Camera_Filters_Background_Replacement.png)
+![Workflow for implementing background replacement.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/3P_Camera_Filters_Background_Replacement.png)
 
 
 ## Web

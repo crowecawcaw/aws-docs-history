@@ -14,13 +14,13 @@ Individual participant recording allows IVS real-time streaming customers to rec
 
 **Note:** If you need to have all stage participants mixed in a single video, the composite recording feature is a better fit. See [Recording](rt-recording.md) for a summary of recording IVS real-time-streaming content.
 
-![Recording each publisher's media in a separate file using individual particpant recording.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Individual_Participant_Recording.png)
+![Recording each publisher's media in a separate file using individual particpant recording.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Individual_Participant_Recording.png)
 
 
 ## Workflow
 <a name="ind-part-rec-workflow"></a>
 
-![Workflow for recording each publisher's media in a separate file using individual particpant recording.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Workflow_Participant_Recording.png)
+![Workflow for recording each publisher's media in a separate file using individual particpant recording.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Workflow_Participant_Recording.png)
 
 
 ### 1. Create an S3 Bucket

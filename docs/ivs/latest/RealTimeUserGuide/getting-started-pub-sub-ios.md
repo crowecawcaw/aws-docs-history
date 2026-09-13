@@ -24,27 +24,27 @@ class ViewController: UIViewController {
 
 Now we create those views and link them up in `Main.storyboard`. Here is the view structure that we’ll use:
 
-![Use Main.storyboard to create an iOS view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_1.png)
+![Use Main.storyboard to create an iOS view.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_1.png)
 
 
 For AutoLayout configuration, we need to customize three views. The first view is **Collection View Participants** (a `UICollectionView`). Bound **Leading**, **Trailing**, and **Bottom** to **Safe Area**. Also bound **Top** to **Controls Container**.
 
-![Customize iOS Collection View Participants view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_2.png)
+![Customize iOS Collection View Participants view.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_2.png)
 
 
 The second view is **Controls Container**. Bound **Leading**, **Trailing**, and **Top** to **Safe Area**:
 
-![Customize iOS Controls Container view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_3.png)
+![Customize iOS Controls Container view.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_3.png)
 
 
 The third and last view is **Vertical Stack View**. Bound **Top**, **Leading**, **Trailing**, and **Bottom** to **Superview**. For styling, set the spacing to 8 instead of 0.
 
-![Customize iOS Vertical Stack view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_4.png)
+![Customize iOS Vertical Stack view.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_4.png)
 
 
 The **UIStackViews** will handle the layout of the remaining views. For all three **UIStackViews**, use **Fill** as the **Alignment** and **Distribution**.
 
-![Customize remaining iOS views with UIStackViews.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_5.png)
+![Customize remaining iOS views with UIStackViews.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_5.png)
 
 
 Finally, let’s link these views to our `ViewController`. From above, map the following views:
@@ -56,12 +56,12 @@ Finally, let’s link these views to our `ViewController`. From above, map the f
 
 Also use this time to set the `dataSource` of the **Collection View Participants** item to the owning `ViewController`:
 
-![Set the dataSource of Collection View Participants for iOS app.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_6.png)
+![Set the dataSource of Collection View Participants for iOS app.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_6.png)
 
 
 Now we create the `UICollectionViewCell` subclass in which to render the participants. Start by creating a new **Cocoa Touch Class** file:
 
-![Create a UICollectionViewCell to render iOS real-time participants.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_7.png)
+![Create a UICollectionViewCell to render iOS real-time participants.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_7.png)
 
 
 Name it `ParticipantUICollectionViewCell` and make it a subclass of `UICollectionViewCell` in Swift. We start in the Swift file again, creating our `@IBOutlets` to link:
@@ -82,22 +82,22 @@ class ParticipantCollectionViewCell: UICollectionViewCell {
 
 In the associated XIB file, create this view hierarchy:
 
-![Create iOS view hierarchy in associated XIB file.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_8.png)
+![Create iOS view hierarchy in associated XIB file.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_8.png)
 
 
 For AutoLayout, we’ll modify three views again. The first view is **View Preview Container**. Set **Trailing**, **Leading**, **Top**, and **Bottom** to **Participant Collection View Cell**.
 
-![Customize iOS View Preview Container view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_9.png)
+![Customize iOS View Preview Container view.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_9.png)
 
 
 The second view is **View**. Set **Leading** and **Top** to **Participant Collection View Cell** and change the value to 4.
 
-![Customize iOS View view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_10.png)
+![Customize iOS View view.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_10.png)
 
 
 The third view is **Stack View**. Set **Trailing**, **Leading**, **Top**, and **Bottom** to **Superview** and change the value to 4.
 
-![Customize iOS Stack View view.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_11.png)
+![Customize iOS Stack View view.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_11.png)
 
 
 ## Permissions and Idle Timer
@@ -637,7 +637,7 @@ class StageLayoutCalculator {
 
 Back in `Main.storyboard`, be sure to set the layout class for the `UICollectionView` to the class we just created:
 
-![Xcode interface showing storyboard with UICollectionView and its layout settings.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_12.png)
+![Xcode interface showing storyboard with UICollectionView and its layout settings.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_iOS_12.png)
 
 
 ## Hooking Up UI Actions

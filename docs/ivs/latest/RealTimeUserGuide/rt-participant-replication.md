@@ -16,7 +16,7 @@ A common use case in social live-streaming applications is competitions, often c
 ## Using Participant Replication
 <a name="using-participant-replication-using"></a>
 
-![Use participant replication to copy a participant from one stage to another.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Participant_Replication.png)
+![Use participant replication to copy a participant from one stage to another.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Participant_Replication.png)
 
 
 ### Prerequisites

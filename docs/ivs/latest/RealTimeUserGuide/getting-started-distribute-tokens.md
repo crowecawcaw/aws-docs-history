@@ -207,7 +207,7 @@ ECDSASHA384(
 ## Creating Tokens with the IVS Real-Time Streaming API
 <a name="getting-started-distribute-tokens-api"></a>
 
-![Distribute participant tokens: Stage token workflow](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Distribute_Participant_Tokens.png)
+![Distribute participant tokens: Stage token workflow](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Distribute_Participant_Tokens.png)
 
 
 As shown above, a client application asks your server application for a token, and the server application calls `CreateParticipantToken` using an AWS SDK or SigV4 signed request. Since AWS credentials are used to call the API, the token should be generated in a secure server-side application, not the client-side application.

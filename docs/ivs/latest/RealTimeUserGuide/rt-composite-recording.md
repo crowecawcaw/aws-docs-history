@@ -26,7 +26,7 @@ To use composite recording, you must have a stage with active publishers and an 
 
 1. After a few seconds, you should be able to see the HLS segments being persisted to your S3 buckets.
 
-![Recording a stage to an S3 bucket using server-side composition.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Composite_Recording_Workflow.png)
+![Recording a stage to an S3 bucket using server-side composition.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Composite_Recording_Workflow.png)
 
 
 **Note:** A composition performs auto-shutdown after 60 seconds of inactivity from publisher participants on the stage. At that point, the composition is terminated and transitions to a `STOPPED` state. A composition is automatically deleted after a few minutes in the `STOPPED` state. For details, see [Composition Lifecycle](ssc-overview.md#ssc-composition-endpoint) in *Server-Side Composition*.

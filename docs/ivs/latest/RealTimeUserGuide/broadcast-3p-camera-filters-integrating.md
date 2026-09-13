@@ -5,7 +5,7 @@
 
 You can integrate third-party camera filter SDKs with the IVS broadcast SDK by feeding the filter SDK’s output to a [custom image input source](broadcast-custom-image-sources.md). A custom image-input source allows an application to provide its own image input to the Broadcast SDK. A third-party filter provider’s SDK may manage the camera’s lifecycle to process images from the camera, apply a filter effect, and output it in a format that can be passed to a custom image source.
 
-![Integrating third-party camera filter SDKs with the IVS broadcast SDK by feeding the filter SDK’s output to a custom image input source.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/3P_Camera_Filters_Integrating.png)
+![Integrating third-party camera filter SDKs with the IVS broadcast SDK by feeding the filter SDK’s output to a custom image input source.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/3P_Camera_Filters_Integrating.png)
 
 
 Consult your third-party filter provider’s documentation for built-in methods to convert a camera frame, with the filter effect, applied to a format that can be passed to a [custom image-input source](broadcast-custom-image-sources.md). The process varies, depending on which version of the IVS broadcast SDK is used:

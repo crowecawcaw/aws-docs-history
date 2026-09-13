@@ -79,7 +79,7 @@ The response is:
 
 When the stage participant `E813MFklPWLF` joins the stage, that participant’s video will be displayed in the featured slot, and all other stage publishers will be rendered below the slot:
 
-![Starting the Composition using the screen-share feature.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_StartComposition.png)
+![Starting the Composition using the screen-share feature.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/ssc_StartComposition.png)
 
 
 ## Stop the Composition

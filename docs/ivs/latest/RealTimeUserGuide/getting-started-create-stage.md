@@ -49,7 +49,7 @@ To disable Amazon S3 recording on an existing stage:
    (You also can access the Amazon IVS console through the [AWS Management Console](https://console.aws.amazon.com/).)
 
 1. On the left navigation pane, select **Stages**, then select **Create stage**. The **Create stage** window appears.  
-![Use the Create stage window to create a new stage and a participant token for it.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Stage_Console_IPR.png)
+![Use the Create stage window to create a new stage and a participant token for it.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Stage_Console_IPR.png)
 
 1. Optionally enter a **Stage name**.
 
@@ -63,12 +63,12 @@ To disable Amazon S3 recording on an existing stage:
 Follow these steps to enable individual participant recording while creating a stage:
 
 1. On the **Create stage** page, under **Record individual participants**, turn on **Enable automatic recording**. Additional fields display, to choose **Recorded media types**, to choose an existing **Storage configuration** or create a new one, and to choose whether to record thumbnails at an interval.  
-![Use the Record individual participants dialog to configure individual participant recording for a stage.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Stage_Console_enable_IPR.png)
+![Use the Record individual participants dialog to configure individual participant recording for a stage.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Stage_Console_enable_IPR.png)
 
 1. Choose which media types to record.
 
 1. Choose **Create storage configuration**. A new window opens, with options for creating an Amazon S3 bucket and attaching it to the new recording configuration.  
-![Use the Create storage configuration window to create a new storage configuration for a stage.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Storage_Configuration_IPR.png)
+![Use the Create storage configuration window to create a new storage configuration for a stage.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Storage_Configuration_IPR.png)
 
 1. Fill out the fields:
 
@@ -77,10 +77,10 @@ Follow these steps to enable individual participant recording while creating a s
    1. Enter a **Bucket name**.
 
 1. Choose **Create storage configuration**, to create a new storage-configuration resource with a unique ARN. Typically, creation of the recording configuration takes a few seconds, but it can be up to 20 seconds. When the storage configuration is created, you are returned to the **Create stage** window. There, the **Record individual participants** area shows your new **Storage configuration** and the S3 bucket (**Storage**) that you created.  
-![Create a stage using the IVS Console: New storage configuration created.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Stage_Console_Storage_Configuration.png)
+![Create a stage using the IVS Console: New storage configuration created.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Stage_Console_Storage_Configuration.png)
 
 1. You can optionally enable other non-default options such as recording participant replicas, merging individual participant recordings, and thumbnail recording.  
-![Create a stage using the IVS Console: enable advanced options like thumbnail recording and IPR stitching.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Stage_Console_IPR_Stitching.png)
+![Create a stage using the IVS Console: enable advanced options like thumbnail recording and IPR stitching.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Create_Stage_Console_IPR_Stitching.png)
 
 ## CLI Instructions for Creating an IVS Stage
 <a name="getting-started-create-stage-cli"></a>

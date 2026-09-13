@@ -16,7 +16,7 @@ The [AWS Blogs](https://aws.amazon.com/blogs) site has many IVS blog postings on
 
 On GitHub, the IVS real-time streaming demo for iOS and Android shows developers how to use IVS to build a compelling real-time, social-user-generated content application:
 
-![IVS real-time streaming screenshots.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Real-time_Demo.png)
+![IVS real-time streaming screenshots.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Real-time_Demo.png)
 
 
 This application features a scrollable feed of user-generated real-time streams. Users can create video streams and audio-only rooms. Video-stream guests can join in guest spot or versus (VS) mode. Instructions on how to deploy the required backend and build the application are available in the following GitHub repositories:

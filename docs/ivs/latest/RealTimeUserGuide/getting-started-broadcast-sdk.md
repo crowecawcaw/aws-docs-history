@@ -109,4 +109,4 @@ Next you need to bring in the SDK. For instructions, see [Install the Library](b
 
 You need to update your project’s `Info.plist` to add two new entries for `NSCameraUsageDescription` and `NSMicrophoneUsageDescription`. For the values, provide user-facing explanations of why your app is asking for camera and microphone access.
 
-![Configure iOS permissions.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/iOS_Configure.png)
+![Configure iOS permissions.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/iOS_Configure.png)

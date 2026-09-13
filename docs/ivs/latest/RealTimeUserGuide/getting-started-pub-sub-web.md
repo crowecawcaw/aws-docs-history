@@ -66,7 +66,7 @@ These elements will hold the media for our local and remote participants. We add
 
 This completes the HTML page and you should see this when loading `index.html` in a browser:
 
-![View Real-Time Streaming in a browser: HTML setup complete.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/RT_Browser_View.png)
+![View Real-Time Streaming in a browser: HTML setup complete.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/RT_Browser_View.png)
 
 
 ## Create app.js

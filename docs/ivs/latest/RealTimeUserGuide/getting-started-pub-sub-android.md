@@ -10,7 +10,7 @@ This section takes you through the steps involved in publishing and subscribing 
 
 We start by creating a simple layout for our app using the auto-created `activity_main.xml` file. The layout contains an `EditText` to add a token, a Join `Button`, a `TextView` to show the stage state, and a `CheckBox` to toggle publishing.
 
-![Set up the publishing layout for your Android app.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_1.png)
+![Set up the publishing layout for your Android app.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_1.png)
 
 
 Here is the XML behind the view:
@@ -149,12 +149,12 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
 Now we create an item view for our `RecyclerView`. To do this, right-click your `res/layout` directory and select **New > Layout Resource File**. Name this new file `item_stage_participant.xml`.
 
-![Create an item view for your Android app RecyclerView.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_2.png)
+![Create an item view for your Android app RecyclerView.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_2.png)
 
 
 The layout for this item is simple: it contains a view for rendering a participant’s video stream and a list of labels for displaying information about the participant:
 
-![Create an item view for your Android app RecyclerView - labels.](http://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_3.png)
+![Create an item view for your Android app RecyclerView - labels.](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/images/Publish_Android_3.png)
 
 
 Here is the XML:
