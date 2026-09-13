@@ -14,7 +14,7 @@ A loosely coupled workload entails the processing of a large number of smaller t
 
 AWS Batch is a fully managed service that helps you run large-scale compute workloads in the cloud without provisioning resources or managing schedulers. AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS. AWS Batch dynamically provisions the optimal quantity and type of compute resources (for example, CPU or memory-optimized instances) based on the volume and specified resource requirements of the batch jobs submitted. It plans, schedules, and runs containerized batch computing workloads across the full range of AWS compute services and features, such as Amazon EC2 and AWS Fargate. Without the need to install and manage the batch computing software or server clusters necessary for running your jobs, you can focus on analyzing results and gaining new insights. With AWS Batch, you package your application in a container, specify your job's dependencies, and submit your batch jobs using the AWS Management Console, the CLI, or an SDK. You can specify runtime parameters and job dependencies and integrate with a broad range of popular batch computing workflow engines and languages (for example, Pegasus WMS, Luigi, and AWS Step Functions). AWS Batch provides default job queues and compute environment definitions that enable you to get started quickly.
 
-![AWS Batch reference architecture](http://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/images/image1.png)
+![AWS Batch reference architecture](https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/images/image1.png)
 
 
  **Workflow steps** 
