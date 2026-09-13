@@ -10,7 +10,7 @@ This reference architecture demonstrates how to build a highly-scalable, low-lat
 ## Electric Vehicle Charging OCPP Handler Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram demonstrating how to build a highly-scalable, low-latency electric vehicle (EV) charge point operator system based on the EV industry standard, Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/electric-vehicle-charging-ocpp-handler/images/electric-vehicle-charging-ocpp-handler.png)
+![Reference architecture diagram demonstrating how to build a highly-scalable, low-latency electric vehicle (EV) charge point operator system based on the EV industry standard, Open Charge Point Protocol (OCPP), using AWS services like AWS IoT Core and AWS Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/electric-vehicle-charging-ocpp-handler/images/electric-vehicle-charging-ocpp-handler.png)
 
 
 1.  An electric vehicle arrives to a charge point and connects to the charge cable. The customer swipes their RFID card to initiate charging. 
