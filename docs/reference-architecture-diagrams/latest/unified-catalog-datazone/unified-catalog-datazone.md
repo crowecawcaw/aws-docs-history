@@ -10,7 +10,7 @@ The unified data catalog acts as a central repository for all your organization'
 ## Building a Unified Catalog with Amazon DataZone
 <a name="diagram1"></a>
 
-![Architecture diagram showing a unified catalog with Amazon DataZone, AWS Glue, Amazon S3, Amazon Redshift, and Amazon Aurora.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/unified-catalog-datazone/images/unified-catalog-datazone.png)
+![Architecture diagram showing a unified catalog with Amazon DataZone, AWS Glue, Amazon S3, Amazon Redshift, and Amazon Aurora.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/unified-catalog-datazone/images/unified-catalog-datazone.png)
 
 
 The following steps describe the architecture:
