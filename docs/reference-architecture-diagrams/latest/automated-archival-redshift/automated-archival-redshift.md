@@ -10,7 +10,7 @@ This architecture shows how to automate the periodic data archival process for a
 ## Automated Archival for Amazon Redshift
 <a name="diagram1"></a>
 
-![Architecture diagram showing automated archival for Amazon Redshift with Step Functions, Lambda, Amazon S3, and EventBridge.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/automated-archival-redshift/images/automated-archival-redshift.png)
+![Architecture diagram showing automated archival for Amazon Redshift with Step Functions, Lambda, Amazon S3, and EventBridge.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/automated-archival-redshift/images/automated-archival-redshift.png)
 
 
 The following steps describe the architecture:
