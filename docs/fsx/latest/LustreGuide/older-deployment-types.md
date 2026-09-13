@@ -41,7 +41,7 @@ The following procedures walk you through the process of creating an Amazon FSx 
 1. Provide the information required for the **File system details** and **Network and security** sections. For more information, see [Step 1: Create your FSx for Lustre file system](getting-started.md#getting-started-step1).
 
 1. You use the **Data repository import/export** panel to configure a linked data repository in Amazon S3. Select **Import data from and export data to S3** to expand the **Data Repository Import/Export** section and configure the data repository settings.  
-![The Data repository import and export panel for configuring a linked data repository in Amazon S3.](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/legacy-data-repository-import-export.png)
+![The Data repository import and export panel for configuring a linked data repository in Amazon S3.](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/legacy-data-repository-import-export.png)
 
 1. Choose how Amazon FSx keeps your file and directory listing up to date as you add or modify objects in your S3 bucket. When you create your file system, your existing S3 objects appear as file and directory listings.
    + **Update my file and directory listing as objects are added to my S3 bucket**: (Default) Amazon FSx automatically updates file and directory listings of any new objects added to the linked S3 bucket that do not currently exist in the FSx file system. Amazon FSx does not update listings for objects that have changed in the S3 bucket. Amazon FSx does not delete listings of objects that are deleted in the S3 bucket.
@@ -153,7 +153,7 @@ You can view a file system's export path using the FSx for Lustre console, the A
 
    The **Data repository integration** panel appears, showing the import and export paths.
 
-![The Data repository import and export paths in the Data repository integration panel.](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/legacy-view-export-path.png)
+![The Data repository import and export paths in the Data repository integration panel.](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/legacy-view-export-path.png)
 
 
 ------

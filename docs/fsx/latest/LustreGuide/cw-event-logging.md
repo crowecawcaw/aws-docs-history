@@ -54,7 +54,7 @@ On existing file systems that have logging enabled, you can change the event log
 1. Follow the procedure for creating a new file system described in [Step 1: Create your FSx for Lustre file system](getting-started.md#getting-started-step1) in the Getting Started section. 
 
 1. Open the **Logging - optional** section. Logging is enabled by default.  
-![The Logging - optional section of the Create file system wizard, showing that event logging is turned off by default.](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/create-fs-logging.png)
+![The Logging - optional section of the Create file system wizard, showing that event logging is turned off by default.](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/create-fs-logging.png)
 
 1. Continue with the next section of the file system creation wizard.
 

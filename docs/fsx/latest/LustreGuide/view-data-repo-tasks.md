@@ -21,7 +21,7 @@ You can access all existing data repository tasks in your account by using the A
 1. On the file system details page, choose the **Data repository** tab. Any tasks for this file system appear on the **Data repository tasks** panel.
 
 1. To see a task's details, choose **Task ID** or **Task name** in the **Data repository tasks** panel. The task detail page appears.  
-![Data repository tasks page](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/task-details-rprt.png)
+![Data repository tasks page](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/task-details-rprt.png)
 
 ## To retrieve data repository tasks and task details (CLI)
 <a name="task-details-cli"></a>

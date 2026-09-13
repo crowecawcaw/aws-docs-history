@@ -27,7 +27,7 @@ Amazon FSx for Lustre, built on Lustre, the popular high-performance file system
 
 Each FSx for Lustre file system consists of the file servers that the clients communicate with, and a set of disks attached to each file server that store your data. Each file server employs a fast, in-memory cache to enhance performance for the most frequently accessed data. Depending on the storage class, your file server can be provisioned with an optional SSD read cache. When a client accesses data that's stored in the in-memory or SSD cache, the file server doesn't need to read it from disk, which reduces latency and increases the total amount of throughput you can drive. The following diagram illustrates the paths of a write operation, a read operation served from disk, and a read operation served from in-memory or SSD cache.
 
-![FSx for Lustre performance architecture.](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/LustrePerfDiagram.png)
+![FSx for Lustre performance architecture.](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/LustrePerfDiagram.png)
 
 
  When you read data that is stored on the file server's in-memory or SSD cache, file system performance is determined by the network throughput. When you write data to your file system, or when you read data that isn't stored on the in-memory cache, file system performance is determined by the lower of the network throughput and disk throughput. 

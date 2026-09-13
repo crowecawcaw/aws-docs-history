@@ -9,7 +9,7 @@ There are two primary architectural components of each Amazon FSx for Lustre fil
 
 FSx for Lustre reports metrics in CloudWatch that track performance and resource utilization for your file system's storage and metadata servers, and their associated storage volumes. The following diagram illustrates an Amazon FSx for Lustre file system with its architectural components, and the performance and resource CloudWatch metrics that are available for monitoring.
 
-![Diagram displaying the different types of FSx for Lustre Cloudwatch metrics.](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/file-server-metrics.png)
+![Diagram displaying the different types of FSx for Lustre Cloudwatch metrics.](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/file-server-metrics.png)
 
 
 You can use the **Monitoring & performance** panel on your file system's dashboard in the Amazon FSx for Lustre console to view the metrics that are described in the following tables. For more information, see [Accessing CloudWatch metrics](accessingmetrics.md).

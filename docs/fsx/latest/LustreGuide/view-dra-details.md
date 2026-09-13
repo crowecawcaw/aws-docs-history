@@ -15,7 +15,7 @@ You can view the details of a data repository association using the FSx for Lust
 1. Choose the **Data repository** tab.
 
 1. In the **Data repository associations** pane, choose the data repository association that you want to view. The **Summary** page appears, showing the DRA details.  
-![Amazon FSx Details page of a data repository association.](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/dra-describe.png)
+![Amazon FSx Details page of a data repository association.](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/dra-describe.png)
 
 ## To view DRA details (CLI)
 <a name="view-dra-details-cli"></a>

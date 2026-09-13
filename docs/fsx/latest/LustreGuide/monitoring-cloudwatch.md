@@ -15,7 +15,7 @@ CloudWatch metrics for FSx for Lustre are organized into six categories:
 
 The following diagram illustrates an FSx for Lustre file system, its components, and its metric categories.
 
-![FSx for Lustre reports metrics in CloudWatch.](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/metrics-overview.png)
+![FSx for Lustre reports metrics in CloudWatch.](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/metrics-overview.png)
 
 
 FSx for Lustre sends metric data to CloudWatch at 1-minute intervals.

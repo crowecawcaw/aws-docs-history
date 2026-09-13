@@ -30,7 +30,7 @@ For more information on CRON schedule patterns, see [Schedule Expressions for Ru
 
 Deploying this solution builds the following resources in the AWS Cloud.
 
-![Diagram displaying the architecture of the AWS Backup solution.](http://docs.aws.amazon.com/fsx/latest/LustreGuide/images/fsx-custom-backup-architecture.png)
+![Diagram displaying the architecture of the AWS Backup solution.](https://docs.aws.amazon.com/fsx/latest/LustreGuide/images/fsx-custom-backup-architecture.png)
 
 
 This solution does the following:
