@@ -10,7 +10,7 @@ With this architecture, consumer packaged goods (CPG) companies manage all onlin
 ## Digital River commerce platform diagram
 <a name="dr-diagram"></a>
 
-![Store devices and mobile apps connecting through AWS edge services to a headless ecommerce layer, integrated with Digital River SaaS on Amazon Elastic Container Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/digital-river-cpg/images/digital-river-cpg.png)
+![Store devices and mobile apps connecting through AWS edge services to a headless ecommerce layer, integrated with Digital River SaaS on Amazon Elastic Container Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/digital-river-cpg/images/digital-river-cpg.png)
 
 
 The following steps describe the architecture:
