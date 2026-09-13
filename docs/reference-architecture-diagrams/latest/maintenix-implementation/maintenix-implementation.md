@@ -12,7 +12,7 @@ This architecture deploys IFS Maintenix software servers across two Availability
 ## IFS Maintenix implementation diagram
 <a name="maintenix-diagram"></a>
 
-![Architecture for IFS Maintenix on AWS using Amazon Elastic Compute Cloud, Amazon RDS, and AWS Transit Gateway.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/maintenix-implementation/images/maintenix-migration-airlines-ra.png)
+![Architecture for IFS Maintenix on AWS using Amazon Elastic Compute Cloud, Amazon RDS, and AWS Transit Gateway.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/maintenix-implementation/images/maintenix-migration-airlines-ra.png)
 
 
 The following steps describe the architecture:
