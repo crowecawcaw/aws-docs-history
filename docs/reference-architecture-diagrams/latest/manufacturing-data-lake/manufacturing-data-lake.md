@@ -10,7 +10,7 @@ With this architecture, you can build a manufacturing data lake that combines op
 ## Manufacturing data lake architecture diagram
 <a name="mdl-diagram"></a>
 
-![Reference architecture diagram for building a manufacturing data lake on AWS that combines IIoT and enterprise data for analytics and ML predictions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-data-lake/images/manufacturing-data-lake-ra.png)
+![Reference architecture diagram for building a manufacturing data lake on AWS that combines IIoT and enterprise data for analytics and ML predictions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/manufacturing-data-lake/images/manufacturing-data-lake-ra.png)
 
 
 The following steps describe the architecture:
