@@ -35,7 +35,7 @@ Apply policies at the OU-level to govern the Prod and SDLC environment according
 
 The following diagram shows the foundational OUs (Prod and SDLC) for security and infrastructure:
 
-![This image displays the foundational OUs (Prod and SDLC) for security and infrastructure.](http://docs.aws.amazon.com/organizations/latest/userguide/images/foundational-OUs.png)
+![This image displays the foundational OUs (Prod and SDLC) for security and infrastructure.](https://docs.aws.amazon.com/organizations/latest/userguide/images/foundational-OUs.png)
 
 
 ## Recommended additional organizational unit (OUs)
@@ -55,7 +55,7 @@ We also recommend adding additional OUs for maintenance and continued expansion 
 
 The following diagram shows additional OUs for sandbox, workloads, policy staging, suspended, individual business users, exceptions, deployments, and transitional accounts:
 
-![This image displays additional OUs for sandbox, workloads, policy staging, suspended, individual business users, exceptions, deployments, and transitional accounts.](http://docs.aws.amazon.com/organizations/latest/userguide/images/additional-OUs.png)
+![This image displays additional OUs for sandbox, workloads, policy staging, suspended, individual business users, exceptions, deployments, and transitional accounts.](https://docs.aws.amazon.com/organizations/latest/userguide/images/additional-OUs.png)
 
 
 ## Conclusion
@@ -65,4 +65,4 @@ A well-architected multi-account strategy can help you innovate in AWS, while he
 
 The following diagram shows recommended foundational OUs and additional OUs:
 
-![This image displays recommended foundational OUs and additional OUs.](http://docs.aws.amazon.com/organizations/latest/userguide/images/recommended-OUs.png)
+![This image displays recommended foundational OUs and additional OUs.](https://docs.aws.amazon.com/organizations/latest/userguide/images/recommended-OUs.png)

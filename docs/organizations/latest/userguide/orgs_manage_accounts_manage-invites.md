@@ -28,7 +28,7 @@ To manage pending invitations for your organization, you must have the following
 **Note**  
 Accepted, canceled, and declined invitations continue to appear in the list for 30 days. After that, they're deleted and no longer appear in the list.
 
-1. Choose the radio button ![Blue circular icon with a white checkmark symbol in the center.](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png)next to the invitation that you want to cancel, and then choose **Cancel invitation**. If the radio button is grayed out, then that invitation can't be canceled.
+1. Choose the radio button ![Blue circular icon with a white checkmark symbol in the center.](https://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png)next to the invitation that you want to cancel, and then choose **Cancel invitation**. If the radio button is grayed out, then that invitation can't be canceled.
 
    The status of the invitation changes from **OPEN** to **CANCELED**.
 

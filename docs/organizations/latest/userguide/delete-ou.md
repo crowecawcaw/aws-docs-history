@@ -19,7 +19,7 @@ To delete an OU, you must have the following permissions:
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the OUs that you want to delete and choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to each OU's name.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the OUs that you want to delete and choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](https://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to each OU's name.
 
 1. Choose **Actions**, and then under **Organizational unit**, choose **Delete**.
 

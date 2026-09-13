@@ -31,7 +31,7 @@ You can attach an SCP by either navigating to the policy or to the root, OU, or 
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the check box next to the root, OU, or account that you want to attach an SCP to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the check box next to the root, OU, or account that you want to attach an SCP to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. In the **Policies** tab, in the entry for **Service control policies**, choose **Attach**.
 
@@ -47,7 +47,7 @@ You can attach an SCP by either navigating to the policy or to the root, OU, or 
 
 1. On the **Targets** tab, choose **Attach**.
 
-1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. Choose **Attach policy**.
 
@@ -62,7 +62,7 @@ You can attach an RCP by either navigating to the policy or to the root, OU, or 
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the check box next to the root, OU, or account that you want to attach an RCP to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the check box next to the root, OU, or account that you want to attach an RCP to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. In the **Policies** tab, in the entry for **Resource control policies**, choose **Attach**.
 
@@ -78,7 +78,7 @@ You can attach an RCP by either navigating to the policy or to the root, OU, or 
 
 1. On the **Targets** tab, choose **Attach**.
 
-1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. Choose **Attach policy**.
 
@@ -93,7 +93,7 @@ You can attach a declarative policy by either navigating to the policy or to the
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. In the **Policies** tab, in the entry for **Declarative policies**, choose **Attach**.
 
@@ -109,7 +109,7 @@ You can attach a declarative policy by either navigating to the policy or to the
 
 1. On the **Targets** tab, choose **Attach**.
 
-1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. Choose **Attach policy**.
 
@@ -124,7 +124,7 @@ You can attach a backup policy by either navigating to the policy or to the root
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. In the **Policies** tab, in the entry for **Backup policies**, choose **Attach**.
 
@@ -140,7 +140,7 @@ You can attach a backup policy by either navigating to the policy or to the root
 
 1. On the **Targets** tab, choose **Attach**.
 
-1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. Choose **Attach policy**.
 
@@ -155,7 +155,7 @@ You can attach a tag policy by either navigating to the policy or to the root, O
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. In the **Policies** tab, in the entry for **Tag policies**, choose **Attach**.
 
@@ -171,7 +171,7 @@ You can attach a tag policy by either navigating to the policy or to the root, O
 
 1. On the **Targets** tab, choose **Attach**.
 
-1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. Choose **Attach policy**.
 
@@ -186,7 +186,7 @@ You can attach a chat applications policy by either navigating to the policy or 
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. In the **Policies** tab, in the entry for **Chat applications policies**, choose **Attach**.
 
@@ -202,7 +202,7 @@ You can attach a chat applications policy by either navigating to the policy or 
 
 1. On the **Targets** tab, choose **Attach**.
 
-1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. Choose **Attach policy**.
 
@@ -217,7 +217,7 @@ You can attach an AI services opt-out policy by either navigating to the policy 
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. In the **Policies** tab, in the entry for **AI service opt-out policies**, choose **Attach**.
 
@@ -233,7 +233,7 @@ You can attach an AI services opt-out policy by either navigating to the policy 
 
 1. On the **Targets** tab, choose **Attach**.
 
-1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. Choose **Attach policy**.
 
@@ -248,7 +248,7 @@ You can attach a Security Hub policy by either navigating to the policy or to th
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, navigate to and then choose the name of the root, OU, or account that you want to attach a policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. In the **Policies** tab, in the entry for **Security Hub policies**, choose **Attach**.
 
@@ -264,7 +264,7 @@ You can attach a Security Hub policy by either navigating to the policy or to th
 
 1. On the **Targets** tab, choose **Attach**.
 
-1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
+1. Choose the radio button next to the root, OU, or account that you want to attach the policy to. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU or account that you want.
 
 1. Choose **Attach policy**.
 

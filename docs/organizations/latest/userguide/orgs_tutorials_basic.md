@@ -7,7 +7,7 @@ In this tutorial, you create your organization and configure it with two AWS mem
 
 The following illustration shows the main steps of the tutorial.
 
-![Four-step process for creating an organization, units, policies, and testing restrictions.](http://docs.aws.amazon.com/organizations/latest/userguide/images/tutorialorgs.png)
+![Four-step process for creating an organization, units, policies, and testing restrictions.](https://docs.aws.amazon.com/organizations/latest/userguide/images/tutorialorgs.png)
 
 **[Step 1: Create your organization](#tutorial-orgs-step1)**  
 In this step, you create an organization with your current AWS account as the management account. You also invite one AWS account to join your organization, and you create a second account as a member account.
@@ -126,7 +126,7 @@ If you get an error that indicates that you exceeded your account limits for the
 
 In the steps in this section, you create organizational units (OUs) and place your member accounts in them. When you're done, your hierarchy looks like the following illustration. The management account remains in the root. One member account is moved to the Production OU, and the other member account is moved to the MainApp OU, which is a child of Production. 
 
-![Tutorial organization structure showing Production and Security OUs with MainApp sub-OU](http://docs.aws.amazon.com/organizations/latest/userguide/images/orgs-lab-structure.jpg)
+![Tutorial organization structure showing Production and Security OUs with MainApp sub-OU](https://docs.aws.amazon.com/organizations/latest/userguide/images/orgs-lab-structure.jpg)
 
 
 ------
@@ -141,13 +141,13 @@ The steps that follow have you choose the radio button so that you can then act 
 
 1. On the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2) navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page.
 
-1. Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to the **Root** container.
+1. Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](https://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to the **Root** container.
 
 1. Choose the **Actions** dropdown, and then under **Organizational unit**, choose **Create new**.
 
 1. On the **Create organizational unit in Root** page, for the **Organizational unit name**, enter **Production** and then choose **Create organizational unit**.
 
-1. Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to your new **Production** OU.
+1. Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](https://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to your new **Production** OU.
 
 1. Choose **Actions**, and then under **Organizational unit**, choose **Create new**.
 
@@ -155,13 +155,13 @@ The steps that follow have you choose the radio button so that you can then act 
 
    Now you can move your member accounts into these OUs.
 
-1. Return to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, and then expand the tree under your **Production** OU by choosing the triangle ![Gray cloud icon with an arrow pointing downward, indicating download or cloud storage.](http://docs.aws.amazon.com/organizations/latest/userguide/images/expand-icon.png) next to it. This displays the **MainApp** OU as a child of **Production**.
+1. Return to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, and then expand the tree under your **Production** OU by choosing the triangle ![Gray cloud icon with an arrow pointing downward, indicating download or cloud storage.](https://docs.aws.amazon.com/organizations/latest/userguide/images/expand-icon.png) next to it. This displays the **MainApp** OU as a child of **Production**.
 
-1. Next to **333333333333**, choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) (not its name), choose **Actions**, and then under **AWS account**, choose **Move**.
+1. Next to **333333333333**, choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](https://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) (not its name), choose **Actions**, and then under **AWS account**, choose **Move**.
 
-1. On the **Move AWS account '333333333333'** page, choose the triangle next to **Production** to expand it. Next to **MainApp**, choose the radio button ![Blue circular icon with a white checkmark symbol in the center.](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png) (not its name), and then choose **Move AWS account**.
+1. On the **Move AWS account '333333333333'** page, choose the triangle next to **Production** to expand it. Next to **MainApp**, choose the radio button ![Blue circular icon with a white checkmark symbol in the center.](https://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png) (not its name), and then choose **Move AWS account**.
 
-1. Next to **222222222222**, choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) (not its name), choose **Actions**, and then under **AWS account**, choose **Move**.
+1. Next to **222222222222**, choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](https://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) (not its name), choose **Actions**, and then under **AWS account**, choose **Move**.
 
 1. On the **Move AWS account '222222222222'** page, next to **Production**, choose the radio button (not its name), and then choose **Move AWS account**.
 

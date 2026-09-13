@@ -14,7 +14,7 @@ To navigate to different OUs or to the root when moving accounts or attaching po
 
 1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, at the top of the **Organization** section, select the **Hierarchy** toggle (instead of **List**).
 
-1. The tree initially appears showing the root, displaying only the first level of child OUs and accounts. To expand the tree to show deeper levels, choose the expand icon (![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) next to any parent entity. To reduce clutter and collapse a branch of the tree, choose the collapse icon (![Downward-pointing gray triangle icon, commonly used to indicate dropdown menus.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-collapse.png)) next to an expanded parent entity.
+1. The tree initially appears showing the root, displaying only the first level of child OUs and accounts. To expand the tree to show deeper levels, choose the expand icon (![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) next to any parent entity. To reduce clutter and collapse a branch of the tree, choose the collapse icon (![Downward-pointing gray triangle icon, commonly used to indicate dropdown menus.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-collapse.png)) next to an expanded parent entity.
 
 1. Choose the name of an OU or root to view its details and perform certain operations. Alternatively, you can choose the radio button next to the name, and perform certain operations on that entity in the **Actions** menu.
 
@@ -29,7 +29,7 @@ You can also view the list of only the accounts in your organization in tabular 
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, at the top of the **Organization** section, choose the **View AWS accounts only** switch icon to turn it on. ![Toggle switch icon in the on position, shown in blue.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-switch-on.png).
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, at the top of the **Organization** section, choose the **View AWS accounts only** switch icon to turn it on. ![Toggle switch icon in the on position, shown in blue.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-switch-on.png).
 
 1. The list of accounts is displayed without any hierarchy.
 

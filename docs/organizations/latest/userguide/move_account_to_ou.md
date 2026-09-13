@@ -19,7 +19,7 @@ To move accounts to a new location in the OU hierarchy, you must have the follow
 
 1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the account or accounts that you want to move. You can navigate the OU hierarchy or enable **View AWS accounts only** to see a flat list of accounts without the OU structure. If you have a lot of accounts, you might have to choose **Load more accounts in '*ou-name*'** at the bottom of the list to find all of those you want to move.
 
-1. Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to the name of each account that you want to move.
+1. Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](https://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) next to the name of each account that you want to move.
 
 1. On the **Actions** menu, under **AWS account**, choose **Move **.
 

@@ -7,7 +7,7 @@ You can use organizational units (OUs) to group accounts together to administer 
 
 The following diagram shows an organization that consists of seven accounts that are organized into four OUs under the root. The organization also has a few policies that are applied to OUs.
 
-![This image displays a basic organization that consists of seven accounts that are organized into four organizational units (OUs) under the root. The organization also has a few policies that are applied to OUs.](http://docs.aws.amazon.com/organizations/latest/userguide/images/OuExamples.png)
+![This image displays a basic organization that consists of seven accounts that are organized into four organizational units (OUs) under the root. The organization also has a few policies that are applied to OUs.](https://docs.aws.amazon.com/organizations/latest/userguide/images/OuExamples.png)
 
 
 **Note**  

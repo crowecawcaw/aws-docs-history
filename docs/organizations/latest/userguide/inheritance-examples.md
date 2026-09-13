@@ -7,7 +7,7 @@ These examples show how policy inheritance works by showing how parent and child
 
 The examples assume that you have the organization structure shown in the following diagram.
 
-![An organization with one root, two OUs, and several accounts.](http://docs.aws.amazon.com/organizations/latest/userguide/images/org-structure-inheritance.png)
+![An organization with one root, two OUs, and several accounts.](https://docs.aws.amazon.com/organizations/latest/userguide/images/org-structure-inheritance.png)
 
 
 **Topics**

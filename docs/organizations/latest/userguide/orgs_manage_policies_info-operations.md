@@ -220,7 +220,7 @@ To list the policies that are attached to a root, organizational unit (OU), or a
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, choose the name of the root, OU, or account whose policies you want to view. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU that you want.
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, choose the name of the root, OU, or account whose policies you want to view. You might have to expand OUs (choose the ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)) to find the OU that you want.
 
 1. On the Root, OU, or account page, choose the **Policies** tab.
 

@@ -25,7 +25,7 @@ To enforce basic compliance rules with tag policies, do one of the following whe
 
 The image below shows the console experience of the Visual editor tab. In this example, the customer is defining a tag policy that will enforce tag value validation only for Amazon EC2 resource types that are supported by tag policies. This policy will check if the tag value is either "Legal" or "HR" when the supplied tag key is "CostCenter" for Amazon EC2 resource types. This policy also enforces capitalization, which means that the policy is looking for an exact string match to the "CostCenter" tag key.
 
-![Visual editor tab showing tag policy configuration for CostCenter tag with Legal and HR values](http://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance.png)
+![Visual editor tab showing tag policy configuration for CostCenter tag with Legal and HR values](https://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance.png)
 
 
 The JSON below is the generated tag policy from the above "CostCenter" example.

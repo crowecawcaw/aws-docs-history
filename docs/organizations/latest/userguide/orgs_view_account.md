@@ -18,7 +18,7 @@ To view the details of an AWS account, you must have the following permissions:
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page and choose the name of the name of the account (not the radio button) that you want to examine. If the account that you want is a child of an OU, you might have to choose the triangle icon ![Gray cloud icon representing cloud computing or storage services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)next to an OU to expand it and see its children. Repeat until you find the account.
+1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page and choose the name of the name of the account (not the radio button) that you want to examine. If the account that you want is a child of an OU, you might have to choose the triangle icon ![Gray cloud icon representing cloud computing or storage services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)next to an OU to expand it and see its children. Repeat until you find the account.
 
    The **Account details** box shows the information about the account.
 

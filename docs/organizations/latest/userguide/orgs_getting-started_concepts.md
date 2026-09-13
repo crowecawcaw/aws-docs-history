@@ -9,7 +9,7 @@ The following diagram shows an organization that consists of five accounts that 
 
 For a description of each of these items, refer to the definitions in this topic.
 
-![Diagram of basic organization](http://docs.aws.amazon.com/organizations/latest/userguide/images/AccountOuDiagram.png)
+![Diagram of basic organization](https://docs.aws.amazon.com/organizations/latest/userguide/images/AccountOuDiagram.png)
 
 
 **Topics**

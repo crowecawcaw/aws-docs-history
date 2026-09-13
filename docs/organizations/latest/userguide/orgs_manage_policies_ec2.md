@@ -43,7 +43,7 @@ The choice to attach an EC2 policy for enforcing a baseline configuration depend
 
 For more information, see [Generating the account status report](orgs_manage_policies_ec2_status-report.md).
 
-![Example account status report with uniformity across accounts for VPC Block Public Access and Image Block Public Access](http://docs.aws.amazon.com/organizations/latest/userguide/images/ec2-status-report.png)
+![Example account status report with uniformity across accounts for VPC Block Public Access and Image Block Public Access](https://docs.aws.amazon.com/organizations/latest/userguide/images/ec2-status-report.png)
 
 
 *Figure 1: Example account status report with uniformity across accounts for VPC Block Public Access and Image Block Public Access.*

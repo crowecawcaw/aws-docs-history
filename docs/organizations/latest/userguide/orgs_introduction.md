@@ -15,7 +15,7 @@ The following diagram shows a high-level explanation of how you can use AWS Orga
 + Apply policies
 + Enable AWS services
 
-![This image displays how AWS Organizations works: add accounts, group accounts, apply policies, and enable AWS services.](http://docs.aws.amazon.com/organizations/latest/userguide/images/organizations-how-it-works.png)
+![This image displays how AWS Organizations works: add accounts, group accounts, apply policies, and enable AWS services.](https://docs.aws.amazon.com/organizations/latest/userguide/images/organizations-how-it-works.png)
 
 
 **Topics**

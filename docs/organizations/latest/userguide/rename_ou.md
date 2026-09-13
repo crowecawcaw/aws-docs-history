@@ -18,7 +18,7 @@ To rename an OU within a root in your organization, you must have the following 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
 1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, [navigate to the OU](navigate_tree.md) that you want to rename, and then do one of the following steps:
-   + Choose the radio button ![Blue circular icon with a white checkmark symbol in the center.](http://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png) next to the OU that you want to rename. Then, on the **Actions** menu, under **Organizational unit**, choose **Rename**.
+   + Choose the radio button ![Blue circular icon with a white checkmark symbol in the center.](https://docs.aws.amazon.com/organizations/latest/userguide/images/radio-button-selected.png) next to the OU that you want to rename. Then, on the **Actions** menu, under **Organizational unit**, choose **Rename**.
    + Choose the OU's name, to access the OU's detail page. Then, at the top of the page choose **Rename**.
 
 1. In the **Rename organizational unit** dialog box, enter a new name, and then choose **Save changes**.

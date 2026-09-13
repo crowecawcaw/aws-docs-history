@@ -23,7 +23,7 @@ With reporting for basic compliance rules, you can generate a tagging compliance
 
 From the Visual editor tab, enter the value for the tag key that you want to report compliance against. The screenshot below shows a customer compliance report for the "CostCenter" tag key. In this example, the report will highlight a tagged resource as compliant if it matches only a lowercase value of the "CostCenter" tag key, meaning the string is equal to "costcenter".
 
-![Visual editor tab showing tag policy configuration for CostCenter tag with Legal and HR values](http://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance-reporting.png)
+![Visual editor tab showing tag policy configuration for CostCenter tag with Legal and HR values](https://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance-reporting.png)
 
 
 The JSON below generates a compliance report for resources against a lowercase value of the "CostCenter" tag key.
@@ -40,7 +40,7 @@ The JSON below generates a compliance report for resources against a lowercase v
 
 From the Visual editor tab, enter the value for the tag key that you want to report compliance against, and select the Capitalization option. The screenshot below shows a customer compliance report for the "CostCenter" tag key with capitalization. In this example, the report will highlight a tagged resource as compliant if it is an exact string match to the "CostCenter" tag key.
 
-![Visual editor tab showing tag policy configuration for CostCenter tag with capitalization](http://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance-capitalization.png)
+![Visual editor tab showing tag policy configuration for CostCenter tag with capitalization](https://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance-capitalization.png)
 
 
 The JSON below generates a compliance report for resources against the "CostCenter" tag key with capitalization.
@@ -61,7 +61,7 @@ The JSON below generates a compliance report for resources against the "CostCent
 
 From the Visual editor tab, enter the value for the tag key that you want to report compliance against, select the Allowed values option, and enter values for allowed tag values. The screenshot below shows a customer compliance report for the "CostCenter" tag key with capitalization and allowed tag values. In this example, the report will highlight a tagged resource as compliant if it is an exact string match to the "CostCenter" tag key, and the tag value is either "HR" or "Legal".
 
-![Visual editor tab showing tag policy configuration for CostCenter tag with capitalization and allowed tag values HR and Legal](http://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance-allowed-tag-values-with-capitalization.png)
+![Visual editor tab showing tag policy configuration for CostCenter tag with capitalization and allowed tag values HR and Legal](https://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance-allowed-tag-values-with-capitalization.png)
 
 
 The JSON below generates a compliance report for resources against the "CostCenter" tag key with capitalization and allowed tag values "HR" and "Legal".
@@ -105,7 +105,7 @@ You need to select both Capitalization and Mark tags as required for reporting o
 You can select only the Mark tags as required for reporting option to generate a report of selected resource types that are missing the required tags. In this scenario, the generated report will mark resources as compliant if they have "CostCenter", "costCenter", "Costcenter", "costcenter", or any similar variation. This feature allows you to generate compliance reports for selected resource types, instead of all tagged resources in your account.  
 Selecting only Capitalization will generate a report for ALL tagged resources, and mark those resources as non-compliant if the tag key does not have an exact string match.
 
-![Visual editor tab showing tag policy configuration for required tag reporting](http://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance-required-tag.png)
+![Visual editor tab showing tag policy configuration for required tag reporting](https://docs.aws.amazon.com/organizations/latest/userguide/images/tag-policies-basic-compliance-required-tag.png)
 
 
 The JSON below generates a compliance report for resources against the "CostCenter" tag key with capitalization and mark tag as required for reporting.

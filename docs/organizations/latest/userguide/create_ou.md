@@ -24,7 +24,7 @@ To create an OU within a root in your organization, you must have the following 
 
    The console displays the Root OU and its contents. The first time you visit the Root, the console displays all of your AWS accounts in that top-level view. If you previously created OUs and moved accounts into them, the console shows only the top-level OUs and any accounts that you have not yet moved into an OU.
 
-1. (Optional) If you want to create an OU inside an existing OU, [navigate to the child OU](navigate_tree.md) by choosing the name (not the check box) of the child OU, or by choosing the ![Gray cloud icon with an arrow pointing downward, indicating download or cloud storage.](http://docs.aws.amazon.com/organizations/latest/userguide/images/expand-icon.png) next to OUs in the tree view until you see the one you want, and then choosing its name.
+1. (Optional) If you want to create an OU inside an existing OU, [navigate to the child OU](navigate_tree.md) by choosing the name (not the check box) of the child OU, or by choosing the ![Gray cloud icon with an arrow pointing downward, indicating download or cloud storage.](https://docs.aws.amazon.com/organizations/latest/userguide/images/expand-icon.png) next to OUs in the tree view until you see the one you want, and then choosing its name.
 
 1. When you've selected the correct parent OU in the hierarchy, on the **Actions** menu, under **Organizational Unit**, choose **Create new**
 

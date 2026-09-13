@@ -164,7 +164,7 @@ In this step, you create an organizational unit (OU) and observe the Amazon Even
 
 1. Open the AWS Organizations console to the [**AWS accounts** page](https://console.aws.amazon.com/organizations/v2/home/accounts). 
 
-1.  Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](http://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) **Root** OU, choose **Actions**, and then under **Organizational unit** choose **Create new**.
+1.  Choose the check box ![Blue checkmark icon indicating confirmation or completion of a task.](https://docs.aws.amazon.com/organizations/latest/userguide/images/checkbox-selected.png) **Root** OU, choose **Actions**, and then under **Organizational unit** choose **Create new**.
 
 1. For the name of the OU, enter **TestCWEOU** and then choose **Create organizational unit**.
 
@@ -181,7 +181,7 @@ In this step, you create an organizational unit (OU) and observe the Amazon Even
 1. Each group contains one or more streams, and there should be one group for today. Choose it.
 
 1. View the log. You should see rows similar to the following.  
-![Sample CloudWatch Events log showing Organizations API call details](http://docs.aws.amazon.com/organizations/latest/userguide/images/tutorial-sample-CWE-log.png)
+![Sample CloudWatch Events log showing Organizations API call details](https://docs.aws.amazon.com/organizations/latest/userguide/images/tutorial-sample-CWE-log.png)
 
 1. Select the middle row of the entry to see the full JSON text of the received event. You can see all the details of the API request in the `requestParameters` and `responseElements` pieces of the output.
 

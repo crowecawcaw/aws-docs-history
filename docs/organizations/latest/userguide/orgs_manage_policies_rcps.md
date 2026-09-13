@@ -37,6 +37,7 @@ RCPs apply to actions for the following AWS services:
 + [Amazon CloudSearch](https://docs.aws.amazon.com/cloudsearch) `(prefix:cloudsearch)`
 + [Amazon CloudWatch Logs](https://docs.aws.amazon.com/cloudwatch) `(prefix:logs)`
 + [Network Synthetic Monitor](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/what-is-network-monitor.html) `(prefix:networkmonitor)`
++ [Amazon Cloud Directory](https://docs.aws.amazon.com/clouddirectory) `(prefix:clouddirectory)`
 + [Amazon Cognito](https://docs.aws.amazon.com/cognito) `(prefix:cognito-identity)`
 + [Amazon Cognito User Pools](https://docs.aws.amazon.com/cognito) `(prefix:cognito-idp)`
 + [Amazon Comprehend](https://docs.aws.amazon.com/comprehend) `(prefix:comprehend)`

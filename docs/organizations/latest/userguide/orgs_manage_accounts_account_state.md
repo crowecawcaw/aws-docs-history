@@ -39,7 +39,7 @@ The account `Status` parameter in AWS Organizations will be retired on September
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, assume an IAM role, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page and notice the value in the **State** column next to the member account you want to examine. If the account that you want to see is a child of an OU, you might have to choose the triangle icon ![Right-pointing triangle icon.](http://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)next to an OU to expand it and see its children. Repeat until you find the account.
+1. Navigate to the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page and notice the value in the **State** column next to the member account you want to examine. If the account that you want to see is a child of an OU, you might have to choose the triangle icon ![Right-pointing triangle icon.](https://docs.aws.amazon.com/organizations/latest/userguide/images/console-expand.png)next to an OU to expand it and see its children. Repeat until you find the account.
 **Note**  
 You can also view the value of the **State** field from the **Account details** page in the AWS Organizations console.
 

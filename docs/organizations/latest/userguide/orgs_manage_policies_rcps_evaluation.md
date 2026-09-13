@@ -19,7 +19,7 @@ You can make use of `Deny` statements to block access to resources in your organ
 
 In Figure 1, there is an RCP attached to the Production OU that has an explicit `Deny` statement specified for a given service. As a result, both Account A and Account B will be denied access to the service as a deny policy attached to any level in the organization is evaluated for all the OUs and member accounts underneath it.
 
-![Example organization structure with a Deny statement attached at Production OU and its impact on Account A and Account B](http://docs.aws.amazon.com/organizations/latest/userguide/images/rcp_deny_1.png)
+![Example organization structure with a Deny statement attached at Production OU and its impact on Account A and Account B](https://docs.aws.amazon.com/organizations/latest/userguide/images/rcp_deny_1.png)
 
 
 *Figure 1: Example organization structure with an `Deny` statement attached at Production OU and its impact on Account A and Account B*

@@ -22,12 +22,12 @@ For example, let's walk through the scenario shown in figures 1 and 2. For a per
 
 SCP evaluation follows a deny-by-default model, meaning that any permissions not explicitly allowed in the SCPs are denied. If an allow statement is not present in the SCPs at any of the levels such as Root, Production OU or Account B, the access is denied. 
 
-![Example organization structure with an Allow statement attached at Root, Production OU and Account B](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_allow_1.png)
+![Example organization structure with an Allow statement attached at Root, Production OU and Account B](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_allow_1.png)
 
 
 *Figure 1: Example organization structure with an `Allow` statement attached at Root, Production OU and Account B*
 
-![Example organization structure with an Allow statement missing at Production OU and its impact on Account B](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_allow_2.png)
+![Example organization structure with an Allow statement missing at Production OU and its impact on Account B](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_allow_2.png)
 
 
 *Figure 2: Example organization structure with an `Allow` statement missing at Production OU and its impact on Account B*
@@ -39,7 +39,7 @@ For a permission to be **denied** for a specific account, **any SCP** from the r
 
 For example, let’s say there is an SCP attached to the Production OU that has an explicit `Deny` statement specified for a given service. There also happens to be another SCP attached to Root and to Account B that explicitly allows access to that same service, as shown in Figure 3. As a result, both Account A and Account B will be denied access to the service as a deny policy attached to any level in the organization is evaluated for all the OUs and member accounts underneath it.
 
-![Example organization structure with a Deny statement attached at Production OU and its impact on Account B](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_deny_1.png)
+![Example organization structure with a Deny statement attached at Production OU and its impact on Account B](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_deny_1.png)
 
 
 *Figure 3: Example organization structure with an `Deny` statement attached at Production OU and its impact on Account B*
@@ -118,7 +118,7 @@ To demonstrate how multiple service control policies (SCPs) can be applied in an
 
 This scenario demonstrates how deny policies at higher levels in the organization impact all accounts below. When the Sandbox OU has both "Full AWS access" and "Deny S3 access" policies, and Account B has a "Deny EC2 access" policy, the result is that Account B cannot access S3 (from the OU-level deny) and EC2 (from its account-level deny). Account A does not have S3 access (from the OU-level deny).
 
-![Scenario 1: Impact of Deny policies](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_1.png)
+![Scenario 1: Impact of Deny policies](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_1.png)
 
 
 ### Scenario 2: Allow policies must exist at every level
@@ -126,7 +126,7 @@ This scenario demonstrates how deny policies at higher levels in the organizatio
 
 This scenario shows how allow policies work in SCPs. For a service to be accessible, there must be an explicit allow at every level from the root down to the account. Here, as the Sandbox OU has an "Allow EC2 access" policy, which only explicitly allows EC2 service access, Account A and B will only have EC2 access.
 
-![Scenario 2: Allow policies must exist at every level](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_2.png)
+![Scenario 2: Allow policies must exist at every level](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_2.png)
 
 
 ### Scenario 3: Impact of missing an Allow statement at the root-level
@@ -134,7 +134,7 @@ This scenario shows how allow policies work in SCPs. For a service to be accessi
 
 When the root has only a Deny statement without a "Full AWS access" Allow statement, all member accounts get **no service access**. SCPs require an explicit Allow at every level in the path. A Deny-only SCP at the root therefore blocks every service unless an explicit Allow covers it.
 
-![Scenario 3: Impact of missing an Allow statement at the root-level](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_3.png)
+![Scenario 3: Impact of missing an Allow statement at the root-level](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_3.png)
 
 
 ### Scenario 4: Layered Deny statements and resulting permissions
@@ -142,7 +142,7 @@ When the root has only a Deny statement without a "Full AWS access" Allow statem
 
 This scenario demonstrates a two-level deep OU structure. Both the Root and the Workloads OU have "Full AWS access", the Test OU has "Full AWS access" with "Deny EC2 access", and the Production OU has "Full AWS access". As a result, Account D has all service access except EC2 and Account E and F have all service access.
 
-![Scenario 4: Layered Deny statements and resulting permissions](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_4.png)
+![Scenario 4: Layered Deny statements and resulting permissions](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_4.png)
 
 
 ### Scenario 5: Allow policies at the OU-level to restrict service access
@@ -150,7 +150,7 @@ This scenario demonstrates a two-level deep OU structure. Both the Root and the 
 
 This scenario shows how allow policies can be used to restrict access to specific services. The Test OU has an "Allow EC2 access" policy, which means only EC2 services are permitted for Account D. The Production OU maintains "Full AWS access", so Accounts E and F have access to all services. This demonstrates how more restrictive allow policies can be implemented at the OU-level while maintaining a broader allow at the root-level.
 
-![Scenario 5: Allow policies at the OU-level to restrict service access](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_5.png)
+![Scenario 5: Allow policies at the OU-level to restrict service access](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_5.png)
 
 
 ### Scenario 6: Root-level deny affects all accounts regardless of lower-level allows
@@ -158,7 +158,7 @@ This scenario shows how allow policies can be used to restrict access to specifi
 
 This scenario demonstrates that a deny policy at the root-level affects all accounts in the organization, regardless of allow policies at lower levels. The root has both "Full AWS access" and "Deny S3 access" policies. Even though the Test OU has an "Allow S3 access" policy, the root-level S3 deny takes precedence. Account D has no service access because the Test OU only allows S3 access, but S3 is denied at the root-level. Accounts E and F can access other services except for S3 because of the explicit deny at the root-level.
 
-![Scenario 6: Root-level deny affects all accounts regardless of lower-level allows](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_6.png)
+![Scenario 6: Root-level deny affects all accounts regardless of lower-level allows](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_6.png)
 
 
 ### Scenario 7: Root level custom allow policies to restrict OU-level access
@@ -166,4 +166,4 @@ This scenario demonstrates that a deny policy at the root-level affects all acco
 
 This scenario demonstrates how SCPs with explicit service allow lists function when applied at root level within an AWS Organizations. At the organization root level, two custom "Service Allow" SCPs are attached that explicitly permits access to a limited set of AWS services — SCP\_1 allows IAM and Amazon EC2, SCP\_2 allows Amazon S3 and Amazon CloudWatch. At the organizational unit (OU) level, the default FullAWSAccess policy remains attached. However, due to intersection behavior, accounts A and B under these OUs can only access the services explicitly permitted by the root-level SCP. The more restrictive root policy takes precedence, effectively limiting access to only IAM, EC2, S3, and CloudWatch services, regardless of the broader permissions granted at lower organizational levels.
 
-![Scenario 7: Root level custom allow policies to restrict OU-level access](http://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_7.png)
+![Scenario 7: Root level custom allow policies to restrict OU-level access](https://docs.aws.amazon.com/organizations/latest/userguide/images/scp_scenario_7.png)
