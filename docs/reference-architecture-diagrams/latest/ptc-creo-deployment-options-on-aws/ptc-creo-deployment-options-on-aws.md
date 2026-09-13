@@ -10,7 +10,7 @@ This architecture gives you a blueprint for providing secure access to [PTC Creo
 ## PTC Creo on Amazon WorkSpaces Applications – EC2-based File Share for Users
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing.blueprint for providing secure access to PTC Creo hosted in the AWS Cloud using Amazon S3 for the private user folder, and an EC2-based file share folder for collaboration with other users before committing their computer-aided designs (CADs) into PTC Windchill product lifecycle management (PLM).](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ptc-creo-deployment-options-on-aws/images/ptc-creo-deployment-options-on-aws.png)
+![Reference architecture diagram showing.blueprint for providing secure access to PTC Creo hosted in the AWS Cloud using Amazon S3 for the private user folder, and an EC2-based file share folder for collaboration with other users before committing their computer-aided designs (CADs) into PTC Windchill product lifecycle management (PLM).](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ptc-creo-deployment-options-on-aws/images/ptc-creo-deployment-options-on-aws.png)
 
 
 1. Windows Bastion Host running on an **Amazon EC2** instance is used by administrators to log on to instances in the private subnet. 
