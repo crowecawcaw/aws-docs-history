@@ -51,7 +51,7 @@ When you upload an archive in a single request using the Upload Archive API (see
 
  
 
-![Diagram showing tree hash example uploading an archive in a single request.](http://docs.aws.amazon.com/amazonglacier/latest/dev/images/TreeHash-ArchiveUploadSingleRequest.png)
+![Diagram showing tree hash example uploading an archive in a single request.](https://docs.aws.amazon.com/amazonglacier/latest/dev/images/TreeHash-ArchiveUploadSingleRequest.png)
 
 
 ## Tree Hash Example 2: Uploading an archive using a multipart upload
@@ -61,7 +61,7 @@ The process of computing the tree hash when uploading an archive using multipart
 
  
 
-![Diagram showing tree hash example uploading an archive using a multipart upload.](http://docs.aws.amazon.com/amazonglacier/latest/dev/images/TreeHash-MPU.png)
+![Diagram showing tree hash example uploading an archive using a multipart upload.](https://docs.aws.amazon.com/amazonglacier/latest/dev/images/TreeHash-MPU.png)
 
 
 ## Computing the Tree Hash of a File
