@@ -10,7 +10,7 @@ This architecture shows how to use API-driven AI/ML services to process audio fi
 ## AI-Enabled Audio Insight Processing Pipeline
 <a name="diagram1"></a>
 
-![Architecture diagram showing an AI-enabled audio insight processing pipeline with Amazon Transcribe, Amazon Translate, and Amazon Comprehend.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ai-audio-insight-pipeline/images/ai-audio-insight-pipeline.png)
+![Architecture diagram showing an AI-enabled audio insight processing pipeline with Amazon Transcribe, Amazon Translate, and Amazon Comprehend.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ai-audio-insight-pipeline/images/ai-audio-insight-pipeline.png)
 
 
 The following steps describe the architecture:
