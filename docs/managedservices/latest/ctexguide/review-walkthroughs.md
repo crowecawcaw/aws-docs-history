@@ -85,7 +85,7 @@
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Create managed prefix list change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcPrefixListCreateCT.png)
+![Screenshot of the Create managed prefix list change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcPrefixListCreateCT.png)
 
 
 How it works:
@@ -191,7 +191,7 @@ aws amscm create-rfc --change-type-id "ct-1bw3q0obl5y75" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete managed prefix list change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcPrefixListDeleteCT.png)
+![Screenshot of the Delete managed prefix list change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcPrefixListDeleteCT.png)
 
 
 How it works:
@@ -291,7 +291,7 @@ aws amscm create-rfc --change-type-id "ct-3fh88p7t5k5gi" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Modify managed prefix list change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcPrefixListModifyCT.png)
+![Screenshot of the Modify managed prefix list change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcPrefixListModifyCT.png)
 
 
 How it works:
@@ -399,7 +399,7 @@ aws amscm create-rfc --change-type-id "ct-2s1q5tjl0416n" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Create Resource Share page showing ID, execution mode as Manual, version 1.0, and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiCreateResourceShareCT.png)
+![Create Resource Share page showing ID, execution mode as Manual, version 1.0, and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiCreateResourceShareCT.png)
 
 
 How it works:
@@ -535,7 +535,7 @@ aws amscm create-rfc \
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete ELB listener rule change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiLoadBalancerDeleteElbListenerRuleCT.png)
+![Screenshot of the Delete ELB listener rule change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiLoadBalancerDeleteElbListenerRuleCT.png)
 
 
 How it works:
@@ -635,7 +635,7 @@ aws amscm create-rfc --change-type-id "ct-2qsgbfmrw92zw" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Associate DHCP option set change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcAssociateDhcpOptionSetCT.png)
+![Screenshot of the Associate DHCP option set change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcAssociateDhcpOptionSetCT.png)
 
 
 How it works:
@@ -736,7 +736,7 @@ aws amscm create-rfc --change-type-id "ct-0c2g2npbyyrny" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Manage Network Firewall Rules change type showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiManageNetworkFirewallRulesCT.png)
+![Manage Network Firewall Rules change type showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiManageNetworkFirewallRulesCT.png)
 
 
 How it works:
@@ -844,7 +844,7 @@ aws amscm create-rfc --change-type-id "ct-2lo1hs6ks7chl" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Remediate DNS scavenging issue change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservDnsScavengingRemediateCT.png)
+![Screenshot of the Remediate DNS scavenging issue change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservDnsScavengingRemediateCT.png)
 
 
 How it works:
@@ -946,7 +946,7 @@ aws amscm create-rfc --change-type-id "ct-3k67klld7cimj" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Delete VPC route change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcRouteDeleteCT.png)
+![Screenshot of the Delete VPC route change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcRouteDeleteCT.png)
 
 
 How it works:
@@ -1048,7 +1048,7 @@ aws amscm create-rfc --change-type-id "ct-1nusoameibz5p" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Update Parameter Group of DB instance or cluster change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsDbParameterGroupUpdateCT.png)
+![Screenshot of the Update Parameter Group of DB instance or cluster change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsDbParameterGroupUpdateCT.png)
 
 
 How it works:
@@ -1149,7 +1149,7 @@ aws amscm create-rfc --change-type-id "ct-0p1oqt4xcp1cv" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Screenshot of the Replace Site-to-Site VPN tunnel change type in the AMS console](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpnS2sTunnelReplaceCT.png)
+![Screenshot of the Replace Site-to-Site VPN tunnel change type in the AMS console](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpnS2sTunnelReplaceCT.png)
 
 
 How it works:
@@ -1249,7 +1249,7 @@ aws amscm create-rfc --change-type-id "ct-2sav5hzk5twk4" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Create DHCP option set interface showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiCreateDHCPOptionSetCT.png)
+![Create DHCP option set interface showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiCreateDHCPOptionSetCT.png)
 
 
 How it works:
@@ -1363,7 +1363,7 @@ For information about VPCs, see [Virtual private clouds (VPC)](https://docs.aws.
 
 Screenshot of this change type in the AMS console:
 
-![AMS Advanced console, create RFC section, change type details box for ct-18weo4vv83ynk: Create ELB Listener Rule.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiLoadBalancerCreateELBListenerRule.png)
+![AMS Advanced console, create RFC section, change type details box for ct-18weo4vv83ynk: Create ELB Listener Rule.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiLoadBalancerCreateELBListenerRule.png)
 
 
 How it works:
@@ -1536,7 +1536,7 @@ To learn more about AWS Application Load Balancers, see [What Is an Application 
 
 The following shows this change type in the AMS console.
 
-![Update VPC Endpoint Policy change type details showing ID, execution mode, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcEndpointUpdatePolicyCT.png)
+![Update VPC Endpoint Policy change type details showing ID, execution mode, and version fields.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcEndpointUpdatePolicyCT.png)
 
 
 How it works:
@@ -1641,7 +1641,7 @@ This operation requires manual review and approval before its completed successf
 ### Deleting NAT gateway (Managed Automation)
 <a name="ex-nat-gateway-delete-rr-con"></a>
 
-![Delete NAT gateway request details showing manual execution mode and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/ex-nat-gateway-delete-rr.png)
+![Delete NAT gateway request details showing manual execution mode and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/ex-nat-gateway-delete-rr.png)
 
 
 How it works:
@@ -1746,7 +1746,7 @@ This is a manual change type (an AMS operator must review and run the CT), which
 
 The following shows this change type in the AMS console.
 
-![Update IMDS Region-Level Default Settings change type details in the AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2ImdsRegionUpdateCT.png)
+![Update IMDS Region-Level Default Settings change type details in the AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2ImdsRegionUpdateCT.png)
 
 
 How it works:
@@ -1852,7 +1852,7 @@ You can set default values for the instance metadata options at the account leve
 
 The following shows this change type in the AMS console.
 
-![Create service principal names change type showing ID, execution mode, version, and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservCompObjectSpnCreateCT.png)
+![Create service principal names change type showing ID, execution mode, version, and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservCompObjectSpnCreateCT.png)
 
 
 How it works:
@@ -1961,7 +1961,7 @@ aws amscm create-rfc --change-type-id "ct-0ulaleq7ohuyq" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Delete Target Group page showing execution mode, version, classification path, and description.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiTargetGroupDeleteCT.png)
+![Delete Target Group page showing execution mode, version, classification path, and description.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiTargetGroupDeleteCT.png)
 
 
 **Note**  
@@ -2070,7 +2070,7 @@ This is a manual change type (an AMS operator must review and run the CT), which
 
 The following shows this change type in the AMS console.
 
-![Create Application Load Balancer interface showing ID ct-111r1yayblnw4 and version 3.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAlbCreateCT.png)
+![Create Application Load Balancer interface showing ID ct-111r1yayblnw4 and version 3.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAlbCreateCT.png)
 
 
 How it works:
@@ -2191,7 +2191,7 @@ To create an Application Load Balancer target group, see [Target Group \| Create
 
 The following shows this change type in the AMS console.
 
-![Update Application Load Balancer page showing description, ID ct-1a1zzgi2nb83d, and version 3.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAlbUpdateCT.png)
+![Update Application Load Balancer page showing description, ID ct-1a1zzgi2nb83d, and version 3.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAlbUpdateCT.png)
 
 
 How it works:
@@ -2327,7 +2327,7 @@ To learn more about AWS Application Load Balancers, see [What Is an Application 
 
 Screenshot of this change type in the AMS console:
 
-![](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiListenerAlbNlbCreateCT.png)
+![](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiListenerAlbNlbCreateCT.png)
 
 
 How it works:
@@ -2439,7 +2439,7 @@ You can specify up to four Target IDs, Ports, and Availability Zones.
 ### Creating a high availability one-tier stack with the console
 <a name="ha-1-tier-create-con"></a>
 
-![Change type details showing ID, version 2.0, and automated execution mode for creating high availability stack.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiHa1tCreateCT.png)
+![Change type details showing ID, version 2.0, and automated execution mode for creating high availability stack.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiHa1tCreateCT.png)
 
 
 How it works:
@@ -2549,7 +2549,7 @@ This is a large provisioning of resources, especially if you add UserData. The l
 ### Creating IAM resources (Managed Automation) with the console
 <a name="iam-resource-create-rr-con"></a>
 
-![Change type details showing Create IAM Resource with ID, version 1.0, and manual execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamResourceCreateRrCT.png)
+![Change type details showing Create IAM Resource with ID, version 1.0, and manual execution mode.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamResourceCreateRrCT.png)
 
 
 How it works:
@@ -2682,7 +2682,7 @@ aws amscm create-rfc --change-type-id "ct-3dpd8mdd9jn1r" --change-type-version "
 ### Continue rollback a CloudFormation ingest stack failed update using the console
 <a name="cfn-ingest-update-con"></a>
 
-![AMS Advanced console, create RFC section, change type details box for ct-32r1igwrwag4i: Continue rollback on custom CloudFormation stack.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiCustomStackContinueRollback.png)
+![AMS Advanced console, create RFC section, change type details box for ct-32r1igwrwag4i: Continue rollback on custom CloudFormation stack.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiCustomStackContinueRollback.png)
 
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
@@ -2781,7 +2781,7 @@ For more information see [Continue rolling back an update](https://docs.aws.amaz
 
 The following shows this change type in the AMS console.
 
-![Manage subnet public IPv4 auto assignment change type details in the AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcManageSubnetAddressCT.png)
+![Manage subnet public IPv4 auto assignment change type details in the AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcManageSubnetAddressCT.png)
 
 
 How it works:
@@ -2890,7 +2890,7 @@ For general information on VPCs and subnet addressing, see [IP addressing for yo
 
 The following shows this change type in the AMS console.
 
-![Add Resource Scheduler Schedule page showing ID ct-2bxelbn765ive and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiResSchedScheduleAddCT.png)
+![Add Resource Scheduler Schedule page showing ID ct-2bxelbn765ive and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiResSchedScheduleAddCT.png)
 
 
 How it works:
@@ -3011,7 +3011,7 @@ Use when you need extra help or communications about the snapshots to delete.
 ### Deleting EBS snapshots with the Console (Managed Automation)
 <a name="ebs-snpsht-delete-rr-con"></a>
 
-![Delete EBS Snapshot interface showing manual execution mode and version details.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEbsSnpshtDeleteRrCT.png)
+![Delete EBS Snapshot interface showing manual execution mode and version details.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEbsSnpshtDeleteRrCT.png)
 
 
 How it works:
@@ -3118,7 +3118,7 @@ To learn more about Amazon EBS snapshots, see [Amazon EBS Snapshots](https://doc
 
 Screenshot of this change type in the AMS console:
 
-![Update SNS Topic change type details including ID, execution mode, and description.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiSnsUpdateCT.png)
+![Update SNS Topic change type details including ID, execution mode, and description.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiSnsUpdateCT.png)
 
 
 How it works:
@@ -3227,7 +3227,7 @@ To learn more about AWS Simple Notification Service (SNS), see [Amazon Simple No
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating an S3 access point, including ID, execution mode, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiS3AccessPointCreateCT.png)
+![Change type details for creating an S3 access point, including ID, execution mode, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiS3AccessPointCreateCT.png)
 
 
 How it works:
@@ -3330,7 +3330,7 @@ To learn more about Amazon S3, see [Amazon Simple Storage Service Documentation]
 
 The following shows this change type in the AMS console.
 
-![Create Custom RDS Parameter Group change type showing manual execution mode and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRDSCreateParamCT.png)
+![Create Custom RDS Parameter Group change type showing manual execution mode and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRDSCreateParamCT.png)
 
 
 How it works:
@@ -3436,7 +3436,7 @@ aws amscm create-rfc --change-type-id "ct-3da2lxapopb86" --change-type-version "
 
 The following is a screenshot of this change type in the AMS console:
 
-![Example this change type in the console.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiS3AddNotificationCT.png)
+![Example this change type in the console.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiS3AddNotificationCT.png)
 
 
 How it works:
@@ -3544,7 +3544,7 @@ aws amscm create-rfc --change-type-id "ct-0o4zi9bzg74lp" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Form for updating custom deny list in Automated IAM Provisioning, showing ID and classification details.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiUpdateCustomDenyListCT.png)
+![Form for updating custom deny list in Automated IAM Provisioning, showing ID and classification details.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiUpdateCustomDenyListCT.png)
 
 
 How it works:
@@ -3645,7 +3645,7 @@ aws amscm create-rfc --change-type-id "ct-2r9xvd3sdsic0" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Change type details for migrating AWS Managed Microsoft AD to Route 53 DNS resolver.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/gui-man-acct-migrate-r53CT.png)
+![Change type details for migrating AWS Managed Microsoft AD to Route 53 DNS resolver.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/gui-man-acct-migrate-r53CT.png)
 
 
 How it works:
@@ -3754,7 +3754,7 @@ This is a manual change type (an AMS operator must review and run the CT), which
 
 The following shows this change type in the AMS console.
 
-![Console page showing disassociate resolver rules from VPC change type with ID, execution mode, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcDisassociateResolverRule.png)
+![Console page showing disassociate resolver rules from VPC change type with ID, execution mode, and version details.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcDisassociateResolverRule.png)
 
 
 How it works:
@@ -3862,7 +3862,7 @@ aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-3e3p
 
 The following shows this change type in the AMS console.
 
-![Update Enhanced Monitoring change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsDbUpdateEnhancedMonitoring.png)
+![Update Enhanced Monitoring change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsDbUpdateEnhancedMonitoring.png)
 
 
 How it works:
@@ -3966,7 +3966,7 @@ aws amscm create-rfc --change-type-id "ct-3jx80fquylzhf" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Run RFC details page showing Associate VPC With Resolver Rule change type configuration.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/gui-vpc-associate-resolver-rule.png)
+![Run RFC details page showing Associate VPC With Resolver Rule change type configuration.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/gui-vpc-associate-resolver-rule.png)
 
 
 How it works:
@@ -4068,7 +4068,7 @@ aws amscm create-rfc --title="Associate VPC with Resolver Rule" --ct-id="ct-2pbq
 
 Screenshot of this change type in the AMS console:
 
-![Deploy AMS Patterns section showing ID, execution mode as Manual, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAmsPatternDeployRrCT.png)
+![Deploy AMS Patterns section showing ID, execution mode as Manual, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAmsPatternDeployRrCT.png)
 
 
 How it works:
@@ -4173,7 +4173,7 @@ aws amscm create-rfc --change-type-id "ct-2jndrh7uit8uf" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Share KMS Key change type details showing manual execution mode and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiShareKmsKeyCT.png)
+![Share KMS Key change type details showing manual execution mode and classification path.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiShareKmsKeyCT.png)
 
 
 How it works:
@@ -4278,7 +4278,7 @@ aws amscm create-rfc --title="Add Static Route" --description="Share KMS Key" --
 
 The following shows this change type in the AMS console.
 
-![Create Active Directory Trust change type showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservCreateTrustCT.png)
+![Create Active Directory Trust change type showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservCreateTrustCT.png)
 
 
 How it works:
@@ -4398,7 +4398,7 @@ aws amscm create-rfc --change-type-id "ct-0x6dylrnfjgz5" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Override Stack Access Duration change type details showing manual execution mode and version.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiStackAccessOverrideCT.png)
+![Override Stack Access Duration change type details showing manual execution mode and version.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiStackAccessOverrideCT.png)
 
 
 How it works:
@@ -4495,7 +4495,7 @@ aws amscm create-rfc --title="Override Stack Access Duration" --description="Ove
 
 Screenshot of this change type in the AMS console:
 
-![Enable Automated IAM Provisioning checkbox selected with manual execution mode details.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAutomatedIAMProvisioningReadWriteCT.png)
+![Enable Automated IAM Provisioning checkbox selected with manual execution mode details.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAutomatedIAMProvisioningReadWriteCT.png)
 
 
 How it works:
@@ -4593,7 +4593,7 @@ aws amscm create-rfc --change-type-id "ct-1706xvvk6j9hf" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Add Static Route change type details showing ID, execution mode as Manual, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcStaticRouteAddRrCT.png)
+![Add Static Route change type details showing ID, execution mode as Manual, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcStaticRouteAddRrCT.png)
 
 
 How it works:
@@ -4695,7 +4695,7 @@ For information about VPCs, see [Virtual private clouds (VPC)](https://docs.aws.
 ### Creating IAM entity or policy with the console
 <a name="iam-entity-create-con"></a>
 
-![IAM role or policy creation interface with ID, execution mode, and description details.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamEntityCreateCT.png)
+![IAM role or policy creation interface with ID, execution mode, and description details.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamEntityCreateCT.png)
 
 
 How it works:
@@ -4853,7 +4853,7 @@ aws amscm create-rfc --change-type-id "ct-1n9gfnog5x7fl" --change-type-version "
 ### Updating IAM entity or policy with the console
 <a name="iam-entity-update-con"></a>
 
-![Update Entity or Policy change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamEntityUpdateCT.png)
+![Update Entity or Policy change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamEntityUpdateCT.png)
 
 
 How it works:
@@ -4978,7 +4978,7 @@ aws amscm create-rfc --change-type-id "ct-1e0xmuy1diafq" --change-type-version "
 ### Deleting IAM entity or policy with the console
 <a name="iam-entity-delete-con"></a>
 
-![Delete Entity or Policy change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamEntityDeleteCT.png)
+![Delete Entity or Policy change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamEntityDeleteCT.png)
 
 
 How it works:
@@ -5083,7 +5083,7 @@ aws amscm create-rfc --change-type-id "ct-17cj84y7632o6" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Update Detailed Monitoring page showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2UpdateDetailedMonCT.png)
+![Update Detailed Monitoring page showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2UpdateDetailedMonCT.png)
 
 
 How it works:
@@ -5192,7 +5192,7 @@ To learn more about Amazon EC2, see [Amazon Elastic Compute Cloud Documentation]
 
 The following shows this change type in the AMS console.
 
-![Share Directory details page showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservShareDirectoryCT.png)
+![Share Directory details page showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservShareDirectoryCT.png)
 
 
 How it works:
@@ -5302,7 +5302,7 @@ For related CTs, see [Directory Service Subcategory](https://docs.aws.amazon.com
 
 The following shows this change type in the AMS console.
 
-![Unshare Directory change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservUnshareDirectoryCT.png)
+![Unshare Directory change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiDirservUnshareDirectoryCT.png)
 
 
 How it works:
@@ -5412,7 +5412,7 @@ For related CTs, see [Directory Service Subcategory](https://docs.aws.amazon.com
 
 The following shows this change type in the AMS console.
 
-![Create VPC Endpoint Interface change type showing ID, execution mode as Automated, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcEndpointCreateCT.png)
+![Create VPC Endpoint Interface change type showing ID, execution mode as Automated, and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiVpcEndpointCreateCT.png)
 
 
 How it works:
@@ -5528,7 +5528,7 @@ aws amscm create-rfc --change-type-id "ct-3oafsdbzjtuqp" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Update RDS Storage change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsUpdateStorageCT.png)
+![Update RDS Storage change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsUpdateStorageCT.png)
 
 
 How it works:
@@ -5644,7 +5644,7 @@ To update an RDS stack for Aurora, see [RDS Database Stack \| Update](https://do
 
 Screenshot of this change type in the AMS console:
 
-![Change RDS MultiAZ Setting page showing ID, execution mode, version, classification, and description.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsUpdateMultiAzCT.png)
+![Change RDS MultiAZ Setting page showing ID, execution mode, version, classification, and description.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsUpdateMultiAzCT.png)
 
 
 How it works:
@@ -5758,7 +5758,7 @@ To update an RDS stack for Aurora, see [RDS Database Stack \| Update](https://do
 
 Screenshot of this change type in the AMS console:
 
-![Update Instance Type page showing ID, execution mode, version, classification path, and description.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsUpdateInstanceTypeCT.png)
+![Update Instance Type page showing ID, execution mode, version, classification path, and description.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsUpdateInstanceTypeCT.png)
 
 
 How it works:
@@ -5874,7 +5874,7 @@ To update an RDS stack for Aurora, see [RDS Database Stack \| Update](https://do
 
 Screenshot of this change type in the AMS console:
 
-![Change S3 Bucket Versioning Setting page showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiS3UpdateVersioningCT.png)
+![Change S3 Bucket Versioning Setting page showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiS3UpdateVersioningCT.png)
 
 
 How it works:
@@ -5982,7 +5982,7 @@ To learn more about Amazon S3, see [Amazon Simple Storage Service Documentation]
 
 Screenshot of this change type in the AMS console:
 
-![Change S3 Bucket Encryption Setting page showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiS3UpdateEncryptionCT.png)
+![Change S3 Bucket Encryption Setting page showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiS3UpdateEncryptionCT.png)
 
 
 How it works:
@@ -6093,7 +6093,7 @@ To learn more about Amazon S3, see [Amazon Simple Storage Service Documentation]
 
 Screenshot of this change type in the AMS console:
 
-![Create Application Account VPC interface showing description, ID ct-1j3503fres5a5, and version 3.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiMalzAppAcctCreateVpcCT.png)
+![Create Application Account VPC interface showing description, ID ct-1j3503fres5a5, and version 3.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiMalzAppAcctCreateVpcCT.png)
 
 
 How it works:
@@ -6200,7 +6200,7 @@ To create an additional public subnet in a new availability zone (AZ), a private
 
 The following shows this change type in the AMS console.
 
-![Console interface showing details for associating private IP addresses to an EC2 instance.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2AssociateIpRrCT.png)
+![Console interface showing details for associating private IP addresses to an EC2 instance.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2AssociateIpRrCT.png)
 
 
 How it works:
@@ -6305,7 +6305,7 @@ If needed, see [EC2 instance stack create fail](https://docs.aws.amazon.com/mana
 
 Screenshot of this change type in the AMS console:
 
-![AMS Advanced console, create RFC section, change type details box for ct-10yi1sd9nst1c: Create Amazon RDS option group (managed automation).](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsCreateOptionGroupCT.png)
+![AMS Advanced console, create RFC section, change type details box for ct-10yi1sd9nst1c: Create Amazon RDS option group (managed automation).](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsCreateOptionGroupCT.png)
 
 
 How it works:
@@ -6408,7 +6408,7 @@ aws amscm create-rfc --change-type-id "ct-10yi1sd9nst1c" --change-type-version "
 
 Screenshot of this change type in the AMS console:
 
-![Remove TGW Static Route change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiMalzNetAcctTgwRouteRemoveCT.png)
+![Remove TGW Static Route change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiMalzNetAcctTgwRouteRemoveCT.png)
 
 
 How it works:
@@ -6517,7 +6517,7 @@ To learn more about AMS multi-account landing zones, see [AWS Managed Services (
 
 The following shows this change type in the AMS console.
 
-![Create EC2 for WIGS change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2CreatePreIngestRrCT.png)
+![Create EC2 for WIGS change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2CreatePreIngestRrCT.png)
 
 
 How it works:
@@ -6624,7 +6624,7 @@ aws amscm create-rfc --change-type-id "ct-36emj2uapfbu8" --change-type-version "
 
 Screenshot of this change type, in the AMS console:
 
-![Modify EBS Volume page showing description, ID ct-1wle0ai4en6km, and version 1.0 only version.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEbsModifyCT.png)
+![Modify EBS Volume page showing description, ID ct-1wle0ai4en6km, and version 1.0 only version.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEbsModifyCT.png)
 
 
 How it works:
@@ -6753,7 +6753,7 @@ To learn more about Amazon EBS, see [Amazon Elastic Block Store (EBS)](https://a
 
 The following shows this change type in the AMS console.
 
-![Update AWS Backup Plan change type showing manual execution mode and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAwsBackupPlanUpdateRrCT.png)
+![Update AWS Backup Plan change type showing manual execution mode and version 1.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiAwsBackupPlanUpdateRrCT.png)
 
 
 How it works:
@@ -6878,7 +6878,7 @@ After confirming your intent to offboard the application account, you have 48 ho
 
 Screenshot of this change type in the AMS console:
 
-![Confirm Account Offboarding change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiManLzAppAcctConfirmOffBCT.png)
+![Confirm Account Offboarding change type details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiManLzAppAcctConfirmOffBCT.png)
 
 
 How it works:
@@ -6989,7 +6989,7 @@ Before submitting this change type to initiate application account offboarding, 
 
 Screenshot of this change type in the AMS console:
 
-![Offboard Application Account page showing ID, execution mode as Automated, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiManLzAppAcctRunOffBCT.png)
+![Offboard Application Account page showing ID, execution mode as Automated, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiManLzAppAcctRunOffBCT.png)
 
 
 How it works:
@@ -7099,7 +7099,7 @@ aws amscm create-rfc --change-type-id "ct-0vdiy51oyrhhm" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Deploy AMS Resource Scheduler change type details showing ID, execution mode, and version.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiResSchedSolutionDeployCT.png)
+![Deploy AMS Resource Scheduler change type details showing ID, execution mode, and version.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiResSchedSolutionDeployCT.png)
 
 
 How it works:
@@ -7220,7 +7220,7 @@ AMS Resource Scheduler is based on the AWS Instance Scheduler; to learn more, se
 
 The following shows this change type in the AMS console.
 
-![Update AMS Resource Scheduler page showing ID, execution mode as Automated, and version 2.0.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiResSchedSolutionUpdateCT.png)
+![Update AMS Resource Scheduler page showing ID, execution mode as Automated, and version 2.0.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiResSchedSolutionUpdateCT.png)
 
 
 How it works:
@@ -7339,7 +7339,7 @@ AMS Resource Scheduler is based on the AWS Instance Scheduler; to learn more, se
 ### Deleting or deactivating access key with the console
 <a name="iam-key-deactivate-con"></a>
 
-![Delete or Deactivate Access Key interface showing ID, execution mode, version, and description.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamKeyDeactivateCT.png)
+![Delete or Deactivate Access Key interface showing ID, execution mode, version, and description.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamKeyDeactivateCT.png)
 
 
 How it works:
@@ -7446,7 +7446,7 @@ aws amscm create-rfc --change-type-id "ct-37qquo9wbpa8x" --change-type-version "
 ### Creating access key with the console
 <a name="iam-key-create-con"></a>
 
-![Create Access Key runbook details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamKeyCreateCT.png)
+![Create Access Key runbook details showing ID, execution mode, version, and classification.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiIamKeyCreateCT.png)
 
 
 How it works:
@@ -7553,7 +7553,7 @@ aws amscm create-rfc --change-type-id "ct-2hhqzgxvkcig8" --change-type-version "
 
 The following shows this change type in the AMS console.
 
-![Interface showing Enable Detailed Monitoring option for EC2 instance with execution details.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2EnableDetailMonitoringRr.png)
+![Interface showing Enable Detailed Monitoring option for EC2 instance with execution details.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2EnableDetailMonitoringRr.png)
 
 
 How it works:
@@ -7654,7 +7654,7 @@ For more information about Amazon EC2, including size recommendations, see [Amaz
 
 Screenshot of this change type in the AMS console:
 
-![Update DeleteOnTermination change type details for EC2 instance EBS volumes in AMS console.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2TerminationOptionUpdateRrCT.png)
+![Update DeleteOnTermination change type details for EC2 instance EBS volumes in AMS console.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiEc2TerminationOptionUpdateRrCT.png)
 
 
 How it works:
@@ -7762,7 +7762,7 @@ To learn more about Amazon EC2, including size recommendations, see [Amazon Elas
 
 Screenshot of this change type in the AMS console:
 
-![Update RDS Maintenance Window change type showing ID, execution mode as Manual, and version.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsWindowUpdateRrCT.png)
+![Update RDS Maintenance Window change type showing ID, execution mode as Manual, and version.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsWindowUpdateRrCT.png)
 
 
 How it works:
@@ -7869,7 +7869,7 @@ To learn more about Amazon RDS, including size recommendations, see [Amazon Rela
 
 Screenshot of this change type in the AMS console:
 
-![Update Performance Insights panel showing execution mode, version, and description for RDS database tuning.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsInsightsUpdateRrCT.png)
+![Update Performance Insights panel showing execution mode, version, and description for RDS database tuning.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiRdsInsightsUpdateRrCT.png)
 
 
 How it works:
@@ -7980,7 +7980,7 @@ To update an RDS stack for Aurora, see [RDS Database Stack \| Update](https://do
 
 Screenshot of this change type in the AMS console:
 
-![Create Security Group change type showing manual execution mode and version 2.0 details.](http://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiSecGroupCreateRrCT.png)
+![Create Security Group change type showing manual execution mode and version 2.0 details.](https://docs.aws.amazon.com/managedservices/latest/ctexguide/images/guiSecGroupCreateRrCT.png)
 
 
 How it works:
