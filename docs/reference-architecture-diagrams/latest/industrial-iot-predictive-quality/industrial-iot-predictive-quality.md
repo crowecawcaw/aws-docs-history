@@ -10,7 +10,7 @@ With this architecture, you can create a computer vision predictive quality ML m
 ## Predictive quality architecture diagram
 <a name="pq-diagram"></a>
 
-![Reference architecture diagram for creating a predictive quality ML model by using computer vision on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-iot-predictive-quality/images/AWS Industrial - Predictive Quality Reference Architecture.png)
+![Reference architecture diagram for creating a predictive quality ML model by using computer vision on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-iot-predictive-quality/images/AWS Industrial - Predictive Quality Reference Architecture.png)
 
 
 The following steps describe the architecture:
