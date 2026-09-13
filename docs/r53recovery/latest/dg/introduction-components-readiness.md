@@ -8,7 +8,7 @@ The readiness check feature in Amazon Application Recovery Controller (ARC) is n
 
 The following diagram illustrates a sample recovery group that is configured to support the readiness check feature. Resources in this example are grouped into cells (by AWS Region) and nested cells (by Availability Zones) in a recovery group. There is an overall readiness status for the recovery group (application), as well as individual readiness statuses for each cell (Region) and nested cell (Availability Zone).
 
-![A sample recovery group for ARC. It has two cells, by Region, and within each Region, there are 2 nested cells, by Availability Zone. The first Region cell has all ready statuses and the second Region cell has a not ready status because one of its zone cells is not ready. The recovery group is overall not ready.](http://docs.aws.amazon.com/r53recovery/latest/dg/images/GS_ReacoveryReadinessDiagram.png)
+![A sample recovery group for ARC. It has two cells, by Region, and within each Region, there are 2 nested cells, by Availability Zone. The first Region cell has all ready statuses and the second Region cell has a not ready status because one of its zone cells is not ready. The recovery group is overall not ready.](https://docs.aws.amazon.com/r53recovery/latest/dg/images/GS_ReacoveryReadinessDiagram.png)
 
 
 The following are components of the readiness check feature in ARC.

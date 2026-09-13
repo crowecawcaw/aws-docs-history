@@ -5,7 +5,7 @@
 
 The following diagram illustrates an example of an autoshift shifting traffic away from an Availability Zone. AWS starts an autoshift when internal telemetry indicates that there is an Availability Zone impairment that could potentially impact customers. 
 
-![Diagram of an autoshift with three Availability Zones](http://docs.aws.amazon.com/r53recovery/latest/dg/images/ZonalAutoshiftDiagram.png)
+![Diagram of an autoshift with three Availability Zones](https://docs.aws.amazon.com/r53recovery/latest/dg/images/ZonalAutoshiftDiagram.png)
 
 
 The following are components of the zonal autoshift capabilities in ARC.

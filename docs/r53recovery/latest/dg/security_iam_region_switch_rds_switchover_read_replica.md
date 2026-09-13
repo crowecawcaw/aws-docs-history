@@ -18,7 +18,7 @@
         "rds:ModifyDBInstance"
       ],
       "Resource": [
-        "arn:aws:rds:{{region}}:{{account-id}}:db:{{instance-name}}"
+        "arn:aws:rds:{{us-east-1}}:{{111122223333}}:db:{{instance-name}}"
       ]
     }
   ]
@@ -41,7 +41,7 @@ If you configure an ungraceful behavior (`promoteReadReplica`), add the followin
         "rds:ModifyDBInstance"
       ],
       "Resource": [
-        "arn:aws:rds:{{region}}:{{account-id}}:db:{{instance-name}}"
+        "arn:aws:rds:{{us-east-1}}:{{111122223333}}:db:{{instance-name}}"
       ]
     }
   ]

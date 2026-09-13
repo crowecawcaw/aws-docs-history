@@ -5,7 +5,7 @@
 
 The following diagram illustrates an example of a zonal shift shifting traffic away from an Availability Zone in an AWS Region. Checks that are built into zonal shift prevent you from starting another zonal shift for a resource when it already has an active shift.
 
-![Diagram of a zonal shift with three Availability Zones](http://docs.aws.amazon.com/r53recovery/latest/dg/images/ZonalShiftDiagramRev2023.png)
+![Diagram of a zonal shift with three Availability Zones](https://docs.aws.amazon.com/r53recovery/latest/dg/images/ZonalShiftDiagramRev2023.png)
 
 
 The following are components of the zonal shift capability in ARC.

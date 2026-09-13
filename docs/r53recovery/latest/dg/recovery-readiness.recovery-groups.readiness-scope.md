@@ -12,7 +12,7 @@ You typically create one resource set and readiness check for each type of resou
 
 The following diagram shows an example of a recovery group with three cells (Availability Zones), each with a Network Load Balancer (NLB) and Auto Scaling group (ASG).
 
-![A sample recovery group for ARC. It has three cells (AZs), each with one NLB and one EC2 Auto Scaling group.](http://docs.aws.amazon.com/r53recovery/latest/dg/images/Sample3AZRecoveryGroup.png)
+![A sample recovery group for ARC. It has three cells (AZs), each with one NLB and one EC2 Auto Scaling group.](https://docs.aws.amazon.com/r53recovery/latest/dg/images/Sample3AZRecoveryGroup.png)
 
 
 In this scenario, you would create a resource set and readiness check for the three Network Load Balancers, and a resource set and readiness check for the three Auto Scaling groups. Now you have a readiness check for each set of resources for your recovery group, by resource type. 

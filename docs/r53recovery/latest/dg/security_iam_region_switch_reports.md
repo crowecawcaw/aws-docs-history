@@ -21,9 +21,9 @@
         "cloudwatch:DescribeAlarmHistory"
       ],
       "Resource": [
-        "arn:aws:cloudwatch:us-east-1:123456789012:alarm:app-health-primary"
+        "arn:aws:cloudwatch:us-east-1:123456789012:alarm:app-health-primary",
         "arn:aws:cloudwatch:us-west-2:123456789012:alarm:app-health-secondary"
-      ],
+      ]
     },
     {
       "Effect": "Allow",
@@ -32,9 +32,9 @@
         "arc-region-switch:ListPlanExecutionEvents"
       ],
       "Resource": [
-        "arn:aws:arc-region-switch:us-east-1:123456789012:plan/child-plan-1/abcde1",
-        "arn:aws:arc-region-switch:us-west-2:123456789012:plan/child-plan-2/fghij2"
-      ],
+        "arn:aws:arc-region-switch::123456789012:plan/child-plan-1/abcde1",
+        "arn:aws:arc-region-switch::123456789012:plan/child-plan-2/fghij2"
+      ]
     }
   ]
 }

@@ -15,14 +15,14 @@
         "lambda:GetEventSourceMapping",
         "lambda:UpdateEventSourceMapping"
       ],
-      "Resource": "arn:aws:lambda:{{region}}:{{account-id}}:event-source-mapping:{{uuid}}"
+      "Resource": "arn:aws:lambda:{{us-east-1}}:{{111122223333}}:event-source-mapping:{{uuid}}"
     },
     {
       "Effect": "Allow",
       "Action": [
         "lambda:GetFunction"
       ],
-      "Resource": "arn:aws:lambda:{{region}}:{{account-id}}:function:{{function-name}}"
+      "Resource": "arn:aws:lambda:{{us-east-1}}:{{111122223333}}:function:{{function-name}}"
     }
   ]
 }

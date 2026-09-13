@@ -12,10 +12,10 @@
     {
       "Effect": "Allow",
       "Action": [
-        "neptune:DescribeGlobalClusters",
-        "neptune:DescribeDBClusters",
-        "neptune:FailoverGlobalCluster",
-        "neptune:SwitchoverGlobalCluster"
+        "rds:DescribeGlobalClusters",
+        "rds:DescribeDBClusters",
+        "rds:FailoverGlobalCluster",
+        "rds:SwitchoverGlobalCluster"
       ],
       "Resource": "*"
     }

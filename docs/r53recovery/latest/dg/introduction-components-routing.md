@@ -5,7 +5,7 @@
 
 The following diagram illustrates an example of components that support the routing control feature in ARC. The routing controls shown here (grouped into one control panel) let you manage traffic to two Availability Zones in each of two Regions. When you update routing control states, ARC changes health checks in Amazon Route 53, which redirect DNS traffic to different cells. Safety rules that you configure for routing controls help avoid fail-open scenarios and other unintentional consequences.
 
-![Components that support routing control in ARC](http://docs.aws.amazon.com/r53recovery/latest/dg/images/GS_RecoveryControlDiagram.png)
+![Components that support routing control in ARC](https://docs.aws.amazon.com/r53recovery/latest/dg/images/GS_RecoveryControlDiagram.png)
 
 
 The following are components of the routing control feature in ARC.
