@@ -141,7 +141,7 @@ Now that you've created your Lambda function and configured a trigger to run it 
 1. Reload the page to view your image, and then choose an HTTP request on the left pane. You see the HTTP headers displayed in a separate pane.
 
 1. Look through the list of HTTP headers to verify that the expected security headers are included in the list. For example, you might see headers similar to those shown in the following screenshot.  
-![HTTP headers list with the expected security headers highlighted.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/lambda-at-edge-security-headers-list.png)
+![HTTP headers list with the expected security headers highlighted.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/lambda-at-edge-security-headers-list.png)
 
 If the security headers are included in your headers list, great\! You've successfully created your first Lambda@Edge function. If CloudFront returns errors or there are other issues, continue to the next step to troubleshoot the issues.
 

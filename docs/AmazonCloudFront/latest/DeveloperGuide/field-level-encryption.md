@@ -14,12 +14,12 @@ When the HTTPS request with field-level encryption is forwarded to the origin, a
 **Note**  
 To use field-level encryption, your origin must support chunked encoding.
 
-![Field-level encryption in CloudFront](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/fleoverview.png)
+![Field-level encryption in CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/fleoverview.png)
 
 
 CloudFront field-level encryption uses asymmetric encryption, also known as public key encryption. You provide a public key to CloudFront, and all sensitive data that you specify is encrypted automatically. The key you provide to CloudFront cannot be used to decrypt the encrypted values; only your private key can do that.
 
-![Encrypt only sensitive data](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/encryptedfields.png)
+![Encrypt only sensitive data](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/encryptedfields.png)
 
 
 **Topics**

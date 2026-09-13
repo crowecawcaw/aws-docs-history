@@ -9,7 +9,7 @@ Each log contains information such as the time the request was received, the pro
 
 The following diagram shows how CloudFront logs information about requests for your objects. In this example, the distributions are configured to send access logs to an Amazon S3 bucket.
 
-![Basic flow for access logs](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/Logging.png)
+![Basic flow for access logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/Logging.png)
 
 
 1. In this example, you have two websites, A and B, and two corresponding CloudFront distributions. Users request your objects using URLs that are associated with your distributions.

@@ -30,7 +30,7 @@ You also get increased reliability and availability because copies of your files
 
 You create a CloudFront distribution to tell CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery. Then CloudFront uses computers—edge servers—that are close to your viewers to deliver that content quickly when someone wants to see it or use it.
 
-![How CloudFront works](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-you-configure-cf.png)
+![How CloudFront works](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-you-configure-cf.png)
 <a name="HowCloudFrontWorksConfiguration"></a>
 
 **How you configure CloudFront to deliver your content**

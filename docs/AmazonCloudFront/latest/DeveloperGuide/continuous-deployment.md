@@ -7,7 +7,7 @@ With Amazon CloudFront *continuous deployment* you can safely deploy changes to 
 
 The following diagram shows the benefit of using CloudFront continuous deployment. Without it, you would have to test CDN configuration changes with simulated traffic. With continuous deployment you can test the changes with a subset of production traffic, then promote the changes to the primary distribution when you're ready.
 
-![Graphic of CloudFront continuous deployment that sends production traffic to a staging distribution.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/cloudfront-continuous-deployment.png)
+![Graphic of CloudFront continuous deployment that sends production traffic to a staging distribution.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/cloudfront-continuous-deployment.png)
 
 
 Learn more about working with continuous deployment in the following topics.

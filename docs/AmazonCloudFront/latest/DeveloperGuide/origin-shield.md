@@ -55,14 +55,14 @@ When viewers are in different geographical regions, requests can be routed throu
 
 Without Origin Shield, your origin might receive duplicate requests for the same content, as shown in the following diagram.
 
-![Without CloudFront Origin Shield, the origin might receive duplicate requests.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origin-shield-without.png)
+![Without CloudFront Origin Shield, the origin might receive duplicate requests.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origin-shield-without.png)
 
 
 **With Origin Shield**
 
 Using Origin Shield can help reduce the load on your origin, as shown in the following diagram.
 
-![With CloudFront Origin Shield, the origin can receive fewer duplicate requests.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origin-shield-with.png)
+![With CloudFront Origin Shield, the origin can receive fewer duplicate requests.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origin-shield-with.png)
 
 
 ### Multiple CDNs
@@ -84,14 +84,14 @@ The following diagrams show how this configuration can help minimize the load on
 
 Without Origin Shield, your origin might receive many duplicate requests for the same content, each coming from a different CDN, as shown in the following diagram.
 
-![Graphic that shows how an origin can receive duplicate requests, each coming from a different CDN.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origin-shield-without-multi-cdn.png)
+![Graphic that shows how an origin can receive duplicate requests, each coming from a different CDN.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origin-shield-without-multi-cdn.png)
 
 
 **With Origin Shield (multiple CDNs)**
 
 Using Origin Shield, with CloudFront as the origin for your other CDNs, can help reduce the load on your origin, as shown in the following diagram.
 
-![Graphic that shows CloudFront Origin Shield receiving fewer duplicate requests.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origin-shield-with-multi-cdn.png)
+![Graphic that shows CloudFront Origin Shield receiving fewer duplicate requests.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origin-shield-with-multi-cdn.png)
 
 
 ## Choose the AWS Region for Origin Shield

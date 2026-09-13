@@ -58,7 +58,7 @@ The following graphic demonstrates how a multi-tenant distribution,distribution 
 
 1. The distribution tenants are automatically added to the connection group that CloudFront created for you when you created the multi-tenant distribution. Connection groups control how viewer requests are connected to the CloudFront network. 
 
-![How multi-tenant distributions work with distribution tenants.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/template_distribution.png)
+![How multi-tenant distributions work with distribution tenants.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/template_distribution.png)
 
 
 For detailed multi-tenant distribution creation instructions, see [Create a CloudFront distribution in the console](distribution-web-creating-console.md#create-console-distribution).

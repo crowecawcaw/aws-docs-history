@@ -161,7 +161,6 @@ You cannot remove the following headers using a response headers policy. If you 
 + `X-Amzn-Header-Order`
 + `X-Amzn-Lambda-Integration-Tag`
 + `X-Amzn-RequestId`
-+ `X-Cache`
 + `X-Edge-.*`
 + `X-Forwarded-Proto`
 + `X-Real-Ip`

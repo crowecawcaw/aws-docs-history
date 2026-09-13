@@ -20,7 +20,7 @@ This solution is open source on GitHub. To view the code, submit a pull request,
 
 The following diagram shows an overview of how this static website solution works:
 
-![Overview diagram of a secure static website with CloudFront](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/cloudfront-secure-static-website-overview-github.png)
+![Overview diagram of a secure static website with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/cloudfront-secure-static-website-overview-github.png)
 
 
 1. The viewer requests the website at www.example.com.
@@ -90,7 +90,7 @@ You are responsible for the costs incurred while using this solution. For more i
 1. Wait for the stack to finish creating. The stack creates some nested stacks, and can take several minutes to finish. When it’s finished, the **Status** changes to **CREATE\_COMPLETE**.
 
    When the status is **CREATE\_COMPLETE**, go to https://{{www.example.com}} to view your website (replace www.example.com with the subdomain and domain name that you specified in step 3). You should see the website’s default content:  
-![This solution’s static website default content. It says: “I am a static website!”](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/cloudfront-secure-static-website-content.png)
+![This solution’s static website default content. It says: “I am a static website!”](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/cloudfront-secure-static-website-content.png)
 
 **To replace the website’s default content with your own**
 

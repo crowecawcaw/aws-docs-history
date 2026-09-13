@@ -72,7 +72,7 @@ The following C\# code creates a signed URL that uses a canned policy by doing t
 For the complete implementation, see the example at [Signature Code in C\#](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/samples/AWS_PrivateCF_Distributions.zip). 
 
 **Note**  
-The `keyId` is returned when you upload a public key to CloudFront. For more information, see ![6](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/callouts/6.png)[ &Key-Pair-Id](private-content-creating-signed-url-canned-policy.md).
+The `keyId` is returned when you upload a public key to CloudFront. For more information, see ![6](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/callouts/6.png)[ &Key-Pair-Id](private-content-creating-signed-url-canned-policy.md).
 
 **Example : Canned policy signing method in C\#**  <a name="ExampleCannedPolicySigningMethod-CSharp"></a>
 
@@ -168,7 +168,7 @@ The following C\# code creates a signed URL that uses a custom policy by doing t
 For the complete implementation, see the example at [Signature Code in C\#](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/samples/AWS_PrivateCF_Distributions.zip). 
 
 **Note**  
-The `keyId` is returned when you upload a public key to CloudFront. For more information, see ![6](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/callouts/6.png)[ &Key-Pair-Id](private-content-creating-signed-url-canned-policy.md).
+The `keyId` is returned when you upload a public key to CloudFront. For more information, see ![6](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/callouts/6.png)[ &Key-Pair-Id](private-content-creating-signed-url-canned-policy.md).
 
 **Example : Custom policy signing method in C\#**  <a name="ExampleCustomPolicySigningMethod-CSharp"></a>
 

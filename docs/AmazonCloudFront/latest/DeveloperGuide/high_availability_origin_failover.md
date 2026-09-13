@@ -31,7 +31,7 @@ CloudFront will not failover if `OPTIONS` are not set as a [Cached HTTP methods]
 
 The following diagram illustrates how origin failover works.
 
-![How origin failover works](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origingroups-overview.png)
+![How origin failover works](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origingroups-overview.png)
 
 
 **Topics**
@@ -114,7 +114,7 @@ You can use Lambda@Edge functions with CloudFront distributions that you’ve se
 
 The following diagram illustrates how origin failover works when you include a Lambda@Edge function in an origin request or response trigger.
 
-![How origin failover works with Lambda@Edge functions](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origingroups-with-lambda-edge.png)
+![How origin failover works with Lambda@Edge functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/origingroups-with-lambda-edge.png)
 
 
 For more information about using Lambda@Edge triggers, see [Add triggers for a Lambda@Edge function](lambda-edge-add-triggers.md).

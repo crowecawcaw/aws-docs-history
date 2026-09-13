@@ -5,7 +5,7 @@
 
 For each cache behavior in a Amazon CloudFront distribution, you can add up to four triggers (associations) that cause a Lambda function to execute when specific CloudFront events occur. CloudFront triggers can be based on one of four CloudFront events, as shown in the following diagram.
 
-![Conceptual graphic that shows how CloudFront trigger events for Lambda functions integrate with CloudFront.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/cloudfront-events-that-trigger-lambda-functions.png)
+![Conceptual graphic that shows how CloudFront trigger events for Lambda functions integrate with CloudFront.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/cloudfront-events-that-trigger-lambda-functions.png)
 
 
 The CloudFront events that can be used to trigger Lambda@Edge functions are the following:

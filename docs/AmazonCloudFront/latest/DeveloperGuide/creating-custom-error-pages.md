@@ -9,7 +9,7 @@ To specify the file that you want to return and the errors for which the file sh
 
 For example, the following is a custom error page:
 
-![Screenshot of an example custom AWS 404 page.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/custom-error-page-aws-404-example.png)
+![Screenshot of an example custom AWS 404 page.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/custom-error-page-aws-404-example.png)
 
 
 You can specify a different object for each supported HTTP status code, or you can use the same object for all of the supported status codes. You can choose to specify custom error pages for some status codes and not for others.

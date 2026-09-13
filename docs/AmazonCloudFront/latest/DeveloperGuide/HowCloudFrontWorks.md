@@ -26,7 +26,7 @@ After you configure CloudFront to deliver your content, here’s what happens wh
 
    1. As soon as the first byte arrives from the origin, CloudFront begins to forward the object to the user. CloudFront also adds the object to the cache for the next time someone requests it.
 
-![Request and response from user to origin through CloudFront](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png)
+![Request and response from user to origin through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/how-cloudfront-delivers-content.png)
 
 
 ## How CloudFront works with regional edge caches
@@ -53,4 +53,4 @@ When the origin is an Amazon S3 bucket and the request’s optimal regional edge
 
 The following diagram illustrates how requests and responses flow through CloudFront edge locations and regional edge caches.
 
-![Diagram showing request/response paths from viewers to origin via edge locations and regional edge caches.](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/regional-edge-caches.png)
+![Diagram showing request/response paths from viewers to origin via edge locations and regional edge caches.](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/images/regional-edge-caches.png)
