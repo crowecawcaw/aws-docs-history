@@ -12,7 +12,7 @@ For more information, see [Three Steps for Modernizing Your DTC Ecommerce Websit
 ## WebSphere Commerce diagram
 <a name="wcs-diagram"></a>
 
-![WebSphere Commerce deployed in a single AWS Region and Amazon VPC across multiple Availability Zones, with Amazon CloudFront as CDN, AWS WAF for security, Elastic Load Balancing, WebSphere Commerce clusters, and Oracle RAC or IBM Db2 databases.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/websphere-commerce-on-aws/images/websphere-commerce-on-aws.png)
+![WebSphere Commerce deployed in a single AWS Region and Amazon VPC across multiple Availability Zones, with Amazon CloudFront as CDN, AWS WAF for security, Elastic Load Balancing, WebSphere Commerce clusters, and Oracle RAC or IBM Db2 databases.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/websphere-commerce-on-aws/images/websphere-commerce-on-aws.png)
 
 
 The following steps describe the architecture:
