@@ -13,14 +13,9 @@ AWS provides service principals with managed access to resources on your account
 
 The following example shows an S3 bucket policy that uses the `aws:SourceAccount` global condition context key in the configured `CallDetailRecords` S3 bucket to help prevent the confused deputy problem.
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "{{AmazonChimeAclCheck668426}}",
@@ -29,7 +24,12 @@ The following example shows an S3 bucket policy that uses the `aws:SourceAccount
                 "Service": "chime.amazonaws.com"
             },
             "Action": "s3:GetBucketAcl",
-            "Resource": "arn:aws:s3:::{{your-cdr-bucket}}"
+            "Resource": "arn:aws:s3:::{{your-cdr-bucket}}",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "{{112233446677}}"
+                }
+            }
         },
         {
             "Sid": "{{AmazonChimeWrite668426}}",
@@ -41,13 +41,11 @@ The following example shows an S3 bucket policy that uses the `aws:SourceAccount
             "Resource": "arn:aws:s3:::{{your-cdr-bucket}}/*",
             "Condition": {
                 "StringEquals": {
-                    "s3:x-amz-acl": "{{bucket-owner-full-control}}",
-                    "aws:SourceAccount": "{{112233446677}}" 
+                    "s3:x-amz-acl": "bucket-owner-full-control",
+                    "aws:SourceAccount": "{{112233446677}}"
                 }
             }
         }
     ]
 }
 ```
-
-------

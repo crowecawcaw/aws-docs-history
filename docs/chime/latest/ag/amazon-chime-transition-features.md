@@ -42,7 +42,7 @@ An Amazon Simple Storage Service (Amazon S3) bucket is used as the destination f
    1. Usage reporting is now turned on.
 
 1. Your weekly usage reporting will begin on the following Sunday at midnight UTC, and files will be stored in the S3 bucket identified.  
-![Set up the Amazon S3 bucket and turn on weekly usage reporting](http://docs.aws.amazon.com/chime/latest/ag/images/usage-reporting.png)
+![Set up the Amazon S3 bucket and turn on weekly usage reporting](https://docs.aws.amazon.com/chime/latest/ag/images/usage-reporting.png)
 
 ### Turn off usage reporting
 <a name="turn-off-usage-reporting"></a>
@@ -56,7 +56,7 @@ You can stop generating new usage reports at any time.
 1. Choose **Turn off reporting**.
 
 1. Confirm that you want the reporting to be stopped by choosing **Disable**.  
-![Confirm that weekly usage reporting should be turned off](http://docs.aws.amazon.com/chime/latest/ag/images/turn-off-usage-reporrting.png)
+![Confirm that weekly usage reporting should be turned off](https://docs.aws.amazon.com/chime/latest/ag/images/turn-off-usage-reporrting.png)
 
 ### Report contents
 <a name="usage-report-contents"></a>
@@ -89,7 +89,7 @@ Reports are generated weekly. Complete the following steps to view the usage rep
    +  The number of meetings that the user attended during the week
    +  The number of meetings that the user hosted during the week
    +  The number of messages that the user sent (1:1, group, and chat room posts) during the week  
-![Fields and data included in the weekly usage report](http://docs.aws.amazon.com/chime/latest/ag/images/example-sales-report.png)
+![Fields and data included in the weekly usage report](https://docs.aws.amazon.com/chime/latest/ag/images/example-sales-report.png)
 
 ### Business calling - Phone number porting
 <a name="business-calling-phone-number-porting"></a>
@@ -108,7 +108,7 @@ You will need to remove all users before you can delete your Team account. When 
 1. Click the Select all check box or the check box next to individual user(s).
 
 1. Choose Remove user from the User actions menu.  
-![Choose Remove user from the Action menu when managing a Team account](http://docs.aws.amazon.com/chime/latest/ag/images/remove-user.png)
+![Choose Remove user from the Action menu when managing a Team account](https://docs.aws.amazon.com/chime/latest/ag/images/remove-user.png)
 
 Once your user(s) are removed, they can still sign in and access Amazon Chime, but they will no longer be able to host meetings. If they would like to delete their Amazon Chime account, they can use the delete me option using the Amazon Chime Assistant. For more information, see [Using the Amazon Chime Assistant to get attachments or request that your account be deleted](https://answers.chime.aws/articles/500/using-the-amazon-chime-assistant-to-get-attachment.html) in the *Amazon Chime Help Center*.
 
@@ -128,7 +128,7 @@ You will need to remove all domains before you can delete your Enterprise accoun
 1. When prompted, review the outcomes of completing this task and click the check box next to **I understand that this action cannot be reversed**.
 
 1. Select **Remove**.  
-![Removing a domain resets all your users’ profiles. Confirm that you understand the impact of removing the domain.](http://docs.aws.amazon.com/chime/latest/ag/images/remove-domain-2.png)
+![Removing a domain resets all your users’ profiles. Confirm that you understand the impact of removing the domain.](https://docs.aws.amazon.com/chime/latest/ag/images/remove-domain-2.png)
 
 ## Transition features for Amazon Chime Users
 <a name="transition-features-chime-users"></a>
@@ -155,7 +155,7 @@ Amazon Chime auto-calls meeting attendees who are signed into their Amazon Chime
 1. Send the invite and be sure to choose to send the update to all.
 
 1. Your meeting should no longer appear in your Amazon Chime Home page under **Upcoming meetings** and there will be no Amazon Chime auto-ring for your attendees.  
-![Remove Amazon Chime users from the To: line and meeting instructions from the Body](http://docs.aws.amazon.com/chime/latest/ag/images/meeting-invite-changes-highlighted.png)
+![Remove Amazon Chime users from the To: line and meeting instructions from the Body](https://docs.aws.amazon.com/chime/latest/ag/images/meeting-invite-changes-highlighted.png)
 
 ### Chat Room Administrators - Get a list of members
 <a name="chat-room-members-list"></a>
@@ -169,7 +169,7 @@ Amazon Chime provides chat rooms for as many as 10,000 members. When you move to
 1. From **Room settings** (the ⋮ icon) choose **Export member list**.
 
 1. You will be prompted to save the CSV file to your computer if you are using the Windows or macOS client. If you are performing this action from the [web client](https://app.chime.aws), the member list will be saved to your downloads folder. The default file name will include the room name.  
-![Example file name: Amazon_Chime_Arnav Desai_Project_Team_room_member_list.csv](http://docs.aws.amazon.com/chime/latest/ag/images/chat-room-export-members-list.png)
+![Example file name: Amazon_Chime_Arnav Desai_Project_Team_room_member_list.csv](https://docs.aws.amazon.com/chime/latest/ag/images/chat-room-export-members-list.png)
 
 ### Amazon Chime Users - Export your personal contacts
 <a name="chime-users-export-personal-contacts"></a>
@@ -183,7 +183,7 @@ Amazon Chime provides users with a personal contact list (with up to 100 contact
 1. Choose **Export personal contacts**.
 
 1. You will be prompted to save the CSV file to your computer if you are using the Windows or macOS client. If you are performing this action from the [web client](https://app.chime.aws), the member list will be saved to your **Downloads** folder.  
-![Example file name: Amazon_Chime_(Arnav Desai)_personal_contacts.csv](http://docs.aws.amazon.com/chime/latest/ag/images/contacts-for-export.png)
+![Example file name: Amazon_Chime_(Arnav Desai)_personal_contacts.csv](https://docs.aws.amazon.com/chime/latest/ag/images/contacts-for-export.png)
 
 ## Summary
 <a name="summary"></a>

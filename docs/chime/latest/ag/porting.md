@@ -36,7 +36,7 @@ You create a support request to port existing phone numbers in.
 1. Open the Amazon Chime console at [https://chime.aws.amazon.com/](https://chime.aws.amazon.com).
 
 1. On the command bar at the top of the page, choose **Support**, then choose **Submit request**.  
-![Support menu showing the Submit request and AWS Billing commands.](http://docs.aws.amazon.com/chime/latest/ag/images/porting-request.png)
+![Support menu showing the Submit request and AWS Billing commands.](https://docs.aws.amazon.com/chime/latest/ag/images/porting-request.png)
 
    That takes you to the AWS Support console.
 **Note**  
