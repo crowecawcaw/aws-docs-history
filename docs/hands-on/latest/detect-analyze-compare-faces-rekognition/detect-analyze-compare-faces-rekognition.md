@@ -36,39 +36,39 @@ In this step, you will use the facial analysis feature in Amazon Rekognition to 
 1. Open the console
 
    Open the [AWS Management Console](https://console.aws.amazon.com/console/home), so you can keep this step-by-step guide open. When the screen loads, enter your user name and password to get started. Then type ****Rekognition**** in the search bar and select **Rekognition** to open the service console.   
-![The navigation menu interface for opening the console.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/navigation-menu-interface-opening-console.png)
+![The navigation menu interface for opening the console.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/navigation-menu-interface-opening-console.png)
 
 1. Select Facial analysis
 
    To start, select **Facial analysis** in the panel navigation on the left. This feature allows you to analyze faces in an image and receive a JSON response.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/selection-interface.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/selection-interface.png)
 
 1. Save the first sample image
 
    Open and save the first sample image for this tutorial [here](https://d1.awsstatic.com/tmt/detect-analyze-faces-rekognition/detect-analyze-faces-rekognition-sample1.14b4e29a5f7a246639b1694612931acf9a45e752.jpg).   
-![Portrait of happy multi-generation family sitting on sofa in living room at home.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/portrait-happy-multi-generation-family.jpeg)
+![Portrait of happy multi-generation family sitting on sofa in living room at home.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/portrait-happy-multi-generation-family.jpeg)
 
 1. Upload sample image
 
    Click the orange **Upload** button and select the sample image you just saved.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface-controls-buttons.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface-controls-buttons.png)
 
 1. Review the quick results
 
    Notice that under the Results dropdown, you can click through and see quick results for each face that was detected.   
-![The review and confirmation interface.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/confirmation-interface-1.png)
+![The review and confirmation interface.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/confirmation-interface-1.png)
 
 1. Open the Response dropdown
 
    Click on the **Response** dropdown to see the JSON results.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/navigation-interface.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/navigation-interface.png)
 
 1. View the JSON results
 
    Notice that under the emotions results, there are numerous detected emotions. Happy has a 99.98% confidence rating. 
 
    As a developer, detecting emotions in images and videos makes it possible to quickly catalog a digital library by emotion. Another use case for detecting emotions is to amplify ad targeting so users receive a personalized experience tailored to the current emotion.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface-interface-element.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface-interface-element.png)
 
 ### Step 2: Compare faces
 <a name="compare-faces"></a>
@@ -78,34 +78,34 @@ In this step, you will use the face comparison feature to see the detailed JSON 
 1. Select Face comparison
 
    Select **Face comparison** in the panel navigation on the left.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/confirmation-interface-1.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/confirmation-interface-1.png)
 
 1. Save second sample image
 
    Open and save the second sample image for this tutorial [here](https://d1.awsstatic.com/tmt/detect-analyze-faces-rekognition/detect-analyze-faces-rekognition-sample2.cc4e9e93d30d13eea75da8faed36ac66f6fce129.jpg).   
-![The navigation menu interface.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/navigation-menu-interface.jpeg)
+![The navigation menu interface.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/navigation-menu-interface.jpeg)
 
 1. Upload the reference face image
 
    Click on the orange **Upload** button for the reference face and select the image you just saved.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface-controls-buttons-1.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface-controls-buttons-1.png)
 
 1. Select first reference image
 
    Click on the orange **Upload** button for the comparison face and select our first sample image we used in step 2.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/selection-interface-1.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/selection-interface-1.png)
 
 1. Review the Results
 
    Notice that in **Results** dropdown you can see that our reference wasn’t a match for any of the detected faces in our comparison faces image.   
-![The review and confirmation interface.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/confirmation-interface-2.png)
+![The review and confirmation interface.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/confirmation-interface-2.png)
 
 1. Review the JSON results
 
    Click on the **Response** dropdown to see the JSON results. Notice that the “Similarity” score for each of the detected faces never exceeds 1. The similarity score ranges from 1-100 and the threshold can be adjusted when using the API. 
 
    As a developer, comparing faces at scale can be used in applications to track persons of interest, create a face-based employee verification system, or provide a VIP experience to guests staying at a hospitality venue.   
-![The review and confirmation interface.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/confirmation-interface-3.png)
+![The review and confirmation interface.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/confirmation-interface-3.png)
 
 ### Step 3: Compare faces (again)
 <a name="compare-faces-again"></a>
@@ -115,22 +115,22 @@ In this step, you will use the face comparison feature to see the detailed JSON 
 1. Save the sample image
 
    Open and save the third and final sample image for this tutorial [here](https://d1.awsstatic.com/tmt/detect-analyze-faces-rekognition/detect-analyze-faces-rekognition-sample3.5b5c31997920aba8eff612d6f2a8829eefdb20ea.jpg).   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface.jpeg)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface.jpeg)
 
 1. Upload the image
 
    Click on the orange **Upload** button for the reference face and select the image you just saved.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface-controls-buttons-2.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/interface-controls-buttons-2.png)
 
 1. Review the Results
 
    Notice that the reference face that was compared to our other photo detected a 99% similarity score and detected that all other faces were not a match.   
-![Amazon Rekognition interface showing a face comparison tool with reference and comparison faces, similarity results displayed on the right.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/reklong-interface-face-comparison-tool.png)
+![Amazon Rekognition interface showing a face comparison tool with reference and comparison faces, similarity results displayed on the right.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/reklong-interface-face-comparison-tool.png)
 
 1. Review the JSON results
 
    Click on the **Response** dropdown to see the details of each comparison.   
-![The AWS Rekognition console showing a JSON response with face matching data, including a similarity score of 99.9965% and confidence of 99.9786%.](http://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/rekognition-console-json-response-face.png)
+![The AWS Rekognition console showing a JSON response with face matching data, including a similarity score of 99.9965% and confidence of 99.9786%.](https://docs.aws.amazon.com/hands-on/latest/detect-analyze-compare-faces-rekognition/images/rekognition-console-json-response-face.png)
 
 ## Conclusion
 <a name="conclusion"></a>
