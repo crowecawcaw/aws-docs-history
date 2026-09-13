@@ -14,7 +14,7 @@ AWS AppConfig Agent caches data the first time the service retrieves your config
 
 The following diagram shows how AWS AppConfig Agent works.
 
-![Diagram of how AWS AppConfig works](http://docs.aws.amazon.com/appconfig/latest/userguide/images/AppConfigAgent.png)
+![Diagram of how AWS AppConfig works](https://docs.aws.amazon.com/appconfig/latest/userguide/images/AppConfigAgent.png)
 
 
 1. Your application requests configuration data from the agent.

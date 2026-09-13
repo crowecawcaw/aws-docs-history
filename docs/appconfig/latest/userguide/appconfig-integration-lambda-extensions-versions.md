@@ -27,7 +27,7 @@ The following table describes changes made to recent versions of the AWS AppConf
 
 | Version | Launch date | Notes | 
 | --- | --- | --- | 
-| 2.0.22365 | 08/24/2026 | Minor enhancements and bug fixes. | 
+| 2.0.22365 | 08/24/2026 | Added support for experiment assignment logging to stderr. Minor enhancements and bug fixes. | 
 | 2.0.20159 | 07/13/2026 | Added support for AWS AppConfig experimentation. | 
 | 2.0.18836 | 06/22/2026 | Minor enhancements and bug fixes.  | 
 | 2.0.17054 | 05/14/2026 | Minor enhancements and bug fixes.  | 

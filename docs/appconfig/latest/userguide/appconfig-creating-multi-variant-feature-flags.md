@@ -7,7 +7,7 @@ Feature flag variants enable you to define a set of possible flag values to retu
 
 The following screenshot shows an example of a feature flag with three user-defined variants and the default variant.
 
-![An example screenshot of a feature flag with variants.](http://docs.aws.amazon.com/appconfig/latest/userguide/images/flag-variant-example.png)
+![An example screenshot of a feature flag with variants.](https://docs.aws.amazon.com/appconfig/latest/userguide/images/flag-variant-example.png)
 
 
 **Topics**

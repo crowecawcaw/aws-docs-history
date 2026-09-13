@@ -7,7 +7,7 @@ If you use AWS AppConfig to manage configurations for a Lambda function *without
 
 Integrating the AWS AppConfig Agent Lambda extension with your Lambda function simplifies this process. The extension takes care of calling the AWS AppConfig service, managing a local cache of retrieved data, tracking the configuration tokens needed for the next service calls, and periodically checking for configuration updates in the background. The following diagram shows how it works.
 
-![A diagram of how the AWS AppConfig Agent Lambda extension works](http://docs.aws.amazon.com/appconfig/latest/userguide/images/AppConfigLambdaExtension.png)
+![A diagram of how the AWS AppConfig Agent Lambda extension works](https://docs.aws.amazon.com/appconfig/latest/userguide/images/AppConfigLambdaExtension.png)
 
 
 1. You configure the AWS AppConfig Agent Lambda extension as a layer of your Lambda function. 

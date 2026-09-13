@@ -24,7 +24,7 @@ When you create a feature flag configuration profile—or create a new flag with
 
 Constraints ensure that any unexpected attribute values are not deployed to your application. The following image shows an example.
 
-![Example of flag attributes for an AWS AppConfig feature flag](http://docs.aws.amazon.com/appconfig/latest/userguide/images/appconfig-flag-attributes.png)
+![Example of flag attributes for an AWS AppConfig feature flag](https://docs.aws.amazon.com/appconfig/latest/userguide/images/appconfig-flag-attributes.png)
 
 
 **Note**  

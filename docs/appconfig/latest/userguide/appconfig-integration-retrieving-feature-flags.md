@@ -26,7 +26,7 @@ curl "http://localhost:2772/applications/{{APPLICATION_NAME}}/environments/{{ENV
 
 The following cURL examples show how to retrieve feature flag variants based on caller context. To best illustrate how to make these calls, this section uses sample calls based on a scenario where a customer created variants similar to the following:
 
-![An example screenshot of a feature flag with variants.](http://docs.aws.amazon.com/appconfig/latest/userguide/images/flag-variant-example.png)
+![An example screenshot of a feature flag with variants.](https://docs.aws.amazon.com/appconfig/latest/userguide/images/flag-variant-example.png)
 
 
 **Note**  

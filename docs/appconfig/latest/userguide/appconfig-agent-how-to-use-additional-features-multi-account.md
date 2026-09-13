@@ -37,7 +37,7 @@ Here is an example:
 
 Before retrieving a configuration, the agent reads the credential details for the configuration from the manifest and then assumes the IAM role specified for that configuration. You can specify a different set of credential overrides for different configurations in a single manifest. The following diagram shows how AWS AppConfig Agent, while running in Account A (the retrieval account), assumes separate roles specified for Accounts B and C (the vendor accounts) and then calls the [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) API operation to retrieve configuration data from AWS AppConfig running in those accounts:
 
-![How AWS AppConfig Agent works with IAM roles across separate AWS accounts.](http://docs.aws.amazon.com/appconfig/latest/userguide/images/agent multi-account.png)
+![How AWS AppConfig Agent works with IAM roles across separate AWS accounts.](https://docs.aws.amazon.com/appconfig/latest/userguide/images/agent multi-account.png)
 
 
 ## Configure permissions to retrieve configuration data from vendor accounts

@@ -27,17 +27,17 @@ Here are some examples:
 
 **A rule for targeting users in the Premium account tier.**
 
-![An image of the Rule builder tab in AWS AppConfig experimentation with sample audience rule specified.](http://docs.aws.amazon.com/appconfig/latest/userguide/images/experimentation-rule-builder-1.png)
+![An image of the Rule builder tab in AWS AppConfig experimentation with sample audience rule specified.](https://docs.aws.amazon.com/appconfig/latest/userguide/images/experimentation-rule-builder-1.png)
 
 
 **A rule for targeting users in a specific geographic region using a specific email domain.**
 
-![A second image of the Rule builder tab in AWS AppConfig experimentation with sample audience rule specified.](http://docs.aws.amazon.com/appconfig/latest/userguide/images/experimentation-rule-builder-2.png)
+![A second image of the Rule builder tab in AWS AppConfig experimentation with sample audience rule specified.](https://docs.aws.amazon.com/appconfig/latest/userguide/images/experimentation-rule-builder-2.png)
 
 
 **A rule for targeting users in a specific on a specific plan or using a secondary plan while having opted into a beta program.**
 
-![A third image of the Rule builder tab in AWS AppConfig experimentation with sample audience rule specified.](http://docs.aws.amazon.com/appconfig/latest/userguide/images/experimentation-rule-builder-3.png)
+![A third image of the Rule builder tab in AWS AppConfig experimentation with sample audience rule specified.](https://docs.aws.amazon.com/appconfig/latest/userguide/images/experimentation-rule-builder-3.png)
 
 
 **Relationship to the editor**

@@ -13,7 +13,34 @@ If you want more control over which action points send Amazon SNS notifications,
 This section describes how to use the `AWS AppConfig deployment events to Amazon SNS` extension.
 
 **Step 1: Configure AWS AppConfig to publish messages to a topic**  
-Add an access control policy to your Amazon SNS topic granting AWS AppConfig (`appconfig.amazonaws.com`) publish permissions (`sns:Publish`). For more information, see [Example cases for Amazon SNS access control](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html).
+Add an access control policy to your Amazon SNS topic that gives AWS AppConfig (`appconfig.amazonaws.com`) permission to publish messages (`sns:Publish`). To make sure only your own account can send these messages, add an `aws:SourceAccount` condition to the policy and set it to your AWS account ID. This prevents someone in a different AWS account from using the extension to send messages to your topic. To scope access even more tightly, you can use an `aws:SourceArn` condition set to the ARN of the extension association instead. For more information, see [Example cases for Amazon SNS access control](https://docs.aws.amazon.com/sns/latest/dg/sns-access-policy-use-cases.html).
+
+The following example policy lets AWS AppConfig publish to your topic only when the request comes from your own account. Replace `MySNSTopic` and the example account ID with your own values.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowAppConfigPublish",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "appconfig.amazonaws.com"
+            },
+            "Action": "SNS:Publish",
+            "Resource": "arn:aws:sns:us-east-1:111122223333:MySNSTopic",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "111122223333"
+                }
+            }
+        }
+    ]
+}
+```
+
+**Prevent cross-account access**  
+You must include either the `aws:SourceAccount` or `aws:SourceArn` condition in your Amazon SNS topic policy to prevent cross-account access. Without these conditions, another AWS account could configure its `AWS AppConfig deployment events to Amazon SNS` extension to send deployment events to your topic. Always limit the policy to your own account.
 
 **Step 2: Create an extension association**  
 Attach the extension to one of your AWS AppConfig resources by creating an extension association. You create the association by using the AWS AppConfig console or the [CreateExtensionAssociation](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateExtensionAssociation.html) API action. When you create the association, you specify the ARN of an AWS AppConfig application, environment, or configuration profile. If you associate the extension to an application or an environment, a notification is sent for any configuration profile contained within the specified application or environment. When you create the association, you must enter a value for the `topicArn` parameter that contains the ARN of the Amazon SNS topic you want to use.

@@ -13,7 +13,34 @@ If you want more control over which action points send Amazon SQS notifications,
 This section describes how to use the `AWS AppConfig deployment events to Amazon SQS` extension.
 
 **Step 1: Configure AWS AppConfig to enqueue messages**  
-Add an Amazon SQS policy to your Amazon SQS queue granting AWS AppConfig (`appconfig.amazonaws.com`) send message permissions (`sqs:SendMessage`). For more information, see [Basic examples of Amazon SQS policies](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-basic-examples-of-sqs-policies.html).
+Add an Amazon SQS policy to your Amazon SQS queue that gives AWS AppConfig (`appconfig.amazonaws.com`) permission to send messages (`sqs:SendMessage`). To make sure only your own account can send these messages, add an `aws:SourceAccount` condition to the policy and set it to your AWS account ID. This prevents someone in a different AWS account from using the extension to send messages to your queue. To scope access even more tightly, you can use an `aws:SourceArn` condition set to the ARN of the extension association instead. For more information, see [Basic examples of Amazon SQS policies](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-basic-examples-of-sqs-policies.html).
+
+The following example policy lets AWS AppConfig send messages to your queue only when the request comes from your own account. Replace `MySQSQueue` and the example account ID with your own values.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowAppConfigSendMessage",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "appconfig.amazonaws.com"
+            },
+            "Action": "SQS:SendMessage",
+            "Resource": "arn:aws:sqs:us-east-1:111122223333:MySQSQueue",
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "111122223333"
+                }
+            }
+        }
+    ]
+}
+```
+
+**Prevent cross-account access**  
+You must include either the `aws:SourceAccount` or `aws:SourceArn` condition in your Amazon SQS queue policy to prevent cross-account access. Without these conditions, another AWS account could configure its `AWS AppConfig deployment events to Amazon SQS` extension to send deployment events to your queue. Always limit the policy to your own account.
 
 **Step 2: Create an extension association**  
 Attach the extension to one of your AWS AppConfig resources by creating an extension association. You create the association by using the AWS AppConfig console or the [CreateExtensionAssociation](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateExtensionAssociation.html) API action. When you create the association, you specify the ARN of an AWS AppConfig application, environment, or configuration profile. If you associate the extension to an application or an environment, a notification is sent for any configuration profile contained within the specified application or environment. When you create the association, you must enter a `Here` parameter that contains the ARN of the Amazon SQS queue you want to use.
