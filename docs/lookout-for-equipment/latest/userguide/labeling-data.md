@@ -22,7 +22,7 @@ You've made a decision about your [training and evaluation](configuring-input-da
 
   You can use the same Amazon S3 bucket or a different one. If you use the same one, it's a good practice to create a separate folder for your data labels.
 + In the Lookout for Equipment console, on the **Provide data labels** page, indicate the location of your data labels.  
-![AWS Lookout for Equipment console page for providing optional data labels with S3 location input.](http://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/provide-data-labels.png)
+![AWS Lookout for Equipment console page for providing optional data labels with S3 location input.](https://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/provide-data-labels.png)
 + Choose your IAM role.
 
   This is the role that authorizes Lookout for Equipment to access the Amazon S3 bucket where your data labels are stored. If you're using the same bucket as before, you can choose the role that you already created. You can also select **Create an IAM role**, and the proper role will be created for you.

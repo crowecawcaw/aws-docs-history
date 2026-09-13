@@ -11,7 +11,7 @@ Lookout for Equipment is designed primarily for stationary industrial equipment 
 
 As an example of using Lookout for Equipment on data from a high-level machine , let's look at a fluid pump.
 
-![Schematic diagram of a fluid pump system with numbered components and connections.](http://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/fluid_pump.png)
+![Schematic diagram of a fluid pump system with numbered components and connections.](https://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/fluid_pump.png)
 
 
 In a simplified form, this fluid pump consists of three major components and their sensors. Note that this is just an example and not a complete list of features and components of such a pump. 
@@ -24,26 +24,26 @@ In a simplified form, this fluid pump consists of three major components and the
 
 For a simple application of Amazon Lookout for Equipment, let's say that the only available data consists of measurements of how fast the pump is spinning in RPM, and the outlet flow rate of the fluid. The following historical time-series plots show both sets of measurements.
 
-![Two time-series graphs showing RPM and outlet flow rate measurements over time.](http://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/graphs.png)
+![Two time-series graphs showing RPM and outlet flow rate measurements over time.](https://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/graphs.png)
 
 
 These graphs show the expected relationship between RPM and flow rate: as the pump rotates faster, the fluid flows faster. The graphs show two operating modes: one with low RPM and a low flow rate, and a second mode with high RPM and high flow rate. In this case, Amazon Lookout for Equipment wants to learn this normal relationship in terms of operating modes. .The following graph shows another way to visualize the learned normal operating modes. 
 
-![Scatter plot showing pump operating states: low RPM/flow rate and high RPM/flow rate clusters.](http://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/pump-normal.png)
+![Scatter plot showing pump operating states: low RPM/flow rate and high RPM/flow rate clusters.](https://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/pump-normal.png)
 
 
 The normal behavior of this pump is clear. The operator runs the pump at low RPM and high RPM in order to get a low flow rate or a high flow rate. As the pump continues to run, we expect that the data will continue to fall into one of these two operating modes. However, if the pump starts to have problems, this relationship might not hold true. 
 
 Over time, the impeller (the part similar to a boat propeller) starts to rust, chip, loosen, or become misaligned. As this happens, the data might show abnormal behavior. When the pump rotates at higher a RPM, the flow rate remains low, as shown in the following graph. 
 
-![Scatter plot showing normal and abnormal pump operating states based on RPM and outlet flow rate.](http://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/pump-abnormal.png)
+![Scatter plot showing normal and abnormal pump operating states based on RPM and outlet flow rate.](https://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/pump-abnormal.png)
 
 
 These types of issues are precisely what Amazon Lookout for Equipment is designed to detect.
 
 In this case, we see a simple representation of the normal operating states of the pump and abnormal behavior if the pump has an issue. The following graph shows a simplified view of how Lookout for Equipment detects the output over time. When the relationship between RPM and flow rate is normal, Lookout for Equipment detects that everything is normal. However, as the RPM increases but the flow rate stays the same, Lookout for Equipment starts detecting abnormal behavior. The vertical red line denotes the potential failure point for the pump, at which unplanned downtime occurs. 
 
-![Graph showing normal behavior, abnormal behavior, and pump failure over time.](http://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/hogun-output.png)
+![Graph showing normal behavior, abnormal behavior, and pump failure over time.](https://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/hogun-output.png)
 
 
 This is a very simple example of a straightforward application with only two inputs (RPM and flow rate) that have a direct linear relationship with each other. The situation become dramatically more complex when we add additional inputs, such as pressure, temperature, motor current, motor voltage, bearing vibration, and so on. The more you increase the number of inputs, the more complex the relationships between all of the inputs becomes. With some equipment, the number of inputs can easily reach into the hundreds. In addition, this simplified example doesn't attempt to represent the time-series aspect of the problem—the model also has to learn the changes in relationships over time. For example, even subtle changes in vibration over time can be critical to detecting issues. 

@@ -7,7 +7,7 @@
 
 When you're planning your use of Lookout for Equipment, it may be useful to understand exactly what happens at each step of the inference process.
 
-![Inference steps](http://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/inference-steps.png)
+![Inference steps](https://docs.aws.amazon.com/lookout-for-equipment/latest/userguide/images/inference-steps.png)
 
 
 1. Lookout for Equipment looks for the component name (which can be the name of an asset or a sensor, depending on how your data was ingested).
