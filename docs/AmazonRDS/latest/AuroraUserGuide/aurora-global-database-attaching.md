@@ -27,24 +27,24 @@ We recommend that when you create a secondary cluster, you use the same DB engin
 1. Choose the Aurora global database that needs a secondary Aurora DB cluster. Ensure that the primary Aurora DB cluster is `Available`.
 
 1.  For **Actions**, choose **Add AWS Region**.   
-![Provisioned DB cluster with Add AWS Region chosen from the Actions menu.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-apg-5-add-region.png)
+![Provisioned DB cluster with Add AWS Region chosen from the Actions menu.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-apg-5-add-region.png)
 
 1. On the **Add a region** page, choose the secondary AWS Region. 
 
    You can't choose an AWS Region that already has a secondary Aurora DB cluster for the same Aurora global database. Also, it can't be the same Region as the primary Aurora DB cluster.
 **Note**  
 Babelfish for Aurora PostgreSQL global databases works in secondary regions only if the parameters that control Babelfish preferences are turned on in those regions. For more information, see [DB cluster parameter group settings for Babelfish](babelfish-configuration.md)  
-![The Add a region page for an Aurora global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-apg-6-add-region.png)
+![The Add a region page for an Aurora global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-apg-6-add-region.png)
 
 1. Complete the remaining fields for the secondary Aurora cluster in the new AWS Region. These are the same configuration options as for any Aurora DB cluster instance, except for the following option for Aurora MySQL–based Aurora global databases only:
    + Enable read replica write forwarding – This optional setting let's your Aurora global database's secondary DB clusters forward write operations to the primary cluster. For more information, see [Using write forwarding in an Amazon Aurora global database](aurora-global-database-write-forwarding.md).   
-![the secondary cluster is now part of the Aurora global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-database-enable-write-forwarding.png)
+![the secondary cluster is now part of the Aurora global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-database-enable-write-forwarding.png)
 
 1. Choose **Add AWS Region**. 
 
 After you finish adding the Region to your Aurora global database, you can see it in the list of **Databases** in the AWS Management Console as shown in the screenshot. 
 
-![the secondary cluster is now part of the Aurora global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-apg-complete.png)
+![the secondary cluster is now part of the Aurora global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-apg-complete.png)
 
 
 ## AWS CLI

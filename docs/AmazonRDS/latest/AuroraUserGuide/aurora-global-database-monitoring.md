@@ -14,7 +14,7 @@ When you create the Aurora DB clusters that make up your Aurora global database,
 
 The following screenshot shows some of the options available on the Monitoring tab of a primary Aurora DB cluster in an Aurora global database.
 
-![Monitoring tab: Monitoring dropdown showing CloudWatch, Enhanced monitoring, OS process list, and Performance Insights options.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-monitoring-options.png)
+![Monitoring tab: Monitoring dropdown showing CloudWatch, Enhanced monitoring, OS process list, and Performance Insights options.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-monitoring-options.png)
 
 
 For more information, see [Monitoring metrics in an Amazon Aurora cluster](MonitoringAurora.md).

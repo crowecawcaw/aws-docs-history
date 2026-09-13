@@ -51,7 +51,7 @@ You can create an ElastiCache cache for your Aurora DB clusters with settings fo
    In the **ElastiCache configuration section**, the **Source DB identifier** displays which DB cluster the ElastiCache cache inherits settings from.
 
 1. Choose whether you want to create a Redis OSS or Memcached cluster. For more information, see [Comparing Memcached and Redis OSS](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html).  
-![The cluster type and deployment option selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/EC-RDS-Config.png)
+![The cluster type and deployment option selection.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/EC-RDS-Config.png)
 
 1. After this, choose whether you want to create a **Serverless cache** or **Design your own cache**. For more information, see [ Choosing between deployment options](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.deployment.html).
 

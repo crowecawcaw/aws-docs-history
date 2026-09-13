@@ -143,7 +143,7 @@ The following procedure describes how to subscribe to a backtrack event using th
 1. For **Event categories to include**, choose **Select specific event categories**, and choose **backtrack**.
 
    Your page should look similar to the following page.  
-![Backtrack event subscription.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-event.png)
+![Backtrack event subscription.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-event.png)
 
 1. Choose **Create**.
 

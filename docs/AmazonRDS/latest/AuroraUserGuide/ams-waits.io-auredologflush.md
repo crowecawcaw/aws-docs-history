@@ -32,14 +32,14 @@ For data persistence, commits require a durable write to stable storage. If the 
 
 In the following examples, 50,000 records are inserted into an Aurora MySQL DB cluster using the db.r5.xlarge DB instance class:
 + In the first example, each session inserts 10,000 records row by row. By default, if a data manipulation language (DML) command isn't within a transaction, Aurora MySQL uses implicit commits. Autocommit is turned on. This means that for each row insertion there is a commit. Performance Insights shows that the connections spend most of their time waiting on the `io/aurora_redo_log_flush` wait event.   
-![Performance Insights example of the wait event.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auredologflush_PI_example1.png)
+![Performance Insights example of the wait event.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auredologflush_PI_example1.png)
 
   This is caused by the simple insert statements used.  
-![Insert statements in Top SQL.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auredologflush_top_SQL1.png)
+![Insert statements in Top SQL.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auredologflush_top_SQL1.png)
 
   The 50,000 records take 3.5 minutes to be inserted.
 + In the second example, inserts are made in 1,000 batches, that is each connection performs 10 commits instead of 10,000. Performance Insights shows that the connections don't spend most of their time on the `io/aurora_redo_log_flush` wait event.  
-![Performance Insights example of the wait event having less impact.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auredologflush_PI_example2.png)
+![Performance Insights example of the wait event having less impact.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auredologflush_PI_example2.png)
 
   The 50,000 records take 4 seconds to be inserted.
 

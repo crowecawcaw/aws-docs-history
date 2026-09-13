@@ -178,7 +178,7 @@ You modify the writer DB instance to change the master user password using the A
 1. Enter a **New master password**.
 
 1. For **Confirm master password**, enter the same new password.  
-![The master user password field and confirmation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aur_new_master_password.png)
+![The master user password field and confirmation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aur_new_master_password.png)
 
 1. Choose **Continue** and check the summary of modifications.
 **Note**  

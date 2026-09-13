@@ -47,7 +47,7 @@ To connect to your Babelfish DB cluster, you use the endpoint associated with th
 1. Choose your Babelfish for Aurora PostgreSQL DB cluster from those listed to see its details. 
 
 1. On the **Connectivity & security** tab, note the available cluster **Endpoints** values. Use the cluster endpoint for the writer instance in your connection strings for any applications that perform database write or read operations.  
-![Finding a Babelfish endpoint and port.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-database-endpoint.png)
+![Finding a Babelfish endpoint and port.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-database-endpoint.png)
 
 For more information about Aurora DB cluster details, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md).
 

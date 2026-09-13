@@ -3,7 +3,7 @@
 # Connecting to Amazon Aurora Global Database
 <a name="aurora-global-database-connecting"></a>
 
- Each Aurora Global Database comes with a writer endpoint that is automatically updated by Aurora to route requests to the current writer instance of the primary DB cluster. With the writer endpoint, you don't have to modify your connection string after you change the location of the primary Region using the managed Aurora Global Database switchover and failover capabilities. To learn more about using the writer endpoint along with Aurora Global Database switchover and failover, see [Using switchover or failover in Amazon Aurora Global Database](aurora-global-database-disaster-recovery.md). For information about connecting to an Aurora Global Database with RDS Proxy, see [Using RDS Proxy with Aurora global databases](https://docs.aws.amazon.com/AuroraUserGuide/rds-proxy-gdb.html). 
+ Each Aurora Global Database comes with a writer endpoint that is automatically updated by Aurora to route requests to the current writer instance of the primary DB cluster. With the writer endpoint, you don't have to modify your connection string after you change the location of the primary Region using the managed Aurora Global Database switchover and failover capabilities. To learn more about using the writer endpoint along with Aurora Global Database switchover and failover, see [Using switchover or failover in Amazon Aurora Global Database](aurora-global-database-disaster-recovery.md). For information about connecting to an Aurora Global Database with RDS Proxy, see [Using RDS Proxy with Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-proxy-gdb.html). 
 
 **Topics**
 + [Choosing the endpoint that meets your application needs](#gdb-endpoint-choosing)
@@ -38,7 +38,7 @@
 +  Writer – The connection endpoint for read/write requests to the primary DB cluster in the global database cluster. 
 +  Reader – The connection endpoint for read-only requests to a primary or secondary DB cluster in the global database cluster. To minimize latency, choose whichever reader endpoint is in your AWS Region or the AWS Region closest to you. 
 
-![The Connectivity and security tab showing the global writer endpoint.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-databases-primary-cluster-connectivity-2.png)
+![The Connectivity and security tab showing the global writer endpoint.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-databases-primary-cluster-connectivity-2.png)
 
 
 ### Console

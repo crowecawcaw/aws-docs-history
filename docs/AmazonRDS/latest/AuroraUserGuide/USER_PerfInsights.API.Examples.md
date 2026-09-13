@@ -36,7 +36,7 @@ If you don't have the AWS CLI installed, see [Installing the AWS CLI](https://do
 
 The following screenshot shows two counter metrics charts in the AWS Management Console.
 
-![Counter Metrics charts.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/perf-insights-api-counters-charts.png)
+![Counter Metrics charts.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/perf-insights-api-counters-charts.png)
 
 
 The following example shows how to gather the same data that the AWS Management Console uses to generate the two counter metric charts.
@@ -387,7 +387,7 @@ When querying, it might be convenient to specify a `Group` in `GroupBy`. However
 ## Retrieving the DB load average filtered by SQL
 <a name="USER_PerfInsights.API.Examples.DBLoadAverageFilterBySQL"></a>
 
-![Filter by SQL chart.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/perf-insights-api-filter-chart.png)
+![Filter by SQL chart.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/perf-insights-api-filter-chart.png)
 
 
 The preceding image shows that a particular query is selected, and the top average active sessions stacked area line graph is scoped to that query. Although the query is still for the top seven overall wait events, the value of the response is filtered. The filter causes it to take into account only sessions that are a match for the particular filter.

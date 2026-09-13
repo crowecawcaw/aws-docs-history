@@ -74,7 +74,7 @@ To access the source database for data loading, you must allow incoming network 
    1. Add a new inbound rule for the source DB cluster or instance:
       + Port range – Database port for the source database, usually `5432`
       + Security group ID – `sg-056a84f1712b77926` in this example  
-![Add inbound rule for the source database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_self_access_inbound_rule.png)
+![Add inbound rule for the source database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_self_access_inbound_rule.png)
 
 1. On the **Outbound rules** tab:
 
@@ -83,7 +83,7 @@ To access the source database for data loading, you must allow incoming network 
    1. Add a new outbound rule for the source DB cluster or instance:
       + Database port – `All traffic` (includes ports `0-65535`)
       + Security group ID – `sg-056a84f1712b77926` in this example  
-![Add outbound rule for the source database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_self_access_outbound_rule.png)
+![Add outbound rule for the source database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_self_access_outbound_rule.png)
 
 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/).
 

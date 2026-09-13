@@ -10,7 +10,7 @@ Delete a custom endpoint using the AWS Management Console, AWS CLI, or the Amazo
 
 To delete a custom endpoint with the AWS Management Console, go to the cluster detail page, select the appropriate custom endpoint, and select the **Delete** action.
 
-![Delete custom endpoint page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraDeleteCustomEndpoint.png)
+![Delete custom endpoint page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraDeleteCustomEndpoint.png)
 
 
 ## AWS CLI

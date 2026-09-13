@@ -11,12 +11,12 @@ Aurora PostgreSQL Limitless Database differs from standard [Aurora DB clusters](
 
 The following figure shows the high-level architecture of Aurora PostgreSQL Limitless Database.
 
-![High-level architecture of Aurora PostgreSQL Limitless Database showing primary cluster, shard groups, and data distribution.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_high_level_arch_GA.png)
+![High-level architecture of Aurora PostgreSQL Limitless Database showing primary cluster, shard groups, and data distribution.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_high_level_arch_GA.png)
 
 
 For more information on the architecture of Aurora PostgreSQL Limitless Database and how you can use it, see this video on the AWS Events channel on YouTube:
 
-[![AWS Videos](http://img.youtube.com/vi/pUqVCK7Ggh0/0.jpg)](http://www.youtube.com/watch?v=pUqVCK7Ggh0)
+[![AWS Videos](https://img.youtube.com/vi/pUqVCK7Ggh0/0.jpg)](https://www.youtube.com/watch?v=pUqVCK7Ggh0)
 
 
 For more information on the architecture of a standard Aurora DB cluster, see [Amazon Aurora DB clusters](Aurora.Overview.md).

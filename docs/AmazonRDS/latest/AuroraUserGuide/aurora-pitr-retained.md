@@ -15,7 +15,7 @@ You can restore a DB cluster from a retained automated backup after you delete t
 1. In the navigation pane, choose **Automated backups**.
 
 1. Choose the **Retained** tab.  
-![Retained automated backups](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/db-cluster-retained-automated-backups.png)
+![Retained automated backups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/db-cluster-retained-automated-backups.png)
 
 1. Choose the DB cluster that you want to restore.
 

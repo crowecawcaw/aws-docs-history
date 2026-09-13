@@ -81,13 +81,13 @@ Choose the VPC for the directory. You can create the PostgreSQL DB cluster in th
 1. Choose **Next**.
 
 1.  Review the directory information. If changes are needed, choose **Previous** and make the changes. When the information is correct, choose **Create directory**.   
-![Directory details page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/WinAuth2.png)
+![Directory details page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/WinAuth2.png)
 
  It takes several minutes for the directory to be created. When it has been successfully created, the **Status** value changes to **Active**. 
 
  To see information about your directory, choose the directory ID in the directory listing. Make a note of the **Directory ID** value. You need this value when you create or modify your PostgreSQL DB instance. 
 
-![The details page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/WinAuth3.png)
+![The details page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/WinAuth3.png)
 
 
 ## Step 2: (Optional) Create a trust relationship between your on-premises Active Directory and Directory Service
@@ -107,7 +107,7 @@ Windows clients can't connect using cluster endpoints in secondary AWS Regions.
 
 Make sure that your on-premises Microsoft Active Directory domain name includes a DNS suffix routing that corresponds to the newly created trust relationship. The following screenshot shows an example.
 
-![DNS routing corresponds to the created trust.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/kerberos-auth-trust.png)
+![DNS routing corresponds to the created trust.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/kerberos-auth-trust.png)
 
 
 ## Step 3: Create an IAM role for Amazon Aurora to access the Directory Service
@@ -277,7 +277,7 @@ Enabling Kerberos authentication isn't currently supported on Aurora PostgreSQL 
 
 When you use the console to create, modify, or restore a DB cluster, choose **Kerberos authentication** in the **Database authentication** section. Then choose **Browse Directory**. Select the directory or choose **Create a new directory** to use the Directory Service.
 
-![Choosing Kerberos for authentication and identifying the directory to use.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/rpg-authentication-use-kerberos.png)
+![Choosing Kerberos for authentication and identifying the directory to use.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/rpg-authentication-use-kerberos.png)
 
 
 ### AWS CLI

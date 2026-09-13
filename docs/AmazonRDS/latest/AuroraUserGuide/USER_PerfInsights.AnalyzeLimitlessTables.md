@@ -31,12 +31,12 @@ You might want to improve the performance of your Aurora PostgreSQL Limitless Da
 1. In the **Database load (DB load)** section, choose **Instances** for **Sliced by**. To see the ratio of Average active sessions (AAS) to vCPU cores for all of the instances in your Aurora PostgreSQL Limitless Database, choose **Relative** for **Viewed as**.
 
    The Average active sessions chart shows the DB load for instances in your Aurora PostgreSQL Limitless Database.  
-![View the Performance Insights dashboard for your Aurora PostgreSQL Limitless Database sliced by instances.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pi-relative-instances.png)
+![View the Performance Insights dashboard for your Aurora PostgreSQL Limitless Database sliced by instances.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pi-relative-instances.png)
 
 1. To view the top instances, choose the **Top instances** tab.
 
    In the following example, the instance with the highest DB load is `DTR-2-2`.  
-![Use the Top instances tab for an Aurora PostgreSQL Limitless Database sliced by instances.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pi-top-instances.png)
+![Use the Top instances tab for an Aurora PostgreSQL Limitless Database sliced by instances.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pi-top-instances.png)
 
 1. (Optional) To analyze DB load for an instance in your Aurora PostgreSQL Limitless Database, choose the instance name in the **Instances** column. To view the DB load for `DTR-2-2`, choose `DTR-2-2` in the **Instances** column. 
 **Note**  

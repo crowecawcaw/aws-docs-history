@@ -42,7 +42,7 @@ If you select an Aurora PostgreSQL source DB cluster, you must specify at least 
 
 The following image shows the structure of Aurora MySQL data filters in the console:
 
-![Data filters for a zero-ETL integration.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/zero-etl-filter.png)
+![Data filters for a zero-ETL integration.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/zero-etl-filter.png)
 
 
 **Important**  
@@ -216,7 +216,7 @@ If you add a filter after you create an integration, Aurora treats it as if it a
 1. Under **Source**, add one or more `Include` and `Exclude` statements.
 
    The following image shows an example of data filters for a MySQL integration:  
-![Data filters for a zero-ETL integration in the RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/zero-etl-filter-data.png)
+![Data filters for a zero-ETL integration in the RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/zero-etl-filter-data.png)
 
 1. When you're satisfied with the changes, choose **Continue** and **Save changes**.
 

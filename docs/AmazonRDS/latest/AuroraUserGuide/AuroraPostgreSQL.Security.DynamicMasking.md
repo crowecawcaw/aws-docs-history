@@ -12,4 +12,4 @@ With `pg_columnmask`, you create masking policies that determine data visibility
 + **Multiple masking strategies** – Completely hide information, replace partial values with wildcards, or define custom masking approaches.
 + **Policy prioritization** – Define multiple policies for a single column. Use weights to determine which masking policy should be used when multiple policies apply to a column. Aurora PostgreSQL applies policies based on weight and user role membership. 
 
-`pg_columnmask` is available on Aurora PostgreSQL version 16.10 and higher, and version 17.6 and higher. It is available is available at no additional cost.
+`pg_columnmask` is available on Aurora PostgreSQL version 16.10 and higher, and version 17.6 and higher. It is available at no additional cost.

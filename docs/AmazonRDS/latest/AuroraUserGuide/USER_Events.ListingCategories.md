@@ -10,7 +10,7 @@ All events for a resource type are grouped into categories. To view the list of 
 
 When you create or modify an event notification subscription, the event categories are displayed in the Amazon RDS console. For more information, see [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md). 
 
-![List DB event notification categories.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/EventNotification-Categories.png)
+![List DB event notification categories.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/EventNotification-Categories.png)
 
 
 

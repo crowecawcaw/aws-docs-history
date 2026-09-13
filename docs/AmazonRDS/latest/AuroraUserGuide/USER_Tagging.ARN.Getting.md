@@ -12,7 +12,7 @@ To get an ARN from the AWS Management Console, navigate to the resource you want
 
 For example, you can get the ARN for a DB cluster from the **Configuration** tab of the DB cluster details.
 
-![DB cluster ARN.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/DB-cluster-arn.png)
+![DB cluster ARN.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/DB-cluster-arn.png)
 
 
 ## AWS CLI

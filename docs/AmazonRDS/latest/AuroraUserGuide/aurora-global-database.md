@@ -29,7 +29,7 @@ An Aurora global database consists of one *primary* AWS Region where your data i
 
 In the following diagram, you can find an example Aurora global database that spans two AWS Regions.
 
-![An Aurora global database has a single primary and at least one secondary Aurora DB clusters.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-databases-conceptual-illo.png)
+![An Aurora global database has a single primary and at least one secondary Aurora DB clusters.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-databases-conceptual-illo.png)
 
 
 You can scale up each secondary cluster independently, by adding one or more Aurora reader instances to serve read-only workloads. You can use Aurora serverless for the reader instances for even more granular and flexible scaling.

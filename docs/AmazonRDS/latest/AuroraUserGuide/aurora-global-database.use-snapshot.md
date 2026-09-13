@@ -11,4 +11,4 @@ During the restore process, choose the same DB engine type as the snapshot. For 
 
  The restored DB cluster assumes the role of primary cluster for the Aurora global database when you add an AWS Region to it. All data contained in this primary cluster is replicated to any secondary clusters that you add to your Aurora global database. 
 
-![the restore snapshot page for an Aurora global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-databases-restore-snapshot-01.png)
+![the restore snapshot page for an Aurora global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-databases-restore-snapshot-01.png)

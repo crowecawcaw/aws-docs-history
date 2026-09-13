@@ -37,7 +37,7 @@ A common use of a DB cluster in a VPC is to share data with an application serve
 
 The following diagram shows this scenario.
 
-![DB cluster and EC2 instance in a VPC.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-aurora.png)
+![DB cluster and EC2 instance in a VPC.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-aurora.png)
 
 
 For detailed instructions about configuring a VPC for this scenario, see [Tutorial: Create a VPC for use with a DB cluster (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md) . For more information about using a VPC, see [Amazon VPC and Amazon Aurora](USER_VPC.md) .

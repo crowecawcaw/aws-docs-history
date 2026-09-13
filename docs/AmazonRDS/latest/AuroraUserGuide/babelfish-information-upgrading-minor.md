@@ -9,7 +9,7 @@ If your Aurora PostgreSQL DB cluster is configured with the **Auto minor version
 
 When you choose an Aurora PostgreSQL version to install and when you view an existing Aurora PostgreSQL DB cluster in the AWS Management Console, the version displays the {{major}}.{{minor}} digits only. For example, the following image from the Console for an existing Babelfish for Aurora PostgreSQL DB cluster with Aurora PostgreSQL 13.4 recommends upgrading the cluster to version 13.7, a new minor release of Aurora PostgreSQL. 
 
-![Minor version upgrade available for an Aurora PostgreSQL DB cluster with Babelfish.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-minor-upgrade-available-bfish-cluster.png)
+![Minor version upgrade available for an Aurora PostgreSQL DB cluster with Babelfish.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-minor-upgrade-available-bfish-cluster.png)
 
 
 To get complete version details, including the {{patch}} level, you can query the Aurora PostgreSQL DB cluster using the `aurora_version` Aurora PostgreSQL function. For more information, see [aurora\_version](aurora_version.md) in the [Aurora PostgreSQL functions reference](Appendix.AuroraPostgreSQL.Functions.md). You can find an example of using the function in the [To use the PostgreSQL port to query for version information](babelfish-information-identify-version.md#apg-version-info-psql) procedure in [Identifying your version of Babelfish](babelfish-information-identify-version.md). 

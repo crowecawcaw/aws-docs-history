@@ -51,12 +51,12 @@ Complete the following major steps when you use a blue/green deployment for Auro
 1. Identify a production DB cluster that requires updates.
 
    The following image shows an example of a production DB cluster.  
-![Production (blue) Aurora DB cluster in a blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-blue-environment-aurora.png)
+![Production (blue) Aurora DB cluster in a blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-blue-environment-aurora.png)
 
 1. Create the blue/green deployment. For instructions, see [Creating a blue/green deployment in Amazon Aurora](blue-green-deployments-creating.md).
 
    The following image shows an example of a blue/green deployment of the production environment from step 1. While creating the blue/green deployment, RDS copies the complete topology and configuration of the Aurora DB cluster to create the green environment. The names of the copied DB cluster and DB instances are appended with `-green-{{random-characters}}`. The staging environment in the image contains the DB cluster (auroradb-green-{{*abc123*}}). It also contains the three DB instances in the DB cluster (auroradb-instance1-green-{{*abc123*}}, auroradb-instance2-green-{{*abc123*}}, and auroradb-instance3-green-{{*abc123*}}).  
-![Blue-green deployment for Amazon Aurora.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-aurora.png)
+![Blue-green deployment for Amazon Aurora.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-aurora.png)
 
    When you create the blue/green deployment, you can specify a higher DB engine version and a different DB cluster parameter group for the DB cluster in the green environment. You can also specify a different DB parameter group for the DB instances in the DB cluster.
 
@@ -79,7 +79,7 @@ For Aurora MySQL version 3, after you create the blue/green deployment, the DB c
    The switchover results in downtime. The downtime is usually under one minute, but it can be longer depending on your workload.
 
    The following image shows the DB clusters after the switchover.  
-![DB cluster and DB instances after switching over an Amazon Aurora blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-switchover-aurora.png)
+![DB cluster and DB instances after switching over an Amazon Aurora blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-switchover-aurora.png)
 
    After the switchover, the Aurora DB cluster in the green environment becomes the new production DB cluster. The names and endpoints in the current production environment are assigned to the newly switched over production environment, requiring no changes to your application. As a result, your production traffic now flows to the new production environment. The DB cluster and DB instances in the blue environment are renamed by appending `-old{{n}}` to the current name, where `{{n}}` is a number. For example, assume the name of the DB instance in the blue environment is `auroradb-instance-1`. After switchover, the DB instance name might be `auroradb-instance-1-old1`.
 

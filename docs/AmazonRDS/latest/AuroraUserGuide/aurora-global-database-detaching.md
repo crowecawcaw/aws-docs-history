@@ -21,16 +21,16 @@ You can remove Aurora DB clusters from your Aurora global database using the AWS
 1. Choose the cluster on the **Databases** page.
 
 1. For **Actions**, choose **Remove from Global**.   
-![Selected Aurora DB cluster (secondary) and the Remove from global action.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-detach-secondary-01.png)
+![Selected Aurora DB cluster (secondary) and the Remove from global action.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-detach-secondary-01.png)
 
    You see a prompt to confirm that you want to detach the secondary from the Aurora global database.  
-![confirmation prompt to remove a secondary cluster from an Aurora global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-detach-secondary-02.png)
+![confirmation prompt to remove a secondary cluster from an Aurora global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-detach-secondary-02.png)
 
 1. Choose **Remove and promote** to remove the cluster from the global database. 
 
 The Aurora DB cluster is no longer serving as a secondary in the Aurora global database, and is no longer synchronized with the primary DB cluster. It is a standalone Aurora DB cluster with full read/write capability.
 
-![confirmation prompt to remove a secondary cluster from an Aurora global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-detach-secondary-03.png)
+![confirmation prompt to remove a secondary cluster from an Aurora global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-detach-secondary-03.png)
 
 
 After you remove or delete all secondary clusters, then you can remove the primary cluster the same way. You can't detach (remove) the primary Aurora DB cluster from an Aurora global database until after you remove all secondary clusters. 

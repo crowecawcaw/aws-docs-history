@@ -21,15 +21,15 @@ You can move one or more dismissed Amazon Aurora recommendations to active recom
      The **Recommendations** tab displays the recommendations and its details for the selected resource.
 
 1. Choose one or more dismissed recommendations from the list and then choose **Move to active**.  
-![A few dismissed recommendations selected and Move to active button highlighted in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendations_DismissToActive.png)
+![A few dismissed recommendations selected and Move to active button highlighted in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendations_DismissToActive.png)
 
    A banner displays a successful or failure message when the moving the selected recommendations from dismissed to active status.
 
    The following example shows the banner with the successful message.  
-![Console banner showing resources moved from dismissed to active recommendations.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendation-DismissToActive-Banner.png)
+![Console banner showing resources moved from dismissed to active recommendations.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendation-DismissToActive-Banner.png)
 
    The following example shows the banner with the failure message.  
-![Console banner showing the resource that failed to update.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendation-DismissToActive-Banner-Failure.png)
+![Console banner showing the resource that failed to update.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendation-DismissToActive-Banner-Failure.png)
 
 ## CLI
 <a name="USERRecommendationsManage.DismissToActiveRecommendation-Cli"></a>

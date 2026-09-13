@@ -12,14 +12,14 @@ Create an Amazon EC2 instance in the public subnet of your VPC.
 1. In the AWS Management Console, choose the AWS Region where you want to create the EC2 instance.
 
 1. Choose **EC2 Dashboard**, and then choose **Launch instance**, as shown following.  
-![EC2 Dashboard.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_11.png)
+![EC2 Dashboard.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_11.png)
 
 1. Choose the following settings in the **Launch an instance** page.
 
    1. Under **Name and tags**, for **Name**, enter **tutorial-ec2-instance-web-server**.
 
    1. Under **Application and OS Images (Amazon Machine Image)**, choose **Amazon Linux**, and then choose the **Amazon Linux 2023 AMI**. Keep the defaults for the other choices.  
-![The Amazon Machine Image selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_12.png)
+![The Amazon Machine Image selection.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_12.png)
 
    1. Under **Instance type**, choose **t2.micro**.
 
@@ -39,24 +39,24 @@ Create an Amazon EC2 instance in the public subnet of your VPC.
 If you use `0.0.0.0/0` for SSH access, you make it possible for all IP addresses to access your public instances using SSH. This approach is acceptable for a short time in a test environment, but it's unsafe for production environments. In production, authorize only a specific IP address or range of addresses to access your instances using SSH.
       + Turn on **Allow HTTPs traffic from the internet**.
       + Turn on **Allow HTTP traffic from the internet**.  
-![Configure Instance Details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_14.png)
+![Configure Instance Details.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Tutorial_WebServer_14.png)
 
    1. Leave the default values for the remaining sections.
 
    1. Review a summary of your instance configuration in the **Summary** panel, and when you're ready, choose **Launch instance**.
 
 1. On the **Launch Status** page, note the identifier for your new EC2 instance, for example: `i-1234567890abcdef0`.  
-![EC2 instance identifier on Launch Status page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/getting-started-ec2-id.png)
+![EC2 instance identifier on Launch Status page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/getting-started-ec2-id.png)
 
 1. Choose the EC2 instance identifier to open the list of EC2 instances, and then select your EC2 instance.
 
 1. In the **Details** tab, note the following values, which you need when you connect using SSH:
 
    1. In **Instance summary**, note the value for **Public IPv4 DNS**.  
-![EC2 public DNS name on Details tab of Instances page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/easy-create-ec2-public-dns.png)
+![EC2 public DNS name on Details tab of Instances page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/easy-create-ec2-public-dns.png)
 
    1. In **Instance details**, note the value for **Key pair name**.  
-![EC2 key pair name on Details tab of Instance page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/easy-create-ec2-key-pair.png)
+![EC2 key pair name on Details tab of Instance page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/easy-create-ec2-key-pair.png)
 
 1. Wait until **Instance state** for your instance is **Running** before continuing.
 

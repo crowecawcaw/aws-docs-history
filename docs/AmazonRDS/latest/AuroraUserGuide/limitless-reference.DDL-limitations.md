@@ -1164,4 +1164,4 @@ Reduce the sequence cache setting.
 
 The following figure shows wait events caused by sequence issues.
 
-![Wait events caused by sequence issues.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_sequence_waits.png)
+![Wait events caused by sequence issues.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_sequence_waits.png)

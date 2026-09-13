@@ -5,7 +5,7 @@
 
 When you create an Aurora PostgreSQL DB cluster using the AWS Management Console, an administrator account is created at the same time. By default, its name is `postgres`, as shown in the following screenshot:
 
-![The default login identity for Credentials in the Create database page is postgres.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/default-login-identity-apg-rpg.png)
+![The default login identity for Credentials in the Create database page is postgres.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/default-login-identity-apg-rpg.png)
 
 
 You can choose another name rather than accept the default (`postgres`). If you do, the name you choose must start with a letter and be between 1 and 16 alphanumeric characters. For simplicity's sake, we refer to this main user account by its default value (`postgres`) throughout this guide.

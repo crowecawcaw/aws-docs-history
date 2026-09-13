@@ -32,7 +32,7 @@ To associate an IAM role to permit your Amazon RDS cluster to communicate with o
 1. On the **Connectivity & security** tab, in the **Manage IAM roles** section, do one of the following:
    + **Select IAM roles to add to this cluster** (default)
    + **Select a service to connect to this cluster**  
-![Associate an IAM role with a DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraAssociateIAMRole-02.png)
+![Associate an IAM role with a DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraAssociateIAMRole-02.png)
 
 1. To use an existing IAM role, choose it from the menu, then choose **Add role**.
 
@@ -65,7 +65,7 @@ To associate an IAM role to permit your Amazon RDS cluster to communicate with o
    1. For **Group name**, type the name of your new DB cluster parameter group.
 
    1. For **Description**, type a description for your new DB cluster parameter group.  
-![Create a DB cluster parameter group.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraAssociateIAMRole-03.png)
+![Create a DB cluster parameter group.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraAssociateIAMRole-03.png)
 
    1. Choose **Create**. 
 

@@ -23,7 +23,7 @@ You enable continuous backups in backup rules.
    The **Add backup rule** page displays.
 
 1. Select the **Enable continuous backups for point-in-time recovery (PITR)** check box.  
-![Enable continuous backups for point-in-time recovery (PITR).](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/add_backup_rule_continuous_v2.png)
+![Enable continuous backups for point-in-time recovery (PITR).](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/add_backup_rule_continuous_v2.png)
 
 1. Choose other settings as needed, then choose **Add backup rule**.
 
@@ -54,7 +54,7 @@ You can use the AWS Management Console to restore a DB cluster to a specified ti
 1. For **Actions**, choose **Restore**.
 
    The **Restore backup** page displays.  
-![Restore backup page for point-in-time recovery (PITR).](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/backup_vault_pitr.png)
+![Restore backup page for point-in-time recovery (PITR).](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/backup_vault_pitr.png)
 
 1. For **Restore to point in time**, select **Specify date and time** to restore to a specific point in time.
 

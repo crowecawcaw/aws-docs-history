@@ -213,7 +213,7 @@ Where practical, start with a cluster using the following settings. Skip this st
 
  To view the throughput and latency metrics, check the **Monitoring** tab for a given Aurora cluster in the [Amazon RDS console](https://console.aws.amazon.com/rds/). The following screenshot shows an example of the **Select Latency**, **DML Latency**, **Select Throughput**, and **DML Throughput** metrics on the **Monitoring** tab.
 
-![The Monitoring tab, showing Select Latency, DML Latency, Select Throughput, and DML Throughput metrics.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraPoC01.png)
+![The Monitoring tab, showing Select Latency, DML Latency, Select Throughput, and DML Throughput metrics.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraPoC01.png)
 
 
  If you can, establish baseline values for these metrics in your current environment. If that's not practical, construct a baseline on the Aurora cluster by executing a workload equivalent to your production application. For example, run your Aurora workload with a similar number of simultaneous users and queries. Then observe how the values change as you experiment with different instance classes, cluster size, configuration settings, and so on. 

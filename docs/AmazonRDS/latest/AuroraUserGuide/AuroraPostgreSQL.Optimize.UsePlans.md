@@ -46,7 +46,7 @@ The following image shows how a plan is chosen for a given SQL statement when qu
 
 
 
-![Aurora PostgreSQL query plan management workflow.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-query-plan-mgmt_processing-flow.png)
+![Aurora PostgreSQL query plan management workflow.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-query-plan-mgmt_processing-flow.png)
 
 
 The flow is as follows:

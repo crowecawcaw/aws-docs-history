@@ -44,7 +44,7 @@ You can restore a DB cluster to a point in time using the AWS Management Console
 1. In the navigation pane, choose **Automated backups**.
 
    The automated backups are displayed on the **Current Region** tab.  
-![Automated backups configuration panel showing retention period settings and backup window options.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/db-cluster-automated-backups.png)
+![Automated backups configuration panel showing retention period settings and backup window options.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/db-cluster-automated-backups.png)
 
 1. Choose the DB cluster that you want to restore.
 

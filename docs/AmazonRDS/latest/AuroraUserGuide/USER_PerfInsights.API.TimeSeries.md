@@ -7,7 +7,7 @@ The `GetResourceMetrics` operation retrieves one or more time-series metrics fro
 
 For example, the AWS Management Console uses `GetResourceMetrics` to populate the **Counter Metrics** chart and the **Database Load** chart, as seen in the following image.
 
-![Counter Metrics and Database Load charts.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/perf-insights-api-charts.png)
+![Counter Metrics and Database Load charts.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/perf-insights-api-charts.png)
 
 
 All metrics returned by `GetResourceMetrics` are standard time-series metrics, with the exception of `db.load`. This metric is displayed in the **Database Load** chart. The `db.load` metric is different from the other time-series metrics because you can break it into subcomponents called *dimensions*. In the previous image, `db.load` is broken down and grouped by the waits states that make up the `db.load`.

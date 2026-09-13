@@ -62,19 +62,19 @@ An Aurora DB cluster stores data in pages in the underlying Aurora storage volum
 
 For example, in the following diagram you can find an Aurora DB cluster (A) that has four data pages, 1, 2, 3, and 4. Imagine that a clone, B, is created from the Aurora DB cluster. When the clone is created, no data is copied. Rather, the clone points to the same set of pages as the source Aurora DB cluster.
 
-![Amazon Aurora cluster volume with 4 pages for source cluster, A, and clone, B.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-copy-on-write-protocol-1.png)
+![Amazon Aurora cluster volume with 4 pages for source cluster, A, and clone, B.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-copy-on-write-protocol-1.png)
 
 
 When the clone is created, no additional storage is usually needed. The copy-on-write protocol uses the same segment on the physical storage media as the source segment. Additional storage is required only if the capacity of the source segment isn't sufficient for the entire clone segment. If that's the case, the source segment is copied to another physical device. 
 
 In the following diagrams, you can find an example of the copy-on-write protocol in action using the same cluster A and its clone, B, as shown preceding. Let's say that you make a change to your Aurora DB cluster (A) that results in a change to data held on page 1. Instead of writing to the original page 1, Aurora creates a new page 1[A]. The Aurora DB cluster volume for cluster (A) now points to page 1[A], 2, 3, and 4, while the clone (B) still references the original pages.
 
-![Amazon Aurora source DB cluster volume and its clone, both with changes.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-copy-on-write-protocol-2.png)
+![Amazon Aurora source DB cluster volume and its clone, both with changes.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-copy-on-write-protocol-2.png)
 
 
 On the clone, a change is made to page 4 on the storage volume. Instead of writing to the original page 4, Aurora creates a new page, 4[B]. The clone now points to pages 1, 2, 3, and to page 4[B], while the cluster (A) continues pointing to 1[A], 2, 3, and 4.
 
-![Amazon Aurora source DB cluster volume and its clone, both with changes.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-copy-on-write-protocol-3.png)
+![Amazon Aurora source DB cluster volume and its clone, both with changes.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-copy-on-write-protocol-3.png)
 
 
 As more changes occur over time in both the source Aurora DB cluster volume and the clone, more storage is needed to capture and store the changes. 
@@ -117,7 +117,7 @@ Creating a clone using the AWS Management Console results in an Aurora DB cluste
 1. In the navigation pane, choose **Databases**. 
 
 1. Choose your Aurora DB cluster from the list, and for **Actions**, choose **Create clone**.  
-![Creating a clone starts by selecting your Aurora DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-create-clone-1.png)
+![Creating a clone starts by selecting your Aurora DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-create-clone-1.png)
 
    The Create clone page opens, where you can configure **Settings**, **Connectivity**, and other options for the Aurora DB cluster clone.
 
@@ -129,11 +129,11 @@ Creating a clone using the AWS Management Console results in an Aurora DB cluste
 
 1. Choose the DB instance size or DB cluster capacity:
    + For a provisioned clone, choose a **DB instance class**.  
-![To create a provisioned clone, specify the DB instance size.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-create-clone-3-provisioned.png)
+![To create a provisioned clone, specify the DB instance size.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-create-clone-3-provisioned.png)
 
      You can accept the provided setting, or you can use a different DB instance class for your clone.
    + For an Aurora serverless clone, choose the **Capacity settings**.  
-![To create a Serverless clone from an Aurora DB cluster, specify the capacity.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-create-clone-3-serverless.png)
+![To create a Serverless clone from an Aurora DB cluster, specify the capacity.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-cloning-create-clone-3-serverless.png)
 
      You can accept the provided settings, or you can change them for your clone.
 

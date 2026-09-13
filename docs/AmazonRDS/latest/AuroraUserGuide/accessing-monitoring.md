@@ -32,7 +32,7 @@ In the Amazon RDS console, you can see details about a DB cluster by choosing **
 1. Choose the name of the Aurora DB cluster that you want to view from the list.
 
    For example, the following image shows the details page for the DB cluster named `aurora-test`. The DB cluster has four DB instances shown in the DB identifier list. The writer DB instance, `dbinstance4`, is the primary DB instance for the DB cluster.  
-![Amazon Aurora DB cluster View.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraView01.png)
+![Amazon Aurora DB cluster View.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraView01.png)
 
 1. To modify a DB cluster, select the DB cluster from the list and choose **Modify**.
 
@@ -46,7 +46,7 @@ In the Amazon RDS console, you can see details about a DB cluster by choosing **
    + To view a DB instance, choose one from the list that is a member of the Aurora DB cluster.
 
      For example, if you choose the `dbinstance4` DB instance identifier, the console shows the details page for the `dbinstance4` DB instance, as shown in the following image.  
-![Amazon Aurora DB instance View.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraView02.png)
+![Amazon Aurora DB instance View.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraView02.png)
    + To modify a DB instance, choose the DB instance from the list and choose **Modify**. For more information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md). 
 
 ### AWS CLI
@@ -204,7 +204,7 @@ Find the possible status values for DB clusters in the following table.
 1. In the navigation pane, choose **Databases**.
 
    The **Databases page** appears with the list of DB clusters. For each DB cluster, the status value is displayed.  
-![Viewing the status of a DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurora_cluster_status.png)
+![Viewing the status of a DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurora_cluster_status.png)
 
 ### CLI
 <a name="DBcluster.Status.Cli"></a>
@@ -274,7 +274,7 @@ Find the possible status values for DB instances in the following table. This ta
 1. In the navigation pane, choose **Databases**.
 
    The **Databases page** appears with the list of DB instances. For each DB instance in a cluster, the status value is displayed.   
-![View the status of a DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurora_instance_status.png)
+![View the status of a DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurora_instance_status.png)
 
 ### CLI
 <a name="DBinstance.Status.Cli"></a>

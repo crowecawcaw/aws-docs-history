@@ -26,7 +26,7 @@ You can't view the log files for Aurora Serverless v1 DB clusters in the RDS con
 1. (Optional) Enter a search term to filter your results.
 
    The following example lists logs filtered by the text **error**.  
-![List DB logs.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ListEventsAMS.png)
+![List DB logs.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ListEventsAMS.png)
 
 1. Choose the log that you want to view, and then choose **View**.
 

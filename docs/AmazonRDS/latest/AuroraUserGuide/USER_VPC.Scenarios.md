@@ -16,7 +16,7 @@ A common use of a DB cluster in a VPC is to share data with an application serve
 
 The following diagram shows this scenario.
 
-![VPC scenario with a public web server and a private database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-aurora.png)
+![VPC scenario with a public web server and a private database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-aurora.png)
 
 
 The simplest way to manage access between EC2 instances and DB clusters in the same VPC is to do the following:
@@ -51,7 +51,7 @@ You can set up network connectivity between an Amazon EC2 instance and a DB clus
 
 The following screen shows an inbound rule with a security group for its source.
 
-![Adding a security group to another security group rules.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-vpc-add-sg-rule.png)
+![Adding a security group to another security group rules.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-vpc-add-sg-rule.png)
 
 
 For more information about connecting to the DB cluster from your EC2 instance, see [Connecting to an Amazon Aurora DB cluster](Aurora.Connecting.md).
@@ -63,7 +63,7 @@ When your DB clusters is in a different VPC from the EC2 instance you are using 
 
 The following diagram shows this scenario. 
 
-![A DB instance in a VPC accessed by an Amazon EC2 instance in a different VPC.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/RDSVPC2EC2VPC-aurora.png)
+![A DB instance in a VPC accessed by an Amazon EC2 instance in a different VPC.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/RDSVPC2EC2VPC-aurora.png)
 
 
 A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them using private IP addresses. Resources in either VPC can communicate with each other as if they are within the same network. You can create a VPC peering connection between your own VPCs, with a VPC in another AWS account, or with a VPC in a different AWS Region. To learn more about VPC peering, see [VPC peering](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-peering.html) in the *Amazon Virtual Private Cloud User Guide*.
@@ -75,7 +75,7 @@ To access a DB clusters in a VPC from a client application through the internet,
 
 The following diagram shows this scenario.
 
-![DB cluster in a VPC accessed by a client application through the internet.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/GS-VPC-network-aurora.png)
+![DB cluster in a VPC accessed by a client application through the internet.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/GS-VPC-network-aurora.png)
 
 
 We recommend the following configuration:
@@ -99,7 +99,7 @@ If your DB cluster isn't publicly accessible, you have the following options for
 
 The following diagram shows a scenario with an AWS Site-to-Site VPN connection. 
 
-![DB clusters in a VPC accessed by a private network.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/site-to-site-vpn-connection-aurora.png)
+![DB clusters in a VPC accessed by a private network.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/site-to-site-vpn-connection-aurora.png)
 
 
 For more information, see [Internetwork traffic privacy](inter-network-traffic-privacy.md).

@@ -7,7 +7,7 @@ A common scenario includes a DB cluster in a virtual private cloud (VPC) based o
 
 The following diagram shows this scenario. For information about other scenarios, see [Scenarios for accessing a DB cluster in a VPC](USER_VPC.Scenarios.md). 
 
-![Single VPC scenario.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-aurora.png)
+![Single VPC scenario.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-aurora.png)
 
 
 Your DB cluster needs to be available only to your web server, and not to the public internet. Thus, you create a VPC with both public and private subnets. The web server is hosted in the public subnet, so that it can reach the public internet. The DB cluster is hosted in a private subnet. The web server can connect to the DB cluster because it is hosted within the same VPC. But the DB cluster isn't available to the public internet, providing greater security.

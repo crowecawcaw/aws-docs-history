@@ -26,7 +26,7 @@ Before copying a DB cluster snapshot, review the [Limitations](aurora-copy-snaps
 1. Select the DB cluster snapshot you want to copy.
 
 1. Choose **Actions**, and then choose **Copy snapshot**.  
-![DB cluster snapshot copy interface with source and destination configuration options.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/action-copy-db-cluster-snapshot.png)
+![DB cluster snapshot copy interface with source and destination configuration options.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/action-copy-db-cluster-snapshot.png)
 
 1. (Optional) To copy the DB cluster snapshot to a different AWS Region, choose that AWS Region for **Destination Region**.
 

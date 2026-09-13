@@ -102,10 +102,10 @@ SELECT name, setting FROM pg_settings WHERE name in
 **To clone the publisher**
 
 1. Use the Amazon RDS Console to create a clone of the source instance. Highlight the instance name in the Amazon RDS Console, and then choose **Create clone** in the **Actions** menu.  
-![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-logicalreplication-mvu-create-clone.png)
+![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-logicalreplication-mvu-create-clone.png)
 
 1. Provide a unique name for the instance. Most of the settings are defaults from the source instance. When you’ve made changes required for the new instance, choose **Create clone**.   
-![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-logicalreplication-mvu-create-clone-note.png)
+![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-logicalreplication-mvu-create-clone-note.png)
 
 1. While the target instance is initiating, the **Status** column of the writer node displays Creating in the **Status** column. When the instance is ready, the status changes to Available.
 
@@ -135,7 +135,7 @@ SELECT name, setting FROM pg_settings WHERE name in
 
 **To upgrade the cluster to a new major version**
 + After cloning the provider node, use the Amazon RDS Console to initiate a major version upgrade on the subscription node. Highlight the instance name in the RDS console, and select the **Modify** button. Select the updated version and your updated parameter groups, and apply the settings immediately to upgrade the target instance.  
-![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-logicalreplication-mvu-modify-DB-cluster.png)
+![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-logicalreplication-mvu-modify-DB-cluster.png)
 + You can also use the CLI to perform an upgrade:
 
   ```

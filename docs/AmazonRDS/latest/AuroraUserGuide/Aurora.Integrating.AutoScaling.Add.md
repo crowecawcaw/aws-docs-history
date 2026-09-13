@@ -49,12 +49,12 @@ You can add a scaling policy to an Aurora DB cluster by using the AWS Management
 
 The following dialog box creates an Auto Scaling policy based an average CPU utilization of 40 percent. The policy specifies a minimum of 5 Aurora Replicas and a maximum of 15 Aurora Replicas.
 
-![Creating an auto scaling policy based on average CPU utilization.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-autoscaling-cpu.png)
+![Creating an auto scaling policy based on average CPU utilization.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-autoscaling-cpu.png)
 
 
 The following dialog box creates an auto scaling policy based an average number of connections of 100. The policy specifies a minimum of two Aurora Replicas and a maximum of eight Aurora Replicas.
 
-![Creating an Auto Scaling policy based on average connections.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-autoscaling-connections.png)
+![Creating an Auto Scaling policy based on average connections.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-autoscaling-connections.png)
 
 
 ## AWS CLI or Application Auto Scaling API

@@ -49,16 +49,16 @@ You can use the pgAdmin client to access your data in native PostgreSQL dialect.
 1. Open the client and authenticate with pgAdmin.
 
 1. Open the context (right-click) menu for **Servers**, and then choose **Create**, **Server**.  
-![Adding the server on pgAdmin.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pgAdmin1.png)
+![Adding the server on pgAdmin.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pgAdmin1.png)
 
 1. Enter information in the **Create - Server** dialog box. 
 
    On the **Connection** tab, add the Aurora PostgreSQL cluster address for **Host** and the PostgreSQL port number (by default, 5432) for **Port**. Provide authentication details, and choose **Save**.  
-![Defining the connection on pgAdmin.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pgAdmin2.png)
+![Defining the connection on pgAdmin.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pgAdmin2.png)
 
 After connecting, you can use pgAdmin functionality to monitor and manage your Aurora PostgreSQL cluster on the PostgreSQL port.
 
-![Monitoring a server with pgAdmin.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pgAdmin3.png)
+![Monitoring a server with pgAdmin.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pgAdmin3.png)
 
 
 To learn more, see the [pgAdmin](https://www.pgadmin.org/) web page.

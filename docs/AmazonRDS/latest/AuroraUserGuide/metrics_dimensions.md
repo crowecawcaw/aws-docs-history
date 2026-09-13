@@ -21,20 +21,20 @@ Metrics are grouped first by the service namespace, and then by the various dime
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
    The CloudWatch overview home page appears.  
-![CloudWatch overview page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/monitoring-overviewpage-console2.png)
+![CloudWatch overview page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/monitoring-overviewpage-console2.png)
 
 1. If necessary, change the AWS Region. From the navigation bar, choose the AWS Region where your AWS resources are. For more information, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html).
 
 1. In the navigation pane, choose **Metrics** and then **All metrics**.  
-![The metric namespace selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cw-all-metrics.png)
+![The metric namespace selection.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cw-all-metrics.png)
 
 1. Scroll down and choose the **RDS** metric namespace.
 
    The page displays the Amazon Aurora dimensions. For descriptions of these dimensions, see [Amazon CloudWatch dimensions for Aurora](dimensions.md).  
-![The metric namespace selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/rds-monitoring-01.png)
+![The metric namespace selection.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/rds-monitoring-01.png)
 
 1. Choose a metric dimension, for example **By Database Class**.  
-![Filter metrics.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/metrics-by-instance-class.png)
+![Filter metrics.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/metrics-by-instance-class.png)
 
 1. Do any of the following actions:
    + To sort the metrics, use the column heading.
@@ -43,7 +43,7 @@ Metrics are grouped first by the service namespace, and then by the various dime
    + To filter by metric, choose the metric name, and then choose **Add to search**.
 
    The following example filters on the **db.t3.medium** class and graphs the **CPUUtilization** metric.  
-![Filter metrics.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/rds-monitoring-03.png)
+![Filter metrics.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/rds-monitoring-03.png)
 
 You can find details about how to analyze resource usage for Aurora PostgreSQL using CloudWatch metrics. For more information, see [Using Amazon CloudWatch metrics to analyze resource usage for Aurora PostgreSQL](AuroraPostgreSQL_AnayzeResourceUsage.md) 
 

@@ -272,7 +272,7 @@ You can restore your backup files from your Amazon S3 bucket to create a new Ama
 1. Choose **Restore from S3**.
 
    The **Create database by restoring from S3** page appears.  
-![The page where you specify the details for restoring a DB cluster from S3.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraMigrateS3_01.png)
+![The page where you specify the details for restoring a DB cluster from S3.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraMigrateS3_01.png)
 
 1. Under **S3 destination**:
 
@@ -315,7 +315,7 @@ On the Amazon RDS console, the new DB instance appears in the list of DB instanc
 
 To view the newly created cluster, choose the **Databases** view in the Amazon RDS console and choose the DB cluster. For more information, see [Viewing an Amazon Aurora DB cluster](accessing-monitoring.md#Aurora.Viewing).
 
-![Amazon Aurora DB Instances List.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraLaunch04.png)
+![Amazon Aurora DB Instances List.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraLaunch04.png)
 
 
 Note the port and the writer endpoint of the DB cluster. Use the writer endpoint and port of the DB cluster in your JDBC and ODBC connection strings for any application that performs write or read operations.
@@ -448,7 +448,7 @@ You can synchronize your Amazon Aurora MySQL DB cluster with the MySQL database 
    1. In the navigation pane, choose **Events**.
 
    1. In the **Events** list, note the position in the **Recovered from Binary log filename** event.  
-![View MySQL primary.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-mysql-rep-binary-log-position.png)
+![View MySQL primary.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-mysql-rep-binary-log-position.png)
 
    **Using the AWS CLI**
 

@@ -22,7 +22,7 @@ All certificates are only available for download using SSL/TLS connections.
 
 The **certificate authority (CA)** is the certificate that identifies the root CA at the top of the certificate chain. The CA signs the **DB server certificate,** which is installed on each DB instance. The DB server certificate identifies the DB instance as a trusted server.
 
-![Certificate authority overview.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/certificate-authority-overview.png)
+![Certificate authority overview.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/certificate-authority-overview.png)
 
 
 Amazon RDS provides the following CAs to sign the DB server certificate for a database.
@@ -52,7 +52,7 @@ You can set the CA for a database when you perform the following tasks:
 
 The available CAs depend on the DB engine and DB engine version. When you use the AWS Management Console, you can choose the CA using the **Certificate authority** setting, as shown in the following image.
 
-![Certificate authority option.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/certificate-authority.png)
+![Certificate authority option.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/certificate-authority.png)
 
 
 The console only shows the CAs that are available for the DB engine and DB engine version. If you're using the AWS CLI, you can set the CA for a DB instance using the [create-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) or [modify-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-db-instance.html) command. 
@@ -110,7 +110,7 @@ For more information about DB server certificate rotation, see [Automatic server
 
 You can view the details about the CA for a database by viewing the **Connectivity & security** tab in the console, as in the following image.
 
-![Certificate authority details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/certificate-authority-details.png)
+![Certificate authority details.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/certificate-authority-details.png)
 
 
 If you're using the AWS CLI, you can view the details about the CA for a DB instance by using the [describe-db-instances](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html) command. 

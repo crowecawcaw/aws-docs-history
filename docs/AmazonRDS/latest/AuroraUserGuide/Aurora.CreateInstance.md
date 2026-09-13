@@ -77,7 +77,7 @@ Using this option creates a private DB cluster. The DB cluster uses a DB subnet 
 
 To connect an EC2 instance to the DB cluster, choose **Connect to an EC2 compute resource** in the **Connectivity** section on the **Create database** page.
 
-![Connect an EC2 instance.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ec2-set-up-connection-create.png)
+![Connect an EC2 instance.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ec2-set-up-connection-create.png)
 
 
 When you choose **Connect to an EC2 compute resource**, RDS sets the following options automatically. You can't change these settings unless you choose not to set up connectivity with an EC2 instance by choosing **Don't connect to an EC2 compute resource**.
@@ -154,7 +154,7 @@ For this example, **Standard create** is enabled, and **Easy create** isn't enab
 1. For **Engine type**, choose one of the following:
    + **Aurora (MySQL Compatible)**
    + **Aurora (PostgreSQL Compatible)**  
-![Aurora MySQL engine selection interface showing version options and compatibility settings for database creation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-engine-options-mysql.png)
+![Aurora MySQL engine selection interface showing version options and compatibility settings for database creation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-engine-options-mysql.png)
 
 1. Choose the **Engine version**.
 
@@ -175,7 +175,7 @@ For this example, **Standard create** is enabled, and **Easy create** isn't enab
 1. In the **Connectivity** section under **VPC security group (firewall)**, if you select **Create new**, a VPC security group is created with an inbound rule that allows your local computer's IP address to access the database. 
 
 1. For **Cluster storage configuration**, choose either **Aurora I/O-Optimized** or **Aurora Standard**. For more information, see [Storage configurations for Amazon Aurora DB clusters](Aurora.Overview.StorageReliability.md#aurora-storage-type).  
-![Cluster storage configuration showing Aurora I/O-Optimized.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-storage-configuration-create.png)
+![Cluster storage configuration showing Aurora I/O-Optimized.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-storage-configuration-create.png)
 
 1. (Optional) Set up a connection to a compute resource for this DB cluster.
 
@@ -196,12 +196,12 @@ You can't view the master user password again. If you don't record it, you might
 1. For **Databases**, choose the name of the new Aurora DB cluster.
 
    On the RDS console, the details for new DB cluster appear. The DB cluster and its DB instance have a status of **creating** until the DB cluster is ready to use.  
-![Summary during DB cluster creation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/creating-status-aurora-mysql.png)
+![Summary during DB cluster creation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/creating-status-aurora-mysql.png)
 
    When the state changes to **available** for both, you can connect to the DB cluster. Depending on the DB instance class and the amount of storage, it can take up to 20 minutes before the new DB cluster is available.
 
    To view the newly created cluster, choose **Databases** from the navigation pane in the Amazon RDS console. Then choose the DB cluster to show the DB cluster details. For more information, see [Viewing an Amazon Aurora DB cluster](accessing-monitoring.md#Aurora.Viewing).  
-![Amazon Aurora DB Instances List.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraLaunch04.png)
+![Amazon Aurora DB Instances List.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraLaunch04.png)
 
    On the **Connectivity & security** tab, note the port and the endpoint of the writer DB instance. Use the endpoint and port of the cluster in your JDBC and ODBC connection strings for any application that performs write or read operations.
 

@@ -17,14 +17,14 @@ When you create an Aurora PostgreSQL cluster to use with Babelfish, you choose b
 
 In single-db mode, the schema names of the SQL Server database remain the same in the `babelfish_db` database of the PostgreSQL. If you choose to migrate only a single database, the schema names of the migrated user database can be referenced in PostgreSQL with the same names used in SQL Server. For example, the `dbo` and `smith` schemas reside inside the `dbA` database*.* 
 
-![Migrating a single database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/babelfish_single_db_mode.png)
+![Migrating a single database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/babelfish_single_db_mode.png)
 
 
 When connecting through TDS, you can run `USE dba` to see schemas `dbo` and `dev` from T-SQL, as you would in SQL Server. The unchanged schema names are also visible from PostgreSQL.
 
 In multiple-database mode, the schema names of user databases become `dbname_schemaname` when accessed from PostgreSQL. The schema names remain the same when accessed from T-SQL.
 
-![Migrating multiple databases.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/babelfish_multi_db_mode.png)
+![Migrating multiple databases.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/babelfish_multi_db_mode.png)
 
 
 As shown in the image, multiple-database mode and single-database mode are the same as SQL Server when connecting through the TDS port and using T-SQL. For example, `USE dbA` lists schemas `dbo` and  `dev` just as it does in SQL Server. The mapped schema names, such as `dba_dbo`  and `dba_dev`, are visible from PostgreSQL.

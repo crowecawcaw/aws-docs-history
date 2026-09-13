@@ -75,4 +75,4 @@ Always use caution when modifying DB engine parameters, and back up your DB clus
 
 The AWS Online Tech Talks channel on YouTube includes a video presentation on best practices for creating and configuring an Amazon Aurora DB cluster to be more secure and highly available.
 
-[![AWS Videos](http://img.youtube.com/vi/ydzd95r4_VQ/0.jpg)](http://www.youtube.com/watch?v=ydzd95r4_VQ)
+[![AWS Videos](https://img.youtube.com/vi/ydzd95r4_VQ/0.jpg)](https://www.youtube.com/watch?v=ydzd95r4_VQ)

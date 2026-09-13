@@ -19,7 +19,7 @@ Sign in to the AWS Management Console and open the Amazon RDS console at [https:
 1. For **Actions**, choose **Modify**.
 
    The **Modify DB shard group** page displays.  
-![Modify DB shard group page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_modify_shard_group.png)
+![Modify DB shard group page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_modify_shard_group.png)
 
 1. Enter a new **Minimum capacity (ACUs)** value, for example **100**.
 

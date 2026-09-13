@@ -5,7 +5,7 @@
 
 In a DB shard group, deadlocks can occur between transactions that are distributed among different routers and shards. For example, two concurrent distributed transactions that span two shards are run, as shown in the following figure.
 
-![Distributed deadlock on two distributed transactions.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_distributed_transaction_deadlock.png)
+![Distributed deadlock on two distributed transactions.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_distributed_transaction_deadlock.png)
 
 
 The transactions lock tables and create wait events in the two shards as follows:

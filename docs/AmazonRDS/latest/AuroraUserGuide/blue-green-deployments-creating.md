@@ -104,7 +104,7 @@ You can create a blue/green deployment using the AWS Management Console, the AWS
 1. Choose **Actions**, **Create blue/green deployment**.
 
    The **Create blue/green deployment** page appears.   
-![Create blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-create-aurora.png)
+![Create blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-create-aurora.png)
 
 1. Review the blue database identifiers. Make sure that they match the DB instances that you expect in the blue environment. If they don't, choose **Cancel**.
 

@@ -23,7 +23,7 @@ You can use the AWS Management Console, AWS CLI, or API to download a database l
 1. In the **Logs** section, choose the button next to the log that you want to download, and then choose **Download**.
 
 1. Open the context (right-click) menu for the link provided, and then choose **Save Link As**. Enter the location where you want the log file to be saved, and then choose **Save**.  
-![viewing log file.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/log_download2.png)
+![viewing log file.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/log_download2.png)
 
 ## AWS CLI
 <a name="USER_LogAccess.Procedural.Downloading.CLI"></a>

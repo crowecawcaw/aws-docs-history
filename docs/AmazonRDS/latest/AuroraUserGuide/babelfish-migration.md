@@ -62,10 +62,10 @@ Babelfish Compass is an open-source tool. Report any issues with Babelfish Compa
 You can use Generate Script Wizard with SQL Server Management Studio (SSMS) to generate the SQL file that is assessed by Babelfish Compass. We recommend the following steps to streamline the assessment.
 
 1. On the **Choose Objects** page, choose **Script entire database and all database objects**.   
-![Using SSMS Generate script wizard to choose objects.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-wizard-choose-objects.png)
+![Using SSMS Generate script wizard to choose objects.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-wizard-choose-objects.png)
 
 1. For the **Set Scripting Options**, choose **Save as script file** as a **Single script file**.   
-![Using SSMS Generate script wizard to set the scripting options.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-wizard-set-scripting-options.png)
+![Using SSMS Generate script wizard to set the scripting options.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-wizard-set-scripting-options.png)
 
 1. Choose **Advanced** to change the default scripting options to identify features that normally are set to false for a full assessment:
    + Script Change Tracking to True
@@ -75,7 +75,7 @@ You can use Generate Script Wizard with SQL Server Management Studio (SSMS) to g
    + Script Owner to True
    + Script Object-Level Permissions to True
    + Script Collations to True  
-![Using SSMS Generate script wizard to set the advance scripting options.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-advanced-scripting-options.png)
+![Using SSMS Generate script wizard to set the advance scripting options.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-advanced-scripting-options.png)
 
 1. Perform the remaining steps in the wizard to generate the file.
 
@@ -123,18 +123,18 @@ Use the following steps to create the basic create table statements using the Ge
 1. Choose **Tasks**, and then choose **Generate Scripts...**.
 
 1. On the **Choose Objects** pane, choose **Select specific database objects**. Choose **Tables**, select all tables. Choose **Next** to continue.   
-![Using SSMS Generate Scripts wizard to choose objects and tables.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-choose-objects-tables.png)
+![Using SSMS Generate Scripts wizard to choose objects and tables.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-choose-objects-tables.png)
 
 1. On the **Set Scripting Options** page, choose **Advanced** to open the **Options** settings. To generate the basic create table statements, change the following default values: 
    + Script Defaults to False.
    + Script Extended Properties to False. Babelfish does not support extended properties.
    + Script Check Constraints to False. Script Foreign Keys to False.  
-![Using SSMS Generate script wizard to set the advance options.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-advance-scripting-def-values.png)
+![Using SSMS Generate script wizard to set the advance options.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-advance-scripting-def-values.png)
 
 1. Choose **OK**.
 
 1. On the **Set Scripting Options** page, choose **Save as script file** and then choose the **Single script file** option. Enter your **File name**.  
-![Using SSMS Generate script wizard to set the default values of the script.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-set-scripting-def-values.png)
+![Using SSMS Generate script wizard to set the default values of the script.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-set-scripting-def-values.png)
 
 1. Choose **Next** to view the **Summary wizard** page.
 

@@ -62,7 +62,7 @@ Reserved Amazon Aurora *instances* always have the deployment option set to **Si
 1. For **Offering type**, choose the offering type.
 
    After you choose the offering type, you can see the pricing information.  
-![Purchase reserved DB instance console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/reservedinstance-aur.png)
+![Purchase reserved DB instance console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/reservedinstance-aur.png)
 
 1. (Optional) You can assign your own identifier to the reserved DB instances that you purchase to help you track them. For **Reserved Id**, type an identifier for your reserved DB instance.
 

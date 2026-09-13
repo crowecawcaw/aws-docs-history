@@ -92,7 +92,7 @@ You can create an Aurora read replica for an RDS for PostgreSQL DB instance by u
 1. In the navigation pane, choose **Databases**. 
 
 1. Choose the RDS for PostgreSQL DB instance that you want to use as the source for your Aurora read replica. For **Actions**, choose **Create Aurora read replica**. If this choice doesn't display, it means that a compatible Aurora PostgreSQL version isn't available in the Region.   
-![Create Aurora read replica.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurorapgres-migrate.png)
+![Create Aurora read replica.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurorapgres-migrate.png)
 
 1. On the Create Aurora read replica settings page, you configure the properties for the Aurora PostgreSQL DB cluster as shown in the following table. The Replica DB cluster is created from a snapshot of the source DB instance using the same 'master' user name and password as the source, so you can't change these at this time.     
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.RDSPostgreSQL.Replica.html)
@@ -224,7 +224,7 @@ Before promoting the Replica cluster, make sure that the RDS for PostgreSQL DB i
 1. In the navigation pane, choose **Databases**. 
 
 1. Choose the Replica cluster.   
-![Promote a Replica cluster to full Aurora PostgreSQL DB cluster status.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurorapgres-migrate-2.png)
+![Promote a Replica cluster to full Aurora PostgreSQL DB cluster status.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aurorapgres-migrate-2.png)
 
 1. For **Actions**, choose **Promote**. This may take a few minutes and can cause downtime. 
 

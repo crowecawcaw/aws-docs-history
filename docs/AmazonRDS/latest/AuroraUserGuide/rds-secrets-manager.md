@@ -146,12 +146,12 @@ When you use the RDS console to perform one of these operations, you can specify
 
 The following image is an example of the **Manage master credentials in AWS Secrets Manager** setting when you are creating or restoring a DB cluster.
 
-![Manage master credentials in AWS Secrets Manager.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/secrets-manager-credential-settings.png)
+![Manage master credentials in AWS Secrets Manager.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/secrets-manager-credential-settings.png)
 
 
 When you select this option, Aurora generates the master user password and manages it throughout its lifecycle in Secrets Manager.
 
-![Manage master credentials in AWS Secrets Manager selected.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/secrets-manager-integration-create.png)
+![Manage master credentials in AWS Secrets Manager selected.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/secrets-manager-integration-create.png)
 
 
 You can choose to encrypt the secret with a KMS key that Secrets Manager provides or with a customer managed key that you create. After Aurora is managing the database credentials for a DB cluster, you can't change the KMS key that is used to encrypt the secret.
@@ -226,7 +226,7 @@ You can rotate a master user password secret immediately with the RDS console, t
 
 To rotate a master user password secret using the RDS console, modify the DB cluster and select **Rotate secret immediately** in **Settings**.
 
-![Rotate a master user password secret immediately.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/secrets-manager-integration-rotate-aurora.png)
+![Rotate a master user password secret immediately.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/secrets-manager-integration-rotate-aurora.png)
 
 
 Follow the instructions for modifying a DB cluster with the RDS console in [Modifying the DB cluster by using the console, CLI, and API](Aurora.Modifying.md#Aurora.Modifying.Cluster). You must choose **Apply immediately** on the confirmation page.
@@ -282,7 +282,7 @@ You can find the Amazon Resource Name (ARN) of a secret managed by Aurora in Sec
 1. Choose the **Configuration** tab.
 
    In **Master Credentials ARN**, you can view the secret ARN.  
-![View the details about a secret managed by Aurora in Secrets Manager.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/secrets-manager-integration-view-cluster.png)
+![View the details about a secret managed by Aurora in Secrets Manager.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/secrets-manager-integration-view-cluster.png)
 
    You can follow the **Manage in Secrets Manager** link to view and manage the secret in the Secrets Manager console.
 

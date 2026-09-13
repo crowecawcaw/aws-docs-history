@@ -64,10 +64,10 @@ You can use the AWS Management Console or the AWS CLI to change the CA certifica
 1. In the navigation pane, choose **Databases**, and then choose the DB instance that you want to modify. 
 
 1. Choose **Modify**.   
-![Modify DB instance](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-modify-aurora.png)
+![Modify DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-modify-aurora.png)
 
 1. In the **Connectivity** section, choose **rds-ca-rsa2048-g1**.   
-![The CA certificate selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-ca-rsa2048-g1.png)
+![The CA certificate selection.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-ca-rsa2048-g1.png)
 
 1. Choose **Continue** and check the summary of modifications. 
 
@@ -122,10 +122,10 @@ Perform the following steps to update your CA certificate by applying maintenanc
 1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
 1. In the navigation pane, choose **Certificate update**.   
-![Certificate rotation navigation pane option.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-certupdate.png)
+![Certificate rotation navigation pane option.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-certupdate.png)
 
    The **Databases requiring certificate update** page appears.  
-![Update CA certificate for database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-update-multiple.png)
+![Update CA certificate for database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-update-multiple.png)
 **Note**  
 This page only shows the DB instances for the current AWS Region. If you have databases in more than one AWS Region, check this page in each AWS Region to see all DB instances with old SSL/TLS certificates.
 
@@ -138,10 +138,10 @@ If you experience connectivity issues after certificate expiry, use the **Apply 
 1. 
 
    1. If you choose **Schedule**, you are prompted to confirm the CA certificate rotation. This prompt also states the scheduled window for your update.   
-![Confirm certificate rotation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-confirm-schedule.png)
+![Confirm certificate rotation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-confirm-schedule.png)
 
    1. If you choose **Apply now**, you are prompted to confirm the CA certificate rotation.  
-![Confirm certificate rotation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-confirm-now.png)
+![Confirm certificate rotation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ssl-rotate-cert-confirm-now.png)
 **Important**  
 Before scheduling the CA certificate rotation on your database, update any client applications that use SSL/TLS and the server certificate to connect. These updates are specific to your DB engine. After you have updated these client applications, you can confirm the CA certificate rotation. 
 

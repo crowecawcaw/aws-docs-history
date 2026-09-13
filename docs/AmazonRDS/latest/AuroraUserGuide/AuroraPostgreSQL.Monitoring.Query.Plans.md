@@ -29,7 +29,7 @@ With `aurora_compute_plan_id`, you can access the execution plans using the foll
 
 The query peak memory does not include memory that is allocated before query processing starts. Peak memory usage is tracked and reported separately for the planning and execution phases of each query.
 
-![Understanding query peak memory.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-apg-peakmemory.png)
+![Understanding query peak memory.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-apg-peakmemory.png)
 
 
 You can access the query peak memory statistics using the following functions:

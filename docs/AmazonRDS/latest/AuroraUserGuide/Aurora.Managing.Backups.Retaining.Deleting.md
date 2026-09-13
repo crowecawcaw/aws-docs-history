@@ -15,7 +15,7 @@ You can delete retained automated backups when they are no longer needed. To del
 1. In the navigation pane, choose **Automated backups**.
 
 1. Choose the **Retained** tab.  
-![Retained automated backups interface showing backup retention settings and available recovery points.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/db-cluster-retained-automated-backups.png)
+![Retained automated backups interface showing backup retention settings and available recovery points.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/db-cluster-retained-automated-backups.png)
 
 1. Choose the retained automated backup that you want to delete.
 

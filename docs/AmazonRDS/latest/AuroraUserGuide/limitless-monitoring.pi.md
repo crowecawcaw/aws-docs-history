@@ -20,7 +20,7 @@ For more information about Performance Insights dimensions, see [Dimensions](USE
 
 The following figure shows the **Top instances** dimension for a DB shard group.
 
-![Top instances dimension for a DB shard group.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pi-top-instances.png)
+![Top instances dimension for a DB shard group.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pi-top-instances.png)
 
 
 **Topics**

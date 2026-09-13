@@ -82,7 +82,7 @@ After you add data to the Aurora DB cluster, it's replicated into the destinatio
    ```
    SELECT * from {{my_db}}."{{books_table}}";
    ```  
-![Query editor results showing sample data added to the Amazon RDS database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/zero-etl-redshift-editor.png)
+![Query editor results showing sample data added to the Amazon RDS database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/zero-etl-redshift-editor.png)
    + `{{my_db}}` is the Aurora database schema name. This option is only needed for MySQL databases.
    + `{{books_table}}` is the Aurora table name.
 

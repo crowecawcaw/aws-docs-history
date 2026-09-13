@@ -72,10 +72,10 @@ In the procedure following, you first create the IAM role and policy that gives 
    1. Choose **Create policy**. In the Visual editor page, choose **Service** and then enter **Bedrock** in the Select a service field. Expand the Read access level. Choose **InvokeModel** from the Amazon Bedrock read settings.
 
    1. Choose the Foundation/Provisioned model you want to grant read access via the policy.  
-![Creating the IAM policy to use for Amazon Bedrock.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-bedrock-policy-1.png)
+![Creating the IAM policy to use for Amazon Bedrock.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-bedrock-policy-1.png)
 
 1. Choose **Next: Tags** and define any tags (this is optional). Choose **Next: Review**. Enter a Name for the policy and description, as shown in the image.   
-![Creating the policy for the IAM role to use for Amazon Bedrock.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-bedrock-policy-2.png)
+![Creating the policy for the IAM role to use for Amazon Bedrock.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-bedrock-policy-2.png)
 
 1. Choose **Create policy**. The Console displays an alert when the policy has been saved. You can find it in the list of Policies.
 
@@ -86,7 +86,7 @@ In the procedure following, you first create the IAM role and policy that gives 
 1. On the Select trusted entity page, choose the **AWS service** tile, and then choose **RDS** to open the selector. 
 
 1. Choose **RDS – Add Role to Database**.   
-![Creating a role for Aurora PostgreSQL to work with Amazon Bedrock.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-bedrock-policy-3.png)
+![Creating a role for Aurora PostgreSQL to work with Amazon Bedrock.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-bedrock-policy-3.png)
 
 1. Choose **Next**. On the Add permissions page, find the policy that you created in the previous step and choose it from among those listed. Choose **Next**.
 
@@ -102,7 +102,7 @@ In the procedure following, you first create the IAM role and policy that gives 
 
 The role (with its policy) are associated with the Aurora PostgreSQL DB cluster. When the process completes, the role is listed in the Current IAM roles for this cluster listing, as shown following.
 
-![The role for Amazon Bedrock has been added to the Aurora PostgreSQL DB cluster and is now Active.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-bedrock-policy-4.png)
+![The role for Amazon Bedrock has been added to the Aurora PostgreSQL DB cluster and is now Active.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-bedrock-policy-4.png)
 
 
 The IAM setup for Amazon Bedrock is complete. Continue setting up your Aurora PostgreSQL to work with Aurora machine learning by installing the extension as detailed in [Installing the Aurora machine learning extension](#postgresql-ml-aws_ml-install) 
@@ -119,12 +119,12 @@ In the procedure following, you first create the IAM role and policy that gives 
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
 1. Choose **Policies** (under Access management) on the AWS Identity and Access Management (IAM) Console menu.   
-![Creating the IAM policy to use for Amazon Comprehend.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-iam-role-policy-1.png)
+![Creating the IAM policy to use for Amazon Comprehend.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-iam-role-policy-1.png)
 
 1. Choose **Create policy**. In the Visual editor page, choose **Service** and then enter **Comprehend** in the Select a service field. Expand the Read access level. Choose **BatchDetectSentiment** and **DetectSentiment** from the Amazon Comprehend read settings.
 
 1. Choose **Next: Tags** and define any tags (this is optional). Choose **Next: Review**. Enter a Name for the policy and description, as shown in the image.   
-![Creating the policy for the IAM role to use for Amazon Comprehend.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-iam-policy-3.png)
+![Creating the policy for the IAM role to use for Amazon Comprehend.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-iam-policy-3.png)
 
 1. Choose **Create policy**. The Console displays an alert when the policy has been saved. You can find it in the list of Policies.
 
@@ -135,7 +135,7 @@ In the procedure following, you first create the IAM role and policy that gives 
 1. On the Select trusted entity page, choose the **AWS service** tile, and then choose **RDS** to open the selector. 
 
 1. Choose **RDS – Add Role to Database**.   
-![Creating the role for Aurora PostgreSQL to work with Amazon Comprehend.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-iam-role-policy-4.png)
+![Creating the role for Aurora PostgreSQL to work with Amazon Comprehend.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-iam-role-policy-4.png)
 
 1. Choose **Next**. On the Add permissions page, find the policy that you created in the previous step and choose it from among those listed. Choose **Next**
 
@@ -151,7 +151,7 @@ In the procedure following, you first create the IAM role and policy that gives 
 
 The role (with its policy) are associated with the Aurora PostgreSQL DB cluster. When the process completes, the role is listed in the Current IAM roles for this cluster listing, as shown following.
 
-![The role for Amazon Comprehend has been added to the Aurora PostgreSQL DB cluster and is now Active.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-completed-iam-setup-both.png)
+![The role for Amazon Comprehend has been added to the Aurora PostgreSQL DB cluster and is now Active.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-completed-iam-setup-both.png)
 
 
 The IAM setup for Amazon Comprehend is complete. Continue setting up your Aurora PostgreSQL to work with Aurora machine learning by installing the extension as detailed in [Installing the Aurora machine learning extension](#postgresql-ml-aws_ml-install) 
@@ -170,7 +170,7 @@ Before you can create the IAM policy and role for your Aurora PostgreSQL DB clus
 1. Open the Resources selector and choose the **Add ARN to restrict access** link under the Specify endpoint resource ARN for the InvokeEndpoint action. 
 
 1. Enter the AWS Region of your SageMaker AI resources and the name of your endpoint. Your AWS account is prefilled.   
-![Specifying the ARN for the endpoint for the IAM Policy.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-policy-sm-endpoint.png)
+![Specifying the ARN for the endpoint for the IAM Policy.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-ml-create-policy-sm-endpoint.png)
 
 1. Choose **Add** to save. Choose **Next: Tags** and **Next: Review** to get to the last page of the policy creation process. 
 

@@ -28,7 +28,7 @@ You can delete a blue/green deployment using the AWS Management Console, the AWS
 1. For **Actions**, choose **Delete**.
 
    The **Delete blue-green deployment.** window appears.  
-![Delete blue-green deployment.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-delete-aurora.png)
+![Delete blue-green deployment.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-delete-aurora.png)
 
    To delete the green databases, select **Delete the green databases in this blue/green deployment**.
 

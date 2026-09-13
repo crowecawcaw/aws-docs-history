@@ -36,7 +36,7 @@ To use Database Insights, make sure that you have access to Amazon RDS in additi
 1. On the **Summary** page, choose **Add permissions**.
 
 1. Choose **Attach existing policies directly**. For **Search**, type the first few characters of your policy name, as shown in the following image.   
-![The policy selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/perf_insights_attach_iam_policy.png)
+![The policy selection.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/perf_insights_attach_iam_policy.png)
 
 1. Choose your policy, and then choose **Next: Review**.
 

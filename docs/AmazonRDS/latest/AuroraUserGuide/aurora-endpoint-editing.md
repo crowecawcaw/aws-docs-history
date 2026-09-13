@@ -12,7 +12,7 @@ You can continue connecting to and using a custom endpoint while the changes fro
 
 To edit a custom endpoint with the AWS Management Console, you can select the endpoint on the cluster detail page, or bring up the detail page for the endpoint, and choose the **Edit** action.
 
-![Editing a custom endpoint.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraEditCustomEndpoint.png)
+![Editing a custom endpoint.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraEditCustomEndpoint.png)
 
 
 ## AWS CLI

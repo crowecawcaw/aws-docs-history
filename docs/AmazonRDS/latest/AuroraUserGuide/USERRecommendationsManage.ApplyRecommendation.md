@@ -30,25 +30,25 @@ The threshold based proactive or anomaly based reactive recommendations won't ha
    + Choose **Apply** and then choose **Apply in next maintenance window** to schedule in the next maintenance window.
 
      The selected recommendation status is updated to pending until the next maintenance window.  
-![An active recommendation selected and Apply button with its options highlighted in the console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendations_Apply_Defer.png)
+![An active recommendation selected and Apply button with its options highlighted in the console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendations_Apply_Defer.png)
 
    A confirmation window appears.
 
 1. Choose **Confirm application** to apply the recommendation. This window confirms whether the resources need an automatic or manual restart for the changes to take effect.
 
    The following example shows the confirmation window to apply the recommendation immediately.  
-![The confirmation window in the console to apply the recommendation immediately.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendations_ApplyImmediately.png)
+![The confirmation window in the console to apply the recommendation immediately.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendations_ApplyImmediately.png)
 
    The following example shows the confirmation window to schedule applying the recommendation in the next maintenance window.  
-![The confirmation window in the console to schedule applying the recommendation in the next maintenance window.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendations_Defer.png)
+![The confirmation window in the console to schedule applying the recommendation in the next maintenance window.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendations_Defer.png)
 
    A banner displays a message when the recommendation applied is successful or has failed.
 
    The following example shows the banner with the successful message.   
-![Console banner showing the number of resources to apply the recommendation to.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendation-Apply-Banner.png)
+![Console banner showing the number of resources to apply the recommendation to.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendation-Apply-Banner.png)
 
    The following example shows the banner with the failure message.   
-![Console banner showing the resource that failed to apply the recommendation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendation-Apply-Banner-failure.png)
+![Console banner showing the resource that failed to apply the recommendation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Recommendation-Apply-Banner-failure.png)
 
 ## RDS API
 <a name="USERRecommendationsManage.ApplyRecommendation-API"></a>

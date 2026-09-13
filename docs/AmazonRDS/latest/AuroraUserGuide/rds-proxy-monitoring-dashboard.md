@@ -5,7 +5,7 @@
 
 You can access the RDS Proxy monitoring dashboard under the Monitoring tab of your proxy.
 
-![RDS Proxy monitoring dashboard.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Proxy-monitoring-dashboard.png)
+![RDS Proxy monitoring dashboard.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Proxy-monitoring-dashboard.png)
 
 
 The dashboard provides a pre-configured set of metrics arranged into widgets, designed to help you perform common observability and troubleshooting tasks. If a metric is not visible in this dashboard, you can view all metrics in CloudWatch using a link on the dashboard.

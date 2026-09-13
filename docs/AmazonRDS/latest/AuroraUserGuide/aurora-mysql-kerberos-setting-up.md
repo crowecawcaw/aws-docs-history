@@ -76,13 +76,13 @@ The VPC for the directory. Create the Aurora MySQL DB cluster in this same VPC.
 Subnets for the directory servers. The two subnets must be in different Availability Zones.
 
 1. Review the directory information and make any necessary changes. When the information is correct, choose **Create directory**.  
-![Directory details page during creation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/WinAuth2.png)
+![Directory details page during creation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/WinAuth2.png)
 
 It takes several minutes to create the directory. When it has been successfully created, the **Status** value changes to **Active**.
 
 To see information about your directory, choose the directory name in the directory listing. Note the **Directory ID** value because you need this value when you create or modify your Aurora MySQL DB cluster.
 
-![Directory ID in the Directory details page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/WinAuth3.png)
+![Directory ID in the Directory details page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/WinAuth3.png)
 
 
 ## Step 2: (Optional) Create a trust for an on-premises Active Directory
@@ -101,7 +101,7 @@ Windows clients can't connect using cluster endpoints in secondary AWS Regions.
 
 Make sure that your on-premises Microsoft Active Directory domain name includes a DNS suffix routing that corresponds to the newly created trust relationship. The following screenshot shows an example.
 
-![DNS routing corresponds to the created trust.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/kerberos-auth-trust.png)
+![DNS routing corresponds to the created trust.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/kerberos-auth-trust.png)
 
 
 ## Step 3: Create an IAM role for use by Amazon Aurora
@@ -239,7 +239,7 @@ Kerberos authentication is only supported for Aurora MySQL DB clusters in a VPC.
 
 When you use the console to create, modify, or restore a DB cluster, choose **Kerberos authentication** in the **Database authentication** section. Choose **Browse Directory** and then select the directory, or choose **Create a new directory**.
 
-![Kerberos authentication setting when creating a DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/kerberos-auth-create-cluster.png)
+![Kerberos authentication setting when creating a DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/kerberos-auth-create-cluster.png)
 
 
 ### AWS CLI

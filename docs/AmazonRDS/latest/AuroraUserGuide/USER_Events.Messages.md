@@ -236,6 +236,8 @@ The following table shows the event category and a list of events when a DB inst
 | maintenance, serverless | RDS-EVENT-0523 | Amazon RDS can't perform the Serverless platform update because there are no available IP addresses in the specified subnets. Choose subnets with available IP addresses and try again. | None | 
 | maintenance, serverless | RDS-EVENT-0524 | Amazon RDS can't perform the Serverless platform update because of insufficient capacity available. | None | 
 | maintenance, serverless | RDS-EVENT-0525 | The Serverless platform update failed for the DB instance {{name}}. | None | 
+| notification | RDS-EVENT-0610 | The log file {{log\_name}} will be deleted since it is past the log retention period and may not be uploaded to CloudWatch Logs. | None | 
+| notification | RDS-EVENT-0611 | Due to storage space constraints, the log file {{log\_name}} will be deleted and will not be uploaded to CloudWatch Logs. | None | 
 
 ## DB parameter group events
 <a name="USER_Events.Messages.parameter-group"></a>

@@ -9,7 +9,7 @@ With pgAudit set up on your Aurora PostgreSQL DB cluster and configured for your
 
 The object auditing capability is activated when you create the `rds_pgaudit` role on your system and then add this role to the `pgaudit.role` parameter in your custom parameter parameter group. By default, the `pgaudit.role` parameter is unset and the only allowable value is `rds_pgaudit`. The following steps assume that `pgaudit` has been initialized and that you have created the `pgaudit` extension by following the procedure in [Setting up the pgAudit extension](Appendix.PostgreSQL.CommonDBATasks.pgaudit.basic-setup.md). 
 
-![The PostgreSQL log file after setting up pgAudit.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pgaudit-log-example.png)
+![The PostgreSQL log file after setting up pgAudit.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pgaudit-log-example.png)
 
 
 As shown in this example, the "LOG: AUDIT: SESSION" line provides information about the table and its schema, among other details. 

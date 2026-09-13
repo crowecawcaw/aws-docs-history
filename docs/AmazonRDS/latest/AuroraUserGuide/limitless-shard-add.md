@@ -25,7 +25,7 @@ You can use the AWS Management Console to add a DB shard group to an existing DB
 1. Select the Limitless Database DB cluster to which you want to add a DB shard group.
 
 1. For **Actions**, choose **Add a DB shard group**.  
-![Add a DB shard group.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_add_shard_group.png)
+![Add a DB shard group.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_add_shard_group.png)
 
 1. Enter a **DB shard group identifier**.
 **Important**  

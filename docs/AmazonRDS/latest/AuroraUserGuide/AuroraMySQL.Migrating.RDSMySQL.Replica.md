@@ -201,7 +201,7 @@ You can view the MySQL to Aurora MySQL replication relationships for your Aurora
 1. In the navigation pane, choose **Databases**. 
 
 1. Choose the DB cluster for the Aurora read replica to display its details. The primary MySQL DB instance information is in the **Replication source** field.  
-![View MySQL primary.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-repl6.png)
+![View MySQL primary.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-repl6.png)
 
 ### AWS CLI
 <a name="AuroraMySQL.Migrating.RDSMySQL.Replica.View.CLI"></a>

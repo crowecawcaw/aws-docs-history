@@ -23,7 +23,7 @@ When you create a new Aurora MySQL DB cluster, backtracking is configured when y
 
 To create a DB cluster, follow the instructions in [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md). The following image shows the **Backtrack** section.
 
-![Enable Backtrack during DB cluster creation with console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-create.png)
+![Enable Backtrack during DB cluster creation with console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-create.png)
 
 
 When you create a new DB cluster, Aurora has no data for the DB cluster's workload. So it can't estimate a cost specifically for the new DB cluster. Instead, the console presents a typical user cost for the specified target backtrack window based on a typical workload. The typical cost is meant to provide a general reference for the cost of the Backtrack feature.
@@ -48,7 +48,7 @@ Currently, you can modify backtracking only for a DB cluster that has the Backtr
 1. Choose the cluster that you want to modify, and choose **Modify**.
 
 1. For **Target Backtrack window**, modify the amount of time that you want to be able to backtrack. The limit is 72 hours.  
-![Modify Backtrack with console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-modify.png)
+![Modify Backtrack with console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-modify.png)
 
    The console shows the estimated cost for the amount of time you specified based on the DB cluster's past workload:
    + If backtracking was disabled on the DB cluster, the cost estimate is based on the `VolumeWriteIOPS` metric for the DB cluster in Amazon CloudWatch.

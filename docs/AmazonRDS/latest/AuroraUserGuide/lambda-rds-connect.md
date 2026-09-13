@@ -9,7 +9,7 @@ You can use the Amazon RDS console to simplify setting up a connection between a
 
 The following image shows a direct connection between your DB cluster and your Lambda function.
 
-![Automatically connect an Aurora DB cluster with a Lambda function](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auto-connect-aurora-lambda.png)
+![Automatically connect an Aurora DB cluster with a Lambda function](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auto-connect-aurora-lambda.png)
 
 
 You can set up the connection between your Lambda function and your DB cluster through RDS Proxy to improve your database performance and resiliency. Often, Lambda functions make frequent, short database connections that benefit from connection pooling that RDS Proxy offers. You can take advantage of any AWS Identity and Access Management (IAM) authentication that you already have for Lambda functions, instead of managing database credentials in your Lambda application code. For more information, see [Amazon RDS Proxy for Aurora](rds-proxy.md).
@@ -18,7 +18,7 @@ When you use the console to connect with an existing proxy, Amazon RDS updates t
 
 You can also create a new proxy from the same console page. When you create a proxy in the console, to access the DB cluster, you must input your database credentials or select an AWS Secrets Manager secret.
 
-![Automatically connect an Aurora DB cluster with a Lambda function through RDS Proxy](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auto-connect-aurora-lambda-Proxy.png)
+![Automatically connect an Aurora DB cluster with a Lambda function through RDS Proxy](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/auto-connect-aurora-lambda-Proxy.png)
 
 
 **Tip**  

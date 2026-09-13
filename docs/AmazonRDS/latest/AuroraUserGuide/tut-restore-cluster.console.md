@@ -17,7 +17,7 @@ While the primary DB instance is being created, it appears as a reader instance,
 1. Choose the DB cluster snapshot that you want to restore from.
 
 1. For **Actions**, choose **Restore snapshot**.  
-![Restore snapshot option in the Actions menu in the RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster1.png)
+![Restore snapshot option in the Actions menu in the RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster1.png)
 
    The **Restore snapshot** page appears.
 
@@ -26,7 +26,7 @@ While the primary DB instance is being created, it appears as a reader instance,
    1. Use the default setting for **DB engine**.
 
    1. For **Available versions**, choose a MySQL–8.0 compatible version, such as **Aurora MySQL 3.04.0 (compatible with MySQL 8.0.28)**.  
-![Restore snapshot page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster2.png)
+![Restore snapshot page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster2.png)
 
 1. Under **Settings**, for **DB instance identifier** enter the unique name that you want to use for the restored DB instance, for example **my-80**.
 **Note**  
@@ -43,7 +43,7 @@ To create the DB cluster identifier, Amazon RDS appends `-cluster` to the DB ins
    For this tutorial, choose **Burstable classes (includes t classes)**, and then choose **db.t3.medium**.
 **Note**  
 We recommend using the T DB instance classes only for development and test servers, or other non-production servers. For more details on the T instance classes, see [DB instance class types](Concepts.DBInstanceClass.Types.md).  
-![DB instance configuration panel with options for instance class, availability, and performance settings.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster3.png)
+![DB instance configuration panel with options for instance class, availability, and performance settings.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster3.png)
 
 1. For **Database authentication**, use the default setting.
 
@@ -52,7 +52,7 @@ We recommend using the T DB instance classes only for development and test serve
    If the source DB cluster for the snapshot was encrypted, the restored DB cluster is also encrypted. You can't make it unencrypted.
 
 1. Expand **Additional configuration**.  
-![Additional configuration options for database restore including network settings, encryption, and maintenance preferences.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster4.png)
+![Additional configuration options for database restore including network settings, encryption, and maintenance preferences.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster4.png)
 
 1. Make the following choices:
 
@@ -68,7 +68,7 @@ We recommend using the T DB instance classes only for development and test serve
 
 The **Databases** page displays the restored DB cluster, with a status of `Creating`.
 
-![Restored DB cluster on the Databases page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster5.png)
+![Restored DB cluster on the Databases page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/tut-restore-cluster5.png)
 
 
 While the primary DB instance is being created, it appears as a reader instance, but after creation it's a writer instance.

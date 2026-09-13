@@ -27,7 +27,7 @@ Perform the following steps using an account that's a member of the `rds_superus
 1. Choose **Edit parameters** to access the property values.
 
 1. Add `pg_tle` to the list in the **Values** field. Use a comma to separate items in the list of values.  
-![The shared_preload_libraries parameter with pg_tle added.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg_rpg_shared_preload_pg_tle.png)
+![The shared_preload_libraries parameter with pg_tle added.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg_rpg_shared_preload_pg_tle.png)
 
 1. Reboot the writer instance of your Aurora PostgreSQL DB cluster so that your change to the `shared_preload_libraries` parameter takes effect.
 

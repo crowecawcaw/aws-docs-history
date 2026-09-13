@@ -22,19 +22,19 @@ The **Configuration** tab displays information about database activity streams.
 1. Choose the name of the Aurora DB cluster that you want to monitor.
 
    The database page appears. The following example shows an Amazon Aurora PostgreSQL DB cluster named `apga`.  
-![Database page with monitoring tab shown.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-with-monitoring-tab.png)
+![Database page with monitoring tab shown.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-with-monitoring-tab.png)
 
 1. Scroll down and choose **Configuration**.
 
    The following example shows the status of the database activity streams for your cluster.  
-![Enhanced Monitoring.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-das.png)
+![Enhanced Monitoring.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-das.png)
 
 1. Choose **Logs & events**.
 
    The Logs & events section appears.  
-![Database page with Logs & events tab shown.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-logs-and-events-subpage.png)
+![Database page with Logs & events tab shown.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-logs-and-events-subpage.png)
 
 1. Choose a DB instance in your Aurora cluster, and then choose **Logs & events** for the instance.
 
    The following example shows that the contents are different between the DB instance page and the DB cluster page. The DB instance page shows logs and alarms.  
-![Logs and events page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-instance-logs-and-events-subpage.png)
+![Logs and events page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/cluster-instance-logs-and-events-subpage.png)

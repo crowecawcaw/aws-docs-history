@@ -48,7 +48,7 @@ To manage eventual consistency, you can do the following:
 
 View whether a maintenance update is available for your DB cluster by using the RDS console, the AWS CLI, or the RDS API. If an update is available, it is indicated in the **Maintenance** column for the DB cluster on the Amazon RDS console, as shown in this figure.
 
-![Maintenance action is available and will be applied at the next maintenance window.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/offlinepatchavailable.png)
+![Maintenance action is available and will be applied at the next maintenance window.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/offlinepatchavailable.png)
 
 
 If no maintenance update is available for a DB cluster, the column value is **none** for it.
@@ -73,7 +73,7 @@ If an update is available, you can do one of the following:
 
 1. Choose the action to take, then choose when to apply it.
 
-![Pending maintenance item for an Aurora DB instance.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pending_maintenance_aurora_instance.png)
+![Pending maintenance item for an Aurora DB instance.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pending_maintenance_aurora_instance.png)
 
 
 The maintenance window determines when pending operations start, but doesn't limit the total run time of these operations. Maintenance operations aren't guaranteed to finish before the maintenance window ends, and can continue beyond the specified end time. For more information, see [Amazon RDS maintenance window](#Concepts.DBMaintenance).
@@ -485,21 +485,21 @@ You can use the AWS Management Console or the AWS CLI to get information about t
 
 The following images show a DB cluster with a writer DB instance that has an operating system patch available.
 
-![Cluster-level operating system patch.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-cluster-minor.png)
+![Cluster-level operating system patch.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-cluster-minor.png)
 
 
-![Instance-level operating system patch.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-writer-minor.png)
+![Instance-level operating system patch.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-writer-minor.png)
 
 
 The following images show a DB cluster with a writer DB instance and a reader DB instance. The writer instance has a mandatory operating system upgrade available. The reader instance has an operating system patch available.
 
-![Cluster-level operating system distribution upgrade.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-cluster-major.png)
+![Cluster-level operating system distribution upgrade.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-cluster-major.png)
 
 
-![Writer instance operating system distribution upgrade.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-writer-major.png)
+![Writer instance operating system distribution upgrade.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-writer-major.png)
 
 
-![Reader instance operating system patch.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-reader-minor.png)
+![Reader instance operating system patch.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/os-upgrade-reader-minor.png)
 
 
 ### AWS CLI

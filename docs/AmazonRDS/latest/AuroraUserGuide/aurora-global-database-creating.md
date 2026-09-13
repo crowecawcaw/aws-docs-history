@@ -47,12 +47,12 @@ Complete the **Create database** page.
    1. Enter a meaningful name for the DB cluster identifier. When you finish creating the Aurora global database, this name identifies the primary DB cluster. 
 
    1. Enter your own password for the `admin` user account for the DB instance, or have Aurora generate one for you. If you choose to autogenerate a password, you get an option to copy the password.  
-![Settings choices when creating a global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-ams-3.png)
+![Settings choices when creating a global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-ams-3.png)
 
 1. For **DB instance class**, choose `db.r5.large` or another memory optimized DB instance class. We recommend that you use a db.r5 or higher instance class.
 
 1. For **Availability & durability**, we recommend that you choose to have Aurora create an Aurora Replica in a different Availability Zone (AZ) for you. If you don't create an Aurora Replica now, you need to do it later.  
-![Availability and durability options.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-ams-4b.png)
+![Availability and durability options.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-ams-4b.png)
 
 1. For **Connectivity**, choose the virtual private cloud (VPC) based on Amazon VPC that defines the virtual networking environment for this DB instance. You can choose the defaults to simplify this task. 
 
@@ -69,7 +69,7 @@ Complete the **Create database** page.
 1. Choose **Create database**.
 
    It can take several minutes for Aurora to complete the process of creating the Aurora DB instance, its Aurora Replica, and the Aurora DB cluster. You can tell when the Aurora DB cluster is ready to use as the primary DB cluster in an Aurora global database by its status. When that's so, its status and that of the writer and replica node is **Available**, as shown following.  
-![Databases with an Aurora DB cluster ready to use for Aurora global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-ams-5.png)
+![Databases with an Aurora DB cluster ready to use for Aurora global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-ams-5.png)
 
 When your primary DB cluster is available, create the Aurora global database by adding a secondary cluster to it. To do this, follow the steps in [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md). 
 
@@ -91,7 +91,7 @@ Complete the **Create database** page.
    1. Enter a meaningful name for the DB cluster identifier. When you finish creating the Aurora global database, this name identifies the primary DB cluster. 
 
    1. Enter your own password for the default admin account for the DB cluster, or have Aurora generate one for you. If you choose Auto generate a password, you get an option to copy the password.  
-![Settings choices when creating a global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-apg-2.png)
+![Settings choices when creating a global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-apg-2.png)
 
 1. For **DB instance class**, choose `db.r5.large` or another memory optimized DB instance class. We recommend that you use a db.r5 or higher instance class. 
 
@@ -112,7 +112,7 @@ Complete the **Create database** page.
 1. Choose **Create database**. 
 
    It can take several minutes for Aurora to complete the process of creating the Aurora DB instance, its Aurora Replica, and the Aurora DB cluster. When the cluster is ready to use, the Aurora DB cluster and its writer and replica nodes display **Available** status. This becomes the primary DB cluster of your Aurora global database, after you add a secondary.  
-![Databases with an Aurora DB cluster ready to use for Aurora global database.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-apg-5-add-region.png)
+![Databases with an Aurora DB cluster ready to use for Aurora global database.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-create-apg-5-add-region.png)
 
 When your primary DB cluster is available, create one or more secondary clusters by following the steps in [Adding an AWS Region to an Amazon Aurora global database](aurora-global-database-attaching.md). 
 

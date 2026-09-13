@@ -27,7 +27,7 @@ The following example upgrades the `mydbcluster-cluster` DB cluster to Aurora My
 1.  For **Version**, choose a new Aurora MySQL major version.
 
    We generally recommend using the latest minor version of the major version. Here, we choose the current default version.  
-![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-upgrade-v2-v3.png)
+![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-upgrade-v2-v3.png)
 
 1.  Choose **Continue**. 
 
@@ -160,7 +160,7 @@ Follow the instructions in [How the Aurora MySQL in-place major version upgrade 
 
 If you use the AWS Management Console, choose the item with the role **Global database**.
 
-![Upgrading global database cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-databases-major-upgrade-global-cluster.png)
+![Upgrading global database cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-databases-major-upgrade-global-cluster.png)
 
 
  If you use the AWS CLI or RDS API, start the upgrade process by calling the [modify-global-cluster](https://docs.aws.amazon.com/cli/latest/reference/rds/modify-global-cluster.html) command or [ModifyGlobalCluster](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyGlobalCluster.html) operation. You use one of these instead of `modify-db-cluster` or `ModifyDBCluster`.

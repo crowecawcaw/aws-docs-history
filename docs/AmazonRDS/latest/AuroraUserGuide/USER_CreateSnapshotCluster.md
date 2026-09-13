@@ -30,7 +30,7 @@ You can create a DB cluster snapshot using the AWS Management Console, the AWS C
    The **Take DB snapshot** window appears.
 
 1. For **Snapshot type**, select **DB cluster**.  
-![Take DB snapshot.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/take_db_cluster_snapshot.png)
+![Take DB snapshot.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/take_db_cluster_snapshot.png)
 
 1. Choose the **DB cluster** for which you want to take a snapshot.
 

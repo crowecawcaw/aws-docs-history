@@ -16,19 +16,19 @@ After you create the Amazon VPC endpoint, you can start using it without making 
 1. Choose **Endpoints**, and then choose **Create Endpoint**.
 
 1. On the **Create Endpoint** page, for **Service category**, choose **AWS services**. For **Service Name**, choose **rds-data**.  
-![Create an Amazon VPC endpoint for Data API.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-create-endpoint.png)
+![Create an Amazon VPC endpoint for Data API.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-create-endpoint.png)
 
 1. For **VPC**, choose the VPC to create the endpoint in.
 
    Choose the VPC that contains the application that makes Data API calls.
 
 1. For **Subnets**, choose the subnet for each Availability Zone (AZ) used by the AWS service that is running your application.  
-![The subnets selection for the Amazon VPC endpoint.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-vpc-endpoint-subnets.png)
+![The subnets selection for the Amazon VPC endpoint.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-vpc-endpoint-subnets.png)
 
    To create an Amazon VPC endpoint, specify the private IP address range in which the endpoint will be accessible. To do this, choose the subnet for each Availability Zone. Doing so restricts the VPC endpoint to the private IP address range specific to each Availability Zone and also creates an Amazon VPC endpoint in each Availability Zone.
 
 1. For **Enable DNS name**, select **Enable for this endpoint**.  
-![Enable DNS name for the Amazon VPC endpoint.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-vpc-endpoint-enable-endpoint.png)
+![Enable DNS name for the Amazon VPC endpoint.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-vpc-endpoint-enable-endpoint.png)
 
    Private DNS resolves the standard Data API DNS hostname (`https://rds-data.{{region}}.amazonaws.com`) to the private IP addresses associated with the DNS hostname specific to your Amazon VPC endpoint. As a result, you can access the Data API VPC endpoint using the AWS CLI or AWS SDKs without making any code or configuration changes to update Data API's endpoint URL.
 
@@ -44,12 +44,12 @@ After you create the Amazon VPC endpoint, you can start using it without making 
 
 After the endpoint is created, choose the link in the AWS Management Console to view the endpoint details.
 
-![Link to the Amazon VPC endpoint details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-vpc-endpoint-link-to-details.png)
+![Link to the Amazon VPC endpoint details.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-vpc-endpoint-link-to-details.png)
 
 
 The endpoint **Details** tab shows the DNS hostnames that were generated while creating the Amazon VPC endpoint.
 
-![Link to the Amazon VPC endpoint details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-vpc-endpoint-dns-names.png)
+![Link to the Amazon VPC endpoint details.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-vpc-endpoint-dns-names.png)
 
 
 You can use the standard endpoint (`rds-data.{{region}}.amazonaws.com`) or one of the VPC-specific endpoints to call the Data API within the Amazon VPC. The standard Data API endpoint automatically routes to the Amazon VPC endpoint. This routing occurs because the Private DNS hostname was enabled when the Amazon VPC endpoint was created.

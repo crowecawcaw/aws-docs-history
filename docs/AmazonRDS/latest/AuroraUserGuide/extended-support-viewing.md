@@ -19,10 +19,10 @@ For example, you have an Aurora PostgreSQL 11 database that is enrolled in RDS E
 1. In the navigation pane, choose **Databases**. The value under **RDS Extended Support** indicates if an Aurora DB cluster or global cluster is enrolled in RDS Extended Support. If no value appears, then RDS Extended Support isn't available for your database.
 **Tip**  
 If the **RDS Extended Support** column doesn't appear, choose the **Preferences** icon, and then turn on **RDS Extended Support**.  
-![The Databases section with the RDS Extended Support setting for each database in the RDS console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/extended-support-view-db-list.png)
+![The Databases section with the RDS Extended Support setting for each database in the RDS console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/extended-support-view-db-list.png)
 
 1. You can also view the enrollment on the **Configuration** tab for each database. Choose a database under **DB identifier**. On the **Configuration** tab, look under **Extended Support** to see if the database is enrolled or not.   
-![The Configuration tab on a database details page that shows the RDS Extended Support status.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/extended-support-view-details-aurora.png)
+![The Configuration tab on a database details page that shows the RDS Extended Support status.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/extended-support-view-details-aurora.png)
 
 ## AWS CLI
 <a name="extended-support-viewing-cli"></a>

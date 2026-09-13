@@ -29,7 +29,7 @@ The following procedure describes how to perform a backtrack operation for a DB 
 1. For **Actions**, choose **Backtrack DB cluster**.
 
 1. On the **Backtrack DB cluster** page, enter the backtrack time stamp to backtrack the DB cluster to.  
-![Backtrack DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-db-cluster.png)
+![Backtrack DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-db-cluster.png)
 
 1. Choose **Backtrack DB cluster**.
 

@@ -5,14 +5,14 @@
 
 By using Amazon RDS Proxy, you can allow your applications to pool and share database connections to improve their ability to scale. RDS Proxy makes applications more resilient to database failures by automatically connecting to a standby DB instance while preserving application connections. By using RDS Proxy, you can enforce AWS Identity and Access Management (IAM) authentication for clients connecting to the proxy, and the proxy can connect to databases using either IAM database authentication or credentials stored in AWS Secrets Manager. 
 
-![An overview of how applications connect to RDS Proxy.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Proxy-Overview.png)
+![An overview of how applications connect to RDS Proxy.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Proxy-Overview.png)
 
 
  Using RDS Proxy, you can handle unpredictable surges in database traffic. Otherwise, these surges might cause issues due to oversubscribing connections or new connections being created at a fast rate. RDS Proxy establishes a database connection pool and reuses connections in this pool. This approach avoids the memory and CPU overhead of opening a new database connection each time. To protect a database against oversubscription, you can control the number of database connections that are created. 
 
  RDS Proxy queues or throttles application connections that can't be served immediately from the connection pool. Although latencies might increase, your application can continue to scale without abruptly failing or overwhelming the database. If connection requests exceed the limits you specify, RDS Proxy rejects application connections (that is, it sheds load). At the same time, it maintains predictable performance for the load that RDS can serve with the available capacity. 
 
-![A detailed view of how applications connect to RDS Proxy and the types connections involved.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Proxy-detail.png)
+![A detailed view of how applications connect to RDS Proxy and the types connections involved.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Proxy-detail.png)
 
 
  You can reduce the overhead to process credentials and establish a secure connection for each new connection. RDS Proxy can handle some of that work on behalf of the database. 

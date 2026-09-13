@@ -80,10 +80,10 @@ To manage replication slots for Aurora PostgreSQL after performing a switchover,
 1.  Choose **Databases** and find the Aurora global database where you intend to perform the switchover. 
 
 1.  Choose **Switch over or fail over global database** from the **Actions** menu.   
-![The Databases list with the Actions menu open showing the Switch over or fail over global database option.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-switchover-1.png)
+![The Databases list with the Actions menu open showing the Switch over or fail over global database option.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-switchover-1.png)
 
 1.  Choose **Switchover**.   
-![The Switch over or fail over global database dialog, with Failover (allow data loss) selected.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-switchover-2.png)
+![The Switch over or fail over global database dialog, with Failover (allow data loss) selected.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-switchover-2.png)
 
 1.  For **New primary cluster**, choose an active cluster in one of your secondary AWS Regions to be the new primary cluster. 
 
@@ -91,7 +91,7 @@ To manage replication slots for Aurora PostgreSQL after performing a switchover,
 
  When the switchover completes, you can see the Aurora DB clusters and their current roles in the **Databases** list, as shown in the following image. 
 
-![Databases list after failover showing the secondary cluster promoted to primary role.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-switchover-3.png)
+![Databases list after failover showing the secondary cluster promoted to primary role.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-switchover-3.png)
 
 
 ### AWS CLI
@@ -204,10 +204,10 @@ To manage replication slots for Aurora PostgreSQL after performing a failover, s
 1.  Choose **Databases** and find the Aurora global database where you want to perform the failover. 
 
 1.  Choose **Switch over or fail over global database** from the **Actions** menu.   
-![The Databases list with the Actions menu open, showing the Switch over or fail over global database option.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-managed-failover-1.png)
+![The Databases list with the Actions menu open, showing the Switch over or fail over global database option.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-managed-failover-1.png)
 
 1.  Choose **Failover (allow data loss)**.   
-![The Switch over or fail over global database dialog, with Failover (allow data loss) selected.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-managed-failover-2.png)
+![The Switch over or fail over global database dialog, with Failover (allow data loss) selected.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-managed-failover-2.png)
 
 1.  For **New primary cluster**, choose an active cluster in one of your secondary AWS Regions to be the new primary cluster. 
 
@@ -215,7 +215,7 @@ To manage replication slots for Aurora PostgreSQL after performing a failover, s
 
  When the failover completes, you can view the Aurora DB clusters and their current state in the **Databases** list, as shown in the following image. 
 
-![Databases list after failover showing the secondary cluster promoted to primary role.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-managed-failover-5.png)
+![Databases list after failover showing the secondary cluster promoted to primary role.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-managed-failover-5.png)
 
 
 #### AWS CLI

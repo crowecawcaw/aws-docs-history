@@ -10,17 +10,17 @@ To view custom endpoints with the AWS Management Console, go to the cluster deta
 
 The following screenshot shows how the list of custom endpoints for an Aurora cluster is initially empty.
 
-![Endpoints page with no custom endpoints.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraCustomEndpointEmptyList.png)
+![Endpoints page with no custom endpoints.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraCustomEndpointEmptyList.png)
 
 
 After you create some custom endpoints for that cluster, they are shown under the **Endpoints** section.
 
-![Endpoints page with two custom endpoints.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraCustomEndpointList.png)
+![Endpoints page with two custom endpoints.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraCustomEndpointList.png)
 
 
 Clicking through to the detail page shows which DB instances the endpoint is currently associated with.
 
-![DB instances associated with a custom endpoint.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraCustomEndpointDetail.png)
+![DB instances associated with a custom endpoint.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraCustomEndpointDetail.png)
 
 
 To see the additional detail of whether new DB instances added to the cluster are automatically added to the endpoint also, open the **Edit** page for the endpoint.

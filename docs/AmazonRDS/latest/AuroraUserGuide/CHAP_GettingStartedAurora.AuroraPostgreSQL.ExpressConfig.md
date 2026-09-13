@@ -58,17 +58,17 @@ To create with express configuration using the console:
 1. In the navigation pane, choose Databases.
 
 1. On the Welcome to Aurora and RDS page, locate the Create with express configuration in seconds section, and choose Create.  
-![The Welcome to Aurora and RDS page showing the Create with express configuration section.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image1.png)
+![The Welcome to Aurora and RDS page showing the Create with express configuration section.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image1.png)
 
 1. Review pre-configured settings in the Create with express configuration dialog.  
-![The Create with express configuration dialog showing pre-configured settings.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image2.png)
+![The Create with express configuration dialog showing pre-configured settings.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image2.png)
 
 1. (Optional) Modify the DB cluster identifier or the capacity range as per your need.
 
 1. Choose Create database.
 
 1. Your Aurora PostgreSQL Serverless database should be ready in seconds. A success banner confirms the creation, and the database status changes to "Available".  
-![The database status showing Available after successful creation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image3.png)
+![The database status showing Available after successful creation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image3.png)
 
 ### CLI
 <a name="CHAP_GettingStartedAurora.AuroraPostgreSQL.ExpressConfig.CreatingDBCluster.CLI"></a>
@@ -180,7 +180,7 @@ The following steps show connecting to your database cluster using the psql comm
 1. Under the connectivity & Security tab, select the PSQL code snippet for your respective operating system (macOS, linux, or Windows).
 
 1. Copy the code shown in connection steps modal.  
-![The connection steps modal showing the PSQL code snippet.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image4.png)
+![The connection steps modal showing the PSQL code snippet.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image4.png)
 
 1. Open a terminal on your local development environment / machine.
 
@@ -212,13 +212,13 @@ None
 1. Under the connectivity & Security tab, select CloudShell.
 
 1. Click Launch Cloudshell  
-![The CloudShell launch button in the connectivity and security tab.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image5.png)
+![The CloudShell launch button in the connectivity and security tab.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image5.png)
 
 1. Click Run on prompt window. The command is pre-prepopulated with relevant information to connect to your specific cluster.  
-![The CloudShell prompt window with pre-populated connection command.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image6.png)
+![The CloudShell prompt window with pre-populated connection command.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image6.png)
 
 1. You should see psql login and the “postgres =>” prompt, enabling you to run SQL commands.  
-![The psql login prompt in CloudShell showing successful connection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image7.png)
+![The psql login prompt in CloudShell showing successful connection.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image7.png)
 
 Use for quick access to AWS CLI that launches directly from the AWS Management Console. CloudShell provides a browser-based shell environment with pre-authenticated AWS CLI access.
 
@@ -241,15 +241,15 @@ The following steps show, how to use the Get token utility to connect to your da
 1. Navigate to your database cluster from the Databases list tab.
 
 1. Under the connectivity & Security tab, select the “Endpoints” tab.  
-![The Endpoints tab showing writer endpoint, port, and database details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image8.png)
+![The Endpoints tab showing writer endpoint, port, and database details.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image8.png)
 
 1. Copy the relevant information, including the writer endpoint, port, master username, and database name.
 
 1. Generate and copy a new token (short lived password) from the Get token utility.  
-![The Get token utility for generating an authentication token.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image9.png)
+![The Get token utility for generating an authentication token.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image9.png)
 
 1. Open pgAdmin on your machine, and “Add a new server”. Enter the details in the Connection tab. Use the token in the password field.  
-![The pgAdmin connection dialog with server details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image10.png)
+![The pgAdmin connection dialog with server details.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-express-config-image10.png)
 
 The connection panel displays: internet access gateway status (Enabled), IAM Authentication status (Enabled), and IAM authentication token option. Select your programming language from the dropdown and follow the connection steps to paste the code and run the commands.
 

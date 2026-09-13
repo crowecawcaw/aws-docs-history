@@ -27,7 +27,7 @@ When you use the AWS Management Console to create the primary DB cluster, the DB
    + **Aurora PostgreSQL with Limitless Database (Compatible with PostgreSQL 16.6)**
 
 1. For **Aurora PostgreSQL Limitless Database**:  
-![Aurora PostgreSQL Limitless Database console settings with configuration options for sharding and distribution parameters.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_create_database.png)
+![Aurora PostgreSQL Limitless Database console settings with configuration options for sharding and distribution parameters.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_create_database.png)
 
    1. Enter a **DB shard group identifier**.
 **Important**  
@@ -86,7 +86,7 @@ If you create your Limitless Database DB cluster in the US East (N. Virginia) Re
 
 After the primary DB cluster and DB shard group are created, they're displayed on the **Databases** page.
 
-![Aurora PostgreSQL Limitless Database primary DB cluster and DB shard group.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_cluster_164.png)
+![Aurora PostgreSQL Limitless Database primary DB cluster and DB shard group.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/limitless_cluster_164.png)
 
 
 ## CLI

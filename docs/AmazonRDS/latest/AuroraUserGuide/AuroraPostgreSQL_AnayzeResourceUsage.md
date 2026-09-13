@@ -21,7 +21,7 @@ To use CloudWatch, you need to export your Aurora PostgreSQL log files to CloudW
 
 You need the **Resource ID** of your DB instance to query the CloudWatch **Logs Insights**. The **Resource ID** is available in the **Configuration** tab in your console: 
 
-![Resource ID in the Configuration tab of your Aurora console.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aur_PG_resource_id.png)
+![Resource ID in the Configuration tab of your Aurora console.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Aur_PG_resource_id.png)
 
 
 **To query your log files for resource storage metrics:**
@@ -47,7 +47,7 @@ You need the **Resource ID** of your DB instance to query the CloudWatch **Logs 
    The storage utilization graph is displayed.
 
    The following image provides the **Logs Insights** page and the graph display.  
-![Logs Insights page and the graph display.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AurPG-CW-LogsInsights.png)
+![Logs Insights page and the graph display.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AurPG-CW-LogsInsights.png)
 
 ## Evaluating DB instance usage for Aurora PostgreSQL with CloudWatch metrics
 <a name="AuroraPostgreSQL_AnayzeResourceUsage.EvaluateInstanceUsage"></a>

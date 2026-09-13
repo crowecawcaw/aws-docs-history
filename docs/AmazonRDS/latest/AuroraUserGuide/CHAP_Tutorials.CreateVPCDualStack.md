@@ -13,7 +13,7 @@ The following diagram shows this scenario.
 
  
 
-![VPC scenario for dual-stack mode.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-dual-stack-aurora.png)
+![VPC scenario for dual-stack mode.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/con-VPC-sec-grp-dual-stack-aurora.png)
 
 
 For information about other scenarios, see [Scenarios for accessing a DB cluster in a VPC](USER_VPC.Scenarios.md).
@@ -192,7 +192,7 @@ In this step, you create a DB cluster that runs in dual-stack mode.
 
 1. In the **Connectivity** section, set these values:
    + **Network type** – Choose **Dual-stack mode**.  
-![Network type section in the console with Dual-stack mode selected.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/dual-stack-mode.png)
+![Network type section in the console with Dual-stack mode selected.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/dual-stack-mode.png)
    + **Virtual private cloud (VPC)** – Choose an existing VPC with both public and private subnets, such as **tutorial-dual-stack-vpc** (vpc-{{identifier}}) created in [Create a VPC with private and public subnets](#CHAP_Tutorials.CreateVPCDualStack.VPCAndSubnets).
 
      The VPC must have subnets in different Availability Zones.

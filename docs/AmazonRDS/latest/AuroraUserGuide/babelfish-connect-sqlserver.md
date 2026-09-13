@@ -58,12 +58,12 @@ SSMS version 19.2 and later requires Babelfish version 3.5.0 (Aurora PostgreSQL 
    1. For **Login**, enter the user name that you chose when you created your database.
 
    1. For **Password**, enter the password that you chose when you created your database.  
-![Connecting to a Babelfish database with SSMS.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-SSMS-connect-database1.png)
+![Connecting to a Babelfish database with SSMS.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-SSMS-connect-database1.png)
 **Note**  
 Babelfish 5.1.0 and later versions use TLS by default. You can either install the root CA certificate on the client or select the **Trust server certificate** checkbox on the Login tab.
 
 1. (Optional) Choose **Options**, and then choose the **Connection Properties** tab.  
-![Connecting to a Babelfish database in SSMS.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-SSMS-connect-database2.png)
+![Connecting to a Babelfish database in SSMS.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Babelfish-SSMS-connect-database2.png)
 
 1. (Optional) For **Connect to database**, specify the name of the migrated SQL Server database to connect to, and choose **Connect**.
 

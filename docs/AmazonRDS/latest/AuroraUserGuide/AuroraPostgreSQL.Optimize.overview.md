@@ -126,7 +126,7 @@ The following steps turn on query plan management for all SQL statements that ge
 1. Create a custom DB cluster parameter group for your Aurora PostgreSQL DB cluster. You need to change certain parameters to activate query plan management and to set its behavior. For more information, see [Creating a DB parameter group in Amazon Aurora](USER_WorkingWithParamGroups.Creating.md).
 
 1. Open the custom DB cluster parameter group and set the `rds.enable_plan_management` parameter to `1`, as shown in the following image.   
-![The DB cluster parameter group.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-qpm-custom-db-cluster-param-change-1.png)
+![The DB cluster parameter group.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-qpm-custom-db-cluster-param-change-1.png)
 
    For more information, see [Modifying parameters in a DB cluster parameter groupin Amazon Aurora](USER_WorkingWithParamGroups.ModifyingCluster.md).
 

@@ -62,10 +62,10 @@ You can use the AWS Management Console, AWS CLI, or RDS API to create an Aurora 
    For more information about Aurora serverless capacity units, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity) and [Performance and scaling for Aurora serverless](aurora-serverless-v2.setting-capacity.md). 
 
     Depending on the engine and version that you choose, the upper limit might be 128 ACUs, the lower limit might be 0.5 ACUs, or both. For details about the limit for each combination of Aurora engine and version, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity).   
-![Instance configuration settings for Aurora serverless.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/serverless_v2_screencaps/serverless_v2_capacity_setting_incl_nonzero_minimum.png)
+![Instance configuration settings for Aurora serverless.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/serverless_v2_screencaps/serverless_v2_capacity_setting_incl_nonzero_minimum.png)
 
     Choosing a minimum capacity of 0 ACUs enables the Aurora serverless automatic pause and resume capability. In that case, you can make an additional choice of how long the Aurora serverless DB instances wait with no database connections before automatically pausing. For information about the automatic pause and resume capability, see [Scaling to Zero ACUs with automatic pause and resume for Aurora serverless](aurora-serverless-v2-auto-pause.md).   
-![Capacity setting Aurora serverless when the lower limit is 0 ACUs.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/serverless_v2_screencaps/serverless_v2_capacity_setting_incl_zero_minimum.png)
+![Capacity setting Aurora serverless when the lower limit is 0 ACUs.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/serverless_v2_screencaps/serverless_v2_capacity_setting_incl_zero_minimum.png)
 
 1. Choose any other DB cluster settings, as described in [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings).
 

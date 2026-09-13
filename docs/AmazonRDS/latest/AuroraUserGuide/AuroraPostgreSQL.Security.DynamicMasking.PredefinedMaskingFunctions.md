@@ -90,7 +90,7 @@ postgres=> SELECT pgcolumnmask.mask_timestamp('2023-06-15 14:30:00', 'all', '201
  2012-12-12 12:12:12
 ```
 
-**mask\_timestamp**
+**mask\_email**
 
 A function to mask email addresses while preserving email structure.
 

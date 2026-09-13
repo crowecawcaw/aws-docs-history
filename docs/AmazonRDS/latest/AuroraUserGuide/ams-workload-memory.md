@@ -35,7 +35,7 @@ The Performance Schema and `sys` schema show you the current memory usage on the
 
 Looking globally at `FreeableMemory` in CloudWatch, we can see that memory usage greatly increased at 2024-03-26 02:59 UTC.
 
-![FreeableMemory graph showing high memory usage.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-freeable-memory.png)
+![FreeableMemory graph showing high memory usage.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-freeable-memory.png)
 
 
 This doesn't tell us the whole picture. To determine which component is using the most memory, you can log into the database and look at `sys.memory_global_by_current_bytes`. This table contains a list of memory events that MySQL tracks, along with information on memory allocation per event. Each memory tracking event starts with `memory/%`, followed by other information on which engine component/feature the event is associated with.
@@ -241,7 +241,7 @@ If Performance Schema statistics have been reset, or the database instance has b
 
 The following graph of the `os.memory.free` metric in Enhanced Monitoring shows brief 7-second spikes in memory usage. Enhanced Monitoring allows you to monitor at intervals as short as 1 second, which is perfect for catching transient spikes like these.
 
-![Graph showing transient memory usage spikes over time with periodic pattern indicating potential memory management issues.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-free-memory-spikes.png)
+![Graph showing transient memory usage spikes over time with periodic pattern indicating potential memory management issues.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-free-memory-spikes.png)
 
 
 To help diagnose the cause of the memory usage here, we can use a combination of `high_alloc` in the `sys` memory summary views and [Performance Schema statement summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-statement-summary-tables.html) to try to identify offending sessions and connections.

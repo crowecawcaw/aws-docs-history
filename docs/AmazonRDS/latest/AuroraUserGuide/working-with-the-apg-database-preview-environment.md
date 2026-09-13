@@ -74,10 +74,10 @@ Use the following procedure to create a DB cluster in the preview environment.
 1. Choose **Dashboard** from the navigation pane.
 
 1. In the Dashboard page, locate the **Database Preview Environment** section on the Dashboard page, as shown in the following image.  
-![Preview environment section with link displayed in RDS Console, Dashboard.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/preview-environment-dashboard.png)
+![Preview environment section with link displayed in RDS Console, Dashboard.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/preview-environment-dashboard.png)
 
    You can navigate directly to the [Database preview environment](https://us-east-2.console.aws.amazon.com/rds-preview/home?region=us-east-2#). Before you can proceed, you must acknowledge and accept the limitations.   
-![Preview environment limitations dialog.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/preview-environment-console.png)
+![Preview environment limitations dialog.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/preview-environment-console.png)
 
 1. To create the Aurora PostgreSQL DB cluster, follow the same process as that for creating any Aurora DB cluster. For more information, see [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md).
 

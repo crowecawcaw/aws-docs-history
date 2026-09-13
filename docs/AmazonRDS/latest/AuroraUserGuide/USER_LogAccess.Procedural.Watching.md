@@ -14,10 +14,10 @@ Watching a database log file is equivalent to tailing the file on a UNIX or Linu
 1. Choose the name of the DB instance that has the log file that you want to view.
 
 1. Choose the **Logs & events** tab.  
-![The Logs and events tab.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Monitoring_logsEvents.png)
+![The Logs and events tab.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Monitoring_logsEvents.png)
 
 1. In the **Logs** section, choose a log file, and then choose **Watch**.  
-![The log selection.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Monitoring_LogsEvents_watch.png)
+![The log selection.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Monitoring_LogsEvents_watch.png)
 
    RDS shows the tail of the log, as in the following MySQL example.  
-![Tail of a log file.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Monitoring_LogsEvents_watch_content.png)
+![Tail of a log file.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/Monitoring_LogsEvents_watch_content.png)

@@ -253,7 +253,7 @@ For a listing of the DB instance parameters for this same default DB cluster par
 | logging\_collector | Start a subprocess to capture stderr output and/or csvlogs into log files. | 1  | 
 | log\_hostname | Logs the host name in the connection logs. | 0  | 
 | logical\_decoding\_work\_mem | (kB) This much memory can be used by each internal reorder buffer before spilling to disk. | –  | 
-| log\_line\_prefix | Controls information prefixed to each log line. | %t:%r:%u@%d:%p]:  | 
+| log\_line\_prefix | Controls information prefixed to each log line. | %t:%r:%u@%d:[%p]:  | 
 | log\_lock\_waits | Logs long lock waits. | –  | 
 | log\_min\_duration\_sample | (ms) Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined by log\_statement\_sample\_rate. | –  | 
 | log\_min\_duration\_statement | (ms) Sets the minimum execution time above which statements will be logged. | –  | 
@@ -589,7 +589,7 @@ For a listing of the DB cluster parameters for this same default DB parameter gr
 | logging\_collector | Start a subprocess to capture stderr output and/or csvlogs into log files. | 1  | 
 | log\_hostname | Logs the host name in the connection logs. | 0  | 
 | logical\_decoding\_work\_mem | (kB This much memory can be used by each internal reorder buffer before spilling to disk. | –  | 
-| log\_line\_prefix | Controls information prefixed to each log line. | %t:%r:%u@%d:%p]:  | 
+| log\_line\_prefix | Controls information prefixed to each log line. | %t:%r:%u@%d:[%p]:  | 
 | log\_lock\_waits | Logs long lock waits. | –  | 
 | log\_min\_duration\_sample | (ms Sets the minimum execution time above which a sample of statements will be logged. Sampling is determined by log\_statement\_sample\_rate. | –  | 
 | log\_min\_duration\_statement | (ms Sets the minimum execution time above which statements will be logged. | –  | 

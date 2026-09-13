@@ -41,7 +41,7 @@ You can upgrade your Aurora PostgreSQL DB clusters to new minor versions either 
 
 You can identify any available upgrades or patches for your Aurora PostgreSQL DB clusters by using the RDS console and opening the **Recommendations** menu. There, you can find a list of various maintenance issues such as **Old minor versions**. Depending on your production environment, you can choose to **Schedule** the upgrade or take immediate action, by choosing **Apply now**, as shown following.
 
-![Console image showing Recommendation to upgrade to a newer minor version.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-maintenance-upgrade-minor.png)
+![Console image showing Recommendation to upgrade to a newer minor version.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/apg-maintenance-upgrade-minor.png)
 
 
 To learn more about how to maintain an Aurora DB cluster, including how to manually apply patches and minor version upgrades, see [Maintaining an Amazon Aurora DB cluster](USER_UpgradeDBInstance.Maintenance.md). 

@@ -29,7 +29,7 @@
    If the Aurora global database contains any Aurora DB clusters, you can't delete it. If necessary, detach the primary and secondary Aurora DB clusters from the Aurora global database. For more information, see [Removing a cluster from an Amazon Aurora global database](aurora-global-database-detaching.md).
 
 1. Choose your Aurora global database in the list, and then choose **Delete** from the **Actions** menu.  
-![An Aurora global database based on Aurora MySQL 5.6.10a in the console with no associated DB clusters.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-ams5610a-delete-empty-cluster.png)
+![An Aurora global database based on Aurora MySQL 5.6.10a in the console with no associated DB clusters.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-ams5610a-delete-empty-cluster.png)
 
 ## AWS CLI
 <a name="aurora-global-database-deleting.cli"></a>

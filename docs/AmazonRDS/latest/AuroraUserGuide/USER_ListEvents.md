@@ -36,7 +36,7 @@ To access detailed information about events using AWS CloudTrail, including requ
 1. (Optional) Enter a search term to filter your results. 
 
    The following example shows a list of events filtered by the characters **apg**.  
-![List DB events.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ListEventsAPG.png)
+![List DB events.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ListEventsAPG.png)
 
 ## AWS CLI
 <a name="USER_ListEvents.CLI"></a>

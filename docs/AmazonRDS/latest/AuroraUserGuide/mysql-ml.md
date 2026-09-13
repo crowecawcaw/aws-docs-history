@@ -114,7 +114,7 @@ Aurora machine learning relies on AWS Identity and Access Management (IAM) roles
 1. For **Resources**, select **All**.
 
    The **Specify permissions** page should resemble the following figure.  
-![Amazon Bedrock IAM permission policy for the InvokeModel operation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-br-iam-policy.png)
+![Amazon Bedrock IAM permission policy for the InvokeModel operation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-br-iam-policy.png)
 
 1. Choose **Next**.
 
@@ -141,7 +141,7 @@ Next you create the IAM role that uses the Amazon Bedrock permission policy.
 1. On the **Name, review, and create** page, enter a name for your role, for example **ams-bedrock-invoke-model-role**.
 
    The role should resemble the following figure.  
-![Amazon Bedrock IAM role for the InvokeModel operation.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-br-iam-role.png)
+![Amazon Bedrock IAM role for the InvokeModel operation.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-br-iam-role.png)
 
 1. Review your role, then choose **Create role**.
 
@@ -162,7 +162,7 @@ Next you associate the Amazon Bedrock IAM role with your DB cluster.
 1. Choose the IAM that you created, and then choose **Add role**.
 
    The IAM role is associated with your DB cluster, first with the status **Pending**, then **Active**. When the process completes, you can find the role in the **Current IAM roles for this cluster** list.  
-![IAM role associated with your DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-br-manage-iam-roles.png)
+![IAM role associated with your DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-br-manage-iam-roles.png)
 
 You must add the ARN of this IAM role to the `aws_default_bedrock_role` parameter of the custom DB cluster parameter group associated with your Aurora MySQL DB cluster. If your Aurora MySQL DB cluster doesn't use a custom DB cluster parameter group, you need to create one to use with your Aurora MySQL DB cluster to complete the integration. For more information, see [DB cluster parameter groups for Amazon Aurora DB clusters](USER_WorkingWithDBClusterParamGroups.md).
 
@@ -200,14 +200,14 @@ Aurora machine learning relies on AWS Identity and Access Management roles and p
 1. For **Manage IAM roles** section, choose **Select a service to connect to this cluster**.
 
 1. Choose **Amazon Comprehend** from the menu, and then choose **Connect service**.  
-![Image showing Amazon Comprehend chosen for the Aurora MySQL DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-cmp-iam-role.png)
+![Image showing Amazon Comprehend chosen for the Aurora MySQL DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-cmp-iam-role.png)
 
 1. The **Connect cluster to Amazon Comprehend** dialog doesn't require any additional information. However, you might see a message notifying you that the integration between Aurora and Amazon Comprehend is currently in preview. Be sure to read the message before you continue. You can choose **Cancel** if you prefer not to proceed.
 
 1. Choose **Connect service** to complete the integration process. 
 
    Aurora creates the IAM role. It also creates the policy that allows the Aurora MySQL DB cluster to use Amazon Comprehend services and attaches the policy to the role. When the process completes, you can find the role in the **Current IAM roles for this cluster** list as shown in the following image.   
-![Completed IAM integration for Amazon Comprehend with Aurora MySQL.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-cmp-iam-role-4.png)
+![Completed IAM integration for Amazon Comprehend with Aurora MySQL.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-cmp-iam-role-4.png)
 
    You need to add the ARN of this IAM role to the `aws_default_comprehend_role` parameter of the custom DB cluster parameter group associated with your Aurora MySQL DB cluster. If your Aurora MySQL DB cluster doesn't use a custom DB cluster parameter group, you need to create one to use with your Aurora MySQL DB cluster to complete the integration. For more information, see [DB cluster parameter groups for Amazon Aurora DB clusters](USER_WorkingWithDBClusterParamGroups.md).
 
@@ -224,7 +224,7 @@ Aurora machine learning relies on AWS Identity and Access Management roles and p
    1. In the **Value** field, enter the ARN of the IAM role.
 
    1. Choose **Save changes** to save the setting. In the following image, you can find an example.  
-![Adding the IAM role ARN to the Aurora MySQL custom DB cluster parameter group.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-cmp-add-arn-to-custom-db-cluster-params.png)
+![Adding the IAM role ARN to the Aurora MySQL custom DB cluster parameter group.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-cmp-add-arn-to-custom-db-cluster-params.png)
 
    Reboot the primary instance of your Aurora MySQL DB cluster so that this parameter setting takes effect.
 
@@ -235,7 +235,7 @@ The IAM integration for Amazon Comprehend is complete. Continue setting up your 
 
 The following procedure automatically creates the IAM role and policy for your Aurora MySQL DB cluster so that it can use SageMaker AI. Before trying to follow this procedure, be sure that you have the SageMaker AI endpoint available so that you can enter it when needed. Typically, data scientists on your team would do the work to produce an endpoint that you can use from your Aurora MySQL DB cluster. You can find such endpoints in the [SageMaker AI console](https://console.aws.amazon.com/sagemaker/home). In the navigation pane, open the **Inference** menu and choose **Endpoints**. In the following image, you can find an example.
 
-![Image showing SageMaker AI chosen for the Aurora MySQL DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-sm-endpoint-arn.png)
+![Image showing SageMaker AI chosen for the Aurora MySQL DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-sm-endpoint-arn.png)
 
 
 **To set up your Aurora MySQL DB cluster to use SageMaker AI**
@@ -247,12 +247,12 @@ The following procedure automatically creates the IAM role and policy for your A
 1. Choose the **Connectivity & security** tab.
 
 1. Scroll to the **Manage IAM roles** section, and then choose **Select a service to connect to this cluster**. Choose **SageMaker AI** from the selector.  
-![Image showing SageMaker AI chosen for the Aurora MySQL DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-sm-iam-role-1.png)
+![Image showing SageMaker AI chosen for the Aurora MySQL DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-sm-iam-role-1.png)
 
 1. Choose **Connect service**.
 
 1. In the **Connect cluster to SageMaker AI** dialog, enter the ARN of the SageMaker AI endpoint.  
-![The ARN for the SageMaker AI endpoint entered during configuration.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-sm-iam-role-3.png)
+![The ARN for the SageMaker AI endpoint entered during configuration.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-sm-iam-role-3.png)
 
 1. Aurora creates the IAM role. It also creates the policy that allows the Aurora MySQL DB cluster to use SageMaker AI services and attaches the policy to the role. When the process completes, you can find the role in the **Current IAM roles for this cluster** list.
 
@@ -294,12 +294,12 @@ To use SageMaker AI with your own models rather than using the pre-built compone
 1. Choose the **Connectivity & security** tab. 
 
 1. Scroll to the **Manage IAM roles** section, and then choose **Select a service to connect to this cluster**. Choose **Amazon S3** from the selector.  
-![Choosing Amazon S3 as the service to integrate with the Aurora MySQL DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-s3-1.png)
+![Choosing Amazon S3 as the service to integrate with the Aurora MySQL DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-s3-1.png)
 
 1. Choose **Connect service**.
 
 1. In the **Connect cluster to Amazon S3** dialog, enter the ARN of the Amazon S3 bucket, as shown in the following image.  
-![ARN for Amazon S3 bucket specified for the Aurora MySQL DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-s3-2.png)
+![ARN for Amazon S3 bucket specified for the Aurora MySQL DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/ams-ml-s3-2.png)
 
 1. Choose **Connect service** to complete this process.
 

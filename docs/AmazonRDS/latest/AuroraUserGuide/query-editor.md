@@ -97,7 +97,7 @@ You can run SQL statements on an Aurora DB cluster in the query editor. The SQL 
 1. Choose the Aurora DB cluster that you want to run SQL queries on.
 
 1. For **Actions**, choose **Query**. If you haven't connected to the database before, the **Connect to database** page opens.  
-![Query editor Connect to database page.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/query-editor-connect.png)
+![Query editor Connect to database page.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/query-editor-connect.png)
 
 1. Enter the following information:
 
@@ -114,13 +114,13 @@ You can run SQL statements on an Aurora DB cluster in the query editor. The SQL 
 If your connection is successful, your connection and authentication information are stored in AWS Secrets Manager. You don't need to enter the connection information again.
 
 1. In the query editor, enter the SQL query that you want to run on the database.  
-![Query editor with a SQL statement in the text area.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/query-editor.png)
+![Query editor with a SQL statement in the text area.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/query-editor.png)
 
    Each SQL statement can commit automatically, or you can run SQL statements in a script as part of a transaction. To control this behavior, choose the gear icon above the query window.   
-![Gear icon in Query editor.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/query-editor-gear.png)
+![Gear icon in Query editor.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/query-editor-gear.png)
 
    The **Query Editor Settings** window appears.  
-![Query Editor Settings.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/query-editor-settings.png)
+![Query Editor Settings.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/query-editor-settings.png)
 
    If you choose **Auto-commit**, every SQL statement commits automatically. If you choose **Transaction**, you can run a group of statements in a script. Statements are automatically committed at the end of the script unless explicitly committed or rolled back before then. Also, you can choose to stop a running script if an error occurs by enabling **Stop on error**.
 **Note**  

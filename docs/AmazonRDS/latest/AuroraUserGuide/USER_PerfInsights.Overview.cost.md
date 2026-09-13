@@ -9,7 +9,7 @@ In the RDS console, you can choose any of the following retention periods for yo
 + **Default (7 days)**
 + **{{n}} months**, where **{{n}}** is a number from 1–24
 
-![The retention period options for Database Insights data.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pi-retention-periods.png)
+![The retention period options for Database Insights data.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/pi-retention-periods.png)
 
 
 To learn how to set a retention period using the AWS CLI, see [Enabling and disabling detailed per-query and database counter metrics](USER_PerfInsights.Enabling.md).

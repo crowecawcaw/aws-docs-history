@@ -22,7 +22,7 @@ While you are creating a database that supports RDS Data API (Data API), you can
 
 To enable Data API when you create a DB cluster, select the **Enable the RDS Data API** checkbox in the **Connectivity** section of the **Create database** page, as in the following screenshot.
 
-![The Connectivity section on the Create database page, with the Enable the RDS Data API checkbox selected.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-enable-on-create.png)
+![The Connectivity section on the Create database page, with the Enable the RDS Data API checkbox selected.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-enable-on-create.png)
 
 
 For instructions on how to create an Aurora DB cluster that can use the RDS Data API, see the following:
@@ -78,7 +78,7 @@ You can enable or disable Data API by using the RDS console for a DB cluster tha
 
 The following screenshot shows that the **RDS Data API** isn't enabled.
 
-![The RDS Data API section on the Connectivity and security tab showing disabled status.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-enable-from-details.png)
+![The RDS Data API section on the Connectivity and security tab showing disabled status.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/data-api-enable-from-details.png)
 
 
 #### AWS CLI

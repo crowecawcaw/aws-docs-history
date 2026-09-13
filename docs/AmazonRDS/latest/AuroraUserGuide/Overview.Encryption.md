@@ -85,7 +85,7 @@ You can use the AWS Management Console, AWS CLI, or RDS API to determine whether
 1. Choose the name of the DB cluster that you want to check to view its details.
 
 1. Choose the **Configuration** tab and check the **Encryption** value.  
-![Checking encryption at rest for a DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/encryption-aurora-instance.png)
+![Checking encryption at rest for a DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/encryption-aurora-instance.png)
 
 ### AWS CLI
 <a name="Overview.Encryption.Determining.CLI"></a>

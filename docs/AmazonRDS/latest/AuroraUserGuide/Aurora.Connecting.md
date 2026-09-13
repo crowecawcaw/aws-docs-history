@@ -77,7 +77,7 @@ The cluster endpoint connects you to the primary instance for the DB cluster. Yo
 
 To view the cluster endpoint (writer endpoint), choose **Databases** on the Amazon RDS console and choose the name of the DB cluster to show the DB cluster details.
 
-![Aurora MySQL writer endpoint details panel displaying the connection address for database connectivity.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraMySQLConnect.png)
+![Aurora MySQL writer endpoint details panel displaying the connection address for database connectivity.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraMySQLConnect.png)
 
 
 **Topics**
@@ -242,7 +242,7 @@ The cluster endpoint connects you to the primary instance for the DB cluster. Yo
 
 To view the cluster endpoint (writer endpoint), choose **Databases** on the Amazon RDS console and choose the name of the DB cluster to show the DB cluster details.
 
-![Aurora PostgreSQL writer endpoint.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraPostgreSQLConnect.png)
+![Aurora PostgreSQL writer endpoint.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/AuroraPostgreSQLConnect.png)
 
 
 ### Connection utilities for Aurora PostgreSQL

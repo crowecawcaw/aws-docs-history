@@ -335,12 +335,12 @@ If your Aurora PostgreSQL global database cluster has a recovery point objective
 
 If you verify that your applications can run as expected on the trial deployment of the new version, you can start the upgrade process. To do so, see [Upgrading the Aurora PostgreSQL engine to a new major version](#USER_UpgradeDBInstance.Upgrading.Manual). Be sure to choose the top-level item from the **Databases** list in the RDS console, **Global database**, as shown in the following image.
 
-![Console showing an Aurora global database with Aurora Serverless and Aurora PostgreSQL DB clusters.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-database-plus-other.png)
+![Console showing an Aurora global database with Aurora Serverless and Aurora PostgreSQL DB clusters.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-database-plus-other.png)
 
 
 As with any modification, you can confirm that you want the process to proceed when prompted.
 
-![Console image showing prompt to confirm the upgrade process for an Aurora PostgreSQL DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-apg-upgrade-2.png)
+![Console image showing prompt to confirm the upgrade process for an Aurora PostgreSQL DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-global-db-apg-upgrade-2.png)
 
 
 Rather than using the console, you can start the upgrade process by using the AWS CLI or the RDS API. As with the console, you operate on the Aurora global database cluster rather than any of its constituents, as follows:

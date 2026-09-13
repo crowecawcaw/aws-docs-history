@@ -97,7 +97,7 @@ You can use Performance Insights to assess the amount of connection churn on you
 
 With Performance Insights running on your Aurora PostgreSQL DB cluster, you can choose the metrics that you want to monitor. You can access Performance Insights from the navigation pane in the console. You can also access Performance Insights from the **Monitoring** tab of the writer instance for your Aurora PostgreSQL DB cluster, as shown in the following image.
 
-![accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/postgres_connection_pooling_PI_1.png)
+![accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/postgres_connection_pooling_PI_1.png)
 
 
 From the Performance Insights console, choose **Manage metrics**. To analyze your Aurora PostgreSQL DB cluster's connection and disconnection activity, choose the following metrics. These are all metrics from PostgreSQL. 
@@ -105,21 +105,21 @@ From the Performance Insights console, choose **Manage metrics**. To analyze you
 + `total_auth_attempts` – The number of attempted authenticated user connections per minute.
 + `numbackends` – The number of backends currently connected to the database.
 
-![accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/postgres_connection_churn_PI_4.png)
+![accessing Performance Insights from within the RDS console and selected Aurora PostgreSQL DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/postgres_connection_churn_PI_4.png)
 
 
 To save the settings and display connection activity, choose **Update graph**. 
 
 In the following image, you can see the impact of running pgbench with 100 users. The line showing connections is on a consistent upward slope. To learn more about pgbench and how to use it, see [pgbench](https://www.postgresql.org/docs/current/pgbench.html) in PostgreSQL documentation.
 
-![Performance Insights showing need for connection pooling.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/postgres_connection_pooling_PI_2.png)
+![Performance Insights showing need for connection pooling.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/postgres_connection_pooling_PI_2.png)
 
 
 The image shows that running a workload with as few as 100 users without a connection pooler can cause a significant increase in the number of `total_auth_attempts` throughout the duration of workload processing. Note that it's best to keep `total_auth_attempts` as close to zero as possible.
 
 With RDS Proxy connection pooling, the connection attempts increase at the start of the workload. After setting up the connection pool, the average declines. The resources used by transactions and backend use stays consistent throughout workload processing. 
 
-![Performance Insights showing benefit of RDS Proxy for connection pooling.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/postgres_connection_pooling_PI_3.png)
+![Performance Insights showing benefit of RDS Proxy for connection pooling.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/postgres_connection_pooling_PI_3.png)
 
 
 For more information about using Performance Insights with your Aurora PostgreSQL DB cluster, see [Monitoring DB load with Amazon CloudWatch Database Insights on Amazon Aurora](USER_PerfInsights.md). To analyze the metrics, see [Database Insights](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_DatabaseInsights.html).

@@ -28,7 +28,7 @@ You can edit a scaling policy by using the AWS Management Console.
 
 The following is a sample **Edit Auto Scaling policy** dialog box.
 
-![Editing an auto scaling policy based on average CPU utilization.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-autoscaling-edit-cpu.png)
+![Editing an auto scaling policy based on average CPU utilization.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-autoscaling-edit-cpu.png)
 
 
 ## AWS CLI or Application Auto Scaling API

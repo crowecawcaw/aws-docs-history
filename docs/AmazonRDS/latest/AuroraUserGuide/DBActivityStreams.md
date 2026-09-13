@@ -44,7 +44,7 @@ You can configure applications for compliance management to consume database act
 
 The following graphic shows an Aurora DB cluster configured with Amazon Data Firehose.
 
-![Architecture diagram showing database activity streams from an Aurora DB cluster consumed by Firehose.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-das.png)
+![Architecture diagram showing database activity streams from an Aurora DB cluster consumed by Firehose.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-das.png)
 
 
 ### Asynchronous and synchronousmode for database activity streams

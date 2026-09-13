@@ -16,7 +16,7 @@ In an Aurora PostgreSQL cluster, the `babelfish_db` database name is reserved fo
 **To create a cluster with Babelfish running with the AWS Management Console**
 
 1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/), and choose **Create database**.  
-![Creating an Aurora PostgreSQL cluster with Babelfish running.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_1.png)
+![Creating an Aurora PostgreSQL cluster with Babelfish running.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_1.png)
 
 1. For **Choose a database creation method**, do one of the following:
    + To specify detailed engine options, choose **Standard create**.
@@ -25,7 +25,7 @@ In an Aurora PostgreSQL cluster, the `babelfish_db` database name is reserved fo
 1. For **Engine type**, choose **Aurora (PostgreSQL Compatible)**.
 
 1. For **Available versions**, choose an Aurora PostgreSQL version. To get the latest Babelfish features, choose the highest Aurora PostgreSQL major version. Babelfish is supported on all supported Aurora PostgreSQL versions, 13 and higher.  
-![Choose an Aurora PostgreSQL version.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_3.png)
+![Choose an Aurora PostgreSQL version.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_3.png)
 
 1. For **Templates**, choose the template that matches your use case.
 
@@ -42,7 +42,7 @@ Master username must always use lowercase characters failing which the DB cluste
 1. For the options that follow, until the **Babelfish settings** section, specify your DB cluster settings. For information about each setting, see [Settings for Aurora DB clusters](Aurora.CreateInstance.md#Aurora.CreateInstance.Settings).
 
 1. To make Babelfish functionality available, select the **Turn on Babelfish** box.  
-![Turn on Babelfish in your Aurora PostgreSQL cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_5.png)
+![Turn on Babelfish in your Aurora PostgreSQL cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_5.png)
 
 1. For **DB cluster parameter group**, do one of the following:
    + Choose **Create new** to create a new parameter group with Babelfish turned on.
@@ -57,7 +57,7 @@ Master username must always use lowercase characters failing which the DB cluste
    + **Multiple databases** to migrate multiple SQL Server databases (originating from a single SQL Server installation). Multiple database mode doesn't consolidate multiple databases that don't originate from a single SQL Server installation. For information about migrating multiple databases, see [Using Babelfish with a single database or multiple databases](babelfish-architecture.md#babelfish-single_vs_multi_db). 
 **Note**  
 From Aurora PostgreSQL 16 version, **Multiple databases** is chosen by default as the Database migration mode.  
-![Choose a migration mode for your SQL Server databases.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_6.png)
+![Choose a migration mode for your SQL Server databases.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_6.png)
 
 1. For **Default collation locale**, enter your server locale. The default is `en-US`. For detailed information about collations, see [Understanding Collations in Babelfish for Aurora PostgreSQL](babelfish-collations.md).
 
@@ -68,7 +68,7 @@ From Aurora PostgreSQL 16 version, **Multiple databases** is chosen by default a
 1. For **Failover priority**, choose a failover priority for the instance. If you don't choose a value, the default is `tier-1`. This priority determines the order in which replicas are promoted when recovering from a primary instance failure. For more information, see [Fault tolerance for an Aurora DB cluster](Concepts.AuroraHighAvailability.md#Aurora.Managing.FaultTolerance).
 
 1. For **Backup retention period**, choose the length of time (1–35 days) that Aurora retains backup copies of the database. You can use backup copies for point-in-time restores (PITR) of your database down to the second. The default retention period is seven days.  
-![Choose an Aurora PostgreSQL version.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_7.png)
+![Choose an Aurora PostgreSQL version.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_7.png)
 
 1. Choose **Copy tags to snapshots** to copy any DB instance tags to a DB snapshot when you create a snapshot.
 **Note**  
@@ -91,13 +91,13 @@ When restoring a DB cluster from a snapshot, it does not restore as a Babelfish 
 1. Select the **Enable deletion protection** box to protect your database from being deleted by accident. 
 
    If you turn on this feature, you can't directly delete the database. Instead, you need to modify the database cluster and turn off this feature before deleting the database.  
-![Choose from additional Aurora PostgreSQL administrative features.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_9.png)
+![Choose from additional Aurora PostgreSQL administrative features.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_9.png)
 
 1. Choose **Create database**.
 
 You can find your new database set up for Babelfish in the **Databases** listing. The **Status** column displays **Available** when the deployment is complete.
 
-![An Aurora PostgreSQL cluster with Babelfish running.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_10.png)
+![An Aurora PostgreSQL cluster with Babelfish running.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/bbf_create_cluster_10.png)
 
 
 ## AWS CLI

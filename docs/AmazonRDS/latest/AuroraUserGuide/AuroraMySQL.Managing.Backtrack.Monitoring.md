@@ -17,7 +17,7 @@ You can view backtracking information and monitor backtracking metrics for a DB 
 1. Choose the DB cluster name to open information about it.
 
    The backtrack information is in the **Backtrack** section.  
-![Backtrack details for a DB cluster.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-details.png)
+![Backtrack details for a DB cluster.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-details.png)
 
    When backtracking is enabled, the following information is available:
    + **Target window** – The current amount of time specified for the target backtrack window. The target is the maximum amount of time that you can backtrack if there is sufficient storage.
@@ -31,7 +31,7 @@ You can view backtracking information and monitor backtracking metrics for a DB 
    1. Choose the name of the primary instance for the DB cluster to display its details.
 
    1. In the **CloudWatch** section, type **Backtrack** into the **CloudWatch** box to show only the Backtrack metrics.  
-![Backtrack metrics.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-metrics.png)
+![Backtrack metrics.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/aurora-backtrack-metrics.png)
 
       The following metrics are displayed:
       + **Backtrack Change Records Creation Rate (Count)** – This metric shows the number of backtrack change records created over five minutes for your DB cluster. You can use this metric to estimate the backtrack cost for your target backtrack window.

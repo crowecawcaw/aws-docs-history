@@ -7,14 +7,14 @@ You can view OS metrics reported by Enhanced Monitoring in the RDS console by ch
 
 The following example shows the Enhanced Monitoring page. For descriptions of the Enhanced Monitoring metrics, see [OS metrics in Enhanced Monitoring](USER_Monitoring-Available-OS-Metrics.md).
 
-![Dashboard view.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/metrics1.png)
+![Dashboard view.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/metrics1.png)
 
 
 If you want to see details for the processes running on your DB instance, choose **OS process list** for **Monitoring**.
 
 The **Process List** view is shown following.
 
-![Process list view.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/metrics2.png)
+![Process list view.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/metrics2.png)
 
 
 The Enhanced Monitoring metrics shown in the **Process list** view are organized as follows:

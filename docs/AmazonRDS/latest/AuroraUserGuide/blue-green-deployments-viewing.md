@@ -15,7 +15,7 @@ You can also view and subscribe to events for information about a blue/green dep
 1. Sign in to the AWS Management Console and open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/).
 
 1. In the navigation pane, choose **Databases**, and then find the blue/green deployment in the list.  
-![Blue-green deployment in the database list.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-view-db-list-aurora.png)
+![Blue-green deployment in the database list.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-view-db-list-aurora.png)
 
    The **Role** value for the blue/green deployment is **Blue/Green Deployment**.
 
@@ -24,17 +24,17 @@ You can also view and subscribe to events for information about a blue/green dep
    Each tab has a section for the blue deployment and a section for the green deployment. For example, on the **Configuration** tab, the DB engine version might be different in the blue environment and in the green environment if you're upgrading the DB engine version in the green environment.
 
    The following image shows an example of the **Connectivity & security** tab:  
-![Blue-green deployment details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-view-details-aurora.png)
+![Blue-green deployment details.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-view-details-aurora.png)
 
    The **Connectivity & security** tab also includes a section called **Replication**, which shows the current state of replication and replica lag between the blue and green environments. If the replication state is `Replicating`, the blue/green deployment is replicating successfully.
 
    For Aurora PostgreSQL blue/green deployments, the replication state can change to `Replication degraded` if you make unsupported DDL or large object changes in the blue environment. For more information, see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres).
 
    The following image shows an example of the **Configuration** tab:  
-![Blue-green deployment configuration details.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-view-config-aurora.png)
+![Blue-green deployment configuration details.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-view-config-aurora.png)
 
    The following image shows an example of the **Status** tab:  
-![Blue-green deployment status.](http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-view-status-aurora.png)
+![Blue-green deployment status.](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/images/blue-green-deployment-view-status-aurora.png)
 
 ## AWS CLI
 <a name="blue-green-deployments-viewing-cli"></a>
