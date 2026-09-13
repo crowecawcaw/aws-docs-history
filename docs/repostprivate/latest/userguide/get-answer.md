@@ -22,7 +22,7 @@ The answer that re:Post Agent generated is displayed under the question.
 
 The following is an example of a re:Post Agent response to a question:
 
-![re:Post Agent answer to a question](http://docs.aws.amazon.com/repostprivate/latest/userguide/images/rePost-agent-image.png)
+![re:Post Agent answer to a question](https://docs.aws.amazon.com/repostprivate/latest/userguide/images/rePost-agent-image.png)
 
 
 **Important**  
