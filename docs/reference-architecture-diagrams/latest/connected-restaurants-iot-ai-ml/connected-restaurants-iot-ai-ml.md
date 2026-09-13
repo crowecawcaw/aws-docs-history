@@ -10,7 +10,7 @@ With this architecture, you can build smart, connected restaurants. Use IoT and 
 ## Connected restaurants diagram
 <a name="conrest-diagram"></a>
 
-![How to build connected restaurants by using AWS IoT Core, AWS IoT Greengrass, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-restaurants-iot-ai-ml/images/connected-restaurants-using-iot-ai-ml-ra.png)
+![How to build connected restaurants by using AWS IoT Core, AWS IoT Greengrass, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-restaurants-iot-ai-ml/images/connected-restaurants-using-iot-ai-ml-ra.png)
 
 
 The following steps describe the architecture:
