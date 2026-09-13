@@ -8,7 +8,7 @@ With this use case, you can build an in-store monitoring solution by using IoT s
 ## Architecture diagram
 <a name="sg-uc3-diagram"></a>
 
-![In-store monitoring architecture with AWS IoT Greengrass, AWS Panorama, Amazon Kinesis Data Streams, and Amazon S3 data lake on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/images/smart-grocery-with-scan-and-go-computer-vision-and-iot-capability-ra-4.png)
+![In-store monitoring architecture with AWS IoT Greengrass, AWS Panorama, Amazon Kinesis Data Streams, and Amazon S3 data lake on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/images/smart-grocery-with-scan-and-go-computer-vision-and-iot-capability-ra-4.png)
 
 
 The following steps describe the architecture:

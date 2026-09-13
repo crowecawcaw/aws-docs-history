@@ -8,7 +8,7 @@ With this use case, you can automate curbside pickup by using geofencing, comput
 ## Architecture diagram
 <a name="sg-uc2-diagram"></a>
 
-![Curbside pickup architecture with Amazon Location Service, AWS Panorama, AWS Step Functions, and Amazon S3 data lake on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/images/smart-grocery-with-scan-and-go-computer-vision-and-iot-capability-ra-3.png)
+![Curbside pickup architecture with Amazon Location Service, AWS Panorama, AWS Step Functions, and Amazon S3 data lake on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/images/smart-grocery-with-scan-and-go-computer-vision-and-iot-capability-ra-3.png)
 
 
 The following steps describe the architecture:

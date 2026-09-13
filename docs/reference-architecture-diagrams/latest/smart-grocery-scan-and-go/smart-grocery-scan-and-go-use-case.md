@@ -8,7 +8,7 @@ With this use case, you can build a Scan-and-Go checkout experience by using in-
 ## Architecture diagram
 <a name="sg-uc1-diagram"></a>
 
-![Scan-and-Go architecture with AWS Panorama, Amazon Kinesis Data Streams, Amazon DynamoDB, and Amazon S3 data lake on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/images/smart-grocery-with-scan-and-go-computer-vision-and-iot-capability-ra-2.png)
+![Scan-and-Go architecture with AWS Panorama, Amazon Kinesis Data Streams, Amazon DynamoDB, and Amazon S3 data lake on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/images/smart-grocery-with-scan-and-go-computer-vision-and-iot-capability-ra-2.png)
 
 
 The following steps describe the architecture:

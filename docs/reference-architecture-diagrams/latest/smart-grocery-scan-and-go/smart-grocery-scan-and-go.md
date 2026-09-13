@@ -10,7 +10,7 @@ With this architecture, you can build a smart grocery with Scan-and-Go shopping,
 ## Architecture diagram
 <a name="sg-diagram"></a>
 
-![Smart grocery overview architecture with IoT, computer vision, serverless application layer, and data lake on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/images/smart-grocery-with-scan-and-go-computer-vision-and-iot-capability-ra-1.png)
+![Smart grocery overview architecture with IoT, computer vision, serverless application layer, and data lake on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-grocery-scan-and-go/images/smart-grocery-with-scan-and-go-computer-vision-and-iot-capability-ra-1.png)
 
 
 The following steps describe the architecture:
