@@ -28,12 +28,12 @@ Through this Runtime, the MCP Server securely connects to SAP systems to run ope
 
 The following diagram shows the AWS for SAP MCP Server architecture:
 
-![Architecture diagram showing AI agents communicating through Streamable HTTP through Amazon Bedrock AgentCore Runtime to SAP systems for service discovery and CRUD operations](http://docs.aws.amazon.com/mcp-sap/latest/awsforsapmcp/images/Component_Architecture2.png)
+![Architecture diagram showing AI agents communicating through Streamable HTTP through Amazon Bedrock AgentCore Runtime to SAP systems for service discovery and CRUD operations](https://docs.aws.amazon.com/mcp-sap/latest/awsforsapmcp/images/Component_Architecture2.png)
 
 
 The following is a sample architecture pattern showing how you can use the AWS for SAP MCP Server with [SAP Business Technology Platform (SAP BTP)](https://www.sap.com/products/technology-platform/use-cases/api-management.html) API Management. We recommend enabling your SAP OData APIs through the SAP BTP API Management layer. The AWS for SAP MCP Server connects to those APIs securely over HTTPS with OAuth 2.0 authentication. Data transmitted to these API endpoints is encrypted in transit by using TLS.
 
-![Architecture diagram showing AI agents communicating through Streamable HTTP through Amazon Bedrock AgentCore Runtime to SAP systems through SAP BTP API Management](http://docs.aws.amazon.com/mcp-sap/latest/awsforsapmcp/images/Component_Architecture3.png)
+![Architecture diagram showing AI agents communicating through Streamable HTTP through Amazon Bedrock AgentCore Runtime to SAP systems through SAP BTP API Management](https://docs.aws.amazon.com/mcp-sap/latest/awsforsapmcp/images/Component_Architecture3.png)
 
 
 The following steps describe the flow:
