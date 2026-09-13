@@ -23,3 +23,5 @@
 | `ListTestSources` | GET | List success criteria alarms or observability alarms for a test. | 
 | `ListTestRunSources` | GET | List success criteria alarms or observability alarms for a test run. | 
 | `ListResolvedTestRunTargetResources` | GET | List the resources that were resolved as targets for a test run. | 
+| `ListTestRunSourceEvents` | GET | List the state-change events observed for a monitoring source associated with a test run, such as Amazon CloudWatch alarm state changes. | 
+| `ListTestRunDependencies` | GET | List the dependencies a test run blocked, with the classification captured when the run started. | 

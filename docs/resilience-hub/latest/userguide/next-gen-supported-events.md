@@ -13,4 +13,4 @@ All Next generation Resilience Hub API actions are logged in CloudTrail, includi
 | Policies | CreateResiliencePolicy, UpdateResiliencePolicy, DeleteResiliencePolicy | 
 | Assessments | StartFailureModeAssessment, GetFailureModeAssessment, ListFailureModeFindings | 
 | Discovery | StartServiceTopologyDiscovery, ListDependencies, ClassifyDependency | 
-| Resilience testing | CreateTest, GetTest, ListTests, UpdateTest, DeleteTest, StartTestRun, StopTestRun, GetTestRun, ListTestRuns, ListTestTemplates, GetTestTemplate, PutTestSources, DeleteTestSources, ListTestSources, ListTestRunSources, ListTestRunEvents, ListResolvedTestRunTargetResources | 
+| Resilience testing | CreateTest, GetTest, ListTests, UpdateTest, DeleteTest, StartTestRun, StopTestRun, GetTestRun, ListTestRuns, ListTestTemplates, GetTestTemplate, PutTestSources, DeleteTestSources, ListTestSources, ListTestRunSources, ListTestRunEvents, ListResolvedTestRunTargetResources, ListTestRunSourceEvents, ListTestRunDependencies | 

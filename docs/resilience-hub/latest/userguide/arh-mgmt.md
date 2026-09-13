@@ -16,7 +16,7 @@ After you deploy an application into production, you can add AWS Resilience Hub 
 
 The following diagram provides a high-level outline of how AWS Resilience Hub works.
 
-![Flowchart that shows how AWS Resilience Hub works.](http://docs.aws.amazon.com/resilience-hub/latest/userguide/images/digito-how-it-works.png)
+![Flowchart that shows how AWS Resilience Hub works.](https://docs.aws.amazon.com/resilience-hub/latest/userguide/images/digito-how-it-works.png)
 
 
 **Describe**  

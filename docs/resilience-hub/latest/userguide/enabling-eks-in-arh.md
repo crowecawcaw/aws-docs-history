@@ -20,11 +20,11 @@ AWS Resilience Hub allows to access your Amazon EKS cluster resources by using o
 + If your application is configured to use role-based access for accessing resources, the invoker role or secondary account role passed to AWS Resilience Hub while creating an application will be used for accessing your Amazon EKS cluster during assessment. 
 
   The following conceptual diagram shows how AWS Resilience Hub accesses Amazon EKS clusters when the application is configured as a role-based application.  
-![Primary account with scheduler assuming service role to access RDS, EC2, and EKS resources.](http://docs.aws.amazon.com/resilience-hub/latest/userguide/images/EKS-accounts.png)
+![Primary account with scheduler assuming service role to access RDS, EC2, and EKS resources.](https://docs.aws.amazon.com/resilience-hub/latest/userguide/images/EKS-accounts.png)
 + If your application is configured to use the current IAM user for accessing resource, you must create a new IAM role with the name `AwsResilienceHubAssessmentEKSAccessRole` in the same account as that of the Amazon EKS cluster. This IAM role will then be used for accessing your Amazon EKS cluster.
 
   The following conceptual diagram shows how AWS Resilience Hub accesses Amazon EKS clusters deployed in your primary account when the application is configured to use the current IAM user permissions.  
-![Flow from Login to Current IAM Role to Assume Role to AWS Resilience Hub with EKS access role.](http://docs.aws.amazon.com/resilience-hub/latest/userguide/images/SingleAccountEKS.png)
+![Flow from Login to Current IAM Role to Assume Role to AWS Resilience Hub with EKS access role.](https://docs.aws.amazon.com/resilience-hub/latest/userguide/images/SingleAccountEKS.png)
 
   The following conceptual diagram shows how AWS Resilience Hub accesses Amazon EKS clusters deployed on a secondary account when the application is configured to use the current IAM user permissions.  
-![Flow diagram showing role assumption from primary account through IAM roles to access EKS in secondary account.](http://docs.aws.amazon.com/resilience-hub/latest/userguide/images/MultiAccountEKS.png)
+![Flow diagram showing role assumption from primary account through IAM roles to access EKS in secondary account.](https://docs.aws.amazon.com/resilience-hub/latest/userguide/images/MultiAccountEKS.png)

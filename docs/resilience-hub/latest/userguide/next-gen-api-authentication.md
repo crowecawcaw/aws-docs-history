@@ -11,7 +11,7 @@ https://resiliencehub.{region}.amazonaws.com
 
 **API version**
 
-Next generation Resilience Hub APIs use the `/v3` path prefix. All requests must be signed with AWS Signature Version 4 (SigV4).
+Next generation Resilience Hub APIs use the `/v2` path prefix. All requests must be signed with AWS Signature Version 4 (SigV4).
 
 **Authentication**
 
