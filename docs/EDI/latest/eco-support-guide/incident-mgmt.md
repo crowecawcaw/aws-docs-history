@@ -17,12 +17,12 @@ The following issues are examples of incidents that ECO manages:
 
 The following graphic shows the workﬂow of an incident reported by you to ECO.
 
-![ECO incidents reported by you.](http://docs.aws.amazon.com/EDI/latest/eco-support-guide/images/ecoIncidentMgmt.png)
+![ECO incidents reported by you.](https://docs.aws.amazon.com/EDI/latest/eco-support-guide/images/ecoIncidentMgmt.png)
 
 
 The following graphic shows the workﬂow of an incident reported by ECO to you.
 
-![ECO incidents reported to you by ECO.](http://docs.aws.amazon.com/EDI/latest/eco-support-guide/images/ecoIncidentMgmt2.png)
+![ECO incidents reported to you by ECO.](https://docs.aws.amazon.com/EDI/latest/eco-support-guide/images/ecoIncidentMgmt2.png)
 
 
 ## Incident priority
@@ -74,7 +74,7 @@ To report an incident, follow these steps:
 1. Sign in to [Support Center Console](https://console.aws.amazon.com/support/home#/).
 
 1. Choose **Create case** and then **Create incident report**. The **Technical** support issue type auto-selects.  
-![ECO incident submit page.](http://docs.aws.amazon.com/EDI/latest/eco-support-guide/images/ecoSubmitIncident-crop.png)
+![ECO incident submit page.](https://docs.aws.amazon.com/EDI/latest/eco-support-guide/images/ecoSubmitIncident-crop.png)
 
 1. Choose options from the following menus:
 

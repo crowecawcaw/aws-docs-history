@@ -35,7 +35,7 @@ To create a service request, follow these steps:
 1. Sign in to the [Support Center Console](https://console.aws.amazon.com/support/home#/).
 
 1. Choose **Create case** and then **Create service request**. The **Technical** support issue type auto-selects.  
-![ECO service request page.](http://docs.aws.amazon.com/EDI/latest/eco-support-guide/images/ecoSubmitServReq-crop.png)
+![ECO service request page.](https://docs.aws.amazon.com/EDI/latest/eco-support-guide/images/ecoSubmitServReq-crop.png)
 
 1. Choose options from the following menus:
 
