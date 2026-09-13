@@ -9,7 +9,7 @@
 
  From a logical perspective, we have defined several scenarios for capturing and interacting with device data telemetry. 
 
-![Options for capturing telemetry](http://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image2.png)
+![Options for capturing telemetry](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image2.png)
 
 
  

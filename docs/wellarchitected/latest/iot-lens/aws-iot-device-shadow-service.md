@@ -9,7 +9,7 @@
 
  
 
-![Using Device Shadow with devices](http://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image5.png)
+![Using Device Shadow with devices](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image5.png)
 
 
 

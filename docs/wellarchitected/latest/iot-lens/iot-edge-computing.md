@@ -27,7 +27,7 @@
 
  This architecture pattern describes how to set up AWS IoT Greengrass for IoT edge computing. 
 
-![Solution architecture for setting up AWS IoT Greengrass with client devices](http://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image7.png)
+![Solution architecture for setting up AWS IoT Greengrass with client devices](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image7.png)
 
 
 

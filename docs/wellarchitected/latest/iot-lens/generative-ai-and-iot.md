@@ -13,7 +13,7 @@
 
  In addition to collecting IoT data from devices, you can also send commands to devices. In the industrial asset monitoring example, if you find an abnormal situation from the asset IoT data collected, you can send a command using the Generative AI assistant to the device to collect more fine-granularity data for further troubleshooting. 
 
-![IoT and generative AI for automated data analysis, control and reporting](http://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image8.png)
+![IoT and generative AI for automated data analysis, control and reporting](https://docs.aws.amazon.com/wellarchitected/latest/iot-lens/images/image8.png)
 
 
  For more information, see [Emerging Architecture Patterns for Integrating IoT and generative AI on AWS](https://aws.amazon.com/blogs/iot/emerging-architecture-patterns-for-integrating-iot-and-generative-ai-on-aws/). 
