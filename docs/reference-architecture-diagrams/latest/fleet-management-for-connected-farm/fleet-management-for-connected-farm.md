@@ -10,7 +10,7 @@ This architecture enables you to to create an intelligent fleet management solut
 ## Fleet Management Solution for Connected Farm Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to create an intelligent fleet management solution for farming, using data from Internet of Things (IoT) sensors and cameras at strategic locations and in assets such as tractors and combine harvesters. Increasingly, these assets are equipped with multiple sensors for monitoring environmental conditions, hazards, and detecting changes in operations.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/fleet-management-for-connected-farm/images/fleet-management-for-connected-farm.png)
+![Reference architecture diagram showing how to create an intelligent fleet management solution for farming, using data from Internet of Things (IoT) sensors and cameras at strategic locations and in assets such as tractors and combine harvesters. Increasingly, these assets are equipped with multiple sensors for monitoring environmental conditions, hazards, and detecting changes in operations.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/fleet-management-for-connected-farm/images/fleet-management-for-connected-farm.png)
 
 
 1. Third-party sensors send data such as environmental conditions and operations data through **AWS IoT Greengrass** and **AWS Lambda** with protocol compatibility. 
