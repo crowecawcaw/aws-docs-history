@@ -11,7 +11,7 @@ Interface endpoints are represented by one or more elastic network interfaces (E
 
 Interface endpoints route requests for S3 on Outposts bucket and endpoint management APIs over the AWS network and through AWS PrivateLink, as illustrated in the following diagram.
 
-![How interface endpoints route requests for S3 on Outposts bucket and endpoint management APIs.](http://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/images/s3-outposts-interface-endpoints.png)
+![How interface endpoints route requests for S3 on Outposts bucket and endpoint management APIs.](https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/images/s3-outposts-interface-endpoints.png)
 
 
 For general information about interface endpoints, see [Interface VPC endpoints (AWS PrivateLink)](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html) in the *AWS PrivateLink Guide*.
