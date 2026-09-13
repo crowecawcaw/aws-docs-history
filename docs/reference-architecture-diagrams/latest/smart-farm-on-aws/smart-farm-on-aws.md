@@ -13,7 +13,7 @@ This Connected Farm reference architecture enables sensors, computer vision, and
 ### Reference Architecture Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to create a Connected Farm that enables sensors, computer vision, and edge inference in agriculture by focusing on ensuring scalability, elasticity, and a responsiveness for each operation’s growing and changing needs.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-farm-on-aws/images/smart-farm-on-aws.png)
+![Reference architecture diagram showing how to create a Connected Farm that enables sensors, computer vision, and edge inference in agriculture by focusing on ensuring scalability, elasticity, and a responsiveness for each operation’s growing and changing needs.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-farm-on-aws/images/smart-farm-on-aws.png)
 
 
 1. Third-party sensors or drones not using **FreeRTOS** send data through **AWS Lambda **for protocol conversion.
