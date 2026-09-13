@@ -10,7 +10,7 @@ With this architecture, you can build a scalable, secure IoT-backed smart factor
 ## Smart factory architecture diagram
 <a name="sfo-diagram"></a>
 
-![Reference architecture for a smart factory on AWS Outposts.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-factory-outposts/images/smart-factory-on-outposts-ra.png)
+![Reference architecture for a smart factory on AWS Outposts.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/smart-factory-outposts/images/smart-factory-on-outposts-ra.png)
 
 
 The following steps describe the architecture:
