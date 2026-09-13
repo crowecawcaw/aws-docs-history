@@ -10,7 +10,7 @@ This architecture shows how to use [AWS Ground Station](https://docs.aws.amazon.
 ## Run Machine Learning Algorithms with Satellite Data
 <a name="diagram1"></a>
 
-![Architecture diagram showing machine learning algorithms with satellite data by using AWS Ground Station and SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ml-satellite-data/images/ml-satellite-data.png)
+![Architecture diagram showing machine learning algorithms with satellite data by using AWS Ground Station and SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ml-satellite-data/images/ml-satellite-data.png)
 
 
 The following steps describe the architecture:
