@@ -43,25 +43,25 @@ AWS Backup currently supports [Amazon Elastic Block Store (Amazon EBS)](https://
 1. Open the AWS Backup console
 
    Log in to the [AWS Management Console](https://console.aws.amazon.com/), and open the [AWS Backup console](https://console.aws.amazon.com/backup).    
-![The navigation menu interface for the AWS Backup console.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/navigation-menu-interface-bkplong-console.png)
+![The navigation menu interface for the AWS Backup console.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/navigation-menu-interface-bkplong-console.png)
 
 1. Configure the services used with AWS Backup
 
    On the navigation pane on the left side of the [AWS Backup console](https://console.aws.amazon.com/backup), under **My account**, choose **Settings**. 
 
    On the **Service opt-in** page, select the **Configure resources** button.   
-![The service configuration interface.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/service-configuration-interface-1.png)
+![The service configuration interface.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/service-configuration-interface-1.png)
 
 1. Choose your resources
 
    On the **Configure resources** page, use the toggle switches to enable or disable the services used with AWS Backup. In this case, select **EBS**. Choose **Confirm** when your services are configured. 
    + AWS resources that you're backing up should be in the Region you are using for this tutorial, and resources must all be in the same AWS Region (however, see step 2.6 for information on cross-Region copy). This tutorial uses the US East (N. Virginia) Region (us-east-1).    
-![The AWS Backup 'Configure resources' settings page, showing toggle switches to enable or disable backup protection for various resources like Aurora, DynamoDB, EBS, EC2, and others.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-configure-resources-settings-page-1.png)
+![The AWS Backup 'Configure resources' settings page, showing toggle switches to enable or disable backup protection for various resources like Aurora, DynamoDB, EBS, EC2, and others.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-configure-resources-settings-page-1.png)
 
 1. Create an on-demand backup
 
    Back in the [AWS Backup console](https://console.aws.amazon.com/backup), under **My account**, select **Dashboard** on the left navigation pane. Then, select the **Create on-demand backup** button.   
-![AWS Backup dashboard interface showing options to manage backup plans, create an on-demand backup, and restore a backup, with a navigation menu on the left.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-dashboard-interface-options-manage.png)
+![AWS Backup dashboard interface showing options to manage backup plans, create an on-demand backup, and restore a backup, with a navigation menu on the left.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-dashboard-interface-options-manage.png)
 
 1. Configure backup settings
 
@@ -74,7 +74,7 @@ AWS Backup currently supports [Amazon Elastic Block Store (Amazon EBS)](https://
    In the **Retention period** section, select **Days** and type the number of days you want to retain the backups for. In this example, we entered in "7" days. 
 
    In the **Backup vault** section, select one of the pre-existing vaults and continue, or follow the next optional step to create a new backup vault (which begins with selecting **Create new Backup vault**) before continuing.    
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/resource-creation-interface.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/resource-creation-interface.png)
 
 1. Create a backup vault
 
@@ -87,12 +87,12 @@ AWS Backup currently supports [Amazon Elastic Block Store (Amazon EBS)](https://
    Enter a name for your backup vault. You can name your vault to reflect what you will store in it, or to make it easier to search for the backups you need. For example, you could name it "webappBackups." 
 
    Select an AWS Key Management Service (KMS) key. You can use either a key that you already created, or select the default AWS Backup master key.   
-![AWS Backup interface showing the "Create Backup Vault" page with fields for vault name and master key, and a table displaying default master key details.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-backup-vault-page-fields-1.png)
+![AWS Backup interface showing the "Create Backup Vault" page with fields for vault name and master key, and a table displaying default master key details.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-backup-vault-page-fields-1.png)
 
 1. (Optional) Add tags
 
    Optionally, add tags that will help you search for and identify your backup vault.    
-![Form interface for adding optional backup vault tags with fields for key and value, and buttons to add or remove tags, alongside 'Cancel' and 'Create Backup vault' options.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/form-interface-adding-optional-backup.png)
+![Form interface for adding optional backup vault tags with fields for key and value, and buttons to add or remove tags, alongside 'Cancel' and 'Create Backup vault' options.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/form-interface-adding-optional-backup.png)
 
 1. Choose a default IAM role
 
@@ -101,7 +101,7 @@ AWS Backup currently supports [Amazon Elastic Block Store (Amazon EBS)](https://
 If the AWS Backup **Default role** is not present in your account, then one is created with the correct permissions.
 
    Select the **Create on-demand backup** button. This takes you to the **Jobs** page, where you will see a list of jobs.   
-![AWS Backup interface showing IAM role selection options, tag settings for recovery points, and buttons for "Cancel" and "Create on-demand backup.".](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-iam-role-selection.png)
+![AWS Backup interface showing IAM role selection options, tag settings for recovery points, and buttons for "Cancel" and "Create on-demand backup.".](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-iam-role-selection.png)
 
 1. Monitor the status of the backup job
 
@@ -110,7 +110,7 @@ If the AWS Backup **Default role** is not present in your account, then one is c
    Choose the **Backup job ID** for the resource that you chose to back up to see the details of that job. 
 
    After some time, the **Status** of the backup job will go from **Created** to **Completed**.   
-![AWS Backup interface showing a completed backup job with details including job ID, resource ID, resource type, creation time, and start time.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-completed-backup-job.png)
+![AWS Backup interface showing a completed backup job with details including job ID, resource ID, resource type, creation time, and start time.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-completed-backup-job.png)
 
 ### Step 2: Configure an automatic AWS Backup job of an Amazon EBS volume
 <a name="configure-an-automatic-aws-backup-job-of-an-amazon-ebs-volume"></a>
@@ -120,18 +120,18 @@ If the AWS Backup **Default role** is not present in your account, then one is c
    On the navigation pane on the left side of the [AWS Backup console](https://console.aws.amazon.com/backup), under **My account**, choose **Settings**. 
 
    On the **Service opt-in** page, select the **Configure resources** button.   
-![The service configuration interface.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/service-configuration-interface-1.png)
+![The service configuration interface.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/service-configuration-interface-1.png)
 
 1. Choose your resources
 
    On the **Configure resources** page, use the toggle switches to enable or disable the services used with AWS Backup. Choose **Confirm** when your services are configured. 
    + AWS resources that you're backing up should be in the Region you are using for this tutorial, and resources must all be in the same AWS Region (however, see step 3.2 for information on cross-Region copy). This tutorial uses the US East (N. Virginia) Region (us-east-1).    
-![The AWS Backup 'Configure resources' settings page, showing toggle switches to enable or disable backup protection for various resources like Aurora, DynamoDB, EBS, EC2, and others.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-configure-resources-settings-page-1.png)
+![The AWS Backup 'Configure resources' settings page, showing toggle switches to enable or disable backup protection for various resources like Aurora, DynamoDB, EBS, EC2, and others.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-configure-resources-settings-page-1.png)
 
 1. Configure a backup plan for an Amazon EBS volume
 
    In the [AWS Backup console](https://console.aws.amazon.com/backup), select **Backup plans** on the left rail, under **My account**, and then select the **Create Backup plan** button.   
-![AWS Backup interface showing the "Backup plans" section with a search bar, filter options, and a "Create Backup plan" button.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-backup-plans-section.png)
+![AWS Backup interface showing the "Backup plans" section with a search bar, filter options, and a "Create Backup plan" button.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-backup-plans-section.png)
 
 1. Choose how to begin
 
@@ -141,7 +141,7 @@ If the AWS Backup **Default role** is not present in your account, then one is c
    + **Define a plan using JSON:** You can modify the JSON expression of an existing backup plan or create a new expression. 
 
    **Backup Plan Name** - You must provide a unique backup plan name. If you try to create a backup plan that is identical to an existing plan, you get an *AlreadyExistsException* error.   
-![The backup creation interface.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/backup-creation-interface.png)
+![The backup creation interface.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/backup-creation-interface.png)
 
 1. Configure the backup rule
 
@@ -158,7 +158,7 @@ If the AWS Backup **Default role** is not present in your account, then one is c
    In the **Transition to cold storage** section, keep the default - **Never**.  
 
    In the **Retention period** section, select **Days** and type "7" (or you can put in any number of days as desired).    
-![A backup rule configuration form in a cloud management interface, showing fields for rule name, backup vault, frequency, retention period, and other settings.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/backup-rule-configuration-form-cloud.png)
+![A backup rule configuration form in a cloud management interface, showing fields for rule name, backup vault, frequency, retention period, and other settings.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/backup-rule-configuration-form-cloud.png)
 
 1. Continue configuring the backup rule
 
@@ -175,7 +175,7 @@ Cross-region copy incurs additional data transfer costs. You can refer to the AW
    **Advanced Backup Settings:** Enables application consistent backups for third-party applications that are running on Amazon EC2 instances. Currently, AWS Backup supports Windows VSS backups. This is only applicable for Windows EC2 Instances running SQL Server or Exchange Databases. You can refer to the [documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html) for more details. 
 
    Then, select the **Create Plan** button. Once the plan is created, tags and resources can be added to the backup plan.   
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface-controls-buttons.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface-controls-buttons.png)
 
 1. Create a backup vault
 
@@ -188,14 +188,14 @@ Cross-region copy incurs additional data transfer costs. You can refer to the AW
    Select an AWS KMS key. You can use either a key that you already created, or select the default AWS Backup master key. 
 
    Optionally, add tags that will help you search for and identify your backup vault.   
-![AWS Backup interface showing the "Create Backup Vault" page with fields for vault name and master key, and a table displaying default master key details.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-backup-vault-page-fields-1.png)
+![AWS Backup interface showing the "Create Backup Vault" page with fields for vault name and master key, and a table displaying default master key details.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-backup-vault-page-fields-1.png)
 
 1. Assign resources to the backup plan
 
    When you assign a resource to a backup plan, that resource is backed up automatically according to the backup plan. The backups for that resource are managed according to the backup plan. You can assign resources using tags or resource IDs. Using tags to assign resources is a simple and scalable way to back up multiple resources. 
 
    Select the created backup plan and select the **Assign resources** button.     
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface-controls-buttons-1.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface-controls-buttons-1.png)
 
 1. Enter configuration details
 
@@ -204,14 +204,14 @@ Cross-region copy incurs additional data transfer costs. You can refer to the AW
    + **IAM Role**: When creating a tag-based backup plan, if you choose a role other than Default role, make sure that it has the necessary permissions to back up all tagged resources. AWS Backup tries to process all resources with the selected tags. If it encounters a resource that it doesn't have permission to access, the backup plan fails. 
    + **Assign by**: You can select **Tags** or **Resource ID**. For a tags-based resource assignment, provide the key-value pair of the EBS Volume.  
    + Select **Assign resources.** The backup plan will then have the resources assigned to it.   
-![The AWS Backup 'Assign resources' page, showing fields for resource assignment name, IAM role selection, and resource assignment by tags or resource ID with an example EBS volume ID entered.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-assign-resources-page-fields.png)
+![The AWS Backup 'Assign resources' page, showing fields for resource assignment name, IAM role selection, and resource assignment by tags or resource ID with an example EBS volume ID entered.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-assign-resources-page-fields.png)
 
 1. View your backup jobs
 
    Navigate to the [AWS Backup console](https://console.aws.amazon.com/backup) and select **Jobs** in the left navigation pane. You will then be able to see your **Backup jobs**. 
 
    A backup, or recovery point, represents the content of a resource, such as an Amazon EBS volume or Amazon RDS database, at a specified time. Recovery point is a term that refers generally to the different backups in AWS services, such as Amazon EBS snapshots and Amazon RDS backups. In AWS Backup, recovery points are saved in backup vaults, which you can organize according to your business needs. Each recovery point has a unique ID.   
-![AWS Backup interface showing a completed backup job for an EBS volume with details including job ID, resource type, and timestamps.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-completed-backup-job-ebs.png)
+![AWS Backup interface showing a completed backup job for an EBS volume with details including job ID, resource type, and timestamps.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-interface-completed-backup-job-ebs.png)
 
 ### Step 3: Restore an Amazon EBS volume using AWS Backup
 <a name="restore-an-amazon-ebs-volume-using-aws-backup"></a>
@@ -219,7 +219,7 @@ Cross-region copy incurs additional data transfer costs. You can refer to the AW
 1. Start the restore
 
    Navigate to the backup vault that was selected in the backup plan and select the latest completed backup. To restore the EBS volume, click on the recovery point ARN and select the **Restore** button.    
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface-controls-buttons-2.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface-controls-buttons-2.png)
 
 1. Configure restore settings
    + The restore of the ARN will bring you to a **Restore backup** screen that will have the snapshot ID, and other configurations. 
@@ -228,22 +228,22 @@ Cross-region copy incurs additional data transfer costs. You can refer to the AW
    + **Size**: Select 100 GB (equivalent size of the backed up EBS volume). 
    + **IOPS**: 300/3000 - Baseline of 3 iops per GiB with a minimum of 100 IOPS, burstable to 3000 IOPS. 
    + **Availability Zone**: Select the Availability Zone, if you have a preference.   
-![AWS Backup restore settings page showing options for EBS volume type, size, IOPS, availability zone, throughput, and encryption status.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-restore-settings-page-options-ebs.png)
+![AWS Backup restore settings page showing options for EBS volume type, size, IOPS, availability zone, throughput, and encryption status.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/bkplong-restore-settings-page-options-ebs.png)
 
 1. Choose a restore role
 
    Select **Default role** and the select the **Restore backup** button.   
-![Restore role selection screen in AWS Backup with options for 'Default role' or 'Choose an IAM role,' and buttons for 'Cancel' and 'Restore backup.'.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/restore-role-selection-screen-bkplong.png)
+![Restore role selection screen in AWS Backup with options for 'Default role' or 'Choose an IAM role,' and buttons for 'Cancel' and 'Restore backup.'.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/restore-role-selection-screen-bkplong.png)
 
 1. View the backup job
 
    The restored backup job will appear under **Restore jobs** in the the [AWS Backup console](https://console.aws.amazon.com/backup).    
-![The interface controls and buttons.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface-controls-buttons-3.png)
+![The interface controls and buttons.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface-controls-buttons-3.png)
 
 1. View the restored EBS volumes
 
    Once the job status appears as completed, navigate to the [Amazon EC2 console](https://console.aws.amazon.com/ec2/v2/home), select V**olumes** under **Elastic Block Store** to see the restored EBS volumes.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/images/interface.png)
 
 ## Next steps
 <a name="next-steps"></a>
