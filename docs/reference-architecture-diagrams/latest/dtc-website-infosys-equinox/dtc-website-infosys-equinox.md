@@ -10,7 +10,7 @@ With this architecture, you can build a microservices-based headless direct-to-c
 ## Architecture diagram
 <a name="dtc-diagram"></a>
 
-![DTC website architecture with Amazon CloudFront, AWS WAF, Amazon EKS, and Infosys Equinox unified commerce on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/dtc-website-infosys-equinox/images/microservice-dtc-with-skava-on-AWS-ra.png)
+![DTC website architecture with Amazon CloudFront, AWS WAF, Amazon EKS, and Infosys Equinox unified commerce on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/dtc-website-infosys-equinox/images/microservice-dtc-with-skava-on-AWS-ra.png)
 
 
 The following steps describe the architecture:
