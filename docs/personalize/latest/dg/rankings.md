@@ -22,7 +22,7 @@ Like the scores returned by the `GetRecommendations` operation for solutions cre
 
 Mathematically, the scoring function for GetPersonalizedRanking is identical to `GetRecommendations`, except that it only considers the input items. This means that scores closer to 1 become more likely, as there are fewer other choices to divide up the score:
 
-![Depicts the formula used to calculate scores for each item in a ranking.](http://docs.aws.amazon.com/personalize/latest/dg/images/get_personalized_ranking.png)
+![Depicts the formula used to calculate scores for each item in a ranking.](https://docs.aws.amazon.com/personalize/latest/dg/images/get_personalized_ranking.png)
 
 
 ## Personalized-Ranking sample notebook

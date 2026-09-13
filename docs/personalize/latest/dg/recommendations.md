@@ -38,7 +38,7 @@ For both User-Personalization-v2 and User-Personalization, the total of all scor
 
 In mathematical terms, scores for each user-item pair (u,i) are computed according to the following formula, where `exp` is the exponential function, w̅u and wi/j are user and item embeddings respectively, and the Greek letter sigma (Σ) represents summation over all items with scores:
 
-![Depicts the formula used to calculate scores for each item in recommendations.](http://docs.aws.amazon.com/personalize/latest/dg/images/get_recommendations_score.png)
+![Depicts the formula used to calculate scores for each item in recommendations.](https://docs.aws.amazon.com/personalize/latest/dg/images/get_recommendations_score.png)
 
 
 ## Recommendation reasons with User-Personalization-v2

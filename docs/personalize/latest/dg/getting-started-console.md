@@ -21,7 +21,7 @@ In this procedure, you first create a dataset group. Next, you create an Amazon 
 1. In **Dataset group details**, for **Dataset group name**, specify a name for your dataset group. 
 
 1. For **Domain** choose **Custom**. Your screen should look similar to the following:  
-![Depicts Create dataset group page with Name, Domain, and Tags fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-1-dataset-group-v02.png)
+![Depicts Create dataset group page with Name, Domain, and Tags fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-1-dataset-group-v02.png)
 
 1. Choose **Create group**. The **Overview** page appears.
 
@@ -34,7 +34,7 @@ In this procedure, you first create a dataset group. Next, you create an Amazon 
 1. For **Dataset schema**, choose **Create new schema**. In the **Schema definition** section, a minimal Item interactions schema is displayed. The schema matches the headers you previously added to the `ratings.csv` file, so you don't need to make any changes. If you haven't created the training data, see [Getting started prerequisites](gs-prerequisites.md). 
 
 1. For **Schema name**, specify a name for the new schema. Your screen should look similar to the following:  
-![Depicts the Configure item interactions schema page with dataset and schema fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-2-schema.png)
+![Depicts the Configure item interactions schema page with dataset and schema fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-2-schema.png)
 
 1. Choose **Next**. The **Configure item interactions dataset import job** page appears. Next, complete [Step 2: Import item interactions data](#getting-started-console-import-data) to import interactions data.
 
@@ -60,7 +60,7 @@ In this procedure, you first create a dataset group. Next, you create an Amazon 
 1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions).
 
     The **Dataset import job details** and **IAM role** sections should be similar to the following:   
-![Depicts the Configure item interactions dataset import job page with import job fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-3-import-job.png)
+![Depicts the Configure item interactions dataset import job page with import job fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-3-import-job.png)
 
 1. Leave the **Publish event metrics to S3 ** and **Tags** sections unchanged and choose **Start import**. The data import job starts and the **Overview** page is displayed. Initially, the status is **Create pending** (followed by **Create in progress**), and the **Create solution** button is disabled.
 
@@ -87,7 +87,7 @@ In this tutorial you create a solution that uses automatic training. With automa
 1. For **Recipe**, choose `aws-user-personalization-v2`.
 
    Your screen should look similar to the following:  
-![Depicts the Configure solution page with solution name, type and recipe fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-5-create-solution.png)
+![Depicts the Configure solution page with solution name, type and recipe fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-5-create-solution.png)
 
 1. Choose **Next**. Leave the **Training configuration** fields unchanged. The solution you create automatically trains new models every 7 days and gives more weight to the most recent item interaction data.
 
@@ -115,12 +115,12 @@ In this procedure, you create a campaign, which deploys the solution version you
 1. Choose **Automatically use the latest solution version**. Leave all other fields unchanged.
 
    Your screen should look similar to the following:  
-![Depicts the Create new campaign page with campaign configuration fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/getting-started-create-new-campaign.png)
+![Depicts the Create new campaign page with campaign configuration fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/getting-started-create-new-campaign.png)
 
 1. Choose **Create campaign**. Campaign creation starts and the campaign details pages with the **Personalization API** section displayed.
 
    Creating a campaign can take a couple minutes. After Amazon Personalize finishes creating your campaign, the page is updated to show the **Test campaign results** section. Your screen should look similar to the following:  
-![Depicts the test campaign section with fields for a recommendation request.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-campaign-test-before-results.png)
+![Depicts the test campaign section with fields for a recommendation request.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-campaign-test-before-results.png)
 
 ## Step 5: Get recommendations
 <a name="getting-started-console-get-recommendations"></a>
@@ -134,4 +134,4 @@ In this procedure, use the campaign that you created in the previous step to get
 1. Choose **Get recommendations**. The **Recommendations** panel lists the item IDs and scores for the recommended items.
 
    Your screen should look similar to the following:  
-![Depicts the Test campaign section for a campaign with recommendation results.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-test-campaign-with-results.png)
+![Depicts the Test campaign section for a campaign with recommendation results.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-test-campaign-with-results.png)

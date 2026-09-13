@@ -55,12 +55,12 @@ The Amazon Personalize insights include a finding and a suggested action. The ac
 
 The look and feel of the Amazon Personalize report is the same as the general insights report in Data Wrangler. For examples of the general insights report, see [Get Insights On Data and Data Quality](https://docs.aws.amazon.com/sagemaker/latest/dg/data-wrangler-data-insights.html) in the *Amazon SageMaker AI Developer Guide*. The following example shows how the summary section of a report for an Item interactions dataset. It includes dataset statistics and some possible high priority Item interactions dataset warnings.
 
-![Depicts the summary section of a report for an Item interactions dataset.](http://docs.aws.amazon.com/personalize/latest/dg/images/dw-reports-summary.png)
+![Depicts the summary section of a report for an Item interactions dataset.](https://docs.aws.amazon.com/personalize/latest/dg/images/dw-reports-summary.png)
 
 
  The following example shows how the feature details section for an EVENT\_TYPE column of an Item interactions dataset might appear in a report. 
 
-![Depicts the feature details section for an EVENT_TYPE column of an Item interactions dataset.](http://docs.aws.amazon.com/personalize/latest/dg/images/dw-event-type-report.png)
+![Depicts the feature details section for an EVENT_TYPE column of an Item interactions dataset.](https://docs.aws.amazon.com/personalize/latest/dg/images/dw-event-type-report.png)
 
 
 ### Generating the report

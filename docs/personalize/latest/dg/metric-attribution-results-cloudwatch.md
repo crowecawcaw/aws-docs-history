@@ -14,4 +14,4 @@ To view metrics in CloudWatch, complete the procedure found in [Graphing a metri
 
 The following is an example of how a metric might appear in CloudWatch. The metric shows the click-through rate for every 15 minutes for two different recommenders.
 
-![Depicts a graph of the click-through rate for every 15 minutes for two different recommenders.](http://docs.aws.amazon.com/personalize/latest/dg/images/metric-attribution-cw-example.png)
+![Depicts a graph of the click-through rate for every 15 minutes for two different recommenders.](https://docs.aws.amazon.com/personalize/latest/dg/images/metric-attribution-cw-example.png)

@@ -9,7 +9,7 @@
 
 The following video shows how you can enhance recommendations with Amazon Personalize and generative AI.
 
-[![AWS Videos](http://img.youtube.com/vi/9x9X2wNpd1I/0.jpg)](http://www.youtube.com/watch?v=9x9X2wNpd1I)
+[![AWS Videos](https://img.youtube.com/vi/9x9X2wNpd1I/0.jpg)](https://www.youtube.com/watch?v=9x9X2wNpd1I)
 
 
  The following Amazon Personalize features use generative AI or can help you build generative AI solutions that create personalized content. For sample Jupyter notebooks that show how to use Amazon Personalize with generative AI, see [Generative AI with Amazon Personalize](https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/generative_ai) in the [Amazon Personalize samples](https://github.com/aws-samples/amazon-personalize-samples) repository. 

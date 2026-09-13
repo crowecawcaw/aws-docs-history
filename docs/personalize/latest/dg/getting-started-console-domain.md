@@ -23,7 +23,7 @@ When you finish the getting started exercise, to avoid incurring unnecessary cha
 1. In **Dataset group details**, specify a name for your dataset group. 
 
 1.  For **Domain**, choose **Video on demand**. The domain you choose determines the default schema you use when importing data. It also determines what use cases are available for recommenders. Your screen should look similar to the following.   
-![Depicts Create dataset group page with Name and Domain fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-1-create-dsg.png)
+![Depicts Create dataset group page with Name and Domain fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-1-create-dsg.png)
 
 1. Choose **Create dataset group**. The Overview page appears. Proceed to [Step 2: Import data](#getting-started-import-data-domain).
 
@@ -41,7 +41,7 @@ When you finish the getting started exercise, to avoid incurring unnecessary cha
 1. On the **Configure item interactions schema** page, for **Dataset name** provide a name for your Item interactions dataset. 
 
 1. For **Dataset schema**, choose **Create a new domain schema by modifying the existing default schema for your domain** and enter a name for the schema. The **Schema definition** updates to display the default schema for the VIDEO\_ON\_DEMAND domain. Leave the schema unchanged. Your screen should look similar to the following.   
-![Depicts the Configure item interactions schema page with dataset and schema fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-2-create-dataset.png)
+![Depicts the Configure item interactions schema page with dataset and schema fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-2-create-dataset.png)
 
 1. Choose **Next**. The **Configure item interactions dataset import job** page appears.
 
@@ -54,7 +54,7 @@ When you finish the getting started exercise, to avoid incurring unnecessary cha
    **s3://amzn-s3-demo-bucket/<folder path>/<CSV filename>**
 
 1. In **IAM role**, for **IAM service role** choose **Enter a custom IAM role ARN** and enter the Amazon Resource Name (ARN) of the role you created in [Creating an IAM role for Amazon Personalize](set-up-required-permissions.md#set-up-create-role-with-permissions). Your screen should look similar to the following.  
-![Depicts the Configure item interactions dataset import job page with import job fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-3-import-job.png)
+![Depicts the Configure item interactions dataset import job page with import job fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-3-import-job.png)
 
 1. Choose **Start import** to import data. The **Overview** page for your Domain dataset group appears. Note the status of the import in the **Set up datasets** section. When the status is `Interaction data active` proceed to [Step 3: Create a recommender](#getting-started-console-create-recommenders).
 
@@ -68,7 +68,7 @@ In this procedure, you create a recommender for the *Top picks for you* use case
 1.  On the **Overview** page for your Domain dataset group, in **Step 3** choose the **Use video on demand recommenders** tab and choose **Create recommenders**. 
 
 1. On the **Choose use case** page, choose **Top picks for you** and provide a **Recommender name**. Your screen should appear similar to the following.  
-![Depicts the Choose use case page with a list use case options to choose.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-4-create-recommender.png)
+![Depicts the Choose use case page with a list use case options to choose.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-4-create-recommender.png)
 
 1. Choose **Next**.
 
@@ -94,4 +94,4 @@ In this procedure you use the recommender that you created in the previous step 
 1. In **Recommendation parameters**, enter a user ID. Leave the other fields unchanged.
 
 1. Choose **Get recommendations**. A table containing the user’s top 25 recommended items appears. Your screen should look similar to the following.  
-![Depicts the Test recommender page with fields for a recommendation request.](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-5-get-recc.png)
+![Depicts the Test recommender page with fields for a recommendation request.](https://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-5-get-recc.png)

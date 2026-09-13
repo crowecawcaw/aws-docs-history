@@ -14,7 +14,7 @@ If you're a first-time user of Amazon Personalize, the following resources can h
 
  The Magic Movie Machine is an interactive learning experience. It helps you discover Amazon Personalize features and learn more about generating recommendations. For a short introduction, see the video below. Then try the [Magic Movie Machine](https://dohy8sp8i3s5p.cloudfront.net/). 
 
-[![AWS Videos](http://img.youtube.com/vi/T87I563uEjo/0.jpg)](http://www.youtube.com/watch?v=T87I563uEjo)
+[![AWS Videos](https://img.youtube.com/vi/T87I563uEjo/0.jpg)](https://www.youtube.com/watch?v=T87I563uEjo)
 
 
 ## Navigating getting started materials in this guide

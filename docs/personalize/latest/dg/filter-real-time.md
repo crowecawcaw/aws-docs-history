@@ -32,7 +32,7 @@ To filter recommendations using a filter with parameters and a campaign deployed
 1. Choose the dataset group that contains the campaign or recommender that you want to use to get filtered recommendations.
 
 1. In the navigation pane, choose **Filters** and then choose **Create new filter**. The **Create filter** page displays.  
-![Depicts the create filter page with filter name and expression fields.](http://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-page.png)
+![Depicts the create filter page with filter name and expression fields.](https://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-page.png)
 
 1. For **Filter name**, enter a name for your filter. You will choose the filter by this name when you apply it to a recommendation request.
 
@@ -41,7 +41,7 @@ To filter recommendations using a filter with parameters and a campaign deployed
    +  To input your own expression, choose **Add expression manually**. For more information, see [Filter expression elements](creating-filter-expressions.md#filter-expression-elements). 
 
 1. Choose **Finish**. The filter's overview page shows the filter’s Amazon Resource Name (ARN), status, and full filter expression. To delete the filter, choose **Delete**. For information about finding and deleting filters after you have left the overview page, see [Deleting a filter (console)](#delete-filter-console).  
-![Depicts the filter details page with the filter's ARN and expression.](http://docs.aws.amazon.com/personalize/latest/dg/images/filter-details-page.png)
+![Depicts the filter details page with the filter's ARN and expression.](https://docs.aws.amazon.com/personalize/latest/dg/images/filter-details-page.png)
 
 ### Applying a filter (console)
 <a name="apply-filter-console"></a>
@@ -66,14 +66,14 @@ For filter expressions that use an `INCLUDE` element, you must provide values fo
 1. On the **Recommenders** or **Campaigns** page, choose the target recommender or campaign.
 
 1. For comparison, start by getting recommendations without applying a filter. Under **Test recommender** / **Test campaign results**, enter the ID of a user that you want to get recommendations for, or the ID of the item for related items, and choose **Get recommendations**. A table containing the top recommendations appears.  
-![Depicts recommendation results without applying a filter.](http://docs.aws.amazon.com/personalize/latest/dg/images/Recommendations_no-filter.PNG)
+![Depicts recommendation results without applying a filter.](https://docs.aws.amazon.com/personalize/latest/dg/images/Recommendations_no-filter.PNG)
 
 1. From the **Filter name** menu, choose the filter that you created. If your filter has any placeholder parameters, the associated fields for each parameter appear.
 
 1. If you're using a filter with placeholder parameters, for each parameter, enter the value to set the filter criteria. To use multiple values for one parameter, separate each value with a comma.
 
 1. Using the same `User ID` or `Item ID` as in the earlier step, choose **Get recommendations**. The recommendations table appears.  
-![Depicts recommendation results with a filter applied.](http://docs.aws.amazon.com/personalize/latest/dg/images/Recommendations_filter.png)
+![Depicts recommendation results with a filter applied.](https://docs.aws.amazon.com/personalize/latest/dg/images/Recommendations_filter.png)
 
    For example, if the user already bought a recommended item, the filter removes it from the recommendation list. In this example, items 2657, 2985 were replaced by the most suitable items that the user didn't buy (items 2641 and 1573).
 
@@ -82,7 +82,7 @@ For filter expressions that use an `INCLUDE` element, you must provide values fo
 
 The **Expression builder** on the **Create filter** page provides structure, fields, and guidelines for building correctly formatted filter.
 
-![Depicts the fields of the expression builder on the create filter page.](http://docs.aws.amazon.com/personalize/latest/dg/images/expression-builder-empty.png)
+![Depicts the fields of the expression builder on the create filter page.](https://docs.aws.amazon.com/personalize/latest/dg/images/expression-builder-empty.png)
 
 
 To build a filter expression:
@@ -108,7 +108,7 @@ To create a filter that uses both Item and Item interaction datasets, or Action 
 
 The following example shows how to build a filter that excludes items with a genre that you specify when you get recommendations (note the $GENRES placeholder parameter). The filter also excludes items with a `DOWNLOAD_COUNT` of more than `200`, but only if the current user's age is greater than `17`.
 
-![Shows how to use expression builder to build an example filter expression.](http://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-expression-builder.png)
+![Shows how to use expression builder to build an example filter expression.](https://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-expression-builder.png)
 
 
 ### Deleting a filter (console)

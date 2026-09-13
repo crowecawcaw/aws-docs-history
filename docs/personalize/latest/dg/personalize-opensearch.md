@@ -41,7 +41,7 @@ However, for more generic queries that result in a wide range of results (such a
 
 The following diagram shows how the Amazon Personalize Search Ranking plugin works.
 
-![Depicts how the plugin works when you use it to personalize OpenSearch results.](http://docs.aws.amazon.com/personalize/latest/dg/images/opensearch-plugin-how-it-works.png)
+![Depicts how the plugin works when you use it to personalize OpenSearch results.](https://docs.aws.amazon.com/personalize/latest/dg/images/opensearch-plugin-how-it-works.png)
 
 
 1. You submit your customer's query to your OpenSearch Service domain or your open source OpenSearch cluster.

@@ -7,7 +7,7 @@
 
  You start on the **Data flow** page. The page should look similar to the following. 
 
-![Depicts the Data flow page of Data Wrangler with Import data and Use sample dataset options.](http://docs.aws.amazon.com/personalize/latest/dg/images/dw-data-sources.png)
+![Depicts the Data flow page of Data Wrangler with Import data and Use sample dataset options.](https://docs.aws.amazon.com/personalize/latest/dg/images/dw-data-sources.png)
 
 
 To start importing data, you choose **Import data** and specify your data source. Data Wrangler supports 40\+ sources. These include AWS services, such as Amazon Redshift, Amazon EMR, or Amazon Athena, and third parties, such as Snowflake or DataBricks. Different data sources have different procedures for connecting and importing data. 
