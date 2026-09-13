@@ -10,7 +10,7 @@ With this architecture, you can ingest and store data from industrial equipment 
 ## Industrial data platform architecture diagram
 <a name="idp-diagram"></a>
 
-![Reference architecture diagram for building an industrial data platform on AWS that ingests IIoT and enterprise data for analytics and ML predictions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-data-platform/images/industrial-data-platform-ra.png)
+![Reference architecture diagram for building an industrial data platform on AWS that ingests IIoT and enterprise data for analytics and ML predictions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/industrial-data-platform/images/industrial-data-platform-ra.png)
 
 
 The following steps describe the architecture:
