@@ -10,7 +10,7 @@ Financial advisors often work outside of normal business hours, when head office
 ## Financial Advisor Chat Assistant Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing a financial advisor chat assistannt.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/financial-advisor-chat-assistant/images/financial-advisor-chat-assistant.png)
+![Reference architecture diagram showing a financial advisor chat assistannt.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/financial-advisor-chat-assistant/images/financial-advisor-chat-assistant.png)
 
 
 To enhance the security of this architecture, you shoulduse the following additional services: **AWS CloudTrail** to track API usage, **Amazon CloudWatch** to monitor the AWS resources, and **AWS Key Management Service** (AWS KMS) to help securely generate and manage AWS encryption keys. You should also enable secure headers in **AWS Amplify**.
