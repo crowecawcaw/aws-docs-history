@@ -19,7 +19,7 @@ Documentation for client configuration options, including the Amplify DataStore,
 
 To automatically set up the GraphQL endpoint in AWS AppSync with all the resolvers configured and the necessary AWS resources, use this AWS CloudFormation template:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml) 
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/deltasync/deltasync-v2-full.yaml) 
 
 This stack creates the following resources in your account:
 + 2 DynamoDB tables (Base and Delta)

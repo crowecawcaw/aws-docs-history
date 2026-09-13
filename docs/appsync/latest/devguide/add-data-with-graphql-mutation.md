@@ -14,7 +14,7 @@ Your next step is to add data to your blank DynamoDB table using a GraphQL mutat
 1. In the tab to the left, choose **Queries**.
 
 1. In the **Explorer** tab to the left of the table, you might see several mutations and queries already defined in the query editor:  
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-1.png)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-1.png)
 **Note**  
 This mutation is actually sitting in your schema as the `Mutation` type. It has the code:  
 
@@ -30,7 +30,7 @@ As you can see, the operations here are similar to what's inside the query edito
    AWS AppSync automatically generated these from the model we defined earlier. This example will use the `createTodo` mutation to add entries to our {{TodoAPITable}} table.
 
 1. Choose the `createTodo` operation by expanding it under the `createTodo` mutation:  
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-2.png)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-2.png)
 
    Enable the checkboxes for all of the fields like the picture above.
 **Note**  
@@ -137,6 +137,6 @@ This is where we allocate the values for the input mentioned earlier:
    ```
 
    If you navigate to the DynamoDB service, you'll now see an entry in your data source with this information:  
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-3.png)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-3.png)
 
 To summarize the operation, the GraphQL engine parsed the record, and a resolver inserted it into your Amazon DynamoDB table. Again, you can verify this in the DynamoDB console. Notice that you don’t need to pass in an `id` value. An `id` is generated and returned in the results. This is because the example used an `autoId()` function in a GraphQL resolver for the partition key set on your DynamoDB resources. We will cover how you can build resolvers in a different section. Take note of the returned `id` value; you will use it in the next section to retrieve data with a GraphQL query.

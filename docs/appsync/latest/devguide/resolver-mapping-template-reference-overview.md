@@ -30,7 +30,7 @@ Pipeline resolvers contain one or more *functions* which are performed in sequen
 
 The following diagram demonstrates the process flow of a unit resolver on the left and a pipeline resolver on the right.
 
-![A diagram of a unit resolver that communicates with a single data source and a diagram of a pipeline resolver that communicates with multiple data sources.](http://docs.aws.amazon.com/appsync/latest/devguide/images/unit-pipeline-resolver.png)
+![A diagram of a unit resolver that communicates with a single data source and a diagram of a pipeline resolver that communicates with multiple data sources.](https://docs.aws.amazon.com/appsync/latest/devguide/images/unit-pipeline-resolver.png)
 
 
 Pipeline resolvers contain a superset of the functionality that unit resolvers support, and more, at the cost of a little more complexity.
@@ -60,7 +60,7 @@ The response mapping template of a pipeline resolver, or the **After** step, all
 
 Given a pipeline resolver comprised of two functions, the list below represents the execution flow when the resolver is invoked:
 
-![GraphQL request flow through BEFORE template, two functions with request and response templates accessing data sources, AFTER template, then GraphQL response.](http://docs.aws.amazon.com/appsync/latest/devguide/images/PipelineResolver.jpg)
+![GraphQL request flow through BEFORE template, two functions with request and response templates accessing data sources, AFTER template, then GraphQL response.](https://docs.aws.amazon.com/appsync/latest/devguide/images/PipelineResolver.jpg)
 
 
 1. Pipeline resolver **Before** mapping template

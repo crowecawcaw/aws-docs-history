@@ -35,7 +35,7 @@ The simplest schemas will contain three different data categories:
 
 To put this into perspective, imagine you're creating a service that stores authors and the books they've written. Each author has a name and an array of books they've authored. Each book has a name and a list of associated authors. We also want the ability to add or retrieve books and authors. A simple UML representation of this relationship may look like this:
 
-![UML diagram showing Author and Book classes with bidirectional many-to-many relationship.](http://docs.aws.amazon.com/appsync/latest/devguide/images/GraphQL-UML-1.png)
+![UML diagram showing Author and Book classes with bidirectional many-to-many relationship.](https://docs.aws.amazon.com/appsync/latest/devguide/images/GraphQL-UML-1.png)
 
 
 In GraphQL, the entities `Author` and `Book` represent two different object types in your schema:

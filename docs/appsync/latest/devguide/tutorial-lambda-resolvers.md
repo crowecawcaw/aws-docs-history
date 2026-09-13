@@ -81,7 +81,7 @@ aws cloudformation create-stack --stack-name AppSyncLambdaExample \
 
 You can also launch the CloudFormation stack in the US West (Oregon) AWS Region in your AWS account from here:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/lambda/LambdaCFTemplate.yaml)
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/lambda/LambdaCFTemplate.yaml)
 
 ## Configure a data source for Lambda
 <a name="configure-data-source-for-lamlong"></a>

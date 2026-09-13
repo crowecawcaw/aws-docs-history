@@ -36,12 +36,12 @@ cdk init app --language typescript
 
 When you do this, a CDK app along with its initialization files will be installed:
 
-![Terminal output showing Git repository initialization with master branch naming hints.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-app-example.png)
+![Terminal output showing Git repository initialization with master branch naming hints.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-app-example.png)
 
 
 Your project structure may look like this:
 
-![File tree showing example-cdk-app project with bin, lib, node_modules, test folders and configuration files.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-directories.png)
+![File tree showing example-cdk-app project with bin, lib, node_modules, test folders and configuration files.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-directories.png)
 
 
 You'll notice we have several important directories:
@@ -103,19 +103,19 @@ This step requires several IAM permissions in your account. Your bootstrap will 
 
 Bootstrap will spin up several resources. The final message will look like this:
 
-![Terminal output showing Environment bootstrapped message after CloudFormation changeset creation.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-bootstrap-final.png)
+![Terminal output showing Environment bootstrapped message after CloudFormation changeset creation.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-bootstrap-final.png)
 
 
 This is done once per account per Region, so you won't have to do this often. The main resources of the bootstrap are the CloudFormation stack and the Amazon S3 bucket.
 
 The Amazon S3 bucket is used to store files and IAM roles that grant permissions needed to perform deployments. The required resources are defined in an CloudFormation stack, called the bootstrap stack, which is usually named `CDKToolkit`. Like any CloudFormation stack, it appears in the CloudFormation console once it has been deployed:
 
-![CloudFormation console showing CDKToolkit stack with CREATE_COMPLETE status.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-bootstrap-cfn-console.png)
+![CloudFormation console showing CDKToolkit stack with CREATE_COMPLETE status.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-bootstrap-cfn-console.png)
 
 
 The same can be said for the bucket:
 
-![S3 bucket row showing name, US West Oregon region, private access, and creation date.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-bootstrap-bucket-console.png)
+![S3 bucket row showing name, US West Oregon region, private access, and creation date.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-init-bootstrap-bucket-console.png)
 
 
 To import the services we need in our stack file, we can use the following command:
@@ -144,7 +144,7 @@ touch schema.graphql
 
 In our example, we included a top-level directory called `schema` containing our `schema.graphql`:
 
-![File tree showing schema folder expanded with schema.graphql file highlighted.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-schema-directory.png)
+![File tree showing schema folder expanded with schema.graphql file highlighted.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-schema-directory.png)
 
 
 Inside our schema, let's include a simple example:
@@ -234,27 +234,27 @@ cdk deploy
 
 This is the result:
 
-![CDK deployment output showing GraphQL API key, URL, stack region, and ARN details.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema.png)
+![CDK deployment output showing GraphQL API key, URL, stack region, and ARN details.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema.png)
 
 
 It appears our example was successful, but let's check the AWS AppSync console just to confirm:
 
-![Console navigation showing api-to-process-posts with GraphQL option and API_KEY displayed.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema-result-1.png)
+![Console navigation showing api-to-process-posts with GraphQL option and API_KEY displayed.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema-result-1.png)
 
 
 It appears our API was created. Now, we'll check the schema attached to the API:
 
-![GraphQL schema showing CreatePostInput, Post type, Mutation, and Query definitions.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema-result-2.png)
+![GraphQL schema showing CreatePostInput, Post type, Mutation, and Query definitions.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema-result-2.png)
 
 
 This appears to match up with our schema code, so it was successful. Another way to confirm this from a metadata viewpoint is to look at the CloudFormation stack:
 
-![CloudFormation stack list showing ExampleCdkAppStack with UPDATE_COMPLETE status and CDKToolkit with CREATE_COMPLETE status.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema-result-3.png)
+![CloudFormation stack list showing ExampleCdkAppStack with UPDATE_COMPLETE status and CDKToolkit with CREATE_COMPLETE status.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema-result-3.png)
 
 
 When we deploy our CDK app, it goes through CloudFormation to spin up resources like the bootstrap. Each stack within our app maps 1:1 with an CloudFormation stack. If you go back to the stack code, the stack name was grabbed from the class name `ExampleCdkAppStack`. You can see the resources it created, which also match our naming conventions in our GraphQL API construct:
 
-![Collapsed tree view showing post-apis with Schema and DefaultApiKey, and CDKMetadata items.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema-result-4.png)
+![Collapsed tree view showing post-apis with Schema and DefaultApiKey, and CDKMetadata items.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-schema-result-4.png)
 
 
 ## Implementing a CDK project - Data source
@@ -307,12 +307,12 @@ cdk deploy
 
 We should check the DynamoDB console for our new table:
 
-![DynamoDB table row showing ExampleCdkAppStack-postable with Active status and Standard class.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-ddb-result-1.png)
+![DynamoDB table row showing ExampleCdkAppStack-postable with Active status and Standard class.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-ddb-result-1.png)
 
 
 Our stack name is correct, and the table name matches our code. If we check our CloudFormation stack again, we'll now see the new table:
 
-![Logical ID hierarchy showing post-apis, posts-table, poststableC6B5A2E6, and CDKMetadata.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-ddb-result-2.png)
+![Logical ID hierarchy showing post-apis, posts-table, poststableC6B5A2E6, and CDKMetadata.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-ddb-result-2.png)
 
 
 ## Implementing a CDK project - Resolver
@@ -441,36 +441,36 @@ cdk deploy
 
 Let's check the AWS AppSync console to see if they were attached to our GraphQL API:
 
-![Mutation and Query fields showing createPost and getPost resolvers linked to Pipeline.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-1.png)
+![Mutation and Query fields showing createPost and getPost resolvers linked to Pipeline.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-1.png)
 
 
 It appears to be correct. In the code, both of these resolvers were attached to the GraphQL API we made (denoted by the `api` props value present in both the resolvers and functions). In the GraphQL API, the fields we attached our resolvers to were also specified in the props (defined by the `typename` and `fieldname` props in each resolver).
 
 Let's see if the content of the resolvers is correct starting with the `pipeline-resolver-get-posts`:
 
-![Resolver code showing request and response functions with arrow pointing to response function.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-2.png)
+![Resolver code showing request and response functions with arrow pointing to response function.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-2.png)
 
 
 The before and after handlers match our `code` props value. We can also see that a function called `add_posts_func_1`, which matches the name of the function we attached in the resolver.
 
 Let's look at the code content of that function:
 
-![Code snippet showing request and response functions with operation, key, and attributeValues.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-3.png)
+![Code snippet showing request and response functions with operation, key, and attributeValues.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-3.png)
 
 
 This matches up with the `code` props of the `add_posts_func_1` function. Our query was successfully uploaded, so let's check on the query:
 
-![Resolver code showing response function with arrow pointing to get_posts_func_1 function below.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-4.png)
+![Resolver code showing response function with arrow pointing to get_posts_func_1 function below.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-4.png)
 
 
 These also match the code. If we look at `get_posts_func_1`:
 
-![Function code showing request function returning operation Scan and response function returning ctx.result.items.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-5.png)
+![Function code showing request function returning operation Scan and response function returning ctx.result.items.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-5.png)
 
 
 Everything appears to be in place. To confirm this from a metadata perspective, we can check our stack in CloudFormation again:
 
-![List of logical IDs including post-apis, posts-table, functions, pipeline resolvers, and CDKMetadata.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-6.png)
+![List of logical IDs including post-apis, posts-table, functions, pipeline resolvers, and CDKMetadata.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-deploy-resolver-result-6.png)
 
 
 Now, we need to test this code by performing some requests.
@@ -480,7 +480,7 @@ Now, we need to test this code by performing some requests.
 
 To test our app in the AWS AppSync console, we made one query and one mutation:
 
-![GraphQL code showing MyQuery with getPost fields and MyMutation with createPost operation.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-request-1.png)
+![GraphQL code showing MyQuery with getPost fields and MyMutation with createPost operation.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-request-1.png)
 
 
 `MyMutation` contains a `createPost` operation with the arguments `1970-01-01T12:30:00.000Z` and `first post`. It returns the `date` and `title` that we passed in as well as the automatically generated `id` value. Running the mutation yields the result:
@@ -499,7 +499,7 @@ To test our app in the AWS AppSync console, we made one query and one mutation:
 
 If we check the DynamoDB table quickly, we can see our entry in the table when we scan it:
 
-![DynamoDB table entry showing id, date of 1970-01-01, and title of first post.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-request-2.png)
+![DynamoDB table entry showing id, date of 1970-01-01, and title of first post.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cdk-code-request-2.png)
 
 
 Back in the AWS AppSync console, if we run the query to retrieve this `Post`, we get the following result:

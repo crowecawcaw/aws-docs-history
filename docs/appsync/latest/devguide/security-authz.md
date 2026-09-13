@@ -571,7 +571,7 @@ Before proceeding any further, if you’re not familiar with mapping templates i
 
 In the following example using DynamoDB, suppose you’re using the preceding blog post schema, and only users that created a post are allowed to edit it. The evaluation process would be for the user to gain credentials in their application, using Amazon Cognito User Pools for example, and then pass these credentials as part of a GraphQL operation. The mapping template will then substitute a value from the credentials (like the username)in a conditional statement which will then be compared to a value in your database.
 
-![Four-step workflow showing token retrieval, request sending, conditional check, and operation execution.](http://docs.aws.amazon.com/appsync/latest/devguide/images/FGAC.png)
+![Four-step workflow showing token retrieval, request sending, conditional check, and operation execution.](https://docs.aws.amazon.com/appsync/latest/devguide/images/FGAC.png)
 
 
 To add this functionality, add a GraphQL field of `editPost` as follows:

@@ -92,7 +92,7 @@ This is a perfectly valid Lambda function and could be attached to the `AllPosts
 
 For some applications, you might perform mutations or simple lookup queries against DynamoDB, and have a background process transfer documents to OpenSearch Service. You can then simply attach the `searchPosts` Resolver to the OpenSearch Service data source and return search results (from data that originated in DynamoDB) using a GraphQL query. This can be extremely powerful when adding advanced search operations to your applications such keyword, fuzzy word matches or even geospatial lookups. Transferring data from DynamoDB could be done through an ETL process or alternatively you can stream from DynamoDB using Lambda. You can launch a complete example of this using the following AWS CloudFormation stack in the US West 2 (Oregon) Region in your AWS account:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/multipledatasource/appsyncesdbstream.yml) 
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/multipledatasource/appsyncesdbstream.yml) 
 
 The schema in this example lets you add posts using a DynamoDB resolver as follows:
 

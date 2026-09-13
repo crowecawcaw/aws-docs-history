@@ -14,7 +14,7 @@ Now that a record exists in your database, you'll get results when you run a que
 1. In the tab to the left, choose **Queries**.
 
 1. In the **Explorer** tab to the left of the table, under `query` `listTodos`, expand the `getTodo` operation:  
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-4.png)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-4.png)
 
 1. In the code editor, you should see the operation code:
 

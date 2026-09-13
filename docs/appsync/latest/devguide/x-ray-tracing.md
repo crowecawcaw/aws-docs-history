@@ -59,7 +59,7 @@ query getPost {
 
 The resolver for the `getPost` query uses the underlying DynamoDB data source. The following trace view shows the call to DynamoDB, as well as the latencies of various parts of the query’s execution:
 
-![Trace map showing postAPI request flow from client through DynamoDB with timing details.](http://docs.aws.amazon.com/appsync/latest/devguide/images/xray-getpost-trace-view.png)
+![Trace map showing postAPI request flow from client through DynamoDB with timing details.](https://docs.aws.amazon.com/appsync/latest/devguide/images/xray-getpost-trace-view.png)
 
 + In the preceding image, `/getPost` represents the complete path to the element that is being resolved. In this case, because `getPost` is a field on the root `Query` type, it appears directly after the root of the path.
 +  `requestMappingTemplateEvaluation` represents the time spent by AWS AppSync evaluating the request mapping template for this element in the query.

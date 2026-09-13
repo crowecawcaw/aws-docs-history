@@ -10,7 +10,7 @@ These sections are a reference for more advanced AWS AppSync topics. We recommen
 
 In the console tab, if you choose the name of your API, the **Integration** page appears:
 
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-6.png)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/explorer-example-6.png)
 
 
 It summarizes the steps for setting up your API and outlines the next steps for building a client application. The **Integrate with your app** section provides details for using the [AWS Amplify toolchain](https://aws-amplify.github.io/) to automate the process of connecting your API with iOS, Android, and JavaScript applications through config and code generation. The Amplify toolchain provides full support for building projects from your local workstation including GraphQL provisioning and workflows for CI/CD.

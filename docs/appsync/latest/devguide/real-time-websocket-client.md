@@ -13,7 +13,7 @@ AWS AppSync's real-time WebSocket client enables GraphQL subscriptions through a
 
 The following sequence diagram and steps show the real-time subscriptions workflow between the WebSocket client, HTTP client, and AWS AppSync.
 
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/realtime-client-flow.png)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/realtime-client-flow.png)
 
 
 1. The client establishes a WebSocket connection with the AWS AppSync real-time endpoint. If there is a network error, the client should do a jittered exponential backoff. For more information, see [Exponential backoff and jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) on the AWS Architecture Blog.

@@ -131,7 +131,7 @@ OR
   AND 
 + `group` assignment set to `admin` or `operators`
 
-![Example showing a ticket filtering query](http://docs.aws.amazon.com/appsync/latest/devguide/images/aws-priority-example.png)
+![Example showing a ticket filtering query](https://docs.aws.amazon.com/appsync/latest/devguide/images/aws-priority-example.png)
 
 
 Filters defined in the subscription resolver (enhanced filtering) take precedence over filtering based only on subscription arguments (basic filtering). For more information about using subscription arguments, see [Using subscription arguments](https://docs.aws.amazon.com/appsync/latest/devguide/aws-appsync-real-time-data.html#using-subscription-arguments)).

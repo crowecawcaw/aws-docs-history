@@ -70,7 +70,7 @@ Given a pipeline resolver comprised of two functions, the list below represents 
 
 1.  Pipeline resolver response handler 
 
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/appsync-js-resolver-logic.png)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/appsync-js-resolver-logic.png)
 
 
 ### Useful `APPSYNC_JS` runtime built-in utilities

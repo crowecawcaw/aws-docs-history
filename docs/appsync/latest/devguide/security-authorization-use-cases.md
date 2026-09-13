@@ -23,7 +23,7 @@ Similarly when writing data you’ll apply a conditional statement to the action
 
 As outlined above the authorization metadata to perform a check must be stored with a resource or passed in to the GraphQL request (identity, header, etc.). To demonstrate this suppose you have the DynamoDB table below:
 
-![DynamoDB table with ID, Data, PeopleCanAccess, GroupsCanAccess, and Owner columns.](http://docs.aws.amazon.com/appsync/latest/devguide/images/auth.png)
+![DynamoDB table with ID, Data, PeopleCanAccess, GroupsCanAccess, and Owner columns.](https://docs.aws.amazon.com/appsync/latest/devguide/images/auth.png)
 
 
 The primary key is `id` and the data to be accessed is `Data`. The other columns are examples of checks you can perform for authorization. `Owner` would be a `String` while `PeopleCanAccess` and `GroupsCanAccess` would be `String Sets` as outlined in the [Resolver mapping template reference for DynamoDB](resolver-mapping-template-reference-dynamodb.md#aws-appsync-resolver-mapping-template-reference-dynamodb).

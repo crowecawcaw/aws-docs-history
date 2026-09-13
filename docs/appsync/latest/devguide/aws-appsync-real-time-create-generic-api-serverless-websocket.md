@@ -71,7 +71,7 @@ This example uses the [Amplify libraries](https://docs.amplify.aws/lib/) to conn
 
 Both browser instances are subscribed to the {{robots}} channel and receive the published data in real time, displayed at the bottom of the web application:
 
-![Example React app for pub/sub API](http://docs.aws.amazon.com/appsync/latest/devguide/images/pub-sub-react.png)
+![Example React app for pub/sub API](https://docs.aws.amazon.com/appsync/latest/devguide/images/pub-sub-react.png)
 
 
 All necessary GraphQL API code, including the schema, resolvers, and operations are automatically generated to enable a generic pub/sub use case. On the backend, data is published to AWS AppSync’s real-time endpoint with a GraphQL mutation such as the following:

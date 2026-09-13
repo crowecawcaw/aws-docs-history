@@ -47,7 +47,7 @@ These are the fields that will exist within the scope of your `Todo` type. Your 
 AWS AppSync supports multiple scalar values for different use cases. 
 
       1. Using **Add new field**, create four additional fields with the `Name` values set to **name**, **when**, **where**, and **description**. Their `Type` values will be `String`, and the `Array` and `Required` values will both be set to `No`. It will look like this:  
-![Model information form showing five fields: id, name, when, where, and description with their types.](http://docs.aws.amazon.com/appsync/latest/devguide/images/model-information-tutorial.png)
+![Model information form showing five fields: id, name, when, where, and description with their types.](https://docs.aws.amazon.com/appsync/latest/devguide/images/model-information-tutorial.png)
 **Note**  
 The full type and its fields will look like this:  
 

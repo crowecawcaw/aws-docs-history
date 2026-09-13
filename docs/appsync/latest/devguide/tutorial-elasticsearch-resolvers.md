@@ -15,7 +15,7 @@ For more information, see the [Resolver Mapping Template Reference for OpenSearc
 
 To automatically set up a GraphQL endpoint in AWS AppSync with Amazon OpenSearch Service configured you can use this AWS CloudFormation template:
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/appsynces.yml)
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/appsynces.yml)
 
 After the AWS CloudFormation deployment completes you can skip directly to [running GraphQL queries and mutations](#tutorial-elasticsearch-resolvers-perform-queries-mutations).
 
@@ -33,7 +33,7 @@ aws cloudformation create-stack --stack-name AppSyncOpenSearch \
 
 You can launch the following AWS CloudFormation stack in the US West 2 (Oregon) region in your AWS account:
 
- [![](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/ESResolverCFTemplate.yaml)
+ [![](https://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/elasticsearch/ESResolverCFTemplate.yaml)
 
 ## Configure Data Source for OpenSearch Service
 <a name="configure-data-source-for-es"></a>

@@ -319,7 +319,7 @@ The following diagram demonstrates how you can implement this pattern. In the di
 
 1. The subscription events are sent in real-time and received by your client over the WebSocket.
 
-![A diagram that demonstrates the workflow for using an AWS AppSync subscription to return updates from a Amazon Bedrock model.](http://docs.aws.amazon.com/appsync/latest/devguide/images/bedrock-workflow.png)
+![A diagram that demonstrates the workflow for using an AWS AppSync subscription to return updates from a Amazon Bedrock model.](https://docs.aws.amazon.com/appsync/latest/devguide/images/bedrock-workflow.png)
 
 
 ## Type reference

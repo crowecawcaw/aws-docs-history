@@ -13,7 +13,7 @@ AWS AppSync provides a simple way to wire a GraphQL field to a single data sourc
 
 If you want to automatically set up the GraphQL endpoint in AWS AppSync with all the resolvers configured and the necessary AWS resources, you can use the following AWS CloudFormation template :
 
-[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/pipeline/pipeline-resolvers-full.yaml)
+[![Blue button labeled "Launch Stack" with an arrow icon indicating an action to start.](https://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/pipeline/pipeline-resolvers-full.yaml)
 
 This stack creates the following resources in your account:
 + IAM Role for AWS AppSync to access the resources in your account
@@ -35,7 +35,7 @@ If you prefer to manually go through a step-by-step process through the AWS AppS
 
 The API communicates with two DynamoDB tables: a **pictures** table that stores pictures and a **friends** table that stores relationships between users. The API is configured to use Amazon Cognito user pool as authentication type. The following CloudFormation stack sets up these resources in the account.
 
-[![](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/pipeline/pipeline-resolvers-resources-only.yaml)
+[![](https://docs.aws.amazon.com/appsync/latest/devguide/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?templateURL=https://s3.us-west-2.amazonaws.com/awsappsync/resources/pipeline/pipeline-resolvers-resources-only.yaml)
 
 At the end of the AWS CloudFormation stack creation process you receive one email for each of the three Amazon Cognito users that were created. Each email contains a temporary password that you use to log in as an Amazon Cognito user to the AWS AppSync console. Save the passwords for the remainder of the tutorial.
 

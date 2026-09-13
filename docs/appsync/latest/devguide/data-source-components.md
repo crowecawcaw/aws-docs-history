@@ -5,7 +5,7 @@
 
 In the previous section, we learned that a schema defines the shape of your data. However, we never explained where that data came from. In real projects, your schema is like a gateway that handles all requests made to the server. When a request is made, the schema acts as the single endpoint that interfaces with the client. The schema will access, process, and relay data from the data source back to the client. See the infographic below:
 
-![GraphQL schema integrating multiple AWS services for a single endpoint API architecture.](http://docs.aws.amazon.com/appsync/latest/devguide/images/aws-flow-infographic.png)
+![GraphQL schema integrating multiple AWS services for a single endpoint API architecture.](https://docs.aws.amazon.com/appsync/latest/devguide/images/aws-flow-infographic.png)
 
 
 AWS AppSync and GraphQL superbly implement Backend For Frontend (BFF) solutions. They work in tandem to reduce complexity at scale by abstracting the backend. If your service uses different data sources and/or microservices, you can essentially abstract some of the complexity away by defining the shape of the data of each source (subgraph) in a single schema (supergraph). This means your GraphQL API is not limited to using one data source. You can associate any number of data sources with your GraphQL API and specify in your code how they will interact with the service.

@@ -257,7 +257,7 @@ export const hello = () => {
 
 When you build and bundle the resolver file, your resolver code will include an inline source map. When your resolver runs, the following entries appear in the CloudWatch logs:
 
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/cloudwatch-sourcemap.jpeg)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/cloudwatch-sourcemap.jpeg)
 
 
 Looking at the entries in the CloudWatch log, you'll notice that the functionality of the two files have been bundled together and are running concurrently. The original file name of each file is also clearly reflected in the logs.

@@ -11,7 +11,7 @@ AWS AppSync supports AWS PrivateLink for both data plane and control plane opera
 + **Data plane endpoint** (`com.amazonaws.{region}.appsync-api`): Provides private access to your GraphQL and Real-time APIs for querying, mutations, and subscriptions.
 + **Control plane endpoint** (`com.amazonaws.{region}.appsync`): Provides private access to AWS AppSync management operations such as creating APIs, updating schemas, and configuring data sources.
 
-![Architecture diagram showing EC2 instances connecting to AppSync via PrivateLink through VPC endpoints.](http://docs.aws.amazon.com/appsync/latest/devguide/images/private-api-architecture.png)
+![Architecture diagram showing EC2 instances connecting to AppSync via PrivateLink through VPC endpoints.](https://docs.aws.amazon.com/appsync/latest/devguide/images/private-api-architecture.png)
 
 
 There are some additional factors to consider before enabling Private API features:

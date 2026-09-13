@@ -7,7 +7,7 @@ From the previous sections, you learned about the components of the schema and d
 
 A resolver is a unit of code that handles how that field's data will be resolved when a request is made to the service. Resolvers are attached to specific fields within your types in your schema. They are most commonly used to implement the state-changing operations for your query, mutation, and subscription field operations. The resolver will process a client's request, then return the result, which can be a group of output types like objects or scalars:
 
-![](http://docs.aws.amazon.com/appsync/latest/devguide/images/aws-flow-infographic.png)
+![](https://docs.aws.amazon.com/appsync/latest/devguide/images/aws-flow-infographic.png)
 
 
 ## Resolver runtime
@@ -25,7 +25,7 @@ Code-wise, resolvers can be structured in a couple of ways. There are **unit** a
 
 A unit resolver is composed of code that defines a single request and response handler that are executed against a data source. The request handler takes a context object as an argument and returns the request payload used to call your data source. The response handler receives a payload back from the data source with the result of the executed request. The response handler transforms the payload into a GraphQL response to resolve the GraphQL field.
 
-![GraphQL request flows through request and response handlers that interact with data source.](http://docs.aws.amazon.com/appsync/latest/devguide/images/unit-resolver-js.png)
+![GraphQL request flows through request and response handlers that interact with data source.](https://docs.aws.amazon.com/appsync/latest/devguide/images/unit-resolver-js.png)
 
 
 ### Pipeline resolvers
@@ -36,7 +36,7 @@ When implementing pipeline resolvers, there is a general structure they follow:
 + **Function(s)**: After the before step runs, the request is passed to the functions list. The first function in the list will execute against the data source. A function is a subset of your resolver's code containing its own request and response handler. A request hander will take the request data and perform operations against the data source. The response handler will process the data source's response before passing it back to the list. If there is more than one function, the request data will be sent to the next function in the list to be executed. Functions in the list will be executed serially in the order defined by the developer. Once all functions have been executed, the final result is passed to the after step.
 + **After step**: The after step is a handler function that allows you to perform some final operations on the final function's response before passing it to the GraphQL response.
 
-![GraphQL request flow showing sequential processing through request and response functions with data source interactions.](http://docs.aws.amazon.com/appsync/latest/devguide/images/appsync-js-resolver-logic.png)
+![GraphQL request flow showing sequential processing through request and response functions with data source interactions.](https://docs.aws.amazon.com/appsync/latest/devguide/images/appsync-js-resolver-logic.png)
 
 
 ## Resolver handler structure
@@ -197,7 +197,7 @@ query {
 
 We're returning `Person` with a `name` and `age` fields. When running this query, the tree will look something like this:
 
-![Query tree diagram showing Person object with name and age fields as child nodes.](http://docs.aws.amazon.com/appsync/latest/devguide/images/ast-1.png)
+![Query tree diagram showing Person object with name and age fields as child nodes.](https://docs.aws.amazon.com/appsync/latest/devguide/images/ast-1.png)
 
 
 From the tree, it appears that this request will search the root for the `Query` in the schema. Inside of the query, the `Person` field will be resolved. From previous examples, we know that this could be an input from the user, a list of values, etc. `Person` is most likely tied to an object type holding the fields we need (`name` and `age`). Once these two child fields are found, they are resolved in the order given (`name` followed by `age`). Once the tree is completely resolved, the request is completed and will be sent back to the client.

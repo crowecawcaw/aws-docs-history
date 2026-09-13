@@ -9,7 +9,7 @@ To resolve this tension, the AWS AppSync Merged APIs feature allows teams from d
 
 The following diagram shows the merged API workflow:
 
-![Diagram showing the merged API workflow with multiple source APIs being combined into a single merged API endpoint](http://docs.aws.amazon.com/appsync/latest/devguide/images/merged-api-workflow.png)
+![Diagram showing the merged API workflow with multiple source APIs being combined into a single merged API endpoint](https://docs.aws.amazon.com/appsync/latest/devguide/images/merged-api-workflow.png)
 
 
 Using Merged APIs, organizations can import the resources of multiple, independent source AWS AppSync APIs into a single AWS AppSync Merged API endpoint. To do this, AWS AppSync allows you to create a list of source AWS AppSync APIs, and then merge all of the metadata associated with the source APIs including schema, types, datasources, resolvers, and functions, into a new AWS AppSync merged API.

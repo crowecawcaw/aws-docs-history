@@ -112,7 +112,7 @@ When a condition check fails, the AWS AppSync DynamoDB function can pass on the 
 
 The flowchart for this process is:
 
-![Flowchart showing mutation attempt process with decision points for success, strategy, and action.](http://docs.aws.amazon.com/appsync/latest/devguide/images/DynamoDB-condition-check-failure-handling.png)
+![Flowchart showing mutation attempt process with decision points for success, strategy, and action.](https://docs.aws.amazon.com/appsync/latest/devguide/images/DynamoDB-condition-check-failure-handling.png)
 
 
 ### Checking for the desired result
