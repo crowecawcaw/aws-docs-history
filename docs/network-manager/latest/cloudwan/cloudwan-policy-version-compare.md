@@ -33,6 +33,6 @@ Compare two policy versions against each other using the console. The comparison
 1. Choose **Compare**.
 
    The **Results of comparison** section displays the changes between the two policies. In the following example, the **Segments** of a current LIVE **Source** policy are compared against the segment changes to an undeployed **Target** policy. The comparison shows that a new segment, **sandbox**, will be added when deploying the **Target** policy version.  
-![A comparison of the Segments section between a LIVE policy and a policy version.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cwan-policy-compare.png)
+![A comparison of the Segments section between a LIVE policy and a policy version.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cwan-policy-compare.png)
 
 1. By default, the changes for each policy display in separate policy windows. To see the results of the comparison line-by-line in a single window, turn the **Split** toggle off.

@@ -25,10 +25,10 @@ Use the following legend to understand the icons on your global network map:
 
 | Icon | Description | 
 | --- | --- | 
-|  ![The icon for edge locations.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-edge.png)  | **Edge locations** <br />The total number of edge locations in your global network. The number is shown in the **Inventory** section and as an icon on the map for each edge location in your global network.  | 
-|  ![The icon for transit gateways.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-tgw.png)  | Transit gateways The total number of transit gateways in your global network. The number is shown in the **Inventory** section and as an icon on the map for each transit gateway in your global network.  | 
-|  ![The icon for devices.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-devices.png)  | DevicesThe total number of devices in your global network. The number is shown in the **Inventory** section and as an icon on the map for each device in your global network.  | 
-|  ![The icon for sites.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-sites.png)  | SitesThe total number of sites in your global network. The number is shown in the **Inventory** section and as an icon on the map for each site in your global network.  | 
+|  ![The icon for edge locations.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-edge.png)  | **Edge locations** <br />The total number of edge locations in your global network. The number is shown in the **Inventory** section and as an icon on the map for each edge location in your global network.  | 
+|  ![The icon for transit gateways.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-tgw.png)  | Transit gateways The total number of transit gateways in your global network. The number is shown in the **Inventory** section and as an icon on the map for each transit gateway in your global network.  | 
+|  ![The icon for devices.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-devices.png)  | DevicesThe total number of devices in your global network. The number is shown in the **Inventory** section and as an icon on the map for each device in your global network.  | 
+|  ![The icon for sites.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-sites.png)  | SitesThe total number of sites in your global network. The number is shown in the **Inventory** section and as an icon on the map for each site in your global network.  | 
 
 **To access your global network resource inventory list**
 
@@ -44,7 +44,7 @@ Use the following legend to understand the icons on your global network map:
    + The **Inventory** section shows the number of **Edge locations** in your global network, the number of **Transit gateways**, the number of **Devices**, and the number of **Sites**. 
 
      In the following example, you'll see that there are four Regions, **us-west-2**, **us-east-**1, **eu-central-1**, and **ap-northeast-1**. Some Regions are represented by a number (for example, **eu-central-1** is represented by the number `2`,). This indicates that there are two network resources associated with that region. Choosing `2` opens a displays what those network resources are: one transit gateway and one edge location.  
-![AWS Cloud WAN global network geography](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography.png)
+![AWS Cloud WAN global network geography](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography.png)
 
 1. The**Details ** page shows the add **Key** and **Value** pairs to further help identify this resource. You can add multiple tags by choosing **Add tag**, or remove any tag by choosing **Remove tag**.
 
@@ -95,15 +95,15 @@ Use the following legend to understand the icons on your topology graph:
 
 | Icon | Description | 
 | --- | --- | 
-|  ![The icon for core network edges.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-edge.png)  | **Core network edge** <br />The core network edges in your global network. | 
-|  ![The icon for transit gateways.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-tgw.png)  | Transit GatewayThe transit gateways in your global network. | 
-|  ![The icon for VPC attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-vpc.png)  | VPCThe VPC attachments in your global network. | 
-|  ![The icon for Connect attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-connect.png)  | ConnectThe Connect attachments in your global network. | 
-|  ![The icon for segments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-segment.png)  | SegmentThe segments in your global network. | 
-|  ![The icon for devices.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-devices.png)  | DevicesThe devices in your global network. | 
-|  ![The icon for VPNs.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-vpn.png)  | VPNThe VPNs in your global network. | 
-|  ![The icon for Direct Connect Gateways.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-dx-attachment.png)  | Direct Connect GatewayThe Direct Connect Gateways in your global network. | 
-|  ![The icon for Regions.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-region.png)  | Regions The Regions in your global network. | 
+|  ![The icon for core network edges.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-edge.png)  | **Core network edge** <br />The core network edges in your global network. | 
+|  ![The icon for transit gateways.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-tgw.png)  | Transit GatewayThe transit gateways in your global network. | 
+|  ![The icon for VPC attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-vpc.png)  | VPCThe VPC attachments in your global network. | 
+|  ![The icon for Connect attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-connect.png)  | ConnectThe Connect attachments in your global network. | 
+|  ![The icon for segments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-segment.png)  | SegmentThe segments in your global network. | 
+|  ![The icon for devices.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-devices.png)  | DevicesThe devices in your global network. | 
+|  ![The icon for VPNs.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-vpn.png)  | VPNThe VPNs in your global network. | 
+|  ![The icon for Direct Connect Gateways.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-dx-attachment.png)  | Direct Connect GatewayThe Direct Connect Gateways in your global network. | 
+|  ![The icon for Regions.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-region.png)  | Regions The Regions in your global network. | 
 
 **To access the topology graph for a global network**
 
@@ -128,7 +128,7 @@ Use the following legend to understand the icons on your topology graph:
 1. On the **Topology graph**, choose any of your network resources to view details about that resource. A panel opens on the right-hand side of the graph. 
 
    The following example shows the Metrics for the **eu-west-1** edge location.  
-![AWS Cloud WAN global topology graph.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-graph.png)
+![AWS Cloud WAN global topology graph.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-graph.png)
 
    Depending on the resource chosen, the following information is available in the panel:
    + **Core network edge** — **Details**, **Metrics**, and **Events**. See [AWS Cloud WAN events and metrics](cloudwan-events-metrics.md) for more information about the types of events that can be tracked.
@@ -166,7 +166,7 @@ The **Topology tree** page shows a logical diagram of your global network. Here 
 1. In the **Topology tree**, choose any of your network resources to view details about that resource. A panel opens on the right-hand side of the graph. 
 
    The following example shows the **Details** for the **us-west-1** edge location.  
-![AWS Cloud WAN global network topology tree.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-tree.png)
+![AWS Cloud WAN global network topology tree.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-tree.png)
 
 Depending on the resource chosen, the following information is available in the panel:
 + **Edge location** — **Details**, **Metrics**, and **Events**. See [AWS Cloud WAN events and metrics](cloudwan-events-metrics.md) for more information about the types of events that can be tracked.

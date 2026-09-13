@@ -199,7 +199,7 @@ For more information on the parameters used in the JSON file, see [Core network 
 
 Using the **Visual editor**, the same policies display as follows: 
 
-![Cloud WAN attachment policy using the Visaul editor.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-attachment-policy.png)
+![Cloud WAN attachment policy using the Visaul editor.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-attachment-policy.png)
 
 
 Note that if an attachment policy uses the **and** condition, each condition appears on a separate row of the editor. In this example, since rule number 300 uses **region** and **attachment-type** conditions, each of those conditions appear on separate rows. 

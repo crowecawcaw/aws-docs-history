@@ -10,6 +10,9 @@ You can share attachments on any of your shared core networks. For more informat
 **Note**  
 A shared core network currently supports only VPC, transit gateway route table, and Direct Connect gateway attachments.
 
+**Note**  
+If `require-attachment-acceptance` is `false` for a segment, it's still possible for attachments to be added to or removed from a segment automatically when their tags change. If this behavior is not desired, set `require-attachment-acceptance` to `true`.
+
 **Topics**
 + [Create a shared VPC attachment](cloudwan-vpc-share-create.md)
 + [Create a shared transit gateway route table attachment](cloudwan-tgw-share.md)

@@ -32,11 +32,11 @@ Use the following legend to understand the icons on your core network map:
 
 | Icon | Description | 
 | --- | --- | 
-|  ![The icon for edge locations.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-edge.png)  | **Edge locations** <br />The total number of edge locations in your core network. The number is shown in the **Inventory** section and as an icon on the map for each edge location in your core network.  | 
-|  ![The icon for segments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-segment.png)  | Segments The total number of segments in your core network. The number is shown in the **Inventory** section and as an icon on the map for each section in your core network.  | 
-|  ![The icon for network function groups.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-nfg.png)  | Network function groups The total number of network function groups in your core network. The number is shown in the **Inventory** section and as an icon on the map for each section in your core network.  | 
-|  ![The icon for devices.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-devices.png)  | DevicesThe total number of devices in your core network. The number is shown in the **Inventory** section and as an icon on the map for each device in your core network.  | 
-|  ![The icon for sites.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-sites.png)  | SitesThe total number of sites in your core network. The number is shown in the **Inventory** section and as an icon on the map for each site in your core network.  | 
+|  ![The icon for edge locations.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-edge.png)  | **Edge locations** <br />The total number of edge locations in your core network. The number is shown in the **Inventory** section and as an icon on the map for each edge location in your core network.  | 
+|  ![The icon for segments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-segment.png)  | Segments The total number of segments in your core network. The number is shown in the **Inventory** section and as an icon on the map for each section in your core network.  | 
+|  ![The icon for network function groups.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-nfg.png)  | Network function groups The total number of network function groups in your core network. The number is shown in the **Inventory** section and as an icon on the map for each section in your core network.  | 
+|  ![The icon for devices.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-devices.png)  | DevicesThe total number of devices in your core network. The number is shown in the **Inventory** section and as an icon on the map for each device in your core network.  | 
+|  ![The icon for sites.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-sites.png)  | SitesThe total number of sites in your core network. The number is shown in the **Inventory** section and as an icon on the map for each site in your core network.  | 
 
 **To view the core network map**
 
@@ -136,13 +136,13 @@ Use the following legend to understand the icons on your core network topology g
 
 | Icon | Description | 
 | --- | --- | 
-|  ![The icon for core network edges.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-edge.png)  | **Core network edge** <br />The core network edges in your network. | 
-|  ![The icon for VPC attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-vpc.png)  | VPCThe VPC attachments in your core network. | 
-|  ![The icon for Connect attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-connect.png)  | ConnectThe Connect attachments in your core network. | 
-|  ![The icon for segments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-segment.png)  | SegmentThe segments in your core network. | 
-|  ![The icon for devices.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-devices.png)  | DevicesThe devices in your core network. | 
-|  ![The icon for VPN attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-vpn.png)  | VPNThe VPN attachments in your core network. | 
-|  ![The icon for Direct Connect Gateway attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-dx-attachment.png)  | Direct Connect GatewayThe Direct Connect Gateway attachments in your core network. | 
+|  ![The icon for core network edges.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-edge.png)  | **Core network edge** <br />The core network edges in your network. | 
+|  ![The icon for VPC attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-vpc.png)  | VPCThe VPC attachments in your core network. | 
+|  ![The icon for Connect attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-connect.png)  | ConnectThe Connect attachments in your core network. | 
+|  ![The icon for segments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-segment.png)  | SegmentThe segments in your core network. | 
+|  ![The icon for devices.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-geography-devices.png)  | DevicesThe devices in your core network. | 
+|  ![The icon for VPN attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-vpn.png)  | VPNThe VPN attachments in your core network. | 
+|  ![The icon for Direct Connect Gateway attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-dx-attachment.png)  | Direct Connect GatewayThe Direct Connect Gateway attachments in your core network. | 
 
 **To view the core network topology graph**
 
@@ -168,7 +168,7 @@ Use the following legend to understand the icons on your core network topology g
 1. On the graph, choose any of your network resources to view details about that resource. A panel opens on the right-hand side of the graph.
 
    In this example, the `development` segment is chosen in the graph. The panel displays **Details** about the segment. Choose the **Routes** tab to view the segment routes.  
-![AWS Cloud WAN core network topology](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-details.png)
+![AWS Cloud WAN core network topology](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-details.png)
 
    Depending on the resource chosen, the following information is available in the panel:
    + **Core network edge** — **Details**, **Metrics**, and **Events**. See [AWS Cloud WAN events and metrics](cloudwan-events-metrics.md) for more information about the types of metrics and events that can be tracked.
@@ -206,7 +206,7 @@ The **Topology tree** page shows a logical diagram of your core network. Here yo
 1. On the tree, choose the label of any of your network resources to view details about that resource. A panel opens on the right-hand side of the tree.
 
    In this example, an edge location, **us-west-1**, is chosen in the tree. The panel displays **Edge location details**. Choose any of the tabs in the panel to view more information about that edge location.  
-![AWS Cloud WAN topology tree](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-tree-diagram.png)
+![AWS Cloud WAN topology tree](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-tree-diagram.png)
 
    Depending on the resource chosen, the following information is available in the panel. See [AWS Cloud WAN events and metrics](cloudwan-events-metrics.md) for more information about the types of events that can be tracked.
    + **Core network** - Core network details, including the **AWS account **and current **State** of the core network.
@@ -226,13 +226,13 @@ Use the following legend to understand the icons on your core network logical gr
 
 | Icon | Description | 
 | --- | --- | 
-|  ![The icon for VPC attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-vpc.png)  | VPCThe VPC attachments in your core network. | 
-|  ![The icon for Connect attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-connect.png)  | ConnectThe Connect attachments in your core network. | 
-|  ![The icon for segments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-segment.png)  | SegmentThe segments in your core network. | 
-|  ![The icon for network function groups.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-nfg.png)  | Network function groupThe network function groups in your core network. | 
-|  ![The icon for VPN attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-vpn.png)  | VPNThe VPN attachments in your core network. | 
-|  ![The icon for transit gateway route table attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-logical-tgwrtb.png)  | Transit gateway route tableThe transit gateway route table attachments in your core network. | 
-|  ![The icon for Direct Connect gateway attachments.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-dx-attachment.png)  | Direct Connect gateway attachmentThe Direct Connect gateway attachments in your core network. | 
+|  ![The icon for VPC attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-vpc.png)  | VPCThe VPC attachments in your core network. | 
+|  ![The icon for Connect attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-connect.png)  | ConnectThe Connect attachments in your core network. | 
+|  ![The icon for segments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-topology-segment.png)  | SegmentThe segments in your core network. | 
+|  ![The icon for network function groups.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-nfg.png)  | Network function groupThe network function groups in your core network. | 
+|  ![The icon for VPN attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-vpn.png)  | VPNThe VPN attachments in your core network. | 
+|  ![The icon for transit gateway route table attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-logical-tgwrtb.png)  | Transit gateway route tableThe transit gateway route table attachments in your core network. | 
+|  ![The icon for Direct Connect gateway attachments.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-dx-attachment.png)  | Direct Connect gateway attachmentThe Direct Connect gateway attachments in your core network. | 
 
 **To access the logical diagram for a core network**
 
@@ -265,7 +265,7 @@ Use the following legend to understand the icons on your core network logical gr
 1. On the graph, choose any of your network resources to view details about that resource. A panel opens on the right-hand side of the graph.
 
    In this example, a segment, **segment-b**, is chosen in the graph. The panel displays **Segment details**.  
-![AWS Cloud WAN logical diagram for a core network.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-logical.png)
+![AWS Cloud WAN logical diagram for a core network.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-logical.png)
 
    Depending on the resource chosen, the following information is available in the panel:
    + **VPC**, **Connect**, **VPN**, **Transit gateway route table,** and **Direct Connect Gateway** — Attachment **Details** and **Events**. See [AWS Cloud WAN events and metrics](cloudwan-events-metrics.md) for more information about the types of events that can be tracked.
@@ -378,7 +378,7 @@ The **Add to dashboard** option only works if your registered transit gateway is
 1. In the following example, the **Events** section shows two events occurring within a custom 15-month time frame:
    +  A change set was executed successfully for a core network policy update.
    + An edge location was added to the core network.  
-![The Events section in the AWS Management Console.](http://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-events.png)
+![The Events section in the AWS Management Console.](https://docs.aws.amazon.com/network-manager/latest/cloudwan/images/cloudwan-core-events.png)
 
    For a full list of tracked events, see [Monitor with Amazon CloudWatch Events](cloudwan-cloudwatch-events.md). 
 
