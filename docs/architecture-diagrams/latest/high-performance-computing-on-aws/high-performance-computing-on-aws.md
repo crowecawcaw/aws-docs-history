@@ -10,7 +10,7 @@ This architecture enables you to deploy and burst a suite of high performance co
 ## High Performance Computing on AWS
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS services to deploy and burst a suite of high performance computing (HPC) cases to the cloud directly from the desktop.](http://docs.aws.amazon.com/architecture-diagrams/latest/high-performance-computing-on-aws/images/high-performance-computing.png)
+![Reference architecture diagram showing how you can use AWS services to deploy and burst a suite of high performance computing (HPC) cases to the cloud directly from the desktop.](https://docs.aws.amazon.com/architecture-diagrams/latest/high-performance-computing-on-aws/images/high-performance-computing.png)
 
 
 1. Users deploy HPC cases with one of the AWS SDKs or the **AWS Command Line Interface** (AWS CLI). Users can interface directly with the cluster through NICE DCV. 
@@ -31,7 +31,7 @@ To customize this reference architecture diagram based on your business needs, [
 ## Create a free AWS account
 <a name="create-a-free-aws-account"></a>
 
-[![Sign up for a free AWS account](http://docs.aws.amazon.com/architecture-diagrams/latest/high-performance-computing-on-aws/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
+[![Sign up for a free AWS account](https://docs.aws.amazon.com/architecture-diagrams/latest/high-performance-computing-on-aws/images/signup.png)](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html)
 
 Sign up for an AWS account. New accounts include 12 months of [AWS Free Tier](https://aws.amazon.com/free/) access, including the use of Amazon EC2, Amazon S3, and Amazon DynamoDB.
 
