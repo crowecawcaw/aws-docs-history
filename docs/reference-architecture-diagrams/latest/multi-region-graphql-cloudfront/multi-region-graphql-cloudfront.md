@@ -10,7 +10,7 @@ This architecture shows how to reduce latency for end users while increasing you
 ## Multi-Region GraphQL API with CloudFront
 <a name="diagram1"></a>
 
-![Architecture diagram showing a multi-region GraphQL API with CloudFront, Amazon AppSync, DynamoDB global tables, and Lambda.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-region-graphql-cloudfront/images/multi-region-graphql-cloudfront.png)
+![Architecture diagram showing a multi-region GraphQL API with CloudFront, Amazon AppSync, DynamoDB global tables, and Lambda.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-region-graphql-cloudfront/images/multi-region-graphql-cloudfront.png)
 
 
 The following steps describe the architecture:
