@@ -10,7 +10,7 @@ This architecture shows how to deploy a serverless monitoring and alarm system. 
 ## Centralized Alarms and Notifications
 <a name="diagram1"></a>
 
-![Architecture diagram showing a centralized alarm and notification system with Amazon CloudWatch and Amazon Simple Notification Service.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-alarms-notifications/images/centralized-alarms-notifications.png)
+![Architecture diagram showing a centralized alarm and notification system with Amazon CloudWatch and Amazon Simple Notification Service.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/centralized-alarms-notifications/images/centralized-alarms-notifications.png)
 
 
 1. Create cross-account [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) alarms in the central monitoring account. You can tag CloudWatch alarms with resource identifiers.
