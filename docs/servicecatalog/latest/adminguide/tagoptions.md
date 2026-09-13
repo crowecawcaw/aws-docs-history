@@ -14,7 +14,7 @@ The TagOption library makes it easier to enforce the following:
 
 Administrators can associate TagOptions with portfolios and products. During a product launch (provisioning), AWS Service Catalog aggregates the associated portfolio and product TagOptions, and applies them to the provisioned product, as shown in the following diagram.
 
-![TagOptions Flow Diagram](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/TagOption-library.png)
+![TagOptions Flow Diagram](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/TagOption-library.png)
 
 
 With the TagOption library, you can deactivate TagOptions and retain their associations to portfolios or products, and reactivate them when you need them. This approach not only helps maintain library integrity, it also allows you to manage TagOptions that might be used intermittently, or only under special circumstances.

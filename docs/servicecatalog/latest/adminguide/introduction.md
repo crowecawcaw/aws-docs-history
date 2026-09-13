@@ -30,4 +30,4 @@ The Service Catalog API provides programmatic control over all end-user actions 
 
 This video (7:27) describes how to create, organize, and govern a curated catalog of AWS products, and share products with permissions level. As a result, end users can quickly provision approved IT resources without direct access to the underlying AWS services.
 
-[![AWS Videos](http://img.youtube.com/vi/A6-jv3gZa4U/0.jpg)](http://www.youtube.com/watch?v=A6-jv3gZa4U)
+[![AWS Videos](https://img.youtube.com/vi/A6-jv3gZa4U/0.jpg)](https://www.youtube.com/watch?v=A6-jv3gZa4U)

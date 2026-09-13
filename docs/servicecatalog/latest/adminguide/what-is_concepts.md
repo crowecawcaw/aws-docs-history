@@ -68,7 +68,7 @@ Template constraints restrict the configuration parameters that are available fo
 
 This diagram shows the initial workflow for an administrator to create a catalog.
 
-![Workflow showing catalog products organized into portfolios with constraints and distributed to organizations or users.](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/sc-diagram-updated.png)
+![Workflow showing catalog products organized into portfolios with constraints and distributed to organizations or users.](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/sc-diagram-updated.png)
 
 
 ## Initial End User Workflow
@@ -76,4 +76,4 @@ This diagram shows the initial workflow for an administrator to create a catalog
 
 This diagram shows the initial workflow for an end user. 
 
-![End user workflow showing four stages: discover products, select product and version, provide parameter inputs and launch, and manage product life-cycle.](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/end-user-journey.png)
+![End user workflow showing four stages: discover products, select product and version, provide parameter inputs and launch, and manage product life-cycle.](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/end-user-journey.png)

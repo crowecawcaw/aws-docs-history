@@ -15,7 +15,7 @@ The following use cases demonstrate how TagOptions work during launch.
 
 An administrator creates **TagOption[Group=Finance]** and associates it with **Portfolio1**, which has **Product1** with no TagOptions. When a user launches the provisioned product, the single TagOption becomes **Tag[Group=Finance]**, as follows:
 
-![TagOptions Example 1: A Unique Key](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/tagoptions-ex1.png)
+![TagOptions Example 1: A Unique Key](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/tagoptions-ex1.png)
 
 
 ## Example 2: A Set of TagOptions with the Same Key on a Portfolio
@@ -23,7 +23,7 @@ An administrator creates **TagOption[Group=Finance]** and associates it with **P
 
 An administrator has placed two TagOptions with the same key on a portfolio, and there are no TagOptions with the same key on any products within that portfolio. During launch, the user must select one of the two values associated with the key. The provisioned product is then tagged with the key and the user-selected value.
 
-![TagOptions Example 2: Same Key on a Portfolio](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/tagoptions-ex2.png)
+![TagOptions Example 2: Same Key on a Portfolio](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/tagoptions-ex2.png)
 
 
 ## Example 3: A Set of TagOptions with the Same Key on Both the Portfolio and a Product in that Portfolio
@@ -31,7 +31,7 @@ An administrator has placed two TagOptions with the same key on a portfolio, and
 
 An administrator has placed several TagOptions with the same key on a portfolio, and there are also several TagOptions with the same key on the product within that portfolio. AWS Service Catalog creates a set of values from the aggregation (logical AND operation) of the TagOptions. When the user launches the product, he or she sees and selects from this set of values. The provisioned product is tagged with the key and the user-selected value.
 
-![TagOptions Example 3: Same Key on a Portfolio and Product in That Portfolio](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/tagoptions-ex3.png)
+![TagOptions Example 3: Same Key on a Portfolio and Product in That Portfolio](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/tagoptions-ex3.png)
 
 
 ## Example 4: Multiple TagOptions with the Same Key and Conflicting Values
@@ -39,4 +39,4 @@ An administrator has placed several TagOptions with the same key on a portfolio,
 
 An administrator has placed several TagOptions with the same key on a portfolio, and there are also several TagOptions with the same key on the product in that portfolio. AWS Service Catalog creates a set of values from the aggregation (logical AND operation) of the TagOptions. If the aggregation doesn't find values for the key, AWS Service Catalog creates a tag with the same key and a value of `sc-tagconflict-{{portfolioid}}-{{productid}}`, where `{{portfolioid}}` and `{{productid}}` are the ARNs of the portfolio and product. This ensures that the provisioned product is tagged with the correct key and with a value that the administrator can find and correct.
 
-![TagOptions Example 4: Same Key and Conflicting Values](http://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/tagoptions-ex4.png)
+![TagOptions Example 4: Same Key and Conflicting Values](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/images/tagoptions-ex4.png)
