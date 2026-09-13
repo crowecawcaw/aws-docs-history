@@ -11,7 +11,7 @@ The top layer is where the product teams meet control objectives. This is becaus
 
 Wherever you implement the control, the goal is the same: manage risk. A range of risk management frameworks apply to specific industries, regions, or technologies. Your main objective: highlight the risk based on likelihood and consequence. This is the *inherent risk*. You can then define a control objective that reduces either the likelihood, consequence, or both. Then, with a control in place, you can see what the resulting risk is likely to be. This is the *residual risk*. Control objectives can apply to one or many workloads. The following diagram shows a typical risk matrix. The likelihood is based on frequency of previous occurrences and the consequence is based on the financial, reputational and time cost of the event.
 
-![Risk matrix showing likelihood levels from very unlikely to very likely against consequence levels from minimal to severe.](http://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/risk-matrix.png)
+![Risk matrix showing likelihood levels from very unlikely to very likely against consequence levels from minimal to severe.](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/risk-matrix.png)
 
 
 *Figure 2: Risk level likelihood matrix*

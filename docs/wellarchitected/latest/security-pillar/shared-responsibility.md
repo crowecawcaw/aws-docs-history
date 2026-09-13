@@ -9,7 +9,7 @@ Security and Compliance is a shared responsibility between AWS and the customer.
 
 **Customer responsibility “Security in the Cloud”** – Customer responsibility will be determined by the AWS Cloud services that a customer selects. This determines the amount of configuration work the customer must perform as part of their security responsibilities. For example, a service such as Amazon Elastic Compute Cloud (Amazon EC2) is categorized as Infrastructure as a Service (IaaS) and, as such, requires the customer to perform all of the necessary security configuration and management tasks. Customers that deploy an Amazon EC2 instance are responsible for management of the guest operating system (including updates and security patches), any application software or utilities installed by the customer on the instances, and the configuration of the AWS-provided firewall (called a security group) on each instance. For abstracted services, such as Amazon S3 and Amazon DynamoDB, AWS operates the infrastructure layer, the operating system, and platforms, and customers access the endpoints to store and retrieve data. Customers are responsible for managing their data (including encryption options), classifying their assets, and using IAM tools to apply the appropriate permissions.
 
-![Shared responsibility model showing customer responsibilities above AWS infrastructure layers.](http://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/aws-shared-responsibility.png)
+![Shared responsibility model showing customer responsibilities above AWS infrastructure layers.](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/aws-shared-responsibility.png)
 
 
 *Figure 1: AWS Shared Responsibility Model.*

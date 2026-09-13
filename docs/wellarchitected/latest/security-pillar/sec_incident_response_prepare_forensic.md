@@ -32,7 +32,7 @@ Ahead of a security incident, consider developing forensics capabilities to supp
 
  The following diagram displays a sample account structure including a forensics OU with per-Region forensics accounts: 
 
-![Flow diagram showing a per-Region account structure for incident response, forking into a security and forensics OU.](http://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/region-account-structure.png)
+![Flow diagram showing a per-Region account structure for incident response, forking into a security and forensics OU.](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/region-account-structure.png)
 
 
  **Capture backups and snapshots** 

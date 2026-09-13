@@ -12,4 +12,4 @@
 
  The following diagram shows the ﬂow of these aspects, aligning with the previously mentioned NIST incident response lifecycle, but with operations encompassing detection and analysis with containment, eradication, and recovery. 
 
-![Diagram displaying the cycle of AWS incident response operations.](http://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/aws-incident-response.png)
+![Diagram displaying the cycle of AWS incident response operations.](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/images/aws-incident-response.png)
