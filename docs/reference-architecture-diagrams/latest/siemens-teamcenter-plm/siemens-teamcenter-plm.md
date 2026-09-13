@@ -5,12 +5,12 @@
 
 Publication date: **March 8, 2024 ([Diagram history](#stp-diagram-history))**
 
-With this architecture, you can deploy Siemens Teamcenter on AWS for high availability with Siemens Active Workspace and visualization. This solution uses [Amazon Elastic Compute Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/), [Amazon Relational Database Service](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/), [Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/), [Amazon Elastic Block Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/), [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/), and [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/).
+With this architecture, you can deploy Siemens Teamcenter on AWS for high availability with Siemens Active Workspace and visualization. This solution uses [Amazon Elastic Compute Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/), [Amazon Relational Database Service](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/), [Amazon Elastic File System](https://docs.aws.amazon.com/efs/latest/ug/), [Amazon Elastic Block Store](https://docs.aws.amazon.com/ebs/latest/userguide/), [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/), and [Amazon Route 53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/).
 
 ## Siemens Teamcenter PLM architecture diagram
 <a name="stp-diagram"></a>
 
-![Architecture diagram for Siemens Teamcenter product lifecycle management on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/siemens-teamcenter-plm/images/siemens-teamcenter-ra.png)
+![Architecture diagram for Siemens Teamcenter product lifecycle management on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/siemens-teamcenter-plm/images/siemens-teamcenter-ra.png)
 
 
 The following steps describe the architecture:
@@ -21,7 +21,7 @@ The following steps describe the architecture:
 
 1. Requests forward to the Teamcenter Enterprise Tier, which interacts with other servers and databases.
 
-1. Teamcenter uses Amazon RDS for Oracle or Microsoft SQL Server on Amazon EC2 for structured product lifecycle management (PLM) data.
+1. Teamcenter uses Amazon RDS for Oracle or Microsoft SQL Server for structured product lifecycle management (PLM) data.
 
 1. Teamcenter File Management System stores and retrieves files from Amazon EBS, Amazon EFS, or Amazon FSx for NetApp ONTAP.
 
