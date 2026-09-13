@@ -11,7 +11,7 @@ By default, the Amazon VPC CNI plugin assigns one IP address to each pod. This I
 
 The following diagram shows a multi-homed pod running on a worker node with multiple network interface cards (NICs) in use.
 
-![A multi-homed pod with two network interfaces attached one network interface with ENA and one network interface with ENA and EFA](http://docs.aws.amazon.com/eks/latest/userguide/images/multi-homed-pod.png)
+![A multi-homed pod with two network interfaces attached one network interface with ENA and one network interface with ENA and EFA](https://docs.aws.amazon.com/eks/latest/userguide/images/multi-homed-pod.png)
 
 
 ## Background

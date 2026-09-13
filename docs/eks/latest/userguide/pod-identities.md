@@ -11,7 +11,7 @@ Applications in a Pod’s containers can use an AWS SDK or the AWS CLI to make A
 
  *EKS Pod Identities* provide the ability to manage credentials for your applications, similar to the way that Amazon EC2 instance profiles provide credentials to Amazon EC2 instances. Instead of creating and distributing your AWS credentials to the containers or using the Amazon EC2 instance’s role, you associate an IAM role with a Kubernetes service account and configure your Pods to use the service account.
 
-[![AWS Videos](http://img.youtube.com/vi/aUjJSorBE70?rel=0/0.jpg)](http://www.youtube.com/watch?v=aUjJSorBE70?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/aUjJSorBE70?rel=0/0.jpg)](https://www.youtube.com/watch?v=aUjJSorBE70?rel=0)
 
 
 Each EKS Pod Identity association maps a role to a service account in a namespace in the specified cluster. If you have the same application in multiple clusters, you can make identical associations in each cluster without modifying the trust policy of the role.

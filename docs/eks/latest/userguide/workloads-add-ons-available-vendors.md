@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 In addition to the previous list of Amazon EKS add-ons, you can also add a wide selection of operational software Amazon EKS add-ons from independent software vendors. Choose an add-on to learn more about it and its installation requirements.
 
-[![AWS Videos](http://img.youtube.com/vi/IIPj119mspc?rel=0/0.jpg)](http://www.youtube.com/watch?v=IIPj119mspc?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/IIPj119mspc?rel=0/0.jpg)](https://www.youtube.com/watch?v=IIPj119mspc?rel=0)
 
 
 ## Accuknox

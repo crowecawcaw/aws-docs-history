@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 You can easily edit a single page in the EKS User Guide directly through your web browser.
 
-![View of GitHub web edit interface](http://docs.aws.amazon.com/eks/latest/userguide/images/contribute-web-edit.png)
+![View of GitHub web edit interface](https://docs.aws.amazon.com/eks/latest/userguide/images/contribute-web-edit.png)
 
 
 If you want to edit multiple pages from your web browser, see [Edit multiple files from a web browser with the GitHub Web Editor](edit-web.md).

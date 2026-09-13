@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 You can see style feedback as you type. This helps identify awkward writing and typos.
 
-![View style feedback in VS Code](http://docs.aws.amazon.com/eks/latest/userguide/images/contribute-style-local.png)
+![View style feedback in VS Code](https://docs.aws.amazon.com/eks/latest/userguide/images/contribute-style-local.png)
 
 
  **Overview:** 

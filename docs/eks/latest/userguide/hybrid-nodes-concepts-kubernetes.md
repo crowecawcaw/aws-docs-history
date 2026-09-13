@@ -168,14 +168,14 @@ The [Networking concepts for hybrid nodes](hybrid-nodes-concepts-networking.md) 
 
 If your CNI supports it (such as Cilium and Calico), you can use the BGP mode of your CNI to propagate routes to your per node pod CIDRs from your nodes to your local router. When using the CNI’s BGP mode, your CNI acts as a virtual router, so your local router thinks the pod CIDR belongs to a different subnet and your node is the gateway to that subnet.
 
-![Hybrid nodes BGP routing](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-bgp.png)
+![Hybrid nodes BGP routing](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-bgp.png)
 
 
  **Static routes** 
 
 Or, you can configure static routes in your local router. This is the simplest way to route the on-premises pod CIDR to your VPC, but it is also the most error prone and difficult to maintain. You need to make sure that the routes are always up-to-date with the existing nodes and their assigned pod CIDRs. If your number of nodes is small and infrastructure is static, this is a viable option and removes the need for BGP support in your router. If you opt for this, we recommend to configure your CNI with the pod CIDR slice that you want to assign to each node instead of letting its IPAM decide.
 
-![Hybrid nodes static routing](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-static-routes.png)
+![Hybrid nodes static routing](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-static-routes.png)
 
 
  **Address Resolution Protocol (ARP) proxying** 
@@ -188,7 +188,7 @@ For this to work, your CNI must support proxy ARP functionality. Cilium has buil
 
 This approach has several advantages: \* No need to configure your router with BGP or maintain static routes \* Works well in environments where you don’t have control over your router configuration
 
-![Hybrid nodes ARP proxying](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-arp-proxy.png)
+![Hybrid nodes ARP proxying](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-arp-proxy.png)
 
 
 ## Pod-to-Pod encapsulation

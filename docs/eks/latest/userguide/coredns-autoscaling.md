@@ -1,0 +1,225 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Scale CoreDNS Pods for high DNS traffic
+<a name="coredns-autoscaling"></a>
+
+When you launch an Amazon EKS cluster with at least one node, a Deployment of two replicas of the CoreDNS image is deployed by default, regardless of the number of nodes deployed in your cluster. The CoreDNS Pods provide name resolution for all Pods in the cluster. Applications use name resolution to connect to pods and services in the cluster as well as connecting to services outside the cluster. As the number of requests for name resolution (queries) from pods increase, the CoreDNS pods can get overwhelmed and slow down, and reject requests that the pods can’t handle.
+
+To handle the increased load on the CoreDNS pods, consider an autoscaling system for CoreDNS. Amazon EKS can manage the autoscaling of the CoreDNS Deployment in the EKS Add-on version of CoreDNS. This CoreDNS autoscaler continuously monitors the cluster state, including the number of nodes and CPU cores. Based on that information, the controller will dynamically adapt the number of replicas of the CoreDNS deployment in an EKS cluster. This feature works for CoreDNS `v1.9` and later. For more information about which versions are compatible with CoreDNS Autoscaling, see the following section.
+
+By default, the system automatically manages CoreDNS replicas using a dynamic formula based on both the number of nodes and CPU cores in the cluster. The formula calculates the maximum of (`numberOfNodes` divided by 16) and (`numberOfCPUCores` divided by 256). The system evaluates demand over 10-minute peak periods and scales up immediately when needed to handle increased DNS query load. The system scales down gradually by reducing replicas by 33% every 3 minutes to maintain system stability and avoid disruption.
+
+You can adjust the `nodesPerReplica` and `cpuCoresPerReplica` scaling parameters through the EKS Add-on configuration:
++  `nodesPerReplica`: The number of nodes per CoreDNS replica. The default is `16`. A smaller value increases the number of replicas that autoscaling maintains for a given number of nodes.
++  `cpuCoresPerReplica`: The number of CPU cores per CoreDNS replica. The default is `256`. A smaller value increases the number of replicas that autoscaling maintains for a given number of CPU cores.
+
+Autoscaling uses the larger of the two computed replica counts and clamps the result between `minReplicas` and `maxReplicas`. To use `nodesPerReplica` or `cpuCoresPerReplica`, your CoreDNS Add-on must be at the minimum version for your cluster’s Kubernetes version. For more information, see [Minimum EKS Add-on version for advanced scaling parameters](#coredns-autoscaling-coredns-version).
+
+We recommend using this feature in conjunction with other [EKS Cluster Autoscaling best practices](https://aws.github.io/aws-eks-best-practices/cluster-autoscaling/) to improve overall application availability and cluster scalability.
+
+## Prerequisites
+<a name="coredns-autoscaling-prereqs"></a>
+
+For Amazon EKS to scale your CoreDNS deployment, you must meet the following prerequisites:
++ You must be using the *EKS Add-on* version of CoreDNS.
++ To configure `nodesPerReplica` or `cpuCoresPerReplica`, you must use the minimum CoreDNS Add-on version based on your cluster’s Kubernetes version, as shown in the following section.
+
+## Minimum EKS Add-on version for advanced scaling parameters
+<a name="coredns-autoscaling-coredns-version"></a>
+
+The following table lists the minimum CoreDNS Add-on version required for each Kubernetes version to use the `nodesPerReplica` and `cpuCoresPerReplica` scaling parameters.
+
+
+| Kubernetes version | CoreDNS version | 
+| --- | --- | 
+| 1.36 | v1.14.3-eksbuild.16 | 
+| 1.35 | v1.14.3-eksbuild.16 | 
+| 1.34 | v1.13.2-eksbuild.24 | 
+| 1.33 | v1.12.4-eksbuild.31 | 
+| 1.32 | v1.11.4-eksbuild.53 | 
+| 1.31 | v1.11.4-eksbuild.53 | 
+
+### Configuring CoreDNS autoscaling in the AWS Management Console
+<a name="coredns-autoscaling-console"></a>
+
+1. Ensure that you have the EKS Add-on for CoreDNS, not the self-managed CoreDNS Deployment.
+
+   Depending on the tool that you created your cluster with, you might not currently have the Amazon EKS add-on type installed on your cluster. To see which type of the add-on is installed on your cluster, you can run the following command. Replace `my-cluster` with the name of your cluster.
+
+   ```
+   aws eks describe-addon --cluster-name my-cluster --addon-name coredns --query addon.addonVersion --output text
+   ```
+
+   If a version number is returned, you have the Amazon EKS type of the add-on installed on your cluster and you can continue with the next step. If an error is returned, you don’t have the Amazon EKS type of the add-on installed on your cluster. Complete the remaining steps of the procedure [Create the CoreDNS Amazon EKS add-on](coredns-add-on-create.md) to replace the self-managed version with the Amazon EKS add-on.
+
+1. Ensure that your EKS Add-on for CoreDNS is at a version the same or higher than the minimum EKS Add-on version.
+
+   See which version of the add-on is installed on your cluster. You can check in the AWS Management Console or run the following command:
+
+   ```
+   kubectl describe deployment coredns --namespace kube-system | grep coredns: | cut -d : -f 3
+   ```
+
+   An example output is as follows.
+
+   ```
+   v1.10.1-eksbuild.13
+   ```
+
+   Compare this version with the minimum EKS Add-on version in the previous section. If needed, upgrade the EKS Add-on to a higher version by following the procedure [Update the CoreDNS Amazon EKS add-on](coredns-add-on-update.md).
+
+1. Add the autoscaling configuration to the **Optional configuration settings** of the EKS Add-on.
+
+   1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
+
+   1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the add-on for.
+
+   1. Choose the **Add-ons** tab.
+
+   1. Select the box in the top right of the CoreDNS add-on box and then choose **Edit**.
+
+   1. On the **Configure CoreDNS** page:
+
+      1. Select the **Version** that you’d like to use. We recommend that you keep the same version as the previous step, and update the version and configuration in separate actions.
+
+      1. Expand the **Optional configuration settings**.
+
+      1. Enter the JSON key `"autoscaling":` and value of a nested JSON object with a key `"enabled":` and value `true` in **Configuration values**. The resulting text must be a valid JSON object. If this key and value are the only data in the text box, surround the key and value with curly braces `{ }`. The following example shows autoscaling is enabled:
+
+         ```
+         {
+           "autoScaling": {
+             "enabled": true
+           }
+         }
+         ```
+
+         The following example shows autoscaling enabled with minimum and maximum replica values. We recommend that the minimum number of CoreDNS pods is always greater than 2 to provide resilience for the DNS service in the cluster.
+
+         ```
+         {
+           "autoScaling": {
+             "enabled": true,
+             "minReplicas": 2,
+             "maxReplicas": 10
+           }
+         }
+         ```
+
+         The following example also sets the `nodesPerReplica` and `cpuCoresPerReplica` scaling parameters. These keys require a minimum CoreDNS Add-on version. For more information, see [Minimum EKS Add-on version for advanced scaling parameters](#coredns-autoscaling-coredns-version).
+
+         ```
+         {
+           "autoScaling": {
+             "enabled": true,
+             "minReplicas": 2,
+             "maxReplicas": 10,
+             "nodesPerReplica": 5,
+             "cpuCoresPerReplica": 256
+           }
+         }
+         ```
+
+   1. To apply the new configuration by replacing the CoreDNS pods, choose **Save changes**.
+
+      Amazon EKS applies changes to the EKS Add-ons by using a *rollout* of the Kubernetes Deployment for CoreDNS. You can track the status of the rollout in the **Update history** of the add-on in the AWS Management Console and with `kubectl rollout status deployment/coredns --namespace kube-system`.
+
+       `kubectl rollout` has the following commands:
+
+      ```
+      kubectl rollout
+      
+      history  -- View rollout history
+      pause    -- Mark the provided resource as paused
+      restart  -- Restart a resource
+      resume   -- Resume a paused resource
+      status   -- Show the status of the rollout
+      undo     -- Undo a previous rollout
+      ```
+
+      If the rollout takes too long, Amazon EKS will undo the rollout, and a message with the type of **Addon Update** and a status of **Failed** will be added to the **Update history** of the add-on. To investigate any issues, start from the history of the rollout, and run `kubectl logs` on a CoreDNS pod to see the logs of CoreDNS.
+
+1. If the new entry in the **Update history** has a status of **Successful**, then the rollout has completed and the add-on is using the new configuration in all of the CoreDNS pods. As you change the number of nodes and CPU cores of nodes in the cluster, Amazon EKS scales the number of replicas of the CoreDNS deployment.
+
+### Configuring CoreDNS autoscaling in the AWS Command Line Interface
+<a name="coredns-autoscaling-cli"></a>
+
+1. Ensure that you have the EKS Add-on for CoreDNS, not the self-managed CoreDNS Deployment.
+
+   Depending on the tool that you created your cluster with, you might not currently have the Amazon EKS add-on type installed on your cluster. To see which type of the add-on is installed on your cluster, you can run the following command. Replace `my-cluster` with the name of your cluster.
+
+   ```
+   aws eks describe-addon --cluster-name my-cluster --addon-name coredns --query addon.addonVersion --output text
+   ```
+
+   If a version number is returned, you have the Amazon EKS type of the add-on installed on your cluster. If an error is returned, you don’t have the Amazon EKS type of the add-on installed on your cluster. Complete the remaining steps of the procedure [Create the CoreDNS Amazon EKS add-on](coredns-add-on-create.md) to replace the self-managed version with the Amazon EKS add-on.
+
+1. Ensure that your EKS Add-on for CoreDNS is at a version the same or higher than the minimum EKS Add-on version.
+
+   See which version of the add-on is installed on your cluster. You can check in the AWS Management Console or run the following command:
+
+   ```
+   kubectl describe deployment coredns --namespace kube-system | grep coredns: | cut -d : -f 3
+   ```
+
+   An example output is as follows.
+
+   ```
+   v1.10.1-eksbuild.13
+   ```
+
+   Compare this version with the minimum EKS Add-on version in the previous section. If needed, upgrade the EKS Add-on to a higher version by following the procedure [Update the CoreDNS Amazon EKS add-on](coredns-add-on-update.md).
+
+1. Add the autoscaling configuration to the **Optional configuration settings** of the EKS Add-on.
+
+   Run the following AWS CLI command. Replace `my-cluster` with the name of your cluster and the IAM role ARN with the role that you are using.
+
+   ```
+   aws eks update-addon --cluster-name my-cluster --addon-name coredns \
+       --resolve-conflicts PRESERVE --configuration-values '{"autoScaling":{"enabled":true}}'
+   ```
+
+   Amazon EKS applies changes to the EKS Add-ons by using a *rollout* of the Kubernetes Deployment for CoreDNS. You can track the status of the rollout in the **Update history** of the add-on in the AWS Management Console and with `kubectl rollout status deployment/coredns --namespace kube-system`.
+
+    `kubectl rollout` has the following commands:
+
+   ```
+   kubectl rollout
+   
+   history  -- View rollout history
+   pause    -- Mark the provided resource as paused
+   restart  -- Restart a resource
+   resume   -- Resume a paused resource
+   status   -- Show the status of the rollout
+   undo     -- Undo a previous rollout
+   ```
+
+   If the rollout takes too long, Amazon EKS will undo the rollout, and a message with the type of **Addon Update** and a status of **Failed** will be added to the **Update history** of the add-on. To investigate any issues, start from the history of the rollout, and run `kubectl logs` on a CoreDNS pod to see the logs of CoreDNS.
+
+1. (Optional) You can provide minimum and maximum values that autoscaling can scale the number of CoreDNS pods to.
+
+   The following example shows autoscaling enabled with minimum and maximum replica values. We recommend that the minimum number of CoreDNS pods is always greater than 2 to provide resilience for the DNS service in the cluster.
+
+   ```
+   aws eks update-addon --cluster-name my-cluster --addon-name coredns \
+       --resolve-conflicts PRESERVE --configuration-values '{"autoScaling":{"enabled":true,"minReplicas":2,"maxReplicas":10}}'
+   ```
+
+1. (Optional) You can also set the `nodesPerReplica` and `cpuCoresPerReplica` scaling parameters. These keys require a minimum CoreDNS Add-on version. For more information, see [Minimum EKS Add-on version for advanced scaling parameters](#coredns-autoscaling-coredns-version).
+
+   ```
+   aws eks update-addon --cluster-name my-cluster --addon-name coredns \
+       --resolve-conflicts PRESERVE --configuration-values '{"autoScaling":{"enabled":true,"minReplicas":2,"maxReplicas":10,"nodesPerReplica":5,"cpuCoresPerReplica":256}}'
+   ```
+
+1. Check the status of the update to the add-on by running the following command:
+
+   ```
+   aws eks describe-addon --cluster-name my-cluster --addon-name coredns
+   ```
+
+   If you see this line: `"status": "ACTIVE"`, then the rollout has completed and the add-on is using the new configuration in all of the CoreDNS pods. As you change the number of nodes and CPU cores of nodes in the cluster, Amazon EKS scales the number of replicas of the CoreDNS deployment.

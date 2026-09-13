@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 This topic provides an overview of the networking setup you must have configured before creating your Amazon EKS cluster and attaching hybrid nodes. This guide assumes you have met the prerequisite requirements for hybrid network connectivity using [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html), [AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html), or your own VPN solution.
 
-![Hybrid node network connectivity.](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-prereq-diagram.png)
+![Hybrid node network connectivity.](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-prereq-diagram.png)
 
 
 ## On-premises networking configuration

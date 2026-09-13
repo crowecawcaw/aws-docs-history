@@ -18,7 +18,7 @@ Extended support is enabled by default. To disable, see [Disable EKS extended su
 
 We recommend that you create your cluster with the latest available Kubernetes version supported by Amazon EKS. If your application requires a specific version of Kubernetes, you can select older versions. You can create new Amazon EKS clusters on any version offered in standard or extended support.
 
-[![AWS Videos](http://img.youtube.com/vi/_dJdAZ_J_jw?rel=0/0.jpg)](http://www.youtube.com/watch?v=_dJdAZ_J_jw?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/_dJdAZ_J_jw?rel=0/0.jpg)](https://www.youtube.com/watch?v=_dJdAZ_J_jw?rel=0)
 
 
 ## Available versions on standard support

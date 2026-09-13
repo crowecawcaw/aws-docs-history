@@ -57,7 +57,7 @@ The dual trust period gives you time to identify and update all the worker nodes
 **Note**  
 During the dual trust period, your cluster’s trust bundle contains two CAs. This is standard behavior for .pem-encoded trust bundles. Update applications that perform strict single-CA validation or CA pinning to accept multiple CAs before rotation begins.
 
-![Diagram showing trust bundle contents across CA rotation phases. Before rotation: one PEM block with outgoing CA. During dual trust: two PEM blocks with both outgoing and successor CA. After rotation: one PEM block with successor CA.](http://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-trust-bundle-phases.png)
+![Diagram showing trust bundle contents across CA rotation phases. Before rotation: one PEM block with outgoing CA. During dual trust: two PEM blocks with both outgoing and successor CA. After rotation: one PEM block with successor CA.](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-trust-bundle-phases.png)
 
 
 It is important to understand how activation of the successor CA affects connectivity. When a client connects to the API server, it verifies the server’s identity by checking that the server’s certificate was signed by a CA it trusts.
@@ -66,12 +66,12 @@ After the successor CA is activated, the API server presents its certificate sig
 
 The following diagram shows the TLS connection flow after successor CA activation.
 
-![Diagram showing the TLS connection flow after activation. A connecting component initiates a TLS connection to the API server. The API server presents a certificate signed by the successor CA. If the client’s trust bundle contains the successor CA](http://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-tls-connection-flow.png)
+![Diagram showing the TLS connection flow after activation. A connecting component initiates a TLS connection to the API server. The API server presents a certificate signed by the successor CA. If the client’s trust bundle contains the successor CA](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-tls-connection-flow.png)
 
 
 This is why updating worker nodes and external clients before activation of the successor CA is important: they need the successor CA in their trust bundle to verify the API server’s identity and connect. The dual trust period and CA rollback provide you time and a safety net to complete this.
 
-![Diagram showing the three stages of CA rotation: Stage 1 Append (successor CA added](http://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-three-stages.png)
+![Diagram showing the three stages of CA rotation: Stage 1 Append (successor CA added](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-three-stages.png)
 
 
 ## Shared responsibility model
@@ -101,7 +101,7 @@ We cannot perform these actions on your behalf. External clients exist outside t
 
 The sections that follow expand on each side: what AWS does for you, and what you need to do along with step-by-step guidance on how to do it.
 
-![Diagram showing the shared responsibility model for CA rotation. The service manages the control plane](http://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-shared-responsibility.png)
+![Diagram showing the shared responsibility model for CA rotation. The service manages the control plane](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-shared-responsibility.png)
 
 
 ## What AWS does for you
@@ -366,12 +366,12 @@ The Amazon EKS console provides a guided experience for CA rotation. You can vie
 
 The following image shows the certificate authority details view in the Amazon EKS console during an active rotation. The active CA and successor CA are both displayed with their signing status, expiration date, and days until expiration.
 
-![The Amazon EKS console showing certificate authority details](http://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-console-ca-details.png)
+![The Amazon EKS console showing certificate authority details](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-console-ca-details.png)
 
 
 The following image shows the rotation progress view in the Amazon EKS console. Each step of the rotation process is displayed with its current state, including append, distribution, updating worker nodes and external clients, activation, and deletion of the outgoing CA.
 
-![The Amazon EKS console showing the rotation progress view with each step of the CA rotation lifecycle and its completion status](http://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-console-rotation-progress.png)
+![The Amazon EKS console showing the rotation progress view with each step of the CA rotation lifecycle and its completion status](https://docs.aws.amazon.com/eks/latest/userguide/images/ca-rotation-console-rotation-progress.png)
 
 
 ## Updating your Kubernetes clients

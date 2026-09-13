@@ -140,7 +140,7 @@ The `docker-2048` image in the example is an `x86_64` container image and will n
    ```
 
    You should see the 2048 game in your browser. Play\!  
-![Play the 2048 game](http://docs.aws.amazon.com/eks/latest/userguide/images/quick2048.png)
+![Play the 2048 game](https://docs.aws.amazon.com/eks/latest/userguide/images/quick2048.png)
 
 ## Persist Data using Amazon EKS Auto Mode
 <a name="_persist_data_using_amazon_eks_auto_mode"></a>

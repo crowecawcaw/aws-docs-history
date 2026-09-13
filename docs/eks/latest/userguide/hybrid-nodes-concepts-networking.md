@@ -12,7 +12,7 @@ This section details the core networking concepts and the constraints you must c
 ## Networking concepts for EKS Hybrid Nodes
 <a name="_networking_concepts_for_eks_hybrid_nodes"></a>
 
-![High level hybrid nodes network diagram](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-highlevel-network.png)
+![High level hybrid nodes network diagram](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-highlevel-network.png)
 
 
  **VPC as the network hub** 
@@ -37,7 +37,7 @@ The remote pod networks are the ranges of IPs assigned to the pods running on th
 
 You configure the EKS cluster with these remote pod CIDRs so the EKS control plane knows to route all traffic destined for the pods running on the hybrid nodes through your cluster’s VPC, such as communication with webhooks.
 
-![Remote Pod Networks](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-remote-pod-cidrs.png)
+![Remote Pod Networks](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-remote-pod-cidrs.png)
 
 
  **On-premises to the VPC** 

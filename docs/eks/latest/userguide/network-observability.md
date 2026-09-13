@@ -262,7 +262,7 @@ resource "aws_eks_addon" "example" {
 
 If you are running third party (3P) tooling to monitor your EKS environment (such as Prometheus and Grafana), you can scrape the supported system metrics directly from the Network Flow Monitor agent. These metrics can be sent to your monitoring stack to expand measurement of your system’s network performance at the pod and worker node level. The available metrics are listed in the table, under Supported system metrics.
 
-![Illustration of scraping system metrics](http://docs.aws.amazon.com/eks/latest/userguide/images/nfm-eks-metrics-workflow.png)
+![Illustration of scraping system metrics](https://docs.aws.amazon.com/eks/latest/userguide/images/nfm-eks-metrics-workflow.png)
 
 
 To enable these metrics, override the following environment variables using the configuration variables during the installation process (see: https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/):
@@ -288,7 +288,7 @@ In addition, Network Flow Monitor captures network flow data along with flow lev
 
 The diagram below depicts a workflow in which both types of metrics (system and flow level) can be leveraged to gain more operational intelligence.
 
-![Illustration of workflow with different performance metrics](http://docs.aws.amazon.com/eks/latest/userguide/images/nfm-eks-metrics-types-workflow.png)
+![Illustration of workflow with different performance metrics](https://docs.aws.amazon.com/eks/latest/userguide/images/nfm-eks-metrics-types-workflow.png)
 
 
 1. The platform team can collect and visualize system metrics in their monitoring stack. With alerting in place, they can detect network anomalies or issues impacting pods or worker nodes using the system metrics from the NFM agent.
@@ -330,7 +330,7 @@ Important note: system metrics are exported in [OpenMetrics](https://openmetrics
 ### Service map and flow table
 <a name="_service_map_and_flow_table"></a>
 
-![Illustration of how NFM works with EKS](http://docs.aws.amazon.com/eks/latest/userguide/images/nfm-eks-workflow.png)
+![Illustration of how NFM works with EKS](https://docs.aws.amazon.com/eks/latest/userguide/images/nfm-eks-workflow.png)
 
 
 1. When installed, the Network Flow Monitor agent runs as a DaemonSet on every worker node and collects the top 500 network flows (based on volume of data transferred) every 30 seconds.
@@ -353,22 +353,22 @@ The network flows pulled from the Top Contributors API are scoped to a 1 hour ti
 
  *Deployment view* 
 
-![Illustration of service map with ecommerce app in deployment view](http://docs.aws.amazon.com/eks/latest/userguide/images/ecommerce-deployment.png)
+![Illustration of service map with ecommerce app in deployment view](https://docs.aws.amazon.com/eks/latest/userguide/images/ecommerce-deployment.png)
 
 
  *Pod view* 
 
-![Illustration of service map with ecommerce app in pod view](http://docs.aws.amazon.com/eks/latest/userguide/images/ecommerce-pod.png)
+![Illustration of service map with ecommerce app in pod view](https://docs.aws.amazon.com/eks/latest/userguide/images/ecommerce-pod.png)
 
 
  *Deployment view* 
 
-![Illustration of service map with photo-gallery app in deployment view](http://docs.aws.amazon.com/eks/latest/userguide/images/photo-gallery-deployment.png)
+![Illustration of service map with photo-gallery app in deployment view](https://docs.aws.amazon.com/eks/latest/userguide/images/photo-gallery-deployment.png)
 
 
  *Pod view* 
 
-![Illustration of service map with photo-gallery app in pod view](http://docs.aws.amazon.com/eks/latest/userguide/images/photo-gallery-pod.png)
+![Illustration of service map with photo-gallery app in pod view](https://docs.aws.amazon.com/eks/latest/userguide/images/photo-gallery-pod.png)
 
 
 #### Example: Flow table
@@ -376,12 +376,12 @@ The network flows pulled from the Top Contributors API are scoped to a 1 hour ti
 
  * AWS service view* 
 
-![Illustration of flow table view](http://docs.aws.amazon.com/eks/latest/userguide/images/aws-service-view.png)
+![Illustration of flow table view](https://docs.aws.amazon.com/eks/latest/userguide/images/aws-service-view.png)
 
 
  *Cluster view* 
 
-![Illustration of flow table in cluster view](http://docs.aws.amazon.com/eks/latest/userguide/images/cluster-view.png)
+![Illustration of flow table in cluster view](https://docs.aws.amazon.com/eks/latest/userguide/images/cluster-view.png)
 
 
 ## Considerations and limitations

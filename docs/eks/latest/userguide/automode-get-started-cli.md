@@ -13,8 +13,10 @@ This topic guides you through creating a new EKS Auto Mode Cluster using the AWS
 
 ## Prerequisites
 <a name="_prerequisites"></a>
-+ The latest version of the AWS Command Line Interface (AWS CLI) installed and configured on your device. To check your current version, use `aws --version`. To install the latest version, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Quick configuration](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-configure-quickstart-config) with aws configure in the AWS Command Line Interface User Guide.
-  + Login to the CLI with sufficient IAM permissions to create AWS resources including IAM Policies, IAM Roles, and EKS Clusters.
+
+Before you begin, make sure you have the following:
++ The latest version of the AWS Command Line Interface (AWS CLI), installed and configured on your device. To check your current version, run `aws --version`. To install or update the AWS CLI, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Quick configuration](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-configure-quickstart-config) in the AWS Command Line Interface User Guide.
++ Sufficient IAM permissions to create AWS resources, including IAM policies, IAM roles, and EKS clusters.
 + The kubectl command line tool installed on your device. AWS suggests you use the same kubectl version as the Kubernetes version of your EKS Cluster. To install or upgrade kubectl, see [Set up `kubectl` and `eksctl`](install-kubectl.md).
 
 ## Specify VPC subnets

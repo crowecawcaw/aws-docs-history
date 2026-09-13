@@ -8,7 +8,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 <a name="enable-kms"></a>
 
 **Important**  
-This procedure only applies to EKS clusters running Kubernetes version 1.27 or lower. If you are running Kubernetes version 1.28 or higher, your Kubernetes secrets are protected with envelope encryption by default. For more information, see [Default envelope encryption for all Kubernetes API Data](envelope-encryption.md).
+ **Deprecation notice:** This procedure is deprecated and only applies to EKS clusters running Kubernetes version 1.27 or lower. If you are running Kubernetes version 1.28 or higher, Amazon EKS protects your Kubernetes secrets with envelope encryption by default. For more information, see [Default envelope encryption for all Kubernetes API Data](envelope-encryption.md).
 
 If you enable [secrets encryption](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/), the Kubernetes secrets are encrypted using the AWS KMS key that you select. The KMS key must meet the following conditions:
 + Symmetric

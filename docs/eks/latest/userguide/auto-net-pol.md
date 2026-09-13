@@ -120,10 +120,10 @@ You can optionally create a new Node Class to change the default behavior of the
 ### DNS-based network policy
 <a name="_dns_based_network_policy"></a>
 
-![Illustration of workflow when a DNS-based policy is applied in EKS Auto](http://docs.aws.amazon.com/eks/latest/userguide/images/apply-dns-policy-1.png)
+![Illustration of workflow when a DNS-based policy is applied in EKS Auto](https://docs.aws.amazon.com/eks/latest/userguide/images/apply-dns-policy-1.png)
 
 
-![Illustration of workflow when a DNS-based policy is applied in EKS Auto](http://docs.aws.amazon.com/eks/latest/userguide/images/apply-dns-policy-2.png)
+![Illustration of workflow when a DNS-based policy is applied in EKS Auto](https://docs.aws.amazon.com/eks/latest/userguide/images/apply-dns-policy-2.png)
 
 
 1. The platform team applies a DNS-based policy to the EKS cluster.
@@ -191,7 +191,7 @@ spec:
 
 At the Kubernetes network level, this would allow egress from any pods in the "galaxy" namespace labelled with `role: backend` to connect to the domain name **myapp.mydomain.com** on TCP port 8080 and to CoreDNS on port 53. In addition, you would need to set up the network connectivity for egress traffic from your VPC to your corporate data center.
 
-![Illustration of workload in EKS Auto communicating with applications on prem](http://docs.aws.amazon.com/eks/latest/userguide/images/eks-auto-to-on-prem.png)
+![Illustration of workload in EKS Auto communicating with applications on prem](https://docs.aws.amazon.com/eks/latest/userguide/images/eks-auto-to-on-prem.png)
 
 
 ### Determining the CoreDNS IP address
@@ -220,7 +220,7 @@ For your application to resolve DNS, it must be allowed to communicate with Core
 ### Admin (or cluster) network policy
 <a name="_admin_or_cluster_network_policy"></a>
 
-![Illustration of the evaluation order for network policies in EKS](http://docs.aws.amazon.com/eks/latest/userguide/images/evaluation-order.png)
+![Illustration of the evaluation order for network policies in EKS](https://docs.aws.amazon.com/eks/latest/userguide/images/evaluation-order.png)
 
 
 #### Using the Cluster Network Policy

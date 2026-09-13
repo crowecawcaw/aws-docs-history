@@ -16,10 +16,10 @@ You can start a zonal shift for an EKS cluster, or you can allow AWS to shift tr
 
 The following diagram illustrates two example workloads, Orders, and Products. The purpose of this example is to show how workloads and Pods in different AZs communicate.
 
-![Illustration of network traffic](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-traffic-flow-before-1.png)
+![Illustration of network traffic](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-traffic-flow-before-1.png)
 
 
-![Illustration of network traffic](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-traffic-flow-before-2.png)
+![Illustration of network traffic](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-traffic-flow-before-2.png)
 
 
 1. For Orders to communicate with Products, Orders must first resolve the DNS name of the destination service. Orders communicates with CoreDNS to fetch the virtual IP address (Cluster IP) for that service. After Orders resolves the Products service name, it sends traffic to that target IP address.
@@ -42,10 +42,10 @@ After your Amazon EKS cluster has zonal shift enabled with ARC, you can start a 
 
 The following diagrams provide a high level overview of how EKS zonal shift ensures that only healthy Pod endpoints are targeted in your cluster environment.
 
-![Illustration of network traffic](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-traffic-flow-after-1.png)
+![Illustration of network traffic](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-traffic-flow-after-1.png)
 
 
-![Illustration of network traffic](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-traffic-flow-after-2.png)
+![Illustration of network traffic](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-traffic-flow-after-2.png)
 
 
 ## EKS zonal shift requirements
@@ -71,12 +71,12 @@ Ensuring that you have a multi-AZ setup for your EKS environment enhances the ov
 
 The following diagram illustrates a highly-available EKS environment with three healthy AZs.
 
-![Illustration of network](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-ha-before-failure.png)
+![Illustration of network](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-ha-before-failure.png)
 
 
 The following diagram illustrates how an EKS environment with three AZs is resilient to an AZ impairment and remains highly available because there are two remaining healthy AZs.
 
-![Illustration of network](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-ha-after-failure.png)
+![Illustration of network](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-ha-after-failure.png)
 
 
 ### Provision enough compute capacity to withstand removal of a single Availability Zone
@@ -97,12 +97,12 @@ Kubernetes allows you to pre-scale your workloads by running multiple instances 
 
 The following diagram illustrates an EKS environment that has east-to-west traffic flow when all AZs are healthy.
 
-![Illustration of network](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-spread-constraints.png)
+![Illustration of network](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-spread-constraints.png)
 
 
 The following diagram illustrates an EKS environment that has east-to-west traffic flow where a single AZ has failed and you have started a zonal shift.
 
-![Illustration of network](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-spread-constraints-2.png)
+![Illustration of network](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-spread-constraints-2.png)
 
 
 The following code snippet is an example of how to set up your workload with multiple replicas in Kubernetes.
@@ -214,7 +214,7 @@ spec:
 
 The following diagram shows several pods that have been colocated on the same node by using pod affinity rules.
 
-![Illustration of network](http://docs.aws.amazon.com/eks/latest/userguide/images/zs-pod-affinity-rule.png)
+![Illustration of network](https://docs.aws.amazon.com/eks/latest/userguide/images/zs-pod-affinity-rule.png)
 
 
 ### Test that your cluster environment can handle the loss of an AZ

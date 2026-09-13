@@ -13,7 +13,7 @@ Amazon EKS Hybrid Nodes works with any on-premises hardware or virtual machines,
 
 With Amazon EKS Hybrid Nodes, there are no upfront commitments or minimum fees, and you are charged per hour for the vCPU resources of your hybrid nodes when they are attached to your Amazon EKS clusters. For more pricing information, see [Amazon EKS Pricing](https://aws.amazon.com/eks/pricing/).
 
-[![AWS Videos](http://img.youtube.com/vi/tFn9IdlddBw?rel=0/0.jpg)](http://www.youtube.com/watch?v=tFn9IdlddBw?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/tFn9IdlddBw?rel=0/0.jpg)](https://www.youtube.com/watch?v=tFn9IdlddBw?rel=0)
 
 
 ## Features

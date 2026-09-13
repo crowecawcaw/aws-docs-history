@@ -49,7 +49,7 @@ Before you create any network policies, all services can communicate bidirection
    ```
 
 1. Open a browser to the location from the previous step. You should see the management user interface. The **C** node is the client service, the **F** node is the front-end service, and the **B** node is the back-end service. Each node has full communication access to all other nodes, as indicated by the bold, colored lines.  
-![Open network policy](http://docs.aws.amazon.com/eks/latest/userguide/images/stars-default.png)
+![Open network policy](https://docs.aws.amazon.com/eks/latest/userguide/images/stars-default.png)
 
 1. Apply the following network policy in both the `stars` and `client` namespaces to isolate the services from each other:
 
@@ -116,7 +116,7 @@ Before you create any network policies, all services can communicate bidirection
    ```
 
 1. Refresh your browser. You see that the management user interface can reach the nodes again, but the nodes cannot communicate with each other.  
-![UI access network policy](http://docs.aws.amazon.com/eks/latest/userguide/images/stars-no-traffic.png)
+![UI access network policy](https://docs.aws.amazon.com/eks/latest/userguide/images/stars-no-traffic.png)
 
 1. Apply the following network policy to allow traffic from the front-end service to the back-end service:
 
@@ -141,7 +141,7 @@ Before you create any network policies, all services can communicate bidirection
    ```
 
 1. Refresh your browser. You see that the front-end can communicate with the back-end.  
-![Front-end to back-end policy](http://docs.aws.amazon.com/eks/latest/userguide/images/stars-front-end-back-end.png)
+![Front-end to back-end policy](https://docs.aws.amazon.com/eks/latest/userguide/images/stars-front-end-back-end.png)
 
 1. Apply the following network policy to allow traffic from the client to the front-end service:
 
@@ -166,7 +166,7 @@ Before you create any network policies, all services can communicate bidirection
    ```
 
 1. Refresh your browser. You see that the client can communicate to the front-end service. The front-end service can still communicate to the back-end service.  
-![Final network policy](http://docs.aws.amazon.com/eks/latest/userguide/images/stars-final.png)
+![Final network policy](https://docs.aws.amazon.com/eks/latest/userguide/images/stars-final.png)
 
 1. (Optional) When you are done with the demo, you can delete its resources.
 

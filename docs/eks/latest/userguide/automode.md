@@ -75,7 +75,7 @@ For more information about options for configuring EKS Auto Mode, see [Configure
 
 The AWS Shared Responsibility Model defines security and compliance responsibilities between AWS and customers. The following images and text compare and contrast how customer and AWS responsibilities differ between EKS Auto Mode and EKS standard mode.
 
-![Shared responsibility model with EKS Auto Mode and standard mode](http://docs.aws.amazon.com/eks/latest/userguide/images/eksautosrm.png)
+![Shared responsibility model with EKS Auto Mode and standard mode](https://docs.aws.amazon.com/eks/latest/userguide/images/eksautosrm.png)
 
 
 EKS Auto Mode shifts much of the shared responsibility for Kubernetes infrastructure from customers to AWS. With EKS Auto Mode, AWS takes on more responsibility for cloud security, which was once the customer’s responsibility and is now shared. Customers can now focus more on their applications while AWS manages the underlying infrastructure.

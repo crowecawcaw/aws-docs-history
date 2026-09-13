@@ -70,7 +70,7 @@ The policy applies to pods with the label `role: webapp` in the `sun` namespace.
 ## Admin (or cluster) network policy
 <a name="_admin_or_cluster_network_policy"></a>
 
-![Illustration of the evaluation order for network policies in EKS](http://docs.aws.amazon.com/eks/latest/userguide/images/evaluation-order.png)
+![Illustration of the evaluation order for network policies in EKS](https://docs.aws.amazon.com/eks/latest/userguide/images/evaluation-order.png)
 
 
 You can use the `ClusterNetworkPolicy` to enforce a network security standard that applies to the whole cluster. Instead of repetitively defining and maintaining a distinct policy for each namespace, you can use a single policy to centrally manage network access controls for different workloads in the cluster, irrespective of their namespace.

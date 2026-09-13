@@ -11,6 +11,13 @@ Amazon EKS Node Classes are templates that offer granular control over the confi
 
 When you need to customize how EKS Auto Mode provisions and configures EC2 instances beyond the default settings, creating a Node Class gives you precise control over critical infrastructure parameters. For example, you can specify private subnet placement for enhanced security, configure instance ephemeral storage for performance-sensitive workloads, or apply custom tagging for cost allocation.
 
+## Considerations for pod-sparse or high-scale workloads
+<a name="_considerations_for_pod_sparse_or_high_scale_workloads"></a>
+
+EKS Auto Mode uses prefix delegation (`/28` prefixes) by default. Each node reserves 16 pod IPs, which is efficient for pod-dense workloads that fill those slots. For pod-sparse workloads (a few pods per node, common in ML or GPU workloads, or anti-affinity-heavy workloads) targeting more than a few hundred nodes per Availability Zone, secondary IP mode (`"32"`) is a more optimized configuration. It allocates one IP per pod rather than reserving 16 per node, which extends the effective capacity of `/20` pod subnets.
+
+For more information, see [Secondary IP Mode for Pods](#secondary-IP-mode). To keep pods in a separate subnet from nodes (independent of allocation mode), see [Separate subnets and security groups for Pods](#pod-subnet-selector).
+
 ## Create a Node Class
 <a name="_create_a_node_class"></a>
 
@@ -272,6 +279,8 @@ spec:
 +  **Consolidation can move pods out of a placement group** — If a pod has no placement-group scheduling constraints (such as a `nodeSelector` on `eks.amazonaws.com/placement-group-id`), consolidation may move it to a node outside the PG. Applications that require placement group membership should express this via pod-level constraints.
 +  **Nonexistent or deleted placement group** — If a `NodeClass` references a placement group that does not exist or has been deleted, no instances are launched. The placement group ID format is validated at admission, but existence is checked only at launch time. If a placement group is deleted while nodes are running, existing nodes are marked as drifted and remain running indefinitely because drift replacement launches are also blocked.
 +  **Hugepages** — For information about configuring hugepages on nodes, see [Configure hugepages on nodes](#hugepages).
++  **Kubelet settings** — For information about overriding kubelet settings such as Pod density, eviction thresholds, and log rotation, see [Configure kubelet settings on nodes](#kubelet-config).
++  **Kernel sysctls** – For information about configuring kernel sysctls on nodes, see [Configure kernel sysctls on nodes](#sysctls).
 
 ## Separate subnets and security groups for Pods
 <a name="pod-subnet-selector"></a>
@@ -348,13 +357,26 @@ spec:
 
 The `ipv4PrefixSize` field enables advanced networking configurations by allocating only secondary IP addresses to nodes. This feature doesn’t allocate prefixes (/28) to nodes and maintains only one secondary IP as MinimalIPTarget.
 
+ `advancedNetworking.ipv4PrefixSize` accepts two values: `Auto` (default; prefix delegation; higher pod-creation velocity; reserves a minimum of 16 IPs per node) and `"32"` (secondary IP mode; 1 IP per pod; adds per-pod `AssignPrivateIpAddresses` calls; pods-per-node capped by the instance type’s ENI IP-limit).
+
+In `Auto` mode, EKS Auto Mode allocates a `/28` prefix (16 IPs) to each node up front and adds another `/28` when pod demand exceeds the current block’s capacity, so 16 is a per-node minimum rather than a cap.
+
+Use the following numbers for planning; real clusters vary. When the pod subnet becomes fragmented and no contiguous `/28` is free, `Auto` mode falls back to per-IP allocation on that node. Per-node IP counts then sit below the 16-per-prefix pattern shown below.
+
+**Example A — 1 pod on the node**
++ Secondary IP mode: 1 pod IP \+ 1 node IP = 2 IPs in use.
++ Prefix mode: 1 node IP \+ 16 IPs from the first `/28` prefix (of which 1 is used by the pod, 15 are held for future pods) = 17 IPs allocated, 2 in use.
+
+**Example B — 18 pods on the node**
++ Secondary IP mode: 18 pod IPs \+ 1 node IP = 19 IPs in use.
++ Prefix mode: 1 node IP \+ 2 × `/28` prefixes (32 IPs total, first `/28` full at 16 pods, second `/28` holds pods 17-18 with 14 held for future pods) = 33 IPs allocated, 19 in use.
+
+To switch to secondary IP mode (1 IP per pod, no prefix reservation) for a pod-sparse workload, create a custom `NodeClass` with `advancedNetworking.ipv4PrefixSize: "32"` and point a custom `NodePool` at it. The built-in `general-purpose` and `system` node pools use the automatically provisioned `default` NodeClass; overriding `ipv4PrefixSize` requires a custom NodeClass paired with a custom NodePool.
+
 ### Use cases
 <a name="_use_cases_2"></a>
-
-Use `ipv4PrefixSize` when you need to:
-+  **Reduced IP utilization**: Only one IP address will be warmed up in every node.
-+  **Lower pod churning rate**: Pod creation velocity is not a major concern.
-+  **No prefix fragmentation**: Prefix-caused fragmentation is a major concern or blocker to use Auto Mode.
++ Better subnet IP address utilization
++ No prefix fragmentation
 
 ### Example configuration
 <a name="_example_configuration_2"></a>
@@ -471,7 +493,9 @@ spec:
 ## Configure hugepages on nodes
 <a name="hugepages"></a>
 
-Use the `advancedCompute.hugepages` field to pre-allocate hugepages on nodes in the `NodeClass`. Hugepages improve memory-access performance for latency-sensitive workloads such as high-performance computing (HPC), databases, and network-intensive applications. To consume hugepages, configure your Pods to explicitly request hugepage resources. For more information, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/) in the Kubernetes documentation.
+With the `advancedCompute.hugepages` field, you can configure hugepages on nodes in the `NodeClass`. Hugepages improve memory-access performance for latency-sensitive workloads such as high-performance computing (HPC), databases, and network-intensive applications. You can use two independent hugepages configurations separately or together:
++  **Static hugepages** – Use the `pages` field to pre-allocate a fixed number of `2Mi` or `1Gi` hugepages on each node, or a mix of both sizes. Static hugepages are a schedulable node resource. To consume them, configure your Pods to explicitly request hugepage resources such as `hugepages-2Mi` or `hugepages-1Gi`. For more information, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/) in the Kubernetes documentation.
++  **Transparent hugepages (THP)** – Use the `transparent` field to configure the kernel’s THP policy. THP is a kernel-wide policy rather than an allocatable resource. It does not affect scheduling or node capacity, and Pods do not request it. For more information, see [Transparent Hugepage Support](https://docs.kernel.org/admin-guide/mm/transhuge.html) in the Linux kernel documentation.
 
 ### Example configuration
 <a name="hugepages-example"></a>
@@ -494,14 +518,184 @@ spec:
 
   advancedCompute:
     hugepages:
+      # Static hugepage reservations: up to one entry for each size
       pages:
         - size: "2Mi"
           count: 512
+        - size: "1Gi"
+          count: 2
+      # Transparent hugepages (THP) kernel policy
+      transparent:
+        enabled: always  # or madvise, never
+        defrag: defer    # or always, defer+madvise, madvise, never
 ```
+
+### Transparent hugepage settings
+<a name="hugepages-transparent"></a>
+
+Both `transparent` settings are optional. If you omit a setting, the node uses the kernel default (`madvise`).
++  ** `enabled` ** – Use `enabled` to control the THP allocation policy. Set this to `always` to apply THP system-wide. Set it to `madvise` to apply THP only to memory regions that opt in with `madvise(MADV_HUGEPAGE)`. Set it to `never` to disable THP.
++  ** `defrag` ** – Use `defrag` to control how aggressively the kernel compacts memory to satisfy a THP allocation. Valid values are `always`, `defer`, `defer+madvise`, `madvise`, and `never`.
+
+To disable THP, such as for database workloads that recommend turning it off, set `enabled: never`. When `enabled` is `never`, leave `defrag` unset or set it to `never`; NodeClass validation rejects any other combination.
 
 ### Hugepages considerations
 <a name="hugepages-considerations"></a>
 
 Consider the following when configuring hugepages on a NodeClass:
-+  **Memory reservation**: Hugepages count against the instance’s total memory. Amazon EKS marks instance types as incompatible with the NodeClass when the hugepages reservation would exceed 80% of total memory.
-+  **EFA mutual exclusion**: EFA and hugepages cannot coexist on the same NodeClass. If you set `interfaceType: efa-only`, NodeClass validation fails. Amazon EKS does not provision Pods that request `vpc.amazonaws.com/efa` from a hugepages NodeClass. Use a separate NodeClass for EFA workloads.
++  **Static hugepage sizes** – Use the `pages` field to specify up to one entry for each hugepage size (`2Mi` and `1Gi`). You can reserve both sizes on the same nodes.
++  **Memory reservation** – Static hugepages count against the instance’s total memory. Amazon EKS marks instance types as incompatible with the NodeClass when the combined hugepages reservation across all page sizes would exceed 80% of total memory.
++  **EFA mutual exclusion** – Elastic Fabric Adapter (EFA) and static hugepages cannot coexist on the same NodeClass. If you set `interfaceType: efa-only` together with `pages`, NodeClass validation fails. Amazon EKS does not provision Pods that request `vpc.amazonaws.com/efa` from a NodeClass with static hugepages. Use a separate NodeClass for EFA workloads. Transparent hugepages do not conflict with EFA; you can configure `transparent` on a NodeClass that uses EFA interfaces.
+
+## Configure kubelet settings on nodes
+<a name="kubelet-config"></a>
+
+Use the `advancedCompute.kubelet` field to override kubelet settings on nodes in the `NodeClass`. With these overrides, you can tune Pod density, resource-pressure eviction, container log rotation, and out-of-memory (OOM) behavior. Amazon EKS applies default kubelet settings to Auto Mode nodes, so configure this field only when your workloads require different behavior. For more information about the underlying settings, see [Kubelet Configuration](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/) in the Kubernetes documentation.
+
+The following kubelet settings are available:
++  `maxPods`: The maximum number of Pods that can run on a node.
++  `podPidsLimit`: The maximum number of process IDs (PIDs) per Pod.
++  `singleProcessOOMKill`: Whether the kubelet OOM kills processes in a container individually instead of as a group.
++  `eviction`: Hard and soft eviction thresholds for resource-pressure signals.
++  `logging`: Container log rotation size and file count.
++  `allowedUnsafeSysctls`: A list of unsafe sysctls, or namespaced patterns ending in `*`, that Pods scheduled on the node are permitted to set.
+
+### Example configuration
+<a name="kubelet-config-example"></a>
+
+```
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: kubelet-compute
+spec:
+  role: MyNodeRole
+
+  subnetSelectorTerms:
+    - tags:
+        Name: "private-subnet"
+
+  securityGroupSelectorTerms:
+    - tags:
+        Name: "eks-cluster-sg"
+
+  advancedCompute:
+    kubelet:
+      # Range: 1-110
+      maxPods: 60
+      # -1 disables the limit, or specify 100 or greater
+      podPidsLimit: 4096
+      singleProcessOOMKill: false
+      eviction:
+        # Valid signals: memory.available, nodefs.available, nodefs.inodesFree,
+        # imagefs.available, imagefs.inodesFree, pid.available
+        hard:
+          memory.available: "100Mi"
+          nodefs.available: "10%"
+        soft:
+          memory.available: "500Mi"
+          nodefs.available: "15%"
+        # Required when soft thresholds are set
+        softGracePeriod:
+          memory.available: "1m30s"
+          nodefs.available: "2m"
+        # 0 uses each Pod's terminationGracePeriodSeconds
+        maxPodGracePeriod: 60
+      logging:
+        containerLogMaxSize: "10Mi"
+        # Minimum: 2
+        containerLogMaxFiles: 5
+      # Up to 64 entries. Allowed patterns: kernel.shm*, kernel.msg*,
+      # kernel.sem, fs.mqueue.*, net.*
+      allowedUnsafeSysctls:
+        - "net.core.somaxconn"
+        - "kernel.shm*"
+```
+
+### Kubelet settings considerations
+<a name="kubelet-config-considerations"></a>
+
+Consider the following when configuring kubelet settings on a NodeClass:
++  **Node replacement**: Changing kubelet settings on an existing `NodeClass` marks the nodes that use it as drifted. Amazon EKS replaces those nodes with new nodes that use the updated configuration. Amazon EKS does not apply kubelet settings to running nodes in place.
++  ** `maxPods` clamping**: The value you set is an upper bound, not a guarantee. At runtime, Amazon EKS applies the lowest of three values. These are your `maxPods` value, the IP addresses available for the instance type, and the Auto Mode limit of 110 Pods per node. For more information, see [Choose an optimal Amazon EC2 node instance type](choosing-instance-type.md).
++  ** `podPidsLimit` values**: Specify `-1` to disable the limit, or a value of `100` or greater. `NodeClass` validation rejects values between `0` and `99`.
++  **Soft eviction thresholds**: A soft threshold must be less aggressive than the hard threshold for the same signal, meaning it triggers earlier. If you set soft thresholds, you must also set `softGracePeriod` for each signal. A soft threshold and hard threshold can use different units, such as a percentage and an absolute quantity. In that case, Amazon EKS resolves both values for each instance type. Amazon EKS then marks instance types that violate the comparison as incompatible with the `NodeClass`.
++  ** `singleProcessOOMKill` version requirement**: This setting requires Kubernetes version 1.32 or later. On earlier versions, Amazon EKS emits a warning event on the `NodeClass` and the setting has no effect.
++  ** `allowedUnsafeSysctls` restrictions**: You can specify up to 64 entries, and each entry must match one of the allowed patterns: `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue. `, or `net.`. Allowing an unsafe sysctl on the node only permits Pods to request it. Each Pod must still list the sysctl in its `securityContext.sysctls`. For more information, see [Using sysctls in a Kubernetes Cluster](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/) in the Kubernetes documentation.
+
+## Configure kernel sysctls on nodes
+<a name="sysctls"></a>
+
+Use the `advancedCompute.kernel.sysctl` field to set Linux kernel sysctls on nodes in the `NodeClass`. Sysctls tune runtime kernel behavior for workloads that need higher networking limits, different memory-management policies, or specific TCP settings. Property names on the `sysctl` field exactly match the underlying kernel sysctl name (for example, `vm.swappiness` and `net.core.somaxconn`). Amazon EKS applies sysctl values at node boot. If you change a sysctl on an existing NodeClass, Amazon EKS begins replacing nodes for the new values to take effect.
+
+### Example configuration
+<a name="sysctls-example"></a>
+
+```
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: tuned-compute
+spec:
+  role: MyNodeRole
+
+  subnetSelectorTerms:
+    - tags:
+        Name: "private-subnet"
+
+  securityGroupSelectorTerms:
+    - tags:
+        Name: "eks-cluster-sg"
+
+  advancedCompute:
+    kernel:
+      sysctl:
+        vm.swappiness: 30
+        net.core.somaxconn: 4096
+        net.ipv4.tcp_congestion_control: "cubic"
+        vm.dirty_background_ratio: 10
+        vm.dirty_ratio: 20
+```
+
+### Supported sysctls
+<a name="sysctls-supported"></a>
+
+Amazon EKS supports only the sysctls in the following table. Each numeric sysctl enforces the minimum and maximum shown, and NodeClass admission rejects values outside that range. String sysctls accept only the listed values.
+
+
+| Sysctl | Description | Allowed values | 
+| --- | --- | --- | 
+|  `fs.aio-max-nr`  | The maximum number of asynchronous I/O requests. |  `65536`–`4194304`  | 
+|  `fs.inotify.max_user_instances`  | The maximum number of inotify instances per real user ID. |  `8192`–`1048576`  | 
+|  `fs.inotify.max_user_watches`  | The maximum number of inotify watches per real user ID. |  `8192`–`1048576`  | 
+|  `fs.nr_open`  | The maximum number of file handles a process can allocate. |  `1048576`–`2147483584`  | 
+|  `kernel.perf_event_paranoid`  | Controls unprivileged access to performance event systems. |  `-1`–`2`  | 
+|  `net.core.netdev_max_backlog`  | The maximum number of packets queued on the INPUT side per CPU. |  `1000`–`3240000`  | 
+|  `net.core.rmem_max`  | The maximum receive socket buffer size, in bytes. |  `212992`–`134217728`  | 
+|  `net.core.somaxconn`  | The maximum value for the backlog argument in the listen syscall. |  `4096`–`3240000`  | 
+|  `net.core.wmem_max`  | The maximum send socket buffer size, in bytes. |  `212992`–`134217728`  | 
+|  `net.ipv4.neigh.default.gc_thresh1`  | Minimum ARP-cache entries before garbage collection can run. |  `0`–`262144`  | 
+|  `net.ipv4.neigh.default.gc_thresh2`  | Soft maximum number of ARP-cache entries. |  `512`–`524288`  | 
+|  `net.ipv4.neigh.default.gc_thresh3`  | Hard maximum number of ARP-cache entries. |  `1024`–`1048576`  | 
+|  `net.ipv4.tcp_congestion_control`  | The TCP congestion-control algorithm for new connections. |  `cubic`, `reno`  | 
+|  `net.ipv4.tcp_fin_timeout`  | The length of time, in seconds, an orphaned connection remains in the FIN\_WAIT\_2 state before it is aborted at the local end. |  `5`–`120`  | 
+|  `net.ipv4.tcp_keepalive_time`  | How often, in seconds, TCP sends out keepalive messages when keepalive is enabled. |  `30`–`432000`  | 
+|  `net.ipv4.tcp_max_syn_backlog`  | The maximum number of outstanding SYN requests that are allowed. Requests beyond this value are dropped by the kernel. |  `128`–`3240000`  | 
+|  `net.ipv4.tcp_tw_reuse`  | Enable reuse of TIME-WAIT sockets for new connections when it is safe from a protocol viewpoint. `0` disables, `1` enables globally, `2` enables for loopback only. |  `0`–`2`  | 
+|  `vm.dirty_background_ratio`  | Percent of available memory at which kernel flusher threads begin writing dirty pages back to disk. |  `1`–`20`  | 
+|  `vm.dirty_expire_centisecs`  | Hundredths of a second before a dirty page becomes eligible for writeback. |  `0`–`6000`  | 
+|  `vm.dirty_ratio`  | Percent of available memory at which writing programs are forced to block on writes. |  `5`–`40`  | 
+|  `vm.dirty_writeback_centisecs`  | Hundredths of a second between flusher-thread invocations. |  `0`–`1000`  | 
+|  `vm.max_map_count`  | The maximum number of memory map areas a single process may have. |  `65530`–`2147483647`  | 
+|  `vm.swappiness`  | Relative IO cost of swapping vs. filesystem paging. |  `0`–`200`  | 
+|  `vm.watermark_scale_factor`  | Memory reclaim watermark ratio in fractions of 10,000. |  `10`–`3000`  | 
+
+### Sysctls considerations
+<a name="sysctls-considerations"></a>
+
+Consider the following when configuring kernel sysctls on a NodeClass:
++  **Supported sysctls** – Only the sysctls listed in [Supported sysctls](#sysctls-supported) are supported. Each field enforces a documented minimum and maximum, and NodeClass admission rejects values outside that range.
++  **Applied at boot** – Sysctls are written to Bottlerocket’s `[settings.kernel.sysctl]` at node boot. Runtime changes to `spec.advancedCompute.kernel.sysctl` mark existing nodes as drifted; the new values take effect only on replacement nodes.
++  ** `vm.dirty_background_ratio` and `vm.dirty_ratio` ** – These two fields must both be set or both be omitted, and `vm.dirty_background_ratio` must be strictly less than `vm.dirty_ratio`. NodeClass admission rejects configurations that violate either rule.
++  ** `net.ipv4.neigh.default.gc_thresh1`, `gc_thresh2`, and `gc_thresh3` ** – The three ARP-cache thresholds must all be set together or all omitted, and their values must satisfy `gc_thresh1 < gc_thresh2 < gc_thresh3`. NodeClass admission rejects configurations that violate either rule.
++  ** `net.ipv4.tcp_congestion_control` ** – Only `cubic` and `reno` are accepted.

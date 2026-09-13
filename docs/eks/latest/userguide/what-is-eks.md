@@ -27,7 +27,7 @@ Amazon EKS simplifies building, securing, and maintaining Kubernetes clusters. I
 
 The following diagram illustrates how Amazon EKS integrates your Kubernetes clusters with the AWS cloud, depending on which method of cluster creation you choose:
 
-![Amazon EKS standard and EKS Auto Mode](http://docs.aws.amazon.com/eks/latest/userguide/images/whatis.png)
+![Amazon EKS standard and EKS Auto Mode](https://docs.aws.amazon.com/eks/latest/userguide/images/whatis.png)
 
 
 Amazon EKS helps you remove friction and accelerate time to production, improve performance, availability and resiliency, and enhance system security. For more information, see [Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/).

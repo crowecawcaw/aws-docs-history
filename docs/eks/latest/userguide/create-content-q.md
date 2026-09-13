@@ -11,7 +11,7 @@ You can use Amazon Q to create and revise docs content. This is an easy way to g
 
 In the following image, Amazon Q generated the lines marked with green.
 
-![Amazon Q in VS Code](http://docs.aws.amazon.com/eks/latest/userguide/images/contribute-q.png)
+![Amazon Q in VS Code](https://docs.aws.amazon.com/eks/latest/userguide/images/contribute-q.png)
 
 
 ## Install Amazon Q with VS Code

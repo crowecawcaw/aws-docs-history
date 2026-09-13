@@ -240,7 +240,7 @@ Network policy logs require an additional 1 vCPU for the `aws-network-policy-age
 
 The following screenshot shows an example of this scenario.
 
-![<shared id="consolelong"/> showing the VPC CNI add-on with network policy and CloudWatch Logs in the optional configuration.](http://docs.aws.amazon.com/eks/latest/userguide/images/console-cni-config-network-policy-logs.png)
+![<shared id="consolelong"/> showing the VPC CNI add-on with network policy and CloudWatch Logs in the optional configuration.](https://docs.aws.amazon.com/eks/latest/userguide/images/console-cni-config-network-policy-logs.png)
 
 
  AWS CLI  
@@ -351,7 +351,7 @@ Only the network policy logs are sent by the node agent. Other logs made by the 
       ```
 The following screenshot shows an example of this scenario.
 
-![<shared id="consolelong"/> showing the VPC CNI add-on with network policy and CloudWatch Logs in the optional configuration.](http://docs.aws.amazon.com/eks/latest/userguide/images/console-cni-config-network-policy-logs-cwl.png)
+![<shared id="consolelong"/> showing the VPC CNI add-on with network policy and CloudWatch Logs in the optional configuration.](https://docs.aws.amazon.com/eks/latest/userguide/images/console-cni-config-network-policy-logs-cwl.png)
 
 
  ** AWS CLI**   

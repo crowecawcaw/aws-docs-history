@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 The Amazon EKS User Guide GitHub is configured to build and generate a preview of the docs site. This preview doesn’t have the full AWS theme, but it does check the content builds properly and links work.
 
-![GitHub comment with preview URL](http://docs.aws.amazon.com/eks/latest/userguide/images/contribute-preview.png)
+![GitHub comment with preview URL](https://docs.aws.amazon.com/eks/latest/userguide/images/contribute-preview.png)
 
 
 This preview is hosted at a temporary URL by AWS Amplify.

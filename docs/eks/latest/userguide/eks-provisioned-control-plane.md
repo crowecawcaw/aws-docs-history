@@ -21,7 +21,7 @@ With EKS Provisioned Control Plane, cluster administrators can pre-provision the
 
 All existing and new Amazon EKS clusters operate in Standard mode by default. For clusters requiring high, predictable performance from the control plane, you can opt in to use the EKS Provisioned Control Plane feature. You will be billed at the hourly rate for the particular control plane scaling tier in addition to the standard or extended support EKS hourly charges. For more information about pricing, see [Amazon EKS pricing](https://aws.amazon.com/eks/pricing/).
 
-![Amazon EKS Control Plane Modes](http://docs.aws.amazon.com/eks/latest/userguide/images/control-plane-modes.png)
+![Amazon EKS Control Plane Modes](https://docs.aws.amazon.com/eks/latest/userguide/images/control-plane-modes.png)
 
 
 ## Use cases
@@ -97,10 +97,10 @@ Amazon EKS provides several metrics to help you monitor your control plane’s t
 
 You can view control plane utilization in the Amazon EKS console. From your cluster’s overview page, choose **Monitor cluster** to access the observability dashboard, then select the **Control plane monitoring** tab to view control plane utilization under the **Control plane scaling** section.
 
-![Monitor EKS cluster](http://docs.aws.amazon.com/eks/latest/userguide/images/monitor-cluster.png)
+![Monitor EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/images/monitor-cluster.png)
 
 
-![EKS Control Plane Monitoring](http://docs.aws.amazon.com/eks/latest/userguide/images/control-plane-monitoring.png)
+![EKS Control Plane Monitoring](https://docs.aws.amazon.com/eks/latest/userguide/images/control-plane-monitoring.png)
 
 
 ### Understanding Tier capacity versus actual performance

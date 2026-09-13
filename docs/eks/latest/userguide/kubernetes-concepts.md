@@ -58,7 +58,7 @@ Kubernetes source code is freely available, so with your own equipment you could
 
 The following diagram shows key activities you would do as a Kubernetes Admin or Application Developer to create and use a Kubernetes cluster. In the process, it illustrates how Kubernetes components interact with each other, using the AWS cloud as the example of the underlying cloud provider.
 
-![A Kubernetes cluster in action.](http://docs.aws.amazon.com/eks/latest/userguide/images/k8sinaction.png)
+![A Kubernetes cluster in action.](https://docs.aws.amazon.com/eks/latest/userguide/images/k8sinaction.png)
 
 
 A Kubernetes Admin creates the Kubernetes cluster using a tool specific to the type of provider on which the cluster will be built. This example uses the AWS cloud as the provider, which offers the managed Kubernetes service called Amazon EKS. The managed service automatically allocates the resources needed to create the cluster, including creating two new Virtual Private Clouds (Amazon VPCs) for the cluster, setting up networking, and mapping Kubernetes permissions directly into the new VPCs for cloud asset management. The managed service also sees that the control plane services have places to run and allocates zero or more Amazon EC2 instances as Kubernetes nodes for running workloads. AWS manages one Amazon VPC itself for the control plane, while the other Amazon VPC contains the customer nodes that run workloads.

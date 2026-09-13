@@ -16,7 +16,7 @@ See the documentation for [EKS Auto Mode](https://docs.aws.amazon.com/eks/latest
 
  **High-level architecture and workflow** 
 
-![High-level architecture showing an <shared id=](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-tf-architecture.png)
+![High-level architecture showing an <shared id=](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-tf-architecture.png)
 
 
 The diagram shows the AWS high-level architecture for this section’s setup.
@@ -70,7 +70,7 @@ Pick either EKS Auto Mode or self-managed Karpenter and use it throughout the gu
 
  **EKS cluster options: EKS Auto Mode and self-managed Karpenter** 
 
-![Side-by-side comparison of the two cluster options: an EKS Auto Mode cluster with a NodePool, and an EKS standard cluster with self-managed Karpenter, CoreDNS, VPC CNI, NVIDIA device plugin, EKS Pod Identity agent, Node Monitoring Agent, kube-proxy, and a NodeClass and NodePool](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-cluster-options.png)
+![Side-by-side comparison of the two cluster options: an EKS Auto Mode cluster with a NodePool, and an EKS standard cluster with self-managed Karpenter, CoreDNS, VPC CNI, NVIDIA device plugin, EKS Pod Identity agent, Node Monitoring Agent, kube-proxy, and a NodeClass and NodePool](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-cluster-options.png)
 
 
 **Grafana is publicly accessible over HTTP with default credentials**  
@@ -623,12 +623,12 @@ To verify the metrics pipeline is working end to end:
 1. Navigate to **Connections > Data sources** and confirm **Amazon-Managed-Prometheus** is listed as the default datasource.
 
     **Validate the AMP datasource in Grafana**   
-![Grafana Connections page showing Amazon-Managed-Prometheus listed as the default data source](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-prometheus-ds-validate.png)
+![Grafana Connections page showing Amazon-Managed-Prometheus listed as the default data source](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-prometheus-ds-validate.png)
 
 1. Navigate to **Drilldown > Metrics** and search for the `up` metric. You should see results from your cluster’s scrape targets.
 
     **Validate the `up` metric in Grafana**   
-![Grafana Drilldown Metrics page showing the up metric with green status bars indicating active scrape targets](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-prometheus-metrics-validate.png)
+![Grafana Drilldown Metrics page showing the up metric with green status bars indicating active scrape targets](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-prometheus-metrics-validate.png)
 
 If `up` shows results, the pipeline (cluster → Prometheus → AMP → Grafana) is working.
 
@@ -647,14 +647,14 @@ Once a GPU node is running (from Step 2 or Step 4), you should see one or more r
 
  **Validate DCGM metrics in Grafana** 
 
-![Grafana Drilldown Metrics page filtered by DCGM_ showing GPU metrics including DCGM_FI_DEV_ECC_SBE_VOL_TOTAL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, and DCGM_FI_DEV_FB_USED](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-dcgm-metrics-validate.png)
+![Grafana Drilldown Metrics page filtered by DCGM_ showing GPU metrics including DCGM_FI_DEV_ECC_SBE_VOL_TOTAL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, and DCGM_FI_DEV_FB_USED](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-dcgm-metrics-validate.png)
 
 
 To view the dashboard, navigate to **Dashboards > GPU Monitoring > NVIDIA DCGM Exporter Dashboard**.
 
  **NVIDIA DCGM Exporter Dashboard in Grafana** 
 
-![Grafana NVIDIA DCGM Exporter Dashboard showing GPU Utilization, GPU Avg Temp, GPU Framebuffer Mem Used, and GPU Power Total panels](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-dcgm-dashboard.png)
+![Grafana NVIDIA DCGM Exporter Dashboard showing GPU Utilization, GPU Avg Temp, GPU Framebuffer Mem Used, and GPU Power Total panels](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-dcgm-dashboard.png)
 
 
 ## Model weights S3 bucket
@@ -790,7 +790,7 @@ terraform apply -var 'nodepools={"spot-ondemand"={}}'
 This drops `reserved` from the NodePool capacity-type requirements and destroys the ODCR, and leaves the cluster, monitoring stack, and S3 bucket in place.
 
 **Important**  
-Cancelling a reservation does not terminate instances already running on it. Those instances keep running at standard On-Demand rates until they are terminated. Delete the GPU workloads first, as shown above, so the reserved node drains before the reservation is released.
+Cancelling a reservation does not terminate instances already running on it. Those instances keep running at standard On-Demand rates until they are terminated. Delete the GPU workloads first, as shown previously, so the reserved node drains before the reservation is released.
 
 ### Destroy the cluster and all Terraform-managed resources
 <a name="cluster-setup-tf-cleanup-destroy"></a>
@@ -812,7 +812,7 @@ terraform destroy
 The model weights S3 bucket is created with `force_destroy = true`, so `terraform destroy` deletes the bucket along with any model weights you uploaded to it. Copy anything you want to keep to another location first.
 
 **Note**  
-The repository also ships a `scripts/cleanup.sh` helper that runs the drain and destroy steps above and then sweeps any orphaned EBS volumes tagged with the cluster name. Run it from inside the `terraform/<mode>/` directory you applied from, and pass `--auto-approve` to skip the Terraform confirmation prompt.
+The repository also ships a `scripts/cleanup.sh` helper that runs the preceding drain and destroy steps and then sweeps any orphaned EBS volumes tagged with the cluster name. Run it from inside the `terraform/<mode>/` directory you applied from, and pass `--auto-approve` to skip the Terraform confirmation prompt.
 
 ### Verify the reservation is gone
 <a name="cluster-setup-tf-cleanup-verify"></a>

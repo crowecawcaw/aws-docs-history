@@ -20,7 +20,7 @@ The following traffic flows are covered:
 ## Hybrid node `kubelet` to EKS control plane
 <a name="hybrid-nodes-concepts-traffic-flows-kubelet-to-cp"></a>
 
-![Hybrid node kubelet to EKS control plane](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-kubelet-to-cp-public.png)
+![Hybrid node kubelet to EKS control plane](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-kubelet-to-cp-public.png)
 
 
 ### Request
@@ -85,7 +85,7 @@ If you enable public endpoint access for the cluster, the return traffic uses th
 ## EKS control plane to hybrid node (`kubelet` server)
 <a name="hybrid-nodes-concepts-traffic-flows-cp-to-kubelet"></a>
 
-![EKS control plane to hybrid node](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-cp-to-kubelet.png)
+![EKS control plane to hybrid node](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-cp-to-kubelet.png)
 
 
 ### Request
@@ -163,7 +163,7 @@ The packet reaches the EKS control plane ENI attached to the Kubernetes API serv
 ## Pods running on hybrid nodes to EKS control plane
 <a name="hybrid-nodes-concepts-traffic-flows-pods-to-cp"></a>
 
-![Pods running on hybrid nodes to EKS control plane](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-pod-to-cp.png)
+![Pods running on hybrid nodes to EKS control plane](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-pod-to-cp.png)
 
 
 ### Without CNI NAT
@@ -413,7 +413,7 @@ This flow showcases how CNI NAT-ing can simplify configuration by allowing packe
 ## EKS control plane to pods running on a hybrid node (webhooks)
 <a name="hybrid-nodes-concepts-traffic-flows-cp-to-pod"></a>
 
-![EKS control plane to pods running on a hybrid node](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-cp-to-pod.png)
+![EKS control plane to pods running on a hybrid node](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-cp-to-pod.png)
 
 
 This traffic pattern is most commonly seen with webhooks, where the EKS control plane needs to directly initiate connections to webhook servers running in pods on hybrid nodes. Examples include validating and mutating admission webhooks, which are called by the API server during resource validation or mutation processes.
@@ -525,7 +525,7 @@ This traffic flow demonstrates why remote pod CIDRs must be properly configured 
 ## Pod-to-Pod running on hybrid nodes
 <a name="hybrid-nodes-concepts-traffic-flows-pod-to-pod"></a>
 
-![Pod-to Pod running on hybrid nodes](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-pod-to-pod.png)
+![Pod-to Pod running on hybrid nodes](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-pod-to-pod.png)
 
 
 This section explains how pods running on different hybrid nodes communicate with each other. This example assumes your CNI uses VXLAN for encapsulation, which is common for CNIs such as Cilium or Calico. The overall process is similar for other encapsulation protocols such as Geneve or IP-in-IP.
@@ -623,7 +623,7 @@ When Pod B responds to Pod A, the entire process happens in reverse:
 ## Pods on cloud nodes to pods on hybrid nodes (east-west traffic)
 <a name="hybrid-nodes-concepts-traffic-flows-east-west"></a>
 
-![Pods on cloud nodes to pods on hybrid nodes](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-east-west.png)
+![Pods on cloud nodes to pods on hybrid nodes](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-east-west.png)
 
 
 ### Request

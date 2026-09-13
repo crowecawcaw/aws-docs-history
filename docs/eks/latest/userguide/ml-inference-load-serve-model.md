@@ -22,7 +22,7 @@ This section uses the [Ministral-3-8B-Instruct-2512 model](https://huggingface.c
 **Important**  
 Use the cluster you created in the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section. The instructions in this walkthrough work for both EKS Auto Mode and self-managed Karpenter.
 
-![Architecture diagram showing LLM inference workflow with vLLM on Amazon EKS](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-arch.png)
+![Architecture diagram showing LLM inference workflow with vLLM on Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-arch.png)
 
 
 The architecture diagram shows the end-to-end flow:
@@ -432,7 +432,7 @@ Navigate to **Dashboards > GPU Monitoring > vLLM Metrics**.
 
  **vLLM Grafana dashboard** 
 
-![vLLM Grafana dashboard showing request rate, token throughput, end-to-end latency, and GPU KV cache utilization](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-vllm-monitoring.png)
+![vLLM Grafana dashboard showing request rate, token throughput, end-to-end latency, and GPU KV cache utilization](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-vllm-monitoring.png)
 
 
 The dashboard displays request rate, prompt and generation token throughput, latency percentiles, and GPU KV cache utilization for the vLLM inference endpoint.
@@ -589,7 +589,7 @@ Open the URL in your browser. The chat interface appears and you can interact wi
 **Port-forwarding as an alternative**  
 Port-forwarding (`kubectl port-forward svc/open-webui 8080:80`) remains an option for local testing without provisioning a load balancer.
 
-![Screenshot of Open WebUI chat interface showing a conversation with the Ministral model](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-chatui.png)
+![Screenshot of Open WebUI chat interface showing a conversation with the Ministral model](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-chatui.png)
 
 
 ## Clean up

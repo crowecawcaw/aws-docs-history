@@ -10,7 +10,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 ## What is the Amazon EKS Dashboard?
 <a name="_what_is_the_amazon_eks_dashboard"></a>
 
-![screenshot of account level cluster metrics](http://docs.aws.amazon.com/eks/latest/userguide/images/eks-dashboard.png)
+![screenshot of account level cluster metrics](https://docs.aws.amazon.com/eks/latest/userguide/images/eks-dashboard.png)
 
 
 The Amazon EKS Dashboard provides consolidated visibility into your Kubernetes clusters across multiple AWS Regions and AWS Accounts. With this dashboard, you can:

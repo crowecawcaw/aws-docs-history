@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 By default, Amazon EKS manages the egress networking from the Kubernetes control plane to resources in your VPC. Use *control plane egress routing* to change this behavior and manage the network path yourself. This gives you full control over how traffic from the control plane elastic network interfaces (ENIs) reaches your VPC resources. You can route through your own NAT gateways, firewalls, or inspection appliances.
 
-![Architecture diagram showing the kube-apiserver sending traffic through a cross-account ENI in the customer VPC subnet to a route table and egress device such as a NAT gateway and then out to the internet to reach webhook and OIDC endpoints](http://docs.aws.amazon.com/eks/latest/userguide/images/control-plane-egress-overview.png)
+![Architecture diagram showing the kube-apiserver sending traffic through a cross-account ENI in the customer VPC subnet to a route table and egress device such as a NAT gateway and then out to the internet to reach webhook and OIDC endpoints](https://docs.aws.amazon.com/eks/latest/userguide/images/control-plane-egress-overview.png)
 
 
 ## Egress routing modes

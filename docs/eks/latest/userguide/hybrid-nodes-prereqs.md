@@ -13,7 +13,7 @@ To use Amazon EKS Hybrid Nodes, you must have private connectivity from your on-
 + Operating system that is compatible with hybrid nodes
 + On-premises IAM credentials provider configured
 
-![Hybrid node network connectivity.](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-prereq-diagram.png)
+![Hybrid node network connectivity.](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-prereq-diagram.png)
 
 
 ## Hybrid network connectivity

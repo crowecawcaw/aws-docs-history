@@ -177,7 +177,7 @@ To configure this using the AWS Management Console, follow the below steps:
       ```
 
       The following screenshot shows an example of this scenario.  
-![<shared id="consolelong"/> showing the VPC CNI add-on with network policy in the optional configuration.](http://docs.aws.amazon.com/eks/latest/userguide/images/console-cni-config-network-policy.png)
+![<shared id="consolelong"/> showing the VPC CNI add-on with network policy in the optional configuration.](https://docs.aws.amazon.com/eks/latest/userguide/images/console-cni-config-network-policy.png)
 
 ### Self-managed add-on
 <a name="cni-network-policy-setup-procedure-self-managed-add-on"></a>

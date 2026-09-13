@@ -190,7 +190,7 @@ Open Grafana (open the load balancer hostname; see [Access Grafana](ml-cluster-s
 
  **vLLM dashboard showing the GPU warm-up effect on latency** 
 
-![A short warm-up traffic burst with first-request latency dropping from about 2.6 seconds to a steady baseline as the GPU warms up.](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-autoscaling-thresholds-gpu-warm-up.png)
+![A short warm-up traffic burst with first-request latency dropping from about 2.6 seconds to a steady baseline as the GPU warms up.](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-autoscaling-thresholds-gpu-warm-up.png)
 
 
 Then delete the warm-up Job:
@@ -325,7 +325,7 @@ Open Grafana (open the load balancer hostname and log in as `admin`; see [Access
 
  **Performance Testing - vLLM Load Analysis dashboard during the load test** 
 
-![Six panels showing k6 pod CPU and memory usage per load-test job, vLLM request rate climbing in steps, average latency rising once the replica saturates, tokens generated per request, and queue depth spiking from zero at saturation.](http://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-autoscaling-thresholds-load-test.png)
+![Six panels showing k6 pod CPU and memory usage per load-test job, vLLM request rate climbing in steps, average latency rising once the replica saturates, tokens generated per request, and queue depth spiking from zero at saturation.](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-autoscaling-thresholds-load-test.png)
 
 
 Based on the load test results, queue depth stayed near zero through 50 concurrent requests. It then increased sharply at 60 concurrent requests, peaking between approximately 150 and 350 queued requests. At the same time, p95 end-to-end latency rose from a steady baseline of about 2.5 seconds to 6–10 seconds. This behavior indicates the onset of sustained overload and suggests that autoscaling should begin before queue depth reaches levels that cause latency to approach 10 seconds. A practical starting point is to trigger scaling when queue depth exceeds 25 requests for 30–60 seconds. As a secondary signal, you can also trigger scaling when p95 end-to-end latency exceeds 5 seconds over the same interval. This helps account for workload patterns where latency increases before queue depth builds up.

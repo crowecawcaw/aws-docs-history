@@ -11,7 +11,7 @@ This topic describes how to configure Kubernetes Ingress for workloads running o
 
  AWS supports AWS Application Load Balancer (ALB) and Cilium for Kubernetes Ingress for workloads running on EKS Hybrid Nodes. The decision to use ALB or Cilium for Ingress is based on the source of application traffic. If application traffic originates from an AWS Region, AWS recommends using AWS ALB and the AWS Load Balancer Controller. If application traffic originates from the local on-premises or edge environment, AWS recommends using Cilium’s built-in Ingress capabilities, which can be used with or without load balancer infrastructure in your environment.
 
-![EKS Hybrid Nodes Ingress](http://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-ingress.png)
+![EKS Hybrid Nodes Ingress](https://docs.aws.amazon.com/eks/latest/userguide/images/hybrid-nodes-ingress.png)
 
 
 ## AWS Application Load Balancer
