@@ -10,7 +10,7 @@ This architecture shows how to expand your on-premises transactional monolith to
 ## Multi-Region CQRS for On-Premises Monoliths
 <a name="diagram1"></a>
 
-![Architecture diagram showing multi-Region CQRS using AWS Direct Connect, Amazon Kinesis Data Streams, AWS Lambda, Amazon DynamoDB Global Tables, and Amazon Route 53.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-region-cqrs-monoliths/images/multi-region-cqrs-monoliths.png)
+![Architecture diagram showing multi-Region CQRS using AWS Direct Connect, Amazon Kinesis Data Streams, AWS Lambda, Amazon DynamoDB Global Tables, and Amazon Route 53.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multi-region-cqrs-monoliths/images/multi-region-cqrs-monoliths.png)
 
 
 The following steps describe the architecture:
