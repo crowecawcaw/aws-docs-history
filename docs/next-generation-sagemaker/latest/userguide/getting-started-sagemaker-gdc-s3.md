@@ -96,7 +96,7 @@ In the following sections of this topic, you will configure permissions using th
 1. Choose the project role that is associated with your Amazon SageMaker Unified Studio project. This role was created in IAM upon project creation and was copied in the steps above. In **Project role ARN**, copy the project role ARN.
 
    The Project IAM role will have the following format: `arn:aws:iam::ACCOUNT_ID:role/datazone_usr_role_xxxxxxxxxxxxxx_yyyyyyyyyyyyyy`  
-![Image showing the project role ARN in the project details](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-project-role.png)
+![Image showing the project role ARN in the project details](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-project-role.png)
 
 ### Register the S3 location for AWS Glue Data Catalog tables in Amazon SageMaker Unified Studio
 <a name="gdc-s3-access-existing-data-catalog"></a>
@@ -208,7 +208,7 @@ In your project, create an AWS Glue table using sample data. To create a Glue ta
 1. For **Table type**, **External/S3** is selected by default as the type of source.
 
 1. Choose **Add data**. For **Catalog name**, choose the name from the drop-down menu.  
-![Image showing the Upload file screen for adding to Lakehouse data from the S3/external table type](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-add-data.png)
+![Image showing the Upload file screen for adding to Lakehouse data from the S3/external table type](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-add-data.png)
 
 1. For **Database**, choose the database that you created in the **Use or create a Glue database** section from the drop-down menu.
 
@@ -222,7 +222,7 @@ In your project, create an AWS Glue table using sample data. To create a Glue ta
 
 The table appears under your database, such as in this example showing the new table `myreviewtable` added.
 
-![Image showing the new table titled myreviewtable added to the Lakehouse data](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-review-table.png)
+![Image showing the new table titled myreviewtable added to the Lakehouse data](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-review-table.png)
 
 
 ### Verify access to your AWS Glue table from the Amazon SageMaker Unified Studio query editor
@@ -326,7 +326,7 @@ Configure your SageMaker spark session to import and query the S3 data using a J
    %%pyspark
    df.show()
    ```  
-![Image showing the S3 bucket load and query in Jupyter notebooks](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-jupyter-spark.png)
+![Image showing the S3 bucket load and query in Jupyter notebooks](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-jupyter-spark.png)
 
 ## Step 3: Get started with the query editor
 <a name="gdc-s3-query-editor"></a>
@@ -386,7 +386,7 @@ For simplicity, in this topic, these steps create a table under a specific parti
 1. Choose the **Run cell** icon.
 
    When the query finishes running, a Result tab appears below the cell to display the outcome.  
-![Image showing the query editor running an Athena query on the AWS Glue data](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-athena-create.png)
+![Image showing the query editor running an Athena query on the AWS Glue data](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-athena-create.png)
 
 1. Refresh the **Data explorer** navigation pane, and view the table you created in the **Lakehouse** section.
 
@@ -426,7 +426,7 @@ For simplicity, in this topic, these steps create a table under a specific parti
    + Returns the top 10 most reviewed, highly-rated games 
 
    The results will show you the most popular well-rated games in your dataset, along with meaningful metrics about their review distribution.  
-![Image showing query results in a table format](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-athena-reviewresult.png)
+![Image showing query results in a table format](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-athena-reviewresult.png)
 
 1. Choose the **Run cell** icon.
 
@@ -445,6 +445,6 @@ For simplicity, in this topic, these steps create a table under a specific parti
    1. Choose the download arrow to view the chart.
 
    This displays a pie chart so you can visualize results.  
-![Image showing pie chart display for the data](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-athena-visual.png)
+![Image showing pie chart display for the data](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/gs-lakehouse-athena-visual.png)
 
 After you've finished querying the data, you can choose to view the queries in your query history and save them to share with other project members.

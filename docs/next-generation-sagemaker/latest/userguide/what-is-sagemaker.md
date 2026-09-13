@@ -5,7 +5,7 @@
 
  Bringing together widely adopted [artificial intelligence (AI)](https://aws.amazon.com/ai/) and [analytics](https://aws.amazon.com/big-data/datalakes-and-analytics/) capabilities, the next generation of [Amazon SageMaker](https://aws.amazon.com/sagemaker/) delivers an integrated experience for analytics and AI with unified access to all your data. Collaborate and build in Amazon SageMaker Unified Studio using familiar AWS tools for SQL analytics, data processing, model development, and generative AI, accelerated by [Amazon Q Developer](https://aws.amazon.com/q/). Access all your data whether it's stored in data lakes, data warehouses, or third-party or federated data sources, with governance built in to meet enterprise security needs. 
 
-[![AWS Videos](http://img.youtube.com/vi/EJsbKexFzrc?si=JriG72jedZHpNZvX/0.jpg)](http://www.youtube.com/watch?v=EJsbKexFzrc?si=JriG72jedZHpNZvX)
+[![AWS Videos](https://img.youtube.com/vi/EJsbKexFzrc?si=JriG72jedZHpNZvX/0.jpg)](https://www.youtube.com/watch?v=EJsbKexFzrc?si=JriG72jedZHpNZvX)
 
 
 ## Guide to SageMaker
@@ -24,7 +24,7 @@ The original Amazon SageMaker has been renamed [SageMaker AI](https://docs.aws.a
 
 Additionally, SageMaker is built upon an open lakehouse architecture that unifies access to all your data across Amazon Simple Storage Service ([Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html)) data lakes, [Amazon Redshift](https://docs.aws.amazon.com/redshift/) data warehouses, and other external sources
 
-![A diagram showing the SageMaker architecture.](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/What_is_SageMaker_Diagram.png)
+![A diagram showing the SageMaker architecture.](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/What_is_SageMaker_Diagram.png)
 
 
 ### Unified Studio

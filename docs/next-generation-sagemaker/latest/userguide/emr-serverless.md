@@ -35,7 +35,7 @@ Once you have an EMR serverless compute added, you can connect to the compute di
 To connect to an EMR Serverless compute:
 
 1. Above a code block in your Jupyter Notebook, there will be two drop down boxes. One lets you select your connection type, the other your compute.  
-![This is my image.](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/dropdown-screenshot-circled.png)
+![This is my image.](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/dropdown-screenshot-circled.png)
 
 1. Select the connection type "PySpark" and then click on the drop down for your Compute. From here you can select your EMR Serverless compute from the second drop down box.
 
@@ -43,7 +43,7 @@ To connect to an EMR Serverless compute:
 
 For first-time users, we recommend starting with the EMR example notebook provided (getting\_started.ipynb), which demonstrates basic operations and best practices. You can access this notebook from the Examples tab in the Unified Studio file browser, pictured below:
 
-![This is my image.](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/notebook-screenshot.png)
+![This is my image.](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/notebook-screenshot.png)
 
 
 Due to the nature of EMR Serverless applications, you can have multiple computes available at once. This allows you to maintain your notebook code while connecting to different EMR applications as needed for various workloads. You can switch between applications without modifying your notebook code, allowing you to test different configurations or work with different data processing requirements.

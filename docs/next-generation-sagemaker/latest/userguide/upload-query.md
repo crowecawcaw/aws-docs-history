@@ -32,4 +32,4 @@ Download the file [sales-data.zip](samples/sales-data.zip).
 1. Refresh the Data explorer navigation pane and navigate to the sales-data table in the explorer.
 
 1. Choose the three-dot action menu next to the table, then choose **Preview data**. A SQL command to select the first 10 rows from the table runs, and the results are then displayed in the query editor window.  
-![Three-dot action menu under the sales-data dropdown.](http://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/screenshot-menu.png)
+![Three-dot action menu under the sales-data dropdown.](https://docs.aws.amazon.com/next-generation-sagemaker/latest/userguide/images/screenshot-menu.png)
