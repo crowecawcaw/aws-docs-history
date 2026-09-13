@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 # Create an Amazon Mechanical Turk project
 <a name="CreatingYourBatchofHITs"></a>
 
@@ -11,7 +13,7 @@ A *batch* is a group of Worker assignments that are created by using the configu
 
 Mechanical Turk provides 29 pre-built HTML templates for four categories: Survey, Vision, Language, and Other. You can modify these templates while creating a HIT to customize the Worker UI. 
 
-![Image Summarization template interface showing basketball players on an outdoor court.](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/ProjectTemplates.png)
+![Image Summarization template interface showing basketball players on an outdoor court.](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/ProjectTemplates.png)
 
 
 You must create a Mechanical Turk project before you can create a batch of Human Intelligence Tasks (HITs). To create a project, start with one of the provided sample project templates and customize it. 
@@ -35,7 +37,7 @@ Follow the steps in this procedure to create a project.
 1. Go to the Mechanical Turk Requester website at [https://requester.mturk.com/](https://requester.mturk.com/), choose **Create**, and then choose **New Project**. In some cases, the new project page might be your landing page when you log in. 
 
 1. In the template selector, choose a template on the left and a preview it on the right. For this example, choose **Tagging Images** in the list, and then choose **Create Project**.   
-![Create Tab - Image Tagging project selected](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/Amazon_Mechanical_Turk_template_selector.jpg)
+![Create Tab - Image Tagging project selected](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/Amazon_Mechanical_Turk_template_selector.jpg)
 
 1. On the **Edit Project** page, choose the **Edit Properties** tab, and then enter the information for your HIT.
 
@@ -49,7 +51,7 @@ Follow the steps in this procedure to create a project.
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/CreatingYourBatchofHITs.html)
 
 1. Choose the **Design Layout** tab and edit the HTML of the template. You can copy the HTML in the editor into another file. To preview HTML the page, open the file in a browser. To ensure your form elements work well with Amazon Mechanical Turk, we recommend using [our Custom HTML Elements](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html).  
-![Design Layout](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_task_template_editor.png)
+![Design Layout](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_task_template_editor.png)
 
 1.  Create a variable by putting the a dollar sign before curly braces around the name of a column in your HIT data file. This can be text in the body of your template, the source URL in an image or video tag, and a variety of other things. The value of the variable comes from a column in your **HIT data file** with the same value in its header row. For information that must change from task to task, use **variables**. In the sample template, the image tag contains a variable for the source of the image: `${image_url}`.
 
@@ -57,7 +59,7 @@ Follow the steps in this procedure to create a project.
 **About HIT data files**  
 Each new line in the file represents a new HIT. The number of data values in one row should exactly match the number of variables used in your project. The first row in the .`csv` HIT data file contains the column headings for the data value columns. The order in which you use the variables in the project template does not need to match the order of columns in the .`csv` file.   
 
-![Input Spreadsheet](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_sample_input_data.jpg)
+![Input Spreadsheet](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_sample_input_data.jpg)
 
 The names of the template variables must match the column headings for the values in your HIT data file. For example, if you use the `${image_url}` variable, the HIT data file must have a column that has the **image\_url** heading.
 Your HIT data file cannot have line breaks between data cells and `\r` is not supported as a line break character. MacOS computers insert this character when they convert a Microsoft Excel table into a .`csv` file.
@@ -66,7 +68,7 @@ If your HITs contain images or videos, you must include links to them in the HIT
 1. Mechanical Turk returns results in a table that is stored in a `.csv` file. The number of input and answer fields in one HIT determines the number of columns in the **Results** table. One row in the **Results** table represents a complete set of answers for one HIT as shown in the following example.
 
       
-![Results Spreadsheet](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_sample_output_data.jpg)
+![Results Spreadsheet](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_sample_output_data.jpg)
 
 1. Choose **Save** periodically to save the HTML of your project so you don't lose your work. 
 

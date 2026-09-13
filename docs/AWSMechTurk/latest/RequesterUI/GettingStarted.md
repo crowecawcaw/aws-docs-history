@@ -1,5 +1,7 @@
 
 
+**Amazon Mechanical Turk will permanently close on September 30, 2026.** For Workers and Requesters currently using the service, visit our [Amazon Mechanical Turk help page](https://www.mturk.com/help) to learn how you can prepare for this closure.
+
 # Getting started with the Amazon Mechanical Turk Requester UI
 <a name="GettingStarted"></a>
 
@@ -12,7 +14,7 @@ To create an Amazon Mechanical Turk account, or sign in, go to the [Amazon Mecha
 + To create an account, choose **Create an Account** and follow the on-screen instructions.
 + To sign in, choose **Sign In: Requester** and follow the on-screen instructions.
 
-![Registering or signing in](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_Registration_link.png)
+![Registering or signing in](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_Registration_link.png)
 
 After you have signed in using your Amazon Mechanical Turk account, you are ready to use the RUI. The RUI makes it easy to create a Human Intelligence Task (HIT) template, publish HITs, manage batch results, and manage workers.
 
@@ -56,7 +58,7 @@ After selecting a template, there are three steps needed to complete creating th
 ## Step 3: Enter properties
 <a name="rui-edit-properties"></a>
 
-![The project completion steps](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_edit_project.png)
+![The project completion steps](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_edit_project.png)
 
 
 1. In **Section 1: Describing Your Project to Your Workers**, enter the following information:
@@ -84,7 +86,7 @@ After selecting a template, there are three steps needed to complete creating th
 
 You can edit any of the templates that are available to you, with the exception of the Survey Link template. Use the embedded text editor in the **Design Layout** panel to modify a template. You can use HTML, CSS, and JavaScript to customize your layout and functionality. You can also use [Crowd HTML Elements](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/ApiReference_HTMLCustomElementsArticle.html) to design your layout with configured widgets for common Mechanical Turk HIT types.
 
-![The design layout panel where you can edit the HTML of your HIT](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_design_layout.png)
+![The design layout panel where you can edit the HTML of your HIT](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_design_layout.png)
 
 
 ## Step 5: Preview and finish
@@ -98,4 +100,4 @@ After you choose **Finish**, the **Create** page is displayed and your project a
 
 Next, publish a batch to make it available to workers. For information about publishing a batch, see [Publish a batch of HITs](PublishingYourBatchofHITs.md). 
 
-![The HIT preview panel](http://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_preview_tab.png)
+![The HIT preview panel](https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/images/gtsg/AWS_Mechanical_Turk_preview_tab.png)
