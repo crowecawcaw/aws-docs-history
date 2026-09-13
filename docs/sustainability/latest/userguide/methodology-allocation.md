@@ -13,4 +13,4 @@ The model takes operational and capital emissions associated with each AWS clust
 
 1. Allocate carbon emissions associated with each cloud service to individual customer accounts. We use physical allocation for services with dedicated server racks, and economic allocation for other services.
 
-![A diagram of AWS carbon emissions, showing the three steps of logical workflow.](http://docs.aws.amazon.com/sustainability/latest/userguide/images/carbon_allocation.png)
+![A diagram of AWS carbon emissions, showing the three steps of logical workflow.](https://docs.aws.amazon.com/sustainability/latest/userguide/images/carbon_allocation.png)
