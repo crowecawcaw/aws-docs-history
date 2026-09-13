@@ -16,7 +16,7 @@ Groups cannot be deleted.
 
 1. In the navigation pane, locate and choose the name of the room you want to delete.
 
-1. Choose ![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-information.png) in the room window to view room details.
+1. Choose ![Information icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-information.png) in the room window to view room details.
 
 1. In the **Room Details** pane that appears, scroll down and choose **Delete Room**.
 

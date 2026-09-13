@@ -13,7 +13,7 @@ To start a call with another Wickr user, complete the following steps.
 
 1. In the navigation pane, find and select the name of the user who you want to start a call with.
 
-1. Select the call icon (![Call icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-message-call.png)) in the message window to start a call with the user.
+1. Select the call icon (![Call icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-message-call.png)) in the message window to start a call with the user.
 
    The **Start Call** window that appears displays your current camera, microphone, speaker, and a preview of your camera.
 

@@ -13,6 +13,6 @@ To search messages and files in the Wickr client, complete the following steps.
 
 1. In the navigation pane, find and select the name of the user whose message history you want to search.
 
-1. Select the search icon (![Search icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-message-search.png)) in the message window to open the message search pane.
+1. Select the search icon (![Search icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-message-search.png)) in the message window to open the message search pane.
 
 1. Enter a keyword into the search text box to perform a search. You can choose to search messages or files.

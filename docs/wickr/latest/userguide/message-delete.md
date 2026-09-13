@@ -13,10 +13,10 @@ To delete messages and data, complete the following steps.
 
 1. In the navigation pane, find and select the name of the user whose messages and data you want to delete.
 
-1. Select the information icon (![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
+1. Select the information icon (![Information icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
 
 1. In the **Contact Details** pane that appears, select **Delete Messages and Data**.  
-![The Delete Message option.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-delete-messages.png)
+![The Delete Message option.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-delete-messages.png)
 
 1. Select **Confirm** on the pop-up window.  
-![The Are You Sure? pop-up window.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-delete-messages-are-you-sure.png)
+![The Are You Sure? pop-up window.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-delete-messages-are-you-sure.png)

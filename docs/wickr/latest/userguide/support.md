@@ -11,6 +11,6 @@ Complete the following steps to view the support options and resources.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2).
 
-1. In the navigation pane, choose ![Settings icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png), and then choose **Support**.
+1. In the navigation pane, choose ![Settings icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png), and then choose **Support**.
 
    The multiple support options and resources available for Wickr are displayed on the **Support** page.

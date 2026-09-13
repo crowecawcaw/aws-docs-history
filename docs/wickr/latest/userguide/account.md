@@ -11,7 +11,7 @@ Complete the following steps to access the account section of the Wickr client.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2).
 
-1. In the navigation pane, choose ![Settings icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png), and then choose **My Account**.
+1. In the navigation pane, choose ![Settings icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png), and then choose **My Account**.
 
 1. Choose one of the following options:
    + **Update Avatar Image** — Update that avatar image that others users can see.

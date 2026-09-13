@@ -13,7 +13,7 @@ Complete the following steps to view room or group details and settings.
 
 1. In the navigation pane, locate and choose the name of the room or group for which you want to view details.
 
-1. Choose ![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-information.png) in the room or group window to view details.
+1. Choose ![Information icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-information.png) in the room or group window to view details.
 
    The **Room Details** pane displays the room's name, message expiration settings, room history, saved items, notification settings, and room members.
 

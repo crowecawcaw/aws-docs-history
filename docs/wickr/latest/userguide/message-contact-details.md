@@ -13,7 +13,7 @@ To view contact details and message settings, complete the following steps.
 
 1. In the navigation pane, find and select the name of the user whose details you want to view.
 
-1. Choose the information icon (![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
+1. Choose the information icon (![Information icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
 
    The **Contact Details** pane displays the user's full name, email address, and company name. It also displays message settings, such as expiration timer, burn-on-read timer, security verifications, user block, and message and data deletion options.  
-![The Contact Detail pane.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-contact-details.png)
+![The Contact Detail pane.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-contact-details.png)

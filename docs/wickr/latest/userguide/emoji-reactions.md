@@ -5,7 +5,7 @@ This guide provides documentation for AWS Wickr. For Wickr Enterprise, which is 
 # Emojis in the Wickr client
 <a name="emoji-reactions"></a>
 
-You can use emojis to react to an individual message with a specific emotion. For example, if someone is trying to coordinate plans, you could respond with a yes (![thumbs up emoji](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-yes.png)) or no (![thumbs down emoji](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-no.png)) reaction to indicate your preferences. Emojis can help de-clutter your messages by removing replies or reply-alls.
+You can use emojis to react to an individual message with a specific emotion. For example, if someone is trying to coordinate plans, you could respond with a yes (![thumbs up emoji](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-yes.png)) or no (![thumbs down emoji](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-no.png)) reaction to indicate your preferences. Emojis can help de-clutter your messages by removing replies or reply-alls.
 
 To use emojis within a message for your device, complete the following steps.
 
@@ -16,7 +16,7 @@ To use emojis within a message for your device, complete the following steps.
 
 1. Go to a room, group, or direct message. 
 
-1. Select the add emoji reaction icon (![Add emoji reaction](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-windows-react.png)) for a specific message to view emoji options.
+1. Select the add emoji reaction icon (![Add emoji reaction](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-windows-react.png)) for a specific message to view emoji options.
 
 1. You can either choose a quick emoji, or choose the plus icon (**\+**) to open the emoji drawer and view a full list of emoji options.
 
@@ -33,7 +33,7 @@ To use emojis within a message for your device, complete the following steps.
 
 1. Go to a room, group, or direct message. 
 
-1. Select the add emoji reaction icon (![Add emoji reaction](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-windows-react.png)) for a specific message to view emoji options.
+1. Select the add emoji reaction icon (![Add emoji reaction](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-windows-react.png)) for a specific message to view emoji options.
 
 1. You can either choose a quick emoji, or choose the plus icon (**\+**) to open the emoji drawer and view a full list of emoji options.
 
@@ -50,7 +50,7 @@ To use emojis within a message for your device, complete the following steps.
 
 1. Go to a room, group, or direct message. 
 
-1. Select the add emoji reaction icon (![Add emoji reaction](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-windows-react.png)) for a specific message to view emoji options.
+1. Select the add emoji reaction icon (![Add emoji reaction](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-windows-react.png)) for a specific message to view emoji options.
 
 1. You can either choose a quick emoji, or choose the plus icon (**\+**) to open the emoji drawer and view a full list of emoji options.
 

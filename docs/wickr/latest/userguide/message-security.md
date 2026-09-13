@@ -13,12 +13,12 @@ You can verify the security of end-to-end message encryption with another Wickr 
 
 1. In the navigation pane, find and select the name of the user who you want to verify message security for.
 
-1. Select the information icon (![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
+1. Select the information icon (![Information icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
 
 1. In the **Contact Details** pane that appears, choose **Security Verification**.  
-![The Security Verification option.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-security-verification.png)
+![The Security Verification option.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-security-verification.png)
 
    The **Verify Contact** pane that appears displays a QR code and a verification code string. You can share either of these with your contact to determine if they match.  
-![The Verify Contact screen.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-contact-details-verify-contact.png)
+![The Verify Contact screen.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-contact-details-verify-contact.png)
 
 1. If the other Wickr user confirms that the QR or verification codes match, select **Verify** to confirm the end-to-end encryption security of your messages.

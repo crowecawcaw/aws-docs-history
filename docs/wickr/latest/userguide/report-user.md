@@ -13,7 +13,7 @@ Complete the following procedure to report a user.
 
 1. In the navigation pane, find and select the name of the user who you want to report.
 
-1. Select the information icon (![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
+1. Select the information icon (![Information icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
 
 1. In the **Contact Details** pane, choose **Report** to report the user.
 

@@ -37,7 +37,7 @@ Markdown is enabled by default. To disable it, complete the following procedure.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2).
 
-1. In the navigation pane, choose the menu icon (![Menu icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)), and then choose **Settings**. 
+1. In the navigation pane, choose the menu icon (![Menu icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)), and then choose **Settings**. 
 
 1. Choose **Appearance**.
 
@@ -47,7 +47,7 @@ Markdown is enabled by default. To disable it, complete the following procedure.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2).
 
-1. In the navigation pane, choose the menu icon (![Menu icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)), and then choose **Settings**. 
+1. In the navigation pane, choose the menu icon (![Menu icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png)), and then choose **Settings**. 
 
 1. Choose **Appearance**.
 

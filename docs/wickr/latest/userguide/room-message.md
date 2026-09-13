@@ -15,4 +15,4 @@ Complete the following steps to write a room or group message.
 
 1. Type your message into the text box and press **Enter** to send it.
 
-   You can also choose ![Send file or location icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-file-location.png) to send a file or share your location.
+   You can also choose ![Send file or location icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-file-location.png) to send a file or share your location.

@@ -13,10 +13,10 @@ You can block a user in the Wickr client. Blocked users can't message or call yo
 
 1. In the navigation pane, find and select the name of the user who you want to block.
 
-1. Select the information icon (![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
+1. Select the information icon (![Information icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-user-information.png)) in the message window to view contact details.
 
 1. In the **Contact Details** pane that appears, choose **Block User** to block the user.  
-![The Block User option.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-block-user.png)
+![The Block User option.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-block-user.png)
 
 1. Select **Confirm** in the pop-up window.  
-![The Notice pop-up window.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-block-user-notice.png)
+![The Notice pop-up window.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-emoji-block-user-notice.png)

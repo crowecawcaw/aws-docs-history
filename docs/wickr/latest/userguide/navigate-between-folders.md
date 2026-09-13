@@ -18,7 +18,7 @@ To navigate between folders in a room, complete the following steps.
 1. Choose the folder you want to view.
 
 1. On desktop, to move out of the current folder and back to the previous one, select the folder link in the upper left corner.  
-![Folders link.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-file-management-folders.png)
+![Folders link.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-file-management-folders.png)
 
    On mobile, select the Back button.  
-![Mobile back button.](http://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-file-management-mobile-button.png)
+![Mobile back button.](https://docs.aws.amazon.com/wickr/latest/userguide/images/wickr-file-management-mobile-button.png)

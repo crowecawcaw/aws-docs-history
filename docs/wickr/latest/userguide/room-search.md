@@ -13,7 +13,7 @@ Use the following procedure to perform a search:
 
 1. In the navigation pane, choose the name of the room, group, or conversation that you want to search for messages or files.
 
-1. Choose ![Search icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-search.png) in the room, group, or conversation window to open the search pane. For Android clients, the conversation search option is within the room/group details submenu.
+1. Choose ![Search icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-search.png) in the room, group, or conversation window to open the search pane. For Android clients, the conversation search option is within the room/group details submenu.
 
 1. Use the filter buttons (**This conversation**, **This room**, **This group**, **Files**, **Starred**) to refine the scope of your search.
 

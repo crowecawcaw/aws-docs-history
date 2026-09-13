@@ -13,7 +13,7 @@ Complete the following steps to start a meeting with all members of a room or a 
 
 1. In the navigation pane, locate and choose the name of the room or group for which you want to start a meeting with members.
 
-1. Choose ![Call icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-call.png) in the room or group window to start a meeting.
+1. Choose ![Call icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-call.png) in the room or group window to start a meeting.
 
    The **Start Meeting** window that appears displays your current camera, microphone, speaker, and a preview of your camera. You can also choose to start the meeting in one of the following modes:
    + **Meeting mode** — Allows up to 100 participants to share audio, video, and screen.

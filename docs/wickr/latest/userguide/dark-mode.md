@@ -25,7 +25,7 @@ Dark mode can be used only if the **New User Experience Preview** is enabled, wh
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2).
 
-1. In the navigation pane, choose the![Settings icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png) menu button.
+1. In the navigation pane, choose the![Settings icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-settings-hamburger.png) menu button.
 
 1. At the bottom of the screen, select the sun/moon icon to toggle between light and dark modes.
 

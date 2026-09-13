@@ -11,7 +11,7 @@ Complete the following steps to create a room or a group message.
 
 1. Sign in to the Wickr client. For more information, see [Sign in to the Wickr client](getting-started.md#sign-in-step2).
 
-1. In the navigation pane, choose ![New icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-new.png), and then choose **New Group Message** or **Create a Room**.
+1. In the navigation pane, choose ![New icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-new.png), and then choose **New Group Message** or **Create a Room**.
 
 1. (For rooms only) In the **New Room** dialog box that appears, enter a room name, description, and choose the expiration and burn-on-read timers for the room.
 

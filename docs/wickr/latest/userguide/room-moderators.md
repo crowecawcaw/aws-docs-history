@@ -16,6 +16,6 @@ Groups cannot have moderators. Any group member can add members, and members can
 
 1. In the navigation pane, locate and choose the name of the room for which you want to add moderators.
 
-1. Choose ![Information icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-information.png) in the room window to view contact details.
+1. Choose ![Information icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-information.png) in the room window to view contact details.
 
-   In the **Room Details** pane that appears, choose ![User actions icon](http://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-user-actions.png) for the user that you want to make moderator or remove as moderator, and choose one of those options.
+   In the **Room Details** pane that appears, choose ![User actions icon](https://docs.aws.amazon.com/wickr/latest/userguide/images/icon-wickr-room-user-actions.png) for the user that you want to make moderator or remove as moderator, and choose one of those options.
