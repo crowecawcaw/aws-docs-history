@@ -13,4 +13,4 @@ Specifically, as a ServiceNow administrator, you can use this integration to aut
 
 View the following video, *AWS Security Hub CSPM - Bidirectional integration with ServiceNow ITSM*, for an overview of the AWS Security Hub CSPM integration to the Connector for ServiceNow.
 
-[![AWS Videos](http://img.youtube.com/vi/OYTi0sjEggE/0.jpg)](http://www.youtube.com/watch?v=OYTi0sjEggE)
+[![AWS Videos](https://img.youtube.com/vi/OYTi0sjEggE/0.jpg)](https://www.youtube.com/watch?v=OYTi0sjEggE)

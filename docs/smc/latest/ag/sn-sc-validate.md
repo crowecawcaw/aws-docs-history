@@ -74,4 +74,4 @@ AWS product events and outputs update the request item. When you terminate the A
 
 This video (18:33) describes how to integrate AWS products in your ServiceNow Portal with the AWS Service Management Connector.
 
-[![AWS Videos](http://img.youtube.com/vi/YCvNK-fzgoc/0.jpg)](http://www.youtube.com/watch?v=YCvNK-fzgoc)
+[![AWS Videos](https://img.youtube.com/vi/YCvNK-fzgoc/0.jpg)](https://www.youtube.com/watch?v=YCvNK-fzgoc)

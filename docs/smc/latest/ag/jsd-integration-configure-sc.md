@@ -25,4 +25,4 @@ The AWS configuration design requires each Service Catalog product to have eithe
 
 This video (11:22) describes how to integrate AWS products into your Jira Service Management portal. Jira Service Management enables end users to provision, manage, and operate AWS resources natively with Jira Service Management from Atlassian.
 
-[![AWS Videos](http://img.youtube.com/vi/1AODGjhqufo/0.jpg)](http://www.youtube.com/watch?v=1AODGjhqufo)
+[![AWS Videos](https://img.youtube.com/vi/1AODGjhqufo/0.jpg)](https://www.youtube.com/watch?v=1AODGjhqufo)

@@ -42,4 +42,4 @@ You can use the available AWS CloudFormation templates for the JSM connector to 
 
 This video (8:40) describes how to set up a bidirectional integration with Atlassian Jira Service Management. This feature makes it easier for AWS Security Hub CSPM users to automatically create and update issues in Jira Service Management from AWS Security Hub CSPM findings and ensure that updates to those tickets are synced with the findings.
 
-[![AWS Videos](http://img.youtube.com/vi/uEKwu0M8S3M/0.jpg)](http://www.youtube.com/watch?v=uEKwu0M8S3M)
+[![AWS Videos](https://img.youtube.com/vi/uEKwu0M8S3M/0.jpg)](https://www.youtube.com/watch?v=uEKwu0M8S3M)
