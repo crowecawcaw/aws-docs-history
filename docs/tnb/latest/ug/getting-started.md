@@ -7,7 +7,7 @@ This tutorial demonstrates how you use AWS TNB to deploy a network function, for
 
 The following diagram illustrates the deployment process:
 
-![Create the function packages, network package, and network instance. Then instantiate the network instance.](http://docs.aws.amazon.com/tnb/latest/ug/images/tnb-steps.png)
+![Create the function packages, network package, and network instance. Then instantiate the network instance.](https://docs.aws.amazon.com/tnb/latest/ug/images/tnb-steps.png)
 
 
 **Topics**

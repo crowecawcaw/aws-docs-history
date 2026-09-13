@@ -17,7 +17,7 @@ AWS TNB allows you to ingest network function packages and network service descr
 
 AWS TNB provides you with the ability to perform lifecycle management operations through the AWS Management Console, AWS CLI, AWS TNB REST API, and SDKs. This allows the different CSP personas, such as members of the Engineering, Operations, and Programmatic System teams, to take advantage of AWS TNB. You create and upload a network function package as a Cloud Service Archive (CSAR) file. The CSAR file contains Helm charts, software images, and a Network Function Descriptor (NFD). You can use templates to repeatedly deploy multiple configurations of that package. You create network service templates defining the infrastructure and the network functions that you want to deploy. You can use parameter overrides to deploy different configurations in different locations. You can then instantiate a network, using the templates and deploy your network functions on AWS infrastructure. AWS TNB provides you with the visibility of your deployments.
 
-![Main steps showing ISV and CSP create a template, then instantiate and deploy the service.](http://docs.aws.amazon.com/tnb/latest/ug/images/tnb-flow.png)
+![Main steps showing ISV and CSP create a template, then instantiate and deploy the service.](https://docs.aws.amazon.com/tnb/latest/ug/images/tnb-flow.png)
 
 
 ## Integration with AWS services

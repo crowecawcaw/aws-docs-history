@@ -13,4 +13,4 @@ AWS TNB allows you to easily manage your network using standardized management o
 
 The following image shows the network management operations:
 
-![Shows network instance life-cycle operations and sequence.](http://docs.aws.amazon.com/tnb/latest/ug/images/tnb-ns_state_transitions.png)
+![Shows network instance life-cycle operations and sequence.](https://docs.aws.amazon.com/tnb/latest/ug/images/tnb-ns_state_transitions.png)

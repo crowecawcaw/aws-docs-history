@@ -11,7 +11,7 @@ Instead, you describe your network's infrastructure and provide the software ima
 
 The following diagram illustrates the logical integrations between AWS TNB and service orchestrators to deploy network functions by using European Telecommunications Standards Institute (ETSI)-based standard interfaces.
 
-![AWS TNB deploys network functions and integrates with service orchestrators.](http://docs.aws.amazon.com/tnb/latest/ug/images/tnb-basic-architecture.png)
+![AWS TNB deploys network functions and integrates with service orchestrators.](https://docs.aws.amazon.com/tnb/latest/ug/images/tnb-basic-architecture.png)
 
 
 **Topics**
