@@ -10,7 +10,7 @@ This architecture addresses three elements of the connected platform: in-vehicle
 ## Connected Mobility Platform Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to use AWS services on your connected mobility platform.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-mobility-platform-on-aws/images/connected-mobility-platform-on-aws.png)
+![Reference architecture diagram showing how to use AWS services on your connected mobility platform.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/connected-mobility-platform-on-aws/images/connected-mobility-platform-on-aws.png)
 
 
 1. Use an **AWS IoT FleetWise** edge agent and **AWS IoT Core** to send and receive data from the cloud. **AWS IoT Greengrass** can host the edge components and is used for machine learning (ML) at the edge. 
