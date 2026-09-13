@@ -13,7 +13,7 @@ This architecture is provided for reference only, and is to be used accordingly.
 ## iMDSoft MetaVision Suite on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how you can use AWS to deply MetaVision Suite.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/imdsoft-metavision-suite-on-aws/images/imdsoft-metavision-suite-on-aws.png)
+![Reference architecture diagram showing how you can use AWS to deply MetaVision Suite.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/imdsoft-metavision-suite-on-aws/images/imdsoft-metavision-suite-on-aws.png)
 
 
 1. Hospital users access MetaVision Suite using Citrix client workstations. Bedside devices communicate through a serial server with the MetaVision Integration Engine (MVIE) instance on AWS. The Emergency Data Access Workstations (EDA) provide a disaster capability in case of loss of connectivity. 
