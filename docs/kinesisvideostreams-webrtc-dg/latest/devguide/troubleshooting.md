@@ -151,12 +151,12 @@ In another tab, open `chrome://webrtc-internals/`. You can view all of the infor
 
 You will see information about the established connection. For example:
 
-![An example of a screen that displays information about the established connection.](http://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/images/webrtc-internals1.en.png)
+![An example of a screen that displays information about the established connection.](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/images/webrtc-internals1.en.png)
 
 
 You can also confirm metrics like the following for the established connection.
 
-![An image that displays 20 smaller charts that display an array of stats.](http://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/images/webrtc-internals2.en.png)
+![An image that displays 20 smaller charts that display an array of stats.](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/images/webrtc-internals2.en.png)
 
 
 ### ICE-related timeouts

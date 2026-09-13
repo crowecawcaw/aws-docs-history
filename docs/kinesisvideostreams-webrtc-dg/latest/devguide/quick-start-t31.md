@@ -154,7 +154,7 @@ The tool chain may differ based on the board and CPU types. Check with the vendo
 <a name="t31-connect"></a>
 
 1. Attach the serial port tool to the board, as shown below.  
-![](http://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/images/serial-port.png)
+![](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/images/serial-port.png)
 
 1. Plug the ethernet and power cords into the device. A red LED should turn on.
 
