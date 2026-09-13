@@ -12,7 +12,7 @@ Next, you create your cache. For this exercise, there are instructions about cre
 1. On the dashboard, choose **Create cache** to start the cache creation wizard.
 
    Begin your configuration with the **Cache details** section.  
-![The Cache details screen, where you can enter cache parameters.](http://docs.aws.amazon.com/fsx/latest/FileCacheGuide/images/cache-create-standard.png)
+![The Cache details screen, where you can enter cache parameters.](https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/images/cache-create-standard.png)
 
 1. For **Cache name**, enter a name for your cache. We recommend using a name that helps you to identify and manage the cache in the future. You can use a maximum of 256 Unicode letters, white spaces, numbers, and these special characters: \+ - = . \_ : /
 

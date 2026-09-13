@@ -21,7 +21,7 @@ For information about using the AWS Command Line Interface (AWS CLI) to create a
 1. Follow the procedure for creating a new Amazon File Cache described in [Step 1: Create your cache](getting-started-step1.md).
 
 1. In the **Data repository associations (DRAs)** section, the **Create a new data repository association** dialog box displays.  
-![The Data Repository Associations configuration dialog, which is one of the dialogs to configure export and import links for an S3 or NFS data repository.](http://docs.aws.amazon.com/fsx/latest/FileCacheGuide/images/create-fs-dra.png)
+![The Data Repository Associations configuration dialog, which is one of the dialogs to configure export and import links for an S3 or NFS data repository.](https://docs.aws.amazon.com/fsx/latest/FileCacheGuide/images/create-fs-dra.png)
 
    In the dialog box, provide information for the following fields.
    + **Repository type** – Choose the type of data repository to link to:
