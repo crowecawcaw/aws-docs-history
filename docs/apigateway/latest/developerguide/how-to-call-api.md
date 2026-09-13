@@ -47,12 +47,12 @@ The following procedure shows how to obtain an API's invoke URL in the REST API 
 1. Under **Stage details**, choose the copy icon to copy your API's invoke URL.
 
    This URL is for the root resource of your API.  
-![After you create your REST API, the console shows your API's invoke URL.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-rest-invoke-url.png)
+![After you create your REST API, the console shows your API's invoke URL.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-rest-invoke-url.png)
 
 1. To obtain an API's invoke URL for another resource in your API, expand the stage under the secondary navigation pane, and then choose a method.
 
 1. Choose the copy icon to copy your API's resource-level invoke URL.  
-![The resource-level URL for your REST API is under the secondary navigation pane of the stage.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/resource-level-invoke-url.png)
+![The resource-level URL for your REST API is under the secondary navigation pane of the stage.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/resource-level-invoke-url.png)
 
 #### Obtaining an API's invoke URL using the AWS CLI
 <a name="apigateway-obtain-url-cli"></a>

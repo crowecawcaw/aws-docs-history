@@ -63,7 +63,7 @@ To troubleshoot the internal server error, add the `$context.integrationErrorMes
 1. Choose the latest log stream to view your HTTP API's logs.
 
 1. Your log entry should look similar to the following:  
-![CloudWatch Logs log entry showing the integration error message from Lambda.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/troubleshoot-http-api-logs.png)
+![CloudWatch Logs log entry showing the integration error message from Lambda.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/troubleshoot-http-api-logs.png)
 
 Because we added `$context.integrationErrorMessage` to the log format, we see an error message in our logs that summarizes the problem. 
 

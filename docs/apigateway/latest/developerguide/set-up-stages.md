@@ -113,7 +113,7 @@ Your account is charged for accessing method-level CloudWatch metrics, but not t
 
    The ARN format for Firehose is `arn:aws:firehose:{{{region}}}:{{{account-id}}}:deliverystream/amazon-apigateway-{{{your-stream-name}}}`. The name of your Firehose stream must be `amazon-apigateway-{{{your-stream-name}}}`.
 
-1. In **Log format**, enter a log format. To learn more about example log formats, see [CloudWatch log formats for API Gateway](set-up-logging.md#apigateway-cloudwatch-log-formats).
+1. In **Log format**, enter a log format. To learn more about example log formats, see [Access log formats](set-up-access-logging.md#apigateway-cloudwatch-log-formats).
 
 1. To enable [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-apigateway.html) tracing for the API stage, select ** X-Ray tracing**. For more information, see [Trace user requests to REST APIs using X-Ray in API Gateway](apigateway-xray.md).
 
@@ -125,7 +125,7 @@ Your account is charged for accessing method-level CloudWatch metrics, but not t
 After you customize the stage-level settings, you can override them for each API method. Some of these options might result in additional charges to your AWS account.
 
 1. To configure method overrides, expand the stage under the secondary navigation pane, and then choose a method.  
-![Expand the stage under the secondary navigation pane, and choose a method.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/method-override-view-new-console.png)
+![Expand the stage under the secondary navigation pane, and choose a method.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/method-override-view-new-console.png)
 
 1. For **Method overrides**, choose **Edit**.
 

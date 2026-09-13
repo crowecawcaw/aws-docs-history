@@ -607,7 +607,7 @@ Content-Length: {{PayloadSizeBytes}}
 1. Repeat the previous steps to create a **/records** and a **/sharditerator** resource. The final API should look like the following:
 
       
-![Create Records:GET|PUT|PUT|GET method for the API.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-kinesis-proxy-setup-streams-stream-record-method-new-console.png)
+![Create Records:GET|PUT|PUT|GET method for the API.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-kinesis-proxy-setup-streams-stream-record-method-new-console.png)
 
  The following four procedures describe how to set up each of the methods, how to map data from the method requests to the integration requests, and how to test the methods. 
 

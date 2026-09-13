@@ -50,7 +50,7 @@ To set up API logging, you must have deployed the API to a stage. You must also 
 **Note**  
 The name of your Firehose stream must be `amazon-apigateway-{{{your-stream-name}}}`.
 
-   1. For **Log format**, enter a log format. You can choose **CLF**, **JSON**, **XML**, or **CSV**. To learn more about example log formats, see [CloudWatch log formats for API Gateway](set-up-logging.md#apigateway-cloudwatch-log-formats).
+   1. For **Log format**, enter a log format. You can choose **CLF**, **JSON**, **XML**, or **CSV**. To learn more about example log formats, see [Access log formats](set-up-access-logging.md#apigateway-cloudwatch-log-formats).
 
 1. Choose **Save changes**.
 

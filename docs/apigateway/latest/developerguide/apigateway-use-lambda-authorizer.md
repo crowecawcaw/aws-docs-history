@@ -12,7 +12,7 @@ Use a Lambda authorizer to implement a custom authorization scheme. Your scheme 
 
 The following diagram shows the authorization workflow for a Lambda authorizer.
 
-![API Gateway Lambda authorization workflow](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-workflow.png)
+![API Gateway Lambda authorization workflow](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-workflow.png)
 
 
 **API Gateway Lambda authorization workflow**

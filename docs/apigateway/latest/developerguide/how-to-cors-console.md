@@ -19,7 +19,7 @@ Resources can contain child resources. Enabling CORS support for a resource and 
 1. In the **Resource details** section, choose **Enable CORS**.
 
       
-![In the Resources pane, choose Enable CORS.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/amazon-api-gateway-new-console-enable-cors.png)
+![In the Resources pane, choose Enable CORS.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/amazon-api-gateway-new-console-enable-cors.png)
 
 1.  In the **Enable CORS** box, do the following: 
 
@@ -34,7 +34,7 @@ Resources can contain child resources. Enabling CORS support for a resource and 
    1. Use the console-provided value of `'*'` as the **Access-Control-Allow-Origin** header value to allow access requests from all origins, or specify an origin to be permitted to access the resource. 
 
    1. Choose **Save**.  
-![Choose which headers are allowed](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/amazon-api-gateway-new-console-enable-cors-resources.png)
+![Choose which headers are allowed](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/amazon-api-gateway-new-console-enable-cors-resources.png)
 **Important**  
  When applying the above instructions to the `ANY` method in a proxy integration, any applicable CORS headers will not be set. Instead, your backend must return the applicable CORS headers, such as `Access-Control-Allow-Origin`. 
 

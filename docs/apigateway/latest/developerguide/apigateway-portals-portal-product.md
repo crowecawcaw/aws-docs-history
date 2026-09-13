@@ -25,7 +25,7 @@ The following table shows three APIs that represent a pet adoption portal produc
 
 In this example, two REST APIs, `ra8obxcevg` and `kf5387miad`, are grouped together in the `AdoptAnimals` section. The result of this ordering navigation would look like the following in a portal:
 
-![Pet adoption portal](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-portal.png)
+![Pet adoption portal](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-portal.png)
 
 
 Because the `ANY` method is a catch-all method, the portal shows all the supported HTTP methods. This portal also contains documentation that was created by the portal product owner.

@@ -9,7 +9,7 @@ First, you create a [DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest
 
 When you invoke your HTTP API, API Gateway routes the request to your Lambda function. The Lambda function interacts with DynamoDB, and returns a response to API Gateway. API Gateway then returns a response to you.
 
-![Overview of the HTTP API that you create in this tutorial.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ddb-crud.png)
+![Overview of the HTTP API that you create in this tutorial.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ddb-crud.png)
 
 
 To complete this exercise, you need an AWS account and an AWS Identity and Access Management user with console access. For more information, see [Set up to use API Gateway](setting-up.md).
@@ -285,7 +285,7 @@ Routes are a way to send incoming API requests to backend resources. Routes cons
 
 1. Repeat steps 4-7 for `GET /items`, `DELETE /items/{id}`, and `PUT /items`.
 
-![Your API has routes for GET /items, GET /items/{id},DELETE /items/{id}, and PUT /items.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ddb-create-routes.png)
+![Your API has routes for GET /items, GET /items/{id},DELETE /items/{id}, and PUT /items.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ddb-create-routes.png)
 
 
 ## Step 5: Create an integration
@@ -336,7 +336,7 @@ For this example API, you use the same Lambda integration for all routes. After 
 
 All routes show that an AWS Lambda integration is attached.
 
-![The console shows AWS Lambda on all routes to indicate that your integration is attached.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ddb-attach-integrations.png)
+![The console shows AWS Lambda on all routes to indicate that your integration is attached.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ddb-attach-integrations.png)
 
 
 Now that you have an HTTP API with routes and integrations, you can test your API.
@@ -353,7 +353,7 @@ To make sure that your API is working, you use [curl](https://curl.se).
 1. Choose your API.
 
 1. Note your API's invoke URL. It appears under **Invoke URL** on the **Details** page.  
-![After you create your API, the console shows your API's invoke URL.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ddb-invoke-url.png)
+![After you create your API, the console shows your API's invoke URL.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ddb-invoke-url.png)
 
 1. Copy your API's invoke URL. 
 

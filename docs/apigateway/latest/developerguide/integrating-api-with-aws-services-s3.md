@@ -84,7 +84,7 @@ When accessing objects whose object key includes `/` or any other special charac
    Your final API should look similar to the following:
 
       
-![Create an API in API Gateway as an Amazon S3 proxy](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_create_api-resources_new_console.png)
+![Create an API in API Gateway as an Amazon S3 proxy](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_create_api-resources_new_console.png)
 
 ## Expose an API method to list the caller's Amazon S3 buckets
 <a name="api-root-get-as-s3-get-service"></a>
@@ -122,7 +122,7 @@ Getting the list of Amazon S3 buckets of the caller involves invoking the [GET S
 1. For **Authorization**, from the dropdown menu, select `AWS_IAM`.
 
       
-![Declare method response types](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_setup_method_request_authorization_new_console.png)
+![Declare method response types](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_setup_method_request_authorization_new_console.png)
 
 1. Choose **Create method**.
 
@@ -171,7 +171,7 @@ Because the successful integration response from Amazon S3 returns the bucket li
 1. Choose **Save**. The result should look similar to the following:
 
       
-![Map integration response headers to method response headers](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_setup_integration_response_headers_new_console.png)
+![Map integration response headers to method response headers](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_setup_integration_response_headers_new_console.png)
 
 1. On the **Integration response** tab, under **Integration responses**, choose **Create response**.
 
@@ -192,7 +192,7 @@ As a good practice, you can test the API you have configured so far.
 1. Choose **Test**. The result should look like the following image:
 
       
-![Test API root GET bucket result](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_test_root_get_result_new_console.png)
+![Test API root GET bucket result](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_test_root_get_result_new_console.png)
 
 ## Expose API methods to access an Amazon S3 bucket
 <a name="api-folder-operations-as-s3-bucket-actions"></a>
@@ -250,7 +250,7 @@ Now, you test your API.
    The test result will contain a list of object in your bucket.
 
       
-![Test the GET method to create an Amazon S3 bucket.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_test_api_folder_get_new_console.png)
+![Test the GET method to create an Amazon S3 bucket.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_test_api_folder_get_new_console.png)
 
 ## Expose API methods to access an Amazon S3 object in a bucket
 <a name="api-items-in-folder-as-s3-objects-in-bucket"></a>
@@ -320,7 +320,7 @@ In this step, you do the following:
    The response body will contain the contents of the item.
 
       
-![Test the GET method to create an Amazon S3 bucket.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_test_api_item_get_new_console.png)
+![Test the GET method to create an Amazon S3 bucket.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_s3_test_api_item_get_new_console.png)
 
    The request correctly returns the plain text of ("Hello world") as the content of the specified file (test.txt) in the given Amazon S3 bucket (amzn-s3-demo-bucket).
 

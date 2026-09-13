@@ -15,9 +15,9 @@ The endpoint type refers to the endpoint that API Gateway creates for your API. 
 
 | Endpoint types | REST API | HTTP API | 
 | --- | --- | --- | 
-| [Edge-optimized](api-gateway-api-endpoint-types.md#api-gateway-api-endpoint-types-edge-optimized) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Regional](api-gateway-api-endpoint-types.md#api-gateway-api-endpoint-types-regional) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| [Private](api-gateway-api-endpoint-types.md#api-gateway-api-endpoint-types-private) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Edge-optimized](api-gateway-api-endpoint-types.md#api-gateway-api-endpoint-types-edge-optimized) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Regional](api-gateway-api-endpoint-types.md#api-gateway-api-endpoint-types-regional) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| [Private](api-gateway-api-endpoint-types.md#api-gateway-api-endpoint-types-private) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
 
 ## Security
 <a name="http-api-vs-rest.differences.security"></a>
@@ -27,9 +27,9 @@ API Gateway provides a number of ways to protect your API from certain threats, 
 
 | Security features | REST API | HTTP API | 
 | --- | --- | --- | 
-| [Mutual TLS authentication](rest-api-mutual-tls.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](rest-api-mutual-tls.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-mutual-tls.md) | 
-| [Certificates for backend authentication](getting-started-client-side-ssl-authentication.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [AWS WAF](apigateway-control-access-aws-waf.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Mutual TLS authentication](rest-api-mutual-tls.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](rest-api-mutual-tls.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-mutual-tls.md) | 
+| [Certificates for backend authentication](getting-started-client-side-ssl-authentication.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [AWS WAF](apigateway-control-access-aws-waf.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
 
 ## Authorization
 <a name="http-api-vs-rest.differences.authorization"></a>
@@ -39,11 +39,11 @@ API Gateway supports multiple mechanisms for controlling and managing access to 
 
 | Authorization options | REST API | HTTP API | 
 | --- | --- | --- | 
-| [IAM](permissions.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](permissions.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-access-control-iam.md) | 
-| [Resource policies](apigateway-resource-policies.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No<br /> | 
-| [Amazon Cognito](apigateway-integrate-with-cognito.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes 1 | 
-| [Custom authorization with an AWS Lambda function](apigateway-use-lambda-authorizer.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](apigateway-use-lambda-authorizer.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-lambda-authorizer.md) | 
-| [JSON Web Token (JWT)](http-api-jwt-authorizer.md) 2 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| [IAM](permissions.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](permissions.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-access-control-iam.md) | 
+| [Resource policies](apigateway-resource-policies.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No<br /> | 
+| [Amazon Cognito](apigateway-integrate-with-cognito.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes 1 | 
+| [Custom authorization with an AWS Lambda function](apigateway-use-lambda-authorizer.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](apigateway-use-lambda-authorizer.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-lambda-authorizer.md) | 
+| [JSON Web Token (JWT)](http-api-jwt-authorizer.md) 2 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
 
 1 You can use Amazon Cognito with a [JWT authorizer](http-api-jwt-authorizer.md).
 
@@ -57,11 +57,11 @@ Choose REST APIs if you need API management capabilities such as API keys and pe
 
 | Features | REST API | HTTP API | 
 | --- | --- | --- | 
-| [Custom domains](how-to-custom-domains.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](how-to-custom-domains.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-custom-domain-names.md) | 
-| [API keys](api-gateway-api-usage-plans.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Per-client rate limiting](api-gateway-request-throttling.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Per-client usage throttling](api-gateway-api-usage-plans.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Developer portal](apigateway-portals.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Custom domains](how-to-custom-domains.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](how-to-custom-domains.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-custom-domain-names.md) | 
+| [API keys](api-gateway-api-usage-plans.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Per-client rate limiting](api-gateway-request-throttling.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Per-client usage throttling](api-gateway-api-usage-plans.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Developer portal](apigateway-portals.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
 
 ## Development
 <a name="http-api-vs-rest.differences.development"></a>
@@ -71,16 +71,16 @@ As you're developing your API Gateway API, you decide on a number of characteris
 
 | Features | REST API | HTTP API | 
 | --- | --- | --- | 
-| [CORS configuration](how-to-cors.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](how-to-cors.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-cors.md) | 
-| [Test invocations](how-to-test-method.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Caching](api-gateway-caching.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [User-controlled deployments](how-to-deploy-api.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](how-to-deploy-api.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-stages.md) | 
-| [Automatic deployments](http-api-stages.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| [Custom gateway responses](api-gateway-gatewayResponse-definition.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Canary release deployments](canary-release.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Request validation](api-gateway-method-request-validation.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Request parameter transformation](rest-api-data-transformations.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](rest-api-data-transformations.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-parameter-mapping.md) | 
-| [Request body transformation](rest-api-data-transformations.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [CORS configuration](how-to-cors.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](how-to-cors.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-cors.md) | 
+| [Test invocations](how-to-test-method.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Caching](api-gateway-caching.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [User-controlled deployments](how-to-deploy-api.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](how-to-deploy-api.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-stages.md) | 
+| [Automatic deployments](http-api-stages.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| [Custom gateway responses](api-gateway-gatewayResponse-definition.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Canary release deployments](canary-release.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Request validation](api-gateway-method-request-validation.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Request parameter transformation](rest-api-data-transformations.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](rest-api-data-transformations.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-parameter-mapping.md) | 
+| [Request body transformation](rest-api-data-transformations.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
 
 ## Monitoring
 <a name="http-api-vs-rest.differences.monitoring"></a>
@@ -90,11 +90,11 @@ API Gateway supports several options to log API requests and monitor your APIs. 
 
 | Feature | REST API | HTTP API | 
 | --- | --- | --- | 
-| [Amazon CloudWatch metrics](monitoring-cloudwatch.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](monitoring-cloudwatch.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-metrics.md) | 
-| [Access logs to CloudWatch Logs](set-up-logging.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](set-up-logging.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-logging.md) | 
-| [Access logs to Amazon Data Firehose](apigateway-logging-to-kinesis.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Execution logs](set-up-logging.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [AWS X-Ray tracing](apigateway-xray.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Amazon CloudWatch metrics](monitoring-cloudwatch.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](monitoring-cloudwatch.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-metrics.md) | 
+| [Access logs to CloudWatch Logs](set-up-logging.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](set-up-logging.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-logging.md) | 
+| [Access logs to Amazon Data Firehose](apigateway-logging-to-kinesis.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Execution logs](rest-api-execution-logging.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [AWS X-Ray tracing](apigateway-xray.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
 
 ## Integrations
 <a name="http-api-vs-rest.differences.integrations"></a>
@@ -104,11 +104,11 @@ Integrations connect your API Gateway API to backend resources. For more informa
 
 | Feature | REST API | HTTP API | 
 | --- | --- | --- | 
-| [Public HTTP endpoints](setup-http-integrations.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](setup-http-integrations.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-develop-integrations-http.md) | 
-| [AWS services](api-gateway-api-integration-types.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](api-gateway-api-integration-types.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-develop-integrations-aws-services.md) | 
-| [AWS Lambda functions](set-up-lambda-integrations.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](set-up-lambda-integrations.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-develop-integrations-lambda.md) | 
-| [Private integrations with Network Load Balancers](set-up-private-integration.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](set-up-private-integration.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-develop-integrations-private.md) | 
-| [Private integrations with Application Load Balancers](http-api-develop-integrations-private.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](set-up-private-integration.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| [Private integrations with AWS Cloud Map](http-api-develop-integrations-private.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No<br /> | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| [Mock integrations](how-to-mock-integration.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
-| [Response streaming](response-transfer-mode.md) | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Public HTTP endpoints](setup-http-integrations.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](setup-http-integrations.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-develop-integrations-http.md) | 
+| [AWS services](api-gateway-api-integration-types.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](api-gateway-api-integration-types.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-develop-integrations-aws-services.md) | 
+| [AWS Lambda functions](set-up-lambda-integrations.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](set-up-lambda-integrations.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-develop-integrations-lambda.md) | 
+| [Private integrations with Network Load Balancers](set-up-private-integration.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](set-up-private-integration.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](http-api-develop-integrations-private.md) | 
+| [Private integrations with Application Load Balancers](http-api-develop-integrations-private.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) [Yes](set-up-private-integration.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| [Private integrations with AWS Cloud Map](http-api-develop-integrations-private.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No<br /> | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| [Mock integrations](how-to-mock-integration.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 
+| [Response streaming](response-transfer-mode.md) | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/negative_icon.png) No | 

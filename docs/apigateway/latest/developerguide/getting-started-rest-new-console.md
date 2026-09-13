@@ -9,7 +9,7 @@ First, you create a Lambda function using the Lambda console. Next, you create a
 
 When you invoke your REST API, API Gateway routes the request to your Lambda function. Lambda runs the function and returns a response to API Gateway. API Gateway then returns that response to you.
 
-![Overview of the REST API you create in this tutorial.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-overview-rest.png)
+![Overview of the REST API you create in this tutorial.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-overview-rest.png)
 
 
 To complete this exercise, you need an AWS account and an AWS Identity and Access Management (IAM) user with console access. For more information, see [Set up to use API Gateway](setting-up.md).
@@ -126,7 +126,7 @@ Now clients can call your API. To test your API before deploying it, you can opt
 1. From the main navigation pane, choose **Stage**.
 
 1. Under **Stage details**, choose the copy icon to copy your API's invoke URL.  
-![After you create your REST API, the console shows your API's invoke URL.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-rest-invoke-url.png)
+![After you create your REST API, the console shows your API's invoke URL.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-rest-invoke-url.png)
 
 1. Enter the invoke URL in a web browser. 
 

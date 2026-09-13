@@ -10,7 +10,7 @@ If you use a non-proxy integration, you can use two features of API Gateway to t
 
 The following example shows a data transformation where for the header `"x-version:beta"`, the `x-version` header parameter is transformed into the `app-version` header parameter. The data transformation from `x-version` to `app-version` occurs in the integration request. That way, the integration endpoint receives the transformed header parameter value. When the integration endpoint returns a status code, the status code is transformed from `200` to `204` before the method response.
 
-![Diagram of API Gateway data transformation](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/develop-non-proxy.png)
+![Diagram of API Gateway data transformation](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/develop-non-proxy.png)
 
 
 To create a data transformation, you can use the following features:

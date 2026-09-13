@@ -487,7 +487,7 @@ You can now test your `GET` method to verify that it has been properly set up to
 1. Choose **Test**.
 
    The results should look similar to this:  
-![Create an API in API Gateway as a Lambda proxy](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_lambda_calc_get_method_test_new_console.png)
+![Create an API in API Gateway as a Lambda proxy](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_lambda_calc_get_method_test_new_console.png)
 
 ## Integration 2: Create a `POST` method with a JSON payload to call the Lambda function
 <a name="api-as-lambda-proxy-expose-post-method-with-json-body-to-call-lambda-function"></a>
@@ -663,7 +663,7 @@ Now you'll create a `GET` method on a resource specified by a sequence of path p
 
 The resulting API resource structure will look like this:
 
-![Create an API in API Gateway as a Lambda proxy](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_lambda_create_api_resources_new_console.png)
+![Create an API in API Gateway as a Lambda proxy](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_lambda_create_api_resources_new_console.png)
 
 
 **To create a **/{operand1}/{operand2}/{operator}** resource**
@@ -753,7 +753,7 @@ You can now test your `GET` method to verify that it has been properly set up to
 1. Choose **Test**.
 
 1. The result should look like this:  
-![Test the GET method in the API Gateway console.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_lambda_calc_get_method_test_path_parm_new_console.png)
+![Test the GET method in the API Gateway console.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/aws_proxy_lambda_calc_get_method_test_path_parm_new_console.png)
 
 Next, you model the data structure of the method response payload after the `result` schema.
 

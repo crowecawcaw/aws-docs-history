@@ -7,7 +7,7 @@ In this tutorial, you'll create a serverless chat application with a WebSocket A
 
 This tutorial takes approximately 30 minutes to complete. First, you'll use an CloudFormation template to create Lambda functions that will handle API requests, as well as a DynamoDB table that stores your client IDs. Then, you'll use the API Gateway console to create a WebSocket API that integrates with your Lambda functions. Lastly, you'll test your API to verify that messages are sent and received.
 
-![Architectural overview of the API that you create in this tutorial.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-chat-app.png)
+![Architectural overview of the API that you create in this tutorial.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-chat-app.png)
 
 
 To complete this tutorial, you need an AWS account and an AWS Identity and Access Management user with console access. For more information, see [Set up to use API Gateway](setting-up.md).

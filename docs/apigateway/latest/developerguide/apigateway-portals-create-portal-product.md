@@ -37,7 +37,7 @@ The following procedure shows how to create a portal product.
 **Note**  
 Do not choose **Next** without first choosing **Add to product**.  
 
-![Portal product](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-portal-product.png)
+![Portal product](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-portal-product.png)
 
 
    The API endpoint will appear in the **Selected API endpoints** list.

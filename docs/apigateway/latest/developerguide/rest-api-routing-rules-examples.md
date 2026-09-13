@@ -48,7 +48,7 @@ The following table shows API mappings for `https://petstore.backup.example.com`
 
 The following diagram shows how API Gateway applies the previous routing rules and API mappings to example requests. The example requests are summarized in the table after this diagram.
 
-![Diagram of how API Gateway applies the previous routing rules and API mappings.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/rr-diagram.png)
+![Diagram of how API Gateway applies the previous routing rules and API mappings.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/rr-diagram.png)
 
 
 The following table shows how API Gateway applies the previous routing rules and API mappings to example requests.

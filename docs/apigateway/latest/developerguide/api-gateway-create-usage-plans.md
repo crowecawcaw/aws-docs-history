@@ -51,7 +51,7 @@ The following procedure describes how to create a usage plan.
 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway).
 
 1. In the API Gateway main navigation pane, choose **Usage plans**, and then choose **Create usage plan**.  
-![API usage plan entities](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-usage-plan-keys-create-setup.png)
+![API usage plan entities](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-usage-plan-keys-create-setup.png)
 
 1. For **Name**, enter a name.
 
@@ -96,7 +96,7 @@ The following procedure describes how to add a stage to a usage plan.
 1. Select your usage plan.
 
 1.  Under the **Associated stages** tab, choose **Add stage**.  
-![Add an API stage to a usage plan.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-usage-plan-keys-create-add-stage.png)
+![Add an API stage to a usage plan.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-usage-plan-keys-create-add-stage.png)
 
 1.  For **API**, select an API. 
 
@@ -143,7 +143,7 @@ The following procedure shows how to add an API key to a usage plan.
 **To add a key to a usage plan**
 
 1. Under the **Associated API keys** tab, choose **Add API key**.   
-![API usage plan entities](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-usage-plan-keys-create-add-key.png)
+![API usage plan entities](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-usage-plan-keys-create-add-key.png)
 
 1. 
 

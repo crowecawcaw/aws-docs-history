@@ -23,13 +23,13 @@ Regardless of the integration type, the client sent a request to API Gateway and
 ------
 #### [ Non-proxy integration ]
 
-![Diagram of API Gateway non-proxy integration](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/develop-non-proxy.png)
+![Diagram of API Gateway non-proxy integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/develop-non-proxy.png)
 
 
 ------
 #### [ Proxy integration ]
 
-![Diagram of API Gateway proxy integration](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/develop-proxy.png)
+![Diagram of API Gateway proxy integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/develop-proxy.png)
 
 
 ------
@@ -95,7 +95,7 @@ To control how clients call an API, use [IAM permissions](permissions.md), a [La
 
 The following diagram shows the features available for REST API development and where in the request/response model these features are configured.
 
-![Diagram of API Gateway features](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/develop-features.png)
+![Diagram of API Gateway features](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/develop-features.png)
 
 
 For an introduction on how to create an API, see [Tutorial: Create a REST API with a Lambda proxy integration](api-gateway-create-api-as-simple-proxy-for-lambda.md). To learn more information about the capabilities of API Gateway that you might use while developing a REST API, see the following topics. These topics contain conceptual information and procedures that you can perform using the API Gateway console, the API Gateway REST API, the AWS CLI, or one of the AWS SDKs.

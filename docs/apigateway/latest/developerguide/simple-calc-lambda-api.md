@@ -5,7 +5,7 @@
 
 Our simple calculator API exposes three methods (GET, POST, GET) to invoke the [Simple calculator Lambda function](simple-calc-nodejs-lambda-function.md). A graphical representation of this API is shown as follows:
 
-![Simple calculator API for generated SDK](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/simple-calc-api-console-hierarchy-new-console.png)
+![Simple calculator API for generated SDK](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/simple-calc-api-console-hierarchy-new-console.png)
 
 
 These three methods show different ways to supply the input for the backend Lambda function to perform the same operation: 

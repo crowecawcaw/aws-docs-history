@@ -34,7 +34,7 @@ For more information about API Gateway WebSocket APIs, see [Use API Gateway to c
 
 The following diagram shows API Gateway architecture.
 
-![API Gateway architecture diagram](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/Product-Page-Diagram_Amazon-API-Gateway-How-Works.png)
+![API Gateway architecture diagram](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/Product-Page-Diagram_Amazon-API-Gateway-How-Works.png)
 
 
 This diagram illustrates how the APIs you build in Amazon API Gateway provide you or your developer customers with an integrated and consistent developer experience for building AWS serverless applications. API Gateway handles all the tasks involved in accepting and processing up to hundreds of thousands of concurrent API calls. These tasks include traffic management, authorization and access control, monitoring, and API version management. 

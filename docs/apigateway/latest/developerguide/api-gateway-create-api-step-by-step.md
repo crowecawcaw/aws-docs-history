@@ -133,7 +133,7 @@ The client can now supply a pet type and a page number as query string parameter
     The result is similar to the following:
 
       
-![Test-invoke GET on pets method result](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-step-by-step-test-invoke-get-on-pets-result-new-console.png)
+![Test-invoke GET on pets method result](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-step-by-step-test-invoke-get-on-pets-result-new-console.png)
 
     Now that the test is successful, we can deploy the API to make it publicly available. 
 

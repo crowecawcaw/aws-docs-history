@@ -154,7 +154,7 @@ After [deploying your REST API to a stage](set-up-deployments.md#create-deployme
 
  In the **Stages** pane in the API Gateway console, choose **Stage actions**, **Export**.
 
-![Export REST API using the API Gateway console](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/export-new-console.png)
+![Export REST API using the API Gateway console](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/export-new-console.png)
 
 
 Specify an **API specification type**, **Format**, and **Extensions** to download your API's OpenAPI definition. 

@@ -94,7 +94,7 @@ This procedure describes how to use a stage variable value in a query parameter 
 1. You get the following response. Notice that `beta`, assigned to the `stageName` stage variable, is passed in the backend as the `stageName` argument. 
 
       
-![Response from the API's GET method with an HTTP endpoint using the url stage variable.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/stageVariables-new-console-invoke-beta-stage-with-url-and-stageName-response.png)
+![Response from the API's GET method with an HTTP endpoint using the url stage variable.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/stageVariables-new-console-invoke-beta-stage-with-url-and-stageName-response.png)
 
 ## Invoke a Lambda function through an API with a stage variable
 <a name="how-to-set-stage-variables-aws-console-lambda-function"></a>
@@ -137,7 +137,7 @@ This procedure describes how to use a stage variable to call a Lambda function a
    1. Keep **Lambda proxy integration** turned off.
 
    1. For **Lambda function**, enter `${stageVariables.function}`.  
-![Create a GET method integrated with a Lambda function as specified by the function stage variable.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/stageVariables-new-console-create-lambda-get-method.png)
+![Create a GET method integrated with a Lambda function as specified by the function stage variable.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/stageVariables-new-console-create-lambda-get-method.png)
 **Tip**  
 When prompted with the **Add permission command**, copy the [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) command. Run the command on each Lambda function that will be assigned to the `function` stage variable. For example, if the `$stageVariables.function` value is `HelloWorld`, run the following AWS CLI command:   
 
@@ -147,7 +147,7 @@ When prompted with the **Add permission command**, copy the [add-permission](htt
  Failing to do so results in a `500 Internal Server Error` response when invoking the method. Replace `${stageVariables.function}` with the Lambda function name that is assigned to the stage variable.   
    
 
-![AWS CLI command to add permission to the Lambda function to be invoked by the method you created.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/stageVariables-new-console-add-permission-to-lambda-function.png)
+![AWS CLI command to add permission to the Lambda function to be invoked by the method you created.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/stageVariables-new-console-add-permission-to-lambda-function.png)
 
 
    1. Choose **Create method**.

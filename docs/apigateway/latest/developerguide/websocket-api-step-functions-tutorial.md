@@ -7,7 +7,7 @@ In this tutorial, you create a serverless broadcast application with a WebSocket
 
  This tutorial shows how to broadcast messages to connected clients and includes an example of a Lambda authorizer, a mock integration, and a non-proxy integration to Step Functions.
 
-![Architectural overview of the API that you create in this tutorial.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-sfn-app.png)
+![Architectural overview of the API that you create in this tutorial.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-sfn-app.png)
 
 
 After you create your resources using a CloudFormation template, you'll use the API Gateway console to create a WebSocket API that integrates with your AWS resources. You'll attach a Lambda authorizer to your API and create an AWS service integration with Step Functions to start a state machine execution. The Step Functions state machine will invoke a Lambda function that sends a message to all connected clients.
@@ -182,7 +182,7 @@ You configure the **$default** route to inform clients to use the **sendmessage*
    Choose **Create template**.
 
    The result should look like the following:  
-![Integration request configuration for mock integration for the $default route.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-sfn-mock-integration-request.png)
+![Integration request configuration for mock integration for the $default route.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-sfn-mock-integration-request.png)
 
 1. The the **$default route** pane, choose **Enable two-way communication**.
 
@@ -207,7 +207,7 @@ You configure the **$default** route to inform clients to use the **sendmessage*
 1. Choose **Create template**.
 
    The result should look like the following:  
-![Integration response configuration for mock integration for the $default route.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-sfn-mock-integration-response.png)
+![Integration response configuration for mock integration for the $default route.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-sfn-mock-integration-response.png)
 
 ## Step 5: Create a non-proxy integration with Step Functions
 <a name="websocket-api-step-functions-create-step-function-integration"></a>
@@ -277,7 +277,7 @@ Next, you create a mapping template to send request parameters to the Step Funct
    + Creates the input for the state machine. The input is the domain and stage of the WebSocket API and the message from the `sendmessage` route.
 
 1. Choose **Create template**.  
-![sendmessage route configuration.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-sfn-integration-request.png)
+![sendmessage route configuration.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/ws-sfn-integration-request.png)
 
 You can create a non-proxy integration on the **$connect** or **$disconnect** routes, to directly add or remove a connection ID from the DynamoDB table, without invoking a Lambda function.
 

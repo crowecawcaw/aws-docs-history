@@ -7,7 +7,7 @@ In this tutorial, you create a private REST API. Clients can access the API only
 
 This tutorial takes approximately 30 minutes to complete. First, you use an CloudFormation template to create an Amazon VPC, a VPC endpoint, an AWS Lambda function, and launch an Amazon EC2 instance that you'll use to test your API. Next, you use the AWS Management Console to create a private API and attach a resource policy that allows access only from your VPC endpoint. Lastly, you test your API. 
 
-![Overview of the private API you create in this tutorial.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-api-tutorial-diagram.png)
+![Overview of the private API you create in this tutorial.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-api-tutorial-diagram.png)
 
 
 To complete this tutorial, you need an AWS account and an AWS Identity and Access Management user with console access. For more information, see [Set up to use API Gateway](setting-up.md).
@@ -222,7 +222,7 @@ Next, you test your API from within your Amazon VPC. To access your private API,
 
    Verify that you get the response `Hello from Lambda!`.
 
-![You use Session Manager to invoke your API from within your Amazon VPC.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-api-tutorial-invoke.png)
+![You use Session Manager to invoke your API from within your Amazon VPC.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-api-tutorial-invoke.png)
 
 
 You successfully created an API that's accessible only from within your Amazon VPC and then verified that it works.

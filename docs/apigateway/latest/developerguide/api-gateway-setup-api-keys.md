@@ -40,7 +40,7 @@ The following procedure describes how to configure an API method to require an A
 1. Under **Resources**, create a new method or choose an existing one.
 
 1. On the **Method request** tab, under **Method request settings**, choose **Edit**.  
-![Add an API key to a method](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-add-key-to-method.png)
+![Add an API key to a method](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-add-key-to-method.png)
 
 1. Select **API key required**.
 
@@ -100,7 +100,7 @@ The following procedure shows how to create an API key. If you want to import yo
 1. In the API Gateway main navigation pane, choose **API keys**.
 
 1. Choose **Create API key**.  
-![Create API keys for usage plans](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-usage-plan-keys-choose-create-api-key-from-actions-menu.png)
+![Create API keys for usage plans](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-new-console-usage-plan-keys-choose-create-api-key-from-actions-menu.png)
 
 1. For **Name**, enter a name.
 

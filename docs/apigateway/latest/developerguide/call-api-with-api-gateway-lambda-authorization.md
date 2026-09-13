@@ -15,21 +15,21 @@
 1.  Open **Postman**, choose the **GET** method, and paste the API's **Invoke URL** into the adjacent URL field. 
 
     Add the Lambda authorization token header and set the value to `allow`. Choose **Send**.   
-![Call API with Lambda authorization allow token](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-call-api-with-allow-token.png)
+![Call API with Lambda authorization allow token](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-call-api-with-allow-token.png)
 
     The response shows that the API Gateway Lambda authorizer returns a **200 OK** response and successfully authorizes the call to access the HTTP endpoint (http://httpbin.org/get) integrated with the method. 
 
 1.  Still in Postman, change the Lambda authorization token header value to `deny`. Choose **Send**.   
-![Call API with Lambda authorization deny token](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-call-api-with-deny-token.png)
+![Call API with Lambda authorization deny token](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-call-api-with-deny-token.png)
 
    The response shows that the API Gateway Lambda authorizer returns a **403 Forbidden** response without authorizing the call to access the HTTP endpoint.
 
 1.  In Postman, change the Lambda authorization token header value to `unauthorized` and choose **Send**.   
-![Call API with Lambda authorization unauthorized token](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-call-api-with-unauthorized-token.png)
+![Call API with Lambda authorization unauthorized token](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-call-api-with-unauthorized-token.png)
 
     The response shows that API Gateway returns a **401 Unauthorized** response without authorizing the call to access the HTTP endpoint. 
 
 1.  Now, change the Lambda authorization token header value to `fail`. Choose **Send**.   
-![Call API with Lambda authorization fail token](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-call-api-with-fail-token.png)
+![Call API with Lambda authorization fail token](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-call-api-with-fail-token.png)
 
     The response shows that API Gateway returns a **500 Internal Server Error** response without authorizing the call to access the HTTP endpoint. 

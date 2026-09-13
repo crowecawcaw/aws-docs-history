@@ -30,7 +30,7 @@ The section explains how to enable binary support using the API Gateway console.
    1. For **Content handling**, choose an option. 
 
          
-![Set up the GET method in the API Gateway console.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/binary-support-content-handling-on-method-new-console.png)
+![Set up the GET method in the API Gateway console.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/binary-support-content-handling-on-method-new-console.png)
 
       Choose **Passthrough** if you don't want to convert the body when the client and backend accepts the same binary format. Choose **Convert to text** to convert the binary body to a base64-encoded string when, for example, the backend requires that a binary request payload is passed in as a JSON property. And choose **Convert to binary** when the client submits a base64-encoded string and the backend requires the original binary format, or when the endpoint returns a base64-encoded string and the client accepts only the binary output.
 
@@ -41,7 +41,7 @@ The section explains how to enable binary support using the API Gateway console.
    1. Preserve the incoming request's `Accept` header in the integration request. You should do this if you've set `contentHandling` to `passthrough` and want to override that setting at runtime.
 
          
-![Keep the Accept header in the integration request.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/binary-support-preserve-incoming-accept-header-new-console.png)
+![Keep the Accept header in the integration request.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/binary-support-preserve-incoming-accept-header-new-console.png)
 
    1. For conversion to text, define a mapping template to put the base64-encoded binary data into the required format.
 

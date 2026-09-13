@@ -18,7 +18,7 @@ The data contains the `id`, `type`, and `price` of the pet. A model of this data
 + Create mapping templates for data transformation.
 + Create a user-defined data type (UDT) when you generate an SDK.
 
-![Example JSON data model for PetStore API.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/how-to-validate-requests.png)
+![Example JSON data model for PetStore API.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/how-to-validate-requests.png)
 
 
 In this model:

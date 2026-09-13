@@ -18,14 +18,14 @@ The following example shows a service map for the `test` stage of an API called 
 
 For a detailed explanation of service map structure, see [Use the X-Ray trace map](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-servicemap).
 
-![Service map example of an API Gateway API stage](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-xray-servicemap-2.png)
+![Service map example of an API Gateway API stage](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-xray-servicemap-2.png)
 
 
 From the service map, you can zoom in to see a trace view of your API stage. The trace will display in-depth information regarding your API, represented as segments and subsegments. For example, the trace for the service map shown above would include segments for the Lambda service and Lambda function. For more information, see [AWS Lambda and AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/xray-services-lambda.html).
 
 If you choose a node or edge on an X-Ray service map, the X-Ray console shows a latency distribution histogram. You can use a latency histogram to see how long it takes for a service to complete its requests. Following is a histogram of the API Gateway stage named `xray/test` in the previous service map. For a detailed explanation of latency distribution histograms, see [Use Latency Histograms](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-histograms).
 
-![X-Ray histogram of an API Gateway API stage](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-xray-histogram-1.png)
+![X-Ray histogram of an API Gateway API stage](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-xray-histogram-1.png)
 
 
 ## Example X-Ray trace view
@@ -35,4 +35,4 @@ The following diagram shows a trace view generated for the example API described
 
 For a detailed explanation of trace views, see [View traces and trace details](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-traces).
 
-![API Gateway with active tracing enabled](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-xray-traceview-1.png)
+![API Gateway with active tracing enabled](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-xray-traceview-1.png)

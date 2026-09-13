@@ -7,7 +7,7 @@ A mapping template transformation uses a mapping template to modify your integra
 
 The following diagram shows the request lifecycle for a `POST /pets` resource that has an integration with a PetStore integration endpoint. In this API, a user sends data about a pet and the integration endpoint returns the adoption fee associated with a pet. In this request lifecycle, mapping template transformations filter the request body to the integration endpoint and filter the response body from the integration endpoint.
 
-![Example request lifecycle](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/mapping-template-transforms.png)
+![Example request lifecycle](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/mapping-template-transforms.png)
 
 
 The following sections explain the request and response lifecycle.

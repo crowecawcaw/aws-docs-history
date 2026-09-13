@@ -13,7 +13,7 @@ For more information about the difference between HTTP APIs and REST APIs, see [
 
 When you invoke your HTTP API, API Gateway routes the request to your Lambda function. Lambda runs the Lambda function and returns a response to API Gateway. API Gateway then returns a response to you.
 
-![Overview of the HTTP API that you create in this tutorial.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-overview.png)
+![Overview of the HTTP API that you create in this tutorial.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-overview.png)
 
 
 To complete this exercise, you need an AWS account and an AWS Identity and Access Management user with console access. For more information, see [Set up to use API Gateway](setting-up.md).
@@ -107,7 +107,7 @@ Next, you test your API to make sure that it's working. For simplicity, use a we
 1. Choose your API.
 
 1. Note your API's invoke URL.  
-![After you create your API, the console shows your API's invoke URL.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-invoke-url.png)
+![After you create your API, the console shows your API's invoke URL.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-invoke-url.png)
 
 1. Copy your API's invoke URL, and enter it in a web browser. Append the name of your Lambda function to your invoke URL to call your Lambda function. By default, the API Gateway console creates a route with the same name as your Lambda function, `my-function`. 
 

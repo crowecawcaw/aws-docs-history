@@ -12,7 +12,7 @@ When you invoke your REST API, API Gateway routes the request to your Amazon ECS
 **Note**  
 This tutorial was previously supported for HTTP APIs, and now is supported for REST APIs using VPC link V2.
 
-![Overview of the REST API you create in this tutorial.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-integration-rest.png)
+![Overview of the REST API you create in this tutorial.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-integration-rest.png)
 
 
 To complete this tutorial, you need an AWS account and an AWS Identity and Access Management user with console access. For more information, see [Set up to use API Gateway](setting-up.md).

@@ -17,6 +17,4 @@ API Gateway will not generate logs and metrics when testing a REST API method. T
 **Topics**
 + [Monitor REST API execution with Amazon CloudWatch metrics](monitoring-cloudwatch.md)
 + [Set up CloudWatch logging for REST APIs in API Gateway](set-up-logging.md)
-+ [Log REST API calls to Amazon Data Firehose in API Gateway](apigateway-logging-to-kinesis.md)
-+ [Variables for access logging for API Gateway](api-gateway-variables-for-access-logging.md)
 + [Trace user requests to REST APIs using X-Ray in API Gateway](apigateway-xray.md)

@@ -29,21 +29,21 @@ The following procedure walks you through the steps to create and test an API fr
 1.  Under **Create REST API**, choose **Example API** and then choose **Create API** to create the example API. 
 
       
-![Example REST API in the API Gateway console.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-new-console.png)
+![Example REST API in the API Gateway console.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-new-console.png)
 
     You can scroll down the OpenAPI definition for details of this example API before choosing **Create API**. 
 
 1. In the main navigation pane, choose **Resources**. The newly created API is shown as follows:
 
       
-![The example API after importing it into the API Gateway console.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-result-new-console.png)
+![The example API after importing it into the API Gateway console.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-result-new-console.png)
 
     The **Resources** pane shows the structure of the created API as a tree of nodes. API methods defined on each resource are edges of the tree. When a resource is selected, all of its methods are listed in the **Methods** table on the right. Displayed with each method is the method type, integration type, authorization type, and API key requirement. 
 
 1.  To view the details of a method, to modify its set-up, or to test the method invocation, choose the method name from either the method list or the resource tree. Here, we choose the `POST /pets` method as an illustration: 
 
       
-![The POST /pets method for the example API in the API Gateway console.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-execution-new-console.png)
+![The POST /pets method for the example API in the API Gateway console.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-execution-new-console.png)
 
     The resulting **Method execution** pane presents a logical view of the chosen (`POST /pets`) method's structure and behaviors.
 
@@ -62,14 +62,14 @@ The following procedure walks you through the steps to create and test an API fr
 1.  For example, to test the `POST /pets` method, enter the following **{"type": "dog","price": 249.99}** payload into the **Request body**, and then choose **Test**.
 
       
-![Test the POST method in the API Gateway console.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-test-new-console.png)
+![Test the POST method in the API Gateway console.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-test-new-console.png)
 
     The input specifies the attributes of the pet that we want to add to the list of pets on the PetStore website. 
 
 1. The results display as follows:
 
       
-![The result of testing the POST method in the API Gateway console.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-test-result-new-console.png)
+![The result of testing the POST method in the API Gateway console.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-post-method-test-result-new-console.png)
 
     The **Log** entry of the output shows the state changes from the method request to the integration request, and from the integration response to the method response. This can be useful for troubleshooting any mapping errors that cause the request to fail. In this example, no mapping is applied: the method request payload is passed through the integration request to the backend and, similarly, the backend response is passed through the integration response to the method response. 
 
@@ -78,7 +78,7 @@ The following procedure walks you through the steps to create and test an API fr
 1.  To deploy the sample API, choose **Deploy API**. 
 
       
-![Use the deploy button to deploy your API, so API callers can invoke your API.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-deploy-api-new-console.png)
+![Use the deploy button to deploy your API, so API callers can invoke your API.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-create-api-by-importing-example-deploy-api-new-console.png)
 
 1. For **Stage**, select **New stage**, and then enter **test**.
 
@@ -87,7 +87,7 @@ The following procedure walks you through the steps to create and test an API fr
 1. Choose **Deploy**.
 
 1.  In the resulting **Stages** pane, under **Stage details**, the **Invoke URL** displays the URL to invoke the API's `GET /` method request.   
-![After you create your REST API, the console shows your API's invoke URL.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-rest-invoke-url.png)
+![After you create your REST API, the console shows your API's invoke URL.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-rest-invoke-url.png)
 
 1. Choose the copy icon to copy your API's invoke URL, and then enter your API's invoke URL in a web browser. A successful response return the result, generated from the mapping template in the integration response. 
 

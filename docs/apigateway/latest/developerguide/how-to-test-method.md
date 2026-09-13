@@ -28,7 +28,7 @@ Testing methods with the API Gateway console might result in changes to resource
 1. In the **Resources** pane, choose the method you want to test.
 
 1. Choose the **Test** tab. You might need to choose the right arrow button to show the tab.  
-![Use the test tab to test your API. It is next to the method response tab.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-test-new-console.png)
+![Use the test tab to test your API. It is next to the method response tab.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-test-new-console.png)
 
     Enter values in any of the displayed boxes (such as **Query strings**, **Headers**, and **Request body**). The console includes these values in the method request in default application/json form.
 

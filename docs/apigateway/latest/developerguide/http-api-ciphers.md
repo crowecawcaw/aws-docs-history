@@ -15,29 +15,29 @@ The following table describes the supported TLS protocols for HTTP APIs.
 
 | **TLS protocols** | **TLS\_1\_2 security policy** | 
 | --- | --- | 
-| TLSv1.3 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| TLSv1.2 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| TLSv1.3 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| TLSv1.2 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
 
 The following table describes the TLS ciphers that are available for the TLS 1\_2 security policy for HTTP APIs.
 
 
 | **TLS ciphers** | **TLS\_1\_2 security policy** | 
 | --- | --- | 
-| TLS-AES-128-GCM-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| TLS-AES-256-GCM-SHA384 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| TLS-CHACHA20-POLY1305-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| ECDHE-ECDSA-AES128-GCM-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| ECDHE-RSA-AES128-GCM-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| ECDHE-ECDSA-AES128-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| ECDHE-RSA-AES128-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| ECDHE-ECDSA-AES256-GCM-SHA384 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| ECDHE-RSA-AES256-GCM-SHA384 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| ECDHE-ECDSA-AES256-SHA384 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| ECDHE-RSA-AES256-SHA384 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| AES128-GCM-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| AES128-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| AES256-GCM-SHA384 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
-| AES256-SHA256 | ![](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| TLS-AES-128-GCM-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| TLS-AES-256-GCM-SHA384 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| TLS-CHACHA20-POLY1305-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| ECDHE-ECDSA-AES128-GCM-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| ECDHE-RSA-AES128-GCM-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| ECDHE-ECDSA-AES128-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| ECDHE-RSA-AES128-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| ECDHE-ECDSA-AES256-GCM-SHA384 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| ECDHE-RSA-AES256-GCM-SHA384 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| ECDHE-ECDSA-AES256-SHA384 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| ECDHE-RSA-AES256-SHA384 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| AES128-GCM-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| AES128-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| AES256-GCM-SHA384 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
+| AES256-SHA256 | ![](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/success_icon.png) Yes | 
 
 ## OpenSSL and RFC cipher names
 <a name="apigateway-secure-connections-openssl-rfc-cipher-names-http"></a>

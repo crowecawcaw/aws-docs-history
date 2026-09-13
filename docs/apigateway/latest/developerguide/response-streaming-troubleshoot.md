@@ -42,7 +42,7 @@ The time when API Gateway establishes the integration connection to when the int
 
 The following figure shows how these access log variables represent different components of a response stream.
 
-![Access log variables for response streaming in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/response-streaming-figure.png)
+![Access log variables for response streaming in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/response-streaming-figure.png)
 
 
 For more information about access logs, see [Set up CloudWatch logging for REST APIs in API Gateway](set-up-logging.md). You can also use X-Ray to monitor your response stream. For more information, see [Trace user requests to REST APIs using X-Ray in API Gateway](apigateway-xray.md).

@@ -9,7 +9,7 @@ This tutorial takes approximately an hour to complete. First, you use an CloudFo
 
 When you invoke your HTTP API, API Gateway routes the request to your Amazon ECS service through your VPC link, and then returns the response from the service.
 
-![Overview of the HTTP API you create in this tutorial.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-integration.png)
+![Overview of the HTTP API you create in this tutorial.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-integration.png)
 
 
 To complete this tutorial, you need an AWS account and an AWS Identity and Access Management user with console access. For more information, see [Set up to use API Gateway](setting-up.md).
@@ -161,7 +161,7 @@ You create an integration to connect a route to backend resources.
 
 To verify that your route and integration are set up correctly, select **Attach integrations to routes**. The console shows that you have an `ANY /{proxy+}` route with an integration to a VPC Load Balancer.
 
-![The console shows that you have a /{proxy+} route with an integration to Load Balancer in a VPC.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-integration-tutorial-route.png)
+![The console shows that you have a /{proxy+} route with an integration to Load Balancer in a VPC.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/private-integration-tutorial-route.png)
 
 
 Now you're ready to test your API.
@@ -178,7 +178,7 @@ Next, you test your API to make sure that it's working. For simplicity, use a we
 1. Choose your API.
 
 1. Note your API's invoke URL.  
-![After you create your API, the console shows your API's invoke URL.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-invoke-url.png)
+![After you create your API, the console shows your API's invoke URL.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/getting-started-invoke-url.png)
 
 1. In a web browser, go to your API's invoke URL.
 

@@ -49,7 +49,7 @@ The following procedure shows how to export an OpenAPI definition of an HTTP API
 1. On the main navigation pane, under **Develop**, choose **Export**.
 
 1. Select from the following options to export your API:  
-![Export options for HTTP APIs.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/export-http-api.png)
+![Export options for HTTP APIs.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/export-http-api.png)
 
    1. For **Source**, select a source for the OpenAPI 3.0 definition. You can choose a stage to export, or export the latest configuration of your API.
 

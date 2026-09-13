@@ -17,7 +17,7 @@ When API Gateway evaluates the resource policy attached to your API, the result 
 
 In this workflow, an API Gateway resource policy is attached to the API, but no authentication type is defined for the API. Evaluation of the policy involves seeking an explicit allow based on the inbound criteria of the caller. An implicit denial or any explicit denial results in denying the caller.
 
-![Authorization flow of a resource policy only.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-auth-resource-policy-only.png)
+![Authorization flow of a resource policy only.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-auth-resource-policy-only.png)
 
 
 The following is an example of such a resource policy.
@@ -55,7 +55,7 @@ In this workflow, a Lambda authorizer is configured for the API in addition to a
 
 The following example resource policy allows calls only from the VPC endpoint whose VPC endpoint ID is `{{vpce-1a2b3c4d}}`. During the "pre-auth" evaluation, only the calls coming from the VPC endpoint indicated in the example are allowed to move forward and evaluate the Lambda authorizer. All remaining calls are blocked. This authorization workflow is the same if you use a custom domain name for a private API.
 
-![Authorization flow for a resource policy and a Lambda authorizer.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-auth-lambda-resource-policy.png)
+![Authorization flow for a resource policy and a Lambda authorizer.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-auth-lambda-resource-policy.png)
 
 
 ------
@@ -95,7 +95,7 @@ If the caller and API owner are from separate accounts, both the IAM policies an
 
 However, if the caller and the API owner are in the same AWS account, then either the IAM user policies or the resource policy must explicitly allow the caller to proceed. For more information, see [Table A](#apigateway-resource-policies-iam-policies-interaction).
 
-![Authorization flow for a resource policy and IAM authentication.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-auth-iam-resource-policy.png)
+![Authorization flow for a resource policy and IAM authentication.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-auth-iam-resource-policy.png)
 
 
 The following is an example of a cross-account resource policy. Assuming the IAM policy contains an allow effect, this resource policy allows calls only from the VPC whose VPC ID is `{{vpc-2f09a348}}`. For more information, see [Table B](#apigateway-resource-policies-iam-policies-interaction).
@@ -133,7 +133,7 @@ The following is an example of a cross-account resource policy. Assuming the IAM
 
 In this workflow, an [Amazon Cognito user pool](apigateway-integrate-with-cognito.md) is configured for the API in addition to a resource policy. API Gateway first attempts to authenticate the caller through Amazon Cognito. This is typically performed through a [JWT token](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html) that is provided by the caller. If authentication is successful, the resource policy is evaluated independently, and an explicit allow is required. A deny or "neither allow or deny" results in a deny. The following is an example of a resource policy that might be used together with Amazon Cognito user pools.
 
-![Authorization flow for a resource policy and a Amazon Cognito authorizer.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-auth-cognito-resource-policy.png)
+![Authorization flow for a resource policy and a Amazon Cognito authorizer.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/apigateway-auth-cognito-resource-policy.png)
 
 
 The following is an example of a resource policy that allows calls only from specified source IPs, assuming that the Amazon Cognito authentication token contains an allow. For more information, see [Table B](#apigateway-resource-policies-iam-policies-interaction).

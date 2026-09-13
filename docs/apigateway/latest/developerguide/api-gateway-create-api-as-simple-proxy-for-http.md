@@ -57,7 +57,7 @@ In this step, you create a proxy resource path of `{proxy+}`. This is the placeh
 1. Keep **CORS (Cross Origin Resource Sharing)** turned off.
 
 1. Choose **Create resource**.  
-![Create a child resource.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-simple-proxy-create-proxy-resource-new-console.png)
+![Create a child resource.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-simple-proxy-create-proxy-resource-new-console.png)
 
 In this step, you integrate the `ANY` method with a backend HTTP endpoint, using a proxy integration. In a proxy integration, API Gateway passes the client-submitted method request to the backend with no intervention from API Gateway.
 
@@ -103,7 +103,7 @@ In addition, the client must be able to handle the output format of the backend 
 1. Choose **Test**.
 
      
-![Use the test feature to test a method.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-simple-proxy-petstore-call-proxy-resource-new-console.png)
+![Use the test feature to test a method.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-gateway-simple-proxy-petstore-call-proxy-resource-new-console.png)
 
    Because the backend website supports the `GET /petstore/pets?type=fish` request, it returns a successful response similar to the following:
 

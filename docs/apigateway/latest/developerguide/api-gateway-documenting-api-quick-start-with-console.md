@@ -55,7 +55,7 @@ To add a new documentation part for the `API` entity in the **Resources** pane, 
 1. Choose the **API actions** menu, and then choose **Update API documentation**.
 
       
-![Edit documentation for the API entity in the API Gateway console](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/document-api-entity-using-new-console.png)
+![Edit documentation for the API entity in the API Gateway console](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/document-api-entity-using-new-console.png)
 
 To edit an existing documentation part, do the following:
 
@@ -93,7 +93,7 @@ To add a new documentation part for a `RESOURCE` entity in the **Resources** pan
 1. Choose the resource, and then choose **Update documentation**.
 
       
-![Edit documentation for the resource entity in the API Gateway console](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/document-resource-entity-using-new-console.png)
+![Edit documentation for the resource entity in the API Gateway console](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/document-resource-entity-using-new-console.png)
 
 To edit an existing documentation part, do the following:
 
@@ -134,7 +134,7 @@ To add a new documentation part for a `METHOD` entity in the **Resources** pane,
 1. Choose the method, and then choose **Update documentation**.
 
       
-![Edit documentation for the method entity in the API Gateway console](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/document-method-entity-using-new-console.png)
+![Edit documentation for the method entity in the API Gateway console](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/document-method-entity-using-new-console.png)
 
 To edit an existing documentation part, do the following:
 
@@ -413,7 +413,7 @@ To add a new documentation part for a `MODEL` entity in the **Models** pane, do 
 1. Choose the model, and then choose **Update documentation**.
 
       
-![Edit documentation for the model entity in the API Gateway console](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/document-model-entity-using-new-console.png)
+![Edit documentation for the model entity in the API Gateway console](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/document-model-entity-using-new-console.png)
 
 To edit an existing documentation part, do the following:
 

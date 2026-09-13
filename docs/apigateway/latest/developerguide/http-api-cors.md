@@ -28,7 +28,7 @@ To return CORS headers, your request must contain an `origin` header. For the `O
 
 Your CORS configuration might look similar to the following:
 
-![CORS configuration for HTTP APIs](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/http-cors-console.png)
+![CORS configuration for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/http-cors-console.png)
 
 
 ## Configuring CORS for an HTTP API with a `$default` route and an authorizer

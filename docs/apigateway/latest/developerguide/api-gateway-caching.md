@@ -59,7 +59,7 @@ API Gateway recommends that you run a 10-minute load test to verify that your ca
    This turns on method-level caching for all `GET` methods on your stage. Any additional `GET` methods that you deploy to this stage will have a method-level cache. 
 **Note**  
 If you have an existing setting for a method-level cache, changing the default method-level caching setting doesn't affect that existing setting.  
-![Turn on provision API cache and default method-level caching.](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-caching-stage-flow.png)
+![Turn on provision API cache and default method-level caching.](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-caching-stage-flow.png)
 
 1. Choose **Save changes**.
 
@@ -211,7 +211,7 @@ host: example.com
 
 To include a method or integration request parameter as part of a cache key in the API Gateway console, select **Caching** after you add the parameter. 
 
-![Include method or integration parameters as cache keys to index cached response](http://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-caching-including-parameter-as-cache-key-new-console.png)
+![Include method or integration parameters as cache keys to index cached response](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/api-caching-including-parameter-as-cache-key-new-console.png)
 
 
 ------
