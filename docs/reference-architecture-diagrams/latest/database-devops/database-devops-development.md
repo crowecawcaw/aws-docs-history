@@ -10,7 +10,7 @@ Use this architecture in the development workflow to automate database changes a
 ## Database DevOps on AWS: Development Workflow
 <a name="diagram1"></a>
 
-![Architecture diagram showing database DevOps development workflow with AWS CodeCommit, CodePipeline, CodeBuild, and Amazon RDS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/database-devops/images/database-devops-1.png)
+![Architecture diagram showing database DevOps development workflow with AWS CodeCommit, CodePipeline, CodeBuild, and Amazon RDS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/database-devops/images/database-devops-1.png)
 
 
 The following steps describe the architecture:

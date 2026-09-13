@@ -10,7 +10,7 @@ Use this architecture in the production workflow to automate database changes as
 ## Database DevOps on AWS: Production Workflow
 <a name="diagram2"></a>
 
-![Architecture diagram showing database DevOps production workflow with CodePipeline, CodeBuild, and Amazon RDS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/database-devops/images/database-devops-2.png)
+![Architecture diagram showing database DevOps production workflow with CodePipeline, CodeBuild, and Amazon RDS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/database-devops/images/database-devops-2.png)
 
 
 The following steps describe the architecture:
