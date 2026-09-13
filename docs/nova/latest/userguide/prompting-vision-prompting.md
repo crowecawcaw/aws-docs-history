@@ -169,7 +169,7 @@ The following example provides a table in an image, along with a prompt for Amaz
 Make a table representation in Markdown of the image provided.
 ```
 
-![A data table provided as an image instead of as a document](http://docs.aws.amazon.com/nova/latest/userguide/images/tableInImage.png)
+![A data table provided as an image instead of as a document](https://docs.aws.amazon.com/nova/latest/userguide/images/tableInImage.png)
 
 
 Here is the output provided by the model:

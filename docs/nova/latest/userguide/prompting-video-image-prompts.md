@@ -13,7 +13,7 @@ If your goal is to add camera motion to bring a static image to life, you can re
 
 **Input image**
 
-![Rocky coastal cliffs with ocean waves and distant shoreline under clear sky.](http://docs.aws.amazon.com/nova/latest/userguide/images/sample-frame-1.png)
+![Rocky coastal cliffs with ocean waves and distant shoreline under clear sky.](https://docs.aws.amazon.com/nova/latest/userguide/images/sample-frame-1.png)
 
 
 **Prompt**: *"dolly forward"*
@@ -22,7 +22,7 @@ However, if you desire to have your subjects perform a particular action or woul
 
 **Input Image**
 
-![White dog with brown markings wearing colorful holiday lights around neck on plaid blanket.](http://docs.aws.amazon.com/nova/latest/userguide/images/sample-frame-2.png)
+![White dog with brown markings wearing colorful holiday lights around neck on plaid blanket.](https://docs.aws.amazon.com/nova/latest/userguide/images/sample-frame-2.png)
 
 
 **Prompt**: *"dynamic handheld shot: the dog looks to the left as colored holiday lights on its body blink rhythmically"*

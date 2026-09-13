@@ -21,46 +21,46 @@ The following images display the same image generated in each of the previously 
 ## 3D animated family film
 <a name="styles-collapsable1"></a>
 
-![The image depicts an elephant in the 3d animated family film style.](http://docs.aws.amazon.com/nova/latest/userguide/images/3D_ANIMATED_FAMILY_FILM.png)
+![The image depicts an elephant in the 3d animated family film style.](https://docs.aws.amazon.com/nova/latest/userguide/images/3D_ANIMATED_FAMILY_FILM.png)
 
 
 ## Design sketch
 <a name="styles-collapsable2"></a>
 
-![The image depicts an elephant in the design sketch style.](http://docs.aws.amazon.com/nova/latest/userguide/images/DESIGN_SKETCH.png)
+![The image depicts an elephant in the design sketch style.](https://docs.aws.amazon.com/nova/latest/userguide/images/DESIGN_SKETCH.png)
 
 
 ## Flat vector illustration
 <a name="styles-collapsable3"></a>
 
-![The image depicts an elephant in the flat vector illustration style.](http://docs.aws.amazon.com/nova/latest/userguide/images/FLAT_VECTOR_ILLUSTRATION.png)
+![The image depicts an elephant in the flat vector illustration style.](https://docs.aws.amazon.com/nova/latest/userguide/images/FLAT_VECTOR_ILLUSTRATION.png)
 
 
 ## Graphic novel illustration
 <a name="styles-collapsable4"></a>
 
-![The image depicts an elephant in the graphic novel illustration style.](http://docs.aws.amazon.com/nova/latest/userguide/images/GRAPHIC_NOVEL_ILLUSTRATION.png)
+![The image depicts an elephant in the graphic novel illustration style.](https://docs.aws.amazon.com/nova/latest/userguide/images/GRAPHIC_NOVEL_ILLUSTRATION.png)
 
 
 ## Maximalism
 <a name="styles-collapsable5"></a>
 
-![The image depicts an elephant in the maximalism style.](http://docs.aws.amazon.com/nova/latest/userguide/images/MAXIMALISM.png)
+![The image depicts an elephant in the maximalism style.](https://docs.aws.amazon.com/nova/latest/userguide/images/MAXIMALISM.png)
 
 
 ## Midcentury retro
 <a name="styles-collapsable6"></a>
 
-![The image depicts an elephant in the midcentury retro style.](http://docs.aws.amazon.com/nova/latest/userguide/images/MIDCENTURY_RETRO.png)
+![The image depicts an elephant in the midcentury retro style.](https://docs.aws.amazon.com/nova/latest/userguide/images/MIDCENTURY_RETRO.png)
 
 
 ## Photorealism
 <a name="styles-collapsable7"></a>
 
-![The image depicts an elephant in the photorealism style.](http://docs.aws.amazon.com/nova/latest/userguide/images/PHOTOREALISM.png)
+![The image depicts an elephant in the photorealism style.](https://docs.aws.amazon.com/nova/latest/userguide/images/PHOTOREALISM.png)
 
 
 ## Soft digital painting
 <a name="styles-collapsable8"></a>
 
-![The image depicts an elephant in the soft digital painting style.](http://docs.aws.amazon.com/nova/latest/userguide/images/SOFT_DIGITAL_PAINTING.png)
+![The image depicts an elephant in the soft digital painting style.](https://docs.aws.amazon.com/nova/latest/userguide/images/SOFT_DIGITAL_PAINTING.png)

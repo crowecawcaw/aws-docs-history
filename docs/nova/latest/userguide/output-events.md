@@ -22,7 +22,7 @@ The model sends a `completionEnd` event with the original identifiers and a `sto
 
 The output event flow begins by entering the response generation phase. It starts with automatic speech recognition, selects a tool for use, transcribes speech, generates audio, finalizes the transcription, and finishes the session.
 
-![Diagram that explains the Amazon Nova Sonic output event flow.](http://docs.aws.amazon.com/nova/latest/userguide/images/output-events.png)
+![Diagram that explains the Amazon Nova Sonic output event flow.](https://docs.aws.amazon.com/nova/latest/userguide/images/output-events.png)
 
 
 ## Output event flow

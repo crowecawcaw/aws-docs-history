@@ -61,4 +61,4 @@ The bidirectional stream API consists of these three main components:
 
 The following diagram provides a high-level overview of the bidirectional stream API.
 
-![Diagram that explains the Amazon Nova Sonic bidirectional streaming system.](http://docs.aws.amazon.com/nova/latest/userguide/images/nova-sonic-sequential.png)
+![Diagram that explains the Amazon Nova Sonic bidirectional streaming system.](https://docs.aws.amazon.com/nova/latest/userguide/images/nova-sonic-sequential.png)

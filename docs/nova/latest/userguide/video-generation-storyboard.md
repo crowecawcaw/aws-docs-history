@@ -17,7 +17,7 @@ To create a video with the storyboard, complete the following steps:
 
 1. In the left panel, move the slider so that the value of **Duration (seconds)** is greater than 6.
 
-1. Choose the storyboard icon ![Striped icon representing a list or menu with multiple items.](http://docs.aws.amazon.com/nova/latest/userguide/images/storyboardIcon.png) to enter the Storyboard.
+1. Choose the storyboard icon ![Striped icon representing a list or menu with multiple items.](https://docs.aws.amazon.com/nova/latest/userguide/images/storyboardIcon.png) to enter the Storyboard.
 
 1. In the Storyboard, add or remove shots to reach the desired length of generated video.
 

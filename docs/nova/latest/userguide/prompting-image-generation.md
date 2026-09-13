@@ -34,7 +34,7 @@ An effective prompt often includes short descriptions of...
 
 **Negative Prompt:** crossed arms
 
-![editorial photo of female teacher standing at a blackboard with a warm smile](http://docs.aws.amazon.com/nova/latest/userguide/images/example1.png)
+![editorial photo of female teacher standing at a blackboard with a warm smile](https://docs.aws.amazon.com/nova/latest/userguide/images/example1.png)
 
 
 ## Example 2: Story illustration
@@ -44,7 +44,7 @@ An effective prompt often includes short descriptions of...
 
 **Negative Prompt:** clouds, waves
 
-![whimsical and ethereal soft-shaded story illustration: A woman in a large hat stands at the ship's railing looking out across the ocean](http://docs.aws.amazon.com/nova/latest/userguide/images/simple-image-output-1.png)
+![whimsical and ethereal soft-shaded story illustration: A woman in a large hat stands at the ship's railing looking out across the ocean](https://docs.aws.amazon.com/nova/latest/userguide/images/simple-image-output-1.png)
 
 
 ## Example 3: Pre-visualization for TV and film production
@@ -52,7 +52,7 @@ An effective prompt often includes short descriptions of...
 
 **Prompt:** drone view of a dark river winding through a stark Iceland landscape, cinematic quality
 
-![drone view of a dark river winding through a stark Iceland landscape, cinematic quality](http://docs.aws.amazon.com/nova/latest/userguide/images/previs.png)
+![drone view of a dark river winding through a stark Iceland landscape, cinematic quality](https://docs.aws.amazon.com/nova/latest/userguide/images/previs.png)
 
 
 ## Example 4: Fashion or editorial content
@@ -60,7 +60,7 @@ An effective prompt often includes short descriptions of...
 
 **Prompt:** A cool looking stylish man in an orange jacket, dark skin, wearing reflective glasses. Shot from slightly low angle, face and chest in view, aqua blue sleek building shapes in background.
 
-![A cool looking stylish man in an orange jacket, dark skin, wearing reflective glasses. Shot from slightly low angle, face and chest in view, aqua blue sleek building shapes in background.](http://docs.aws.amazon.com/nova/latest/userguide/images/output.png)
+![A cool looking stylish man in an orange jacket, dark skin, wearing reflective glasses. Shot from slightly low angle, face and chest in view, aqua blue sleek building shapes in background.](https://docs.aws.amazon.com/nova/latest/userguide/images/output.png)
 
 
 **Topics**

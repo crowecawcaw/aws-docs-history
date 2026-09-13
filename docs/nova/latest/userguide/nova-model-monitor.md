@@ -21,7 +21,7 @@ To enable your SageMaker HyperPod environment to output metrics to MLFlow, it is
 1. Select MLFlow. If there is not any MLFlow App created, select "Create MLFlow App"
 
 1. Click on the copy/paste button or the "View Details" menu item on the ML Flow App in order to get the ARN. You will need this when you submit your training job.  
-![The View Details button on ML Flow App, with ARN.](http://docs.aws.amazon.com/nova/latest/userguide/images/how-it-works.png)
+![The View Details button on ML Flow App, with ARN.](https://docs.aws.amazon.com/nova/latest/userguide/images/how-it-works.png)
 
 1. On the HyperPod cluster execution role, add the following policy. This will allow the HyperPod cluster to call the MLFlow API to publish metrics.
 
@@ -88,7 +88,7 @@ MLFlow integration is already built into the SageMaker Studio UI experience. Whe
 
 1. Select the MLFlow App where you would like to send the training metrics. You can also set your experiment name and experiment run here.
 
-![the ML Flow App.](http://docs.aws.amazon.com/nova/latest/userguide/images/MLFlow-App.png)
+![the ML Flow App.](https://docs.aws.amazon.com/nova/latest/userguide/images/MLFlow-App.png)
 
 
 ### Submitting a job via the AWS CLI

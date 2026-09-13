@@ -28,7 +28,7 @@ Skipping any of these closing events can result in incomplete conversations or o
 
 These identifiers create a hierarchical structure: the `promptName` ties all conversation events together, while each `contentName` marks the boundaries of specific content blocks. This hierarchy ensures that model maintains proper context throughout the interaction.
 
-![Diagram that explains the Amazon Nova Sonic input event flow.](http://docs.aws.amazon.com/nova/latest/userguide/images/input-events.png)
+![Diagram that explains the Amazon Nova Sonic input event flow.](https://docs.aws.amazon.com/nova/latest/userguide/images/input-events.png)
 
 
 ## Input event flow

@@ -12,7 +12,7 @@ To remove an element from an image, provide a mask that fully encompasses the th
 
 **Input Image**
 
-![Three pots](http://docs.aws.amazon.com/nova/latest/userguide/images/three_pots.jpg)
+![Three pots](https://docs.aws.amazon.com/nova/latest/userguide/images/three_pots.jpg)
 
 
 **Mask Prompt**
@@ -21,7 +21,7 @@ To remove an element from an image, provide a mask that fully encompasses the th
 
 **Result**
 
-![Scene with no pots](http://docs.aws.amazon.com/nova/latest/userguide/images/remove-with-prompt.png)
+![Scene with no pots](https://docs.aws.amazon.com/nova/latest/userguide/images/remove-with-prompt.png)
 
 
 ## Example 2: Adding elements to an image
@@ -33,17 +33,17 @@ The following example uses a `text` value of *"a garden gnome under a table in a
 
 **Input Image**
 
-![Three pots](http://docs.aws.amazon.com/nova/latest/userguide/images/three_pots.jpg)
+![Three pots](https://docs.aws.amazon.com/nova/latest/userguide/images/three_pots.jpg)
 
 
 **Mask Image**
 
-![Mask image](http://docs.aws.amazon.com/nova/latest/userguide/images/three_pots-add_mask_INVERTED.png)
+![Mask image](https://docs.aws.amazon.com/nova/latest/userguide/images/three_pots-add_mask_INVERTED.png)
 
 
 **Result**
 
-![New element added to the mask location](http://docs.aws.amazon.com/nova/latest/userguide/images/add-with-mask-image-1.png)
+![New element added to the mask location](https://docs.aws.amazon.com/nova/latest/userguide/images/add-with-mask-image-1.png)
 
 
 ## Example 3: Replacing elements in an image
@@ -55,7 +55,7 @@ The following example uses a `text` value of *"a palm tree graphic"* and a `nega
 
 **Input Image**
 
-![Reference image](http://docs.aws.amazon.com/nova/latest/userguide/images/ref-img-seed-1.png)
+![Reference image](https://docs.aws.amazon.com/nova/latest/userguide/images/ref-img-seed-1.png)
 
 
 **Mask Prompt**
@@ -64,4 +64,4 @@ The following example uses a `text` value of *"a palm tree graphic"* and a `nega
 
 **Result**
 
-![Inpainted image](http://docs.aws.amazon.com/nova/latest/userguide/images/ref-inpainted-1.png)
+![Inpainted image](https://docs.aws.amazon.com/nova/latest/userguide/images/ref-inpainted-1.png)

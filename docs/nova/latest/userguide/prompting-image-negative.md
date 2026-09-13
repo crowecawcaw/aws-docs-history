@@ -9,9 +9,9 @@ Negative prompts, represented by the `negativeText` parameter, can be surprising
 
 **Without a negative prompt**
 
-![whimsical and ethereal soft-shaded story illustration: A woman in a large hat stands at the ship's railing looking out across the ocean](http://docs.aws.amazon.com/nova/latest/userguide/images/image_1.png)
+![whimsical and ethereal soft-shaded story illustration: A woman in a large hat stands at the ship's railing looking out across the ocean](https://docs.aws.amazon.com/nova/latest/userguide/images/image_1.png)
 
 
 **With the negative prompt** "waves, clouds"
 
-![Previous image with the negative prompt "waves, clouds"](http://docs.aws.amazon.com/nova/latest/userguide/images/image_1(1).png)
+![Previous image with the negative prompt "waves, clouds"](https://docs.aws.amazon.com/nova/latest/userguide/images/image_1(1).png)

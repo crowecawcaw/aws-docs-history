@@ -24,7 +24,7 @@ The following images show an example of how Amazon Nova superimposes an upper bo
 
 | Source image | Reference image | Output | 
 | --- |--- |--- |
-|  ![A man wearing sunglasses, looking to left, wearing a blue shirt.](http://docs.aws.amazon.com/nova/latest/userguide/images/vto1_source.jpg)  |  ![A pink-red button down shirt.](http://docs.aws.amazon.com/nova/latest/userguide/images/vto1_ref.jpg)  |  ![A mean wearing sunglasses, looking to the left, wearing a pink-red button down shirt.](http://docs.aws.amazon.com/nova/latest/userguide/images/vto1_output.png)  | 
+|  ![A man wearing sunglasses, looking to left, wearing a blue shirt.](https://docs.aws.amazon.com/nova/latest/userguide/images/vto1_source.jpg)  |  ![A pink-red button down shirt.](https://docs.aws.amazon.com/nova/latest/userguide/images/vto1_ref.jpg)  |  ![A mean wearing sunglasses, looking to the left, wearing a pink-red button down shirt.](https://docs.aws.amazon.com/nova/latest/userguide/images/vto1_output.png)  | 
 
 ------
 #### [ Couch in a room ]
@@ -34,7 +34,7 @@ The following images show an example of how Amazon Nova superimposes a couch int
 
 | Source image | Reference image | Output | 
 | --- |--- |--- |
-|  ![A midcentury, modern grey couch in a room surrounded by other decorations.](http://docs.aws.amazon.com/nova/latest/userguide/images/vto2_source.jpg)  |  ![An orange couch against a white background.](http://docs.aws.amazon.com/nova/latest/userguide/images/vto2_ref.jpg)  |  ![An orange couch in a room surrounded by other decorations.](http://docs.aws.amazon.com/nova/latest/userguide/images/vto2_output.png)  | 
+|  ![A midcentury, modern grey couch in a room surrounded by other decorations.](https://docs.aws.amazon.com/nova/latest/userguide/images/vto2_source.jpg)  |  ![An orange couch against a white background.](https://docs.aws.amazon.com/nova/latest/userguide/images/vto2_ref.jpg)  |  ![An orange couch in a room surrounded by other decorations.](https://docs.aws.amazon.com/nova/latest/userguide/images/vto2_output.png)  | 
 
 ------
 

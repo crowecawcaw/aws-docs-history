@@ -8,7 +8,7 @@ This documentation is for Amazon Nova Version 1. For the Amazon Nova 2 Sonic gui
 
 The Amazon Nova Sonic model extends its capabilities beyond pre-trained knowledge by supporting tool use. Tool use, sometimes called function calling, enables integration with external functions, APIs, and data sources. This section explains how to implement tool use, Retrieval-Augmented Generation (RAG), and agentic workflows with Amazon Nova Sonic.
 
-![Diagram that explains how Amazon Nova Sonic calls a tool and uses it to generate results.](http://docs.aws.amazon.com/nova/latest/userguide/images/novaSonicDiagram.png)
+![Diagram that explains how Amazon Nova Sonic calls a tool and uses it to generate results.](https://docs.aws.amazon.com/nova/latest/userguide/images/novaSonicDiagram.png)
 
 
 You can control what tool the model uses by specifying the `toolChoice` parameter. For more information, see [Choosing a tool](https://docs.aws.amazon.com/nova/latest/userguide/tool-choice.html).

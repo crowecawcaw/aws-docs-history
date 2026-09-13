@@ -7,19 +7,19 @@ Mask prompts are used in editing operations. A mask prompt allows you to use nat
 
 **Mask Prompt: "dog"**
 
-![A dog](http://docs.aws.amazon.com/nova/latest/userguide/images/Screenshot1.png)
+![A dog](https://docs.aws.amazon.com/nova/latest/userguide/images/Screenshot1.png)
 
 
 **maskPrompt: "dog"**
 
-![A dog](http://docs.aws.amazon.com/nova/latest/userguide/images/Screenshot3.png)
+![A dog](https://docs.aws.amazon.com/nova/latest/userguide/images/Screenshot3.png)
 
 
 **Mask Prompt: "dog in a bucket"**
 
-![A dog in a bucket](http://docs.aws.amazon.com/nova/latest/userguide/images/Screenshot2.png)
+![A dog in a bucket](https://docs.aws.amazon.com/nova/latest/userguide/images/Screenshot2.png)
 
 
 **maskPrompt: "black dog"**
 
-![A black dog](http://docs.aws.amazon.com/nova/latest/userguide/images/Screenshot4.png)
+![A black dog](https://docs.aws.amazon.com/nova/latest/userguide/images/Screenshot4.png)
