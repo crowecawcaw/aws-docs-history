@@ -5,7 +5,7 @@
 
 The steps to enable trusted identity propagation depend on whether your users interact with AWS managed applications or customer managed applications. The following diagram shows a trusted identity propagation configuration for client-facing applications - either AWS managed or external to AWS - that query Amazon Redshift data with access control provided either by Amazon Redshift or by authorization services, such as AWS Lake Formation or Amazon S3 Access Grants.
 
-![Diagram of trusted identity propagation using Amazon Redshift, Quick, Lake Formation, and IAM Identity Center](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/rs-tip-diagram.png)
+![Diagram of trusted identity propagation using Amazon Redshift, Quick, Lake Formation, and IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/rs-tip-diagram.png)
 
 
 When trusted identity propagation to Amazon Redshift is enabled, Redshift administrators can configure Redshift to [automatically create roles](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-sso-autocreate.html) for IAM Identity Center as the identity provider, map Redshift roles to groups in IAM Identity Center, and use [Redshift role-based access control to grant access](https://docs.aws.amazon.com/redshift/latest/dg/r_tutorial-RBAC.html).

@@ -9,7 +9,7 @@ The steps to enable trusted identity propagation depend on whether your users in
 Trusted identity propagation with Amazon Athena requires the use of Trino.
 Apache Spark and SQL clients connected to Amazon Athena via ODBC and JDBC drivers are not supported.
 
-![Diagram of trusted identity propagation using Athena, Amazon EMR, Lake Formation, and IAM Identity Center](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/ate-tip-diagram.png)
+![Diagram of trusted identity propagation using Athena, Amazon EMR, Lake Formation, and IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/ate-tip-diagram.png)
 
 
 **AWS managed applications**

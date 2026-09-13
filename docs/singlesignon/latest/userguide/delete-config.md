@@ -8,10 +8,10 @@ When an IAM Identity Center instance is deleted, all the data in that instance i
 
 | What data gets deleted | Connected directory - AWS Managed Microsoft AD, AD Connector, or external identity provider | IAM Identity Center identity store | 
 | --- | --- | --- | 
-| All permission sets you have configured for AWS accounts |  ![](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  | 
-| All applications you have configured in IAM Identity Center |  ![](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  | 
-| All user assignments you have configured for AWS accounts and applications |  ![](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  |  ![](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  | 
-| All users and groups in the directory or store | N/A |  ![](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  | 
+| All permission sets you have configured for AWS accounts |  ![](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  | 
+| All applications you have configured in IAM Identity Center |  ![](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  | 
+| All user assignments you have configured for AWS accounts and applications |  ![](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  |  ![](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  | 
+| All users and groups in the directory or store | N/A |  ![](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/icon-yes.png) Yes  | 
 
 If you replicated your IAM Identity Center instance to additional Regions, you must remove those Regions before deleting the instance.
 

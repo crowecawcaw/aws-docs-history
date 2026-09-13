@@ -25,7 +25,7 @@ Before you can get started with this tutorial, you'll need to set up the followi
 1. [**Create an S3 Access Grants instance**](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-instance-create.html) - You can create one S3 Access Grants instance per AWS Region. When you create the S3 Access Grants instance, make sure to check the **Add IAM Identity Center instance** box and provide the ARN of your IAM Identity Center instance. Select **Next**.
 
    The following image shows the Create S3 Access Grants instance page in the Amazon S3 Access Grants console:  
-![Create S3 Access Grants instance page in S3 Access Grants console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/s3-tutorial-step-1.1.png)
+![Create S3 Access Grants instance page in S3 Access Grants console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/s3-tutorial-step-1.1.png)
 
 1. **Register a location** - After you create an [create an Amazon S3 Access Grants instance](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-instance-create.html) in an AWS Region in your account, you [register an S3 location](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location-register.html) in that instance. An S3 Access Grants location maps the default S3 region (`S3://`), a bucket, or a prefix to an IAM role. S3 Access Grants assumes this Amazon S3 role to vend temporary credentials to the grantee that is accessing that particular location. You must first register at least one location in your S3 Access Grants instance before you can create an access grant. 
 
@@ -204,4 +204,4 @@ If you have an Amazon S3 Access Grants instance with a registered location and y
 1. On the **Review and Finish** page, review the settings for the S3 Access Grant and then select **Create Grant**.
 
    The following image shows the Create Grant page in the Amazon S3 Access Grants console:  
-![Create Grant page in Amazon S3 Access Grants console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/s3-tutorial-step-1.4.png)
+![Create Grant page in Amazon S3 Access Grants console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/s3-tutorial-step-1.4.png)

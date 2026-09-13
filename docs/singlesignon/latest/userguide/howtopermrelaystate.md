@@ -7,7 +7,7 @@ By default, when a user signs into the AWS access portal, chooses an account, an
 
 Setting the relay state enables you to provide the user with quick access to the console that is most appropriate for their role. For example, you can set the relay state to the Amazon EC2 console URL (**https://console.aws.amazon.com/ec2/**) to redirect the user to that console when they choose the Amazon EC2 administrator role. During the redirection to the default URL or relay state URL, IAM Identity Center routes the user’s browser to the console endpoint in the last AWS Region used by the user. For example, if a user ended their last console session in the Europe (Stockholm) Region (eu-north-1), the user is redirected to the Amazon EC2 console in that Region.
 
-![Workflow diagram for setting relay state in the AWS Management Console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/permission_sets_relay_state_newest.png)
+![Workflow diagram for setting relay state in the AWS Management Console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/permission_sets_relay_state_newest.png)
 
 
 To configure IAM Identity Center to redirect the user to a console in a specific AWS Region, include the Region specification as part of the URL. For example, to redirect the user to the Amazon EC2 console in the US East (Ohio) Region (us-east-2), specify the URL for the Amazon EC2 console in that Region (**https://us-east-2.console.aws.amazon.com/ec2/**). If you enabled IAM Identity Center in the US West (Oregon) Region (us-west-2) Region and you want to direct the user to that Region, specify **https://us-west-2.console.aws.amazon.com**. 

@@ -134,7 +134,7 @@ In SageMaker Studio, launch a new Jupyter notebook and submit a training job. Wh
 
 Following is an example of how a training job that is using a user background session appears in the A**ctive sessions** tab for a user.
 
-![Active sessions tab showing a training job using User background session type.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/sagemaker-studio-training-job-displayed-in-identity-center-console-active-sessions.png)
+![Active sessions tab showing a training job using User background session type.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/sagemaker-studio-training-job-displayed-in-identity-center-console-active-sessions.png)
 
 
 ## Step 7: View the CloudTrail logs to verify trusted identity propagation in CloudTrail

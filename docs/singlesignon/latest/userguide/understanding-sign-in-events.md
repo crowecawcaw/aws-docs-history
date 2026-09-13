@@ -27,7 +27,7 @@ The following table captures additional useful event data fields contained withi
 **CloudTrail events in the IAM Identity Center sign-in flows**  
 The following diagram describes the sign-in flow and the CloudTrail events that Sign-in emits.
 
-![The sign-in flow and the CloudTrail events that Sign-in emits.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/cloudtrail-events-in-iam-identity-center-sign-in-flows.png)
+![The sign-in flow and the CloudTrail events that Sign-in emits.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/cloudtrail-events-in-iam-identity-center-sign-in-flows.png)
 
 
 The diagram shows a **password sign-in** flow and a **federated sign-in** flow.

@@ -16,7 +16,7 @@ IAM Identity Center does not support SAMBA 4-based Simple AD as a connected dire
 
 For a demonstration on the process of using Active Directory as an identity source for IAM Identity Center, see the following YouTube video:
 
-[![AWS Videos](http://img.youtube.com/vi/OMbob_ef7J4?si=J23xw0EGkZOo8y9n/0.jpg)](http://www.youtube.com/watch?v=OMbob_ef7J4?si=J23xw0EGkZOo8y9n)
+[![AWS Videos](https://img.youtube.com/vi/OMbob_ef7J4?si=J23xw0EGkZOo8y9n/0.jpg)](https://www.youtube.com/watch?v=OMbob_ef7J4?si=J23xw0EGkZOo8y9n)
 
 
 ## Considerations for using Active Directory

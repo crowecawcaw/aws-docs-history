@@ -140,12 +140,12 @@ The following tasks needed to be complete by the IAM Identity Center administrat
    1. Review the settings and choose **Create**.
 
    1. Navigate to the IAM Identity Center Dashboard and copy the AWS access portal URL from the **Setting Summary** section.  
-![Step i, Copy AWS access portal URL from IAM Identity Center console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/setting-up-redshift-step-i.png)
+![Step i, Copy AWS access portal URL from IAM Identity Center console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/setting-up-redshift-step-i.png)
 
    1. Open a new Incognito Browser Window and paste the URL.
 
       This will take you to your AWS access portal, ensuring you are signing in with an IAM Identity Center user.   
-![Step j, Sign in to AWS access portal.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/setting-up-redshift-step-j.png)
+![Step j, Sign in to AWS access portal.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/setting-up-redshift-step-j.png)
 
       For more information about permission set, see [Manage AWS accounts with permission sets](permissionsetsconcept.md).
 

@@ -7,4 +7,4 @@ With this design, you configure a single AWS account in which you federate throu
 
 The following diagram provides a design overview.
 
-![IAM Identity Center: create trust policy, emergency role for essential work in emergency account.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/emergency-access-design.png)
+![IAM Identity Center: create trust policy, emergency role for essential work in emergency account.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/emergency-access-design.png)

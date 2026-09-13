@@ -275,17 +275,17 @@ Additional permissions are needed to leverage EMR Studio Workspaces and EMR Note
 In this step, you'll create an Amazon EMR Studio in the EMR Studio console and use the IAM roles you created in [Step 1. Create the required IAM roles for EMR Studio](#setting-up-tip-emr-step1).
 
 1. Navigate to the EMR Studio console, select **Create Studio** and the **Custom Setup** option. You can either create a new S3 bucket or use an existing bucket. You may check the box to **Encrypt workspace files with your own KMS keys**. For more information, see [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html).  
-![Step 1 Create EMR Studio in the EMR console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/emr-tutorial-step-3.1.png)
+![Step 1 Create EMR Studio in the EMR console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/emr-tutorial-step-3.1.png)
 
 1. Under **Service role to let Studio access your resources**, select the service role created in [Step 1. Create the required IAM roles for EMR Studio](#setting-up-tip-emr-step1) from the menu.
 
 1. Choose **IAM Identity Center** under **Authentication**. Select the user role created in [Step 1. Create the required IAM roles for EMR Studio](#setting-up-tip-emr-step1).  
-![Step 3 Create EMR Studio in the EMR console, selecting IAM Identity Center for the authentication method.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/emr-tutorial-step-3.3.png)
+![Step 3 Create EMR Studio in the EMR console, selecting IAM Identity Center for the authentication method.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/emr-tutorial-step-3.3.png)
 
 1. Check the **Trusted identity propagation** box. Choose **Only assigned users and groups **under the Application access section, which will allow you to grant only authorized user and groups to access this studio.
 
 1. *(Optional)* - You can configure VPC and subnet if you are using this Studio with EMR clusters.  
-![Step 4 Create EMR Studio in the EMR console, selecting network and security settings.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/emr-tutorial-step-3.4.png)
+![Step 4 Create EMR Studio in the EMR console, selecting network and security settings.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/emr-tutorial-step-3.4.png)
 
 1. Review all the details and select **Create Studio**.
 

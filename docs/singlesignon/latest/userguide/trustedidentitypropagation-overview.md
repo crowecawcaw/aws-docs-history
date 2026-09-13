@@ -30,7 +30,7 @@ For more information, see [Using applications with a trusted token issuer](using
 
 The following diagram shows the high-level workflow for trusted identity propagation:
 
-![Simplified trusted identity propagation workflow.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/simplied-tip-1.png)
+![Simplified trusted identity propagation workflow.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/simplied-tip-1.png)
 
 
 1. Users authenticate with a client-facing application, for example Quick.
@@ -45,7 +45,7 @@ Some trusted identity propagation use cases involve tools that interact with AWS
 
 The following image provides an overview of the previously described steps in the trusted identity propagation workflow:
 
-![Simplified trusted identity propagation workflow.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/simplied-tip-2.png)
+![Simplified trusted identity propagation workflow.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/simplied-tip-2.png)
 
 
 **Topics**

@@ -17,7 +17,7 @@ This procedure applies only when you want to map attributes from your IAM Identi
 1. On the **Settings** page, choose the **Attributes for access control** tab, and then choose **Manage attributes**.
 
 1. On the **Attributes for access control** page, choose **Add attribute** and enter the **Key** and **Value** details. This is where you will be mapping the attribute coming from your identity source to an attribute that IAM Identity Center passes as a session tag.  
-![Key value details in the IAM Identity Center console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/abac_key_value.png)
+![Key value details in the IAM Identity Center console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/abac_key_value.png)
 
    **Key** represents the name you are giving to the attribute for use in policies. This can be any arbitrary name, but you need to specify that exact name in the policies you author for access control. For example, lets say that you are using Okta (an external IdP) as your identity source and need to pass your organization's cost center data along as session tags. In **Key**, you would enter a similarly matched name like **CostCenter** as your key name. It's important to note that whichever name you choose here, it must also be named exactly the same in your `aws:PrincipalTag condition key` (that is, `"ec2:ResourceTag/CostCenter": "${aws:PrincipalTag/CostCenter}"`).
 **Note**  

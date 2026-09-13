@@ -116,7 +116,7 @@ If you plan to edit the trusted token issuer settings, keep in mind that doing s
 
 This section describes the setup process and request flow for applications that use a trusted token issuer for trusted identity propagation. The following diagram provides an overview of this process.
 
-![Setup process and request flows for apps using trusted token issuer for trusted identity propagation](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/trusted-identity-propagation-trusted-token-issuer-request-flow.png)
+![Setup process and request flows for apps using trusted token issuer for trusted identity propagation](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/trusted-identity-propagation-trusted-token-issuer-request-flow.png)
 
 
 The following steps provide additional information about this process.

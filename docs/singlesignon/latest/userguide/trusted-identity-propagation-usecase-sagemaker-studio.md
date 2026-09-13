@@ -7,7 +7,7 @@
 
 The following diagram shows a trusted identity propagation configuration for SageMaker Studio, with access to data stored in an Amazon S3 bucket. User background sessions are enabled for IAM Identity Center, which allows the SageMaker Studio training job to run in the background. Access control for the training data is provided by Amazon S3 Access Grants.
 
-![Diagram of trusted identity propagation for SageMaker Studio, with a SageMaker Studio training job running in a user background session, and access to the training data in Amazon S3 provided by Amazon S3 Access Grants.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/sagemaker-studio-s3-user-background-session-training-job-s3-access-grants-diagram.png)
+![Diagram of trusted identity propagation for SageMaker Studio, with a SageMaker Studio training job running in a user background session, and access to the training data in Amazon S3 provided by Amazon S3 Access Grants.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/sagemaker-studio-s3-user-background-session-training-job-s3-access-grants-diagram.png)
 
 
 **AWS managed application**

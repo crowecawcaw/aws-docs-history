@@ -17,14 +17,14 @@ The following steps and diagram illustrate the application start URL authenticat
 1. The application sends an `HTML` `POST` with a `SAMLRequest` to IAM Identity Center.
 
 1. IAM Identity Center then sends an `HTML` `POST` with a `SAMLResponse` back to the application.  
-![Diagram shows app start URL auth workflow: steps when user chooses app in the AWS access portal.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/app_properties_start_url.png)
+![Diagram shows app start URL auth workflow: steps when user chooses app in the AWS access portal.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/app_properties_start_url.png)
 
 ## Relay state
 <a name="relaystate"></a>
 
 During the federation authentication process, the relay state redirects users within the application. For SAML 2.0, this value is passed, unmodified, to the application. After the application properties are configured, IAM Identity Center sends the relay state value along with a SAML response to the application. 
 
-![Diagram shows federation auth process: relay state, SAML 2.0, IAM Identity Center, app receives response.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/app_properties_relay_state.png)
+![Diagram shows federation auth process: relay state, SAML 2.0, IAM Identity Center, app receives response.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/app_properties_relay_state.png)
 
 
 ## Session duration

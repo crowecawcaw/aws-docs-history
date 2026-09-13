@@ -27,7 +27,7 @@ Before you can get started with this tutorial, you'll need to set up the followi
    1. Navigate to the **Data lake locations** under the **Administration** section in the navigation pane in the AWS Lake Formation console. Select **Register location**.
 
       This will allow Lake Formation to provision temporary IAM credentials with the necessary permissions to access S3 data locations.  
-![Step 1 Register data lake location in Lake Formation console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/lf-tutorial-step-3.1.png)
+![Step 1 Register data lake location in Lake Formation console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/lf-tutorial-step-3.1.png)
 
    1. Enter the S3 path of the data locations of the AWS Glue tables in the **Amazon S3 path** field.
 

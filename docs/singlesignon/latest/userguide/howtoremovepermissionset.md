@@ -26,7 +26,7 @@ Use this procedure to remove a permission set from a user with the IAM Identity 
 1. In the right pane, the applied permissions for the selected user appears. Select the permission set you want to remove. Under **Account Access details**, select **Remove**.
 
 1. A dialog box appears asking if you want to remove this permission set. Select **Remove**.  
-![AWS accounts tab for an IAM Identity Center user in the IAM Identity Center console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/remove-permission-set-tutorial.png)
+![AWS accounts tab for an IAM Identity Center user in the IAM Identity Center console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/remove-permission-set-tutorial.png)
 
 ------
 #### [ Remove permission set from a group ]
@@ -38,7 +38,7 @@ Use this procedure to remove a permission set from a group with the IAM Identity
 1. Sign in to the AWS Management Console and open the AWS IAM Identity Center console at [https://console.aws.amazon.com/singlesignon/](https://console.aws.amazon.com/singlesignon/).
 
 1. Under **Multi-account permissions**, select **AWS accounts**. Select the link to your management account.  
-![AWS accounts tab in the IAM Identity Center console.](http://docs.aws.amazon.com/singlesignon/latest/userguide/images/sso-aws-accounts-tab.png)
+![AWS accounts tab in the IAM Identity Center console.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/sso-aws-accounts-tab.png)
 
 1. Under the **Assigned users and groups** tab, select the group you want to remove the permission set from and then select **Change permission set**.
 
