@@ -16,7 +16,7 @@ You can configure AWS B2B Data Interchange (B2B Data Interchange) to monitor spe
 
 A *profile* stores details and contact information about your own business. We recommend that you enable logging to monitor transformation activities and tag your profiles so that you can organize, search, and filter your profiles globally.
 
-![The AWS B2B Data Interchange console Profiles page, showing an example profile.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/profile-example-complete.png)
+![The AWS B2B Data Interchange console Profiles page, showing an example profile.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/profile-example-complete.png)
 
 
 ## Transformers
@@ -31,10 +31,10 @@ Transformers are created with a status of **Inactive**. To use a transformer in 
 You can only delete transformers if they are not used by any trading capability.
 JSONata and XSLT are open source query and transformation languages.
 
-![The AWS B2B Data Interchange console Transformers page, showing an example transformer.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-top.png)
+![The AWS B2B Data Interchange console Transformers page, showing an example transformer.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-top.png)
 
 
-![The AWS B2B Data Interchange console Transformers page, showing the Mapping area.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-bottom.png)
+![The AWS B2B Data Interchange console Transformers page, showing the Mapping area.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-bottom.png)
 
 
 ## Trading capabilities
@@ -48,7 +48,7 @@ The input directory specified in your trading capability configuration is monito
 
 In the case of inbound, EDI documents are automatically transformed into JSON or XML data file outputs. In the case of outbound, JSON or XML data file inputs are automatically transformed into EDI document outputs. All outputs from the transformation process are written to the output directory specified in your trading partner configuration.
 
-![An example trading capability.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/partnership-capability.png)
+![An example trading capability.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/partnership-capability.png)
 
 
 ## Partnerships
@@ -56,4 +56,4 @@ In the case of inbound, EDI documents are automatically transformed into JSON or
 
 A *partnership* represents the connection between you and your trading partner. It incorporates a profile and one or more trading capabilities. It is also where you define the interchange control header and functional group header information necessary to generate outbound EDI documents. To create a partnership, add your partner’s contact information and a unique name to easily identify this partnership. You also need to select one of your business profiles and one or more trading capabilities to automatically transform inbound X12 EDI documents and to generate outbound X12 EDI documents. When you configure a partnership for generating outbound EDI documents, you must specify all the required interchange control header and functional group header values.
 
-![An example partnership, showing the partnership details and assigned trading capabilities.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/partnership.png)
+![An example partnership, showing the partnership details and assigned trading capabilities.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/partnership.png)

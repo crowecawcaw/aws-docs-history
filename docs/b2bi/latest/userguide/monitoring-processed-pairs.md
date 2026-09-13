@@ -5,7 +5,7 @@
 
 The Processed input-output pairs table is populated for each partnership and displays details for the most recently processed input/output file pairs. This table provides comprehensive information about EDI document transformations, validation status, and processing results, helping you monitor and troubleshoot EDI transactions. You can use this information to monitor EDI transaction processing, troubleshoot issues, and verify successful document exchanges with your trading partners.
 
-![Example processed input-output pairs table showing partnership processing activity.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/processed-pairs-example.png)
+![Example processed input-output pairs table showing partnership processing activity.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/processed-pairs-example.png)
 
 
 **Note**  

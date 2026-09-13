@@ -67,7 +67,7 @@ These details are all your characteristics, not those describing your trading pa
 1. Logging is selected by default. Clear the box to turn off logging (not recommended). The log group is based on the profile ID, for example, `/aws/vendedlogs/b2bi/p-ABCDE111122223333`.
 
 1. Optionally, add tags as needed.  
-![The AWS B2B Data Interchange console Profiles page, showing an example profile.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/profile-configure.png)
+![The AWS B2B Data Interchange console Profiles page, showing an example profile.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/profile-configure.png)
 
 ## Create an inbound transformer
 <a name="getting-started-transformer"></a>
@@ -140,7 +140,7 @@ A status of **Inactive** indicates that the transformer is not used in any tradi
    + You can use **Browse S3** to navigate to your available Amazon S3 buckets, where you can select a bucket (and optionally a prefix) to specify your preferred directories.
    + You can validate that your S3 buckets setup meets the prerequisites ([Prerequisites for using AWS B2B Data Interchange](b2bi-prereq.md)) for AWS B2B Data Interchange using **Validate input S3 setup** and **Validate output S3 setup**.
    + You can use **Copy policy** to copy a policy that you can then paste into your input/output directory's bucket policy to provide AWS B2B Data Interchange the necessary access.  
-![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/capability-example-inbound.png)
+![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/capability-example-inbound.png)
 
 1. Optionally, add tags as needed.
 
@@ -184,7 +184,7 @@ A *partnership* represents the connection between you and your trading partner. 
 
 1. After you have configured all of the settings, choose **Create partnership**.
 
-![The AWS B2B Data Interchange console Partnerships page, showing an example partnership.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/partnership-outbound.png)
+![The AWS B2B Data Interchange console Partnerships page, showing an example partnership.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/partnership-outbound.png)
 
 
 After you create a partnership, you can observe a new sub-directory, within your Amazon S3 input directory, beginning with `tp-`.

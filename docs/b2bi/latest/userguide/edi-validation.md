@@ -40,7 +40,7 @@ When EDI validation errors occur during transformations, AWS B2B Data Interchang
 
 Validation error reports provide detailed information about each error found in your EDI document, organized by interchange, functional group, and transaction. The report format includes:
 
-![Example validation error report: OK to save to the customer's S3 folder, in a folder named VALIDATION_REPORT.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/custom-validation-error-report.png)
+![Example validation error report: OK to save to the customer's S3 folder, in a folder named VALIDATION_REPORT.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/custom-validation-error-report.png)
 
 
 Each error entry in the report includes the following components:

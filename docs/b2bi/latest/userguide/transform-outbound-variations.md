@@ -65,7 +65,7 @@ These details are all your characteristics, not those describing your trading pa
 1. Logging is selected by default. Clear the box to turn off logging (not recommended). The log group is based on the profile ID, for example, `/aws/vendedlogs/b2bi/p-ABCDE111122223333`.
 
 1. Optionally, add tags as needed.  
-![The AWS B2B Data Interchange console Profiles page, showing an example profile.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/profile-configure.png)
+![The AWS B2B Data Interchange console Profiles page, showing an example profile.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/profile-configure.png)
 
 ## Create an outbound transformer
 <a name="outbound-transformer"></a>
@@ -89,13 +89,13 @@ These details are all your characteristics, not those describing your trading pa
    1. In the **Sample documents** pane, select a sample input document, and optionally a sample output document from your available Amazon S3 buckets.
 
       Provide the bucket and prefix in Amazon S3 for a sample document. This is useful for making sure the transformer functions correctly.  
-![The Choose an archive in S3 page, listing available buckets and documents.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/s3-bucket-sample-document.png)
+![The Choose an archive in S3 page, listing available buckets and documents.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/s3-bucket-sample-document.png)
 
 1. Choose **Next** to proceed to the next stage of transformer creation.  
-![The AWS B2B Data Interchange console Transformers wizard Select input page, showing the source document options.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-wizard-outbound-01.png)
+![The AWS B2B Data Interchange console Transformers wizard Select input page, showing the source document options.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-wizard-outbound-01.png)
 
 1. The **Mapping configuration** screen appears, with the **Mapping editor** panel populated. You can use generative AI-assisted EDI mapping to expedite the mapping configuration. For details, see [Generative AI-assisted EDI mapping](generative-ai-assisted-mapping.md).  
-![The Mapping configuration pane, with the representation of the sample file populated.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-wizard-outbound-02a.png)
+![The Mapping configuration pane, with the representation of the sample file populated.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-wizard-outbound-02a.png)
 
    The items in your mapping editor are the only items that are extracted from the input EDI document, and that are then saved to your output file, located in your Amazon S3 output location.
 
@@ -108,7 +108,7 @@ These details are all your characteristics, not those describing your trading pa
 1. When you are happy with your mappings, choose **Next**, which takes you to the review page. Note that newly created transformers are inactive.
 **Note**  
 A status of **Inactive** indicates that the transformer is not used in any trading capabilities: it is essentially in edit mode. When you are finished editing and updating the transformer, you change the status to **Active**. Then, you can associate the transformer with a trading capability. At this point, the transformer is essentially locked, and in production mode.  
-![The AWS B2B Data Interchange console Transformers wizard review page.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-wizard-outbound-03.png)
+![The AWS B2B Data Interchange console Transformers wizard review page.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/transformer-wizard-outbound-03.png)
 
 1. After your review is complete, choose **Save** to create the transformer.
 
@@ -133,7 +133,7 @@ A status of **Inactive** indicates that the transformer is not used in any tradi
    + You can use **Browse S3** to navigate to your available Amazon S3 buckets, where you can select a bucket (and optionally a prefix) to specify your preferred directories.
    + You can validate that your S3 buckets setup meets the prerequisites ([Prerequisites for using AWS B2B Data Interchange](b2bi-prereq.md)) for AWS B2B Data Interchange using **Validate input S3 setup** and **Validate output S3 setup**.
    + You can use **Copy policy** to copy a policy that you can then paste into your input/output directory's bucket policy to provide AWS B2B Data Interchange the necessary access.  
-![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](http://docs.aws.amazon.com/b2bi/latest/userguide/images/capability-example-inbound.png)
+![An example capability, showing the settings, the associate partnership, input and output directories, and an example tag.](https://docs.aws.amazon.com/b2bi/latest/userguide/images/capability-example-inbound.png)
 
 1. Optionally, add tags as needed.
 
