@@ -10,7 +10,7 @@ With this architecture, you can scale the previous Scale-Out Computing on AWS de
 ## Step 2: Scale out to multiple clusters diagram
 <a name="ss-step2-diagram"></a>
 
-![Reference architecture diagram showing step 2 of scaling Synopsys SiliconSmart by deploying multiple clusters across Availability Zones with FSx for Lustre and Amazon EC2 Spot Fleet.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/scaling-synopsys-siliconsmart/images/scaling-synopsys-siliconsmart-2.png)
+![Reference architecture diagram showing step 2 of scaling Synopsys SiliconSmart by deploying multiple clusters across Availability Zones with FSx for Lustre and Amazon EC2 Spot Fleet.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/scaling-synopsys-siliconsmart/images/scaling-synopsys-siliconsmart-2.png)
 
 
 The following steps describe the scale-out configuration for this architecture:

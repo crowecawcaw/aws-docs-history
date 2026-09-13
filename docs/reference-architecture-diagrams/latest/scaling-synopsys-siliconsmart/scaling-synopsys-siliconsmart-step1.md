@@ -10,7 +10,7 @@ With this architecture, you can scale 100,000 or more concurrent Synopsys Silico
 ## Step 1: Deploy the base architecture diagram
 <a name="ss-step1-diagram"></a>
 
-![Reference architecture diagram showing step 1 of scaling Synopsys SiliconSmart by deploying Scale-Out Computing on AWS with CloudFormation, Amazon EC2 Spot Fleet, and FSx for Lustre.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/scaling-synopsys-siliconsmart/images/scaling-synopsys-siliconsmart-1.png)
+![Reference architecture diagram showing step 1 of scaling Synopsys SiliconSmart by deploying Scale-Out Computing on AWS with CloudFormation, Amazon EC2 Spot Fleet, and FSx for Lustre.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/scaling-synopsys-siliconsmart/images/scaling-synopsys-siliconsmart-1.png)
 
 
 The following steps describe the deployment and configuration for this architecture:

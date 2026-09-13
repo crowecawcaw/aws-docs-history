@@ -10,7 +10,7 @@ With this architecture, you can move the PBS Communication process from the PBS 
 ## Step 3: Tune PBS communication diagram
 <a name="ss-step3-diagram"></a>
 
-![Reference architecture diagram showing step 3 of scaling Synopsys SiliconSmart by moving PBS communication to multiple instances and tuning PostgreSQL.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/scaling-synopsys-siliconsmart/images/scaling-synopsys-siliconsmart-3.png)
+![Reference architecture diagram showing step 3 of scaling Synopsys SiliconSmart by moving PBS communication to multiple instances and tuning PostgreSQL.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/scaling-synopsys-siliconsmart/images/scaling-synopsys-siliconsmart-3.png)
 
 
 The following steps describe the PBS tuning configuration for this architecture:
