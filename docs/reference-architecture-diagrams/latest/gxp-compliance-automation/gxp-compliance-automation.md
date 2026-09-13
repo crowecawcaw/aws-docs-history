@@ -10,7 +10,7 @@ With this architecture, you can build a secure and compliant Good Practice (GxP)
 ## GxP compliance automation diagram
 <a name="gxp-diagram"></a>
 
-![Reference architecture diagram showing how to build a secure and compliant GxP workload by using Service Catalog, CloudFormation, AWS Config, and CloudWatch.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/gxp-compliance-automation/images/gxp-compliance-automation.png)
+![Reference architecture diagram showing how to build a secure and compliant GxP workload by using Service Catalog, CloudFormation, AWS Config, and CloudWatch.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/gxp-compliance-automation/images/gxp-compliance-automation.png)
 
 
 The following steps describe the data flow and compliance automation for this architecture:
