@@ -24,14 +24,14 @@ In this task, you will create an Amazon S3 bucket and set up cross-origin resour
 1. Create an S3 bucket
 
    Open [Amazon S3 console](https://console.aws.amazon.com/s3/) and choose **Create bucket**.  
-![The Amazon S3 page in the AWS Management Console.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/s3-banner.png)
+![The Amazon S3 page in the AWS Management Console.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/s3-banner.png)
 
 1. Configure bucket details
 
    For **Bucket name**, enter a descriptive, globally unique name, for example, **transfer-family-web-app-demo-<your-username>**.
 
    Leave the remaining options as defaults. Scroll to the bottom of the page and choose **Create bucket**.  
-![The Amazon S3 page for creating a bucket.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/s3-bucket-details.png)
+![The Amazon S3 page for creating a bucket.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/s3-bucket-details.png)
 
 ### Step 2: Set up CORS
 <a name="set-up-cors"></a>
@@ -39,7 +39,7 @@ In this task, you will create an Amazon S3 bucket and set up cross-origin resour
 1. Open bucket permissions
 
    After the bucket is created, on the **General purpose buckets** tab, search for the bucket you created, select its **Name**, and then choose the **Permissions** tab.   
-![The configuration settings interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-set-cors-abebdcd.png)
+![The configuration settings interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-set-cors-abebdcd.png)
 
 1. Configure CORS settings
 
@@ -86,7 +86,7 @@ Do not enter trailing slashes because trailing slashes will cause errors when us
      + Incorrect example: **https://webapp-b4d851af6e314fc39.transfer-webapp.us-west-2.on.aws******/**** 
 
      Choose **Save changes**.  
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-set-cors-edca-eba.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-set-cors-edca-eba.png)
 
 ## Conclusion
 <a name="conclusion"></a>

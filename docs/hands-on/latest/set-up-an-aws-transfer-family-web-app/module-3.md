@@ -24,19 +24,19 @@ In this task, you will create an S3 access grants instance, register a location,
 1. Open the console
 
    Open [Amazon S3 Access Grants console](https://console.aws.amazon.com/s3/access-grants), and choose **Create S3 Access Grants instance**.   
-![The navigation menu interface for opening the console.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-fad-navigation-menu.png)
+![The navigation menu interface for opening the console.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-fad-navigation-menu.png)
 
 1. Add Identity Center instance ARN
 
    Select **Add IAM Identity Center instance**. For **IAM Identity Center instance ARN**, enter the **InstanceARN** you copied in Task 1 and choose **Next**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-resource-creation.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-resource-creation.png)
 
 1. Create the instance
 
    Choose **Next** to create an S3 Access Grants instance. 
 
    Select **Cancel.** (Note: This is for ease of creating a new IAM Role).   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-resource-creation-1.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-resource-creation-1.png)
 
 ### Step 2: Register a location
 <a name="register-a-location"></a>
@@ -44,7 +44,7 @@ In this task, you will create an S3 access grants instance, register a location,
 1. Open Locations
 
    Choose the **Locations** tab.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-register-location.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-register-location.png)
 
 1. Configure location
 
@@ -55,7 +55,7 @@ In this task, you will create an S3 access grants instance, register a location,
      + This role allows S3 Access Grants to access your specified location scope. 
 
    Choose **Register location** to continue.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-register-location-abc-eaca.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-register-location-abc-eaca.png)
 
 ### Step 3: Create grant
 <a name="create-grant"></a>
@@ -63,14 +63,14 @@ In this task, you will create an S3 access grants instance, register a location,
 1. Create a grant
 
    Choose **Create Grant**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-resource-creation-2.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-resource-creation-2.png)
 
 1. Choose location
 
    For **Location**, choose **Browse** locations, then choose the location that you registered in the **Register a location** section. 
 
    Then select **Choose path**.   
-![The selection interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-feac-fad-selection.png)
+![The selection interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-feac-fad-selection.png)
 
 1. Configure and create grant
 
@@ -82,7 +82,7 @@ In this task, you will create an S3 access grants instance, register a location,
    + For **IAM Identity Center user ID**, enter the user ID you copied in Task 1. 
 
    Choose **Create Grant**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-resource-creation-3.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-grant-resource-creation-3.png)
 
 ## Conclusion
 <a name="conclusion"></a>

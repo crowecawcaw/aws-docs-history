@@ -37,7 +37,7 @@ Before starting this tutorial, you will need:
 ## Watch video
 <a name="watch-video"></a>
 
-[![AWS Videos](http://img.youtube.com/vi/Ie9M0qBGrCE/0.jpg)](http://www.youtube.com/watch?v=Ie9M0qBGrCE)
+[![AWS Videos](https://img.youtube.com/vi/Ie9M0qBGrCE/0.jpg)](https://www.youtube.com/watch?v=Ie9M0qBGrCE)
 
 
 ## Application architecture
@@ -47,7 +47,7 @@ The following diagram provides a visual representation of the services used in t
 
 As you go through the tutorial, you will learn about the services in detail and find resources that will help you get up to speed with them. 
 
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-arch-interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-arch-interface.png)
 
 
 ## Tasks

@@ -28,22 +28,22 @@ AWS Transfer Family
    In the left pane, choose **Web** **apps**. 
 
    Search for **Transfer Family web app demo** and select the **Access** **endpoint**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-access-interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-access-interface.png)
 
 1. Enter username
 
    Enter **your** **username** into the **Username** box and choose **Next**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-access-interface-1.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-access-interface-1.png)
 
 1. Enter password
 
    Enter your password and choose **Sign in**.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-access-interface-2.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-access-interface-2.png)
 
 1. View landing page
 
    Once you complete the above steps and sign-in successfully, you will see your web app’s landing page.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-access-bac-interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-access-bac-interface.png)
 
 ### Step 2: Test the web app
 <a name="test-the-web-app"></a>
@@ -51,19 +51,19 @@ AWS Transfer Family
 1. Create folder
 
    Enter a **Folder** **name** and choose **Create folder**.   
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-test-fda-resource-creation.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-test-fda-resource-creation.png)
 
 1. Upload a file
 
    In the folder you created, choose **Add** **files. ** 
 
    Select any file on your local machine and choose **Upload**.   
-![Upload a file.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-test-resource-creation.png)
+![Upload a file.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-test-resource-creation.png)
 
 1. Confirm upload
 
    Navigate to your S3 bucket and confirm that the sample file was uploaded successfully.   
-![Interface element requiring manual review.](http://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-test-interface.png)
+![Interface element requiring manual review.](https://docs.aws.amazon.com/hands-on/latest/set-up-an-aws-transfer-family-web-app/images/transfer-family-test-interface.png)
 
 ## Conclusion
 <a name="conclusion"></a>
