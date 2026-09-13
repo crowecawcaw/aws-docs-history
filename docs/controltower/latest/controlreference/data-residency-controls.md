@@ -19,7 +19,7 @@ This video (5:58) describes how to enable data residency controls with AWS Contr
 AWS Control Tower no longer supports searching the controls list by *Category*, as shown in this video. To easily identify the Data Residency controls, we recommend you sort the controls list by *Release Date*. Controls with a release date of November 30, 2021 are the same controls in the Data Residency category shown in the video.  
 This video includes the term *guardrail*, an older term AWS Control Tower used for *control*. We updated the term to better align with industry usage and other AWS services. These terms are synonymous for our purposes.
 
-[![AWS Videos](http://img.youtube.com/vi/k31cQVuRyJk/0.jpg)](http://www.youtube.com/watch?v=k31cQVuRyJk)
+[![AWS Videos](https://img.youtube.com/vi/k31cQVuRyJk/0.jpg)](https://www.youtube.com/watch?v=k31cQVuRyJk)
 
 
 **Topics**
