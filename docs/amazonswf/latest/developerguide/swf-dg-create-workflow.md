@@ -18,4 +18,4 @@ In addition to defining activities, you also need to define the coordination log
 
 The following figure shows an example of a sequential customer order workflow with four activities (Verify Order, Charge Credit Card, Ship Order, and Record Completion).
 
-![Customer Order Workflow](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf-overview-workflow.png)
+![Customer Order Workflow](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf-overview-workflow.png)

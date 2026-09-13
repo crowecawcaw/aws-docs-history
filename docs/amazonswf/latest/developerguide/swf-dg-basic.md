@@ -13,7 +13,7 @@ When designing a workflow, you analyze your application to identify its componen
 **Example workflow for an e-commerce application**  
 The following figure shows an e-commerce order-processing workflow involving both people and automated processes:
 
-![Illustrative e-commerce example workflow](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf-overview-workflow.png)
+![Illustrative e-commerce example workflow](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf-overview-workflow.png)
 
 
 The e-commerce application workflow starts when a customer places an order, and includes four *tasks*:

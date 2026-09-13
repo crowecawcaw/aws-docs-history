@@ -12,7 +12,7 @@ Amazon SWF does not have a specific exclusive choice action. To implement exclus
 
 In the e-commerce example, you might use exclusive choice to either ship or cancel an order based on the outcome of charging the credit card. In the following figure, the decider schedules the Ship Order and Record Completion activity tasks if the credit card is successfully charged. Otherwise, it schedules the Cancel Order and Email Customer activity tasks.
 
-![Diagram of customer order workflow](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf-dg-customer-order-workflow.png)
+![Diagram of customer order workflow](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf-dg-customer-order-workflow.png)
 
 
 The decider schedules the `ShipOrder` activity if the credit card is successfully charged. Otherwise, the decider schedules the `CancelOrder` activity.

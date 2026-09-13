@@ -20,7 +20,7 @@ In the e-commerce example, you might want to make the Charge Credit Card activit
 
 The following figure shows a customer order workflow that includes a new Verify Customer child workflow, which checks the customer address, checks the fraud database, and charges the credit card.
 
-![Diagram of child workflow](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/child-workflow.png)
+![Diagram of child workflow](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/child-workflow.png)
 
 
 Multiple workflows could create child workflow executions using the same workflow type. For example, the Verify Customer child workflow could also be used in other parts of an organization. The events for a child workflow are contained in its own workflow history and are not included in the parent's workflow history.

@@ -19,11 +19,11 @@ For a description of each of the available metrics, see [Amazon SWF Metrics for 
 1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
 
 1. In the navigation pane, under **Metrics**, choose **SWF**.  
-![Navigation pane showing Dashboard, Alarms, Billing, Metrics, and SWF options with Metric Summary and Alarm Summary panels.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_console.png)
+![Navigation pane showing Dashboard, Alarms, Billing, Metrics, and SWF options with Metric Summary and Alarm Summary panels.](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_console.png)
 
 If you have run any workflow executions recently, you will see two lists of metrics presented: **Workflow Type Metrics** and **Activity Type Metrics**.
 
-![SWF Metrics console showing Workflow Type Metrics and Activity Type Metrics tables.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_workflow_metrics.png)
+![SWF Metrics console showing Workflow Type Metrics and Activity Type Metrics tables.](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_workflow_metrics.png)
 
 
 **Note**  
@@ -37,12 +37,12 @@ The various types of metrics are described in [Amazon SWF Metrics for CloudWatch
 
 You can view graphs for metrics by choosing the boxes next to the metric row in the list, and change the graph parameters using the **Time Range** controls to the right of the graph view.
 
-![Browse Metrics console showing WorkflowFailed metrics with a graph displaying data points over time.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_graph.png)
+![Browse Metrics console showing WorkflowFailed metrics with a graph displaying data points over time.](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_graph.png)
 
 
 For details about any point on the graph, place your cursor over the graph point. A detail of the point's dimensions will be shown.
 
-![Tooltip displaying workflow execution details including value, time, method, namespace, and status.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_graph_detail.png)
+![Tooltip displaying workflow execution details including value, time, method, namespace, and status.](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_graph_detail.png)
 
 
 For more information about working with CloudWatch metrics, see [Viewing, Graphing, and Publishing Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/working_with_metrics.html) in the *Amazon CloudWatch User Guide*.
@@ -59,6 +59,6 @@ You can use CloudWatch alarms to perform actions such as notifying you when an a
 1. To the right of the graph, in the **Tools** controls, choose **Create Alarm**.
 
 1. On the **Define Alarm** screen, enter the alarm threshold value, period parameters, and actions to take.  
-![Define Alarm screen showing threshold settings, notification period, and email action configuration.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_define_alarm.png)
+![Define Alarm screen showing threshold settings, notification period, and email action configuration.](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/cw_define_alarm.png)
 
 For more information about setting and using CloudWatch alarms, see [Creating Amazon CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.

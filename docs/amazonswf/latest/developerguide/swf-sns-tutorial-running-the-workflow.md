@@ -96,11 +96,11 @@ The phone number provided is fictitious, and is used only for illustrative purpo
 
 Soon after entering this information, you should receive an email or text message from Amazon SNS, asking you to confirm your topic subscription. If you entered an SMS number, you will see something like the following appear on your phone.
 
- ![Text message prompt asking to receive messages from SWFSAMPLE with reply options.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf_sns_sample_sms_request.png) 
+ ![Text message prompt asking to receive messages from SWFSAMPLE with reply options.](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf_sns_sample_sms_request.png) 
 
 If you reply to this message with `YES`, you'll get the response that we provided in `send_result_activity`.
 
- ![Mobile notification showing successful workflow registration confirmation message.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf_sns_sample_sms_success.png) 
+ ![Mobile notification showing successful workflow registration confirmation message.](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf_sns_sample_sms_success.png) 
 
 While all of this was happening, did you see what was happening in your command-line window? Both the workflow and activity pollers have been hard at work.
 

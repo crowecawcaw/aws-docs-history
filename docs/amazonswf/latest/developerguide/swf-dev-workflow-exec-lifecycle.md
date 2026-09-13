@@ -7,7 +7,7 @@ From the start of a workflow execution to its completion, Amazon SWF interacts w
 
 The following diagram shows the life cycle of an order-processing workflow execution from the perspective of components that act on it.
 
-![Ecommerce workflow execution](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/ecommerce_04.png)
+![Ecommerce workflow execution](https://docs.aws.amazon.com/amazonswf/latest/developerguide/images/ecommerce_04.png)
 
 
 ## Workflow Execution Life Cycle
