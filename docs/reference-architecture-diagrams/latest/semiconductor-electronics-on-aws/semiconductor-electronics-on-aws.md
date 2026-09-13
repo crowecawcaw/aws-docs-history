@@ -10,7 +10,7 @@ With this architecture, you can run semiconductor design workflows on AWS. The s
 ## Semiconductor and electronics on AWS diagram
 <a name="semi-diagram"></a>
 
-![Reference architecture diagram showing AWS services and data movement for semiconductor design workflows including Amazon EC2, Amazon S3, Amazon EFS, and FSx for Lustre.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/semiconductor-electronics-on-aws/images/semiconductor-electronics-on-aws.png)
+![Reference architecture diagram showing AWS services and data movement for semiconductor design workflows including Amazon EC2, Amazon S3, Amazon EFS, and FSx for Lustre.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/semiconductor-electronics-on-aws/images/semiconductor-electronics-on-aws.png)
 
 
 The following steps describe the data flow and key configuration points for this architecture:
