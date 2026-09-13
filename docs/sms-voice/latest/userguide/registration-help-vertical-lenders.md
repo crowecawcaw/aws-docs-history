@@ -87,4 +87,4 @@ Before submitting your registration, verify:
 
 For a lender-specific opt-in form example, see the form screenshots in this section. This vertical follows the [Transactional opt-in](registration-help-optin-transactional.md) with industry-specific disclosures.
 
-![Lender opt-in form example](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/vertical-lender-optin.png)
+![Lender opt-in form example](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/vertical-lender-optin.png)

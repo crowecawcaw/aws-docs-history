@@ -20,6 +20,7 @@ There are several guidelines to consider when you're deciding what type of origi
 + [SMS and MMS country capabilities and limitations](phone-numbers-sms-support-by-country.md)
 + [Supported countries and regions for voice](phone-numbers-voice-support-by-country.md)
 + [Request a phone number](phone-numbers-request.md)
++ [Choose a 10DLC number by area code](phone-numbers-10dlc-select.md)
 + [View a phone number status and capabilities](phone-numbers-status.md)
 + [Change a phone number's capabilities](phone-numbers-change-capabilitiy.md)
 + [Release a phone number](phone-numbers-delete.md)

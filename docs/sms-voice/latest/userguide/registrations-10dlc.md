@@ -53,7 +53,7 @@ If your throughput needs exceed these limits, you can request that your company 
 
 Your actual throughput rate will vary depending on various factors, such as whether or not your company has been vetted, your campaign types, and your vetting score. The following flowchart shows the throughput rates for various situations.
 
-![Message throughput based on carrier and reputation.](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/registrations-10dlc-capabilities.png)
+![Message throughput based on carrier and reputation.](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/registrations-10dlc-capabilities.png)
 
 
 Throughput rates for 10DLC are determined by the US mobile carriers in cooperation with the Campaign Registry. Neither AWS End User Messaging SMS nor any other SMS sending service can increase 10DLC throughput beyond these rates. If you need high throughput rates and high deliverability rates across all US carriers, we recommend that you use a short code. 

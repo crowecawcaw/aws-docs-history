@@ -5,6 +5,10 @@
 
 A phone pool, also refereed to as just pool, is a collection of phone numbers or sender IDs that share the same settings that you can use to send messages. When you send messages through a phone pool, it chooses an appropriate origination identity to send the message as. If an origination identity in the phone pool fails, the phone pool will fail over to another origination identity if it is in the same phone pool. 
 
+When you send messages through a pool that contains multiple origination identities, the service continuously monitors delivery receipts (DLRs) for each identity. If the service detects an increase in failed delivery receipts from one of your origination identities, it automatically deprioritizes the affected identity and routes your messages through the remaining healthy identities in the pool. When the affected identity recovers and delivery receipts return to normal, the service automatically resumes routing messages through it. This process does not require any configuration or manual intervention on your part.
+
+To maximize delivery resilience, configure your pools with more than one origination identity. Pools that contain multiple number types — such as a short code and a toll-free number — provide the broadest failover coverage because each number type uses an independent delivery path.
+
 **Note**  
 Phone pools can be associated with Notify configurations to use your own dedicated phone numbers alongside AWS-managed identities for templated messaging. For more information, see [Using dedicated numbers with Notify](notify-dedicated-numbers.md).
 

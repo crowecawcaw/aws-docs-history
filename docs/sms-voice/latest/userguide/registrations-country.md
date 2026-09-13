@@ -7,6 +7,7 @@ The following registrations can be filled out and submitted through the AWS End 
 
 **Topics**
 + [Australia sender ID registration](registrations-australia.md)
++ [Austria sender ID registration](registrations-austria.md)
 + [Belarus sender ID registration](registrations-belarus.md)
 + [China SMS template registration form](phone-numbers-sms-template-registration.md)
 + [Egypt sender ID registration](registrations-egypt.md)

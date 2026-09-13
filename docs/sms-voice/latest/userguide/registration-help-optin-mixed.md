@@ -5,7 +5,7 @@
 
 Use this pattern when your campaign sends **both transactional and marketing** messages. Carrier compliance requires that marketing and transactional consent are collected in separate checkboxes — a single checkbox cannot cover both. The user must be able to opt into transactional only, marketing only, both, or neither.
 
-![Mixed use-case opt-in form example](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/optin-mixed.png)
+![Mixed use-case opt-in form example](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/optin-mixed.png)
 
 
 ## What makes this compliant

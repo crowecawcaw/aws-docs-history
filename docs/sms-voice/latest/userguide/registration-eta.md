@@ -36,6 +36,7 @@ The following table shows estimated registration processing times for different 
 | Egypt | EG | Sender ID | [Egypt sender ID registration](registrations-egypt.md) | 21 days | 
 | Spain | ES | Long Code | [Spain](dedicated-number-spain.md) | 15 days | 
 | Spain | ES | Short Code | [Spain](dedicated-number-spain.md) | 12 weeks | 
+| Spain | ES | Sender ID | [Spain sender ID registration](registrations-spain.md) | 4 weeks | 
 | Finland | FI | Long Code | [Finland](dedicated-number-finland.md) | 15 days | 
 | Finland | FI | Short Code | [Finland](dedicated-number-finland.md) | 35 days | 
 | Finland | FI | Sender ID | [Finland sender ID registration](registrations-finland.md) | 25 days | 

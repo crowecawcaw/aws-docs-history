@@ -113,4 +113,4 @@ Premium financing means paying insurance premiums in installments with interest.
 
 For a insurance-specific opt-in form example, see the form screenshots in this section. This vertical follows the [Transactional opt-in](registration-help-optin-transactional.md) with industry-specific disclosures.
 
-![Insurance quote form showing an unchecked SMS consent checkbox with agency name, message frequency, data rates, and opt-out disclosures](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/vertical-insurance-optin.png)
+![Insurance quote form showing an unchecked SMS consent checkbox with agency name, message frequency, data rates, and opt-out disclosures](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/vertical-insurance-optin.png)

@@ -5,7 +5,7 @@
 
 Use this pattern for **embedded widgets** (modals, pop-ups, chatbots) provided by an ISV (Independent Software Vendor) to their customers. The ISV is the message controller — they control the data and messaging flow. The Privacy Policy and Terms link to the ISV's policies. All disclosures must be visible within the widget itself.
 
-![Widget/ISV opt-in modal example](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/optin-widget.png)
+![Widget/ISV opt-in modal example](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/optin-widget.png)
 
 
 ## What makes this compliant

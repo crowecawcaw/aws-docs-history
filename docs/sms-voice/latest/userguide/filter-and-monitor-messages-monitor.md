@@ -31,7 +31,7 @@ On the monitoring tab, End User Messaging provides multiple charts that help you
 + **Number and Percentage of Messages Recommended to Block** – Shows the count and percentage of SMS and MMS messages that were identified as risky by the AIT risk detection model. This includes messages in both 'monitor' and 'filter' modes. In monitor mode, these messages are delivered but flagged; in filter mode, these messages are blocked.
 + **Number of Messages Recommended to Block by Country** – Shows the count of SMS and MMS messages identified as risky by the AIT detection model, broken down by destination country.
 
-![Shows the number of messages and percentage that were blocked and show messages blocked by country.](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/protect-metrics-updated.png)
+![Shows the number of messages and percentage that were blocked and show messages blocked by country.](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/protect-metrics-updated.png)
 
 
 When using the different country rules, your SMS traffic will show in the metrics in the following manner:

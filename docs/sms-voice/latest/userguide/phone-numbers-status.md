@@ -12,7 +12,7 @@ This section explains how to check that status and capabilities of your phone nu
 1. In the navigation pane, under **Configurations**, choose **Phone numbers**.
 
 1. The following image shows the parts of the phone number status.  
-![Phone number status overview](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/phone-number-status.png)
+![Phone number status overview](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/phone-number-status.png)
    + **Origination number** – The numeric number that customers see on their handsets.
    + **Origination type** – The type of origination number. This can be a long code, short code or toll-free.
    + **Country** – The country or region the **Origination number** is provisioned from.

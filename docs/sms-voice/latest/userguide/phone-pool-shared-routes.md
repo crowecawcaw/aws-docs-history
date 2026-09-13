@@ -8,6 +8,9 @@ In some countries, AWS End User Messaging SMS maintains a pool of shared origina
 **Note**  
 Shared routes can be subject to increased downstream filtering and dedicated routes, where available, are preferred.
 
+**Important**  
+Shared routes are not supported for RCS sending. If your pool or account contains an AWS RCS Agent and a message is routed to the RCS path, messages that cannot be delivered as RCS do not fall back to shared routes. To provide SMS fallback for RCS messages, ensure the pool or account contains a dedicated originator (phone number or sender ID) that is valid for the destination country. For more information, see [RCS to SMS fallback using phone pools](rcs-sms-fallback.md).
+
 **Turn on shared routes (AWS Management Console)**
 
 1. Open the AWS End User Messaging SMS console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).

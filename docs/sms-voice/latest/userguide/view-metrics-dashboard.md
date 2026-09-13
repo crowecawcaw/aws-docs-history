@@ -17,12 +17,12 @@ The **Dashboard** page contains several charts and metrics that provide an overv
   + **Top 10 SMS sent destinations** – The count of SMS messages that have been sent to the top 10 countries.
   + **Number of MMS sent and percent delivered** – The count of MMS messages that have been sent and the percentage of those messages that have been delivered.
   + **Top 10 MMS sent destinations** – The count of MMS messages that have been sent to the top 10 countries.  
-![Shows the number of messages and percentage that were sent and by country.](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/message-delivery-metrics.png)
+![Shows the number of messages and percentage that were sent and by country.](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/message-delivery-metrics.png)
 + **Message feedback metrics** – Metrics for messages that are sent using [message feedback](message-feedback.md#message-feedback.title).
   + **Number of messages with feedback completion** – The count of SMS and MMS messages where the [message feedback record](message-feedback-change-status.md#message-feedback-change-status.title) is set to `RECEIVED`.
   + **Percentage of messages with feedback completion** – The percentage of SMS and MMS messages where the message feedback record is set to `RECEIVED`.
   + **Number of SMS with feedback completion by country** – The count of message feedback received by country.  
-![Shows the number of messages and percentage that received feedback and by country.](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/message-feedback-metrics.png)
+![Shows the number of messages and percentage that received feedback and by country.](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/message-feedback-metrics.png)
 + **Protect metrics** – Metrics for each [protect configuration](filter-and-monitor-messages-monitor.md#filter-and-monitor-messages-monitor.title) on messages blocked. Choose **View details** to view the graphs for a protect configuration.
 
 You can access metrics from the AWS End User Messaging SMS console, the CloudWatch console, using the AWS CLI, or using the CloudWatch API. You can also set CloudWatch alarms for AWS End User Messaging SMS metrics.

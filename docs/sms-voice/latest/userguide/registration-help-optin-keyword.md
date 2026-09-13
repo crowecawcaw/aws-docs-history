@@ -5,7 +5,7 @@
 
 Use this pattern for **promotional advertisements** (flyers, webpages, emails, social posts, in-store signage) that advertise a keyword for users to text. All required disclosures must appear on the advertisement itself. The user texts the keyword to opt in, and the auto-reply confirmation must also contain all disclosures.
 
-![Inbound keyword promotional advertisement example](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/optin-keyword.png)
+![Inbound keyword promotional advertisement example](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/optin-keyword.png)
 
 
 ## What makes this compliant

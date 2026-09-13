@@ -5,7 +5,7 @@
 
 Use this pattern when consent is collected **verbally** (call center, in-person enrollment, patient intake). The full script must be provided in the registration submission. Agents must read the script verbatim — paraphrasing risks missing required elements.
 
-![Verbal script opt-in example](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/optin-verbal.png)
+![Verbal script opt-in example](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/optin-verbal.png)
 
 
 ## What makes this compliant

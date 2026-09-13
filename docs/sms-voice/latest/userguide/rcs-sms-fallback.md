@@ -27,15 +27,15 @@ RCS delivery can fail for several reasons. Understanding these failure modes hel
 + **Agent not active on carrier** — Your AWS RCS Agent has not yet been approved by the recipient's carrier, or the agent is in PARTIAL status for that country.
 + **Device temporarily unreachable** — The recipient's device supports RCS but is temporarily offline or has no data connection. RCS messages require a data connection for delivery.
 
-When any of these conditions occur and you are using pool-based or account-level sending, AWS End User Messaging automatically falls back to SMS delivery using a phone number from the same pool or account.
+When any of these conditions occur and you are using pool-based or account-level sending, AWS End User Messaging automatically falls back to SMS delivery using a dedicated phone number or sender ID from the same pool or account. Shared SMS routes are not supported as a fallback for RCS sending. If the pool or account does not contain a dedicated originator (phone number or sender ID) that is valid for the destination country, the message fails.
 
 ## What makes SMS fallback possible
 <a name="rcs-sms-fallback-what-makes-possible"></a>
 
-SMS fallback requires both an AWS RCS Agent and at least one SMS phone number in the same pool. When you send a message to the pool, AWS End User Messaging attempts RCS delivery first. If RCS delivery fails, the service retries the message via SMS using a phone number from the same pool. A pool with only an AWS RCS Agent (and no phone numbers) does not support SMS fallback. If RCS fails, the message is not delivered.
+SMS fallback requires both an AWS RCS Agent and at least one dedicated SMS phone number or sender ID in the same pool. When you send a message to the pool, AWS End User Messaging attempts RCS delivery first. If RCS delivery fails, the service retries the message via SMS using a dedicated phone number from the same pool. Shared SMS routes are not supported for RCS fallback. A pool with only an AWS RCS Agent (and no dedicated phone numbers or sender IDs) does not support SMS fallback. If RCS fails in that configuration, the message is not delivered.
 
 **Important**  
-For SMS fallback to work, your pool must contain both an AWS RCS Agent and one or more SMS phone numbers. A pool with only a single identity type does not provide cross-channel fallback.
+For SMS fallback to work, your pool must contain both an AWS RCS Agent and one or more dedicated SMS phone numbers or sender IDs. A pool with only a single identity type does not provide cross-channel fallback. Shared routes are not used for RCS-to-SMS fallback, even if shared routes are enabled on the pool.
 
 ## Why use pools
 <a name="rcs-sms-fallback-why-pools"></a>
@@ -76,7 +76,7 @@ To avoid this risk, use pool-based sending with one pool per use case. When you 
 | Sending approach | SMS fallback behavior | Compliance risk | 
 | --- | --- | --- | 
 | Pool-based (recommended) | Falls back to a phone number in the same pool, registered for the same use case | Low — fallback number matches the message use case | 
-| Account-level | Falls back to any available phone number in the account | High — fallback number may not match the message use case if multiple use cases share the account | 
+| Account-level | Falls back to any available dedicated phone number or sender ID in the account. Does not fall back to shared routes. | High — fallback number may not match the message use case if multiple use cases share the account | 
 | Direct (AWS RCS Agent ARN) | No SMS fallback | None — message is delivered via RCS only or not at all | 
 
 ## Fallback logic and priority order

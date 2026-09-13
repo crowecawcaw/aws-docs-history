@@ -112,7 +112,7 @@ If you don't have publicly accessible links to your Terms and Conditions and Pri
 
 The following example complies with the mobile carriers’ requirements for a multi-factor authentication use case.
 
-![Showing the workflow for multi-factor authentication.](http://docs.aws.amazon.com/sms-voice/latest/userguide/images/best-practices-usecase.png)
+![Showing the workflow for multi-factor authentication.](https://docs.aws.amazon.com/sms-voice/latest/userguide/images/best-practices-usecase.png)
 
 
 It contains finalized text and images, and it shows the entire opt-in flow, complete with annotations. In the opt-in flow, the customer must take distinct, intentional actions to provide their consent to receive text messages and contains all of the required disclosures.
@@ -292,6 +292,8 @@ For mission-critical messaging programs, we recommend that you configure AWS End
 The phone numbers that you use for SMS or MMS messages—including short codes, long codes, toll-free numbers, and 10DLC numbers—can't be replicated across AWS Regions. So to use AWS End User Messaging SMS in multiple Regions, you must request separate phone numbers in each Region where you want to use AWS End User Messaging SMS. For example, if you use a short code to send text messages to recipients in the United States, you must request separate short codes in each AWS Region that you plan to use.
 
 In some countries, you can also use multiple types of phone numbers for added redundancy. For example, in the United States, you can request short codes, 10DLC numbers, and toll-free numbers. Each of these phone number types takes a different route to the recipient. Having multiple phone number types available—either in the same AWS Region or spread across multiple AWS Regions—provides an additional layer of redundancy, which can help improve resiliency.
+
+You can further improve delivery resilience by configuring phone pools that contain multiple origination identities. The service monitors delivery receipts (DLRs) for each identity in a pool and automatically routes messages away from identities that are experiencing delivery failures. When the affected identity recovers, normal routing resumes without manual intervention. For the broadest coverage, include different number types in the same pool, such as a short code and a toll-free number. For more information about phone pools, see [Phone pools in AWS End User Messaging SMS](phone-pool.md).
 
 ### Handling deactivated phone numbers
 <a name="channels-sms-best-practices-deactivated"></a>
