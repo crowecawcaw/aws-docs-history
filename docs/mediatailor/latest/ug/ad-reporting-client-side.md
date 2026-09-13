@@ -22,7 +22,7 @@ Using the MediaTailor client-side tracking API, you can send metadata to the pla
 
 The following diagram shows the complete client-side reporting workflow from session initialization through ad playback and beaconing:
 
-![MediaTailor client-side reporting sequence diagram showing the interaction between the video player, MediaTailor, Ad Decision Server, content origin, and ad verification services during the complete workflow from session initialization through ad playback and beaconing.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/tracking_flow.png)
+![MediaTailor client-side reporting sequence diagram showing the interaction between the video player, MediaTailor, Ad Decision Server, content origin, and ad verification services during the complete workflow from session initialization through ad playback and beaconing.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/tracking_flow.png)
 
 
 The client-side reporting workflow includes the following steps:
@@ -193,7 +193,7 @@ Some players support event listeners, which could be used as an alternative to p
 
 Following a successful session initialization, and after MediaTailor receives the first manifest containing media, you only need to call the tracking endpoint once.
 
-![Call flow for VOD workflows. Call the client-side tracking endpoint after the session initializes and MediaTailor receives the first manifest that contains media.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/vod-workflow-best-practice.png)
+![Call flow for VOD workflows. Call the client-side tracking endpoint after the session initializes and MediaTailor receives the first manifest that contains media.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/vod-workflow-best-practice.png)
 
 
 ### Server-guided ad insertion

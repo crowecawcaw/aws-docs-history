@@ -19,4 +19,4 @@ The following steps provide a basic overview of using workflow monitor for the f
 
 1. Monitor and review your workflow monitor resources using the overview section of the AWS console: [Overview](monitor-with-workflow-monitor-operate-overview.md)
 
-![The individual steps of setting up workflow monitor. Begin by creating the IAM roles. Next, create templates for alarms and events. Next, discover a signal map and attach your templates to the map. After a signal map has templates attached, the templates must be deployed. The final step is monitoring using the templates and overview resources.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/workflowmonitor-overview-steps.png)
+![The individual steps of setting up workflow monitor. Begin by creating the IAM roles. Next, create templates for alarms and events. Next, discover a signal map and attach your templates to the map. After a signal map has templates attached, the templates must be deployed. The final step is monitoring using the templates and overview resources.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/workflowmonitor-overview-steps.png)

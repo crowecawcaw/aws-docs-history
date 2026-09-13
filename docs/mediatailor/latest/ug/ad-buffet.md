@@ -26,7 +26,7 @@ In this example, the two sequenced ads form an ad pod. The three standalone ads 
 
 The following diagram shows a VAST response with an ad pod (sequenced ads) and an ad buffet (standalone ads) that together form a buffet group.
 
-![Diagram of a VAST response with an ad pod (two sequenced ads) and an ad buffet (three standalone ads) forming one buffet group.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/vastVisualizedAdBuffetBuffetGroup.png)
+![Diagram of a VAST response with an ad pod (two sequenced ads) and an ad buffet (three standalone ads) forming one buffet group.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/vastVisualizedAdBuffetBuffetGroup.png)
 
 
 ## Key concepts

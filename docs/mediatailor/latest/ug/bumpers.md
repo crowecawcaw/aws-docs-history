@@ -32,4 +32,4 @@ The following is an example of bumper ad behavior.
 **Example 1: Start and end bumpers**  
 In this example, start and end bumpers are enabled. The ad decision server has 50 seconds of personalized ads to fill a 70-second ad break. The 10-second start bumper plays at the start of the ad break, 50 seconds of ads plays, then the 10-second end bumper.
 
-![This illustration shows an ad break filled with a start and end bumper and ads.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/bumpers.png)
+![This illustration shows an ad break filled with a start and end bumper and ads.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/bumpers.png)

@@ -69,7 +69,7 @@ For each ad break that MediaTailor encounters, it evaluates the SCTE event ID fo
 You set the ad expiration to 2700 seconds so retrieved ads are available for insertion for 45 minutes.
 The following graphic illustrates the example, with the small squares representing ad breaks. The recurring prefetch schedule settings are illustrated along the event timeline.  
 
-![Graphical illustration of a live event including recurring prefetch schedule configurations.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/recurring_prefetch_timeline.png)
+![Graphical illustration of a live event including recurring prefetch schedule configurations.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/recurring_prefetch_timeline.png)
 
 
 ## Understanding prefetching costs

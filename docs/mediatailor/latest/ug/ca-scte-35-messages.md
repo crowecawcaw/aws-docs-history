@@ -21,7 +21,7 @@ The following illustration shows the two ways of setting up ad breaks in a chann
 + Use a `splice_insert()` message to set up ad breaks with basic metadata.
 + Use a `time_signal()` message together with a `segmentation_descriptor()` message to set up ad breaks with more detailed metadata.
 
-![Two ways of setting up ad breaks in a channel using SCTE-35 messages.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/scte-35-splice-insert-vs-time-signal-segmentation-descriptor.png)
+![Two ways of setting up ad breaks in a channel using SCTE-35 messages.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/scte-35-splice-insert-vs-time-signal-segmentation-descriptor.png)
 
 
 For information about using `time_signal`, see section 9.7.4 of the 2022 SCTE-35 specification, [Digital Program Insertion Cueing Message](https://webstore.ansi.org/Standards/SCTE/ANSISCTE352022).

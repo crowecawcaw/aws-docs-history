@@ -187,7 +187,7 @@ MediaTailor supports the following built-in functions. Any function not listed h
 | $number(value) | Convert to number | $number('42') | 42 | 
 | $boolean(value) | Convert to boolean | $boolean(1) | true | 
 
-### Introspection (4)
+### Introspection (6)
 <a name="monetization-functions-jsonata-allowed-introspection"></a>
 
 
@@ -197,6 +197,8 @@ MediaTailor supports the following built-in functions. Any function not listed h
 | $count(array) | Array element count | $count([1, 2, 3]) | 3 | 
 | $exists(value) | Check if value exists (not undefined) | $exists(temp.id) | true or false | 
 | $keys(object) | Get object key names | $keys(response.body) | ["id", "name"] | 
+| $lookup(object, key) | Get value from object by key name | $lookup(response.body, 'status') | Value of the status field | 
+| $each(object, func) | Apply function to each key-value pair of an object | $each({"a":1,"b":2}, function($v,$k){$k & '=' & $v}) | ["a=1", "b=2"] | 
 
 ### Numeric (7)
 <a name="monetization-functions-jsonata-allowed-numeric"></a>
@@ -212,7 +214,7 @@ MediaTailor supports the following built-in functions. Any function not listed h
 | $floor(number) | Round down | $floor(3.9) | 3 | 
 | $round(number, precision) | Round to precision | $round(3.456, 2) | 3.46 | 
 
-### String (7)
+### String (9)
 <a name="monetization-functions-jsonata-allowed-string"></a>
 
 
@@ -225,8 +227,10 @@ MediaTailor supports the following built-in functions. Any function not listed h
 | $contains(string, pattern) | Check if string contains pattern | $contains(session.user\_agent, 'CTV') | true or false | 
 | $match(string, pattern) | Match string against regex pattern | $match('abc-123', /[0-9]\+/) | {"match": "123", ...} | 
 | $replace(string, pattern, replacement) | Replace matching pattern | $replace('hello', 'l', 'r') | "herro" | 
+| $join(array, separator) | Join array elements into a string | $join(['a','b','c'], ',') | "a,b,c" | 
+| $split(string, separator) | Split string into an array | $split('a,b,c', ',') | ["a", "b", "c"] | 
 
-### Array (5)
+### Array (7)
 <a name="monetization-functions-jsonata-allowed-array"></a>
 
 
@@ -237,6 +241,8 @@ MediaTailor supports the following built-in functions. Any function not listed h
 | $sort(array) | Sort array | $sort([3, 1, 2]) | [1, 2, 3] | 
 | $distinct(array) | Remove duplicates | $distinct([1, 2, 2, 3]) | [1, 2, 3] | 
 | $map(array, func) | Apply function to each element | $map([1,2,3], function($v){$v\*2}) | [2, 4, 6] | 
+| $filter(array, func) | Return elements where function returns true | $filter([1,2,3,4], function($v){$v > 2}) | [3, 4] | 
+| $reduce(array, func, init) | Reduce array to a single value | $reduce([1,2,3], function($prev,$val){$prev\+$val}, 0) | 6 | 
 
 ### Boolean (1)
 <a name="monetization-functions-jsonata-allowed-boolean"></a>

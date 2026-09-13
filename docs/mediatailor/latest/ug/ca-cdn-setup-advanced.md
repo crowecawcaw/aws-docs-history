@@ -33,7 +33,7 @@ For detailed information about SSAI with CDNs, see [Ad insertion with CDN](ssai-
 
 The following diagram illustrates this combined workflow:
 
-![Diagram showing CDN integration with both channel assembly and ad insertion](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ca-ssai-comb-cdn.png)
+![Diagram showing CDN integration with both channel assembly and ad insertion](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ca-ssai-comb-cdn.png)
 
 
 For optimal performance when combining channel assembly and SSAI:

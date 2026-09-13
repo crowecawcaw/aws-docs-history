@@ -3,7 +3,7 @@
 # Function types and composition
 <a name="monetization-functions-types"></a>
 
-AWS Elemental MediaTailor provides four function types, each designed for a different category of work. You choose a type when you create a function, and the type determines what the function can do at runtime. This page explains how each type executes, when to use it, and how to compose functions into multi-step pipelines.
+AWS Elemental MediaTailor provides six function types, each designed for a different category of work. You choose a type when you create a function, and the type determines what the function can do at runtime. This page explains how each type executes, when to use it, and how to compose functions into multi-step pipelines.
 
 ## Function type overview
 <a name="monetization-functions-types-overview"></a>
@@ -13,8 +13,10 @@ AWS Elemental MediaTailor provides four function types, each designed for a diff
 | --- | --- | --- | 
 | CUSTOM\_OUTPUT | Data transformation | Evaluate expressions against the current session state and produce outputs. No external calls. | 
 | HTTP\_REQUEST | External integration | Make an HTTP call to an external service, then evaluate output expressions that can reference the response. | 
+| VAST\_REQUEST | External integration | Call a VAST endpoint, parse the response as VAST (including wrapper resolution), then evaluate output expressions that can reference the parsed ads. | 
 | SEQUENTIAL\_EXECUTOR | Orchestration | Run a sequence of functions in order, passing data between steps through temporary data. | 
 | CONCURRENT\_EXECUTOR | Orchestration | Run a set of functions in parallel up to a maximum concurrency, then combine their outputs. | 
+| AWS\_SERVICE\_REQUEST | AWS service integration | Make an authenticated request to a supported AWS service API, then evaluate output expressions that can reference the response. | 
 
 Each type serves a distinct role. Choose a type when you create a function — the type determines what the function can do at runtime.
 

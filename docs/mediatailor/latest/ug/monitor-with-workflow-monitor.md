@@ -9,14 +9,14 @@ Workflow monitor is a tool for the discovery, visualization, and monitoring of A
 
 Utilize signal maps to automatically discover interconnected AWS resources associated with your media workflow. Discovery can begin at any supported service resource and creates an end-to-end mapping of the workflow. Signal maps can be used as stand-alone visualization tools or enhanced with monitoring templates.
 
-![Workflow monitor discovery components.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/workflowmonitor-discovery.png)
+![Workflow monitor discovery components.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/workflowmonitor-discovery.png)
 
 
 **Monitor**
 
 You can create custom CloudWatch alarm and EventBridge rule templates to monitor the health and status of your media workflows. Best practice alarm templates are available to import into your workflow monitor environment. You can use the best practice alarm templates as they are, or edit them to better fit your workflow. Any templates you create are transformed into CloudFormation templates for repeatable deployment.
 
-![Workflow monitor monitoring components.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/workflowmonitor-monitoring.png)
+![Workflow monitor monitoring components.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/workflowmonitor-monitoring.png)
 
 
 **Note**  

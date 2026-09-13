@@ -41,7 +41,7 @@ In this recommended architecture:
 
 This architecture ensures optimal performance while maintaining the security and flexibility benefits of using a CDN.
 
-![Diagram showing CDN positioned between client players and AWS Elemental MediaTailor Ad Insertion](http://docs.aws.amazon.com/mediatailor/latest/ug/images/cdn-recommended-positioning.png)
+![Diagram showing CDN positioned between client players and AWS Elemental MediaTailor Ad Insertion](https://docs.aws.amazon.com/mediatailor/latest/ug/images/cdn-recommended-positioning.png)
 
 
 **Note**  
@@ -90,7 +90,7 @@ In this sub-optimal architecture:
 
 1. This architecture introduces additional latency, potential caching issues, and complicates troubleshooting.
 
-![Diagram showing CDN positioned between content origin and MediaTailor](http://docs.aws.amazon.com/mediatailor/latest/ug/images/cdn-not-recommended-positioning.png)
+![Diagram showing CDN positioned between content origin and MediaTailor](https://docs.aws.amazon.com/mediatailor/latest/ug/images/cdn-not-recommended-positioning.png)
 
 
 ## Request and response flow

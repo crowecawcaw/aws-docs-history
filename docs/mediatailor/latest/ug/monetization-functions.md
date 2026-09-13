@@ -3,7 +3,7 @@
 # Working with MediaTailor Monetization Functions
 <a name="monetization-functions"></a>
 
-With MediaTailor Monetization Functions (Functions), you can customize how AWS Elemental MediaTailor manages session data and builds ad requests during ad insertion. Functions let you call external APIs, transform data with expressions, and modify ad decision server (ADS) request parameters or player parameters. You don't need to deploy or manage custom infrastructure.
+With MediaTailor Monetization Functions (Functions), you can customize how AWS Elemental MediaTailor manages session data, builds ad requests, and selects ads during ad insertion. Functions let you call external APIs, transform data with expressions, modify ad decision server (ADS) request parameters or player parameters, and filter, reorder, or supplement the ads that are inserted into the stream. You don't need to deploy or manage custom infrastructure.
 
 Functions use *JSONata*, a lightweight query and transformation language for JSON data, to evaluate expressions. You write JSONata expressions to read session data, transform values, and define output. For the complete list of supported JSONata functions, see [JSONata expression reference](monetization-functions-jsonata.md).
 
@@ -12,6 +12,9 @@ Use Functions when you need to:
 + **Customize ADS request parameters.** Dynamically set the ADS URL, headers, or body based on session data, SCTE-35 signals, or external API responses.
 + **Run A/B tests across ad servers.** Split traffic between different ADS endpoints based on session attributes or random assignment.
 + **Build multi-step enrichment pipelines.** Chain multiple functions together to fetch data from one API, transform it, and pass the results to the next step.
++ **Target ads based on video content.** Query Elemental Inference for IAB content classifications and GARM brand safety signals, then pass contextual metadata to your ad decision server for contextual ad targeting.
++ **Filter or reorder the ads returned by your ADS.** Remove ads from specific ad systems for competitive separation, or reorder ads before MediaTailor selects which to insert.
++ **Fill unfilled ad time with your own ads.** Detect underfilled ad breaks and fetch house ads or promos from a secondary VAST endpoint to fill the remaining time.
 
 ## How Functions fit into the MediaTailor workflow
 <a name="monetization-functions-workflow"></a>
@@ -32,6 +35,7 @@ If you are new to Functions, start with the [Quick start guide](monetization-fun
 + [Functions quick start guide](monetization-functions-quickstart.md)
 + [Functions lifecycle hooks](monetization-functions-hooks.md)
 + [Function types and composition](monetization-functions-types.md)
++ [Contextual ad targeting with Elemental Inference](monetization-functions-elemental-inference-integration.md)
 + [Creating and managing Functions](monetization-functions-managing.md)
 + [JSONata expression reference for Functions](monetization-functions-jsonata.md)
 + [Function examples](monetization-functions-examples.md)

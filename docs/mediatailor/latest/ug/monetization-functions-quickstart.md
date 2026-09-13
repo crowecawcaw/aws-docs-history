@@ -15,7 +15,7 @@ Before you begin, make sure you have an existing MediaTailor playback configurat
 
 In this step, you create a function that classifies the viewer's device type based on the user agent string and stores the result in player parameters. The function uses a Custom output type (no external API calls) with a [JSONata expression reference](monetization-functions-jsonata.md) expression to evaluate the user agent.
 
-1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/).
+1. Open the [MediaTailor console](https://console.aws.amazon.com/mediatailor/home).
 
 1. In the navigation pane, choose **Functions**.
 

@@ -121,6 +121,12 @@ The following metrics are published when you use [Functions](monetization-functi
 |  PreAdsRequestHook.Invocations  | The number of times the pre-ads request hook was invoked.<br />**Dimensions:** `ConfigurationName` | 
 |  PreAdsRequestHook.Errors  | The number of pre-ads request hook executions that resulted in an error.<br />**Dimensions:** `ConfigurationName` | 
 |  PreAdsRequestHook.Latency  | The execution time in milliseconds for the pre-ads request hook.<br />**Dimensions:** `ConfigurationName` | 
+|  PostAdsResponseHook.Invocations  | The number of times the post-ads response hook was invoked.<br />**Dimensions:** `ConfigurationName` | 
+|  PostAdsResponseHook.Errors  | The number of post-ads response hook executions that resulted in an error.<br />**Dimensions:** `ConfigurationName` | 
+|  PostAdsResponseHook.Latency  | The execution time in milliseconds for the post-ads response hook.<br />**Dimensions:** `ConfigurationName` | 
+|  PreManifestInsertionHook.Invocations  | The number of times the pre-manifest insertion hook was invoked.<br />**Dimensions:** `ConfigurationName` | 
+|  PreManifestInsertionHook.Errors  | The number of pre-manifest insertion hook executions that resulted in an error.<br />**Dimensions:** `ConfigurationName` | 
+|  PreManifestInsertionHook.Latency  | The execution time in milliseconds for the pre-manifest insertion hook.<br />**Dimensions:** `ConfigurationName` | 
 
 **Function-level metrics** — one data point per individual function execution. These metrics include additional dimensions (`FunctionId`, `FunctionType`, `HookType`) so you can identify which specific function is slow or failing:
 
@@ -172,5 +178,5 @@ You can filter the AWS Elemental MediaTailor data using the following dimensions
 | `ConfigurationName` | Indicates the configuration that the metric belongs to. Available on all metrics except the per-domain beacon metrics (`Avail.Impression.Fired`, `Avail.Impression.Retried`, `Avail.Impression.Recovered`, `Avail.Complete.Fired`, `Avail.Complete.Retried`, and `Avail.Complete.Recovered`). | 
 | `AdTrackingDomain` | The registrable domain of the ad tracking beacon's destination, with subdomains removed. A host that cannot be resolved to a registrable domain is reported as `unknown`. Available on `Avail.Impression.Fired`, `Avail.Impression.Retried`, `Avail.Impression.Recovered`, `Avail.Complete.Fired`, `Avail.Complete.Retried`, and `Avail.Complete.Recovered`. | 
 | `FunctionId` | The identifier of the function. Available on `Function.*` metrics only. | 
-| `FunctionType` | The type of function: `CUSTOM_OUTPUT`, `HTTP_REQUEST`, `SEQUENTIAL_EXECUTOR`, or `CONCURRENT_EXECUTOR`. Available on `Function.*` metrics only. | 
-| `HookType` | The lifecycle hook that triggered the function: `PRE_SESSION_INITIALIZATION` or `PRE_ADS_REQUEST`. Available on `Function.*` metrics only. | 
+| `FunctionType` | The type of function: `CUSTOM_OUTPUT`, `HTTP_REQUEST`, `VAST_REQUEST`, `SEQUENTIAL_EXECUTOR`, or `CONCURRENT_EXECUTOR`. Available on `Function.*` metrics only. | 
+| `HookType` | The lifecycle hook that triggered the function: `PRE_SESSION_INITIALIZATION`, `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, or `PRE_MANIFEST_INSERTION`. Available on `Function.*` metrics only. | 

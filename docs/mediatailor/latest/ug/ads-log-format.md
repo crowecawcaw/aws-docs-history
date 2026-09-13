@@ -50,10 +50,18 @@ The following events are emitted during MediaTailor interactions with the ad dec
 | MAKING\_ADS\_REQUEST | MediaTailor is requesting advertisements from the ADS. | 
 | MODIFIED\_TARGET\_URL | MediaTailor modified the outbound target URL. | 
 | NON\_AD\_MARKER\_FOUND | MediaTailor found a non-actionable ad marker in the manifest. | 
+| POST\_ADS\_RESPONSE\_FUNCTION\_COMPLETED | An individual function in the post-ads response hook completed. This is an opt-in event type. | 
+| POST\_ADS\_RESPONSE\_FUNCTION\_ERROR | An individual function in the post-ads response hook failed. | 
+| POST\_ADS\_RESPONSE\_HOOK\_ERROR | The post-ads response hook execution failed. | 
+| POST\_ADS\_RESPONSE\_HOOK\_SUMMARY | Summary of the post-ads response hook execution, including success or error status. This is an opt-in event type. | 
 | PRE\_ADS\_REQUEST\_FUNCTION\_COMPLETED | An individual function in the pre-ads request hook completed. This is an opt-in event type. | 
 | PRE\_ADS\_REQUEST\_FUNCTION\_ERROR | An individual function in the pre-ads request hook failed. | 
 | PRE\_ADS\_REQUEST\_HOOK\_ERROR | The pre-ads request hook execution failed. | 
 | PRE\_ADS\_REQUEST\_HOOK\_SUMMARY | Summary of the pre-ads request hook execution, including success or error status. This is an opt-in event type. | 
+| PRE\_MANIFEST\_INSERTION\_FUNCTION\_COMPLETED | An individual function in the pre-manifest insertion hook completed. This is an opt-in event type. | 
+| PRE\_MANIFEST\_INSERTION\_FUNCTION\_ERROR | An individual function in the pre-manifest insertion hook failed. | 
+| PRE\_MANIFEST\_INSERTION\_HOOK\_ERROR | The pre-manifest insertion hook execution failed. | 
+| PRE\_MANIFEST\_INSERTION\_HOOK\_SUMMARY | Summary of the pre-manifest insertion hook execution, including success or error status. This is an opt-in event type. | 
 | RAW\_ADS\_RESPONSE | MediaTailor received a raw ADS response. | 
 | REDIRECTED\_VAST\_RESPONSE | MediaTailor received a VAST response after following the VAST redirect. | 
 | VAST\_REDIRECT | The VAST ad response contains a redirect. | 

@@ -19,7 +19,7 @@ AWS Elemental MediaTailor channel assembly integrates with content delivery netw
 
 This architecture ensures optimal performance while maintaining the security and flexibility benefits of using a CDN.
 
-![Diagram showing CDN positioned between client players and MediaTailor Channel Assembly](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ca-cdn.png)
+![Diagram showing CDN positioned between client players and MediaTailor Channel Assembly](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ca-cdn.png)
 
 
 ## CDN terminology for channel assembly

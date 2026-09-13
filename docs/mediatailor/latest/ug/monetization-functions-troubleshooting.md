@@ -24,6 +24,12 @@ MediaTailor publishes metrics for function execution to Amazon CloudWatch. No op
 | PreAdsRequestHook.Invocations | Count of hook executions | ConfigurationName | 
 | PreAdsRequestHook.Errors | Count of hook errors | ConfigurationName | 
 | PreAdsRequestHook.Latency | Hook execution time (ms) | ConfigurationName | 
+| PostAdsResponseHook.Invocations | Count of hook executions | ConfigurationName | 
+| PostAdsResponseHook.Errors | Count of hook errors | ConfigurationName | 
+| PostAdsResponseHook.Latency | Hook execution time (ms) | ConfigurationName | 
+| PreManifestInsertionHook.Invocations | Count of hook executions | ConfigurationName | 
+| PreManifestInsertionHook.Errors | Count of hook errors | ConfigurationName | 
+| PreManifestInsertionHook.Latency | Hook execution time (ms) | ConfigurationName | 
 
 **Function-level metrics** — one data point per individual function execution:
 
@@ -52,6 +58,14 @@ MediaTailor emits log events for function execution. Error events are emitted by
 | PRE\_ADS\_REQUEST\_HOOK\_ERROR | Default | ADS Interaction Log | Hook failure with errorType and cause | 
 | PRE\_ADS\_REQUEST\_FUNCTION\_COMPLETED | Opt-in | ADS Interaction Log | Individual function completed with input/output | 
 | PRE\_ADS\_REQUEST\_FUNCTION\_ERROR | Default | ADS Interaction Log | Individual function failure | 
+| POST\_ADS\_RESPONSE\_HOOK\_SUMMARY | Opt-in | ADS Interaction Log | Hook execution summary (success/error) | 
+| POST\_ADS\_RESPONSE\_HOOK\_ERROR | Default | ADS Interaction Log | Hook failure with errorType and cause | 
+| POST\_ADS\_RESPONSE\_FUNCTION\_COMPLETED | Opt-in | ADS Interaction Log | Individual function completed with input/output | 
+| POST\_ADS\_RESPONSE\_FUNCTION\_ERROR | Default | ADS Interaction Log | Individual function failure | 
+| PRE\_MANIFEST\_INSERTION\_HOOK\_SUMMARY | Opt-in | ADS Interaction Log | Hook execution summary (success/error) | 
+| PRE\_MANIFEST\_INSERTION\_HOOK\_ERROR | Default | ADS Interaction Log | Hook failure with errorType and cause | 
+| PRE\_MANIFEST\_INSERTION\_FUNCTION\_COMPLETED | Opt-in | ADS Interaction Log | Individual function completed with input/output | 
+| PRE\_MANIFEST\_INSERTION\_FUNCTION\_ERROR | Default | ADS Interaction Log | Individual function failure | 
 
 To enable opt-in log events, see [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch metrics](monitoring-cloudwatch-metrics.md).
 
@@ -121,9 +135,9 @@ This means the expression has too many levels of nesting for MediaTailor to proc
 
 **Symptom:** The function fails with `errorType: "RESTRICTION_ERROR"` and `cause: "Function '<name>' is not allowed"`.
 
-**Cause:** The expression calls a JSONata function that is not in the allowed list of 38 functions. Common examples include `$filter`, `$reduce`, `$eval`, `$split`, and `$join`.
+**Cause:** The expression calls a JSONata function that is not in the allowed list of 44 functions. Common examples include `$eval`, `$assert`, `$error`, `$sift`.
 
-**Fix:** Check the `cause` field for the blocked function name. Replace it with an allowed alternative. See [JSONata expression reference](monetization-functions-jsonata.md) for the full list of 38 allowed functions.
+**Fix:** Check the `cause` field for the blocked function name. Replace it with an allowed alternative. See [JSONata expression reference](monetization-functions-jsonata.md) for the full list of 44 allowed functions.
 
 Commonly used allowed functions include `$string`, `$number`, `$substring`, `$contains`, and `$encodeUrlComponent`.
 
@@ -210,3 +224,35 @@ Check the `cause` field in the error log event — it identifies which field or 
 **Cause:** An infrastructure failure occurred that is unrelated to your function configuration.
 
 **Fix:** Retry the request. If the error persists, contact AWS Support.
+
+### Ad list change has no effect
+<a name="monetization-functions-ts-ad-list-noop"></a>
+
+**Symptom:** Your function runs without errors at `POST_ADS_RESPONSE` or `PRE_MANIFEST_INSERTION`, but the ads in the stream are unchanged. A filter, reorder, or modification appears to be ignored.
+
+**Possible causes:**
+
+
+| Cause | How to identify | Fix | 
+| --- | --- | --- | 
+| The filter expression produced zero or one result without array coercion, so the output key was omitted or misapplied. | The expression is a predicate filter such as adsResponse.ads[adSystem \!= 'BLOCKED'] without a trailing [] or an enclosing array constructor. With one match it produces a single object; with zero matches it produces no value, and the output key is omitted, which the system treats as "no change". | Always coerce filter results to an array: adsResponse.ads[adSystem \!= 'BLOCKED'][] or [adsResponse.ads[predicate]]. | 
+| The ad break is not modifiable (PRE\_MANIFEST\_INSERTION). | The ad break's mutable input field is false. Modifications to these ad breaks are discarded. | Check mutable in your expression and only modify ad breaks where it is true. | 
+| The hook was skipped because the shared hook budget was exhausted or the input exceeded the size limit. | No HOOK\_SUMMARY event for the hook in the ADS interaction log for that request. | Reduce time spent in earlier hooks, or reduce input size. See [Limits](monetization-functions-limits.md). | 
+
+To confirm what your function actually returned, opt in to the `FUNCTION_COMPLETED` event types for the hook and inspect the function output in the ADS interaction log.
+
+### Injected ad doesn't appear in the manifest
+<a name="monetization-functions-ts-injection-dropped"></a>
+
+**Symptom:** Your `PRE_MANIFEST_INSERTION` function returns an injected ad and completes successfully, but the ad is not in the rendered manifest.
+
+Injection checks run after your function returns, so the function's log events report success even when an injection is dropped. Check the following causes in order:
+
+
+| Cause | Fix | 
+| --- | --- | 
+| The creativeUrl creative is not yet transcoded. MediaTailor drops the injection for the current ad break rather than waiting, but the attempt initiates transcoding. | Injecting the same URL into a later ad break succeeds after transcoding completes. For an immediate insertion, use a creative MediaTailor has already transcoded (a creative from a previous ad break, or a skippedAds[].creativeUrl value whose reason is not transcode-related), or inject by vastAdId with a VAST\_REQUEST function in the same chain so MediaTailor handles media selection and transcode registration. | 
+| The entry has neither a usable creativeUrl nor a vastAdId that matches an ad parsed by a VAST\_REQUEST call in the same hook invocation. | Call VAST\_REQUEST in the same function chain as the injection, and inject using the parsed ad's adId value as vastAdId. | 
+| The invocation exceeded the injection limit of 10 ads. | Injections beyond the limit are dropped. Reduce the number of injected ads per invocation. | 
+| The target ad break is not modifiable (mutable: false). | Only inject into ad breaks where mutable is true. | 
+| The injected ad's renditions don't match the stream's variants, or the added duration overflows the ad break. | Injected ads go through the same variant matching and fill policy as ads from the ADS. Verify the creative's renditions match the stream, and keep total ad duration within the ad break. | 

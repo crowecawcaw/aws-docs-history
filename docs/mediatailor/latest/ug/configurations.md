@@ -24,6 +24,7 @@ If you use a content delivery network (CDN) with MediaTailor, you must set up th
 + [Prefetching ads](prefetching-ads.md)
 + [Using preconditioned ads with AWS Elemental MediaTailor](precondition-ads.md)
 + [Working with MediaTailor Monetization Functions](monetization-functions.md)
++ [Working with MediaTailor Yield Optimization](yield-optimization.md)
 + [MediaTailor dynamic ad variables for ADS requests](variables.md)
 + [MediaTailor manifest query parameters](manifest-query-parameters.md)
 + [Reporting ad tracking data](ad-reporting.md)

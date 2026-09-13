@@ -16,7 +16,7 @@ Use `SEQUENTIAL_EXECUTOR` when your logic requires multiple steps that depend on
 A `SEQUENTIAL_EXECUTOR` function has the following fields:
 + **Runtime** — The expression language. Set this to `JSONATA`.
 + **FunctionList** — An ordered list of 1 to 10 steps. Each step specifies the `FunctionId` of the function to run. Optionally, you can add a `RunCondition` expression to control whether the step runs or is skipped.
-+ **Output** — Defines the values to produce after all steps complete. Each entry maps an output key (such as `player_params.envelope`) to an expression that can reference data produced by any step in the sequence. If omitted, all output from the individual functions in the sequence is used.
++ **Output** (required) — Defines the values to produce after all steps complete. Each entry maps an output key (such as `player_params.envelope`) to an expression that can reference data produced by any step in the sequence.
 + **TimeoutMilliseconds** (required) — The maximum time for the entire sequence to complete. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence.
 
 ## Ordered execution and data flow
@@ -45,12 +45,10 @@ This mechanism lets you build conditional pipelines. For example, you can run an
 ## How the output block works
 <a name="monetization-functions-types-sequential-executor-output"></a>
 
-The output block on a `SEQUENTIAL_EXECUTOR` controls what the sequence produces after all steps complete:
-+ **Output block present** — MediaTailor evaluates the expressions in the output block against the final accumulated state and saves only those outputs. Any outputs produced by earlier steps that are not referenced in the sequential output block are discarded.
-+ **Output block absent** — MediaTailor saves all accumulated outputs from all steps directly.
+The output block on a `SEQUENTIAL_EXECUTOR` controls what the sequence produces after all steps complete. MediaTailor evaluates the expressions in the output block against the final accumulated state and saves only those outputs. Any outputs produced by earlier steps that are not referenced in the sequential output block are discarded.
 
 **Tip**  
-Omit the output block when you want every function's output to pass through. Add an output block when you need to filter, rename, or transform the accumulated results before saving them.
+Use the output block to filter, rename, or transform the accumulated results before saving them. Steps can share intermediate results through `temp.*` keys and let the output block decide what is committed.
 
 ## Timeout configuration
 <a name="monetization-functions-types-sequential-executor-timeout"></a>

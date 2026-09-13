@@ -23,7 +23,7 @@ To enhance the playback experience, the player can display ad positions in the p
 **Note**  
 Some streaming providers prevent scrubbing past an ad position.
 
-![Screenshot showing MediaTailor marking positions in the video timeline where ads play.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/scrubbing.png)
+![Screenshot showing MediaTailor marking positions in the video timeline where ads play.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/scrubbing.png)
 
 
 The following client-side tracking payload JSON response shows the avail (ad break) start time inside the root JSON object of the avails array. The player uses this data to show the location of the ad break on the player timeline, at 28 seconds.
@@ -57,7 +57,7 @@ The following client-side tracking payload JSON response shows the avail (ad bre
 
 With MediaTailor you can use an ad countdown timer to help keep your audience engaged during ad-break viewing. The audience can use the timer to understand when the ad break ends and their program resumes.
 
-![Screenshot showing MediaTailor displaying an ad countdown timer, which tells the audience the time remaining until their program resumes.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ad-countdown-timer.png)
+![Screenshot showing MediaTailor displaying an ad countdown timer, which tells the audience the time remaining until their program resumes.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ad-countdown-timer.png)
 
 
 The elements in the client-side tracking metadata that play a role in the ad countdown timer are `startTime`, `startTimeInSeconds`, `duration`, and `durationInSeconds`. The player uses this metadata, along with the session's elapsed time that it tracks separately, to determine when to display the timer and the value it should be counting down from.
@@ -94,14 +94,14 @@ When the session's elapsed time reaches the avail's start time, the player displ
 + `session_start_time` = the sum of all `EXT-INF` duration values - the duration value of the three newest `EXT-INF` media sequences
 + timer value = `duration` - (`session_elapsed_time` - `startTime`)
 
-![Diagram showing the calculation of the ad countdown timer, based on the session's start time and avail's start time, for HLS (live and VOD) and DASH (VOD) manifests.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ad-countdown-timer-hls-dash-vod.png)
+![Diagram showing the calculation of the ad countdown timer, based on the session's start time and avail's start time, for HLS (live and VOD) and DASH (VOD) manifests.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ad-countdown-timer-hls-dash-vod.png)
 
 
 **Example formula: Countdown timer for DASH (live)**  
 + `session_start_time` = (newest segment's `startTime` \+ `duration`) / `timescale` - `MPD@suggestedPresentationDelay`
 + timer value = `duration` - (`session_elapsed_time` - `startTime`)
 
-![Diagram showing the calculation of the ad countdown timer, based on the session's start time and avail's start time, for live DASH manifests.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ad-countdown-timer-dash-live.png)
+![Diagram showing the calculation of the ad countdown timer, based on the session's start time and avail's start time, for live DASH manifests.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ad-countdown-timer-dash-live.png)
 
 
 ## Skippable ads
@@ -201,7 +201,7 @@ The following client-side tracking payload JSON response shows the ad metadata i
 
 Click-through URIs allow advertisers to measure how successful an ad is in capturing viewers' attention. After a viewer clicks the active video frame of an ad in progress, a web browser opens the URI for the advertiser's home page or campaign landing page. The player developer determines the click behavior, such as overlaying a button or label on the ad video, with a message to click to learn more. Player developers often pause the ad's video after viewers click on the active video frame.
 
-![Screenshot of an ad click-through in a video player. Viewers click the video frame. The player pauses the video, then opens a web browser to take the viewer to the advertiser’s home page or campaign landing page.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ad-clickthrough.png)
+![Screenshot of an ad click-through in a video player. Viewers click the video frame. The player pauses the video, then opens a web browser to take the viewer to the advertiser’s home page or campaign landing page.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ad-clickthrough.png)
 
 
 MediaTailor can parse and make available any linear video click-through event URLs returned in the VAST response. The following VAST response shows an ad click-through example.
@@ -683,7 +683,7 @@ The *Video Player Ad Interface Definition* (VPAID) specifies the protocol betwee
 **Note**  
 VPAID is deprecated as of VAST 4.1.
 
-![Diagram of VPAID ad playback. MediaTailor stitches slate segments for the avail duration in the content timeline. The player switches to the VPAID asset for the avail duration.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/interactive-ads-vpaid.png)
+![Diagram of VPAID ad playback. MediaTailor stitches slate segments for the avail duration in the content timeline. The player switches to the VPAID asset for the avail duration.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/interactive-ads-vpaid.png)
 
 
 The following example shows the VPAID content in the VAST response.
@@ -898,7 +898,7 @@ The following example shows the tracking information.
 
 *AdChoices* is an industry standard that provides viewers with information about the ads they see, including how those ads were targeted to them.
 
-![Google Why This Ad (WTA) logo. WTA informs viewers about the ads they see, including how those ads were targeted to them.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/google-wta.png)
+![Google Why This Ad (WTA) logo. WTA informs viewers about the ads they see, including how those ads were targeted to them.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/google-wta.png)
 
 
 The MediaTailor client-side tracking API supports icon metadata carried in the VAST extensions node of the VAST response. For more information about WTA in the VAST response, see [this sample VAST XML response](https://storage.googleapis.com/interactive-media-ads/ad-tags/ima_wta_sample_vast_3.xml).

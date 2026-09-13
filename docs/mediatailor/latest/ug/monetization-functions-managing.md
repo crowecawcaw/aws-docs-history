@@ -11,7 +11,7 @@ This page walks you through creating, attaching, updating, and deleting Function
 ### Creating a function using the console
 <a name="monetization-functions-managing-create-console"></a>
 
-1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/).
+1. Open the [MediaTailor console](https://console.aws.amazon.com/mediatailor/home).
 
 1. In the navigation pane, choose **Functions**.
 
@@ -19,7 +19,7 @@ This page walks you through creating, attaching, updating, and deleting Function
 
 1. For **Function ID**, enter a unique name for the function (for example, `fetchIdentity`).
 
-1. For **Function type**, choose `CUSTOM_OUTPUT`, `HTTP_REQUEST`, or `SEQUENTIAL_EXECUTOR`. The console displays the configuration fields for the selected type.
+1. For **Function type**, choose `CUSTOM_OUTPUT`, `HTTP_REQUEST`, `VAST_REQUEST`, `SEQUENTIAL_EXECUTOR`, or `CONCURRENT_EXECUTOR`. The console displays the configuration fields for the selected type.
 
 1. Fill in the type-specific configuration fields. For a description of each function type and its fields, see [Function types and composition](monetization-functions-types.md).
 
@@ -41,6 +41,8 @@ A function does not run until you attach it to a playback configuration through 
 1. For each lifecycle hook, select the function to attach:
    + **Session initialization hook** — Choose a function to run once at session start.
    + **Ad request hook** — Choose a function to run before each ADS request.
+   + **Post ads response hook** — Choose a function to run after each ADS response is received and parsed.
+   + **Pre manifest insertion hook** — Choose a function to run on the final ad set just before ads are inserted into the manifest.
 
 1. Choose **Save**.
 
@@ -94,7 +96,7 @@ MediaTailor prevents you from deleting a function that is still in use.
 | Condition | Result | 
 | --- | --- | 
 | Function is attached to a playback configuration via function mapping | Delete is blocked. Detach the function first. | 
-| Function is referenced in a SEQUENTIAL\_EXECUTOR | Delete is blocked. Remove the reference from the parent function first. | 
+| Function is referenced in a SEQUENTIAL\_EXECUTOR or CONCURRENT\_EXECUTOR | Delete is blocked. Remove the reference from the parent function first. | 
 | Function is not referenced anywhere | Delete succeeds. | 
 
 ## Validation rules
@@ -106,7 +108,7 @@ MediaTailor validates your function when you create or update it. The following 
 + **Output key prefixes** — All output keys must start with a recognized namespace prefix. For the list of accepted prefixes, see [Lifecycle hooks](monetization-functions-hooks.md).
 + **Function references** — All function IDs in a `FunctionList` must reference existing functions.
 + **Circular references** — A function cannot reference itself, directly or indirectly.
-+ **Nesting depth** — A `SEQUENTIAL_EXECUTOR` can call other functions, but those functions cannot themselves be `SEQUENTIAL_EXECUTOR`s.
++ **Nesting depth** — A `SEQUENTIAL_EXECUTOR` can call other functions, but those functions cannot themselves be executors.
 
 For specific values and size limits, see [Limits](monetization-functions-limits.md).
 

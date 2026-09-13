@@ -23,25 +23,25 @@ The following diagrams illustrate the complete server-side tracking workflow, sh
 **Phase 1: Session initialization**  
 The player requests a manifest from MediaTailor, which returns a personalized manifest containing ad segment URLs:  
 
-![Session initialization phase showing player requesting manifest from MediaTailor and receiving personalized manifest with ad segment URLs.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ss-track-phase1.png)
+![Session initialization phase showing player requesting manifest from MediaTailor and receiving personalized manifest with ad segment URLs.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ss-track-phase1.png)
 
 
 **Phase 2: Ad request and impression tracking**  
 When the player requests the first ad segment, MediaTailor fires impression and start beacons to both the Ad Decision Server and Ad Verification Services:  
 
-![Ad impression tracking phase showing MediaTailor sending both impression and start beacons to Ad Decision Server and Ad Verification Services when player requests first ad segment.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ss-track-phase2.png)
+![Ad impression tracking phase showing MediaTailor sending both impression and start beacons to Ad Decision Server and Ad Verification Services when player requests first ad segment.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ss-track-phase2.png)
 
 
 **Phase 3: Quartile tracking**  
 MediaTailor fires quartile beacons (first quartile, midpoint, third quartile, completion) based on subsequent segment requests:  
 
-![Quartile tracking phase showing MediaTailor firing quartile beacons to both Ad Decision Server and Ad Verification Services as player requests subsequent ad segments.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ss-track-phase3.png)
+![Quartile tracking phase showing MediaTailor firing quartile beacons to both Ad Decision Server and Ad Verification Services as player requests subsequent ad segments.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ss-track-phase3.png)
 
 
 **Phase 4: Segment delivery**  
 After firing tracking beacons, MediaTailor redirects to the actual ad segment from Amazon CloudFront or your CDN:  
 
-![Segment delivery phase showing MediaTailor redirecting player to actual ad segment from CloudFront or CDN after firing tracking beacons.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/ss-track-phase4.png)
+![Segment delivery phase showing MediaTailor redirecting player to actual ad segment from CloudFront or CDN after firing tracking beacons.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/ss-track-phase4.png)
 
 
 The server-side tracking workflow includes the following key timing behaviors:

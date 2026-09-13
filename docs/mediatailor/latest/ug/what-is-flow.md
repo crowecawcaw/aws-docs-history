@@ -7,7 +7,7 @@ AWS Elemental MediaTailor interacts between your content delivery network (CDN),
 
 Here's an overview of how MediaTailor ad insertion works:
 
-![MediaTailor receives content requests, retrieves content from origin server and ads from ADS, then returns personalized manifest.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/MediaTailorSSAI_Overview.png)
+![MediaTailor receives content requests, retrieves content from origin server and ads from ADS, then returns personalized manifest.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/MediaTailorSSAI_Overview.png)
 
 
 1. A player or CDN such as Amazon CloudFront sends a request to MediaTailor for HLS or DASH content. The request contains parameters from the player with information about the viewer, which is used for ad personalization.

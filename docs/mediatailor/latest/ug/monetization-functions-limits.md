@@ -14,8 +14,20 @@ This page lists the limits that apply to Functions. These limits are enforced at
 | PRE\_SESSION\_INITIALIZATION | Total timeout | 2,000 ms | 
 | PRE\_SESSION\_INITIALIZATION | Total player\_params size | 1,000 characters | 
 | PRE\_ADS\_REQUEST | Total timeout | 2,000 ms | 
+| POST\_ADS\_RESPONSE | Total timeout | 2,000 ms | 
+| POST\_ADS\_RESPONSE | Input payload size | 128 KB | 
+| POST\_ADS\_RESPONSE | Output size | 256 KB | 
+| PRE\_MANIFEST\_INSERTION | Total timeout | 2,000 ms | 
+| PRE\_MANIFEST\_INSERTION | Input payload size | 128 KB | 
+| PRE\_MANIFEST\_INSERTION | Output size | 256 KB | 
+| PRE\_MANIFEST\_INSERTION | Injected ads per invocation | 10 | 
+| Request-path hooks combined (per request) | Shared execution budget | 2,000 ms | 
 
 These timeouts cover the entire hook execution, including all function steps and HTTP calls. If the hook exceeds its timeout, MediaTailor discards all output and proceeds as if no function were attached.
+
+In addition to each hook's own timeout, the `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, and `PRE_MANIFEST_INSERTION` hooks that run within a single request share a combined execution budget of 2,000 ms. Time spent by an earlier hook reduces the budget available to later hooks in the same request, and a hook's effective timeout is the smaller of its own timeout and the remaining budget. If the budget is exhausted before a hook starts, MediaTailor skips that hook entirely and continues processing the request. `PRE_SESSION_INITIALIZATION` runs during session initialization and is not part of the combined budget.
+
+The input payload size limit applies to the serialized JSON input that MediaTailor builds for the `POST_ADS_RESPONSE` and `PRE_MANIFEST_INSERTION` hooks. If the input exceeds 128 KB, MediaTailor skips the hook invocation for that request. The output size limit caps the total serialized size that a function can write to the hook's writable namespace; output that exceeds 256 KB is discarded.
 
 Individual function timeouts (such as `RequestTimeoutMilliseconds` for HTTP\_REQUEST functions) must fit within the hook's total timeout. For example, if the hook timeout is 2,000 ms and an HTTP\_REQUEST function sets `RequestTimeoutMilliseconds` to 2,000 ms, the function may time out before completing if any processing occurs before or after the HTTP call.
 
@@ -57,8 +69,10 @@ These limits are enforced at authoring time.
 
 | Limit | Value | 
 | --- | --- | 
-| URL length | 2,048 characters | 
-| Request body size | 64 KB | 
+| URL expression length | 25,000 characters | 
+| URL length (after evaluation) | 2,048 characters | 
+| Body expression length | 100,000 characters | 
+| Request body size (after evaluation) | 64 KB | 
 | Header count | 50 | 
 | Header name length | 256 characters | 
 | Header value length | 8,192 characters | 
@@ -66,7 +80,7 @@ These limits are enforced at authoring time.
 | Allowed URL schemes | https, http | 
 | Restricted headers | Host, Transfer-Encoding, Content-Length, Connection | 
 
-URL length, body size, header count, and header size limits are enforced at authoring time. Request timeout and restricted headers are enforced at runtime.
+Expression length limits and header limits are enforced at authoring time, when you create or update the function. The evaluated URL and body size limits, the request timeout, and restricted headers are enforced at runtime, after MediaTailor evaluates the expressions. A URL expression that is accepted at authoring time can still exceed the evaluated URL limit at runtime, in which case the request is not sent.
 
 If a function sets a restricted header, MediaTailor accepts the function configuration at authoring time but drops the header when the HTTP request is sent during execution.
 

@@ -45,7 +45,7 @@ Select origin request policies based on content type to prevent cache poisoning 
 + **S3 origins**: Use `CORS-S3Origin` for Amazon S3 buckets
 + **MediaPackage origins**: Use `CORS-S3Origin` for MediaPackage V2 endpoints
 
-![Origins table showing origin name, domain, path, type, Shield region, and access columns.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/origins-cdn.png)
+![Origins table showing origin name, domain, path, type, Shield region, and access columns.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/origins-cdn.png)
 
 
 ## Cache behavior precedence and configuration
@@ -58,7 +58,7 @@ MediaTailor requires specific cache behavior configurations to handle different 
 
 If requests aren't behaving as expected, check that your path patterns don't overlap in unintended ways.
 
-![Behaviors table showing precedence, path patterns, origin groups, and policy configurations.](http://docs.aws.amazon.com/mediatailor/latest/ug/images/bhv.png)
+![Behaviors table showing precedence, path patterns, origin groups, and policy configurations.](https://docs.aws.amazon.com/mediatailor/latest/ug/images/bhv.png)
 
 
 ### Precedence 0: Ad segments path behavior

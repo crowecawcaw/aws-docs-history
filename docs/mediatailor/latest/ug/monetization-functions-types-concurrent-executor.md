@@ -16,7 +16,7 @@ Use `CONCURRENT_EXECUTOR` when your logic requires multiple independent operatio
 A `CONCURRENT_EXECUTOR` function has the following fields:
 + **Runtime** – The expression language. Set this to `JSONATA`.
 + **FunctionList** – A list of 1 to 10 children to run in parallel. Each entry specifies the `FunctionId` of the function to run. Optionally, you can add a `RunCondition` expression to control whether the child runs or is skipped. You can also add an `Alias` to give the child a unique name within the executor.
-+ **Output** – Defines the values to produce after all children complete. Each entry maps an output key (such as `player_params.device_type`) to an expression that can reference data produced by any child in the executor.
++ **Output** (required) – Defines the values to produce after all children complete. Each entry maps an output key (such as `player_params.device_type`) to an expression that can reference data produced by any child in the executor.
 + **MaxConcurrency** – The maximum number of children that can run simultaneously. Valid range: `1`–`2`. Default: `2`.
 + **TimeoutMilliseconds** (required) – The maximum time for the entire executor to complete. If the executor exceeds this timeout, MediaTailor discards all output from the executor. Default: `2000`.
 
