@@ -297,17 +297,17 @@ The following diagrams show example architectures for multiple application VPC c
 
 **Single AZ with multiple Application VPC peers:**
 
-![ODBNetwork with Oracle Database@AWS connecting to applications in VPC1, VPC2, and VPC3 via ODB Peering.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/Single-AZ-map.png)
+![ODBNetwork with Oracle Database@AWS connecting to applications in VPC1, VPC2, and VPC3 via ODB Peering.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/Single-AZ-map.png)
 
 
 **Multi-AZ with a single application VPC peer:**
 
-![Application VPC in two availability zones connected via ODB peering to Oracle Database networks.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/Multi-AZ-single-peering.png)
+![Application VPC in two availability zones connected via ODB peering to Oracle Database networks.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/Multi-AZ-single-peering.png)
 
 
 **Multi-AZ with Data Guard Observer for fast start failover (FSFO):**
 
-![Oracle Database deployment across three AZs with Data Guard replication and observer instance.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/Multipe-AZ-with-DG.png)
+![Oracle Database deployment across three AZs with Data Guard replication and observer instance.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/Multipe-AZ-with-DG.png)
 
 
 **Note**  
@@ -363,7 +363,7 @@ In Oracle Database@AWS, an ODB network supports up to 45 peering connections. Yo
 
 The following diagram shows a transit gateway that is connected to two VPCs and one on-premises network. 
 
-![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-tgw.png)
+![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-tgw.png)
 
 
 In the preceding diagram, one VPC is peered to an ODB network. In this configuration, the ODB network can route traffic to all VPCs attached to the transit gateway. The route table for each VPC includes both the local route and routes that send traffic destined for the ODB network to the transit gateway.
@@ -426,7 +426,7 @@ In Oracle Database@AWS, an ODB network supports up to 45 peering connections. Yo
 
 The following diagram shows an AWS Cloud WAN core network that is connected to three VPCs and one on-premises network. 
 
-![Shows an ODB network peered with a VPC that is connected to a AWS Cloud WAN core network. The network is connected to three VPCs and an on-premises network.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/odb-cwan.png)
+![Shows an ODB network peered with a VPC that is connected to a AWS Cloud WAN core network. The network is connected to three VPCs and an on-premises network.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/odb-cwan.png)
 
 
 AWS Cloud WAN doesn't offer native integration to use an ODB network as an attachment. Therefore, VPC features such as the following aren't available:

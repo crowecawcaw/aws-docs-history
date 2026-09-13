@@ -11,7 +11,7 @@ After you have created your resources in AWS, you use OCI APIs to create and man
 
 The following diagram shows the Oracle Database@AWS architecture. 
 
-![Shows the high-level architecture of Oracle Database@AWS, including the relationship between an AZ, VPC, ODB network, and Oracle Cloud Infrastructure (OCI) region](http://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB.png)
+![Shows the high-level architecture of Oracle Database@AWS, including the relationship between an AZ, VPC, ODB network, and Oracle Cloud Infrastructure (OCI) region](https://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB.png)
 
 
 ## OCI child sites
@@ -19,7 +19,7 @@ The following diagram shows the Oracle Database@AWS architecture.
 
 Oracle Cloud Infrastructure is hosted in OCI regions and availability domains. An OCI region consists of OCI availability domains (ADs), which are isolated data center clusters within an OCI region. An OCI child site is a data center that extends an OCI availability domain to an Availability Zone (AZ) in an AWS Region. The Exadata infrastructure logically resides in an OCI region and physically resides in an AWS Region.
 
-![Shows an OCI child site within an AWS Region with infrastructure layout and connectivity details.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-child-site.png)
+![Shows an OCI child site within an AWS Region with infrastructure layout and connectivity details.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-child-site.png)
 
 
 The OCI child site for Oracle Database@AWS physically resides in an AWS data center. AWS hosts the Exadata infrastructure, and OCI provisions and maintains the Exadata infrastructure hardware inside the data center. You can configure the Exadata infrastructure, private network, and VM clusters using the AWS console, CLI, or APIs. You can use AWS services such as Amazon EC2 and Amazon VPC to allow application access to Oracle Exadata databases running on the infrastructure.
@@ -44,7 +44,7 @@ To learn how to create Oracle Exadata infrastructure, see [Step 2: Create an Ora
 
 An ODB network is a private isolated network that hosts OCI infrastructure in an AWS Availability Zone (AZ). The ODB network consists of a CIDR range of IP addresses. The ODB network maps directly to the network that exists within the OCI child site, thus serving as the means of communication between AWS and OCI. You must specify an ODB network when you create your Exadata VM clusters (see [Step 3: Create an Exadata VM cluster or Autonomous VM cluster in Oracle Database@AWS](getting-started.md#getting-started-vm)).
 
-![Shows an ODB network within an AZ with network boundaries, subnets, and routing components.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-network.png)
+![Shows an ODB network within an AZ with network boundaries, subnets, and routing components.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-network.png)
 
 
 You provision resources in an ODB network using Oracle Database@AWS APIs. The ODB network is managed by AWS, but you can set up an ODB peering connection to connect an Amazon VPC to the ODB network. For more information, see [ODB peering](#how-it-works.peering).
@@ -102,7 +102,7 @@ By default, the ODB network doesn't have connectivity to VPCs. To connect the OD
 **Note**  
 ODB peering is different from VPC peering, which is a peering connection between two VPCs that routes traffic between them.
 
-![Shows an ODB network peered with a VPC with connection points and network traffic paths.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-peering.png)
+![Shows an ODB network peered with a VPC with connection points and network traffic paths.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-peering.png)
 
 
 You can peer an ODB network in one account and a VPC in another account using AWS RAM. If you share an ODB network with another account, the trust account can directly initiate peering. The account that initiates the ODB peering connection owns and manages the connection.
@@ -158,7 +158,7 @@ To allow multiple VPCs to access Oracle Database@AWS resources in one ODB networ
 
 An Amazon VPC transit gateway is a network transit hub used to interconnect VPCs and on-premises networks. An ODB network supports up to 45 direct peering connections. You can establish direct peering connections between your ODB network and multiple VPCs, or use a transit gateway for centralized routing. To use a transit gateway, peer your ODB network to a VPC and then attach this VPC to the transit gateway. The gateway can connect to multiple VPCs. With this transit gateway configuration, you can route traffic between multiple VPC subnets and your ODB network through a central hub.
 
-![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](http://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-tgw.png)
+![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-tgw.png)
 
 
 For more information, see [Configuring Amazon VPC Transit Gateways for Oracle Database@AWS](configuring.md#configuring-tgw).
