@@ -10,7 +10,7 @@ Data mesh is a decentralized architectural and organizational framework that hel
 ## Data Mesh Reference Architecture with Amazon DataZone
 <a name="diagram1"></a>
 
-![Architecture diagram showing a data mesh using Amazon DataZone with Amazon S3, AWS Glue, Amazon Redshift, and SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-mesh-datazone/images/data-mesh-datazone.png)
+![Architecture diagram showing a data mesh using Amazon DataZone with Amazon S3, AWS Glue, Amazon Redshift, and SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-mesh-datazone/images/data-mesh-datazone.png)
 
 
 The following steps describe the architecture:
