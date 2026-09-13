@@ -10,7 +10,7 @@ This architecture shows how to build a central logging and analytics solution. Y
 ## Central Logging and Analytics in Hybrid Environments
 <a name="diagram1"></a>
 
-![Architecture diagram showing a central logging and analytics solution for hybrid environments with Amazon CloudWatch.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/central-logging-analytics-hybrid/images/central-logging-analytics-hybrid.png)
+![Architecture diagram showing a central logging and analytics solution for hybrid environments with Amazon CloudWatch.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/central-logging-analytics-hybrid/images/central-logging-analytics-hybrid.png)
 
 
 1. Install the Amazon CloudWatch agent on VMs on-premises.
