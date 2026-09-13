@@ -10,7 +10,7 @@ This architecture enables you to integrate Amazon Elastic Kubernetes Service (Am
 ## Modernize Applications with Microservices Using Amazon EKS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to integrate Amazon EKS with VMware Cloud on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/modernize-applications-with-microservices-using-amazon-eks/images/modernize-applications-with-microservices-using-amazon-eks.png)
+![Reference architecture diagram showing how to integrate Amazon EKS with VMware Cloud on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/modernize-applications-with-microservices-using-amazon-eks/images/modernize-applications-with-microservices-using-amazon-eks.png)
 
 
 1. The Elastic Network Interface is automatically attached to the **Amazon Elastic Compute Cloud** (Amazon EC2) bare metal (ESXi) hosts in VMware Cloud on AWS during the software-defined data center (SDDC) provisioning. 
