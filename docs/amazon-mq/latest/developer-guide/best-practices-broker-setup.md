@@ -41,3 +41,5 @@ Amazon MQ for RabbitMQ does not support the username "guest", and will delete th
 <a name="use-multiple-channels"></a>
 
  To avoid connection churn, use multiple channels over a single connection. Applications should avoid a 1:1 connection to channel ratio. We recommend using one connection for each process, and then one channel for each thread. Avoid excessive channel usage to prevent channel leaks. 
+
+Clients that connect to a broker over TLS are responsible for verifying the broker certificate. For guidance, see [Best practices for TLS certificate verification in Amazon MQ for RabbitMQ](verify-broker-certificate-rabbitmq.md).

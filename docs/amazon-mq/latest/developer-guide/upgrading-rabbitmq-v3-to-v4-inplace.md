@@ -25,11 +25,14 @@ If your Amazon MQ for RabbitMQ 3 broker has Khepri enabled, there is no in-place
 ## Step 2: Migrate classic queues to quorum queues
 <a name="upgrading-rabbitmq-v3-to-v4-inplace-step2"></a>
 
- Classic mirrored queues are not supported in RabbitMQ 4. Amazon MQ will prevent in-place upgrades to RabbitMQ 4 if the broker has classic queues or classic mirrored queues. 
+ Classic mirrored queues are not supported in RabbitMQ 4. Amazon MQ will prevent in-place upgrades to RabbitMQ 4 if the broker has classic mirrored queues. 
+
+**Note**  
+ Classic queues are supported on RabbitMQ 4. If you are upgrading a single-instance broker with classic queues, you can skip this step. 
 
  Amazon MQ provides a queue migration tool to migrate classic queues to quorum queues. This tool is accessible through the RabbitMQ web console under **Admin** > **Queue Migration**, or through the HTTP API. 
 
- To use the tool see, [Amazon MQ queue migration tool](https://github.com/amazon-mq/rabbitmq-queue-migration). 
+ To use the tool, see [Amazon MQ queue migration tool](https://github.com/amazon-mq/rabbitmq-queue-migration) on the GitHub website. 
 
 ## Step 3: Upgrade the engine version from RabbitMQ 3.13 to 4.2
 <a name="upgrading-rabbitmq-v3-to-v4-inplace-step3"></a>
@@ -52,7 +55,7 @@ If the calling role does not have these permissions, the `UpdateBroker` API retu
 
  You can monitor the upgrade progress using the [DescribeBroker](https://docs.aws.amazon.com/amazon-mq/latest/api-reference/brokers-broker-id.html#DescribeBroker) API or the broker quarantine state on the Amazon MQ console. 
 
- Amazon MQ runs an upgrade eligibility check at the start of the upgrade. If it identifies classic queues or if Khepri is enabled, Amazon MQ puts the broker in `CRITICAL_ACTION_REQUIRED` state with the action required code `RABBITMQ_BROKER_NOT_UPGRADEABLE_TO_V4`. Amazon MQ will not apply the major version upgrade and will make the broker available for publishing and consuming. 
+ Amazon MQ runs an upgrade eligibility check at the start of the upgrade. If it identifies classic mirrored queues or if Khepri is enabled, Amazon MQ puts the broker in `CRITICAL_ACTION_REQUIRED` state with the action required code `RABBITMQ_BROKER_NOT_UPGRADEABLE_TO_V4`. Amazon MQ will not apply the major version upgrade and will make the broker available for publishing and consuming. 
 
  To continue the upgrade, resolve the underlying issue. For more information, see [RABBITMQ\_BROKER\_NOT\_UPGRADEABLE\_TO\_V4](troubleshooting-action-required-codes-rabbitmq-not-upgradeable-to-v4.md). 
 

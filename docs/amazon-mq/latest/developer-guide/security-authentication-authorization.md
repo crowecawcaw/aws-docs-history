@@ -66,7 +66,7 @@ For the broker host to be able to successfully communicate with the LDAP server,
 
 The following image highlights where to supply these details.
 
-![Where to specify LDAP service account details.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-service-account.png)
+![Where to specify LDAP service account details.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-service-account.png)
 
 
 In the **LDAP login configuration** section, provide the following required information:
@@ -77,7 +77,7 @@ In the **LDAP login configuration** section, provide the following required info
 
  The following image highlights where to specify these details.
 
-![Where to specify LDAP login details.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-login-configuration.png)
+![Where to specify LDAP login details.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-login-configuration.png)
 
 
 In the **Optional settings** section, you can provide the following optional information:
@@ -101,7 +101,7 @@ In the **Optional settings** section, you can provide the following optional inf
 
 The following image highlights where to specify these optional settings.
 
-![Optional settings section with fields for User Role Name, Role Name, and checkboxes for subtree search.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-active-ldap-optional-settings.png)
+![Optional settings section with fields for User Role Name, Role Name, and checkboxes for subtree search.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-active-ldap-optional-settings.png)
 
 
 ## How LDAP integration works
@@ -122,7 +122,7 @@ OU=Users,OU=corp,DC=corp,DC=example,DC=com
 
 The ActiveMQ broker would search at this location in the DIT for users in order to authenticate client connection requests to the broker.
 
-![Location to search for users](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-structure.png)
+![Location to search for users](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-structure.png)
 
 
 Because the ActiveMQ source code hardcodes the attribute name for users to `uid`, you must make sure that each user has this attribute set. For simplicity, you can use the user’s connection username. For more information, see the [activemq](https://github.com/apache/activemq/blob/c3d9b388e4f1fe73e348bf466122fe6862e064a0/activemq-broker/src/main/java/org/apache/activemq/security/SimpleCachedLDAPAuthorizationMap.java#L89) source code and [Configuring ID mappings in Active Directory Users and Computers for Windows Server 2016 (and subsequent) versions](https://www.ibm.com/support/knowledgecenter/en/STXKQY_5.0.3/com.ibm.spectrum.scale.v5r03.doc/bl1adm_confidmapaduc.htm).
@@ -173,7 +173,7 @@ This would mean that your queue search base, which provides authorization inform
 OU=Queue,OU=Destination,OU=corp,DC=corp,DC=example,DC=com
 ```
 
-![Queue search base location.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-queue-structure.png)
+![Queue search base location.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-queue-structure.png)
 
 
 Similarly, permissions rules for topics and temp destinations would be located at the same level in the DIT: 
@@ -200,7 +200,7 @@ To provide authorization rules for specific queues, such as DEMO.MYQUEUE, specif
 OU=DEMO.MYQUEUE,OU=Queue,OU=Destination,OU=corp,DC=corp,DC=example,DC=com
 ```
 
-![Authorization rules for specific queues](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-authorization-rules.png)
+![Authorization rules for specific queues](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-authorization-rules.png)
 
 
 ### Security Groups
@@ -210,13 +210,13 @@ Within each OU that represents a destination or a wildcard, you must create thre
 
 You must name these security groups `read`, `write`, and `admin`. Within each of these security groups, you can add users or groups, who will then have permission to perform the associated actions. You’ll need these security groups for each wildcard destination set or individual destination. 
 
-![Security groups](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-security-groups.png)
+![Security groups](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-security-groups.png)
 
 
 **Note**  
 When you create the admin group, a conflict will arise with the group name. This conflict happens because the legacy pre-Windows 2000 rules do not allow groups to share the same name, even if the groups are in different locations of the DIT. The value in the **pre-Windows 2000** text box has no impact on the setup, but it must be globally unique. To avoid this conflict, you can append a `uuid` suffix to each `admin` group.  
 
-![This is my image.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-admin-qualifier.png)
+![This is my image.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/active-mq-ldap-admin-qualifier.png)
 
 
 Adding a user to the `admin` security group for a particular destination will enable the user to create and delete that topic. Adding them to the `read` security group will enable them to read from the destination, and adding them to the `write` group will enable them to write to the destination.

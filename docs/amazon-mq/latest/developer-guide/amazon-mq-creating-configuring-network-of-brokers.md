@@ -41,7 +41,7 @@ The following example uses two [single-instance brokers](amazon-mq-broker-archit
 
 After you create your brokers, you must allow traffic between them.
 
-1. On the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/), on the **MyBroker2** page, in the **Details** section, under **Security and network**, choose the name of your security group or ![Pencil icon indicating an edit or modification action.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-broker-details-link.png).
+1. On the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/), on the **MyBroker2** page, in the **Details** section, under **Security and network**, choose the name of your security group or ![Pencil icon indicating an edit or modification action.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-broker-details-link.png).
 
    The **Security Groups** page of the EC2 Dashboard is displayed.
 

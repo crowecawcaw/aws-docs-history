@@ -92,7 +92,10 @@ To get aggregated cluster-wide metrics, you can find the corresponding per-node 
 ## Dimensions for RabbitMQ queue metrics
 <a name="security-logging-monitoring-cloudwatch-dimensions-queue-rabbitmq"></a>
 
-**Note**  
+**RabbitMQ version 4.x dimension deprecation**  
+If you use RabbitMQ version 4.x brokers, you can no longer use the `Queue` and `VirtualHost` dimensions. To query per-queue metrics, use the Prometheus endpoint instead.
+
+**Unsupported characters in virtual host and queue names**  
 Amazon MQ for RabbitMQ will not publish metrics for virtual hosts and queues with names containing blank spaces, tabs or other non-ASCII characters.  
 For more information about dimension names, see [Dimension](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Dimension.html#API_Dimension_Contents) in the *Amazon CloudWatch API Reference*. 
 

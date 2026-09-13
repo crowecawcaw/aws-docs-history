@@ -18,7 +18,7 @@ To create a new broker configuration, first create the new configuration.
 1. Sign in to the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/).
 
 1. On the left, expand the navigation panel and choose **Configurations**.  
-![Amazon MQ navigation panel showing Brokers and Configurations options.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-create-configuration.png)
+![Amazon MQ navigation panel showing Brokers and Configurations options.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-create-configuration.png)
 
 1. On the **Configurations** page, choose **Create configuration**.
 
@@ -42,7 +42,7 @@ The first configuration revision is always created for you when Amazon MQ create
 1. On the **Configuration details** tab, the configuration revision number, description, and broker configuration in XML format are displayed.
 **Note**  
 Editing the current configuration creates a new configuration revision.  
-![XML configuration snippet for ActiveMQ broker with explanatory comment.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-edit-configuration.png)
+![XML configuration snippet for ActiveMQ broker with explanatory comment.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-edit-configuration.png)
 
 1. Choose **Edit configuration** and make changes to the XML configuration.
 
@@ -64,7 +64,7 @@ The Amazon MQ console automatically sanitizes invalid and prohibited configurati
 After revising the configuration, you can apply the configuration revision to your broker.
 
 1. On the left, expand the navigation panel and choose **Brokers**.  
-![Amazon MQ navigation panel showing Brokers and Configurations options.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-apply-configuration.png)
+![Amazon MQ navigation panel showing Brokers and Configurations options.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-apply-configuration.png)
 
 1. From the broker list, select your broker (for example, **MyBroker**) and then choose **Edit**.
 

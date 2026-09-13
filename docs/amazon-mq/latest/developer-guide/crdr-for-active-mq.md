@@ -12,7 +12,7 @@
 
  The following diagram illustrates a replica broker in a secondary Region receiving asynchronous replicated data from the primary broker in the primary Region. 
 
-![Diagram showing primary and replica brokers in different AWS regions with replication traffic flow.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/primary-replica-connection.png)
+![Diagram showing primary and replica brokers in different AWS regions with replication traffic flow.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/primary-replica-connection.png)
 
 
  Primary and replica brokers act as a cross-Region data recovery solution. If the primary broker in the primary Region fails, you can promote the replica broker in the secondary Region to primary by initiating a switchover or failover. The former primary broker then becomes the replica broker, and the former replica broker is promoted to primary broker. For instructions on creating a primary and replica broker, see [Creating an Amazon MQ cross-Region data replication broker](create-replica-broker.md). 

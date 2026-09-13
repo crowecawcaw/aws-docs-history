@@ -38,7 +38,7 @@ Don't specify the `password` attribute for the `<networkConnector>`. We don't re
 
 To configure a network of brokers that spans AWS regions, deploy brokers in those regions, and configure network connectors to the endpoints of those brokers.
 
-![Cross-region mesh topology](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-nob-cross-region.png)
+![Cross-region mesh topology](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-nob-cross-region.png)
 
 
 To configure a network of brokers like this example, you could add `networkConnectors` entries to the configurations of *Broker1* and *Broker4* that reference the wire-level endpoints of those brokers.

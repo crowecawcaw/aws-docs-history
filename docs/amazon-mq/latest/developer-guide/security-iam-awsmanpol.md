@@ -45,4 +45,5 @@ View details about updates to AWS managed policies for Amazon MQ since this serv
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AmazonMQFullAccess](/aws-managed-policy/latest/reference/AmazonMQFullAccess.html) | Amazon MQ added `cloudformation:TagResource` and `cloudformation:UntagResource` permissions to the `AmazonMQFullAccess` policy. These permissions are scoped with a `cloudformation:CreateAction` condition key, allowing tagging and untagging only during CloudFormation stack creation. | August 27 2026 | 
 | Amazon MQ started tracking changes | Amazon MQ started tracking changes for its AWS managed policies. | May 5, 2021 | 

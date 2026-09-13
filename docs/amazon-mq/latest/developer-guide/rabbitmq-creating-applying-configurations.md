@@ -18,7 +18,7 @@ You can only **delete** a configuration using the `DeleteConfiguration` API. For
 1. Sign in to the [Amazon MQ console](https://console.aws.amazon.com/amazon-mq/).
 
 1. On the left, expand the navigation panel and choose **Configurations**.  
-![Amazon MQ navigation panel showing Brokers and Configurations options.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-create-configuration.png)
+![Amazon MQ navigation panel showing Brokers and Configurations options.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-create-configuration.png)
 
 1. On the **Configurations** page, choose **Create configuration**.
 
@@ -64,7 +64,7 @@ Currently, you can't delete a configuration.
  After creating the configuration revision, you can apply the configuration revision to your broker. 
 
 1. On the left, expand the navigation panel and choose **Brokers**.  
-![Amazon MQ navigation panel showing Brokers and Configurations options.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-apply-configuration.png)
+![Amazon MQ navigation panel showing Brokers and Configurations options.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-apply-configuration.png)
 
 1. From the broker list, select your broker (for example, **MyBroker**) and then choose **Edit**.
 

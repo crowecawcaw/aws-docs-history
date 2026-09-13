@@ -45,7 +45,7 @@ To ensure that your broker is accessible within your VPC, you must enable the `e
 
 1. On the **{{MyBroker}}** page, in the **Connections** section, note the addresses and ports of the broker's web console URL and wire-level protocols.
 
-1. In the **Details** section, under **Security and network**, choose the name of your security group or ![](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-broker-details-link.png).
+1. In the **Details** section, under **Security and network**, choose the name of your security group or ![](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-broker-details-link.png).
 
    The **Security Groups** page of the EC2 Dashboard is displayed.
 

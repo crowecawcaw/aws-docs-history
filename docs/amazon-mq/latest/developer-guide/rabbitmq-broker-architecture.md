@@ -21,7 +21,7 @@ A *single-instance broker* is comprised of one broker in one Availability Zone b
 
 The following diagram illustrates an Amazon MQ for RabbitMQ single-instance broker.
 
-![Client connecting through Network Load Balancer to Amazon MQ Broker and EBS Volume in us-west-2a.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-rabbitmq-broker-architecture-single-broker.png)
+![Client connecting through Network Load Balancer to Amazon MQ Broker and EBS Volume in us-west-2a.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-rabbitmq-broker-architecture-single-broker.png)
 
 
 ## Option 2: Amazon MQ for RabbitMQ cluster deployment
@@ -42,4 +42,4 @@ The default policy should not be deleted. If you do delete this policy, Amazon M
 
  The following diagram illustrates a RabbitMQ cluster broker deployment with three nodes in three Availability Zones (AZ), each with its own Amazon EBS volume and a shared state. Amazon EBS provides block level storage optimized for low-latency and high throughput. 
 
-![Illustrates the cluster deployment broker architecture for RabbitMQ brokers.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-rabbitmq-broker-architecture-cluster-broker.png)
+![Illustrates the cluster deployment broker architecture for RabbitMQ brokers.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-rabbitmq-broker-architecture-cluster-broker.png)

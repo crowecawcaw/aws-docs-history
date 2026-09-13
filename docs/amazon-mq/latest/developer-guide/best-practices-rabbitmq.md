@@ -15,3 +15,4 @@ Currently, Amazon MQ does not support [streams](https://www.rabbitmq.com/streams
 + [Best practices for network resilience and monitoring in Amazon MQ for RabbitMQ](best-practices-network-resilience.md)
 + [Best practices for resource naming in Amazon MQ for RabbitMQ](best-practices-resource-naming.md)
 + [Configurable storage best practices for Amazon MQ for RabbitMQ](best-practices-configurable-storage.md)
++ [Best practices for TLS certificate verification in Amazon MQ for RabbitMQ](verify-broker-certificate-rabbitmq.md)

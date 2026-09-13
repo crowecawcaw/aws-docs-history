@@ -10,7 +10,7 @@
 1. From the broker list, choose the name of your broker (for example, **MyBroker**) and then choose **View details**.
 
    On the **{{MyBroker}}** page, in the **Users** section, all the users for this broker are listed.  
-![Table showing two users with their console access and group information.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-list-users.png)
+![Table showing two users with their console access and group information.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-list-users.png)
 
 1. Select your sign-in credentials and choose **Edit**.
 

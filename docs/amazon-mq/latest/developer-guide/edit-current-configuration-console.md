@@ -20,7 +20,7 @@ Unless you select a configuration when you create a broker, the first configurat
 1. On the **Configuration details** tab, the configuration revision number, description, and broker configuration in XML format are displayed.
 **Note**  
 Editing the current configuration creates a new configuration revision.  
-![XML configuration snippet for ActiveMQ broker with explanatory comment.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-edit-configuration.png)
+![XML configuration snippet for ActiveMQ broker with explanatory comment.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/amazon-mq-tutorials-edit-configuration.png)
 
 1. Choose **Edit configuration** and make changes to the XML configuration.
 

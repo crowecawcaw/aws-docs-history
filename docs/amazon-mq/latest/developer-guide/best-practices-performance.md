@@ -18,7 +18,7 @@
 
  The following diagram demonstrates how to use Amazon MQ for RabbitMQ and Amazon S3 to implement the claim check pattern. 
 
-![Diagram showing data flow between Producer, Consumer, Amazon MQ broker, and AWS S3.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/claim-check-pattern.png)
+![Diagram showing data flow between Producer, Consumer, Amazon MQ broker, and AWS S3.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/claim-check-pattern.png)
 
 
  The following example demonstrates this pattern using Amazon MQ, the [AWS SDK for Java 2.x](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/home.html), and [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html): 

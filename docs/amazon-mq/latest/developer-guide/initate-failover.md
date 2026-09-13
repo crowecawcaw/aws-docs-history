@@ -11,12 +11,12 @@
 
  The following diagram illustrates a switchover in which neither broker accepts client connections while the replication queue is being drained and broker states are synchronized. In this process, the client in the primary broker’s VPC is unable to produce further state changes while the operation is in progress, and the primary broker is being demoted to a replica. When the replication queue is drained and the two brokers achieve identical state, the client in the replica broker’s VPC is unable to connect to the replica broker until the failover operation completes, and the replica broker is promoted to primary. 
 
-![Broker switchover with primary broker demotion in us-east-1 and replica promotion in us-west-2.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/planned-failover-process.png)
+![Broker switchover with primary broker demotion in us-east-1 and replica promotion in us-west-2.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/planned-failover-process.png)
 
 
  The following diagram illustrates the broker status after the switchover process is complete. The original replica broker has now been promoted to the primary broker role and is accepting client connections. The client can produce and consume data from the broker. 
 
-![Primary broker in us-west-2 connects to EC2 client, with failed replica broker in us-east-1.](http://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/finished-failover-process.png)
+![Primary broker in us-west-2 connects to EC2 client, with failed replica broker in us-east-1.](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/images/finished-failover-process.png)
 
 
 ## Promote the replica broker using the console
