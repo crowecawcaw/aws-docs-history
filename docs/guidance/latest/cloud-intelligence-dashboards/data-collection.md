@@ -22,7 +22,7 @@ Resources for this workshop are deployed with AWS CloudFormation in several acco
    +  **Linked Accounts StackSet** - Some information can be collected only on the level of each individual Linked Account, and this StackSet will deploy a Stack to each of those accounts with an AWS IAM Role granting the permissions required for your selected module.
    +  **Linked Accounts Role Stack for Management Account** - (optional) CloudFormation StackSets only deploy resources into Linked Accounts and do not deploy into the Management Account. This stack is only needed if you deploy any modules that collect data directly from Linked Accounts and the Management Account also contains relevant resources that you want to additionally include.
 
-![Data Collection architecture diagram](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/architecture.png)
+![Data Collection architecture diagram](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/architecture.png)
 
 
 1. An [Amazon EventBridge](https://aws.amazon.com/eventbridge/) Rule invokes a Step Function of every deployed data collection module, based on a configurable schedule.

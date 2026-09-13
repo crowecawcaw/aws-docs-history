@@ -30,7 +30,7 @@ This plugin aims at summarizing the [AWS support cases](https://docs.aws.amazon.
 ## Architecture Overview
 <a name="architecture-overview"></a>
 
-![Data Collection Overview](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/support_cases_summarization_arch.png)
+![Data Collection Overview](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/support_cases_summarization_arch.png)
 
 
 The Summarization Stack deploys a rule to Default Eventbridge bus to capture events sent by the Data Collection Stack. The Eventbridge Rule processes the message by sending it to an Amazon SQS queue. The SQS Queue is responsible for triggering a lambda function that executes Bedrock API call for the summarization and enriches the collected support case data by adding the summaries back to Amazon S3.
@@ -53,7 +53,7 @@ To get AWS Support Cases Summarized you need to [add access to Amazon Bedrock fo
 #### Click here to see instructions on the AWS Console
 <a name="collapsible-section-id-summarization-plugin-1"></a>
 
-![Enable Foundation Model on Amazon Bedrock](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/support_cases_summarization_model_access.gif)
+![Enable Foundation Model on Amazon Bedrock](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/support_cases_summarization_model_access.gif)
 
 
 ### Step 3 of 4: (Optional) Deploy an Amazon Bedrock Guardrail in the Data Collection Account in the Inference Region
@@ -63,7 +63,7 @@ To get AWS Support Cases Summarized you need to [add access to Amazon Bedrock fo
 
 We provide an example of Amazon Guardrails stack, but if your company is already using Guardrails you can skip this Step and continue to installation of the Plugin Stack (Step 4).
 
- [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/plugins/support-case-summarization/guardrail/guardrail.yaml&stackName=CidSupportCaseBedrockGuardrailStack) 
+ [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/plugins/support-case-summarization/guardrail/guardrail.yaml&stackName=CidSupportCaseBedrockGuardrailStack) 
 
 #### Click here to know more about plugin stack parameters
 <a name="collapsible-section-id-summarization-plugin-2"></a>
@@ -98,7 +98,7 @@ This plugin comes with the following reasonable defaults that can be overridden 
 
 In this step we will deploy the summarization Plugin stack via cloud formation.
 
- [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/case-summarization/case-summarization.yaml&stackName=CidSupportCaseSummarizationStack) 
+ [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/case-summarization/case-summarization.yaml&stackName=CidSupportCaseSummarizationStack) 
 
 #### Click here to know more about plugin stack parameters
 <a name="collapsible-section-id-summarization-plugin-3"></a>

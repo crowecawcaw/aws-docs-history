@@ -31,7 +31,7 @@ Using the RLS (Row-Level Security) mechanism, this dashboard can be shared withi
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=cora) 
 
-![CORA Dashboard Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cora.png)
+![CORA Dashboard Screenshot](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cora.png)
 
 
 ## Prerequisites
@@ -39,7 +39,7 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 
 Before installing CORA Dashboard you need to enable COH Data Export and consolidate it from your Management (Payer) Accounts in Data Collection Account.
 
-![Data Exports](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cora-archi.png)
+![Data Exports](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cora-archi.png)
 
 
 1. Create COH Data Export following the steps in [Data Export](data-exports.md) page and return to this page once completed.
@@ -56,7 +56,7 @@ Before installing CORA Dashboard you need to enable COH Data Export and consolid
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=CORA-Dashboard&param_DashboardId=cora&param_RequiresDataExports=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=CORA-Dashboard&param_DashboardId=cora&param_RequiresDataExports=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

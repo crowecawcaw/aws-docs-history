@@ -29,7 +29,7 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 
  **SCAD - Containers Cost Allocation Dashboard** 
 
-![SCAD - Containers Cost Allocation Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_containers_cost_allocation.png)
+![SCAD - Containers Cost Allocation Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_containers_cost_allocation.png)
 
 
 ## CID’s Containers Cost Allocation Dashboards Comparison

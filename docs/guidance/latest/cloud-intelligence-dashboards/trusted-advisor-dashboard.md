@@ -15,7 +15,7 @@ Amazon Trusted Advisor helps you optimize your AWS infrastructure, improve secur
 **Note**  
 All accounts must have a **Business**, **On-Ramp** or **Enterprise** Support Plan.
 
-![Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/ta.png)
+![Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/ta.png)
 
 
 ## Demo Dashboard
@@ -23,7 +23,7 @@ All accounts must have a **Business**, **On-Ramp** or **Enterprise** Support Pla
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=tao) 
 
-![Amazon Quick Sight Trusted Advisor demo dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/tao_demo.png)
+![Amazon Quick Sight Trusted Advisor demo dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/tao_demo.png)
 
 
 ## Prerequisites

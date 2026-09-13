@@ -15,7 +15,7 @@ AWS Compute Optimizer recommends optimal AWS resources for your workloads to red
 ## Architecture
 <a name="architecture"></a>
 
-![architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/compute-optimizer-architecture.png)
+![architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/compute-optimizer-architecture.png)
 
 
 1. AWS Compute Optimizer collects data about running instances and uses Machine Learning to generate recommendations
@@ -41,7 +41,7 @@ See also:
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=compute-optimizer-dashboard) 
 
-![Image of a compute optimizer dashboard in Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_demo.png)
+![Image of a compute optimizer dashboard in Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_demo.png)
 
 
 ## Prerequisites

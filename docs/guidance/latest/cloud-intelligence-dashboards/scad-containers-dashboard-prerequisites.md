@@ -8,7 +8,7 @@
 
 1. Enable AWS Split Cost Allocation Data (SCAD) in Cost Management Preferences:
 
-![Enable SCAD - Cost Management Preferences](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/enable_scad_cost_management_preferences.png)
+![Enable SCAD - Cost Management Preferences](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/enable_scad_cost_management_preferences.png)
 
 
 You can enable SCAD for ECS, SCAD for EKS or both. If you enable SCAD for EKS, selecting "Resource requests" will include only resource requests data, without actual usage. To have actual usage data for your pods in CUR, either select the "Amazon Managed Service for Prometheus" option and follow [this guide](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data-resource-amp.html), or select the "Amazon CloudWatch Container Insights" option and follow [this guide](https://docs.aws.amazon.com/cur/latest/userguide/split-cost-allocation-data-cloudwatch.html) 
@@ -24,25 +24,25 @@ Split Cost Allocation Data cannot be enabled or disabled in an existing CUR 2.0.
 ------
 #### [ Amazon EKS ]
 
-![SCAD EKS Cost Allocation Tags](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_eks_cost_allocation_tags.png)
+![SCAD EKS Cost Allocation Tags](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_eks_cost_allocation_tags.png)
 
 
 ------
 #### [ Amazon ECS ]
 
-![SCAD ECS Cost Allocation Tags](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_ecs_cost_allocation_tags.png)
+![SCAD ECS Cost Allocation Tags](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_ecs_cost_allocation_tags.png)
 
 
 ------
 #### [ AWS Batch on Amazon ECS ]
 
-![SCAD ECS AWS Batch Cost Allocation Tags](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_ecs_aws_batch_cost_allocation_tags.png)
+![SCAD ECS AWS Batch Cost Allocation Tags](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_ecs_aws_batch_cost_allocation_tags.png)
 
 
 ------
 #### [ AWS Batch on Amazon EKS ]
 
-![SCAD EKS AWS Batch Cost Allocation Tags](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cost_allocation_tags_batch_eks.png)
+![SCAD EKS AWS Batch Cost Allocation Tags](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cost_allocation_tags_batch_eks.png)
 
 
 ------
@@ -65,19 +65,19 @@ To validate that the new Split Cost Allocation Data columns exist in CUR:
 
 1. Expand CUR table and filter it as in the below screenshots to view the columns: Split line item columns (relevant for EKS and ECS):
 
-    ![SCAD CUR Athena Table Split Columns](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cur_athena_table_split_columns.png) 
+    ![SCAD CUR Athena Table Split Columns](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cur_athena_table_split_columns.png) 
 
    EKS cost allocation tags (relevant only if you’re using EKS):
 
-    ![SCAD CUR Athena Table EKS Tags Columns](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cur_athena_table_eks_tags_columns.png) 
+    ![SCAD CUR Athena Table EKS Tags Columns](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cur_athena_table_eks_tags_columns.png) 
 
    ECS cost allocation tags (relevant only if you’re using ECS):
 
-    ![SCAD CUR Athena Table ECS Tags Columns](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cur_athena_table_ecs_tags_columns.png) 
+    ![SCAD CUR Athena Table ECS Tags Columns](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cur_athena_table_ecs_tags_columns.png) 
 
    AWS Batch cost allocation tags (relevant only if you’re using AWS Batch on ECS):
 
-    ![SCAD CUR Athena Table AWS Batch Tags Columns](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cur_athena_table_batch_tags_columns.png) 
+    ![SCAD CUR Athena Table AWS Batch Tags Columns](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_cur_athena_table_batch_tags_columns.png) 
 Run the following Athena query against the CUR 2.0 table:  
 EKS cost allocation tags columns (relevant only if you’re using EKS):  
 

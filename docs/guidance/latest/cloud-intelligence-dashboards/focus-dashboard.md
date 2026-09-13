@@ -20,7 +20,7 @@ The CID FOCUS Dashboard is an open-source and customizable dashboard that provid
 ## High Level Architecture
 <a name="high-level-architecture"></a>
 
-![Architecture High Level](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-high-level.png)
+![Architecture High Level](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-high-level.png)
 
 
 1. AWS Data Exports service provides FOCUS data (currently supporting FOCUS 1.2 for AWS). Use the CID [Data Exports](data-exports.md) stack to activate it in your Management (Payer) Account and automatically configure the replication to a Data Collection Account.
@@ -40,7 +40,7 @@ Get more familiar with the dashboard using the live, interactive demo dashboard 
 
 Explore key FOCUS Dashboard capabilities in the [interactive presentation](https://app.storylane.io/share/zutqlizt5v45).
 
-![FOCUS Dashboard Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/focus_dashboard.png)
+![FOCUS Dashboard Screenshot](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/focus_dashboard.png)
 
 
 ## Prerequisites
@@ -48,7 +48,7 @@ Explore key FOCUS Dashboard capabilities in the [interactive presentation](https
 
 Before installing the FOCUS Dashboard, you need to enable FOCUS Data Export and consolidate it from your Management (Payer) Accounts in the Data Collection Account.
 
-![High Level Focus Export From AWS](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-aws.png)
+![High Level Focus Export From AWS](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-aws.png)
 
 
 1. Create a FOCUS Data Export following the steps in the [Data Export](data-exports.md) page and return to this page once completed.
@@ -65,7 +65,7 @@ The Data Export prerequisites support FOCUS 1.2 for AWS. If you are migrating fr
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=FOCUS-Dashboard&param_DashboardId=focus-dashboard&param_RequiresDataExports=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=FOCUS-Dashboard&param_DashboardId=focus-dashboard&param_RequiresDataExports=yes) 
 
 1. You can change the **Stack name** if you wish.
 
@@ -152,7 +152,7 @@ After deploying each cloud provider integration, run the `cid-cmd update` comman
 ### Microsoft Azure
 <a name="microsoft-azure"></a>
 
-![High Level Focus Export From Microsoft Azure](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-azure.png)
+![High Level Focus Export From Microsoft Azure](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-azure.png)
 
 
 1. Deploy the [FOCUS Dashboard](#focus-dashboard-deployment).
@@ -164,7 +164,7 @@ After deploying each cloud provider integration, run the `cid-cmd update` comman
 ### Google Cloud Platform (GCP)
 <a name="google-cloud-platform-gcp"></a>
 
-![High Level Focus Export From GCP](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-gcp.png)
+![High Level Focus Export From GCP](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-gcp.png)
 
 
 1. Deploy the [FOCUS Dashboard](#focus-dashboard-deployment).
@@ -176,7 +176,7 @@ After deploying each cloud provider integration, run the `cid-cmd update` comman
 ### Oracle Cloud Infrastructure (OCI)
 <a name="oracle-cloud-infrastructure-oci"></a>
 
-![High Level Focus Export From OCI](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-oci.png)
+![High Level Focus Export From OCI](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/focus-oci.png)
 
 
 1. Deploy the [FOCUS Dashboard](#focus-dashboard-deployment).
@@ -210,7 +210,7 @@ After deploying any cloud provider integration above, update the FOCUS Dashboard
 
 1. Select the FOCUS tables you would like to include in the consolidated view when prompted.
 
-![Selecting FOCUS tables for consolidation](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/focus_update.gif)
+![Selecting FOCUS tables for consolidation](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/focus_update.gif)
 
 
 ## Update

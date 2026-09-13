@@ -10,7 +10,7 @@
 
 The Amazon Web Services (AWS) Config Resource Compliance Dashboard (CRCD) shows the inventory of your AWS resources, along with their compliance status, across multiple AWS accounts and Regions by leveraging your AWS Config data.
 
-[![AWS Videos](http://img.youtube.com/vi/709-y8q81Q8?rel=0/0.jpg)](http://www.youtube.com/watch?v=709-y8q81Q8?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/709-y8q81Q8?rel=0/0.jpg)](https://www.youtube.com/watch?v=709-y8q81Q8?rel=0)
 
 
 ## Links
@@ -38,7 +38,7 @@ Through this unified platform, organizations can bridge the gap between security
 
 Track compliance of your AWS Config rules and conformance packs per service, AWS Region, account, resource. Identify resources that require compliance remediation and establish a process for continuous compliance review. Verify that your tagging strategy is consistently applied across accounts and Regions. Evaluate compliance against risky misconfigurations that can lead to common security incidents.
 
-![AWS Config Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-compliance-10.png)
+![AWS Config Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-compliance-10.png)
 
 + At-a-glance status of compliant and non-compliant resources and AWS Config rules.
 + Compliance score for AWS Config rules, conformance packs, and AWS resources.
@@ -61,7 +61,7 @@ Field teams will see their non-compliant resources as quickly as security teams.
 
 The dashboard delivers a simplified Configuration Management Database (CMDB) experience in AWS. Avoid investment in a dedicated external CMDB system or third-party tools. Access the inventory of resources in a single pane of glass, without accessing the AWS Management Console on each account and Region. Filter resources by account, Region, and fields that are specific to the resource such as IP address. If you tag consistently your resources — for example to map them to the application, owning team and environment — specify those tags to the dashboard and they will be displayed alongside the other resource-specific information, and used for filtering your configuration items. Manage and plan the upgrade of Amazon RDS DB engines and AWS Lambda runtimes.
 
-![AWS Config Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-ec2-inventory.png)
+![AWS Config Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-ec2-inventory.png)
 
 
 Inventory of Amazon EC2, Amazon EBS, Amazon S3, Amazon Relational Database Service (RDS) and AWS Lambda resources with filtering on account, Region and resource-specific fields (e.g. IP addresses for EC2). Option to filter resources by the custom tags that you use to categorize workloads, such as Application, Owner and Environment. The name of the tags will be provided by you during installation.
@@ -76,7 +76,7 @@ Graphs that report summarized insights about resource configuration data, includ
 
 Visualize the results of AWS Config Managed Rule [required-tags](https://docs.aws.amazon.com/config/latest/developerguide/required-tags.html) or one of the several [rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) ending with `-tagged`. You can deploy these rules to find resources in your accounts that were not launched with your desired tag configurations.
 
-![AWS Config Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-tag-compliance-summary.png)
+![AWS Config Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-tag-compliance-summary.png)
 
 
 ### Understand and optimize AWS Config usage
@@ -84,7 +84,7 @@ Visualize the results of AWS Config Managed Rule [required-tags](https://docs.aw
 
 AWS Config costs can be difficult to attribute without the right visibility. The dashboard surfaces the patterns behind your spending — so you can streamline your AWS Config setup, eliminate redundant evaluations, and maintain the same level of compliance coverage with less overhead. AWS Config costs are driven by two primary factors: the number of configuration item (CI) changes being recorded and the number of rule evaluations performed over time. Because AWS Config supports multiple recording modes and deployment options, costs can accumulate in ways that are difficult to track without dedicated tooling. Calculating precise Config costs is complex, and the **Config Usage Insights** tab is designed to surface the trends and patterns that matter most — giving you a clear view of how many CI changes are being recorded and how rule evaluations are trending across your environment.
 
-![AWS Config Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-config-usage-overview.png)
+![AWS Config Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-config-usage-overview.png)
 
 
 Rule evaluations are triggered continuously in response to resource configuration changes, or periodically based on scheduled checks. AWS Config can be deployed through individual rules, conformance packs, Security Hub standards, and AWS Control Tower controls — and many organizations inadvertently end up with duplicate rules across these deployment methods. This duplication results in redundant evaluations that increase costs without improving compliance coverage, adds governance complexity, and can lead to inconsistent remediation actions for the same compliance issue. Regularly auditing your rules and conformance packs to identify and eliminate this redundancy is one of the most effective ways to reduce Config spending.
@@ -102,7 +102,7 @@ This feature of the AWS Config Dashboard was developed in collaboration with AWS
 
  **Disclaimer**: This feature is designed to reduce common security risks, not eliminate them entirely. Remediating identified misconfigurations does not guarantee protection from all security incidents. Customers are encouraged to adopt a defense-in-depth approach as part of their overall security posture.
 
-![AWS Config Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-known-threat-exposures.png)
+![AWS Config Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-known-threat-exposures.png)
 
 
 The **Threat-Informed Security Compliance** tab displays the compliance status of a curated set of standard AWS Config rules recommended by AWS Security Incident Response security engineers. The dashboard classifies these rules according to the tactics and techniques presented in the Threat Technique Catalog for AWS. The catalog is based on MITRE ATTCK® and is used to identify and categorize threat actor behaviors observed by AWS.
@@ -114,7 +114,7 @@ If you have already deployed any of the recommended standard AWS Config rules in
 
 The AWS Config Dashboard shows the timeline of your configuration changes. Find which resources were recently created, updated or deleted and see which accounts and Regions are delivering AWS Config data. Visualize the latest data imported into the dashboard and confirm that you are receiving data from all accounts and Regions.
 
-![AWS Config Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-ci-events.png)
+![AWS Config Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-ci-events.png)
 
 
 ## Steps

@@ -11,7 +11,7 @@ The Trends Dashboard provides Financial and Technology organizational leaders ac
 ## Demo Dashboards
 <a name="demo-dashboards"></a>
 
-![Trends Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Trends.png)
+![Trends Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Trends.png)
 
 
 ## Prerequisites
@@ -29,7 +29,7 @@ The Trends Dashboard provides Financial and Technology organizational leaders ac
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Trends-Dashboard&param_DashboardId=trends-dashboard) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Trends-Dashboard&param_DashboardId=trends-dashboard) 
 
 1. You can change **Stack name** for your template if you wish.
 

@@ -16,7 +16,7 @@
 
 1. Find your existing CID-related templates and choose Delete.
 
-![Cloudformation stack detail CID-Multipayeraccount with the delete button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/teardown.png)
+![Cloudformation stack detail CID-Multipayeraccount with the delete button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/teardown.png)
 
 
 ## Manual Teardown

@@ -44,42 +44,42 @@ Let’s see an example of a Spark Job submitted using `StartJobRun` on EMR on EK
 
 Navigate to the EMR on EKS console, and view the list of virtual clusters. In this case, we have one virtual cluster, as shown below:
 
-![SCAD - Containers Cost Allocation Dashboard - EMR on EKS Virtual Clusters](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_emr_on_eks_virtual_clusters.png)
+![SCAD - Containers Cost Allocation Dashboard - EMR on EKS Virtual Clusters](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_emr_on_eks_virtual_clusters.png)
 
 
 We’ll click on the Virtual cluster ID, which will redirect us to the list of EMR on EKS jobs that were (or are) running on this virtual cluster:
 
-![SCAD - Containers Cost Allocation Dashboard - EMR on EKS Jobs](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_emr_on_eks_jobs.png)
+![SCAD - Containers Cost Allocation Dashboard - EMR on EKS Jobs](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_emr_on_eks_jobs.png)
 
 
 Since new data in CUR isn’t updated in real-time, we’ll choose a job id that was running around 2 days before the time this guide was written. We’ll use job id `000000036gr7qbcelvv`. Copy the job id, then navigate to the "Data on EKS" sheet on the SCAD dashboard, and in it, to the "Data on EKS Workloads Explorer - Interactive Spark/Flink Jobs Visuals" section. This section provides a set of interactive visuals to easily drill down into your Spark and Flink applications costs:
 
-![SCAD - Containers Cost Allocation Dashboard - Data on EKS Workloads Explorer Part 1](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_data_on_eks_workloads_explorer_part1.png)
+![SCAD - Containers Cost Allocation Dashboard - Data on EKS Workloads Explorer Part 1](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_data_on_eks_workloads_explorer_part1.png)
 
 
-![SCAD - Containers Cost Allocation Dashboard - Data on EKS Workloads Explorer Part 2](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_data_on_eks_workloads_explorer_part2.png)
+![SCAD - Containers Cost Allocation Dashboard - Data on EKS Workloads Explorer Part 2](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_data_on_eks_workloads_explorer_part2.png)
 
 
 Open the "EMR on EKS Job ID" filter control above the stacked-bar chart, and paste the job id you copied into it, to filter the visuals based on this job id. Once done, all visuals on the sheet will be filtered. The 2 visuals in the "Data on EKS Workloads Explorer - Interactive Spark/Flink Jobs Visuals" section (the stacked-bar chart and pivot table) are grouped by cluster name by default, so they’ll still show the cluster name, but will only show the cost of job id `000000036gr7qbcelvv`. You can then group by another dimension which may be interesting to you, but in this example, we’ll scroll down to the "Data on EKS Breakdown" section in the same sheet, to view more details on the job in question:
 
-![SCAD - Containers Cost Allocation Dashboard - EMR on EKS Cost Dimensions](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data_on_eks_cost_dimensions_visual.png)
+![SCAD - Containers Cost Allocation Dashboard - EMR on EKS Cost Dimensions](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data_on_eks_cost_dimensions_visual.png)
 
 
 The 1st visual in this section shows the different cost dimensions which are relevant when running jobs on EMR on EKS (the EMR on EKS service cost and the EKS pods split cost). This gives you additional visibility into what you’re charged for, and is relevant only when running jobs on EMR on EKS (EMR on EKS service cost isn’t applicable when running Spark/Flink applications directly on EKS). In the specific screenshot above, the visual is unfiltered (meaning, before applying the filter mentioned above), as the visual is more informative this way, in the specific environment used for this demonstration (due to the jobs being short-running ones). If you use the filters next to the "Data on EKS Workloads Explorer" visuals above, it’ll show only the cost based on the filters. Further down we can find a pivot table which breaks down the Spark job cost by several relevant dimensions, as shown below:
 
-![SCAD - Containers Cost Allocation Dashboard - Spark Job Cost Breakdown](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_spark_job_cost_breakdown.png)
+![SCAD - Containers Cost Allocation Dashboard - Spark Job Cost Breakdown](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_spark_job_cost_breakdown.png)
 
 
 In this screenshot, the data is shown after applying the EMR on EKS Job ID filter mentioned above. This pivot table is very useful if you want to drill down into more details of the Spark job components and additional information. For example, here you can find the Spark app version, Spark app name, Spark app id, and even the ID of each executor, along with the pod name and pod UID. A similar pivot table is available further down, breaking down the cost of Flink jobs by different relevant dimensions.
 
 Let’s now go back to the EMR on EKS console, and click on the "Spark UI" link on the right-most part of the line representing the job we chose, to open the Spark History Server console. On the landing page, we can see general information on the Spark job in question:
 
-![SCAD - Containers Cost Allocation Dashboard - Spark History Server Landing Page](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_spark_history_server_landing_page.png)
+![SCAD - Containers Cost Allocation Dashboard - Spark History Server Landing Page](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_spark_history_server_landing_page.png)
 
 
 Check the "Version", "App ID" and "App Name" columns in the Spark History Server console. They exactly correlate to the equivalent columns in the Spark jobs cost breakdown pivot table in the dashboard ("Spark App Version", "Spark App ID", and "Spark App Name", respectively). On the Spark History Server console, click on the link of the app id (below the "App ID" column). You’ll land on a page which shows more details on the Spark application in question. Then, click on the "Executors" menu on the top, which will show more details on the executors that were running as part of this Spark application:
 
-![SCAD - Containers Cost Allocation Dashboard - Spark History Server Executors Page](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_spark_history_server_executors.png)
+![SCAD - Containers Cost Allocation Dashboard - Spark History Server Executors Page](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_spark_history_server_executors.png)
 
 
 Now go back to the dashboard, to the Spark jobs cost breakdown pivot table. You can see exactly the same executor IDs (1 and 2) under the "Spark Executor ID" column. This is helpful if you want to drill down into specific components of your Spark applications, for example if one executor took more time to run, you may want to know how much it costs. You can also see the pod name and UID of each executor, and the driver.
@@ -93,7 +93,7 @@ In the previous example, we worked backwards from a specific job-run, from the n
 
 The first 2 Sankey visuals on the "Data on EKS" sheet, in the "General Overview" section, map EKS cluster ARNs to EMR on EKS virtual cluster IDs and to job submission method:
 
-![SCAD - Containers Cost Allocation Dashboard - Sankey Visuals](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_data_on_eks_sankey_visuals.png)
+![SCAD - Containers Cost Allocation Dashboard - Sankey Visuals](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/scad_data_on_eks_sankey_visuals.png)
 
 
 You can use this information to learn the spend of each high-level component, and then continue to the "Data on EKS Workloads Explorer - Interactive Spark/Flink Jobs Visuals" section, to further drill down. The visuals in this section are grouped by cluster name by default. If you’re interested in investigating the costs of your Spark applications, you may want to start drilling down from this level. For example, you can take the highest spending cluster, and use the "Cluster Name" filter (on the top part of the "Data on EKS" sheet) to filter the visuals based on it. Then, you can open the "Group By" control and select "Amazon EKS: Namespace" to group the visuals by namespace (which will result in the visuals being grouped by namespace, only for the cluster that was selected in the filter). You can continue on and on, for example from namespace to "Spark App ID", and then at this point, you can use the "Top Allocations" control to list the top 10 applications (for example). From here, the interactive nature of the visual can be useful. You can click on any line in the pivot table, and Quick Sight will filter the rest of the visuals in the sheet. From here, the same approach applies - you can correlate the data seen in the visuals with the native console of your application (whether it’s EMR on EKS console or Spark History Server console).

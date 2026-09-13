@@ -18,12 +18,12 @@ Users who are dashboard **viewers** can view and filter the dashboard data. Any 
 
 1. Select **Share** on the application bar.
 
-![Quick Sight top navigation with the share button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/share_dashboard.png)
+![Quick Sight top navigation with the share button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/share_dashboard.png)
 
 
 1. Select **Share dashboard** 
 
-![Quick Sight top navigation with the share button dropdown and share dashboard item highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/share_dashboard2.png)
+![Quick Sight top navigation with the share button dropdown and share dashboard item highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/share_dashboard2.png)
 
 
 1. Do one of the following:
@@ -31,14 +31,14 @@ Users who are dashboard **viewers** can view and filter the dashboard data. Any 
    + You have the option to share with all the users in your Amazon Quick Sight subscription. To do this, select the option **Share with all users in this account**. When you manage dashboard access through the Managed dashboard permissions screen, you see that the option Share with all users in this account is enabled. The individual users aren’t listed in this screen.
    + To share with an individual user or group, type the user or group into the search box. Then choose the user or group from the list that appears. Only active users and groups appear in the list.
 
-![Amazon Quick Sight share dashboard dialog with the three main elements of sharing a dashboard highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/share_dashboard_with_users.png)
+![Amazon Quick Sight share dashboard dialog with the three main elements of sharing a dashboard highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/share_dashboard_with_users.png)
 
 
 1. After you have entered all the users that you want to share with, choose **ADD** and select the permission of **Viewer** or **Co-owner** to confirm your choices. You can see the username, email, permission level, user role, and privileges. You can also remove a user by using the delete icon.
 
 1. Choose permissions for each user. **Note:** Users in the Reader role cannot have permissions modified from Viewer, and cannot have Save as privileges.
 
-![Amazon Quick Sight share dashboard with add users drop down displayed](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/manage_dashboard_sharing.png)
+![Amazon Quick Sight share dashboard with add users drop down displayed](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/manage_dashboard_sharing.png)
 
 
 ## Read more about Quick Sight Viewers and Co-Owners roles

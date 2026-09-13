@@ -13,13 +13,13 @@ AWS Support Cases Radar Dashboard provides a centralized platform to consolidate
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=support-cases-radar) 
 
-![image of a support cases radar dashboard in Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/support_cases_radar_dashboard.png)
+![image of a support cases radar dashboard in Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/support_cases_radar_dashboard.png)
 
 
 ## Architecture Overview
 <a name="architecture-overview"></a>
 
-![Data Collection Overview](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/support_cases_radar_arch.png)
+![Data Collection Overview](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/support_cases_radar_arch.png)
 
 
 The Data Collection Stack collects the information about cases on a daily basis. Only the cases which have changes are collected. An Amazon Step Function saves case information on Amazon S3 and sends an event with case reference to the Default Bus of EventBridge. The Quick Sight dashboard is refreshed every night to provide case summary and insights.
@@ -41,7 +41,7 @@ The Data Collection Stack collects the information about cases on a daily basis.
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Support-Cases-Radar-Dashboard&param_DashboardId=support-cases-radar&param_RequiresDataCollection=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Support-Cases-Radar-Dashboard&param_DashboardId=support-cases-radar&param_RequiresDataCollection=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

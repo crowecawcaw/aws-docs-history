@@ -53,4 +53,4 @@ If you are looking to update to CUDOS v5 from a previous CUDOS version, please r
 ### Update Demo
 <a name="update-demo"></a>
 
-[![AWS Videos](http://img.youtube.com/vi/ub7VWL2GJ84?rel=0/0.jpg)](http://www.youtube.com/watch?v=ub7VWL2GJ84?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/ub7VWL2GJ84?rel=0/0.jpg)](https://www.youtube.com/watch?v=ub7VWL2GJ84?rel=0)

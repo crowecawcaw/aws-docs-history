@@ -8,7 +8,7 @@
 
 The Amazon Connect Cost Insight Dashboard leverages AWS Cost and Usage Report data to provide visualizations that help optimize cloud spending and enhance operational efficiency within the [Amazon Connect contact center](https://aws.amazon.com/pm/connect) infrastructure.
 
-![Image of Amazon Connect Cost Insight Dashboard architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/CID_Connect_archi.png)
+![Image of Amazon Connect Cost Insight Dashboard architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/CID_Connect_archi.png)
 
 
 The Amazon Connect Cost Insight Dashboard is organized into 7 intuitive tabs:
@@ -34,7 +34,7 @@ Each tab progressively moves from broad insights to specific details, helping yo
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=amazon-connect-cost-insight-dashboard) 
 
-![Image of Amazon Connect Cost Insight Dashboard in Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Amazon_Connect_dash.png)
+![Image of Amazon Connect Cost Insight Dashboard in Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Amazon_Connect_dash.png)
 
 
 ## Prerequisites
@@ -52,7 +52,7 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Amazon-Connect-Cost-Insight-Dashboard&param_DashboardId=amazon-connect-cost-insight-dashboard) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Amazon-Connect-Cost-Insight-Dashboard&param_DashboardId=amazon-connect-cost-insight-dashboard) 
 
 1. You can change **Stack name** for your template if you wish.
 
@@ -153,7 +153,7 @@ This process allows you to replace Amazon Connect instance IDs with more readabl
 1. Create an Analysis. Refer to [How do I edit or customize the dashboards](faq.md#faq-how-do-i-edit-or-customize-the-dashboards) 
 
 1. Edit the Calculated Field: Under Data >> Dataset 'resource\_connect\_view' edit **\_\_connect\_instance\_name** field  
-![Connect Instance Name](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/connect/instance_name.png)
+![Connect Instance Name](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/connect/instance_name.png)
 
 You’ll find an example that you can uncomment to provide your instance ID and preferred label
 
@@ -170,7 +170,7 @@ ifelse (
 
 Save the calculated field and verify the changes in the Overview tab’s verification table (bottom right)
 
-![Connect Instance Label](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/connect/instance_label.png)
+![Connect Instance Label](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/connect/instance_label.png)
 
 
 1. Publish your Analysis as Dashboard.

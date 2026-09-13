@@ -23,7 +23,7 @@ Key benefits include:
 
 The solution combines your existing CID dashboards with Amazon Quick’s generative AI capabilities to create an intelligent operations advisor that understands your cloud environment and provides contextual insights.
 
-![Quick Suite Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_architecture.png)
+![Quick Suite Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_architecture.png)
 
 
 **Note**  
@@ -45,7 +45,7 @@ Amazon Quick generative AI features incur additional charges. Review Author Pro,
 #### Click to see the demo
 <a name="quicksuite-create-space-demo"></a>
 
-![Quick Suite Create Space](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_space.gif)
+![Quick Suite Create Space](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_space.gif)
 
 
 1.  **Navigate to Quick Spaces** 
@@ -69,7 +69,7 @@ Amazon Quick generative AI features incur additional charges. Review Author Pro,
 #### Click to see the demo
 <a name="quicksuite-create-agent-demo"></a>
 
-![Quick Suite Create Agent](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_agent.gif)
+![Quick Suite Create Agent](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_agent.gif)
 
 
 #### Create Chat Agent
@@ -211,7 +211,7 @@ Test your agent with sample prompts organized by use case.
 #### Click to see the demo
 <a name="quicksuite-finops-demo"></a>
 
-![Quick Suite FinOps Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_FinOps_examples.gif)
+![Quick Suite FinOps Prompts](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_FinOps_examples.gif)
 
 
 ### Operations
@@ -223,7 +223,7 @@ Test your agent with sample prompts organized by use case.
 #### Click to see the demo
 <a name="quicksuite-operations-demo"></a>
 
-![Quick Suite Operations Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Operations_examples.gif)
+![Quick Suite Operations Prompts](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Operations_examples.gif)
 
 
 ### Resilience
@@ -234,7 +234,7 @@ Test your agent with sample prompts organized by use case.
 #### Click to see the demo
 <a name="quicksuite-resilience-demo"></a>
 
-![Quick Suite Resilience Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Resilience_examples.gif)
+![Quick Suite Resilience Prompts](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Resilience_examples.gif)
 
 
 ### Security
@@ -245,7 +245,7 @@ Test your agent with sample prompts organized by use case.
 #### Click to see the demo
 <a name="quicksuite-security-demo"></a>
 
-![Quick Suite Security Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Security_examples.gif)
+![Quick Suite Security Prompts](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_Security_examples.gif)
 
 
 ## Ask about CID dashboards
@@ -256,7 +256,7 @@ Test your agent with sample prompts organized by use case.
 ### Click to see the demo
 <a name="quicksuite-cid-demo"></a>
 
-![Quick Suite CID Prompts](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_CID_examples.gif)
+![Quick Suite CID Prompts](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_CID_examples.gif)
 
 
 ## Flows: Automated Cloud Operations
@@ -284,7 +284,7 @@ This flow automatically detects cost spikes in your CUDOS dashboard and instantl
 ##### Click to see the demo
 <a name="quicksuite-create-flow-1-2-demo"></a>
 
-![Quick Suite Create Flow 12](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_2.gif)
+![Quick Suite Create Flow 12](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_2.gif)
 
 
  **Navigate to Quick Flows** 
@@ -322,7 +322,7 @@ Inside reasoning group, add these steps in order:
 ##### Click to see the demo
 <a name="quicksuite-create-flow-1-demo"></a>
 
-![Quick Suite Create Flow 11](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_1.gif)
+![Quick Suite Create Flow 11](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_1_1.gif)
 
 
  **Navigate to Quick Flows** 
@@ -422,7 +422,7 @@ This flow instantly analyzes your CUDOS dashboard to identify and prioritize the
 ##### Click to see the demo
 <a name="quicksuite-create-flow-2-2-demo"></a>
 
-![Quick Suite Create Flow 22](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_2_2.gif)
+![Quick Suite Create Flow 22](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_2_2.gif)
 
 
  **Navigate to Quick Flows** 
@@ -461,7 +461,7 @@ After reasoning group:
 ##### Click to see the demo
 <a name="quicksuite-create-flow-2-1-demo"></a>
 
-![Quick Suite Create Flow 21](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_2_1.gif)
+![Quick Suite Create Flow 21](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_flow_2_1.gif)
 
 
  **Navigate to Quick Flows** 
@@ -559,7 +559,7 @@ Combine your CID dashboard data with external market intelligence, industry benc
 #### Click to see the demo
 <a name="quicksuite-create-research-demo"></a>
 
-![Quick Suite Create Research](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_research.gif)
+![Quick Suite Create Research](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_create_research.gif)
 
 
 #### Research Configuration

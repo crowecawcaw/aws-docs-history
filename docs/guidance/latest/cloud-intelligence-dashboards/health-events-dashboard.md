@@ -32,7 +32,7 @@ You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from AW
 
 We recommend installing the Health Events Dashboards in a separate Data Collection Account (Can be the same with your other CID dashboards).
 
-![Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/aws-health-archi.png)
+![Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/aws-health-archi.png)
 
 
 1. The [Data Collection Stack](data-collection.md) provides an Amazon Lambda function that assumes a role in one or multiple Management accounts to retrieve daily the AWS Health Data and store it on Amazon S3. The Lambda only pulls data that has been updated since the last retrieval. The stack also provides AWS Glue Tables to query collected data.
@@ -44,7 +44,7 @@ We recommend installing the Health Events Dashboards in a separate Data Collecti
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo/?dashboard=health-events-dashboard) 
 
-![Health Dashboard Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/he_dashboard.png)
+![Health Dashboard Screenshot](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/he_dashboard.png)
 
 
 ## Prerequisites
@@ -70,20 +70,20 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 1. From the services list, choose **Athena** 
 
 1. Select **Get Started** to enable Athena and start the basic configuration  
-![Athena getting started page from the AWS console](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena.png)
+![Athena getting started page from the AWS console](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena.png)
 
 1. At the top of this screen select **Before you run your first query, you need to set up a query result location in Amazon S3**.  
-![Athena Query editor in the AWS console](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena_v2.png)
+![Athena Query editor in the AWS console](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena_v2.png)
 
 1. Validate your Athena primary workgroup has an output location by
    + Open a new tab or window and navigate to the **Athena** console
    + Select **Workgroup: primary**   
-![Athena Query editor with primary workgroup highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena_v3.png)
+![Athena Query editor with primary workgroup highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena_v3.png)
    + Confirm your **Query result location** is configured with an S3 bucket path.
      + If not configured, continue to setting up by clicking **Edit workgroup**   
-![Athena workgroup settings with the edit workgroup button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena_v4.png)
+![Athena workgroup settings with the edit workgroup button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena_v4.png)
    + Add the **S3 bucket path** you have selected for your Query result location and click save  
-![Athena edit workgroup with the query results location input highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena_v5.png)
+![Athena edit workgroup with the query results location input highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_athena_v5.png)
 
 1. Enable Amazon Quick Sight
 
@@ -95,23 +95,23 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 1. Log into your AWS Account and search for **Quick Sight** in the list of Services
 
 1. You will be asked to **sign up** before you will be able to use it  
-![Page with a button to sign up for Amazon Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/qs.png)
+![Page with a button to sign up for Amazon Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/qs.png)
 
 1. After pressing the **Sign up** button you will be presented with 2 options, please ensure you select the **Enterprise Edition** during this step
 
 1. Select **continue** and you will need to fill in a series of options in order to finish creating your account.
    + Ensure you select the region that is most appropriate based on where your S3 Bucket is located containing your CO report files.  
-![Quick Sight configuration page with the Amazon S3 checkbox highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_qs_v2.png)
+![Quick Sight configuration page with the Amazon S3 checkbox highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_qs_v2.png)
    + Enable the Amazon S3 option and select the bucket where your Compute Optimizer data created via Data Collection Lab are located  
-![Quick Sight Amazon S3 bucket selection dialog](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_qs_v3.png)
+![Quick Sight Amazon S3 bucket selection dialog](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_qs_v3.png)
 
 1. Click **Finish** & wait for the congratulations screen to display
 
 1. Click **Go to Amazon Quick Sight**   
-![Amazon Quick Sight finished configuration page with button to go to Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_qs_v4.png)
+![Amazon Quick Sight finished configuration page with button to go to Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_qs_v4.png)
 
 1. Check you have **Amazon Quick Sight Enterprise Edition**   
-![Quick Sight page with callouts to select Manage Quick Sight from the menu to confirm the Quick Sight edition](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_qs_v5.png)
+![Quick Sight page with callouts to select Manage Quick Sight from the menu to confirm the Quick Sight edition](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/co_qs_v5.png)
 
 ## Deployment
 <a name="deployment"></a>
@@ -121,7 +121,7 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 
 1. Log in to your **Data Collection** Account. 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Health-Events-Dashboard&param_DashboardId=health-events-dashboard&param_RequiresDataCollection=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Health-Events-Dashboard&param_DashboardId=health-events-dashboard&param_RequiresDataCollection=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

@@ -12,7 +12,7 @@ This guide shows you how to add your organization’s taxonomy to Cloud Intellig
 
 The following video introduces the concept of taxonomy in the context of AWS resource management. It will guide you through the main concepts using the example of Unicorn Rental Corporation.
 
-[![AWS Videos](http://img.youtube.com/vi/8-OMF9sca2E?rel=0/0.jpg)](http://www.youtube.com/watch?v=8-OMF9sca2E?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/8-OMF9sca2E?rel=0/0.jpg)](https://www.youtube.com/watch?v=8-OMF9sca2E?rel=0)
 
 
 ### Before you begin
@@ -69,7 +69,7 @@ Cloud Intelligence Dashboards provide a comprehensive way to integrate organizat
 
 It is essential to establish reporting that accurately reflects the current structure of your organization while also accounting for potential future changes. Once your taxonomy is clear, the next step is to map it to the appropriate technical data source. The table below lists the available sources, where each one comes from, and what it requires.
 
-![taxonomy](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/taxonomy-pipe.svg)
+![taxonomy](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/taxonomy-pipe.svg)
 
 
 
@@ -133,7 +133,7 @@ To implement account level mapping, CID uses a special View in Amazon Athena cal
 
 1. External sources such as external [CMDB](https://en.wikipedia.org/wiki/Configuration_management_database) systems or just a spreadsheet or csv file on Amazon S3.
 
-![Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/ou-integration-architecture.png)
+![Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/ou-integration-architecture.png)
 
 
 The following sections describe different ways to use the `account_map` view to build dynamic or static account mapping to organizational taxonomy dimensions.
@@ -201,7 +201,7 @@ The command will guide you through selecting specific tags, OU levels, and file 
 
 The following recording walks through a full `cid-cmd map --file accounts.csv` session in *Both* mode — combining `organization_data` with a CSV file, selecting OU tags and hierarchy levels, splitting the account name, and creating the `account_map` view.
 
-![cid-cmd map walkthrough](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/account-mapper-full-demo.gif)
+![cid-cmd map walkthrough](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/account-mapper-full-demo.gif)
 
 
 #### Example of generated SQL (organization\_data mode)
@@ -368,7 +368,7 @@ Starting with `cid-cmd` version `4.4.17`, you can merge several taxonomy fields 
 
 The same capability is also a simple way to normalize inconsistent tag keys. When one concept was tagged under different spellings — for example `application` on some resources and `app` on others — merging those keys into one column lets a single filter and Group By cover every resource, regardless of which key was used.
 
-![Merging one business dimension from several sources into a single column](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/taxonomy-merge-concept.svg)
+![Merging one business dimension from several sources into a single column](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/taxonomy-merge-concept.svg)
 
 
 **Note**  
@@ -414,7 +414,7 @@ Your merge configuration is remembered between runs (stored alongside the other 
 
 The following recording walks through `cid-cmd update --force --recursive` — selecting cost allocation tags, merging `tag_application`, `iam_principal_tag_Application`, and `account_tag_application` into a single `application_merged` dimension, and adding it to the dashboard as a filter and Group By field.
 
-![Merging taxonomy fields during update](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/cid-update-taxonomy-merge-demo.gif)
+![Merging taxonomy fields during update](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/cid-update-taxonomy-merge-demo.gif)
 
 
 ## Adding Taxonomy to the Dashboards
@@ -453,7 +453,7 @@ cid-cmd update --force --recursive  --resource-tags 'tag_environment' --taxonomy
 
 Once dashboard is installed AND all datasets are updated, you can use filters and Group By elements in dashboards.
 
-![Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/taxonomy-screen.png)
+![Screenshot](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/taxonomy-screen.png)
 
 
 See more details on the live [interactive dashboard demo](https://cid.workshops.aws.dev/demo/?dashboard=cudos&sheet=Taxonomy%20Explorer).

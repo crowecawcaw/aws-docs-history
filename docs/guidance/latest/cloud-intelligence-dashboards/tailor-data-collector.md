@@ -23,15 +23,15 @@ However, your use cases may differ from those two generalizations such that you 
 1. Find and select the schedule that you want to change. All schedules for the Data Collection framework will be named starting with the prefix you defined at deployment (for example, "CID-DC-"). The rest of the name corresponds to the module name.
 
 1. Click **Edit**   
-![Find and select the schedule](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/data-collection-schedules/c11n-schedule-01.png)
+![Find and select the schedule](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/data-collection-schedules/c11n-schedule-01.png)
 
 1. On the **Specify schedule detail** page, scroll down to the **Schedule pattern** section.
 
 1. From there you can adjust the **Rate expression** to suit your needs. Note: You can also change to a cron-based definition as well as make adjustments to the flexibility of your time window.  
-![Find and select the schedule](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/data-collection-schedules/c11n-schedule-02.png)
+![Find and select the schedule](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/data-collection-schedules/c11n-schedule-02.png)
 
 1. After you make your adjustments, click the **Skip to Review and save schedule** button.  
-![Find and select the schedule](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/data-collection-schedules/c11n-schedule-03.png)
+![Find and select the schedule](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/data-collection-schedules/c11n-schedule-03.png)
 
 1. Review your new schedule and click **Save schedule** at the bottom of the page to complete the change.  
-![Find and select the schedule](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/data-collection-schedules/c11n-schedule-04.png)
+![Find and select the schedule](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/data-collection-schedules/c11n-schedule-04.png)

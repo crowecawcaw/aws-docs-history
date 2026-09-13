@@ -63,7 +63,7 @@ Follow instructions depending on the CUR version you use:
 1. Under Views, scroll down until you locate the **summary\_view**.
 
 1. Select the three dots to the right of the view and select **Show/edit query** from the context menu.  
-![Athena Query editor highlighting the summary view query and its context menu to select show edit query](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
+![Athena Query editor highlighting the summary view query and its context menu to select show edit query](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
 
 1. On the line after, `, "line_item_usage_account_id" "linked_account_id"` in the query add a blank line below that.
 
@@ -111,7 +111,7 @@ Follow instructions depending on the CUR version you use:
 1. For each additional tag that you want, create a blank line below the preceding one and repeat the same steps.
 
 1. When you’ve completed adding all of the fields, click the **RUN** button and confirm that the query view updates successfully.  
-![Inset show the run again button of the query window and the successful result](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
+![Inset show the run again button of the query window and the successful result](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
 
 1. Repeat the steps above on the **hourly\_view** and **resource\_view** datasets.
 
@@ -162,7 +162,7 @@ Follow instructions depending on the CUR version you use:
 1. For each additional tag that you want, create a blank line below the preceding one and repeat the same steps.
 
 1. When you’ve completed adding all of the fields, click the **RUN** button and confirm that the query view updates successfully.  
-![Inset show the run again button of the query window and the successful result](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
+![Inset show the run again button of the query window and the successful result](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
 
 1. Repeat the steps above on the **hourly\_view** and **resource\_view** datasets.
 
@@ -172,26 +172,26 @@ Follow instructions depending on the CUR version you use:
 Next the data set in Amazon Quick Sight needs to be updated so that you can see the added fields to use them in your Dashboards and Analyses.
 
 1. Navigate to Amazon Quick Sight in the console.  
-![AWS Console search with results for Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_navqs.png)
+![AWS Console search with results for Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_navqs.png)
 
 1. Select Datasets on the left side of the page.  
-![Left navigation in Quick Sight with datasets option highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png)
+![Left navigation in Quick Sight with datasets option highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png)
 
 1. Locate **summary\_view** in the list of datasets and click on the dataset.
 
 1. Click on the **EDIT DATASET** button in the top right of the page.  
-![Quick Sight edit dataset button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_editds.png)
+![Quick Sight edit dataset button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_editds.png)
 
 1. Allow the fields and dataset preview windows to load.
 
 1. Confirm that you can see the fields you’ve added in the list. This can be accomplished by entering the **friendly name** of the field in the search fields input.  
-![Close up of Quick Sight edit dataset field search and list](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_fieldsrch.png)
+![Close up of Quick Sight edit dataset field search and list](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_fieldsrch.png)
 
 1. Once you have confirmed you see all your fields, click the **Save & Publish** button in the top right of the dataset editor page.  
-![Quick Sight save & publish button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_savepublish.png)
+![Quick Sight save & publish button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_savepublish.png)
 
 1. A refresh of the dataset will be triggered. Monitor the status to confirm that it completed successfully.  
-![Summary view dataset summary tab showing dataset refresh status](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_ds_load.png)
+![Summary view dataset summary tab showing dataset refresh status](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_ds_load.png)
 
 1. Repeat the steps above on the **hourly\_view** and **resource\_view** datasets.
 
@@ -212,17 +212,17 @@ After the dataset has been updated you can now add those fields to different vis
 1. First we’ll need to [save the dashboard as an analysis](create-analysis.md) so we can make changes.
 
 1. Open the CUDOS dashboard and select the save icon, selecting "save as" in the drop down selection to save the dashboard as an analysis.  
-![Quick Sight save as analysis dialog](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_saveasanaly.png)
+![Quick Sight save as analysis dialog](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_saveasanaly.png)
 
 1. Open the analysis.
 
 1. Select the tab **Executive: Billing Summary** and click into a visual you wish to group by tag.
 
 1. In the Data column on the left, search for the **friendly name** (`cost_center_tag` in this example) for one of the tags you added.  
-![Quick Sight field list with search for cost center](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_frndname.png)
+![Quick Sight field list with search for cost center](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_frndname.png)
 
 1. Drag and Drop that field into the **Group/Color for Bars** area of the **Visuals** column. You can add it as a drill down layer, or replace the original field.  
-![Quick Sight edit visualization showing custom field added to visual field well](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_addcc.png)
+![Quick Sight edit visualization showing custom field added to visual field well](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_addcc.png)
 
 1. Repeat this customization for any additional visuals you wish to change.
 
@@ -236,14 +236,14 @@ The CUDOS dashboard has a sheet titled **TAGsplorer** which has visuals that are
 1. In the Data column on the left, search for the **friendly name** of the tag you want to add as primary.
 
 1. Drag and Drop that field into the **Group/Color** area of the **Visuals** column.  
-![Quick Sight tagsplorer primary tag added to visualization](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_tagsprimary.png)
+![Quick Sight tagsplorer primary tag added to visualization](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_tagsprimary.png)
 
 1. Select the **Cost Per Secondary TAG Previous Month** visual.
 
 1. In the Data column on the left, search for the tag you want to add as secondary.
 
 1. Drag and Drop that field into the **Group/Color** area of the **Visuals** column.  
-![Quick Sight tagsplorer secondary tag added to visualization](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_tagssecond.png)
+![Quick Sight tagsplorer secondary tag added to visualization](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_tagssecond.png)
 
 1. Save and publish your analysis.
 

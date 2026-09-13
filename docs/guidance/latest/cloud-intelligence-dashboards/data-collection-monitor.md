@@ -15,7 +15,7 @@ Future releases will convey more granular Lambda error details and links to thos
 ## Preview
 <a name="preview"></a>
 
-![Data Collection Monitor Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data_collection_monitor_01.png)
+![Data Collection Monitor Screenshot](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data_collection_monitor_01.png)
 
 
 ## Prerequisites
@@ -31,7 +31,7 @@ Deploy or update the [Data Collection Lab](data-collection.md) to version 3.11 o
 
 1. Log in to your **Data Collection** Account. 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Data-Collection-Monitor&param_DashboardId=dc-monitor&param_RequiresDataCollection=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Data-Collection-Monitor&param_DashboardId=dc-monitor&param_RequiresDataCollection=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

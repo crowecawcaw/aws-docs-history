@@ -60,7 +60,7 @@ At the time of writing, you can select up to 5 visuals to be imported at one tim
 ### Choose to expand the demo
 <a name="quicksuite-import-visual-demo"></a>
 
-![Quick Suite Import Visual](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_import_visual.gif)
+![Quick Suite Import Visual](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/QuickSuite_import_visual.gif)
 
 
 ## Step 3 - Publishing Your New Consolidated Dashboard

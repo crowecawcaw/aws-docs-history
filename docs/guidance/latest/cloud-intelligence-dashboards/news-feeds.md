@@ -13,7 +13,7 @@ This dashboard provides recent AWS feeds including What’s New, Blog Posts, Vid
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=aws-feeds) 
 
-![AWS Feeds](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/aws-feeds.png)
+![AWS Feeds](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/aws-feeds.png)
 
 
 ## Prerequisites
@@ -31,7 +31,7 @@ Deploy [Data Collection Lab](data-collection.md) and make sure AWS Feeds Module 
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-News-Feeds-Dashboard&param_DashboardId=aws-feeds&param_RequiresDataCollection=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-News-Feeds-Dashboard&param_DashboardId=aws-feeds&param_RequiresDataCollection=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

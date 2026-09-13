@@ -35,7 +35,7 @@ Navigate in the AWS Console to the **Athena** service
 
 1. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
-![Athena Query editor highlighting the summary view query and its context menu to select show edit query](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
+![Athena Query editor highlighting the summary view query and its context menu to select show edit query](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
 
 
 1. Find the line which ends with "amortized\_cost" and add the below snippet
@@ -52,7 +52,7 @@ Navigate in the AWS Console to the **Athena** service
    ```
 
 1. click the **Run again** button and confirm that the query view updates successfully.  
-![Inset show the run again button of the query window and the successful result](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
+![Inset show the run again button of the query window and the successful result](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
 
 1. Under Views, locate **resource\_view**, Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
@@ -84,20 +84,20 @@ Navigate in the AWS Console to the **Athena** service
 Next the data set in Amazon Quick Sight needs to be refreshed in order to see the added fields and use them in your analysis and dashboard.
 
 1. Navigate to Amazon Quick Sight in the console.  
-![AWS Console search with results for Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_navqs.png)
+![AWS Console search with results for Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_navqs.png)
 
 1. Select Datasets on the left side of the page.  
-![Left navigation in Quick Sight with datasets option highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png)
+![Left navigation in Quick Sight with datasets option highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png)
 
 1. Locate **summary\_view** in the list of datasets and click on the dataset.
 
 1. Click on Edit Dataset under the **summary** tab in the top right of the page.  
-![Quick Sight edit dataset button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_editds.png)
+![Quick Sight edit dataset button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_editds.png)
 
 1. Allow the dataset preview windows to load.
 
 1. Click on **Save & Publish** button in the top right of the page. this will trigger a refresh of the dataset and import net\_amortized field  
-![Save and Publish the dataset to trigger full refresh and import new columns](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_dataset_save_publish.png)
+![Save and Publish the dataset to trigger full refresh and import new columns](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_dataset_save_publish.png)
 
 1. Repeat the steps to refresh **resource\_view** and **hourly\_view** dataset as well.
 
@@ -111,7 +111,7 @@ If you deploy an update to the CUDOS/CID dashboards with the `--recursive` optio
 
 1. First, we’ll need to [save the dashboard as an analysis](create-analysis.md) so we can make changes.
 
-1. Open the CUDOS dashboard and select the save icon, selecting "save as" in the drop-down selection to save the dashboard as an analysis. ![Save Dashboard as an analysis](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_save_analysis.png) 
+1. Open the CUDOS dashboard and select the save icon, selecting "save as" in the drop-down selection to save the dashboard as an analysis. ![Save Dashboard as an analysis](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_save_analysis.png) 
 
 1. Open the saved analysis.
 
@@ -122,28 +122,28 @@ We will create a new parameter and control/filter so we can switch between unble
 
 1. Click on Insert → Add Parameter from the top left menu bar
 
-![Top Menu Bar to insert paramater](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_top_menu_insert.png)
+![Top Menu Bar to insert paramater](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_top_menu_insert.png)
 
 
 1. Enter a name: CostType for the parameter and enter the static default value : net amortized cost
 
 1. Click create
 
-![Create new parameter](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_createparameter.png)
+![Create new parameter](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_createparameter.png)
 
 
 1. In the parameter added window, select Control to create a new control and connect to the parameter.  
-![options for added parameter](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_parameteradded.png)
+![options for added parameter](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_parameteradded.png)
 
 1. Enter in a display name : Cost Type, and ensure "Dropdown" is the style.
 
 1. Define specific values as displayed below  
-![Add control for the parameter](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_AddControl.png)
+![Add control for the parameter](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_AddControl.png)
 
 1. Finally click the add button.
 
 1. The control will be added to the sheet in your analysis.  
-![CostType Control](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_control_options.png)
+![CostType Control](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_control_options.png)
 
 **Note**  
 The control has to be re-added to each sheet in the analysis
@@ -154,7 +154,7 @@ The control has to be re-added to each sheet in the analysis
 Now that we’ve created the parameter and control we need to associate it with a few calculated fields in order to have an effect in our analysis visualizations.
 
 1. Click on Dataset from the left navigation and select the dataset **hourly\_view**   
-![Select Hourly view dataset](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_hourlyview_dataset.png)
+![Select Hourly view dataset](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_hourlyview_dataset.png)
 
 1. Find the calculated column **amortized cost** and edit the calculated field as shown below and click on save
 
@@ -170,7 +170,7 @@ Now that we’ve created the parameter and control we need to associate it with 
    )
    ```
 
-    ![Edit calculated filed in hourly view](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_hourly_view_amortized_cost.png) 
+    ![Edit calculated filed in hourly view](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_hourly_view_amortized_cost.png) 
 
 1. Now select the dataset **resource\_view** and find the calculated field **amortized cost**. Make changes as shown below and save
 
@@ -186,7 +186,7 @@ Now that we’ve created the parameter and control we need to associate it with 
    )
    ```
 
-    ![Edit calculated filed in hourly view](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_hourly_view_amortized_cost.png) 
+    ![Edit calculated filed in hourly view](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_hourly_view_amortized_cost.png) 
 
 1. Find the calculated field **Workspace Total Resource Cost**, edit as shown below and click on Save
 
@@ -194,7 +194,7 @@ Now that we’ve created the parameter and control we need to associate it with 
    sumOver(sum(Cost), [{Workspace ID}])
    ```
 
-    ![Edit calculated filed in hourly view](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_resource_view_workspace_total_resource_cost.png) 
+    ![Edit calculated filed in hourly view](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_resource_view_workspace_total_resource_cost.png) 
 
 1. Find the calculated field **Workspace Average Cost**, edit as shown below and click on Save
 
@@ -202,7 +202,7 @@ Now that we’ve created the parameter and control we need to associate it with 
    sum(Cost)/distinct_count({Workspace ID})
    ```
 
-    ![Edit calculated filed in hourly view](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_resource_view_workspace_average_cost.png) 
+    ![Edit calculated filed in hourly view](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_resource_view_workspace_average_cost.png) 
 
 1. Now Select the dataset **summary\_view** and find the calculated filed **Cost\_Amortized** . edit the calculated field as shown below and click on save
 
@@ -213,6 +213,6 @@ Now that we’ve created the parameter and control we need to associate it with 
    NULL)
    ```
 
-    ![Edit calculated filed in hourly view](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_Summary_view_cost_amortized.png) 
+    ![Edit calculated filed in hourly view](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/net_Summary_view_cost_amortized.png) 
 
 1. Publish the modified analysis as a new dashboard which now has option to switch between both unblended and net\_amortized cost.

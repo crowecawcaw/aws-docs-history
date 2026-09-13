@@ -10,7 +10,7 @@ AWS Provides a [Cost and Usage Report 2.0](https://docs.aws.amazon.com/cur/lates
 
 Use this guide if you already have CID dashboards installed via CloudFormation or CLI methods.
 
-![Migration Phases](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur2/migration-phases.png)
+![Migration Phases](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur2/migration-phases.png)
 
 
 Migration can be done in 3 steps:

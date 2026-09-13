@@ -13,12 +13,12 @@ These Step Functions are scheduled to run the first time in 30 mins after deploy
 ### More
 <a name="collapsible-section-id-data-collection-utilize-data-1"></a>
 
-![Step Functions Executions Status](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/4a-step-functions-executions-check.png)
+![Step Functions Executions Status](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/4a-step-functions-executions-check.png)
 
 
 Now you can inspect tables created in the Athena database, and use a simple SELECT query to inspect the results.
 
-![Athena tables - data check](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/5a-athena-data-check-tables-query.png)
+![Athena tables - data check](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/5a-athena-data-check-tables-query.png)
 
 
 For example:
@@ -27,7 +27,7 @@ For example:
 SELECT * FROM "cost_anomaly_data" LIMIT 10;
 ```
 
-![Athena data check query results](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/5b-athena-data-check-query-results.png)
+![Athena data check query results](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/5b-athena-data-check-query-results.png)
 
 
 ## Utilizing Your Data
@@ -360,7 +360,7 @@ Now your views are created you can run your report
 
  **Example Output** 
 
-![Example output of query results of ECS chargeback query](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Example_output.png)
+![Example output of query results of ECS chargeback query](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Example_output.png)
 
 
 Breakdown:

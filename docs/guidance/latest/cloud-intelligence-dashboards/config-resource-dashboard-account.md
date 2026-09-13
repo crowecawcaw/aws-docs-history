@@ -19,7 +19,7 @@ The installation process consists of three steps:
 
 1. On the Dashboard account, deploy Quick Sight resources for the dashboard and the necessary Athena views using the [CID-CMD](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md) command line tool.
 
-![CRCD Dashboard: deployment steps on Dashboard account](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-deployment-steps-dashboard-account.png)
+![CRCD Dashboard: deployment steps on Dashboard account](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-deployment-steps-dashboard-account.png)
 
 
 **Note**  
@@ -40,7 +40,7 @@ Ensure you are in the AWS Region where both your AWS Config Logs bucket and Amaz
 
 1. Click the Launch Stack button below to open the stack template in your CloudFormation console. This Stack will create the data pipeline resources for the dashboard.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-stack.yaml&stackName=config-dashboard-resources) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-stack.yaml&stackName=config-dashboard-resources) 
 
 1. Specify the following parameters:
    +  `AWS Config account ID` Enter the AWS account ID of the AWS Config account. Notice this in **not** where you are currently logged in (Required).
@@ -71,7 +71,7 @@ Ensure you are in the AWS Region where both your AWS Config Logs bucket and Amaz
 
 1. Click the Launch Stack button below to open the stack template in your CloudFormation console. This Stack will create the data pipeline resources for the dashboard.
 
- [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-stack.yaml&stackName=config-dashboard-resources) 
+ [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-crcd-stack.yaml&stackName=config-dashboard-resources) 
 
 1. Specify the following parameters:
    +  `AWS Config account ID` Enter the AWS account ID where you are currently logged in (Required).

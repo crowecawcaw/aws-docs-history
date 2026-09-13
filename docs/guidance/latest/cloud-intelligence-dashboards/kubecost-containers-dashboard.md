@@ -27,7 +27,7 @@ You can also check AWS Native [SCAD Containers Cost Allocation Dashboard](scad-c
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo/?dashboard=containers-cost-allocation) 
 
-![Kubecost - Containers Cost Allocation Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/kubecost_containers_cost_allocation.png)
+![Kubecost - Containers Cost Allocation Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/kubecost_containers_cost_allocation.png)
 
 
 ## CID’s Containers Cost Allocation Dashboards Comparison

@@ -40,7 +40,7 @@ Navigate in the AWS Console to the **Athena** service
 
 1. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
-![Athena Query editor highlighting the summary view query and its context menu to select show edit query](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
+![Athena Query editor highlighting the summary view query and its context menu to select show edit query](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_showedit_qry.png)
 
 
 1. Modify the "Where" condition and include the two new "And" lines. In this example we also remove Refund, Credit and Tax along with Discounts
@@ -52,7 +52,7 @@ Navigate in the AWS Console to the **Athena** service
    ```
 
 1. When you’ve completed adding all of the fields, click the **RUN** button and confirm that the query view updates successfully.  
-![Inset show the run again button of the query window and the successful result](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
+![Inset show the run again button of the query window and the successful result](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png)
 
 1. Repeat the steps above on the **resource\_view** dataset.
 
@@ -62,10 +62,10 @@ Navigate in the AWS Console to the **Athena** service
 Next the data set in Amazon Quick Sight needs to be refreshed in order to view the changes immediately.
 
 1. Navigate to Amazon Quick Sight in the console.  
-![AWS Console search with results for Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_navqs.png)
+![AWS Console search with results for Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_navqs.png)
 
 1. Select Datasets on the left side of the page.  
-![Left navigation in Quick Sight with datasets option highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png)
+![Left navigation in Quick Sight with datasets option highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png)
 
 1. Locate **summary\_view** in the list of datasets and click on the dataset.
 

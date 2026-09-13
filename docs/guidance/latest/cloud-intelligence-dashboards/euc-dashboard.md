@@ -16,7 +16,7 @@ The End User Computing (EUC) Dashboard provides a unified view of your AWS EUC e
 
 This solution helps teams make data-driven decisions to optimize costs, improve operational efficiency, and enhance the end-user experience across their EUC estate.
 
-![EUC Dashboard Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/executive_summary.png)
+![EUC Dashboard Screenshot](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/executive_summary.png)
 
 
 The dashboard has six tabs:
@@ -25,7 +25,7 @@ The dashboard has six tabs:
   + Top Spending accounts for each service.
   + High level summary of your EUC estate.
 
-![Insights](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_insights.png)
+![Insights](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_insights.png)
 
 +  **Amazon WorkSpaces Insights**:
   + In-depth breakdown of WorkSpaces costs for entire environment, additional insights not available in the Cost Usage Report including:
@@ -36,10 +36,10 @@ The dashboard has six tabs:
   + WorkSpaces Cost Breakdown.
   + Workspaces Software bundle information.
 
-![Insights](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_usage.png)
+![Insights](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_usage.png)
 
 
-![Insights](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_logon_details.png)
+![Insights](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/workspace_logon_details.png)
 
 +  **Amazon WorkSpaces Usage**:
   + WorkSpaces User connections.
@@ -54,7 +54,7 @@ The dashboard has six tabs:
 +  **Amazon WorkSpaces Metrics**:
   + This additional tab breaks down CloudWatch CPU/Memory utilization of WorkSpaces.
 
-![AppStream 2.0 Highlights](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/as2_details.png)
+![AppStream 2.0 Highlights](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/as2_details.png)
 
 +  **Amazon AppStream 2.0** 
   + Detail overview of AppStream 2.0 environment.
@@ -64,7 +64,7 @@ The dashboard has six tabs:
 ## Architecture
 <a name="architecture"></a>
 
-![Image of Amazon EUC Dashboard architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/euc_dashboard_cid.png)
+![Image of Amazon EUC Dashboard architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/euc/euc_dashboard_cid.png)
 
 
 1. The EUC Dashboard depends on the AWS Data Exports service delivers Cost & Usage Report (CUR2) daily to an Amazon S3 Bucket in the Management Account.
@@ -91,7 +91,7 @@ The dashboard has six tabs:
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=EUC-Dashboard&param_DashboardId=euc-dashboard&param_RequiresDataCollection=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=EUC-Dashboard&param_DashboardId=euc-dashboard&param_RequiresDataCollection=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

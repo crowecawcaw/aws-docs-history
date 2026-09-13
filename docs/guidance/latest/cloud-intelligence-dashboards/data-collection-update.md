@@ -39,22 +39,22 @@ Watch [demo of update process from legacy version to v3](https://www.youtube.com
 
 1. Login to your Management/Payer Account and get the Organization Root ID from the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2/home/accounts).
 
-![Organization Root ID](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2a-find-organisation-root-id.png)
+![Organization Root ID](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2a-find-organisation-root-id.png)
 
 
 1. Install the Permission Stack in your Management/Payer Account by clicking Launch Stack below
 
- [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionDataReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_AllowModuleReadInMgmt=yes&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeCostAnomalyModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=no&param_IncludeTransitGatewayModule=no) 
+ [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionDataReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_AllowModuleReadInMgmt=yes&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeCostAnomalyModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=no&param_IncludeTransitGatewayModule=no) 
 
 **Note**  
 To ensure full visibility of data across your organization accounts, in the parameters section, we recommend to pass the Organization Root ID as the organizational unit parameter (OrganizationalUnitID), to ensure the data read role stack is deployed to all accounts in your organization, allowing data collectors to access data from all your organization.
 
-![Data Read Role CloudFormation stack - parameters](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
+![Data Read Role CloudFormation stack - parameters](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
 
 
 1. Make sure to select all modules that you want to allow access to your organization accounts data.
 
-![Data Read Role CloudFormation - modules selection](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2c-data-read-permissions-stack-create-modules.png)
+![Data Read Role CloudFormation - modules selection](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2c-data-read-permissions-stack-create-modules.png)
 
 
 ### Step 2. [Data Collection Account] Update Data Collection stack
@@ -66,29 +66,29 @@ To ensure full visibility of data across your organization accounts, in the para
 1. The URL to the latest Data Collection CloudFormation is https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml. Copy this URL and keep it at hand, you will use it to update the current Data Collection stack.
 
 1. Make a note of the value set on your existing Data Collection stack regions parameter. Previous versions of the Data Collection stack would have the regions in the parameter "ComputeOptimizerRegions":  
-![Compute Optimizer Regions parameter](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/0-data-collection-stack-current-region-parameter.png)
+![Compute Optimizer Regions parameter](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/0-data-collection-stack-current-region-parameter.png)
 
 1. Find the existing data collection stack. The default name of the data collection stack is **OptimizationDataCollectionStack**.  
-![Optimization Data Collection Stack](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1a-data-collection-stack.png)
+![Optimization Data Collection Stack](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1a-data-collection-stack.png)
 
 1. Start the Data Collection stack update process by clicking on the "Update" button:  
-![Optimization Data Collection Stack detailed view update button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1b-data-collection-stack-detailed-view.png)
+![Optimization Data Collection Stack detailed view update button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1b-data-collection-stack-detailed-view.png)
 
 1. Choose the option to "Replace current template", using the "Amazon S3 URL" option, and paste the URL of the latest Data Collection CloudFormation template you copied before.  
-![Optimization Data Collection Stack replace template entering S3 URL to new template](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1d-data-collection-update-replace-template-S3-url.png)
+![Optimization Data Collection Stack replace template entering S3 URL to new template](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1d-data-collection-update-replace-template-S3-url.png)
 
 1. In the **Specify stack details** stage parameters section, you will find the parameter "Role Prefix" with the value "CID-DC-". We recommend to use this new prefix to avoid conflicts with any existing resources when updating to the latest version of the Data Collection stack.  
-![Optimization Data Collection Stack update - role prefix](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1e-data-collection-update-role-prefix.png)
+![Optimization Data Collection Stack update - role prefix](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1e-data-collection-update-role-prefix.png)
 
 1. In the same parameters section, update the regions from which data about resources will be collected. Specify at least the same regions your existing Data Collection stack uses.  
-![Optimization Data Collection Stack update - regions parameter](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1f-data-collection-update-compopt-regions.png)
+![Optimization Data Collection Stack update - regions parameter](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1f-data-collection-update-compopt-regions.png)
 
 1. Click **Next** at the bottom of the **Specify stack details** stage, and then, click **Next** again at the bottom of the **Configure stack options** stage to move to the **Review** stage. Click **Submit** at the end of the **Review** stage to initiate the update. This process will take a few minutes until completion.  
-![Optimization Data Collection Stack update - submit action](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1g-data-collection-update-submit.png)
+![Optimization Data Collection Stack update - submit action](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1g-data-collection-update-submit.png)
 
 Once updated, the new version of the Data Collection stack will be visible in the stack description.
 
-![Optimization Data Collection Stack update complete](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1h-data-collection-update-complete.png)
+![Optimization Data Collection Stack update complete](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1h-data-collection-update-complete.png)
 
 
 ### Step 3. [In Data Collection Account] Run data migration script
@@ -117,20 +117,20 @@ python3 s3_files_migration.py
 Before version 3.0, 2 stacks were deployed in the Management account: - Read role stack for Management account specific data. - (Optional) Read role stack for collector-specific data.
 
 1. Find the current data read permissions stacks by navigating to the [CloudFormation console](https://us-east-1.console.aws.amazon.com/cloudformation/home)   
-![Find current data read role stacks](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1a-find-current-data-read-permissions-stacks.png)
+![Find current data read role stacks](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1a-find-current-data-read-permissions-stacks.png)
 
 1. Delete the Management data read role stack. The default name of the stack is **OptimizationManagementDataRoleStack**.  
-![Management account data read role stack](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1b-mgmt-acc-mgmt-read-role-stack-delete.png)
+![Management account data read role stack](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1b-mgmt-acc-mgmt-read-role-stack-delete.png)
 
 1. Confirm you want to delete the stack.  
-![Confirm deletion of Management account data read permissions stack](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1c-mgmt-acc-mgmt-read-role-stack-delete-confirm.png)
+![Confirm deletion of Management account data read permissions stack](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1c-mgmt-acc-mgmt-read-role-stack-delete-confirm.png)
 
 1. Delete data read role stack, if installed. The default name of the stack is **OptimizationDataRoleStack**.  
-![Collectors data read role stack](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1d-mgmt-acc-data-read-role-stack-delete.png)
+![Collectors data read role stack](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1d-mgmt-acc-data-read-role-stack-delete.png)
 
 1. Confirm you want to delete the stack.
 
-![Confirm deletion of the collectors data read permissions stack](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1e-mgmt-acc-data-read-role-stack-delete-confirm.png)
+![Confirm deletion of the collectors data read permissions stack](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1e-mgmt-acc-data-read-role-stack-delete-confirm.png)
 
 
  **Delete data read role StackSet from v2 (OptimizationDataRoleStack)** 
@@ -138,22 +138,22 @@ Before version 3.0, 2 stacks were deployed in the Management account: - Read rol
 Before version 3.0, data read permissions were deployed as a StackSet in the Management account with the default name **OptimizationDataRoleStack**.
 
 1. Find the Organizational Unit the stackset is targeting by looking at the stackset details:  
-![Optimization Data Role Stack Organizational Unit IDs](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1f-data-read-permissions-stackset-info-ouid.png)
+![Optimization Data Role Stack Organizational Unit IDs](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1f-data-read-permissions-stackset-info-ouid.png)
 
 1. Find the data read role permission stackset in the CloudFormation StackSet console.  
-![CloudFormation StackSets console - search data read role stackset](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1g-find-data-read-permissions-stackset.png)
+![CloudFormation StackSets console - search data read role stackset](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1g-find-data-read-permissions-stackset.png)
 
 1. Delete the stacks deployed by the stackset. You can select the stackset and select the "Delete stacks from StackSet" menu option.  
-![Delete stacks from stackset menu option](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1h-data-read-permissions-stackset-delete-stacks.png)
+![Delete stacks from stackset menu option](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1h-data-read-permissions-stackset-delete-stacks.png)
 
 1. Enter the Organizational Unit ID you found in step \#1 and select all the regions the stackset is targeting. Usually, the stackset will deploy to a single region, for example, us-east-1. Click **Next** to move to the **Review** stage, and then click **Submit** to start deleting the stacks from the stackset. **NOTE** The deletion process can take a few minutes to complete.  
-![Delete stacks from stackset - parameters](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1i-data-read-permissions-stackset-delete-stacks-parameters.png)
+![Delete stacks from stackset - parameters](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1i-data-read-permissions-stackset-delete-stacks-parameters.png)
 
 1. After the stackset’s stacks are deleted, return to the StackSets page, select the data read roles stackset, and use the menu option **Delete StackSet** to delete it.  
-![Delete StackSet menu option](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1j-data-read-permissions-stackset-delete.png)
+![Delete StackSet menu option](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1j-data-read-permissions-stackset-delete.png)
 
 1. Confirm you want to delete the stacks in the set.  
-![Confirmation to delete stackset](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1k-data-read-permissions-stackset-delete-confirm.png)
+![Confirmation to delete stackset](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/1k-data-read-permissions-stackset-delete-confirm.png)
 
 ### Step 5. [In Data Collection Account] Update Dashboards
 <a name="step-5-in-data-collection-account-update-dashboards"></a>

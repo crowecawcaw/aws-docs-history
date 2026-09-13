@@ -17,7 +17,7 @@ All these dashboards are based on the AWS Cost & Usage Report (CUR) that contain
 
 These dashboards support both the newer **CUR 2.0** data export (recommended) and the **legacy CUR**. We recommend CUR 2.0, which is delivered through [AWS Data Exports](data-exports.md) and provides additional columns and taxonomy sources used across the dashboards.
 
-![Recommended Deployment Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/basic_deployment_arch.png)
+![Recommended Deployment Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/basic_deployment_arch.png)
 
 
 1.  [AWS Data Exports](https://aws.amazon.com/aws-cost-management/aws-data-exports/) delivers daily the Cost & Usage Report (CUR2) directly to an [Amazon S3 Bucket](https://aws.amazon.com/s3/) in the Data Collection Account.
@@ -52,7 +52,7 @@ Built on fast Amazon Quick SPICE datasets, CUDOS organizes cost and usage across
 
 Explore a [sample CUDOS Dashboard](https://cid.workshops.aws.dev/demo?dashboard=cudos) 
 
-![CUDOS Dashboard Screenshot](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/CUDOS_dashboard.png)
+![CUDOS Dashboard Screenshot](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/CUDOS_dashboard.png)
 
 
 ### Deploy

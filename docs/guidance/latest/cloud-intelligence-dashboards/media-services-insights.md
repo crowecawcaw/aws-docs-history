@@ -15,7 +15,7 @@ The dashboard covers key AWS Elemental Media Services including:
 +  [AWS Elemental MediaPackage](https://aws.amazon.com/mediapackage/) - Video origination and packaging
 +  [AWS Elemental MediaTailor](https://aws.amazon.com/mediatailor/) - Video personalization and monetization
 
-![Image of Media Services Insights Hub architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/media_services_insights_02.png)
+![Image of Media Services Insights Hub architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/media_services_insights_02.png)
 
 
 The MSIH dashboard is organized into intuitive tabs:
@@ -41,7 +41,7 @@ Each tab provides progressively detailed insights to help you optimize your medi
 
 Get more familiar with the dashboard using the live, interactive demo by following this [link](https://cid.workshops.aws.dev/demo?dashboard=media-services-insights) 
 
-![Image of Media Services Insights Hub in Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/media_services_insights_01.png)
+![Image of Media Services Insights Hub in Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/media_services_insights_01.png)
 
 
 ## Prerequisites
@@ -59,7 +59,7 @@ Deploy the [CID Foundational Dashboards](dashboard-foundational.md) stack. This 
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Media-Services-Insights-Hub&param_DashboardId=media-services-insights&param_RequiresDataExports=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Media-Services-Insights-Hub&param_DashboardId=media-services-insights&param_RequiresDataExports=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

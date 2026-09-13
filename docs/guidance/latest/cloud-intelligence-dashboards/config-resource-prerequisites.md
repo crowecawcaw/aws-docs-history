@@ -14,12 +14,12 @@ If you use AWS Organizations, AWS Config must be enabled with an [AWS Config del
 
 1.  **Deploy in the AWS Config account** You can deploy the dashboard resources in the same account where your AWS Config configuration files are delivered. The architecture in this case looks like this:
 
-![AWS Config Dashboard: deployment on AWS Organization](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-architecture-log-archive-account.png)
+![AWS Config Dashboard: deployment on AWS Organization](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-architecture-log-archive-account.png)
 
 
 1.  **Deploy in a separate Dashboard account** Alternatively, you can create a separate Dashboard account to deploy the dashboard resources. In this case, objects from the AWS Config Logs bucket in the AWS Config account are replicated to another bucket in the Dashboard account.
 
-![AWS Config Dashboard: deployment on AWS Organization](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-architecture-dashboard-account.png)
+![AWS Config Dashboard: deployment on AWS Organization](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-architecture-dashboard-account.png)
 
 
 An Amazon Athena table is used to extract data from the AWS Config configuration files delivered to Amazon S3. Whenever a new object is added to the bucket, the Lambda Partitioner function is triggered. This function checks if the object is an AWS Config configuration snapshot or configuration history file. If it is, the function adds a new partition to the corresponding Athena table with the new data. If the object is neither a configuration snapshot nor configuration history file, the function ignores it.

@@ -20,7 +20,7 @@ To learn more about AWS Resilience Hub, See:
 ## Architecture
 <a name="architecture"></a>
 
-![Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/rh_architecture.png)
+![Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/rh_architecture.png)
 
 
 1. The "[Data Collection Lab](data-collection.md)" provides an Amazon Lambda function that assumes a role in one or multiple Linked accounts to retrieve daily the AWS Resilience Hub assessment Data and store it on Amazon S3. The Lambda only pulls data that are updated since the last retrieval. The stack also provides AWS Glue Tables to query collected data.
@@ -32,7 +32,7 @@ To learn more about AWS Resilience Hub, See:
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=resiliencevue) 
 
-![Image of ResilienceVue dashboard in Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/rv_demo.png)
+![Image of ResilienceVue dashboard in Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/rv_demo.png)
 
 
 ## Prerequisites
@@ -52,7 +52,7 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Resiliencevue-Dashboard&param_DashboardId=resiliencevue&param_RequiresDataCollection=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Resiliencevue-Dashboard&param_DashboardId=resiliencevue&param_RequiresDataCollection=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

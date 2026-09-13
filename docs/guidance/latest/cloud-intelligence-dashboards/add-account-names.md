@@ -47,36 +47,36 @@ This option allows you to bring in account names using AWS Cost Categories. If y
 
 Navigate to cost categories by either searching for cost categories in the AWS console search bar
 
-![Searching for cost categories in AWS console search highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/search_cc.png)
+![Searching for cost categories in AWS console search highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/search_cc.png)
 
 
 OR by going to the Billing console and choosing Cost Categories from the navigation menu
 
-![Choosing cost categories in billing console highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/billing_console.png)
+![Choosing cost categories in billing console highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/billing_console.png)
 
 
 In the Cost Categories console Select **Create cost category** 
 
-![Choosing create Cost Category in CC console](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/cc_create.png)
+![Choosing create Cost Category in CC console](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/cc_create.png)
 
 
 Name your cost category as **accountname** or any other name you’d like. Be consistent with the name across multiple payer accounts if you are consolidating data from other payer accounts
 
 For lookback period select the second option **Apply cost category rules starting any specified month from the previous 12 months** and then choose a month which is at least 3 months prior to the current month. Select **Next** 
 
-![Creating Cost Category name](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/cc_name_option.png)
+![Creating Cost Category name](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/cc_name_option.png)
 
 
 In the category rules under Rule Builder choose Rule Type as **Inherited value** and Dimension as **Account** 
 
 Specify a default value as **unnamed**. You can use anything you’d like to define accounts which do not have an account name but be consistent across multiple payer accounts. Select **Next** 
 
-![Creating Cost Category rules](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/cc_rule_option.png)
+![Creating Cost Category rules](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/cc_rule_option.png)
 
 
 Select **create cost category** 
 
-![Finishing Cost Category creation](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/cc_create_final.png)
+![Finishing Cost Category creation](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/cc_create_final.png)
 
 
 The CUR will now have a column called **CostCategory/accountname** with the account names populated in them. Please note, it might take **24-48 hours** for the CUR to be updated. In Athena the column name in the CUR table will be something similar to **cost\_category\_accountname** 
@@ -124,52 +124,52 @@ This example will show you how to create using a sample account\_map csv file
 
 1. Select **Create Bucket** 
 
-![Amazon S3 console with create bucket button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_create_bucket.png)
+![Amazon S3 console with create bucket button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_create_bucket.png)
 
 
 1. Name your bucket, we recommend **cost-account-map-** to easily locate
 
-![Amazon S3 create bucket with bucket name field highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_name_bucket.png)
+![Amazon S3 create bucket with bucket name field highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_name_bucket.png)
 
 
 1. Scroll to the bottom and select **Create Bucket** 
 
-![Amazon S3 create bucket with create bucket button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_save_bucket.png)
+![Amazon S3 create bucket with create bucket button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_save_bucket.png)
 
 
 1. Navigate to your newly created s3 bucket
 
-![Amazon S3 bucket list with newly created bucket highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_select_bucket.png)
+![Amazon S3 bucket list with newly created bucket highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_select_bucket.png)
 
 
 1. Select **Create folder** 
 
-![Amazon S3 bucket object page with create folder button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_create_folder.png)
+![Amazon S3 bucket object page with create folder button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_create_folder.png)
 
 
 1. Name your folder **account-map** and select **Create folder** 
 
-![Create folder page with folder name field and create folder button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_name_folder.png)
+![Create folder page with folder name field and create folder button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_name_folder.png)
 
 
 1. Click on your newly created **account-map** folder
 
-![Amazon S3 bucket screen in cost-account-map folder with account-map folder highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_select_folder.png)
+![Amazon S3 bucket screen in cost-account-map folder with account-map folder highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_select_folder.png)
 
 
 1. Select **Upload** 
 
-![account-map folder page with upload button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_upload.png)
+![account-map folder page with upload button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_upload.png)
 
 
 1. In your newly created folder, **drag and drop** your account\_map.csv file then select **Upload** 
 
-![Amazon S3 upload page with the drag and drop file upload section and upload button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_upload_csv.png)
+![Amazon S3 upload page with the drag and drop file upload section and upload button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_upload_csv.png)
 
 
 1. Copy down the **S3 Destination** of the account-map.csv. You will need this to create your Athena table
 
-![Amazon S3 upload status page with destination part highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_copy.png)
+![Amazon S3 upload status page with destination part highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur/view0_copy.png)
 
 
  **Create your account\_mapping Athena table** 

@@ -15,7 +15,7 @@ The dashboard provides Amazon Quick Sight visualizations with sustainability pro
 
 Get more familiar with the Sustainability Proxy Metrics and Carbon Emissions Dashboard using the [live interactive demo dashboard](https://cid.workshops.aws.dev/demo?dashboard=sustainability-proxy-metrics) :
 
-![Sustainability Proxy Metrics Dashboard](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/SPMD.png)
+![Sustainability Proxy Metrics Dashboard](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/SPMD.png)
 
 
 ## Prerequisites
@@ -67,7 +67,7 @@ Install the dashboard using the [cid-cmd](https://github.com/aws-solutions-libra
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Sustainability-Proxy-Metrics-Dashboard&param_DashboardId=sustainability-proxy-metrics&param_RequiresDataExports=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Sustainability-Proxy-Metrics-Dashboard&param_DashboardId=sustainability-proxy-metrics&param_RequiresDataExports=yes) 
 
 1. You can change **Stack name** for your template if you wish.
 

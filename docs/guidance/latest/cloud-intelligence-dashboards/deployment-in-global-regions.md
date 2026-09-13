@@ -13,7 +13,7 @@ We recommend the deployment of the Dashboards in a dedicated Data Collection Acc
 
 If you do not have access to the Management/Payer Account, you can still collect the data across multiple Linked accounts using the [same approach](data-collection-without-org.md).
 
-![Recommended Deployment Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur2/cid-foundation-cur2-high-level-architecture.png)
+![Recommended Deployment Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cur2/cid-foundation-cur2-high-level-architecture.png)
 
 
 Deployment process consists of 3 main steps:
@@ -59,7 +59,7 @@ Currently only foundational dashboards, CORA, Sustainability and FOCUS Dashboard
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console. This stack will create an S3 bucket with a bucket policy allowing write access for the AWS Data Exports service, and Athena Tables.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS) 
 
 ### More info about stack parameters and the process
 <a name="collapsible-section-id-deployment-in-global-regions-3"></a>
@@ -78,7 +78,7 @@ You can add or delete Source Accounts later by updating this stack and adding or
 
 1. Click the **Launch Stack button** below to open the **stack template** in your AWS CloudFormation console.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds=) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds=) 
 
 ### Click here for the configuration steps
 <a name="collapsible-section-id-deployment-in-global-regions-4"></a>
@@ -161,7 +161,7 @@ Select `Use AWS IAM Identity Center` if you want to use and share the CID dashbo
    + Make sure that Pixel Perfect and Amazon Q in Quick are deactivated.
    + Click on the SPICE Capacity option and choose `auto purchase` or purchase enough SPICE capacity so that the total is roughly 40GB. If you get SPICE capacity errors later, you can come back here to purchase more. If you’ve purchased too much you can also release it after you’ve deployed the dashboards.
 
-![Quick Sight Sign up Workflow Image](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/qs-enterprise-activation.gif)
+![Quick Sight Sign up Workflow Image](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/qs-enterprise-activation.gif)
 
 
 ### 3.2 Deploy Dashboards
@@ -177,7 +177,7 @@ In this step we will use CloudFormation stack to create Athena Workgroup, S3 buc
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes) 
 
 1. Enter a **Stack name** for your template such as **Cloud-Intelligence-Dashboards** 
 
@@ -186,7 +186,7 @@ In this step we will use CloudFormation stack to create Athena Workgroup, S3 buc
 1. Copy and paste your **Quick SightUserName** into the parameter text box. To find your Quick Sight username:
    + Open a new tab or window and navigate to the **Quick Sight** console
    + Find your username from the person icon in the top right corner  
-![Quick Sight page with username drop down in the top right highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cf_dash_qs_2.png)
+![Quick Sight page with username drop down in the top right highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cf_dash_qs_2.png)
 
 1. Select the Dashboards you want to install. We recommend deploying all three: Cost Intelligence Dashboard, CUDOS, and the KPI Dashboard.
 

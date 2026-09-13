@@ -15,7 +15,7 @@ We recommend deployment of the Dashboards in a dedicated Data Collection Account
 
 If you do not have access to the Management/Payer Account, you can still collect the data across multiple Linked accounts using the same approach.
 
-![Foundational Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/china/china-foundamental-architecture.png)
+![Foundational Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/china/china-foundamental-architecture.png)
 
 
 1.  [AWS Cost and Usage Report](https://aws.amazon.com/aws-cost-management/aws-data-exports/) delivers daily the Cost & Usage data to an [Amazon S3 Bucket](https://aws.amazon.com/s3/) in the Management Account.
@@ -31,7 +31,7 @@ If you do not have access to the Management/Payer Account, you can still collect
 ## Deployment
 <a name="deployment"></a>
 
-![Deployment Steps](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/china/china-deploy-simple.png)
+![Deployment Steps](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/china/china-deploy-simple.png)
 
 
 Deployment process consists of 3 main steps:
@@ -68,7 +68,7 @@ Deployment process consists of 3 main steps:
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console. This Stack will create bucket open for replication and Athena Tables.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination&param_CreateCUR=False&param_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination&param_CreateCUR=False&param_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID) 
 
 ### Step 2. [Source/Management Account] Create CUR and Configure Replication
 <a name="step-2-sourcemanagement-account-create-cur-and-configure-replication"></a>
@@ -77,7 +77,7 @@ Deployment process consists of 3 main steps:
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication&param_CreateCUR=True&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication&param_CreateCUR=True&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=) 
 
 ### Step 3. [Data Collection Account] Deploy Dashboards
 <a name="step-3-data-collection-account-deploy-dashboards"></a>
@@ -112,7 +112,7 @@ Note: Choose your authentication method based on your organization’s requireme
 **Note**  
 Make sure to uncheck Pixel-Perfect Reports option unless specifically needed, as it incurs additional charges. This feature can be enabled later if needed.
 
-![Quick Sight configuration page - uncheck Pixel-Perfect Reports option](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/pixel-perfect-china.png)
+![Quick Sight configuration page - uncheck Pixel-Perfect Reports option](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/pixel-perfect-china.png)
 
 
 1. Complete the account creation:
@@ -132,7 +132,7 @@ To avoid cross-region data transfer costs, use the Beijing Region (cn-north-1) -
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes&param_CreateLocalAssetsBucket=yes&param_CURVersion=1.0&param_KeepLegacyCURTable=yes&param_CurrencySymbol=JPY) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes&param_CreateLocalAssetsBucket=yes&param_CURVersion=1.0&param_KeepLegacyCURTable=yes&param_CurrencySymbol=JPY) 
 
 1. Configure stack parameters:
 
@@ -143,7 +143,7 @@ To avoid cross-region data transfer costs, use the Beijing Region (cn-north-1) -
 + Copy and paste your **Quick SightUserName** into the parameter text box. To find your Quick Sight username:
   + Open a new tab or window and navigate to the **Quick Sight** console
   + Find your username from the person icon in the top right corner  
-![Quick Sight page with username drop down in the top right highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cd_dash_qs_china.png)
+![Quick Sight page with username drop down in the top right highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/cd_dash_qs_china.png)
 + Select the Dashboards you want to install. We recommend deploying all three: Cost Intelligence Dashboard, CUDOS, and the KPI Dashboard.
 + Make sure Parameters **CreateLocalAssetsBucket** set to **yes** and **CURVersion** set to **1.0** 
 + The **CurrencySymbol** parameter is defaulted to JPY (Japanese Yen - ¥). Please select the appropriate symbol from the dropdown option to match your CUR settings.
@@ -181,7 +181,7 @@ After successful deployment:
 #### See Sample Architecture
 <a name="collapsible-section-id-deployment-in-china-4"></a>
 
-![Data Transfer Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/china/china-cur-transfer.png)
+![Data Transfer Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/china/china-cur-transfer.png)
 
 
 1. Amazon S3 replicates AWS CUR data from a Management account in Global region to a Data Collection Account.

@@ -14,14 +14,14 @@ Main features of Graviton Savings Dashboard:
 +  **Current Graviton Usage and Realized Savings** - View your current Graviton usage and realized savings for Amazon EC2, RDS, OpenSearch and Elasticache
 +  **Potential Graviton Savings** - Detect current workloads that are eligible for Graviton and evaluate potential savings from the transition.
 +  **Governance** - Centralized Dashboard view allows FinOps Team to track and monitor AWS Graviton savings and opportunities across one or multiple AWS Organizations (Payers).  
-[![AWS Videos](http://img.youtube.com/vi/F_wskaHIfUk?rel=0/0.jpg)](http://www.youtube.com/watch?v=F_wskaHIfUk?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/F_wskaHIfUk?rel=0/0.jpg)](https://www.youtube.com/watch?v=F_wskaHIfUk?rel=0)
 
 ## Demo Dashboard
 <a name="demo-dashboard"></a>
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=graviton-savings-dashboard).
 
-![EC2 - Existing Usage](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/EC2_Graviton_Opportunity_GSD.png)
+![EC2 - Existing Usage](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/EC2_Graviton_Opportunity_GSD.png)
 
 
 See more screenshots in the [usage guide](#graviton-savings-usage-overview).
@@ -31,7 +31,7 @@ See more screenshots in the [usage guide](#graviton-savings-usage-overview).
 
 The Dashboard uses AWS CUR from [Foundational Dashboards Stack](deployment-in-global-regions.md), and additionally AWS Pricing and Inventory Modules from [Data Collection Stack](data-collection.md). These stacks automatically collect data and store on Amazon S3. Customers can then leverage Amazon Athena and provided Amazon Quick Sight dashboard for visualization and analysis.
 
-![Data Collection Overview](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/basic-data-collection.png)
+![Data Collection Overview](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/basic-data-collection.png)
 
 
 ## Prerequisites
@@ -49,7 +49,7 @@ The Dashboard uses AWS CUR from [Foundational Dashboards Stack](deployment-in-gl
 
 1. Log in to your **Data Collection** Account. 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Graviton-Savings-Dashboard&param_DashboardId=graviton-savings&param_RequiresDataCollection=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Graviton-Savings-Dashboard&param_DashboardId=graviton-savings&param_RequiresDataCollection=yes) 
 
    1. You can change **Stack name** for your template if you wish.
 
@@ -105,14 +105,14 @@ The Graviton Savings Dashboard provides the ability for users to track current G
 
 The Current Amazon EC2 Graviton Usage and Savings section provides a comprehensive overview of your current usage of EC2 Graviton-based instances and the potential cost savings you realized by migrating workloads to Graviton. These savings are calculated in comparison to the latest Intel-based instance generation of the same size. The section also allows you to explore Graviton coverage by month, usage/savings by account and instance family, and unit costs trends to see how your Graviton adoption has impacted your workloads. This detailed information can help you assess the benefits and cost optimization opportunities of adopting Graviton-based EC2 instances.
 
-![EC2 - Existing Usage](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/EC2_UsageSavings_GSD.png)
+![EC2 - Existing Usage](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/EC2_UsageSavings_GSD.png)
 
 
  **Graviton Opportunities** 
 
 The Amazon EC2 Graviton Opportunity section provides insights into the potential cost savings you could realize by migrating eligible workloads to Graviton-based instances. This section allows you to analyze your Graviton coverage - both at the account level and by instance family. This can help you identify clusters of workloads that present the greatest opportunities to benefit from the cost advantages of Graviton.
 
-![EC2 - Opportunities](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/EC2_Graviton_Opportunity_GSD.png)
+![EC2 - Opportunities](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/EC2_Graviton_Opportunity_GSD.png)
 
 
  **RDS** 
@@ -121,7 +121,7 @@ The Amazon EC2 Graviton Opportunity section provides insights into the potential
 
 RDS has a similar Current Usage and Savings visuals to EC2, providing details on your current usage, realized savings, cost, and savings percentage. It also provides details by RDS Engine usage, as this is a large driver of eligibility for Graviton.
 
-![RDS - Existing Usage](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/RDS_UsageSavings_GSD.png)
+![RDS - Existing Usage](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/RDS_UsageSavings_GSD.png)
 
 
  **Graviton Opportunities** 
@@ -138,7 +138,7 @@ The RDS Graviton Opportunities section provides a breakdown of your Graviton eli
 
 You can learn more about RDS Graviton Eligibility [here](https://aws.amazon.com/blogs/database/key-considerations-in-moving-to-graviton2-for-amazon-rds-and-amazon-aurora-databases/) 
 
-![RDS - Opportunities](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/RDS_Opportunity_GSD.png)
+![RDS - Opportunities](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/RDS_Opportunity_GSD.png)
 
 
  **ElastiCache** 
@@ -147,7 +147,7 @@ You can learn more about RDS Graviton Eligibility [here](https://aws.amazon.com/
 
 Similar to EC2 and RDS the Current Usage and Savings visuals for Elasticache, provide details on your current usage, realized savings, cost, and savings percentage. It also provides details by cache engine, as this is a large driver of eligibility for Graviton.
 
-![ElastiCache](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/ElastiCache_UsageSavings_GSD.png)
+![ElastiCache](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/ElastiCache_UsageSavings_GSD.png)
 
 
  **Graviton Opportunities** 
@@ -158,7 +158,7 @@ The ElastiCache Graviton Opportunity section highlights the potential monthly sa
 
 For more information, see the following supported versions documentation for [Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/supported-engine-versions.html) and [Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/supported-engine-versions-mc.html) 
 
-![ElastiCache](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/ElastiCache_Opportunity_GSD.png)
+![ElastiCache](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/ElastiCache_Opportunity_GSD.png)
 
 
  **OpenSearch** 
@@ -167,7 +167,7 @@ For more information, see the following supported versions documentation for [Re
 
 Similar to other services, the Current Amazon OpenSearch Graviton Usage and Savings section provides insights into your usage by engine to give you context into the eligibility of Graviton usage.
 
-![OpenSearch - Existing Usage](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/OpenSearch_UsageSavings_GSD.png)
+![OpenSearch - Existing Usage](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/OpenSearch_UsageSavings_GSD.png)
 
 
  **Graviton Opportunities** 
@@ -182,7 +182,7 @@ OpenSearch Graviton eligibility is a bit more straightforward than other AWS Man
 
 For more information on supported OpenSearch instance types, read more in the official [Amazon OpenSearch Service Documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) 
 
-![OpenSearch - Opportunity Explorer](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/OpenSearch_Opportunity_GSD.png)
+![OpenSearch - Opportunity Explorer](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/OpenSearch_Opportunity_GSD.png)
 
 
 ### Authors

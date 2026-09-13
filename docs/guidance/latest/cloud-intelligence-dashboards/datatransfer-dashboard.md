@@ -20,7 +20,7 @@ This dashboard contains data transfer breakdowns with the following visuals:
 
 Get more familiar with the Dashboard using the live, interactive demo dashboard following this [link](https://cid.workshops.aws.dev/demo?dashboard=datatransfer-cost-analysis-dashboard) 
 
-![Image of a Data transfer dashboard in Quick Sight](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data_transfer_dashboard.png)
+![Image of a Data transfer dashboard in Quick Sight](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data_transfer_dashboard.png)
 
 
 ## Prerequisites
@@ -38,7 +38,7 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 
 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=DataTransfer-Cost-Analysis-Dashboard&param_DashboardId=datatransfer-cost-analysis-dashboard) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=DataTransfer-Cost-Analysis-Dashboard&param_DashboardId=datatransfer-cost-analysis-dashboard) 
 
 1. You can change **Stack name** for your template if you wish.
 

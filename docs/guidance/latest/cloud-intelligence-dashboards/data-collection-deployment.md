@@ -5,7 +5,7 @@
 
 Deployment of the stack consists of 2 steps. First step is in Management Account and the 2nd in Data Collection Account. If you do not have access to Management Account please follow this [guide](data-collection-without-org.md).
 
-![Data Collection architecture diagram](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/deployment-steps.png)
+![Data Collection architecture diagram](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/deployment-steps.png)
 
 
 ## Prerequisites for deployment
@@ -23,22 +23,22 @@ Prerequisites: Make sure the [trusted access with AWS Organizations](https://doc
 
 Login to Management Account and click Launch Stack for deploying [Permission Stack](https://github.com/awslabs/cid-framework/tree/main/data-collection/deploy/deploy-data-read-permissions.yaml):
 
- [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_AllowModuleReadInMgmt=yes&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID&param_IncludeBackupModule=no&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=yes&param_IncludeCostAnomalyModule=yes&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=yes&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=yes&param_IncludeCostOptimizationHubModule=no&param_IncludeLicenseManagerModule=yes) 
+ [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_AllowModuleReadInMgmt=yes&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID&param_IncludeBackupModule=no&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=yes&param_IncludeCostAnomalyModule=yes&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=yes&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=yes&param_IncludeCostOptimizationHubModule=no&param_IncludeLicenseManagerModule=yes) 
 
 ### More info
 <a name="collapsible-section-id-data-collection-deployment-1"></a>
 
 1. To ensure full visibility of data across your organization accounts, in the parameters section, we recommend to pass the Organization Root ID as the organizational unit parameter (OrganizationalUnitID). You can check it here: https://console.aws.amazon.com/organizations/v2/home/accounts
 
-![Organization Root ID](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2a-find-organisation-root-id.png)
+![Organization Root ID](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2a-find-organisation-root-id.png)
 
 
-![Data Read Role CloudFormation stack - parameters](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
+![Data Read Role CloudFormation stack - parameters](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
 
 
 1. Make sure to select all modules that you want to allow access to your organization accounts data. You can check the list of the modules [on GitHub](https://github.com/awslabs/cid-framework/tree/main/data-collection#modules).
 
-![Data Read Role CloudFormation - modules selection](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2c-data-read-permissions-stack-create-modules.png)
+![Data Read Role CloudFormation - modules selection](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2c-data-read-permissions-stack-create-modules.png)
 
 
 1. Please make sure you specify **Data Collection Account Id** correctly. It is not the Management Account Id; it’s an ID of the dedicated Data Collection Account.
@@ -50,7 +50,7 @@ Login to Management Account and click Launch Stack for deploying [Permission Sta
 
 Login to Data Collection Account and click Launch Stack for deploying [Data Collection Stack](https://github.com/awslabs/cid-framework/tree/main/data-collection/deploy/deploy-data-collection.yaml).
 
- [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=REPLACE%20WITH%20MANAGEMENT%20ACCOUNT%20ID&param_IncludeTAModule=yes&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=yes&param_IncludeInventoryCollectorModule=yes&param_IncludeComputeOptimizerModule=yes&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=yes&param_IncludeBudgetsModule=yes&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=yes) 
+ [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=REPLACE%20WITH%20MANAGEMENT%20ACCOUNT%20ID&param_IncludeTAModule=yes&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=yes&param_IncludeInventoryCollectorModule=yes&param_IncludeComputeOptimizerModule=yes&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=yes&param_IncludeBudgetsModule=yes&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=yes) 
 
 ### More Info
 <a name="collapsible-section-id-data-collection-deployment-2"></a>
@@ -59,7 +59,7 @@ Login to Data Collection Account and click Launch Stack for deploying [Data Coll
 
 1. In the same parameters section, update the regions from which data about resources will be collected. Specify at least the same regions your existing Data Collection stack uses.
 
-![Optimization Data Collection Stack update - regions parameter](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1f-data-collection-update-compopt-regions.png)
+![Optimization Data Collection Stack update - regions parameter](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-collectors/1f-data-collection-update-compopt-regions.png)
 
 
 1. Click **Next** at the bottom of the **Specify stack details** stage, and then, click **Next** again at the bottom of the **Configure stack options** stage to move to the **Review** stage. Click **Submit** at the end of the **Review** stage to initiate the update. This process will take a few minutes until completion.

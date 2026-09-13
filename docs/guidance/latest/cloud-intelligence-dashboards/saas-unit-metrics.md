@@ -27,21 +27,21 @@ For this example, we will use the number of API calls to our service on a daily 
 1. Go to Quick Sight>>Datasets and click **New dataset**.
 
 1. Click on upload a file. Select the CSV you’ve created. Click next then click **Edit settings and prepared data**.  
-![Data source details with edit preview data button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_editpreviewdata.png)
+![Data source details with edit preview data button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_editpreviewdata.png)
 
 1. Make sure that the date field in your dataset is of type *date*. Change it if it is not.  
-![Dataset results with the date field header highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_dateformat.png)
+![Dataset results with the date field header highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_dateformat.png)
 
 1. Click **Save & Publish** and return to the list of your datasets in Quick Sight.
 
 1. Click on summary\_view and select **EDIT DATASET**.  
-![Summary view with edit dataset button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_editdataset.png)
+![Summary view with edit dataset button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_editdataset.png)
 
 1. Click on **Add data**. Select from a dataset. Find your uploaded dataset and click **Select**.  
-![Add dataset with arrows pointing to each of the steps to find your dataset](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_adddata.png)
+![Add dataset with arrows pointing to each of the steps to find your dataset](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_adddata.png)
 
 1. Click on the two pink dots next to your dataset. Select **Left** in the join clauses section below select the *Usage\_Date* field on the left for **Summary\_View** and the *Date* field from your uploaded dataset on the right. Click **Apply**. Then click **Save & publish**.  
-![Edit dataset with arrows and numbers pointing out each of the steps to add and apply the join clause](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customization_joinclauses.png)
+![Edit dataset with arrows and numbers pointing out each of the steps to add and apply the join clause](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customization_joinclauses.png)
 
 ## Customize your Dashboard
 <a name="customize-your-dashboard"></a>
@@ -49,49 +49,49 @@ For this example, we will use the number of API calls to our service on a daily 
 For this guide we will use the Cost Intelligence Dashboard deployed in the earlier part of this lab.
 
 1. Open the **Analysis** version of your dashboard so we can edit it. Start by adding a new tab on the far right side of the dashboard. Rename it to "Unit Metrics".  
-![Dashboard showing several tabs with an arrow pointing to the Unit Metrics tab](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_newtab.png)
+![Dashboard showing several tabs with an arrow pointing to the Unit Metrics tab](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_newtab.png)
 
 1. Let’s start by creating a *per API cost* field. On the top right click **Insert** and then **Add calculated field**.  
-![Add calculated date field](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_addcalculatedfield.png)
+![Add calculated date field](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_addcalculatedfield.png)
 
 1. Call it *Cost per API Call* and add syntax to divide your Cost field by the new API Count field you imported. Click save.  
-![Add syntax for cost field](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_calculatedfield1.png)
+![Add syntax for cost field](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_calculatedfield1.png)
 
 1. Let’s add a visual that shows us our new Cost per API call day over day. Click **Visualize** and select **Add visual**. Drag over your new Cost Per API Call field into the new visuals.  
-![Displaying the result of add visual to the analysis](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_addingcostperapicallfield.png)
+![Displaying the result of add visual to the analysis](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_addingcostperapicallfield.png)
 
 1. Let’s change this to a line graph that shows day-over-day trends. Click on the Line Chart visual type. Next, add the usage\_date field to your X axis.  
-![Analysis with red arrows and numbers indicating the steps to add usage date to the x axis field well](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_createlinegraph.png)
+![Analysis with red arrows and numbers indicating the steps to add usage date to the x axis field well](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_createlinegraph.png)
 
 1. We now see our per API call unit cost day-over-day. Let’s map the number of API calls on top of this to see the correlation.  
-![Analysis with arrows indicating where to move the api count metric to in the field well](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_addapicounttograph.png)
+![Analysis with arrows indicating where to move the api count metric to in the field well](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_addapicounttograph.png)
 
 1. Tough to see it if our AWS spend is small. Let’s give the API count its own Y axis.  
-![Value context menu with arrow pointing to the option to show on right y-axis](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizationsownyaxis.png)
+![Value context menu with arrow pointing to the option to show on right y-axis](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizationsownyaxis.png)
 
 1. Now we have a visual that shows us the correlation between API counts and the cost per API on that day. But it might be difficult to talk about a cost per API call if its less than $0.01 on average. So how do we adjust the multiplier so we can talk about cost per 10,000 API requests? We will add a control and a parameter in Quick Sight to accomplish this. Click on **Data**, then **Add Parameters**. Set it to an **intInteger**, give it a name, and set the default to 10.  
-![Analysis with an inset image with arrows and numbers indicating the steps to create a new parameter](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_setparametermultiplier.png)
+![Analysis with an inset image with arrows and numbers indicating the steps to create a new parameter](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_setparametermultiplier.png)
 
 1. On the next selection screen, pick **Control**. On the next screen, give the control a name (this will be seen in the dashboard), select Dropdown or List for Style, and put in some multiplier options. I chose 1 through 1 million by orders of magnitude. Check "Hide select all option…".  
-![Add control dialog](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_createcontrolformultiplier.png)
+![Add control dialog](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_createcontrolformultiplier.png)
 
 1. The control will appear at the top of your dashboard. Click on it, click the three dots, select **Move to sheet**. Position it at the top or wherever you like.  
-![Context menu showing the move to sheet selection](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_movecontrol.png)
+![Context menu showing the move to sheet selection](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_movecontrol.png)
 
 1. Now we need to tie whatever someone selects here to the actual per API cost value. Create a **new calculated field** called Adjusted API Count and set it to be {API Count}/${APIcallmultiplier}\_. The *APIcallmultiplier* is the name of the parameter you just created. Click save. Next swap the API count field for the new Adjusted API Count calculated field. Finally, edit the **Cost Per API Call** calculated field we created in step 3 to be Cost/{Adjusted API Count}.  
-![Arrow pointing to the Adjusted API count value indicating what to swap](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_swapadjustedcostvalue.png)
+![Arrow pointing to the Adjusted API count value indicating what to swap](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_swapadjustedcostvalue.png)
 
 1. Now when you select a multiplier from your drop down or list, the cost per API call amounts in the graph should change by that order of magnitude.
 
 1. Let’s add a few more visuals to get you familiar with what else you can do. Create a new visual, and in the **Visual Types** section choose KPI indicator.
 
 1. In the Field Wells along the top of the dashboard put the **usage\_date** in as the Trend group, click on the arrow next to it and select **Aggregate** and choose month. Next, put the Cost Per API call field into the Value box. And finally, to get rid of all those decimal places, select the Cost per API call field in the well, click on the down arrow next to it and select **Show as: Currency**.  
-![Showing how to change a field to display as currency](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_showascurency.png)
+![Showing how to change a field to display as currency](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_showascurency.png)
 
 1. Now we can see how our cost per API call month-over-month changed from this month to the prior month. Finally, let’s add a table where you can dig into the details and see cost per API call per service, per tag, per business unit, per account, per region, etc.
 
 1. Create a new visual and set the visual type to **Pivot Table**. In the Values field well put Cost Per API Call set to Currency. In columns put usage\_date set to aggregate monthly. In rows, put the dimensions you want to group on, for example tags, service, and operation.  
-![Analysis dashboard focused on the pivot table visualization](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_detailedtable.png)
+![Analysis dashboard focused on the pivot table visualization](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/saas/customizations_detailedtable.png)
 
 **Note**  
 Note the little plus and minus signs next to the values in the columns and rows to the left. You can click on them to zoom in and see more granularity. For example, pick a tag value in the first column and click plus, then click plus on the relevant service, then click plus again to see the operations. Now you should be able to see the cost per API per operation, grouped by tag and service.

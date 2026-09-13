@@ -114,7 +114,7 @@ In order to create an analysis from any of the Dashboards, Go edit the newly cre
 
 You can see this video below
 
-[![AWS Videos](http://img.youtube.com/vi/YNQBBM5RQtc?rel=0/0.jpg)](http://www.youtube.com/watch?v=YNQBBM5RQtc?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/YNQBBM5RQtc?rel=0/0.jpg)](https://www.youtube.com/watch?v=YNQBBM5RQtc?rel=0)
 
 
 See more in [customizations](customizations.md) section.
@@ -129,7 +129,7 @@ You need to decide which of your Linked accounts will be a Data Collection Accou
 + Step 2: [Deploy CFN "CUR aggregation Stack"](deployment-in-global-regions.md#deploy-in-global-regions-create-cur-and-replication) in all other Linked accounts specifying your Data Collection Account as the Destination. Once done you can optionally create a Support Case in each Account asking to Backfill the CUR `cid` with historical data (up to 14 months).
 + Step 3: [Run CFN "All-in-one Dashboards stack"](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard) that will create the Glue Crawler, Athena Database, Athena Tables, Quick Sight DataSets and Dashboards. (Quick Sight Enterprise must be activated in this account, [Prepare Amazon Quick Sight](deployment-in-global-regions.md#deploy-in-global-regions-prepare-quicksight))
 
-![Multi Linked Account Account Setup](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/multi-account/multi-linked-account-architecture.png)
+![Multi Linked Account Account Setup](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/multi-account/multi-linked-account-architecture.png)
 
 
 Please note that in this case if a new source account must be added, you need to run update of CFN "CUR aggregation stack" in the Data Collection Account and only after that install CFN "CUR aggregation Stack" in the new account.
@@ -204,7 +204,7 @@ For Data Collection the backfill is not possible. You can check dashboards after
 
 GovCloud accounts do not have a billing interface, therefore all GovCloud account billing data is shown and expressed in the equivalent commercial account. As part of deploying CID in your commercial account, GovCloud spend and usage data will be reflected in the commercial CID deployment. Therefore, the accounts IDs shown in the dashboards will be the Commercially-linked account IDs for your GovCloud accounts.
 
-![GovCloud AWS billing construct](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/GovCloud.png)
+![GovCloud AWS billing construct](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/GovCloud.png)
 
 
 Cost and Usage report is only available in the AWS Commercial region; you can deploy CID in the AWS Commercial account and it will reflect GovCloud workloads usage and spend.
@@ -263,7 +263,7 @@ Athena may face processing limitations if the CUR has a significant volume. To o
 This Athena issue can happen if the CUR table changes a lot. Please check following resources:
 + https://repost.aws/knowledge-center/athena-view-is-stale-error
 
-[![AWS Videos](http://img.youtube.com/vi/7GpIgSaVYoI?rel=0/0.jpg)](http://www.youtube.com/watch?v=7GpIgSaVYoI?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/7GpIgSaVYoI?rel=0/0.jpg)](https://www.youtube.com/watch?v=7GpIgSaVYoI?rel=0)
 
 
 #### I see this error Error: CUR not detected and we have AWS Lake Formation activated
@@ -274,7 +274,7 @@ This Athena issue can happen if the CUR table changes a lot. Please check follow
 
 You can deploy CID in an account where Lake Formation activated. Under Technical Parameters Select Yes for "I have LakeFormation permission model in place for this account my cfn deployment credentials have administrative rights on LakeFormation" 
 
-![Choose '`yes’ if Lake Formation permission model is in place for the account](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Lakeformation.png)
+![Choose '`yes’ if Lake Formation permission model is in place for the account](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/Lakeformation.png)
 
 
 #### How do I fix the "product\_cache\_engine" or "product\_database\_engine" cannot be resolved error?
@@ -377,7 +377,7 @@ Refer to the [Add organizational taxonomy](add-org-taxonomy.md) section.
 
 Step by step can be found on the video below
 
-[![AWS Videos](http://img.youtube.com/vi/dzRKDSXCtAs?rel=0/0.jpg)](http://www.youtube.com/watch?v=dzRKDSXCtAs?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/dzRKDSXCtAs?rel=0/0.jpg)](https://www.youtube.com/watch?v=dzRKDSXCtAs?rel=0)
 
 
 ### Can I translate Dashboards to another language?
@@ -550,7 +550,7 @@ Do you want to give access to the dashboards to someone within your organization
 
 Step by step can be found on the video below
 
-[![AWS Videos](http://img.youtube.com/vi/EFyWEyeXQlE?rel=0/0.jpg)](http://www.youtube.com/watch?v=EFyWEyeXQlE?rel=0)
+[![AWS Videos](https://img.youtube.com/vi/EFyWEyeXQlE?rel=0/0.jpg)](https://www.youtube.com/watch?v=EFyWEyeXQlE?rel=0)
 
 
 See more in [Row Level Security](row-level-security.md) section.

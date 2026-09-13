@@ -18,7 +18,7 @@ Key capabilities include:
 
 The following screenshot shows the Executive Summary tab of the Kiro User Activity Dashboard:
 
-![The Kiro User Activity Dashboard Executive Summary tab showing Active Users](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/kiro-executive-view.png)
+![The Kiro User Activity Dashboard Executive Summary tab showing Active Users](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/kiro-executive-view.png)
 
 
 ## Demo Dashboard
@@ -58,7 +58,7 @@ The Kiro User Activity module uses a **pull-based** architecture. A central AWS 
 
 The following diagram shows the pull-based data collection flow:
 
-![The pull-based Kiro User Activity data collection flow from source S3 buckets through a central Lambda function to the Data Collection bucket](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/kiro-user-activity.png)
+![The pull-based Kiro User Activity data collection flow from source S3 buckets through a central Lambda function to the Data Collection bucket](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/images/architecture/kiro-user-activity.png)
 
 
 1. The Kiro service writes daily CSV user activity reports at 2 AM UTC to each customer’s designated S3 bucket, under the path `kiro/AWSLogs/<account-id>/KiroLogs/user_report/<region>/<year>/<month>/<day>/`.
@@ -200,7 +200,7 @@ SELECT * FROM optimization_data.kiro_user_activity LIMIT 10;
 
 1. Sign in to your **Data Collection** account. Choose the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-    [![Launch Stack button](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Kiro-User-Activity-Dashboard&param_DashboardId=kiro-user-activity&param_RequiresDataCollection=yes) 
+    [![Launch Stack button](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Kiro-User-Activity-Dashboard&param_DashboardId=kiro-user-activity&param_RequiresDataCollection=yes) 
 
 1. (Optional) Change the **Stack name** for your template.
 

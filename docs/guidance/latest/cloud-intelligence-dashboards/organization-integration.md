@@ -18,7 +18,7 @@ Using this guide you will be able to extend your various CID dashboards with AWS
 + Hierarchical Tags - The tags that can be defined on OU level and propagate to account level (More specific tags override less specific).
 + Management Account names (or nicknames).
 
-![Architecture](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/ou-integration-architecture.png)
+![Architecture](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/ou-integration-architecture.png)
 
 
 You also can leverage the OU information for your Row Level Security.
@@ -90,20 +90,20 @@ Next the data set in Amazon Quick Sight needs to be updated so that you can see 
 1. Navigate to Quick Sight in the console.
 
 1. Select Datasets, and then select `summary_view` from the list of datasets.  
-![Quick Sight dataset screen with the datasets navigation item and summary view dataset highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-01.png)
+![Quick Sight dataset screen with the datasets navigation item and summary view dataset highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-01.png)
 
 1. Click on EDIT DATASET.  
-![Summary view summary page with edit dataset button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-02.png)
+![Summary view summary page with edit dataset button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-02.png)
 
 1. Click on Add data.  
-![Quick Sight edit dataset page with add data button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-03.png)
+![Quick Sight edit dataset page with add data button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-03.png)
 
 1. Make the following selections:
    + Select DataSource from the first drop down.
    + Next select the same DataSource that issued for `summary_view`.
    + Leave the Catalog as AwsDataCatalog.
    + Select cid\_data as the database.  
-![Add data dialog with all selections displayed](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-04.png)
+![Add data dialog with all selections displayed](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-04.png)
    + Search for the view `organization_map`, check the box.
 
 1. Click Select.
@@ -111,14 +111,14 @@ Next the data set in Amazon Quick Sight needs to be updated so that you can see 
 1. Select the join between **summary\_view** and **organization\_map**.
 
 1. Ensure the join type is set to left.  
-![Join configuration dialog showing the join clause details](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-05.png)
+![Join configuration dialog showing the join clause details](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-05.png)
 
 1. Set the join clause to be; *linked\_account\_id = account\_id*.
 
 1. Click Apply.
 
 1. Save and Publish the dataset.  
-![Quick Sight dataset designer showing the summary view dataset with the save and publish button highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-06.png)
+![Quick Sight dataset designer showing the summary view dataset with the save and publish button highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-06.png)
 
 1. Now you can do the same for all other datasets (hourly\_view, resource\_view and others).
 
@@ -255,30 +255,30 @@ After the dataset has been updated you can now add those fields to different vis
 1. Navigate Dashboards and select the CUDOS dashboard.
 
 1. Save the dashboard as a new analysis named "cudos-out-customization".  
-![Quick Sight save as dialog](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-07.png)
+![Quick Sight save as dialog](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-07.png)
 
 1. In that analysis, select the "Invoiced Spend by Payer Account" visual on the "Executive: Billing Summary" sheet.
 
 1. Locate the "ou" field that was added in the field list for the *summary\_view* dataset.  
-![Quick Sight analysis showing the field list](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-08.png)
+![Quick Sight analysis showing the field list](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-08.png)
 
 1. Select that field.
 
 1. Drag and drop that field in Visual details under the GROUP/COLOR FOR BARS section. Make sure the field is at the top of the fields listed there.  
-![Group by fields list with ou field at the top and all other fields indented below it](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-09.png)
+![Group by fields list with ou field at the top and all other fields indented below it](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-09.png)
 
 1. You will see the visual "Invoiced Spend by Payer Account" update to reflect the invoiced spend by organization instead of payer.  
-![Invoiced spend visualization showing the group by data with ou](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-10.png)
+![Invoiced spend visualization showing the group by data with ou](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-10.png)
 
 1. Lets update the title of this visual. Double-click on the title of the visual.
 
 1. Select the "${BillingSummaryGroupBy}" parameter and delete it. Replace it with *organization*.  
-![Title edit dialog showing the completed title change](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-11.png)
+![Title edit dialog showing the completed title change](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-11.png)
 
 1. Click Save.
 
 1. You will now see the visual updated to reflect the title and data grouped by organization.  
-![Invoice spend by organization bar chart visualization](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-12.png)
+![Invoice spend by organization bar chart visualization](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-12.png)
 
 1. Continue with customizations of other visuals with organization as you need.
 
@@ -298,19 +298,19 @@ The CUDOS dashboard comes with several controls across the sheet by default. You
 
 1. Save the dashboard as a new analysis named "cudos-out-customization".
 
-![Quick Sight save as dialog](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-07.png)
+![Quick Sight save as dialog](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-07.png)
 
 
 1. Click on *Insert* from the analysis menu and select *Add Parameter*.  
-![Quick Sight insert menu dropdown showing add parameter](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-13.png)
+![Quick Sight insert menu dropdown showing add parameter](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-13.png)
 
 1. Enter *organization* for the name, leave other settings to their default.  
-![Create new parameter dialog](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-14.png)
+![Create new parameter dialog](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-14.png)
 
 1. Click Create.
 
 1. Click on *Control*.  
-![Parameter created dialog with control selection highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-15.png)
+![Parameter created dialog with control selection highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-15.png)
 
 1. Make the following selections for the control configuration:
    + Name: **Organization** 
@@ -322,14 +322,14 @@ The CUDOS dashboard comes with several controls across the sheet by default. You
 1. Click *Add*.
 
 1. You will see the *Organization* control added to the controls of the sheet.  
-![Display of the controls on the sheet](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-16.png)
+![Display of the controls on the sheet](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-16.png)
 
 1. We need one more step for the control to work on the page.
 
 1. Select a visual from the sheet and click on the `filters` icon from the analysis menu.
 
 1. Click the \_ ADD\_ button under the **Filters** heading, search for the *ou* field to add it to the filters.  
-![Add filters drop down with ou highlighted](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-17.png)
+![Add filters drop down with ou highlighted](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-17.png)
 
 1. Click on the *ou* filter to edit it and make the following selections:
    + Filter type: **Custom filter** 
@@ -338,7 +338,7 @@ The CUDOS dashboard comes with several controls across the sheet by default. You
    + Parameter: **organization** 
 
 1. Click *APPLY*.  
-![Edit filter dialog with ou and other selections made](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-18.png)
+![Edit filter dialog with ou and other selections made](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-18.png)
 
 1. When you make a selection with the *Organization* control, all the visuals on the sheet should be updated to be filtered by that organization unit.
 
@@ -407,14 +407,14 @@ After adding the control, it will appear as a dropdown at the top of the sheet. 
 1. Select the 3 vertical ellipses for the control.
 
 1. Select `Move to sheet`.  
-![Context dialog showing move to sheet option](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-19.png)
+![Context dialog showing move to sheet option](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-19.png)
 
 1. This will place the control at the very bottom of the sheet.
 
 1. Select the control and drag the control up with the other controls.
 
 1. You can edit the size the control and other controls to fit them in with the other controls.  
-![OPTICS explorer sheet showing controls adjusted to include the organization control](http://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-20.png)
+![OPTICS explorer sheet showing controls adjusted to include the organization control](https://docs.aws.amazon.com/guidance/latest/cloud-intelligence-dashboards/images/customizations/out-integration/ou-integration-20.png)
 
 ## Summary
 <a name="summary"></a>
