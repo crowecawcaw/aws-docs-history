@@ -10,7 +10,7 @@ With this architecture, you can implement condition-based maintenance with near 
 ## ML predictive maintenance architecture diagram
 <a name="mlpm-diagram"></a>
 
-![Reference architecture diagram for machine learning enabled predictive maintenance of sucker rod pumps on AWS.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ml-predictive-maintenance/images/machine-learning-enabled-predictive-maintenance-ra.png)
+![Reference architecture diagram for machine learning enabled predictive maintenance of sucker rod pumps on AWS.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ml-predictive-maintenance/images/machine-learning-enabled-predictive-maintenance-ra.png)
 
 
 The following steps describe the architecture:
