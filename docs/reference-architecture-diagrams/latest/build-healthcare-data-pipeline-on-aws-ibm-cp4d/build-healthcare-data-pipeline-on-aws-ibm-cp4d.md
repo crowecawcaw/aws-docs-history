@@ -10,7 +10,7 @@ This architecture helps you build data pipelines and use machine learning (ML) m
 ## Build a Healthcare Data Pipeline on AWS with IBM Cloud Pak for Data Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing a data pipeline on AWS with IBM Cloud Pak for Data.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/build-healthcare-data-pipeline-on-aws-ibm-cp4d/images/build-healthcare-data-pipeline-on-aws-ibm-cp4d.png)
+![Reference architecture diagram showing a data pipeline on AWS with IBM Cloud Pak for Data.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/build-healthcare-data-pipeline-on-aws-ibm-cp4d/images/build-healthcare-data-pipeline-on-aws-ibm-cp4d.png)
 
 
 1. Connected medical devices stream patient health information to **Amazon Data Firehose**. 
