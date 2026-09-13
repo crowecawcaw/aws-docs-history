@@ -10,7 +10,7 @@ This architecture shows how to build an end-to-end modern data analytics platfor
 ## Modern Data Platform Using AWS and Snowflake
 <a name="diagram1"></a>
 
-![Architecture diagram showing a modern data platform using AWS and Snowflake with Amazon S3, AWS Glue, Lake Formation, and Step Functions.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-platform-aws-snowflake/images/data-platform-aws-snowflake.png)
+![Architecture diagram showing a modern data platform using AWS and Snowflake with Amazon S3, AWS Glue, Lake Formation, and Step Functions.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/data-platform-aws-snowflake/images/data-platform-aws-snowflake.png)
 
 
 The following steps describe the architecture:
