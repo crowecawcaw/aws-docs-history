@@ -194,6 +194,13 @@ Specifies the name of the CloudWatch Logs log group that contains the log stream
 `LogStream`  
 Specifies the name of the CloudWatch Logs log stream that receives the log and event records stream by the `CloudWatchLogs` sink type. This value supports sink variable substitution. For more information, see [Configuring Sink Variable Substitutions](#configuring-kinesis-agent-windows-sink-variable-substitution). If the specified log stream does not exist, Kinesis Agent for Windows attempts to create it. 
 
+`Format`  
+Specifies the kind of serialization that is applied to logs and event data before streaming to CloudWatch Logs. The standard `json` and `xml` values are available for all sink types. The `CloudWatchLogs` sink type also supports the following additional values:  
++ `xml2` – An alternate XML format that provides additional structure for Windows event log data.
++ `renderedxml` – An XML format that includes rendered message strings for Windows event log entries.
++ `sushi` – A simplified JSON format that includes a subset of event fields (event ID, machine name, provider, record ID, timestamp, user, and message).
+This key-value pair is optional, and if not specified, ordinary text from the source is streamed to CloudWatch Logs.
+
 The default `BufferInterval` for this sink type is 1 second, and the default `BufferSize` is 500 records. The maximum buffer size is 10,000 records.
 
 ## Local `FileSystem` Sink Configuration

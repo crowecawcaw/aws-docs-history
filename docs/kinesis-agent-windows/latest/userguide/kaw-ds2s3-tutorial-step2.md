@@ -84,7 +84,7 @@ In this step, you use the AWS Management Console to remotely connect to the inst
 1. In a minute or two, navigate to the Amazon S3 bucket that you created in [Create the Amazon S3 Bucket](kaw-ds2s3-tutorial-step1.md#kaw-ds2s3-tutorial-step1.2) using the AWS Management Console. Be sure that you have chosen the correct Region on the console. 
 
    In that bucket, there is a folder for the current year. Open that folder to reveal a folder for the current month. Open that folder to reveal a folder for the current day. Open that folder to reveal a folder for the current hour (in UTC). Open that folder to reveal one or more items that start with the name `log-delivery-stream`.   
-![Screenshot demonstrating browsing for the log records in Amazon S3.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/s3-view-log-stream.png)
+![Screenshot demonstrating browsing for the log records in Amazon S3.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/s3-view-log-stream.png)
 
 1. Open the contents of the latest item to confirm that the log records have been successfully stored in Amazon S3 with the desired enhancements. If everything is configured correctly, the contents look similar to the following:
 

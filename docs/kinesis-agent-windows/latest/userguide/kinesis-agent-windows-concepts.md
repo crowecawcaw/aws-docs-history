@@ -5,7 +5,7 @@
 
 Understanding the key concepts of Amazon Kinesis Agent for Microsoft Windows (Kinesis Agent for Windows) can make it easier for you to collect and stream data on desktop and server fleets to the remainder of the data pipeline for processing.
 
-![Diagram depicting Kinesis Agent for Windows sources, pipes, and sink and how they relate to each other and to artifacts and AWS services.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/KinesisAgentPipes.png)
+![Diagram depicting Kinesis Agent for Windows sources, pipes, and sink and how they relate to each other and to artifacts and AWS services.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/KinesisAgentPipes.png)
 
 
 This diagram of a data pipeline illustrates the following components and processes:

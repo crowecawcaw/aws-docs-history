@@ -191,8 +191,7 @@ To resolve issues with data not streaming, perform the following steps:
       	    archiveFileName="${specialfolder:folder=CommonApplicationData}/Amazon/KinesisTap/logs/Archive-{################}.log"
       	    archiveNumbering="Date"
       	    archiveDateFormat="yyyy-MM-dd"
-      	    archiveEvery="Day"
-      	    />
+      	    archiveEvery="Day"/>
         </targets>
       
         <rules>
@@ -339,10 +338,10 @@ To resolve performance issues, perform the following steps:
    + See Amazon CloudWatch metrics filtering in [CloudWatch Sink Configuration](sink-object-declarations.md#sink-object-declarations-cloud-watch)).
 
 1. Use the Windows performance monitor application to view Kinesis Agent for Windows metrics or stream those metrics to CloudWatch (see [Kinesis Agent for Windows Built-In Metrics Source](source-object-declarations.md#kinesis-agent-builin-metrics-source)). In the Windows performance monitor application, you can add counters for Kinesis Agent for Windows sinks and sources. They are listed under the **`AWSKinesisTap Sinks`** and **`AWSKinesisTap Sources`** counter categories.  
-![Console screenshot showing the Kinesis Agent for Windows counter categories in the Windows performance monitor application.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/AddPerformanceCountersScreenshot.png)
+![Console screenshot showing the Kinesis Agent for Windows counter categories in the Windows performance monitor application.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/AddPerformanceCountersScreenshot.png)
 
    For example, to diagnose Firehose performance issues, add the **Kinesis Firehose Sink** performance counters.  
-![Console screenshot showing the Firehose performance counters.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/KinesisFirehosePerformanceCountersScreenshot.png)
+![Console screenshot showing the Firehose performance counters.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/KinesisFirehosePerformanceCountersScreenshot.png)
 
    If there are a large number of recoverable errors, inspect the latest Kinesis Agent for Windows logs in the `%PROGRAMDATA%\Amazon\AWSKInesisTap\logs` directory. If throttling is occurring for `KinesisStream` or `KinesisFirehose` sinks, do the following: 
    + If throttling occurs due to streaming data too quickly, consider raising the number of shards for the Kinesis data stream. For more information, see [Resharding, Scaling, and Parallel Processing](https://docs.aws.amazon.com/streams/latest/dev/kinesis-record-processor-scaling.html) in the *Kinesis Data Streams Developer Guide*.

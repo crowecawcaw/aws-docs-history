@@ -177,7 +177,7 @@ Create the Firehose delivery stream that will store streamed records in Amazon S
 1. In the **Delivery stream name** box, enter **log-delivery-stream**.
 
 1. For the **Source**, choose **Direct PUT or other sources**.  
-![Screenshot demonstrating how to specify a source when creating a Firehose delivery stream.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/fh-create-delivery-stream-1.png)
+![Screenshot demonstrating how to specify a source when creating a Firehose delivery stream.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/fh-create-delivery-stream-1.png)
 
 1. Choose **Next**.
 
@@ -186,7 +186,7 @@ Create the Firehose delivery stream that will store streamed records in Amazon S
 1. For the destination, choose **Amazon S3**.
 
 1. For the **S3 bucket**, choose the name of the bucket that you created in [Create the Amazon S3 Bucket](#kaw-ds2s3-tutorial-step1.2).  
-![Screenshot demonstrating how to specify the destination when creating a Firehose delivery stream.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/fh-create-delivery-stream-2.png)
+![Screenshot demonstrating how to specify the destination when creating a Firehose delivery stream.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/fh-create-delivery-stream-2.png)
 
 1. Choose **Next**.
 
@@ -197,7 +197,7 @@ Create the Firehose delivery stream that will store streamed records in Amazon S
 1. For **IAM role**, choose `firehose-s3-access-role`.
 
 1. Choose **Allow**.  
-![Screenshot demonstrating how to configure options and security when creating a Firehose delivery stream.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/fh-create-delivery-stream-3.png)
+![Screenshot demonstrating how to configure options and security when creating a Firehose delivery stream.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/fh-create-delivery-stream-3.png)
 
 1. Choose **Next**.
 

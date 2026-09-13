@@ -95,12 +95,12 @@ All AWS GovCloud Regions.
 1. From the navigation pane, under **Node Management**, choose **Run Command**, and then choose **Run Command**.
 
 1. From the **Command document** list, select the **`AWS-ConfigureAWSPackage`** document.  
-![Select the AWS-ConfigureAWSPackage document.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/runcommand-document-select.png)
+![Select the AWS-ConfigureAWSPackage document.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/runcommand-document-select.png)
 
 1. Under **Command Parameters**, for **Name**, enter `AWSKinesisTap`. Leave other settings to their defaults.
 **Note**  
 Leave **Version** blank to specify the latest version of the `AWSKinesisTap` package. Optionally, you can enter a specific version to install.  
-![Specify the AWSKinesisTap package in Command parameters.](http://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/runcommand-specify-options.png)
+![Specify the AWSKinesisTap package in Command parameters.](https://docs.aws.amazon.com/kinesis-agent-windows/latest/userguide/images/runcommand-specify-options.png)
 
 1. Under **Targets**, specify the instances on which to run the command. You can choose to specify instances based on tags associated with instances, you can choose instances manually, or you can specify a resource group that includes instances.
 
