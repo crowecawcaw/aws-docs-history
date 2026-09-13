@@ -12,7 +12,7 @@ This personalization workflow addresses these challenges by integrating multiple
 ## Personalization AI/ML for airlines diagram
 <a name="personalization-airlines-diagram"></a>
 
-![Architecture for airline personalization using Amazon Personalize, Amazon Pinpoint, and Amazon SageMaker AI.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/personalization-ai-ml-airlines/images/personalization_ai-ml-travel_ra.png)
+![Architecture for airline personalization using Amazon Personalize, Amazon Pinpoint, and Amazon SageMaker AI.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/personalization-ai-ml-airlines/images/personalization_ai-ml-travel_ra.png)
 
 
 The following steps describe the architecture:
