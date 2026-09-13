@@ -103,12 +103,12 @@ You can use the `%%display` magic to visualize a Spark dataframe. To use this ma
 
 Choose to view the results in a table format, as the following image shows.
 
-![Output of using the %%display magic that shows results in a table format.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/magic-display-table.png)
+![Output of using the %%display magic that shows results in a table format.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/magic-display-table.png)
 
 
 You can also choose to visualize your data with five types of charts. Your options include pie, scatter, line, area, and bar charts.
 
-![Output of using the %%display magic that shows results in a chart format.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/magic-display-chart.png)
+![Output of using the %%display magic that shows results in a chart format.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/magic-display-chart.png)
 
 
 ## Use EMR Notebooks magics

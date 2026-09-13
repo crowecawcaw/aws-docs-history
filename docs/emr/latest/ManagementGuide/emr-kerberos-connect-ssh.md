@@ -52,4 +52,4 @@ Each time a user connects from a client computer using Kerberos credentials, the
    **Example: Windows users (PuTTY)**
 
    Make sure that the GSSAPI authentication option for the session is enabled as shown:  
-![PuTTY Configuration window with GSSAPI section showing Attempt GSSAPI authentication checkbox selected.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/kerb-gssapi-putty.png)
+![PuTTY Configuration window with GSSAPI section showing Attempt GSSAPI authentication checkbox selected.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/kerb-gssapi-putty.png)

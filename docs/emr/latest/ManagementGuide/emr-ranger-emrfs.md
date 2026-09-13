@@ -53,7 +53,7 @@ curl -u *<admin users login>*:*_<_**_password_ **_for_** _ranger admin user_**_>
 
 If this command runs successfully, you see a new service in the Ranger Admin UI called "AMAZON-EMR-S3", as shown in the following image (Ranger version 2.0 is shown).
 
-![Ranger Admin create EMRFS S3 service.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-service-EMRFS.png)
+![Ranger Admin create EMRFS S3 service.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-service-EMRFS.png)
 
 
 **Step 4: Create an instance of the AMAZON-EMR-EMRFS application**.
@@ -69,7 +69,7 @@ Fill in the following fields:
 
 **Common Name For Certificate**: The CN field within the certificate used to connect to the admin server from a client plugin. This value must match the CN field in the TLS certificate that was created for the plugin.
 
-![Ranger Admin edit EMRFS S3 service.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-edit-service-EMRFS.png)
+![Ranger Admin edit EMRFS S3 service.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-edit-service-EMRFS.png)
 
 
 **Note**  
@@ -77,7 +77,7 @@ The TLS certificate for this plugin should have been registered in the trust sto
 
 When the service is created, the Service Manager includes "AMAZON-EMR-EMRFS", as shown in the following image.
 
-![Ranger Admin showing new EMRFS S3 service.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-new-service-EMRFS.png)
+![Ranger Admin showing new EMRFS S3 service.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-new-service-EMRFS.png)
 
 
 ## Creating EMRFS S3 policies
@@ -91,12 +91,12 @@ To create a new policy in the **Create policy** page of the Service Manager, fil
 
 **S3 Resource**: A resource starting with the bucket and optional prefix. See [EMRFS S3 policies usage notes](#emr-ranger-emrfs-considerations) for information on best practices. Resources in Ranger Admin server should not contain **s3://**, **s3a://** or **s3n://**.
 
-![Ranger Admin showing create policy for EMRFS S3 service.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-EMRFS.png)
+![Ranger Admin showing create policy for EMRFS S3 service.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-EMRFS.png)
 
 
 You can specify users and groups to grant permissions. You can also specify exclusions for **allow** conditions.
 
-![Ranger Admin showing user/group permissions for EMRFS S3 policy.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-permissions-EMRFS.png)
+![Ranger Admin showing user/group permissions for EMRFS S3 policy.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-permissions-EMRFS.png)
 
 
 **Note**  

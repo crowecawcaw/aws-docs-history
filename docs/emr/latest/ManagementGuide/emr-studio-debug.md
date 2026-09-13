@@ -34,7 +34,7 @@ The Spark UI accesses container logs by resolving hostnames. If you use a custom
 1. Run your notebook code. The following appears as output in the notebook when you start the Spark context. It might take a few seconds to appear. If you have started the Spark context, you can run the `%%info` command to access a link to the Spark UI at any time.
 **Note**  
 If the Spark UI links do not work or do not appear after a few seconds, create a new notebook cell and run the `%%info` command to regenerate the links.  
-![Screenshot of the Spark application master information, with link to the Spark UI. The link appears in a notebook when you run a Spark application.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/spark-app-ui-link.jpg)
+![Screenshot of the Spark application master information, with link to the Spark UI. The link appears in a notebook when you run a Spark application.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/spark-app-ui-link.jpg)
 
 1. To launch the Spark UI, choose **Link** under **Spark UI**. If your Spark application is running, the Spark UI opens in a new tab. If the application has completed, the Spark History Server opens instead.
 

@@ -92,7 +92,7 @@ Using Amazon EMR version 4.1.0 or later, you can issue a resize in the midst of 
 
 The following screenshot shows a task instance group that is resizing but can be stopped by choosing **Stop**.
 
-![Task instance group showing resizing status with options to resize or stop.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/resize-stop.png)
+![Task instance group showing resizing status with options to resize or stop.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/resize-stop.png)
 
 
 **To interrupt a resize with the AWS CLI**

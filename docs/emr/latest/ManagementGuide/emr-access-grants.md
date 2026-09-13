@@ -21,7 +21,7 @@ Amazon EMR releases 6.15.0 and higher provide a native integration with S3 Acces
 
 The following is a high-level overview of how Amazon EMR gets access to data that's protected by S3 Access Grants.
 
-![How Amazon EMR works with S3 Access Grants](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/access-grants-overview.png)
+![How Amazon EMR works with S3 Access Grants](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/access-grants-overview.png)
 
 
 1. A user submits an Amazon EMR Spark job that uses data stored in Amazon S3. 

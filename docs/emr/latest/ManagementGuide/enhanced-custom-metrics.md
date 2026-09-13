@@ -206,7 +206,7 @@ When creating your EMR cluster through the AWS Management Console:
 
 The CloudWatch Agent will be installed on all nodes in your cluster, allowing it to gather system and application metrics at the configured intervals.
 
-![Application bundles](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_name_applications.png)
+![Application bundles](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_name_applications.png)
 
 
 **Note**  
@@ -233,7 +233,7 @@ This bootstrap action will execute during cluster startup, ensuring that the Clo
 
 The agent will automatically begin collecting logs once the nodes are provisioned, providing near real-time visibility into your cluster operations through CloudWatch Logs.
 
-![Bootstrap actions](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_bootstrap_actions.png)
+![Bootstrap actions](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_bootstrap_actions.png)
 
 
 ### Step 3: Configure Custom Metrics Collection
@@ -259,7 +259,7 @@ This step instructs the CloudWatch agent to collect the specific component metri
 
 Custom metrics provide deeper insights into your cluster's performance characteristics, allowing for more precise monitoring and troubleshooting of your EMR applications.
 
-![Software settings](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_software_setting.png)
+![Software settings](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_software_setting.png)
 
 
 ### Updating Metrics Configuration for Running Clusters
@@ -286,7 +286,7 @@ This reconfiguration capability allows you to fine-tune your monitoring approach
 **Important**  
 Configuration changes may take several minutes to propagate across all nodes in the cluster. Continue monitoring your CloudWatch dashboards to confirm the new metrics appear as expected.
 
-![Configurations tab showing cluster and instance group settings with options to view JSON and reconfigure.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_cluster_config.png)
+![Configurations tab showing cluster and instance group settings with options to view JSON and reconfigure.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_cluster_config.png)
 
 
 ## Validating your CloudWatch integration
@@ -386,4 +386,4 @@ The dashboard will dynamically update to display graphs for your selected metric
 
 This integrated monitoring approach allows you to track both standard EMR metrics and your custom metrics in a unified dashboard, making it easier to identify performance issues, resource constraints, or application bottlenecks without leaving the EMR console.
 
-![EMR cluster monitoring dashboard showing CloudWatch metrics and filter options.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_cloudwatch_metrics.png)
+![EMR cluster monitoring dashboard showing CloudWatch metrics and filter options.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/metrics_cloudwatch_metrics.png)

@@ -16,4 +16,4 @@ This section is common across all applications that integrate with the Ranger pl
 
 If within Ranger Admin server your AMAZON-EMR-SPARK service looks like the following, then you should enter **amazonemrspark** as the service name.
 
-![Ranger Admin server showing AMAZON-EMR-SPARK troubleshooting.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-amazon-emr-spark-troubleshooting.png)
+![Ranger Admin server showing AMAZON-EMR-SPARK troubleshooting.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-amazon-emr-spark-troubleshooting.png)

@@ -44,4 +44,4 @@ To view history server pages on the cluster primary node, you must set up an SSH
 
 The following is an example of the Spark job monitoring.
 
-![alt_text](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/spark_monitoring_job_progress.png)
+![alt_text](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/spark_monitoring_job_progress.png)

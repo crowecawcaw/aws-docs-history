@@ -82,7 +82,7 @@ To apply fine-grained access control at the column, row, or cell level with Lake
 
 The following image shows the **External data filtering** section in the Lake Formation console.
 
-![The Lake Formation console External data filtering settings section.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/lf-external-data-filtering.png)
+![The Lake Formation console External data filtering settings section.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/lf-external-data-filtering.png)
 
 
 ## Step 4: Configure AWS Glue and Lake Formation grants for Amazon EMR runtime roles

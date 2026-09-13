@@ -22,7 +22,7 @@ In this tutorial, you create an IAM Identity Center instance and create users. T
 1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon).
 
 1. **Enable IAM Identity Center**. The first step is to enable an instance of IAM Identity Center in the [supported Region](https://docs.aws.amazon.com/singlesignon/latest/userguide/regions.html). IAM Identity Center is region bound; all the data that you configure in IAM Identity Center is stored in the Region where you initially configure it. In the navigation bar at the top, you can see the current AWS Region — for example, US East (N. Virginia). You can use the selected Region or optionally select a Region that is closer to you.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-iam-id-center-enable.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-iam-id-center-enable.png)
 
 1. From the IAM Identity Center page, choose **Enable in only this AWS account**. You also have the option to enable IAM Identity Center with AWS Organizations, but for this tutorial, use the single account option.
 
@@ -33,7 +33,7 @@ In this tutorial, you create an IAM Identity Center instance and create users. T
    1. Enter a group name (for example, DataAnalysts or DataEngineers) and description, and then choose **Create group**.
 
    1. In the navigation pane, choose **Users** and then choose **Add user**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-security-center-users.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-security-center-users.png)
 
    1. Specify the following user details:
       + Username
@@ -43,15 +43,15 @@ In this tutorial, you create an IAM Identity Center instance and create users. T
       + Last name
 
       Choose **Next**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-security-center-user-details.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-security-center-user-details.png)
 
    1. (Optional) On the **Add user to groups** page, select the group that you created, and then choose **Next**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-add-user-to-group.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-add-user-to-group.png)
 
    1. Review the settings and choose **Add user**.
 
    1. If you chose to generate a one-time password, save the login information that appears. You can copy and share the sign-in instructions for the AWS access portal with the user, or email the instructions. This is the only time you can view and copy this password.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-generate-one-time.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-generate-one-time.png)
 
    1. The user receives an invitation to access the AWS access portal. Accept the invitation and reset the password.
 
@@ -71,7 +71,7 @@ This section shows you how to set up AWS Lake Formation to manage permissions fo
 
 1. In order [to enable Lake Formation for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-lf-enable.html) for row, column or cell-level permissions, under **Administration**, choose **Application integration settings**. Then select the checkbox **Allow external engines to filter data in Amazon S3 locations registered with Lake Formation**. Then provide `Amazon EMR` as the value for the session tag configuration, **AuthorizedSessionTagValue**. Lake Formation uses this session tag to authorize callers and provide access to the data lake. Provide your own AWS account ID under **AWS account IDs** field and click **Save**.
 
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-app-integration-settings.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-app-integration-settings.png)
 
 
 ## Steps to create certificate for EMR cluster security configuration
@@ -201,11 +201,11 @@ Use the following custom trust policy for the Lake Formation location registrati
 
   1. Open the [AWS Lake Formation console](https://console.aws.amazon.com/lakeformation/).
      + From the left menu open Data lake locations under **Administration** section then **Register location**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-data-lake-locations.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-data-lake-locations.png)
      + Browse the Amazon S3 path you have created
      + Attach IAM role created above `LFRole-data-access` that has read/write access to the chosen Amazon S3 path.
      + Choose **Lake Formation** for Permission mode and click on **Register location**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-data-lake-register.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-data-lake-register.png)
 
 #### 2. S3 Access Grants setup (Optional)
 <a name="emr-trusted-identity-s3-access-grants-setup"></a>
@@ -225,14 +225,14 @@ Steps for Amazon Simple Storage Service Access Grants set up. For more informati
 1. In the left navigation panel, choose **Access Grants**.
 
 1. On the S3 Access Grants page, choose **Create S3 Access Grants instance**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-create-access-grants.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-create-access-grants.png)
 
 1. In the **Set up Access Grants instance** wizard, verify that you want to create the instance in the current AWS Region.
 
 1. You can associate the IAM Identity Center instance with your S3 Access Grants instance. To do so, select **Add IAM Identity Center instance in region**. Then enter the IAM Identity Center instance Amazon Resource Name (ARN).
 
 1. Get the Identity Center instance ARN from the IAM Identity Center console under **Settings** as shown in the picture below.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-access-grants-setup.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-access-grants-setup.png)
 
 1. To create the S3 Access Grants instance, choose **Next**.
 
@@ -242,7 +242,7 @@ Steps for Amazon Simple Storage Service Access Grants set up. For more informati
 1. Specify the Amazon S3 bucket location Scope.
 
 1. Add an IAM role to allow S3 access grants to access your specified location scope. You can use the existing IAM roles if you already have one or create an IAM role adding all the necessary permissions specified in [Register locations for S3 Access Grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-location-register.html). Specifically, make sure that this role grants S3 Access Grants the permissions `sts:AssumeRole` and `sts:SetSourceIdentity`.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-register-s3-bucket.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-register-s3-bucket.png)
 
 ##### C. Create grants
 <a name="emr-trusted-identity-create-grants"></a>
@@ -256,11 +256,11 @@ After you register the location in your S3 Access Grants instance, you can creat
 1. Then choose the **Grantee type**. You can choose **Directory identity** from IAM Identity Center. Choose **User** or **Group** under the Directory identity type and provide IAM Identity center group ID. For this tutorial we choose **Group**.
 
 1. You can get the Identity center group Id from the IAM Identity Center console. Open IAM Identity Center, from the left panel choose **Groups** and click the general information drop down. Copy the Group ID and paste to S3 Access grant console.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-idc-persona.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-idc-persona.png)
 
 Then choose **Create Grant**.
 
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-create-grant.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-create-grant.png)
 
 
 #### 3. EMR Security Configuration
@@ -297,7 +297,7 @@ Then choose **Create Grant**.
           }
       }'
   ```  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-configure-authen-author.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-configure-authen-author.png)
 
 #### 4. EMR Roles Setup
 <a name="emr-trusted-identity-emr-roles-setup"></a>
@@ -761,13 +761,13 @@ Create an EMR Studio Userrole with the name example *AmazonEMRStudio\_ServiceRol
 1. Choose **Custom** for setup options.
 
 1. Provide Studio name and select existing location for S3 location for workspace storage.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-studio-settings.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-studio-settings.png)
 
 1. Choose **IAM Identity Center** as Authentication method and attach the IAM user role. Select **Trusted identity propagation** to grant access for users who make requests to applications that are connected through Identity Center. Make sure the IAM role has the S3 access permission policy attached.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-studio-settings-authentication.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-studio-settings-authentication.png)
 
 1. For Networking and security configuration, select VPC and subnets for your Studio to use when communicating with EMR clusters. Leave the defaults for the remaining sections.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-vpc-net.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-vpc-net.png)
 
 1. Choose **Create Studio**.
 
@@ -779,4 +779,4 @@ Create an EMR Studio Userrole with the name example *AmazonEMRStudio\_ServiceRol
 1. To assign Identity Center users or groups to the studio as per your requirement, click **Assigned groups**.
 
 1. Enter group names in the search bar, select the desired groups, then click **Assign**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-assign-groups.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-assign-groups.png)

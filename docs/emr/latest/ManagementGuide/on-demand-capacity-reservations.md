@@ -303,10 +303,10 @@ You can benefit from using capacity reservations in the following scenarios.
 **Scenario 1: Rotate a long-running cluster using capacity reservations**  
 When rotating a long running cluster, you might have strict requirements on the instance types and Availability Zones for the new instances you provision. With capacity reservations, you can use capacity assurance to complete the cluster rotation without interruptions.
 
-![Cluster rotation using available capacity reservations](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/odcr-longrunning-cluster-diagram.png)
+![Cluster rotation using available capacity reservations](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/odcr-longrunning-cluster-diagram.png)
 
 
 **Scenario 2: Provision successive short-lived clusters using capacity reservations**  
 You can also use capacity reservations to provision a group of successive, short-lived clusters for individual workloads so that when you terminate a cluster, the next cluster can use the capacity reservations. You can use targeted capacity reservations to ensure that only the intended clusters use the capacity reservations.
 
-![Short-lived cluster provisioning that uses available capacity reservations](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/odcr-short-cluster-diagram.png)
+![Short-lived cluster provisioning that uses available capacity reservations](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/odcr-short-cluster-diagram.png)

@@ -12,7 +12,7 @@ With Amazon EMR you can set up a cluster to process and analyze data with big da
 
 You'll find links to more detailed topics as you work through the tutorial, and ideas for additional steps in the [Next steps](#emr-gs-next-steps) section. If you have questions or get stuck, contact the Amazon EMR team on our [Discussion forum](https://forums.aws.amazon.com/forum.jspa?forumID=52).
 
-![Workflow diagram for Amazon EMR that outlines the three major workflow categories of Plan and Configure, Manage, and Clean Up.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-workflow.png)
+![Workflow diagram for Amazon EMR that outlines the three major workflow categories of Plan and Configure, Manage, and Clean Up.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-workflow.png)
 
 
 **Prerequisites**

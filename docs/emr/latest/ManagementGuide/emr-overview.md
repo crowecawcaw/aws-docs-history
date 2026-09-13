@@ -74,14 +74,14 @@ Generally, when you process data in Amazon EMR, the input is data stored as file
 
 The following diagram represents the step sequence and change of state for the steps as they are processed. 
 
-![Sequence diagram for Amazon EMR showing the different cluster step states.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/step-sequence.png)
+![Sequence diagram for Amazon EMR showing the different cluster step states.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/step-sequence.png)
 
 
 If a step fails during processing, its state changes to **FAILED**. You can determine what happens next for each step. By default, any remaining steps in the sequence are set to **CANCELLED** and do not run if a preceeding step fails. You can also choose to ignore the failure and allow remaining steps to proceed, or to terminate the cluster immediately.
 
 The following diagram represents the step sequence and default change of state when a step fails during processing. 
 
-![Sequence diagram for Amazon EMR showing what happens to subsequent steps when a preceeding cluster step fails.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/step-sequence-failed.png)
+![Sequence diagram for Amazon EMR showing what happens to subsequent steps when a preceeding cluster step fails.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/step-sequence-failed.png)
 
 
 ## Understanding the cluster lifecycle
@@ -103,4 +103,4 @@ A failure during the cluster lifecycle causes Amazon EMR to terminate the cluste
 
 The following diagram represents the lifecycle of a cluster, and how each stage of the lifecycle maps to a particular cluster state. 
 
-![Diagram for Amazon EMR showing the cluster lifecycle, and how each stage of the lifecycle maps to a particular cluster state.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-cluster-lifecycle.png)
+![Diagram for Amazon EMR showing the cluster lifecycle, and how each stage of the lifecycle maps to a particular cluster state.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-cluster-lifecycle.png)

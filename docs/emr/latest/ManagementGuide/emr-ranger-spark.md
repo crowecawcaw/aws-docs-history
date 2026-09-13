@@ -109,7 +109,7 @@ curl -u *<admin users login>*:*_<_**_password_ **_for_** _ranger admin user_**_>
 
 If this command runs successfully, you see a new service in your Ranger Admin UI called "AMAZON-EMR-SPARK", as shown in the following image (Ranger version 2.0 is shown).
 
-!["AMAZON-EMR-SPARK" registered in Ranger Admin.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-amazon-emr-spark.png)
+!["AMAZON-EMR-SPARK" registered in Ranger Admin.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-amazon-emr-spark.png)
 
 
 **Step 5: Create an instance of the AMAZON-EMR-SPARK application**
@@ -120,7 +120,7 @@ If this command runs successfully, you see a new service in your Ranger Admin UI
 
 **Common Name For Certificate:** The CN field within the certificate used to connect to the admin server from a client plugin. This value must match the CN field in your TLS certificate that was created for the plugin.
 
-![Ranger Admin create service.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-service.png)
+![Ranger Admin create service.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-service.png)
 
 
 **Note**  
@@ -143,12 +143,12 @@ When creating a new policy, the fields to fill in are:
 
 **Description**: A description of this policy.
 
-![Ranger Admin create SparkSQL policy details.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-details.png)
+![Ranger Admin create SparkSQL policy details.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-details.png)
 
 
 To specify the users and groups, enter the users and groups below to grant permissions. You can also specify exclusions for the **allow** conditions and **deny** conditions.
 
-![Ranger Admin SparkSQL policy details allow conditions.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-allow-conditions.png)
+![Ranger Admin SparkSQL policy details allow conditions.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-allow-conditions.png)
 
 
 After specifying the allow and deny conditions, click **Save**.

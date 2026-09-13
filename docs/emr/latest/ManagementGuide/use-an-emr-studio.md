@@ -7,7 +7,7 @@ This section contains topics that help you configure and interact with an Amazon
 
 The following video covers practical information such as how to create a new Workspace, and how to launch a new Amazon EMR cluster with a cluster template. The video also runs through a sample notebook.
 
-[![AWS Videos](http://img.youtube.com/vi/rZ3zeJ6WKPY/0.jpg)](http://www.youtube.com/watch?v=rZ3zeJ6WKPY)
+[![AWS Videos](https://img.youtube.com/vi/rZ3zeJ6WKPY/0.jpg)](https://www.youtube.com/watch?v=rZ3zeJ6WKPY)
 
 
 **Topics**

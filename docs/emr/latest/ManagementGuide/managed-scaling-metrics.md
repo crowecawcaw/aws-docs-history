@@ -65,11 +65,11 @@ You can graph metrics to visualize your cluster's workload patterns and correspo
 
 The following example illustrates the Amazon EMR managed scaling activity of a cluster. The graph shows three automatic scale-down periods, which save costs when there is a less active workload. 
 
-![Graph managed scaling metrics](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/Managed_Scaling_Decision.png)
+![Graph managed scaling metrics](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/Managed_Scaling_Decision.png)
 
 
 All the cluster capacity and usage metrics are published at one-minute intervals. Additional statistical information is also associated with each one-minute data, which allows you to plot various functions such as `Percentiles`, `Min`, `Max`, `Sum`, `Average`, `SampleCount`.
 
 For example, the following graph plots the same `YARNMemoryAvailablePercentage` metric at different percentiles, P10, P50, P90, P99, along with `Sum`, `Average`, `Min`, `SampleCount`.
 
-![Graph managed scaling metrics with different percentiles](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/Managed_Scaling_Metrics.png)
+![Graph managed scaling metrics with different percentiles](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/Managed_Scaling_Metrics.png)

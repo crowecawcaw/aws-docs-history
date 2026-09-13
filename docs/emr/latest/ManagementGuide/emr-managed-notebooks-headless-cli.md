@@ -10,12 +10,12 @@ EMR Notebooks are available as EMR Studio Workspaces in the console. The **Creat
 
 The relative path for file `demo_pyspark.ipynb` is `demo_pyspark.ipynb`, shown below.
 
-![Jupyter notebook interface showing demo_pyspark.ipynb file with code cell and Install required libraries heading.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/notebook_exe_folder_structure_1.png)
+![Jupyter notebook interface showing demo_pyspark.ipynb file with code cell and Install required libraries heading.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/notebook_exe_folder_structure_1.png)
 
 
 The relative path for `python3.ipynb` is `my_folder/python3.ipynb`, shown below.
 
-![File browser showing python3.ipynb file located in my_folder directory.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/notebook_exe_folder_structure_2.png)
+![File browser showing python3.ipynb file located in my_folder directory.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/notebook_exe_folder_structure_2.png)
 
 
 For information about the Amazon EMR API `NotebookExecution` actions, see [Amazon EMR API actions.](https://docs.aws.amazon.com/emr/latest/APIReference/API_Operations.html).
@@ -74,7 +74,7 @@ aws emr start-notebook-execution \
 
  Here's the output from a sample notebook. Cell 3 shows the newly-injected parameter values.
 
-![Jupyter notebook cells showing parameter injection with values overridden in cell 3.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/HelloWorld_notebook.png)
+![Jupyter notebook cells showing parameter injection with values overridden in cell 3.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/HelloWorld_notebook.png)
 
 
 ## Describe a notebook

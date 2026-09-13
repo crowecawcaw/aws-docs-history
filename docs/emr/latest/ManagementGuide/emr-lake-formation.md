@@ -14,7 +14,7 @@ After you integrate Amazon EMR with Lake Formation, you can execute queries to A
 
 The following is a high-level overview of how Amazon EMR gets access to data protected by Lake Formation security policies.
 
-![How Amazon EMR accesses data protected by Lake Formation security policies](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/lf-emr-security.png)
+![How Amazon EMR accesses data protected by Lake Formation security policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/lf-emr-security.png)
 
 
 1. A user submits an Amazon EMR query for data in Lake Formation.

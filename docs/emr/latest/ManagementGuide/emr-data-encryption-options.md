@@ -7,7 +7,7 @@ With Amazon EMR releases 4.8.0 and higher, you can use a security configuration 
 
 The following diagram shows the different data encryption options available with security configurations. 
 
-![There are several in-transit and at-rest encryption options available with Amazon EMR.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-encryption-options.png)
+![There are several in-transit and at-rest encryption options available with Amazon EMR.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-encryption-options.png)
 
 
 The following encryption options are also available and are not configured using a security configuration:

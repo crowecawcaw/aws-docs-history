@@ -54,21 +54,21 @@ Follow these steps to install the Trino service definition.
    ```
 
    If this command runs successfully, you see a new service in your Ranger Admin UI called `TRINO`, as shown in the following image.  
-![Ranger Admin create service.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-service-trino.png)
+![Ranger Admin create service.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-service-trino.png)
 
 1. Create an instance of the `TRINO` application, entering the following information.
 
    **Service Name**: The service name that you'll use. The suggested value is `amazonemrtrino`. Note this service name, as it will be needed when creating an Amazon EMR security configuration.
 
    **Display Name**: The name to be displayed for this instance. The suggested value is `amazonemrtrino`.  
-![Ranger Admin display name.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-display-name-trino.png)
+![Ranger Admin display name.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-display-name-trino.png)
 
    **jdbc.driver.ClassName**: The class name of JDBC class for Trino connectivity. You can use the default value.
 
    **jdbc.url**: The JDBC connection string to use when connecting to Trino coordinator.
 
    **Common Name For Certificate**: The CN field within the certificate used to connect to the admin server from a client plugin. This value must match the CN field in your TLS certificate that was created for the plugin.  
-![Ranger Admin common name.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-common-name-trino.png)
+![Ranger Admin common name.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-common-name-trino.png)
 
    Note that the TLS certificate for this plugin should have been registered in the trust store on the Ranger Admin server. For more information, see [TLS certificates](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-admin-tls.html).
 
@@ -93,12 +93,12 @@ When you create a new policy, fill in the following fields.
 
 Other types of policies exist for the **Trino User** (for user impersonation access), the **Trino System/Session Property** (for altering engine system or session properties), **Functions/Procedures** (for allowing function or procedure calls), and the **URL** (for granting read/write access to the engine on data locations).
 
-![Ranger Admin create policy details.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-details-trino.png)
+![Ranger Admin create policy details.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-details-trino.png)
 
 
 To grant permissions to specific users and groups, enter the users and groups. You can also specify exclusions for **allow** conditions and **deny** conditions.
 
-![Ranger Admin policy details allow deny conditions.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-allow-conditions-trino.png)
+![Ranger Admin policy details allow deny conditions.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-create-policy-allow-conditions-trino.png)
 
 
 After specifying the allow and deny conditions, choose **Save**.

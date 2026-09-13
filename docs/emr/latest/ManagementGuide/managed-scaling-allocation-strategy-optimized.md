@@ -97,7 +97,7 @@ To query logs, you can select CloudWatch in the AWS console. For more informatio
 
 The following image shows these metrics for a sample cluster:
 
-![Graph that shows utilization statistics.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/scaling_graph_EMR.png)
+![Graph that shows utilization statistics.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/scaling_graph_EMR.png)
 
 
 ## Considerations and limitations

@@ -60,7 +60,7 @@ To configure Zeppelin, complete the following steps.
 1. **Modify interpreters settings to run user jobs in their own processes**.
 
    For all interpreters, configure them to instantiate the interpreters "Per User" in "isolated" processes.  
-![Amazon EMR and Apache Ranger architecture diagram.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/per_user.png)
+![Amazon EMR and Apache Ranger architecture diagram.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/per_user.png)
 
 1. **Modify `zeppelin-env.sh`**
 

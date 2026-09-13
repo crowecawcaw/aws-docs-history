@@ -25,19 +25,19 @@ To view cluster details, select a cluster **Name** from the **Clusters** list. T
 
 In the **Application user interfaces** tab under **High-level application history**, you can expand a row to show the diagnostic summary for a Spark application or select an **Application ID** link to view details about a different application.
 
-![YARN applications table with expanded row showing Diagnostics: Succeeded for a Spark application.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/app-history-app.png)
+![YARN applications table with expanded row showing Diagnostics: Succeeded for a Spark application.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/app-history-app.png)
 
 
 When you select an **Application ID** link, the UI changes to show the **YARN application** details for that application. In the **Jobs** tab of **YARN application** details, you can choose the **Description** link for a job to display details for that job.
 
-![Job details page showing description link highlighted for a succeeded Spark job.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/app-history-job-1.png)
+![Job details page showing description link highlighted for a succeeded Spark job.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/app-history-job-1.png)
 
 
 On the job details page, you can expand information about individual job stages, and then select the **Description** link to see stage details.
 
-![Job stage details showing completed status with expandable stage information and descriptions.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/app-history-job-2.png)
+![Job stage details showing completed status with expandable stage information and descriptions.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/app-history-job-2.png)
 
 
 On the stage details page, you can view key metrics for stage tasks and executors. You can also view task and executor logs using the **View logs** links.
 
-![Stage details page showing executor and task metrics with View logs links highlighted.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/app-history-job-3.png)
+![Stage details page showing executor and task metrics with View logs links highlighted.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/app-history-job-3.png)

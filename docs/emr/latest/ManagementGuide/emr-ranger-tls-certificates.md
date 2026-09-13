@@ -48,4 +48,4 @@ openssl x509 -in <PEM FILE> -text
 
 When creating your Secret in the Secrets Manager, choose **Other type of secrets** under **secret type** and paste your PEM encoded certificate in the **Plaintext** field.
 
-![Importing a certificate to AWS Secrets Manager.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-tls-cert-import.png)
+![Importing a certificate to AWS Secrets Manager.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/ranger-tls-cert-import.png)

@@ -118,7 +118,7 @@ Once you have set up and launched your cluster, you can use the runtime role-ena
 1. Create a new workspace or launch an existing workspace. For more information, see [Create an EMR Studio Workspace](emr-studio-create-workspace.md).
 
 1. Choose the ** EMR clusters** tab in the left sidebar of your open Workspace, expand the **Compute type** section, and choose your cluster from the **EMR cluster on EC2** menu, and the runtime role from the **Runtime role** menu.  
-![The EMR Studio Workspace user interface, based on the JupyterLab interface, with icon-denoted tabs on the left sidebar.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-studio-jupyter-runtime.png)
+![The EMR Studio Workspace user interface, based on the JupyterLab interface, with icon-denoted tabs on the left sidebar.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-studio-jupyter-runtime.png)
 
 1. Choose **Attach** to attach the cluster with runtime role to your Workspace.
 

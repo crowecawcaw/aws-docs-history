@@ -14,7 +14,7 @@ To learn more about CloudFormation templates, see [Templates](https://docs.aws.a
 
 The following video demonstrates how to set up cluster templates in AWS Service Catalog for EMR Studio. You can also learn more in the [Build a self-service environment for each line of business using Amazon EMR and Service Catalog](https://aws.amazon.com/blogs/big-data/build-a-self-service-environment-for-each-line-of-business-using-amazon-emr-and-aws-service-catalog/) blog post.
 
-[![AWS Videos](http://img.youtube.com/vi/9w_TXTdFLpo/0.jpg)](http://www.youtube.com/watch?v=9w_TXTdFLpo)
+[![AWS Videos](https://img.youtube.com/vi/9w_TXTdFLpo/0.jpg)](https://www.youtube.com/watch?v=9w_TXTdFLpo)
 
 
 ### Optional template parameters
@@ -45,7 +45,7 @@ Parameters:
 
 When you add parameters, Studio users see additional form options after selecting a cluster template. The following image shows additional form options for **EmrRelease** version, **ClusterName**, and **InstanceType**.
 
-![Screenshot of the additional inputs in the Studio user interface when a user selects a cluster template with parameters.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/cluster-template-parameters-studio-ui.jpg)
+![Screenshot of the additional inputs in the Studio user interface when a user selects a cluster template with parameters.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/cluster-template-parameters-studio-ui.jpg)
 
 
 ## Prerequisites

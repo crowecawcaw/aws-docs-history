@@ -20,12 +20,12 @@ Clusters running in a public subnet use two security groups: one for the primary
 
 The following diagram shows how an Amazon EMR cluster runs in a VPC using a public subnet. The cluster is able to connect to other AWS resources, such as Amazon S3 buckets, through the internet gateway.
 
-![Cluster on a VPC](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/vpc_default_v3a.png)
+![Cluster on a VPC](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/vpc_default_v3a.png)
 
 
 The following diagram shows how to set up a VPC so that a cluster in the VPC can access resources in your own network, such as an Oracle database.
 
-![Set up a VPC and cluster to access local VPN resources](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/vpc_withVPN_v3a.png)
+![Set up a VPC and cluster to access local VPN resources](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/vpc_withVPN_v3a.png)
 
 
 ## Private subnets
@@ -49,12 +49,12 @@ For a complete listing of NACLs of your cluster, choose **Security groups for Pr
 
 The following image shows how an Amazon EMR cluster is configured within a private subnet. The only communication outside the subnet is to Amazon EMR. 
 
-![Launch an Amazon EMR cluster in a private subnet](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/vpc_with_private_subnet_v4.png)
+![Launch an Amazon EMR cluster in a private subnet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/vpc_with_private_subnet_v4.png)
 
 
 The following image shows a sample configuration for an Amazon EMR cluster within a private subnet connected to a NAT instance that is residing in a public subnet.
 
-![Private subnet with NAT](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/vpc_private_subnet_nat_v4.png)
+![Private subnet with NAT](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/vpc_private_subnet_nat_v4.png)
 
 
 ## Shared subnets

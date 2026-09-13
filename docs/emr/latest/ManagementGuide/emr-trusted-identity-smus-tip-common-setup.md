@@ -100,11 +100,11 @@ Use the following custom trust policy for the Lake Formation location registrati
 
   1. Open the [AWS Lake Formation console](https://console.aws.amazon.com/lakeformation/).
      + From the left menu open Data lake locations under **Administration** section then **Register location**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-data-lake-locations.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-data-lake-locations.png)
      + Browse the Amazon S3 path you have created
      + Attach IAM role created above `LFRole-data-access-permissions-check` that has read/write access to the chosen Amazon S3 path.
      + Choose **Lake Formation** for Permission mode and click on **Register location**.  
-![IAM Identity Center](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-data-lake-register.png)
+![IAM Identity Center](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/emr-tut-data-lake-register.png)
 
 ## Step 3: Enable Trusted Identity Propagation in Amazon SageMaker Unified Studio
 <a name="emr-trusted-identity-smus-tip-common-enable-tip"></a>

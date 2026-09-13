@@ -84,11 +84,11 @@ You can use only one of the two options when provisioning an EMR cluster, and yo
 
 | Consideration | Single custom AMI | Multiple custom AMIs | 
 | --- | --- | --- | 
-| Use both x86 and Graviton2 processors with custom AMIs in the same cluster |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-no.png) Not supported |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported | 
-| AMI customization varies across instance types |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-no.png) Not supported |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported | 
-| Change custom AMIs when adding new task instance groups/fleets to a running cluster. Note: you cannot change the custom AMI of existing instance groups/fleets. |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-no.png) Not supported |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported | 
-| Use AWS Console to start a cluster |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-no.png) Not supported | 
-| Use AWS CloudFormation to start a cluster |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported |  ![](http://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported | 
+| Use both x86 and Graviton2 processors with custom AMIs in the same cluster |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-no.png) Not supported |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported | 
+| AMI customization varies across instance types |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-no.png) Not supported |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported | 
+| Change custom AMIs when adding new task instance groups/fleets to a running cluster. Note: you cannot change the custom AMI of existing instance groups/fleets. |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-no.png) Not supported |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported | 
+| Use AWS Console to start a cluster |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-no.png) Not supported | 
+| Use AWS CloudFormation to start a cluster |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported |  ![](https://docs.aws.amazon.com/emr/latest/ManagementGuide/images/icon-yes.png) Supported | 
 
 ## Use a single custom AMI in an EMR cluster
 <a name="single-custom-ami"></a>
