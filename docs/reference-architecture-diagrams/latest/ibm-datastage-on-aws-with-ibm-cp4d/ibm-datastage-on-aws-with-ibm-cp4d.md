@@ -10,7 +10,7 @@ This architecture shows how to build a modern, cloud-native, secure data integra
 ## IBM DataStage on AWS with IBM CP4D Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to build a modern, cloud-native, secure data integration solution to collect, transform, enrich, and deliver data at any scale and complexity.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/ibm-datastage-on-aws-with-ibm-cp4d/images/ibm-datastage-on-aws-with-ibm-cp4d.png)
+![Reference architecture diagram showing how to build a modern, cloud-native, secure data integration solution to collect, transform, enrich, and deliver data at any scale and complexity.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/ibm-datastage-on-aws-with-ibm-cp4d/images/ibm-datastage-on-aws-with-ibm-cp4d.png)
 
 
 1. Data is collected from multiple data sources across the enterprise data bases and **AWS Cloud** data stores, such as **Amazon Simple Storage Service** (Amazon S3) and **Amazon DocumentDB (with MongoDB compatibility)**. 
