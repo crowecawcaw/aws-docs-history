@@ -10,7 +10,7 @@ With this architecture, you can deploy an advanced distribution management syste
 ## Advanced Distribution Management System diagram
 <a name="adms-diagram"></a>
 
-![Reference architecture diagram showing how to deploy ADMS on AWS Outposts with connectivity to AWS Regional services for analytics and ML.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/advanced-distribution-management-system/images/advanced-distribution-management-system.png)
+![Reference architecture diagram showing how to deploy ADMS on AWS Outposts with connectivity to AWS Regional services for analytics and ML.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/advanced-distribution-management-system/images/advanced-distribution-management-system.png)
 
 
 The following steps describe the deployment topology and connectivity for this architecture:
