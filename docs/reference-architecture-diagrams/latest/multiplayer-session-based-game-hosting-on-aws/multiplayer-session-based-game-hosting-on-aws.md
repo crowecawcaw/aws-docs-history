@@ -10,7 +10,7 @@ This architecture enables you to use Amazon GameLift Servers multi-Region fleets
 ## Multiplayer Session-based Game Hosting on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to use Amazon GameLift Servers multi-Region fleets and a serverless backend solution to host a session-based multiplayer game.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/multiplayer-session-based-game-hosting-on-aws/images/multiplayer-session-based-game-hosting-on-aws.png)
+![Reference architecture diagram showing how to use Amazon GameLift Servers multi-Region fleets and a serverless backend solution to host a session-based multiplayer game.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/multiplayer-session-based-game-hosting-on-aws/images/multiplayer-session-based-game-hosting-on-aws.png)
 
 
 1. The game client requests an **Amazon Cognito** identity and temporary AWS credentials.
