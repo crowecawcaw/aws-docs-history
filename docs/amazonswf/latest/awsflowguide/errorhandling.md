@@ -71,7 +71,7 @@ RuntimeException: error downloading image
 
 The execution of an AWS Flow Framework for Java program can be visualized as a tree of concurrently executing branches. A call to an asynchronous method, an activity, and `TryCatchFinally` itself creates a new branch in this tree of execution. For example, the image processing workflow can be viewed as the tree shown in the following figure.
 
-![Asynchronous execution tree](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/trycatchfinally.png)
+![Asynchronous execution tree](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/trycatchfinally.png)
 
 
 An error in one branch of execution will cause the unwinding of that branch, just as an exception causes the unwinding of the call stack in a Java program. The unwinding keeps moving up the execution branch until either the error is handled or the root of the tree is reached, in which case the workflow execution is terminated.
@@ -232,7 +232,7 @@ An unhandled `CancellationException` is propagated up the execution branch just 
 
 You may nest `TryCatchFinally`'s to suit your needs. Because each `TryCatchFinally` creates a new branch in the execution tree, you can create nested scopes. Exceptions in the parent scope will cause cancellation attempts of all tasks initiated by nested `TryCatchFinally`'s within it. However, exceptions in a nested `TryCatchFinally` don't automatically propagate to the parent. If you wish to propagate an exception from a nested `TryCatchFinally` to its containing `TryCatchFinally`, you should rethrow the exception in `doCatch()`. In other words, only unhandled exceptions are bubbled up, just like Java's `try`/`catch`. If you cancel a nested `TryCatchFinally` by calling the cancel method, the nested `TryCatchFinally` will be canceled but the containing `TryCatchFinally` will not automatically get canceled.
 
-![Nested TryCatchFinally](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/nested.png)
+![Nested TryCatchFinally](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/nested.png)
 
 
 ```

@@ -14,7 +14,7 @@ A task is considered open from the time that it is scheduled until it is closed.
 
 The following diagram shows how workflow and decision timeouts are related to the lifetime of a workflow:
 
-![A workflow's lifetime, with timeouts](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/workflow_timeouts.png)
+![A workflow's lifetime, with timeouts](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/workflow_timeouts.png)
 
 
 There are two timeout types that are relevant to workflow and decision tasks:
@@ -26,7 +26,7 @@ There are two timeout types that are relevant to workflow and decision tasks:
 
 The following diagram shows how timeouts are related to the lifetime of an activity task:
 
-![A task's lifetime, with timeouts](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/activity_timeouts.png)
+![A task's lifetime, with timeouts](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/activity_timeouts.png)
 
 
 There are four timeout types that are relevant to activity tasks:

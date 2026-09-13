@@ -5,7 +5,7 @@
 
 The preceding versions of Hello World\! all use a linear workflow topology. However, Amazon SWF isn't limited to linear topologies. The HelloWorldWorkflowParallel application is a modified version of HelloWorldWorkflow that uses a parallel topology, as shown in the following figure.
 
-![HelloWorldWorkflowParallel workflow topology](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/helloworld_parallel_topology.png)
+![HelloWorldWorkflowParallel workflow topology](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/helloworld_parallel_topology.png)
 
 
 With HelloWorldWorkflowParallel, `getName` and `getGreeting` run in parallel and each return part of the greeting. `say` then merges the two strings into a greeting, and prints it to the console.

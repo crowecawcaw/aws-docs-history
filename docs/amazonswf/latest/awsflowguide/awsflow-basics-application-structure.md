@@ -7,7 +7,7 @@ Conceptually, an AWS Flow Framework application consists of three basic componen
 
 This diagram represents a basic AWS Flow Framework application:
 
-![Schematic AWS Flow Framework application](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/swf-application-model.png)
+![Schematic AWS Flow Framework application](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/swf-application-model.png)
 
 
 **Note**  

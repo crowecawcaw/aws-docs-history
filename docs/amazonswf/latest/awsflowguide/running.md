@@ -71,7 +71,7 @@ The `ActivityWorker` class uses the AWS Flow Framework for Java annotations to d
 
 In the AWS Flow Framework for Java, the embodiment of an activity or decider is an instance of the worker class. Your application is responsible for configuring and instantiating the worker object on each machine and process that should act as a worker. The worker object then automatically receives tasks from Amazon SWF, dispatches them to your activity or workflow implementation and reports results to Amazon SWF. It is possible for a single workflow instance to span many workers. When Amazon SWF has one or more pending activity tasks, it assigns a task to the first available worker, then the next one, and so on. This makes it possible for tasks belonging to the same workflow instance to be processed on different workers concurrently. 
 
-![Topology of AWS Flow Framework for Java–based applications](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/threading.png)
+![Topology of AWS Flow Framework for Java–based applications](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/threading.png)
 
 
 Moreover, each worker can be configured to process tasks on multiple threads. This means that the activity tasks of a workflow instance can run concurrently even if there is only one worker. 
@@ -80,7 +80,7 @@ Decision tasks behave similarly with the exception that Amazon SWF guarantees th
 
 Contrary to deciders, which are configured with workflow implementation types, activity workers are configured with instances (objects) of the activity implementations. When an activity task is received by the activity worker, it is dispatched to the appropriate activity implementation object. 
 
-![Threading model of worker classes](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/executor.png)
+![Threading model of worker classes](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/executor.png)
 
 
 The workflow worker maintains a single pool of threads and executes the workflow on the same thread that was used to poll Amazon SWF for the task. Because activities are long running (at least when compared to the workflow logic), the activity worker class maintains two separate pools of threads; one for polling Amazon SWF for activity tasks and the other for processing tasks by executing the activity implementation. This allows you to configure the number of threads to poll for tasks separate from the number of threads to execute them. For example, you can have a small number of threads to poll and a large number of threads to execute the tasks. The activity worker class polls Amazon SWF for a task only when it has a free poll thread as well as a free thread to process the task. 

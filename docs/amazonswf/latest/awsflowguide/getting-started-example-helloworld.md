@@ -72,7 +72,7 @@ Activities are independent of each other and can often be used by different work
 
 To print "Hello World\!" to the console, the activity tasks must execute in sequence in the correct order with the correct data. The HelloWorld workflow worker orchestrates the activities' execution based on a simple *linear workflow topology*, which is shown in the following figure.
 
-![Linear workflow topology](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/helloworld_topology.png)
+![Linear workflow topology](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/helloworld_topology.png)
 
 
 The three activities execute in sequence, and the data flows from one activity to the next.

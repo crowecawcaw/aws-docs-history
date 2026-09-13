@@ -19,7 +19,7 @@ You could implement a distributed asynchronous workflow application from scratch
 
 HelloWorldWorkflow is a modified version of HelloWorld that runs as an Amazon SWF workflow. The following figure summarizes how the two applications work.
 
-![Conventional and Amazon SWF versions of Hello World!](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/workflow_conceptual_welcome.png)
+![Conventional and Amazon SWF versions of Hello World!](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/workflow_conceptual_welcome.png)
 
 
 HelloWorld runs as a single process and the starter, workflow worker, and activities worker interact by using conventional method calls. With `HelloWorldWorkflow`, the starter, workflow worker, and activities worker are distributed components that interact through Amazon SWF by using HTTP requests. Amazon SWF manages the interaction by maintaining lists of workflow and activities tasks, which it dispatches to the respective components. This section describes how the framework works for HelloWorldWorkflow.
@@ -258,12 +258,12 @@ For convenience, `GreeterWorker` defines two string constants.
 
 You can run `GreeterWorker` successfully at this point. It registers the workflow and activities with Amazon SWF and starts the worker objects polling their respective task lists. To verify this, run `GreeterWorker` and go to the Amazon SWF console and select `helloWorldWalkthrough` from the list of domains. If you choose **Workflow Types** in the **Navigation** pane, you should see `GreeterWorkflow.greet`:
 
-![HelloWorldWorkflow workflow type](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Workflow_Type.png)
+![HelloWorldWorkflow workflow type](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Workflow_Type.png)
 
 
 If you choose **Activity Types**, the `GreeterActivities` methods are displayed:
 
-![HelloWorldWorkflow activity types](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Activity_Types.png)
+![HelloWorldWorkflow activity types](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Activity_Types.png)
 
 
 However, if you choose **Workflow Executions**, you will not see any active executions. Although the workflow and activities workers are polling for tasks, we have not yet started a workflow execution.
@@ -316,12 +316,12 @@ The annotation processor also creates an internal client factory object that is 
 
 Shut down `GreeterWorker` for the moment if it is still running, and run `GreeterMain`. You should now see someID on the Amazon SWF console's list of active workflow executions:.
 
-![HelloWorldWorkflow workflow executions](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Active_Execution.png)
+![HelloWorldWorkflow workflow executions](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Active_Execution.png)
 
 
 If you choose `someID` and choose the **Events** tab, the events are displayed:
 
-![HelloWorldWorkflow initial workflow events](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Events1.png)
+![HelloWorldWorkflow initial workflow events](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Events1.png)
 
 
 **Note**  
@@ -333,14 +333,14 @@ The **Events** tab shows only two events:
 
 The reason that the workflow is blocked at the first decision task is that the workflow is distributed across two applications, `GreeterMain` and `GreeterWorker`. `GreeterMain` started the workflow execution, but `GreeterWorker` isn't running, so the workers aren't polling the lists and executing tasks. You can run either application independently, but you need both for workflow execution to proceed beyond the first decision task. If you now run `GreeterWorker`, the workflow and activity workers will start polling and the various tasks will be completed rapidly. If you now check the `Events` tab, the first batch of events is displayed.
 
-![HelloWorldWorkflow complete workflow events](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Events2.png)
+![HelloWorldWorkflow complete workflow events](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Events2.png)
 
 
 You can choose individual events to get more information. By the time you've finished looking, the workflow should have printed "Hello World\!" to your console.
 
 After the workflow completes, it no longer appears on the list of active executions. However, if you want to review it, choose the **Closed** execution status button and then choose **List Executions**. This displays all the completed workflow instances in the specified domain (`helloWorldWalkthrough`) that have not exceeded their retention time, which you specified when you created the domain.
 
-![HelloWorldWorkflow completed workflows](http://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Closed_Workflows.png)
+![HelloWorldWorkflow completed workflows](https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/images/Closed_Workflows.png)
 
 
 Notice that each workflow instance has a unique **Run ID** value. You can use the same Workflow ID for different workflow instances, but only for one active execution at a time.
