@@ -9,8 +9,9 @@ With AWS End User Messaging Social, you can manage your WhatsApp Flows directly 
 
 Flows are associated with your WhatsApp Business Account (WABA). Each Flow is defined by a JSON schema that describes its screens, components, and logic. For more information about the Flow JSON schema, see [Flow JSON](https://developers.facebook.com/docs/whatsapp/flows/reference/flowjson) in the *Meta WhatsApp Business Platform documentation*.
 
-**Note**  
-The current release supports static Flows where all screens, components, and navigation logic are defined in the Flow JSON. Flows with endpoints that exchange data between screens and a business server (the `endpoint_uri` and `data_exchange` capabilities) are planned for an upcoming release. For more information, see [Limitations and considerations](managing-flows-limitations.md).
+Flows support two modes:
++ **Static Flows** — All screens, components, and navigation logic are defined in the Flow JSON. No endpoint is required.
++ **Dynamic Flows** — Screens fetch data from your own HTTPS endpoint at runtime using the `data_exchange` action. This enables personalized, data-driven experiences where screen content and navigation depend on your backend logic. For more information, see [Setting up Dynamic Flows](managing-flows-dynamic.md).
 
 ## Key concepts
 <a name="managing-flows-concepts"></a>
@@ -29,3 +30,9 @@ The lifecycle state of a Flow. See [Understanding Flow status](managing-flows-st
 
 Flow token  
 A unique identifier you provide when sending a Flow to track the session. The token is returned in the Flow response webhook when the user completes the Flow.
+
+Dynamic Flow  
+A Flow that calls your own HTTPS endpoint at runtime using the `data_exchange` action to fetch screen content and decide navigation. The Flow JSON must declare `data_api_version` and the Flow must have an `endpoint_uri` registered. For more information, see [Setting up Dynamic Flows](managing-flows-dynamic.md).
+
+Business public key  
+An RSA-2048 public key that Meta uses to encrypt data-exchange requests end-to-end. You upload the public key through AWS End User Messaging Social and hold the corresponding private key at your endpoint for decryption. You can provide a PEM-encoded key directly or reference an AWS KMS asymmetric key.

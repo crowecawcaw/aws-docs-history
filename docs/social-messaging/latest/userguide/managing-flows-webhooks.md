@@ -64,6 +64,91 @@ When Meta changes a Flow's status (for example, from PUBLISHED to BLOCKED), you 
 
 Monitor these status change events to detect when Meta blocks or throttles your Flows so you can take corrective action.
 
+## Endpoint health notifications (dynamic Flows)
+<a name="managing-flows-webhooks-endpoint"></a>
+
+For dynamic Flows with an endpoint, Meta monitors endpoint health and sends notifications when issues are detected. You receive these through your configured event destination.
+
+**Endpoint error rate** — Sent when the error rate exceeds a threshold in the last 30 minutes:
+
+```
+{
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "event": "ENDPOINT_ERROR_RATE",
+                        "flow_id": "{FLOW_ID}",
+                        "error_rate": 14.28,
+                        "threshold": 10,
+                        "alert_state": "ACTIVATED",
+                        "errors": [
+                            { "error_type": "CAPABILITY_ERROR", "error_rate": 66.66, "error_count": 2 },
+                            { "error_type": "TIMEOUT", "error_rate": 33.33, "error_count": 1 }
+                        ]
+                    },
+                    "field": "flows"
+                }
+            ]
+        }
+    ]
+}
+```
+
+**Endpoint latency** — Sent when the p90 latency exceeds the threshold:
+
+```
+{
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "event": "ENDPOINT_LATENCY",
+                        "flow_id": "{FLOW_ID}",
+                        "p90_latency": 8000,
+                        "p50_latency": 500,
+                        "requests_count": 34,
+                        "threshold": 7000,
+                        "alert_state": "ACTIVATED"
+                    },
+                    "field": "flows"
+                }
+            ]
+        }
+    ]
+}
+```
+
+**Endpoint availability** — Sent when endpoint availability drops below the threshold:
+
+```
+{
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "event": "ENDPOINT_AVAILABILITY",
+                        "flow_id": "{FLOW_ID}",
+                        "availability": 75,
+                        "threshold": 90,
+                        "alert_state": "ACTIVATED"
+                    },
+                    "field": "flows"
+                }
+            ]
+        }
+    ]
+}
+```
+
+Monitor these events to detect and resolve endpoint issues before Meta blocks or throttles your Flow. For more information about setting up dynamic Flows, see [Setting up Dynamic Flows](managing-flows-dynamic.md).
+
 ## Flow version expiry warnings
 <a name="managing-flows-webhooks-expiry"></a>
 

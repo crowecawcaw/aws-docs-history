@@ -89,7 +89,7 @@ aws socialmessaging create-whatsapp-flow \
 <a name="managing-flows-update"></a>
 
 There are two types of updates you can make to a Flow:
-+ **Update metadata** — Change the Flow name or categories using `UpdateWhatsAppFlow`.
++ **Update metadata** — Change the Flow name, categories, endpoint URI, or attached Meta app using `UpdateWhatsAppFlow`.
 + **Update assets** — Change the Flow JSON definition using `UpdateWhatsAppFlowAssets`.
 
 **Important**  
