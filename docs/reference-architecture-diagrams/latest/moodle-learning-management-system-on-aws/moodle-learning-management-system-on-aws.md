@@ -10,7 +10,7 @@ Publication date: **August 18, 2022 ([Diagram history](#diagram-history))**
 ## Moodle Reference Architecture Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to architect the Moodle learning management system.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/moodle-learning-management-system-on-aws/images/moodle-learning-management-system-on-aws.png)
+![Reference architecture diagram showing how to architect the Moodle learning management system.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/moodle-learning-management-system-on-aws/images/moodle-learning-management-system-on-aws.png)
 
 
 1. **Amazon Route 53** offers a scalable cloud Domain Name System (DNS) web service. It directs students to the closest **Amazon CloudFront** location to access Moodle web application content while reducing latency.
