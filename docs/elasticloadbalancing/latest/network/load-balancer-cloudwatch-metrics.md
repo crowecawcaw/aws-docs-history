@@ -19,8 +19,15 @@ For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.am
 
 ## Network Load Balancer metrics
 <a name="load-balancer-metrics-nlb"></a>
++ [Flows](#nlb-flow-metric-table)
++ [Throughput](#nlb-throughput-metric-table)
++ [Connections and resets](#nlb-connection-reset-metric-table)
++ [TLS](#nlb-tls-metric-table)
++ [Security groups](#nlb-security-group-metric-table)
++ [LCUs](#nlb-lcu-metric-table)
++ [Target group health](#nlb-target-group-health-metric-table)<a name="nlb-flow-metric-table"></a>
 
-The `AWS/NetworkELB` namespace includes the following metrics.
+The `AWS/NetworkELB` namespace includes the following metrics for flows.
 
 
 | Metric | Description | 
@@ -29,44 +36,80 @@ The `AWS/NetworkELB` namespace includes the following metrics.
 | ActiveFlowCount\_TCP | The total number of concurrent TCP flows (or connections) from clients to targets. This metric includes connections in the SYN\_SENT and ESTABLISHED state. TCP connections are not terminated at the load balancer, so a client opening a TCP connection to a target counts as a single flow.<br />**Reporting criteria**: There is a nonzero value<br />**Statistics**: The most useful statistics are `Average`, `Maximum`, and `Minimum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer` <br />+  `TargetGroup`  | 
 | ActiveFlowCount\_TLS | The total number of concurrent TLS flows (or connections) from clients to targets. This metric includes connections in the SYN\_SENT and ESTABLISHED state.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistics are `Average`, `Maximum`, and `Minimum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer` <br />+  `TargetGroup`  | 
 | ActiveFlowCount\_UDP | The total number of concurrent UDP flows (or connections) from clients to targets.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistics are `Average`, `Maximum`, and `Minimum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer` <br />+  `TargetGroup`  | 
-| ActiveZonalShiftHostCount | The number of targets that are actively participating in zonal shift currently.<br />**Reporting criteria**: Reported when the load balancer is opt-in for zonal shift.<br />**Statistics**: The most useful statistics are `Maximum`, and `Minimum`.+  `LoadBalancer`, `TargetGroup` <br />+  `AvailabilityZone`, `LoadBalancer`, `TargetGroup`  | 
-| ClientTLSNegotiationErrorCount | The total number of TLS handshakes that failed during negotiation between a client and a TLS listener.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer`  | 
-| ConsumedLCUs | The number of load balancer capacity units (LCU) used by your load balancer. You pay for the number of LCUs that you use per hour. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/).<br />**Reporting criteria**: Always reported.<br />**Statistics**: All+  `LoadBalancer`  | 
-| ConsumedLCUs\_TCP | The number of load balancer capacity units (LCU) used by your load balancer for TCP. You pay for the number of LCUs that you use per hour. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/).<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: All+  `LoadBalancer`  | 
-| ConsumedLCUs\_TLS | The number of load balancer capacity units (LCU) used by your load balancer for TLS. You pay for the number of LCUs that you use per hour. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/).<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: All+  `LoadBalancer`  | 
-| ConsumedLCUs\_UDP | The number of load balancer capacity units (LCU) used by your load balancer for UDP. You pay for the number of LCUs that you use per hour. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/).<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: All+  `LoadBalancer`  | 
-| HealthyHostCount | The number of targets that are considered healthy. This metric does not include any Application Load Balancers registered as targets.<br />**Reporting criteria**: Reported if there are registered targets.<br />**Statistics**: The most useful statistics are `Maximum` and `Minimum`.+  `LoadBalancer`, `TargetGroup` <br />+  `AvailabilityZone`, `LoadBalancer`, `TargetGroup`  | 
 | NewFlowCount | The total number of new flows (or connections) established from clients to targets in the time period.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer` <br />+  `TargetGroup`  | 
 | NewFlowCount\_TCP | The total number of new TCP flows (or connections) established from clients to targets in the time period.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer` <br />+  `TargetGroup`  | 
 | NewFlowCount\_TLS | The total number of new TLS flows (or connections) established from clients to targets in the time period.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer` <br />+  `TargetGroup`  | 
 | NewFlowCount\_UDP | The total number of new UDP flows (or connections) established from clients to targets in the time period.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer` <br />+  `TargetGroup`  | 
 | NewFlowCount\_QUIC | The total number of UDP datagrams that required a routing decision in the time period.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| PeakBytesPerSecond | The highest average bytes processed per second, calculated every 10 seconds during the sampling window. This metric does not include health check traffic.<br />**Reporting criteria**: Always reported<br />**Statistics**: The most useful statistic is `Maximum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| PeakPacketsPerSecond | Highest average packet rate (packets processed per second), calculated every 10 seconds during the sampling window. This metric includes health check traffic.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Maximum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| PortAllocationErrorCount | The total number of ephemeral port allocation errors during a client IP translation operation. A non-zero value indicates dropped client connections. <br />Note: Network Load Balancers support 55,000 simultaneous connections or about 55,000 connections per minute to each unique target (IP address and port) when performing client address translation. To fix port allocation errors, add more targets to the target group.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
+| RejectedFlowCount | The total number of flows (or connections) rejected by the load balancer.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistics are `Average`, `Maximum`, and `Minimum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
+| RejectedFlowCount\_TCP | The number of TCP flows (or connections) rejected by the load balancer.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
+| UnhealthyRoutingFlowCount | The number of flows (or connections) that are routed using the routing failover action (fail open). This metric is not supported for TLS listeners.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`. | 
+| QUIC\_Unknown\_Server\_ID\_Packet\_Drop\_Count | The number of UDP datagrams dropped which contain a server ID not associated with a target in the Network Load Balancer.<br />**Reporting criteria**: Reported only for QUIC listeners.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | <a name="nlb-throughput-metric-table"></a>
+
+The `AWS/NetworkELB` namespace includes the following metrics for throughput.
+
+
+| Metric | Description | 
+| --- | --- | 
 | ProcessedBytes | The total number of bytes processed by the load balancer, including TCP/IP headers. This count includes traffic to and from targets, minus health check traffic.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | ProcessedBytes\_TCP | The total number of bytes processed by TCP listeners.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | ProcessedBytes\_TLS | The total number of bytes processed by TLS listeners.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | ProcessedBytes\_UDP | The total number of bytes processed by UDP listeners.<br />**Reporting criteria**: There is a nonzero value<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | ProcessedBytes\_QUIC | The total number of bytes processed by QUIC listeners.<br />**Reporting criteria**: There is a nonzero value<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | ProcessedPackets | The total number of packets processed by the load balancer. This count includes traffic to and from targets, including health check traffic.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| RejectedFlowCount | The total number of flows (or connections) rejected by the load balancer.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistics are `Average`, `Maximum`, and `Minimum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| RejectedFlowCount\_TCP | The number of TCP flows (or connections) rejected by the load balancer.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| ReservedLCUs | The number of load balancer capacity units (LCUs) reserved for your load balancer using LCU Reservation.<br />**Reporting criteria**: There is a nonzero value<br />**Statistics**: All+  `LoadBalancer`  | 
+| PeakBytesPerSecond | The highest average bytes processed per second, calculated every 10 seconds during the sampling window. This metric does not include health check traffic.<br />**Reporting criteria**: Always reported<br />**Statistics**: The most useful statistic is `Maximum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
+| PeakPacketsPerSecond | Highest average packet rate (packets processed per second), calculated every 10 seconds during the sampling window. This metric includes health check traffic.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Maximum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | <a name="nlb-connection-reset-metric-table"></a>
+
+The `AWS/NetworkELB` namespace includes the following metrics for connections and resets.
+
+
+| Metric | Description | 
+| --- | --- | 
+| TCP\_Client\_Reset\_Count | The total number of reset (RST) packets sent from a client to a target. These resets are generated by the client and forwarded by the load balancer.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
+| TCP\_ELB\_Reset\_Count | The total number of reset (RST) packets generated by the load balancer. For more information, see [Troubleshooting](load-balancer-troubleshooting.md#elb-reset-count-metric).<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
+| TCP\_Target\_Reset\_Count | The total number of reset (RST) packets sent from a target to a client. These resets are generated by the target and forwarded by the load balancer.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
+| PortAllocationErrorCount | The total number of ephemeral port allocation errors during a client IP translation operation. A non-zero value indicates dropped client connections. <br />Note: Network Load Balancers support 55,000 simultaneous connections or about 55,000 connections per minute to each unique target (IP address and port) when performing client address translation. To fix port allocation errors, add more targets to the target group.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | <a name="nlb-tls-metric-table"></a>
+
+The `AWS/NetworkELB` namespace includes the following metrics for TLS.
+
+
+| Metric | Description | 
+| --- | --- | 
+| ClientTLSNegotiationErrorCount | The total number of TLS handshakes that failed during negotiation between a client and a TLS listener.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer`  | 
+| TargetTLSNegotiationErrorCount | The total number of TLS handshakes that failed during negotiation between a TLS listener and a target.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer`  | <a name="nlb-security-group-metric-table"></a>
+
+The `AWS/NetworkELB` namespace includes the following metrics for security groups.
+
+
+| Metric | Description | 
+| --- | --- | 
 | SecurityGroupBlockedFlowCount\_Inbound\_ICMP | The number of new ICMP messages rejected by the inbound rules of the load balancer security groups.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | SecurityGroupBlockedFlowCount\_Inbound\_TCP | The number of new TCP flows rejected by the inbound rules of the load balancer security groups.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | SecurityGroupBlockedFlowCount\_Inbound\_UDP | The number of new UDP flows rejected by the inbound rules of the load balancer security groups.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | SecurityGroupBlockedFlowCount\_Outbound\_ICMP | The number of new ICMP messages rejected by the outbound rules of the load balancer security groups.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 | SecurityGroupBlockedFlowCount\_Outbound\_TCP | The number of new TCP flows rejected by the outbound rules of the load balancer security groups.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| SecurityGroupBlockedFlowCount\_Outbound\_UDP | The number of new UDP flows rejected by the outbound rules of the load balancer security groups.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| TargetTLSNegotiationErrorCount | The total number of TLS handshakes that failed during negotiation between a TLS listener and a target.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer`  | 
-| TCP\_Client\_Reset\_Count | The total number of reset (RST) packets sent from a client to a target. These resets are generated by the client and forwarded by the load balancer.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| TCP\_ELB\_Reset\_Count | The total number of reset (RST) packets generated by the load balancer. For more information, see [Troubleshooting](load-balancer-troubleshooting.md#elb-reset-count-metric).<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| TCP\_Target\_Reset\_Count | The total number of reset (RST) packets sent from a target to a client. These resets are generated by the target and forwarded by the load balancer.<br />**Reporting criteria**: Always reported.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
+| SecurityGroupBlockedFlowCount\_Outbound\_UDP | The number of new UDP flows rejected by the outbound rules of the load balancer security groups.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | <a name="nlb-lcu-metric-table"></a>
+
+The `AWS/NetworkELB` namespace includes the following metrics for load balancer capacity units (LCU).
+
+
+| Metric | Description | 
+| --- | --- | 
+| ConsumedLCUs | The number of load balancer capacity units (LCU) used by your load balancer. You pay for the number of LCUs that you use per hour. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/).<br />**Reporting criteria**: Always reported.<br />**Statistics**: All+  `LoadBalancer`  | 
+| ConsumedLCUs\_TCP | The number of load balancer capacity units (LCU) used by your load balancer for TCP. You pay for the number of LCUs that you use per hour. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/).<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: All+  `LoadBalancer`  | 
+| ConsumedLCUs\_TLS | The number of load balancer capacity units (LCU) used by your load balancer for TLS. You pay for the number of LCUs that you use per hour. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/).<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: All+  `LoadBalancer`  | 
+| ConsumedLCUs\_UDP | The number of load balancer capacity units (LCU) used by your load balancer for UDP. You pay for the number of LCUs that you use per hour. For more information, see [Elastic Load Balancing Pricing](https://aws.amazon.com/elasticloadbalancing/pricing/).<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: All+  `LoadBalancer`  | 
+| ReservedLCUs | The number of load balancer capacity units (LCUs) reserved for your load balancer using LCU Reservation.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: All+  `LoadBalancer`  | <a name="nlb-target-group-health-metric-table"></a>
+
+The `AWS/NetworkELB` namespace includes the following metrics for target group health.
+
+
+| Metric | Description | 
+| --- | --- | 
+| ActiveZonalShiftHostCount | The number of targets that are actively participating in zonal shift currently.<br />**Reporting criteria**: Reported when the load balancer is opt-in for zonal shift.<br />**Statistics**: The most useful statistics are `Maximum`, and `Minimum`.+  `LoadBalancer`, `TargetGroup` <br />+  `AvailabilityZone`, `LoadBalancer`, `TargetGroup`  | 
+| HealthyHostCount | The number of targets that are considered healthy. This metric does not include any Application Load Balancers registered as targets.<br />**Reporting criteria**: Reported if there are registered targets.<br />**Statistics**: The most useful statistics are `Maximum` and `Minimum`.+  `LoadBalancer`, `TargetGroup` <br />+  `AvailabilityZone`, `LoadBalancer`, `TargetGroup`  | 
 | UnHealthyHostCount | The number of targets that are considered unhealthy. This metric does not include any Application Load Balancers registered as targets.<br />**Reporting criteria**: Reported if there are registered targets.<br />**Statistics**: The most useful statistics are `Maximum` and `Minimum`.+  `LoadBalancer`, `TargetGroup` <br />+  `AvailabilityZone`, `LoadBalancer`, `TargetGroup`  | 
-| UnhealthyRoutingFlowCount | The number of flows (or connections) that are routed using the routing failover action (fail open). This metric is not supported for TLS listeners.<br />**Reporting criteria**: There is a nonzero value.<br />**Statistics**: The most useful statistic is `Sum`. | 
 | ZonalHealthStatus | The number of Availability Zones that the load balancer considers healthy. The load balancer emits a 1 for each healthy Availability Zone and a 0 for each unhealthy Availability Zone.<br />**Reporting criteria**: Reported if health checks are enabled.<br />**Statistics**: The most useful statistics are `Maximum` and `Minimum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
-| QUIC\_Unknown\_Server\_ID\_Packet\_Drop\_Count | The number of UDP datagrams dropped which contain a server ID not associated with a target in the Network Load Balancer.<br />**Reporting criteria**: Reported only for QUIC listeners.<br />**Statistics**: The most useful statistic is `Sum`.+  `LoadBalancer` <br />+  `AvailabilityZone`, `LoadBalancer`  | 
 
 ## Metric dimensions for Network Load Balancers
 <a name="load-balancer-metric-dimensions-nlb"></a>
