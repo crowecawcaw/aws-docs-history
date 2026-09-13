@@ -11,7 +11,7 @@ Depending on the text, language, and voice used in an audio file, the sounds ran
 
 The `drc` tag sets a midrange "loudness" threshold for your audio, and increases the volume (the gain) of the sounds around that threshold. It applies the greatest gain increase closest to the threshold, and the gain increase is lessened farther away from the threshold. 
 
-![Dynamic range compression increases the volume of the sounds around a certain threshold.](http://docs.aws.amazon.com/polly/latest/dg/images/drc-on.png)
+![Dynamic range compression increases the volume of the sounds around a certain threshold.](https://docs.aws.amazon.com/polly/latest/dg/images/drc-on.png)
 
 
 This makes the middle-range sounds easier to hear in a noisy environment, which makes the entire audio file clearer.
@@ -33,12 +33,12 @@ When you use "`drc`" in the `amazon:effect `syntax, it is case-sensitive.
 **Using `drc` with the `prosody volume` Tag**  
 As the following graphic shows, the `prosody volume` tag evenly increases the volume of an entire audio file from the original level (dotted line) to an adjusted level (solid line). To further increase the volume of certain parts of the file, use the `drc` tag with the `prosody volume` tag. Combining tags doesn't affect the settings of the `prosody volume` tag. 
 
-![Using the prosody volume tag increases the volume across the entire audio file.](http://docs.aws.amazon.com/polly/latest/dg/images/prosodyloud.png)
+![Using the prosody volume tag increases the volume across the entire audio file.](https://docs.aws.amazon.com/polly/latest/dg/images/prosodyloud.png)
 
 
 When you use the `drc` and `prosody volume` tags together, Amazon Polly applies the `drc` tag first, increasing the middle-range sounds (those near the threshold). It then applies the `prosody volume` tag and further increases the volume of the entire audio track evenly.
 
-![Using the drc tag with a prosody volume tag increases the volume of the middle-range sounds in addition to the volume of the entire audio track.](http://docs.aws.amazon.com/polly/latest/dg/images/prosody+drc.png)
+![Using the drc tag with a prosody volume tag increases the volume of the middle-range sounds in addition to the volume of the entire audio track.](https://docs.aws.amazon.com/polly/latest/dg/images/prosody+drc.png)
 
 
 To use the tags together, nest one inside the other. For example:

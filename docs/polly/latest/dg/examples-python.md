@@ -8,7 +8,7 @@ This example application consists of the following:
 + A simple HTML5 user interface that interacts with the HTTP 1.1 server (shown below):
 
      
-![Text-to-speech interface with voice selector dropdown, text input area, and Read button.](http://docs.aws.amazon.com/polly/latest/dg/images/app1-10.png)
+![Text-to-speech interface with voice selector dropdown, text input area, and Read button.](https://docs.aws.amazon.com/polly/latest/dg/images/app1-10.png)
 
 The goal of this example is to show how to use Amazon Polly to stream speech from a browser-based HTML5 application. Consuming the audio stream produced by Amazon Polly as the text gets synthesized is the recommended approach for use cases where responsiveness is an important factor (for example, dialog systems, screen readers, etc.).
 
