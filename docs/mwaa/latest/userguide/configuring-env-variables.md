@@ -58,7 +58,7 @@ When you add a configuration on the Amazon MWAA console, Amazon MWAA writes the 
 
 The following image depicts where you can customize the **Apache Airflow configuration options** on the Amazon MWAA console.
 
-![This image depicts where you can customize the Apache Airflow configuration options on the Amazon MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-airflow-config.png)
+![This image depicts where you can customize the Apache Airflow configuration options on the Amazon MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-airflow-config.png)
 
 
 ### Apache Airflow reference
@@ -219,7 +219,7 @@ print_variable_test = print_variable_dag()
 
 The following Apache Airflow configuration options can be used for a Gmail.com email account using an app password. For more information, refer to [Sign in using app passwords](https://support.google.com/mail/answer/185833?hl=en-GB) in the *Gmail Help reference guide*.
 
-![This image depicts how to configure a gmail.com email account using Apache Airflow configuration options on the MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-config-email-configuration.png)
+![This image depicts how to configure a gmail.com email account using Apache Airflow configuration options on the MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-config-email-configuration.png)
 
 
 ## What's next?

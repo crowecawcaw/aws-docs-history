@@ -28,7 +28,7 @@ This tutorial applies to the **Private network** access mode. If you chose **Bot
 
 This tutorial assumes you've chosen the **Private network** access mode for your Apache Airflow webserver.
 
-![This image displays the architecture for an Amazon MWAA environment with Private network access.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-private-web-server.png)
+![This image displays the architecture for an Amazon MWAA environment with Private network access.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-private-web-server.png)
 
 
 The private network access mode limits access to the Apache Airflow UI to users *within your Amazon VPC* who have been granted access to the [IAM policy for your environment](access-policies.md).
@@ -37,7 +37,7 @@ When you create an environment with **Private network** access, you must package
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-private-network-2026.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-private-network-2026.png)
 
 
 ## Use cases

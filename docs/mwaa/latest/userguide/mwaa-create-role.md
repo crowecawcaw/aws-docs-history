@@ -66,7 +66,7 @@ You can change the execution role for your environment at any time. If a new exe
 
 By default, Amazon MWAA creates an [AWS-owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) for data encryption and an execution role on your behalf. You can choose the default options on the Amazon MWAA console when you create an environment. The following image displays the default option to create an execution role for an environment.
 
-![This is an image with the default option to create a new role.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-permissions.png)
+![This is an image with the default option to create a new role.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-permissions.png)
 
 
 **Important**  

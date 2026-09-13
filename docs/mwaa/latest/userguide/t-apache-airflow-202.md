@@ -186,10 +186,10 @@ If your Apache Airflow tasks are "stuck" or not completing, we recommend the fol
    1. To learn more about the best practices we recommend to tune the performance of your environment, refer to [Performance tuning for Apache Airflow on Amazon MWAA](best-practices-tuning.md).
 
 1. If your tasks are stuck in the "running" state, you can also clear the tasks or mark them as succeeded or failed. This allows the autoscaling component for your environment to scale down the number of workers running on your environment. The following image depicts an example of a stranded task.  
-![This is an image with a stranded task.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-airflow-scaling.png)
+![This is an image with a stranded task.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-airflow-scaling.png)
 
    1. Choose the circle for the stranded task, and then select **Clear** (as shown). This allows Amazon MWAA to scale down workers; otherwise, Amazon MWAA can't determine which DAGs are enabled or disabled, and can't scale down, if there are still queued tasks.  
-![Apache Airflow Actions](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-airflow-scaling-menu.png)
+![Apache Airflow Actions](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-airflow-scaling-menu.png)
 
 1. Learn more about the Apache Airflow task lifecycle at [Concepts](https://airflow.apache.org/docs/apache-airflow/stable/concepts.html#task-lifecycle) in the *Apache Airflow reference guide*.
 

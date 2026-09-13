@@ -30,13 +30,13 @@ The following examples depict the HTTP connection template in the Apache Airflow
 ------
 #### [ Apache Airflow v3 ]
 
-![This image depicts the HTTP connection type in the Apache Airflow UI.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/airflow-connection-v3.0.6.png)
+![This image depicts the HTTP connection type in the Apache Airflow UI.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/airflow-connection-v3.0.6.png)
 
 
 ------
 #### [ Apache Airflow v2 ]
 
-![This image depicts the HTTP connection type in the Apache Airflow UI.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/airflow-connection-v2.0.2.png)
+![This image depicts the HTTP connection type in the Apache Airflow UI.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/airflow-connection-v2.0.2.png)
 
 
 ------
@@ -57,7 +57,7 @@ http://myconnectionurl/some/path&login=mylogin&extra__jdbc__dry__path=usr/local/
 
 Use the following example to apply the HTTP connection template for a *Jdbc* connection for Apache Airflow v3 in the Apache Airflow UI.
 
-![This image depicts the HTTP connection type for a Jdbc connection in the Apache Airflow UI.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/airflow-connection-jdbc-v3.0.6.png)
+![This image depicts the HTTP connection type for a Jdbc connection in the Apache Airflow UI.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/airflow-connection-jdbc-v3.0.6.png)
 
 
 ------
@@ -71,7 +71,7 @@ http://myconnectionurl/some/path&login=mylogin&extra__jdbc__dry__path=usr/local/
 
 Use the following example to apply the HTTP connection template for a *Jdbc* connection for Apache Airflow v2 in the Apache Airflow UI.
 
-![This image depicts the HTTP connection type for a Jdbc connection in the Apache Airflow UI.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/airflow-connection-jdbc-v2.0.2.png)
+![This image depicts the HTTP connection type for a Jdbc connection in the Apache Airflow UI.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/airflow-connection-jdbc-v2.0.2.png)
 
 
 ------

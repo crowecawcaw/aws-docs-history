@@ -48,7 +48,7 @@ The following section explains how to create an Amazon VPC network on the Amazon
 
 The following image depicts where you can find the **Create MWAA VPC** button on the Amazon MWAA console.
 
-![This image depicts where you can find the Create MWAA VPC on the Amazon MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-create-vpc.png)
+![This image depicts where you can find the Create MWAA VPC on the Amazon MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-create-vpc.png)
 
 
 ### Option two: Creating an Amazon VPC network *with* internet access

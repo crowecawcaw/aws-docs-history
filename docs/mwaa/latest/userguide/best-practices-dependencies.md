@@ -246,7 +246,7 @@ The [execution role](mwaa-create-role.md) for your Amazon MWAA environment needs
 
 You can enable Apache Airflow logs at the `INFO`, `WARNING`, `ERROR`, or `CRITICAL` level. When you choose a log level, Amazon MWAA sends logs for that level and all higher levels of severity. For example, if you enable logs at the `INFO` level, Amazon MWAA sends `INFO` logs and `WARNING`, `ERROR`, and `CRITICAL` log levels to CloudWatch Logs. We recommend enabling Apache Airflow logs at the `INFO` level for the scheduler to access logs received for the `requirements.txt`.
 
-![This image depicts how to enable logs at the INFO level.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-logs-info.png)
+![This image depicts how to enable logs at the INFO level.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-logs-info.png)
 
 
 ## Accessing logs on the CloudWatch Logs console

@@ -26,7 +26,7 @@ Apache Airflow exposes metrics for several processes, including the number of DA
 
 The environment details page includes a built-in CloudWatch metrics dashboard, shown in the console under **CloudWatch metrics**. This embedded CloudWatch dashboard displays charts for your environment without any additional setup.
 
-![The CloudWatch metrics pane on the Amazon MWAA environment details page, showing the Alarm recommendations toggle, the Metric sections filter, and example charts in the Containers group.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-metrics-dashboard.png)
+![The CloudWatch metrics pane on the Amazon MWAA environment details page, showing the Alarm recommendations toggle, the Metric sections filter, and example charts in the Containers group.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-metrics-dashboard.png)
 
 
 To open the full set of metrics in the CloudWatch console, choose **View all in CloudWatch**.
@@ -95,7 +95,7 @@ The dashboard shows aggregate, environment-wide metrics. It does not chart high-
 
 The environment details page includes an **Alarms** pane where you create and manage your alarms in CloudWatch, and then monitor them in context. The pane shows an **Environment alarms** table that lists the CloudWatch alarms attributed to the environment. Amazon MWAA matches these alarms by CloudWatch namespace and the `Environment` dimension, so the table includes alarms that you author yourself, not only the recommended alarms.
 
-![The Alarms pane on the Amazon MWAA environment details page, showing the Create recommended alarms and Manage in CloudWatch buttons above the Environment alarms table.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-environment-alarms.png)
+![The Alarms pane on the Amazon MWAA environment details page, showing the Create recommended alarms and Manage in CloudWatch buttons above the Environment alarms table.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-environment-alarms.png)
 
 
 The pane header shows an **In alarm** count of how many of the environment's alarms are currently in the `ALARM` state. The **Environment alarms** table has the following columns.
@@ -179,7 +179,7 @@ Does not apply to Apache Airflow v2.2 and later.
 
 The following image displays the monitoring dashboard created by the tutorial and template definition in this section.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/cw-dashboard.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/cw-dashboard.png)
 
 
 ### Using AWS tutorials

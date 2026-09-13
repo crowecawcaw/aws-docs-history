@@ -37,7 +37,7 @@ The AWS Command Line Interface (AWS CLI) is an open source tool that you can use
 
 The following image displays the link to your Apache Airflow UI on the Amazon MWAA console.
 
-![This image displays the link to your Apache Airflow UI on the Amazon MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-aa-ui.png)
+![This image displays the link to your Apache Airflow UI on the Amazon MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-aa-ui.png)
 
 
 ## Log in to Apache Airflow

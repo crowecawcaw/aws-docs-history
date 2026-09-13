@@ -40,7 +40,7 @@ The Apache Airflow webserver can be accessed either through the internet by sele
 **Note**  
 Starting with Apache Airflow v3, the Amazon MWAA webserver also hosts Apache Airflow’s execution API server.
 
-![The architecture of an Amazon MWAA environment.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-architecture.png)
+![The architecture of an Amazon MWAA environment.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-architecture.png)
 
 
 ## Integration

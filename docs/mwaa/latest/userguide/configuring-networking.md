@@ -30,7 +30,7 @@ You can choose private, public, or both public and private routing for your Apac
 
 The following architectural diagram depicts an Amazon MWAA environment with a public webserver.
 
-![This image displays the architecture for an Amazon MWAA environment with a public webserver.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-public-web-server.png)
+![This image displays the architecture for an Amazon MWAA environment with a public webserver.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-public-web-server.png)
 
 
 The public network access mode allows the Apache Airflow UI to be accessed over the internet by users granted access to the [IAM policy for your environment](access-policies.md).
@@ -40,7 +40,7 @@ If your environment uses Apache Airflow version 3 or later with the **Public net
 
 The following image depicts where to find the **Public network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Public network option on the Amazon MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-public-network-2026.png)
+![This image depicts where to find the Public network option on the Amazon MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-public-network-2026.png)
 
 
 ### Private network
@@ -48,7 +48,7 @@ The following image depicts where to find the **Public network** option on the A
 
 The following architectural diagram depicts an Amazon MWAA environment with a private webserver.
 
-![This image displays the architecture for an Amazon MWAA environment with Private network access.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-private-web-server.png)
+![This image displays the architecture for an Amazon MWAA environment with Private network access.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-private-web-server.png)
 
 
 The private network access mode limits access to the Apache Airflow UI to users *within your Amazon VPC* that have been granted access to the [IAM policy for your environment](access-policies.md).
@@ -57,7 +57,7 @@ When you create an environment with private webserver access, you must package a
 
 The following image depicts where to find the **Private network** option on the Amazon MWAA console.
 
-![This image depicts where to find the Private network option on the Amazon MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-private-network-2026.png)
+![This image depicts where to find the Private network option on the Amazon MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-private-network-2026.png)
 
 
 ### Both public and private network access
@@ -65,7 +65,7 @@ The following image depicts where to find the **Private network** option on the 
 
 Available for Apache Airflow version 3.2.1 and later. In Apache Airflow version 3 and later, workers communicate task state to the webserver through the Task API. If your Amazon VPC lacks internet access, workers cannot reach a public webserver, causing DAG tasks to fail. This mode creates both a public network load balancer for browser access to the Apache Airflow UI and a private VPC endpoint for worker-to-webserver communication, allowing workers to reach the webserver without internet access. Refer to the **Public network** and **Private network** architecture diagrams above for each component.
 
-![This image depicts where to find the Both public and private network option on the Amazon MWAA console.](http://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-public-private-network-2026.png)
+![This image depicts where to find the Both public and private network option on the Amazon MWAA console.](https://docs.aws.amazon.com/mwaa/latest/userguide/images/mwaa-console-public-private-network-2026.png)
 
 
 **Note**  
