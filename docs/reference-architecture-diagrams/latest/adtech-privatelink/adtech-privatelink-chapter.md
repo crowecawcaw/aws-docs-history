@@ -10,7 +10,7 @@ This architecture enables supply-side platforms (SSPs) and demand-side platforms
 ## AdTech PrivateLink Network architecture
 <a name="adtech-diagram1"></a>
 
-![Architecture diagram showing AWS PrivateLink connecting SSP and DSP VPCs for real-time bidding traffic.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/adtech-privatelink/images/adtech-privatelink.png)
+![Architecture diagram showing AWS PrivateLink connecting SSP and DSP VPCs for real-time bidding traffic.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/adtech-privatelink/images/adtech-privatelink.png)
 
 
 The following steps describe the data flow in this architecture:
