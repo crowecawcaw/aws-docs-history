@@ -10,7 +10,7 @@ Publication date: **August 10, 2023 ([Diagram history](#diagram-history))**
 ## Power Grid Simulation with High Performance Computing on AWS Diagram
 <a name="diagram1"></a>
 
-![Reference architecture diagram showing how to run large-scale grid simulations with high performance computing (HPC) on AWS and use cloud-native, fully-managed services to perform advanced analytics on the study results.](http://docs.aws.amazon.com/reference-architecture-diagrams/latest/power-grid-simulation-with-high-performance-computing/images/power-grid-simulation-with-high-performance-computing.png)
+![Reference architecture diagram showing how to run large-scale grid simulations with high performance computing (HPC) on AWS and use cloud-native, fully-managed services to perform advanced analytics on the study results.](https://docs.aws.amazon.com/reference-architecture-diagrams/latest/power-grid-simulation-with-high-performance-computing/images/power-grid-simulation-with-high-performance-computing.png)
 
 
 1.  Provision a secondary head node if you need high availability (HA) for the cluster. Use an **Elastic Load Balancing** load balancer to distribute traffic to the head nodes and **Amazon Route 53** to create an alias record that points to your load balancer. 
