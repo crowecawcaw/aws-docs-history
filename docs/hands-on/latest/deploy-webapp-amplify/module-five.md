@@ -23,7 +23,7 @@ In this task, you will go through the steps to delete all the resources you crea
 
 1. In the **General settings** section, choose **Delete app**.  
 
-![The AWS Amplify console showing the General settings for an app, with the App settings > General settings section highlighted and the 'Delete app' option visible. This demonstrates how to access and delete an application within AWS Amplify app settings.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/rdi-setting-delete-deded-amplifylong.png)
+![The AWS Amplify console showing the General settings for an app, with the App settings > General settings section highlighted and the 'Delete app' option visible. This demonstrates how to access and delete an application within AWS Amplify app settings.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/rdi-setting-delete-deded-amplifylong.png)
 
 
 ## Congratulations

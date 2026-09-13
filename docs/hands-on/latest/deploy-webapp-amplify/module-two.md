@@ -50,12 +50,12 @@ The app uses email as the default login mechanism. When the users sign up, they 
      },
    });
    ```  
-![The file structure of an AWS Amplify project named 'expensetracker', highlighting the 'resource.ts' file inside the 'amplify/auth' directory. This image is used to illustrate how to locate and update the authentication resource file during a web app deployment tutorial with AWS Amplify.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/piu-update-auth-resource-file-dca-ecbcb.png)
+![The file structure of an AWS Amplify project named 'expensetracker', highlighting the 'resource.ts' file inside the 'amplify/auth' directory. This image is used to illustrate how to locate and update the authentication resource file during a web app deployment tutorial with AWS Amplify.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/piu-update-auth-resource-file-dca-ecbcb.png)
 
 1. View the customized email
 
    This image shows an example of the customized verification email.  
-![An example of a customized verification email.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/deploy-web-app-amplify-tutorial-verification-email.jpg)
+![An example of a customized verification email.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/deploy-web-app-amplify-tutorial-verification-email.jpg)
 
 ### Step 2: Set up Amplify Data
 <a name="set-up-amplify-data"></a>
@@ -88,7 +88,7 @@ In this step, you will define the schema for the Expense data model, and use a p
     },
   });
   ```  
-![The folder structure for the 'expensetracker' project, highlighting the update of the 'resource.ts' file in the 'data' directory as part of an AWS Amplify web app tutorial.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/uufiyv-update-data-resource-file-dbe.png)
+![The folder structure for the 'expensetracker' project, highlighting the update of the 'resource.ts' file in the 'data' directory as part of an AWS Amplify web app tutorial.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/uufiyv-update-data-resource-file-dbe.png)
 
 ### Step 3: Deploy Amplify Cloud sandbox
 <a name="deploy-amplify-cloud-sandbox"></a>
@@ -103,17 +103,17 @@ The **amplify/backend.ts** file is already configured to import the auth and dat
    ```
    npx ampx sandbox
    ```  
-![A terminal showing the 'npx ampx sandbox' command and options for starting sandbox mode for Amplify backend deployments. The image is part of an AWS Amplify tutorial for deploying web apps using sandbox environments.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/ozuy-sandbox-terminal-ampx-command-options.png)
+![A terminal showing the 'npx ampx sandbox' command and options for starting sandbox mode for Amplify backend deployments. The image is part of an AWS Amplify tutorial for deploying web apps using sandbox environments.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/ozuy-sandbox-terminal-ampx-command-options.png)
 
 1. View confirmation message
 
    After the cloud sandbox has been fully deployed, your terminal will display a **confirmation message.** This deployment will take several minutes to complete.   
-![A Mac terminal showing AWS Amplify profiles app configuration, CloudFormation stack ARN output, and sandbox deployment status. The console displays environment variables and completion messages for deploying an Amplify app using Node.js and AWS services.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/mac-terminal-amplifylong-profiles.png)
+![A Mac terminal showing AWS Amplify profiles app configuration, CloudFormation stack ARN output, and sandbox deployment status. The console displays environment variables and completion messages for deploying an Amplify app using Node.js and AWS services.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/mac-terminal-amplifylong-profiles.png)
 
 1. Verify output file
 
    Verify that the **amplify\_outputs.json** file was **generated and added** to your project.   
-![The file structure of an 'expensetracker' web app project, with the 'amplify_outputs.json' file highlighted in the amplify folder. This image is used in an AWS Amplify deployment tutorial to illustrate where the outputs file is located within a typical project directory.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/ylsis-outputs-file-structure.png)
+![The file structure of an 'expensetracker' web app project, with the 'amplify_outputs.json' file highlighted in the amplify folder. This image is used in an AWS Amplify deployment tutorial to illustrate where the outputs file is located within a typical project directory.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/ylsis-outputs-file-structure.png)
 
 ## Conclusion
 <a name="conclusion"></a>

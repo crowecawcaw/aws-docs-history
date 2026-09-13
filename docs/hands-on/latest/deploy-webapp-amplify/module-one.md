@@ -37,7 +37,7 @@ Your output might differ based on the version installed.
    node -v
    npm -v
    ```  
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/resource-creation-interface.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/resource-creation-interface.png)
 
 1. Create a new React application
 
@@ -49,12 +49,12 @@ Your output might differ based on the version installed.
    npm install
    npm run dev
    ```  
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/resource-creation-interface-1.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/resource-creation-interface-1.png)
 
 1. Open the local development server
 
    In the terminal window, select and open the **Local link** to view the Vite \+ React application.   
-![The navigation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/navigation-interface.png)
+![The navigation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/navigation-interface.png)
 
 1. Install Amplify CLI
 
@@ -63,11 +63,11 @@ Your output might differ based on the version installed.
    ```
    npm create amplify@latest -y
    ```  
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/resource-creation-interface-2.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/resource-creation-interface-2.png)
 
 Running the previous command will scaffold a lightweight Amplify project in the app’s directory where you installed the packages. 
 
-![The resource creation interface.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/resource-creation-interface-3.png)
+![The resource creation interface.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/resource-creation-interface-3.png)
 
 
 ## Conclusion

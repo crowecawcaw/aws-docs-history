@@ -35,7 +35,7 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
   ```
   npm install aws-amplify @aws-amplify/ui-react
   ```  
-![A terminal window showing the installation of AWS Amplify and @aws-amplify/ui-react libraries using npm as part of a tutorial for deploying a web app with AWS Amplify. The output confirms successful installation with no vulnerabilities found.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/install-libraries-fbab-terminal-window.png)
+![A terminal window showing the installation of AWS Amplify and @aws-amplify/ui-react libraries using npm as part of a tutorial for deploying a web app with AWS Amplify. The output confirms successful installation with no vulnerabilities found.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/install-libraries-fbab-terminal-window.png)
 
 ### Step 2: Style the App UI
 <a name="style-the-app-ui"></a>
@@ -80,7 +80,7 @@ You will need two Amplify libraries for your project. The main **aws-amplify lib
     grid-column: 3;
   }
   ```  
-![A file explorer showing the folder structure for an 'expensetracker' web application project, highlighting the 'index.css' file in the 'src' directory during an AWS Amplify web app deployment tutorial.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/update-daf-bed-file-explorer-folder.png)
+![A file explorer showing the folder structure for an 'expensetracker' web application project, highlighting the 'index.css' file in the 'src' directory during an AWS Amplify web app deployment tutorial.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/update-daf-bed-file-explorer-folder.png)
 
 ### Step 3: Implement the UI flow for Expenses feature
 <a name="implement-the-ui-flow-for-expenses-feature"></a>
@@ -240,7 +240,7 @@ Additionally, the code contains the following:
      );
    }
    ```  
-![The expensetracker project directory showing folders and files for an AWS Amplify web app, with App.jsx in the src folder highlighted. Useful for a getting started tutorial with AWS Amplify and React.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/update-efb-expensetracker-project.png)
+![The expensetracker project directory showing folders and files for an AWS Amplify web app, with App.jsx in the src folder highlighted. Useful for a getting started tutorial with AWS Amplify and React.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/update-efb-expensetracker-project.png)
 
 1. Launch the app
 
@@ -253,26 +253,26 @@ Additionally, the code contains the following:
 1. Open the app
 
    Select the **Local host link** to open the Vite \+ React application.   
-![A terminal displaying the output from running a Vite development server. It shows the server version, readiness status, and the local URL (http://localhost:5173/) highlighted in a red box for accessing the app in a browser.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/terminal-displaying-output-running-vite.png)
+![A terminal displaying the output from running a Vite development server. It shows the server version, readiness status, and the local URL (http://localhost:5173/) highlighted in a red box for accessing the app in a browser.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/terminal-displaying-output-running-vite.png)
 
 1. Create an account
 
    Choose the **Create Account** tab, and use the authentication flow to create a new user by entering your **email address** and a **password**. 
 
    Then, choose **Create Account**.   
-![A web form for creating an account, showing fields for email, password, and confirm password, with 'Create Account' button highlighted.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/form-creating-account-fields-email.png)
+![A web form for creating an account, showing fields for email, password, and confirm password, with 'Create Account' button highlighted.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/form-creating-account-fields-email.png)
 
 1. Enter verification code
 
    You will get a verification code sent to your email. 
 
    Enter the **verification code** to log into the app.   
-![A web interface prompting users to enter a confirmation code sent via email to complete login. The interface includes a field to input the code, a 'Confirm' button, and a 'Resend Code' option.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/interface-prompting-users-enter.png)
+![A web interface prompting users to enter a confirmation code sent via email to complete login. The interface includes a field to input the code, a 'Confirm' button, and a 'Resend Code' option.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/interface-prompting-users-enter.png)
 
 1. Create and delete expenses
 
    When signed in, you can start **creating expenses** and **delete** them.   
-![An expense tracker web application from an AWS Amplify deployment tutorial, showing a form for tracking an expense labeled 'Hotel' with an amount of 162.00 and a 'Create Expense' button.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/jmbcewwh-track-expenses-expense-tracker.png)
+![An expense tracker web application from an AWS Amplify deployment tutorial, showing a form for tracking an expense labeled 'Hotel' with an amount of 162.00 and a 'Create Expense' button.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/jmbcewwh-track-expenses-expense-tracker.png)
 
 ## Conclusion
 <a name="conclusion"></a>

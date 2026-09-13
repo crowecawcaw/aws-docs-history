@@ -35,14 +35,14 @@ If you have never used GitHub on your computer, follow [these steps](https://doc
 1. Sign in to GitHub
 
    **Sign in** to GitHub at [https://github.com/](https://github.com/) .   
-![The GitHub sign in page, showing username/email and password fields, used in the AWS Amplify web app deployment tutorial.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/github-edbca-ddca-sign-page-username-email.png)
+![The GitHub sign in page, showing username/email and password fields, used in the AWS Amplify web app deployment tutorial.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/github-edbca-ddca-sign-page-username-email.png)
 
 1. Start a new repository
 
    In the **Start a new repository** section, make the following selections: 
    + For **Repository name** , enter **expensetracker** , and choose the **Public** radio button. 
    + Then select, **Create a new repository** .   
-![The process of creating a new public repository named 'expensetracker' on GitHub, as part of the AWS Amplify web app deployment tutorial. The options for repository visibility and the button to create the repository are highlighted.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/ovndxxey-start-repository-aeab-process.png)
+![The process of creating a new public repository named 'expensetracker' on GitHub, as part of the AWS Amplify web app deployment tutorial. The options for repository visibility and the button to create the repository are highlighted.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/ovndxxey-start-repository-aeab-process.png)
 
 1. Initialize git and push the application
 
@@ -57,7 +57,7 @@ If you have never used GitHub on your computer, follow [these steps](https://doc
    git remote add origin git@github.com:<your-username>/profilesapp.git git branch -M main
    git push -u origin main
    ```  
-![Terminal commands to initialize a Git repository, make the first commit, and push code to GitHub during an AWS Amplify web app deployment tutorial.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/jrmu-initialize-git-bde-cbffe-terminal.png)
+![Terminal commands to initialize a Git repository, make the first commit, and push code to GitHub during an AWS Amplify web app deployment tutorial.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/jrmu-initialize-git-bde-cbffe-terminal.png)
 
 ### Step 2: Create your app with AWS Amplify
 <a name="create-your-app-with-aws-amplify"></a>
@@ -69,31 +69,31 @@ In this step, you will connect the GitHub repository you just created to the AWS
    **Sign in** to the AWS Management Console in a new browser window, and **open** the AWS Amplify console at [https://console.aws.amazon.com/amplify/apps](https://console.aws.amazon.com/amplify/apps). 
 
    Choose **Create new app**.   
-![The AWS console All apps dashboard, showing a list of apps with deployment status and options to manage sandboxes or create a new app.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/console-apps-dashboard-list-deployment.png)
+![The AWS console All apps dashboard, showing a list of apps with deployment status and options to manage sandboxes or create a new app.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/console-apps-dashboard-list-deployment.png)
 
 1. Choose GitHub for deployment
 
    On the **Start building with Amplify** page, for **Deploy your app** , select **GitHub** , and select **Next**.   
-![The AWS Amplify interface showing the 'Start building with Amplify' setup screen. Options to deploy your app from a Git provider (GitHub, BitBucket, CodeCommit, GitLab) or 'Deploy without Git' are displayed, with GitHub and 'Next' highlighted.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/amplifylong-interface-start-building-setup.png)
+![The AWS Amplify interface showing the 'Start building with Amplify' setup screen. Options to deploy your app from a Git provider (GitHub, BitBucket, CodeCommit, GitLab) or 'Deploy without Git' are displayed, with GitHub and 'Next' highlighted.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/amplifylong-interface-start-building-setup.png)
 
 1. Add your repository and main branch
 
    When prompted, **authenticate** with GitHub. You will be automatically redirected back to the Amplify console. Choose the **repository** and **main branch**  that you created earlier. Then, select **Next** .   
-![The 'Add repository and branch' step in the process of creating a new app with AWS Amplify. The user is selecting a Git repository and the 'main' branch before proceeding to the next step.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/authenticate-repository-process-creating.png)
+![The 'Add repository and branch' step in the process of creating a new app with AWS Amplify. The user is selecting a Git repository and the 'main' branch before proceeding to the next step.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/authenticate-repository-process-creating.png)
 
 1.  Confirm default settings
 
    Leave the default **build setting,** and select **Next**.   
-![The 'App settings' configuration step in the AWS Amplify web app deployment tutorial, showing options for setting app name, build settings, detected frameworks, frontend build command, service role, and advanced settings, with 'Next' button highlighted at the bottom right.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/qtqhgowd-configure-settings-aeed.png)
+![The 'App settings' configuration step in the AWS Amplify web app deployment tutorial, showing options for setting app name, build settings, detected frameworks, frontend build command, service role, and advanced settings, with 'Next' button highlighted at the bottom right.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/qtqhgowd-configure-settings-aeed.png)
 
 1. Review settings
 
    Review the inputs selected and choose **Save and deploy**.   
-![The review settings step in an AWS Amplify web app deployment tutorial. The image shows the final review of repository details, app settings, and advanced settings before clicking 'Save and deploy' to launch the app.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/gasgdvrp-settings-edbfd-amplifylong.png)
+![The review settings step in an AWS Amplify web app deployment tutorial. The image shows the final review of repository details, app settings, and advanced settings before clicking 'Save and deploy' to launch the app.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/gasgdvrp-settings-edbfd-amplifylong.png)
 
 1. Verify app deployment
 
    AWS Amplify will now **build** your source code and **deploy** your app at ****https://...amplifyapp.com**** , and on every git push your deployment instance will update. It may take up to 5 minutes to deploy your app. 
 
    Once the build completes, select the **Visit deployed URL** button to see your web app up and running live.    
-![The AWS Amplify console showing the overview page for an expensetracker app after deployment, including production branch status, app domain, repository link, and a highlighted 'Visit deployed URL' button. Used for the tutorial step verifying successful web app deployment.](http://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/verify-deployment-amplifylong-console.png)
+![The AWS Amplify console showing the overview page for an expensetracker app after deployment, including production branch status, app domain, repository link, and a highlighted 'Visit deployed URL' button. Used for the tutorial step verifying successful web app deployment.](https://docs.aws.amazon.com/hands-on/latest/deploy-webapp-amplify/images/verify-deployment-amplifylong-console.png)
