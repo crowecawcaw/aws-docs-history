@@ -7,7 +7,7 @@ Consider the scenario where you have multiple subnets in a VPC and you want to i
 
 The following diagram shows a firewall appliance installed on an EC2 instance in subnet C. The appliance inspects all traffic that travels from subnet A to subnet B (see 1) and from subnet B to subnet A (see 2).
 
-![Inspect subnet traffic.](http://docs.aws.amazon.com/vpc/latest/userguide/images/middlebox-intra-vpc_updated.png)
+![Inspect subnet traffic.](https://docs.aws.amazon.com/vpc/latest/userguide/images/middlebox-intra-vpc_updated.png)
 
 
 You use the main route table for the VPC and the middlebox subnet. Subnets A and B each have a custom route table.

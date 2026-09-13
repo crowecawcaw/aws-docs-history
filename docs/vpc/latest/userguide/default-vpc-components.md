@@ -18,7 +18,7 @@ To block all traffic to and from the internet gateways in your account, see [Blo
 
 The following figure illustrates the key components that we set up for a default VPC.
 
-![We create a default VPC in each Region, with a default subnet in each Availability Zone.](http://docs.aws.amazon.com/vpc/latest/userguide/images/default-vpc.png)
+![We create a default VPC in each Region, with a default subnet in each Availability Zone.](https://docs.aws.amazon.com/vpc/latest/userguide/images/default-vpc.png)
 
 
 The following table shows the routes in the main route table for the default VPC.

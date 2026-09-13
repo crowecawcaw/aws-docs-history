@@ -47,7 +47,7 @@ The following table summarizes the basic differences between security groups and
 
 The following diagram illustrates the layers of security provided by security groups and network ACLs. For example, traffic from an internet gateway is routed to the appropriate subnet using the routes in the routing table. The rules of the network ACL that is associated with the subnet control which traffic is allowed to the subnet. The rules of the security group that is associated with an instance control which traffic is allowed to the instance.
 
-![Traffic is controlled using security groups and network ACLs.](http://docs.aws.amazon.com/vpc/latest/userguide/images/security-comparison.png)
+![Traffic is controlled using security groups and network ACLs.](https://docs.aws.amazon.com/vpc/latest/userguide/images/security-comparison.png)
 
 
 You can secure your instances using only security groups. However, you can add network ACLs as an additional layer of defense. For more information, see [Example: Control access to instances in a subnet](nacl-examples.md).

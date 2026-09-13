@@ -7,7 +7,7 @@ With a dual-stack configuration, you can use both IPv4 and IPv6 addresses for co
 
 The following diagram represents the architecture of your VPC. Your VPC has a public subnet and a private subnet. The VPC and subnets have both an IPv4 CIDR block and an IPv6 CIDR block. There is an EC2 instance in the private subnet that has both an IPv4 address and an IPv6 address. The instance can send outbound IPv4 traffic to the internet using a NAT gateway and outbound IPv6 traffic to the internet using an egress-only internet gateway.
 
-![A VPC with a public subnet, private subnet, NAT gateway, internet gateway, and egress-only internet gateway.](http://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-example-dual-stack.png)
+![A VPC with a public subnet, private subnet, NAT gateway, internet gateway, and egress-only internet gateway.](https://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-example-dual-stack.png)
 
 
 **Route table for public subnet**  

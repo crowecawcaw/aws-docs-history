@@ -24,7 +24,7 @@ For more information, see [IP addressing for your VPCs and subnets](vpc-ip-addre
 
 The following diagram shows a VPC with no additional VPC resources. For example VPC configurations, see [VPC examples](vpc-examples-intro.md).
 
-![A VPC that spans the Availability Zones for its Region.](http://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-diagram.png)
+![A VPC that spans the Availability Zones for its Region.](https://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-diagram.png)
 
 
 ## VPC resources

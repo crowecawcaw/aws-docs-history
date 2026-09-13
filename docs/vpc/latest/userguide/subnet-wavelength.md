@@ -35,4 +35,4 @@ The following diagram shows how to configure your network so that instances in t
   The route table for VPC 2 has the following entry:     
 [See the AWS documentation website for more details](http://docs.aws.amazon.com/vpc/latest/userguide/subnet-wavelength.html)
 
-![Multiple Wavelength Zones.](http://docs.aws.amazon.com/vpc/latest/userguide/images/mult-wavelength-zones.png)
+![Multiple Wavelength Zones.](https://docs.aws.amazon.com/vpc/latest/userguide/images/mult-wavelength-zones.png)

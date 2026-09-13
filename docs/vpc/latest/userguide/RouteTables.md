@@ -22,4 +22,4 @@ The following are the key concepts for route tables:
 
 The following diagram shows a VPC with five subnets, a main route table, and three custom route tables. All four route tables have local routes. Custom route table 1 has a route to an internet gateway, and it is associated with the public subnet in Availability Zone A. Custom route table 2 has a route to a peered VPC, and it is associated with the private subnet in Availability Zone B. Custom route table 3 has a route to a virtual private gateway, and it is associated with the VPN-only subnets in both Availability Zones.
 
-![VPC with subnets in 2 AZs, 3 route tables, internet gateway, and gateway endpoint.](http://docs.aws.amazon.com/vpc/latest/userguide/images/route-tables.png)
+![VPC with subnets in 2 AZs, 3 route tables, internet gateway, and gateway endpoint.](https://docs.aws.amazon.com/vpc/latest/userguide/images/route-tables.png)

@@ -7,7 +7,7 @@ You can use a NAT device to allow resources in private subnets to connect to the
 
 For example, the following diagram shows a NAT device in a public subnet that allows the EC2 instances in a private subnet to connect to the internet through an internet gateway. The NAT device replaces the source IPv4 address of the instances with the address of the NAT device. When sending response traffic to the instances, the NAT device translates the addresses back to the original source IPv4 addresses.
 
-![A NAT device that allows EC2 instances in a private subnet to connect to the internet.](http://docs.aws.amazon.com/vpc/latest/userguide/images/nat-device-overview.png)
+![A NAT device that allows EC2 instances in a private subnet to connect to the internet.](https://docs.aws.amazon.com/vpc/latest/userguide/images/nat-device-overview.png)
 
 
 **Important**  

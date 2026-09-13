@@ -55,7 +55,7 @@ The subnet type is determined by how you configure routing for your subnets. For
 
 The following diagram shows a VPC with subnets in two Availability Zones and an internet gateway. Each Availability Zone has a public subnet and a private subnet.
 
-![A VPC with subnets in two Availability Zones.](http://docs.aws.amazon.com/vpc/latest/userguide/images/subnet-diagram.png)
+![A VPC with subnets in two Availability Zones.](https://docs.aws.amazon.com/vpc/latest/userguide/images/subnet-diagram.png)
 
 
 For diagrams that show subnets in Local Zones and Wavelength Zones, see [How AWS Local Zones work](https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html) and [How AWS Wavelength works](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html).

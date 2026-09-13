@@ -7,7 +7,7 @@ The Shared Security Group feature enables you to share a security group with oth
 
 The following diagram demonstrates how you can use the Shared Security Group feature to simplify security group management across accounts in your AWS Organizations:
 
-![A diagram of security group sharing with other accounts in a shared VPC subnet.](http://docs.aws.amazon.com/vpc/latest/userguide/images/sec-group-sharing.png)
+![A diagram of security group sharing with other accounts in a shared VPC subnet.](https://docs.aws.amazon.com/vpc/latest/userguide/images/sec-group-sharing.png)
 
 
 This diagram shows three accounts that are part of the same Organization. Account A shares a VPC subnet with Accounts B and C. Account A shares the security group with Accounts B and C using the Shared Security Group feature. Accounts B and C then use that security group when they launch instances in the shared subnet. This enables Account A to manage the security group; any updates to the security group apply to the resources that Accounts B and C have running in the shared VPC subnet.

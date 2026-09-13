@@ -19,7 +19,7 @@ The middlebox routing wizard does not modify your existing route tables. It crea
 
 If you do not use the middlebox routing wizard, you must manually configure, and then assign the route tables to the subnets and internet gateway.
 
-![Inbound routing to a VPC.](http://docs.aws.amazon.com/vpc/latest/userguide/images/ingress-routing-firewall-ipv6.png)
+![Inbound routing to a VPC.](https://docs.aws.amazon.com/vpc/latest/userguide/images/ingress-routing-firewall-ipv6.png)
 
 
 ## Internet gateway route table

@@ -84,7 +84,7 @@ Subnets that are in VPCs associated with Outposts can have an additional target 
 **Example 1: Implicit and explicit subnet association**  
 The following diagram shows the routing for a VPC with an internet gateway, a virtual private gateway, a public subnet, and a VPN-only subnet.
 
-![Diagram of private subnet associated with main route table and public subnet with custom route table.](http://docs.aws.amazon.com/vpc/latest/userguide/images/subnet-association.png)
+![Diagram of private subnet associated with main route table and public subnet with custom route table.](https://docs.aws.amazon.com/vpc/latest/userguide/images/subnet-association.png)
 
 
 Route table A is a custom route table that is explicitly associated with the public subnet. It has a route that sends all traffic to the internet gateway, which is what makes the subnet a public subnet.
@@ -108,19 +108,19 @@ You might want to make changes to the main route table. To avoid any disruption 
 
 The following diagram shows two subnets and two route tables. Subnet A is implicitly associated with route table A, the main route table. Subnet B is implicitly associated with route table A. Route table B, a custom route table, isn't associated with either subnet.
 
-![Two subnets with implicit associations with route table A, the main route table.](http://docs.aws.amazon.com/vpc/latest/userguide/images/replace-route-table-initial.png)
+![Two subnets with implicit associations with route table A, the main route table.](https://docs.aws.amazon.com/vpc/latest/userguide/images/replace-route-table-initial.png)
 
 
 To replace the main route table, start by creating an explicit association between subnet B and route table B. Test route table B. 
 
-![Subnet B is now explicitly associated with route table B, a custom route table.](http://docs.aws.amazon.com/vpc/latest/userguide/images/replace-route-table-step1.png)
+![Subnet B is now explicitly associated with route table B, a custom route table.](https://docs.aws.amazon.com/vpc/latest/userguide/images/replace-route-table-step1.png)
 
 
 After you've tested route table B, make it the main route table. Subnet B still has an explicit association with route table B. However, subnet A now has an implicit association with route table B, because route table B is the new main route table. Route table A is no longer associated with either subnet.
 
-![Diagram of Subnet A associated with main route table B and Subnet B associated with route table B.](http://docs.aws.amazon.com/vpc/latest/userguide/images/replace-route-table-step2.png)
+![Diagram of Subnet A associated with main route table B and Subnet B associated with route table B.](https://docs.aws.amazon.com/vpc/latest/userguide/images/replace-route-table-step2.png)
 
 
 (Optional) If you disassociate subnet B from route table B, there is still an implicit association between subnet B and route table B. If you no longer need route table A, you can delete it.
 
-![Both subnets are implicitly associated with route table B.](http://docs.aws.amazon.com/vpc/latest/userguide/images/replace-route-table-step3.png)
+![Both subnets are implicitly associated with route table B.](https://docs.aws.amazon.com/vpc/latest/userguide/images/replace-route-table-step3.png)

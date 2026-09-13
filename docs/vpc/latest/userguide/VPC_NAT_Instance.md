@@ -21,7 +21,7 @@ The following figure illustrates the NAT instance basics. The route table associ
 
 The NAT instance must have internet access, so it must be in a public subnet (a subnet that has a route table with a route to the internet gateway), and it must have a public IP address or an Elastic IP address.
 
-![Diagram showing the setup of a NAT instance in a VPC.](http://docs.aws.amazon.com/vpc/latest/userguide/images/nat-instance_updated.png)
+![Diagram showing the setup of a NAT instance in a VPC.](https://docs.aws.amazon.com/vpc/latest/userguide/images/nat-instance_updated.png)
 
 
 To get started with NAT instances, create a NAT AMI, create a security group for the NAT instance, and launch the NAT instance into your VPC.

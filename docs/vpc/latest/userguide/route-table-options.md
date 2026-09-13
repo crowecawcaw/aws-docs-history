@@ -92,7 +92,7 @@ You can establish communication between subnets that are in the same VPC across 
 
 You can use this feature to build architectures similar to multi-Availability Zone (AZ) architectures for your on-premise applications running on Outposts racks by establishing connectivity between Outposts racks that are anchored to different AZs.
 
-![Traffic between subnets in the same VPC across Outposts using local gateways.](http://docs.aws.amazon.com/vpc/latest/userguide/images/outpost-intra-vpc-connection.png)
+![Traffic between subnets in the same VPC across Outposts using local gateways.](https://docs.aws.amazon.com/vpc/latest/userguide/images/outpost-intra-vpc-connection.png)
 
 
 To enable this feature, add a route to your Outpost rack subnet route table that is more specific than the local route in that route table and has a target type of local gateway. The destination of the route must match the entire IPv4 block of the subnet in your VPC that is in another Outpost. Repeat this configuration for all the Outpost subnets that need to communicate.
@@ -264,7 +264,7 @@ Do not route traffic from AWS-managed services — such as a transit gateway, NA
 
 To route inbound VPC traffic to an appliance, you associate a route table with the internet gateway or virtual private gateway, and specify the network interface of your appliance as the target for VPC traffic. In the following example, the VPC has an internet gateway, an appliance, and a subnet with instances. Traffic from the internet is routed through an appliance.
 
-![Routing inbound traffic through an appliance.](http://docs.aws.amazon.com/vpc/latest/userguide/images/gateway-appliance-routing.png)
+![Routing inbound traffic through an appliance.](https://docs.aws.amazon.com/vpc/latest/userguide/images/gateway-appliance-routing.png)
 
 
 Associate this route table with your internet gateway or virtual private gateway. The first entry is the local route. The second entry sends IPv4 traffic destined for the subnet to the network interface for the appliance. This route is more specific than the local route.
@@ -303,7 +303,7 @@ Then, in the route table associated with the appliance's subnet, add a route tha
 
 You can route traffic destined for a specific subnet to the network interface of an appliance. In the following example, the VPC contains two subnets and an appliance. Traffic between the subnets is routed through an appliance.
 
-![Routing traffic between subnets through an appliance.](http://docs.aws.amazon.com/vpc/latest/userguide/images/inter-subnet-appliance-routing.png)
+![Routing traffic between subnets through an appliance.](https://docs.aws.amazon.com/vpc/latest/userguide/images/inter-subnet-appliance-routing.png)
 
 
 **Security groups**  

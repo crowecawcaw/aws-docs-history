@@ -27,7 +27,7 @@ The following diagram illustrates this use case. There are two Availability Zone
 
 Both private and public NAT gateways map the source private IPv4 address of the instances to the private IPv4 address of the private NAT gateway, but in the case of a public NAT gateway, the internet gateway then maps the private IPv4 address of the public NAT gateway to the Elastic IP address associated with the NAT gateway. When sending response traffic to the instances, whether it's a public or private NAT gateway, the NAT gateway translates the address back to the original source IP address.
 
-![A VPC with public and private subnets, a NAT gateway, and an internet gateway.](http://docs.aws.amazon.com/vpc/latest/userguide/images/public-nat-gateway-diagram.png)
+![A VPC with public and private subnets, a NAT gateway, and an internet gateway.](https://docs.aws.amazon.com/vpc/latest/userguide/images/public-nat-gateway-diagram.png)
 
 
 Note that if the instances in the private subnet in Availability Zone A also need to reach the internet, you can create a route from this subnet to the NAT gateway in Availability Zone B. Alternatively, you can improve resiliency by creating a NAT gateway in each Availability Zone that contains resources that require internet access. For an example diagram, see [Example: VPC with servers in private subnets and NAT](vpc-example-private-subnets-nat.md).
@@ -179,12 +179,12 @@ Instead of assigning each instance a separate IP address from the allow-listed r
 
 The following diagram shows how instances can access on-premises resources through Site-to-Site VPN. Traffic from the instances is routed to a virtual private gateway, over the VPN connection, to the customer gateway, and then to the destination in the on-premises network. However, suppose that the destination allows traffic only from a specific IP address range, such as 100.64.1.0/28. This would prevent traffic from these instances from reaching the on-premises network.
 
-![Access to an on-premises network using an Site-to-Site VPN connection.](http://docs.aws.amazon.com/vpc/latest/userguide/images/allowed-range.png)
+![Access to an on-premises network using an Site-to-Site VPN connection.](https://docs.aws.amazon.com/vpc/latest/userguide/images/allowed-range.png)
 
 
 The following diagram shows the key components of the configuration for this scenario. The VPC has its original IP address range plus the allowed IP address range. The VPC has a subnet from the allowed IP address range with a private NAT gateway. Traffic from the instances that is destined for the on-premises network is sent to the NAT gateway before being routed to the VPN connection. The on-premises network receives the traffic from the instances with the source IP address of the NAT gateway, which is from the allowed IP address range.
 
-![VPC subnet traffic routed through private NAT gateway.](http://docs.aws.amazon.com/vpc/latest/userguide/images/private-nat-allowed-range.png)
+![VPC subnet traffic routed through private NAT gateway.](https://docs.aws.amazon.com/vpc/latest/userguide/images/private-nat-allowed-range.png)
 
 
 ### Resources
@@ -222,7 +222,7 @@ The following is the route table associated with the second subnet. There is a l
 
 You can use a private NAT gateway to enable communication between networks even if they have overlapping CIDR ranges. For example, suppose that the instances in VPC A need to access the services provided by the instances in VPC B.
 
-![Two VPCs with overlapping CIDR ranges.](http://docs.aws.amazon.com/vpc/latest/userguide/images/overlapping-networks.png)
+![Two VPCs with overlapping CIDR ranges.](https://docs.aws.amazon.com/vpc/latest/userguide/images/overlapping-networks.png)
 
 
 **Topics**
@@ -241,7 +241,7 @@ Traffic from an instance in the non-routable subnet of VPC A that is destined fo
 
 The transit gateway sends the traffic to the Application Load Balancer, which routes the traffic to one of the target instances in the non-routable subnet of VPC B. The traffic from the transit gateway to the Application Load Balancer has the source IP address of the private NAT gateway. Therefore, response traffic from the load balancer uses the address of the private NAT gateway as its destination. The response traffic is sent to the transit gateway and then routed to the private NAT gateway, which translates the destination to the instance in the non-routable subnet of VPC A.
 
-![VPC with private NAT gateway and transit gateway for inter-VPC communication with overlapping CIDR.](http://docs.aws.amazon.com/vpc/latest/userguide/images/private-nat-overlapping-networks.png)
+![VPC with private NAT gateway and transit gateway for inter-VPC communication with overlapping CIDR.](https://docs.aws.amazon.com/vpc/latest/userguide/images/private-nat-overlapping-networks.png)
 
 
 ### Resources

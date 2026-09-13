@@ -34,7 +34,7 @@ When you use a default DHCP options set, the following settings are not used, bu
 
 When you use the default option set, the Amazon DHCP server uses the network settings in the default option set. When you launch instances in your VPC, they do the following, as shown in the diagram: (1) interact with the DHCP server, (2) interact with the Amazon DNS server, and (3) connect to other devices in the network through the router for your VPC. The instances can interact with the Amazon DHCP server at any time to get their IP address lease and additional network settings.
 
-![Default DHCP option set.](http://docs.aws.amazon.com/vpc/latest/userguide/images/dhcp-default-update-new.png)
+![Default DHCP option set.](https://docs.aws.amazon.com/vpc/latest/userguide/images/dhcp-default-update-new.png)
 
 
 ## Custom DHCP option set
@@ -50,7 +50,7 @@ You can create a custom DHCP option set with the following settings, and then as
 
 When you use a custom option set, instances launched into your VPC do the following, as shown in the diagram: (1) use the network settings in the custom DHCP option set, (2) interact with the DNS, NTP, and NetBIOS servers specified in the custom DHCP option set, and (3) connect to other devices in the network through the router for your VPC.
 
-![Custom DHCP option set.](http://docs.aws.amazon.com/vpc/latest/userguide/images/dhcp-custom-update-new.png)
+![Custom DHCP option set.](https://docs.aws.amazon.com/vpc/latest/userguide/images/dhcp-custom-update-new.png)
 
 
 **Related tasks**

@@ -85,7 +85,7 @@ The following diagram shows a VPC with subnets in two Availability Zones, an int
 + Add rules to the security group for the web servers to allow HTTP and HTTPS traffic only from the load balancer. The source is the security group for the load balancer.
 + Add rules to the security group for the database servers to allow database requests from the web servers. The source is the security group for the web servers.
 
-![Architecture with web and db servers, security groups, internet gateway, and load balancer.](http://docs.aws.amazon.com/vpc/latest/userguide/images/security-group-referencing.png)
+![Architecture with web and db servers, security groups, internet gateway, and load balancer.](https://docs.aws.amazon.com/vpc/latest/userguide/images/security-group-referencing.png)
 
 
 ## Security group size

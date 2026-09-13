@@ -9,7 +9,7 @@ If you create more than one subnet in a VPC, the CIDR blocks of the subnets cann
 
 For example, if you create a VPC with CIDR block `10.0.0.0/24`, it supports 256 IP addresses. You can break this CIDR block into two subnets, each supporting 128 IP addresses. One subnet uses CIDR block `10.0.0.0/25` (for addresses `10.0.0.0` - `10.0.0.127`) and the other uses CIDR block `10.0.0.128/25` (for addresses `10.0.0.128` - `10.0.0.255`).
 
-![A VPC with CIDR block 10.0.0.0/24 divided into two subnets.](http://docs.aws.amazon.com/vpc/latest/userguide/images/subnet-cidrs.png)
+![A VPC with CIDR block 10.0.0.0/24 divided into two subnets.](https://docs.aws.amazon.com/vpc/latest/userguide/images/subnet-cidrs.png)
 
 
 There are tools available on the internet to help you calculate and create IPv4 and IPv6 subnet CIDR blocks. You can find tools that suit your needs by searching for terms such as 'subnet calculator' or 'CIDR calculator'. Your network engineering group can also help you determine the IPv4 and IPv6 CIDR blocks to specify for your subnets.

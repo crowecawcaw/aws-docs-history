@@ -5,7 +5,7 @@
 
 You can connect your virtual private cloud (VPC) to other networks, such as other VPCs, the internet, or your on-premises network.
 
-![VPC connectivity options.](http://docs.aws.amazon.com/vpc/latest/userguide/images/connectivity-overview.png)
+![VPC connectivity options.](https://docs.aws.amazon.com/vpc/latest/userguide/images/connectivity-overview.png)
 
 
 You can connect your virtual private cloud (VPC) to other networks, such as other VPCs, the internet, or your on-premises network.

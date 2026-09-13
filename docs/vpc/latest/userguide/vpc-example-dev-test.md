@@ -17,7 +17,7 @@ This example demonstrates how to create a VPC that you can use as a development 
 
 The following diagram provides an overview of the resources included in this example. The VPC has a public subnet in a single Availability Zone and an internet gateway. The server is an EC2 instance that runs in the public subnet. The security group for the instance allows SSH traffic from your own computer, plus any other traffic specifically required for your development or testing activities.
 
-![A VPC with a public subnet in one Availability Zone.](http://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-example-dev-test.png)
+![A VPC with a public subnet in one Availability Zone.](https://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-example-dev-test.png)
 
 
 ### Routing

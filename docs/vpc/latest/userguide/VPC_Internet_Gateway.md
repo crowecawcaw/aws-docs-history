@@ -30,7 +30,7 @@ In your public subnet's route table, you can specify a route for the internet ga
 **Internet gateway diagram**  
 In the following diagram, the subnet in Availability Zone A is a public subnet because its route table has a route that sends all internet-bound IPv4 traffic to the internet gateway. The instances in the public subnet must have public IP addresses or Elastic IP addresses to enable communication with the internet over the internet gateway. For comparison, the subnet in Availability Zone B is a private subnet because its route table does not have a route to the internet gateway. Because there is no route to the internet gateway, instances in the private subnet can't communicate with the internet, even if they have public IP addresses.
 
-![A VPC with an internet gateway.](http://docs.aws.amazon.com/vpc/latest/userguide/images/internet-gateway-basics.png)
+![A VPC with an internet gateway.](https://docs.aws.amazon.com/vpc/latest/userguide/images/internet-gateway-basics.png)
 <a name="ip-addresses-and-nat"></a>
 
 **IP addresses and NAT**  

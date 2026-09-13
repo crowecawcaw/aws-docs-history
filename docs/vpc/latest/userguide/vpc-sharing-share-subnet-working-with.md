@@ -37,7 +37,7 @@ To coordinate Availability Zones across accounts for VPC sharing, you must use a
 
 The following diagram illustrates two accounts with different mappings of Availability Zone code to AZ ID.
 
-![Two accounts with different mappings of Availability Zone code to AZ ID.](http://docs.aws.amazon.com/vpc/latest/userguide/images/availability-zone-mapping.png)
+![Two accounts with different mappings of Availability Zone code to AZ ID.](https://docs.aws.amazon.com/vpc/latest/userguide/images/availability-zone-mapping.png)
 
 
 ## Unshare a shared subnet

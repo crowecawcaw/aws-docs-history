@@ -5,7 +5,7 @@
 
 If you have workloads running in multiple VPCs that share network security requirements, you can use the Security Group VPC Associations feature to associate a security group with multiple VPCs in the same Region. This enables you to manage and maintain security groups in one place for multiple VPCs in your account.
 
-![A diagram of security group associated with two VPCs.](http://docs.aws.amazon.com/vpc/latest/userguide/images/sec-group-vpc-assoc.png)
+![A diagram of security group associated with two VPCs.](https://docs.aws.amazon.com/vpc/latest/userguide/images/sec-group-vpc-assoc.png)
 
 
 The diagram above shows AWS account A with two VPCs in it. Each of the VPCs has workloads running in a private subnet. In this case, workloads in VPC A and B subnets share the same network traffic requirements, so Account A can use the Security Group VPC associations feature to associate the security group in VPC A with VPC B. Any updates made to the associated security group are automatically applied to the traffic to workloads in the VPC B subnet.

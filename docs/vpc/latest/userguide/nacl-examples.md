@@ -5,7 +5,7 @@
 
 In this example, instances in the subnet can communicate with each other, and are accessible from a trusted remote computer to perform administrative tasks. The remote computer might be a computer in your local network, as shown in the diagram, or it might be an instance in a different subnet or VPC. The network ACL rules for the subnet, and the security group rules for the instances, allow access from the IP address of your remote computer. All other traffic from the internet or other networks is denied.
 
-![Using a security group and an NACL.](http://docs.aws.amazon.com/vpc/latest/userguide/images/nacl-example-diagram.png)
+![Using a security group and an NACL.](https://docs.aws.amazon.com/vpc/latest/userguide/images/nacl-example-diagram.png)
 
 
 Using a network ACL gives you the flexibility to change the security groups or security group rules for your instances while relying on the network ACL as a backup layer of defense.

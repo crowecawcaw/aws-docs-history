@@ -12,7 +12,7 @@ To use a Local Zone, you use the following process:
 
 The following diagram illustrates a VPC in the US West (Oregon) (`us-west-2`) Region that spans Availability Zones and a Local Zone.
 
-![A VPC with Availability Zones and a Local Zone.](http://docs.aws.amazon.com/vpc/latest/userguide/images/region-with-lzs.png)
+![A VPC with Availability Zones and a Local Zone.](https://docs.aws.amazon.com/vpc/latest/userguide/images/region-with-lzs.png)
 
 
 When you create a VPC, you can choose to assign a set of Amazon-provided public IP addresses to the VPC. You can also set a network border group for the addresses that limits the addresses to the group. When you set a network border group, the IP addresses can't move between network border groups. Local Zone network traffic will go directly to the internet or to points-of-presence (PoPs) without traversing the Local Zone's parent Region, enabling access to low-latency computing. For the complete list of Local Zones and their corresponding parent Regions, see [Available Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html) in the *AWS Local Zones User Guide*.
@@ -63,7 +63,7 @@ You can't create a transit gateway attachment for a subnet in a Local Zone. The 
 **Note**  
 Traffic destined for a subnet in a Local Zone that originates from a transit gateway will first traverse the parent Region.
 
-![Local Zone to transit gateway.](http://docs.aws.amazon.com/vpc/latest/userguide/images/lz-tgw.png)
+![Local Zone to transit gateway.](https://docs.aws.amazon.com/vpc/latest/userguide/images/lz-tgw.png)
 
 
 Create the following resources for this scenario:

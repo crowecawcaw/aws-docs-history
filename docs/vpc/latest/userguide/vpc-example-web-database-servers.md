@@ -17,7 +17,7 @@ This example demonstrates how to create a VPC that you can use for a two-tier ar
 
 The following diagram provides an overview of the resources included in this example. The VPC has public subnets and private subnets in two Availability Zones. The web servers run in the public subnets and receive traffic from clients through a load balancer. The security group for the web servers allows traffic from the load balancer. The database servers run in the private subnets and receive traffic from the web servers. The security group for the database servers allows traffic from the web servers. The database servers can connect to Amazon S3 by using a gateway VPC endpoint.
 
-![A VPC with subnets in two Availability Zones.](http://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-example-web-database.png)
+![A VPC with subnets in two Availability Zones.](https://docs.aws.amazon.com/vpc/latest/userguide/images/vpc-example-web-database.png)
 
 
 ### Routing

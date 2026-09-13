@@ -13,7 +13,7 @@ One of the key benefits of using AWS PrivateLink is the ability to establish sec
 
 The following diagram shows common use cases for AWS PrivateLink. The VPC has several EC2 instances in a private subnet that have access to resources through five VPC endpoints. There are three interface VPC endpoints, one resource VPC endpoint, and one service-network VPC endpoint.
 
-![Diagram of VPC endpoints, endpoint services in other accounts, and partner services.](http://docs.aws.amazon.com/vpc/latest/userguide/images/use-cases.png)
+![Diagram of VPC endpoints, endpoint services in other accounts, and partner services.](https://docs.aws.amazon.com/vpc/latest/userguide/images/use-cases.png)
 
 
 For more information, see [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/).

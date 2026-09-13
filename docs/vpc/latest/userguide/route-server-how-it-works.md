@@ -33,14 +33,14 @@ How Amazon VPC Route Server works:
 
 The following is an example diagram of VPC route server with route server endpoints configured for devices in two subnets.
 
-![Basic Amazon VPC Route Server setup.](http://docs.aws.amazon.com/vpc/latest/userguide/images/route-server-main.png)
+![Basic Amazon VPC Route Server setup.](https://docs.aws.amazon.com/vpc/latest/userguide/images/route-server-main.png)
 
 
 Starting with the example above as a baseline, the example below shows a more detailed design, where both Device A and Device B advertise over BGP that they can accept any traffic with a destination IP in the range of 192.0.0.0/24 (from 192.0.0.0 to 192.0.0.255). The MED (Multi-Exit Discriminator) attribute of 0 tells route server that Device A should be preferred over Device B. The route server receives the route and the MED attribute from Device A and installs that route in the subnet route tables with the network interface of Device A as the "next hop". As a result, any traffic within the subnet with a destination IP in the 192.0.0.0/24 range is sent to Device A. Device A then processes the traffic and sends it onward. Traffic within either subnet (10.0.0.0/24 or 10.0.1.0/24) that is bound for 192.0.0.0/24 will be routed to Device A eni-abcd (10.0.0.1) as the next hop.
 
-![Amazon VPC Route Server setup before device A failure.](http://docs.aws.amazon.com/vpc/latest/userguide/images/route-server-failover-part-1.png)
+![Amazon VPC Route Server setup before device A failure.](https://docs.aws.amazon.com/vpc/latest/userguide/images/route-server-failover-part-1.png)
 
 
 This last example below shows how route server handles failover. While the higher MED attribute tells route server that Device B is less preferred than Device A, if Device A eni-abcd (10.0.0.1) goes down, route server updates the subnet route tables, and traffic to 192.0.0.0/24 is routed to Device B eni-efgh (10.0.1.1) as the next hop.
 
-![Amazon VPC Route Server failover to device B.](http://docs.aws.amazon.com/vpc/latest/userguide/images/route-server-failover-part-2.png)
+![Amazon VPC Route Server failover to device B.](https://docs.aws.amazon.com/vpc/latest/userguide/images/route-server-failover-part-2.png)

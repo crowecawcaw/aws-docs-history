@@ -5,7 +5,7 @@
 
 Use regional NAT gateways when you want to simplify your network architecture, improve your security posture, and configure high availability by default. A regional NAT gateway automatically expands across Availability Zones based on your workload presence. Unlike standard NAT gateways (referred to as zonal NAT gateways), which operate in a single Availability Zone, regional NAT gateways follow your workloads to provide automatic high availability.
 
-![Comparison of zonal NAT gateways in two availability zones versus regional NAT gateway spanning zones.](http://docs.aws.amazon.com/vpc/latest/userguide/images/rnat.drawio.png)
+![Comparison of zonal NAT gateways in two availability zones versus regional NAT gateway spanning zones.](https://docs.aws.amazon.com/vpc/latest/userguide/images/rnat.drawio.png)
 
 
 Diagram A on the left represents the current setup with zonal NAT Gateway. You first create zonal NAT Gateways per Availability Zone and host your NATs in public subnets. You then configure separate routes per Availability Zone from your private subnets to the NAT in that Availability Zone. You repeat this step every time your workloads expand to a new Availability Zone, for high availability. Additionally, you need to add routes for the internet gateway in the route table of your NAT subnet per Availability Zone.

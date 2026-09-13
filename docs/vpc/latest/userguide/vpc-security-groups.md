@@ -9,7 +9,7 @@ When you create a VPC, it comes with a default security group. You can create ad
 
 The following diagram shows a VPC with a subnet, an internet gateway, and a security group. The subnet contains an EC2 instance. The security group is assigned to the instance. The security group acts as a virtual firewall. The only traffic that reaches the instance is the traffic allowed by the security group rules. For example, if the security group contains a rule that allows ICMP traffic to the instance from your network, then you could ping the instance from your computer. If the security group does not contain a rule that allows SSH traffic, then you could not connect to your instance using SSH.
 
-![VPC with 2 subnets, 2 security groups, servers in subnets associated with different security groups.](http://docs.aws.amazon.com/vpc/latest/userguide/images/security-group-overview.png)
+![VPC with 2 subnets, 2 security groups, servers in subnets associated with different security groups.](https://docs.aws.amazon.com/vpc/latest/userguide/images/security-group-overview.png)
 
 
 **Topics**
@@ -66,4 +66,4 @@ The following diagram shows a VPC with two security groups and two subnets. The 
 + The second inbound rule in security group 2 allows the instances in subnet A to communicate with the instances in subnet B using SSH.
 + Both security groups use the default outbound rule, which allows all traffic.
 
-![A VPC with two subnets, each associated with a different security group.](http://docs.aws.amazon.com/vpc/latest/userguide/images/security-group-details.png)
+![A VPC with two subnets, each associated with a different security group.](https://docs.aws.amazon.com/vpc/latest/userguide/images/security-group-details.png)
